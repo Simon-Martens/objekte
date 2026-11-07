@@ -417,3 +417,37 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
     }
     std::fs::remove_dir_all(root).unwrap();
 }
+
+
+#[test]
+fn explain_reports_bound_relation_and_temporal_semantics() {
+    let (root, _, _) = fixture();
+    let repo = Repository::open_with_options(&root, definitions(), RepositoryOptions::default())
+        .unwrap();
+    let mut request = query("mentions", "entry.issued = 2024-02", ReturnMode::Locator);
+    request.fts = Some(objekte_search_core::query::FtsQuery {
+        pattern_parameter: None,
+        literal: "Hymn".into(),
+        fields: vec![objekte_search_core::query::FtsField {
+            path: objekte_search_core::model::FieldPath::parse("entry.title").unwrap(),
+            binding: None,
+            query_path: None,
+        }],
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+    });
+    let trace = repo.explain(&request).unwrap();
+    assert_eq!(trace.len(), 1);
+    assert_eq!(trace[0].fts_covered_target, "entry.title");
+    assert_eq!(trace[0].fts_exact_literal.as_deref(), Some("Hymn"));
+    let term = &trace[0].bound_terms[0];
+    assert_eq!(term.field, "entry.issued");
+    assert!(term.resolved_period.is_some());
+    assert_eq!(term.relation_hops.len(), 1);
+    assert_eq!(term.relation_hops[0].from_collection, "mentions");
+    assert_eq!(term.relation_hops[0].to_collection, "entries");
+    assert_eq!(term.relation_hops[0].direction, "Forward");
+    let encoded = serde_json::to_value(&trace).unwrap();
+    assert!(encoded[0]["bound_terms"][0]["resolved_period"].is_array());
+    std::fs::remove_dir_all(root).unwrap();
+}

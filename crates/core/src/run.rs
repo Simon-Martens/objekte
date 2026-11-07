@@ -17,7 +17,7 @@ use crate::executor::{
 };
 use crate::inventory::{ByteRange, RecordClass, RecordEntry};
 use crate::model::{PathRoot, Value};
-use crate::query::{CaseSensitivity, FtsMode, Operator, Query};
+use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
@@ -883,6 +883,86 @@ fn scan_file(
 }
 
 
+/// One resolved relation hop shown only in diagnostic EXPLAIN output.
+#[derive(Clone, Debug, Serialize)]
+pub struct RelationHopDiagnostic {
+    pub relation: crate::relation::RelationId,
+    pub direction: String,
+    pub from_collection: String,
+    pub to_collection: String,
+    pub selectors: Vec<Option<u32>>,
+}
+
+
+/// Exact predicate semantics shown outside the primary timed search path.
+#[derive(Clone, Debug, Serialize)]
+pub struct BoundTermDiagnostic {
+    pub field: String,
+    pub operator: Operator,
+    pub quantifier: Quantifier,
+    pub bound_value: Option<Value>,
+    pub rhs_field: Option<String>,
+    pub resolved_period: Option<(Value, Value)>,
+    pub relation_hops: Vec<RelationHopDiagnostic>,
+}
+
+
+fn bound_term_diagnostics(repo: &Repository, filter: Option<&BoundExpr>) -> Vec<BoundTermDiagnostic> {
+    fn visit(repo: &Repository, expr: &BoundExpr, output: &mut Vec<BoundTermDiagnostic>) {
+        match expr {
+            BoundExpr::Term(term) => {
+                let related = term.related.as_deref();
+                let exact = related.map_or(term, |path| path.terminal.as_ref());
+                let rhs_field = related
+                    .and_then(|path| path.source_operand.as_ref())
+                    .map(|field| field.query_path.display.clone())
+                    .or_else(|| term.rhs.as_ref().map(|field| field.query_path.display.clone()));
+                output.push(BoundTermDiagnostic {
+                    field: term.query_path.display.clone(),
+                    operator: term.operator,
+                    quantifier: term.quantifier,
+                    bound_value: rhs_field.is_none().then(|| exact.literal.clone()),
+                    rhs_field,
+                    resolved_period: exact
+                        .period
+                        .as_ref()
+                        .map(|period| (period.start.clone(), period.end.clone())),
+                    relation_hops: related.map_or_else(Vec::new, |path| {
+                        path.hops
+                            .iter()
+                            .map(|hop| RelationHopDiagnostic {
+                                relation: hop.relation,
+                                direction: format!("{:?}", hop.direction),
+                                from_collection: repo.collections[hop.from.0 as usize]
+                                    .definition
+                                    .name
+                                    .clone(),
+                                to_collection: repo.collections[hop.to.0 as usize]
+                                    .definition
+                                    .name
+                                    .clone(),
+                                selectors: hop.selectors.clone(),
+                            })
+                            .collect()
+                    }),
+                });
+            }
+            BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+                for part in parts {
+                    visit(repo, part, output);
+                }
+            }
+            BoundExpr::Not(inner) => visit(repo, inner, output),
+        }
+    }
+    let mut terms = Vec::new();
+    if let Some(filter) = filter {
+        visit(repo, filter, &mut terms);
+    }
+    terms
+}
+
+
 /// Explain output for a collection plan and its actual work.
 #[derive(Clone, Debug, Serialize)]
 pub struct QueryPlanTrace {
@@ -892,6 +972,7 @@ pub struct QueryPlanTrace {
     pub folded_representation: &'static str,
     pub fts_case_sensitivity: Option<CaseSensitivity>,
     pub fts_mode: Option<FtsMode>,
+    pub fts_exact_literal: Option<String>,
     pub fts_prefilter_reason: Option<String>,
     pub fts_covered_target: String,
     pub fts_estimated_candidates: Option<u64>,
@@ -902,6 +983,7 @@ pub struct QueryPlanTrace {
     pub sort_strategy: String,
     pub filter_exact: bool,
     pub terms: Vec<TermChoice>,
+    pub bound_terms: Vec<BoundTermDiagnostic>,
     pub candidates: u64,
     pub actual: Option<PlanActual>,
 }
@@ -916,7 +998,7 @@ fn fts_covered_target(fts: Option<&BoundFts>) -> String {
         Some(fts) => fts
             .fields
             .iter()
-            .map(|field| field.path.display())
+            .map(|field| field.evidence_path.clone())
             .collect::<Vec<_>>()
             .join(", "),
     }
@@ -1593,6 +1675,7 @@ fn try_stored_order_page(
                 folded_representation: crate::bigram::FOLDED_REPRESENTATION,
                 fts_case_sensitivity: entry.fts.map(|fts| fts.case_sensitivity),
                 fts_mode: entry.fts.map(|fts| fts.mode),
+                fts_exact_literal: entry.fts.map(|fts| fts.source_literal.clone()),
                 fts_prefilter_reason: regex_prefilter_reason(collection, entry.fts),
                 fts_covered_target: fts_covered_target(entry.fts),
                 fts_estimated_candidates: entry.fts.and_then(|fts| {
@@ -1613,6 +1696,7 @@ fn try_stored_order_page(
                 sort_strategy: "stored_order_page".into(),
                 filter_exact: entry.plan.exact,
                 terms: entry.plan.choices.clone(),
+                bound_terms: bound_term_diagnostics(repo, entry.filter),
                 candidates: entry.candidates.len(),
                 actual: None,
             });
@@ -1995,6 +2079,7 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             folded_representation: crate::bigram::FOLDED_REPRESENTATION,
             fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
             fts_mode: fts.as_ref().map(|fts| fts.mode),
+            fts_exact_literal: fts.as_ref().map(|fts| fts.source_literal.clone()),
             fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref()),
             fts_covered_target: fts_covered_target(fts.as_ref()),
             fts_estimated_candidates: fts.as_ref().and_then(|fts| {
@@ -2041,6 +2126,7 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             sort_strategy: String::new(),
             filter_exact: plan.exact,
             terms: plan.choices,
+            bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
             candidates: ordered_candidates.len(),
             actual: None,
         });
@@ -2212,6 +2298,7 @@ fn search_impl(
                 folded_representation: crate::bigram::FOLDED_REPRESENTATION,
                 fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
                 fts_mode: fts.as_ref().map(|fts| fts.mode),
+                fts_exact_literal: fts.as_ref().map(|fts| fts.source_literal.clone()),
                 fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref()),
                 fts_covered_target: fts_covered_target(fts.as_ref()),
                 fts_estimated_candidates: text_estimate.map(|estimate| estimate.0),
@@ -2240,6 +2327,7 @@ fn search_impl(
                 sort_strategy: "bounded_top_k".into(),
                 filter_exact: plan.exact,
                 terms: plan.choices.clone(),
+                bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
                 candidates: candidates.len(),
                 actual: None,
             });
