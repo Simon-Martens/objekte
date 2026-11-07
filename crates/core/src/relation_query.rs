@@ -63,6 +63,7 @@ pub(crate) struct RelationWork {
     pub target_reads: u64,
     pub target_cache_hits: u64,
     pub edge_visits: u64,
+    pub backlink_probe_visits: u64,
     pub bytes_read: u64,
 }
 
@@ -874,6 +875,7 @@ fn visit_hop(
                 let mut seen = 0usize;
                 let mut selected = 0usize;
                 for candidate in &source_collection.identity_order {
+                    work.backlink_probe_visits += 1;
                     let Some(value) =
                         read_reference_value(repo, hop.to.0 as usize, *candidate, work)?
                     else {
@@ -959,30 +961,53 @@ fn visit_hop(
             let mut seen = 0usize;
             let mut selected = 0usize;
             if let Some(sources) = sources {
-                for source in &source_collection.identity_order {
-                    if !sources.contains(source.0) {
-                        continue;
-                    }
-                    work.edge_visits += 1;
-                    if hop
-                        .selectors
-                        .first()
-                        .is_none_or(|selector| selector.is_none_or(|index| index as usize == seen))
-                    {
+                if hop.selectors.iter().all(Option::is_none) {
+                    // Without a numeric selector, Boolean truth is independent
+                    // of identity-order rank. Visit only actual reverse hits.
+                    for source in sources.iter() {
+                        work.backlink_probe_visits += 1;
+                        work.edge_visits += 1;
                         selected += 1;
                         visit_hop(
                             config,
                             depth + 1,
                             hop.to.0 as usize,
-                            *source,
+                            RecordSlot(source),
                             truth,
                             work,
                             terminal,
                         )?;
+                        if decisive(*truth, quantifier) {
+                            break;
+                        }
                     }
-                    seen += 1;
-                    if decisive(*truth, quantifier) {
-                        break;
+                } else {
+                    // A positional backlink means rank among sources in
+                    // identity order, so retain that ordering here.
+                    for source in &source_collection.identity_order {
+                        work.backlink_probe_visits += 1;
+                        if !sources.contains(source.0) {
+                            continue;
+                        }
+                        work.edge_visits += 1;
+                        if hop.selectors.first().is_none_or(|selector| {
+                            selector.is_none_or(|index| index as usize == seen)
+                        }) {
+                            selected += 1;
+                            visit_hop(
+                                config,
+                                depth + 1,
+                                hop.to.0 as usize,
+                                *source,
+                                truth,
+                                work,
+                                terminal,
+                            )?;
+                        }
+                        seen += 1;
+                        if decisive(*truth, quantifier) {
+                            break;
+                        }
                     }
                 }
             }

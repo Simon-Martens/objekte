@@ -127,6 +127,9 @@ pub struct WorkCounters {
     /// Relation occurrences visited after positional selection.
     #[serde(default)]
     pub relation_edge_visits: u64,
+    /// Reverse posting entries or identity-order candidates examined by backlinks.
+    #[serde(default)]
+    pub relation_backlink_probe_visits: u64,
     /// Distinct terminal candidates inspected by relation semijoins.
     #[serde(default)]
     pub relation_target_candidates: u64,

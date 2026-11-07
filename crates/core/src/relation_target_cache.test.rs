@@ -65,8 +65,9 @@ fn definitions() -> Vec<CollectionDefinition> {
 
 fn fixture(alphabet: BigramAlphabet) -> (std::path::PathBuf, Repository) {
     let root = std::env::temp_dir().join(format!(
-        "objekte-target-cache-{}-{}",
+        "objekte-target-cache-{}-{:?}-{}",
         std::process::id(),
+        std::thread::current().id(),
         alphabet as u8,
     ));
     std::fs::create_dir_all(root.join("sources")).unwrap();
@@ -180,6 +181,51 @@ fn source_dependent_comparisons_share_projected_targets_without_changing_truth()
         let actual = repo.search(&page).unwrap();
         assert_eq!(actual.hits, repo.search_reference(&page).unwrap().hits);
         assert_eq!(actual.counters.relation_target_reads, 2);
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn unpositioned_backlinks_visit_reverse_hits_while_positions_keep_identity_rank() {
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let (root, repo) = fixture(alphabet);
+        for (filter, max_probes) in [
+            (
+                "@record.id = 'T1' && @backlinks.sources.local_title ?= 'Hymn'",
+                3,
+            ),
+            (
+                "@record.id = 'T1' && @backlinks.sources[0].local_title ?= 'Hymn'",
+                84,
+            ),
+            (
+                "@record.id = 'T1' && @backlinks.sources[1].local_title ?= 'Hymn'",
+                84,
+            ),
+        ] {
+            let mut request = query(filter, true, 100);
+            request.collections = vec!["targets".into()];
+            let actual = repo.search(&request).unwrap();
+            let reference = repo.search_reference(&request).unwrap();
+            assert_eq!(actual.hits, reference.hits, "{filter}");
+            assert_eq!(actual.count, Some(1), "{filter}");
+            assert_eq!(actual.hits[0].record_id, "T1");
+            assert!(
+                actual.counters.relation_backlink_probe_visits <= max_probes,
+                "{filter}"
+            );
+            if filter.contains("sources[") {
+                assert!(
+                    actual.counters.relation_backlink_probe_visits >= 81,
+                    "{filter}"
+                );
+            } else {
+                assert!(
+                    actual.counters.relation_backlink_probe_visits <= 3,
+                    "{filter}"
+                );
+            }
+        }
         std::fs::remove_dir_all(root).unwrap();
     }
 }

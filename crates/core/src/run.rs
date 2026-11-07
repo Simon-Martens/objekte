@@ -988,6 +988,7 @@ pub struct PlanActual {
     pub relation_target_reads: u64,
     pub relation_target_file_opens: u64,
     pub relation_edge_visits: u64,
+    pub relation_backlink_probe_visits: u64,
     pub relation_reverse_postings_visited: u64,
     pub relation_verified_targets_reused: u64,
 }
@@ -1007,6 +1008,7 @@ impl Default for PlanActual {
             relation_target_reads: 0,
             relation_target_file_opens: 0,
             relation_edge_visits: 0,
+            relation_backlink_probe_visits: 0,
             relation_reverse_postings_visited: 0,
             relation_verified_targets_reused: 0,
         }
@@ -1030,6 +1032,8 @@ fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &Wo
             relation_target_file_opens: after.relation_target_file_opens
                 - before.relation_target_file_opens,
             relation_edge_visits: after.relation_edge_visits - before.relation_edge_visits,
+            relation_backlink_probe_visits: after.relation_backlink_probe_visits
+                - before.relation_backlink_probe_visits,
             relation_reverse_postings_visited: after.relation_reverse_postings_visited
                 - before.relation_reverse_postings_visited,
             relation_verified_targets_reused: after.relation_verified_targets_reused
@@ -1797,6 +1801,8 @@ fn try_stored_order_page(
                         scanned.relation_work.target_cache_hits;
                     counters.relation_target_file_opens += scanned.relation_work.target_reads;
                     counters.relation_edge_visits += scanned.relation_work.edge_visits;
+                    counters.relation_backlink_probe_visits +=
+                        scanned.relation_work.backlink_probe_visits;
                     counters.files_opened +=
                         scanned.relation_work.source_reads + scanned.relation_work.target_reads;
                     counters.bytes_read += scanned.relation_work.bytes_read;
@@ -1817,6 +1823,8 @@ fn try_stored_order_page(
                         scanned.relation_work.target_cache_hits;
                     actual.relation_target_file_opens += scanned.relation_work.target_reads;
                     actual.relation_edge_visits += scanned.relation_work.edge_visits;
+                    actual.relation_backlink_probe_visits +=
+                        scanned.relation_work.backlink_probe_visits;
                     if let Some(found) = scanned.matches.into_iter().next() {
                         matched = true;
                         evidence = found.evidence;
@@ -2531,6 +2539,8 @@ fn search_impl(
                     outcome.relation_work.target_cache_hits;
                 counters.relation_target_file_opens += outcome.relation_work.target_reads;
                 counters.relation_edge_visits += outcome.relation_work.edge_visits;
+                counters.relation_backlink_probe_visits +=
+                    outcome.relation_work.backlink_probe_visits;
                 counters.files_opened +=
                     outcome.relation_work.source_reads + outcome.relation_work.target_reads;
                 counters.bytes_read += outcome.relation_work.bytes_read;
