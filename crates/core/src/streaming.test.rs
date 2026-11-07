@@ -230,6 +230,34 @@ fn scoped_page_zero_count_and_all_cancellation_are_distinct() {
     assert_eq!(page.count, Some(61));
     assert_eq!(page.returned_rows, 0);
 
+    let mut fts = request.clone();
+    fts.filter = None;
+    fts.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "needle".into(),
+        pattern_parameter: None,
+        fields: Vec::new(),
+    });
+    let counted_fts = fixture
+        .repo
+        .search_stream_scoped(
+            &fts,
+            ResultScope::Page {
+                offset: 0,
+                limit: 0,
+            },
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap();
+    let StreamOutcome::Complete(counted_fts) = counted_fts else {
+        panic!("expected complete")
+    };
+    assert_eq!(counted_fts.count, Some(61));
+    assert_eq!(counted_fts.returned_rows, 0);
+
     let mut without_count = request.clone();
     without_count.options.count = false;
     let zero = fixture

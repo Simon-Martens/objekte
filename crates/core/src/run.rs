@@ -2584,6 +2584,10 @@ fn try_stored_order_page(
     let mut stopped_early = false;
     let mut locator_query = query.clone();
     locator_query.options.return_mode = ReturnMode::Locator;
+    // A one-record residual check still needs to retain its match even when
+    // the requested page has zero rows or this record lies before the offset.
+    locator_query.options.limit = 1;
+    locator_query.options.offset = 0;
     let mut source_access = SourceAccessSession::new(&repo.files);
     if cap > 0 || (delivery.is_some() && query.options.count) {
         loop {
