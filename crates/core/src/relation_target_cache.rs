@@ -351,7 +351,7 @@ fn prepare_with_limits(
     };
     let mut access = SourceAccessSession::new(&repo.files);
     if let Some(execution) = execution {
-        access.configure_execution(execution);
+        access.configure_target_execution(execution);
     }
     for (collection_id, (slots, fields)) in targets {
         if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
@@ -425,12 +425,29 @@ fn prepare_with_limits(
                 }
                 let mut end = start + 1;
                 let mut batch_bytes = first_bytes;
-                while end < ranges.len()
-                    && end - start < 128
-                    && batch_bytes.saturating_add(ranges[end].1.len())
-                        <= BATCH_BYTES.min(remaining.unwrap_or(BATCH_BYTES))
-                {
-                    batch_bytes += ranges[end].1.len();
+                while end < ranges.len() && end - start < 128 {
+                    let next_bytes = ranges[end].1.len();
+                    if batch_bytes.saturating_add(next_bytes)
+                        > BATCH_BYTES.min(remaining.unwrap_or(BATCH_BYTES))
+                    {
+                        break;
+                    }
+                    if let Some(execution) = execution
+                        && next_bytes > execution.limits.target_record_bytes
+                    {
+                        return Err(execution.fail(
+                            ExecutionErrorKind::Resource,
+                            "target prefetch record exceeds source read allowance",
+                        ));
+                    }
+                    if next_bytes > MAX_RECORD_BYTES {
+                        return Err(limit_error(
+                            format!("target prefetch record exceeds {MAX_RECORD_BYTES} bytes"),
+                            max_retained_bytes.is_some(),
+                            execution,
+                        ));
+                    }
+                    batch_bytes += next_bytes;
                     end += 1;
                 }
                 let chunk = &ranges[start..end];

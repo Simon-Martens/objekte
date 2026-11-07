@@ -783,7 +783,7 @@ impl Repository {
         }
         let bound = query.with_parameters(parameters).map_err(|message| {
             crate::streaming::StreamError::Execution {
-                kind: crate::streaming::ExecutionErrorKind::Execution,
+                kind: crate::streaming::ExecutionErrorKind::InvalidQuery,
                 message,
                 progress: Default::default(),
             }

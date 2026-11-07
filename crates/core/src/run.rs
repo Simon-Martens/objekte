@@ -18,14 +18,12 @@ use crate::executor::{
     estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution,
 };
 use crate::inventory::{ByteRange, RecordClass, RecordEntry};
-use crate::materialization::payload_from_bytes;
+use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
 use crate::measurement::{ScanWork, WorkCounters};
 use crate::model::{FieldPath, PathRoot, Value};
 use crate::posting::PostingIndex;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
-use crate::record_preparation::{
-    materialize, prepare_query_record, prepare_query_record_with_execution,
-};
+use crate::record_preparation::{materialize, prepare_query_record_with_execution};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
     eval_unavailable_filter, same_bound_term,
@@ -1932,7 +1930,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     let cached = repo.verified.lock().map_err(|e| e.to_string())?.get(&key);
     if let Some(cached) = cached {
         return if computed_sort {
-            materialize_computed_cached(repo, query, &cached, bound_sort, None)
+            materialize_computed_cached(repo, query, &cached, bound_sort, None, None)
         } else {
             materialize_cached(repo, query, &cached)
         };
@@ -2090,7 +2088,7 @@ pub(crate) fn search_stream_scoped_with_context(
     let inferred_order = inferred_order_index(repo, execution_query).is_some();
     let bound_sort =
         BoundSort::bind(repo, execution_query).map_err(|message| StreamError::Execution {
-            kind: crate::streaming::ExecutionErrorKind::Execution,
+            kind: crate::streaming::ExecutionErrorKind::InvalidQuery,
             message,
             progress: delivery.progress,
         })?;
@@ -2157,9 +2155,10 @@ pub(crate) fn search_stream_scoped_with_context(
                 &cached,
                 bound_sort,
                 Some(&mut delivery),
+                Some(context),
             )
         } else {
-            materialize_cached_stream(repo, execution_query, &cached, &mut delivery)
+            materialize_cached_stream(repo, execution_query, &cached, &mut delivery, Some(context))
         }
     } else {
         search_impl_with_collector(
@@ -2180,7 +2179,7 @@ pub(crate) fn search_stream_scoped_with_context(
     };
     let result = result.and_then(|mut result| {
         if let ResultScope::All { offset } = scope {
-            deliver_ranked_all(repo, query, offset, &mut result, &mut delivery)?;
+            deliver_ranked_all(repo, query, offset, &mut result, &mut delivery, context)?;
         }
         Ok(result)
     });
@@ -2286,11 +2285,13 @@ fn deliver_ranked_all(
     offset: usize,
     result: &mut SearchResult,
     delivery: &mut Delivery<'_>,
+    execution: &ExecutionContext,
 ) -> Result<(), String> {
     if result.hits.is_empty() {
         return Ok(());
     }
     let mut source_access = SourceAccessSession::new(&repo.files);
+    source_access.configure_execution(execution);
     // `batch_rows` is caller-controlled; byte limits govern allocation growth.
     let mut batch = Vec::new();
     for mut hit in std::mem::take(&mut result.hits).into_iter().skip(offset) {
@@ -2336,8 +2337,12 @@ fn deliver_ranked_all(
                 } else {
                     None
                 };
-                let (payload, parses) =
-                    payload_from_bytes(collection, &query.options.return_mode, bytes)?;
+                let (payload, parses) = payload_from_bytes_with_execution(
+                    collection,
+                    &query.options.return_mode,
+                    bytes,
+                    Some(execution),
+                )?;
                 result.counters.record_parses += parses;
                 hit.payload = payload;
             }
@@ -2531,6 +2536,7 @@ fn direct_payload(
     actual: &mut PlanActual,
     source_access: &mut SourceAccessSession<'_>,
     stream_limit: Option<usize>,
+    execution: Option<&ExecutionContext>,
 ) -> Result<Option<Payload>, String> {
     if query.options.return_mode == ReturnMode::Locator {
         return Ok(None);
@@ -2552,8 +2558,12 @@ fn direct_payload(
     counters.bytes_read += read.bytes_read;
     actual.files_opened += read.opened;
     actual.bytes_read += read.bytes_read;
-    let (payload, parses) =
-        payload_from_bytes(Some(collection), &query.options.return_mode, bytes)?;
+    let (payload, parses) = payload_from_bytes_with_execution(
+        Some(collection),
+        &query.options.return_mode,
+        bytes,
+        execution,
+    )?;
     counters.record_parses += parses;
     actual.record_parses += parses;
     Ok(payload)
@@ -3097,6 +3107,7 @@ fn try_stored_order_page(
                             delivery
                                 .as_ref()
                                 .map(|delivery| delivery.max_buffered_bytes()),
+                            execution,
                         )?;
                     }
                 } else {
@@ -3327,9 +3338,16 @@ fn materialize_computed_cached<'a>(
     cached: &CachedResult,
     bound_sort: BoundSort<'a>,
     mut delivery: Option<&mut Delivery<'_>>,
+    execution: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
     let preparation_start = Instant::now();
     let sort = ResolvedSort::from_bound(repo, query, bound_sort);
+    if let Some(execution) = execution {
+        sort.target_cache
+            .lock()
+            .map_err(|error| error.to_string())?
+            .configure_execution(execution);
+    }
     if let Some(delivery) = delivery.as_deref_mut() {
         sort.target_cache
             .lock()
@@ -3413,6 +3431,9 @@ fn materialize_computed_cached<'a>(
     }
     reads.sort_unstable_by_key(|read| (read.collection_index, read.file_id, read.range.start));
     let mut source_access = SourceAccessSession::new(&repo.files);
+    if let Some(execution) = execution {
+        source_access.configure_execution(execution);
+    }
     let mut batch = Vec::<(u32, ByteRange)>::with_capacity(128);
     let mut start = 0;
     while start < reads.len() {
@@ -3455,12 +3476,13 @@ fn materialize_computed_cached<'a>(
             for (index, bytes) in read.records {
                 let member = &cached.members[index as usize];
                 let record = &collection.generation.records[member.slot as usize];
-                let extracted = prepare_query_record(
+                let extracted = prepare_query_record_with_execution(
                     &collection.source,
                     &collection.definition.schema,
                     &bytes,
                     &ScanProjection::full(false),
                     false,
+                    execution,
                 )?;
                 counters.record_parses += 1;
                 counters.sort_key_evaluations += 1;
@@ -3551,7 +3573,7 @@ fn materialize_computed_cached<'a>(
     page_query.options.offset = 0;
     page_query.options.limit = page_cache.members.len();
     let mut result = if let Some(delivery) = delivery.as_deref_mut() {
-        materialize_cached_stream(repo, &page_query, &page_cache, delivery)?
+        materialize_cached_stream(repo, &page_query, &page_cache, delivery, execution)?
     } else {
         materialize_cached(repo, &page_query, &page_cache)?
     };
@@ -3580,6 +3602,7 @@ fn materialize_cached_stream(
     query: &Query,
     cached: &CachedResult,
     delivery: &mut Delivery<'_>,
+    execution: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
     delivery.check()?;
     let started = Instant::now();
@@ -3594,6 +3617,9 @@ fn materialize_cached_stream(
     counters.preparation_ns = started.elapsed().as_nanos() as u64;
     let mut page = Vec::new();
     let mut source_access = SourceAccessSession::new(&repo.files);
+    if let Some(execution) = execution {
+        source_access.configure_execution(execution);
+    }
     let mut actual = PlanActual::default();
     for member in cached
         .members
@@ -3616,6 +3642,7 @@ fn materialize_cached_stream(
             &mut actual,
             &mut source_access,
             Some(delivery.max_buffered_bytes()),
+            execution,
         )?;
         page.push(make_hit(
             repo,
@@ -3891,6 +3918,7 @@ fn materialize_winner_page(
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
     cancellation: Option<&CancellationToken>,
     stream_limit: Option<usize>,
+    execution: Option<&ExecutionContext>,
 ) -> Result<(), String> {
     // Exact index membership may need a page payload. Read only those ranges.
     if query.options.return_mode != ReturnMode::Locator {
@@ -3914,6 +3942,9 @@ fn materialize_winner_page(
             }
         }
         let mut source_access = SourceAccessSession::new(&repo.files);
+        if let Some(execution) = execution {
+            source_access.configure_execution(execution);
+        }
         for ((collection_index, file_id), ranges) in files {
             if cancellation.is_some_and(CancellationToken::is_cancelled) {
                 return Err("stream cancelled".into());
@@ -3947,8 +3978,12 @@ fn materialize_winner_page(
                     if cancellation.is_some_and(CancellationToken::is_cancelled) {
                         return Err("stream cancelled".into());
                     }
-                    let (payload, parses) =
-                        payload_from_bytes(Some(collection), &query.options.return_mode, bytes)?;
+                    let (payload, parses) = payload_from_bytes_with_execution(
+                        Some(collection),
+                        &query.options.return_mode,
+                        bytes,
+                        execution,
+                    )?;
                     counters.record_parses += parses;
                     page[index as usize].hit.payload = payload;
                 }
@@ -4009,6 +4044,7 @@ fn emit_provisional_page(
     files_read: &mut Option<RoaringBitmap>,
     delivery: &mut Delivery<'_>,
     extra_retained: usize,
+    execution: Option<&ExecutionContext>,
 ) -> Result<(), String> {
     delivery.check()?;
     let retained = winners.iter().map(winner_bytes).sum::<usize>();
@@ -4078,6 +4114,7 @@ fn emit_provisional_page(
         None,
         Some(delivery.token()),
         Some(delivery.max_buffered_bytes()),
+        execution,
     )?;
     let hits = page
         .into_iter()
@@ -4131,7 +4168,13 @@ fn search_impl_with_collector<'a>(
     let preparation_start = Instant::now();
     let sort = match prebound_sort {
         Some(bound) => ResolvedSort::from_bound(repo, query, bound),
-        None => ResolvedSort::new(repo, query)?,
+        None => ResolvedSort::new(repo, query).map_err(|message| {
+            if let Some(context) = execution {
+                context.fail(ExecutionErrorKind::InvalidQuery, message)
+            } else {
+                message
+            }
+        })?,
     };
     if let Some(execution) = execution {
         sort.target_cache
@@ -4438,6 +4481,7 @@ fn search_impl_with_collector<'a>(
                         &mut files_read,
                         delivery,
                         cache_budget.map_or(0, CacheBudget::used),
+                        execution,
                     )?;
                 }
             }
@@ -4450,6 +4494,7 @@ fn search_impl_with_collector<'a>(
                     &mut files_read,
                     delivery,
                     cache_budget.map_or(0, CacheBudget::used),
+                    execution,
                 )?;
             }
             if let (Some(traces), Some(before)) = (traces.as_deref_mut(), before.as_ref()) {
@@ -4936,6 +4981,7 @@ fn search_impl_with_collector<'a>(
                         .map_or(0, |cache| cache.estimated_bytes())
                         .saturating_add(sort_target_retained_bytes(&sort)?)
                         .saturating_add(cache_budget.map_or(0, CacheBudget::used)),
+                    execution,
                 )?;
             }
             file_cursor += group_size;
@@ -5026,6 +5072,7 @@ fn search_impl_with_collector<'a>(
             delivery
                 .as_ref()
                 .map(|delivery| delivery.max_buffered_bytes()),
+            execution,
         )?;
     }
     counters.returned_records = page.len() as u64;

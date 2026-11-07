@@ -26,6 +26,7 @@ pub(crate) struct SourceAccessSession<'a> {
     distinct: RoaringBitmap,
     clock: u64,
     execution: Option<crate::streaming::ExecutionContext>,
+    record_limit: Option<u64>,
 }
 
 
@@ -44,11 +45,21 @@ impl<'a> SourceAccessSession<'a> {
             distinct: RoaringBitmap::new(),
             clock: 0,
             execution: None,
+            record_limit: None,
         }
     }
 
     pub(crate) fn configure_execution(&mut self, execution: &crate::streaming::ExecutionContext) {
         self.execution = Some(execution.clone());
+        self.record_limit = Some(execution.limits.source_record_bytes);
+    }
+
+    pub(crate) fn configure_target_execution(
+        &mut self,
+        execution: &crate::streaming::ExecutionContext,
+    ) {
+        self.execution = Some(execution.clone());
+        self.record_limit = Some(execution.limits.target_record_bytes);
     }
 
     pub fn distinct_files(&self) -> u64 {
@@ -57,6 +68,22 @@ impl<'a> SourceAccessSession<'a> {
 
     pub fn accessed_files(&self) -> &RoaringBitmap {
         &self.distinct
+    }
+
+    fn check_execution_ranges(&self, ranges: &[(u32, ByteRange)]) -> Result<(), String> {
+        if let Some(execution) = &self.execution {
+            execution.check_string()?;
+            if ranges
+                .iter()
+                .any(|(_, range)| range.len() > self.record_limit.unwrap_or(u64::MAX))
+            {
+                return Err(execution.fail(
+                    crate::streaming::ExecutionErrorKind::Resource,
+                    "source record exceeds read allowance",
+                ));
+            }
+        }
+        Ok(())
     }
 
     fn handle(&mut self, file_id: FileId) -> Result<(usize, u64), String> {
@@ -103,6 +130,7 @@ impl<'a> SourceAccessSession<'a> {
         file_id: FileId,
         ranges: &[(u32, ByteRange)],
     ) -> Result<RangeBatch, String> {
+        self.check_execution_ranges(ranges)?;
         if ranges.is_empty() {
             return Ok(RangeBatch {
                 records: Vec::new(),
@@ -166,6 +194,7 @@ impl<'a> SourceAccessSession<'a> {
         ranges: &[(u32, ByteRange)],
         max_total_bytes: usize,
     ) -> Result<RangeBatch, String> {
+        self.check_execution_ranges(ranges)?;
         if ranges.is_empty() {
             return Ok(RangeBatch {
                 records: Vec::new(),

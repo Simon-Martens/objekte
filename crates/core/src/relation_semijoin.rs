@@ -343,7 +343,7 @@ fn verify_target_records(
     }
     let mut access = SourceAccessSession::new(&repo.files);
     if let Some(execution) = execution {
-        access.configure_execution(execution);
+        access.configure_target_execution(execution);
     }
     let mut matched = RoaringBitmap::new();
     let mut projection = ScanProjection::full(collect_text);
@@ -372,11 +372,25 @@ fn verify_target_records(
             }
             let mut end = start + 1;
             let mut batch_bytes = first_bytes;
-            while end < ranges.len()
-                && end - start < 128
-                && batch_bytes.saturating_add(ranges[end].1.len()) <= TARGET_BATCH_BYTES
-            {
-                batch_bytes += ranges[end].1.len();
+            while end < ranges.len() && end - start < 128 {
+                let next_bytes = ranges[end].1.len();
+                if batch_bytes.saturating_add(next_bytes) > TARGET_BATCH_BYTES {
+                    break;
+                }
+                if let Some(execution) = execution
+                    && next_bytes > execution.limits.target_record_bytes
+                {
+                    return Err(execution.fail(
+                        ExecutionErrorKind::Resource,
+                        "relation target record exceeds source read allowance",
+                    ));
+                }
+                if next_bytes > MAX_TARGET_RECORD_BYTES {
+                    return Err(format!(
+                        "relation target record exceeds {MAX_TARGET_RECORD_BYTES} bytes"
+                    ));
+                }
+                batch_bytes += next_bytes;
                 end += 1;
             }
             let chunk = &ranges[start..end];

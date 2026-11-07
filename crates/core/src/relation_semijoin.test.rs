@@ -165,6 +165,69 @@ fn intermediate_limits_report_errors_instead_of_truncating_membership() {
 }
 
 #[test]
+fn second_target_in_batch_is_checked_before_source_read() {
+    use crate::streaming::{ExecutionContext, ExecutionErrorKind, ExecutionLimits};
+    let root = std::env::temp_dir().join(format!(
+        "objekte-semijoin-batch-limit-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("sources")).unwrap();
+    std::fs::create_dir_all(root.join("targets")).unwrap();
+    let first = b"{\"id\":\"T0\",\"title\":\"a\"}\n";
+    let second = b"{\"id\":\"T1\",\"title\":\"a much longer title\"}\n";
+    std::fs::write(
+        root.join("targets/records.jsonl"),
+        [first.as_slice(), second.as_slice()].concat(),
+    )
+    .unwrap();
+    let mut definitions = definitions();
+    definitions[1].format = SourceFormat::JsonLines;
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let target_index = repo
+        .collections
+        .iter()
+        .position(|collection| collection.definition.name == "targets")
+        .unwrap();
+    let context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits {
+            target_record_bytes: first.len() as u64,
+            ..Default::default()
+        },
+        None,
+    );
+    let mut work = super::SemijoinWork::default();
+    let error = super::verify_target_records(
+        &repo,
+        target_index,
+        &roaring::RoaringBitmap::from_iter([0, 1]),
+        None,
+        false,
+        &mut work,
+        Some(&context),
+        &mut |_, _| Ok(true),
+    )
+    .unwrap_err();
+    assert_eq!(
+        context.recorded_error(error).kind,
+        ExecutionErrorKind::Resource
+    );
+    assert_eq!(work.target_file_opens, 0);
+    assert_eq!(work.target_reads, 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn relation_planning_limit_has_ordinary_and_stream_resource_class() {
     use crate::streaming::{
         ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,

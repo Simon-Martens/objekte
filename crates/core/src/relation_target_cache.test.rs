@@ -30,6 +30,28 @@ fn prefetch_limits_keep_stream_resource_classification() {
     );
 }
 
+#[test]
+fn second_prefetched_target_in_batch_obeys_record_limit() {
+    use crate::streaming::{ExecutionContext, ExecutionErrorKind, ExecutionLimits};
+    let (root, repo) = fixture(BigramAlphabet::Ascii);
+    let context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits {
+            target_record_bytes: 26,
+            ..Default::default()
+        },
+        None,
+    );
+    let request = query("local_title ?= links.title", true, 100);
+    let error = repo.search_with_context(&request, &context).unwrap_err();
+    assert_eq!(error.kind, ExecutionErrorKind::Resource);
+    assert!(
+        error.message.contains("target prefetch record"),
+        "{error:?}"
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
     schema
         .register_field(FieldDefinition {

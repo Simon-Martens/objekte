@@ -83,6 +83,58 @@ fn source_read_limit_has_ordinary_and_stream_resource_class() {
 }
 
 #[test]
+fn exact_posting_payload_obeys_source_limit_across_delivery_paths() {
+    let fixture = fixture();
+    let limits = ExecutionLimits {
+        source_record_bytes: 1,
+        ..Default::default()
+    };
+    for sorted in [false, true] {
+        let request = query("kind = 'yes'", sorted, false, ReturnMode::Bytes);
+        let error = fixture
+            .repo
+            .search_with_context(&request, &limited_context(limits, None))
+            .unwrap_err();
+        assert_eq!(error.kind, ExecutionErrorKind::Resource, "sorted={sorted}");
+        for scope in [
+            ResultScope::Page {
+                offset: 0,
+                limit: 3,
+            },
+            ResultScope::All { offset: 0 },
+        ] {
+            let error = fixture
+                .repo
+                .search_stream_scoped_with_context(
+                    &request,
+                    scope,
+                    StreamOptions::default(),
+                    &limited_context(limits, Some(CancellationToken::new())),
+                    &mut |_| Ok(StreamControl::Continue),
+                )
+                .unwrap_err();
+            assert_eq!(
+                error.kind(),
+                ExecutionErrorKind::Resource,
+                "sorted={sorted}"
+            );
+        }
+    }
+}
+
+#[test]
+fn exact_posting_payload_reports_confirmed_source_change() {
+    let fixture = fixture();
+    std::fs::write(fixture.root.join("data/000.json"), b"changed length").unwrap();
+    let request = query("kind = 'yes'", false, false, ReturnMode::Bytes);
+    let error = fixture
+        .repo
+        .search_with_context(&request, &limited_context(ExecutionLimits::default(), None))
+        .unwrap_err();
+    assert_eq!(error.kind, ExecutionErrorKind::SourceChanged);
+}
+
+#[test]
 fn invalid_stream_bounds_have_typed_invalid_query_class() {
     let fixture = fixture();
     let request = query("body ~ 'needle'", false, false, ReturnMode::Locator);
@@ -99,6 +151,46 @@ fn invalid_stream_bounds_have_typed_invalid_query_class() {
         )
         .unwrap_err();
     assert_eq!(error.kind(), ExecutionErrorKind::InvalidQuery);
+}
+
+#[test]
+fn unresolved_stream_parameter_has_typed_invalid_query_class() {
+    let fixture = fixture();
+    let mut request = query("kind = 'yes'", false, false, ReturnMode::Locator);
+    request.filter = Some(parse_filter("kind = $missing").unwrap());
+    let error = fixture
+        .repo
+        .search_stream_with_parameters(
+            &request,
+            &Default::default(),
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap_err();
+    assert_eq!(error.kind(), ExecutionErrorKind::InvalidQuery);
+}
+
+#[test]
+fn invalid_sort_has_typed_invalid_query_class_in_ordinary_and_stream_search() {
+    let fixture = fixture();
+    let mut request = query("kind = 'yes'", false, false, ReturnMode::Locator);
+    request.options.sort = vec![SortField::simple("title.", false)];
+    let ordinary = fixture
+        .repo
+        .search_with_context(&request, &limited_context(ExecutionLimits::default(), None))
+        .unwrap_err();
+    assert_eq!(ordinary.kind, ExecutionErrorKind::InvalidQuery);
+    let stream = fixture
+        .repo
+        .search_stream(
+            &request,
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap_err();
+    assert_eq!(stream.kind(), ExecutionErrorKind::InvalidQuery);
 }
 
 #[test]
