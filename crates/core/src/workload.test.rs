@@ -30,21 +30,24 @@ fn fixed_manifest_and_report_round_trip() {
     assert_eq!(PROFILES.iter().filter(|p| p.warm).count(), 2);
 }
 
-
 #[test]
 fn extended_manifest_preserves_the_fixed_150_and_binds_parameters() {
     let directory = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches");
     let fixed = directory.join("musenalm_queries.json");
     let extended = directory.join("musenalm_queries_extended.json");
     let cases = load_extended_manifest(&fixed, &extended).unwrap();
-    assert_eq!(cases.len(), 188);
+    assert_eq!(cases.len(), 194);
     assert_eq!(cases[0].request, load_manifest(&fixed).unwrap()[0]);
     assert!(cases[..150].iter().all(|case| case.parameters.is_empty()));
-    assert_eq!(cases[150].filter.as_deref(), Some("SORT BY year DESC, preferred_title ASC"));
+    assert_eq!(
+        cases[150].filter.as_deref(),
+        Some("SORT BY year DESC, preferred_title ASC")
+    );
     assert!(cases[156].query().is_ok());
     assert!(cases[182].query().is_ok());
     assert!(cases[183].query().is_ok());
     assert!(cases[187].query().is_ok());
+    assert!(cases[188..].iter().all(|case| case.query().is_ok()));
     let mut changed = cases.clone();
     changed[0].request.fts = Some("changed".into());
     let scratch = std::env::temp_dir().join(format!("objekte-workload-{}", std::process::id()));

@@ -113,10 +113,7 @@ fn result_columns_prioritize_matches_filters_and_sort() {
     app.picker = 1;
     app.choose_scope();
     settled(app);
-    app.sort = Some(SortField {
-        field: "number".into(),
-        descending: false,
-    });
+    app.sort = Some(SortField::simple("number", false));
     assert_eq!(app.visible_columns(), ["number", "title"]);
 
     app.search = Input::with_text("needle");
