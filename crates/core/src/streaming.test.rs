@@ -394,6 +394,33 @@ fn zero_limit_and_event_budget_have_explicit_outcomes() {
         &mut |_| Ok(StreamControl::Continue),
     );
     assert!(matches!(outcome, Err(StreamError::Resource { .. })));
+
+    let mut scanning = self::query("body ~ 'needle'", true, true, ReturnMode::Locator);
+    scanning.options.limit = 0;
+    let mut progress_events = 0;
+    let outcome = fixture
+        .repo
+        .search_stream(
+            &scanning,
+            StreamOptions {
+                mode: StreamMode::PageReplacements,
+                checkpoint_files: 1,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |event| {
+                assert!(matches!(event, StreamEvent::Progress { .. }));
+                progress_events += 1;
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("expected complete")
+    };
+    assert!(progress_events > 0);
+    assert!(summary.progress.sequence > 0);
+    assert_eq!(summary.final_sequence, 0, "progress is not a page");
 }
 
 #[test]

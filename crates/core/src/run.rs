@@ -716,14 +716,24 @@ fn scan_file(
         }
         cursor = end;
         let (records, bytes_read) = if let Some(session) = source_access.as_deref_mut() {
-            let read = session.read(crate::model::FileId(file_id), batch)?;
+            let read = if let Some(limit) = max_retained_bytes {
+                session.read_bounded(
+                    crate::model::FileId(file_id),
+                    batch,
+                    usize::try_from(limit).unwrap_or(usize::MAX),
+                )?
+            } else {
+                session.read(crate::model::FileId(file_id), batch)?
+            };
             outcome.files_opened += read.opened;
             (read.records, read.bytes_read)
         } else {
-            reader
-                .as_mut()
-                .ok_or("missing source reader")?
-                .read(batch)?
+            let reader = reader.as_mut().ok_or("missing source reader")?;
+            if let Some(limit) = max_retained_bytes {
+                reader.read_bounded(batch, usize::try_from(limit).unwrap_or(usize::MAX))?
+            } else {
+                reader.read(batch)?
+            }
         };
         outcome.bytes_read += bytes_read;
         for (slot, bytes) in records {
@@ -1655,7 +1665,7 @@ pub fn search_stream(
     Ok(StreamOutcome::Complete(Box::new(StreamSummary {
         count: result.count,
         returned_rows: result.hits.len(),
-        final_sequence: delivery.progress.sequence,
+        final_sequence: delivery.last_page_sequence(),
         counters: result.counters,
         progress: delivery.progress,
     })))
@@ -1818,6 +1828,7 @@ fn direct_payload(
     counters: &mut WorkCounters,
     actual: &mut PlanActual,
     source_access: &mut SourceAccessSession<'_>,
+    stream_limit: Option<usize>,
 ) -> Result<Option<Payload>, String> {
     if query.options.return_mode == ReturnMode::Locator {
         return Ok(None);
@@ -1829,7 +1840,11 @@ fn direct_payload(
         }));
     }
     let collection = &repo.collections[collection_index];
-    let mut read = source_access.read(record.file, &[(0, record.range)])?;
+    let mut read = if let Some(limit) = stream_limit {
+        source_access.read_bounded(record.file, &[(0, record.range)], limit)?
+    } else {
+        source_access.read(record.file, &[(0, record.range)])?
+    };
     let bytes = read.records.pop().ok_or("source record missing")?.1;
     counters.files_opened += read.opened;
     counters.bytes_read += read.bytes_read;
@@ -2103,6 +2118,9 @@ fn try_stored_order_page(
                             &mut counters,
                             actual,
                             &mut source_access,
+                            delivery
+                                .as_ref()
+                                .map(|delivery| delivery.max_buffered_bytes()),
                         )?;
                     }
                 } else {
@@ -2293,6 +2311,7 @@ fn materialize_cached_stream(
             &mut counters,
             &mut actual,
             &mut source_access,
+            Some(delivery.max_buffered_bytes()),
         )?;
         page.push(make_hit(
             repo,
@@ -2577,6 +2596,7 @@ fn materialize_winner_page(
     files_read: &mut Option<RoaringBitmap>,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
     cancellation: Option<&CancellationToken>,
+    stream_limit: Option<usize>,
 ) -> Result<(), String> {
     // Exact index membership may need a page payload. Read only those ranges.
     if query.options.return_mode != ReturnMode::Locator {
@@ -2605,11 +2625,15 @@ fn materialize_winner_page(
                 return Err("stream cancelled".into());
             }
             let collection = &repo.collections[collection_index];
-            for batch in ranges.chunks(128) {
+            for batch in ranges.chunks(if stream_limit.is_some() { 1 } else { 128 }) {
                 if cancellation.is_some_and(CancellationToken::is_cancelled) {
                     return Err("stream cancelled".into());
                 }
-                let read = source_access.read(crate::model::FileId(file_id), batch)?;
+                let read = if let Some(limit) = stream_limit {
+                    source_access.read_bounded(crate::model::FileId(file_id), batch, limit)?
+                } else {
+                    source_access.read(crate::model::FileId(file_id), batch)?
+                };
                 counters.files_opened += read.opened;
                 counters.bytes_read += read.bytes_read;
                 if let Some(traces) = traces.as_deref_mut() {
@@ -2774,6 +2798,7 @@ fn emit_provisional_page(
         files_read,
         None,
         Some(delivery.token()),
+        Some(delivery.max_buffered_bytes()),
     )?;
     let hits = page
         .into_iter()
@@ -3389,6 +3414,9 @@ fn search_impl(
         &mut files_read,
         traces.as_deref_mut(),
         delivery.as_ref().map(|delivery| delivery.token()),
+        delivery
+            .as_ref()
+            .map(|delivery| delivery.max_buffered_bytes()),
     )?;
     counters.returned_records = page.len() as u64;
     counters.distinct_files = files_read.map_or(distinct_files, |seen| seen.len());

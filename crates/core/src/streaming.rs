@@ -184,6 +184,7 @@ pub(crate) struct Delivery<'a> {
     pub(crate) progress: StreamProgress,
     pub(crate) abort: Option<Abort>,
     pub(crate) ordered_delivered: usize,
+    last_page_sequence: u64,
     last_page: Vec<(String, String)>,
 }
 
@@ -201,6 +202,7 @@ impl<'a> Delivery<'a> {
             progress: StreamProgress::default(),
             abort: None,
             ordered_delivered: 0,
+            last_page_sequence: 0,
             last_page: Vec::new(),
         }
     }
@@ -230,6 +232,10 @@ impl<'a> Delivery<'a> {
 
     pub(crate) fn max_buffered_bytes(&self) -> usize {
         self.options.max_buffered_bytes
+    }
+
+    pub(crate) fn last_page_sequence(&self) -> u64 {
+        self.last_page_sequence
     }
 
     pub(crate) fn check_record_bytes(&mut self, bytes: usize) -> Result<(), String> {
@@ -310,6 +316,7 @@ impl<'a> Delivery<'a> {
             progress,
         )?;
         self.ordered_delivered = page.len();
+        self.last_page_sequence = progress.sequence;
         Ok(())
     }
 
@@ -356,6 +363,7 @@ impl<'a> Delivery<'a> {
             progress,
         )?;
         self.last_page = identities;
+        self.last_page_sequence = progress.sequence;
         Ok(())
     }
 

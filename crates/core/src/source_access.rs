@@ -149,6 +149,33 @@ impl<'a> SourceAccessSession<'a> {
             bytes_read,
         })
     }
+
+    /// Stream read without retained lookahead windows, under a caller-supplied
+    /// bound for each source window. The returned record bytes are still
+    /// charged separately by the caller.
+    pub(crate) fn read_bounded(
+        &mut self,
+        file_id: FileId,
+        ranges: &[(u32, ByteRange)],
+        max_total_bytes: usize,
+    ) -> Result<RangeBatch, String> {
+        if ranges.is_empty() {
+            return Ok(RangeBatch {
+                records: Vec::new(),
+                opened: 0,
+                bytes_read: 0,
+            });
+        }
+        let (index, opened) = self.handle(file_id)?;
+        let source = &mut self.open[index];
+        source.window = Vec::new();
+        let (records, bytes_read) = source.reader.read_bounded(ranges, max_total_bytes)?;
+        Ok(RangeBatch {
+            records,
+            opened,
+            bytes_read,
+        })
+    }
 }
 
 

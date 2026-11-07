@@ -98,3 +98,50 @@ fn window_hits_and_misses_keep_the_reader_at_the_actual_read_end() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn bounded_stream_reads_skip_lookahead_and_cap_spaced_range_windows() {
+    let root = std::env::temp_dir().join(format!("objekte-bounded-source-{}", std::process::id()));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("spaced.jsonl");
+    let mut bytes = vec![b' '; 100 * 2048];
+    let mut ranges = Vec::new();
+    for slot in 0..100u32 {
+        let start = slot as usize * 2048;
+        bytes[start..start + 80].fill(slot as u8);
+        ranges.push((
+            slot,
+            ByteRange {
+                start: start as u64,
+                end: (start + 80) as u64,
+            },
+        ));
+    }
+    std::fs::write(&path, bytes).unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    let mut files = FileInventory::new(root.clone());
+    files
+        .add("spaced.jsonl".into(), revision, None, CollectionId(0))
+        .unwrap();
+    let mut session = SourceAccessSession::new(&files);
+    let single = session.read_bounded(FileId(0), &ranges[..1], 8192).unwrap();
+    assert_eq!(single.bytes_read, 80);
+    assert!(session.open[0].window.is_empty());
+    assert_eq!(single.records[0].1, vec![0; 80]);
+    let read = session.read_bounded(FileId(0), &ranges, 8192).unwrap();
+    assert_eq!(read.records.len(), 100);
+    assert_eq!(read.bytes_read, 8000, "spaced gaps are not read");
+    assert_eq!(session.open[0].reader.max_window_read, 80);
+    assert!(session.open[0].window.is_empty());
+    for (slot, data) in read.records {
+        assert_eq!(data, vec![slot as u8; 80]);
+    }
+    assert!(
+        session
+            .read_bounded(FileId(0), &ranges[..1], 40)
+            .err()
+            .unwrap()
+            .starts_with("stream resource:")
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}

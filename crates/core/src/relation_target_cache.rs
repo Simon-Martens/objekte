@@ -19,6 +19,9 @@ const MAX_EDGE_VISITS: u64 = 32_000_000;
 const MAX_RETAINED_VALUE_BYTES: u64 = 128 * 1024 * 1024;
 const MAX_RECORD_BYTES: u64 = 64 * 1024 * 1024;
 const BATCH_BYTES: u64 = 1024 * 1024;
+// Conservative stream charge for a target's bitmap membership, grouped range,
+// and map entry while prefetching. It is an estimate, not process RSS.
+const STREAM_TARGET_SLOT_BYTES: u64 = 128;
 
 
 /// Physical preparation work, charged to the query before source scanning.
@@ -147,6 +150,26 @@ pub(crate) fn prepare_stream(
     )
 }
 
+fn limit_error(message: String, streaming: bool) -> String {
+    if streaming {
+        format!("stream resource: {message}")
+    } else {
+        message
+    }
+}
+
+fn stream_target_slot_charge(slots: u64, limit: Option<u64>) -> Result<u64, String> {
+    let bytes = slots
+        .checked_mul(STREAM_TARGET_SLOT_BYTES)
+        .ok_or("stream resource: target slot accounting overflow")?;
+    if limit.is_some_and(|limit| bytes > limit) {
+        return Err(
+            "stream resource: related target bookkeeping exceeds buffered-byte limit".into(),
+        );
+    }
+    Ok(bytes)
+}
+
 fn prepare_with_limits(
     repo: &Repository,
     source_collection: usize,
@@ -198,22 +221,30 @@ fn prepare_with_limits(
                     if !positions_match(&hop.selectors, &edge.positions) {
                         continue;
                     }
-                    work.edge_visits = work
-                        .edge_visits
-                        .checked_add(1)
-                        .ok_or("target prefetch edge count overflow")?;
+                    work.edge_visits = work.edge_visits.checked_add(1).ok_or_else(|| {
+                        limit_error(
+                            "target prefetch edge count overflow".into(),
+                            max_retained_bytes.is_some(),
+                        )
+                    })?;
                     if work.edge_visits > MAX_EDGE_VISITS {
-                        return Err(format!(
-                            "target prefetch exceeds {MAX_EDGE_VISITS} edge visits"
+                        return Err(limit_error(
+                            format!("target prefetch exceeds {MAX_EDGE_VISITS} edge visits"),
+                            max_retained_bytes.is_some(),
                         ));
                     }
                     if let RelationTarget::Resolved(target) = edge.target {
-                        next.insert(target.0);
+                        if next.insert(target.0) && max_retained_bytes.is_some() {
+                            stream_target_slot_charge(next.len(), max_retained_bytes)?;
+                        }
                     }
                 }
             }
             if next.len() > MAX_TARGET_SLOTS {
-                return Err(format!("target prefetch exceeds {MAX_TARGET_SLOTS} slots"));
+                return Err(limit_error(
+                    format!("target prefetch exceeds {MAX_TARGET_SLOTS} slots"),
+                    max_retained_bytes.is_some(),
+                ));
             }
             current = next;
         }
@@ -227,12 +258,29 @@ fn prepare_with_limits(
             .first()
             .ok_or("source-dependent target field is empty")?;
         entry.1.insert(first.clone());
+        if max_retained_bytes.is_some() {
+            let slots = targets.values().try_fold(0u64, |total, (slots, _)| {
+                total
+                    .checked_add(slots.len())
+                    .ok_or("stream resource: target slot count overflow")
+            })?;
+            stream_target_slot_charge(slots, max_retained_bytes)?;
+        }
     }
     if targets.is_empty() {
         return Ok(None);
     }
     let mut values = HashMap::new();
-    let mut retained = 0u64;
+    let mut retained = if max_retained_bytes.is_some() {
+        let slots = targets.values().try_fold(0u64, |total, (slots, _)| {
+            total
+                .checked_add(slots.len())
+                .ok_or("stream resource: target slot count overflow")
+        })?;
+        stream_target_slot_charge(slots, max_retained_bytes)?
+    } else {
+        0
+    };
     let mut access = SourceAccessSession::new(&repo.files);
     for (collection_id, (slots, fields)) in targets {
         if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
@@ -240,7 +288,10 @@ fn prepare_with_limits(
         }
         work.target_candidates = work.target_candidates.saturating_add(slots.len());
         if work.target_candidates > MAX_TARGET_SLOTS {
-            return Err(format!("target prefetch exceeds {MAX_TARGET_SLOTS} slots"));
+            return Err(limit_error(
+                format!("target prefetch exceeds {MAX_TARGET_SLOTS} slots"),
+                max_retained_bytes.is_some(),
+            ));
         }
         let collection = &repo.collections[collection_id.0 as usize];
         let mut grouped = BTreeMap::<FileId, Vec<(u32, crate::inventory::ByteRange)>>::new();
@@ -271,24 +322,38 @@ fn prepare_with_limits(
                 if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
                     return Err("stream cancelled".into());
                 }
+                let remaining = max_retained_bytes.map(|limit| limit.saturating_sub(retained));
                 let first_bytes = ranges[start].1.len();
                 if first_bytes > MAX_RECORD_BYTES {
-                    return Err(format!(
-                        "target prefetch record exceeds {MAX_RECORD_BYTES} bytes"
+                    return Err(limit_error(
+                        format!("target prefetch record exceeds {MAX_RECORD_BYTES} bytes"),
+                        max_retained_bytes.is_some(),
                     ));
+                }
+                if remaining.is_some_and(|limit| first_bytes > limit) {
+                    return Err("stream resource: target record exceeds read allowance".into());
                 }
                 let mut end = start + 1;
                 let mut batch_bytes = first_bytes;
                 while end < ranges.len()
                     && end - start < 128
-                    && batch_bytes.saturating_add(ranges[end].1.len()) <= BATCH_BYTES
+                    && batch_bytes.saturating_add(ranges[end].1.len())
+                        <= BATCH_BYTES.min(remaining.unwrap_or(BATCH_BYTES))
                 {
                     batch_bytes += ranges[end].1.len();
                     end += 1;
                 }
                 let chunk = &ranges[start..end];
                 start = end;
-                let read = access.read(file_id, chunk)?;
+                let read = if let Some(limit) = remaining {
+                    access.read_bounded(
+                        file_id,
+                        chunk,
+                        usize::try_from(limit).unwrap_or(usize::MAX),
+                    )?
+                } else {
+                    access.read(file_id, chunk)?
+                };
                 work.target_file_opens += read.opened;
                 work.bytes_read += read.bytes_read;
                 for (slot, bytes) in read.records {
@@ -311,8 +376,11 @@ fn prepare_with_limits(
                         );
                     }
                     if retained > MAX_RETAINED_VALUE_BYTES {
-                        return Err(format!(
-                            "target prefetch exceeds {MAX_RETAINED_VALUE_BYTES} retained bytes"
+                        return Err(limit_error(
+                            format!(
+                                "target prefetch exceeds {MAX_RETAINED_VALUE_BYTES} retained bytes"
+                            ),
+                            max_retained_bytes.is_some(),
                         ));
                     }
                     work.target_reads += 1;

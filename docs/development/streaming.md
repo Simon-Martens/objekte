@@ -30,8 +30,10 @@ are excluded. `observed_matches` is a verified lower bound until completion.
 snapshots. The configured event and retained-byte limits may return a resource
 error for an oversized source record or page. The byte estimate covers known
 page winners, sort keys, related target values, in-flight file contributions,
-cache members and materialized event bodies. Worker input and decoder scratch
-are controlled by the per-file batch allowance and the source-record ceiling.
+cache members and materialized event bodies. Streaming source reads copy each
+selected range directly into its final buffer, without retaining lookahead or
+coalescing intervening bytes. Worker input and decoder scratch are controlled
+by the per-file batch allowance and source-record ceiling.
 A slow callback stops further dispatch until it returns.
 
 The Musenalm example accepts `--ndjson ordered` or `--ndjson replacements`:
@@ -45,6 +47,7 @@ Each stdout line is JSON with `version: 1`, `type`, and `sequence`. Data types
 are `ordered_rows`, `page_replacement`, and optional `progress`; terminal types
 are `complete`, `cancelled`, and `error`. An ordered batch has `data.start` and
 `data.rows`; a replacement has `data.rows`. `complete.final_page_sequence`
-identifies the last page event, or zero for an empty page. The CLI writes
+identifies the last page event, or zero when no page event was sent, even if
+progress events were sent. The CLI writes
 repository diagnostics to stderr in this mode. Existing collected output is
 the default when `--ndjson` is absent.
