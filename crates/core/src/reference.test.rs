@@ -1,6 +1,91 @@
 use super::*;
 
 #[test]
+fn incremental_conversion_tree_matches_complete_rebuild_in_any_registration_order() {
+    fn field(path: &[&str], kind: LogicalType, required: bool) -> FieldDefinition {
+        FieldDefinition {
+            path: path.iter().map(|part| (*part).into()).collect(),
+            kind,
+            required,
+            nullable: !required,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        }
+    }
+
+    fn complete_tree(schema: &Schema) -> ValidationNode {
+        let mut root = ValidationNode::default();
+        for field in schema
+            .fields
+            .values()
+            .filter(|field| converted_kind(&field.kind))
+        {
+            if field.path.is_empty() {
+                root.field = Some(field.clone());
+            }
+            let mut node = &mut root;
+            for depth in 0..field.path.len() {
+                node = node.children.entry(field.path[depth].clone()).or_default();
+                if let Some(ancestor) = schema.fields.get(&field.path[..=depth]) {
+                    node.field = Some(ancestor.clone());
+                }
+            }
+        }
+        root
+    }
+
+    fn assert_same_nodes(actual: &ValidationNode, expected: &ValidationNode) {
+        match (&actual.field, &expected.field) {
+            (Some(actual), Some(expected)) => {
+                assert_eq!(actual.path, expected.path);
+                assert_eq!(actual.kind, expected.kind);
+                assert_eq!(actual.required, expected.required);
+                assert_eq!(actual.nullable, expected.nullable);
+                assert_eq!(actual.multi, expected.multi);
+                assert_eq!(actual.element_nullable, expected.element_nullable);
+            }
+            (None, None) => {}
+            _ => panic!("conversion validation field differs"),
+        }
+        assert_eq!(actual.children.len(), expected.children.len());
+        for (name, expected_child) in &expected.children {
+            assert_same_nodes(&actual.children[name], expected_child);
+        }
+    }
+
+    let fields = [
+        field(&[], LogicalType::Object, false),
+        field(&["details"], LogicalType::Object, false),
+        field(&["details", "published"], LogicalType::Date, true),
+        field(
+            &["details", "history"],
+            LogicalType::Array(Box::new(LogicalType::Object)),
+            false,
+        ),
+        field(&["details", "history", "at"], LogicalType::Datetime, true),
+        field(&["details", "history", "label"], LogicalType::String, false),
+        field(&["other", "count"], LogicalType::Number, false),
+        field(
+            &["other", "days"],
+            LogicalType::Array(Box::new(LogicalType::Date)),
+            false,
+        ),
+    ];
+    for order in [
+        (0..fields.len()).collect::<Vec<_>>(),
+        (0..fields.len()).rev().collect(),
+        vec![2, 4, 7, 5, 3, 1, 6, 0],
+    ] {
+        let mut schema = Schema::default();
+        for index in order {
+            schema.register_field(fields[index].clone()).unwrap();
+            assert_same_nodes(&schema.conversion_validation, &complete_tree(&schema));
+        }
+    }
+}
+
+#[test]
 fn small_selection_preserves_scalar_and_array_path_states() {
     let value = Value::from_json(serde_json::json!({
         "name": "Ada", "empty": [], "null": null,
