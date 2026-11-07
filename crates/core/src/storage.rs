@@ -377,7 +377,12 @@ fn write_section_measured(
     value: &impl Serialize,
 ) -> Result<SnapshotSectionSaveStats, String> {
     let started = Instant::now();
-    let bytes = codec().serialize(value).map_err(|e| e.to_string())?;
+    // `bincode::serialize` traverses the value once to calculate its size and
+    // again to encode it. A growable buffer makes this construction pass once.
+    let mut bytes = Vec::new();
+    codec()
+        .serialize_into(&mut bytes, value)
+        .map_err(|e| e.to_string())?;
     let serialize_ns = started.elapsed().as_nanos() as u64;
     if bytes.len() as u64 > MAX_SECTION_BYTES {
         return Err("snapshot section too large".into());

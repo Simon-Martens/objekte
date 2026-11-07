@@ -8,6 +8,18 @@ use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
 #[test]
+fn one_pass_section_encoding_matches_the_existing_codec_bytes() {
+    let value = vec!["alpha".to_owned(), "ßeta".to_owned(), "".to_owned()];
+    let expected = codec().serialize(&value).unwrap();
+    let mut encoded = Vec::new();
+    codec().serialize_into(&mut encoded, &value).unwrap();
+    assert_eq!(encoded, expected);
+    let mut section = Vec::new();
+    write_section(&mut section, 7, &value).unwrap();
+    assert_eq!(&section[44..], expected);
+}
+
+#[test]
 fn default_open_never_persists_and_stale_snapshot_is_left_untouched() {
     let root =
         std::env::temp_dir().join(format!("objekte-no-implicit-save-{}", std::process::id()));
