@@ -23,6 +23,7 @@ const BATCH_BYTES: u64 = 1024 * 1024;
 // and map entry while prefetching. It is an estimate, not process RSS.
 const STREAM_TARGET_SLOT_BYTES: u64 = 128;
 
+
 /// Physical preparation work, charged to the query before source scanning.
 #[derive(Clone, Copy, Debug, Default)]
 pub(crate) struct TargetCacheWork {
@@ -33,6 +34,7 @@ pub(crate) struct TargetCacheWork {
     pub edge_visits: u64,
 }
 
+
 /// Immutable projected logical values shared by parallel source scanners.
 pub(crate) struct TargetValueCache {
     values: HashMap<(CollectionId, RecordSlot), Value>,
@@ -40,6 +42,7 @@ pub(crate) struct TargetValueCache {
     pub work: TargetCacheWork,
     pub retained_bytes: u64,
 }
+
 
 impl TargetValueCache {
     pub(crate) fn estimated_bytes(&self) -> usize {
@@ -68,6 +71,7 @@ impl TargetValueCache {
             .and_then(|_| self.get(collection, slot))
     }
 }
+
 
 fn source_dependent_terms<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundTerm>) {
     match expr {

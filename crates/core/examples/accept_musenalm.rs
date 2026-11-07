@@ -1,8 +1,8 @@
 #[path = "support/musenalm.rs"]
 mod musenalm;
 
-use std::path::PathBuf;
 use std::collections::BTreeMap;
+use std::path::PathBuf;
 
 use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit};
 use objekte_search_core::workload::{
@@ -89,16 +89,22 @@ fn run() -> Result<(), String> {
             ..RepositoryOptions::default()
         },
     )?;
-    let baseline_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+    let baseline_path =
+        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
     let cases = if extended {
         load_extended_manifest(
             &baseline_path,
-            &PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json"),
+            &PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+                .join("benches/musenalm_queries_extended.json"),
         )?
     } else {
         load_manifest(&baseline_path)?
             .into_iter()
-            .map(|request| BenchmarkCase { request, parameters: BTreeMap::new(), clock_unix_seconds: None })
+            .map(|request| BenchmarkCase {
+                request,
+                parameters: BTreeMap::new(),
+                clock_unix_seconds: None,
+            })
             .collect()
     };
     let mut checked = 0;

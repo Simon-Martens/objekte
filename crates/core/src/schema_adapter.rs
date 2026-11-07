@@ -10,10 +10,12 @@ use crate::reference::{FieldDefinition, Schema};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::workload::SortField;
 
+
 pub struct CompiledSchema {
     pub schema: Schema,
     pub sort_fields: Vec<FieldPath>,
 }
+
 
 /// Compile the supported declarations and Objekte index annotations from one
 /// parsed document. Repository location, reader, and identity stay caller-owned.

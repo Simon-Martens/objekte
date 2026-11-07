@@ -109,6 +109,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     }
 }
 
+
 /// Exit classifications specified by the `obj` command protocol.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Exit {
@@ -119,6 +120,7 @@ pub enum Exit {
     PipeClosed = 254,
     OutputError = 255,
 }
+
 
 fn load_schema_configuration(
     paths: &ResolvedPaths,
@@ -139,12 +141,14 @@ fn load_schema_configuration(
     Ok(Some((compiled, document.get("x-objekte").is_some())))
 }
 
+
 struct ConfiguredDefinitions {
     definitions: Vec<CollectionDefinition>,
     schema_files: Vec<PathBuf>,
     schema_fields: usize,
     ignored_repository_metadata: bool,
 }
+
 
 fn configure_definitions(
     args: &Arguments,

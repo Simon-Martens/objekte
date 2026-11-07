@@ -3013,20 +3013,26 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
     };
     use std::sync::atomic::{AtomicUsize, Ordering};
 
+
     struct CancellingReader {
         token: CancellationToken,
         query_reads: Arc<AtomicUsize>,
     }
+
+
     impl SourceReader for CancellingReader {
         fn name(&self) -> &'static str {
             "cancelling_json"
         }
+
         fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
             JsonReader.frame(bytes)
         }
+
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
             JsonReader.parse(bytes)
         }
+
         fn parse_for_query(
             &self,
             bytes: &[u8],
@@ -3039,6 +3045,8 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
             Ok(record)
         }
     }
+
+
     let root = std::env::temp_dir().join(format!(
         "objekte-computed-context-cancel-{}",
         std::process::id()
@@ -3122,17 +3130,24 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
         ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
         StreamOptions,
     };
+
+
     struct FailingReader;
+
+
     impl SourceReader for FailingReader {
         fn name(&self) -> &'static str {
             "failing_query_reader"
         }
+
         fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
             JsonReader.frame(bytes)
         }
+
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
             JsonReader.parse(bytes)
         }
+
         fn parse_for_query(
             &self,
             _bytes: &[u8],
@@ -3141,6 +3156,8 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
             Err("query extension failed".into())
         }
     }
+
+
     let root = std::env::temp_dir().join(format!(
         "objekte-extension-query-error-{}",
         std::process::id()

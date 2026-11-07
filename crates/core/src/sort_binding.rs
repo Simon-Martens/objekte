@@ -23,6 +23,7 @@ const MAX_SORT_EDGE_VISITS: u64 = 32_000_000;
 
 type SortTargetCell = OnceLock<Result<Arc<Value>, String>>;
 
+
 /// A prepared sort term with no source access in its comparator.
 pub(crate) struct BoundSortTerm<'a> {
     pub source: BoundSortSource<'a>,
@@ -30,11 +31,13 @@ pub(crate) struct BoundSortTerm<'a> {
     pub options: SortOptions,
 }
 
+
 /// A resident column or a key that must be read for each matching record.
 pub(crate) enum BoundSortSource<'a> {
     Stored(&'a SortColumn),
     Computed(Box<ComputedSort>),
 }
+
 
 /// Query-scoped key extraction for one local or finite related path.
 pub(crate) struct ComputedSort {
@@ -45,12 +48,14 @@ pub(crate) struct ComputedSort {
     collator: CollatorBorrowed<'static>,
 }
 
+
 /// A bound, stable scalar transformation rather than an exact matcher.
 enum SortTransform {
     Identity,
     CaseFold,
     Operation(Arc<dyn BindingOperation>),
 }
+
 
 /// Stable identity required when one order spans several collections.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -68,12 +73,14 @@ enum SortTransformIdentity {
     },
 }
 
+
 /// Sort terms for every selected collection, with a flag for source reads.
 pub(crate) struct BoundSort<'a> {
     pub terms: Vec<Option<Vec<BoundSortTerm<'a>>>>,
     pub has_computed: bool,
     pub needs_source: bool,
 }
+
 
 /// Query-local target projections reused when several source links reach one target.
 #[derive(Default)]
@@ -88,6 +95,7 @@ pub(crate) struct SortTargetCache {
     pub edge_visits: u64,
     pub bytes_read: u64,
 }
+
 
 fn expression(field: &SortField) -> Result<SortExpression, String> {
     if let Some(expression) = &field.expression {
@@ -163,6 +171,7 @@ fn bind_transform(
         }
     }
 }
+
 
 impl<'a> BoundSort<'a> {
     pub fn bind(repo: &'a Repository, query: &Query) -> Result<Self, String> {
@@ -303,6 +312,7 @@ impl<'a> BoundSort<'a> {
     }
 }
 
+
 impl ComputedSort {
     fn key(
         &self,
@@ -398,6 +408,7 @@ impl ComputedSort {
     }
 }
 
+
 // Every child must be visited to retain all source occurrences.
 #[allow(clippy::unnecessary_fold)]
 fn select_values<'a>(
@@ -435,6 +446,7 @@ fn select_values<'a>(
         _ => false,
     }
 }
+
 
 impl SortTargetCache {
     pub(crate) fn configure_execution(&mut self, execution: &crate::streaming::ExecutionContext) {
@@ -624,6 +636,7 @@ impl SortTargetCache {
     }
 }
 
+
 /// One reduced key and the minimum state needed across relation occurrences.
 struct SortAccumulator {
     reducer: Option<SortReducer>,
@@ -635,12 +648,14 @@ struct SortAccumulator {
     expanded: bool,
 }
 
+
 /// Only a scalar candidate or a compact error marker is retained for LAST.
 enum LastValue {
     Scalar(Value),
     InvalidObject,
     Unavailable,
 }
+
 
 impl SortAccumulator {
     fn new(reducer: Option<SortReducer>) -> Self {
@@ -749,6 +764,7 @@ impl SortAccumulator {
         Ok(self.best.unwrap_or(SortKey::Missing))
     }
 }
+
 
 impl ComputedSort {
     #[allow(clippy::too_many_arguments)]
@@ -951,6 +967,7 @@ impl ComputedSort {
         Ok(())
     }
 }
+
 
 fn positions_match(selectors: &[Option<u32>], positions: &[u32]) -> bool {
     selectors.len() <= positions.len()

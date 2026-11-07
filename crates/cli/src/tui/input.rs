@@ -2,12 +2,14 @@
 
 use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 
+
 /// Text and a cursor counted in characters, not bytes.
 #[derive(Default, Clone)]
 pub(super) struct Input {
     pub(super) text: String,
     pub(super) cursor: usize,
 }
+
 
 impl Input {
     pub(super) fn with_text(text: &str) -> Self {
@@ -150,6 +152,7 @@ impl Input {
         }
     }
 }
+
 
 #[cfg(test)]
 #[path = "input.test.rs"]

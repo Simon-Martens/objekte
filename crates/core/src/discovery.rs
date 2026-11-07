@@ -7,12 +7,14 @@ use globset::{Glob, GlobSet, GlobSetBuilder};
 
 use crate::source::PreparedSource;
 
+
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum SymlinkPolicy {
     #[default]
     Skip,
     FollowWithinRoot,
 }
+
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Discovery {
@@ -27,6 +29,7 @@ pub struct Discovery {
     pub symlinks: SymlinkPolicy,
 }
 
+
 impl Default for Discovery {
     fn default() -> Self {
         Self {
@@ -40,6 +43,7 @@ impl Default for Discovery {
         }
     }
 }
+
 
 fn compile(patterns: &[String]) -> Result<GlobSet, String> {
     let mut builder = GlobSetBuilder::new();

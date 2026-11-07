@@ -215,6 +215,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+
 #[derive(Debug)]
 struct SeparatorOperation {
     preparations: Arc<AtomicUsize>,
@@ -224,6 +225,7 @@ struct SeparatorOperation {
     bigram: bool,
     complete: bool,
 }
+
 
 fn normalized_equal(input: &[u8], needle: &[u8]) -> bool {
     let mut mapped = input
@@ -250,12 +252,14 @@ fn normalized_contains(input: &[u8], needle: &[u8]) -> bool {
     })
 }
 
+
 #[derive(Debug)]
 struct SeparatorFilter {
     needle: Vec<u8>,
     operator: Operator,
     callbacks: Arc<AtomicUsize>,
 }
+
 
 impl crate::reference::PreparedFilterMatcher for SeparatorFilter {
     fn input(&self) -> crate::reference::ExactInput {
@@ -288,11 +292,13 @@ impl crate::reference::PreparedFilterMatcher for SeparatorFilter {
     }
 }
 
+
 #[derive(Debug)]
 struct SeparatorText {
     needle: Vec<u8>,
     callbacks: Arc<AtomicUsize>,
 }
+
 
 impl crate::reference::PreparedTextMatcher for SeparatorText {
     fn matches(&self, text: &str) -> Result<bool, String> {
@@ -304,6 +310,7 @@ impl crate::reference::PreparedTextMatcher for SeparatorText {
         true
     }
 }
+
 
 impl crate::reference::BindingOperation for SeparatorOperation {
     fn accepts(&self, kind: &LogicalType, operator: Operator, _: bool) -> bool {
@@ -385,7 +392,9 @@ impl crate::reference::BindingOperation for SeparatorOperation {
     }
 }
 
+
 struct SeparatorReader(Arc<AtomicUsize>);
+
 
 impl crate::source::SourceReader for SeparatorReader {
     fn name(&self) -> &'static str {
@@ -439,6 +448,7 @@ impl crate::source::SourceReader for SeparatorReader {
         })
     }
 }
+
 
 #[test]
 fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
@@ -706,8 +716,10 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+
 #[derive(Debug)]
 struct RemoveSpaces;
+
 
 impl crate::reference::BindingOperation for RemoveSpaces {
     fn accepts(&self, kind: &LogicalType, op: Operator, _: bool) -> bool {
@@ -744,6 +756,7 @@ impl crate::reference::BindingOperation for RemoveSpaces {
         true
     }
 }
+
 
 #[test]
 fn transformed_raw_index_cannot_prune_identity_field_predicates() {
@@ -843,12 +856,14 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+
 #[derive(Debug)]
 struct KeyedOperation {
     posting: bool,
     bigram: bool,
     complete: bool,
 }
+
 
 #[test]
 fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
@@ -959,6 +974,7 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+
 impl crate::reference::BindingOperation for KeyedOperation {
     fn accepts(&self, kind: &LogicalType, operator: Operator, _multi: bool) -> bool {
         *kind == LogicalType::String
@@ -1008,6 +1024,7 @@ impl crate::reference::BindingOperation for KeyedOperation {
         self.complete
     }
 }
+
 
 #[test]
 fn registered_binding_has_identical_filter_fts_and_restore_semantics() {

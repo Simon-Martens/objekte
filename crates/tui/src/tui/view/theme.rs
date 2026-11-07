@@ -47,7 +47,6 @@ const LIGHT: [(Color, Color); 13] = [
 
 static LIGHT_THEME: AtomicBool = AtomicBool::new(false);
 
-
 pub(in super::super) fn set_light(light: bool) {
     LIGHT_THEME.store(light, Ordering::Relaxed);
 }

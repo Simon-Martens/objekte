@@ -24,6 +24,7 @@ pub const COLLATION_VERSION: &str =
     "icu_collator-2.4.0/icu_collator_data-2.4.0/CLDR-49.0.0/Unicode-18.0.0";
 pub(crate) const INFERRED_ORDER_CACHE_BYTES: usize = 128 * 1024 * 1024;
 
+
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq, Serialize, Deserialize)]
 pub enum CollationStrength {
     #[default]
@@ -35,12 +36,14 @@ pub enum CollationStrength {
     Identical,
 }
 
+
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq, Serialize, Deserialize)]
 pub enum Placement {
     First,
     #[default]
     Last,
 }
+
 
 #[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq, Serialize, Deserialize)]
 pub struct SortOptions {
@@ -50,11 +53,13 @@ pub struct SortOptions {
     pub missing: Placement,
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SortConfig {
     pub locale: String,
     pub options: SortOptions,
 }
+
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub enum SortKey {
@@ -70,6 +75,7 @@ pub enum SortKey {
     Datetime(OffsetDateTime),
     Unixtime(i64),
 }
+
 
 impl SortKey {
     fn rank(&self, options: SortOptions) -> i8 {
@@ -123,6 +129,7 @@ impl SortKey {
     }
 }
 
+
 /// Precomputed sort keys for one configured field.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SortColumn {
@@ -135,6 +142,7 @@ pub struct SortColumn {
     pub options: SortOptions,
     pub collation_version: String,
 }
+
 
 /// An inferred order is query-created but remains valid for a repository
 /// generation. Cached columns use the same representation as configured
@@ -149,6 +157,7 @@ pub(crate) struct InferredOrderKey {
     options: SortOptions,
     descending: bool,
 }
+
 
 impl InferredOrderKey {
     pub(crate) fn new(
@@ -188,11 +197,13 @@ impl InferredOrderKey {
     }
 }
 
+
 struct InferredOrderEntry {
     column: Arc<SortColumn>,
     bytes: usize,
     last_used: u64,
 }
+
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub(crate) struct InferredOrderCacheStats {
@@ -203,6 +214,7 @@ pub(crate) struct InferredOrderCacheStats {
     pub entries: usize,
 }
 
+
 /// A lazy, bounded cache owned by one repository. Callers build a missing
 /// column outside its mutex, then publish it with a second short lock.
 pub(crate) struct InferredOrderCache {
@@ -212,6 +224,7 @@ pub(crate) struct InferredOrderCache {
     clock: u64,
     stats: InferredOrderCacheStats,
 }
+
 
 impl InferredOrderCache {
     pub(crate) fn new(max_bytes: usize) -> Self {
@@ -293,6 +306,7 @@ impl InferredOrderCache {
             .saturating_add(2 * std::mem::size_of::<usize>())
     }
 }
+
 
 impl SortColumn {
     pub(crate) fn retained_bytes(&self) -> usize {
@@ -538,6 +552,7 @@ impl SortColumn {
     }
 }
 
+
 fn append_inferred_group(
     order: &mut Vec<RecordSlot>,
     slots: &RoaringBitmap,
@@ -552,12 +567,14 @@ fn append_inferred_group(
     order.extend(group);
 }
 
+
 /// All sort columns available for a collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SortCollection {
     pub columns: HashMap<FieldPath, SortColumn>,
     pub composites: Vec<CompositeSortOrder>,
 }
+
 
 /// Explicit composite order over compatible resident scalar columns.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -566,12 +583,14 @@ pub struct CompositeSortOrder {
     pub order: Vec<RecordSlot>,
 }
 
+
 /// Fixed binary identity for one resident composite constituent.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct CompositeSortPart {
     pub path: FieldPath,
     pub descending: bool,
 }
+
 
 pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPart> {
     let expression = field.expression.as_ref();
@@ -585,6 +604,7 @@ pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPa
     })
 }
 
+
 impl SortCollection {
     pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
         let normalized = fields
@@ -597,12 +617,14 @@ impl SortCollection {
     }
 }
 
+
 /// Mutable keys accumulated during index construction.
 pub struct SortBuilder {
     columns: HashMap<FieldPath, SortColumn>,
     collators: HashMap<FieldPath, CollatorBorrowed<'static>>,
     composites: Vec<Vec<CompositeSortPart>>,
 }
+
 
 /// Construct one ICU collator for a bound sort configuration.
 pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'static>, String> {
@@ -627,6 +649,7 @@ pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'sta
     };
     CollatorBorrowed::try_new(prefs, options).map_err(|e| e.to_string())
 }
+
 
 impl SortBuilder {
     pub(crate) fn into_keys(self) -> HashMap<FieldPath, Vec<SortKey>> {
@@ -834,6 +857,7 @@ impl SortBuilder {
     }
 }
 
+
 pub(crate) fn compare_composite(
     columns: &[(&SortColumn, bool)],
     a: RecordSlot,
@@ -886,6 +910,7 @@ fn descending_order(
     }
     result
 }
+
 
 impl SortCollection {
     /// Finalize status-dependent orders after all collections have contributed
@@ -971,6 +996,7 @@ impl SortCollection {
         Ok(())
     }
 }
+
 
 #[cfg(test)]
 #[path = "sorting.test.rs"]

@@ -10,6 +10,7 @@ use crate::clock_context::ClockContext;
 use crate::repository::{Payload, SearchHit};
 use crate::workload::WorkCounters;
 
+
 /// Limits apply to estimated retained query state and source reads, not RSS.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ExecutionLimits {
@@ -24,6 +25,7 @@ pub struct ExecutionLimits {
     /// Estimated retained logical value and reader text for one extension record.
     pub extension_value_bytes: u64,
 }
+
 
 impl Default for ExecutionLimits {
     fn default() -> Self {
@@ -41,6 +43,7 @@ impl Default for ExecutionLimits {
     }
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ExecutionErrorKind {
     Cancelled,
@@ -51,11 +54,13 @@ pub enum ExecutionErrorKind {
     Execution,
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ExecutionError {
     pub kind: ExecutionErrorKind,
     pub message: String,
 }
+
 
 impl fmt::Display for ExecutionError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -63,7 +68,9 @@ impl fmt::Display for ExecutionError {
     }
 }
 
+
 impl std::error::Error for ExecutionError {}
+
 
 #[derive(Default)]
 struct ExecutionAccounting {
@@ -78,6 +85,7 @@ struct ExecutionAccounting {
     cancel_on_check: AtomicU64,
 }
 
+
 /// State for exactly one request. Clones share counters and its first typed failure;
 /// create a fresh context for another search, including another page request.
 #[derive(Clone)]
@@ -87,6 +95,7 @@ pub struct ExecutionContext {
     cancellation: Option<CancellationToken>,
     accounting: Arc<ExecutionAccounting>,
 }
+
 
 impl ExecutionContext {
     pub fn new(
@@ -253,12 +262,14 @@ impl ExecutionContext {
     }
 }
 
+
 /// How verified requested-page rows are published during execution.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StreamMode {
     OrderedRows,
     PageReplacements,
 }
+
 
 /// Semantic result extent for one streaming execution.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -267,6 +278,7 @@ pub enum ResultScope {
     All { offset: usize },
 }
 
+
 impl ResultScope {
     pub fn offset(self) -> usize {
         match self {
@@ -274,6 +286,7 @@ impl ResultScope {
         }
     }
 }
+
 
 /// Delivery cadence and upper bounds for one streaming execution.
 #[derive(Clone, Copy, Debug)]
@@ -284,6 +297,7 @@ pub struct StreamOptions {
     pub max_event_bytes: usize,
     pub max_buffered_bytes: usize,
 }
+
 
 impl Default for StreamOptions {
     fn default() -> Self {
@@ -296,6 +310,7 @@ impl Default for StreamOptions {
         }
     }
 }
+
 
 impl StreamOptions {
     pub(crate) fn validate(self) -> Result<(), String> {
@@ -310,9 +325,11 @@ impl StreamOptions {
     }
 }
 
+
 /// Shareable cooperative cancellation flag for a running request.
 #[derive(Clone, Default)]
 pub struct CancellationToken(Arc<AtomicBool>);
+
 
 impl CancellationToken {
     pub fn new() -> Self {
@@ -328,12 +345,14 @@ impl CancellationToken {
     }
 }
 
+
 /// Decision returned by a caller's event callback.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StreamControl {
     Continue,
     Cancel,
 }
+
 
 /// Counters visible at an interim delivery or terminal outcome.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -347,6 +366,7 @@ pub struct StreamProgress {
     pub emitted_rows: u64,
     pub peak_buffered_bytes: usize,
 }
+
 
 /// Borrowed, nonterminal event. A replacement supersedes the prior page.
 pub enum StreamEvent<'a> {
@@ -367,6 +387,7 @@ pub enum StreamEvent<'a> {
     },
 }
 
+
 /// Successful query summary; the last event sequence identifies its final page.
 #[derive(Clone, Debug)]
 pub struct StreamSummary {
@@ -377,12 +398,14 @@ pub struct StreamSummary {
     pub progress: StreamProgress,
 }
 
+
 /// Completion and cancellation have separate terminal outcomes.
 #[derive(Clone, Debug)]
 pub enum StreamOutcome {
     Complete(Box<StreamSummary>),
     Cancelled(StreamProgress),
 }
+
 
 /// Execution, callback, and resource failures retain observed progress.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -402,6 +425,7 @@ pub enum StreamError {
     },
 }
 
+
 impl fmt::Display for StreamError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
@@ -411,6 +435,7 @@ impl fmt::Display for StreamError {
         }
     }
 }
+
 
 impl StreamError {
     pub fn kind(&self) -> ExecutionErrorKind {
@@ -422,13 +447,16 @@ impl StreamError {
     }
 }
 
+
 impl std::error::Error for StreamError {}
+
 
 pub(crate) enum Abort {
     Cancelled,
     Sink(String),
     Resource(String),
 }
+
 
 /// Coordinator-only delivery state; callbacks never run under cache locks.
 pub(crate) struct Delivery<'a> {
@@ -441,6 +469,7 @@ pub(crate) struct Delivery<'a> {
     last_page_sequence: u64,
     last_page: Vec<(String, String)>,
 }
+
 
 impl<'a> Delivery<'a> {
     pub(crate) fn new(
@@ -676,6 +705,7 @@ impl<'a> Delivery<'a> {
         Ok(())
     }
 }
+
 
 pub(crate) fn hit_bytes(hit: &SearchHit) -> usize {
     let mut bytes = std::mem::size_of::<SearchHit>()

@@ -17,6 +17,7 @@ fn is_false(value: &bool) -> bool {
     !value
 }
 
+
 /// The two query lines and the collection they searched.
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub(super) struct Query {
@@ -34,6 +35,7 @@ pub(super) struct Query {
     pub(super) regex: bool,
 }
 
+
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub(super) struct SavedQuery {
     pub(super) name: String,
@@ -41,12 +43,14 @@ pub(super) struct SavedQuery {
     pub(super) query: Query,
 }
 
+
 /// Hidden result columns for one collection, or `*` for all collections.
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub(super) struct Columns {
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub(super) hidden: Vec<String>,
 }
+
 
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub(super) struct Settings {
@@ -61,6 +65,7 @@ pub(super) struct Settings {
     #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
     pub(super) columns: BTreeMap<String, Columns>,
 }
+
 
 impl Settings {
     pub(super) fn path(root: &Path) -> PathBuf {
@@ -122,6 +127,7 @@ impl Settings {
         self.columns.retain(|_, columns| !columns.hidden.is_empty());
     }
 }
+
 
 #[cfg(test)]
 #[path = "settings.test.rs"]

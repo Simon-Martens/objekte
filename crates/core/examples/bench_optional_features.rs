@@ -34,6 +34,7 @@ use objekte_search_core::workload::{
 use serde_json::{Value, json};
 use sha2::{Digest, Sha256};
 
+
 struct Config {
     root: PathBuf,
     source_path: String,
@@ -46,6 +47,7 @@ struct Config {
     verified_cache_bytes: usize,
     skip_queries: bool,
 }
+
 
 impl Default for Config {
     fn default() -> Self {
@@ -63,6 +65,7 @@ impl Default for Config {
         }
     }
 }
+
 
 fn parse_args() -> Result<Config, String> {
     let mut config = Config::default();
@@ -171,6 +174,7 @@ fn computed(path: &str, reducer: Option<SortReducer>, descending: bool) -> SortF
     )
 }
 
+
 struct Case {
     id: &'static str,
     filter: Option<&'static str>,
@@ -180,6 +184,7 @@ struct Case {
     offset: usize,
     stream: StreamMode,
 }
+
 
 fn cases() -> Vec<Case> {
     vec![

@@ -5,8 +5,10 @@ fn shifted_batch_bitmaps_cross_container_boundaries_and_reject_overlap() {
     let mut destination: RoaringBitmap = [0, 1, 65_534].into_iter().collect();
     let source: RoaringBitmap = [0, 1, 63, 64, 65].into_iter().collect();
     append_shifted_bitmap(&mut destination, &source, 65_535).unwrap();
-    assert_eq!(destination.iter().collect::<Vec<_>>(),
-        [0, 1, 65_534, 65_535, 65_536, 65_598, 65_599, 65_600]);
+    assert_eq!(
+        destination.iter().collect::<Vec<_>>(),
+        [0, 1, 65_534, 65_535, 65_536, 65_598, 65_599, 65_600]
+    );
     assert!(append_shifted_bitmap(&mut destination, &source, 65_535).is_err());
     assert!(append_shifted_bitmap(&mut destination, &source, u32::MAX).is_err());
 }
@@ -86,29 +88,66 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
         .unwrap();
     let mut builder = CollectionBuilder::new(CollectionId(0), "data".into(), 1, 4);
     assert!(builder.include_file(FileId(4)).is_err());
-    assert!(builder
-        .add_record(&inventory.files[valid.0 as usize], RecordId::intrinsic("v").unwrap(), 0, 10)
-        .is_err());
-    assert!(builder
-        .add_raw_fallback(
-            &inventory.files[broken.0 as usize],
-            RecordId::fallback(CollectionId(0), "json", 1, Path::new("broken.json"), broken, 7, 0, 10),
-            ByteRange { start: 0, end: 10 },
-            DiagnosticRef(1),
-        )
-        .is_err());
+    assert!(
+        builder
+            .add_record(
+                &inventory.files[valid.0 as usize],
+                RecordId::intrinsic("v").unwrap(),
+                0,
+                10
+            )
+            .is_err()
+    );
+    assert!(
+        builder
+            .add_raw_fallback(
+                &inventory.files[broken.0 as usize],
+                RecordId::fallback(
+                    CollectionId(0),
+                    "json",
+                    1,
+                    Path::new("broken.json"),
+                    broken,
+                    7,
+                    0,
+                    10
+                ),
+                ByteRange { start: 0, end: 10 },
+                DiagnosticRef(1),
+            )
+            .is_err()
+    );
     for file in [empty, valid, broken, empty, valid] {
         builder.include_file(file).unwrap();
     }
     let valid_slot = builder
-        .add_record(&inventory.files[valid.0 as usize], RecordId::intrinsic("v").unwrap(), 0, 10)
+        .add_record(
+            &inventory.files[valid.0 as usize],
+            RecordId::intrinsic("v").unwrap(),
+            0,
+            10,
+        )
         .unwrap();
-    assert!(builder
-        .add_record(&inventory.files[valid.0 as usize], RecordId::intrinsic("v").unwrap(), 0, 10)
-        .is_err());
-    assert!(builder
-        .add_record(&inventory.files[omitted.0 as usize], RecordId::intrinsic("other").unwrap(), 0, 10)
-        .is_err());
+    assert!(
+        builder
+            .add_record(
+                &inventory.files[valid.0 as usize],
+                RecordId::intrinsic("v").unwrap(),
+                0,
+                10
+            )
+            .is_err()
+    );
+    assert!(
+        builder
+            .add_record(
+                &inventory.files[omitted.0 as usize],
+                RecordId::intrinsic("other").unwrap(),
+                0,
+                10
+            )
+            .is_err()
+    );
     let diagnostic = SourceDiagnostic {
         file: broken,
         collection: CollectionId(0),
@@ -128,7 +167,16 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
     let fallback_slot = builder
         .add_raw_fallback(
             &inventory.files[broken.0 as usize],
-            RecordId::fallback(CollectionId(0), "json", 1, Path::new("broken.json"), broken, 7, 0, 10),
+            RecordId::fallback(
+                CollectionId(0),
+                "json",
+                1,
+                Path::new("broken.json"),
+                broken,
+                7,
+                0,
+                10,
+            ),
             ByteRange { start: 0, end: 10 },
             reference,
         )
@@ -136,10 +184,22 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
     inventory.files[broken.0 as usize].diagnostics[0].record = Some(fallback_slot);
     let generation = builder.finish(&inventory).unwrap();
     assert_eq!(generation.files, [empty, valid, broken]);
-    assert_eq!(generation.file_records.records_for(empty), Some([].as_slice()));
-    assert_eq!(generation.file_records.records_for(valid), Some([valid_slot].as_slice()));
-    assert_eq!(generation.file_records.records_for(broken), Some([fallback_slot].as_slice()));
-    assert_eq!(generation.file_records.records_for(omitted), Some([].as_slice()));
+    assert_eq!(
+        generation.file_records.records_for(empty),
+        Some([].as_slice())
+    );
+    assert_eq!(
+        generation.file_records.records_for(valid),
+        Some([valid_slot].as_slice())
+    );
+    assert_eq!(
+        generation.file_records.records_for(broken),
+        Some([fallback_slot].as_slice())
+    );
+    assert_eq!(
+        generation.file_records.records_for(omitted),
+        Some([].as_slice())
+    );
     assert_eq!(generation.records[0].class, RecordClass::Logical);
     assert_eq!(generation.records[1].class, RecordClass::RawFallback);
 }
@@ -147,9 +207,16 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
 #[test]
 fn flat_mapping_matches_grouped_reference_for_interleaved_files() {
     let mut inventory = FileInventory::new(PathBuf::from("/tmp/repo"));
-    let revision = SourceRevision { modified_ns: 9, size: 20 };
+    let revision = SourceRevision {
+        modified_ns: 9,
+        size: 20,
+    };
     let files: Vec<_> = (0..4)
-        .map(|i| inventory.add(format!("{i}.jsonl").into(), revision, None, CollectionId(0)).unwrap())
+        .map(|i| {
+            inventory
+                .add(format!("{i}.jsonl").into(), revision, None, CollectionId(0))
+                .unwrap()
+        })
         .collect();
     let empty = CollectionBuilder::new(CollectionId(0), "empty".into(), 1, files.len())
         .finish(&inventory)
@@ -161,8 +228,18 @@ fn flat_mapping_matches_grouped_reference_for_interleaved_files() {
     for &file in &files {
         builder.include_file(file).unwrap();
     }
-    for (n, &file) in [files[2], files[0], files[2], files[1], files[0]].iter().enumerate() {
-        builder.add_record(&inventory.files[file.0 as usize], RecordId::intrinsic(&format!("r{n}")).unwrap(), 0, 10).unwrap();
+    for (n, &file) in [files[2], files[0], files[2], files[1], files[0]]
+        .iter()
+        .enumerate()
+    {
+        builder
+            .add_record(
+                &inventory.files[file.0 as usize],
+                RecordId::intrinsic(&format!("r{n}")).unwrap(),
+                0,
+                10,
+            )
+            .unwrap();
     }
     let generation = builder.finish(&inventory).unwrap();
     let mut grouped = vec![Vec::new(); files.len()];
@@ -178,7 +255,16 @@ fn flat_mapping_matches_grouped_reference_for_interleaved_files() {
     assert_eq!(generation.file_records.offsets, expected_offsets);
     assert_eq!(generation.file_records.slots, expected_slots);
     assert_eq!(generation.file_records.offsets, [0, 2, 3, 5, 5]);
-    assert_eq!(generation.file_records.slots, [RecordSlot(1), RecordSlot(4), RecordSlot(3), RecordSlot(0), RecordSlot(2)]);
+    assert_eq!(
+        generation.file_records.slots,
+        [
+            RecordSlot(1),
+            RecordSlot(4),
+            RecordSlot(3),
+            RecordSlot(0),
+            RecordSlot(2)
+        ]
+    );
 }
 
 #[test]

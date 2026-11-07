@@ -20,6 +20,7 @@ fn source_changed(execution: Option<&ExecutionContext>, message: String) -> Stri
     }
 }
 
+
 #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum SourceFormat {
@@ -28,6 +29,7 @@ pub enum SourceFormat {
     JsonLines,
     Registered(String),
 }
+
 
 impl SourceFormat {
     pub fn registered(id: impl Into<String>) -> Self {
@@ -44,6 +46,7 @@ impl SourceFormat {
     }
 }
 
+
 /// Extracted searchable string with its logical field path.
 #[derive(Clone, Debug)]
 pub struct TextSegment {
@@ -51,12 +54,14 @@ pub struct TextSegment {
     pub text: String,
 }
 
+
 /// Logical value and text produced by a source reader.
 #[derive(Clone, Debug)]
 pub struct ExtractedRecord {
     pub value: Value,
     pub text: Vec<TextSegment>,
 }
+
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -69,6 +74,7 @@ pub enum DiagnosticCategory {
     Io,
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct ReaderDiagnostic {
     pub category: DiagnosticCategory,
@@ -79,6 +85,7 @@ pub struct ReaderDiagnostic {
     pub column: Option<u64>,
     pub field_path: Option<Vec<String>>,
 }
+
 
 impl ReaderDiagnostic {
     pub fn new(
@@ -98,11 +105,13 @@ impl ReaderDiagnostic {
     }
 }
 
+
 #[derive(Clone, Debug)]
 pub enum ReaderFailure {
     Malformed(ReaderDiagnostic),
     Fatal(String),
 }
+
 
 #[derive(Clone)]
 pub enum SourceOutcome {
@@ -120,6 +129,7 @@ pub enum SourceOutcome {
     },
 }
 
+
 /// Fields required to verify a query against one source record. `None` keeps
 /// the complete record; otherwise unrelated top-level members are skipped by
 /// the source reader while JSON syntax is still checked.
@@ -130,6 +140,7 @@ pub struct ScanProjection {
     pub resolved_text_only: bool,
 }
 
+
 /// Whether each logical string field appears as an intact, unchanged text
 /// segment. A custom reader must opt in explicitly; its default segments are
 /// reader-owned and may omit or split fields present in the logical record.
@@ -139,12 +150,14 @@ pub enum LogicalTextCoverage {
     ReaderSelected,
 }
 
+
 /// Owner of searchable segments after logical type conversion.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum TextDerivation {
     ReaderSegments,
     LogicalStringsAfterConversion,
 }
+
 
 pub fn finalize_extracted_text(
     reader: &dyn SourceReader,
@@ -156,6 +169,7 @@ pub fn finalize_extracted_text(
         record.text = text_segments(&record.value);
     }
 }
+
 
 impl ScanProjection {
     pub fn full(collect_text: bool) -> Self {
@@ -174,6 +188,7 @@ impl ScanProjection {
         }
     }
 }
+
 
 pub trait SourceReader: Send + Sync {
     fn name(&self) -> &'static str;
@@ -204,6 +219,7 @@ pub trait SourceReader: Send + Sync {
     ) -> Option<u64> {
         None
     }
+
     fn frame_outcome(&self, file: &[u8]) -> Result<Vec<ByteRange>, ReaderFailure> {
         self.frame(file).map_err(ReaderFailure::Fatal)
     }
@@ -253,6 +269,7 @@ pub trait SourceReader: Send + Sync {
     }
 }
 
+
 /// Stable source identity, discovery suffix, and reader implementation.
 #[derive(Clone)]
 pub struct SourceRegistration {
@@ -262,9 +279,11 @@ pub struct SourceRegistration {
     pub reader: Arc<dyn SourceReader>,
 }
 
+
 /// Prepared source handle resolved once per collection.
 #[derive(Clone)]
 pub struct PreparedSource(Arc<SourceRegistration>, bool);
+
 
 impl PreparedSource {
     pub fn id(&self) -> &str {
@@ -288,12 +307,14 @@ impl PreparedSource {
     }
 }
 
+
 /// Repository-local source registrations. The built-ins use this same table.
 #[derive(Clone, Default)]
 pub struct SourceRegistry {
     entries: HashMap<String, Arc<SourceRegistration>>,
     builtin_ids: HashSet<String>,
 }
+
 
 impl SourceRegistry {
     pub fn builtin() -> Self {
@@ -355,20 +376,26 @@ impl SourceRegistry {
     }
 }
 
+
 /// Reader for a single standalone JSON record per file.
 pub struct JsonReader;
+
 
 /// Built-in one-document JSON reader with decoded scalar-value FTS text.
 pub struct JsonDecodedScalarsReader;
 
+
 /// Reader for independently parseable JSON Lines records.
 pub struct JsonLinesReader;
+
 
 /// Deserializer seed that retains selected top-level JSON members.
 struct SelectedObject<'a>(&'a HashSet<String>);
 
+
 /// Map visitor that skips JSON members outside a query projection.
 struct SelectedVisitor<'a>(&'a HashSet<String>);
+
 
 impl<'de> Visitor<'de> for SelectedVisitor<'_> {
     type Value = serde_json::Map<String, serde_json::Value>;
@@ -390,6 +417,7 @@ impl<'de> Visitor<'de> for SelectedVisitor<'_> {
     }
 }
 
+
 impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
     type Value = serde_json::Map<String, serde_json::Value>;
 
@@ -400,6 +428,7 @@ impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
         deserializer.deserialize_map(SelectedVisitor(self.0))
     }
 }
+
 
 fn json_issue(bytes: &[u8], error: serde_json::Error) -> ReaderDiagnostic {
     let invalid_utf8 = std::str::from_utf8(bytes).err();
@@ -581,6 +610,7 @@ pub(crate) fn visit_logical_strings_and_empty(value: &Value, emit: &mut dyn FnMu
     }
 }
 
+
 impl SourceReader for JsonReader {
     fn name(&self) -> &'static str {
         "json"
@@ -625,6 +655,7 @@ impl SourceReader for JsonReader {
     }
 }
 
+
 impl SourceReader for JsonDecodedScalarsReader {
     fn name(&self) -> &'static str {
         "json_decoded_scalars"
@@ -664,6 +695,7 @@ impl SourceReader for JsonDecodedScalarsReader {
         parse_json_decoded_for_query_diagnosed(bytes, projection).map_err(|issue| issue.message)
     }
 }
+
 
 impl SourceReader for JsonLinesReader {
     fn name(&self) -> &'static str {
@@ -730,6 +762,7 @@ impl SourceReader for JsonLinesReader {
     }
 }
 
+
 /// Framing and parse counts from one source extraction.
 #[derive(Default, Clone, Copy, Debug)]
 pub struct ExtractionCounters {
@@ -737,6 +770,7 @@ pub struct ExtractionCounters {
     pub record_parses: u64,
     pub failed_parses: u64,
 }
+
 
 /// Call `consume` once for every independently parseable record. No index
 /// family rereads or reparses the source; builders share the extracted value.
@@ -820,6 +854,7 @@ pub(crate) fn frame_file_for_build(
     Ok(Some((Arc::new(bytes), ranges)))
 }
 
+
 /// One bounded piece of a newline-framed source. Ranges address `bytes`;
 /// `file_offset` translates them into the repository's absolute file ranges.
 pub(crate) struct BoundedBuildChunk {
@@ -829,11 +864,13 @@ pub(crate) struct BoundedBuildChunk {
     pub preceding_lines: u64,
 }
 
+
 struct PendingBuildLine {
     bytes: Vec<u8>,
     file_offset: u64,
     preceding_lines: u64,
 }
+
 
 /// Build-only line framing. It holds one chunk and, when a boundary is
 /// reached, at most one pending line. A single oversized line is admitted as
@@ -847,12 +884,14 @@ pub(crate) struct BoundedJsonLines<R: BufRead = BufReader<std::fs::File>> {
     eof: bool,
 }
 
+
 impl BoundedJsonLines<BufReader<std::fs::File>> {
     pub fn open(path: &Path) -> Result<Self, String> {
         let file = std::fs::File::open(path).map_err(|error| error.to_string())?;
         Ok(Self::from_reader(BufReader::new(file)))
     }
 }
+
 
 impl<R: BufRead> BoundedJsonLines<R> {
     pub(crate) fn from_reader(reader: R) -> Self {
@@ -951,6 +990,7 @@ impl<R: BufRead> BoundedJsonLines<R> {
     }
 }
 
+
 pub(crate) fn extract_framed_build_outcomes<F>(
     path: &Path,
     source: &dyn SourceReader,
@@ -1016,6 +1056,7 @@ thread_local! {
     static FILE_COORDINATE_SCANNED_BYTES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
+
 /// Running file position for ordered reader ranges, bounded independently of file size.
 #[derive(Default)]
 struct FileCoordinateCursor {
@@ -1023,6 +1064,7 @@ struct FileCoordinateCursor {
     earlier_lines: u64,
     line_start: usize,
 }
+
 
 fn file_coordinates(
     file: &[u8],
@@ -1251,6 +1293,7 @@ pub fn read_record_ranges(
     RecordRangeReader::open(path, revision)?.read(ranges)
 }
 
+
 /// One opened source handle for a bounded sequence of range batches.
 pub struct RecordRangeReader {
     file: std::fs::File,
@@ -1263,6 +1306,7 @@ pub struct RecordRangeReader {
     #[cfg(test)]
     pub(crate) max_window_read: usize,
 }
+
 
 impl RecordRangeReader {
     pub fn open(path: &Path, revision: SourceRevision) -> Result<Self, String> {
@@ -1425,6 +1469,7 @@ impl RecordRangeReader {
         Ok((output, total as u64))
     }
 }
+
 
 #[cfg(test)]
 #[path = "source.test.rs"]

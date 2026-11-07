@@ -1,6 +1,5 @@
 use super::*;
 
-
 fn press(input: &mut Input, code: KeyCode, modifiers: KeyModifiers) -> Option<bool> {
     input.key(KeyEvent::new(code, modifiers))
 }

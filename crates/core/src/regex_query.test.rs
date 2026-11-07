@@ -449,10 +449,12 @@ fn generated_regex_matches_remain_inside_conservative_gram_candidates() {
     }
 }
 
+
 #[derive(Debug)]
 struct RegexMapping {
     compatible: bool,
 }
+
 
 impl BindingOperation for RegexMapping {
     fn accepts(
@@ -484,6 +486,7 @@ impl BindingOperation for RegexMapping {
         self.compatible
     }
 }
+
 
 #[test]
 fn custom_regex_binding_requires_explicit_representation_contract() {

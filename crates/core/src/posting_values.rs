@@ -15,6 +15,7 @@ use crate::repository::{CollectionState, Repository};
 static NEXT_SELECTION_ID: AtomicU64 = AtomicU64::new(1);
 pub const MAX_POSTING_VALUES_PAGE: usize = 4096;
 
+
 /// Inclusive or exclusive typed dictionary boundary.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValueBound {
@@ -22,9 +23,11 @@ pub struct PostingValueBound {
     pub inclusive: bool,
 }
 
+
 /// Complete verified membership for one collection in one repository instance.
 #[derive(Clone, Debug)]
 pub struct ExactSelection(Arc<SelectionData>);
+
 
 #[derive(Debug)]
 struct SelectionData {
@@ -35,6 +38,7 @@ struct SelectionData {
     members: RoaringBitmap,
 }
 
+
 impl ExactSelection {
     pub fn len(&self) -> u64 {
         self.0.members.len()
@@ -44,6 +48,7 @@ impl ExactSelection {
         self.0.members.is_empty()
     }
 }
+
 
 /// One bounded page over an indexed field's stored value representation.
 #[derive(Clone, Debug)]
@@ -59,6 +64,7 @@ pub struct PostingValuesRequest {
     pub prefix: Option<String>,
     pub selection: Option<ExactSelection>,
 }
+
 
 impl PostingValuesRequest {
     pub fn new(collection: impl Into<String>, field: impl Into<String>, limit: usize) -> Self {
@@ -77,12 +83,14 @@ impl PostingValuesRequest {
     }
 }
 
+
 /// One typed key and the number of distinct eligible records containing it.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValueCount {
     pub value: ScalarKey,
     pub count: u64,
 }
+
 
 /// Domain and special-state totals for the selected posting representation.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -102,6 +110,7 @@ pub struct PostingValuesCoverage {
     pub value_counts_complete: bool,
 }
 
+
 /// In-process exclusive key that belongs to one repository generation and binding.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValuesCursor {
@@ -119,6 +128,7 @@ pub struct PostingValuesCursor {
     last_key: ScalarKey,
 }
 
+
 /// Values in posting-key order, with a cursor only when another key exists.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValuesPage {
@@ -130,6 +140,7 @@ pub struct PostingValuesPage {
     pub visited_keys: u64,
 }
 
+
 struct ResolvedPosting<'a> {
     index: &'a PostingIndex,
     binding: String,
@@ -137,6 +148,7 @@ struct ResolvedPosting<'a> {
     indexed_records: Option<&'a RoaringBitmap>,
     native_prefix: bool,
 }
+
 
 fn resolve<'a>(
     collection: &'a CollectionState,
@@ -308,6 +320,7 @@ fn empty_range(lower: &Bound<ScalarKey>, upper: &Bound<ScalarKey>) -> bool {
         _ => false,
     }
 }
+
 
 impl Repository {
     pub fn select_exact(&self, collection: &str, query: &Query) -> Result<ExactSelection, String> {
@@ -526,6 +539,7 @@ impl Repository {
         })
     }
 }
+
 
 #[cfg(test)]
 #[path = "posting_values.test.rs"]

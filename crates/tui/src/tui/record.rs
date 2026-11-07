@@ -19,6 +19,7 @@ pub(super) fn take_decode_count() -> usize {
     JSON_DECODE_COUNT.with(|count| count.replace(0))
 }
 
+
 /// One visible field, metadata item, or section heading.
 #[derive(Clone, Debug)]
 pub(super) struct RecordRow {
@@ -28,6 +29,7 @@ pub(super) struct RecordRow {
     pub(super) matched: bool,
     pub(super) branch: Option<(String, bool)>,
 }
+
 
 /// Cursor and fold state for a structured record.
 #[derive(Default)]
@@ -44,6 +46,7 @@ pub(super) struct RecordState {
     parsed: Option<serde_json::Value>,
     parsed_id: Option<(String, String)>,
 }
+
 
 impl RecordState {
     pub(super) fn reset(&mut self) {
@@ -153,6 +156,7 @@ impl RecordState {
         rows
     }
 }
+
 
 fn plain(rows: &mut Vec<RecordRow>, label: &str, value: String) {
     rows.push(RecordRow {
@@ -339,12 +343,14 @@ pub(super) fn column_value(hit: &SearchHit, path: &str) -> String {
     values.join(", ")
 }
 
+
 /// A bounded, display-only projection prepared when a result page arrives.
 #[derive(Clone, Debug, Default)]
 pub(super) struct DisplayRow {
     pub fields: Vec<String>,
     pub matched: String,
 }
+
 
 pub(super) fn display_row(
     hit: &SearchHit,

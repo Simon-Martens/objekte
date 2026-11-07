@@ -4,8 +4,8 @@ use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use std::time::SystemTime;
 
-use serde::{Deserialize, Serialize};
 use roaring::RoaringBitmap;
+use serde::{Deserialize, Serialize};
 
 use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
 use crate::source::{DiagnosticCategory, ReaderDiagnostic};
@@ -228,6 +228,7 @@ pub struct FileEntry {
     pub diagnostics: Vec<SourceDiagnostic>,
     pub omitted_diagnostics: u32,
 }
+
 
 impl FileEntry {
     pub(crate) fn record_diagnostic(
@@ -607,7 +608,9 @@ pub struct CollectionBuilder {
 
 impl CollectionBuilder {
     pub(crate) fn next_slot(&self) -> Result<RecordSlot, String> {
-        Ok(RecordSlot(u32::try_from(self.records.len()).map_err(|_| "too many records")?))
+        Ok(RecordSlot(
+            u32::try_from(self.records.len()).map_err(|_| "too many records")?,
+        ))
     }
 
     pub fn collection_id(&self) -> CollectionId {
@@ -717,7 +720,11 @@ impl CollectionBuilder {
         let mut offsets = Vec::with_capacity(cursors.len() + 1);
         offsets.push(0u32);
         for count in &cursors {
-            offsets.push((*offsets.last().unwrap()).checked_add(*count).ok_or("too many records")?);
+            offsets.push(
+                (*offsets.last().unwrap())
+                    .checked_add(*count)
+                    .ok_or("too many records")?,
+            );
         }
         let mut slots = vec![RecordSlot(0); self.records.len()];
         for (file, cursor) in cursors.iter_mut().enumerate() {

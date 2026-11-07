@@ -8,11 +8,13 @@ use crate::temporal_query::PeriodLiteral;
 
 const DAY_NS: i128 = 86_400_000_000_000;
 
+
 /// Execution-scoped UTC instant, injectable by callers and tests.
 #[derive(Clone, Copy, Debug)]
 pub struct ClockContext {
     pub now: OffsetDateTime,
 }
+
 
 fn next_month(date: Date) -> Result<Date, String> {
     let (year, month) = if date.month() == Month::December {
@@ -30,6 +32,7 @@ fn next_year(date: Date) -> Result<Date, String> {
     let year = date.year().checked_add(1).ok_or("year macro overflow")?;
     Date::from_calendar_date(year, Month::January, 1).map_err(|_| "year macro out of range".into())
 }
+
 
 impl ClockContext {
     pub fn new(now: OffsetDateTime) -> Self {
@@ -100,6 +103,7 @@ impl ClockContext {
         }
     }
 }
+
 
 #[cfg(test)]
 #[path = "clock_context.test.rs"]

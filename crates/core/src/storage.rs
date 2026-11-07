@@ -32,6 +32,7 @@ const MAGIC: &[u8; 8] = b"OBJSNAP1";
 pub const SNAPSHOT_VERSION: u32 = 14;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
+
 /// Phase timings for one explicit, durable snapshot save. Opening does not
 /// modify these values or perform a save.
 #[derive(Clone, Debug, Default)]
@@ -47,6 +48,7 @@ pub struct SnapshotSaveStats {
     pub sections: Vec<SnapshotSectionSaveStats>,
 }
 
+
 #[derive(Clone, Debug)]
 pub struct SnapshotSectionSaveStats {
     pub id: u32,
@@ -56,12 +58,14 @@ pub struct SnapshotSectionSaveStats {
     pub payload_bytes: u64,
 }
 
+
 /// Restore failures distinguish unreadable storage from invalid snapshot data.
 #[derive(Debug)]
 pub(crate) enum SnapshotLoadError {
     Access(String),
     Invalid(String),
 }
+
 
 impl std::fmt::Display for SnapshotLoadError {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -71,17 +75,20 @@ impl std::fmt::Display for SnapshotLoadError {
     }
 }
 
+
 impl From<String> for SnapshotLoadError {
     fn from(message: String) -> Self {
         Self::Invalid(message)
     }
 }
 
+
 impl From<&str> for SnapshotLoadError {
     fn from(message: &str) -> Self {
         Self::Invalid(message.into())
     }
 }
+
 
 fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadError {
     if error.kind() == std::io::ErrorKind::UnexpectedEof {
@@ -90,6 +97,7 @@ fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadErro
         SnapshotLoadError::Access(format!("snapshot access while reading {context}: {error}"))
     }
 }
+
 
 /// Snapshot representation of one source-file revision.
 #[derive(Serialize, Deserialize)]
@@ -103,6 +111,7 @@ struct EncodedFile {
     diagnostics: Vec<SourceDiagnostic>,
     omitted_diagnostics: u32,
 }
+
 
 /// Owned snapshot representation of a collection generation.
 #[derive(Serialize, Deserialize)]
@@ -122,6 +131,7 @@ struct EncodedCollection {
     relations: Vec<RelationIndex>,
 }
 
+
 /// Borrowed collection state prepared for snapshot encoding.
 #[derive(Serialize)]
 struct EncodedCollectionRef<'a> {
@@ -139,6 +149,7 @@ struct EncodedCollectionRef<'a> {
     stats: CollectionStats,
     relations: &'a Vec<RelationIndex>,
 }
+
 
 fn codec() -> impl Options {
     bincode::DefaultOptions::new()
@@ -438,6 +449,7 @@ fn read_section<T: for<'de> Deserialize<'de>>(
         .map_err(|e| SnapshotLoadError::Invalid(format!("invalid snapshot section: {e}")))
 }
 
+
 impl Repository {
     pub fn save_snapshot(&self, path: &Path) -> Result<(), String> {
         self.save_snapshot_with_stats(path).map(|_| ())
@@ -556,6 +568,7 @@ impl Repository {
     }
 }
 
+
 #[cfg(test)]
 impl Repository {
     pub(crate) fn save_default_snapshot_for_test(&self) {
@@ -566,6 +579,7 @@ impl Repository {
         .unwrap();
     }
 }
+
 
 pub fn load_snapshot(
     root: PathBuf,

@@ -26,6 +26,7 @@ use ratatui::crossterm::{
     execute,
 };
 
+
 #[derive(Clone, Default)]
 pub struct TuiOptions {
     pub single_collection: bool,
@@ -38,6 +39,7 @@ pub struct TuiOptions {
     pub snapshot_requested: bool,
     pub interruption: Option<CancellationToken>,
 }
+
 
 pub fn run_with_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
 where

@@ -14,7 +14,9 @@ use objekte_search_core::source::{
 };
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 
+
 struct PipeReader;
+
 
 impl SourceReader for PipeReader {
     fn name(&self) -> &'static str {
@@ -54,6 +56,7 @@ impl SourceReader for PipeReader {
         })
     }
 }
+
 
 fn add_field(schema: &mut Schema, name: &str, kind: LogicalType) {
     schema

@@ -16,7 +16,9 @@ use objekte_search_core::workload::{ReturnMode, SortField};
 
 static NEXT_ROOT: AtomicUsize = AtomicUsize::new(0);
 
+
 struct Fixture(PathBuf);
+
 
 impl Fixture {
     fn new() -> Self {
@@ -82,11 +84,13 @@ impl Fixture {
     }
 }
 
+
 impl Drop for Fixture {
     fn drop(&mut self) {
         std::fs::remove_dir_all(&self.0).ok();
     }
 }
+
 
 fn query(filter: &str, sort: Vec<SortField>, return_mode: ReturnMode) -> Query {
     Query {

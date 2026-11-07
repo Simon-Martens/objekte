@@ -50,12 +50,14 @@ pub fn counters_with_ms(counters: &WorkCounters) -> Value {
     value
 }
 
+
 /// Ordered event writer whose sequence belongs to the transport, not query rank.
 pub struct EventWriter<W: Write> {
     writer: W,
     sequence: u64,
     sink_ns: u128,
 }
+
 
 impl<W: Write> EventWriter<W> {
     pub fn new(writer: W) -> Self {
@@ -197,6 +199,7 @@ impl<W: Write> EventWriter<W> {
         Ok(())
     }
 }
+
 
 fn record_class(class: RecordClass) -> &'static str {
     match class {

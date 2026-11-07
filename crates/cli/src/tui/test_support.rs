@@ -10,11 +10,13 @@ use objekte_search_core::source::SourceFormat;
 
 use super::app::App;
 
+
 /// Fixture owner keeps source files alive while asynchronous queries run.
 pub(super) struct Fixture {
     pub(super) _temp: tempfile::TempDir,
     pub(super) app: App,
 }
+
 
 pub(super) fn fixture(count: usize) -> Fixture {
     let temp = tempfile::tempdir().unwrap();

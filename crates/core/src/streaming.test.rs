@@ -139,17 +139,20 @@ fn changed_source_revision_has_ordinary_and_stream_class() {
     );
 }
 
+
 /// Temporary repository whose source files are removed after each test.
 struct Fixture {
     root: PathBuf,
     repo: Repository,
 }
 
+
 impl Drop for Fixture {
     fn drop(&mut self) {
         std::fs::remove_dir_all(&self.root).ok();
     }
 }
+
 
 fn fixture() -> Fixture {
     fixture_with_alphabet(BigramAlphabet::Ascii)

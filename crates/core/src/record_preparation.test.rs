@@ -11,15 +11,19 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
         atomic::{AtomicUsize, Ordering},
     };
 
+
     struct ExpandingReader {
         calls: Arc<AtomicUsize>,
         estimate: bool,
         fail: bool,
     }
+
+
     impl SourceReader for ExpandingReader {
         fn name(&self) -> &'static str {
             "expanding"
         }
+
         fn frame(&self, bytes: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
             Ok(vec![crate::inventory::ByteRange::checked(
                 0,
@@ -27,6 +31,7 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
                 bytes.len() as u64,
             )?])
         }
+
         fn parse(&self, _bytes: &[u8]) -> Result<ExtractedRecord, String> {
             self.calls.fetch_add(1, Ordering::Relaxed);
             if self.fail {
@@ -40,6 +45,7 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
                 text: Vec::new(),
             })
         }
+
         fn estimate_query_value_bytes(
             &self,
             _bytes: &[u8],
@@ -48,6 +54,7 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
             self.estimate.then_some(4096)
         }
     }
+
 
     let context = || {
         ExecutionContext::new(

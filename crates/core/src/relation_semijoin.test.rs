@@ -17,7 +17,9 @@ use crate::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 
 use super::{Strategy, candidates_with_strategy};
 
+
 struct CountedJsonReader(Arc<AtomicUsize>);
+
 
 impl SourceReader for CountedJsonReader {
     fn name(&self) -> &'static str {
@@ -60,6 +62,7 @@ impl SourceReader for CountedJsonReader {
         JsonReader.parse_for_query(bytes, projection)
     }
 }
+
 
 #[test]
 fn estimate_only_explain_never_opens_or_parses_related_sources() {

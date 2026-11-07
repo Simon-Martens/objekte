@@ -15,6 +15,7 @@ use crate::sorting::SortKey;
 use crate::source::LogicalTextCoverage;
 use serde::Serialize;
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum AccessPathKind {
@@ -30,6 +31,7 @@ pub enum AccessPathKind {
     Scanner,
 }
 
+
 /// Estimated cost and coverage of one physical query path.
 #[derive(Clone, Debug, Serialize)]
 pub struct AccessPathEstimate {
@@ -41,6 +43,7 @@ pub struct AccessPathEstimate {
     pub estimated_files: f64,
     pub estimated_bytes: f64,
 }
+
 
 /// Planner decision and alternatives for one bound term.
 #[derive(Clone, Debug, Serialize)]
@@ -64,6 +67,7 @@ pub struct TermChoice {
     pub executed: bool,
 }
 
+
 /// Work done to choose and execute access paths for one filter expression.
 #[derive(Clone, Copy, Debug, Default, Serialize)]
 pub struct PlanningCounters {
@@ -74,12 +78,14 @@ pub struct PlanningCounters {
     pub reused_order_plans: u64,
 }
 
+
 #[derive(Default)]
 struct PlanContext {
     paths: HashMap<usize, Vec<AccessPathEstimate>>,
     counters: PlanningCounters,
     diagnostics: bool,
 }
+
 
 impl PlanContext {
     fn paths(
@@ -104,6 +110,7 @@ impl PlanContext {
         paths
     }
 }
+
 
 fn rescore_paths(
     collection: &CollectionState,
@@ -186,6 +193,7 @@ fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut 
     }
 }
 
+
 /// Known true and false fallback slots; all other slots are unavailable.
 struct FallbackTruth {
     yes: RoaringBitmap,
@@ -193,6 +201,7 @@ struct FallbackTruth {
     proofs: Vec<Proof>,
     choices: Vec<TermChoice>,
 }
+
 
 fn fallback_truth(
     repo: &Repository,
@@ -334,12 +343,14 @@ fn fallback_truth(
     })
 }
 
+
 /// Exact membership evidence produced by an index path.
 pub(crate) struct Proof {
     pub term: BoundTerm,
     pub input: RoaringBitmap,
     pub matches: RoaringBitmap,
 }
+
 
 /// Candidate set, exactness, and diagnostics for a planned expression.
 pub(crate) struct Plan {
@@ -351,6 +362,7 @@ pub(crate) struct Plan {
     pub semijoin_work: crate::relation_semijoin::SemijoinWork,
     pub planning: PlanningCounters,
 }
+
 
 /// A whole-record raw index is a field superset only when its source reader
 /// supplies every logical string and the indexed representation is identity.
@@ -872,6 +884,7 @@ pub(crate) fn estimate_expr(
     estimate_expr_cached(collection, expr, input_len, &mut PlanContext::default())
 }
 
+
 /// An estimate-only physical decision. It has no candidate membership or
 /// exact proof and is safe to use for non-analyzing EXPLAIN.
 pub(crate) struct EstimatedPlan {
@@ -881,12 +894,14 @@ pub(crate) struct EstimatedPlan {
     pub planning: PlanningCounters,
 }
 
+
 struct EstimatedNode {
     candidates: u64,
     exact: bool,
     work: f64,
     choices: Vec<TermChoice>,
 }
+
 
 pub(crate) fn estimate_plan_expr(
     collection: &CollectionState,
@@ -1475,6 +1490,7 @@ fn plan_logical_expr(
                 candidates = match (candidates, child.candidates) {
                     (Some(mut union), Some(set)) => {
                         union |= set;
+
 
                         Some(union)
                     }

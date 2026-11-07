@@ -386,7 +386,10 @@ fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
                 assert_eq!(actual.count, Some(48));
                 assert_eq!(actual.hits, expected.hits);
                 assert_eq!(actual.counters.sort_target_reads, target_count as u64);
-                assert_eq!(actual.counters.sort_target_reuse, (47 - target_count) as u64);
+                assert_eq!(
+                    actual.counters.sort_target_reuse,
+                    (47 - target_count) as u64
+                );
             }
             std::fs::remove_dir_all(root).unwrap();
         }

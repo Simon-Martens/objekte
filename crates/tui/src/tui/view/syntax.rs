@@ -8,7 +8,6 @@ const KEYWORDS: [&str; 9] = [
     "SORT", "BY", "ASC", "DESC", "exists", "missing", "true", "false", "null",
 ];
 
-
 /// One style per character of `text`.
 pub(super) fn filter_styles(text: &str) -> Vec<Style> {
     let chars = text.chars().collect::<Vec<_>>();

@@ -461,10 +461,12 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+
 #[derive(Debug)]
 struct FoldPosting {
     complete: bool,
 }
+
 
 impl crate::reference::BindingOperation for FoldPosting {
     fn accepts(&self, kind: &LogicalType, operator: crate::query::Operator, _: bool) -> bool {
@@ -509,6 +511,7 @@ impl crate::reference::BindingOperation for FoldPosting {
         self.complete
     }
 }
+
 
 #[test]
 fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {

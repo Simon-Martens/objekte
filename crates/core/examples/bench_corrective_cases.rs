@@ -71,12 +71,14 @@ fn compact_contains(text: &str, needle: &str) -> bool {
     })
 }
 
+
 #[derive(Debug)]
 struct CompactMatcher {
     needle: String,
     operator: Operator,
     callbacks: Arc<AtomicU64>,
 }
+
 
 impl PreparedFilterMatcher for CompactMatcher {
     fn matches(&self, value: Option<&Value>, _: Option<&[u8]>) -> Result<bool, String> {
@@ -104,12 +106,14 @@ impl PreparedFilterMatcher for CompactMatcher {
     }
 }
 
+
 #[derive(Debug)]
 struct CompactOperation {
     preparations: Arc<AtomicU64>,
     mappings: Arc<AtomicU64>,
     callbacks: Arc<AtomicU64>,
 }
+
 
 impl BindingOperation for CompactOperation {
     fn accepts(&self, kind: &LogicalType, operator: Operator, _: bool) -> bool {
@@ -173,6 +177,7 @@ impl BindingOperation for CompactOperation {
         true
     }
 }
+
 
 fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
     let custom_root = root.join("custom-fixture");

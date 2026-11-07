@@ -39,16 +39,22 @@ fn run() -> Result<(), String> {
         }
     }
     let selected = selected.ok_or("--cases is required")?;
-    let baseline_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+    let baseline_path =
+        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
     let manifest = if extended {
         load_extended_manifest(
             &baseline_path,
-            &PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json"),
+            &PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+                .join("benches/musenalm_queries_extended.json"),
         )?
     } else {
         load_manifest(&baseline_path)?
             .into_iter()
-            .map(|request| BenchmarkCase { request, parameters: BTreeMap::new(), clock_unix_seconds: None })
+            .map(|request| BenchmarkCase {
+                request,
+                parameters: BTreeMap::new(),
+                clock_unix_seconds: None,
+            })
             .collect()
     };
     for id in &selected {
@@ -58,7 +64,11 @@ fn run() -> Result<(), String> {
     }
     let repo = Repository::open_with_options(
         &root,
-        if extended { musenalm::load_extended_definitions(&root)? } else { musenalm::load_definitions(&root)? },
+        if extended {
+            musenalm::load_extended_definitions(&root)?
+        } else {
+            musenalm::load_definitions(&root)?
+        },
         RepositoryOptions {
             bigram_alphabet: alphabet,
             ..RepositoryOptions::default()

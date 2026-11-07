@@ -123,6 +123,7 @@ fn fixture() -> (
     (root, sources, targets)
 }
 
+
 #[derive(Clone, Copy)]
 enum TargetTest {
     TitleIsHymn,
@@ -130,11 +131,13 @@ enum TargetTest {
     IssuedInFebruary,
 }
 
+
 #[derive(Clone, Copy)]
 enum Quantifier {
     All,
     Any,
 }
+
 
 // This oracle reads the original JSON fixture and never calls the engine's
 // binding, relation index, scanner, or exact comparison helpers.

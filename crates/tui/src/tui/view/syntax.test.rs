@@ -1,6 +1,5 @@
 use super::*;
 
-
 #[test]
 fn tokens_get_their_colours() {
     let text = "year >= 1800 && title ~ 'Moon' SORT BY @modified DESC";

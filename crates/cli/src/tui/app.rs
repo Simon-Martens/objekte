@@ -83,6 +83,7 @@ fn field_label(path: &str, modifiers: &[Modifier]) -> String {
     label
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Focus {
     Search,
@@ -90,11 +91,13 @@ pub(super) enum Focus {
     Results,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum View {
     Results,
     Detail,
 }
+
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Overlay {
@@ -108,6 +111,7 @@ pub(super) enum Overlay {
     Export { all: bool },
     Help,
 }
+
 
 /// Commands exposed by the action picker and their keyboard shortcuts.
 #[derive(Clone, Copy, Debug)]
@@ -126,6 +130,7 @@ pub(super) enum Action {
     Theme,
     Help,
 }
+
 
 impl Action {
     pub(super) const ALL: [Self; 13] = [
@@ -163,6 +168,7 @@ impl Action {
     }
 }
 
+
 /// Search response tagged with the input generation and requested page.
 struct Update {
     generation: u64,
@@ -170,6 +176,7 @@ struct Update {
     elapsed: Duration,
     result: Result<SearchResult, String>,
 }
+
 
 /// Query inputs, page state, and terminal navigation for one repository.
 pub(super) struct App {
@@ -232,6 +239,7 @@ pub(super) struct App {
     sender: mpsc::Sender<Update>,
     receiver: mpsc::Receiver<Update>,
 }
+
 
 impl App {
     #[cfg(test)]
@@ -1233,6 +1241,7 @@ impl App {
         }
     }
 }
+
 
 fn sort_label(sort: &SortField) -> String {
     let Some(expression) = &sort.expression else {

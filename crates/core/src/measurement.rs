@@ -2,6 +2,7 @@
 
 use serde::{Deserialize, Serialize};
 
+
 /// Observed candidate, source, cache, and result work.
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
 pub struct WorkCounters {
@@ -77,6 +78,7 @@ pub struct WorkCounters {
     pub verified_result_hit: bool,
 }
 
+
 /// Counts produced by scanning one primary-source file. Relation reads are
 /// charged separately so the relation budget is checked at the same point as
 /// in the query executor.
@@ -90,6 +92,7 @@ pub(crate) struct ScanWork {
     pub sort_key_evaluations: u64,
     pub residual_evaluations: u64,
 }
+
 
 impl WorkCounters {
     pub(crate) fn add_scan(

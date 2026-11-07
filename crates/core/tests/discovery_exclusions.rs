@@ -3,8 +3,10 @@ use std::path::{Path, PathBuf};
 use objekte_search_core::discovery::{Discovery, SymlinkPolicy, discover};
 use objekte_search_core::source::{SourceFormat, SourceRegistry};
 
+
 /// Builds a private fixture tree for traversal-policy assertions.
 struct Fixture(PathBuf);
+
 
 impl Fixture {
     fn new() -> Self {
@@ -27,11 +29,13 @@ impl Fixture {
     }
 }
 
+
 impl Drop for Fixture {
     fn drop(&mut self) {
         std::fs::remove_dir_all(&self.0).unwrap();
     }
 }
+
 
 #[test]
 fn excluded_directories_are_pruned_instead_of_only_filtering_files() {
@@ -73,7 +77,6 @@ fn excluded_directories_are_pruned_instead_of_only_filtering_files() {
     );
 }
 
-
 #[cfg(unix)]
 #[test]
 fn exact_directory_exclusion_preserves_non_utf8_path_identity() {
@@ -84,14 +87,18 @@ fn exact_directory_exclusion_preserves_non_utf8_path_identity() {
     let name = PathBuf::from(OsString::from_vec(vec![b'c', 0xff]));
     std::fs::create_dir(fixture.0.join(&name)).unwrap();
     std::fs::write(fixture.0.join(&name).join("inside.json"), b"{}\n").unwrap();
-    let source = SourceRegistry::builtin().resolve(&SourceFormat::Json).unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
     let rules = Discovery {
         recursive: true,
         hidden: true,
         exclude_directories: vec![name],
         ..Discovery::default()
     };
-    assert!(discover(&fixture.0, Path::new(""), &rules, &source)
-        .unwrap()
-        .is_empty());
+    assert!(
+        discover(&fixture.0, Path::new(""), &rules, &source)
+            .unwrap()
+            .is_empty()
+    );
 }

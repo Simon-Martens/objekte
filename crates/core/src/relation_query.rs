@@ -26,12 +26,14 @@ const MAX_QUERY_BACKLINK_PROBES: u64 = 32_000_000;
 const MAX_QUERY_RECORD_READS: u64 = 5_000_000;
 const MAX_QUERY_RELATION_BYTES: u64 = 1024 * 1024 * 1024;
 
+
 /// Direction of a declared, collection-scoped relation hop.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum HopDirection {
     Forward,
     Backlink,
 }
+
 
 /// One resolved hop and its explicit array selectors in source order.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -43,6 +45,7 @@ pub struct BoundRelationHop {
     pub to: CollectionId,
 }
 
+
 /// A finite path that begins at the matching source and ends at a local term.
 #[derive(Clone, Debug)]
 pub struct BoundRelationPath {
@@ -53,11 +56,13 @@ pub struct BoundRelationPath {
     pub evidence_path: String,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum EvaluationMode {
     Indexed,
     Reference,
 }
+
 
 /// Physical work caused by relation traversal, separate from the source scan.
 #[derive(Clone, Default)]
@@ -71,6 +76,7 @@ pub(crate) struct RelationWork {
     execution: Option<crate::streaming::ExecutionContext>,
 }
 
+
 fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), String> {
     *counter = counter
         .checked_add(amount)
@@ -80,6 +86,7 @@ fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), 
     }
     Ok(())
 }
+
 
 impl RelationWork {
     pub(crate) fn attach(&mut self, execution: Option<&crate::streaming::ExecutionContext>) {
@@ -167,6 +174,7 @@ impl RelationWork {
     }
 }
 
+
 /// Combine bounded scanner chunks into one query-wide relation work budget.
 pub(crate) fn check_query_work_budget(
     counters: &crate::workload::WorkCounters,
@@ -205,6 +213,7 @@ pub(crate) fn check_query_work_budget(
     Ok(())
 }
 
+
 /// Immutable traversal choices shared by every hop of one predicate.
 #[derive(Clone, Copy)]
 struct TraverseConfig<'a> {
@@ -215,6 +224,7 @@ struct TraverseConfig<'a> {
     mode: EvaluationMode,
     target_values: Option<&'a TargetValueCache>,
 }
+
 
 /// Bind a Boolean expression with collection-specific relation declarations.
 pub(crate) fn bind_filter_with_relations(
@@ -1356,12 +1366,14 @@ fn read_reference_value(
     Ok(Some(extracted.value))
 }
 
+
 /// Independent logical ID occurrences and presence/null state.
 struct LogicalReferences {
     present: bool,
     null: bool,
     values: Vec<(String, Vec<u32>)>,
 }
+
 
 /// An intentionally separate, iterative oracle for declared ID occurrences.
 /// It walks logical values directly and never consults build-time edge state.

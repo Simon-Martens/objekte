@@ -4,12 +4,14 @@ use std::path::{Component, Path, PathBuf};
 
 use clap::{ArgGroup, Parser, ValueEnum};
 
+
 /// The alphabet used by the shared bigram index.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
 pub enum Alphabet {
     Ascii,
     Unicode,
 }
+
 
 /// One invocation of the general JSON search command.
 #[derive(Clone, Debug, Parser)]
@@ -86,6 +88,7 @@ pub struct Arguments {
     pub diagnostic: bool,
 }
 
+
 /// Canonical collection root and one resolved optional snapshot directory.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResolvedPaths {
@@ -94,6 +97,7 @@ pub struct ResolvedPaths {
     pub index_directory: Option<PathBuf>,
     pub schema_file: Option<PathBuf>,
 }
+
 
 impl Arguments {
     pub fn multiple_collections(&self) -> bool {
@@ -216,6 +220,7 @@ impl Arguments {
         })
     }
 }
+
 
 fn index_path(input: &str, cwd: &Path, root: &Path) -> Result<PathBuf, String> {
     let path = if input.is_empty() {

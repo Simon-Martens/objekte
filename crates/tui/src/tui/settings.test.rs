@@ -1,6 +1,5 @@
 use super::*;
 
-
 fn query(search: &str) -> Query {
     Query {
         search: search.into(),

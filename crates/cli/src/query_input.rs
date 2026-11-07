@@ -10,6 +10,7 @@ use objekte_search_core::workload::ReturnMode;
 
 use crate::arguments::Arguments;
 
+
 /// Query spelling, source location, and explicit input kind.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct QueryInput {
@@ -18,12 +19,14 @@ pub struct QueryInput {
     pub kind: QueryKind,
 }
 
+
 /// How one input is parsed before the core request is built.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum QueryKind {
     Structured,
     Fts,
 }
+
 
 /// One direct query or a buffered physical-line reader.
 pub struct QuerySource {
@@ -33,6 +36,7 @@ pub struct QuerySource {
     first_line: bool,
     yielded: usize,
 }
+
 
 impl QueryInput {
     pub fn parse(&self, args: &Arguments) -> Result<(Query, Option<String>), String> {
@@ -81,6 +85,7 @@ impl QueryInput {
         ))
     }
 }
+
 
 impl QuerySource {
     pub fn open(args: &Arguments) -> Result<Self, String> {
@@ -157,6 +162,7 @@ impl QuerySource {
         self.yielded
     }
 }
+
 
 fn kind_of(text: &str) -> QueryKind {
     if text.starts_with('"') {

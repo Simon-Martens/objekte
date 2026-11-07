@@ -9,6 +9,7 @@ use crate::source::RecordRangeReader;
 const MAX_OPEN_HANDLES: usize = 8;
 const WINDOW_BYTES: u64 = 64 * 1024;
 
+
 struct OpenSource {
     file_id: FileId,
     revision: SourceRevision,
@@ -18,6 +19,7 @@ struct OpenSource {
     last_used: u64,
 }
 
+
 pub(crate) struct SourceAccessSession<'a> {
     files: &'a FileInventory,
     open: Vec<OpenSource>,
@@ -26,11 +28,13 @@ pub(crate) struct SourceAccessSession<'a> {
     execution: Option<crate::streaming::ExecutionContext>,
 }
 
+
 pub(crate) struct RangeBatch {
     pub records: Vec<(u32, Vec<u8>)>,
     pub opened: u64,
     pub bytes_read: u64,
 }
+
 
 impl<'a> SourceAccessSession<'a> {
     pub fn new(files: &'a FileInventory) -> Self {
@@ -180,6 +184,7 @@ impl<'a> SourceAccessSession<'a> {
         })
     }
 }
+
 
 #[cfg(test)]
 #[path = "source_access.test.rs"]
