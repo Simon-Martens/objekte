@@ -221,6 +221,25 @@ fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
 }
 
 #[test]
+fn scalar_metadata_comparisons_preserve_null_and_timestamp_rules() {
+    with_record(Value::Null, |ctx| {
+        for (expression, expected) in [
+            ("@file.modified >= '1970-01-01T00:00:00Z'", true),
+            ("@file.modified > '1970-01-01T00:00:00Z'", false),
+            ("@file.modified < '1971-01-01T00:00:00Z'", true),
+            ("@file.created:null = true", true),
+            ("@file.created = '1970-01-01T00:00:00Z'", false),
+        ] {
+            let bound = bind_filter(&parse_filter(expression).unwrap(), &schema()).unwrap();
+            let BoundExpr::Term(term) = bound else {
+                panic!("expected one metadata predicate");
+            };
+            assert_eq!(eval_term(&term, &ctx).unwrap(), expected, "{expression}");
+        }
+    });
+}
+
+#[test]
 fn truth_table_arrays_null_and_case_folding() {
     let value = Value::from_json(serde_json::json!({"name":"Straße", "values":["a","b"], "people":[{"name":"Ada","aliases":["A","Ada"]},{"name":"Bob","aliases":["B"]}]})).unwrap();
     with_record(value, |ctx| {

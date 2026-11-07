@@ -1904,6 +1904,21 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
             return matcher.matches(None, ctx.source_bytes);
         }
     }
+    if let PathRoot::Metadata(field) = term.path.root {
+        if term.derived == Derived::None && !term.multi {
+            let value = if field == MetadataField::RecordId
+                && term.transform == Transform::CaseFold
+            {
+                Value::String(ctx.record.id.0.clone())
+            } else {
+                metadata_value(field, ctx)?
+            };
+            if matches!(value, Value::Null) && !matches!(term.literal, Value::Null) {
+                return Ok(false);
+            }
+            return compare_bound(&value, term);
+        }
+    }
     let owned;
     let mut selected = if let PathRoot::Metadata(field) = term.path.root {
         owned = if field == MetadataField::RecordId && term.transform == Transform::CaseFold {
