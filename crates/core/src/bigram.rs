@@ -105,6 +105,11 @@ impl BigramRequest {
     pub(crate) fn gram_count(&self, alphabet: BigramAlphabet) -> usize {
         self.grams(alphabet).len()
     }
+
+    pub(crate) fn retained_heap_bytes(&self) -> usize {
+        (self.ascii.capacity() + self.unicode.capacity())
+            .saturating_mul(std::mem::size_of::<(bool, u64)>())
+    }
 }
 
 
