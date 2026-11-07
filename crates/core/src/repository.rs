@@ -591,6 +591,36 @@ impl Repository {
         crate::run::search(self, resolved.as_ref())
     }
 
+    /// Count exact matches without constructing a result page or sort keys.
+    /// Query parameters must already be bound; unresolved clock macros use
+    /// the current clock, as in `search`.
+    pub fn count_exact(&self, query: &Query) -> Result<usize, String> {
+        let mut request = query.clone();
+        request.options.count = true;
+        request.options.limit = 0;
+        request.options.offset = 0;
+        self.search(&request)?.count.ok_or("count result missing".into())
+    }
+
+    /// Count with the same frozen clock, cancellation, and limits as
+    /// `search_with_context`. The context belongs to this one invocation.
+    pub fn count_exact_with_context(
+        &self,
+        query: &Query,
+        context: &crate::streaming::ExecutionContext,
+    ) -> Result<usize, crate::streaming::ExecutionError> {
+        let mut request = query.clone();
+        request.options.count = true;
+        request.options.limit = 0;
+        request.options.offset = 0;
+        self.search_with_context(&request, context)?
+            .count
+            .ok_or_else(|| crate::streaming::ExecutionError {
+                kind: crate::streaming::ExecutionErrorKind::Execution,
+                message: "count result missing".into(),
+            })
+    }
+
     /// Search using one frozen clock and shared cancellation/resource limits.
     pub fn search_with_context(
         &self,
