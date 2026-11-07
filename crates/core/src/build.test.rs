@@ -43,7 +43,8 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
     struct DelayedReader {
         active: AtomicUsize,
         peak: AtomicUsize,
-        second_done: AtomicBool,
+        first_started: AtomicBool,
+        second_started: AtomicBool,
         fail_first: bool,
         first_failed: AtomicBool,
         parsed: AtomicUsize,
@@ -67,8 +68,9 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
             let active = self.active.fetch_add(1, Ordering::SeqCst) + 1;
             self.peak.fetch_max(active, Ordering::SeqCst);
             if bytes == b"first" {
+                self.first_started.store(true, Ordering::SeqCst);
                 let started = std::time::Instant::now();
-                while !self.second_done.load(Ordering::SeqCst) {
+                while !self.second_started.load(Ordering::SeqCst) {
                     if started.elapsed().as_secs() > 5 {
                         return Err("second batch did not overlap first".into());
                     }
@@ -80,7 +82,14 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
                     return Err("intentional parser failure".into());
                 }
             } else {
-                self.second_done.store(true, Ordering::SeqCst);
+                self.second_started.store(true, Ordering::SeqCst);
+                let started = std::time::Instant::now();
+                while !self.first_started.load(Ordering::SeqCst) {
+                    if started.elapsed().as_secs() > 5 {
+                        return Err("first batch did not overlap second".into());
+                    }
+                    std::thread::yield_now();
+                }
                 if self.fail_first {
                     let started = std::time::Instant::now();
                     while !self.first_failed.load(Ordering::SeqCst) {
@@ -125,7 +134,8 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
     let reader = std::sync::Arc::new(DelayedReader {
         active: AtomicUsize::new(0),
         peak: AtomicUsize::new(0),
-        second_done: AtomicBool::new(false),
+        first_started: AtomicBool::new(false),
+        second_started: AtomicBool::new(false),
         fail_first: false,
         first_failed: AtomicBool::new(false),
         parsed: AtomicUsize::new(0),
@@ -185,7 +195,8 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
     let failing = std::sync::Arc::new(DelayedReader {
         active: AtomicUsize::new(0),
         peak: AtomicUsize::new(0),
-        second_done: AtomicBool::new(false),
+        first_started: AtomicBool::new(false),
+        second_started: AtomicBool::new(false),
         fail_first: true,
         first_failed: AtomicBool::new(false),
         parsed: AtomicUsize::new(0),
