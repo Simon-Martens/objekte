@@ -32,6 +32,46 @@ pub const SNAPSHOT_VERSION: u32 = 12;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
+/// Restore failures distinguish unreadable storage from invalid snapshot data.
+#[derive(Debug)]
+pub(crate) enum SnapshotLoadError {
+    Access(String),
+    Invalid(String),
+}
+
+
+impl std::fmt::Display for SnapshotLoadError {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Access(message) | Self::Invalid(message) => formatter.write_str(message),
+        }
+    }
+}
+
+
+impl From<String> for SnapshotLoadError {
+    fn from(message: String) -> Self {
+        Self::Invalid(message)
+    }
+}
+
+
+impl From<&str> for SnapshotLoadError {
+    fn from(message: &str) -> Self {
+        Self::Invalid(message.into())
+    }
+}
+
+
+fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadError {
+    if error.kind() == std::io::ErrorKind::UnexpectedEof {
+        SnapshotLoadError::Invalid(format!("truncated {context}: {error}"))
+    } else {
+        SnapshotLoadError::Access(format!("snapshot access while reading {context}: {error}"))
+    }
+}
+
+
 /// Snapshot representation of one source-file revision.
 #[derive(Serialize, Deserialize)]
 struct EncodedFile {
@@ -129,7 +169,12 @@ fn path_from_bytes(bytes: Vec<u8>) -> Result<PathBuf, String> {
 }
 
 pub fn snapshot_path(root: &Path, alphabet: BigramAlphabet) -> PathBuf {
-    root.join(".objekte").join(match alphabet {
+    snapshot_path_in(&root.join(".objekte"), alphabet)
+}
+
+/// Resolve an alphabet-specific snapshot inside an explicit directory.
+pub fn snapshot_path_in(directory: &Path, alphabet: BigramAlphabet) -> PathBuf {
+    directory.join(match alphabet {
         BigramAlphabet::Ascii => "search-core-ascii.snapshot",
         BigramAlphabet::Unicode => "search-core-unicode.snapshot",
     })
@@ -311,16 +356,16 @@ fn write_section(file: &mut impl Write, id: u32, value: &impl Serialize) -> Resu
 fn read_section<T: for<'de> Deserialize<'de>>(
     file: &mut impl Read,
     expected_id: u32,
-) -> Result<T, String> {
+) -> Result<T, SnapshotLoadError> {
     let mut id = [0; 4];
     let mut size = [0; 8];
     let mut checksum = [0; 32];
     file.read_exact(&mut id)
-        .map_err(|e| format!("truncated snapshot section ID: {e}"))?;
+        .map_err(|e| snapshot_read_error("snapshot section ID", e))?;
     file.read_exact(&mut size)
-        .map_err(|e| format!("truncated snapshot section size: {e}"))?;
+        .map_err(|e| snapshot_read_error("snapshot section size", e))?;
     file.read_exact(&mut checksum)
-        .map_err(|e| format!("truncated snapshot checksum: {e}"))?;
+        .map_err(|e| snapshot_read_error("snapshot checksum", e))?;
     if u32::from_le_bytes(id) != expected_id {
         return Err("snapshot section order mismatch".into());
     }
@@ -330,14 +375,14 @@ fn read_section<T: for<'de> Deserialize<'de>>(
     }
     let mut bytes = vec![0; len as usize];
     file.read_exact(&mut bytes)
-        .map_err(|e| format!("truncated snapshot section: {e}"))?;
+        .map_err(|e| snapshot_read_error("snapshot section", e))?;
     if Sha256::digest(&bytes).as_slice() != checksum {
         return Err("snapshot checksum mismatch".into());
     }
     codec()
         .with_limit(len)
         .deserialize(&bytes)
-        .map_err(|e| format!("invalid snapshot section: {e}"))
+        .map_err(|e| SnapshotLoadError::Invalid(format!("invalid snapshot section: {e}")))
 }
 
 
@@ -429,18 +474,36 @@ pub fn load_snapshot(
     sources: &SourceRegistry,
     path: &Path,
 ) -> Result<Repository, String> {
+    load_snapshot_checked(root, definitions, options, sources, path)
+        .map_err(|error| error.to_string())
+}
+
+pub(crate) fn load_snapshot_checked(
+    root: PathBuf,
+    definitions: Vec<CollectionDefinition>,
+    options: RepositoryOptions,
+    sources: &SourceRegistry,
+    path: &Path,
+) -> Result<Repository, SnapshotLoadError> {
     crate::relation::validate_definitions(&definitions)?;
-    let mut file = File::open(path).map_err(|e| e.to_string())?;
+    let mut file = File::open(path).map_err(|e| {
+        SnapshotLoadError::Access(format!("snapshot access: {}: {e}", path.display()))
+    })?;
     let mut magic = [0; 8];
     let mut version = [0; 4];
     let mut model = [0; 4];
     let mut hash = [0; 32];
     let mut count = [0; 4];
-    file.read_exact(&mut magic).map_err(|e| e.to_string())?;
-    file.read_exact(&mut version).map_err(|e| e.to_string())?;
-    file.read_exact(&mut model).map_err(|e| e.to_string())?;
-    file.read_exact(&mut hash).map_err(|e| e.to_string())?;
-    file.read_exact(&mut count).map_err(|e| e.to_string())?;
+    file.read_exact(&mut magic)
+        .map_err(|e| snapshot_read_error("snapshot magic", e))?;
+    file.read_exact(&mut version)
+        .map_err(|e| snapshot_read_error("snapshot version", e))?;
+    file.read_exact(&mut model)
+        .map_err(|e| snapshot_read_error("snapshot model", e))?;
+    file.read_exact(&mut hash)
+        .map_err(|e| snapshot_read_error("snapshot configuration", e))?;
+    file.read_exact(&mut count)
+        .map_err(|e| snapshot_read_error("snapshot collection count", e))?;
     if &magic != MAGIC
         || u32::from_le_bytes(version) != SNAPSHOT_VERSION
         || u32::from_le_bytes(model) != crate::MODEL_VERSION
@@ -836,7 +899,11 @@ pub fn load_snapshot(
         }
     }
     let mut trailing = [0; 1];
-    if file.read(&mut trailing).map_err(|e| e.to_string())? != 0 {
+    if file
+        .read(&mut trailing)
+        .map_err(|e| snapshot_read_error("snapshot trailer", e))?
+        != 0
+    {
         return Err("snapshot trailing bytes".into());
     }
     Ok(Repository {

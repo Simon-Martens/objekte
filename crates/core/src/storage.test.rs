@@ -3,8 +3,120 @@ use crate::model::{FieldPath, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
 use crate::repository::IdentityPolicy;
+use crate::repository::{SnapshotAction, SnapshotMode, SnapshotOpenPolicy};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
+
+
+#[test]
+fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
+    static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+    let root = std::env::temp_dir().join(format!(
+        "objekte-snapshot-policy-{}-{}",
+        std::process::id(),
+        NEXT.fetch_add(1, std::sync::atomic::Ordering::Relaxed)
+    ));
+    fs::create_dir_all(root.join("data")).unwrap();
+    fs::write(root.join("data/a.json"), br#"{"title":"A"}"#).unwrap();
+    let directory = root.join("private-cache");
+    let definition = CollectionDefinition::folder("files", "data", SourceFormat::Json);
+    let open = |mode| {
+        Repository::open_with_snapshot_policy(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions::default(),
+            SnapshotOpenPolicy::new(mode, Some(directory.clone())),
+        )
+    };
+    let snapshot = snapshot_path_in(&directory, BigramAlphabet::Ascii);
+    let built_memory = open(SnapshotMode::Disabled).unwrap();
+    assert_eq!(
+        built_memory.startup().snapshot_action,
+        SnapshotAction::BuiltInMemory
+    );
+    assert!(!snapshot.exists());
+    assert!(
+        open(SnapshotMode::ReadOnly)
+            .err()
+            .unwrap()
+            .contains("snapshot missing")
+    );
+
+    let written = open(SnapshotMode::Rebuild).unwrap();
+    assert_eq!(
+        written.startup().snapshot_action,
+        SnapshotAction::BuiltAndWritten
+    );
+    assert_eq!(written.build_parses(), 1);
+    let original = fs::read(&snapshot).unwrap();
+    let restored = open(SnapshotMode::ReadOnly).unwrap();
+    assert_eq!(restored.startup().snapshot_action, SnapshotAction::Restored);
+    assert_eq!(restored.build_parses(), 0);
+    assert_eq!(fs::read(&snapshot).unwrap(), original);
+    let load_and_write = open(SnapshotMode::ReadWrite).unwrap();
+    assert_eq!(
+        load_and_write.startup().snapshot_action,
+        SnapshotAction::Restored
+    );
+    assert_eq!(load_and_write.startup().snapshot_write_ns, 0);
+    assert_eq!(fs::read(&snapshot).unwrap(), original);
+    let write_only = open(SnapshotMode::Rebuild).unwrap();
+    assert_eq!(
+        write_only.startup().snapshot_action,
+        SnapshotAction::BuiltAndWritten
+    );
+    assert_eq!(write_only.build_parses(), 1);
+    let ignored = open(SnapshotMode::Disabled).unwrap();
+    assert_eq!(ignored.build_parses(), 1);
+    assert_eq!(fs::read(&snapshot).unwrap(), original);
+
+    fs::write(root.join("data/b.json"), br#"{"title":"B"}"#).unwrap();
+    assert!(
+        open(SnapshotMode::ReadOnly)
+            .err()
+            .unwrap()
+            .contains("stale")
+    );
+    assert_eq!(fs::read(&snapshot).unwrap(), original);
+    let rebuilt = open(SnapshotMode::ReadWrite).unwrap();
+    assert_eq!(
+        rebuilt.startup().snapshot_action,
+        SnapshotAction::RebuiltAndWritten
+    );
+    assert_eq!(rebuilt.build_parses(), 2);
+    let phases = rebuilt.startup();
+    assert!(phases.snapshot_decode_ns > 0);
+    assert!(phases.reconciliation_ns > 0);
+    assert!(
+        phases.build_ns
+            >= phases
+                .build_discovery_ns
+                .saturating_add(phases.build_extraction_index_ns)
+                .saturating_add(phases.build_finalization_ns)
+    );
+    assert_ne!(fs::read(&snapshot).unwrap(), original);
+
+    fs::write(&snapshot, b"corrupt").unwrap();
+    assert!(open(SnapshotMode::ReadOnly).is_err());
+    let repaired = open(SnapshotMode::ReadWrite).unwrap();
+    assert_eq!(
+        repaired.startup().snapshot_action,
+        SnapshotAction::RebuiltAndWritten
+    );
+    assert!(repaired.startup().snapshot_restore_error.is_some());
+    fs::write(root.join("not-a-directory"), b"blocked").unwrap();
+    let inaccessible = Repository::open_with_snapshot_policy(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        SnapshotOpenPolicy::new(
+            SnapshotMode::ReadWrite,
+            Some(root.join("not-a-directory/child")),
+        ),
+    );
+    assert!(inaccessible.err().unwrap().contains("snapshot access"));
+    fs::remove_dir_all(root).unwrap();
+}
 
 #[test]
 fn round_trip_shared_multi_record_files_and_reject_corruption() {
