@@ -178,6 +178,7 @@ pub(super) struct App {
     base_offset: usize,
     result_limit: Option<usize>,
     active_columns: Vec<String>,
+    cli_hidden: BTreeSet<String>,
     pub(super) search: Input,
     pub(super) filter: Input,
     pub(super) focus: Focus,
@@ -239,7 +240,11 @@ impl App {
 
     pub(super) fn with_options(repository: Repository, options: TuiOptions) -> Self {
         let (sender, receiver) = mpsc::channel();
-        let settings_path = Settings::path(&repository.files().root);
+        let settings_path = if options.single_collection {
+            repository.files().root.join(".objekte/.cache/obj-tui.json")
+        } else {
+            Settings::path(&repository.files().root)
+        };
         let (settings, status) = match Settings::load(&settings_path) {
             Ok(settings) => (settings, None),
             Err(error) => (Settings::default(), Some(format!("Settings: {error}"))),
@@ -250,6 +255,7 @@ impl App {
             base_offset: options.offset,
             result_limit: options.limit,
             active_columns: Vec::new(),
+            cli_hidden: BTreeSet::new(),
             search: Input::with_text(&options.initial_search),
             filter: Input::with_text(&options.initial_filter),
             focus: Focus::Search,
@@ -792,15 +798,20 @@ impl App {
     }
 
     pub(super) fn visible_columns(&self) -> Vec<String> {
+        if self.single_collection {
+            return self
+                .active_columns
+                .iter()
+                .filter(|field| !self.cli_hidden.contains(*field))
+                .cloned()
+                .collect();
+        }
         let hidden = self.settings.hidden(self.scope_name());
         let mut columns = self
             .column_keys()
             .into_iter()
             .filter(|key| !hidden.contains(key))
             .collect::<Vec<_>>();
-        if self.single_collection {
-            return columns;
-        }
         let mut searched = BTreeSet::new();
         if !self.search.text.trim().is_empty() {
             for hit in &self.hits {
@@ -834,6 +845,15 @@ impl App {
 
     pub(super) fn toggle_column(&mut self) {
         if let Some(key) = self.column_keys().get(self.column_picker) {
+            if self.single_collection {
+                if !self.cli_hidden.insert(key.clone()) {
+                    self.cli_hidden.remove(key);
+                }
+                self.column_offset = self
+                    .column_offset
+                    .min(self.visible_columns().len().saturating_sub(1));
+                return;
+            }
             let scope = self.scope_name().map(str::to_owned);
             self.settings.toggle_column(scope.as_deref(), key);
             self.column_offset = self
@@ -878,6 +898,7 @@ impl App {
         self.display_rows.clear();
         self.window_start = 0;
         self.next_offset = 0;
+        self.column_offset = 0;
         self.active_columns.clear();
         self.total = 0;
         self.selected = 0;
@@ -975,6 +996,7 @@ impl App {
             self.display_rows.clear();
             self.window_start = 0;
             self.next_offset = 0;
+            self.column_offset = 0;
             self.total = 0;
             self.selected = 0;
             self.scroll = 0;
@@ -1013,6 +1035,8 @@ impl App {
                 push_unique(&mut fields, label);
             }
             self.active_columns = fields;
+            self.cli_hidden
+                .retain(|field| self.active_columns.contains(field));
         }
         let repository = Arc::clone(&self.repo);
         let sender = self.sender.clone();

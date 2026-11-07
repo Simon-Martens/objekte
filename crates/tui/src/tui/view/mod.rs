@@ -441,7 +441,7 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
 fn results_cli(frame: &mut Frame<'_>, app: &App, area: Rect) {
     let width = area.width as usize;
     let id_width = if width < 80 { 18 } else { 28 };
-    let fixed = 4 + id_width + 2;
+    let fixed = 6 + id_width + 2;
     let field_width = if width < 110 { 14 } else { 22 };
     let optional = app.visible_columns();
     let available = width.saturating_sub(fixed + 16);
@@ -453,7 +453,7 @@ fn results_cli(frame: &mut Frame<'_>, app: &App, area: Rect) {
         .skip(app.column_offset)
         .take(field_count)
         .collect::<Vec<_>>();
-    let mut header = format!("    {}  ", pad_clip("id", id_width));
+    let mut header = format!("valid {}  ", pad_clip("id", id_width));
     for field in &fields {
         header.push_str(&pad_clip(field, field_width));
         header.push_str("  ");
@@ -498,6 +498,7 @@ fn results_cli(frame: &mut Frame<'_>, app: &App, area: Rect) {
         let mut spans = vec![
             Span::styled(if selected { "▌ " } else { "  " }, Style::new().fg(ACCENT)),
             Span::styled("● ", Style::new().fg(status_color)),
+            Span::raw("  "),
             Span::styled(pad_clip(&hit.record_id, id_width), Style::new().fg(DIM)),
             Span::raw("  "),
         ];
@@ -1103,48 +1104,38 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 ))
             })
             .collect::<Vec<_>>(),
-        Overlay::Sort => {
-            let mut choices = app
-                .sort_choices()
-                .into_iter()
-                .enumerate()
-                .map(|(index, choice)| {
-                    let label = choice.map_or_else(
-                        || "Default order".to_owned(),
-                        |sort| {
-                            format!(
-                                "{} {}",
-                                sort.field,
-                                if sort.descending {
-                                    "descending"
-                                } else {
-                                    "ascending"
-                                }
-                            )
-                        },
-                    );
-                    Line::from(Span::styled(
+        Overlay::Sort => app
+            .sort_choices()
+            .into_iter()
+            .enumerate()
+            .map(|(index, choice)| {
+                let label = choice.map_or_else(
+                    || "Default order".to_owned(),
+                    |sort| {
                         format!(
-                            "{} {label}",
-                            if index == app.sort_picker { "❯" } else { " " }
-                        ),
-                        Style::new().fg(if index == app.sort_picker {
-                            ACCENT
-                        } else {
-                            TEXT
-                        }),
-                    ))
-                })
-                .collect::<Vec<_>>();
-            if app.single_collection {
-                choices.push(Line::from(""));
-                choices.push(Line::from(Span::styled(
-                    format!("Expression ❯ {}", app.sort_input.text),
-                    Style::new().fg(ACCENT),
-                )));
-            }
-            choices
-        }
+                            "{} {}",
+                            sort.field,
+                            if sort.descending {
+                                "descending"
+                            } else {
+                                "ascending"
+                            }
+                        )
+                    },
+                );
+                Line::from(Span::styled(
+                    format!(
+                        "{} {label}",
+                        if index == app.sort_picker { "❯" } else { " " }
+                    ),
+                    Style::new().fg(if index == app.sort_picker {
+                        ACCENT
+                    } else {
+                        TEXT
+                    }),
+                ))
+            })
+            .collect::<Vec<_>>(),
         Overlay::History => app
             .settings
             .history
@@ -1220,7 +1211,11 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
             .into_iter()
             .enumerate()
             .map(|(index, key)| {
-                let visible = !app.settings.hidden(app.scope_name()).contains(&key);
+                let visible = if app.single_collection {
+                    app.visible_columns().contains(&key)
+                } else {
+                    !app.settings.hidden(app.scope_name()).contains(&key)
+                };
                 Line::from(Span::styled(
                     format!(
                         "{} [{}] {key}",
@@ -1299,18 +1294,49 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         Overlay::Columns => app.column_picker,
         Overlay::SaveQuery | Overlay::Export { .. } | Overlay::Help => 0,
     };
-    let start = selected.saturating_sub(inner.height.saturating_sub(1) as usize);
+    let list_area = if overlay == Overlay::Sort && app.single_collection {
+        Rect {
+            height: inner.height.saturating_sub(1),
+            ..inner
+        }
+    } else {
+        inner
+    };
+    let start = selected.saturating_sub(list_area.height.saturating_sub(1) as usize);
     frame.render_widget(
         Paragraph::new(
             lines
                 .into_iter()
                 .skip(start)
-                .take(inner.height as usize)
+                .take(list_area.height as usize)
                 .collect::<Vec<_>>(),
         )
         .style(Style::new().bg(PANEL)),
-        inner,
+        list_area,
     );
+    if overlay == Overlay::Sort && app.single_collection && inner.height > 0 {
+        let input_area = Rect {
+            y: inner.bottom() - 1,
+            height: 1,
+            ..inner
+        };
+        frame.render_widget(
+            Paragraph::new(format!("Expression ❯ {}", app.sort_input.text))
+                .style(Style::new().fg(ACCENT).bg(PANEL)),
+            input_area,
+        );
+        let cursor = app
+            .sort_input
+            .text
+            .chars()
+            .take(app.sort_input.cursor)
+            .collect::<String>();
+        frame.set_cursor_position(Position::new(
+            input_area.x
+                + (13 + cursor.width()).min(input_area.width.saturating_sub(1) as usize) as u16,
+            input_area.y,
+        ));
+    }
     if matches!(overlay, Overlay::SaveQuery | Overlay::Export { .. }) && inner.width > 3 {
         let input = if overlay == Overlay::SaveQuery {
             &app.save_input
