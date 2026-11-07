@@ -989,6 +989,7 @@ pub struct PlanActual {
     pub relation_target_file_opens: u64,
     pub relation_edge_visits: u64,
     pub relation_backlink_probe_visits: u64,
+    pub relation_bytes_read: u64,
     pub relation_reverse_postings_visited: u64,
     pub relation_verified_targets_reused: u64,
 }
@@ -1009,6 +1010,7 @@ impl Default for PlanActual {
             relation_target_file_opens: 0,
             relation_edge_visits: 0,
             relation_backlink_probe_visits: 0,
+            relation_bytes_read: 0,
             relation_reverse_postings_visited: 0,
             relation_verified_targets_reused: 0,
         }
@@ -1034,6 +1036,7 @@ fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &Wo
             relation_edge_visits: after.relation_edge_visits - before.relation_edge_visits,
             relation_backlink_probe_visits: after.relation_backlink_probe_visits
                 - before.relation_backlink_probe_visits,
+            relation_bytes_read: after.relation_bytes_read - before.relation_bytes_read,
             relation_reverse_postings_visited: after.relation_reverse_postings_visited
                 - before.relation_reverse_postings_visited,
             relation_verified_targets_reused: after.relation_verified_targets_reused
@@ -1042,7 +1045,10 @@ fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &Wo
     }
 }
 
-fn record_semijoin_work(work: crate::relation_semijoin::SemijoinWork, counters: &mut WorkCounters) {
+fn record_semijoin_work(
+    work: crate::relation_semijoin::SemijoinWork,
+    counters: &mut WorkCounters,
+) -> Result<(), String> {
     counters.relation_target_candidates += work.target_candidates;
     counters.relation_target_matches += work.target_matches;
     counters.relation_target_reads += work.target_reads;
@@ -1050,9 +1056,11 @@ fn record_semijoin_work(work: crate::relation_semijoin::SemijoinWork, counters: 
     counters.relation_edge_visits += work.edge_visits;
     counters.relation_reverse_postings_visited += work.reverse_postings_visited;
     counters.relation_verified_targets_reused += work.verified_targets_reused;
+    counters.relation_bytes_read += work.target_bytes_read;
     counters.files_opened += work.target_file_opens;
     counters.bytes_read += work.target_bytes_read;
     counters.record_parses += work.target_reads;
+    crate::relation_query::check_query_work_budget(counters)
 }
 
 fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashSet<String>> {
@@ -1669,7 +1677,7 @@ fn try_stored_order_page(
         .collect::<Vec<_>>();
     for (entry, actual) in plans.iter().zip(&mut actuals) {
         let work = entry.plan.semijoin_work;
-        record_semijoin_work(work, &mut counters);
+        record_semijoin_work(work, &mut counters)?;
         actual.files_opened += work.target_file_opens;
         actual.bytes_read += work.target_bytes_read;
         actual.record_parses += work.target_reads;
@@ -1803,6 +1811,8 @@ fn try_stored_order_page(
                     counters.relation_edge_visits += scanned.relation_work.edge_visits;
                     counters.relation_backlink_probe_visits +=
                         scanned.relation_work.backlink_probe_visits;
+                    counters.relation_bytes_read += scanned.relation_work.bytes_read;
+                    crate::relation_query::check_query_work_budget(&counters)?;
                     counters.files_opened +=
                         scanned.relation_work.source_reads + scanned.relation_work.target_reads;
                     counters.bytes_read += scanned.relation_work.bytes_read;
@@ -1825,6 +1835,7 @@ fn try_stored_order_page(
                     actual.relation_edge_visits += scanned.relation_work.edge_visits;
                     actual.relation_backlink_probe_visits +=
                         scanned.relation_work.backlink_probe_visits;
+                    actual.relation_bytes_read += scanned.relation_work.bytes_read;
                     if let Some(found) = scanned.matches.into_iter().next() {
                         matched = true;
                         evidence = found.evidence;
@@ -1996,6 +2007,7 @@ pub fn search_analyze(
 
 pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, String> {
     let (prepared, _) = crate::prepared::prepare(repo, query)?;
+    let mut relation_work = WorkCounters::default();
     let has_source_dependent = prepared.collections.iter().any(|(_, filter, _)| {
         filter
             .as_ref()
@@ -2027,6 +2039,7 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
                 choices: Vec::new(),
                 semijoin_work: Default::default(),
             });
+        record_semijoin_work(plan.semijoin_work, &mut relation_work)?;
         let mut ordered_candidates = plan.candidates.clone().unwrap_or_else(|| domain.clone());
         if let Some(text_candidates) = fts.as_ref().and_then(|fts| fts_candidates(collection, fts))
         {
@@ -2037,6 +2050,9 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             .map(|fts| crate::relation_semijoin::fts_witnesses(repo, fts, &ordered_candidates))
             .transpose()?
             .flatten();
+        if let Some(proof) = &relation_fts {
+            record_semijoin_work(proof.work, &mut relation_work)?;
+        }
         if let Some(proof) = &relation_fts {
             ordered_candidates = proof.evidence.keys().copied().collect();
         }
@@ -2204,7 +2220,7 @@ fn search_impl(
                 choices: Vec::new(),
                 semijoin_work: Default::default(),
             });
-        record_semijoin_work(plan.semijoin_work, &mut counters);
+        record_semijoin_work(plan.semijoin_work, &mut counters)?;
         let mut candidates = plan.candidates.unwrap_or(input);
         if !text_first {
             if let (Some(fts), Some((estimated, lookup))) = (&fts, text_estimate) {
@@ -2244,7 +2260,7 @@ fn search_impl(
                 }
             });
         let preverified_evidence = if let Some(proof) = relation_fts {
-            record_semijoin_work(proof.work, &mut counters);
+            record_semijoin_work(proof.work, &mut counters)?;
             candidates = proof.evidence.keys().copied().collect();
             Some(proof.evidence)
         } else if metadata_only_fts {
@@ -2413,7 +2429,9 @@ fn search_impl(
             counters.relation_edge_visits += work.edge_visits;
             counters.files_opened += work.target_file_opens;
             counters.bytes_read += work.bytes_read;
+            counters.relation_bytes_read += work.bytes_read;
             counters.record_parses += work.target_reads;
+            crate::relation_query::check_query_work_budget(&counters)?;
         }
         // Record slots are grouped by source file before opening any source.
         let mut files: BTreeMap<u32, Vec<(u32, ByteRange)>> = BTreeMap::new();
@@ -2541,6 +2559,8 @@ fn search_impl(
                 counters.relation_edge_visits += outcome.relation_work.edge_visits;
                 counters.relation_backlink_probe_visits +=
                     outcome.relation_work.backlink_probe_visits;
+                counters.relation_bytes_read += outcome.relation_work.bytes_read;
+                crate::relation_query::check_query_work_budget(&counters)?;
                 counters.files_opened +=
                     outcome.relation_work.source_reads + outcome.relation_work.target_reads;
                 counters.bytes_read += outcome.relation_work.bytes_read;

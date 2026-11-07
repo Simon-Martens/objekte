@@ -17,6 +17,10 @@ use crate::source::{ScanProjection, TextDerivation, TextSegment, read_record_ran
 
 const MAX_RELATION_HOPS: usize = 8;
 const MAX_PATH_STEPS: usize = 64;
+const MAX_QUERY_EDGE_VISITS: u64 = 32_000_000;
+const MAX_QUERY_BACKLINK_PROBES: u64 = 32_000_000;
+const MAX_QUERY_RECORD_READS: u64 = 5_000_000;
+const MAX_QUERY_RELATION_BYTES: u64 = 1024 * 1024 * 1024;
 
 
 /// Direction of a declared, collection-scoped relation hop.
@@ -65,6 +69,107 @@ pub(crate) struct RelationWork {
     pub edge_visits: u64,
     pub backlink_probe_visits: u64,
     pub bytes_read: u64,
+}
+
+
+fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), String> {
+    *counter = counter
+        .checked_add(amount)
+        .ok_or_else(|| format!("relation {name} overflow"))?;
+    if *counter > limit {
+        return Err(format!("relation query exceeds {limit} {name}"));
+    }
+    Ok(())
+}
+
+
+impl RelationWork {
+    fn edge(&mut self) -> Result<(), String> {
+        charge(
+            &mut self.edge_visits,
+            1,
+            MAX_QUERY_EDGE_VISITS,
+            "edge visits",
+        )
+    }
+
+    fn backlink_probe(&mut self) -> Result<(), String> {
+        charge(
+            &mut self.backlink_probe_visits,
+            1,
+            MAX_QUERY_BACKLINK_PROBES,
+            "backlink probes",
+        )
+    }
+
+    fn target_read(&mut self, bytes: u64) -> Result<(), String> {
+        charge(
+            &mut self.target_reads,
+            1,
+            MAX_QUERY_RECORD_READS,
+            "target reads",
+        )?;
+        charge(
+            &mut self.bytes_read,
+            bytes,
+            MAX_QUERY_RELATION_BYTES,
+            "source bytes",
+        )
+    }
+
+    fn source_read(&mut self, bytes: u64) -> Result<(), String> {
+        charge(
+            &mut self.source_reads,
+            1,
+            MAX_QUERY_RECORD_READS,
+            "source reads",
+        )?;
+        charge(
+            &mut self.bytes_read,
+            bytes,
+            MAX_QUERY_RELATION_BYTES,
+            "source bytes",
+        )
+    }
+}
+
+
+/// Combine bounded scanner chunks into one query-wide relation work budget.
+pub(crate) fn check_query_work_budget(
+    counters: &crate::workload::WorkCounters,
+) -> Result<(), String> {
+    for (actual, limit, name) in [
+        (
+            counters.relation_edge_visits,
+            MAX_QUERY_EDGE_VISITS,
+            "edge visits",
+        ),
+        (
+            counters.relation_backlink_probe_visits,
+            MAX_QUERY_BACKLINK_PROBES,
+            "backlink probes",
+        ),
+        (
+            counters.relation_target_reads,
+            MAX_QUERY_RECORD_READS,
+            "target reads",
+        ),
+        (
+            counters.relation_source_reads,
+            MAX_QUERY_RECORD_READS,
+            "source reads",
+        ),
+        (
+            counters.relation_bytes_read,
+            MAX_QUERY_RELATION_BYTES,
+            "source bytes",
+        ),
+    ] {
+        if actual > limit {
+            return Err(format!("relation query exceeds {limit} {name}"));
+        }
+    }
+    Ok(())
 }
 
 
@@ -798,9 +903,13 @@ fn visit_hop(
             .files
             .native_path(record.file)
             .ok_or("missing target source path")?;
+        if record.range.len() > MAX_QUERY_RELATION_BYTES {
+            return Err(format!(
+                "relation target record exceeds {MAX_QUERY_RELATION_BYTES} source bytes"
+            ));
+        }
         let bytes = read_record_range(&path, record.revision, record.range)?;
-        work.target_reads += 1;
-        work.bytes_read += bytes.len() as u64;
+        work.target_read(bytes.len() as u64)?;
         let extracted = crate::record_preparation::prepare_query_record(
             &collection.source,
             &collection.definition.schema,
@@ -845,7 +954,7 @@ fn visit_hop(
                     if !positions_match(&hop.selectors, &positions) {
                         continue;
                     }
-                    work.edge_visits += 1;
+                    work.edge()?;
                     selected += 1;
                     if let Some(target) = targets.iter().find(|record| record.id.0 == id) {
                         visit_hop(
@@ -875,7 +984,7 @@ fn visit_hop(
                 let mut seen = 0usize;
                 let mut selected = 0usize;
                 for candidate in &source_collection.identity_order {
-                    work.backlink_probe_visits += 1;
+                    work.backlink_probe()?;
                     let Some(value) =
                         read_reference_value(repo, hop.to.0 as usize, *candidate, work)?
                     else {
@@ -885,7 +994,7 @@ fn visit_hop(
                     if !references.values.iter().any(|(id, _)| id == &target.id.0) {
                         continue;
                     }
-                    work.edge_visits += 1;
+                    work.edge()?;
                     if hop
                         .selectors
                         .first()
@@ -928,7 +1037,7 @@ fn visit_hop(
                 if !positions_match(&hop.selectors, &edge.positions) {
                     continue;
                 }
-                work.edge_visits += 1;
+                work.edge()?;
                 selected += 1;
                 match edge.target {
                     RelationTarget::Resolved(target) => visit_hop(
@@ -965,8 +1074,8 @@ fn visit_hop(
                     // Without a numeric selector, Boolean truth is independent
                     // of identity-order rank. Visit only actual reverse hits.
                     for source in sources.iter() {
-                        work.backlink_probe_visits += 1;
-                        work.edge_visits += 1;
+                        work.backlink_probe()?;
+                        work.edge()?;
                         selected += 1;
                         visit_hop(
                             config,
@@ -985,11 +1094,11 @@ fn visit_hop(
                     // A positional backlink means rank among sources in
                     // identity order, so retain that ordering here.
                     for source in &source_collection.identity_order {
-                        work.backlink_probe_visits += 1;
+                        work.backlink_probe()?;
                         if !sources.contains(source.0) {
                             continue;
                         }
-                        work.edge_visits += 1;
+                        work.edge()?;
                         if hop.selectors.first().is_none_or(|selector| {
                             selector.is_none_or(|index| index as usize == seen)
                         }) {
@@ -1038,9 +1147,13 @@ fn read_reference_value(
         .files
         .native_path(record.file)
         .ok_or("reference relation path is missing")?;
+    if record.range.len() > MAX_QUERY_RELATION_BYTES {
+        return Err(format!(
+            "relation source record exceeds {MAX_QUERY_RELATION_BYTES} source bytes"
+        ));
+    }
     let bytes = read_record_range(&path, record.revision, record.range)?;
-    work.source_reads += 1;
-    work.bytes_read += bytes.len() as u64;
+    work.source_read(bytes.len() as u64)?;
     let extracted = crate::record_preparation::prepare_query_record(
         &collection.source,
         &collection.definition.schema,

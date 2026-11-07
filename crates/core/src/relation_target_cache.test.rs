@@ -167,6 +167,7 @@ fn source_dependent_comparisons_share_projected_targets_without_changing_truth()
             );
             assert_eq!(actual.counters.relation_target_file_opens, 1, "{filter}");
             assert!(actual.counters.relation_target_reads <= 2, "{filter}");
+            assert!(actual.counters.relation_bytes_read > 0, "{filter}");
             assert!(
                 actual.counters.relation_verified_targets_reused >= 79,
                 "{filter}"

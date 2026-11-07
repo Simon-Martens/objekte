@@ -130,6 +130,9 @@ pub struct WorkCounters {
     /// Reverse posting entries or identity-order candidates examined by backlinks.
     #[serde(default)]
     pub relation_backlink_probe_visits: u64,
+    /// Bytes read for relation target/source verification and prefetch.
+    #[serde(default)]
+    pub relation_bytes_read: u64,
     /// Distinct terminal candidates inspected by relation semijoins.
     #[serde(default)]
     pub relation_target_candidates: u64,
