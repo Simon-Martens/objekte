@@ -16,6 +16,7 @@ use crate::model::Value;
 #[serde(rename_all = "snake_case")]
 pub enum SourceFormat {
     Json,
+    JsonDecodedScalars,
     JsonLines,
     Registered(String),
 }
@@ -29,6 +30,7 @@ impl SourceFormat {
     pub fn id(&self) -> &str {
         match self {
             Self::Json => "json",
+            Self::JsonDecodedScalars => "json_decoded_scalars",
             Self::JsonLines => "jsonl",
             Self::Registered(id) => id,
         }
@@ -125,6 +127,7 @@ pub enum SourceOutcome {
 pub struct ScanProjection {
     pub top_level: Option<HashSet<String>>,
     pub collect_text: bool,
+    pub resolved_text_only: bool,
 }
 
 
@@ -163,6 +166,15 @@ impl ScanProjection {
         Self {
             top_level: None,
             collect_text,
+            resolved_text_only: false,
+        }
+    }
+
+    pub fn full_resolved_text() -> Self {
+        Self {
+            top_level: None,
+            collect_text: true,
+            resolved_text_only: true,
         }
     }
 }
@@ -278,6 +290,14 @@ impl SourceRegistry {
             .register("json", 1, "json", Arc::new(JsonReader))
             .expect("valid JSON source registration");
         sources
+            .register(
+                "json_decoded_scalars",
+                1,
+                "json",
+                Arc::new(JsonDecodedScalarsReader),
+            )
+            .expect("valid decoded-scalar JSON source registration");
+        sources
             .register("jsonl", 1, "jsonl", Arc::new(JsonLinesReader))
             .expect("valid JSON Lines source registration");
         sources
@@ -323,6 +343,10 @@ impl SourceRegistry {
 
 /// Reader for a single standalone JSON record per file.
 pub struct JsonReader;
+
+
+/// Built-in one-document JSON reader with decoded scalar-value FTS text.
+pub struct JsonDecodedScalarsReader;
 
 
 /// Reader for independently parseable JSON Lines records.
@@ -403,7 +427,12 @@ fn parse_json_for_query_diagnosed(
     bytes: &[u8],
     projection: &ScanProjection,
 ) -> Result<ExtractedRecord, ReaderDiagnostic> {
-    let json = if let Some(fields) = &projection.top_level {
+    let object_root = bytes
+        .iter()
+        .copied()
+        .find(|byte| !byte.is_ascii_whitespace())
+        == Some(b'{');
+    let json = if let Some(fields) = projection.top_level.as_ref().filter(|_| object_root) {
         let mut deserializer = serde_json::Deserializer::from_slice(bytes);
         let selected = SelectedObject(fields)
             .deserialize(&mut deserializer)
@@ -416,13 +445,6 @@ fn parse_json_for_query_diagnosed(
     let value = Value::from_json(json).map_err(|error| {
         ReaderDiagnostic::new(DiagnosticCategory::LogicalValidation, "json.value", error)
     })?;
-    if !matches!(value, Value::Object(_)) {
-        return Err(ReaderDiagnostic::new(
-            DiagnosticCategory::LogicalValidation,
-            "json.root",
-            "record root must be an object",
-        ));
-    }
     let mut text = Vec::new();
     if projection.collect_text {
         collect_strings(&value, &mut Vec::new(), &mut text);
@@ -435,6 +457,28 @@ fn parse_json_for_query(
     projection: &ScanProjection,
 ) -> Result<ExtractedRecord, String> {
     parse_json_for_query_diagnosed(bytes, projection).map_err(|issue| issue.message)
+}
+
+fn parse_json_decoded_for_query_diagnosed(
+    bytes: &[u8],
+    projection: &ScanProjection,
+) -> Result<ExtractedRecord, ReaderDiagnostic> {
+    let mut extracted = parse_json_for_query_diagnosed(
+        bytes,
+        &ScanProjection {
+            top_level: projection.top_level.clone(),
+            collect_text: false,
+            resolved_text_only: false,
+        },
+    )?;
+    if projection.collect_text {
+        extracted.text =
+            crate::json_scalar_text::scalar_segments(bytes, projection.resolved_text_only)
+                .map_err(|error| {
+                    ReaderDiagnostic::new(DiagnosticCategory::Syntax, "json.scalar_text", error)
+                })?;
+    }
+    Ok(extracted)
 }
 
 fn parse_json(bytes: &[u8]) -> Result<ExtractedRecord, String> {
@@ -542,6 +586,48 @@ impl SourceReader for JsonReader {
         projection: &ScanProjection,
     ) -> Result<ExtractedRecord, String> {
         parse_json_for_query(bytes, projection)
+    }
+}
+
+
+impl SourceReader for JsonDecodedScalarsReader {
+    fn name(&self) -> &'static str {
+        "json_decoded_scalars"
+    }
+
+    fn logical_text_coverage(&self) -> LogicalTextCoverage {
+        LogicalTextCoverage::AllStringFields
+    }
+
+    fn text_derivation(&self) -> TextDerivation {
+        TextDerivation::ReaderSegments
+    }
+
+    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+        JsonReader.frame(file)
+    }
+
+    fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true))
+            .map_err(|issue| issue.message)
+    }
+
+    fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true))
+            .map_err(ReaderFailure::Malformed)
+    }
+
+    fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true))
+            .map_err(ReaderFailure::Malformed)
+    }
+
+    fn parse_for_query(
+        &self,
+        bytes: &[u8],
+        projection: &ScanProjection,
+    ) -> Result<ExtractedRecord, String> {
+        parse_json_decoded_for_query_diagnosed(bytes, projection).map_err(|issue| issue.message)
     }
 }
 

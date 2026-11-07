@@ -249,9 +249,12 @@ impl Schema {
         value: &mut Value,
         selected_top_level: Option<&HashSet<String>>,
     ) -> Result<(), String> {
-        let Value::Object(_) = value else {
+        if !matches!(value, Value::Object(_)) {
+            if self.fields.is_empty() {
+                return Ok(());
+            }
             return Err("record root must be an object".into());
-        };
+        }
         validate_children(value, &self.validation, &mut Vec::new(), selected_top_level)
     }
 

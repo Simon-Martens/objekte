@@ -150,10 +150,12 @@ pub enum LogicalType {
 }
 
 
-/// Homogeneous logical array with its resolved element type.
+/// Logical array with an optional homogeneous element summary.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ArrayValue {
     pub element_type: Option<LogicalType>,
+    /// A conflict between non-null element types is sticky, including nested arrays.
+    pub mixed_elements: bool,
     pub nullable_elements: bool,
     pub values: Vec<Value>,
 }
@@ -185,9 +187,45 @@ impl ArrayValue {
         }
         Ok(Self {
             element_type,
+            mixed_elements: false,
             nullable_elements,
             values,
         })
+    }
+
+    /// Preserve every parsed JSON member without imposing a declared element type.
+    pub fn from_unrestricted(values: Vec<Value>) -> Self {
+        let mut element_type: Option<LogicalType> = None;
+        let mut mixed_elements = false;
+        let mut nullable_elements = false;
+        for value in &values {
+            if matches!(value, Value::Null) {
+                nullable_elements = true;
+                continue;
+            }
+            if matches!(value, Value::Array(array) if array.mixed_elements) {
+                mixed_elements = true;
+                element_type = None;
+                continue;
+            }
+            if mixed_elements {
+                continue;
+            }
+            let kind = value.logical_type();
+            element_type = match element_type.take() {
+                None => Some(kind),
+                Some(previous) => merge_array_element_types(&previous, &kind),
+            };
+            if element_type.is_none() {
+                mixed_elements = true;
+            }
+        }
+        Self {
+            element_type,
+            mixed_elements,
+            nullable_elements,
+            values,
+        }
     }
 }
 
@@ -243,13 +281,11 @@ impl Value {
             serde_json::Value::String(s) => Self::String(s),
             serde_json::Value::Number(n) => Self::Number(Number::from_json(&n)?),
             serde_json::Value::Bool(b) => Self::Bool(b),
-            serde_json::Value::Array(a) => Self::Array(ArrayValue::new(
+            serde_json::Value::Array(a) => Self::Array(ArrayValue::from_unrestricted(
                 a.into_iter()
                     .map(Self::from_json)
                     .collect::<Result<_, _>>()?,
-                None,
-                true,
-            )?),
+            )),
             serde_json::Value::Object(o) => Self::Object(
                 o.into_iter()
                     .map(|(k, v)| {
@@ -454,6 +490,9 @@ impl FieldPath {
                 .display()
             ),
             PathRoot::Data => {
+                if self.segments.is_empty() {
+                    return "@root".into();
+                }
                 let mut output = String::new();
                 for (index, segment) in self.segments.iter().enumerate() {
                     let quoted = segment.is_empty()
@@ -480,6 +519,19 @@ impl FieldPath {
     }
 
     pub fn parse(input: &str) -> Result<Self, String> {
+        if input == "@root" {
+            return Ok(Self {
+                root: PathRoot::Data,
+                segments: Vec::new(),
+            });
+        }
+        if let Some(rest) = input.strip_prefix("@root.") {
+            return Self::parse(rest);
+        }
+        if let Some(rest) = input.strip_prefix("@root[") {
+            let parsed = Self::parse(&format!("[{rest}"))?;
+            return Ok(parsed);
+        }
         if let Some(rest) = input.strip_prefix("@backlinks.") {
             let mut path = Self::parse(rest)?;
             if path.segments.is_empty() || path.root != PathRoot::Data {

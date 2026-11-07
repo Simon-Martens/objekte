@@ -30,6 +30,15 @@ fn precise_numbers_and_temporal_distinctions() {
 
 #[test]
 fn arrays_paths_and_id_namespace() {
+    assert_eq!(FieldPath::parse("@root").unwrap().display(), "@root");
+    assert_eq!(
+        FieldPath::parse("@root.title").unwrap(),
+        FieldPath::parse("title").unwrap()
+    );
+    assert_eq!(
+        FieldPath::parse("@root[\"a.b\"]").unwrap().segments,
+        ["a.b"]
+    );
     assert!(
         ArrayValue::new(
             vec![Value::String("x".into()), Value::Bool(true)],
@@ -104,4 +113,31 @@ fn unhinted_arrays_keep_actual_or_unresolved_element_types() {
         objects.logical_type(),
         LogicalType::Array(Box::new(LogicalType::Object))
     );
+}
+
+#[test]
+fn parsed_json_arrays_preserve_mixed_members_and_sticky_conflicts() {
+    let parsed = Value::from_json(serde_json::json!(["a", 1, null, {}, [], true])).unwrap();
+    let Value::Array(array) = parsed else {
+        panic!("array root")
+    };
+    assert_eq!(array.values.len(), 6);
+    assert!(array.mixed_elements);
+    assert_eq!(array.element_type, None);
+    assert!(array.nullable_elements);
+
+    let nested = Value::from_json(serde_json::json!([["a", 1], [2, 3]])).unwrap();
+    let Value::Array(array) = nested else {
+        panic!("array root")
+    };
+    assert!(array.mixed_elements);
+    assert_eq!(array.element_type, None);
+
+    let all_null = Value::from_json(serde_json::json!([null, null])).unwrap();
+    let Value::Array(array) = all_null else {
+        panic!("array root")
+    };
+    assert!(!array.mixed_elements);
+    assert_eq!(array.element_type, None);
+    assert!(array.nullable_elements);
 }

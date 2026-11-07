@@ -2,6 +2,254 @@ use super::*;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 #[test]
+fn schema_free_json_reader_admits_every_root_shape() {
+    use crate::reference::Schema;
+    let reader = JsonReader;
+    for text in [
+        r#"{}"#,
+        r#"[]"#,
+        r#"["a",1,true,null,{}]"#,
+        r#""root""#,
+        "42",
+        "true",
+        "false",
+        "null",
+    ] {
+        let mut record = reader.parse_outcome(text.as_bytes()).unwrap();
+        Schema::default().coerce_record(&mut record.value).unwrap();
+    }
+    let mut declared = Schema::default();
+    declared
+        .register_field(crate::reference::FieldDefinition {
+            path: vec!["title".into()],
+            kind: crate::model::LogicalType::String,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let mut scalar = reader.parse_outcome(b"42").unwrap();
+    assert!(declared.coerce_record(&mut scalar.value).is_err());
+}
+
+#[test]
+fn root_queries_match_reference_over_mixed_json_documents() {
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!("objekte-json-roots-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, json) in [
+        ("array", r#"["first",123,true,null,{"title":"Goethe"}]"#),
+        ("string", r#""first""#),
+        ("number", "123"),
+        ("null", "null"),
+        ("object", r#"{"title":"Goethe","values":["first",123]}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    assert_eq!(repo.collections[0].generation.records.len(), 5);
+    for (filter, expected) in [
+        ("@root = 'first'", vec!["path:string.json"]),
+        ("@root = 123", vec!["path:number.json"]),
+        ("@root[0] = 'first'", vec!["path:array.json"]),
+        ("@root[*].title ~ 'Goethe'", vec!["path:array.json"]),
+        (
+            "@root.title ~ 'Goethe'",
+            vec!["path:array.json", "path:object.json"],
+        ),
+    ] {
+        let query = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 20,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        let optimized = repo.search(&query).unwrap();
+        let reference = repo.search_reference(&query).unwrap();
+        let ids = |result: &crate::repository::SearchResult| {
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.clone())
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(ids(&optimized), expected, "{filter}");
+        assert_eq!(ids(&optimized), ids(&reference), "{filter}");
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
+    use crate::inventory::RecordClass;
+    use crate::model::LogicalType;
+    use crate::reference::FieldDefinition;
+    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
+
+    let root = std::env::temp_dir().join(format!("objekte-declared-root-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/root.json"), br#"["first", 2]"#).unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let records = &repo.collections[0].generation.records;
+    assert_eq!(records.len(), 1);
+    assert_eq!(records[0].class, RecordClass::RawFallback);
+    assert!(
+        repo.files.files[records[0].file.0 as usize]
+            .diagnostics
+            .iter()
+            .any(|issue| issue.message.contains("root must be an object"))
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
+    use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions};
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::workload::{BigramAlphabet, ReturnMode};
+
+    let root = std::env::temp_dir().join(format!("objekte-scalar-fts-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, json) in [
+        (
+            "one",
+            r#"{"needle_only":"x","value":"a\n","num":1.0,"title":"old","title":"new"}"#,
+        ),
+        ("two", r#"[true,null,1e0,"ß"]"#),
+        ("three", r#"{"title":"not here","num":-0}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
+    }
+    let cases: &[(&str, Option<&str>, &[&str])] = &[
+        ("needle_only", None, &[]),
+        ("1.0", None, &["path:one.json"]),
+        ("1e0", None, &["path:two.json"]),
+        ("-0", None, &["path:three.json"]),
+        ("true", None, &["path:two.json"]),
+        ("null", None, &["path:two.json"]),
+        ("a\n", None, &["path:one.json"]),
+        ("old", None, &["path:one.json"]),
+        ("old", Some("title"), &[]),
+        ("new", Some("title"), &["path:one.json"]),
+    ];
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut definition =
+            CollectionDefinition::folder("data", "data", SourceFormat::JsonDecodedScalars);
+        definition.identity = IdentityPolicy::RelativePath;
+        let repo = Repository::open_with_options(
+            &root,
+            vec![definition],
+            RepositoryOptions {
+                bigram_alphabet: alphabet,
+                snapshot_mode: SnapshotMode::Disabled,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        for &(literal, selected, expected) in cases {
+            let query = Query {
+                collections: vec!["data".into()],
+                fts: Some(FtsQuery {
+                    case_sensitivity: CaseSensitivity::Sensitive,
+                    mode: FtsMode::Literal,
+                    literal: literal.into(),
+                    pattern_parameter: None,
+                    fields: selected
+                        .into_iter()
+                        .map(|field| FtsField {
+                            path: crate::model::FieldPath::parse(field).unwrap(),
+                            binding: None,
+                            query_path: None,
+                        })
+                        .collect(),
+                }),
+                filter: None,
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 20,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
+            };
+            let optimized = repo.search(&query).unwrap();
+            let ids = |result: &crate::repository::SearchResult| {
+                result
+                    .hits
+                    .iter()
+                    .map(|hit| hit.record_id.clone())
+                    .collect::<Vec<_>>()
+            };
+            assert_eq!(
+                ids(&optimized),
+                expected,
+                "{literal:?} {selected:?} {alphabet:?}"
+            );
+            if selected.is_none() {
+                let reference = repo.search_reference(&query).unwrap();
+                assert_eq!(
+                    ids(&optimized),
+                    ids(&reference),
+                    "{literal:?} {selected:?} {alphabet:?}"
+                );
+            }
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn build_json_borrows_logical_strings_after_temporal_conversion() {
     use crate::bigram::BigramBuilder;
     use crate::model::LogicalType;
@@ -9,27 +257,41 @@ fn build_json_borrows_logical_strings_after_temporal_conversion() {
     use crate::reference::{FieldDefinition, Schema};
     use crate::workload::BigramAlphabet;
 
-    let source = SourceRegistry::builtin().resolve(&SourceFormat::Json).unwrap();
-    let bytes = r#"{"date":"2026-01-02","title":"aßb","nested":{"names":["ab","cd",""]}}"#.as_bytes();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    let bytes =
+        r#"{"date":"2026-01-02","title":"aßb","nested":{"names":["ab","cd",""]}}"#.as_bytes();
     let mut record = source.reader().parse_for_build_outcome(bytes).unwrap();
     assert!(record.text.is_empty());
     let mut schema = Schema::default();
-    schema.register_field(FieldDefinition {
-        path: vec!["date".into()], kind: LogicalType::Date, required: true,
-        nullable: false, indexed: true, multi: false, element_nullable: vec![],
-    }).unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["date".into()],
+            kind: LogicalType::Date,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
     finish_build_record(&schema, &mut record).unwrap();
     let mut strings = Vec::new();
     visit_logical_strings(&record.value, &mut |text| strings.push(text.to_owned()));
     assert_eq!(strings, ["ab", "cd", "", "aßb"]);
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let mut borrowed = BigramBuilder::new(alphabet);
-        borrowed.add_record_with(crate::model::RecordSlot(0), |emit| {
-            visit_logical_strings(&record.value, emit);
-        }).unwrap();
+        borrowed
+            .add_record_with(crate::model::RecordSlot(0), |emit| {
+                visit_logical_strings(&record.value, emit);
+            })
+            .unwrap();
         let borrowed = borrowed.finish().unwrap();
         let mut owned = BigramBuilder::new(alphabet);
-        owned.add_record(crate::model::RecordSlot(0), strings.iter()).unwrap();
+        owned
+            .add_record(crate::model::RecordSlot(0), strings.iter())
+            .unwrap();
         let owned = owned.finish().unwrap();
         assert_eq!(borrowed.normal, owned.normal);
         assert_eq!(borrowed.skip, owned.skip);
@@ -1078,6 +1340,7 @@ fn query_projection_skips_unneeded_fields_and_preserves_selected_values() {
     let projection = ScanProjection {
         top_level: Some(HashSet::from(["needed".to_owned()])),
         collect_text: true,
+        resolved_text_only: false,
     };
     for format in [SourceFormat::Json, SourceFormat::JsonLines] {
         let source = SourceRegistry::builtin().resolve(&format).unwrap();
@@ -1303,21 +1566,37 @@ fn changed_source_rejects_old_ranges_and_incomplete_extraction() {
 
 #[test]
 fn build_reads_use_actual_bytes_without_revision_probes() {
-    let root = std::env::temp_dir().join(format!("objekte-build-stable-input-{}", std::process::id()));
+    let root =
+        std::env::temp_dir().join(format!("objekte-build-stable-input-{}", std::process::id()));
     std::fs::create_dir_all(&root).unwrap();
     let path = root.join("records.jsonl");
     std::fs::write(&path, b"{\"x\":1}\n{\"x\":2}\n").unwrap();
-    let wrong_revision = SourceRevision { modified_ns: 0, size: 1 };
+    let wrong_revision = SourceRevision {
+        modified_ns: 0,
+        size: 1,
+    };
     let mut ranges = Vec::new();
-    let counters = extract_file_build_outcomes(&path, &JsonLinesReader, wrong_revision, |outcome| {
-        let SourceOutcome::Logical { range, .. } = outcome else { panic!("expected logical record") };
-        ranges.push(range);
-        Ok(())
-    }).unwrap();
+    let counters =
+        extract_file_build_outcomes(&path, &JsonLinesReader, wrong_revision, |outcome| {
+            let SourceOutcome::Logical { range, .. } = outcome else {
+                panic!("expected logical record")
+            };
+            ranges.push(range);
+            Ok(())
+        })
+        .unwrap();
     assert_eq!(counters.record_parses, 2);
-    assert_eq!(ranges, [ByteRange { start: 0, end: 7 }, ByteRange { start: 8, end: 15 }]);
+    assert_eq!(
+        ranges,
+        [
+            ByteRange { start: 0, end: 7 },
+            ByteRange { start: 8, end: 15 }
+        ]
+    );
     assert!(extract_file_outcomes(&path, &JsonLinesReader, wrong_revision, |_| Ok(())).is_err());
-    let framed = frame_file_for_build(&path, &JsonLinesReader).unwrap().unwrap();
+    let framed = frame_file_for_build(&path, &JsonLinesReader)
+        .unwrap()
+        .unwrap();
     assert_eq!(framed.0.len(), 16);
     assert_eq!(framed.1, ranges);
 
@@ -1326,15 +1605,23 @@ fn build_reads_use_actual_bytes_without_revision_probes() {
     extract_file_build_outcomes(&malformed, &JsonLinesReader, wrong_revision, |outcome| {
         assert!(matches!(outcome, SourceOutcome::Malformed { .. }));
         Ok(())
-    }).unwrap();
+    })
+    .unwrap();
     let empty = root.join("empty.jsonl");
     std::fs::write(&empty, b"").unwrap();
-    assert_eq!(extract_file_build_outcomes(&empty, &JsonLinesReader, wrong_revision,
-        |_| panic!("empty file must not emit a record")).unwrap().framed_records, 0);
+    assert_eq!(
+        extract_file_build_outcomes(&empty, &JsonLinesReader, wrong_revision, |_| panic!(
+            "empty file must not emit a record"
+        ))
+        .unwrap()
+        .framed_records,
+        0
+    );
     let missing = root.join("missing.jsonl");
     extract_file_build_outcomes(&missing, &JsonLinesReader, wrong_revision, |outcome| {
         assert!(matches!(outcome, SourceOutcome::Unreadable { .. }));
         Ok(())
-    }).unwrap();
+    })
+    .unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
