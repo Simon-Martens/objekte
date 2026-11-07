@@ -16,3 +16,11 @@ The source reader owns one selected JSON text policy. `DecodedScalarValues` visi
 The CLI protocol is version 1, with monotonic event `sequence` and `query_id`: `run_start`, `query_start`, zero or more `hit`, one query terminal, and one run terminal. All-results mode reports an exact total; a finite page can report an unknown total unless `--count` is set. Hit payloads use original JSON tokens compacted into one NDJSON line; malformed fallback has `data_available: false`. Query preparation, core execution, sink callback, and query wall durations are distinct monotonic nanosecond measurements.
 
 The primary ownership boundaries above are fixed. Agents may add private helpers and request narrow interface adjustments through integration review. Existing public APIs remain compatible unless this plan explicitly requires a semantic extension.
+
+## Pinned names at the first interface checkpoint
+
+- `SourceFormat::JsonDecodedScalars` is the built-in schema-free `obj` reader. Its source id is `json_decoded_scalars`, its file extension is `json`, and its reader version starts at 1. `SourceFormat::Json` retains existing logical-string text. `CollectionDefinition::folder("files", PathBuf::new(), SourceFormat::JsonDecodedScalars)` selects the repository root and relative-path identities.
+- `ArrayValue::from_unrestricted(values)` admits parsed heterogeneous members. `ArrayValue::new` remains strict for declared arrays. `mixed_elements` is sticky once unlike non-null element kinds are observed. A new exact JSON number variant is used only outside the old native numeric domain.
+- `streaming::ResultScope::{Page { offset, limit }, All { offset }}` is passed to `Repository::search_stream_scoped`. `query.options.count` controls a finite page count; `All` always determines the exact total.
+- `Repository::open_with_snapshot_policy(root, definitions, options, SnapshotOpenPolicy::new(mode, directory))` selects `SnapshotMode::{Disabled, ReadOnly, ReadWrite, Rebuild}` without changing the Copy semantics of `RepositoryOptions`. `Rebuild` is write-only. Startup reports `SnapshotAction` and an optional restore error.
+- `Discovery.exclude_directories` holds exact `PathBuf` directories relative to the collection source root. The existing exclude globs remain available for names such as `.git` at any depth.
