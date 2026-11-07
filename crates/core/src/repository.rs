@@ -357,6 +357,8 @@ impl SnapshotOpenPolicy {
 #[derive(Clone, Copy, Debug)]
 pub struct RepositoryOptions {
     pub bigram_alphabet: BigramAlphabet,
+    /// Estimated retained prepared-plan state; no memory is allocated up front.
+    /// This is not a process RSS limit.
     pub prepared_cache_bytes: usize,
     pub verified_cache_bytes: usize,
     pub snapshot_mode: SnapshotMode,
@@ -370,7 +372,7 @@ impl Default for RepositoryOptions {
     fn default() -> Self {
         Self {
             bigram_alphabet: BigramAlphabet::Ascii,
-            prepared_cache_bytes: 4 * 1024 * 1024,
+            prepared_cache_bytes: 16 * 1024 * 1024,
             verified_cache_bytes: 0,
             snapshot_mode: SnapshotMode::IfValid,
             query_workers: std::thread::available_parallelism()
@@ -378,6 +380,15 @@ impl Default for RepositoryOptions {
             build_workers: None,
             inference: InferenceConfig::default(),
         }
+    }
+}
+
+#[cfg(test)]
+mod repository_option_tests {
+    #[test]
+    fn exported_default_prepared_cache_budget_is_sixteen_mib() {
+        let options = super::RepositoryOptions::default();
+        assert_eq!(options.prepared_cache_bytes, 16 * 1024 * 1024);
     }
 }
 
