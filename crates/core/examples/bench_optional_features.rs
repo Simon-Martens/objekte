@@ -36,6 +36,7 @@ use sha2::{Digest, Sha256};
 
 struct Config {
     root: PathBuf,
+    source_path: String,
     alphabet: BigramAlphabet,
     inference: InferenceMode,
     snapshot: SnapshotMode,
@@ -50,6 +51,7 @@ impl Default for Config {
     fn default() -> Self {
         Self {
             root: PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm"),
+            source_path: "data/entries".into(),
             alphabet: BigramAlphabet::Ascii,
             inference: InferenceMode::Disabled,
             snapshot: SnapshotMode::Disabled,
@@ -68,6 +70,9 @@ fn parse_args() -> Result<Config, String> {
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--root" => config.root = PathBuf::from(args.next().ok_or("--root needs a path")?),
+            "--source-path" => {
+                config.source_path = args.next().ok_or("--source-path needs a path")?
+            }
             "--alphabet" => {
                 config.alphabet = match args.next().ok_or("--alphabet needs a value")?.as_str() {
                     "ascii" => BigramAlphabet::Ascii,
@@ -124,7 +129,7 @@ fn parse_args() -> Result<Config, String> {
             "--skip-queries" => config.skip_queries = true,
             "--help" | "-h" => {
                 println!(
-                    "bench_optional_features --root PATH [--alphabet ascii|unicode] [--inference disabled|report|auto] [--snapshot-mode disabled|rebuild|read-write] [--build-workers auto|N] [--query-workers N] [--verified-cache-bytes N] [--skip-queries]"
+                    "bench_optional_features --root PATH [--source-path data/entries] [--alphabet ascii|unicode] [--inference disabled|report|auto] [--snapshot-mode disabled|rebuild|read-write] [--build-workers auto|N] [--query-workers N] [--verified-cache-bytes N] [--skip-queries]"
                 );
                 std::process::exit(0);
             }
@@ -133,6 +138,9 @@ fn parse_args() -> Result<Config, String> {
     }
     if config.query_workers == 0 {
         return Err("query workers must be positive".into());
+    }
+    if config.source_path != "data/entries" && !config.skip_queries {
+        return Err("the compact query cases require data/entries; use --skip-queries".into());
     }
     Ok(config)
 }
@@ -441,8 +449,13 @@ fn measure_case(repo: &Repository, case: Case, warm_cache: bool) -> Result<Value
 
 fn run() -> Result<(), String> {
     let config = parse_args()?;
+    let collection_name = config
+        .source_path
+        .rsplit('/')
+        .next()
+        .ok_or("source path has no collection component")?;
     let mut definition =
-        CollectionDefinition::folder("entries", "data/entries", SourceFormat::Json);
+        CollectionDefinition::folder(collection_name, &config.source_path, SourceFormat::Json);
     definition.sort_fields = ["@file.size", "@file.modified"]
         .into_iter()
         .map(FieldPath::parse)
@@ -477,7 +490,7 @@ fn run() -> Result<(), String> {
             .ok()
             .map(|metadata| metadata.len())
     };
-    let inference_report = repo.inference_report("entries");
+    let inference_report = repo.inference_report(collection_name);
     let rss_after_open = resident_bytes("VmRSS:");
     let peak_after_open = resident_bytes("VmHWM:");
     let mut rows = Vec::new();
@@ -491,8 +504,8 @@ fn run() -> Result<(), String> {
         json!({
             "workload": "optional-features-v1",
             "root": config.root.canonicalize().map_err(|error| error.to_string())?,
-            "source_path": "data/entries",
-            "collection": "entries",
+            "source_path": config.source_path,
+            "collection": collection_name,
             "schema_fields": collection.definition.schema.fields().len(),
             "stored_sort_fields": ["@file.size", "@file.modified"],
             "corpus_sha256": corpus_sha256,
