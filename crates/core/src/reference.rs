@@ -193,6 +193,8 @@ pub struct Schema {
     /// Explicit resident orders assembled from already configured scalar sort columns.
     pub composite_sorts: Vec<Vec<crate::workload::SortField>>,
     pub(crate) fields: HashMap<Vec<String>, FieldDefinition>,
+    /// Explicit `index: false` paths; absent annotations leave inference free.
+    pub(crate) auto_index_excluded: HashSet<Vec<String>>,
     pub(crate) custom: HashMap<(Vec<String>, String), CustomBinding>,
     pub(crate) operations: HashMap<(Vec<String>, String), RegisteredBinding>,
     pub(crate) defaults: HashMap<Vec<String>, String>,
@@ -205,6 +207,18 @@ pub struct Schema {
 
 
 impl Schema {
+    pub fn prohibit_auto_index(&mut self, path: Vec<String>) -> Result<(), String> {
+        if path.is_empty() || self.fields.get(&path).is_some_and(|field| field.indexed) {
+            return Err("automatic index prohibition conflicts with an explicit index".into());
+        }
+        self.auto_index_excluded.insert(path);
+        Ok(())
+    }
+
+    pub fn is_auto_index_prohibited(&self, path: &[String]) -> bool {
+        self.auto_index_excluded.contains(path)
+    }
+
     /// Register an exact composite order over previously configured scalar sort fields.
     pub fn register_composite_sort(
         &mut self,

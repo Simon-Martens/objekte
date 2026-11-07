@@ -679,7 +679,7 @@ impl InferenceBuilder {
                     InferenceIndexStatus::Redundant,
                     "declared posting already exists",
                 )
-            } else if declared.is_some() {
+            } else if schema.is_auto_index_prohibited(&field.path) {
                 (
                     InferenceIndexStatus::ExplicitOptOut,
                     "declared field disabled indexing",

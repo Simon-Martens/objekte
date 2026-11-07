@@ -287,6 +287,11 @@ pub fn configuration_hash(
                 .as_bytes(),
             );
         }
+        let mut excluded: Vec<_> = definition.schema.auto_index_excluded.iter().collect();
+        excluded.sort();
+        for path in excluded {
+            feed(&mut hash, format!("auto-index-excluded:{path:?}").as_bytes());
+        }
         for relation in definition.schema.relations().values() {
             feed(&mut hash, format!("{:?}", relation).as_bytes());
         }

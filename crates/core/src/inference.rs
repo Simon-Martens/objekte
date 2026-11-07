@@ -215,8 +215,6 @@ impl InferenceState {
         if self.report.mode != InferenceMode::AutoIndex
             || !self.report.complete
             || term.path.root != crate::model::PathRoot::Data
-            || (term.kind != LogicalType::Unknown
-                && !(structural && term.kind == LogicalType::Bool))
             || term.related.is_some()
             || term.rhs.is_some()
             || term.query_path.has_position
@@ -229,6 +227,12 @@ impl InferenceState {
             return None;
         }
         let index = self.indexes.get(&term.path.segments)?;
+        if term.kind != LogicalType::Unknown
+            && term.kind != index.kind
+            && !(structural && term.kind == LogicalType::Bool)
+        {
+            return None;
+        }
         if index.covered_records as u64 != domain.len() {
             return None;
         }
@@ -447,7 +451,11 @@ impl InferenceState {
             }
         }
         for (path, index) in &self.indexes {
-            if path != &index.path || schema.fields.contains_key(path) || !self.report.complete {
+            if path != &index.path
+                || schema.fields.get(path).is_some_and(|field| field.indexed)
+                || schema.is_auto_index_prohibited(path)
+                || !self.report.complete
+            {
                 return Err("snapshot inferred index representation mismatch".into());
             }
             index.validate_eligible(record_count, logical.len() as usize)?;

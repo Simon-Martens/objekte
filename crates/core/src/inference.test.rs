@@ -694,6 +694,7 @@ fn mixed_shapes_and_explicit_optouts_decline_inferred_postings() {
             })
             .unwrap();
     }
+    schema.prohibit_auto_index(vec!["blocked".into()]).unwrap();
     let mut combined = InferenceBuilder::new(config, false).unwrap();
     combined.merge_shifted(batch, 0).unwrap();
     let state = combined.finish(&(0..2).collect(), 2, &schema).unwrap();
