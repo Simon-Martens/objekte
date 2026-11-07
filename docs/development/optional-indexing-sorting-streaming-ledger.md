@@ -32,9 +32,9 @@ Default source records remain object-valued under current reader validation. Arr
 | --- | --- | --- | --- |
 | TASK-00 | Supervisor | complete | Base and prior evidence pinned above. |
 | TASK-01 | Supervisor | complete | Folder definition, path identity, example and compiling checkpoint. |
-| TASK-02 | Dynamic FILTER worker | not started | Structural bitmap and conservative gram restriction. |
-| TASK-03/04 | Inference worker | not started | Observation, policy, postings and restore. |
-| TASK-05/06 | Sorting worker | not started | Computed and composite sorting. |
+| TASK-02 | Dynamic FILTER worker | in progress | `feature/dynamic-filter-bigrams` at `/home/simon/source/objekte-dynamic-filter-bigrams`; structural bitmap and conservative gram restriction. |
+| TASK-03/04 | Inference worker | in progress | `feature/optional-field-inference` at `/home/simon/source/objekte-optional-field-inference`; observation, policy, postings and restore. |
+| TASK-05/06 | Sorting worker | in progress | `feature/general-sort-expressions` at `/home/simon/source/objekte-general-sort-expressions`; computed and composite sorting. |
 | TASK-07 | Streaming worker | not started | Delivery, cancellation and NDJSON. |
 | TASK-08 | Supervisor | not started | Independent branch review. |
 | TASK-09 | Supervisor | not started | Four-way integration and cross-feature validation. |
@@ -44,3 +44,10 @@ Default source records remain object-valued under current reader validation. Arr
 ## Foundation validation
 
 `cargo test --workspace --all-targets` and `cargo clippy --workspace --all-targets` passed on the foundation change. The recursive schema-free fixture found both `a/item.json` and `b/item.json`, returned `path:a/item.json` for its FTS query, and confirmed no typed posting or sort columns. JSONL received distinct generated IDs. The runnable example returned one Berlin match from `data/places` with explicit folder arguments. The repository-wide spacing check still reports pre-existing rustfmt drift in files outside this change, including untouched parts of `build.rs`; the new example and test are formatted. Clippy exited zero with advisory warnings in existing code. `git diff --check` passed.
+
+## Interface and integration notes
+
+- All first three workers branched from immutable checkpoint `57650298e9` in separate worktrees. Streaming starts from that same commit when a writing slot is free.
+- Sorting will retain legacy `SortField.field` and add a serde-defaulted typed `expression: Option<SortExpression>`. Inline reducers and paths normalize to this expression. Streaming must consume the common bound key/rank path rather than assume resident columns.
+- Dynamic FILTER adds a persisted collection-level empty-array bitmap and locally bumps `SNAPSHOT_VERSION` 9→10. Inference and sorting snapshot changes must be reconciled after merging, not by independently assuming that version 10 is final.
+- Selector review at the checkpoint found that `walk_path`/`walk_query_steps` can report a present empty selection only when an empty array is traversed implicitly or via `[*]`; direct out-of-range `[n]` is missing. The final dynamic path must still retain the residual, honor reader coverage, and avoid skipping fallible operations.
