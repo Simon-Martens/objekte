@@ -216,6 +216,40 @@ fn arrays_paths_and_id_namespace() {
 }
 
 #[test]
+fn schema_field_paths_reject_trailing_separators_and_render_query_syntax_safely() {
+    for input in [
+        "title.",
+        "@root.title.",
+        "@backlinks.mentions.",
+        "items[*].",
+    ] {
+        assert!(FieldPath::parse(input).is_err(), "{input}");
+    }
+    for (input, canonical) in [
+        ("['a:b']", "[\"a:b\"]"),
+        ("['a b']", "[\"a b\"]"),
+        ("['a>=b']", "[\"a>=b\"]"),
+        ("['a,b']", "[\"a,b\"]"),
+        ("['a\\'b']", "[\"a'b\"]"),
+        ("[\"a]b\"]", "[\"a]b\"]"),
+        ("['@file'].size", "[\"@file\"].size"),
+        ("['']", "[\"\"]"),
+    ] {
+        let parsed = FieldPath::parse(input).unwrap();
+        assert_eq!(parsed.display(), canonical, "{input}");
+        assert_eq!(FieldPath::parse(canonical).unwrap(), parsed);
+        assert_eq!(
+            crate::query_path::QueryPath::parse(canonical)
+                .unwrap()
+                .field,
+            parsed
+        );
+    }
+    assert_eq!(FieldPath::parse("@root").unwrap().display(), "@root");
+    assert_eq!(FieldPath::parse("['0']").unwrap().segments, ["0"]);
+}
+
+#[test]
 fn unhinted_arrays_keep_actual_or_unresolved_element_types() {
     let array = Value::from_json(serde_json::json!([null, 1, 2])).unwrap();
     assert_eq!(
