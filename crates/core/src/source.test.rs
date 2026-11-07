@@ -528,7 +528,7 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
         for temporal in [false, true] {
             let options = RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::ReadWrite,
+                snapshot_mode: SnapshotMode::IfValid,
                 ..Default::default()
             };
             for open in 0..2 {
@@ -540,6 +540,9 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
                 )
                 .unwrap();
                 assert_eq!(repo.startup().restored, open == 1);
+                if open == 0 {
+                    repo.save_default_snapshot_for_test();
+                }
                 for (text, field, count, evidence) in [
                     ("needle", None, 1, vec!["body"]),
                     ("here", Some("body"), 1, vec!["body"]),
@@ -810,7 +813,7 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
         sort_overrides: Default::default(),
     };
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::ReadWrite,
+        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built =
@@ -844,6 +847,7 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
         Some(Payload::LogicalUnavailable { .. })
     ));
     assert_eq!(result.hits[0].matched_fields, ["@record.raw_text"]);
+    built.save_default_snapshot_for_test();
     let restored =
         Repository::open_with_sources(&root, vec![definition], options, sources).unwrap();
     assert!(restored.startup().restored);
@@ -1149,6 +1153,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
         matches!(&bytes.hits[0].payload, Some(Payload::Bytes(raw)) if raw == b"second|needle text")
     );
     let after_query = parses.load(Ordering::Relaxed);
+    repo.save_default_snapshot_for_test();
     drop(repo);
 
     let restored = Repository::open_with_sources(
@@ -1267,6 +1272,7 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         generation.file_records.records_for(main_id).unwrap().len(),
         2
     );
+    built.save_default_snapshot_for_test();
     drop(built);
     let restored = Repository::open_with_sources(
         &root,

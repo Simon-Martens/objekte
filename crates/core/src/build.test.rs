@@ -770,12 +770,13 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             build_workers: Some(NonZeroUsize::new(1).unwrap()),
             ..Default::default()
         };
         let built =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        built.save_default_snapshot_for_test();
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
         assert!(restored.startup().restored);
@@ -783,7 +784,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             &root,
             vec![definition.clone()],
             RepositoryOptions {
-                snapshot_mode: SnapshotMode::Rebuild,
+                snapshot_mode: SnapshotMode::Disabled,
                 build_workers: NonZeroUsize::new(
                     std::thread::available_parallelism()
                         .map_or(1, NonZeroUsize::get)
@@ -941,10 +942,11 @@ fn shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings() {
         })
         .collect::<Vec<_>>();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::ReadWrite,
+        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    built.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, definitions, options).unwrap();
     assert!(restored.startup().restored);
     for repo in [&built, &restored] {

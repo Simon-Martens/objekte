@@ -5,17 +5,36 @@ fn small_selection_preserves_scalar_and_array_path_states() {
     let value = Value::from_json(serde_json::json!({
         "name": "Ada", "empty": [], "null": null,
         "people": [{"name": "A"}, {"name": "B"}]
-    })).unwrap();
-    let path = |parts: &[&str]| parts.iter().map(|part| (*part).to_string()).collect::<Vec<_>>();
+    }))
+    .unwrap();
+    let path = |parts: &[&str]| {
+        parts
+            .iter()
+            .map(|part| (*part).to_string())
+            .collect::<Vec<_>>()
+    };
     let scalar = data_values_small(&value, &path(&["name"])).unwrap();
     assert!(!scalar.spilled());
     assert!(matches!(scalar.as_slice(), [Value::String(name)] if name == "Ada"));
     assert!(data_values_small(&value, &path(&["absent"])).is_none());
-    assert!(matches!(data_values_small(&value, &path(&["null"])).unwrap().as_slice(), [Value::Null]));
-    assert_eq!(data_values_small(&value, &path(&["empty", "name"])).unwrap().len(), 0);
+    assert!(matches!(
+        data_values_small(&value, &path(&["null"]))
+            .unwrap()
+            .as_slice(),
+        [Value::Null]
+    ));
+    assert_eq!(
+        data_values_small(&value, &path(&["empty", "name"]))
+            .unwrap()
+            .len(),
+        0
+    );
     let many = data_values_small(&value, &path(&["people", "name"])).unwrap();
     assert_eq!(many.len(), 2);
-    assert_eq!(many.as_slice(), data_values(&value, &path(&["people", "name"])).unwrap());
+    assert_eq!(
+        many.as_slice(),
+        data_values(&value, &path(&["people", "name"])).unwrap()
+    );
 }
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::{FileId, RecordId, RecordSlot};
@@ -611,11 +630,12 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
         );
     }
     let persisted = RepositoryOptions {
-        snapshot_mode: SnapshotMode::ReadWrite,
+        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built = Repository::open_with_options(&root, vec![definition(true)], persisted).unwrap();
     assert!(!built.startup().restored);
+    built.save_default_snapshot_for_test();
     drop(built);
     let restored = Repository::open_with_options(&root, vec![definition(true)], persisted).unwrap();
     assert!(restored.startup().restored);
@@ -689,7 +709,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         },
     ];
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::ReadWrite,
+        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let check = |repo: &Repository| {
@@ -802,6 +822,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
     let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
     assert!(!built.startup().restored);
     check(&built);
+    built.save_default_snapshot_for_test();
     drop(built);
     let restored = Repository::open_with_options(&root, definitions, options).unwrap();
     assert!(restored.startup().restored);

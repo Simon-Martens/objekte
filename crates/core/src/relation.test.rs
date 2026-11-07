@@ -353,7 +353,7 @@ fn nested_array_occurrences_retain_every_scope_position() {
 fn declared_links_resolve_once_and_survive_snapshot_restore() {
     let root = fixture("restore");
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::ReadWrite,
+        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
@@ -361,6 +361,7 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
     assert_eq!(built.build_parses(), 8);
     assert_eq!(built.build_failed_parses(), 1);
     check(&built);
+    built.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
     assert!(restored.startup().restored);
     assert_eq!(restored.build_parses(), 0);
@@ -652,12 +653,15 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
     )
     .unwrap();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::ReadWrite,
+        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     for restored in [false, true] {
         let repo = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
         assert_eq!(repo.startup().restored, restored);
+        if !restored {
+            repo.save_default_snapshot_for_test();
+        }
         let source = &repo.collections()[2];
         let target = &repo.collections()[0];
         let relation = repo.relation_index("mentions", &["entry".into()]).unwrap();

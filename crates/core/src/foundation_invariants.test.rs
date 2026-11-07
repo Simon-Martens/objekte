@@ -117,13 +117,16 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
         let mut built_diagnostic = None;
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 0,
             ..Default::default()
         };
         for opening in 0..2 {
             let repo = Repository::open_with_options(&root, vec![definition()], options).unwrap();
             assert_eq!(repo.startup().restored, opening == 1);
+            if opening == 0 {
+                repo.save_default_snapshot_for_test();
+            }
             for budget in [0, 1 << 20] {
                 repo.configure_verified_cache(budget).unwrap();
                 for (filter, expected) in answers {

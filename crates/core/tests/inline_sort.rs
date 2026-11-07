@@ -275,7 +275,7 @@ fn explicit_composite_order_streams_and_matches_reference() {
         &root,
         definitions.clone(),
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             ..Default::default()
         },
     )
@@ -320,12 +320,13 @@ fn explicit_composite_order_streams_and_matches_reference() {
         "stored_composite_order_page"
     );
     assert_eq!(repo.search(&typed).unwrap().hits, result.hits);
+    repo.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, objekte_search_core::workload::BigramAlphabet::Ascii)).unwrap();
     drop(repo);
     let restored = Repository::open_with_options(
         &root,
         definitions,
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             ..Default::default()
         },
     )

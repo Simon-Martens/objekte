@@ -1,7 +1,7 @@
 //! One repository opening and sequential, ordered query execution.
 
 use std::io::{self, BufWriter, IsTerminal, Write};
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::time::Instant;
 
 use objekte_search_core::discovery::SymlinkPolicy;
@@ -75,6 +75,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         offset: args.offset,
         limit: args.limit,
         interruption: Some(token.clone()),
+        snapshot_requested: args.write_index.is_some(),
         loading_label: Some(
             match (args.load_index.is_some(), args.write_index.is_some()) {
                 (true, false) => "Loading search index",
@@ -84,8 +85,9 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             .to_owned(),
         ),
     };
+    let write = args.write_index.is_some();
     let result = objekte_cli::tui::run_with_loader(
-        move || Repository::open_with_snapshot_policy(&root, vec![definition], options, policy),
+        move || open_repository(&root, definition, options, policy, write).map(|(repo, _, _)| repo),
         ui,
     );
     match result {
@@ -193,11 +195,35 @@ fn repository_options(args: &Arguments) -> RepositoryOptions {
 fn snapshot_policy(args: &Arguments, paths: &ResolvedPaths) -> SnapshotOpenPolicy {
     let mode = match (args.load_index.is_some(), args.write_index.is_some()) {
         (false, false) => SnapshotMode::Disabled,
-        (true, false) => SnapshotMode::ReadOnly,
-        (false, true) => SnapshotMode::Rebuild,
-        (true, true) => SnapshotMode::ReadWrite,
+        (true, false) => SnapshotMode::Required,
+        (false, true) => SnapshotMode::Disabled,
+        (true, true) => SnapshotMode::IfValid,
     };
     SnapshotOpenPolicy::new(mode, paths.index_directory.clone())
+}
+
+fn open_repository(
+    root: &Path,
+    definition: CollectionDefinition,
+    options: RepositoryOptions,
+    policy: SnapshotOpenPolicy,
+    write_requested: bool,
+) -> Result<(Repository, u128, u128), String> {
+    let directory = policy
+        .directory
+        .clone()
+        .unwrap_or_else(|| root.join(".objekte"));
+    let open_started = Instant::now();
+    let repo = Repository::open_with_snapshot_policy(root, vec![definition], options, policy)?;
+    let open_ns = open_started.elapsed().as_nanos();
+    if write_requested && !repo.startup().restored {
+        let started = Instant::now();
+        let path =
+            objekte_search_core::storage::snapshot_path_in(&directory, options.bigram_alphabet);
+        repo.save_snapshot(&path)?;
+        return Ok((repo, open_ns, started.elapsed().as_nanos()));
+    }
+    Ok((repo, open_ns, 0))
 }
 
 /// Run one command using the supplied output sink and cancellation flag.
@@ -270,26 +296,28 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     );
     let options = repository_options(args);
     let policy = snapshot_policy(args, &paths);
-    let open_started = Instant::now();
-    let repo =
-        match Repository::open_with_snapshot_policy(&paths.root, vec![definition], options, policy)
-        {
-            Ok(repo) => repo,
-            Err(message) => {
-                eprintln!("obj: {message}");
-                if let Err(error) = output
-                    .emit(
-                        json!({"type":"run_error", "stage":"startup", "error":message,
+    let (repo, startup_ns, snapshot_write_ns) = match open_repository(
+        &paths.root,
+        definition,
+        options,
+        policy,
+        args.write_index.is_some(),
+    ) {
+        Ok(result) => result,
+        Err(message) => {
+            eprintln!("obj: {message}");
+            if let Err(error) = output
+                .emit(
+                    json!({"type":"run_error", "stage":"startup", "error":message,
                 "elapsed_ms":ms(started.elapsed().as_nanos())}),
-                    )
-                    .and_then(|_| output.flush())
-                {
-                    return output_failure(error);
-                }
-                return Exit::Arguments;
+                )
+                .and_then(|_| output.flush())
+            {
+                return output_failure(error);
             }
-        };
-    let startup_ns = open_started.elapsed().as_nanos();
+            return Exit::Arguments;
+        }
+    };
     let mut source = match QuerySource::open(args) {
         Ok(source) => source,
         Err(message) => {
@@ -401,8 +429,8 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         "finalization_ms": ms(stats.build_finalization_ns as u128),
         "snapshot_decode_ms": ms(stats.snapshot_decode_ns as u128),
         "reconciliation_ms": ms(stats.reconciliation_ns as u128),
-        "snapshot_write_ms": ms(stats.snapshot_write_ns as u128),
-        "snapshot_action": snapshot_action(stats.snapshot_action),
+        "snapshot_write_ms": ms(snapshot_write_ns),
+        "snapshot_action": snapshot_action(stats.snapshot_action, snapshot_write_ns > 0, stats.snapshot_restore_error.is_some()),
         "snapshot_restore_error": stats.snapshot_restore_error,
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "automatic_index_summary": repo.inference_report("files").map(|report| json!({
@@ -619,12 +647,12 @@ fn index_operation(args: &Arguments) -> &'static str {
     }
 }
 
-fn snapshot_action(action: SnapshotAction) -> &'static str {
-    match action {
-        SnapshotAction::BuiltInMemory => "built_in_memory",
-        SnapshotAction::BuiltAndWritten => "built_and_written",
-        SnapshotAction::Restored => "restored",
-        SnapshotAction::RebuiltAndWritten => "rebuilt_and_written",
+fn snapshot_action(action: SnapshotAction, saved: bool, rebuilt: bool) -> &'static str {
+    match (action, saved, rebuilt) {
+        (SnapshotAction::Restored, _, _) => "restored",
+        (SnapshotAction::BuiltInMemory, true, true) => "rebuilt_and_written",
+        (SnapshotAction::BuiltInMemory, true, false) => "built_and_written",
+        (SnapshotAction::BuiltInMemory, false, _) => "built_in_memory",
     }
 }
 

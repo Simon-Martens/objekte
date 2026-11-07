@@ -164,6 +164,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
             < default_order.iter().position(|id| id == "d").unwrap()
     );
     assert_eq!(&default_order[6..], ["e", "f"]);
+    built.save_default_snapshot_for_test();
     drop(built);
     let restored = Repository::open_with_options(
         &root,
@@ -244,6 +245,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     query.options.limit = 3;
     let descending = ids(&rebuilt, &query);
     assert_eq!(descending, ["f", "a", "b"]);
+    rebuilt.save_default_snapshot_for_test();
     drop(rebuilt);
     let reopened =
         Repository::open_with_options(&root, vec![changed], RepositoryOptions::default()).unwrap();

@@ -467,6 +467,17 @@ impl Repository {
     }
 }
 
+#[cfg(test)]
+impl Repository {
+    pub(crate) fn save_default_snapshot_for_test(&self) {
+        self.save_snapshot(&snapshot_path(
+            &self.files.root,
+            self.options.bigram_alphabet,
+        ))
+        .unwrap();
+    }
+}
+
 pub fn load_snapshot(
     root: PathBuf,
     definitions: Vec<CollectionDefinition>,

@@ -228,7 +228,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         };
@@ -352,6 +352,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
                 .all(|hit| hit.file_status == FileStatus::Broken)
         );
         assert_eq!(ordered.hits, built.search_reference(&sorted).unwrap().hits);
+        built.save_default_snapshot_for_test();
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
         assert!(restored.startup().restored);
@@ -442,11 +443,12 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             ..Default::default()
         };
         let built =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        built.save_default_snapshot_for_test();
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
         assert!(restored.startup().restored);
@@ -572,10 +574,11 @@ fn one_fallback_does_not_disable_selective_logical_postings() {
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             ..RepositoryOptions::default()
         };
         let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        built.save_default_snapshot_for_test();
         let restored = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
         assert!(restored.startup().restored);
         for repo in [&built, &restored] {
@@ -1938,6 +1941,7 @@ fn typed_temporal_fields_survive_postings_payload_cache_and_restore() {
     let cached = repo.search(&query).unwrap();
     assert!(cached.counters.verified_result_hit);
     assert_eq!(cached.hits[0].payload, optimized.hits[0].payload);
+    repo.save_default_snapshot_for_test();
     let restored = Repository::open(&root, definitions).unwrap();
     assert!(restored.startup.restored);
     assert_eq!(
@@ -2013,13 +2017,16 @@ fn optional_temporal_parent_queries_keep_absent_null_and_present_records() {
     };
     for indexed in [false, true] {
         let options = crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::ReadWrite,
+            snapshot_mode: crate::repository::SnapshotMode::IfValid,
             ..Default::default()
         };
         for open in 0..2 {
             let repo =
                 Repository::open_with_options(&root, vec![definition(indexed)], options).unwrap();
             assert_eq!(repo.startup().restored, open == 1);
+            if open == 0 {
+                repo.save_default_snapshot_for_test();
+            }
             for (filter, expected) in [
                 ("note ~ 'keep'", vec!["absent", "null", "present"]),
                 ("note = 'keep'", vec!["absent", "null", "present"]),

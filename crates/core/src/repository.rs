@@ -319,12 +319,12 @@ pub struct StartupStats {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum SnapshotMode {
+    /// Build from source without inspecting a snapshot.
     Disabled,
-    /// Require a compatible snapshot; never rebuild or write.
-    ReadOnly,
-    ReadWrite,
-    /// Build from source and write, ignoring an existing snapshot.
-    Rebuild,
+    /// Restore a compatible current snapshot, or build from source.
+    IfValid,
+    /// Require a compatible current snapshot.
+    Required,
 }
 
 /// Actual result of the requested snapshot policy.
@@ -332,12 +332,10 @@ pub enum SnapshotMode {
 pub enum SnapshotAction {
     #[default]
     BuiltInMemory,
-    BuiltAndWritten,
     Restored,
-    RebuiltAndWritten,
 }
 
-/// Explicit snapshot operation and directory for one repository opening.
+/// Snapshot load policy and directory for one repository opening.
 #[derive(Clone, Debug)]
 pub struct SnapshotOpenPolicy {
     pub mode: SnapshotMode,
@@ -370,7 +368,7 @@ impl Default for RepositoryOptions {
             bigram_alphabet: BigramAlphabet::Ascii,
             prepared_cache_bytes: 4 * 1024 * 1024,
             verified_cache_bytes: 0,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             query_workers: std::thread::available_parallelism()
                 .map_or(1, |workers| workers.get().min(32)),
             build_workers: None,
@@ -686,7 +684,7 @@ impl Repository {
         Self::open_with_sources(root, definitions, options, SourceRegistry::builtin())
     }
 
-    /// Open with an independent load/write policy and an optional snapshot directory.
+    /// Open with an independent load policy and an optional snapshot directory.
     pub fn open_with_snapshot_policy(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
@@ -749,17 +747,16 @@ impl Repository {
         let mut reconciliation_ns = 0;
         let mut previous_generations = HashMap::new();
         let mut restore_error = None;
-        let mut rebuilt = false;
         let mut snapshot_exists = false;
         if matches!(
             options.snapshot_mode,
-            SnapshotMode::ReadOnly | SnapshotMode::ReadWrite
+            SnapshotMode::Required | SnapshotMode::IfValid
         ) {
             match std::fs::metadata(&snapshot) {
                 Ok(metadata) if metadata.is_file() => snapshot_exists = true,
                 Ok(_) => return Err(format!("snapshot is not a file: {}", snapshot.display())),
                 Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
-                    if options.snapshot_mode == SnapshotMode::ReadOnly {
+                    if options.snapshot_mode == SnapshotMode::Required {
                         return Err(format!(
                             "snapshot missing: {}; use --load-index with --write-index to rebuild",
                             snapshot.display()
@@ -773,7 +770,7 @@ impl Repository {
         }
         if matches!(
             options.snapshot_mode,
-            SnapshotMode::ReadOnly | SnapshotMode::ReadWrite
+            SnapshotMode::Required | SnapshotMode::IfValid
         ) && snapshot_exists
         {
             let decode_started = Instant::now();
@@ -811,7 +808,7 @@ impl Repository {
                     restore_error = Some(message);
                 }
             }
-            if options.snapshot_mode == SnapshotMode::ReadOnly {
+            if options.snapshot_mode == SnapshotMode::Required {
                 return Err(format!(
                     "snapshot cannot be loaded: {}; use --load-index with --write-index to rebuild",
                     restore_error
@@ -819,7 +816,6 @@ impl Repository {
                         .unwrap_or("unknown incompatibility")
                 ));
             }
-            rebuilt = true;
         }
         // Keep source construction separate from the optional restore attempt.
         let build_started = Instant::now();
@@ -834,19 +830,6 @@ impl Repository {
         repo.startup.reconciliation_ns = reconciliation_ns;
         repo.startup.snapshot_restore_error = restore_error;
         repo.startup.build_ns = build_started.elapsed().as_nanos() as u64;
-        if matches!(
-            options.snapshot_mode,
-            SnapshotMode::ReadWrite | SnapshotMode::Rebuild
-        ) {
-            let write_started = Instant::now();
-            repo.save_snapshot(&snapshot)?;
-            repo.startup.snapshot_write_ns = write_started.elapsed().as_nanos() as u64;
-            repo.startup.snapshot_action = if rebuilt {
-                SnapshotAction::RebuiltAndWritten
-            } else {
-                SnapshotAction::BuiltAndWritten
-            };
-        }
         Ok(repo)
     }
 

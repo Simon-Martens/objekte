@@ -93,7 +93,7 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1024 * 1024,
             build_workers: std::num::NonZeroUsize::new(2),
             ..Default::default()
@@ -101,6 +101,9 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
         for opening in 0..2 {
             let repo = Repository::open_with_options(&root, vec![definition()], options).unwrap();
             assert_eq!(repo.startup().restored, opening == 1);
+            if opening == 0 {
+                repo.save_default_snapshot_for_test();
+            }
             let collection = &repo.collections[0];
             let empty_ids: Vec<_> = collection
                 .empty_array_records
@@ -264,12 +267,10 @@ fn broad_structural_superset_makes_scanning_cheaper() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 /// A reader that may deliberately omit title from its raw text representation.
 struct SelectedTextReader {
     complete: bool,
 }
-
 
 impl crate::source::SourceReader for SelectedTextReader {
     fn name(&self) -> &'static str {
@@ -314,7 +315,6 @@ impl crate::source::SourceReader for SelectedTextReader {
         })
     }
 }
-
 
 #[test]
 fn undeclared_candidate_respects_reader_text_coverage() {

@@ -212,11 +212,15 @@ fn run() -> Result<(), String> {
             definitions.clone(),
             RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::Rebuild,
+                snapshot_mode: SnapshotMode::Disabled,
                 query_workers,
                 ..RepositoryOptions::default()
             },
         )?;
+        let open_ns = build_start.elapsed().as_nanos() as u64;
+        let save_started = Instant::now();
+        repo.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, alphabet))?;
+        let snapshot_write_ns = save_started.elapsed().as_nanos() as u64;
         let total_build_and_snapshot_ns = build_start.elapsed().as_nanos() as u64;
         let build_ns = repo.startup().build_ns;
         if corpus_hash.is_empty() {
@@ -280,7 +284,7 @@ fn run() -> Result<(), String> {
         let restore_samples = measure_restore_children(&root, alphabet, 5, extended)?;
         let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
         let relations = repo.collections().iter().flat_map(|collection| &collection.relations).collect::<Vec<_>>();
-        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"discovery_ns":repo.startup().build_discovery_ns,"extraction_index_ns":repo.startup().build_extraction_index_ns,"finalization_ns":repo.startup().build_finalization_ns,"snapshot_write_ns":repo.startup().snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"inventory_heap_bytes":inventory_heap_bytes,"diagnostic_heap_bytes":diagnostic_heap_bytes,"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"bigram_store_count":bigram_store_count,"distinct_gram_keys":distinct_gram_keys,"relation_count":relations.len(),"relation_edges":relations.iter().map(|relation| relation.edge_count()).sum::<usize>(),"relation_heap_bytes":relations.iter().map(|relation| relation.estimated_heap_bytes()).sum::<usize>(),"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
+        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"open_ns":open_ns,"discovery_ns":repo.startup().build_discovery_ns,"extraction_index_ns":repo.startup().build_extraction_index_ns,"finalization_ns":repo.startup().build_finalization_ns,"snapshot_write_ns":snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"inventory_heap_bytes":inventory_heap_bytes,"diagnostic_heap_bytes":diagnostic_heap_bytes,"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"bigram_store_count":bigram_store_count,"distinct_gram_keys":distinct_gram_keys,"relation_count":relations.len(),"relation_edges":relations.iter().map(|relation| relation.edge_count()).sum::<usize>(),"relation_heap_bytes":relations.iter().map(|relation| relation.estimated_heap_bytes()).sum::<usize>(),"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
         if registrations.is_empty() {
             registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
         }
@@ -581,7 +585,7 @@ fn restore_child(args: &[String]) -> Result<(), String> {
         definitions,
         RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             ..RepositoryOptions::default()
         },
     )?;

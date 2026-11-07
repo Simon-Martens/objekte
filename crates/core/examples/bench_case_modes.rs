@@ -202,7 +202,7 @@ fn run() -> Result<(), String> {
             definitions.clone(),
             RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::ReadWrite,
+                snapshot_mode: SnapshotMode::IfValid,
                 query_workers: 32,
                 ..Default::default()
             },

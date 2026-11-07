@@ -40,6 +40,7 @@ struct Config {
     alphabet: BigramAlphabet,
     inference: InferenceMode,
     snapshot: SnapshotMode,
+    write_snapshot: bool,
     build_workers: Option<NonZeroUsize>,
     query_workers: usize,
     verified_cache_bytes: usize,
@@ -55,6 +56,7 @@ impl Default for Config {
             alphabet: BigramAlphabet::Ascii,
             inference: InferenceMode::Disabled,
             snapshot: SnapshotMode::Disabled,
+            write_snapshot: false,
             build_workers: None,
             query_workers: RepositoryOptions::default().query_workers,
             verified_cache_bytes: 0,
@@ -89,11 +91,11 @@ fn parse_args() -> Result<Config, String> {
                 }
             }
             "--snapshot-mode" => {
-                config.snapshot = match args.next().ok_or("--snapshot-mode needs a value")?.as_str()
+                (config.snapshot, config.write_snapshot) = match args.next().ok_or("--snapshot-mode needs a value")?.as_str()
                 {
-                    "disabled" => SnapshotMode::Disabled,
-                    "rebuild" => SnapshotMode::Rebuild,
-                    "read-write" => SnapshotMode::ReadWrite,
+                    "disabled" => (SnapshotMode::Disabled, false),
+                    "rebuild" => (SnapshotMode::Disabled, true),
+                    "read-write" => (SnapshotMode::IfValid, true),
                     other => return Err(format!("unknown snapshot mode {other}")),
                 }
             }
@@ -479,11 +481,18 @@ fn run() -> Result<(), String> {
     let started = Instant::now();
     let repo = Repository::open_with_options(&config.root, vec![definition], options)?;
     let readiness_ns = started.elapsed().as_nanos();
+    let save_started = Instant::now();
+    if config.write_snapshot && !repo.startup().restored {
+        repo.save_snapshot(&snapshot_path(&config.root, config.alphabet))?;
+    }
+    let snapshot_write_ns = if config.write_snapshot && !repo.startup().restored {
+        save_started.elapsed().as_nanos() as u64
+    } else { 0 };
     let collection = &repo.collections()[0];
     let mut hash = Sha256::new();
     hash.update(bincode::serialize(&repo.files().files).map_err(|error| error.to_string())?);
     let corpus_sha256 = format!("{:x}", hash.finalize());
-    let snapshot_bytes = if config.snapshot == SnapshotMode::Disabled {
+    let snapshot_bytes = if config.snapshot == SnapshotMode::Disabled && !config.write_snapshot {
         None
     } else {
         std::fs::metadata(snapshot_path(&config.root, config.alphabet))
@@ -523,7 +532,7 @@ fn run() -> Result<(), String> {
             "discovery_ns": repo.startup().build_discovery_ns,
             "extraction_index_ns": repo.startup().build_extraction_index_ns,
             "finalization_ns": repo.startup().build_finalization_ns,
-            "snapshot_write_ns": repo.startup().snapshot_write_ns,
+            "snapshot_write_ns": snapshot_write_ns,
             "snapshot_decode_ns": repo.startup().snapshot_decode_ns,
             "build_parses": repo.build_parses(),
             "failed_build_parses": repo.build_failed_parses(),

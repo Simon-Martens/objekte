@@ -687,7 +687,7 @@ fn unavailable_targets_survive_negation_and_source_records_are_counted_once() {
 fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
     let (root, definitions) = fixture();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::ReadWrite,
+        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let repo = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
@@ -720,6 +720,7 @@ fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
         assert_eq!(actual.count, Some(expected));
         assert_eq!(actual.hits, reference.hits);
     }
+    repo.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, definitions, options).unwrap();
     assert!(restored.startup().restored);
     for filter in ["entry.title = 'Hymn'", "contributors.title ?= 'Hymn'"] {

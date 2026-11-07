@@ -95,7 +95,8 @@ fn main() {
 fn run() -> Result<(), String> {
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let mut alphabet = BigramAlphabet::Ascii;
-    let mut snapshot_mode = SnapshotMode::Rebuild;
+    let snapshot_mode = SnapshotMode::Disabled;
+    let mut write_snapshot = false;
     let mut build_workers = None;
     let mut schema_manifest_path = None;
     let mut arguments = std::env::args().skip(1);
@@ -117,15 +118,15 @@ fn run() -> Result<(), String> {
                 }
             }
             "--snapshot-mode" => {
-                snapshot_mode = match arguments
+                write_snapshot = match arguments
                     .next()
                     .ok_or("--snapshot-mode needs a value")?
                     .as_str()
                 {
-                    "rebuild" => SnapshotMode::Rebuild,
-                    "disabled" => SnapshotMode::Disabled,
+                    "rebuild" => true,
+                    "disabled" => false,
                     other => return Err(format!("unknown snapshot mode {other}")),
-                }
+                };
             }
             "--build-workers" => {
                 let value = arguments.next().ok_or("--build-workers needs a value")?;
@@ -165,7 +166,12 @@ fn run() -> Result<(), String> {
         },
     )?;
     let wall_ns = started.elapsed().as_nanos();
-    let snapshot_bytes = if snapshot_mode == SnapshotMode::Rebuild {
+    let snapshot_started = Instant::now();
+    if write_snapshot {
+        repo.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, alphabet))?;
+    }
+    let snapshot_write_ns = if write_snapshot { snapshot_started.elapsed().as_nanos() as u64 } else { 0 };
+    let snapshot_bytes = if write_snapshot {
         Some(
             std::fs::metadata(objekte_search_core::storage::snapshot_path(&root, alphabet))
                 .map_err(|error| error.to_string())?
@@ -198,7 +204,7 @@ fn run() -> Result<(), String> {
         "{}",
         serde_json::json!({
             "alphabet": alphabet,
-            "snapshot_mode": if snapshot_mode == SnapshotMode::Rebuild { "rebuild" } else { "disabled" },
+            "snapshot_mode": if write_snapshot { "rebuild" } else { "disabled" },
             "requested_build_workers": build_workers.map(NonZeroUsize::get),
             "resolved_build_workers": repo.startup().build_workers,
             "available_parallelism": std::thread::available_parallelism().map_or(1, NonZeroUsize::get),
@@ -215,7 +221,7 @@ fn run() -> Result<(), String> {
             "discovery_ns": repo.startup().build_discovery_ns,
             "extraction_index_ns": repo.startup().build_extraction_index_ns,
             "finalization_ns": repo.startup().build_finalization_ns,
-            "snapshot_write_ns": repo.startup().snapshot_write_ns,
+            "snapshot_write_ns": snapshot_write_ns,
             "build_parses": repo.build_parses(),
             "failed_parses": repo.build_failed_parses(),
             "inventory_heap_bytes": inventory_heap_bytes,

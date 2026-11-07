@@ -235,7 +235,7 @@ fn unrelated_empty_array_does_not_fabricate_universal_hit_or_lose_fallback_or() 
 #[test]
 fn reopening_without_inference_does_not_restore_inferred_postings() {
     let fixture = Fixture::new();
-    let auto = fixture.open(InferenceMode::AutoIndex, SnapshotMode::ReadWrite);
+    let auto = fixture.open(InferenceMode::AutoIndex, SnapshotMode::IfValid);
     assert!(!auto.startup().restored);
     assert!(auto.inference_report("data").is_some());
     let baseline = auto
@@ -244,7 +244,7 @@ fn reopening_without_inference_does_not_restore_inferred_postings() {
     assert_eq!(baseline.count, Some(24));
     drop(auto);
 
-    let disabled = fixture.open(InferenceMode::Disabled, SnapshotMode::ReadWrite);
+    let disabled = fixture.open(InferenceMode::Disabled, SnapshotMode::IfValid);
     assert!(!disabled.startup().restored);
     assert!(disabled.inference_report("data").is_none());
     let restored_answers = disabled
