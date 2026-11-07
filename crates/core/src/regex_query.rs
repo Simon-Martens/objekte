@@ -18,6 +18,16 @@ const EXTRACTION_NODE_LIMIT: usize = 64;
 const EXTRACTION_ALTERNATIVE_LIMIT: usize = 16;
 const EXTRACTION_LITERAL_LIMIT: usize = 256;
 
+#[cfg(test)]
+thread_local! {
+    static REGEX_COMPILES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn test_compile_count() -> usize {
+    REGEX_COMPILES.with(std::cell::Cell::get)
+}
+
 
 /// Necessary record-level gram condition; every regex match satisfies it.
 #[derive(Clone, Debug)]
@@ -29,6 +39,21 @@ pub(crate) enum RegexCondition {
 
 
 impl RegexCondition {
+    fn retained_heap_bytes(&self) -> usize {
+        match self {
+            Self::Literal(request) => request.retained_heap_bytes(),
+            Self::All(parts) | Self::Any(parts) => parts
+                .capacity()
+                .saturating_mul(std::mem::size_of::<Self>())
+                .saturating_add(
+                    parts
+                        .iter()
+                        .map(Self::retained_heap_bytes)
+                        .fold(0usize, usize::saturating_add),
+                ),
+        }
+    }
+
     /// A missing child is unrestricted. Conjunction can retain its other
     /// restrictions; one unrestricted alternation branch lifts the whole OR.
     fn from_hir(hir: &Hir, remaining: &mut usize) -> Option<Self> {
@@ -163,11 +188,31 @@ pub(crate) struct CompiledRegex {
 
 
 impl CompiledRegex {
+    pub(crate) fn retained_local_heap_bytes(&self) -> usize {
+        self.condition
+            .as_ref()
+            .map_or(0, RegexCondition::retained_heap_bytes)
+    }
+
+    pub(crate) fn retained_heap_bytes(&self) -> usize {
+        // `regex::Regex` does not expose its compiled allocation size. Charge
+        // the configured compile/cache ceilings, including the Arc allocation,
+        // so a regex cannot silently occupy a small prepared-cache budget.
+        std::mem::size_of::<Regex>()
+            .saturating_add(2 * std::mem::size_of::<usize>())
+            .saturating_add(COMPILED_SIZE_LIMIT)
+            .saturating_add(DFA_SIZE_LIMIT)
+            .saturating_add(self.matcher.as_str().len())
+            .saturating_add(self.retained_local_heap_bytes())
+    }
+
     pub fn compile(
         pattern: &str,
         options: RegexOptions,
         case_sensitivity: CaseSensitivity,
     ) -> Result<Self, String> {
+        #[cfg(test)]
+        REGEX_COMPILES.with(|count| count.set(count.get() + 1));
         if pattern.len() > MAX_PATTERN_BYTES {
             return Err(format!(
                 "regex pattern exceeds {MAX_PATTERN_BYTES} byte limit"

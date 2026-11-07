@@ -29,12 +29,13 @@ fn assert_cache_accounting(cache: &PreparedCache) {
 
 #[test]
 fn bounded_lru_evicts_without_exceeding_budget() {
-    let mut cache = PreparedCache::new(280);
     let query = empty_query();
+    let one_charge = PreparedCache::entry_bytes(b"a", &query);
+    let mut cache = PreparedCache::new(one_charge * 2);
     insert(&mut cache, b"a", query.clone());
     assert!(cache.get(b"a").is_some());
     insert(&mut cache, b"b", query.clone());
-    assert!(cache.used_bytes() <= 280);
+    assert!(cache.used_bytes() <= one_charge * 2);
     assert!(cache.get(b"a").is_some());
     insert(&mut cache, b"c", query);
     assert!(cache.get(b"b").is_none());
@@ -117,4 +118,132 @@ fn simultaneous_misses_do_not_double_charge_one_key() {
     let cache = cache.lock().unwrap();
     assert_eq!(cache.entries.len(), 1);
     assert_cache_accounting(&cache);
+}
+
+#[test]
+fn retained_charge_includes_fts_literals_and_prepared_grams() {
+    use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
+
+    let bind = |literal: &str| {
+        crate::reference::bind_fts(
+            &FtsQuery {
+                case_sensitivity: CaseSensitivity::Sensitive,
+                mode: FtsMode::Literal,
+                literal: literal.into(),
+                pattern_parameter: None,
+                fields: Vec::new(),
+            },
+            &crate::reference::Schema::default(),
+        )
+        .unwrap()
+    };
+    let short = PreparedQuery {
+        collections: vec![(0, None, Some(bind("ab")))],
+    };
+    let long = PreparedQuery {
+        collections: vec![(0, None, Some(bind(&"abcd".repeat(256))))],
+    };
+    assert!(
+        PreparedCache::entry_bytes(b"fts", &long)
+            > PreparedCache::entry_bytes(b"fts", &short) + 1024
+    );
+}
+
+#[test]
+fn compiled_regex_charge_cannot_hide_inside_small_cache_budget() {
+    use crate::query::{CaseSensitivity, FtsMode, FtsQuery, RegexOptions};
+
+    let regex = crate::reference::bind_fts(
+        &FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Regex(RegexOptions::default()),
+            literal: "a+".into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        },
+        &crate::reference::Schema::default(),
+    )
+    .unwrap();
+    let query = PreparedQuery {
+        collections: vec![(0, None, Some(regex))],
+    };
+    let charge = PreparedCache::entry_bytes(b"regex", &query);
+    assert!(charge > 4 * 1024 * 1024);
+    assert!(
+        charge < 11 * 1024 * 1024,
+        "the shared regex automaton was charged more than once"
+    );
+    let mut cache = PreparedCache::new(4 * 1024 * 1024);
+    insert(&mut cache, b"regex", query);
+    assert!(cache.get(b"regex").is_none());
+    assert_eq!(cache.used_bytes(), 0);
+}
+
+#[test]
+fn repeated_regex_preparation_reflects_the_chosen_cache_budget() {
+    use crate::query::{CaseSensitivity, FtsMode, FtsQuery, QueryOptions, RegexOptions};
+    use crate::repository::{CollectionDefinition, RepositoryOptions, SnapshotMode};
+    use crate::source::SourceFormat;
+    use crate::workload::ReturnMode;
+
+    let scratch =
+        std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../target/prepared-cache-tests");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let fixture = scratch.join(format!(
+        "regex-reuse-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&fixture);
+    std::fs::create_dir_all(fixture.join("data")).unwrap();
+    std::fs::write(fixture.join("data/one.json"), br#"{"title":"abc"}"#).unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        filter: None,
+        fts: Some(FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Regex(RegexOptions::default()),
+            literal: "a+".into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        }),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 1,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    for (budget, expected_hits, expected_compilations) in [
+        (4 * 1024 * 1024, [false, false], 2),
+        (16 * 1024 * 1024, [false, true], 1),
+    ] {
+        let repo = crate::repository::Repository::open_with_options(
+            &fixture,
+            vec![CollectionDefinition::folder(
+                "data",
+                "data",
+                SourceFormat::Json,
+            )],
+            RepositoryOptions {
+                prepared_cache_bytes: budget,
+                snapshot_mode: SnapshotMode::Disabled,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        let start = crate::regex_query::test_compile_count();
+        let hits = [
+            prepare(&repo, &query).unwrap().1,
+            prepare(&repo, &query).unwrap().1,
+        ];
+        assert_eq!(hits, expected_hits);
+        assert_eq!(
+            crate::regex_query::test_compile_count() - start,
+            expected_compilations
+        );
+    }
+    std::fs::remove_dir_all(fixture).unwrap();
 }

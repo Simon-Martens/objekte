@@ -82,6 +82,12 @@ pub enum ExactInput {
 /// evaluator owns missing-field and array semantics for its whole record;
 /// value evaluators receive the ordinary field selection and quantifier rules.
 pub trait PreparedFilterMatcher: Send + Sync + std::fmt::Debug {
+    /// Estimated bytes owned by this prepared matcher, excluding its Arc.
+    /// Extensions with heap-owned state should override this default.
+    fn retained_bytes(&self) -> usize {
+        std::mem::size_of_val(self)
+    }
+
     fn input(&self) -> ExactInput {
         ExactInput::SelectedValue
     }
@@ -99,6 +105,12 @@ pub trait PreparedFilterMatcher: Send + Sync + std::fmt::Debug {
 
 /// Query-scoped literal substring evaluator over one reader-owned segment.
 pub trait PreparedTextMatcher: Send + Sync + std::fmt::Debug {
+    /// Estimated bytes owned by this prepared matcher, excluding its Arc.
+    /// Extensions with heap-owned state should override this default.
+    fn retained_bytes(&self) -> usize {
+        std::mem::size_of_val(self)
+    }
+
     fn matches(&self, text: &str) -> Result<bool, String>;
     fn bigram_compatible(&self) -> bool {
         false
@@ -649,6 +661,22 @@ thread_local! {
 
 
 impl PreparedContains {
+    fn retained_heap_bytes(&self) -> usize {
+        match self {
+            Self::Literal => 0,
+            Self::Unescaped(piece) => piece.capacity(),
+            Self::Wildcards(pieces) => pieces
+                .capacity()
+                .saturating_mul(std::mem::size_of::<String>())
+                .saturating_add(
+                    pieces
+                        .iter()
+                        .map(String::capacity)
+                        .fold(0usize, usize::saturating_add),
+                ),
+        }
+    }
+
     pub(crate) fn new(pattern: &str) -> Self {
         #[cfg(test)]
         PREPARED_CONTAINS_BUILDS.with(|count| count.set(count.get() + 1));
@@ -811,6 +839,10 @@ struct MappedFilterMatcher {
 
 
 impl PreparedFilterMatcher for MappedFilterMatcher {
+    fn retained_bytes(&self) -> usize {
+        std::mem::size_of::<Self>() + value_retained_heap_bytes(&self.literal)
+    }
+
     fn matches(&self, value: Option<&Value>, _: Option<&[u8]>) -> Result<bool, String> {
         Ok(value
             .and_then(|value| self.operation.map_value(value))
@@ -839,6 +871,10 @@ struct MappedTextMatcher {
 
 
 impl PreparedTextMatcher for MappedTextMatcher {
+    fn retained_bytes(&self) -> usize {
+        std::mem::size_of::<Self>() + self.literal.capacity()
+    }
+
     fn matches(&self, text: &str) -> Result<bool, String> {
         let mapped = self.operation.map_text(text);
         Ok(match self.case_sensitivity {
@@ -863,6 +899,13 @@ struct RegexTextMatcher {
 
 
 impl PreparedTextMatcher for RegexTextMatcher {
+    fn retained_bytes(&self) -> usize {
+        // Every regex FTS binding also retains the original `fallback_regex`.
+        // Its Arc<Regex> owns the compiled automaton once; these wrappers own
+        // only their cloned candidate conditions.
+        std::mem::size_of::<Self>() + self.regex.retained_local_heap_bytes()
+    }
+
     fn matches(&self, text: &str) -> Result<bool, String> {
         let haystack = if let Some(operation) = &self.operation {
             Cow::Owned(operation.map_text(text))
@@ -2359,6 +2402,227 @@ pub struct BoundFts {
     pub fields: Vec<BoundFtsField>,
 }
 
+
+fn field_path_retained_heap_bytes(path: &FieldPath) -> usize {
+    path.segments
+        .capacity()
+        .saturating_mul(std::mem::size_of::<String>())
+        .saturating_add(
+            path.segments
+                .iter()
+                .map(String::capacity)
+                .fold(0usize, usize::saturating_add),
+        )
+}
+
+fn query_path_retained_heap_bytes(path: &QueryPath) -> usize {
+    field_path_retained_heap_bytes(&path.field)
+        .saturating_add(
+            path.steps
+                .capacity()
+                .saturating_mul(std::mem::size_of::<PathStep>()),
+        )
+        .saturating_add(
+            path.steps
+                .iter()
+                .map(|step| match step {
+                    PathStep::Field(name) => name.capacity(),
+                    PathStep::ArrayIndex(_) | PathStep::EachElement => 0,
+                })
+                .fold(0usize, usize::saturating_add),
+        )
+        .saturating_add(path.display.capacity())
+}
+
+fn logical_type_retained_heap_bytes(kind: &LogicalType) -> usize {
+    match kind {
+        LogicalType::Array(inner) => std::mem::size_of::<LogicalType>()
+            .saturating_add(logical_type_retained_heap_bytes(inner)),
+        _ => 0,
+    }
+}
+
+fn value_retained_heap_bytes(value: &Value) -> usize {
+    match value {
+        Value::String(text) | Value::Id(text) => text.capacity(),
+        Value::Array(array) => array
+            .values
+            .capacity()
+            .saturating_mul(std::mem::size_of::<Value>())
+            .saturating_add(
+                array
+                    .values
+                    .iter()
+                    .map(value_retained_heap_bytes)
+                    .fold(0usize, usize::saturating_add),
+            )
+            .saturating_add(array.element_type.as_ref().map_or(0, |kind| {
+                std::mem::size_of::<LogicalType>()
+                    .saturating_add(logical_type_retained_heap_bytes(kind))
+            })),
+        Value::Object(fields) => fields
+            .len()
+            .saturating_mul(
+                std::mem::size_of::<(String, Value)>() + 4 * std::mem::size_of::<usize>(),
+            )
+            .saturating_add(
+                fields
+                    .iter()
+                    .map(|(name, value)| {
+                        name.capacity()
+                            .saturating_add(value_retained_heap_bytes(value))
+                    })
+                    .fold(0usize, usize::saturating_add),
+            ),
+        _ => 0,
+    }
+}
+
+fn matcher_retained_heap_bytes<M: ?Sized>(
+    matcher: &Option<Arc<M>>,
+    size: impl Fn(&M) -> usize,
+) -> usize {
+    matcher.as_ref().map_or(0, |matcher| {
+        (2 * std::mem::size_of::<usize>()).saturating_add(size(matcher))
+    })
+}
+
+fn relation_hops_retained_heap_bytes(hops: &[crate::relation_query::BoundRelationHop]) -> usize {
+    hops.iter()
+        .map(|hop| {
+            hop.selectors
+                .capacity()
+                .saturating_mul(std::mem::size_of::<Option<u32>>())
+        })
+        .fold(0usize, usize::saturating_add)
+}
+
+fn bound_field_operand_retained_heap_bytes(operand: &BoundFieldOperand) -> usize {
+    field_path_retained_heap_bytes(&operand.path)
+        .saturating_add(query_path_retained_heap_bytes(&operand.query_path))
+        .saturating_add(logical_type_retained_heap_bytes(&operand.kind))
+}
+
+fn bound_term_retained_heap_bytes(term: &BoundTerm) -> usize {
+    let rhs = term.rhs.as_ref().map_or(0, |operand| {
+        std::mem::size_of::<BoundFieldOperand>()
+            .saturating_add(bound_field_operand_retained_heap_bytes(operand))
+    });
+    let related = term.related.as_ref().map_or(0, |related| {
+        std::mem::size_of::<crate::relation_query::BoundRelationPath>()
+            .saturating_add(
+                related
+                    .hops
+                    .capacity()
+                    .saturating_mul(std::mem::size_of::<crate::relation_query::BoundRelationHop>()),
+            )
+            .saturating_add(relation_hops_retained_heap_bytes(&related.hops))
+            .saturating_add(std::mem::size_of::<BoundTerm>())
+            .saturating_add(bound_term_retained_heap_bytes(&related.terminal))
+            .saturating_add(related.source_operand.as_ref().map_or(0, |operand| {
+                std::mem::size_of::<BoundTerm>()
+                    .saturating_add(bound_term_retained_heap_bytes(operand))
+            }))
+            .saturating_add(related.evidence_path.capacity())
+    });
+    field_path_retained_heap_bytes(&term.path)
+        .saturating_add(query_path_retained_heap_bytes(&term.query_path))
+        .saturating_add(rhs)
+        .saturating_add(related)
+        .saturating_add(logical_type_retained_heap_bytes(&term.kind))
+        .saturating_add(logical_type_retained_heap_bytes(&term.source_kind))
+        .saturating_add(value_retained_heap_bytes(&term.literal))
+        .saturating_add(term.period.as_ref().map_or(0, |period| {
+            value_retained_heap_bytes(&period.start)
+                .saturating_add(value_retained_heap_bytes(&period.end))
+        }))
+        .saturating_add(
+            term.prepared_contains
+                .as_ref()
+                .map_or(0, PreparedContains::retained_heap_bytes),
+        )
+        .saturating_add(
+            term.gram_request
+                .as_ref()
+                .map_or(0, BigramRequest::retained_heap_bytes),
+        )
+        .saturating_add(term.binding_name.capacity())
+        .saturating_add(matcher_retained_heap_bytes(&term.matcher, |matcher| {
+            matcher.retained_bytes()
+        }))
+}
+
+pub(crate) fn bound_expr_retained_heap_bytes(expr: &BoundExpr) -> usize {
+    match expr {
+        BoundExpr::Term(term) => bound_term_retained_heap_bytes(term),
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => parts
+            .capacity()
+            .saturating_mul(std::mem::size_of::<BoundExpr>())
+            .saturating_add(
+                parts
+                    .iter()
+                    .map(bound_expr_retained_heap_bytes)
+                    .fold(0usize, usize::saturating_add),
+            ),
+        BoundExpr::Not(inner) => {
+            std::mem::size_of::<BoundExpr>().saturating_add(bound_expr_retained_heap_bytes(inner))
+        }
+    }
+}
+
+pub(crate) fn bound_fts_retained_heap_bytes(fts: &BoundFts) -> usize {
+    let strings = fts
+        .literal
+        .capacity()
+        .saturating_add(fts.source_literal.capacity())
+        .saturating_add(fts.folded_literal.capacity())
+        .saturating_add(fts.folded_source_literal.capacity());
+    strings
+        .saturating_add(fts.gram_request.retained_heap_bytes())
+        .saturating_add(fts.fallback_gram_request.retained_heap_bytes())
+        .saturating_add(matcher_retained_heap_bytes(&fts.raw_matcher, |matcher| {
+            matcher.retained_bytes()
+        }))
+        .saturating_add(
+            fts.fallback_regex
+                .as_ref()
+                .map_or(0, CompiledRegex::retained_heap_bytes),
+        )
+        .saturating_add(
+            fts.fields
+                .capacity()
+                .saturating_mul(std::mem::size_of::<BoundFtsField>()),
+        )
+        .saturating_add(
+            fts.fields
+                .iter()
+                .map(|field| {
+                    field_path_retained_heap_bytes(&field.path)
+                        .saturating_add(
+                            field
+                                .query_path
+                                .as_ref()
+                                .map_or(0, query_path_retained_heap_bytes),
+                        )
+                        .saturating_add(field.related.as_ref().map_or(0, |hops| {
+                            hops.capacity()
+                                .saturating_mul(std::mem::size_of::<
+                                    crate::relation_query::BoundRelationHop,
+                                >())
+                                .saturating_add(relation_hops_retained_heap_bytes(hops))
+                        }))
+                        .saturating_add(field.evidence_path.capacity())
+                        .saturating_add(field.binding_name.capacity())
+                        .saturating_add(field.literal.capacity())
+                        .saturating_add(field.folded_literal.capacity())
+                        .saturating_add(field.gram_request.retained_heap_bytes())
+                        .saturating_add(matcher_retained_heap_bytes(&field.matcher, |matcher| {
+                            matcher.retained_bytes()
+                        }))
+                })
+                .fold(0usize, usize::saturating_add),
+        )
+}
 
 pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
     if let Some(name) = &fts.pattern_parameter {

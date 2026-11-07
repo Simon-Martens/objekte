@@ -1,6 +1,7 @@
 //! Bounded repository-local reuse of validated, typed query bindings.
 
 use std::collections::{HashMap, VecDeque};
+use std::mem::size_of;
 
 use crate::query::Query;
 use crate::reference::{BoundExpr, BoundFts};
@@ -11,6 +12,30 @@ use crate::repository::Repository;
 #[derive(Clone)]
 pub(crate) struct PreparedQuery {
     pub collections: Vec<(usize, Option<BoundExpr>, Option<BoundFts>)>,
+}
+
+
+impl PreparedQuery {
+    fn retained_heap_bytes(&self) -> usize {
+        self.collections
+            .capacity()
+            .saturating_mul(size_of::<(usize, Option<BoundExpr>, Option<BoundFts>)>())
+            .saturating_add(
+                self.collections
+                    .iter()
+                    .fold(0usize, |total, (_, filter, fts)| {
+                        total.saturating_add(
+                            filter
+                                .as_ref()
+                                .map_or(0, crate::reference::bound_expr_retained_heap_bytes)
+                                .saturating_add(
+                                    fts.as_ref()
+                                        .map_or(0, crate::reference::bound_fts_retained_heap_bytes),
+                                ),
+                        )
+                    }),
+            )
+    }
 }
 
 
@@ -50,9 +75,13 @@ impl PreparedCache {
     }
 
     fn entry_bytes(key: &[u8], query: &PreparedQuery) -> usize {
-        // Debug formatting is an upper-bound-oriented charge for the small
-        // bound tree; the cache never stores source records or bitmap sets.
-        key.len() + format!("{:?}", query.collections).len() * 2 + 128
+        // The map key and LRU key each own a byte vector. Charge the stored
+        // entry, its node/queue overhead, and owned buffers in the bound tree.
+        // Repository-owned binding operations are shared and excluded.
+        size_of::<Entry>()
+            .saturating_add(size_of::<Vec<u8>>() + 4 * size_of::<usize>())
+            .saturating_add(key.len().saturating_mul(2))
+            .saturating_add(query.retained_heap_bytes())
     }
 
     fn insert(&mut self, key: Vec<u8>, query: PreparedQuery, bytes: usize) {
