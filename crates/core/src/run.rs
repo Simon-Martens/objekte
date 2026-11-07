@@ -17,6 +17,8 @@ use crate::executor::{
     estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution,
 };
 use crate::inventory::{ByteRange, RecordClass, RecordEntry};
+use crate::materialization::payload_from_bytes;
+use crate::measurement::ScanWork;
 use crate::model::{FieldPath, PathRoot, Value};
 use crate::posting::PostingIndex;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
@@ -289,6 +291,20 @@ struct ScannedFile {
     matches: SmallVec<[ScannedMatch; 1]>,
     cache_members: Vec<CachedMember>,
     exact_members: RoaringBitmap,
+}
+
+impl From<&ScannedFile> for ScanWork {
+    fn from(scanned: &ScannedFile) -> Self {
+        Self {
+            files_opened: scanned.files_opened,
+            bytes_read: scanned.bytes_read,
+            record_parses: scanned.record_parses,
+            raw_text_verifications: scanned.raw_text_verifications,
+            scanned_records: scanned.scanned_records,
+            sort_key_evaluations: scanned.sort_key_evaluations,
+            residual_evaluations: scanned.residual_evaluations,
+        }
+    }
 }
 
 /// Count-only and exact-selection requests share the normal planner and scanner,
@@ -1500,24 +1516,6 @@ fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &Wo
     }
 }
 
-fn record_semijoin_work(
-    work: crate::relation_semijoin::SemijoinWork,
-    counters: &mut WorkCounters,
-) -> Result<(), String> {
-    counters.relation_target_candidates += work.target_candidates;
-    counters.relation_target_matches += work.target_matches;
-    counters.relation_target_reads += work.target_reads;
-    counters.relation_target_file_opens += work.target_file_opens;
-    counters.relation_edge_visits += work.edge_visits;
-    counters.relation_reverse_postings_visited += work.reverse_postings_visited;
-    counters.relation_verified_targets_reused += work.verified_targets_reused;
-    counters.relation_bytes_read += work.target_bytes_read;
-    counters.files_opened += work.target_file_opens;
-    counters.bytes_read += work.target_bytes_read;
-    counters.record_parses += work.target_reads;
-    crate::relation_query::check_query_work_budget(counters)
-}
-
 fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashSet<String>> {
     match expr {
         BoundExpr::Term(term) => {
@@ -2291,24 +2289,15 @@ fn deliver_ranked_all(
                 result.counters.files_opened += read.opened;
                 result.counters.bytes_read += read.bytes_read;
                 let bytes = read.records.pop().ok_or("source record missing")?.1;
-                let logical = if query.options.return_mode == ReturnMode::Logical {
-                    let collection = repo
-                        .collections
-                        .iter()
-                        .find(|collection| collection.definition.name == hit.collection)
-                        .ok_or("result collection missing")?;
-                    result.counters.record_parses += 1;
-                    Some(prepare_query_record(
-                        &collection.source,
-                        &collection.definition.schema,
-                        &bytes,
-                        &ScanProjection::full(false),
-                        true,
-                    )?)
-                } else {
-                    None
-                };
-                hit.payload = materialize(&query.options.return_mode, bytes, logical)?;
+                let collection = repo
+                    .collections
+                    .iter()
+                    .find(|collection| collection.definition.name == hit.collection)
+                    .ok_or("result collection missing")?;
+                let (payload, parses) =
+                    payload_from_bytes(collection, &query.options.return_mode, bytes)?;
+                result.counters.record_parses += parses;
+                hit.payload = payload;
             }
         }
         batch.push(hit);
@@ -2512,20 +2501,10 @@ fn direct_payload(
     counters.bytes_read += read.bytes_read;
     actual.files_opened += read.opened;
     actual.bytes_read += read.bytes_read;
-    let logical = if query.options.return_mode == ReturnMode::Logical {
-        counters.record_parses += 1;
-        actual.record_parses += 1;
-        Some(prepare_query_record(
-            &collection.source,
-            &collection.definition.schema,
-            &bytes,
-            &ScanProjection::full(false),
-            true,
-        )?)
-    } else {
-        None
-    };
-    materialize(&query.options.return_mode, bytes, logical)
+    let (payload, parses) = payload_from_bytes(collection, &query.options.return_mode, bytes)?;
+    counters.record_parses += parses;
+    actual.record_parses += parses;
+    Ok(payload)
 }
 
 fn check_stream_page_read(
@@ -2948,7 +2927,7 @@ fn try_stored_order_page(
         .collect::<Vec<_>>();
     for (entry, actual) in plans.iter().zip(&mut actuals) {
         let work = entry.plan.semijoin_work;
-        record_semijoin_work(work, &mut counters)?;
+        counters.add_semijoin(work)?;
         actual.files_opened += work.target_file_opens;
         actual.bytes_read += work.target_bytes_read;
         actual.record_parses += work.target_reads;
@@ -3108,27 +3087,13 @@ fn try_stored_order_page(
                         false,
                         execution,
                     )?;
-                    counters.files_opened += scanned.files_opened;
-                    counters.bytes_read += scanned.bytes_read;
-                    counters.record_parses += scanned.record_parses;
-                    counters.raw_text_verifications += scanned.raw_text_verifications;
-                    counters.scanned_records += scanned.scanned_records;
-                    counters.residual_evaluations += scanned.residual_evaluations;
-                    counters.relation_source_reads += scanned.relation_work.source_reads;
-                    counters.relation_target_reads += scanned.relation_work.target_reads;
-                    counters.relation_verified_targets_reused +=
-                        scanned.relation_work.target_cache_hits;
-                    counters.relation_target_file_opens += scanned.relation_work.target_reads;
-                    counters.relation_edge_visits += scanned.relation_work.edge_visits;
-                    counters.relation_backlink_probe_visits +=
-                        scanned.relation_work.backlink_probe_visits;
-                    counters.relation_bytes_read += scanned.relation_work.bytes_read;
-                    crate::relation_query::check_query_work_budget(&counters)?;
-                    counters.files_opened +=
-                        scanned.relation_work.source_reads + scanned.relation_work.target_reads;
-                    counters.bytes_read += scanned.relation_work.bytes_read;
-                    counters.record_parses +=
-                        scanned.relation_work.source_reads + scanned.relation_work.target_reads;
+                    counters.add_scan(
+                        ScanWork {
+                            sort_key_evaluations: 0,
+                            ..ScanWork::from(&scanned)
+                        },
+                        &scanned.relation_work,
+                    )?;
                     actual.files_opened += scanned.files_opened;
                     actual.bytes_read += scanned.bytes_read;
                     actual.record_parses += scanned.record_parses;
@@ -3703,20 +3668,10 @@ fn materialize_cached(
             counters.files_opened += read.opened;
             counters.bytes_read += read.bytes_read;
             for (index, bytes) in read.records {
-                let logical = if query.options.return_mode == ReturnMode::Logical {
-                    counters.record_parses += 1;
-                    Some(prepare_query_record(
-                        &collection.source,
-                        &collection.definition.schema,
-                        &bytes,
-                        &ScanProjection::full(false),
-                        true,
-                    )?)
-                } else {
-                    None
-                };
-                hits[index as usize].payload =
-                    materialize(&query.options.return_mode, bytes, logical)?;
+                let (payload, parses) =
+                    payload_from_bytes(collection, &query.options.return_mode, bytes)?;
+                counters.record_parses += parses;
+                hits[index as usize].payload = payload;
             }
         }
     }
@@ -3940,20 +3895,10 @@ fn materialize_winner_page(
                     if cancellation.is_some_and(CancellationToken::is_cancelled) {
                         return Err("stream cancelled".into());
                     }
-                    let logical = if query.options.return_mode == ReturnMode::Logical {
-                        counters.record_parses += 1;
-                        Some(prepare_query_record(
-                            &collection.source,
-                            &collection.definition.schema,
-                            &bytes,
-                            &ScanProjection::full(false),
-                            true,
-                        )?)
-                    } else {
-                        None
-                    };
-                    page[index as usize].hit.payload =
-                        materialize(&query.options.return_mode, bytes, logical)?;
+                    let (payload, parses) =
+                        payload_from_bytes(collection, &query.options.return_mode, bytes)?;
+                    counters.record_parses += parses;
+                    page[index as usize].hit.payload = payload;
                 }
             }
         }
@@ -4284,7 +4229,7 @@ fn search_impl_with_collector<'a>(
             }
             (plan, candidates, text_first)
         };
-        record_semijoin_work(plan.semijoin_work, &mut counters)?;
+        counters.add_semijoin(plan.semijoin_work)?;
         let metadata_only_fts = fts.as_ref().is_some_and(|fts| {
             !fts.fields.is_empty()
                 && fts
@@ -4314,7 +4259,7 @@ fn search_impl_with_collector<'a>(
                 }
             });
         let preverified_evidence = if let Some(proof) = relation_fts {
-            record_semijoin_work(proof.work, &mut counters)?;
+            counters.add_semijoin(proof.work)?;
             candidates = proof.evidence.keys().copied().collect();
             Some(proof.evidence)
         } else if metadata_only_fts {
@@ -4894,28 +4839,7 @@ fn search_impl_with_collector<'a>(
                         distinct_files += 1;
                     }
                 }
-                counters.files_opened += outcome.files_opened;
-                counters.bytes_read += outcome.bytes_read;
-                counters.record_parses += outcome.record_parses;
-                counters.raw_text_verifications += outcome.raw_text_verifications;
-                counters.scanned_records += outcome.scanned_records;
-                counters.sort_key_evaluations += outcome.sort_key_evaluations;
-                counters.residual_evaluations += outcome.residual_evaluations;
-                counters.relation_source_reads += outcome.relation_work.source_reads;
-                counters.relation_target_reads += outcome.relation_work.target_reads;
-                counters.relation_verified_targets_reused +=
-                    outcome.relation_work.target_cache_hits;
-                counters.relation_target_file_opens += outcome.relation_work.target_reads;
-                counters.relation_edge_visits += outcome.relation_work.edge_visits;
-                counters.relation_backlink_probe_visits +=
-                    outcome.relation_work.backlink_probe_visits;
-                counters.relation_bytes_read += outcome.relation_work.bytes_read;
-                crate::relation_query::check_query_work_budget(&counters)?;
-                counters.files_opened +=
-                    outcome.relation_work.source_reads + outcome.relation_work.target_reads;
-                counters.bytes_read += outcome.relation_work.bytes_read;
-                counters.record_parses +=
-                    outcome.relation_work.source_reads + outcome.relation_work.target_reads;
+                counters.add_scan(ScanWork::from(&outcome), &outcome.relation_work)?;
                 if let Some(collector) = exact_collector.as_mut() {
                     counters.total_matches += outcome.match_count;
                     if let Some(members) = collector.members.as_deref_mut() {
