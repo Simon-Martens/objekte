@@ -4,6 +4,7 @@ mod app;
 mod export;
 mod input;
 mod record;
+mod relations;
 mod settings;
 #[cfg(test)]
 mod test_support;
@@ -17,7 +18,10 @@ use std::time::{Duration, Instant};
 use app::{App, Focus, Overlay, View};
 use objekte_search_core::repository::{CollectionDefinition, Repository};
 use ratatui::crossterm::{
-    event::{self, Event, KeyCode, KeyEvent, KeyEventKind, KeyModifiers, MouseEventKind},
+    event::{
+        self, Event, KeyCode, KeyEvent, KeyEventKind, KeyModifiers, MouseButton, MouseEvent,
+        MouseEventKind,
+    },
     execute,
 };
 
@@ -85,11 +89,7 @@ pub(super) fn run(
                     Event::Key(pressed) if pressed.kind != KeyEventKind::Release => {
                         key(&mut app, pressed)
                     }
-                    Event::Mouse(mouse) => match mouse.kind {
-                        MouseEventKind::ScrollDown => app.move_selection(3),
-                        MouseEventKind::ScrollUp => app.move_selection(-3),
-                        _ => {}
-                    },
+                    Event::Mouse(mouse) => mouse_event(&mut app, mouse),
                     _ => {}
                 }
                 if app.done || !event::poll(Duration::ZERO)? {
@@ -105,6 +105,53 @@ pub(super) fn run(
     mouse?;
     restore?;
     Ok(())
+}
+
+fn mouse_event(app: &mut App, mouse: MouseEvent) {
+    let inside = |area: ratatui::layout::Rect| {
+        mouse.column >= area.x
+            && mouse.column < area.right()
+            && mouse.row >= area.y
+            && mouse.row < area.bottom()
+    };
+    match mouse.kind {
+        MouseEventKind::ScrollDown => {
+            if app.view == View::Detail {
+                app.move_detail(3);
+            } else {
+                app.move_selection(3);
+            }
+        }
+        MouseEventKind::ScrollUp => {
+            if app.view == View::Detail {
+                app.move_detail(-3);
+            } else {
+                app.move_selection(-3);
+            }
+        }
+        MouseEventKind::Down(MouseButton::Left) if app.overlay.is_none() => {
+            if app.view == View::Detail
+                && !app.record.raw
+                && inside(app.detail_area)
+                && mouse.row > app.detail_area.y
+                && mouse.row + 1 < app.detail_area.bottom()
+            {
+                let visible = mouse.row.saturating_sub(app.detail_area.y + 1) as usize;
+                app.record.cursor = app.record.scroll.saturating_add(visible);
+                app.toggle_detail_branch();
+            } else if app.view == View::Results && inside(app.results_area) {
+                let visible = mouse.row.saturating_sub(app.results_area.y + 1) as usize;
+                let index = app.scroll.saturating_add(visible);
+                if index < app.hits.len() {
+                    app.move_selection(index as isize - app.selected as isize);
+                    app.open_detail();
+                }
+            } else if app.view == View::Results && inside(app.detail_area) {
+                app.open_detail();
+            }
+        }
+        _ => {}
+    }
 }
 
 fn key(app: &mut App, key: KeyEvent) {
@@ -295,7 +342,7 @@ fn key(app: &mut App, key: KeyEvent) {
     }
     if app.view == View::Detail {
         match key.code {
-            KeyCode::Esc | KeyCode::Left | KeyCode::Backspace => app.view = View::Results,
+            KeyCode::Esc | KeyCode::Left | KeyCode::Backspace => app.back_detail(),
             KeyCode::Up => app.move_detail(-1),
             KeyCode::Down => app.move_detail(1),
             KeyCode::PageUp => app.move_detail(-10),

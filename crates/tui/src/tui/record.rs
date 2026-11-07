@@ -36,6 +36,8 @@ impl RecordState {
         self.cursor = 0;
         self.scroll = 0;
         self.raw = false;
+        self.collapsed_objects.clear();
+        self.expanded_arrays.clear();
     }
 
     pub(super) fn toggle(&mut self, path: &str, array: bool) {
@@ -59,6 +61,39 @@ impl RecordState {
 
     pub(super) fn rows(&self, hit: &SearchHit, diagnostic: Option<&str>) -> Vec<RecordRow> {
         let mut rows = Vec::new();
+        plain(&mut rows, "Fields", String::new());
+        if let Some(value) = json_value(hit) {
+            match &value {
+                serde_json::Value::Object(fields) => {
+                    for (name, value) in fields {
+                        walk(
+                            self,
+                            &mut rows,
+                            name,
+                            value,
+                            (name, name),
+                            0,
+                            &hit.matched_fields,
+                        );
+                    }
+                }
+                _ => walk(
+                    self,
+                    &mut rows,
+                    "$value",
+                    &value,
+                    ("$value", "$value"),
+                    0,
+                    &hit.matched_fields,
+                ),
+            }
+        } else {
+            plain(
+                &mut rows,
+                "Source",
+                "No structured JSON; press r for raw bytes".into(),
+            );
+        }
         plain(&mut rows, "File", hit.file_path.display().to_string());
         plain(
             &mut rows,
@@ -81,41 +116,6 @@ impl RecordState {
         if !hit.matched_fields.is_empty() {
             plain(&mut rows, "Matched", hit.matched_fields.join(", "));
         }
-        plain(&mut rows, "Fields", String::new());
-        if let Some(value) = json_value(hit) {
-            match &value {
-                serde_json::Value::Object(fields) => {
-                    for (name, value) in fields {
-                        walk(
-                            self,
-                            &mut rows,
-                            name,
-                            value,
-                            name,
-                            name,
-                            0,
-                            &hit.matched_fields,
-                        );
-                    }
-                }
-                _ => walk(
-                    self,
-                    &mut rows,
-                    "$value",
-                    &value,
-                    "$value",
-                    "$value",
-                    0,
-                    &hit.matched_fields,
-                ),
-            }
-        } else {
-            plain(
-                &mut rows,
-                "Source",
-                "No structured JSON; press r for raw bytes".into(),
-            );
-        }
         rows
     }
 }
@@ -136,11 +136,11 @@ fn walk(
     rows: &mut Vec<RecordRow>,
     label: &str,
     value: &serde_json::Value,
-    pointer: &str,
-    matched_path: &str,
+    location: (&str, &str),
     depth: usize,
     matched_fields: &[String],
 ) {
+    let (pointer, matched_path) = location;
     if rows.len() >= MAX_ROWS {
         return;
     }
@@ -175,8 +175,7 @@ fn walk(
                     rows,
                     name,
                     child,
-                    &pointer,
-                    &matched_path,
+                    (&pointer, &matched_path),
                     depth + 1,
                     matched_fields,
                 );
@@ -192,8 +191,7 @@ fn walk(
                     rows,
                     &name,
                     child,
-                    &pointer,
-                    &matched_path,
+                    (&pointer, &matched_path),
                     depth + 1,
                     matched_fields,
                 );

@@ -1,11 +1,11 @@
 //! Search and selection state shared by the event loop and renderer.
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeSet, HashMap};
 use std::path::PathBuf;
 use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
-use objekte_search_core::model::{FieldPath, LogicalType, PathRoot};
+use objekte_search_core::model::{FieldPath, LogicalType, PathRoot, Value};
 use objekte_search_core::query::{FtsQuery, Query, QueryOptions, parse_filter};
 use objekte_search_core::repository::{Repository, SearchHit, SearchResult};
 use objekte_search_core::workload::{ReturnMode, SortField};
@@ -14,6 +14,7 @@ use ratatui::layout::Rect;
 use super::export;
 use super::input::Input;
 use super::record::RecordState;
+use super::relations::{self, LinkAction, RelationRow};
 use super::settings::{self, Settings};
 
 pub(super) const PAGE_SIZE: usize = 100;
@@ -82,6 +83,9 @@ pub(super) struct App {
     pub(super) scroll: usize,
     pub(super) detail_scroll: u16,
     pub(super) record: RecordState,
+    detail_hit: Option<SearchHit>,
+    detail_history: Vec<SearchHit>,
+    pub(super) relation_rows: Vec<RelationRow>,
     pub(super) detail_area: Rect,
     pub(super) results_area: Rect,
     pub(super) viewport_rows: usize,
@@ -130,6 +134,9 @@ impl App {
             scroll: 0,
             detail_scroll: 0,
             record: RecordState::default(),
+            detail_hit: None,
+            detail_history: Vec::new(),
+            relation_rows: Vec::new(),
             detail_area: Rect::default(),
             results_area: Rect::default(),
             viewport_rows: 1,
@@ -169,16 +176,71 @@ impl App {
         self.hits.get(self.selected)
     }
 
-    pub(super) fn open_detail(&mut self) {
-        if self.selected_hit().is_some() {
-            self.view = View::Detail;
-            self.record.reset();
-            self.detail_scroll = 0;
+    pub(super) fn current_detail_hit(&self) -> Option<&SearchHit> {
+        if self.view == View::Detail {
+            self.detail_hit.as_ref().or_else(|| self.selected_hit())
+        } else {
+            self.selected_hit()
         }
     }
 
+    pub(super) fn open_detail(&mut self) {
+        if let Some(hit) = self.selected_hit().cloned() {
+            self.view = View::Detail;
+            self.detail_hit = Some(hit);
+            self.detail_history.clear();
+            self.record.reset();
+            self.detail_scroll = 0;
+            self.refresh_relations();
+        }
+    }
+
+    pub(super) fn refresh_relations(&mut self) {
+        self.relation_rows = self
+            .current_detail_hit()
+            .map_or_else(Vec::new, |hit| relations::rows(&self.repo, hit));
+    }
+
+    pub(super) fn back_detail(&mut self) {
+        if let Some(hit) = self.detail_history.pop() {
+            self.detail_hit = Some(hit);
+            self.record.reset();
+            self.detail_scroll = 0;
+            self.refresh_relations();
+        } else {
+            self.detail_hit = None;
+            self.relation_rows.clear();
+            self.view = View::Results;
+        }
+    }
+
+    fn fetch_link(&self, collection: &str, id: &str) -> Result<SearchHit, String> {
+        let query = Query {
+            collections: vec![collection.into()],
+            fts: None,
+            filter: Some(parse_filter("@record.id = $id")?),
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 1,
+                offset: 0,
+                count: false,
+                return_mode: ReturnMode::Bytes,
+                evidence: false,
+            },
+        };
+        self.repo
+            .search_with_parameters(
+                &query,
+                &HashMap::from([("id".into(), Value::Id(id.into()))]),
+            )?
+            .hits
+            .into_iter()
+            .next()
+            .ok_or_else(|| format!("linked record {collection}/{id} is unavailable"))
+    }
+
     pub(super) fn move_detail(&mut self, delta: isize) {
-        let Some(hit) = self.selected_hit() else {
+        let Some(hit) = self.current_detail_hit() else {
             return;
         };
         if self.record.raw {
@@ -188,7 +250,7 @@ impl App {
         let diagnostic = self
             .diagnostic(hit)
             .map(|issue| format!("{}: {}", issue.code, issue.message));
-        let count = self.record.rows(hit, diagnostic.as_deref()).len();
+        let count = self.record.rows(hit, diagnostic.as_deref()).len() + self.relation_rows.len();
         self.record.cursor = self
             .record
             .cursor
@@ -197,7 +259,7 @@ impl App {
     }
 
     pub(super) fn toggle_detail_branch(&mut self) {
-        let Some(hit) = self.selected_hit() else {
+        let Some(hit) = self.current_detail_hit() else {
             return;
         };
         let diagnostic = self
@@ -209,6 +271,31 @@ impl App {
             .and_then(|row| row.branch.clone())
         {
             self.record.toggle(&path, array);
+        } else if let Some(index) = self.record.cursor.checked_sub(rows.len())
+            && let Some(action) = self
+                .relation_rows
+                .get(index)
+                .and_then(|row| row.action.clone())
+        {
+            match action {
+                LinkAction::Target { collection, id } => match self.fetch_link(&collection, &id) {
+                    Ok(next) => {
+                        if let Some(current) = self.detail_hit.replace(next) {
+                            self.detail_history.push(current);
+                        }
+                        self.record.reset();
+                        self.detail_scroll = 0;
+                        self.refresh_relations();
+                        self.status = None;
+                    }
+                    Err(error) => self.status = Some(error),
+                },
+                more => {
+                    let page = relations::continuation(&self.repo, &more);
+                    self.relation_rows.remove(index);
+                    self.relation_rows.splice(index..index, page);
+                }
+            }
         }
     }
 
@@ -393,6 +480,9 @@ impl App {
         self.selected = 0;
         self.scroll = 0;
         self.record.reset();
+        self.detail_hit = None;
+        self.detail_history.clear();
+        self.relation_rows.clear();
         self.requested_offset = None;
         self.last_search_duration = None;
         self.launch(0);
@@ -429,6 +519,9 @@ impl App {
             self.total = 0;
             self.selected = 0;
             self.scroll = 0;
+            self.detail_hit = None;
+            self.detail_history.clear();
+            self.relation_rows.clear();
             self.launch(0);
         }
         if self.pending.is_none()

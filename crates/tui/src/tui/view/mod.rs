@@ -58,6 +58,8 @@ pub(super) fn draw_loading(frame: &mut Frame<'_>, elapsed: Duration) {
 }
 
 pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
+    app.detail_area = Rect::default();
+    app.results_area = Rect::default();
     let [header, _gap, search, filter, summary, body, footer] = Layout::vertical([
         Constraint::Length(1),
         Constraint::Length(1),
@@ -342,7 +344,7 @@ fn record_summary(hit: &SearchHit) -> String {
 
 fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     app.detail_area = area;
-    let Some(hit) = app.selected_hit() else {
+    let Some(hit) = app.current_detail_hit().cloned() else {
         return;
     };
     let title = format!(
@@ -357,7 +359,7 @@ fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
         .border_style(Style::new().fg(ACCENT));
     if app.record.raw {
         frame.render_widget(
-            Paragraph::new(record::raw_text(hit))
+            Paragraph::new(record::raw_text(&hit))
                 .block(block)
                 .wrap(Wrap { trim: false })
                 .scroll((app.detail_scroll, 0)),
@@ -366,9 +368,16 @@ fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
         return;
     }
     let diagnostic = app
-        .diagnostic(hit)
+        .diagnostic(&hit)
         .map(|issue| format!("{}: {}", issue.code, issue.message));
-    let rows = app.record.rows(hit, diagnostic.as_deref());
+    let mut rows = app.record.rows(&hit, diagnostic.as_deref());
+    rows.extend(app.relation_rows.iter().map(|row| record::RecordRow {
+        label: row.label.clone(),
+        value: row.value.clone(),
+        depth: 0,
+        matched: row.action.is_some(),
+        branch: None,
+    }));
     let height = area.height.saturating_sub(2) as usize;
     app.record.cursor = app.record.cursor.min(rows.len().saturating_sub(1));
     if app.record.cursor < app.record.scroll {
