@@ -40,6 +40,38 @@ fn keys_switch_inputs_open_detail_and_choose_collection() {
     assert!(!app.show_preview);
 }
 
+#[test]
+fn old_search_mode_shortcuts_toggle_new_core_requests() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    assert!(app.case_sensitive);
+    assert!(!app.regex);
+    key(app, KeyEvent::new(KeyCode::Char('c'), KeyModifiers::ALT));
+    key(app, KeyEvent::new(KeyCode::Char('r'), KeyModifiers::ALT));
+    assert!(!app.case_sensitive);
+    assert!(app.regex);
+}
+
+#[test]
+fn action_palette_opens_existing_controls_and_columns_scroll() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    key(
+        app,
+        KeyEvent::new(KeyCode::Char('k'), KeyModifiers::CONTROL),
+    );
+    assert_eq!(app.overlay, Some(Overlay::Actions));
+    key(app, KeyEvent::new(KeyCode::Down, KeyModifiers::NONE));
+    key(app, KeyEvent::new(KeyCode::Down, KeyModifiers::NONE));
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    assert_eq!(app.overlay, Some(Overlay::Columns));
+    key(app, KeyEvent::new(KeyCode::Esc, KeyModifiers::NONE));
+    key(app, KeyEvent::new(KeyCode::Right, KeyModifiers::ALT));
+    assert_eq!(app.column_offset, 1);
+    key(app, KeyEvent::new(KeyCode::Left, KeyModifiers::ALT));
+    assert_eq!(app.column_offset, 0);
+}
+
 fn wait_for_hits(app: &mut App) {
     for _ in 0..1_000 {
         app.tick(Instant::now());

@@ -6,7 +6,9 @@ use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
 use objekte_search_core::model::{FieldPath, LogicalType, PathRoot, Value};
-use objekte_search_core::query::{FtsQuery, Query, QueryOptions, parse_filter};
+use objekte_search_core::query::{
+    CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, RegexOptions, parse_filter,
+};
 use objekte_search_core::repository::{Repository, SearchHit, SearchResult};
 use objekte_search_core::workload::{ReturnMode, SortField};
 use ratatui::layout::Rect;
@@ -38,6 +40,7 @@ pub(super) enum View {
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Overlay {
+    Actions,
     Collections,
     Sort,
     History,
@@ -46,6 +49,62 @@ pub(super) enum Overlay {
     Columns,
     Export { all: bool },
     Help,
+}
+
+
+/// Commands exposed by the action picker and their keyboard shortcuts.
+#[derive(Clone, Copy, Debug)]
+pub(super) enum Action {
+    Collections,
+    Sort,
+    Columns,
+    History,
+    Saved,
+    Save,
+    ExportRecord,
+    ExportAll,
+    Case,
+    Regex,
+    Preview,
+    Theme,
+    Help,
+}
+
+
+impl Action {
+    pub(super) const ALL: [Self; 13] = [
+        Self::Collections,
+        Self::Sort,
+        Self::Columns,
+        Self::History,
+        Self::Saved,
+        Self::Save,
+        Self::ExportRecord,
+        Self::ExportAll,
+        Self::Case,
+        Self::Regex,
+        Self::Preview,
+        Self::Theme,
+        Self::Help,
+    ];
+
+    pub(super) fn label(self) -> &'static str {
+        match self {
+            Self::Collections => "Choose collection                Ctrl+O",
+            Self::Sort => "Sort results                     Alt+S",
+            Self::Columns => "Show or hide columns             Alt+L",
+            Self::History => "Recent queries                   Ctrl+R",
+            Self::Saved => "Saved queries                    Ctrl+B",
+            Self::Save => "Save current query               Ctrl+S",
+            Self::ExportRecord => "Export selected record           Alt+E",
+            Self::ExportAll => "Export all matches               Alt+A",
+            Self::Case => "Toggle case sensitivity          Alt+C",
+            Self::Regex => "Toggle regex search              Alt+R",
+            Self::Preview => "Toggle preview                   Ctrl+P",
+            Self::Theme => "Switch light/dark theme          Alt+T",
+            Self::Help => "Keyboard help                    F1",
+        }
+    }
 }
 
 
@@ -69,13 +128,17 @@ pub(super) struct App {
     pub(super) scope: usize,
     pub(super) picker: usize,
     pub(super) sort_picker: usize,
+    pub(super) action_picker: usize,
     pub(super) list_picker: usize,
     pub(super) column_picker: usize,
+    pub(super) column_offset: usize,
     pub(super) save_input: Input,
     pub(super) export_input: Input,
     pub(super) settings: Settings,
     settings_path: PathBuf,
     pub(super) sort: Option<SortField>,
+    pub(super) case_sensitive: bool,
+    pub(super) regex: bool,
     pub(super) show_preview: bool,
     pub(super) hits: Vec<SearchHit>,
     pub(super) total: usize,
@@ -120,13 +183,17 @@ impl App {
             scope: 0,
             picker: 0,
             sort_picker: 0,
+            action_picker: 0,
             list_picker: 0,
             column_picker: 0,
+            column_offset: 0,
             save_input: Input::default(),
             export_input: Input::default(),
             settings,
             settings_path,
             sort: None,
+            case_sensitive: true,
+            regex: false,
             show_preview: true,
             hits: Vec::new(),
             total: 0,
@@ -318,6 +385,8 @@ impl App {
             search: self.search.text.clone(),
             filter: self.filter.text.clone(),
             collection: (self.scope != 0).then(|| self.scope_label().to_owned()),
+            case_insensitive: !self.case_sensitive,
+            regex: self.regex,
         }
     }
 
@@ -337,6 +406,8 @@ impl App {
     pub(super) fn restore_query(&mut self, query: settings::Query) {
         self.search = Input::with_text(&query.search);
         self.filter = Input::with_text(&query.filter);
+        self.case_sensitive = !query.case_insensitive;
+        self.regex = query.regex;
         self.scope = query
             .collection
             .as_deref()
@@ -347,6 +418,7 @@ impl App {
                     .position(|collection| collection.definition.name == name)
             })
             .map_or(0, |index| index + 1);
+        self.column_offset = 0;
         self.sort = None;
         self.view = View::Results;
         self.overlay = None;
@@ -377,6 +449,21 @@ impl App {
     pub(super) fn set_theme(&mut self, light: bool) {
         self.settings.theme = Some(if light { "light" } else { "dark" }.into());
         self.persist_settings();
+    }
+
+    pub(super) fn toggle_case(&mut self) {
+        self.case_sensitive = !self.case_sensitive;
+        self.request_search();
+    }
+
+    pub(super) fn toggle_regex(&mut self) {
+        self.regex = !self.regex;
+        self.request_search();
+    }
+
+    pub(super) fn choose_action(&mut self) -> Option<Action> {
+        self.overlay = None;
+        Action::ALL.get(self.action_picker).copied()
     }
 
     pub(super) fn sort_choices(&self) -> Vec<Option<SortField>> {
@@ -457,7 +544,19 @@ impl App {
         if let Some(key) = self.column_keys().get(self.column_picker) {
             let scope = self.scope_name().map(str::to_owned);
             self.settings.toggle_column(scope.as_deref(), key);
+            self.column_offset = self
+                .column_offset
+                .min(self.visible_columns().len().saturating_sub(1));
             self.persist_settings();
+        }
+    }
+
+    pub(super) fn scroll_columns(&mut self, right: bool) {
+        if right {
+            self.column_offset =
+                (self.column_offset + 1).min(self.visible_columns().len().saturating_sub(1));
+        } else {
+            self.column_offset = self.column_offset.saturating_sub(1);
         }
     }
 
@@ -572,8 +671,16 @@ impl App {
             },
             fts: (!search.is_empty()).then(|| FtsQuery {
                 pattern_parameter: None,
-                mode: objekte_search_core::query::FtsMode::Literal,
-                case_sensitivity: objekte_search_core::query::CaseSensitivity::Sensitive,
+                mode: if self.regex {
+                    FtsMode::Regex(RegexOptions::default())
+                } else {
+                    FtsMode::Literal
+                },
+                case_sensitivity: if self.case_sensitive {
+                    CaseSensitivity::Sensitive
+                } else {
+                    CaseSensitivity::Insensitive
+                },
                 literal: search.to_owned(),
                 fields: Vec::new(),
             }),
@@ -615,12 +722,15 @@ impl App {
     pub(super) fn choose_scope(&mut self) {
         self.scope = self.picker.min(self.repo.collections().len());
         self.sort = None;
+        self.column_offset = 0;
+        self.view = View::Results;
         self.overlay = None;
         self.request_search();
     }
 
     pub(super) fn choose_sort(&mut self) {
         self.sort = self.sort_choices().get(self.sort_picker).cloned().flatten();
+        self.view = View::Results;
         self.overlay = None;
         self.request_search();
     }

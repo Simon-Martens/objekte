@@ -96,3 +96,35 @@ fn detail_renders_structured_fields_and_relation_states() {
     assert!(screen.contains("Backlinks"));
     assert!(screen.contains("entry_mentions"));
 }
+
+#[test]
+fn search_options_and_action_palette_are_visible() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    app.regex = true;
+    app.case_sensitive = false;
+    let backend = ratatui::backend::TestBackend::new(100, 28);
+    let mut terminal = ratatui::Terminal::new(backend).unwrap();
+    terminal.draw(|frame| draw(frame, app)).unwrap();
+    let screen = format!("{:?}", terminal.backend().buffer());
+    assert!(screen.contains("Alt+C"));
+    assert!(screen.contains("Alt+R"));
+    assert!(screen.contains("indexes ready"));
+    app.overlay = Some(Overlay::Actions);
+    terminal.draw(|frame| draw(frame, app)).unwrap();
+    let screen = format!("{:?}", terminal.backend().buffer());
+    assert!(screen.contains("Toggle regex search"));
+    assert!(screen.contains("Show or hide columns"));
+}
+
+#[test]
+fn long_search_line_keeps_the_cursor_and_tail_visible() {
+    let mut fixture = fixture(1);
+    let app = &mut fixture.app;
+    app.search = Input::with_text(&format!("{}TAIL", "a".repeat(90)));
+    let backend = ratatui::backend::TestBackend::new(72, 20);
+    let mut terminal = ratatui::Terminal::new(backend).unwrap();
+    terminal.draw(|frame| draw(frame, app)).unwrap();
+    let screen = format!("{:?}", terminal.backend().buffer());
+    assert!(screen.contains("TAIL"));
+}

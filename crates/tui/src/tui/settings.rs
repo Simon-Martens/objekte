@@ -13,6 +13,10 @@ use std::{
 /// Most recent queries kept in the history.
 const HISTORY: usize = 200;
 
+fn is_false(value: &bool) -> bool {
+    !value
+}
+
 
 /// The two query lines and the collection they searched.
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
@@ -24,6 +28,11 @@ pub(super) struct Query {
     /// Collection name; none searches all collections.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub(super) collection: Option<String>,
+    /// The current TUI default is case-sensitive. Older settings omit this.
+    #[serde(default, skip_serializing_if = "is_false")]
+    pub(super) case_insensitive: bool,
+    #[serde(default, skip_serializing_if = "is_false")]
+    pub(super) regex: bool,
 }
 
 

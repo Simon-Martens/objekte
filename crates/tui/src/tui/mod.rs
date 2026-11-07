@@ -15,7 +15,7 @@ use std::path::PathBuf;
 use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
-use app::{App, Focus, Overlay, View};
+use app::{Action, App, Focus, Overlay, View};
 use objekte_search_core::repository::{CollectionDefinition, Repository};
 use ratatui::crossterm::{
     event::{
@@ -161,6 +161,22 @@ fn key(app: &mut App, key: KeyEvent) {
         return;
     }
     match app.overlay {
+        Some(Overlay::Actions) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Up => app.action_picker = app.action_picker.saturating_sub(1),
+                KeyCode::Down => {
+                    app.action_picker = (app.action_picker + 1).min(Action::ALL.len() - 1);
+                }
+                KeyCode::Enter => {
+                    if let Some(action) = app.choose_action() {
+                        run_action(app, action);
+                    }
+                }
+                _ => {}
+            }
+            return;
+        }
         Some(Overlay::Help) => {
             if matches!(key.code, KeyCode::Esc | KeyCode::Enter | KeyCode::F(1)) {
                 app.overlay = None;
@@ -271,73 +287,73 @@ fn key(app: &mut App, key: KeyEvent) {
         app.overlay = Some(Overlay::Help);
         return;
     }
+    if control && key.code == KeyCode::Char('k') && app.view == View::Results {
+        app.action_picker = 0;
+        app.overlay = Some(Overlay::Actions);
+        return;
+    }
     if control && key.code == KeyCode::Char('o') {
-        app.picker = app.scope;
-        app.overlay = Some(Overlay::Collections);
+        run_action(app, Action::Collections);
         return;
     }
     if control && key.code == KeyCode::Char('r') {
-        if app.settings.history.is_empty() {
-            app.status = Some("No recent queries".into());
-        } else {
-            app.list_picker = 0;
-            app.overlay = Some(Overlay::History);
-        }
+        run_action(app, Action::History);
         return;
     }
     if control && key.code == KeyCode::Char('b') {
-        if app.settings.saved.is_empty() {
-            app.status = Some("No saved queries".into());
-        } else {
-            app.list_picker = 0;
-            app.overlay = Some(Overlay::Saved);
-        }
+        run_action(app, Action::Saved);
         return;
     }
     if control && key.code == KeyCode::Char('s') {
-        app.save_input = input::Input::default();
-        app.overlay = Some(Overlay::SaveQuery);
+        run_action(app, Action::Save);
         return;
     }
     if control && key.code == KeyCode::Char('p') {
-        app.show_preview = !app.show_preview;
+        run_action(app, Action::Preview);
         return;
     }
-    if key.modifiers.contains(KeyModifiers::ALT) && key.code == KeyCode::Char('s') {
-        if app.scope == 0 {
-            app.status = Some("Choose a collection before sorting".into());
-        } else {
-            app.sort_picker = app
-                .sort_choices()
-                .iter()
-                .position(|choice| choice.as_ref() == app.sort.as_ref())
-                .unwrap_or(0);
-            app.overlay = Some(Overlay::Sort);
+    if app.view == View::Results && !control && key.modifiers.contains(KeyModifiers::ALT) {
+        match key.code {
+            KeyCode::Char('c') => {
+                run_action(app, Action::Case);
+                return;
+            }
+            KeyCode::Char('r') => {
+                run_action(app, Action::Regex);
+                return;
+            }
+            KeyCode::Left => {
+                app.scroll_columns(false);
+                return;
+            }
+            KeyCode::Right => {
+                app.scroll_columns(true);
+                return;
+            }
+            _ => {}
         }
+    }
+    if key.modifiers.contains(KeyModifiers::ALT) && key.code == KeyCode::Char('s') {
+        run_action(app, Action::Sort);
         return;
     }
     if key.modifiers.contains(KeyModifiers::ALT) && key.code == KeyCode::Char('l') {
-        app.column_picker = 0;
-        app.overlay = Some(Overlay::Columns);
+        run_action(app, Action::Columns);
         return;
     }
     if key.modifiers.contains(KeyModifiers::ALT) && matches!(key.code, KeyCode::Char('e' | 'a')) {
-        if app.busy() {
-            app.status = Some("Wait for the search to finish before exporting".into());
-        } else if key.code == KeyCode::Char('e') && app.selected_hit().is_none() {
-            app.status = Some("Select a record before exporting".into());
-        } else {
-            app.export_input = input::Input::default();
-            app.overlay = Some(Overlay::Export {
-                all: key.code == KeyCode::Char('a'),
-            });
-        }
+        run_action(
+            app,
+            if key.code == KeyCode::Char('a') {
+                Action::ExportAll
+            } else {
+                Action::ExportRecord
+            },
+        );
         return;
     }
     if key.modifiers.contains(KeyModifiers::ALT) && key.code == KeyCode::Char('t') {
-        let light = !view::theme::is_light();
-        view::theme::set_light(light);
-        app.set_theme(light);
+        run_action(app, Action::Theme);
         return;
     }
     if app.view == View::Detail {
@@ -392,6 +408,14 @@ fn key(app: &mut App, key: KeyEvent) {
             app.focus = Focus::Results;
             app.move_selection(app.viewport_rows as isize);
         }
+        KeyCode::Home if control || app.focus == Focus::Results => {
+            app.focus = Focus::Results;
+            app.move_selection(-(app.selected as isize));
+        }
+        KeyCode::End if control || app.focus == Focus::Results => {
+            app.focus = Focus::Results;
+            app.move_selection(isize::MAX);
+        }
         _ if app.focus == Focus::Results => {}
         _ => {
             let input = match app.focus {
@@ -403,6 +427,72 @@ fn key(app: &mut App, key: KeyEvent) {
                 app.changed(Instant::now());
             }
         }
+    }
+}
+
+fn run_action(app: &mut App, action: Action) {
+    match action {
+        Action::Collections => {
+            app.picker = app.scope;
+            app.overlay = Some(Overlay::Collections);
+        }
+        Action::Sort => {
+            if app.scope == 0 {
+                app.status = Some("Choose a collection before sorting".into());
+            } else {
+                app.sort_picker = app
+                    .sort_choices()
+                    .iter()
+                    .position(|choice| choice.as_ref() == app.sort.as_ref())
+                    .unwrap_or(0);
+                app.overlay = Some(Overlay::Sort);
+            }
+        }
+        Action::Columns => {
+            app.column_picker = 0;
+            app.overlay = Some(Overlay::Columns);
+        }
+        Action::History => {
+            if app.settings.history.is_empty() {
+                app.status = Some("No recent queries".into());
+            } else {
+                app.list_picker = 0;
+                app.overlay = Some(Overlay::History);
+            }
+        }
+        Action::Saved => {
+            if app.settings.saved.is_empty() {
+                app.status = Some("No saved queries".into());
+            } else {
+                app.list_picker = 0;
+                app.overlay = Some(Overlay::Saved);
+            }
+        }
+        Action::Save => {
+            app.save_input = input::Input::default();
+            app.overlay = Some(Overlay::SaveQuery);
+        }
+        Action::ExportRecord | Action::ExportAll => {
+            if app.busy() {
+                app.status = Some("Wait for the search to finish before exporting".into());
+            } else if matches!(action, Action::ExportRecord) && app.selected_hit().is_none() {
+                app.status = Some("Select a record before exporting".into());
+            } else {
+                app.export_input = input::Input::default();
+                app.overlay = Some(Overlay::Export {
+                    all: matches!(action, Action::ExportAll),
+                });
+            }
+        }
+        Action::Case => app.toggle_case(),
+        Action::Regex => app.toggle_regex(),
+        Action::Preview => app.show_preview = !app.show_preview,
+        Action::Theme => {
+            let light = !view::theme::is_light();
+            view::theme::set_light(light);
+            app.set_theme(light);
+        }
+        Action::Help => app.overlay = Some(Overlay::Help),
     }
 }
 

@@ -63,3 +63,18 @@ fn a_broken_file_reports_its_path() {
     fs::write(&path, "{").unwrap();
     assert!(Settings::load(&path).unwrap_err().contains("tui.json"));
 }
+
+#[test]
+fn old_settings_keep_the_existing_sensitive_literal_default() {
+    let query: Query = serde_json::from_str(r#"{"search":"Needle","filter":""}"#).unwrap();
+    assert!(!query.case_insensitive);
+    assert!(!query.regex);
+    let changed = Query {
+        case_insensitive: true,
+        regex: true,
+        ..query
+    };
+    let encoded = serde_json::to_string(&changed).unwrap();
+    assert!(encoded.contains("\"case_insensitive\":true"));
+    assert!(encoded.contains("\"regex\":true"));
+}

@@ -6,6 +6,7 @@ pub(super) mod theme;
 use super::app::{App, Focus, Overlay, View};
 use super::input::Input;
 use super::record;
+use objekte_search_core::inventory::FileStatus;
 use objekte_search_core::repository::SearchHit;
 use ratatui::{
     Frame,
@@ -16,7 +17,7 @@ use ratatui::{
 };
 use std::time::Duration;
 use theme::*;
-use unicode_width::UnicodeWidthStr;
+use unicode_width::{UnicodeWidthChar, UnicodeWidthStr};
 
 pub(super) fn elapsed_label(elapsed: Duration) -> String {
     if elapsed.as_secs() > 0 {
@@ -85,6 +86,16 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
         ])),
         header,
     );
+    if header.width >= 58 {
+        frame.render_widget(
+            Paragraph::new(Line::from(vec![
+                Span::styled("● ", Style::new().fg(GREEN)),
+                Span::styled("indexes ready ", Style::new().fg(DIM)),
+            ]))
+            .right_aligned(),
+            header,
+        );
+    }
     match app.view {
         View::Results => {
             query_line(
@@ -94,6 +105,7 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                 app.focus == Focus::Search,
                 search,
                 false,
+                Some((app.case_sensitive, app.regex)),
             );
             query_line(
                 frame,
@@ -102,6 +114,7 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                 app.focus == Focus::Filter,
                 filter,
                 true,
+                None,
             );
             let status = if app.searching {
                 "Searching…".to_owned()
@@ -160,9 +173,11 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
         ),
     }
     let hint = if app.view == View::Detail {
-        " Esc back  ·  ↑↓ fields  ·  Enter fold/open  ·  r raw/fields  ·  Ctrl+Q quit"
+        " Esc back · ↑↓ fields · Enter fold/open · r raw · Ctrl+Q quit"
+    } else if footer.width < 78 {
+        " Tab fields · ↑↓ rows · Enter open · Ctrl+K actions · F1 help"
     } else {
-        " Tab fields  ·  ↑↓ results  ·  Enter open  ·  Ctrl+O scope  ·  F1 help  ·  Ctrl+Q quit"
+        " Tab fields · ↑↓ rows · Enter open · Ctrl+K actions · Alt+←→ columns · F1 help"
     };
     frame.render_widget(
         Paragraph::new(app.status.as_deref().unwrap_or(hint)).style(Style::new().fg(DIM)),
@@ -181,9 +196,15 @@ fn query_line(
     active: bool,
     area: Rect,
     filter: bool,
+    options: Option<(bool, bool)>,
 ) {
-    let [label_area, text_area] =
+    let [label_area, remaining] =
         Layout::horizontal([Constraint::Length(10), Constraint::Fill(1)]).areas(area);
+    let options = options.filter(|_| remaining.width >= 44);
+    let option_width = if options.is_some() { 27 } else { 0 };
+    let [text_area, option_area] =
+        Layout::horizontal([Constraint::Fill(1), Constraint::Length(option_width)])
+            .areas(remaining);
     frame.render_widget(
         Paragraph::new(format!(" {} {label}", if active { "❯" } else { " " }))
             .style(Style::new().fg(if active { ACCENT } else { DIM })),
@@ -205,20 +226,75 @@ fn query_line(
         } else {
             vec![Style::new().fg(TEXT); input.len()]
         };
-        let spans = input
-            .text
-            .chars()
+        let chars = input.text.chars().collect::<Vec<_>>();
+        let cursor_width = chars
+            .iter()
+            .take(input.cursor)
+            .map(|ch| ch.width().unwrap_or(0))
+            .sum::<usize>();
+        let available = text_area.width as usize;
+        let mut skip_width = cursor_width.saturating_sub(available.saturating_sub(1));
+        let mut skip = 0;
+        while skip < chars.len() && skip_width > 0 {
+            skip_width = skip_width.saturating_sub(chars[skip].width().unwrap_or(0));
+            skip += 1;
+        }
+        let mut used = 0;
+        let spans = chars
+            .into_iter()
             .zip(styles)
-            .map(|(character, style)| Span::styled(character.to_string(), style))
+            .skip(skip)
+            .take_while(|(ch, _)| {
+                let width = ch.width().unwrap_or(0);
+                if used + width > available {
+                    false
+                } else {
+                    used += width;
+                    true
+                }
+            })
+            .map(|(ch, style)| Span::styled(ch.to_string(), style))
             .collect::<Vec<_>>();
         frame.render_widget(Paragraph::new(Line::from(spans)), text_area);
+        if active && text_area.width > 0 {
+            let before = input
+                .text
+                .chars()
+                .skip(skip)
+                .take(input.cursor.saturating_sub(skip));
+            let column = before.map(|ch| ch.width().unwrap_or(0)).sum::<usize>();
+            frame.set_cursor_position(Position::new(
+                text_area.x + column.min(available.saturating_sub(1)) as u16,
+                text_area.y,
+            ));
+        }
     }
-    if active && text_area.width > 0 {
-        let prefix = input.text.chars().take(input.cursor).collect::<String>();
-        let column = prefix
-            .width()
-            .min(text_area.width.saturating_sub(1) as usize) as u16;
-        frame.set_cursor_position(Position::new(text_area.x + column, text_area.y));
+    if active && input.text.is_empty() && text_area.width > 0 {
+        frame.set_cursor_position(Position::new(text_area.x, text_area.y));
+    }
+    if let Some((sensitive, regex)) = options {
+        let chip = |label, on| {
+            Span::styled(
+                label,
+                if on {
+                    Style::new()
+                        .fg(BACKGROUND_ON)
+                        .bg(ACCENT)
+                        .add_modifier(Modifier::BOLD)
+                } else {
+                    Style::new().fg(DIM)
+                },
+            )
+        };
+        frame.render_widget(
+            Paragraph::new(Line::from(vec![
+                chip(" Aa ", sensitive),
+                Span::styled("Alt+C ", Style::new().fg(FAINT)),
+                chip(" .* ", regex),
+                Span::styled("Alt+R ", Style::new().fg(FAINT)),
+            ])),
+            option_area,
+        );
     }
 }
 
@@ -232,15 +308,16 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     let collection_width = if compact { 12usize } else { 16 };
     let id_width = if compact { 16usize } else { 24 };
     let field_width = if area.width >= 150 { 24 } else { 16 };
-    let fixed = 2 + collection_width + 2 + id_width + 2;
+    let fixed = 4 + collection_width + 2 + id_width + 2;
     let available = (area.width as usize).saturating_sub(fixed + 16);
     let fields = app
         .visible_columns()
         .into_iter()
+        .skip(app.column_offset)
         .take((available / (field_width + 2)).min(4))
         .collect::<Vec<_>>();
     let mut header = format!(
-        "  {}  {}  ",
+        "    {}  {}  ",
         pad_clip("collection", collection_width),
         pad_clip("id", id_width)
     );
@@ -280,28 +357,56 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     {
         let index = app.scroll + row;
         let selected = index == app.selected;
-        let style = if selected {
+        let base = if selected {
             Style::new().bg(SELECTED)
         } else {
             Style::new()
         };
         let summary = record_summary(hit);
-        let mut content = format!(
-            "{} {}  {}  ",
-            if selected { "▌" } else { " " },
-            pad_clip(&hit.collection, collection_width),
-            pad_clip(&hit.record_id, id_width),
-        );
+        let status_color = match hit.file_status {
+            FileStatus::Valid => GREEN,
+            FileStatus::Broken | FileStatus::Unreadable => RED,
+        };
+        let mut spans = vec![
+            Span::styled(if selected { "▌ " } else { "  " }, Style::new().fg(ACCENT)),
+            Span::styled("● ", Style::new().fg(status_color)),
+            Span::styled(
+                pad_clip(&hit.collection, collection_width),
+                Style::new().fg(VIOLET),
+            ),
+            Span::raw("  "),
+            Span::styled(pad_clip(&hit.record_id, id_width), Style::new().fg(DIM)),
+            Span::raw("  "),
+        ];
+        let mut used = fixed;
         for field in &fields {
-            content.push_str(&pad_clip(&record::column_value(hit, field), field_width));
-            content.push_str("  ");
+            let value = record::column_value(hit, field);
+            spans.push(Span::styled(
+                pad_clip(&value, field_width),
+                Style::new().fg(if value.starts_with('[') || value.starts_with('{') {
+                    DIM
+                } else {
+                    TEXT
+                }),
+            ));
+            spans.push(Span::raw("  "));
+            used += field_width + 2;
         }
-        content.push_str(&clip(
-            &summary,
-            (area.width as usize).saturating_sub(content.width()),
-        ));
+        let remaining = (area.width as usize).saturating_sub(used);
+        if let Some((path, value)) = summary.split_once(": ") {
+            let label = clip(path, (remaining / 3).max(8));
+            let rest = remaining.saturating_sub(label.width() + 2);
+            spans.push(Span::styled(label, Style::new().fg(FAINT)));
+            spans.push(Span::styled(": ", Style::new().fg(FAINT)));
+            spans.push(Span::styled(clip(value, rest), Style::new().fg(TEXT)));
+        } else {
+            spans.push(Span::styled(
+                clip(&summary, remaining),
+                Style::new().fg(TEXT),
+            ));
+        }
         frame.render_widget(
-            Paragraph::new(content).style(style.fg(if selected { TEXT } else { DIM })),
+            Paragraph::new(Line::from(spans)).style(base),
             Rect {
                 y: area.y + 1 + row as u16,
                 height: 1,
@@ -434,6 +539,9 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
     let area = frame.area();
     let width = area.width.min(70).saturating_sub(4).max(20);
     let height = match overlay {
+        Overlay::Actions => {
+            (super::app::Action::ALL.len() as u16 + 3).min(area.height.saturating_sub(2))
+        }
         Overlay::Collections => {
             (app.collection_names().count() as u16 + 3).min(area.height.saturating_sub(2))
         }
@@ -449,7 +557,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         Overlay::Columns => (app.column_keys().len() as u16 + 2)
             .min(20)
             .min(area.height.saturating_sub(2)),
-        Overlay::Help => 18.min(area.height.saturating_sub(2)),
+        Overlay::Help => 21.min(area.height.saturating_sub(2)),
     };
     let panel = Rect {
         x: area.x + area.width.saturating_sub(width) / 2,
@@ -458,8 +566,24 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         height,
     };
     frame.render_widget(Clear, panel);
+    let title = match overlay {
+        Overlay::Actions => " Actions · Ctrl+K ",
+        Overlay::Collections => " Collections ",
+        Overlay::Sort => " Sort by ",
+        Overlay::History => " Recent queries ",
+        Overlay::Saved => " Saved queries ",
+        Overlay::SaveQuery => " Save query ",
+        Overlay::Columns => " Columns ",
+        Overlay::Export { all: true } => " Export all matches ",
+        Overlay::Export { all: false } => " Export record ",
+        Overlay::Help => " Keyboard ",
+    };
     frame.render_widget(
         Block::default()
+            .title(Span::styled(
+                title,
+                Style::new().fg(ACCENT).add_modifier(Modifier::BOLD),
+            ))
             .style(Style::new().bg(PANEL))
             .borders(Borders::ALL)
             .border_style(Style::new().fg(ACCENT)),
@@ -472,6 +596,30 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         height: panel.height.saturating_sub(2),
     };
     let lines = match overlay {
+        Overlay::Actions => super::app::Action::ALL
+            .iter()
+            .enumerate()
+            .map(|(index, action)| {
+                Line::from(vec![
+                    Span::styled(
+                        if index == app.action_picker {
+                            "❯ "
+                        } else {
+                            "  "
+                        },
+                        Style::new().fg(ACCENT),
+                    ),
+                    Span::styled(
+                        action.label(),
+                        Style::new().fg(if index == app.action_picker {
+                            TEXT
+                        } else {
+                            DIM
+                        }),
+                    ),
+                ])
+            })
+            .collect(),
         Overlay::Collections => std::iter::once("All collections".to_owned())
             .chain(app.collection_names().map(str::to_owned))
             .enumerate()
@@ -611,27 +759,29 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         Overlay::Help => [
             "Keyboard shortcuts",
             "",
+            "Ctrl+K            All actions",
             "Tab / Shift+Tab   Switch input and results",
-            "Enter             Search or open selected record",
-            "Esc               Return to results",
-            "↑ / ↓             Move through results",
+            "Enter / Esc       Search, open / return",
+            "↑↓ / PgUp PgDn   Move rows or a page",
+            "Alt+←→           Scroll result columns",
+            "Alt+C / Alt+R     Toggle case / regex",
             "Ctrl+O            Choose collection",
-            "Ctrl+R            Recent queries",
-            "Ctrl+B            Saved queries",
-            "Ctrl+S            Save this query",
-            "Alt+S             Sort current collection",
-            "Alt+L             Show or hide columns",
-            "Alt+E / Alt+A     Export record / all",
-            "Ctrl+P            Toggle preview pane",
-            "Alt+T             Switch light / dark theme",
-            "F1                Show this help",
-            "Ctrl+Q            Quit",
+            "Ctrl+R / B / S    Recent / saved / save",
+            "Alt+S / L        Sort / select columns",
+            "Alt+E / A        Export record / all",
+            "Ctrl+P / Alt+T   Preview / theme",
+            "",
+            "Detail: Enter     Fold or follow link",
+            "Detail: Backspace Previous record",
+            "Detail: r         Raw / structured view",
+            "F1 / Ctrl+Q      Help / quit",
         ]
         .into_iter()
         .map(Line::from)
         .collect(),
     };
     let selected = match overlay {
+        Overlay::Actions => app.action_picker,
         Overlay::Collections => app.picker,
         Overlay::Sort => app.sort_picker,
         Overlay::History | Overlay::Saved => app.list_picker,

@@ -38,6 +38,32 @@ fn full_text_filter_and_collection_scope_use_new_core() {
 }
 
 #[test]
+fn search_modes_use_core_semantics_and_saved_queries_restore_them() {
+    let mut fixture = fixture(3);
+    let app = &mut fixture.app;
+    app.search = Input::with_text("Needle");
+    app.request_search();
+    settled(app);
+    assert_eq!(app.total, 0);
+    app.toggle_case();
+    settled(app);
+    assert_eq!(app.total, 2);
+    app.search = Input::with_text("^NEEDLE");
+    app.toggle_regex();
+    settled(app);
+    assert_eq!(app.total, 2);
+    let saved = app.current_query();
+    app.toggle_case();
+    settled(app);
+    assert_eq!(app.total, 0);
+    app.restore_query(saved);
+    settled(app);
+    assert!(!app.case_sensitive);
+    assert!(app.regex);
+    assert_eq!(app.total, 2);
+}
+
+#[test]
 fn pages_load_before_selection_reaches_the_end() {
     let mut fixture = fixture(130);
     settled(&mut fixture.app);
