@@ -2395,17 +2395,16 @@ fn try_stored_order_page(
     {
         return Ok(None);
     }
-    if prepared.collections.iter().any(|(_, _, fts)| {
-        fts.as_ref()
-            .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
-    }) {
-        return Ok(None);
-    }
-    if prepared.collections.iter().any(|(_, filter, _)| {
-        filter
-            .as_ref()
-            .is_some_and(crate::relation_target_cache::has_source_dependent)
-    }) {
+    if all_offset.is_none()
+        && (prepared.collections.iter().any(|(_, _, fts)| {
+            fts.as_ref()
+                .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
+        }) || prepared.collections.iter().any(|(_, filter, _)| {
+            filter
+                .as_ref()
+                .is_some_and(crate::relation_target_cache::has_source_dependent)
+        }))
+    {
         return Ok(None);
     }
     let cap = query

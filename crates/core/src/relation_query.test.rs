@@ -8,7 +8,10 @@ use crate::repository::{
     CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
 };
 use crate::source::SourceFormat;
-use crate::streaming::{CancellationToken, StreamError, StreamOptions};
+use crate::streaming::{
+    CancellationToken, ResultScope, StreamControl, StreamError, StreamEvent, StreamOptions,
+    StreamOutcome,
+};
 use crate::workload::{ReturnMode, WorkloadCase};
 
 fn field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
@@ -236,6 +239,82 @@ fn ids(repo: &Repository, request: Query) -> Vec<String> {
         .iter()
         .map(|hit| hit.record_id.clone())
         .collect()
+}
+
+#[test]
+fn related_all_results_stream_in_identity_order_under_small_budget() {
+    let (root, definitions) = fixture();
+    for index in 0..110 {
+        std::fs::write(
+            root.join(format!("mentions/bulk-{index:03}.json")),
+            format!(
+                r#"{{"id":"bulk-{index:03}","entry":"A","local_title":"Hymn","title":"bulk"}}"#
+            ),
+        )
+        .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for mut request in [
+        query(
+            "mentions",
+            Some("local_title = entry.title"),
+            None,
+            None,
+            false,
+        ),
+        query("mentions", None, Some("Hymn"), Some("entry.title"), false),
+    ] {
+        request.options.limit = 200;
+        let reference = repo.search_reference(&request).unwrap();
+        let mut rows = Vec::new();
+        let mut first_seen = None;
+        let outcome = repo
+            .search_stream_scoped(
+                &request,
+                ResultScope::All { offset: 0 },
+                StreamOptions {
+                    batch_rows: 3,
+                    max_event_bytes: 2048,
+                    max_buffered_bytes: 4096,
+                    ..Default::default()
+                },
+                &CancellationToken::new(),
+                &mut |event| {
+                    if let StreamEvent::OrderedRows {
+                        start,
+                        rows: batch,
+                        progress,
+                        ..
+                    } = event
+                    {
+                        assert_eq!(start, rows.len());
+                        first_seen.get_or_insert(progress.observed_matches);
+                        rows.extend(batch.iter().cloned());
+                    }
+                    Ok(StreamControl::Continue)
+                },
+            )
+            .unwrap();
+        let StreamOutcome::Complete(summary) = outcome else {
+            panic!("expected complete")
+        };
+        assert_eq!(summary.count, reference.count);
+        assert_eq!(rows, reference.hits);
+        assert!(rows.len() > 50);
+        assert!(first_seen.unwrap() < rows.len() as u64);
+        assert!(summary.progress.peak_buffered_bytes <= 4096);
+    }
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]
