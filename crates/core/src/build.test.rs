@@ -918,6 +918,7 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
         BigramAlphabet::Ascii,
         inference,
         make(0),
+        BoundedBuildLimits::default(),
         |batch| {
             before.push((batch.records.len(), batch.files[0].entry.status));
             Ok(())
@@ -925,6 +926,37 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
     )
     .unwrap();
     assert_eq!(before, [(0, FileStatus::Unreadable)]);
+
+    let mut blank_lines = vec![b' '; 40 * 1024];
+    blank_lines.push(b'\n');
+    blank_lines.extend(std::iter::repeat_n(b' ', 40 * 1024));
+    blank_lines.push(b'\n');
+    let mut admitted_chunks = 0;
+    let stats = process_bounded_json_lines_reader(
+        &pool,
+        Arc::new(root.clone()),
+        Arc::clone(&definition),
+        CollectionId(0),
+        source.clone(),
+        FileId(0),
+        Arc::clone(&source_files),
+        BigramAlphabet::Ascii,
+        inference,
+        BoundedJsonLines::from_reader(BufReader::new(std::io::Cursor::new(blank_lines))),
+        BoundedBuildLimits {
+            chunk_bytes: 1024,
+            ranges: 256,
+            admitted_bytes: 64 * 1024,
+        },
+        |batch| {
+            assert!(batch.records.is_empty());
+            admitted_chunks += 1;
+            Ok(())
+        },
+    )
+    .unwrap();
+    assert_eq!(admitted_chunks, 2);
+    assert_eq!(stats.peak_weight_bytes, 64 * 1024);
 
     let mut admitted_records = 0;
     let error = process_bounded_json_lines_reader(
@@ -938,6 +970,7 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
         BigramAlphabet::Ascii,
         inference,
         make(512 * 3),
+        BoundedBuildLimits::default(),
         |batch| {
             admitted_records += batch.records.len();
             Ok(())

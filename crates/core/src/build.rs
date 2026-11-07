@@ -911,8 +911,26 @@ fn process_bounded_json_lines_file(
         alphabet,
         inference,
         reader,
+        BoundedBuildLimits::default(),
         admit,
     )
+}
+
+#[derive(Clone, Copy)]
+struct BoundedBuildLimits {
+    chunk_bytes: usize,
+    ranges: usize,
+    admitted_bytes: u64,
+}
+
+impl Default for BoundedBuildLimits {
+    fn default() -> Self {
+        Self {
+            chunk_bytes: 1024 * 1024,
+            ranges: 256,
+            admitted_bytes: 64 * 1024 * 1024,
+        }
+    }
 }
 
 fn process_bounded_json_lines_reader<R: BufRead + Send>(
@@ -926,17 +944,15 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     mut reader: BoundedJsonLines<R>,
+    limits: BoundedBuildLimits,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
-    const MAX_CHUNK_BYTES: usize = 1024 * 1024;
-    const MAX_RANGES: usize = 256;
-    const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let path = root.join(&source_files[file_id.0 as usize].relative_path);
     // A failure before any contribution can still use the ordinary unreadable
     // outcome. Once a chunk is admitted, an I/O failure aborts this private
     // generation instead of publishing a partially indexed file.
-    let first = match reader.next_chunk(MAX_CHUNK_BYTES, MAX_RANGES) {
+    let first = match reader.next_chunk(limits.chunk_bytes, limits.ranges) {
         Ok(Some(chunk)) => chunk,
         Ok(None) => BoundedBuildChunk {
             bytes: Vec::new(),
@@ -962,7 +978,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
     let mut pending = Some(first);
     let mut eof = false;
     let mut stats = BuildScheduleStats {
-        weight_limit_bytes: MAX_ADMITTED_BYTES,
+        weight_limit_bytes: limits.admitted_bytes,
         ..Default::default()
     };
     let (sender, receiver) = mpsc::channel();
@@ -976,7 +992,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
     while failure.is_none() {
         while dispatched - next < max_jobs {
             if pending.is_none() && !eof {
-                match reader.next_chunk(MAX_CHUNK_BYTES, MAX_RANGES) {
+                match reader.next_chunk(limits.chunk_bytes, limits.ranges) {
                     Ok(Some(chunk)) => pending = Some(chunk),
                     Ok(None) => eof = true,
                     Err(error) => {
@@ -991,8 +1007,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
                 break;
             };
             let weight = (chunk.bytes.capacity() as u64).max(64 * 1024);
-            peak_bytes = peak_bytes.max(admitted_bytes.saturating_add(weight));
-            if !fits_allowance(admitted_bytes, weight, MAX_ADMITTED_BYTES) {
+            if !fits_allowance(admitted_bytes, weight, limits.admitted_bytes) {
                 break;
             }
             let chunk = pending.take().expect("checked pending chunk");
