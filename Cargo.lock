@@ -701,6 +701,7 @@ dependencies = [
  "serde",
  "serde_json",
  "tempfile",
+ "unicode-casefold",
  "unicode-width",
 ]
 

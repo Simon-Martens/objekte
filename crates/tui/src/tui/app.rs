@@ -12,15 +12,21 @@ use objekte_search_core::query::{
 use objekte_search_core::repository::{Repository, SearchHit, SearchResult};
 use objekte_search_core::workload::{ReturnMode, SortField};
 use ratatui::layout::Rect;
+use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 use super::export;
 use super::input::Input;
-use super::record::RecordState;
+use super::record::{self, RecordState};
 use super::relations::{self, LinkAction, RelationRow};
 use super::settings::{self, Settings};
 
 pub(super) const PAGE_SIZE: usize = 100;
 pub(super) const DEBOUNCE: Duration = Duration::from_millis(180);
+
+fn fold_find(text: &str) -> String {
+    text.case_fold_with(Variant::Full, Locale::NonTurkic)
+        .collect()
+}
 
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -153,6 +159,7 @@ pub(super) struct App {
     pub(super) results_area: Rect,
     pub(super) viewport_rows: usize,
     pub(super) status: Option<String>,
+    pub(super) clipboard: Option<String>,
     pub(super) error: Option<String>,
     pub(super) searching: bool,
     pub(super) last_search_duration: Option<Duration>,
@@ -208,6 +215,7 @@ impl App {
             results_area: Rect::default(),
             viewport_rows: 1,
             status,
+            clipboard: None,
             error: None,
             searching: false,
             last_search_duration: None,
@@ -323,6 +331,127 @@ impl App {
             .cursor
             .saturating_add_signed(delta)
             .min(count.saturating_sub(1));
+    }
+
+    pub(super) fn adjacent_result(&mut self, next: bool) {
+        if self.hits.is_empty() || self.view != View::Detail {
+            return;
+        }
+        let previous = self.selected;
+        self.move_selection(if next { 1 } else { -1 });
+        if self.selected != previous {
+            self.detail_hit = self.selected_hit().cloned();
+            self.detail_history.clear();
+            self.detail_scroll = 0;
+            self.refresh_relations();
+        }
+    }
+
+    pub(super) fn jump_detail_section(&mut self, section: u8) {
+        if section == 1 {
+            self.record.cursor = 0;
+            return;
+        }
+        let Some(hit) = self.current_detail_hit() else {
+            return;
+        };
+        let diagnostic = self
+            .diagnostic(hit)
+            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let base = self.record.rows(hit, diagnostic.as_deref()).len();
+        let label = if section == 2 {
+            "Outgoing"
+        } else {
+            "Backlinks"
+        };
+        if let Some(index) = self.relation_rows.iter().position(|row| row.label == label) {
+            self.record.cursor = base + index;
+            self.status = None;
+        } else {
+            self.status = Some(format!("No {label} section for this record"));
+        }
+    }
+
+    pub(super) fn find_next(&mut self, forward: bool) {
+        if self.record.raw {
+            self.status = Some("Find is available in structured view".into());
+            return;
+        }
+        let Some(hit) = self.current_detail_hit() else {
+            return;
+        };
+        let needle = fold_find(&self.record.find);
+        if needle.is_empty() {
+            return;
+        }
+        let diagnostic = self
+            .diagnostic(hit)
+            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let rows = self.record.rows(hit, diagnostic.as_deref());
+        let total = rows.len() + self.relation_rows.len();
+        for step in 1..=total {
+            let at = if forward {
+                (self.record.cursor + step) % total
+            } else {
+                (self.record.cursor + total - step % total) % total
+            };
+            let row = if at < rows.len() {
+                &rows[at]
+            } else {
+                let relation = &self.relation_rows[at - rows.len()];
+                if fold_find(&relation.label).contains(&needle)
+                    || fold_find(&relation.value).contains(&needle)
+                {
+                    self.record.cursor = at;
+                    self.status = None;
+                    return;
+                }
+                continue;
+            };
+            if fold_find(&row.label).contains(&needle) || fold_find(&row.value).contains(&needle) {
+                self.record.cursor = at;
+                self.status = None;
+                return;
+            }
+        }
+        self.status = Some(format!("No field contains {}", self.record.find));
+    }
+
+    pub(super) fn confirm_find(&mut self) {
+        if let Some(input) = self.record.find_input.take() {
+            self.record.find = input.text;
+            self.find_next(true);
+        }
+    }
+
+    pub(super) fn copy_detail(&mut self, whole: bool) {
+        let Some(hit) = self.current_detail_hit() else {
+            return;
+        };
+        let text = if whole || self.record.raw {
+            record::raw_text(hit)
+        } else {
+            let diagnostic = self
+                .diagnostic(hit)
+                .map(|issue| format!("{}: {}", issue.code, issue.message));
+            let rows = self.record.rows(hit, diagnostic.as_deref());
+            if let Some(row) = rows.get(self.record.cursor) {
+                row.value.clone()
+            } else {
+                self.relation_rows
+                    .get(self.record.cursor.saturating_sub(rows.len()))
+                    .map_or_else(String::new, |row| row.value.clone())
+            }
+        };
+        self.clipboard = Some(text);
+        self.status = Some(
+            if whole {
+                "Copied record"
+            } else {
+                "Copied value"
+            }
+            .into(),
+        );
     }
 
     pub(super) fn toggle_detail_branch(&mut self) {

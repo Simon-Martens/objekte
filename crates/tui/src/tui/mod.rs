@@ -1,6 +1,7 @@
 //! Interactive search screen adapted from the earlier terminal client.
 
 mod app;
+mod clipboard;
 mod export;
 mod input;
 mod record;
@@ -96,6 +97,12 @@ pub(super) fn run(
                     break;
                 }
             }
+            if let Some(text) = app.clipboard.take() {
+                use std::io::Write;
+                let mut stdout = std::io::stdout();
+                stdout.write_all(clipboard::osc52(&text).as_bytes())?;
+                stdout.flush()?;
+            }
         }
         Ok(())
     })();
@@ -158,6 +165,18 @@ fn key(app: &mut App, key: KeyEvent) {
     let control = key.modifiers.contains(KeyModifiers::CONTROL);
     if control && key.code == KeyCode::Char('q') {
         app.done = true;
+        return;
+    }
+    if app.record.find_input.is_some() {
+        match key.code {
+            KeyCode::Esc => app.record.find_input = None,
+            KeyCode::Enter => app.confirm_find(),
+            _ => {
+                if let Some(input) = &mut app.record.find_input {
+                    input.key(key);
+                }
+            }
+        }
         return;
     }
     match app.overlay {
@@ -358,6 +377,12 @@ fn key(app: &mut App, key: KeyEvent) {
     }
     if app.view == View::Detail {
         match key.code {
+            KeyCode::Left if key.modifiers.contains(KeyModifiers::ALT) => {
+                app.adjacent_result(false)
+            }
+            KeyCode::Right if key.modifiers.contains(KeyModifiers::ALT) => {
+                app.adjacent_result(true)
+            }
             KeyCode::Esc | KeyCode::Left | KeyCode::Backspace => app.back_detail(),
             KeyCode::Up => app.move_detail(-1),
             KeyCode::Down => app.move_detail(1),
@@ -368,6 +393,19 @@ fn key(app: &mut App, key: KeyEvent) {
                 app.record.raw = !app.record.raw;
                 app.detail_scroll = 0;
             }
+            KeyCode::Char('/') if !app.record.raw => {
+                app.record.find_input = Some(input::Input::with_text(&app.record.find));
+            }
+            KeyCode::Char('/') => {
+                app.status = Some("Find is available in structured view".into());
+            }
+            KeyCode::Char('n') => app.find_next(true),
+            KeyCode::Char('N') => app.find_next(false),
+            KeyCode::Char('y') => app.copy_detail(false),
+            KeyCode::Char('Y') => app.copy_detail(true),
+            KeyCode::Char('1') => app.jump_detail_section(1),
+            KeyCode::Char('2') => app.jump_detail_section(2),
+            KeyCode::Char('3') => app.jump_detail_section(3),
             _ => {}
         }
         return;

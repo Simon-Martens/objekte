@@ -64,6 +64,11 @@ fn search_modes_use_core_semantics_and_saved_queries_restore_them() {
 }
 
 #[test]
+fn record_find_uses_the_same_non_turkic_full_fold_policy() {
+    assert_eq!(fold_find("Straße Σ İ"), "strasse σ i\u{307}");
+}
+
+#[test]
 fn pages_load_before_selection_reaches_the_end() {
     let mut fixture = fixture(130);
     settled(&mut fixture.app);

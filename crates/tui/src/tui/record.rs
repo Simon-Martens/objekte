@@ -5,6 +5,8 @@ use std::collections::BTreeSet;
 use objekte_search_core::model::{Number, Value};
 use objekte_search_core::repository::{Payload, SearchHit};
 
+use super::input::Input;
+
 const MAX_ROWS: usize = 10_000;
 const MAX_DEPTH: usize = 40;
 
@@ -26,6 +28,8 @@ pub(super) struct RecordState {
     pub(super) cursor: usize,
     pub(super) scroll: usize,
     pub(super) raw: bool,
+    pub(super) find: String,
+    pub(super) find_input: Option<Input>,
     collapsed_objects: BTreeSet<String>,
     expanded_arrays: BTreeSet<String>,
 }
@@ -36,6 +40,8 @@ impl RecordState {
         self.cursor = 0;
         self.scroll = 0;
         self.raw = false;
+        self.find.clear();
+        self.find_input = None;
         self.collapsed_objects.clear();
         self.expanded_arrays.clear();
     }

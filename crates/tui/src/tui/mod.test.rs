@@ -72,6 +72,52 @@ fn action_palette_opens_existing_controls_and_columns_scroll() {
     assert_eq!(app.column_offset, 0);
 }
 
+#[test]
+fn record_find_copy_and_adjacent_result_shortcuts_work() {
+    let mut fixture = fixture(3);
+    let app = &mut fixture.app;
+    wait_for_hits(app);
+    app.selected = app
+        .hits
+        .iter()
+        .position(|hit| hit.record_id == "0001")
+        .unwrap();
+    app.open_detail();
+    key(app, KeyEvent::new(KeyCode::Char('/'), KeyModifiers::NONE));
+    app.record.find_input = Some(input::Input::with_text("ordinary"));
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    assert!(app.record.cursor > 0);
+    key(app, KeyEvent::new(KeyCode::Char('y'), KeyModifiers::NONE));
+    assert_eq!(app.clipboard.as_deref(), Some("ordinary title"));
+    key(app, KeyEvent::new(KeyCode::Char('Y'), KeyModifiers::NONE));
+    assert!(app.clipboard.as_deref().unwrap().contains("ordinary title"));
+    key(app, KeyEvent::new(KeyCode::Right, KeyModifiers::ALT));
+    assert_eq!(app.current_detail_hit().unwrap().record_id, "0002");
+    key(app, KeyEvent::new(KeyCode::Left, KeyModifiers::ALT));
+    assert_eq!(app.current_detail_hit().unwrap().record_id, "0001");
+}
+
+#[test]
+fn section_keys_jump_to_outgoing_and_backlinks() {
+    let mut fixture = relation_fixture();
+    let app = &mut fixture.app;
+    wait_for_hits(app);
+    select_id(app, "A");
+    key(app, KeyEvent::new(KeyCode::Char('2'), KeyModifiers::NONE));
+    let base = app
+        .record
+        .rows(app.current_detail_hit().unwrap(), None)
+        .len();
+    assert_eq!(
+        app.relation_rows[app.record.cursor - base].label,
+        "Outgoing"
+    );
+    key(app, KeyEvent::new(KeyCode::Char('3'), KeyModifiers::NONE));
+    assert!(app.status.as_deref().unwrap().contains("No Backlinks"));
+    key(app, KeyEvent::new(KeyCode::Char('1'), KeyModifiers::NONE));
+    assert_eq!(app.record.cursor, 0);
+}
+
 fn wait_for_hits(app: &mut App) {
     for _ in 0..1_000 {
         app.tick(Instant::now());

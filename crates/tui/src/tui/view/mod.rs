@@ -172,17 +172,31 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
             },
         ),
     }
-    let hint = if app.view == View::Detail {
-        " Esc back · ↑↓ fields · Enter fold/open · r raw · Ctrl+Q quit"
+    let hint = if app.view == View::Detail && footer.width >= 96 {
+        " Esc back · ↑↓ fields · Enter fold/open · Alt+←→ records · / find · y/Y copy · r raw"
+    } else if app.view == View::Detail {
+        " Esc back · ↑↓ fields · Enter fold/open · / find · y/Y copy · r raw"
     } else if footer.width < 78 {
         " Tab fields · ↑↓ rows · Enter open · Ctrl+K actions · F1 help"
     } else {
         " Tab fields · ↑↓ rows · Enter open · Ctrl+K actions · Alt+←→ columns · F1 help"
     };
-    frame.render_widget(
-        Paragraph::new(app.status.as_deref().unwrap_or(hint)).style(Style::new().fg(DIM)),
-        footer,
-    );
+    if let Some(input) = &app.record.find_input {
+        frame.render_widget(
+            Paragraph::new(format!(" Find ❯ {}", input.text)).style(Style::new().fg(ACCENT)),
+            footer,
+        );
+        let prefix = input.text.chars().take(input.cursor).collect::<String>();
+        frame.set_cursor_position(Position::new(
+            footer.x + (prefix.width() + 8).min(footer.width.saturating_sub(1) as usize) as u16,
+            footer.y,
+        ));
+    } else {
+        frame.render_widget(
+            Paragraph::new(app.status.as_deref().unwrap_or(hint)).style(Style::new().fg(DIM)),
+            footer,
+        );
+    }
     if let Some(overlay) = app.overlay {
         overlay_view(frame, app, overlay);
     }
@@ -557,7 +571,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         Overlay::Columns => (app.column_keys().len() as u16 + 2)
             .min(20)
             .min(area.height.saturating_sub(2)),
-        Overlay::Help => 21.min(area.height.saturating_sub(2)),
+        Overlay::Help => 23.min(area.height.saturating_sub(2)),
     };
     let panel = Rect {
         x: area.x + area.width.saturating_sub(width) / 2,
@@ -771,9 +785,12 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
             "Alt+E / A        Export record / all",
             "Ctrl+P / Alt+T   Preview / theme",
             "",
+            "Detail: 1 2 3   Fields/links/backlinks",
             "Detail: Enter     Fold or follow link",
-            "Detail: Backspace Previous record",
-            "Detail: r         Raw / structured view",
+            "Detail: Alt+←→   Previous/next result",
+            "Detail: / n N    Find / next / previous",
+            "Detail: y Y      Copy value / record",
+            "Detail: r        Raw / structured view",
             "F1 / Ctrl+Q      Help / quit",
         ]
         .into_iter()
