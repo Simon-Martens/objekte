@@ -136,8 +136,9 @@ skipped. Fresh construction and startup reconciliation use the same discovery
 rules. Identity can come from the filename, a configured intrinsic field
 extracted by the reader, or a revision-bound generated ID. Duplicate IDs and
 explicit IDs in the generated namespace fail construction. An empty JSON file
-contributes zero records; other invalid selected records fail construction
-with their path/range.
+contributes zero records. Readable invalid records become diagnosed raw
+fallback records; reader contract violations still fail construction with
+their path/range.
 
 ## Query and result semantics
 
