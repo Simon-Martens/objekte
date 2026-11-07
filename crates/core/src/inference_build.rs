@@ -493,7 +493,7 @@ impl InferenceBuilder {
         Some(index)
     }
 
-    fn visit<F: FnMut(&str)>(
+    fn visit(
         &mut self,
         value: &Value,
         state: &mut VisitState,
@@ -501,14 +501,8 @@ impl InferenceBuilder {
         through_array: bool,
         nesting: u8,
         schema: Option<&Schema>,
-        emit: &mut F,
-        visit_text: bool,
-        has_empty_array: &mut bool,
     ) {
         if !self.complete {
-            if visit_text {
-                *has_empty_array |= crate::source::visit_logical_strings_and_empty(value, emit);
-            }
             return;
         }
         state.contributions += 1;
@@ -516,9 +510,6 @@ impl InferenceBuilder {
             self.complete = false;
             for field in &mut self.fields {
                 field.drop_values();
-            }
-            if visit_text {
-                *has_empty_array |= crate::source::visit_logical_strings_and_empty(value, emit);
             }
             return;
         }
@@ -579,41 +570,22 @@ impl InferenceBuilder {
             }
             self.charge(charge);
         }
-        if visit_text {
-            match value {
-                Value::String(text) | Value::Id(text) => emit(text),
-                Value::Array(array) if array.values.is_empty() => *has_empty_array = true,
-                _ => {}
-            }
+        if !self.complete {
+            return;
         }
         match value {
             Value::Object(map) => {
                 for (name, child) in map {
+                    state.path.push(ObservedStep::Field(self.intern_name(name)));
+                    self.visit(child, state, true, through_array, nesting, schema);
+                    state.path.pop();
                     if !self.complete {
-                        if visit_text {
-                            *has_empty_array |=
-                                crate::source::visit_logical_strings_and_empty(child, emit);
-                            continue;
-                        }
                         break;
                     }
-                    state.path.push(ObservedStep::Field(self.intern_name(name)));
-                    self.visit(
-                        child,
-                        state,
-                        true,
-                        through_array,
-                        nesting,
-                        schema,
-                        emit,
-                        visit_text,
-                        has_empty_array,
-                    );
-                    state.path.pop();
                 }
             }
             Value::Array(array) => {
-                if self.complete && array.values.is_empty() && !state.path.is_empty() {
+                if array.values.is_empty() && !state.path.is_empty() {
                     if let Some(slots) = self.empty_ancestors.get_mut(state.path.as_slice()) {
                         slots.insert(state.slot.0);
                     } else {
@@ -624,25 +596,10 @@ impl InferenceBuilder {
                     self.charge(16);
                 }
                 for child in &array.values {
+                    self.visit(child, state, false, true, nesting.saturating_add(1), schema);
                     if !self.complete {
-                        if visit_text {
-                            *has_empty_array |=
-                                crate::source::visit_logical_strings_and_empty(child, emit);
-                            continue;
-                        }
                         break;
                     }
-                    self.visit(
-                        child,
-                        state,
-                        false,
-                        true,
-                        nesting.saturating_add(1),
-                        schema,
-                        emit,
-                        visit_text,
-                        has_empty_array,
-                    );
                 }
             }
             _ => {}
@@ -660,38 +617,12 @@ impl InferenceBuilder {
         value: &Value,
         schema: Option<&Schema>,
     ) -> Result<(), String> {
-        self.observe_record_using(slot, value, schema, &mut |_| {}, false)
-            .map(|_| ())
-    }
-
-    pub(crate) fn observe_record_with_schema_and_text(
-        &mut self,
-        slot: RecordSlot,
-        value: &Value,
-        schema: Option<&Schema>,
-        emit: &mut impl FnMut(&str),
-    ) -> Result<bool, String> {
-        self.observe_record_using(slot, value, schema, emit, true)
-    }
-
-    fn observe_record_using<F: FnMut(&str)>(
-        &mut self,
-        slot: RecordSlot,
-        value: &Value,
-        schema: Option<&Schema>,
-        emit: &mut F,
-        visit_text: bool,
-    ) -> Result<bool, String> {
         self.eligible = self
             .eligible
             .checked_add(1)
             .ok_or("inference coverage overflow")?;
         if !self.complete {
-            return Ok(if visit_text {
-                crate::source::visit_logical_strings_and_empty(value, emit)
-            } else {
-                false
-            });
+            return Ok(());
         }
         self.selected.clear();
         let mut state = VisitState {
@@ -700,25 +631,14 @@ impl InferenceBuilder {
             contributions: 0,
         };
         state.path.clear();
-        let mut has_empty_array = false;
-        self.visit(
-            value,
-            &mut state,
-            true,
-            false,
-            0,
-            schema,
-            emit,
-            visit_text,
-            &mut has_empty_array,
-        );
+        self.visit(value, &mut state, true, false, 0, schema);
         self.visit_path = state.path;
         for (index, (count, sole_null)) in self.selected.drain() {
             if count == 1 && sole_null {
                 self.fields[index].exact_null.insert(slot.0);
             }
         }
-        Ok(has_empty_array)
+        Ok(())
     }
 
     pub(crate) fn merge_shifted(&mut self, other: Self, base: u32) -> Result<(), String> {
@@ -1040,63 +960,6 @@ impl InferenceBuilder {
 mod allocation_tests {
     use super::*;
     use crate::reference::FieldDefinition;
-
-    #[test]
-    fn fused_logical_walk_matches_separate_text_and_inference_walks() {
-        let records = [
-            serde_json::json!({"a": ["one", null, {"b": "two"}], "empty": []}),
-            serde_json::json!({"a": ["three", "four"], "other": {"x": "five"}}),
-            serde_json::json!({"a": [], "tail": "six"}),
-        ];
-        for limit in [usize::MAX, 3] {
-            let config = InferenceConfig {
-                mode: InferenceMode::AutoIndex,
-                policy: InferencePolicy {
-                    max_record_contributions: limit,
-                    ..Default::default()
-                },
-            };
-            let mut separate = InferenceBuilder::new(config, true).unwrap();
-            let mut fused = InferenceBuilder::new(config, true).unwrap();
-            let mut logical = RoaringBitmap::new();
-            for (slot, json) in records.iter().enumerate() {
-                let value = Value::from_json(json.clone()).unwrap();
-                let slot = RecordSlot(slot as u32);
-                logical.insert(slot.0);
-                separate
-                    .observe_record_with_schema(slot, &value, None)
-                    .unwrap();
-                let mut expected = Vec::new();
-                let expected_empty =
-                    crate::source::visit_logical_strings_and_empty(&value, &mut |text| {
-                        expected.push(text.to_owned())
-                    });
-                let mut actual = Vec::new();
-                let actual_empty = fused
-                    .observe_record_with_schema_and_text(slot, &value, None, &mut |text| {
-                        actual.push(text.to_owned());
-                    })
-                    .unwrap();
-                assert_eq!(actual, expected);
-                assert_eq!(actual_empty, expected_empty);
-            }
-            let schema = Schema::default();
-            let separate = separate.finish(&logical, records.len(), &schema).unwrap();
-            let fused = fused.finish(&logical, records.len(), &schema).unwrap();
-            assert_eq!(
-                serde_json::to_value(separate.report).unwrap(),
-                serde_json::to_value(fused.report).unwrap(),
-            );
-            assert_eq!(separate.indexes.len(), fused.indexes.len());
-            for (path, index) in separate.indexes {
-                let other = &fused.indexes[&path];
-                assert_eq!(index.presence, other.presence);
-                assert_eq!(index.nulls, other.nulls);
-                assert_eq!(index.values, other.values);
-                assert_eq!(index.lengths, other.lengths);
-            }
-        }
-    }
 
     #[test]
     fn declared_and_prohibited_paths_keep_observations_without_posting_maps() {
