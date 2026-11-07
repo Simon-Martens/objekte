@@ -9,6 +9,7 @@ pub const MODEL_VERSION: u32 = 8;
 pub mod bigram;
 mod build;
 mod byte_size_literal;
+mod decimal;
 pub mod clock_context;
 pub mod discovery;
 pub mod executor;

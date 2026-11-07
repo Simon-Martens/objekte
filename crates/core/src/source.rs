@@ -61,6 +61,7 @@ pub enum DiagnosticCategory {
     Encoding,
     Syntax,
     LogicalValidation,
+    ResourceLimit,
     Io,
 }
 
@@ -396,7 +397,9 @@ impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
 
 fn json_issue(bytes: &[u8], error: serde_json::Error) -> ReaderDiagnostic {
     let invalid_utf8 = std::str::from_utf8(bytes).err();
-    let category = if invalid_utf8.is_some() {
+    let category = if error.to_string().contains("recursion limit exceeded") {
+        DiagnosticCategory::ResourceLimit
+    } else if invalid_utf8.is_some() {
         DiagnosticCategory::Encoding
     } else {
         DiagnosticCategory::Syntax
@@ -423,6 +426,14 @@ fn json_issue(bytes: &[u8], error: serde_json::Error) -> ReaderDiagnostic {
     issue
 }
 
+fn json_reader_failure(issue: ReaderDiagnostic) -> ReaderFailure {
+    if issue.category == DiagnosticCategory::ResourceLimit {
+        ReaderFailure::Fatal(issue.message)
+    } else {
+        ReaderFailure::Malformed(issue)
+    }
+}
+
 fn parse_json_for_query_diagnosed(
     bytes: &[u8],
     projection: &ScanProjection,
@@ -443,7 +454,12 @@ fn parse_json_for_query_diagnosed(
         serde_json::from_slice(bytes).map_err(|e| json_issue(bytes, e))?
     };
     let value = Value::from_json(json).map_err(|error| {
-        ReaderDiagnostic::new(DiagnosticCategory::LogicalValidation, "json.value", error)
+        let category = if error.contains("resource limit") {
+            DiagnosticCategory::ResourceLimit
+        } else {
+            DiagnosticCategory::LogicalValidation
+        };
+        ReaderDiagnostic::new(category, "json.value", error)
     })?;
     let mut text = Vec::new();
     if projection.collect_text {
@@ -462,6 +478,7 @@ fn parse_json_for_query(
 fn parse_json_decoded_for_query_diagnosed(
     bytes: &[u8],
     projection: &ScanProjection,
+    for_build: bool,
 ) -> Result<ExtractedRecord, ReaderDiagnostic> {
     let mut extracted = parse_json_for_query_diagnosed(
         bytes,
@@ -472,11 +489,14 @@ fn parse_json_decoded_for_query_diagnosed(
         },
     )?;
     if projection.collect_text {
-        extracted.text =
-            crate::json_scalar_text::scalar_segments(bytes, projection.resolved_text_only)
-                .map_err(|error| {
-                    ReaderDiagnostic::new(DiagnosticCategory::Syntax, "json.scalar_text", error)
-                })?;
+        extracted.text = crate::json_scalar_text::scalar_segments(
+            bytes,
+            projection.resolved_text_only,
+            !for_build,
+        )
+        .map_err(|error| {
+            ReaderDiagnostic::new(DiagnosticCategory::Syntax, "json.scalar_text", error)
+        })?;
     }
     Ok(extracted)
 }
@@ -572,12 +592,12 @@ impl SourceReader for JsonReader {
 
     fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
         parse_json_for_query_diagnosed(bytes, &ScanProjection::full(true))
-            .map_err(ReaderFailure::Malformed)
+            .map_err(json_reader_failure)
     }
 
     fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
         parse_json_for_query_diagnosed(bytes, &ScanProjection::full(false))
-            .map_err(ReaderFailure::Malformed)
+            .map_err(json_reader_failure)
     }
 
     fn parse_for_query(
@@ -608,18 +628,18 @@ impl SourceReader for JsonDecodedScalarsReader {
     }
 
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true))
+        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true), false)
             .map_err(|issue| issue.message)
     }
 
     fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
-        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true))
-            .map_err(ReaderFailure::Malformed)
+        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true), false)
+            .map_err(json_reader_failure)
     }
 
     fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
-        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true))
-            .map_err(ReaderFailure::Malformed)
+        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true), true)
+            .map_err(json_reader_failure)
     }
 
     fn parse_for_query(
@@ -627,7 +647,8 @@ impl SourceReader for JsonDecodedScalarsReader {
         bytes: &[u8],
         projection: &ScanProjection,
     ) -> Result<ExtractedRecord, String> {
-        parse_json_decoded_for_query_diagnosed(bytes, projection).map_err(|issue| issue.message)
+        parse_json_decoded_for_query_diagnosed(bytes, projection, false)
+            .map_err(|issue| issue.message)
     }
 }
 
@@ -676,12 +697,12 @@ impl SourceReader for JsonLinesReader {
 
     fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
         parse_json_for_query_diagnosed(bytes, &ScanProjection::full(true))
-            .map_err(ReaderFailure::Malformed)
+            .map_err(json_reader_failure)
     }
 
     fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
         parse_json_for_query_diagnosed(bytes, &ScanProjection::full(false))
-            .map_err(ReaderFailure::Malformed)
+            .map_err(json_reader_failure)
     }
 
     fn parse_for_query(

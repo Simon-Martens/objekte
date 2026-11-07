@@ -369,7 +369,7 @@ impl SortBuilder {
                         SortKey::String(key)
                     }
                     Value::Id(id) => SortKey::Id(id.clone()),
-                    Value::Number(n) => SortKey::Number(*n),
+                    Value::Number(n) => SortKey::Number(n.clone()),
                     Value::Bool(b) => SortKey::Bool(*b),
                     Value::Date(d) => SortKey::Date(*d),
                     Value::Datetime(t) => SortKey::Datetime(*t),

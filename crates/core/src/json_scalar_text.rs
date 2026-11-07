@@ -11,6 +11,8 @@ struct ScalarWalker<'a> {
     pos: usize,
     path: Vec<String>,
     segments: Vec<Option<TextSegment>>,
+    resolved_only: bool,
+    paths: bool,
 }
 
 
@@ -25,7 +27,7 @@ impl ScalarWalker<'_> {
         }
     }
 
-    fn quoted(&mut self) -> Result<String, String> {
+    fn quote_end(&mut self) -> Result<usize, String> {
         let start = self.pos;
         if self.bytes.get(self.pos) != Some(&b'"') {
             return Err("expected JSON string".into());
@@ -34,10 +36,7 @@ impl ScalarWalker<'_> {
         while let Some(byte) = self.bytes.get(self.pos).copied() {
             self.pos += 1;
             match byte {
-                b'"' => {
-                    return serde_json::from_slice(&self.bytes[start..self.pos])
-                        .map_err(|error| error.to_string());
-                }
+                b'"' => return Ok(start),
                 b'\\' => {
                     // The full parser has already validated escape syntax.
                     self.pos = self
@@ -51,13 +50,26 @@ impl ScalarWalker<'_> {
         Err("unterminated JSON string".into())
     }
 
+    fn quoted(&mut self) -> Result<String, String> {
+        let start = self.quote_end()?;
+        serde_json::from_slice(&self.bytes[start..self.pos]).map_err(|error| error.to_string())
+    }
+
     fn push(&mut self, text: String) -> Vec<usize> {
         let index = self.segments.len();
         self.segments.push(Some(TextSegment {
-            path: self.path.clone(),
+            path: if self.paths {
+                self.path.clone()
+            } else {
+                Vec::new()
+            },
             text,
         }));
-        vec![index]
+        if self.resolved_only {
+            vec![index]
+        } else {
+            Vec::new()
+        }
     }
 
     /// Return indices of occurrences visible through last-wins object access.
@@ -71,22 +83,33 @@ impl ScalarWalker<'_> {
             Some(b'{') => {
                 self.pos += 1;
                 self.whitespace();
-                let mut last_members = BTreeMap::<String, Vec<usize>>::new();
+                let mut last_members = self.resolved_only.then(BTreeMap::<String, Vec<usize>>::new);
                 if self.bytes.get(self.pos) == Some(&b'}') {
                     self.pos += 1;
                     return Ok(Vec::new());
                 }
                 loop {
-                    let name = self.quoted()?;
+                    let name = if self.paths || self.resolved_only {
+                        self.quoted()?
+                    } else {
+                        self.quote_end()?;
+                        String::new()
+                    };
                     self.whitespace();
                     if self.bytes.get(self.pos) != Some(&b':') {
                         return Err("expected JSON member separator".into());
                     }
                     self.pos += 1;
-                    self.path.push(name.clone());
+                    if self.paths {
+                        self.path.push(name.clone());
+                    }
                     let selected = self.value()?;
-                    self.path.pop();
-                    last_members.insert(name, selected);
+                    if self.paths {
+                        self.path.pop();
+                    }
+                    if let Some(last_members) = &mut last_members {
+                        last_members.insert(name, selected);
+                    }
                     self.whitespace();
                     match self.bytes.get(self.pos) {
                         Some(b',') => self.pos += 1,
@@ -98,7 +121,9 @@ impl ScalarWalker<'_> {
                     }
                     self.whitespace();
                 }
-                Ok(last_members.into_values().flatten().collect())
+                Ok(last_members.map_or_else(Vec::new, |members| {
+                    members.into_values().flatten().collect()
+                }))
             }
             Some(b'[') => {
                 self.pos += 1;
@@ -109,7 +134,11 @@ impl ScalarWalker<'_> {
                     return Ok(visible);
                 }
                 loop {
-                    visible.extend(self.value()?);
+                    if self.resolved_only {
+                        visible.extend(self.value()?);
+                    } else {
+                        self.value()?;
+                    }
                     self.whitespace();
                     match self.bytes.get(self.pos) {
                         Some(b',') => self.pos += 1,
@@ -145,12 +174,15 @@ impl ScalarWalker<'_> {
 pub(crate) fn scalar_segments(
     bytes: &[u8],
     resolved_only: bool,
+    paths: bool,
 ) -> Result<Vec<TextSegment>, String> {
     let mut walker = ScalarWalker {
         bytes,
         pos: 0,
         path: Vec::new(),
         segments: Vec::new(),
+        resolved_only,
+        paths,
     };
     let visible = walker.value()?;
     walker.whitespace();

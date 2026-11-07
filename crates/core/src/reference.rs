@@ -968,7 +968,7 @@ fn bind_literal_term(
             parameter_literal = match value {
                 Value::Null => Literal::Null,
                 Value::String(text) => Literal::String(text.clone()),
-                Value::Number(number) => Literal::Number(*number),
+                Value::Number(number) => Literal::Number(number.clone()),
                 Value::Bool(value) => Literal::Bool(*value),
                 other => Literal::Typed(other.clone()),
             };
@@ -1263,13 +1263,13 @@ fn prepare_literal(
         (Literal::String(s), LogicalType::Date | LogicalType::Datetime) => {
             Value::parse_typed_string(s, kind)?
         }
-        (Literal::Number(n), LogicalType::Number) => Value::Number(*n),
+        (Literal::Number(n), LogicalType::Number) => Value::Number(n.clone()),
         (Literal::Number(Number::Integer(n)), LogicalType::Unixtime) => {
             Value::Unixtime(i64::try_from(*n).map_err(|_| "unixtime out of range")?)
         }
         (Literal::Bool(b), LogicalType::Bool) => Value::Bool(*b),
         (Literal::String(s), LogicalType::Unknown) => Value::String(s.clone()),
-        (Literal::Number(n), LogicalType::Unknown) => Value::Number(*n),
+        (Literal::Number(n), LogicalType::Unknown) => Value::Number(n.clone()),
         (Literal::Bool(b), LogicalType::Unknown) => Value::Bool(*b),
         (Literal::Typed(value), LogicalType::Unknown)
             if !matches!(value, Value::Object(_) | Value::Array(_)) =>
@@ -2125,13 +2125,17 @@ pub fn eval_fts(
     let mut matched = false;
     for segment in segments {
         if selected.is_empty()
-            || selected
-                .iter()
-                .any(|p| p.root == PathRoot::Data && p.segments == segment.path)
+            || selected.iter().any(|p| {
+                p.root == PathRoot::Data && (p.segments.is_empty() || p.segments == segment.path)
+            })
         {
             if segment.text.contains(literal) {
                 matched = true;
-                evidence.insert(segment.path.join("."));
+                evidence.insert(if segment.path.is_empty() {
+                    "@root".into()
+                } else {
+                    segment.path.join(".")
+                });
             }
         }
     }
@@ -2462,7 +2466,11 @@ pub fn eval_bound_fts(
                 fts.case_sensitivity,
             )? {
                 matched = true;
-                evidence.insert(segment.path.join("."));
+                evidence.insert(if segment.path.is_empty() {
+                    "@root".into()
+                } else {
+                    segment.path.join(".")
+                });
             }
         }
         return Ok(matched);
@@ -2501,10 +2509,9 @@ pub fn eval_bound_fts(
                 }
             }
         } else {
-            for segment in segments
-                .iter()
-                .filter(|segment| segment.path == field.path.segments)
-            {
+            for segment in segments.iter().filter(|segment| {
+                field.path.segments.is_empty() || segment.path == field.path.segments
+            }) {
                 if text_contains(
                     &segment.text,
                     &field.literal,
