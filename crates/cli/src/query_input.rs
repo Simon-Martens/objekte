@@ -61,7 +61,7 @@ impl QueryInput {
         let literal = fts.as_ref().map(|(_, literal)| literal.clone());
         Ok((
             Query {
-                collections: if args.repo.is_some() {
+                collections: if args.multiple_collections() {
                     Vec::new()
                 } else {
                     vec!["files".into()]

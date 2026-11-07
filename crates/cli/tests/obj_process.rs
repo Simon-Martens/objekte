@@ -230,6 +230,95 @@ fn repository_mode_requires_valid_collection_metadata() {
 }
 
 #[test]
+fn repeated_paths_open_only_selected_collections_without_repository_configuration() {
+    let root = tempfile::tempdir().unwrap();
+    for name in ["authors", "books", "omitted"] {
+        std::fs::create_dir_all(root.path().join(name)).unwrap();
+        std::fs::write(
+            root.path().join(format!("{name}/one.json")),
+            format!(r#"{{"kind":"{name}","text":"needle"}}"#),
+        )
+        .unwrap();
+    }
+    let selected = ["--path", "authors", "--path", "books"];
+    let (result, events) = invoke(
+        root.path(),
+        &[selected.as_slice(), &["--fts", "needle"]].concat(),
+    );
+    assert!(
+        result.status.success(),
+        "{}",
+        String::from_utf8_lossy(&result.stderr)
+    );
+    assert_eq!(events[0]["collection"], Value::Null);
+    assert_eq!(
+        events[0]["collections"],
+        serde_json::json!(["authors", "books"])
+    );
+    let mut collections = hits(&events)
+        .iter()
+        .map(|hit| hit["collection"].as_str().unwrap())
+        .collect::<Vec<_>>();
+    collections.sort_unstable();
+    assert_eq!(collections, ["authors", "books"]);
+    assert_eq!(events.last().unwrap()["records"], 2);
+
+    let (result, events) = invoke(
+        root.path(),
+        &[
+            selected.as_slice(),
+            &["--auto-index", "--diagnostic", "kind = \"books\""],
+        ]
+        .concat(),
+    );
+    assert!(
+        result.status.success(),
+        "{}",
+        String::from_utf8_lossy(&result.stderr)
+    );
+    assert_eq!(hits(&events).len(), 1);
+    assert_eq!(hits(&events)[0]["collection"], "books");
+    let diagnostics = &events.last().unwrap()["automatic_index_collections"];
+    assert!(diagnostics["authors"]["paths"].is_array());
+    assert!(diagnostics["books"]["paths"].is_array());
+
+    let (result, _) = invoke(
+        root.path(),
+        &[selected.as_slice(), &["--write-index"]].concat(),
+    );
+    assert!(
+        result.status.success(),
+        "{}",
+        String::from_utf8_lossy(&result.stderr)
+    );
+    assert!(root.path().join(".objekte").is_dir());
+    let (result, events) = invoke(
+        root.path(),
+        &[selected.as_slice(), &["--load-index", "--fts", "needle"]].concat(),
+    );
+    assert!(
+        result.status.success(),
+        "{}",
+        String::from_utf8_lossy(&result.stderr)
+    );
+    assert_eq!(hits(&events).len(), 2);
+    assert_eq!(events.last().unwrap()["build_parses"], 0);
+}
+
+#[test]
+fn repeated_paths_reject_duplicate_collection_names() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir_all(root.path().join("a/items")).unwrap();
+    std::fs::create_dir_all(root.path().join("b/items")).unwrap();
+    let (result, _) = invoke(
+        root.path(),
+        &["-p", "a/items", "-p", "b/items", "--fts", "x"],
+    );
+    assert_eq!(result.status.code(), Some(2));
+    assert!(String::from_utf8_lossy(&result.stderr).contains("duplicate collection name items"));
+}
+
+#[test]
 fn auto_index_flag_preserves_answers_and_reports_short_string_capability() {
     let root = tempfile::tempdir().unwrap();
     for slot in 0..80 {

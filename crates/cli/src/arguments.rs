@@ -20,14 +20,14 @@ pub struct Arguments {
     #[arg(group = "input")]
     pub query: Option<String>,
 
-    /// Search this directory instead of the current directory.
+    /// Search this directory; repeat to open separate collections.
     #[arg(
         short = 'p',
         long = "path",
         value_name = "PATH",
         conflicts_with = "repo"
     )]
-    pub path: Option<PathBuf>,
+    pub path: Vec<PathBuf>,
 
     /// Open a configured repository containing `.objekte/collections`.
     #[arg(long, value_name = "PATH", conflicts_with_all = ["path", "schema", "no_recurse"])]
@@ -90,12 +90,22 @@ pub struct Arguments {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResolvedPaths {
     pub root: PathBuf,
+    pub collection_paths: Vec<PathBuf>,
     pub index_directory: Option<PathBuf>,
     pub schema_file: Option<PathBuf>,
 }
 
 impl Arguments {
+    pub fn multiple_collections(&self) -> bool {
+        self.repo.is_some() || self.path.len() > 1
+    }
+
     pub fn validate_input(&self) -> Result<(), String> {
+        if self.path.len() > 1 && self.schema.is_some() {
+            return Err(
+                "--schema applies to one collection and cannot be used with repeated --path".into(),
+            );
+        }
         if self.tui && self.query_file.is_some() {
             return Err("--tui cannot be combined with --query-file".into());
         }
@@ -112,18 +122,55 @@ impl Arguments {
     }
 
     pub fn resolve_paths(&self, cwd: &Path) -> Result<ResolvedPaths, String> {
-        let selected = self.repo.as_deref().or(self.path.as_deref()).unwrap_or(cwd);
-        let root = if selected.is_absolute() {
-            selected.to_path_buf()
+        let selected = if let Some(repo) = self.repo.as_deref() {
+            vec![repo]
+        } else if self.path.is_empty() {
+            vec![cwd]
         } else {
-            cwd.join(selected)
+            self.path.iter().map(PathBuf::as_path).collect()
         };
-        let root = root
-            .canonicalize()
-            .map_err(|error| format!("{}: {error}", root.display()))?;
-        if !root.is_dir() {
-            return Err(format!("{} is not a directory", root.display()));
+        let mut resolved = Vec::with_capacity(selected.len());
+        for selected in selected {
+            let directory = if selected.is_absolute() {
+                selected.to_path_buf()
+            } else {
+                cwd.join(selected)
+            };
+            let directory = directory
+                .canonicalize()
+                .map_err(|error| format!("{}: {error}", directory.display()))?;
+            if !directory.is_dir() {
+                return Err(format!("{} is not a directory", directory.display()));
+            }
+            resolved.push(directory);
         }
+        let root = if resolved.len() == 1 {
+            resolved[0].clone()
+        } else {
+            for (index, left) in resolved.iter().enumerate() {
+                for right in resolved.iter().skip(index + 1) {
+                    if left.starts_with(right) || right.starts_with(left) {
+                        return Err(format!(
+                            "--path directories must be distinct and non-overlapping: {} and {}",
+                            left.display(),
+                            right.display()
+                        ));
+                    }
+                }
+            }
+            let mut root = resolved[0]
+                .parent()
+                .ok_or("--path has no parent directory")?;
+            while !resolved.iter().all(|path| path.starts_with(root)) {
+                root = root
+                    .parent()
+                    .ok_or("--path directories have no common parent")?;
+            }
+            if root.parent().is_none() {
+                return Err("--path directories have no useful common parent".into());
+            }
+            root.to_path_buf()
+        };
         let read = self
             .load_index
             .as_deref()
@@ -159,6 +206,11 @@ impl Arguments {
             .transpose()?;
         Ok(ResolvedPaths {
             root,
+            collection_paths: if self.repo.is_some() {
+                Vec::new()
+            } else {
+                resolved
+            },
             index_directory: write.or(read),
             schema_file,
         })

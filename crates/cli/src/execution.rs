@@ -70,7 +70,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         }
     };
     let ui = objekte_cli::tui::TuiOptions {
-        single_collection: args.repo.is_none(),
+        single_collection: !args.multiple_collections(),
         initial_search,
         initial_filter,
         offset: args.offset,
@@ -153,6 +153,31 @@ fn configure_definitions(
     if args.repo.is_some() {
         return load_repository_definitions(&paths.root, paths.index_directory.as_deref());
     }
+    if paths.collection_paths.len() > 1 {
+        let mut names = HashSet::new();
+        let mut definitions = Vec::with_capacity(paths.collection_paths.len());
+        for source in &paths.collection_paths {
+            let name = source
+                .file_name()
+                .and_then(|name| name.to_str())
+                .ok_or_else(|| format!("{} has no UTF-8 directory name", source.display()))?;
+            if !names.insert(name.to_owned()) {
+                return Err(format!(
+                    "duplicate collection name {name} from --path; use directories with distinct names"
+                ));
+            }
+            let relative = source
+                .strip_prefix(&paths.root)
+                .map_err(|error| error.to_string())?;
+            definitions.push(make_definition(args, paths, name, relative, source, None));
+        }
+        return Ok(ConfiguredDefinitions {
+            definitions,
+            schema_files: Vec::new(),
+            schema_fields: 0,
+            ignored_repository_metadata: false,
+        });
+    }
     let schema = load_schema_configuration(paths)?;
     let schema_fields = schema
         .as_ref()
@@ -162,6 +187,9 @@ fn configure_definitions(
         definitions: vec![make_definition(
             args,
             paths,
+            "files",
+            Path::new(""),
+            &paths.root,
             schema.map(|(compiled, _)| compiled),
         )],
         schema_files: paths.schema_file.iter().cloned().collect(),
@@ -324,10 +352,16 @@ fn omit_unavailable_relations(
 fn make_definition(
     args: &Arguments,
     paths: &ResolvedPaths,
+    name: &str,
+    source_path: &Path,
+    source_root: &Path,
     schema: Option<CompiledSchema>,
 ) -> CollectionDefinition {
-    let mut definition =
-        CollectionDefinition::folder("files", PathBuf::new(), SourceFormat::JsonDecodedScalars);
+    let mut definition = CollectionDefinition::folder(
+        name,
+        source_path.to_owned(),
+        SourceFormat::JsonDecodedScalars,
+    );
     if let Some(compiled) = schema {
         definition.schema = compiled.schema;
         definition.sort_fields = compiled.sort_fields;
@@ -338,12 +372,12 @@ fn make_definition(
     definition.discovery.exclude = vec![".git".into(), "**/.git".into()];
     definition.discovery.exclude_directories = vec![PathBuf::from(".objekte")];
     if let Some(schema_file) = paths.schema_file.as_deref()
-        && let Ok(relative) = schema_file.strip_prefix(&paths.root)
+        && let Ok(relative) = schema_file.strip_prefix(source_root)
     {
         definition.discovery.exclude_files.push(relative.to_owned());
     }
     if let Some(directory) = paths.index_directory.as_deref()
-        && let Ok(relative) = directory.strip_prefix(&paths.root)
+        && let Ok(relative) = directory.strip_prefix(source_root)
         && !relative.as_os_str().is_empty()
     {
         definition
@@ -453,7 +487,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         "executable_version": env!("CARGO_PKG_VERSION"),
         "core_model_version": objekte_search_core::MODEL_VERSION,
         "root": path_repr::query_path(&paths.root),
-        "collection": (args.repo.is_none()).then_some("files"),
+        "collection": (!args.multiple_collections()).then_some("files"),
         "collections": collection_names,
         "recursive": if args.repo.is_some() { false } else { !args.no_recurse },
         "hidden": args.repo.is_none(),
@@ -633,7 +667,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     if let Some(paths) = automatic_index_paths {
         event["automatic_index_paths"] = json!(paths);
     }
-    if args.repo.is_some() && args.diagnostic {
+    if args.multiple_collections() && args.diagnostic {
         let collections = repo
             .collections()
             .iter()

@@ -89,3 +89,69 @@ fn repository_mode_uses_its_root_and_rejects_single_folder_options() {
     );
     assert!(Arguments::try_parse_from(["obj", "--repo", ".", "--no-recurse", "--tui"]).is_err());
 }
+
+#[test]
+fn repeated_paths_resolve_under_one_root_and_select_multiple_collections() {
+    let cwd = tempfile::tempdir().unwrap();
+    std::fs::create_dir_all(cwd.path().join("data/authors")).unwrap();
+    std::fs::create_dir_all(cwd.path().join("data/books")).unwrap();
+    let args = Arguments::try_parse_from([
+        "obj",
+        "--path",
+        "data/authors",
+        "--path",
+        "data/books",
+        "--fts",
+        "Ada",
+    ])
+    .unwrap();
+    assert!(args.multiple_collections());
+    let paths = args.resolve_paths(cwd.path()).unwrap();
+    assert_eq!(paths.root, cwd.path().join("data"));
+    assert_eq!(
+        paths.collection_paths,
+        [
+            cwd.path().join("data/authors"),
+            cwd.path().join("data/books")
+        ]
+    );
+    assert!(
+        !Arguments::try_parse_from(["obj", "--path", "data/authors", "--fts", "Ada"])
+            .unwrap()
+            .multiple_collections()
+    );
+    let args = Arguments::try_parse_from([
+        "obj",
+        "--path",
+        "data/authors",
+        "--path",
+        "data/books",
+        "--schema",
+        "schema.json",
+        "--fts",
+        "Ada",
+    ])
+    .unwrap();
+    assert!(args.validate_input().is_err());
+}
+
+#[test]
+fn repeated_paths_reject_overlap() {
+    let cwd = tempfile::tempdir().unwrap();
+    std::fs::create_dir_all(cwd.path().join("data/authors")).unwrap();
+    let args = Arguments::try_parse_from([
+        "obj",
+        "--path",
+        "data",
+        "--path",
+        "data/authors",
+        "--fts",
+        "Ada",
+    ])
+    .unwrap();
+    assert!(
+        args.resolve_paths(cwd.path())
+            .unwrap_err()
+            .contains("non-overlapping")
+    );
+}

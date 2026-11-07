@@ -1,6 +1,6 @@
 # `obj`: search a folder of JSON documents
 
-By default, `obj` treats a directory as one collection named `files`. It accepts any valid JSON root as one record per `.json` file, including objects, arrays, strings, numbers, booleans and `null`. It needs no schema, field list or repository configuration. Run it from the directory to search, or use `--path`. Use `--repo` for a configured multi-collection repository.
+By default, `obj` treats a directory as one collection named `files`. It accepts any valid JSON root as one record per `.json` file, including objects, arrays, strings, numbers, booleans and `null`. It needs no schema, field list or repository configuration. Run it from the directory to search, or use `--path`. Repeat `--path` to open several directories as separate collections. Use `--repo` for a configured multi-collection repository.
 
 ```sh
 cargo build --release -p objekte-cli
@@ -9,6 +9,7 @@ cargo build --release -p objekte-cli
 ./target/release/obj -p ./documents '@root[0] = "first"'
 ./target/release/obj -p ./documents 'year >= 1800 && year < 1900 SORT BY year DESC'
 ./target/release/obj --repo examples/musenalm --tui
+./target/release/obj -p examples/musenalm/data/contents -p examples/musenalm/data/entries --tui
 ```
 
 The positional query is a structured expression unless it is exactly one double-quoted JSON string literal. Thus `obj '"Goethe"'` and `obj --fts Goethe` are equivalent literal full-text searches. A leading `-` in a positional query requires `--` before the query. `obj --help` lists the options without opening a repository.
@@ -17,10 +18,10 @@ The positional query is a structured expression unless it is exactly one double-
 
 | Option | Behavior |
 | --- | --- |
-| `-p, --path PATH` | Search `PATH`; the current directory is the default. |
+| `-p, --path PATH` | Search `PATH`; repeat to open separate collections. The current directory is the default. |
 | `--repo PATH` | Open all collections declared in `PATH/.objekte/collections/*.schema.json`. |
 | `--schema FILE` | Apply one schema to the single `files` collection. Unavailable relations are ignored. |
-| `--tui` | Open the interactive screen; repository mode offers collection selection and relation navigation. |
+| `--tui` | Open the interactive screen; multiple collections offer collection selection. |
 | `--auto-index` | Infer bounded ordered postings in each opened collection. |
 | `--no-recurse` | Search immediate `.json` children only. |
 | `--fts TEXT` | Search literal scalar text without JSON-string quoting. |
@@ -36,6 +37,8 @@ The positional query is a structured expression unless it is exactly one double-
 `QUERY`, `--fts`, and `--query-file` are mutually exclusive. Bare `obj` reports a missing query and does not build an index. An index flag permits an index-only invocation with no query. Optional snapshot directories require `=`: `--write-index 'title = "A"'` leaves the query intact, whereas `--write-index=./cache` selects a directory. The implicit directory is `<root>/.objekte`; an explicit relative directory is relative to the invocation's working directory. If both flags name directories, they must resolve to the same destination.
 
 `--repo` is exclusive with `--path`, `--schema`, and `--no-recurse`. It reads collection name, source path, format and ID policy from each schema's `x-objekte` object. Relative source paths must stay inside the repository root. Available `x-relation` targets remain active, so the TUI can show outgoing links and backlinks; declarations pointing to collections absent from the repository are ignored. Repository CLI queries search all collections, while the TUI can select one. Without index flags, `--repo` builds in memory and leaves snapshots untouched. Use `--load-index` to require restore or `--write-index` to save explicitly.
+
+With repeated `--path`, each directory becomes a collection named after its final directory component. Queries search all selected collections, and the TUI can select one. Names must be distinct; directories must not overlap and must share a useful parent directory. That common parent is the repository root and the default snapshot location is its `.objekte` directory. Only the selected directories are searched. Repeated `--path` does not require `.objekte` or collection schemas, and it cannot be combined with `--schema`. A single `--path` retains the `files` collection name and existing `--schema` behavior.
 
 A query file accepts UTF-8, LF or CRLF, and an optional initial BOM. Blank lines are ignored. A nonblank line beginning with `"` must be one complete JSON string literal with no trailing tokens; JSON escapes are decoded once. Every other line is passed unchanged to the core structured-query parser. There is no comment or multiline continuation syntax. An erroneous line gets its own `query_error`, and later lines continue. The process exits nonzero if any line fails. A readable file with no queries is an error unless the invocation also has an index flag.
 
@@ -80,7 +83,7 @@ Timing fields use a monotonic clock. `preparation_ms` covers input parsing and r
 
 With `--auto-index --diagnostic`, the final event includes `automatic_index_paths`, sorted by path. Each entry reports admission status, reason, observed and indexed kind, multivalue state, B-tree value/length key counts and coverage. The same typed report is available to library callers through `Repository::inference_index_diagnostics(collection)`. A built value dictionary does not imply every query can skip verification; multivalued and partially covered short-string paths retain their coverage rules.
 
-In `--repo` mode, `--auto-index --diagnostic` reports these paths under `automatic_index_collections`, keyed by collection name.
+In multi-collection mode (`--repo` or repeated `--path`), `--auto-index --diagnostic` reports these paths under `automatic_index_collections`, keyed by collection name.
 
 ```sh
 obj --path examples/musenalm --load-index --auto-index --diagnostic |
