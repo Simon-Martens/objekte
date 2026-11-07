@@ -909,7 +909,13 @@ impl InferenceBuilder {
                 short_string_unresolved_records: logical.len() - published_short_covered,
                 index_status: status,
                 reason: reason.into(),
-                complete: self.complete && (has_short_values || field.distinct_nonblank.is_some()),
+                complete: self.complete
+                    && (has_short_values
+                        || field
+                            .short_distinct_without_postings
+                            .as_ref()
+                            .is_some_and(|values| !values.is_empty())
+                        || field.distinct_nonblank.is_some()),
                 summary_bytes_estimate,
                 index_bytes_estimate: index_bytes,
                 retained_bytes_estimate,
@@ -1010,6 +1016,19 @@ mod allocation_tests {
         }
         let eligible = &observer.fields[observer.paths[&typed_path(&["eligible".into()])]];
         assert_eq!(eligible.short_values.as_ref().unwrap().len(), 2);
+        let state = observer
+            .finish(&RoaringBitmap::from_iter(0..3), 3, &schema)
+            .unwrap();
+        for name in ["manual", "blocked"] {
+            let field = state
+                .report
+                .fields
+                .iter()
+                .find(|field| field.path == vec![name])
+                .unwrap();
+            assert!(field.complete);
+            assert_eq!(field.short_string_distinct_values, 2);
+        }
     }
 
     #[test]
