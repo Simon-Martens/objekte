@@ -297,6 +297,25 @@ impl InferenceState {
                 .exact_set_restricted(term, domain, input)
                 .map(|set| (set, true));
         }
+        if index.kind == LogicalType::Number
+            && !index.multi
+            && !term.query_path.has_explicit_array_step
+            && self
+                .empty_selections
+                .get(&term.path.segments)
+                .is_some_and(RoaringBitmap::is_empty)
+            && term.derived == Derived::None
+            && matches!(term.literal, Value::Number(_))
+            && matches!(
+                term.operator,
+                Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+            )
+        {
+            let key = ScalarKey::from_value(&term.literal)?;
+            return index
+                .exact_observed_scalar_restricted(&key, term.operator, domain, input)
+                .map(|set| (set, true));
+        }
         if term.derived != Derived::None || matches!(term.literal, Value::Null) {
             return None;
         }

@@ -1149,3 +1149,111 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
     );
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings() {
+    let root = temporary_root("numeric-range-proof");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, document) in [
+        ("00", r#"{"year":1799}"#),
+        ("01", r#"{"year":1800}"#),
+        ("02", r#"{"year":1805}"#),
+        ("03", r#"{"year":1810}"#),
+        ("04", r#"{"year":null}"#),
+        ("05", r#"{"other":[1800,1810]}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for (filter, expected) in [
+        ("year = 1800", vec!["path:01.json"]),
+        ("year > 1800", vec!["path:02.json", "path:03.json"]),
+        (
+            "year >= 1800 && year < 1810",
+            vec!["path:01.json", "path:02.json"],
+        ),
+        ("year < 1800", vec!["path:00.json"]),
+        ("year <= 1800", vec!["path:00.json", "path:01.json"]),
+    ] {
+        let mut request = query(filter);
+        request.options.return_mode = ReturnMode::Locator;
+        request.options.evidence = false;
+        let result = repo.search(&request).unwrap();
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}"
+        );
+        assert_eq!(result.hits, repo.search_reference(&request).unwrap().hits);
+        assert_eq!(result.count, Some(expected.len()), "{filter}");
+        assert_eq!(result.counters.record_parses, 0, "{filter}");
+        let trace = repo.explain(&request).unwrap();
+        assert!(trace[0].filter_exact, "{filter}");
+        assert_eq!(trace[0].candidates, expected.len() as u64, "{filter}");
+        assert!(
+            trace[0].terms.iter().all(|term| {
+                term.selected.kind == AccessPathKind::InferredPosting
+                    && term.selected.exact
+                    && !term.residual_verification
+            }),
+            "{filter}"
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn numeric_range_keeps_residual_for_empty_ancestor_selections() {
+    let root = temporary_root("numeric-empty-ancestor");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/one.json"), r#"{"items":{"year":1800}}"#).unwrap();
+    std::fs::write(root.join("data/empty.json"), r#"{"items":[]}"#).unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let mut request = query("items.year > 1799");
+    request.options.return_mode = ReturnMode::Locator;
+    request.options.evidence = false;
+    let result = repo.search(&request).unwrap();
+    assert_eq!(result.hits, repo.search_reference(&request).unwrap().hits);
+    assert_eq!(result.hits.len(), 2);
+    assert!(repo.explain(&request).unwrap()[0].remaining_verification);
+    std::fs::remove_dir_all(root).unwrap();
+}

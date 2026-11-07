@@ -14,7 +14,6 @@ use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
 use crate::temporal_query::matches_ordering;
 
-
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ScalarKey {
     String(String),
@@ -25,7 +24,6 @@ pub enum ScalarKey {
     Datetime(OffsetDateTime),
     Unixtime(i64),
 }
-
 
 impl ScalarKey {
     pub fn from_value(value: &Value) -> Option<Self> {
@@ -42,7 +40,6 @@ impl ScalarKey {
     }
 }
 
-
 /// Ordered typed values and their record-slot postings.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostingIndex {
@@ -57,14 +54,12 @@ pub struct PostingIndex {
     pub stats: PostingStats,
 }
 
-
 /// Optional named-binding posting and its exact coverage guarantee.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct CustomPostingIndex {
     pub index: PostingIndex,
     pub complete: bool,
 }
-
 
 /// Coverage and cardinality summary for one posting index.
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
@@ -76,8 +71,33 @@ pub struct PostingStats {
     pub max_key: Option<ScalarKey>,
 }
 
-
 impl PostingIndex {
+    /// An observed scalar field can prove a dynamic comparison even when the
+    /// schema-free binder conservatively marks its term as multivalued.
+    pub(crate) fn exact_observed_scalar_restricted(
+        &self,
+        key: &ScalarKey,
+        operator: Operator,
+        domain: &RoaringBitmap,
+        input: &RoaringBitmap,
+    ) -> Option<RoaringBitmap> {
+        if self.multi || self.covered_records as u64 != domain.len() {
+            return None;
+        }
+        match operator {
+            Operator::Eq => Some(
+                self.values
+                    .get(key)
+                    .map(|slots| input & slots)
+                    .unwrap_or_default(),
+            ),
+            Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
+                Some(scalar_range_postings(&self.values, key, operator, Some(input)).0)
+            }
+            _ => None,
+        }
+    }
+
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
         if self.path != batch.path || self.kind != batch.kind || self.multi != batch.multi {
             return Err("posting batch representation mismatch".into());
@@ -572,7 +592,6 @@ impl PostingIndex {
     }
 }
 
-
 /// A length posting is a union of records containing at least one reached
 /// array of that length. It proves existential comparisons. A one-segment
 /// field path selects at most one array from a record root, so its default
@@ -722,13 +741,11 @@ fn scalar_range_postings(
     }
 }
 
-
 /// Posting indexes registered for one collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostingCollection {
     pub fields: HashMap<Vec<String>, PostingIndex>,
 }
-
 
 impl PostingCollection {
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
@@ -789,7 +806,6 @@ impl PostingCollection {
         Ok(())
     }
 }
-
 
 #[cfg(test)]
 #[path = "posting.test.rs"]
