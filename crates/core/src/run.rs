@@ -66,6 +66,10 @@ struct ResolvedSort<'a> {
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
         let bound = BoundSort::bind(repo, query)?;
+        Ok(Self::from_bound(repo, query, bound))
+    }
+
+    fn from_bound(repo: &'a Repository, query: &Query, bound: BoundSort<'a>) -> Self {
         let columns = repo
             .collections
             .iter()
@@ -94,11 +98,11 @@ impl<'a> ResolvedSort<'a> {
                 )
             })
             .collect();
-        Ok(Self {
+        Self {
             columns,
             bound,
             target_cache: std::sync::Mutex::new(SortTargetCache::default()),
-        })
+        }
     }
 
     fn compare_to_rank(
@@ -1566,9 +1570,10 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
         if cache.enabled() { cache.budget() } else { 0 }
     };
     if budget == 0 {
-        return search_impl(repo, query, None, None, None);
+        return search_impl(repo, query, None, None, None, None);
     }
-    let computed_sort = BoundSort::bind(repo, query)?.has_computed;
+    let bound_sort = BoundSort::bind(repo, query)?;
+    let computed_sort = bound_sort.has_computed;
     let mut membership_query = query.clone();
     if computed_sort {
         membership_query.options.sort.clear();
@@ -1577,17 +1582,24 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     let cached = repo.verified.lock().map_err(|e| e.to_string())?.get(&key);
     if let Some(cached) = cached {
         return if computed_sort {
-            materialize_computed_cached(repo, query, &cached)
+            materialize_computed_cached(repo, query, &cached, bound_sort)
         } else {
             materialize_cached(repo, query, &cached)
         };
     }
     if !query.options.count {
-        return search_impl(repo, query, None, None, None);
+        return search_impl(repo, query, None, None, None, Some(bound_sort));
     }
     let mut members = Vec::new();
     let tracker = CacheBudget::new(budget.saturating_sub(key.len() + 128));
-    let result = search_impl(repo, query, None, Some(&mut members), Some(&tracker))?;
+    let result = search_impl(
+        repo,
+        query,
+        None,
+        Some(&mut members),
+        Some(&tracker),
+        Some(bound_sort),
+    )?;
     if tracker.complete() && Some(members.len()) == result.count {
         sort_cached_members(repo, &membership_query, &mut members);
         repo.verified
@@ -1613,7 +1625,7 @@ pub(crate) fn exact_members(
     scoped.options.evidence = false;
     let mut members = Vec::new();
     let budget = CacheBudget::new(usize::MAX);
-    let result = search_impl(repo, &scoped, None, Some(&mut members), Some(&budget))?;
+    let result = search_impl(repo, &scoped, None, Some(&mut members), Some(&budget), None)?;
     if !budget.complete()
         || result.count != Some(members.len())
         || members
@@ -2204,13 +2216,14 @@ fn offer_cached_key(
 }
 
 /// Re-rank complete cached membership with bounded keys; no computed page is cached.
-fn materialize_computed_cached(
-    repo: &Repository,
+fn materialize_computed_cached<'a>(
+    repo: &'a Repository,
     query: &Query,
     cached: &CachedResult,
+    bound_sort: BoundSort<'a>,
 ) -> Result<SearchResult, String> {
     let preparation_start = Instant::now();
-    let sort = ResolvedSort::new(repo, query)?;
+    let sort = ResolvedSort::from_bound(repo, query, bound_sort);
     let (_, plan_hit) = crate::prepared::prepare(repo, query)?;
     let cap = query
         .options
@@ -2482,7 +2495,7 @@ pub fn search_analyze(
     query: &Query,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
     let mut traces = Vec::new();
-    let result = search_impl(repo, query, Some(&mut traces), None, None)?;
+    let result = search_impl(repo, query, Some(&mut traces), None, None, None)?;
     Ok((result, traces))
 }
 
@@ -2638,15 +2651,19 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
     Ok(traces)
 }
 
-fn search_impl(
-    repo: &Repository,
+fn search_impl<'a>(
+    repo: &'a Repository,
     query: &Query,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
     mut cache_members: Option<&mut Vec<CachedMember>>,
     cache_budget: Option<&CacheBudget>,
+    prebound_sort: Option<BoundSort<'a>>,
 ) -> Result<SearchResult, String> {
     let preparation_start = Instant::now();
-    let sort = ResolvedSort::new(repo, query)?;
+    let sort = match prebound_sort {
+        Some(bound) => ResolvedSort::from_bound(repo, query, bound),
+        None => ResolvedSort::new(repo, query)?,
+    };
     let (prepared, plan_hit) = crate::prepared::prepare(repo, query)?;
     if cache_members.is_none() {
         if let Some(result) = try_stored_order_page(
