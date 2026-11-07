@@ -484,6 +484,21 @@ fn bare_obj_errors_before_build_but_index_only_writes() {
 }
 
 #[test]
+fn diagnostic_snapshot_phases_are_emitted_only_for_an_explicit_save() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
+    let (written, events) = invoke(root.path(), &["--write-index", "--diagnostic"]);
+    assert!(written.status.success());
+    let phases = &events.last().unwrap()["snapshot_save_phases"];
+    assert_eq!(phases["sections"].as_array().unwrap().len(), 2);
+    assert!(phases["bytes_written"].as_u64().unwrap() > 0);
+    assert_eq!(phases["total_ms"], events.last().unwrap()["snapshot_write_ms"]);
+    let (restored, events) = invoke(root.path(), &["--load-index", "--diagnostic"]);
+    assert!(restored.status.success());
+    assert!(events.last().unwrap().get("snapshot_save_phases").is_none());
+}
+
+#[test]
 fn help_and_version_do_not_open_the_collection() {
     let root = tempfile::tempdir().unwrap();
     for flag in ["--help", "--version"] {

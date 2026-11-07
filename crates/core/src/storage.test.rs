@@ -9,10 +9,8 @@ use crate::workload::ReturnMode;
 
 #[test]
 fn default_open_never_persists_and_stale_snapshot_is_left_untouched() {
-    let root = std::env::temp_dir().join(format!(
-        "objekte-no-implicit-save-{}",
-        std::process::id()
-    ));
+    let root =
+        std::env::temp_dir().join(format!("objekte-no-implicit-save-{}", std::process::id()));
     fs::create_dir_all(root.join("data")).unwrap();
     fs::write(root.join("data/a.json"), br#"{"title":"A"}"#).unwrap();
     let definition = CollectionDefinition::folder("files", "data", SourceFormat::Json);
@@ -41,7 +39,10 @@ fn default_open_never_persists_and_stale_snapshot_is_left_untouched() {
     assert!(!rebuilt.startup().restored);
     assert_eq!(rebuilt.startup().snapshot_write_ns, 0);
     assert_eq!(fs::read(&snapshot).unwrap(), saved);
-    assert_eq!(fs::metadata(&snapshot).unwrap().modified().unwrap(), modified);
+    assert_eq!(
+        fs::metadata(&snapshot).unwrap().modified().unwrap(),
+        modified
+    );
     drop(rebuilt);
     fs::remove_dir_all(root).unwrap();
 }
@@ -87,7 +88,12 @@ fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
     );
     assert_eq!(written.build_parses(), 1);
     assert!(!snapshot.exists());
-    written.save_snapshot(&snapshot).unwrap();
+    let save = written.save_snapshot_with_stats(&snapshot).unwrap();
+    assert_eq!(save.sections.len(), 2);
+    assert_eq!(save.bytes_written, fs::metadata(&snapshot).unwrap().len());
+    assert!(save.total_ns >= save.sync_ns);
+    assert_eq!(save.sections[0].id, 0);
+    assert_eq!(save.sections[1].id, 1);
     let original = fs::read(&snapshot).unwrap();
     let restored = open(SnapshotMode::Required).unwrap();
     assert_eq!(restored.startup().snapshot_action, SnapshotAction::Restored);

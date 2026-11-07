@@ -14,6 +14,7 @@ use objekte_search_core::repository::{
 };
 use objekte_search_core::schema_adapter::{CompiledSchema, compile_schema};
 use objekte_search_core::source::SourceFormat;
+use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
     StreamOutcome,
@@ -208,7 +209,7 @@ fn open_repository(
     options: RepositoryOptions,
     policy: SnapshotOpenPolicy,
     write_requested: bool,
-) -> Result<(Repository, u128, u128), String> {
+) -> Result<(Repository, u128, Option<SnapshotSaveStats>), String> {
     let directory = policy
         .directory
         .clone()
@@ -217,13 +218,12 @@ fn open_repository(
     let repo = Repository::open_with_snapshot_policy(root, vec![definition], options, policy)?;
     let open_ns = open_started.elapsed().as_nanos();
     if write_requested && !repo.startup().restored {
-        let started = Instant::now();
         let path =
             objekte_search_core::storage::snapshot_path_in(&directory, options.bigram_alphabet);
-        repo.save_snapshot(&path)?;
-        return Ok((repo, open_ns, started.elapsed().as_nanos()));
+        let saved = repo.save_snapshot_with_stats(&path)?;
+        return Ok((repo, open_ns, Some(saved)));
     }
-    Ok((repo, open_ns, 0))
+    Ok((repo, open_ns, None))
 }
 
 /// Run one command using the supplied output sink and cancellation flag.
@@ -296,7 +296,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     );
     let options = repository_options(args);
     let policy = snapshot_policy(args, &paths);
-    let (repo, startup_ns, snapshot_write_ns) = match open_repository(
+    let (repo, startup_ns, snapshot_save) = match open_repository(
         &paths.root,
         definition,
         options,
@@ -429,8 +429,8 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         "finalization_ms": ms(stats.build_finalization_ns as u128),
         "snapshot_decode_ms": ms(stats.snapshot_decode_ns as u128),
         "reconciliation_ms": ms(stats.reconciliation_ns as u128),
-        "snapshot_write_ms": ms(snapshot_write_ns),
-        "snapshot_action": snapshot_action(stats.snapshot_action, snapshot_write_ns > 0, stats.snapshot_restore_error.is_some()),
+        "snapshot_write_ms": ms(snapshot_save.as_ref().map_or(0, |save| save.total_ns) as u128),
+        "snapshot_action": snapshot_action(stats.snapshot_action, snapshot_save.is_some(), stats.snapshot_restore_error.is_some()),
         "snapshot_restore_error": stats.snapshot_restore_error,
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "automatic_index_summary": repo.inference_report("files").map(|report| json!({
@@ -454,6 +454,27 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     });
     if let Some(paths) = automatic_index_paths {
         event["automatic_index_paths"] = json!(paths);
+    }
+    if args.diagnostic
+        && let Some(save) = &snapshot_save
+    {
+        event["snapshot_save_phases"] = json!({
+            "total_ms": ms(save.total_ns as u128),
+            "directory_ms": ms(save.directory_ns as u128),
+            "header_ms": ms(save.header_ns as u128),
+            "inventory_ms": ms(save.inventory_ns as u128),
+            "write_ms": ms(save.write_ns as u128),
+            "sync_ms": ms(save.sync_ns as u128),
+            "rename_ms": ms(save.rename_ns as u128),
+            "bytes_written": save.bytes_written,
+            "sections": save.sections.iter().map(|section| json!({
+                "id": section.id,
+                "serialize_ms": ms(section.serialize_ns as u128),
+                "checksum_ms": ms(section.checksum_ns as u128),
+                "write_ms": ms(section.write_ns as u128),
+                "payload_bytes": section.payload_bytes,
+            })).collect::<Vec<_>>(),
+        });
     }
     if let Err(error) = output.emit(event).and_then(|_| output.flush()) {
         return output_failure(error);
