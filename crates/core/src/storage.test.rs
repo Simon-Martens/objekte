@@ -97,6 +97,213 @@ fn failed_explicit_save_preserves_previous_snapshot_and_removes_owned_temp() {
 }
 
 #[test]
+fn explicit_save_rejects_indexed_source_destination_and_path_aliases() {
+    static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+    let root = std::env::temp_dir().join(format!(
+        "objekte-snapshot-source-guard-{}-{}",
+        std::process::id(),
+        NEXT.fetch_add(1, std::sync::atomic::Ordering::Relaxed)
+    ));
+    fs::create_dir_all(root.join("data")).unwrap();
+    let source = root.join("data/a.json");
+    let original = br#"{"title":"A"}"#;
+    fs::write(&source, original).unwrap();
+    let repository = Repository::open(
+        &root,
+        vec![CollectionDefinition::folder(
+            "files",
+            "data",
+            SourceFormat::Json,
+        )],
+    )
+    .unwrap();
+
+    let cache = snapshot_path(&root, BigramAlphabet::Ascii);
+    repository.save_snapshot(&cache).unwrap();
+    assert!(fs::metadata(&cache).unwrap().len() > 0);
+    for destination in [source.clone(), root.join("data/../data/a.json")] {
+        let error = repository.save_snapshot(&destination).unwrap_err();
+        assert!(error.contains("aliases indexed source file"), "{error}");
+        assert_eq!(fs::read(&source).unwrap(), original);
+    }
+
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::symlink;
+        let symlink_path = root.join("source-symlink.snapshot");
+        symlink(&source, &symlink_path).unwrap();
+        let error = repository.save_snapshot(&symlink_path).unwrap_err();
+        assert!(error.contains("aliases indexed source file"), "{error}");
+        assert_eq!(fs::read(&source).unwrap(), original);
+
+        fs::create_dir(root.join("data/nested")).unwrap();
+        symlink(root.join("data/nested"), root.join("nested-alias")).unwrap();
+        let parent_alias = root.join("nested-alias/../a.json");
+        let error = repository.save_snapshot(&parent_alias).unwrap_err();
+        assert!(error.contains("aliases indexed source file"), "{error}");
+        assert_eq!(fs::read(&source).unwrap(), original);
+
+        let hardlink_path = root.join("source-hardlink.snapshot");
+        fs::hard_link(&source, &hardlink_path).unwrap();
+        let error = repository.save_snapshot(&hardlink_path).unwrap_err();
+        assert!(error.contains("aliases indexed source file"), "{error}");
+        assert_eq!(fs::read(&source).unwrap(), original);
+    }
+
+    fs::remove_file(&source).unwrap();
+    let error = repository.save_snapshot(&source).unwrap_err();
+    assert!(error.contains("aliases indexed source file"), "{error}");
+    assert!(!source.exists());
+    #[cfg(unix)]
+    {
+        let error = repository
+            .save_snapshot(&root.join("nested-alias/../a.json"))
+            .unwrap_err();
+        assert!(error.contains("aliases indexed source file"), "{error}");
+        assert!(!source.exists());
+    }
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn source_alias_introduced_during_save_is_rejected_and_temp_is_removed() {
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::symlink;
+        let root = std::env::temp_dir().join(format!(
+            "objekte-snapshot-race-{}-{:?}",
+            std::process::id(),
+            std::thread::current().id()
+        ));
+        fs::create_dir_all(root.join("data")).unwrap();
+        let source = root.join("data/a.json");
+        let original = br#"{"title":"A"}"#;
+        fs::write(&source, original).unwrap();
+        let repository = Repository::open(
+            &root,
+            vec![CollectionDefinition::folder(
+                "files",
+                "data",
+                SourceFormat::Json,
+            )],
+        )
+        .unwrap();
+        let destination = root.join("later-alias.snapshot");
+        let error = repository
+            .save_snapshot_before_publish(&destination, || {
+                symlink(&source, &destination).map_err(|error| error.to_string())
+            })
+            .unwrap_err();
+        assert!(error.contains("aliases indexed source file"), "{error}");
+        assert_eq!(fs::read(&source).unwrap(), original);
+        assert!(fs::symlink_metadata(&destination).is_ok());
+        let temporary = fs::read_dir(&root)
+            .unwrap()
+            .map(|entry| entry.unwrap().file_name().to_string_lossy().into_owned())
+            .filter(|name| name.starts_with(".objekte-snapshot-") && name.ends_with(".tmp"))
+            .collect::<Vec<_>>();
+        assert!(
+            temporary.is_empty(),
+            "leftover temporary snapshots: {temporary:?}"
+        );
+        fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn ordinary_existing_cache_destination_does_not_scan_large_source_inventory() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-snapshot-guard-cost-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    fs::create_dir_all(root.join("data")).unwrap();
+    fs::write(root.join("data/a.json"), br#"{"title":"A"}"#).unwrap();
+    let mut repository = Repository::open(
+        &root,
+        vec![CollectionDefinition::folder(
+            "files",
+            "data",
+            SourceFormat::Json,
+        )],
+    )
+    .unwrap();
+    let cache = snapshot_path(&root, BigramAlphabet::Ascii);
+    repository.save_snapshot(&cache).unwrap();
+    let revision = repository.files.files[0].revision;
+    for number in 0..8192 {
+        repository
+            .files
+            .add(
+                PathBuf::from(format!("data/synthetic-{number}.json")),
+                revision,
+                None,
+                CollectionId(0),
+            )
+            .unwrap();
+    }
+    assert_eq!(repository.files.files.len(), 8193);
+    assert_eq!(
+        repository
+            .ensure_snapshot_destination_is_not_source(&cache)
+            .unwrap(),
+        0,
+        "ordinary cache save should not inspect each source path"
+    );
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[cfg(unix)]
+#[test]
+fn symlinked_index_source_paths_trigger_alias_scan() {
+    use std::os::unix::fs::symlink;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-snapshot-source-symlinks-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    fs::create_dir_all(root.join("real")).unwrap();
+    let physical_source = root.join("real/a.json");
+    let original = br#"{"title":"A"}"#;
+    fs::write(&physical_source, original).unwrap();
+    symlink(root.join("real"), root.join("data")).unwrap();
+    let repository = Repository::open(
+        &root,
+        vec![CollectionDefinition::folder(
+            "files",
+            "data",
+            SourceFormat::Json,
+        )],
+    )
+    .unwrap();
+    let error = repository.save_snapshot(&physical_source).unwrap_err();
+    assert!(error.contains("aliases indexed source file"), "{error}");
+    assert_eq!(fs::read(&physical_source).unwrap(), original);
+    fs::remove_dir_all(&root).unwrap();
+
+    fs::create_dir_all(root.join("data")).unwrap();
+    let physical_source = root.join("data/real.json");
+    fs::write(&physical_source, original).unwrap();
+    symlink(&physical_source, root.join("data/link.json")).unwrap();
+    let mut definition = CollectionDefinition::folder("files", "data", SourceFormat::Json);
+    definition.discovery.symlinks = SymlinkPolicy::FollowWithinRoot;
+    let repository = Repository::open(&root, vec![definition]).unwrap();
+    assert_eq!(
+        repository.files.files[0].relative_path,
+        Path::new("data/link.json")
+    );
+    let error = repository.save_snapshot(&physical_source).unwrap_err();
+    assert!(error.contains("aliases indexed source file"), "{error}");
+    assert_eq!(fs::read(&physical_source).unwrap(), original);
+    fs::remove_file(&physical_source).unwrap();
+    let error = repository.save_snapshot(&physical_source).unwrap_err();
+    assert!(error.contains("aliases indexed source file"), "{error}");
+    assert!(!physical_source.exists());
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
     static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
     let root = std::env::temp_dir().join(format!(
