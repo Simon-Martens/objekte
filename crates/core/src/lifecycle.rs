@@ -337,6 +337,36 @@ pub(crate) struct PublishedIndex {
     pub(crate) reconciliation: ReconciliationState,
 }
 
+fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize, usize)> {
+    let mut candidates = Vec::new();
+    for left in 0..group.len() {
+        for right in left + 1..group.len() {
+            let combined = group[left].index.records.len() + group[right].index.records.len();
+            if combined <= MAX_CONSOLIDATED_RECORDS {
+                candidates.push((combined, left, right));
+            }
+        }
+    }
+    candidates.sort_unstable();
+    candidates.into_iter().find_map(|(_, left, right)| {
+        let left_index = &group[left].index;
+        let right_index = &group[right].index;
+        if left_index
+            .files
+            .iter()
+            .any(|file| right_index.file(file.entry.id).is_some())
+            || left_index
+                .id_lookup
+                .keys()
+                .any(|id| right_index.id_lookup.contains_key(id))
+        {
+            None
+        } else {
+            Some((left, right))
+        }
+    })
+}
+
 impl PublishedIndex {
     pub(crate) fn from_repository(
         instance_id: u64,
@@ -480,65 +510,48 @@ impl PublishedIndex {
         if group.len() < MAX_SEGMENTS_PER_COLLECTION {
             return Ok(());
         }
-        for segment in group.iter_mut() {
-            if segment.active.len() == segment.index.records.len() as u64
-                || segment.index.records.len() > MAX_CONSOLIDATED_RECORDS
-            {
-                continue;
-            }
-            let compacted = segment
-                .index
-                .compact_active(&segment.active, MAX_CONSOLIDATED_RECORDS, |entry| {
-                    catalog.entry(entry.id).is_some_and(|current| {
-                        current.relative_path == entry.relative_path
-                            && current.revision == entry.revision
-                            && current.created_ns == entry.created_ns
-                            && current.collections.contains(&segment.index.collection)
-                    })
-                })
-                .map_err(IndexError::Build)?;
-            if compacted.active.len() == 0 {
-                continue;
-            }
-            let ordinal = self.next_segment_ordinal;
-            self.next_segment_ordinal = self
-                .next_segment_ordinal
-                .checked_add(1)
-                .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-            *segment = Arc::new(PublishedSegment {
-                ordinal,
-                index: Arc::new(compacted.index),
-                active: compacted.active,
-            });
-        }
-        group.retain(|segment| segment.active.len() > 0);
-        if group.len() < MAX_SEGMENTS_PER_COLLECTION {
-            return Ok(());
-        }
-        let mut choice = None;
-        for left in 0..group.len() {
-            for right in left + 1..group.len() {
-                let left_index = &group[left].index;
-                let right_index = &group[right].index;
-                let combined = left_index.records.len() + right_index.records.len();
-                if combined > MAX_CONSOLIDATED_RECORDS
-                    || left_index
-                        .files
-                        .iter()
-                        .any(|file| right_index.file(file.entry.id).is_some())
-                    || left_index
-                        .id_lookup
-                        .keys()
-                        .any(|id| right_index.id_lookup.contains_key(id))
+        // Merge two small compatible shards first. Compacting every partially
+        // retired shard here would repeatedly rewrite a large dense segment
+        // after each later single-file update.
+        let mut choice = cheapest_consolidation_pair(group);
+        if choice.is_none() {
+            for segment in group.iter_mut() {
+                if segment.active.len() == segment.index.records.len() as u64
+                    || segment.index.records.len() > MAX_CONSOLIDATED_RECORDS
                 {
                     continue;
                 }
-                if choice.is_none_or(|(_, _, smallest)| combined < smallest) {
-                    choice = Some((left, right, combined));
+                let compacted = segment
+                    .index
+                    .compact_active(&segment.active, MAX_CONSOLIDATED_RECORDS, |entry| {
+                        catalog.entry(entry.id).is_some_and(|current| {
+                            current.relative_path == entry.relative_path
+                                && current.revision == entry.revision
+                                && current.created_ns == entry.created_ns
+                                && current.collections.contains(&segment.index.collection)
+                        })
+                    })
+                    .map_err(IndexError::Build)?;
+                if compacted.active.len() == 0 {
+                    continue;
                 }
+                let ordinal = self.next_segment_ordinal;
+                self.next_segment_ordinal = ordinal
+                    .checked_add(1)
+                    .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+                *segment = Arc::new(PublishedSegment {
+                    ordinal,
+                    index: Arc::new(compacted.index),
+                    active: compacted.active,
+                });
             }
+            group.retain(|segment| segment.active.len() > 0);
+            if group.len() < MAX_SEGMENTS_PER_COLLECTION {
+                return Ok(());
+            }
+            choice = cheapest_consolidation_pair(group);
         }
-        let (left, right, _) = choice.ok_or_else(|| {
+        let (left, right) = choice.ok_or_else(|| {
             IndexError::ResourceLimit("no bounded segment consolidation is possible".into())
         })?;
         let merged = IndexedCollectionSegment::consolidate(
