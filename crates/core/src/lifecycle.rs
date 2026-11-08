@@ -7,9 +7,9 @@
 use std::collections::HashMap;
 use std::fmt;
 use std::path::{Path, PathBuf};
-use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::sync::mpsc::{self, RecvTimeoutError, SyncSender};
-use std::sync::{Arc, Condvar, Mutex, RwLock};
+use std::sync::{Arc, Condvar, Mutex, RwLock, Weak};
 use std::thread::JoinHandle;
 use std::time::{Duration, Instant, SystemTime};
 
@@ -757,6 +757,7 @@ struct IndexInner {
     persistence: Mutex<PersistenceState>,
     sync_cache: Mutex<Option<SyncCacheWorker>>,
     sync_cache_error: Mutex<Option<String>>,
+    source_reconcile_requested_revision: AtomicU64,
 }
 
 struct PeriodicReconciliation {
@@ -957,6 +958,7 @@ impl Index {
             }),
             sync_cache: Mutex::new(None),
             sync_cache_error: Mutex::new(None),
+            source_reconcile_requested_revision: AtomicU64::new(0),
         }))
     }
 
@@ -979,7 +981,7 @@ impl Index {
             .published
             .read()
             .map_err(|_| IndexError::LockPoisoned)?;
-        Ok(IndexView(Arc::clone(&published)))
+        Ok(IndexView(Arc::clone(&published), Arc::downgrade(&self.0)))
     }
 
     pub fn status(&self) -> Result<IndexStatus, IndexError> {
@@ -2028,9 +2030,36 @@ impl Index {
 
 /// Pinned immutable read context for a single publication revision.
 #[derive(Clone)]
-pub struct IndexView(pub(crate) Arc<PublishedIndex>);
+pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
 
 impl IndexView {
+    fn request_source_reconciliation(&self) {
+        let Some(owner) = self.1.upgrade() else {
+            return;
+        };
+        let revision = self.revision().0;
+        let previous = owner
+            .source_reconcile_requested_revision
+            .fetch_max(revision, Ordering::AcqRel);
+        if previous >= revision {
+            return;
+        }
+        if Index(Arc::clone(&owner)).start_reconcile().is_err() {
+            let _ = owner.source_reconcile_requested_revision.compare_exchange(
+                revision,
+                previous,
+                Ordering::AcqRel,
+                Ordering::Acquire,
+            );
+        }
+    }
+
+    fn request_reconciliation_for_counters(&self, counters: &crate::measurement::WorkCounters) {
+        if counters.source_unavailable_events > 0 {
+            self.request_source_reconciliation();
+        }
+    }
+
     fn has_segments(&self) -> bool {
         self.0.segments.iter().any(|group| !group.is_empty())
     }
@@ -2166,7 +2195,7 @@ impl IndexView {
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
-        if !self.has_segments() {
+        let result = if !self.has_segments() {
             crate::run::search_active_available(
                 self.repository(),
                 resolved.as_ref(),
@@ -2184,7 +2213,11 @@ impl IndexView {
                 &self.0.catalog,
                 self.revision(),
             )
+        };
+        if let Ok(result) = &result {
+            self.request_reconciliation_for_counters(&result.counters);
         }
+        result
     }
 
     pub fn search_with_context(
@@ -2196,7 +2229,7 @@ impl IndexView {
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
-        if !self.has_segments() {
+        let result = if !self.has_segments() {
             crate::run::search_active_available_with_context(
                 self.repository(),
                 &resolved,
@@ -2216,7 +2249,11 @@ impl IndexView {
                 self.revision(),
                 context,
             )
+        };
+        if let Ok(result) = &result {
+            self.request_reconciliation_for_counters(&result.counters);
         }
+        result
     }
 
     /// Search only when every required source was available to this execution.
@@ -2310,6 +2347,30 @@ impl IndexView {
             }
         }
         Ok(None)
+    }
+
+    /// Direct lookup with a distinct unavailable-source outcome. A missing
+    /// source requests a coalesced reconciliation of the current index.
+    pub fn get_record_available(
+        &self,
+        collection: &str,
+        record_id: &str,
+        return_mode: ReturnMode,
+    ) -> Result<crate::run::DirectLookupResult, String> {
+        let result = crate::run::direct_lookup_segmented(
+            self.repository(),
+            collection,
+            record_id,
+            return_mode,
+            &self.0.active,
+            &self.0.segments,
+            &self.0.catalog,
+            self.revision(),
+        )?;
+        if matches!(result, crate::run::DirectLookupResult::SourceUnavailable(_)) {
+            self.request_source_reconciliation();
+        }
+        Ok(result)
     }
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
@@ -2532,82 +2593,22 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
-        if self.has_segments() {
-            return crate::run::search_stream_segmented_with_context(
-                self.repository(),
-                query,
-                scope,
-                options,
-                context,
-                &self.0.active,
-                &self.0.segments,
-                &self.0.catalog,
-                self.revision(),
-                sink,
-            );
-        }
-        let scoped_context = context.with_active(&self.0.active);
-        let revision = self.revision().0;
-        let mut stamped = |event: StreamEvent<'_>| match event {
-            StreamEvent::OrderedRows {
-                sequence,
-                start,
-                rows,
-                progress,
-            } => {
-                if rows.iter().all(|hit| hit.generation == revision) {
-                    return sink(StreamEvent::OrderedRows {
-                        sequence,
-                        start,
-                        rows,
-                        progress,
-                    });
-                }
-                let mut rows = rows.to_vec();
-                for hit in &mut rows {
-                    hit.generation = revision;
-                }
-                sink(StreamEvent::OrderedRows {
-                    sequence,
-                    start,
-                    rows: &rows,
-                    progress,
-                })
-            }
-            StreamEvent::PageReplacement {
-                sequence,
-                rows,
-                progress,
-            } => {
-                if rows.iter().all(|hit| hit.generation == revision) {
-                    return sink(StreamEvent::PageReplacement {
-                        sequence,
-                        rows,
-                        progress,
-                    });
-                }
-                let mut rows = rows.to_vec();
-                for hit in &mut rows {
-                    hit.generation = revision;
-                }
-                sink(StreamEvent::PageReplacement {
-                    sequence,
-                    rows: &rows,
-                    progress,
-                })
-            }
-            StreamEvent::Progress { sequence, progress } => {
-                sink(StreamEvent::Progress { sequence, progress })
-            }
-        };
-        self.repository().search_stream_scoped_with_context_active(
+        let result = crate::run::search_stream_segmented_with_context(
+            self.repository(),
             query,
             scope,
             options,
-            &scoped_context,
-            &mut stamped,
-            Some(&self.0.active),
-        )
+            context,
+            &self.0.active,
+            &self.0.segments,
+            &self.0.catalog,
+            self.revision(),
+            sink,
+        );
+        if let Ok(StreamOutcome::Complete(summary)) = &result {
+            self.request_reconciliation_for_counters(&summary.counters);
+        }
+        result
     }
 }
 
