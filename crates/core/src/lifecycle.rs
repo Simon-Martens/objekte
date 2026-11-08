@@ -7,10 +7,15 @@
 use std::fmt;
 use std::path::Path;
 use std::sync::{Arc, Mutex, RwLock};
+use std::time::SystemTime;
 
 use serde::{Deserialize, Serialize};
 
-use crate::build::IndexedCollectionSegment;
+use crate::build::{
+    FilePreparationBinding, IndexedCollectionSegment, PreparedFileBuild, SourceFileInput,
+    prepare_file_build,
+};
+use crate::discovery::selects_file;
 use crate::inventory::{ActiveRecords, FileVersions};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, RecordSlot};
@@ -184,6 +189,14 @@ pub struct DeleteResult {
     pub strategy: DeleteStrategy,
 }
 
+/// Private work captured before the mutation writer validates and publishes
+/// one file across all eligible collections.
+pub(crate) struct PreparedAdd {
+    pub(crate) expected_revision: IndexRevision,
+    pub(crate) configuration_identity: [u8; 32],
+    pub(crate) file: PreparedFileBuild,
+}
+
 
 impl IndexStatus {
     pub fn dirty(&self) -> bool {
@@ -304,16 +317,12 @@ impl PublishedIndex {
             ));
         }
         for file in &index.files {
-            if self
-                .catalog
-                .entry(file.entry.id)
-                .is_none_or(|current| {
-                    !current.collections.contains(&index.collection)
-                        || current.relative_path != file.entry.relative_path
-                        || current.revision != file.entry.revision
-                        || current.created_ns != file.entry.created_ns
-                })
-            {
+            if self.catalog.entry(file.entry.id).is_none_or(|current| {
+                !current.collections.contains(&index.collection)
+                    || current.relative_path != file.entry.relative_path
+                    || current.revision != file.entry.revision
+                    || current.created_ns != file.entry.created_ns
+            }) {
                 return Err(IndexError::InvalidPublication(
                     "segment file is not active in its collection".into(),
                 ));
@@ -399,6 +408,89 @@ impl Index {
 
     pub fn status(&self) -> Result<IndexStatus, IndexError> {
         Ok(self.view()?.0.status())
+    }
+
+    /// Prepare a selected source without holding the publication or writer
+    /// lock. The eventual commit revalidates the captured root and file ID.
+    pub(crate) fn prepare_add_file(&self, path: &Path) -> Result<PreparedAdd, IndexError> {
+        let view = self.view()?;
+        let repository = view.repository();
+        let root = &repository.files().root;
+        let relative = if path.is_absolute() {
+            path.strip_prefix(root)
+                .map_err(|_| IndexError::SourceUnavailable("file is outside root".into()))?
+        } else {
+            path
+        };
+        if relative.as_os_str().is_empty()
+            || relative
+                .components()
+                .any(|part| !matches!(part, std::path::Component::Normal(_)))
+        {
+            return Err(IndexError::SourceUnavailable(
+                "file path must be repository-relative and contained".into(),
+            ));
+        }
+        if view.0.catalog.id_for(relative).is_some() {
+            return Err(IndexError::DestinationExists);
+        }
+        let id = FileId(
+            u32::try_from(view.0.catalog.allocated_files())
+                .map_err(|_| IndexError::ResourceLimit("too many files".into()))?,
+        );
+        let mut bindings = Vec::new();
+        for collection in repository.collections() {
+            if selects_file(
+                root,
+                &collection.definition.source_path,
+                &collection.definition.discovery,
+                &collection.source,
+                relative,
+            )
+            .map_err(IndexError::Build)?
+            {
+                bindings.push(FilePreparationBinding {
+                    collection: collection.generation.collection,
+                    definition: &collection.definition,
+                    source: &collection.source,
+                });
+            }
+        }
+        if bindings.is_empty() {
+            return Err(IndexError::IncompatibleConfiguration(
+                "no configured collection selects this file".into(),
+            ));
+        }
+        let metadata = std::fs::metadata(root.join(relative))
+            .map_err(|error| IndexError::Io(error.to_string()))?;
+        let revision =
+            crate::inventory::SourceRevision::from_metadata(&metadata).map_err(IndexError::Io)?;
+        let created_ns = metadata
+            .created()
+            .ok()
+            .and_then(|time| time.duration_since(SystemTime::UNIX_EPOCH).ok())
+            .map(|duration| duration.as_nanos() as i128);
+        let source = SourceFileInput {
+            id,
+            relative_path: relative.to_owned(),
+            revision,
+            created_ns,
+        };
+        let options = repository.options();
+        let file = prepare_file_build(
+            root,
+            source,
+            &bindings,
+            options.bigram_alphabet,
+            options.inference,
+            1,
+        )
+        .map_err(IndexError::Build)?;
+        Ok(PreparedAdd {
+            expected_revision: view.revision(),
+            configuration_identity: view.configuration_identity(),
+            file,
+        })
     }
 
     /// Retire all records owned by one file across its collections in one
