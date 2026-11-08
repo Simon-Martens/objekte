@@ -794,24 +794,31 @@ fn execute_path(
             term_set(repo, collection, term, domain)?.map(|set| &set & input)
         }
         AccessPathKind::Posting => {
+            // Coverage describes every indexed logical slot, including retired
+            // incarnations. The input already excludes retired slots.
+            let coverage_domain = &collection.logical_records;
             if term.operation.is_some() {
                 collection
                     .custom_postings
                     .get(&(term.path.segments.clone(), term.binding_name.clone()))
                     .filter(|posting| posting.complete)
-                    .and_then(|posting| posting.index.exact_set_restricted(term, domain, input))
+                    .and_then(|posting| {
+                        posting
+                            .index
+                            .exact_set_restricted(term, coverage_domain, input)
+                    })
             } else {
                 collection
                     .postings
                     .fields
                     .get(&term.path.segments)
-                    .and_then(|index| index.exact_set_restricted(term, domain, input))
+                    .and_then(|index| index.exact_set_restricted(term, coverage_domain, input))
             }
         }
         AccessPathKind::InferredPosting => collection
             .inference
             .as_ref()
-            .and_then(|inference| inference.candidates(term, domain, input))
+            .and_then(|inference| inference.candidates(term, &collection.logical_records, input))
             .map(|(set, _)| set),
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
         AccessPathKind::RawBigram => raw_bigram_candidates(collection, term),
@@ -1181,7 +1188,8 @@ fn plan_expr_restricted_inner(
         }
         return Ok(plan);
     }
-    let logical_input = input & &collection.logical_records;
+    let logical_domain = domain & &collection.logical_records;
+    let logical_input = input & &logical_domain;
     let fallback_input = input - &collection.logical_records;
     let mut logical = if logical_input.is_empty() {
         Plan {
@@ -1198,7 +1206,7 @@ fn plan_expr_restricted_inner(
             repo,
             collection,
             expr,
-            &collection.logical_records,
+            &logical_domain,
             &logical_input,
             evidence,
             context,

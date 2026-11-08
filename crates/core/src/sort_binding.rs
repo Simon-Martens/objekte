@@ -8,7 +8,7 @@ use icu_collator::CollatorBorrowed;
 use unicode_casefold::UnicodeCaseFold;
 
 use crate::inventory::RecordClass;
-use crate::model::{PathRoot, RecordSlot, Value};
+use crate::model::{CollectionId, PathRoot, RecordSlot, Value};
 use crate::query::Query;
 use crate::query_path::{PathStep, QueryPath, split_path_binding};
 use crate::reference::{BindingOperation, RecordContext, Transform, metadata_value};
@@ -470,6 +470,45 @@ impl SortTargetCache {
         MAX_SORT_TARGET_BYTES.saturating_sub(self.retained_bytes)
     }
 
+    fn is_active(
+        cache: &Mutex<Self>,
+        collection: CollectionId,
+        slot: RecordSlot,
+    ) -> Result<bool, String> {
+        let state = cache.lock().map_err(|error| error.to_string())?;
+        Ok(state
+            .execution
+            .as_ref()
+            .and_then(|execution| execution.active_records())
+            .is_none_or(|domains| domains[collection.0 as usize].contains(slot)))
+    }
+
+    fn resolve_target(
+        cache: &Mutex<Self>,
+        repo: &Repository,
+        collection: CollectionId,
+        target_id: &str,
+        static_target: &RelationTarget,
+    ) -> Result<Option<RecordSlot>, String> {
+        let state = cache.lock().map_err(|error| error.to_string())?;
+        if let Some(domains) = state
+            .execution
+            .as_ref()
+            .and_then(|execution| execution.active_records())
+        {
+            Ok(repo.collections[collection.0 as usize]
+                .id_lookup
+                .get(target_id)
+                .copied()
+                .filter(|slot| domains[collection.0 as usize].contains(*slot)))
+        } else {
+            Ok(match static_target {
+                RelationTarget::Resolved(slot) => Some(*slot),
+                RelationTarget::Unresolved(_) => None,
+            })
+        }
+    }
+
     fn edge(cache: &Mutex<Self>) -> Result<(), String> {
         let mut state = cache.lock().map_err(|error| error.to_string())?;
         if let Some(execution) = &state.execution {
@@ -520,6 +559,16 @@ impl SortTargetCache {
             .ok_or("sort target slot is missing")?;
         let (cell, cancellation, execution) = {
             let mut state = cache.lock().map_err(|error| error.to_string())?;
+            if state
+                .execution
+                .as_ref()
+                .and_then(|execution| execution.active_records())
+                .is_some_and(|domains| {
+                    !domains[collection.generation.collection.0 as usize].contains(slot)
+                })
+            {
+                return Ok(None);
+            }
             if state
                 .cancellation
                 .as_ref()
@@ -782,6 +831,10 @@ impl ComputedSort {
         reduced: &mut SortAccumulator,
     ) -> Result<(), String> {
         let collection = &repo.collections[collection_index];
+        if !SortTargetCache::is_active(cache, collection.generation.collection, slot)? {
+            reduced.observe_unavailable()?;
+            return Ok(());
+        }
         let record = collection
             .generation
             .records
@@ -866,21 +919,27 @@ impl ComputedSort {
                             }
                             SortTargetCache::edge(cache)?;
                             if let Some(id) = id {
-                                if let Some(target) =
-                                    repo.collections[hop.to.0 as usize].id_lookup.get(id)
+                                if let Some(target) = repo.collections[hop.to.0 as usize]
+                                    .id_lookup
+                                    .get(id)
+                                    .copied()
                                 {
-                                    self.visit_related(
-                                        repo,
-                                        hops,
-                                        terminal,
-                                        depth + 1,
-                                        hop.to.0 as usize,
-                                        *target,
-                                        None,
-                                        cache,
-                                        external_targets,
-                                        reduced,
-                                    )
+                                    if SortTargetCache::is_active(cache, hop.to, target)? {
+                                        self.visit_related(
+                                            repo,
+                                            hops,
+                                            terminal,
+                                            depth + 1,
+                                            hop.to.0 as usize,
+                                            target,
+                                            None,
+                                            cache,
+                                            external_targets,
+                                            reduced,
+                                        )
+                                    } else {
+                                        reduced.observe_unavailable()
+                                    }
                                 } else {
                                     reduced.observe_unavailable()
                                 }
@@ -895,8 +954,14 @@ impl ComputedSort {
                             continue;
                         }
                         SortTargetCache::edge(cache)?;
-                        match edge.target {
-                            RelationTarget::Resolved(target) => self.visit_related(
+                        match SortTargetCache::resolve_target(
+                            cache,
+                            repo,
+                            hop.to,
+                            edge.target_id(),
+                            &edge.target,
+                        )? {
+                            Some(target) => self.visit_related(
                                 repo,
                                 hops,
                                 terminal,
@@ -908,7 +973,7 @@ impl ComputedSort {
                                 external_targets,
                                 reduced,
                             )?,
-                            RelationTarget::Unresolved(_) => reduced.observe_unavailable()?,
+                            None => reduced.observe_unavailable()?,
                         }
                     }
                     if relation.nulls().contains(slot.0) {
@@ -922,6 +987,9 @@ impl ComputedSort {
                     if has_position {
                         let mut seen = 0usize;
                         for source in &source_collection.identity_order {
+                            if !SortTargetCache::is_active(cache, hop.to, *source)? {
+                                continue;
+                            }
                             if !sources.contains(source.0) {
                                 continue;
                             }
@@ -946,6 +1014,9 @@ impl ComputedSort {
                         }
                     } else {
                         for source in sources.iter() {
+                            if !SortTargetCache::is_active(cache, hop.to, RecordSlot(source))? {
+                                continue;
+                            }
                             SortTargetCache::edge(cache)?;
                             self.visit_related(
                                 repo,

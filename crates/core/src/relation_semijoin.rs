@@ -249,8 +249,18 @@ fn reachable_targets(
     let mut current = input.clone();
     for hop in hops {
         let index = relation(repo, hop)?;
+        let source_active = execution
+            .and_then(ExecutionContext::active_records)
+            .map(|domains| &domains[hop.from.0 as usize]);
+        let target_active = execution
+            .and_then(ExecutionContext::active_records)
+            .map(|domains| &domains[hop.to.0 as usize]);
+        let target_collection = &repo.collections[hop.to.0 as usize];
         let mut next = RoaringBitmap::new();
         for slot in current.iter() {
+            if source_active.is_some_and(|active| !active.contains(RecordSlot(slot))) {
+                continue;
+            }
             if index.unavailable().contains(slot) {
                 continue;
             }
@@ -259,7 +269,13 @@ fn reachable_targets(
                 .ok_or("relation source slot missing")?
             {
                 visit_edge(work, execution)?;
-                if let RelationTarget::Resolved(target) = edge.target {
+                if let Some(active) = target_active {
+                    if let Some(target) = target_collection.id_lookup.get(edge.target_id())
+                        && active.contains(*target)
+                    {
+                        next.insert(target.0);
+                    }
+                } else if let RelationTarget::Resolved(target) = edge.target {
                     next.insert(target.0);
                 }
             }
@@ -279,7 +295,12 @@ fn verified_targets(
     execution: Option<&ExecutionContext>,
 ) -> Result<RoaringBitmap, String> {
     let collection = &repo.collections[target_index];
-    let domain = &collection.logical_records;
+    let active_domain = execution
+        .and_then(ExecutionContext::active_records)
+        .map(|domains| &collection.logical_records & &domains[target_index].bitmap());
+    let domain = active_domain
+        .as_ref()
+        .unwrap_or(&collection.logical_records);
     if restricted.is_none() {
         ensure_slots(domain.len(), execution)?;
     }
@@ -444,8 +465,13 @@ fn reverse_sources(
     for hop in hops.iter().rev() {
         let index = relation(repo, hop)?;
         let target = &repo.collections[hop.to.0 as usize];
+        let active = execution.and_then(ExecutionContext::active_records);
         let mut next = RoaringBitmap::new();
         for slot in current.iter() {
+            if active.is_some_and(|domains| !domains[hop.to.0 as usize].contains(RecordSlot(slot)))
+            {
+                continue;
+            }
             let record = target
                 .generation
                 .records
@@ -456,6 +482,9 @@ fn reverse_sources(
                 next |= sources;
             }
             ensure_slots(next.len(), execution)?;
+        }
+        if let Some(domains) = active {
+            next &= domains[hop.from.0 as usize].bitmap();
         }
         current = next;
     }
@@ -568,8 +597,12 @@ pub(crate) fn fts_witnesses(
         let domain = if strategy == Strategy::SourceRestricted {
             reachable_targets(repo, hops, input, &mut work, execution)?
         } else {
-            ensure_slots(target.logical_records.len(), execution)?;
-            target.logical_records.clone()
+            let mut domain = target.logical_records.clone();
+            if let Some(active) = execution.and_then(ExecutionContext::active_records) {
+                domain &= active[target_index].bitmap();
+            }
+            ensure_slots(domain.len(), execution)?;
+            domain
         };
         let candidates = fts_candidates(target, &local)
             .map(|set| &set & &domain)
