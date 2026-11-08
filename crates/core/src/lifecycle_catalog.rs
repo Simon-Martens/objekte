@@ -3,14 +3,15 @@
 //! The static repository remains the base. A mutation copies only one small
 //! path shard and one file-metadata shard, never the base inventory.
 
-use std::collections::HashMap;
+use std::collections::{BTreeMap, BTreeSet, HashMap};
 use std::hash::{Hash, Hasher};
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::inventory::FileEntry;
+use crate::inventory::{FileEntry, FileStatus};
+use crate::lifecycle_scan::FileStamp;
 use crate::model::FileId;
 use crate::repository::Repository;
 
@@ -110,6 +111,28 @@ impl FileCatalog {
         self.entry(id)
             .filter(|entry| entry.relative_path == path)
             .map(|_| id)
+    }
+
+    /// Materialize the active metadata baseline only for a full filesystem
+    /// scan. Ordinary mutations and query paths never traverse this table.
+    pub(crate) fn scan_stamps(&self) -> BTreeMap<PathBuf, FileStamp> {
+        let mut stamps = BTreeMap::new();
+        for number in self.active.iter() {
+            let Some(entry) = self.entry(FileId(number)) else {
+                continue;
+            };
+            stamps.insert(
+                entry.relative_path.clone(),
+                FileStamp {
+                    path: entry.relative_path.clone(),
+                    revision: entry.revision,
+                    created_ns: entry.created_ns,
+                    collections: entry.collections.iter().copied().collect::<BTreeSet<_>>(),
+                    retry_unreadable: entry.status == FileStatus::Unreadable,
+                },
+            );
+        }
+        stamps
     }
 
     pub(crate) fn retired(&self, file: FileId) -> Result<Self, String> {

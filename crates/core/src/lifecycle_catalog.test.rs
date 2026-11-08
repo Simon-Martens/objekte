@@ -70,5 +70,10 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
         Some(FileId(2))
     );
     assert_eq!(retired.id_for(std::path::Path::new("data/new.json")), None);
+    let scan_baseline = appended.scan_stamps();
+    assert_eq!(scan_baseline.len(), 2);
+    assert!(scan_baseline.contains_key(std::path::Path::new("data/renamed.json")));
+    assert!(scan_baseline.contains_key(std::path::Path::new("data/new.json")));
+    assert!(!scan_baseline.contains_key(std::path::Path::new("data/b.json")));
     std::fs::remove_dir_all(root).unwrap();
 }
