@@ -10,6 +10,7 @@ use std::sync::{Arc, Mutex, RwLock};
 
 use serde::{Deserialize, Serialize};
 
+use crate::build::IndexedCollectionSegment;
 use crate::inventory::{ActiveRecords, FileVersions};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, RecordSlot};
@@ -22,6 +23,8 @@ use crate::streaming::{
 use crate::workload::ReturnMode;
 
 pub use crate::inventory::FileVersion;
+
+const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
 
 
 /// Monotonic publication sequence within one index instance.
@@ -189,8 +192,17 @@ impl IndexStatus {
 }
 
 
-/// One immutable publication. Later phases add bounded per-collection deltas;
-/// the foundation contains one complete, static repository generation.
+/// One indexed delta shard and its independently retired local slots.
+#[derive(Clone)]
+pub(crate) struct PublishedSegment {
+    pub(crate) ordinal: u64,
+    pub(crate) index: Arc<IndexedCollectionSegment>,
+    pub(crate) active: ActiveRecords,
+}
+
+
+/// One immutable root: shared base, bounded indexed segments, liveness, file
+/// catalog and configuration all belong to the same publication revision.
 #[derive(Clone)]
 pub(crate) struct PublishedIndex {
     pub(crate) instance_id: u64,
@@ -198,6 +210,8 @@ pub(crate) struct PublishedIndex {
     pub(crate) repository: Arc<Repository>,
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) active: Vec<ActiveRecords>,
+    pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
+    pub(crate) next_segment_ordinal: u64,
     pub(crate) catalog: FileCatalog,
     pub(crate) file_versions: FileVersions,
     pub(crate) saved_revision: Option<IndexRevision>,
@@ -232,12 +246,15 @@ impl PublishedIndex {
             FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
         let catalog = FileCatalog::from_repository(Arc::clone(&repository))
             .map_err(IndexError::ResourceLimit)?;
+        let segments = vec![Arc::new(Vec::new()); active.len()];
         Ok(Self {
             instance_id,
             revision,
             repository,
             configuration_identity,
             active,
+            segments,
+            next_segment_ordinal: 1,
             catalog,
             file_versions,
             saved_revision: None,
@@ -253,8 +270,86 @@ impl PublishedIndex {
             saved_revision: self.saved_revision,
             reconciliation: self.reconciliation,
             indexed_files: self.catalog.active_files() as usize,
-            live_records: self.active.iter().map(ActiveRecords::len).sum(),
+            live_records: self.active.iter().map(ActiveRecords::len).sum::<u64>()
+                + self
+                    .segments
+                    .iter()
+                    .flat_map(|segments| segments.iter())
+                    .map(|segment| segment.active.len())
+                    .sum::<u64>(),
         }
+    }
+
+    /// Stage one fully indexed local segment in a private next root. The
+    /// caller may stage several affected collections before one publication.
+    pub(crate) fn with_segment(
+        mut self,
+        index: IndexedCollectionSegment,
+    ) -> Result<Self, IndexError> {
+        let number = index.collection.0 as usize;
+        let collection =
+            self.repository.collections().get(number).ok_or_else(|| {
+                IndexError::InvalidPublication("segment collection missing".into())
+            })?;
+        if index.source_id != collection.source.id()
+            || index.source_version != collection.source.version()
+        {
+            return Err(IndexError::IncompatibleConfiguration(
+                "segment source registration changed".into(),
+            ));
+        }
+        if self.segments[number].len() >= MAX_SEGMENTS_PER_COLLECTION {
+            return Err(IndexError::ResourceLimit(
+                "collection segment budget reached; compaction is required".into(),
+            ));
+        }
+        for file in &index.files {
+            if self
+                .catalog
+                .entry(file.entry.id)
+                .is_none_or(|current| {
+                    !current.collections.contains(&index.collection)
+                        || current.relative_path != file.entry.relative_path
+                        || current.revision != file.entry.revision
+                        || current.created_ns != file.entry.created_ns
+                })
+            {
+                return Err(IndexError::InvalidPublication(
+                    "segment file is not active in its collection".into(),
+                ));
+            }
+        }
+        for (id, _) in &index.id_lookup {
+            if collection
+                .id_lookup
+                .get(id)
+                .is_some_and(|slot| self.active[number].contains(*slot))
+                || self.segments[number].iter().any(|segment| {
+                    segment
+                        .index
+                        .id_lookup
+                        .get(id)
+                        .is_some_and(|slot| segment.active.contains(*slot))
+                })
+            {
+                return Err(IndexError::DuplicateRecordId {
+                    collection: collection.definition.name.clone(),
+                    record_id: id.0.clone(),
+                });
+            }
+        }
+        let active = ActiveRecords::all(index.records.len()).map_err(IndexError::ResourceLimit)?;
+        let ordinal = self.next_segment_ordinal;
+        self.next_segment_ordinal = self
+            .next_segment_ordinal
+            .checked_add(1)
+            .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+        Arc::make_mut(&mut self.segments[number]).push(Arc::new(PublishedSegment {
+            ordinal,
+            index: Arc::new(index),
+            active,
+        }));
+        Ok(self)
     }
 }
 
@@ -344,19 +439,44 @@ impl Index {
                 .collections()
                 .get(collection_id.0 as usize)
                 .ok_or_else(|| IndexError::InvalidPublication("file collection missing".into()))?;
-            let slots = collection
-                .generation
-                .file_records
-                .records_for(handle.file_id)
-                .ok_or_else(|| IndexError::InvalidPublication("file records missing".into()))?;
             let active = next
                 .active
                 .get_mut(collection_id.0 as usize)
                 .ok_or_else(|| IndexError::InvalidPublication("active domain missing".into()))?;
-            *active = active
-                .retired(slots)
-                .map_err(IndexError::InvalidPublication)?;
-            retired_records += slots.len() as u64;
+            if let Some(slots) = collection
+                .generation
+                .file_records
+                .records_for(handle.file_id)
+            {
+                retired_records +=
+                    slots.iter().filter(|slot| active.contains(**slot)).count() as u64;
+                *active = active
+                    .retired(slots)
+                    .map_err(IndexError::InvalidPublication)?;
+            }
+            let segments = next
+                .segments
+                .get_mut(collection_id.0 as usize)
+                .ok_or_else(|| {
+                    IndexError::InvalidPublication("segment collection missing".into())
+                })?;
+            for segment in Arc::make_mut(segments).iter_mut() {
+                if let Some(slots) = segment
+                    .index
+                    .file_records(handle.file_id)
+                    .map(<[_]>::to_vec)
+                {
+                    let segment = Arc::make_mut(segment);
+                    retired_records += slots
+                        .iter()
+                        .filter(|slot| segment.active.contains(**slot))
+                        .count() as u64;
+                    segment.active = segment
+                        .active
+                        .retired(&slots)
+                        .map_err(IndexError::InvalidPublication)?;
+                }
+            }
             affected_collections.push(collection.definition.name.clone());
         }
         next.catalog = next
@@ -480,6 +600,13 @@ impl IndexView {
             .active
             .get(collection.0 as usize)
             .map(ActiveRecords::bitmap)
+    }
+
+    pub(crate) fn segments(&self, collection: CollectionId) -> Option<&[Arc<PublishedSegment>]> {
+        self.0
+            .segments
+            .get(collection.0 as usize)
+            .map(|segments| segments.as_slice())
     }
 
     pub(crate) fn repository(&self) -> &Repository {
