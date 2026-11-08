@@ -20,8 +20,13 @@ implicit cache writes.
 was `479448c83ff23c748e2c971e7020e8b76a40c1e80ed194fdb5276562dd81a66e`
 versus expected
 `38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9`.
-This is baseline data/test drift, not a lifecycle regression. The standard
-`cargo test --workspace` baseline passed with warning-level diagnostics.
+The baseline mismatch comes from workspace feature unification: desktop's
+`gpui-pre` enables `serde_json/preserve_order`, while the example hashes
+serialization whose object-key order then changes. The tracked schema values
+match the archived manifest. This is a pre-existing test/example issue, not a
+lifecycle regression. The standard `cargo test --workspace` baseline passed
+with warning-level diagnostics; the all-targets example needs canonical
+serialization to be a reliable workspace gate.
 
 ## Public boundary
 
