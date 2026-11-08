@@ -66,6 +66,22 @@ fn convenience_build_and_restore_use_one_resolved_cache_without_automatic_writes
 }
 
 #[test]
+fn repository_cache_writer_can_be_enabled_after_opening() {
+    let root = fixture("runtime-sync-toggle");
+    let cache = snapshot_path_in(
+        &root.join(".objekte"),
+        RepositoryOptions::default().bigram_alphabet,
+    );
+    let index = Index::open_repository(&root, RepositoryOpenOptions::default()).unwrap();
+    assert!(!cache.exists());
+    index.set_sync_cache(true).unwrap();
+    index.set_sync_cache(false).unwrap();
+    assert!(cache.exists());
+    assert!(!index.status().unwrap().dirty());
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn corrupt_convenience_cache_needs_explicit_rebuild_policy() {
     let root = fixture("corrupt");
     let cache = snapshot_path_in(

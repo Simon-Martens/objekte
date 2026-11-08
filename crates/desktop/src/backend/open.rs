@@ -3,14 +3,20 @@
 use std::collections::HashMap;
 use std::path::PathBuf;
 use std::sync::{Arc, Mutex};
+use std::time::Instant;
 
 use objekte_cli::arguments::{Arguments, ResolvedPaths};
 use objekte_cli::loader::{
     configure_definitions, open_repository, repository_options, snapshot_policy,
 };
+use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::lifecycle_repository::{
+    CacheFailurePolicy, CacheOpenPolicy, RepositoryOpenOptions,
+};
 use objekte_search_core::model::{FieldPath, PathRoot};
-use objekte_search_core::repository::StartupStats;
+use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions, SnapshotMode, StartupStats};
+use objekte_search_core::repository_configuration::RepositoryConfiguration;
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::CancellationToken;
 
@@ -22,6 +28,9 @@ use super::{BackendError, BackendErrorKind};
 pub struct OpenSpec {
     pub args: Arguments,
     pub cwd: PathBuf,
+    /// Configured-repository override for Build in memory and explicit cache
+    /// choices. `None` retains the CLI-compatible convenience policy.
+    pub configured_cache_policy: Option<CacheOpenPolicy>,
 }
 
 
@@ -38,11 +47,25 @@ pub struct OpenDiagnostics {
 
 type BackgroundSnapshotSave = Arc<Mutex<Option<Result<Option<SnapshotSaveStats>, String>>>>;
 
+/// Resolved, immutable inputs needed to validate a replacement cache without
+/// rereading a different schema or changing the source configuration.
+#[derive(Clone, Debug)]
+pub struct SessionConfiguration {
+    pub definitions: Arc<Vec<CollectionDefinition>>,
+    pub options: RepositoryOptions,
+    pub configured_repository: bool,
+    pub cache_load: Option<PathBuf>,
+    pub cache_save: Option<PathBuf>,
+    pub configuration_identity: [u8; 32],
+    pub protected_files: Arc<Vec<PathBuf>>,
+}
+
 
 /// Immutable repository handle and CLI opening context reused across searches.
 #[derive(Clone)]
 pub struct OpenedSession {
     pub repository: Arc<IndexedRepository>,
+    pub configuration: Arc<SessionConfiguration>,
     pub args: Arguments,
     pub paths: ResolvedPaths,
     pub collections: Vec<String>,
@@ -50,10 +73,34 @@ pub struct OpenedSession {
     pub diagnostics: OpenDiagnostics,
     /// Declared schema literals, parsed once on the opening worker.
     pub declared_values: Arc<HashMap<(String, String), Vec<String>>>,
-    background_snapshot_save: Option<BackgroundSnapshotSave>,
+    pub(super) background_snapshot_save: Option<BackgroundSnapshotSave>,
 }
 
 impl OpenedSession {
+    /// Record the first explicit destination selected by a manual session.
+    /// Core flush chooses that same path when no cache target existed yet.
+    pub fn with_first_save_target(&self, destination: PathBuf) -> Self {
+        if self.configuration.cache_save.is_some() {
+            return self.clone();
+        }
+        let mut changed = self.clone();
+        let mut configuration = (*self.configuration).clone();
+        configuration.cache_save = Some(destination);
+        changed.configuration = Arc::new(configuration);
+        changed
+    }
+
+    /// Rebind the compatibility metadata view after a rebuild or compaction
+    /// publishes a new base. The live Index and session identity stay intact.
+    pub fn refresh_base_metadata(&self) -> Result<Self, BackendError> {
+        let mut refreshed = self.clone();
+        refreshed.repository = Arc::new(
+            IndexedRepository::new(self.repository.index().clone())
+                .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?,
+        );
+        Ok(refreshed)
+    }
+
     /// Take the result of an explicit write requested while a restored cache
     /// reconciles in the background. `None` means no result is ready.
     pub fn take_background_snapshot_save(
@@ -79,6 +126,22 @@ pub fn open(
     spec.args
         .validate_open_options()
         .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
+    if spec
+        .args
+        .load_index
+        .as_ref()
+        .is_some_and(|path| path.trim().is_empty())
+        || spec
+            .args
+            .write_index
+            .as_ref()
+            .is_some_and(|path| path.trim().is_empty())
+    {
+        return Err(BackendError::new(
+            BackendErrorKind::Options,
+            "Choose an explicit index location",
+        ));
+    }
     let paths = spec
         .args
         .resolve_paths(&spec.cwd)
@@ -94,16 +157,77 @@ pub fn open(
         .directory
         .clone()
         .unwrap_or_else(|| paths.root.join(".objekte"));
-    let (repository, open_ns, snapshot_save) = open_repository(
-        &paths.root,
-        &configured,
-        options,
-        policy,
-        spec.args.write_index.is_some(),
-        spec.args.repo.is_some(),
-        false,
-    )
-    .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?;
+    let (repository, open_ns, snapshot_save) = if spec.args.repo.is_some() {
+        let opened = Instant::now();
+        let cache_open = spec.configured_cache_policy.unwrap_or(match policy.mode {
+            SnapshotMode::Required => CacheOpenPolicy::Required,
+            SnapshotMode::IfValid => CacheOpenPolicy::IfPresent,
+            SnapshotMode::Disabled if spec.args.write_index.is_some() => CacheOpenPolicy::Ignore,
+            SnapshotMode::Disabled => CacheOpenPolicy::IfPresent,
+        });
+        let index = if cache_open == CacheOpenPolicy::Ignore {
+            let index = Index::build(&paths.root, configured.definitions.clone(), options)
+                .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+            index
+                .protect_configuration_files(&configured.protected_files)
+                .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+            index
+        } else {
+            Index::open_configured_repository(
+                RepositoryConfiguration {
+                    root: paths.root.clone(),
+                    definitions: configured.definitions.clone(),
+                    schema_files: configured.schema_files.clone(),
+                    protected_files: configured.protected_files.clone(),
+                    schema_fields: configured.schema_fields,
+                },
+                RepositoryOpenOptions {
+                    index: options,
+                    cache_directory: Some(cache_directory.clone()),
+                    cache_open,
+                    cache_failure: if spec.args.write_index.is_some()
+                        && policy.mode == SnapshotMode::IfValid
+                    {
+                        CacheFailurePolicy::Rebuild
+                    } else {
+                        CacheFailurePolicy::Report
+                    },
+                    sync_cache: false,
+                },
+            )
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
+        };
+        let repository = IndexedRepository::new(index)
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+        let open_ns = opened.elapsed().as_nanos();
+        let snapshot_save = if spec.args.write_index.is_some() && !repository.startup().restored {
+            let cache = objekte_search_core::storage::snapshot_path_in(
+                &cache_directory,
+                options.bigram_alphabet,
+            );
+            Some(
+                repository
+                    .index()
+                    .flush_cache_with_stats(&cache)
+                    .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
+                    .1,
+            )
+        } else {
+            None
+        };
+        (repository, open_ns, snapshot_save)
+    } else {
+        open_repository(
+            &paths.root,
+            &configured,
+            options,
+            policy,
+            spec.args.write_index.is_some(),
+            false,
+            false,
+        )
+        .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?
+    };
     if cancellation.is_cancelled() {
         return Err(BackendError::cancelled());
     }
@@ -153,8 +277,34 @@ pub fn open(
         .map(|collection| collection.definition.name.clone())
         .collect();
     let declared_values = Arc::new(read_declared_values(&configured.schema_files, &collections));
+    let selected_cache = objekte_search_core::storage::snapshot_path_in(
+        &cache_directory,
+        options.bigram_alphabet,
+    );
+    let configured_policy = spec.configured_cache_policy.unwrap_or(CacheOpenPolicy::IfPresent);
+    let cache_load = (spec.args.load_index.is_some()
+        || (spec.args.repo.is_some() && configured_policy != CacheOpenPolicy::Ignore))
+        .then(|| selected_cache.clone());
+    let cache_save = (spec.args.write_index.is_some()
+        || spec.args.load_index.is_some()
+        || (spec.args.repo.is_some() && configured_policy != CacheOpenPolicy::Ignore))
+        .then_some(selected_cache);
+    let configuration = Arc::new(SessionConfiguration {
+        definitions: Arc::new(configured.definitions),
+        options,
+        configured_repository: spec.args.repo.is_some(),
+        cache_load,
+        cache_save,
+        configuration_identity: repository
+            .index()
+            .view()
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
+            .configuration_identity(),
+        protected_files: Arc::new(configured.protected_files),
+    });
     Ok(OpenedSession {
         repository: Arc::new(repository),
+        configuration,
         args: spec.args.clone(),
         paths,
         collections,

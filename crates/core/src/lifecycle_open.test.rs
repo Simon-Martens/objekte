@@ -140,12 +140,14 @@ fn lifecycle_cache_restores_segments_and_excludes_its_own_source_path() {
 
     let restored =
         Index::load_cache(&root, definitions, RepositoryOptions::default(), &cache).unwrap();
+    let observed = restored.current_reconciliation_task().unwrap().unwrap();
     assert_eq!(restored.status().unwrap().revision, saved);
     assert_eq!(
         restored.view().unwrap().search(&query).unwrap().hits,
         before.hits
     );
     let reconciliation = restored.wait_for_reconciliation().unwrap().unwrap();
+    assert_eq!(observed.wait().unwrap(), reconciliation);
     assert_eq!(reconciliation.unchanged, 2);
     assert_eq!(
         (
