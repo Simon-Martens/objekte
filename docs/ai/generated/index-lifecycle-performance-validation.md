@@ -103,3 +103,50 @@ Repeat with distinct `mutation-final-2` and `mutation-final-3` copies. The runne
 Peak RSS was 1,121,340–1,179,484 KiB across the three final processes, compared with 1,084,812–1,149,180 KiB in the initial run. The new digest and cache behavior did not produce a material build or mutation latency regression in these three warm-cache samples. Compaction temporarily retains the old and new index: the roughly 1.1 GiB process peak is materially above the roughly 0.5 GiB fresh-build footprint. No source-content reads occurred in the no-change reconciliation.
 
 For a reproducible lifecycle query run with the committed runner, use `cargo run --release -p objekte-search-core --example bench_lifecycle_musenalm -- <fixture-copy> <output.jsonl>`. Set `LIFECYCLE_CASES=Q172,Q097,Q129` for the targeted comparison. The committed runner has the same logic as the ignored runner used for the recorded results.
+
+## Maintenance and batch stress follow-up
+
+The committed example `crates/core/examples/bench_lifecycle_mutations.rs` gained `stress` mode on subtask commit `876fc4e909`. The final three runs used integration `20c04e23cd` merged into the benchmark branch at `39c762eac4`, rustc 1.99.1 release, and three fresh disposable copies of the same 148,486-file Musenalm fixture. The page cache was warm. Each copy included `data/` and `.objekte/collections/`, without old caches; the example mutates only its copy and refuses to run unless `OBJEKTE_BENCH_MUTATE_COPY=1`. Raw TSV and `/usr/bin/time -v` output are `/home/simon/source/objekte-integration-index-lifecycle/target/lifecycle-final/stress/lifecycle-stress-run-{3,4,5}.{tsv,time}`. The pre-fix diagnostic run is `target/lifecycle-final/stress/lifecycle-stress-run-2.{tsv,time}`.
+
+Repeat from the retained integration worktree:
+
+```bash
+cargo build --release -p objekte-search-core --example bench_lifecycle_mutations
+for n in 6 7 8; do # choose unused run numbers for fresh copies
+  mkdir -p target/lifecycle-stress-run-$n/.objekte
+  cp -a --reflink=auto /home/simon/source/objekte-integration-index-lifecycle/target/lifecycle-fixture/musenalm/data target/lifecycle-stress-run-$n/
+  cp -a /home/simon/source/objekte-integration-index-lifecycle/target/lifecycle-fixture/musenalm/.objekte/collections target/lifecycle-stress-run-$n/.objekte/
+  OBJEKTE_BENCH_MUTATE_COPY=1 /usr/bin/time -v target/release/examples/bench_lifecycle_mutations stress target/lifecycle-stress-run-$n > target/lifecycle-stress-run-$n.tsv 2> target/lifecycle-stress-run-$n.time
+done
+```
+
+The stress sequence first measured a true base-file `PreferVerified` update, followed by eight-file and 128-file append batches, 32 successive updates to one file, metadata reconciliation, compaction, rebuild, flush, restore, and no-change reconciliation. Source bytes were changed before timing each batch; batch time covers index API calls, while repeated-update wall time also includes the 32 source writes. A separate `agents` locator page at offset 500 and limit 50, with no count or sort, ran on a second thread during each long maintenance action, sleeping 2 ms between queries. Its steady-state sample was 500 ms. This probe checks response availability under maintenance; the established sorted/count pagination suite above measures the richer query routes.
+
+| Phase | Median wall ms | Range ms | Other observed result |
+| --- | ---: | ---: | --- |
+| Fresh build + count | 1,317.728 | 1,281.419–1,322.395 | 148,486 files and records |
+| Base append update | 0.329 | 0.263–0.464 | append replacement |
+| Base verified update | **1,278.918** | **1,246.095–1,299.952** | verified physical removal, no fallback |
+| Eight-file append batch | 3.861 | 3.677–3.923 | per-update p50 0.290 ms, p95 0.543 ms (median across runs) |
+| 128-file append batch | 44.207 | 41.743–45.847 | per-update p50 0.328 ms, p95 0.489 ms |
+| 32 repeated updates | 8.415 | 7.667–11.709 | per-API p50 0.235 ms, p95 0.248 ms; wall includes writes |
+| No-change reconciliation with queries | 910.805 | 902.467–919.608 | 148,486 examined and unchanged, zero issues |
+| Compaction with queries | 1,122.551 | 1,106.229–1,124.823 | 136 retired slots removed; 148,486 slots after |
+| Rebuild with queries | 1,230.018 | 1,224.725–1,266.460 | one attempt, current count preserved |
+| Flush with queries | 307.026 | 300.229–394.895 | 154,725,738 bytes; serializer median 262.554 ms |
+| Restore to searchable count | 434.281 | 395.872–508.908 | 133,948 contents |
+| Wait for restored no-change reconciliation | 859.117 | 858.210–862.307 | 148,486 unchanged; zero issues |
+
+Query durations are per-run p50/p95/p99; the table reports their medians over three runs. Each query reacquired the current published view. There were zero errors and the page count stayed stable throughout.
+
+| Probe phase | Samples per run | p50 ms | p95 ms | p99 ms | Largest observed ms |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Steady | 240–241 | 0.0158 | 0.0849 | 0.1017 | 0.252 |
+| Reconcile | 331–336 | 0.6710 | 0.7413 | 0.9446 | 1.797 |
+| Compact | 398–403 | 0.7003 | 0.9260 | 1.1485 | 1.936 |
+| Rebuild | 400–424 | 0.7612 | 2.2682 | 3.2192 | **73.896** |
+| Flush | 145–190 | 0.0172 | 0.0506 | 0.0694 | 0.086 |
+
+The rebuild maximum was 72.677–73.896 ms in two runs and 2.935 ms in the third. The p99 stayed at or below 3.676 ms, so this is an isolated tail event rather than a typical query time; its cause was not instrumented. Reconciliation and compaction lifted the probe median from 0.016 ms to about 0.7 ms while searches remained available. The probe's concurrent CPU and filesystem activity contributes to maintenance wall times. Whole-process peak RSS was 1,435,140–1,478,780 KiB (median 1,448,836 KiB). After verified base maintenance the observed HWM was 1,030,944–1,072,768 KiB; it rose to 1,352,272–1,397,160 KiB by rebuild and reached the process peak by flush. These observations include temporary old-plus-new roots and allocator retention; the harness does not separately count live allocations or lock hold times.
+
+The pre-fix run on integration `e77f8483a4` exposed a material interaction: the base verified update took 1,244.951 ms and the later 128-file batch took **73,039.912 ms**, with per-update p50 949.311 ms/p95 1,058.371 ms. At the 64-segment limit, `PublishedIndex::make_room_for_segment` eagerly compacted a partially retired 148k-record shard before merging small segments. Integration `20c04e23cd` changed admission to merge the cheapest compatible pair first. The same 128-file phase fell to the 41.743–45.847 ms range across all three final runs. The base-file verified operation still costs about 1.28 seconds and collection-sized memory, so it is a physical maintenance choice, not a low-latency optimization. Final runs did not measure source metadata syscall counts, per-operation allocator bytes, or exact publication lock duration; those require profiling hooks beyond this bounded example.
