@@ -6,3 +6,4 @@ pub use tui::export;
 pub use tui::relations;
 pub use tui::settings;
 pub use tui::{TuiOptions, run_with_loader};
+pub use tui::{record_json_value, record_raw_text};

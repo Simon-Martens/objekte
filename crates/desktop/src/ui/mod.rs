@@ -203,6 +203,17 @@ impl DesktopView {
         cx.notify();
     }
 
+    fn select_absolute(&mut self, last: bool, cx: &mut Context<Self>) {
+        let len = self.state.page.rows.len();
+        if len == 0 {
+            return;
+        }
+        let index = if last { len - 1 } else { 0 };
+        self.state.page.selected = Some(index);
+        self.send(UiAction::SelectRow(index));
+        cx.notify();
+    }
+
     fn select_detail_relative(&mut self, delta: isize, cx: &mut Context<Self>) {
         let Some(detail) = self.state.detail.as_mut() else {
             return;

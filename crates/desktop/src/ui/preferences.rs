@@ -8,6 +8,7 @@ use super::model::{QueryEntry, SearchDraft};
 
 
 /// Desktop preferences stored separately from terminal preferences.
+#[derive(Clone)]
 pub struct DesktopPreferences {
     path: PathBuf,
     settings: Settings,
@@ -48,11 +49,22 @@ impl DesktopPreferences {
     }
 
     pub fn remember(&mut self, draft: &SearchDraft) -> Result<(), String> {
+        self.remember_local(draft);
+        self.persist()
+    }
+
+    /// Update resident history without filesystem work on the window thread.
+    pub fn remember_local(&mut self, draft: &SearchDraft) {
         self.settings.remember(to_query(draft));
-        self.settings.save(&self.path)
     }
 
     pub fn save_query(&mut self, name: &str, draft: &SearchDraft) -> Result<(), String> {
+        self.save_query_local(name, draft)?;
+        self.persist()
+    }
+
+    /// Apply named-query semantics in memory; callers queue `persist` separately.
+    pub fn save_query_local(&mut self, name: &str, draft: &SearchDraft) -> Result<(), String> {
         let name = name.trim();
         if name.is_empty() {
             return Err("Enter a name for the saved query".into());
@@ -65,7 +77,7 @@ impl DesktopPreferences {
             name: name.to_owned(),
             query: to_query(draft),
         });
-        self.settings.save(&self.path)
+        Ok(())
     }
 
     pub fn restore_history(&self, newest_first_index: usize) -> Option<SearchDraft> {
@@ -90,8 +102,13 @@ impl DesktopPreferences {
     }
 
     pub fn toggle_column(&mut self, collection: Option<&str>, key: &str) -> Result<(), String> {
+        self.toggle_column_local(collection, key);
+        self.persist()
+    }
+
+    /// Change a visible column without touching disk in a render callback.
+    pub fn toggle_column_local(&mut self, collection: Option<&str>, key: &str) {
         self.settings.toggle_column(collection, key);
-        self.settings.save(&self.path)
     }
 
     pub fn dark(&self) -> Option<bool> {
@@ -99,7 +116,17 @@ impl DesktopPreferences {
     }
 
     pub fn set_dark(&mut self, dark: bool) -> Result<(), String> {
+        self.set_dark_local(dark);
+        self.persist()
+    }
+
+    /// Change the resident theme before a queued settings write.
+    pub fn set_dark_local(&mut self, dark: bool) {
         self.settings.theme = Some(if dark { "dark" } else { "light" }.into());
+    }
+
+    /// Write one immutable settings snapshot from a serialized worker queue.
+    pub fn persist(&self) -> Result<(), String> {
         self.settings.save(&self.path)
     }
 }

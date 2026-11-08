@@ -358,6 +358,7 @@ pub enum UiAction {
         forward: bool,
     },
     FollowRelation(usize),
+    CopyRelation(usize),
     BackRelation,
     CopySelectedValue,
     CopyRecord,
@@ -412,6 +413,7 @@ pub enum UiUpdate {
         running: bool,
         outcome: Option<String>,
     },
+    Diagnostics(String),
     Status(String),
     Error {
         field: ErrorField,

@@ -1,6 +1,13 @@
 use super::*;
 
 #[test]
+fn full_field_path_resolves_nested_json_without_display_clipping() {
+    let value = serde_json::json!({"nested": [{"title": "a".repeat(9000)}]});
+    let found = find_json_path(&value, "$", "$.nested[0].title").unwrap();
+    assert_eq!(found.as_str().unwrap().len(), 9000);
+}
+
+#[test]
 fn bounded_batch_status_extraction_skips_large_hits() {
     let temp = tempfile::tempdir().unwrap();
     let output = temp.path().join("events.ndjson");

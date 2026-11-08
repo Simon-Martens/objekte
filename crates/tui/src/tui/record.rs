@@ -239,7 +239,7 @@ fn walk(
 }
 
 /// Payload as ordinary JSON for field display; non-JSON bytes stay available in raw view.
-pub(super) fn json_value(hit: &SearchHit) -> Option<serde_json::Value> {
+pub fn json_value(hit: &SearchHit) -> Option<serde_json::Value> {
     match &hit.payload {
         Some(Payload::Bytes(bytes)) => {
             #[cfg(test)]
@@ -277,7 +277,7 @@ fn logical_json(value: &Value) -> serde_json::Value {
     }
 }
 
-pub(super) fn raw_text(hit: &SearchHit) -> String {
+pub fn raw_text(hit: &SearchHit) -> String {
     let text = match &hit.payload {
         Some(Payload::Bytes(bytes)) => String::from_utf8_lossy(bytes).into_owned(),
         Some(Payload::Logical(_)) => json_value(hit)

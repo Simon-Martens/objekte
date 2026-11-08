@@ -39,6 +39,7 @@ pub struct UiState {
     pub batch_outcome: Option<String>,
     pub busy: Busy,
     pub status: String,
+    pub diagnostics: String,
     pub errors: BTreeMap<ErrorField, String>,
     pub dark: bool,
     pub show_preview: bool,
@@ -49,6 +50,7 @@ pub struct UiState {
     pub show_columns: bool,
     pub show_help: bool,
     pub show_actions: bool,
+    pub show_diagnostics: bool,
     pub show_raw: bool,
 }
 
@@ -68,6 +70,7 @@ impl UiState {
                 self.saved.clear();
                 self.page = PageView::default();
                 self.detail = None;
+                self.diagnostics.clear();
                 self.errors.remove(&ErrorField::Open);
             }
             UiUpdate::Opened {
@@ -160,6 +163,9 @@ impl UiState {
                 self.batch = rows;
                 self.batch_outcome = outcome;
                 self.busy = if running { Busy::Batch } else { Busy::None };
+            }
+            UiUpdate::Diagnostics(diagnostics) => {
+                self.diagnostics = diagnostics.chars().take(16 * 1024).collect();
             }
             UiUpdate::Status(status) => {
                 self.status = status;

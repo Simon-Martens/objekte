@@ -5,6 +5,7 @@ mod clipboard;
 pub mod export;
 mod input;
 mod record;
+pub use record::{json_value as record_json_value, raw_text as record_raw_text};
 pub mod relations;
 pub mod settings;
 #[cfg(test)]

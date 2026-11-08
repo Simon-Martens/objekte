@@ -100,9 +100,22 @@ pub fn query_spec(draft: &SearchDraft) -> Result<QuerySpec, String> {
         }
         sort
     };
+    let structured = draft.structured.trim();
+    let (full_text, filter) = if structured.starts_with('"') {
+        if !draft.full_text.trim().is_empty() {
+            return Err(
+                "A quoted CLI text literal cannot be combined with the Full Text field".into(),
+            );
+        }
+        let decoded = serde_json::from_str::<String>(structured)
+            .map_err(|error| format!("invalid FTS JSON string literal: {error}"))?;
+        (decoded, String::new())
+    } else {
+        (draft.full_text.clone(), draft.structured.clone())
+    };
     Ok(QuerySpec {
-        full_text: draft.full_text.clone(),
-        filter: draft.structured.clone(),
+        full_text,
+        filter,
         scope: draft.collection.clone(),
         case_sensitive: draft.case_sensitive,
         regex: draft.regex,

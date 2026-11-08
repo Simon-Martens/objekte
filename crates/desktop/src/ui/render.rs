@@ -365,6 +365,8 @@ impl DesktopView {
                         match event.keystroke.key.as_str() {
                             "up" => this.select_relative(-1, cx),
                             "down" => this.select_relative(1, cx),
+                            "home" => this.select_absolute(false, cx),
+                            "end" => this.select_absolute(true, cx),
                             "pageup" => this.send(UiAction::PageRelative(-1)),
                             "pagedown" => this.send(UiAction::PageRelative(1)),
                             "enter" => this.send(UiAction::OpenDetail),

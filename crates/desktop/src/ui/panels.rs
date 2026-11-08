@@ -400,6 +400,7 @@ impl DesktopView {
                     .child("Select a result to inspect its fields and source."),
             );
         };
+        let relation_selected = detail.selected_row.checked_sub(detail.structured.len());
         panel =
             panel
                 .child(div().text_sm().child(detail.title.clone()))
@@ -420,9 +421,17 @@ impl DesktopView {
                                 cx.notify();
                             }),
                         ))
-                        .child(Button::new("copy-value").label("Copy value").on_click(
-                            cx.listener(|this, _, _, _| this.send(UiAction::CopySelectedValue)),
-                        ))
+                        .child(
+                            Button::new("copy-value")
+                                .label("Copy value")
+                                .on_click(cx.listener(|this, _, _, _| {
+                                    this.send(if this.state.show_raw {
+                                        UiAction::CopyRecord
+                                    } else {
+                                        UiAction::CopySelectedValue
+                                    });
+                                })),
+                        )
                         .child(Button::new("copy-record").label("Copy record").on_click(
                             cx.listener(|this, _, _, _| this.send(UiAction::CopyRecord)),
                         )),
@@ -549,12 +558,33 @@ impl DesktopView {
                         )
                         .children(detail.relations.into_iter().enumerate().map(
                             |(index, relation)| {
-                                Button::new(format!("relation-{index}"))
-                                    .label(format!("{}: {}", relation.label, relation.value))
-                                    .disabled(!relation.available)
-                                    .on_click(cx.listener(move |this, _, _, _| {
-                                        this.send(UiAction::FollowRelation(index))
-                                    }))
+                                div()
+                                    .flex()
+                                    .gap_1()
+                                    .child(
+                                        Button::new(format!("relation-{index}"))
+                                            .label(format!(
+                                                "{}{}: {}",
+                                                if relation_selected == Some(index) {
+                                                    "▶ "
+                                                } else {
+                                                    ""
+                                                },
+                                                relation.label,
+                                                relation.value
+                                            ))
+                                            .disabled(!relation.available)
+                                            .on_click(cx.listener(move |this, _, _, _| {
+                                                this.send(UiAction::FollowRelation(index))
+                                            })),
+                                    )
+                                    .child(
+                                        Button::new(format!("copy-relation-{index}"))
+                                            .label("Copy")
+                                            .on_click(cx.listener(move |this, _, _, _| {
+                                                this.send(UiAction::CopyRelation(index))
+                                            })),
+                                    )
                             },
                         ))
                         .overflow_y_scrollbar(),
@@ -709,6 +739,28 @@ impl DesktopView {
                         .child(export_error.unwrap_or_default()),
                 )
             })
+            .child(
+                Button::new("diagnostics-toggle")
+                    .label("Diagnostics")
+                    .on_click(cx.listener(|this, _, _, cx| {
+                        this.state.show_diagnostics = !this.state.show_diagnostics;
+                        cx.notify();
+                    })),
+            )
+            .when(self.state.show_diagnostics, |this| {
+                this.child(
+                    div()
+                        .id("diagnostics-panel")
+                        .max_h(px(180.))
+                        .overflow_y_scrollbar()
+                        .children(
+                            self.state
+                                .diagnostics
+                                .lines()
+                                .map(|line| div().text_sm().child(line.to_owned())),
+                        ),
+                )
+            })
     }
 
     fn export(&mut self, format: ExportFormat, cx: &mut Context<Self>) {
@@ -721,11 +773,12 @@ impl DesktopView {
     pub(super) fn render_help(&self) -> impl IntoElement {
         div().id("help-panel").flex().flex_col().gap_1().p_3()
             .bg(rgb(if self.state.dark { 0x202a35 } else { 0xe8f0f7 }))
-            .child(div().child("Help"))
+            .child(div().child(format!("Objekte Desktop {} · Help", env!("CARGO_PKG_VERSION"))))
             .child(div().text_sm().child("Use Open to choose a folder or configured repository. Type in Full Text and Structured independently; they run together."))
+            .child(div().text_sm().child("A complete JSON string in Structured runs as a CLI-style quoted text query when Full Text is empty. Batch accepts the CLI's physical-line query format."))
             .child(div().text_sm().child("Enter confirms a query. Select a result and Inspect to view fields. Use Previous/Next for bounded pages."))
             .child(div().text_sm().child("Ctrl+O opens repository choices; Ctrl+F focuses Full Text; Ctrl+L focuses Structured. F1 opens Help; Escape closes panels."))
-            .child(div().text_sm().child("Click a result to focus the grid. Up/Down select rows; Page Up/Down change pages; Enter inspects the selected record."))
+            .child(div().text_sm().child("Click a result to focus the grid. Up/Down and Home/End select rows; Page Up/Down change pages; Enter inspects the selected record."))
             .child(div().text_sm().child("Save Query stores query inputs. Export Results and Write Index are explicit derived-output actions. Source documents remain read-only."))
     }
 }

@@ -46,3 +46,23 @@ fn snapshot_is_explicit_and_range_is_not_viewport_size() {
     let unlimited = query_spec(&SearchDraft::default()).unwrap();
     assert_eq!(unlimited.limit, None);
 }
+
+#[test]
+fn quoted_cli_literal_uses_json_string_decoding() {
+    let draft = SearchDraft {
+        structured: "\"A\\nB\"".into(),
+        ..SearchDraft::default()
+    };
+    let spec = query_spec(&draft).unwrap();
+    assert_eq!(spec.full_text, "A\nB");
+    assert!(spec.filter.is_empty());
+    let malformed = SearchDraft {
+        structured: "\"unterminated".into(),
+        ..SearchDraft::default()
+    };
+    assert!(
+        query_spec(&malformed)
+            .unwrap_err()
+            .contains("invalid FTS JSON string literal")
+    );
+}

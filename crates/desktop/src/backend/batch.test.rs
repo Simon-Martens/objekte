@@ -84,6 +84,15 @@ fn output_rejects_source_directory_and_existing_file() {
 }
 
 #[test]
+fn output_rejects_source_even_when_open_paths_are_empty() {
+    let mut fixture = fixture();
+    fixture.session.paths.collection_paths.clear();
+    let path = fixture._root.path().join("would-be-record.json");
+    let error = validate_output_path(&fixture.session, &path).unwrap_err();
+    assert_eq!(error.kind, BackendErrorKind::Options);
+}
+
+#[test]
 fn missing_query_file_emits_cli_input_error_after_run_start() {
     let fixture = fixture();
     let output = tempfile::tempdir().unwrap();

@@ -3,12 +3,14 @@
 use std::collections::HashSet;
 use std::io::Read;
 use std::path::{Path, PathBuf};
+use std::sync::Arc;
 use std::sync::mpsc::{self, Receiver, Sender};
 use std::thread;
 use std::time::{Duration, Instant};
 
 use gpui_kit::{App, ClipboardItem, PathPromptOptions};
-use objekte_search_core::repository::{Payload, SearchHit};
+use objekte_cli::execution::Exit;
+use objekte_search_core::repository::SearchHit;
 use objekte_search_core::streaming::CancellationToken;
 use objekte_tui::relations::{self, LinkAction};
 
@@ -38,6 +40,7 @@ type QueryCompletion = Result<
         u128,
         Vec<String>,
         Vec<String>,
+        String,
     ),
     String,
 >;
@@ -62,6 +65,12 @@ enum WorkerEvent {
         detail_generation: u64,
         result: Box<DetailCompletion>,
     },
+    Expanded {
+        open_generation: u64,
+        query_generation: u64,
+        detail_generation: u64,
+        view: DetailView,
+    },
     MoreRelations {
         open_generation: u64,
         detail_generation: u64,
@@ -78,6 +87,12 @@ enum WorkerEvent {
         output_generation: u64,
         result: Result<(backend::BatchReport, Vec<BatchRow>), String>,
     },
+    PreferenceError(String),
+    CopiedValue {
+        open_generation: u64,
+        detail_generation: u64,
+        result: Result<(String, String), String>,
+    },
 }
 
 
@@ -86,8 +101,10 @@ pub struct DesktopController {
     actions: Receiver<UiAction>,
     worker_tx: Sender<WorkerEvent>,
     workers: Receiver<WorkerEvent>,
+    preference_tx: Sender<DesktopPreferences>,
     session: Option<OpenedSession>,
     preferences: Option<DesktopPreferences>,
+    open_diagnostics: String,
     open_draft: Option<OpenDraft>,
     open_generation: u64,
     query_generation: u64,
@@ -102,10 +119,10 @@ pub struct DesktopController {
     page: PageView,
     available_columns: Vec<String>,
     keys: Vec<RecordKey>,
-    selected_hit: Option<SearchHit>,
+    selected_hit: Option<Arc<SearchHit>>,
     detail: Option<DetailView>,
     relation_actions: Vec<Option<LinkAction>>,
-    relation_back: Vec<(SearchHit, DetailView, Vec<Option<LinkAction>>)>,
+    relation_back: Vec<(Arc<SearchHit>, DetailView, Vec<Option<LinkAction>>)>,
     expanded: HashSet<String>,
     pending_edit: Option<(Instant, SearchDraft)>,
 }
@@ -116,13 +133,24 @@ impl DesktopController {
     pub fn new() -> (Self, Sender<UiAction>) {
         let (action_tx, actions) = mpsc::channel();
         let (worker_tx, workers) = mpsc::channel();
+        let (preference_tx, preferences_to_save) = mpsc::channel::<DesktopPreferences>();
+        let preference_results = worker_tx.clone();
+        thread::spawn(move || {
+            for preferences in preferences_to_save {
+                if let Err(message) = preferences.persist() {
+                    let _ = preference_results.send(WorkerEvent::PreferenceError(message));
+                }
+            }
+        });
         (
             Self {
                 actions,
                 worker_tx,
                 workers,
+                preference_tx,
                 session: None,
                 preferences: None,
+                open_diagnostics: String::new(),
                 open_draft: None,
                 open_generation: 0,
                 query_generation: 0,
@@ -159,7 +187,7 @@ impl DesktopController {
         }
         for _ in 0..128 {
             match self.workers.try_recv() {
-                Ok(event) => self.complete(event, &mut updates),
+                Ok(event) => self.complete(event, cx, &mut updates),
                 Err(_) => break,
             }
         }
@@ -239,14 +267,40 @@ impl DesktopController {
                     if !self.expanded.insert(path.clone()) {
                         self.expanded.remove(&path);
                     }
-                    let view = detail_view(hit, &self.expanded);
-                    self.detail = Some(view.clone());
-                    updates.push(UiUpdate::Detail(Some(view)));
+                    let hit = hit.clone();
+                    let expanded = self.expanded.clone();
+                    let relations = self
+                        .detail
+                        .as_ref()
+                        .map_or_else(Vec::new, |detail| detail.relations.clone());
+                    let selected = index;
+                    self.detail_generation += 1;
+                    let open_generation = self.open_generation;
+                    let query_generation = self.query_generation;
+                    let detail_generation = self.detail_generation;
+                    let sender = self.worker_tx.clone();
+                    thread::spawn(move || {
+                        let mut view = detail_view(&hit, &expanded);
+                        view.relations = relations;
+                        view.selected_row = selected.min(view.structured.len().saturating_sub(1));
+                        let _ = sender.send(WorkerEvent::Expanded {
+                            open_generation,
+                            query_generation,
+                            detail_generation,
+                            view: view.bounded(),
+                        });
+                    });
                 }
             }
             UiAction::DetailRowSelected(index) => {
                 if let Some(detail) = &mut self.detail {
-                    detail.selected_row = index.min(detail.structured.len().saturating_sub(1));
+                    detail.selected_row = index.min(
+                        detail
+                            .structured
+                            .len()
+                            .saturating_add(detail.relations.len())
+                            .saturating_sub(1),
+                    );
                     updates.push(UiUpdate::Detail(Some(detail.clone())));
                 }
             }
@@ -255,6 +309,16 @@ impl DesktopController {
                 self.find_in_record(&text, forward, updates)
             }
             UiAction::FollowRelation(index) => self.follow_relation(index, updates),
+            UiAction::CopyRelation(index) => {
+                if let Some(relation) = self
+                    .detail
+                    .as_ref()
+                    .and_then(|detail| detail.relations.get(index))
+                {
+                    cx.write_to_clipboard(ClipboardItem::new_string(relation.value.clone()));
+                    updates.push(UiUpdate::Status("Relation value copied".into()));
+                }
+            }
             UiAction::BackRelation => {
                 if let Some((hit, view, actions)) = self.relation_back.pop() {
                     self.selected_hit = Some(hit);
@@ -264,27 +328,57 @@ impl DesktopController {
                 }
             }
             UiAction::CopySelectedValue => {
-                if let Some(detail) = &self.detail
-                    && let Some(row) = detail.structured.get(detail.selected_row)
-                {
-                    cx.write_to_clipboard(ClipboardItem::new_string(row.value.clone()));
-                    updates.push(UiUpdate::Status("Selected value copied".into()));
+                if let Some(detail) = &self.detail {
+                    if let Some(row) = detail.structured.get(detail.selected_row) {
+                        if row.value.ends_with('…')
+                            && row.origin == crate::ui::model::DetailOrigin::Structured
+                        {
+                            if let Some(hit) = &self.selected_hit {
+                                let hit = hit.clone();
+                                let path = row.label.clone();
+                                let sender = self.worker_tx.clone();
+                                let open_generation = self.open_generation;
+                                let detail_generation = self.detail_generation;
+                                thread::spawn(move || {
+                                    let result = full_field_value(&hit, &path)
+                                        .map(|value| (value, "Complete field value copied".into()));
+                                    let _ = sender.send(WorkerEvent::CopiedValue {
+                                        open_generation,
+                                        detail_generation,
+                                        result,
+                                    });
+                                });
+                            }
+                        } else {
+                            cx.write_to_clipboard(ClipboardItem::new_string(row.value.clone()));
+                            updates.push(UiUpdate::Status("Selected value copied".into()));
+                        }
+                    } else if let Some(row) = detail
+                        .relations
+                        .get(detail.selected_row.saturating_sub(detail.structured.len()))
+                    {
+                        cx.write_to_clipboard(ClipboardItem::new_string(row.value.clone()));
+                        updates.push(UiUpdate::Status("Relation value copied".into()));
+                    }
                 }
             }
             UiAction::CopyRecord => {
                 if let Some(hit) = &self.selected_hit {
-                    match hit.payload.as_ref() {
-                        Some(Payload::Bytes(bytes)) => {
-                            cx.write_to_clipboard(ClipboardItem::new_string(
-                                String::from_utf8_lossy(bytes).into_owned(),
-                            ));
-                            updates.push(UiUpdate::Status("Complete record source copied".into()));
-                        }
-                        _ => updates.push(UiUpdate::Error {
-                            field: ErrorField::General,
-                            message: "Original record source is unavailable".into(),
-                        }),
-                    }
+                    let hit = hit.clone();
+                    let sender = self.worker_tx.clone();
+                    let open_generation = self.open_generation;
+                    let detail_generation = self.detail_generation;
+                    thread::spawn(move || {
+                        let result = Ok((
+                            objekte_tui::record_raw_text(&hit),
+                            "Complete record copied".into(),
+                        ));
+                        let _ = sender.send(WorkerEvent::CopiedValue {
+                            open_generation,
+                            detail_generation,
+                            result,
+                        });
+                    });
                 }
             }
             UiAction::Export { format, path } => self.start_export(format, path, updates),
@@ -309,11 +403,14 @@ impl DesktopController {
             }
             UiAction::SaveQuery { name, draft } => {
                 if let Some(preferences) = &mut self.preferences {
-                    match preferences.save_query(&name, &draft) {
-                        Ok(()) => updates.push(UiUpdate::History {
-                            entries: preferences.history(),
-                            saved: preferences.saved(),
-                        }),
+                    match preferences.save_query_local(&name, &draft) {
+                        Ok(()) => {
+                            let _ = self.preference_tx.send(preferences.clone());
+                            updates.push(UiUpdate::History {
+                                entries: preferences.history(),
+                                saved: preferences.saved(),
+                            });
+                        }
                         Err(message) => updates.push(UiUpdate::Error {
                             field: ErrorField::General,
                             message,
@@ -326,17 +423,10 @@ impl DesktopController {
                     return;
                 }
                 if let Some(preferences) = &mut self.preferences {
-                    match preferences
-                        .toggle_column(self.current_draft.collection.as_deref(), &column)
-                    {
-                        Ok(()) => {
-                            self.start_query(self.current_draft.clone(), self.page_start, updates);
-                        }
-                        Err(message) => updates.push(UiUpdate::Error {
-                            field: ErrorField::General,
-                            message,
-                        }),
-                    }
+                    preferences
+                        .toggle_column_local(self.current_draft.collection.as_deref(), &column);
+                    let _ = self.preference_tx.send(preferences.clone());
+                    self.start_query(self.current_draft.clone(), self.page_start, updates);
                 }
             }
             UiAction::RestoreHistory(index) => {
@@ -360,13 +450,9 @@ impl DesktopController {
                 }
             }
             UiAction::SetTheme { dark } => {
-                if let Some(preferences) = &mut self.preferences
-                    && let Err(message) = preferences.set_dark(dark)
-                {
-                    updates.push(UiUpdate::Error {
-                        field: ErrorField::General,
-                        message,
-                    });
+                if let Some(preferences) = &mut self.preferences {
+                    preferences.set_dark_local(dark);
+                    let _ = self.preference_tx.send(preferences.clone());
                 }
             }
             UiAction::ShowHelp | UiAction::ToggleRawSource | UiAction::TogglePreview => {}
@@ -411,6 +497,7 @@ impl DesktopController {
         self.output_generation += 1;
         self.session = None;
         self.preferences = None;
+        self.open_diagnostics.clear();
         self.open_draft = Some(draft);
         self.keys.clear();
         self.selected_hit = None;
@@ -447,7 +534,7 @@ impl DesktopController {
             Ok(spec) => spec,
             Err(message) => {
                 updates.push(UiUpdate::Error {
-                    field: ErrorField::Range,
+                    field: query_error_field(&message, &draft),
                     message,
                 });
                 return;
@@ -475,6 +562,14 @@ impl DesktopController {
         thread::spawn(move || {
             let result = backend::query_page(&session, &spec, page_start, 100, &token)
                 .map(|page| {
+                    let diagnostics = format!(
+                        "Query: {:.1} ms; page start {}; rows {}; exact total {:?}\nCounters: {:#?}",
+                        page.elapsed_ns as f64 / 1_000_000.0,
+                        page.page_start,
+                        page.hits.len(),
+                        page.count,
+                        page.counters,
+                    );
                     let (view, available) = page_view_with_available(&page, &spec, &hidden);
                     let keys = page
                         .hits
@@ -491,6 +586,7 @@ impl DesktopController {
                         page.elapsed_ns,
                         available,
                         hidden,
+                        diagnostics,
                     )
                 })
                 .map_err(|error| error.to_string());
@@ -538,7 +634,7 @@ impl DesktopController {
         });
     }
 
-    fn complete(&mut self, event: WorkerEvent, updates: &mut Vec<UiUpdate>) {
+    fn complete(&mut self, event: WorkerEvent, cx: &mut App, updates: &mut Vec<UiUpdate>) {
         match event {
             WorkerEvent::Opened { generation, result } if generation == self.open_generation => {
                 match *result {
@@ -546,6 +642,16 @@ impl DesktopController {
                         let root = session.paths.root.display().to_string();
                         let collections = session.collections.clone();
                         let single_collection = session.single_collection;
+                        self.open_diagnostics = format!(
+                            "Open: {:.1} ms\nRoot: {}\nCollections: {}\nSchema fields: {}; files: {:?}\nSnapshot save: {:#?}\nStartup: {:#?}",
+                            session.diagnostics.open_ns as f64 / 1_000_000.0,
+                            root,
+                            collections.join(", "),
+                            session.diagnostics.schema_fields,
+                            session.diagnostics.schema_files,
+                            session.diagnostics.snapshot_save,
+                            session.diagnostics.startup,
+                        );
                         self.session = Some(session);
                         match preferences {
                             Ok(preferences) => {
@@ -568,6 +674,7 @@ impl DesktopController {
                             collections: collections.clone(),
                             single_collection,
                         });
+                        updates.push(UiUpdate::Diagnostics(self.open_diagnostics.clone()));
                         let mut draft = self.current_draft.clone();
                         draft.collection = if single_collection {
                             collections.first().cloned()
@@ -590,33 +697,32 @@ impl DesktopController {
                 && query_generation == self.query_generation =>
             {
                 match *result {
-                    Ok((view, keys, next, elapsed_ns, available, hidden)) => {
+                    Ok((view, keys, next, elapsed_ns, available, hidden, diagnostics)) => {
                         self.page = view.clone();
                         self.available_columns = available.clone();
                         self.keys = keys;
                         self.next_page_start = next;
                         updates.push(UiUpdate::Columns { available, hidden });
                         updates.push(UiUpdate::Page(view));
+                        updates.push(UiUpdate::Diagnostics(format!(
+                            "{}\n\n{diagnostics}",
+                            self.open_diagnostics
+                        )));
                         updates.push(UiUpdate::Status(format!(
                             "Query complete in {:.1} ms",
                             elapsed_ns as f64 / 1_000_000.0
                         )));
                         if let Some(preferences) = &mut self.preferences {
-                            if let Err(message) = preferences.remember(&self.current_draft) {
-                                updates.push(UiUpdate::Error {
-                                    field: ErrorField::General,
-                                    message,
-                                });
-                            } else {
-                                updates.push(UiUpdate::History {
-                                    entries: preferences.history(),
-                                    saved: preferences.saved(),
-                                });
-                            }
+                            preferences.remember_local(&self.current_draft);
+                            let _ = self.preference_tx.send(preferences.clone());
+                            updates.push(UiUpdate::History {
+                                entries: preferences.history(),
+                                saved: preferences.saved(),
+                            });
                         }
                     }
                     Err(message) => updates.push(UiUpdate::Error {
-                        field: ErrorField::Structured,
+                        field: query_error_field(&message, &self.current_draft),
                         message,
                     }),
                 }
@@ -632,7 +738,7 @@ impl DesktopController {
             {
                 match *result {
                     Ok((hit, view, actions)) => {
-                        self.selected_hit = Some(hit);
+                        self.selected_hit = Some(Arc::new(hit));
                         self.expanded.clear();
                         self.detail = Some(view.clone());
                         self.relation_actions = actions;
@@ -666,6 +772,18 @@ impl DesktopController {
                     message: format!("Folder chooser failed: {message}. Enter a path instead."),
                 }),
             },
+            WorkerEvent::Expanded {
+                open_generation,
+                query_generation,
+                detail_generation,
+                view,
+            } if open_generation == self.open_generation
+                && query_generation == self.query_generation
+                && detail_generation == self.detail_generation =>
+            {
+                self.detail = Some(view.clone());
+                updates.push(UiUpdate::Detail(Some(view)));
+            }
             WorkerEvent::Exported {
                 open_generation,
                 output_generation,
@@ -701,7 +819,14 @@ impl DesktopController {
                             running: false,
                             outcome: Some(outcome.clone()),
                         });
-                        updates.push(UiUpdate::Status(outcome));
+                        if report.exit == Exit::Success {
+                            updates.push(UiUpdate::Status(outcome));
+                        } else {
+                            updates.push(UiUpdate::Error {
+                                field: ErrorField::Batch,
+                                message: outcome,
+                            });
+                        }
                     }
                     Err(message) => updates.push(UiUpdate::Error {
                         field: ErrorField::Batch,
@@ -723,6 +848,28 @@ impl DesktopController {
                     *detail = detail.clone().bounded();
                     self.relation_actions.truncate(detail.relations.len());
                     updates.push(UiUpdate::Detail(Some(detail.clone())));
+                }
+            }
+            WorkerEvent::PreferenceError(message) => updates.push(UiUpdate::Error {
+                field: ErrorField::General,
+                message,
+            }),
+            WorkerEvent::CopiedValue {
+                open_generation,
+                detail_generation,
+                result,
+            } if open_generation == self.open_generation
+                && detail_generation == self.detail_generation =>
+            {
+                match result {
+                    Ok((value, message)) => {
+                        cx.write_to_clipboard(ClipboardItem::new_string(value));
+                        updates.push(UiUpdate::Status(message));
+                    }
+                    Err(message) => updates.push(UiUpdate::Error {
+                        field: ErrorField::General,
+                        message,
+                    }),
                 }
             }
             _ => {}
@@ -764,6 +911,9 @@ impl DesktopController {
             {
                 starts.push(index);
             }
+        }
+        if !detail.relations.is_empty() {
+            starts.push(detail.structured.len());
         }
         if starts.is_empty() {
             return;
@@ -887,10 +1037,23 @@ impl DesktopController {
                 },
                 ExportFormat::Ndjson => match spec {
                     Some(spec) => backend::export_query_ndjson(&session, &spec, &path, &token)
+                        .and_then(|report| {
+                            if report.exit == Exit::Success {
+                                Ok(report)
+                            } else {
+                                Err(backend::BackendError::new(
+                                    backend::BackendErrorKind::Query,
+                                    format!(
+                                        "NDJSON ended {:?}; inspect {} for events",
+                                        report.exit,
+                                        report.path.display()
+                                    ),
+                                ))
+                            }
+                        })
                         .map(|report| {
                             format!(
-                                "NDJSON {:?}: {} bytes written to {}",
-                                report.exit,
+                                "NDJSON complete: {} bytes written to {}",
                                 report.bytes_written,
                                 report.path.display()
                             )
@@ -955,7 +1118,7 @@ impl DesktopController {
             Ok(spec) => spec,
             Err(message) => {
                 updates.push(UiUpdate::Error {
-                    field: ErrorField::Range,
+                    field: query_error_field(&message, &self.current_draft),
                     message,
                 });
                 return;
@@ -1041,6 +1204,58 @@ fn relation_presentation(
             )
         })
         .unzip()
+}
+
+fn query_error_field(message: &str, draft: &SearchDraft) -> ErrorField {
+    let lower = message.to_ascii_lowercase();
+    if lower.contains("offset") || lower.contains("limit") {
+        ErrorField::Range
+    } else if lower.contains("sort") {
+        ErrorField::Sort
+    } else if draft.regex && lower.contains("regex") {
+        ErrorField::FullText
+    } else {
+        ErrorField::Structured
+    }
+}
+
+/// Resolve a visible JSON field from the retained source when its display text was clipped.
+fn full_field_value(hit: &SearchHit, path: &str) -> Result<String, String> {
+    let value = objekte_tui::record_json_value(hit)
+        .ok_or_else(|| "Selected field is unavailable".to_string())?;
+    let found = find_json_path(&value, "$", path)
+        .ok_or_else(|| "Selected field is no longer available".to_string())?;
+    Ok(match found {
+        serde_json::Value::String(text) => text.clone(),
+        other => other.to_string(),
+    })
+}
+
+fn find_json_path<'a>(
+    value: &'a serde_json::Value,
+    current: &str,
+    target: &str,
+) -> Option<&'a serde_json::Value> {
+    if current == target {
+        return Some(value);
+    }
+    match value {
+        serde_json::Value::Object(fields) => fields.iter().find_map(|(key, child)| {
+            let next = format!("{current}.{key}");
+            target
+                .starts_with(&next)
+                .then(|| find_json_path(child, &next, target))
+                .flatten()
+        }),
+        serde_json::Value::Array(values) => values.iter().enumerate().find_map(|(index, child)| {
+            let next = format!("{current}[{index}]");
+            target
+                .starts_with(&next)
+                .then(|| find_json_path(child, &next, target))
+                .flatten()
+        }),
+        _ => None,
+    }
 }
 
 /// Read only short event lines; complete record events can be arbitrarily large.

@@ -136,7 +136,14 @@ pub fn detail_view(hit: &SearchHit, expanded: &HashSet<String>) -> DetailView {
         ..DetailView::default()
     };
     match payload_json(hit) {
-        Some(json) => append_value(&mut detail.structured, "$", &json, 0, expanded),
+        Some(json) => append_value(
+            &mut detail.structured,
+            "$",
+            &json,
+            0,
+            expanded,
+            &hit.matched_fields,
+        ),
         None => detail.structured.push(DetailRow {
             label: "Payload".into(),
             value: "Logical data unavailable; inspect original source and diagnostics".into(),
@@ -182,6 +189,7 @@ fn append_value(
     value: &Value,
     depth: usize,
     expanded: &HashSet<String>,
+    matched_fields: &[String],
 ) {
     if rows.len() >= MAX_DETAIL_ROWS {
         return;
@@ -192,7 +200,12 @@ fn append_value(
         label: path.into(),
         value: value_label(value),
         depth,
-        matched: false,
+        matched: matched_fields.iter().any(|field| {
+            let path = path.strip_prefix("$.").unwrap_or(path);
+            field == path
+                || field.starts_with(&format!("{path}."))
+                || field.starts_with(&format!("{path}["))
+        }),
         expandable,
         expanded: is_expanded,
         origin: DetailOrigin::Structured,
@@ -208,7 +221,14 @@ fn append_value(
     match value {
         Value::Object(object) => {
             for (key, child) in object {
-                append_value(rows, &format!("{path}.{key}"), child, depth + 1, expanded);
+                append_value(
+                    rows,
+                    &format!("{path}.{key}"),
+                    child,
+                    depth + 1,
+                    expanded,
+                    matched_fields,
+                );
             }
         }
         Value::Array(values) => {
@@ -219,6 +239,7 @@ fn append_value(
                     child,
                     depth + 1,
                     expanded,
+                    matched_fields,
                 );
             }
         }
@@ -227,21 +248,11 @@ fn append_value(
 }
 
 fn payload_json(hit: &SearchHit) -> Option<Value> {
-    match hit.payload.as_ref()? {
-        Payload::Bytes(bytes) => serde_json::from_slice(bytes).ok(),
-        Payload::Logical(_) | Payload::LogicalUnavailable { .. } => None,
-    }
+    objekte_tui::record_json_value(hit)
 }
 
 fn source_text(hit: &SearchHit) -> String {
-    match hit.payload.as_ref() {
-        Some(Payload::Bytes(bytes)) => String::from_utf8_lossy(bytes).into_owned(),
-        Some(Payload::Logical(value)) => format!("{value:?}"),
-        Some(Payload::LogicalUnavailable { diagnostic_ref }) => {
-            format!("Logical data unavailable: {diagnostic_ref:?}")
-        }
-        None => "Source unavailable".into(),
-    }
+    objekte_tui::record_raw_text(hit)
 }
 
 fn value_label(value: &Value) -> String {
