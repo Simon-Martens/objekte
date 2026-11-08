@@ -51,6 +51,18 @@ fn file_lines_keep_physical_numbers_and_ignore_blank_lines() {
 }
 
 #[test]
+fn pasted_batch_uses_file_line_numbers_and_bom_rules() {
+    let mut source = QuerySource::from_text("\u{feff}\r\n\"A\"\r\n\r\ntitle ~ \"B\"\n".into());
+    let first = source.next_input().unwrap().unwrap();
+    assert_eq!(first.line, Some(2));
+    assert_eq!(first.kind, QueryKind::Fts);
+    let second = source.next_input().unwrap().unwrap();
+    assert_eq!(second.line, Some(4));
+    assert_eq!(second.kind, QueryKind::Structured);
+    assert!(source.next_input().unwrap().is_none());
+}
+
+#[test]
 fn invalid_utf8_in_query_file_is_fatal_input_error() {
     let folder = tempfile::tempdir().unwrap();
     let path = folder.path().join("queries.txt");

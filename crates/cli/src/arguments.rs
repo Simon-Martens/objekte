@@ -105,11 +105,7 @@ impl Arguments {
     }
 
     pub fn validate_input(&self) -> Result<(), String> {
-        if self.path.len() > 1 && self.schema.is_some() {
-            return Err(
-                "--schema applies to one collection and cannot be used with repeated --path".into(),
-            );
-        }
+        self.validate_open_options()?;
         if self.tui && self.query_file.is_some() {
             return Err("--tui cannot be combined with --query-file".into());
         }
@@ -125,7 +121,27 @@ impl Arguments {
         Ok(())
     }
 
+    /// Validate opening choices when a graphical caller constructs arguments directly.
+    pub fn validate_open_options(&self) -> Result<(), String> {
+        if self.repo.is_some() && !self.path.is_empty() {
+            return Err("--repo cannot be combined with --path".into());
+        }
+        if self.repo.is_some() && self.schema.is_some() {
+            return Err("--repo cannot be combined with --schema".into());
+        }
+        if self.repo.is_some() && self.no_recurse {
+            return Err("--repo cannot be combined with --no-recurse".into());
+        }
+        if self.path.len() > 1 && self.schema.is_some() {
+            return Err(
+                "--schema applies to one collection and cannot be used with repeated --path".into(),
+            );
+        }
+        Ok(())
+    }
+
     pub fn resolve_paths(&self, cwd: &Path) -> Result<ResolvedPaths, String> {
+        self.validate_open_options()?;
         let selected = if let Some(repo) = self.repo.as_deref() {
             vec![repo]
         } else if self.path.is_empty() {
