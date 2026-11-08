@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use super::{Index, IndexError, IndexRevision, PublishedIndex};
+use super::{DeleteStrategy, Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::{FieldPath, FileId, LogicalType, RecordSlot};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
@@ -137,6 +137,73 @@ fn publication_rejects_foreign_and_skipped_revisions_without_advancing_status() 
         Err(IndexError::InvalidPublication(_))
     ));
     assert_eq!(index.status().unwrap(), initial);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-delete-file-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let source = root.join("data/shared.jsonl");
+    std::fs::write(&source, b"{\"name\":\"A\"}\n{\"name\":\"B\"}\n").unwrap();
+    let index = Index::build(
+        &root,
+        vec![
+            CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
+            CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
+        ],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let old = index.view().unwrap();
+    let handle = old.file_handle(FileId(0)).unwrap();
+    let query = Query {
+        collections: vec!["left".into(), "right".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let previous = old.search(&query).unwrap();
+    assert_eq!(previous.count, Some(4));
+    let result = index.delete_file(handle).unwrap();
+    assert_eq!(result.revision, IndexRevision(2));
+    assert_eq!(result.retired_records, 4);
+    assert_eq!(result.affected_collections, vec!["left", "right"]);
+    assert_eq!(result.strategy, DeleteStrategy::Tombstone);
+    assert_eq!(old.search(&query).unwrap().count, Some(4));
+    let current = index.view().unwrap();
+    assert_eq!(current.search(&query).unwrap().count, Some(0));
+    assert_eq!(current.search_reference(&query).unwrap().count, Some(0));
+    assert!(current.file_handle(FileId(0)).is_none());
+    assert!(
+        current
+            .get_record(
+                &previous.hits[0].collection,
+                &previous.hits[0].record_id,
+                ReturnMode::Locator
+            )
+            .unwrap()
+            .is_none()
+    );
+    assert_eq!(index.status().unwrap().indexed_files, 0);
+    assert_eq!(index.status().unwrap().live_records, 0);
+    assert!(matches!(
+        index.delete_file(handle),
+        Err(IndexError::FileConflict { .. })
+    ));
+    assert!(source.exists());
     std::fs::remove_dir_all(root).unwrap();
 }
 

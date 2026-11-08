@@ -5,7 +5,7 @@
 //! phases; a wrapped static repository does not imply those operations exist.
 
 use std::fmt;
-use std::sync::{Arc, RwLock};
+use std::sync::{Arc, Mutex, RwLock};
 
 use serde::{Deserialize, Serialize};
 
@@ -161,6 +161,24 @@ pub struct IndexStatus {
     pub live_records: u64,
 }
 
+/// Result of removing one physical source entry from the published index.
+/// The source file itself is never changed.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum DeleteStrategy {
+    Tombstone,
+    VerifiedPhysicalRemoval,
+}
+
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DeleteResult {
+    pub revision: IndexRevision,
+    pub file: FileId,
+    pub retired_records: u64,
+    pub affected_collections: Vec<String>,
+    pub strategy: DeleteStrategy,
+}
+
 
 impl IndexStatus {
     pub fn dirty(&self) -> bool {
@@ -171,11 +189,13 @@ impl IndexStatus {
 
 /// One immutable publication. Later phases add bounded per-collection deltas;
 /// the foundation contains one complete, static repository generation.
+#[derive(Clone)]
 pub(crate) struct PublishedIndex {
     pub(crate) instance_id: u64,
     pub(crate) revision: IndexRevision,
     pub(crate) repository: Arc<Repository>,
     pub(crate) active: Vec<ActiveRecords>,
+    pub(crate) active_files: Arc<roaring::RoaringBitmap>,
     pub(crate) file_versions: FileVersions,
     pub(crate) saved_revision: Option<IndexRevision>,
     pub(crate) reconciliation: ReconciliationState,
@@ -196,11 +216,16 @@ impl PublishedIndex {
             .map_err(IndexError::ResourceLimit)?;
         let file_versions =
             FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
+        let file_count = u32::try_from(repository.files().files.len())
+            .map_err(|_| IndexError::ResourceLimit("too many indexed files".into()))?;
+        let mut active_files = roaring::RoaringBitmap::new();
+        active_files.insert_range(0..file_count);
         Ok(Self {
             instance_id,
             revision,
             repository,
             active,
+            active_files: Arc::new(active_files),
             file_versions,
             saved_revision: None,
             reconciliation: ReconciliationState::NotStarted,
@@ -208,12 +233,13 @@ impl PublishedIndex {
     }
 
     fn status(&self) -> IndexStatus {
+        debug_assert!(self.active_files.len() <= self.file_versions.len() as u64);
         IndexStatus {
             instance_id: self.instance_id,
             revision: self.revision,
             saved_revision: self.saved_revision,
             reconciliation: self.reconciliation,
-            indexed_files: self.file_versions.len(),
+            indexed_files: self.active_files.len() as usize,
             live_records: self.active.iter().map(ActiveRecords::len).sum(),
         }
     }
@@ -223,6 +249,7 @@ impl PublishedIndex {
 struct IndexInner {
     instance_id: u64,
     published: RwLock<Arc<PublishedIndex>>,
+    writer: Mutex<()>,
 }
 
 
@@ -244,6 +271,7 @@ impl Index {
         Ok(Self(Arc::new(IndexInner {
             instance_id,
             published: RwLock::new(published),
+            writer: Mutex::new(()),
         })))
     }
 
@@ -263,6 +291,78 @@ impl Index {
 
     pub fn status(&self) -> Result<IndexStatus, IndexError> {
         Ok(self.view()?.0.status())
+    }
+
+    /// Retire all records owned by one file across its collections in one
+    /// publication. This changes index state only, and requires no source
+    /// content or source-file I/O. A later scan can add a still-present file.
+    pub fn delete_file(&self, handle: FileHandle) -> Result<DeleteResult, IndexError> {
+        if handle.instance_id != self.instance_id() {
+            return Err(IndexError::ForeignInstance);
+        }
+        let _writer = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
+        let current = self.view()?;
+        let actual = current
+            .0
+            .file_versions
+            .get(handle.file_id)
+            .ok_or(IndexError::UnknownFile)?;
+        if actual != handle.version {
+            return Err(IndexError::FileConflict {
+                file: handle.file_id,
+                expected: handle.version,
+                actual,
+            });
+        }
+        if !current.0.active_files.contains(handle.file_id.0) {
+            return Err(IndexError::UnknownFile);
+        }
+        let file = current
+            .0
+            .repository
+            .files()
+            .files
+            .get(handle.file_id.0 as usize)
+            .ok_or(IndexError::UnknownFile)?;
+        let mut next = (*current.0).clone();
+        let mut retired_records = 0u64;
+        let mut affected_collections = Vec::new();
+        for collection_id in &file.collections {
+            let collection = next
+                .repository
+                .collections()
+                .get(collection_id.0 as usize)
+                .ok_or_else(|| IndexError::InvalidPublication("file collection missing".into()))?;
+            let slots = collection
+                .generation
+                .file_records
+                .records_for(handle.file_id)
+                .ok_or_else(|| IndexError::InvalidPublication("file records missing".into()))?;
+            let active = next
+                .active
+                .get_mut(collection_id.0 as usize)
+                .ok_or_else(|| IndexError::InvalidPublication("active domain missing".into()))?;
+            *active = active
+                .retired(slots)
+                .map_err(IndexError::InvalidPublication)?;
+            retired_records += slots.len() as u64;
+            affected_collections.push(collection.definition.name.clone());
+        }
+        Arc::make_mut(&mut next.active_files).remove(handle.file_id.0);
+        next.file_versions = next
+            .file_versions
+            .advanced(handle.file_id)
+            .map_err(IndexError::ResourceLimit)?
+            .0;
+        next.revision = current.revision().next()?;
+        let revision = self.publish_prepared(current.revision(), next)?;
+        Ok(DeleteResult {
+            revision,
+            file: handle.file_id,
+            retired_records,
+            affected_collections,
+            strategy: DeleteStrategy::Tombstone,
+        })
     }
 
     /// Install a fully prepared root only if its captured predecessor is
@@ -318,15 +418,20 @@ impl IndexView {
     }
 
     pub fn file_handle(&self, file: FileId) -> Option<FileHandle> {
-        self.0.file_versions.get(file).map(|version| FileHandle {
-            instance_id: self.0.instance_id,
-            file_id: file,
-            version,
-        })
+        self.0.active_files.contains(file.0).then(|| {
+            self.0.file_versions.get(file).map(|version| FileHandle {
+                instance_id: self.0.instance_id,
+                file_id: file,
+                version,
+            })
+        })?
     }
 
     pub fn file_version(&self, file: FileId) -> Option<FileVersion> {
-        self.0.file_versions.get(file)
+        self.0
+            .active_files
+            .contains(file.0)
+            .then(|| self.0.file_versions.get(file))?
     }
 
     pub(crate) fn is_active(&self, collection: CollectionId, slot: RecordSlot) -> bool {
