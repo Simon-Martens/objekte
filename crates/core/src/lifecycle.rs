@@ -4,9 +4,11 @@
 //! mutation, reconciliation and persistence are added in later lifecycle
 //! phases; a wrapped static repository does not imply those operations exist.
 
+use std::collections::HashMap;
 use std::fmt;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::mpsc::{self, RecvTimeoutError, SyncSender};
 use std::sync::{Arc, Condvar, Mutex, RwLock};
 use std::thread::JoinHandle;
 use std::time::{Duration, Instant, SystemTime};
@@ -708,6 +710,26 @@ struct IndexInner {
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
     maintenance: Mutex<MaintenanceState>,
+    periodic: Mutex<Option<PeriodicReconciliation>>,
+    persistence: Mutex<PersistenceState>,
+    sync_cache: Mutex<Option<SyncCacheWorker>>,
+    sync_cache_error: Mutex<Option<String>>,
+}
+
+struct PeriodicReconciliation {
+    stop: SyncSender<()>,
+    worker: JoinHandle<()>,
+}
+
+struct SyncCacheWorker {
+    signal: SyncSender<()>,
+    worker: JoinHandle<()>,
+}
+
+struct PersistenceState {
+    selected_cache: Option<PathBuf>,
+    saved: HashMap<PathBuf, IndexRevision>,
+    protected_files: Vec<PathBuf>,
 }
 
 struct MaintenanceState {
@@ -784,20 +806,33 @@ impl Index {
     /// This does not trigger discovery, reconciliation or cache persistence.
     pub fn from_repository(repository: Repository) -> Result<Self, IndexError> {
         let instance_id = crate::repository::next_repository_instance();
-        let published = Arc::new(PublishedIndex::from_repository(
+        let published = PublishedIndex::from_repository(
             instance_id,
             IndexRevision::INITIAL,
             Arc::new(repository),
-        )?);
-        Ok(Self(Arc::new(IndexInner {
+        )?;
+        Ok(Self::from_published(published))
+    }
+
+    pub(crate) fn from_published(published: PublishedIndex) -> Self {
+        let instance_id = published.instance_id;
+        Self(Arc::new(IndexInner {
             instance_id,
-            published: RwLock::new(published),
+            published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
             maintenance: Mutex::new(MaintenanceState {
                 reconciliation: ReconciliationState::NotStarted,
                 current: None,
             }),
-        })))
+            periodic: Mutex::new(None),
+            persistence: Mutex::new(PersistenceState {
+                selected_cache: None,
+                saved: HashMap::new(),
+                protected_files: Vec::new(),
+            }),
+            sync_cache: Mutex::new(None),
+            sync_cache_error: Mutex::new(None),
+        }))
     }
 
     pub fn instance_id(&self) -> u64 {
@@ -825,10 +860,190 @@ impl Index {
         Ok(status)
     }
 
+    /// Persist one pinned revision to an explicit destination. Snapshot
+    /// writers are serialized by destination state, while queries and file
+    /// publication remain free to continue on newer roots.
+    pub fn flush_cache(&self, path: &Path) -> Result<IndexRevision, IndexError> {
+        self.flush_cache_with_stats(path)
+            .map(|(revision, _)| revision)
+    }
+
+    pub fn flush_cache_with_stats(
+        &self,
+        path: &Path,
+    ) -> Result<(IndexRevision, crate::storage::SnapshotSaveStats), IndexError> {
+        let view = self.view()?;
+        let destination = crate::lifecycle_cache_guard::canonical_cache_destination(path)
+            .map_err(IndexError::InvalidCache)?;
+        let mut persistence = self
+            .0
+            .persistence
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        if let Some(saved) = persistence.saved.get(&destination).copied()
+            && saved >= view.revision()
+        {
+            return Ok((saved, crate::storage::SnapshotSaveStats::default()));
+        }
+        let guard = crate::lifecycle_cache_guard::CacheDestinationGuard::new(
+            &view.0,
+            &persistence.protected_files,
+        );
+        guard
+            .ensure_safe(&destination)
+            .map_err(IndexError::InvalidCache)?;
+        let stats = crate::storage::save_lifecycle_snapshot_with_stats(
+            &view.0,
+            &destination,
+            crate::lifecycle_segment_codec::encode_segment,
+            || guard.ensure_safe(&destination),
+        )
+        .map_err(IndexError::Io)?;
+        persistence
+            .saved
+            .insert(destination.clone(), view.revision());
+        let selected = match &persistence.selected_cache {
+            Some(selected) => selected == &destination,
+            None => {
+                persistence.selected_cache = Some(destination);
+                true
+            }
+        };
+        drop(persistence);
+        if selected {
+            let mut published = self
+                .0
+                .published
+                .write()
+                .map_err(|_| IndexError::LockPoisoned)?;
+            if published
+                .saved_revision
+                .is_none_or(|saved| saved < view.revision())
+            {
+                let mut next = (**published).clone();
+                next.saved_revision = Some(view.revision());
+                *published = Arc::new(next);
+            }
+        }
+        Ok((view.revision(), stats))
+    }
+
+    pub(crate) fn select_cache_destination(
+        &self,
+        path: &Path,
+        saved: Option<IndexRevision>,
+        protected_files: Vec<PathBuf>,
+    ) -> Result<(), IndexError> {
+        let destination = crate::lifecycle_cache_guard::canonical_cache_destination(path)
+            .map_err(IndexError::InvalidCache)?;
+        let mut persistence = self
+            .0
+            .persistence
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        persistence.selected_cache = Some(destination.clone());
+        persistence.protected_files = protected_files;
+        if let Some(revision) = saved {
+            persistence.saved.insert(destination, revision);
+        }
+        Ok(())
+    }
+
+    /// Enable one bounded, coalescing background cache writer for the selected
+    /// repository destination. Mutation commits only send a nonblocking signal.
+    pub(crate) fn enable_sync_cache(&self) -> Result<(), IndexError> {
+        if self
+            .0
+            .persistence
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .selected_cache
+            .is_none()
+        {
+            return Err(IndexError::InvalidCache(
+                "no cache destination selected".into(),
+            ));
+        }
+        let mut sync = self
+            .0
+            .sync_cache
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        if sync.is_some() {
+            return Ok(());
+        }
+        let (signal, receiver) = mpsc::sync_channel(1);
+        let owner = Arc::downgrade(&self.0);
+        let worker = std::thread::Builder::new()
+            .name("objekte-sync-cache".into())
+            .spawn(move || {
+                while receiver.recv().is_ok() {
+                    // A quiet window folds bursts into a single snapshot.
+                    while receiver.recv_timeout(Duration::from_millis(100)).is_ok() {}
+                    let Some(inner) = owner.upgrade() else { break };
+                    let index = Index(inner);
+                    let destination = index
+                        .0
+                        .persistence
+                        .lock()
+                        .ok()
+                        .and_then(|state| state.selected_cache.clone());
+                    let result = destination
+                        .map(|path| index.flush_cache(&path).map(|_| ()))
+                        .unwrap_or_else(|| {
+                            Err(IndexError::InvalidCache(
+                                "no cache destination selected".into(),
+                            ))
+                        });
+                    if let Ok(mut error) = index.0.sync_cache_error.lock() {
+                        *error = result.err().map(|error| error.to_string());
+                    }
+                }
+            })
+            .map_err(|error| IndexError::Io(error.to_string()))?;
+        *sync = Some(SyncCacheWorker { signal, worker });
+        drop(sync);
+        self.notify_sync_cache();
+        Ok(())
+    }
+
+    fn notify_sync_cache(&self) {
+        if let Ok(sync) = self.0.sync_cache.lock() {
+            if let Some(sync) = sync.as_ref() {
+                let _ = sync.signal.try_send(());
+            }
+        }
+    }
+
+    pub fn sync_cache_error(&self) -> Result<Option<String>, IndexError> {
+        Ok(self
+            .0
+            .sync_cache_error
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .clone())
+    }
+
+    pub fn stop_sync_cache(&self) -> Result<(), IndexError> {
+        let sync = self
+            .0
+            .sync_cache
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .take();
+        if let Some(sync) = sync {
+            drop(sync.signal);
+            sync.worker
+                .join()
+                .map_err(|_| IndexError::InvalidPublication("cache writer panicked".into()))?;
+        }
+        Ok(())
+    }
+
     /// Coalesce concurrent scan requests into one worker. The scan runs
     /// without holding a query or publication lock; waiters receive its
     /// report and can retry a later pass after partial failure.
-    pub(crate) fn start_reconcile(&self) -> Result<ReconciliationTask, IndexError> {
+    pub fn start_reconcile(&self) -> Result<ReconciliationTask, IndexError> {
         let mut maintenance = self
             .0
             .maintenance
@@ -898,8 +1113,90 @@ impl Index {
         Ok(ReconciliationTask(job))
     }
 
+    /// Schedule one coalesced metadata reconciliation at each interval.
+    /// Calling this again replaces the previous schedule. A running pass is
+    /// cancelled when the schedule is stopped.
+    pub fn start_periodic_reconciliation(&self, interval: Duration) -> Result<(), IndexError> {
+        if interval.is_zero() {
+            return Err(IndexError::ResourceLimit(
+                "reconciliation interval must be nonzero".into(),
+            ));
+        }
+        self.stop_periodic_reconciliation()?;
+        let (stop, receiver) = mpsc::sync_channel(1);
+        let owner = Arc::downgrade(&self.0);
+        let worker = std::thread::Builder::new()
+            .name("objekte-reconcile-periodic".into())
+            .spawn(move || {
+                while matches!(
+                    receiver.recv_timeout(interval),
+                    Err(RecvTimeoutError::Timeout)
+                ) {
+                    let Some(inner) = owner.upgrade() else { break };
+                    let index = Index(inner);
+                    let task = index.start_reconcile();
+                    drop(index);
+                    match task {
+                        Ok(task) => {
+                            let _ = task.wait();
+                        }
+                        Err(_) => break,
+                    }
+                }
+            })
+            .map_err(|error| IndexError::Io(error.to_string()))?;
+        let mut periodic = self
+            .0
+            .periodic
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        *periodic = Some(PeriodicReconciliation { stop, worker });
+        Ok(())
+    }
+
+    pub fn stop_periodic_reconciliation(&self) -> Result<(), IndexError> {
+        let schedule = self
+            .0
+            .periodic
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .take();
+        if let Some(schedule) = schedule {
+            let _ = schedule.stop.try_send(());
+            let running = self
+                .0
+                .maintenance
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?
+                .current
+                .clone();
+            if let Some(running) = running {
+                ReconciliationTask(running).cancel();
+            }
+            schedule.worker.join().map_err(|_| {
+                IndexError::InvalidPublication("periodic reconciliation worker panicked".into())
+            })?;
+        }
+        Ok(())
+    }
+
+    pub fn wait_for_reconciliation(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        let current = self
+            .0
+            .maintenance
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .current
+            .clone();
+        current
+            .map(|job| ReconciliationTask(job).wait())
+            .transpose()
+    }
+
     /// Cancel and join the current scan worker before releasing this handle.
     pub fn shutdown(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        self.stop_periodic_reconciliation()?;
+        self.stop_sync_cache()?;
         let current = self
             .0
             .maintenance
@@ -1128,7 +1425,40 @@ impl Index {
             .map(|collection| collection.definition.clone())
             .collect::<Vec<_>>();
         let prior = snapshot.0.catalog.scan_stamps();
-        let scan = scan_sources(root, &definitions, &repository.sources, &cancelled);
+        let mut scan = scan_sources(root, &definitions, &repository.sources, &cancelled);
+        let cache_paths = {
+            let persistence = self.0.persistence.lock();
+            match persistence {
+                Ok(persistence) => persistence
+                    .saved
+                    .keys()
+                    .filter_map(|destination| {
+                        destination
+                            .strip_prefix(root)
+                            .ok()
+                            .map(|relative| relative.to_owned())
+                    })
+                    .collect::<Vec<_>>(),
+                Err(_) => {
+                    report.record_issue("cache destination state is unavailable".into());
+                    report.duration = started.elapsed();
+                    on_progress(&report);
+                    return report;
+                }
+            }
+        };
+        scan.files.retain(|path, _| {
+            !cache_paths.iter().any(|cache| {
+                path == cache
+                    || (path.parent() == cache.parent()
+                        && path
+                            .file_name()
+                            .and_then(|name| name.to_str())
+                            .is_some_and(|name| {
+                                name.starts_with(".objekte-snapshot-") && name.ends_with(".tmp")
+                            }))
+            })
+        });
         report.examined = scan.examined;
         report.cancelled = scan.cancelled;
         for issue in &scan.issues {
@@ -1317,6 +1647,7 @@ impl Index {
             std::mem::replace(&mut *guard, next)
         };
         drop(retired);
+        self.notify_sync_cache();
         Ok(next_revision)
     }
 }
@@ -1392,6 +1723,46 @@ impl IndexView {
             .then(|| self.0.file_versions.get(file))?
     }
 
+    pub(crate) fn file_version_including_inactive(&self, file: FileId) -> Option<FileVersion> {
+        self.0.file_versions.get(file)
+    }
+
+    pub(crate) fn file_entry(&self, file: FileId) -> Option<&FileEntry> {
+        self.0.catalog.entry(file)
+    }
+
+    pub(crate) fn file_fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
+        self.0.catalog.fingerprint(file)
+    }
+
+    pub(crate) fn file_configuration(&self, file: FileId) -> Option<[u8; 32]> {
+        self.0.catalog.configuration(file)
+    }
+
+    pub(crate) fn file_record_count(&self, file: FileId) -> Option<u64> {
+        let entry = self.file_entry(file)?;
+        let mut count = 0;
+        for collection_id in &entry.collections {
+            let number = collection_id.0 as usize;
+            let collection = self.repository().collections().get(number)?;
+            if let Some(slots) = collection.generation.file_records.records_for(file) {
+                count += slots
+                    .iter()
+                    .filter(|slot| self.0.active[number].contains(**slot))
+                    .count() as u64;
+            }
+            for segment in self.0.segments.get(number)?.iter() {
+                if let Some(slots) = segment.index.file_records(file) {
+                    count += slots
+                        .iter()
+                        .filter(|slot| segment.active.contains(**slot))
+                        .count() as u64;
+                }
+            }
+        }
+        Some(count)
+    }
+
     pub(crate) fn is_active(&self, collection: CollectionId, slot: RecordSlot) -> bool {
         self.0
             .active
@@ -1452,17 +1823,15 @@ impl IndexView {
             )
             .map(|result| self.stamp_result(result))
         } else {
-            crate::run::search_segmented(
+            crate::run::search_segmented_with_context(
                 self.repository(),
                 &resolved,
                 &self.0.active,
                 &self.0.segments,
                 &self.0.catalog,
                 self.revision(),
+                context,
             )
-            .map_err(|message| {
-                context.error(crate::streaming::ExecutionErrorKind::Execution, message)
-            })
         }
     }
 
@@ -1535,7 +1904,16 @@ impl IndexView {
     }
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
-        self.require_base_only("reference search")?;
+        if self.0.segments.iter().any(|segments| !segments.is_empty()) {
+            return crate::run::search_segmented_reference(
+                self.repository(),
+                query,
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+            );
+        }
         self.repository()
             .search_reference_with_active(query, Some(&self.0.active))
             .map(|result| self.stamp_result(result))
@@ -1675,12 +2053,20 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
-        self.require_base_only("streamed search")
-            .map_err(|message| StreamError::Execution {
-                kind: crate::streaming::ExecutionErrorKind::Execution,
-                message,
-                progress: Default::default(),
-            })?;
+        if self.has_segments() {
+            return crate::run::search_stream_segmented_with_context(
+                self.repository(),
+                query,
+                scope,
+                options,
+                context,
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+                sink,
+            );
+        }
         let scoped_context = context.with_active(&self.0.active);
         let revision = self.revision().0;
         let mut stamped = |event: StreamEvent<'_>| match event {
