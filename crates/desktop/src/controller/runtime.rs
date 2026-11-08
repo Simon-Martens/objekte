@@ -14,7 +14,7 @@ use objekte_search_core::repository::SearchHit;
 use objekte_search_core::streaming::CancellationToken;
 use objekte_tui::relations::{self, LinkAction};
 
-use crate::backend::{self, OpenSpec, OpenedSession, QuerySpec};
+use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
     BatchRow, BatchSource as UiBatchSource, DetailView, ErrorField, ExportFormat,
     FilterValidationState, OpenDraft, PageView, RelationRow, SearchDraft, SnapshotMode, UiAction,
@@ -143,7 +143,6 @@ pub struct DesktopController {
     cancellation: CancellationToken,
     output_cancellation: CancellationToken,
     current_draft: SearchDraft,
-    current_spec: Option<QuerySpec>,
     page_start: usize,
     next_page_start: Option<usize>,
     page: PageView,
@@ -193,7 +192,6 @@ impl DesktopController {
                 cancellation: CancellationToken::new(),
                 output_cancellation: CancellationToken::new(),
                 current_draft: SearchDraft::default(),
-                current_spec: None,
                 page_start: 0,
                 next_page_start: None,
                 page: PageView::default(),
@@ -672,7 +670,6 @@ impl DesktopController {
         self.query_generation += 1;
         self.detail_generation += 1;
         self.current_draft = draft.clone();
-        self.current_spec = Some(spec.clone());
         self.page_start = page_start;
         self.selected_hit = None;
         self.detail = None;
@@ -1215,7 +1212,16 @@ impl DesktopController {
             });
             return;
         }
-        let spec = self.current_spec.clone();
+        let spec = match query_spec(&self.current_draft) {
+            Ok(spec) => Some(spec),
+            Err(message) => {
+                updates.push(UiUpdate::Error {
+                    field: ErrorField::Export,
+                    message,
+                });
+                return;
+            }
+        };
         let hit = self.selected_hit.clone();
         let open_generation = self.open_generation;
         self.output_cancellation.cancel();

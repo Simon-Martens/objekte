@@ -104,3 +104,32 @@ fn invalid_current_request_cannot_export_previous_results() {
         }]
     ));
 }
+
+#[test]
+fn export_uses_current_valid_draft_before_debounce_runs() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.current_draft = SearchDraft {
+        structured: "year >= 2024".into(),
+        filter_enabled: true,
+        ..SearchDraft::default()
+    };
+    let output = tempfile::tempdir().unwrap();
+    let path = output.path().join("current.json");
+    let mut updates = Vec::new();
+    controller.start_export(
+        ExportFormat::ResultsJson,
+        path.display().to_string(),
+        &mut updates,
+    );
+    for _ in 0..100 {
+        if path.exists() {
+            break;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(10));
+    }
+    let result: serde_json::Value = serde_json::from_slice(&std::fs::read(path).unwrap()).unwrap();
+    assert_eq!(result["query"]["filter"], "year >= 2024");
+    assert_eq!(result["total"], 1);
+}
