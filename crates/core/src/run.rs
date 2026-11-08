@@ -20,6 +20,7 @@ use crate::executor::{
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::IndexRevision;
+use crate::lifecycle_catalog::FileCatalog;
 use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
 use crate::measurement::{ScanWork, WorkCounters};
 use crate::model::{FieldPath, PathRoot, RecordId, RecordSlot, Value};
@@ -1793,6 +1794,7 @@ pub(crate) struct SegmentRecordRef<'a> {
 pub(crate) fn segment_record_ref<'a>(
     segment: &'a IndexedCollectionSegment,
     active: &ActiveRecords,
+    catalog: &'a FileCatalog,
     slot: RecordSlot,
 ) -> Result<Option<SegmentRecordRef<'a>>, String> {
     if active.slot_count() as usize != segment.records.len() {
@@ -1802,10 +1804,19 @@ pub(crate) fn segment_record_ref<'a>(
         return Ok(None);
     }
     let record = segment.record(slot).ok_or("segment record slot missing")?;
-    let file = &segment
+    let segment_file = &segment
         .file(record.file)
         .ok_or("segment record file missing")?
         .entry;
+    let file = catalog
+        .entry(record.file)
+        .ok_or("active segment record file is retired")?;
+    if file.relative_path != segment_file.relative_path
+        || file.revision != segment_file.revision
+        || !file.collections.contains(&segment.collection)
+    {
+        return Err("active segment record file changed without retirement".into());
+    }
     Ok(Some(SegmentRecordRef { record, file }))
 }
 
@@ -1816,6 +1827,7 @@ pub(crate) fn get_segment_record_by_id(
     collection_index: usize,
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
+    catalog: &FileCatalog,
     revision: IndexRevision,
     record_id: &str,
     return_mode: ReturnMode,
@@ -1830,7 +1842,7 @@ pub(crate) fn get_segment_record_by_id(
     let Some(slot) = segment.id_lookup.get(&RecordId(record_id.to_owned())) else {
         return Ok(None);
     };
-    let Some(resolved) = segment_record_ref(segment, active, *slot)? else {
+    let Some(resolved) = segment_record_ref(segment, active, catalog, *slot)? else {
         return Ok(None);
     };
     let record = resolved.record;

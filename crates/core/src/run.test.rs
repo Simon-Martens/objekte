@@ -6,7 +6,7 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
-fn segment_direct_lookup_uses_local_slot_and_sparse_file_id() {
+fn segment_direct_lookup_uses_local_slot_and_published_file() {
     use crate::build::{
         FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
     };
@@ -23,20 +23,22 @@ fn segment_direct_lookup_uses_local_slot_and_sparse_file_id() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/base.jsonl"), b"{\"name\":\"base\"}\n").unwrap();
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
-    let repo = Repository::open_with_options(
-        &root,
-        vec![definition],
-        RepositoryOptions {
-            snapshot_mode: SnapshotMode::Disabled,
-            ..Default::default()
-        },
-    )
-    .unwrap();
+    let repo = Arc::new(
+        Repository::open_with_options(
+            &root,
+            vec![definition],
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                ..Default::default()
+            },
+        )
+        .unwrap(),
+    );
     let path = root.join("data/added.jsonl");
     std::fs::write(&path, b"{\"name\":\"added\"}\n").unwrap();
     let collection = &repo.collections()[0];
     let input = SourceFileInput {
-        id: FileId(500),
+        id: FileId(1),
         relative_path: "data/added.jsonl".into(),
         revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
         created_ns: None,
@@ -75,6 +77,10 @@ fn segment_direct_lookup_uses_local_slot_and_sparse_file_id() {
             &pool,
         )
         .unwrap();
+    let catalog = FileCatalog::from_repository(Arc::clone(&repo))
+        .unwrap()
+        .appended(segment.files[0].entry.clone(), None, None)
+        .unwrap();
     let id = segment.records[0].id.0.as_str();
     let active = ActiveRecords::all(segment.records.len()).unwrap();
     let revision = IndexRevision(9);
@@ -83,21 +89,30 @@ fn segment_direct_lookup_uses_local_slot_and_sparse_file_id() {
         0,
         &segment,
         &active,
+        &catalog,
         revision,
         id,
         ReturnMode::Locator,
     )
     .unwrap()
     .unwrap();
-    assert_eq!(locator.file_id, 500);
+    assert_eq!(locator.file_id, 1);
     assert_eq!(locator.generation, revision.0);
     assert_eq!(locator.file_path, std::path::Path::new("data/added.jsonl"));
     assert_eq!(locator.record_id, id);
     assert!(locator.payload.is_none());
-    let bytes =
-        get_segment_record_by_id(&repo, 0, &segment, &active, revision, id, ReturnMode::Bytes)
-            .unwrap()
-            .unwrap();
+    let bytes = get_segment_record_by_id(
+        &repo,
+        0,
+        &segment,
+        &active,
+        &catalog,
+        revision,
+        id,
+        ReturnMode::Bytes,
+    )
+    .unwrap()
+    .unwrap();
     assert_eq!(
         bytes.payload,
         Some(Payload::Bytes(b"{\"name\":\"added\"}".to_vec()))
@@ -107,6 +122,7 @@ fn segment_direct_lookup_uses_local_slot_and_sparse_file_id() {
         0,
         &segment,
         &active,
+        &catalog,
         revision,
         id,
         ReturnMode::Logical,
@@ -121,6 +137,7 @@ fn segment_direct_lookup_uses_local_slot_and_sparse_file_id() {
             0,
             &segment,
             &retired,
+            &catalog,
             revision,
             id,
             ReturnMode::Locator
@@ -134,6 +151,7 @@ fn segment_direct_lookup_uses_local_slot_and_sparse_file_id() {
             0,
             &segment,
             &active,
+            &catalog,
             revision,
             "missing",
             ReturnMode::Locator,
@@ -143,8 +161,31 @@ fn segment_direct_lookup_uses_local_slot_and_sparse_file_id() {
     );
     std::fs::write(&path, b"{\"name\":\"different\"}\n").unwrap();
     assert!(
-        get_segment_record_by_id(&repo, 0, &segment, &active, revision, id, ReturnMode::Bytes)
-            .is_err()
+        get_segment_record_by_id(
+            &repo,
+            0,
+            &segment,
+            &active,
+            &catalog,
+            revision,
+            id,
+            ReturnMode::Bytes
+        )
+        .is_err()
+    );
+    let retired_catalog = catalog.retired(FileId(1)).unwrap();
+    assert!(
+        get_segment_record_by_id(
+            &repo,
+            0,
+            &segment,
+            &active,
+            &retired_catalog,
+            revision,
+            id,
+            ReturnMode::Locator,
+        )
+        .is_err()
     );
     std::fs::remove_dir_all(root).unwrap();
 }
