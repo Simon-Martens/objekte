@@ -626,18 +626,18 @@ impl DesktopView {
                                 }),
                             ),
                         )
-                        .child(
-                            Input::new(&self.inputs.snapshot_directory)
-                                .id("open-index-directory")
-                                .w_full()
-                                .disabled(stored == super::model::SnapshotMode::None),
-                        )
-                        .child(
-                            div()
-                                .text_xs()
-                                .text_color(rgb(secondary))
-                                .child("Leave the location empty to use the repository default."),
-                        ),
+                        .when(stored != super::model::SnapshotMode::None, |this| {
+                            this.child(
+                                Input::new(&self.inputs.snapshot_directory)
+                                    .id("open-index-directory")
+                                    .w_full(),
+                            )
+                            .child(
+                                div().text_xs().text_color(rgb(secondary)).child(
+                                    "Leave the location empty to use the repository default.",
+                                ),
+                            )
+                        }),
                 );
         }
         content = content.child(
