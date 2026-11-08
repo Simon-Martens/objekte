@@ -33,7 +33,7 @@ use crate::workload::ReturnMode;
 
 pub use crate::inventory::FileVersion;
 
-const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
+pub(crate) const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
 const MAX_CONSOLIDATED_RECORDS: usize = 262_144;
 const MAX_RECONCILIATION_ISSUES: usize = 128;
 
@@ -439,7 +439,7 @@ impl PublishedIndex {
     /// Keep query merge width bounded. This runs only on a private staged
     /// root, after preparation and before publication; no source bytes or
     /// publication lock are needed.
-    fn make_room_for_segment(&mut self, number: usize) -> Result<(), IndexError> {
+    pub(crate) fn make_room_for_segment(&mut self, number: usize) -> Result<(), IndexError> {
         if self.segments[number].len() < MAX_SEGMENTS_PER_COLLECTION {
             return Ok(());
         }
@@ -1741,7 +1741,7 @@ impl Index {
 
 /// Pinned immutable read context for a single publication revision.
 #[derive(Clone)]
-pub struct IndexView(Arc<PublishedIndex>);
+pub struct IndexView(pub(crate) Arc<PublishedIndex>);
 
 impl IndexView {
     fn has_segments(&self) -> bool {

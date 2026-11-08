@@ -1,0 +1,72 @@
+use super::*;
+use crate::query::{Query, QueryOptions};
+use crate::repository::{CollectionDefinition, RepositoryOptions};
+use crate::source::SourceFormat;
+use crate::workload::ReturnMode;
+
+fn all() -> Query {
+    Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    }
+}
+
+#[test]
+fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-compact-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let a = root.join("data/a.json");
+    let b = root.join("data/b.json");
+    std::fs::write(&a, br#"{"name":"A"}"#).unwrap();
+    std::fs::write(&b, br#"{"name":"B"}"#).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let initial = index.view().unwrap().revision();
+    let no_op = index.compact().unwrap();
+    assert_eq!(no_op.revision, initial);
+    assert_eq!(no_op.retired_slots_removed, 0);
+    let old = index.view().unwrap();
+    let a_handle = old.file_handle_for_path(&a).unwrap();
+    let b_handle = old.file_handle_for_path(&b).unwrap();
+    index.delete_file(a_handle).unwrap();
+    std::fs::write(&b, br#"{"name":"B2"}"#).unwrap();
+    index.update_file(b_handle, &b).unwrap();
+    std::fs::remove_file(&a).unwrap();
+    std::fs::remove_file(&b).unwrap();
+    let before = index.view().unwrap().search(&all()).unwrap();
+    assert_eq!(before.count, Some(1));
+    let report = index.compact().unwrap();
+    assert_eq!(report.slots_before, 3);
+    assert_eq!(report.slots_after, 1);
+    assert_eq!(report.retired_slots_removed, 2);
+    let after = index.view().unwrap().search(&all()).unwrap();
+    assert_eq!(after.count, before.count);
+    assert_eq!(after.hits.len(), before.hits.len());
+    assert_eq!(after.hits[0].record_id, before.hits[0].record_id);
+    assert_eq!(after.hits[0].file_path, before.hits[0].file_path);
+    assert_eq!(after.hits[0].generation, report.revision.0);
+    assert_eq!(old.search(&all()).unwrap().count, Some(2));
+    std::fs::remove_dir_all(root).unwrap();
+}

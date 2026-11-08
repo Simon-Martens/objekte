@@ -23,6 +23,7 @@ pub mod lifecycle;
 pub(crate) mod lifecycle_cache_guard;
 pub mod lifecycle_caller;
 mod lifecycle_catalog;
+mod lifecycle_compaction;
 pub mod lifecycle_mutation;
 mod lifecycle_open;
 pub mod lifecycle_repository;

@@ -266,6 +266,38 @@ pub(crate) struct RelationContribution {
 }
 
 impl RelationContribution {
+    pub(crate) fn from_resolved_index(
+        index: &RelationIndex,
+        record_count: usize,
+    ) -> Result<Self, String> {
+        if index.offsets.len() != record_count + 1 {
+            return Err("relation index record coverage mismatch".into());
+        }
+        let record_count = u32::try_from(record_count).map_err(|_| "too many relation sources")?;
+        let mut references = Vec::with_capacity(index.edges.len());
+        for source in 0..record_count {
+            for edge in index
+                .edges(RecordSlot(source))
+                .ok_or("relation adjacency missing")?
+            {
+                references.push(PendingReference {
+                    source: RecordSlot(source),
+                    target_id: edge.target_id().to_owned(),
+                    positions: edge.positions.clone(),
+                });
+            }
+        }
+        Ok(Self {
+            declaration: index.declaration.clone(),
+            record_count,
+            references,
+            present: index.present.clone(),
+            nulls: index.nulls.clone(),
+            empty_arrays: index.empty_arrays.clone(),
+            unavailable: index.unavailable.clone(),
+        })
+    }
+
     pub(crate) fn declaration(&self) -> &RelationDefinition {
         &self.declaration
     }
