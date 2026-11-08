@@ -21,6 +21,7 @@ pub mod inventory;
 mod json_scalar_text;
 pub mod lifecycle;
 pub(crate) mod lifecycle_cache_guard;
+pub mod lifecycle_caller;
 mod lifecycle_catalog;
 mod lifecycle_open;
 pub mod lifecycle_repository;
