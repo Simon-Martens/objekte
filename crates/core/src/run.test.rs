@@ -143,6 +143,14 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     .unwrap();
     assert_eq!(all.count, reference.count);
     assert_eq!(all.hits, reference.hits);
+    let (analyzed, traces) = search_analyze_segmented(
+        &repo, &query, &base_active, &segments, &catalog, revision,
+    ).unwrap();
+    assert_eq!(analyzed.hits, all.hits);
+    assert_eq!(traces.len(), 1);
+    assert_eq!(traces[0].generation, revision.0);
+    assert_eq!(traces[0].input_records, 5);
+    assert!(traces[0].actual.is_some());
     assert_eq!(
         all.hits
             .iter()
