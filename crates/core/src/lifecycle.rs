@@ -1187,8 +1187,8 @@ impl Index {
     }
 
     /// Schedule one coalesced metadata reconciliation at each interval.
-    /// Calling this again replaces the previous schedule. A running pass is
-    /// cancelled when the schedule is stopped.
+    /// Calling this again replaces the previous schedule. Stopping the
+    /// schedule does not cancel a pass that has already started.
     pub fn start_periodic_reconciliation(&self, interval: Duration) -> Result<(), IndexError> {
         if interval.is_zero() {
             return Err(IndexError::ResourceLimit(
@@ -1210,9 +1210,7 @@ impl Index {
                     let task = index.start_reconcile();
                     drop(index);
                     match task {
-                        Ok(task) => {
-                            let _ = task.wait();
-                        }
+                        Ok(task) => drop(task),
                         Err(_) => break,
                     }
                 }
@@ -1236,16 +1234,6 @@ impl Index {
             .take();
         if let Some(schedule) = schedule {
             let _ = schedule.stop.try_send(());
-            let running = self
-                .0
-                .maintenance
-                .lock()
-                .map_err(|_| IndexError::LockPoisoned)?
-                .current
-                .clone();
-            if let Some(running) = running {
-                ReconciliationTask(running).cancel();
-            }
             schedule.worker.join().map_err(|_| {
                 IndexError::InvalidPublication("periodic reconciliation worker panicked".into())
             })?;
