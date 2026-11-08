@@ -347,6 +347,11 @@ its result is rejected. Use a new context for each request.
 
 ## Persistence and freshness
 
+### Static `Repository` compatibility
+
+The following describes the original static `Repository` snapshot API. New
+applications can use the versioned `Index` lifecycle described below.
+
 The ASCII and Unicode snapshot files are under the repository's `.objekte/`
 directory. Saving a snapshot is explicit; opening and searching do not write
 one. Each snapshot has a versioned header, a checksummed file-inventory
@@ -377,11 +382,32 @@ read through an already-open handle, while a newly opened replacement is
 checked against the recorded revision. These checks detect ordinary size or
 modification-time changes, including same-size edits whose modification time
 changes. A same-size edit with its modification time restored is not detected
-by the revision check. No runtime updater, watcher, overlay, or partial rebuild
-is implemented. The
-[future complete-file replacement design](future-whole-file-replacement.md)
-describes how the file-to-record map would locate all old records, rebuild
-affected generations, and publish them atomically after successful extraction.
+by the revision check.
+
+### Versioned `Index` lifecycle
+
+`Index::build(root, definitions, options)` builds from exactly the supplied
+configuration. `Index::load_cache(root, definitions, options, path)` restores a
+compatible lifecycle cache and returns a searchable handle before its automatic
+metadata reconciliation finishes. `Index::open_repository(root, options)` is
+the separate convenience entry point that discovers the established
+`.objekte/collections` schemas and an alphabet-specific cache. Ordinary
+explicit mode performs no cache discovery or automatic cache write.
+
+The `Index` handle exposes versioned file add, update, move, and delete
+operations. They modify index state only; the application controls source
+files. Query calls pin one published revision. `start_reconcile`,
+`wait_for_reconciliation`, and `start_periodic_reconciliation` expose metadata
+checking without blocking search. `flush_cache(path)` saves one pinned
+revision to an explicit path. Repository convenience mode can enable a
+coalesced automatic cache writer through `sync_cache`.
+
+`compact()` removes retired base and segment contributions without rereading
+source files. `rebuild()` rereads the current source configuration and retries
+publication if a concurrent mutation wins. Complete old bytes can enable
+verified physical removal and compatible single-record slot preservation;
+otherwise the update safely uses tombstones and a new segment. The details
+and source revision limitations are in [runtime file index maintenance](future-whole-file-replacement.md).
 
 The archived implementation under `deprecated/crates/core/` was inspected for query,
 bigram, and ICU behavior. The new record-slot storage, source ownership, and
