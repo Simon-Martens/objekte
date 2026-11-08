@@ -6,6 +6,213 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
+fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
+    use crate::build::{
+        FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
+    };
+    use crate::inventory::SourceRevision;
+    use crate::model::{CollectionId, FileId};
+    use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-segment-merge-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/base.jsonl"),
+        b"{\"kind\":\"b\",\"title\":\"beta\"}\n{\"kind\":\"a\",\"title\":\"alpha\"}\n",
+    )
+    .unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    for field in ["kind", "title"] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![field.into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    definition
+        .sort_fields
+        .push(FieldPath::parse("title").unwrap());
+    let repo = Arc::new(
+        Repository::open_with_options(
+            &root,
+            vec![definition],
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                ..Default::default()
+            },
+        )
+        .unwrap(),
+    );
+    let path = root.join("data/delta.jsonl");
+    std::fs::write(
+        &path,
+        b"{\"kind\":\"a\",\"title\":\"aardvark\"}\n{\"kind\":\"b\",\"title\":\"bravo\"}\n{\"kind\":\"c\",\"title\":\"charlie\"}\n",
+    )
+    .unwrap();
+    let collection = &repo.collections()[0];
+    let prepared = prepare_file_build(
+        &root,
+        SourceFileInput {
+            id: FileId(1),
+            relative_path: "data/delta.jsonl".into(),
+            revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+            created_ns: None,
+        },
+        &[FilePreparationBinding {
+            collection: CollectionId(0),
+            definition: &collection.definition,
+            source: &collection.source,
+        }],
+        repo.options.bigram_alphabet,
+        repo.options.inference,
+        1,
+    )
+    .unwrap();
+    let mut admission = SegmentAdmission::new(CollectionId(0), &collection.source);
+    admission
+        .admit(
+            &prepared.source,
+            prepared.collections.into_iter().next().unwrap(),
+        )
+        .unwrap();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let index = admission
+        .seal()
+        .into_indexed(
+            &collection.definition,
+            repo.options.bigram_alphabet,
+            repo.options.inference,
+            1,
+            &pool,
+        )
+        .unwrap();
+    let catalog = FileCatalog::from_repository(Arc::clone(&repo))
+        .unwrap()
+        .appended(index.files[0].entry.clone(), None, None)
+        .unwrap();
+    let segments = vec![Arc::new(vec![Arc::new(PublishedSegment {
+        ordinal: 1,
+        active: ActiveRecords::all(index.records.len()).unwrap(),
+        index: Arc::new(index),
+    })])];
+    let base_active = vec![ActiveRecords::all(collection.generation.records.len()).unwrap()];
+    let revision = IndexRevision(2);
+    let mut query = Query {
+        collections: vec!["data".into()],
+        filter: Some(parse_filter("!(kind = 'b')").unwrap()),
+        fts: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("title", false)],
+            limit: 1,
+            offset: 1,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let result =
+        search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+    assert_eq!(result.count, Some(3));
+    assert_eq!(
+        result.hits[0].file_path,
+        std::path::Path::new("data/base.jsonl")
+    );
+    assert_eq!(result.hits[0].generation, revision.0);
+    query.options.offset = 0;
+    query.options.limit = 3;
+    let all = search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+    assert_eq!(
+        all.hits
+            .iter()
+            .map(|hit| hit.file_path.as_path())
+            .collect::<Vec<_>>(),
+        [
+            std::path::Path::new("data/delta.jsonl"),
+            std::path::Path::new("data/base.jsonl"),
+            std::path::Path::new("data/delta.jsonl"),
+        ]
+    );
+    query.options.return_mode = ReturnMode::Logical;
+    let logical =
+        search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+    assert!(
+        logical
+            .hits
+            .iter()
+            .all(|hit| matches!(hit.payload, Some(Payload::Logical(_))))
+    );
+    query.options.return_mode = ReturnMode::Locator;
+    query.options.sort.clear();
+    query.filter = Some(parse_filter("kind = 'a'").unwrap());
+    query.options.limit = 0;
+    let counted =
+        search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+    assert_eq!(counted.count, Some(2));
+    assert_eq!(counted.counters.files_opened, 0);
+    query.filter = None;
+    query.fts = Some(FtsQuery {
+        pattern_parameter: None,
+        mode: FtsMode::Literal,
+        case_sensitivity: CaseSensitivity::Sensitive,
+        literal: "bravo".into(),
+        fields: vec![],
+    });
+    query.options.limit = 10;
+    let text =
+        search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+    assert_eq!(text.count, Some(1));
+    assert_eq!(
+        text.hits[0].file_path,
+        std::path::Path::new("data/delta.jsonl")
+    );
+    let mut retired_base = base_active.clone();
+    retired_base[0] = retired_base[0]
+        .retired(&[crate::model::RecordSlot(0)])
+        .unwrap();
+    let mut retired_delta = (*segments[0][0]).clone();
+    retired_delta.active = retired_delta
+        .active
+        .retired(&[crate::model::RecordSlot(1)])
+        .unwrap();
+    let retired_segments = vec![Arc::new(vec![Arc::new(retired_delta)])];
+    query.fts = None;
+    let live = search_segmented(
+        &repo,
+        &query,
+        &retired_base,
+        &retired_segments,
+        &catalog,
+        IndexRevision(3),
+    )
+    .unwrap();
+    assert_eq!(live.count, Some(3));
+    assert!(live.hits.iter().all(
+        |hit| hit.file_path != std::path::Path::new("data/base.jsonl") || hit.byte_start != 0
+    ));
+    assert!(live.hits.iter().all(
+        |hit| hit.file_path != std::path::Path::new("data/delta.jsonl")
+            || hit.byte_start != retired_segments[0][0].index.records[1].range.start
+    ));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn segment_direct_lookup_uses_local_slot_and_published_file() {
     use crate::build::{
         FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,

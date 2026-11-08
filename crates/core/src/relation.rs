@@ -254,6 +254,7 @@ impl RelationIndex {
 
 
 /// One local ID occurrence before target inventories are available.
+#[derive(Clone)]
 struct PendingReference {
     source: RecordSlot,
     target_id: String,
@@ -262,6 +263,7 @@ struct PendingReference {
 
 
 /// Construction-only relation state, merged in deterministic batch order.
+#[derive(Clone)]
 pub(crate) struct RelationContribution {
     declaration: RelationDefinition,
     record_count: u32,

@@ -12,8 +12,8 @@ use std::time::SystemTime;
 use serde::{Deserialize, Serialize};
 
 use crate::build::{
-    FilePreparationBinding, IndexedCollectionSegment, PreparedFileBuild, SegmentAdmission,
-    SourceFileInput, prepare_file_build,
+    FilePreparationBinding, IndexedCollectionSegment, PreparedCollectionBuild, PreparedFileBuild,
+    SegmentAdmission, SourceFileInput, prepare_file_build,
 };
 use crate::discovery::selects_file;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
@@ -31,11 +31,9 @@ pub use crate::inventory::FileVersion;
 
 const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
 
-
 /// Monotonic publication sequence within one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub struct IndexRevision(pub u64);
-
 
 impl IndexRevision {
     pub const INITIAL: Self = Self(1);
@@ -48,7 +46,6 @@ impl IndexRevision {
     }
 }
 
-
 /// A physical file incarnation in one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct FileHandle {
@@ -56,7 +53,6 @@ pub struct FileHandle {
     pub file_id: FileId,
     pub version: FileVersion,
 }
-
 
 /// Errors at the lifecycle boundary. Query failures retain the existing
 /// repository result type until the lifecycle query-completeness phase.
@@ -91,7 +87,6 @@ pub enum IndexError {
     RevisionOverflow,
     LockPoisoned,
 }
-
 
 impl fmt::Display for IndexError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -144,9 +139,7 @@ impl fmt::Display for IndexError {
     }
 }
 
-
 impl std::error::Error for IndexError {}
-
 
 /// Initial status vocabulary; background task state is supplied by the
 /// reconciliation phase, separately from publication revisions.
@@ -159,7 +152,6 @@ pub enum ReconciliationState {
     Partial,
     Cancelled,
 }
-
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexStatus {
@@ -179,7 +171,6 @@ pub enum DeleteStrategy {
     VerifiedPhysicalRemoval,
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeleteResult {
     pub revision: IndexRevision,
@@ -187,6 +178,20 @@ pub struct DeleteResult {
     pub retired_records: u64,
     pub affected_collections: Vec<String>,
     pub strategy: DeleteStrategy,
+}
+
+/// One metadata scan and its applied index changes. Errors affecting only a
+/// source remain visible here while other independent files can proceed.
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct ReconciliationReport {
+    pub examined: usize,
+    pub unchanged: usize,
+    pub added: usize,
+    pub updated: usize,
+    pub removed: usize,
+    pub skipped: usize,
+    pub cancelled: bool,
+    pub issues: Vec<String>,
 }
 
 /// Private work captured before the mutation writer validates and publishes
@@ -197,13 +202,20 @@ pub(crate) struct PreparedAdd {
     pub(crate) file: PreparedFileBuild,
 }
 
+/// A complete replacement captured against one file incarnation. The writer
+/// checks both the view revision and file token before replacing its slots.
+pub(crate) struct PreparedReplacement {
+    pub(crate) expected_revision: IndexRevision,
+    pub(crate) expected_handle: FileHandle,
+    pub(crate) configuration_identity: [u8; 32],
+    pub(crate) file: PreparedFileBuild,
+}
 
 impl IndexStatus {
     pub fn dirty(&self) -> bool {
         self.saved_revision != Some(self.revision)
     }
 }
-
 
 /// One indexed delta shard and its independently retired local slots.
 #[derive(Clone)]
@@ -212,7 +224,6 @@ pub(crate) struct PublishedSegment {
     pub(crate) index: Arc<IndexedCollectionSegment>,
     pub(crate) active: ActiveRecords,
 }
-
 
 /// One immutable root: shared base, bounded indexed segments, liveness, file
 /// catalog and configuration all belong to the same publication revision.
@@ -230,7 +241,6 @@ pub(crate) struct PublishedIndex {
     pub(crate) saved_revision: Option<IndexRevision>,
     pub(crate) reconciliation: ReconciliationState,
 }
-
 
 impl PublishedIndex {
     pub(crate) fn from_repository(
@@ -360,8 +370,188 @@ impl PublishedIndex {
         }));
         Ok(self)
     }
+
+    /// Retire slots owned by one incarnation without touching the catalog.
+    /// The caller either replaces or removes its catalog entry atomically.
+    fn retire_file_records(&mut self, file: &FileEntry) -> Result<u64, IndexError> {
+        let mut retired_records = 0u64;
+        for collection_id in &file.collections {
+            let collection = self
+                .repository
+                .collections()
+                .get(collection_id.0 as usize)
+                .ok_or_else(|| IndexError::InvalidPublication("file collection missing".into()))?;
+            let active = self
+                .active
+                .get_mut(collection_id.0 as usize)
+                .ok_or_else(|| IndexError::InvalidPublication("active domain missing".into()))?;
+            if let Some(slots) = collection.generation.file_records.records_for(file.id) {
+                retired_records +=
+                    slots.iter().filter(|slot| active.contains(**slot)).count() as u64;
+                *active = active
+                    .retired(slots)
+                    .map_err(IndexError::InvalidPublication)?;
+            }
+            let segments = self
+                .segments
+                .get_mut(collection_id.0 as usize)
+                .ok_or_else(|| {
+                    IndexError::InvalidPublication("segment collection missing".into())
+                })?;
+            for segment in Arc::make_mut(segments).iter_mut() {
+                if let Some(slots) = segment.index.file_records(file.id).map(<[_]>::to_vec) {
+                    let segment = Arc::make_mut(segment);
+                    retired_records += slots
+                        .iter()
+                        .filter(|slot| segment.active.contains(**slot))
+                        .count() as u64;
+                    segment.active = segment
+                        .active
+                        .retired(&slots)
+                        .map_err(IndexError::InvalidPublication)?;
+                }
+            }
+        }
+        Ok(retired_records)
+    }
 }
 
+fn index_prepared_file(
+    repository: &Repository,
+    source: &SourceFileInput,
+    collections: Vec<PreparedCollectionBuild>,
+) -> Result<(FileEntry, Vec<IndexedCollectionSegment>), IndexError> {
+    let options = repository.options();
+    let mut indexed = Vec::with_capacity(collections.len());
+    for collection in collections {
+        let state = repository
+            .collections()
+            .get(collection.collection.0 as usize)
+            .ok_or_else(|| IndexError::InvalidPublication("collection missing".into()))?;
+        let mut admission = SegmentAdmission::new(collection.collection, &state.source);
+        admission
+            .admit(source, collection)
+            .map_err(IndexError::Build)?;
+        indexed.push(
+            admission
+                .seal()
+                .into_indexed(
+                    &state.definition,
+                    options.bigram_alphabet,
+                    options.inference,
+                    repository.collections().len(),
+                    &repository.workers,
+                )
+                .map_err(IndexError::Build)?,
+        );
+    }
+    let memberships = indexed.iter().map(|segment| segment.collection).collect();
+    let mut entry = FileEntry {
+        id: source.id,
+        relative_path: source.relative_path.clone(),
+        revision: source.revision,
+        created_ns: source.created_ns,
+        collections: memberships,
+        status: FileStatus::Valid,
+        diagnostics: Vec::new(),
+        omitted_diagnostics: 0,
+    };
+    for segment in &indexed {
+        let file = segment
+            .file(source.id)
+            .ok_or_else(|| IndexError::InvalidPublication("segment file entry missing".into()))?;
+        entry.status = entry.status.max(file.entry.status);
+        entry.omitted_diagnostics = entry
+            .omitted_diagnostics
+            .saturating_add(file.entry.omitted_diagnostics);
+        for diagnostic in &file.entry.diagnostics {
+            entry
+                .record_diagnostic(diagnostic.clone())
+                .map_err(IndexError::InvalidPublication)?;
+        }
+    }
+    Ok((entry, indexed))
+}
+
+fn prepare_file_at(
+    view: &IndexView,
+    path: &Path,
+    id: FileId,
+) -> Result<PreparedFileBuild, IndexError> {
+    let repository = view.repository();
+    let root = &repository.files().root;
+    let relative = if path.is_absolute() {
+        path.strip_prefix(root)
+            .map_err(|_| IndexError::SourceUnavailable("file is outside root".into()))?
+    } else {
+        path
+    };
+    if relative.as_os_str().is_empty()
+        || relative
+            .components()
+            .any(|part| !matches!(part, std::path::Component::Normal(_)))
+    {
+        return Err(IndexError::SourceUnavailable(
+            "file path must be repository-relative and contained".into(),
+        ));
+    }
+    if view
+        .0
+        .catalog
+        .id_for(relative)
+        .is_some_and(|other| other != id)
+    {
+        return Err(IndexError::DestinationExists);
+    }
+    let mut bindings = Vec::new();
+    for collection in repository.collections() {
+        if selects_file(
+            root,
+            &collection.definition.source_path,
+            &collection.definition.discovery,
+            &collection.source,
+            relative,
+        )
+        .map_err(IndexError::Build)?
+        {
+            bindings.push(FilePreparationBinding {
+                collection: collection.generation.collection,
+                definition: &collection.definition,
+                source: &collection.source,
+            });
+        }
+    }
+    if bindings.is_empty() {
+        return Err(IndexError::IncompatibleConfiguration(
+            "no configured collection selects this file".into(),
+        ));
+    }
+    let metadata = std::fs::metadata(root.join(relative))
+        .map_err(|error| IndexError::Io(error.to_string()))?;
+    let revision =
+        crate::inventory::SourceRevision::from_metadata(&metadata).map_err(IndexError::Io)?;
+    let created_ns = metadata
+        .created()
+        .ok()
+        .and_then(|time| time.duration_since(SystemTime::UNIX_EPOCH).ok())
+        .map(|duration| duration.as_nanos() as i128);
+    let source = SourceFileInput {
+        id,
+        relative_path: relative.to_owned(),
+        revision,
+        created_ns,
+    };
+    let options = repository.options();
+    prepare_file_build(
+        root,
+        source,
+        &bindings,
+        options.bigram_alphabet,
+        options.inference,
+        1,
+    )
+    .map_err(IndexError::Build)
+}
 
 struct IndexInner {
     instance_id: u64,
@@ -369,11 +559,9 @@ struct IndexInner {
     writer: Mutex<()>,
 }
 
-
 /// Shared lifecycle owner. Cloning this handle does not copy indexed data.
 #[derive(Clone)]
 pub struct Index(Arc<IndexInner>);
-
 
 impl Index {
     /// Adopt a completed static repository as the first published view.
@@ -414,80 +602,48 @@ impl Index {
     /// lock. The eventual commit revalidates the captured root and file ID.
     pub(crate) fn prepare_add_file(&self, path: &Path) -> Result<PreparedAdd, IndexError> {
         let view = self.view()?;
-        let repository = view.repository();
-        let root = &repository.files().root;
-        let relative = if path.is_absolute() {
-            path.strip_prefix(root)
-                .map_err(|_| IndexError::SourceUnavailable("file is outside root".into()))?
-        } else {
-            path
-        };
-        if relative.as_os_str().is_empty()
-            || relative
-                .components()
-                .any(|part| !matches!(part, std::path::Component::Normal(_)))
-        {
-            return Err(IndexError::SourceUnavailable(
-                "file path must be repository-relative and contained".into(),
-            ));
-        }
-        if view.0.catalog.id_for(relative).is_some() {
-            return Err(IndexError::DestinationExists);
-        }
         let id = FileId(
             u32::try_from(view.0.catalog.allocated_files())
                 .map_err(|_| IndexError::ResourceLimit("too many files".into()))?,
         );
-        let mut bindings = Vec::new();
-        for collection in repository.collections() {
-            if selects_file(
-                root,
-                &collection.definition.source_path,
-                &collection.definition.discovery,
-                &collection.source,
-                relative,
-            )
-            .map_err(IndexError::Build)?
-            {
-                bindings.push(FilePreparationBinding {
-                    collection: collection.generation.collection,
-                    definition: &collection.definition,
-                    source: &collection.source,
-                });
-            }
-        }
-        if bindings.is_empty() {
-            return Err(IndexError::IncompatibleConfiguration(
-                "no configured collection selects this file".into(),
-            ));
-        }
-        let metadata = std::fs::metadata(root.join(relative))
-            .map_err(|error| IndexError::Io(error.to_string()))?;
-        let revision =
-            crate::inventory::SourceRevision::from_metadata(&metadata).map_err(IndexError::Io)?;
-        let created_ns = metadata
-            .created()
-            .ok()
-            .and_then(|time| time.duration_since(SystemTime::UNIX_EPOCH).ok())
-            .map(|duration| duration.as_nanos() as i128);
-        let source = SourceFileInput {
-            id,
-            relative_path: relative.to_owned(),
-            revision,
-            created_ns,
-        };
-        let options = repository.options();
-        let file = prepare_file_build(
-            root,
-            source,
-            &bindings,
-            options.bigram_alphabet,
-            options.inference,
-            1,
-        )
-        .map_err(IndexError::Build)?;
+        let file = prepare_file_at(&view, path, id)?;
         Ok(PreparedAdd {
             expected_revision: view.revision(),
+            configuration_identity: view.configuration_identity(),
+            file,
+        })
+    }
+
+    /// Prepare an update or move after the application has changed the
+    /// source file. The existing file ID survives; only its version advances.
+    pub(crate) fn prepare_replace_file(
+        &self,
+        handle: FileHandle,
+        path: &Path,
+    ) -> Result<PreparedReplacement, IndexError> {
+        if handle.instance_id != self.instance_id() {
+            return Err(IndexError::ForeignInstance);
+        }
+        let view = self.view()?;
+        let actual = view
+            .0
+            .file_versions
+            .get(handle.file_id)
+            .ok_or(IndexError::UnknownFile)?;
+        if actual != handle.version {
+            return Err(IndexError::FileConflict {
+                file: handle.file_id,
+                expected: handle.version,
+                actual,
+            });
+        }
+        if !view.0.catalog.is_active(handle.file_id) {
+            return Err(IndexError::UnknownFile);
+        }
+        let file = prepare_file_at(&view, path, handle.file_id)?;
+        Ok(PreparedReplacement {
+            expected_revision: view.revision(),
+            expected_handle: handle,
             configuration_identity: view.configuration_identity(),
             file,
         })
@@ -525,58 +681,10 @@ impl Index {
         {
             return Err(IndexError::DestinationExists);
         }
-        let repository = view.repository();
-        let options = repository.options();
         let source = prepared.file.source;
         let fingerprint = prepared.file.fingerprint;
-        let mut indexed = Vec::with_capacity(prepared.file.collections.len());
-        for collection in prepared.file.collections {
-            let state = repository
-                .collections()
-                .get(collection.collection.0 as usize)
-                .ok_or_else(|| IndexError::InvalidPublication("collection missing".into()))?;
-            let mut admission = SegmentAdmission::new(collection.collection, &state.source);
-            admission
-                .admit(&source, collection)
-                .map_err(IndexError::Build)?;
-            indexed.push(
-                admission
-                    .seal()
-                    .into_indexed(
-                        &state.definition,
-                        options.bigram_alphabet,
-                        options.inference,
-                        repository.collections().len(),
-                        &repository.workers,
-                    )
-                    .map_err(IndexError::Build)?,
-            );
-        }
-        let memberships = indexed.iter().map(|segment| segment.collection).collect();
-        let mut entry = FileEntry {
-            id: source.id,
-            relative_path: source.relative_path,
-            revision: source.revision,
-            created_ns: source.created_ns,
-            collections: memberships,
-            status: FileStatus::Valid,
-            diagnostics: Vec::new(),
-            omitted_diagnostics: 0,
-        };
-        for segment in &indexed {
-            let file = segment.file(source.id).ok_or_else(|| {
-                IndexError::InvalidPublication("segment file entry missing".into())
-            })?;
-            entry.status = entry.status.max(file.entry.status);
-            entry.omitted_diagnostics = entry
-                .omitted_diagnostics
-                .saturating_add(file.entry.omitted_diagnostics);
-            for diagnostic in &file.entry.diagnostics {
-                entry
-                    .record_diagnostic(diagnostic.clone())
-                    .map_err(IndexError::InvalidPublication)?;
-            }
-        }
+        let (entry, indexed) =
+            index_prepared_file(view.repository(), &source, prepared.file.collections)?;
         let mut next = (*view.0).clone();
         next.catalog = next
             .catalog
@@ -591,6 +699,182 @@ impl Index {
         }
         next.revision = view.revision().next()?;
         Ok(next)
+    }
+
+    /// Stage an update or move with the old incarnation retired in every
+    /// collection. The returned root is not visible until the writer checks
+    /// the captured revision and publishes it.
+    pub(crate) fn stage_prepared_replace(
+        &self,
+        prepared: PreparedReplacement,
+    ) -> Result<PublishedIndex, IndexError> {
+        let view = self.view()?;
+        if prepared.expected_handle.instance_id != self.instance_id() {
+            return Err(IndexError::ForeignInstance);
+        }
+        if view.revision() != prepared.expected_revision {
+            return Err(IndexError::RevisionConflict {
+                expected: prepared.expected_revision,
+                actual: view.revision(),
+            });
+        }
+        if view.configuration_identity() != prepared.configuration_identity {
+            return Err(IndexError::IncompatibleConfiguration(
+                "configuration changed during file preparation".into(),
+            ));
+        }
+        let file_id = prepared.expected_handle.file_id;
+        if prepared.file.source.id != file_id {
+            return Err(IndexError::InvalidPublication(
+                "prepared replacement file ID changed".into(),
+            ));
+        }
+        let actual = view
+            .0
+            .file_versions
+            .get(file_id)
+            .ok_or(IndexError::UnknownFile)?;
+        if actual != prepared.expected_handle.version {
+            return Err(IndexError::FileConflict {
+                file: file_id,
+                expected: prepared.expected_handle.version,
+                actual,
+            });
+        }
+        let previous = view
+            .0
+            .catalog
+            .entry(file_id)
+            .ok_or(IndexError::UnknownFile)?;
+        if view
+            .0
+            .catalog
+            .id_for(&prepared.file.source.relative_path)
+            .is_some_and(|other| other != file_id)
+        {
+            return Err(IndexError::DestinationExists);
+        }
+        let source = prepared.file.source;
+        let fingerprint = prepared.file.fingerprint;
+        let (entry, indexed) =
+            index_prepared_file(view.repository(), &source, prepared.file.collections)?;
+        let mut next = (*view.0).clone();
+        next.retire_file_records(previous)?;
+        next.catalog = next
+            .catalog
+            .replaced(entry, fingerprint, Some(prepared.configuration_identity))
+            .map_err(IndexError::InvalidPublication)?;
+        next.file_versions = next
+            .file_versions
+            .advanced(file_id)
+            .map_err(IndexError::ResourceLimit)?
+            .0;
+        for segment in indexed {
+            next = next.with_segment(segment)?;
+        }
+        next.revision = view.revision().next()?;
+        Ok(next)
+    }
+
+    /// Apply one complete metadata observation through the same file
+    /// preparation/publication paths as explicit mutations. Callers schedule
+    /// this outside query threads; an unchanged pass does not read content or
+    /// publish a new data revision.
+    pub(crate) fn reconcile_pass(&self, cancelled: impl Fn() -> bool) -> ReconciliationReport {
+        use crate::lifecycle_scan::{ScanChange, plan_scan, scan_sources};
+
+        let mut report = ReconciliationReport::default();
+        let snapshot = match self.view() {
+            Ok(snapshot) => snapshot,
+            Err(error) => {
+                report.issues.push(error.to_string());
+                return report;
+            }
+        };
+        let repository = snapshot.repository();
+        let root = &repository.files().root;
+        let definitions = repository
+            .collections()
+            .iter()
+            .map(|collection| collection.definition.clone())
+            .collect::<Vec<_>>();
+        let prior = snapshot.0.catalog.scan_stamps();
+        let scan = scan_sources(root, &definitions, &repository.sources, &cancelled);
+        report.examined = scan.examined;
+        report.cancelled = scan.cancelled;
+        report.issues.extend(
+            scan.issues
+                .iter()
+                .map(|issue| format!("collection {}: {}", issue.collection.0, issue.message)),
+        );
+        let plan = plan_scan(&prior, &scan);
+        report.unchanged = plan.unchanged;
+        report.skipped = plan.skipped;
+        for change in plan.changes {
+            if cancelled() {
+                report.cancelled = true;
+                break;
+            }
+            let path = match &change {
+                ScanChange::Add(observed) | ScanChange::Remove(observed) => &observed.path,
+                ScanChange::Update { observed, .. } => &observed.path,
+            }
+            .clone();
+            let outcome = match change {
+                ScanChange::Add(observed) => {
+                    self.prepare_add_file(&observed.path).and_then(|prepared| {
+                        if prepared.file.source.revision != observed.revision {
+                            return Err(IndexError::SourceUnavailable(
+                                "source changed after metadata scan".into(),
+                            ));
+                        }
+                        let expected = prepared.expected_revision;
+                        let next = self.stage_prepared_add(prepared)?;
+                        self.publish_prepared(expected, next).map(|_| ())
+                    })
+                }
+                ScanChange::Update { previous, observed } => snapshot
+                    .file_handle_for_path(&previous.path)
+                    .ok_or(IndexError::UnknownFile)
+                    .and_then(|handle| {
+                        let prepared = self.prepare_replace_file(handle, &observed.path)?;
+                        if prepared.file.source.revision != observed.revision {
+                            return Err(IndexError::SourceUnavailable(
+                                "source changed after metadata scan".into(),
+                            ));
+                        }
+                        let expected = prepared.expected_revision;
+                        let next = self.stage_prepared_replace(prepared)?;
+                        self.publish_prepared(expected, next).map(|_| ())
+                    }),
+                ScanChange::Remove(observed) => snapshot
+                    .file_handle_for_path(&observed.path)
+                    .ok_or(IndexError::UnknownFile)
+                    .and_then(
+                        |handle| match std::fs::metadata(root.join(&observed.path)) {
+                            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+                                self.delete_file(handle).map(|_| ())
+                            }
+                            Ok(_) => Err(IndexError::SourceUnavailable(
+                                "source reappeared after metadata scan".into(),
+                            )),
+                            Err(error) => Err(IndexError::Io(error.to_string())),
+                        },
+                    ),
+            };
+            match outcome {
+                Ok(()) => match scan.files.get(&path) {
+                    Some(_) if prior.contains_key(&path) => report.updated += 1,
+                    Some(_) => report.added += 1,
+                    None => report.removed += 1,
+                },
+                Err(error) => {
+                    report.skipped += 1;
+                    report.issues.push(format!("{}: {error}", path.display()));
+                }
+            }
+        }
+        report
     }
 
     /// Retire all records owned by one file across its collections in one
@@ -623,54 +907,17 @@ impl Index {
             .entry(handle.file_id)
             .ok_or(IndexError::UnknownFile)?;
         let mut next = (*current.0).clone();
-        let mut retired_records = 0u64;
-        let mut affected_collections = Vec::new();
-        for collection_id in &file.collections {
-            let collection = next
-                .repository
-                .collections()
-                .get(collection_id.0 as usize)
-                .ok_or_else(|| IndexError::InvalidPublication("file collection missing".into()))?;
-            let active = next
-                .active
-                .get_mut(collection_id.0 as usize)
-                .ok_or_else(|| IndexError::InvalidPublication("active domain missing".into()))?;
-            if let Some(slots) = collection
-                .generation
-                .file_records
-                .records_for(handle.file_id)
-            {
-                retired_records +=
-                    slots.iter().filter(|slot| active.contains(**slot)).count() as u64;
-                *active = active
-                    .retired(slots)
-                    .map_err(IndexError::InvalidPublication)?;
-            }
-            let segments = next
-                .segments
-                .get_mut(collection_id.0 as usize)
-                .ok_or_else(|| {
-                    IndexError::InvalidPublication("segment collection missing".into())
-                })?;
-            for segment in Arc::make_mut(segments).iter_mut() {
-                if let Some(slots) = segment
-                    .index
-                    .file_records(handle.file_id)
-                    .map(<[_]>::to_vec)
-                {
-                    let segment = Arc::make_mut(segment);
-                    retired_records += slots
-                        .iter()
-                        .filter(|slot| segment.active.contains(**slot))
-                        .count() as u64;
-                    segment.active = segment
-                        .active
-                        .retired(&slots)
-                        .map_err(IndexError::InvalidPublication)?;
-                }
-            }
-            affected_collections.push(collection.definition.name.clone());
-        }
+        let retired_records = next.retire_file_records(file)?;
+        let affected_collections = file
+            .collections
+            .iter()
+            .map(|id| {
+                next.repository.collections()[id.0 as usize]
+                    .definition
+                    .name
+                    .clone()
+            })
+            .collect();
         next.catalog = next
             .catalog
             .retired(handle.file_id)
@@ -728,11 +975,9 @@ impl Index {
     }
 }
 
-
 /// Pinned immutable read context for a single publication revision.
 #[derive(Clone)]
 pub struct IndexView(Arc<PublishedIndex>);
-
 
 impl IndexView {
     pub fn instance_id(&self) -> u64 {
@@ -1010,7 +1255,6 @@ impl IndexView {
         )
     }
 }
-
 
 #[cfg(test)]
 #[path = "lifecycle.test.rs"]
