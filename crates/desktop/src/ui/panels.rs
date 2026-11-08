@@ -251,7 +251,6 @@ impl DesktopView {
             .left(px(300.))
             .w(px(640.))
             .max_h(px(600.))
-            .overflow_y_scrollbar()
             .flex()
             .flex_col()
             .gap_2()
@@ -466,8 +465,10 @@ impl DesktopView {
                             .icon(IconName::Close)
                             .tooltip("Close inspector")
                             .accessibility_label("Close inspector")
-                            .on_click(cx.listener(|this, _, _, _| {
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.inspector_visible = false;
                                 this.send(UiAction::CloseDetail);
+                                cx.notify();
                             })),
                     ),
             );
@@ -793,7 +794,6 @@ impl DesktopView {
             .right(px(8.))
             .w(px(700.))
             .max_h(px(560.))
-            .overflow_y_scrollbar()
             .flex()
             .flex_col()
             .gap_2()
@@ -1030,7 +1030,7 @@ impl DesktopView {
     }
 
     pub(super) fn render_help(&self) -> impl IntoElement {
-        div().id("help-panel").absolute().top(px(100.)).right(px(16.)).w(px(600.)).max_h(px(600.)).overflow_y_scrollbar().flex().flex_col().gap_1().p_3()
+        div().id("help-panel").absolute().top(px(100.)).right(px(16.)).w(px(600.)).max_h(px(600.)).flex().flex_col().gap_1().p_3()
             .bg(rgb(if self.state.dark { 0x202a35 } else { 0xe8f0f7 }))
             .child(div().child(format!("Objekte Desktop {} · Help", env!("CARGO_PKG_VERSION"))))
             .child(div().text_sm().child("Use Open to choose a folder or configured repository. Type in Full Text and Structured independently; they run together."))

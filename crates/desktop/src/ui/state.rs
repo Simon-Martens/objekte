@@ -66,6 +66,7 @@ pub struct UiState {
     pub errors: BTreeMap<ErrorField, String>,
     pub dark: bool,
     pub show_preview: bool,
+    pub inspector_visible: bool,
     pub show_open_options: bool,
     pub show_batch: bool,
     pub show_history: bool,
@@ -113,6 +114,7 @@ impl UiState {
                 self.detail = None;
                 self.detail_cache = DetailCache::default();
                 self.detail_source = None;
+                self.inspector_visible = false;
                 self.diagnostics.clear();
                 self.busy = Busy::None;
                 self.status = "Repository ready".into();
@@ -163,6 +165,9 @@ impl UiState {
                     self.detail_cache = DetailCache::default();
                     self.detail_source = None;
                     self.show_raw = false;
+                }
+                if page.selected.is_none() {
+                    self.inspector_visible = false;
                 }
                 self.grid_cache.rows = page
                     .rows

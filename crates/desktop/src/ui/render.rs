@@ -542,7 +542,11 @@ impl DesktopView {
                     "end" => this.select_absolute(true, cx),
                     "pageup" => this.send(UiAction::PageRelative(-1)),
                     "pagedown" => this.send(UiAction::PageRelative(1)),
-                    "enter" => this.send(UiAction::OpenDetail),
+                    "enter" => {
+                        this.state.inspector_visible = true;
+                        this.send(UiAction::OpenDetail);
+                        cx.notify();
+                    }
                     _ => return,
                 }
                 cx.stop_propagation();
@@ -604,6 +608,7 @@ impl DesktopView {
                     .on_click(cx.listener(move |this, _, window, cx| {
                         window.focus(&this.grid_focus, cx);
                         this.state.page.selected = Some(index);
+                        this.state.inspector_visible = this.state.show_preview;
                         this.send(UiAction::SelectRow(index));
                         cx.notify();
                     }))
@@ -803,8 +808,8 @@ impl Render for DesktopView {
                             .child(self.render_grid(cx)),
                     )
                     .when(
-                        self.state.detail.is_some()
-                            || (self.state.show_preview && self.state.page.selected.is_some()),
+                        self.state.inspector_visible
+                            && (self.state.detail.is_some() || self.state.page.selected.is_some()),
                         |this| this.child(self.render_detail(cx)),
                     ),
             )

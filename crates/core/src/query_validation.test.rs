@@ -7,7 +7,6 @@ use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
-
 #[test]
 fn validates_binding_without_reopening_source_records() {
     let unique = SystemTime::now()

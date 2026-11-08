@@ -264,6 +264,7 @@ impl DesktopView {
             current.saturating_add_signed(delta).min(len - 1)
         });
         self.state.page.selected = Some(next);
+        self.state.inspector_visible = self.state.show_preview;
         self.grid_scroll.scroll_to_item(next);
         self.send(UiAction::SelectRow(next));
         cx.notify();
@@ -276,6 +277,7 @@ impl DesktopView {
         }
         let index = if last { len - 1 } else { 0 };
         self.state.page.selected = Some(index);
+        self.state.inspector_visible = self.state.show_preview;
         self.grid_scroll.scroll_to_item(index);
         self.send(UiAction::SelectRow(index));
         cx.notify();
