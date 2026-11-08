@@ -1,7 +1,7 @@
 //! Bounded file-batch contributions and deterministic index admission.
 
 use std::collections::{BTreeMap, HashMap, VecDeque};
-use std::io::BufRead;
+use std::io::{BufRead, BufReader, Read};
 use std::num::NonZeroUsize;
 use std::ops::Range;
 use std::path::Path;
@@ -13,6 +13,7 @@ use std::time::Instant;
 
 use rayon::ThreadPool;
 use roaring::RoaringBitmap;
+use sha2::{Digest, Sha256};
 
 use crate::bigram::{BigramBuilder, BigramContribution};
 use crate::inference::{InferenceBuilder, InferenceConfig};
@@ -48,11 +49,12 @@ struct BatchFile {
 
 /// Immutable discovery metadata shared by all construction workers. Mutable
 /// statuses and diagnostics stay in the coordinator-owned inventory.
+#[derive(Clone)]
 pub(crate) struct SourceFileInput {
-    id: FileId,
-    relative_path: PathBuf,
-    revision: SourceRevision,
-    created_ns: Option<i128>,
+    pub(crate) id: FileId,
+    pub(crate) relative_path: PathBuf,
+    pub(crate) revision: SourceRevision,
+    pub(crate) created_ns: Option<i128>,
 }
 
 
@@ -587,13 +589,278 @@ pub(crate) fn process_batch(
     builder.finish(files, record_parses, failed_parses)
 }
 
+
+/// A file's eligible collection bindings, resolved by discovery before I/O.
+/// Preparation performs no publication and never changes source files.
+#[derive(Clone, Copy)]
+pub(crate) struct FilePreparationBinding<'a> {
+    pub collection: CollectionId,
+    pub definition: &'a CollectionDefinition,
+    pub source: &'a PreparedSource,
+}
+
+
+pub(crate) struct PreparedCollectionBuild {
+    pub collection: CollectionId,
+    pub source_id: String,
+    pub source_version: u32,
+    pub contributions: Vec<BatchContribution>,
+}
+
+
+/// Private, complete per-file work. The coordinator must still validate the
+/// file version, identities, and configuration before publishing any part.
+pub(crate) struct PreparedFileBuild {
+    pub source: SourceFileInput,
+    /// Exact raw bytes from one preparation read, when that reader exposes it.
+    pub fingerprint: Option<[u8; 32]>,
+    pub collections: Vec<PreparedCollectionBuild>,
+}
+
+
+struct HashingReader<'a, R> {
+    inner: R,
+    digest: Option<&'a mut Sha256>,
+    bytes_read: &'a mut u64,
+}
+
+
+impl<R: Read> Read for HashingReader<'_, R> {
+    fn read(&mut self, bytes: &mut [u8]) -> std::io::Result<usize> {
+        let count = self.inner.read(bytes)?;
+        if let Some(digest) = self.digest.as_mut() {
+            digest.update(&bytes[..count]);
+        }
+        *self.bytes_read += count as u64;
+        Ok(count)
+    }
+}
+
+
+fn source_revision_at(path: &Path) -> Result<SourceRevision, String> {
+    SourceRevision::from_metadata(
+        &std::fs::metadata(path).map_err(|error| format!("{}: {error}", path.display()))?,
+    )
+}
+
+fn prepare_unframed_file(
+    root: &Path,
+    input: &SourceFileInput,
+    binding: &FilePreparationBinding<'_>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+) -> Result<Vec<BatchContribution>, String> {
+    let mut builder = BatchBuilder::new(
+        root,
+        binding.definition,
+        binding.collection,
+        binding.source,
+        alphabet,
+        inference,
+        inference_jobs,
+    )?;
+    let path = root.join(&input.relative_path);
+    let mut file = input.for_collection(binding.collection);
+    let stats =
+        extract_file_build_outcomes(&path, binding.source.reader(), input.revision, |outcome| {
+            builder.outcome(&mut file, &path, outcome, None)
+        })?;
+    let count = builder.records.len();
+    Ok(vec![builder.finish(
+        vec![BatchFile {
+            entry: file,
+            records: 0..count,
+            first_range: true,
+        }],
+        stats.record_parses,
+        stats.failed_parses,
+    )?])
+}
+
+fn prepare_bounded_json_lines(
+    root: &Path,
+    input: &SourceFileInput,
+    binding: &FilePreparationBinding<'_>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+    hash_bytes: bool,
+) -> Result<(Vec<BatchContribution>, Option<[u8; 32]>), String> {
+    let path = root.join(&input.relative_path);
+    let file = match std::fs::File::open(&path) {
+        Ok(file) => file,
+        Err(_) => {
+            return Ok((
+                prepare_unframed_file(root, input, binding, alphabet, inference, inference_jobs)?,
+                None,
+            ));
+        }
+    };
+    if SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
+        != input.revision
+    {
+        return Err("stale source revision during preparation".into());
+    }
+    let mut digest = Sha256::new();
+    let mut bytes_read = 0u64;
+    let reader = HashingReader {
+        inner: &file,
+        digest: hash_bytes.then_some(&mut digest),
+        bytes_read: &mut bytes_read,
+    };
+    let mut reader = BoundedJsonLines::from_reader(BufReader::new(reader));
+    let limits = BoundedBuildLimits::default();
+    let mut contributions = Vec::new();
+    while let Some(chunk) = reader.next_chunk(limits.chunk_bytes, limits.ranges)? {
+        contributions.push(process_framed_batch(
+            root,
+            input,
+            binding,
+            &chunk.bytes,
+            &chunk.ranges,
+            chunk.file_offset,
+            chunk.preceding_lines,
+            contributions.is_empty(),
+            alphabet,
+            inference,
+            inference_jobs,
+        )?);
+    }
+    drop(reader);
+    if SourceRevision::from_metadata(&file.metadata().map_err(|error| error.to_string())?)?
+        != input.revision
+        || source_revision_at(&path)? != input.revision
+        || bytes_read != input.revision.size
+    {
+        return Err("stale source revision during preparation".into());
+    }
+    if contributions.is_empty() {
+        contributions.push(process_framed_batch(
+            root,
+            input,
+            binding,
+            &[],
+            &[],
+            0,
+            0,
+            true,
+            alphabet,
+            inference,
+            inference_jobs,
+        )?);
+    }
+    let fingerprint = hash_bytes.then(|| digest.finalize().into());
+    Ok((contributions, fingerprint))
+}
+
+/// Prepare one physical file across all supplied eligible collections. JSONL
+/// uses bounded chunks; other readers retain their existing whole-buffer
+/// framing. A malformed frame falls back to ordinary build extraction.
+pub(crate) fn prepare_file_build(
+    root: &Path,
+    input: SourceFileInput,
+    bindings: &[FilePreparationBinding<'_>],
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+) -> Result<PreparedFileBuild, String> {
+    let path = root.join(&input.relative_path);
+    let mut fingerprint = None;
+    let mut collections = Vec::with_capacity(bindings.len());
+    for binding in bindings {
+        if let Ok(revision) = source_revision_at(&path) {
+            if revision != input.revision {
+                return Err("stale source revision during preparation".into());
+            }
+        }
+        let contributions = if binding.source.reader().supports_bounded_json_lines_build() {
+            let (contributions, digest) = prepare_bounded_json_lines(
+                root,
+                &input,
+                binding,
+                alphabet,
+                inference,
+                inference_jobs,
+                fingerprint.is_none(),
+            )?;
+            fingerprint = fingerprint.or(digest);
+            contributions
+        } else if let Some((bytes, ranges)) = frame_file_for_build(&path, binding.source.reader())?
+        {
+            if source_revision_at(&path)? != input.revision
+                || bytes.len() as u64 != input.revision.size
+            {
+                return Err("stale source revision during preparation".into());
+            }
+            if fingerprint.is_none() {
+                fingerprint = Some(Sha256::digest(&*bytes).into());
+            }
+            let mut contributions = Vec::new();
+            let mut start = 0;
+            while start < ranges.len() {
+                let mut end = start;
+                let mut weight = 0u64;
+                while end < ranges.len() && end - start < 256 {
+                    let size = ranges[end].end - ranges[end].start;
+                    if end > start && weight.saturating_add(size) > 1024 * 1024 {
+                        break;
+                    }
+                    weight = weight.saturating_add(size);
+                    end += 1;
+                }
+                contributions.push(process_framed_batch(
+                    root,
+                    &input,
+                    binding,
+                    &bytes,
+                    &ranges[start..end],
+                    0,
+                    0,
+                    contributions.is_empty(),
+                    alphabet,
+                    inference,
+                    inference_jobs,
+                )?);
+                start = end;
+            }
+            if contributions.is_empty() {
+                contributions.push(process_framed_batch(
+                    root,
+                    &input,
+                    binding,
+                    &bytes,
+                    &[],
+                    0,
+                    0,
+                    true,
+                    alphabet,
+                    inference,
+                    inference_jobs,
+                )?);
+            }
+            contributions
+        } else {
+            prepare_unframed_file(root, &input, binding, alphabet, inference, inference_jobs)?
+        };
+        collections.push(PreparedCollectionBuild {
+            collection: binding.collection,
+            source_id: binding.source.id().into(),
+            source_version: binding.source.version(),
+            contributions,
+        });
+    }
+    Ok(PreparedFileBuild {
+        source: input,
+        fingerprint,
+        collections,
+    })
+}
+
 fn process_framed_batch(
     root: &Path,
-    definition: &CollectionDefinition,
-    collection: CollectionId,
-    source: &PreparedSource,
-    file_id: FileId,
-    source_files: &[SourceFileInput],
+    original: &SourceFileInput,
+    binding: &FilePreparationBinding<'_>,
     bytes: &[u8],
     ranges: &[ByteRange],
     file_offset: u64,
@@ -603,68 +870,68 @@ fn process_framed_batch(
     inference: InferenceConfig,
     inference_jobs: usize,
 ) -> Result<BatchContribution, String> {
-    let original = &source_files[file_id.0 as usize];
     let path = root.join(&original.relative_path);
-    let mut file = original.for_collection(collection);
+    let mut file = original.for_collection(binding.collection);
     let mut builder = BatchBuilder::new(
         root,
-        definition,
-        collection,
-        source,
+        binding.definition,
+        binding.collection,
+        binding.source,
         alphabet,
         inference,
         inference_jobs,
     )?;
-    let stats = extract_framed_build_outcomes(&path, source.reader(), bytes, ranges, |outcome| {
-        let revision_size = file.revision.size;
-        let absolute = |range: ByteRange| -> Result<ByteRange, String> {
-            let start = file_offset
-                .checked_add(range.start)
-                .ok_or("record range offset overflow")?;
-            let end = file_offset
-                .checked_add(range.end)
-                .ok_or("record range offset overflow")?;
-            ByteRange::checked(start, end, revision_size)
-        };
-        match outcome {
-            SourceOutcome::Logical { range, record } => {
-                let source_part = &bytes[range.start as usize..range.end as usize];
-                let range = absolute(range)?;
-                builder.outcome(
+    let stats =
+        extract_framed_build_outcomes(&path, binding.source.reader(), bytes, ranges, |outcome| {
+            let revision_size = file.revision.size;
+            let absolute = |range: ByteRange| -> Result<ByteRange, String> {
+                let start = file_offset
+                    .checked_add(range.start)
+                    .ok_or("record range offset overflow")?;
+                let end = file_offset
+                    .checked_add(range.end)
+                    .ok_or("record range offset overflow")?;
+                ByteRange::checked(start, end, revision_size)
+            };
+            match outcome {
+                SourceOutcome::Logical { range, record } => {
+                    let source_part = &bytes[range.start as usize..range.end as usize];
+                    let range = absolute(range)?;
+                    builder.outcome(
+                        &mut file,
+                        &path,
+                        SourceOutcome::Logical { range, record },
+                        Some(source_part),
+                    )
+                }
+                SourceOutcome::Malformed {
+                    range,
+                    mut diagnostic,
+                    bytes,
+                } => {
+                    diagnostic.line = diagnostic
+                        .line
+                        .and_then(|line| line.checked_add(preceding_lines));
+                    let range = absolute(range)?;
+                    builder.outcome(
+                        &mut file,
+                        &path,
+                        SourceOutcome::Malformed {
+                            range,
+                            diagnostic,
+                            bytes,
+                        },
+                        None,
+                    )
+                }
+                SourceOutcome::Unreadable { diagnostic } => builder.outcome(
                     &mut file,
                     &path,
-                    SourceOutcome::Logical { range, record },
-                    Some(source_part),
-                )
-            }
-            SourceOutcome::Malformed {
-                range,
-                mut diagnostic,
-                bytes,
-            } => {
-                diagnostic.line = diagnostic
-                    .line
-                    .and_then(|line| line.checked_add(preceding_lines));
-                let range = absolute(range)?;
-                builder.outcome(
-                    &mut file,
-                    &path,
-                    SourceOutcome::Malformed {
-                        range,
-                        diagnostic,
-                        bytes,
-                    },
+                    SourceOutcome::Unreadable { diagnostic },
                     None,
-                )
+                ),
             }
-            SourceOutcome::Unreadable { diagnostic } => builder.outcome(
-                &mut file,
-                &path,
-                SourceOutcome::Unreadable { diagnostic },
-                None,
-            ),
-        }
-    })?;
+        })?;
     let count = builder.records.len();
     builder.finish(
         vec![BatchFile {
@@ -813,11 +1080,12 @@ pub(crate) fn process_framed_file(
                 let result = counters.run(|| {
                     process_framed_batch(
                         &root,
-                        &definition,
-                        collection,
-                        &source,
-                        file_id,
-                        &source_files,
+                        &source_files[file_id.0 as usize],
+                        &FilePreparationBinding {
+                            collection,
+                            definition: &definition,
+                            source: &source,
+                        },
                         &bytes,
                         &ranges[chunk],
                         0,
@@ -1033,11 +1301,12 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
                 let result = counters.run(|| {
                     process_framed_batch(
                         &root,
-                        &definition,
-                        collection,
-                        &source,
-                        file_id,
-                        &source_files,
+                        &source_files[file_id.0 as usize],
+                        &FilePreparationBinding {
+                            collection,
+                            definition: &definition,
+                            source: &source,
+                        },
                         &chunk.bytes,
                         &chunk.ranges,
                         chunk.file_offset,

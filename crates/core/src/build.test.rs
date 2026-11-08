@@ -8,6 +8,280 @@ use crate::source::{SourceFormat, TextSegment};
 use crate::workload::ReturnMode;
 
 #[test]
+fn single_file_preparation_handles_jsonl_cardinality_and_shared_membership() {
+    use sha2::{Digest, Sha256};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-file-preparation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let definitions = [
+        CollectionDefinition::folder("first", ".", SourceFormat::JsonLines),
+        CollectionDefinition::folder("second", ".", SourceFormat::JsonLines),
+    ];
+    let source = crate::source::SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    let bindings = [
+        FilePreparationBinding {
+            collection: CollectionId(0),
+            definition: &definitions[0],
+            source: &source,
+        },
+        FilePreparationBinding {
+            collection: CollectionId(1),
+            definition: &definitions[1],
+            source: &source,
+        },
+    ];
+    let inference = InferenceConfig {
+        mode: crate::inference::InferenceMode::Disabled,
+        policy: Default::default(),
+    };
+    for (bytes, expected) in [
+        (b"".as_slice(), 0),
+        (b"{\"name\":\"one\"}\n".as_slice(), 1),
+        (
+            b"{\"name\":\"one\"}\n{\"name\":\"two\"}\n{\"name\":\"three\"}\n".as_slice(),
+            3,
+        ),
+    ] {
+        let path = root.join("shared.jsonl");
+        std::fs::write(&path, bytes).unwrap();
+        let input = SourceFileInput {
+            id: FileId(91),
+            relative_path: "shared.jsonl".into(),
+            revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+            created_ns: Some(123),
+        };
+        let prepared =
+            prepare_file_build(&root, input, &bindings, BigramAlphabet::Ascii, inference, 1)
+                .unwrap();
+        assert_eq!(prepared.source.id, FileId(91));
+        assert_eq!(prepared.source.created_ns, Some(123));
+        assert_eq!(prepared.fingerprint, Some(Sha256::digest(bytes).into()));
+        assert_eq!(prepared.collections.len(), 2);
+        for (index, collection) in prepared.collections.iter().enumerate() {
+            assert_eq!(collection.collection, CollectionId(index as u32));
+            assert_eq!(collection.source_id, "jsonl");
+            assert_eq!(collection.source_version, 1);
+            assert_eq!(collection.contributions.len(), 1);
+            let batch = &collection.contributions[0];
+            assert_eq!(batch.records.len(), expected);
+            assert_eq!(batch.files[0].entry.id, FileId(91));
+            assert_eq!(batch.files[0].entry.status, FileStatus::Valid);
+            assert_eq!(
+                batch.files[0].entry.collections,
+                [CollectionId(index as u32)]
+            );
+            assert_eq!(batch.files[0].records, 0..expected);
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn single_file_preparation_preserves_broken_fallback_and_bounded_chunks() {
+    use sha2::{Digest, Sha256};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-file-fallback-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let source = crate::source::SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    let binding = FilePreparationBinding {
+        collection: CollectionId(0),
+        definition: &definition,
+        source: &source,
+    };
+    let inference = InferenceConfig {
+        mode: crate::inference::InferenceMode::Disabled,
+        policy: Default::default(),
+    };
+    let mut bytes = b"{broken}\n".to_vec();
+    for index in 0..600 {
+        bytes.extend_from_slice(format!("{{\"n\":{index}}}\n").as_bytes());
+    }
+    let path = root.join("data.jsonl");
+    std::fs::write(&path, &bytes).unwrap();
+    let input = SourceFileInput {
+        id: FileId(500),
+        relative_path: "data.jsonl".into(),
+        revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        created_ns: None,
+    };
+    let prepared = prepare_file_build(
+        &root,
+        input,
+        &[binding],
+        BigramAlphabet::Ascii,
+        inference,
+        1,
+    )
+    .unwrap();
+    assert_eq!(prepared.fingerprint, Some(Sha256::digest(&bytes).into()));
+    let contributions = &prepared.collections[0].contributions;
+    assert!(contributions.len() >= 3);
+    assert_eq!(
+        contributions
+            .iter()
+            .map(|batch| batch.records.len())
+            .sum::<usize>(),
+        601
+    );
+    assert_eq!(
+        contributions
+            .iter()
+            .map(|batch| batch.failed_parses)
+            .sum::<u64>(),
+        1
+    );
+    assert_eq!(contributions[0].files[0].entry.status, FileStatus::Broken);
+    assert!(contributions[0].files[0].first_range);
+    assert!(
+        contributions
+            .iter()
+            .skip(1)
+            .all(|batch| !batch.files[0].first_range)
+    );
+    assert!(contributions.iter().all(|batch| batch.records.len() <= 256));
+    let last = contributions.last().unwrap().records.last().unwrap();
+    assert_eq!(last.range.end, bytes.len() as u64 - 1);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn single_file_preparation_rejects_stale_source_and_hashes_generic_bytes() {
+    use sha2::{Digest, Sha256};
+    let root = std::env::temp_dir().join(format!(
+        "objekte-file-stale-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("data.json");
+    std::fs::write(&path, b"{broken}").unwrap();
+    let definition = CollectionDefinition::folder("data", ".", SourceFormat::Json);
+    let source = crate::source::SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    let binding = FilePreparationBinding {
+        collection: CollectionId(0),
+        definition: &definition,
+        source: &source,
+    };
+    let inference = InferenceConfig {
+        mode: crate::inference::InferenceMode::Disabled,
+        policy: Default::default(),
+    };
+    let input = SourceFileInput {
+        id: FileId(33),
+        relative_path: "data.json".into(),
+        revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        created_ns: None,
+    };
+    let prepared = prepare_file_build(
+        &root,
+        input.clone(),
+        &[binding],
+        BigramAlphabet::Ascii,
+        inference,
+        1,
+    )
+    .unwrap();
+    assert_eq!(
+        prepared.fingerprint,
+        Some(Sha256::digest(b"{broken}").into())
+    );
+    assert_eq!(
+        prepared.collections[0].contributions[0].files[0]
+            .entry
+            .status,
+        FileStatus::Broken
+    );
+    std::fs::write(&path, b"{\"changed\":true}").unwrap();
+    assert!(
+        prepare_file_build(
+            &root,
+            input,
+            &[binding],
+            BigramAlphabet::Ascii,
+            inference,
+            1
+        )
+        .err()
+        .unwrap()
+        .contains("stale source revision")
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+#[ignore = "manual small-file preparation timing"]
+fn measure_single_file_preparation_cost() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-file-preparation-timing-{}",
+        std::process::id(),
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("sample.jsonl");
+    std::fs::write(&path, b"{\"name\":\"a small record\",\"n\":42}\n").unwrap();
+    let input = SourceFileInput {
+        id: FileId(1),
+        relative_path: "sample.jsonl".into(),
+        revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        created_ns: None,
+    };
+    let definition = CollectionDefinition::folder("sample", ".", SourceFormat::JsonLines);
+    let source = crate::source::SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    let binding = FilePreparationBinding {
+        collection: CollectionId(0),
+        definition: &definition,
+        source: &source,
+    };
+    let inference = InferenceConfig {
+        mode: crate::inference::InferenceMode::Disabled,
+        policy: Default::default(),
+    };
+    let started = Instant::now();
+    for _ in 0..100 {
+        let prepared = prepare_file_build(
+            &root,
+            input.clone(),
+            &[binding],
+            BigramAlphabet::Ascii,
+            inference,
+            1,
+        )
+        .unwrap();
+        assert_eq!(prepared.collections[0].contributions[0].records.len(), 1);
+    }
+    eprintln!(
+        "single-file JSONL preparation: {:.1} µs/call (100 calls, debug/release as invoked)",
+        started.elapsed().as_secs_f64() * 10_000.0
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn build_worker_policy_uses_detected_capacity_and_rejects_oversubscription() {
     let nz = |value| NonZeroUsize::new(value).unwrap();
     assert_eq!(resolve_build_workers(None, Some(nz(1))), Ok(1));
