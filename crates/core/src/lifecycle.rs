@@ -32,6 +32,7 @@ use crate::workload::ReturnMode;
 pub use crate::inventory::FileVersion;
 
 const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
+const MAX_CONSOLIDATED_RECORDS: usize = 262_144;
 
 /// Monotonic publication sequence within one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
@@ -312,6 +313,12 @@ impl PublishedIndex {
         index: IndexedCollectionSegment,
     ) -> Result<Self, IndexError> {
         let number = index.collection.0 as usize;
+        if number >= self.segments.len() {
+            return Err(IndexError::InvalidPublication(
+                "segment collection missing".into(),
+            ));
+        }
+        self.make_room_for_segment(number)?;
         let collection =
             self.repository.collections().get(number).ok_or_else(|| {
                 IndexError::InvalidPublication("segment collection missing".into())
@@ -321,11 +328,6 @@ impl PublishedIndex {
         {
             return Err(IndexError::IncompatibleConfiguration(
                 "segment source registration changed".into(),
-            ));
-        }
-        if self.segments[number].len() >= MAX_SEGMENTS_PER_COLLECTION {
-            return Err(IndexError::ResourceLimit(
-                "collection segment budget reached; compaction is required".into(),
             ));
         }
         for file in &index.files {
@@ -371,6 +373,103 @@ impl PublishedIndex {
             active,
         }));
         Ok(self)
+    }
+
+    /// Keep query merge width bounded. This runs only on a private staged
+    /// root, after preparation and before publication; no source bytes or
+    /// publication lock are needed.
+    fn make_room_for_segment(&mut self, number: usize) -> Result<(), IndexError> {
+        if self.segments[number].len() < MAX_SEGMENTS_PER_COLLECTION {
+            return Ok(());
+        }
+        let catalog = self.catalog.clone();
+        let group = Arc::make_mut(&mut self.segments[number]);
+        group.retain(|segment| segment.active.len() > 0);
+        if group.len() < MAX_SEGMENTS_PER_COLLECTION {
+            return Ok(());
+        }
+        for segment in group.iter_mut() {
+            if segment.active.len() == segment.index.records.len() as u64
+                || segment.index.records.len() > MAX_CONSOLIDATED_RECORDS
+            {
+                continue;
+            }
+            let compacted = segment
+                .index
+                .compact_active(&segment.active, MAX_CONSOLIDATED_RECORDS, |entry| {
+                    catalog.entry(entry.id).is_some_and(|current| {
+                        current.relative_path == entry.relative_path
+                            && current.revision == entry.revision
+                            && current.created_ns == entry.created_ns
+                            && current.collections.contains(&segment.index.collection)
+                    })
+                })
+                .map_err(IndexError::Build)?;
+            if compacted.active.len() == 0 {
+                continue;
+            }
+            let ordinal = self.next_segment_ordinal;
+            self.next_segment_ordinal = self
+                .next_segment_ordinal
+                .checked_add(1)
+                .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+            *segment = Arc::new(PublishedSegment {
+                ordinal,
+                index: Arc::new(compacted.index),
+                active: compacted.active,
+            });
+        }
+        group.retain(|segment| segment.active.len() > 0);
+        if group.len() < MAX_SEGMENTS_PER_COLLECTION {
+            return Ok(());
+        }
+        let mut choice = None;
+        for left in 0..group.len() {
+            for right in left + 1..group.len() {
+                let left_index = &group[left].index;
+                let right_index = &group[right].index;
+                let combined = left_index.records.len() + right_index.records.len();
+                if combined > MAX_CONSOLIDATED_RECORDS
+                    || left_index
+                        .files
+                        .iter()
+                        .any(|file| right_index.file(file.entry.id).is_some())
+                    || left_index
+                        .id_lookup
+                        .keys()
+                        .any(|id| right_index.id_lookup.contains_key(id))
+                {
+                    continue;
+                }
+                if choice.is_none_or(|(_, _, smallest)| combined < smallest) {
+                    choice = Some((left, right, combined));
+                }
+            }
+        }
+        let (left, right, _) = choice.ok_or_else(|| {
+            IndexError::ResourceLimit("no bounded segment consolidation is possible".into())
+        })?;
+        let merged = IndexedCollectionSegment::consolidate(
+            &[&group[left].index, &group[right].index],
+            MAX_CONSOLIDATED_RECORDS,
+        )
+        .map_err(IndexError::Build)?;
+        let active = merged
+            .translate_active(&[&group[left].active, &group[right].active])
+            .map_err(IndexError::Build)?;
+        let ordinal = self.next_segment_ordinal;
+        self.next_segment_ordinal = self
+            .next_segment_ordinal
+            .checked_add(1)
+            .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+        group.remove(right);
+        group.remove(left);
+        group.push(Arc::new(PublishedSegment {
+            ordinal,
+            index: Arc::new(merged.index),
+            active,
+        }));
+        Ok(())
     }
 
     /// Retire slots owned by one incarnation without touching the catalog.

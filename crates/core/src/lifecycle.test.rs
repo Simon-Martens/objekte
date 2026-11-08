@@ -452,6 +452,63 @@ fn background_reconciliation_reports_completion_and_joins() {
 }
 
 #[test]
+fn many_small_additions_and_replacements_stay_within_segment_budget() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-bounded-segments-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::JsonLines,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    for number in 0..70 {
+        let relative = format!("data/file-{number}.jsonl");
+        std::fs::write(root.join(&relative), format!("{{\"number\":{number}}}\n")).unwrap();
+        let prepared = index
+            .prepare_add_file(std::path::Path::new(&relative))
+            .unwrap();
+        let expected = prepared.expected_revision;
+        let staged = index.stage_prepared_add(prepared).unwrap();
+        index.publish_prepared(expected, staged).unwrap();
+    }
+    assert_eq!(index.status().unwrap().indexed_files, 70);
+    assert_eq!(
+        index.view().unwrap().search(&all_records()).unwrap().count,
+        Some(70)
+    );
+    assert!(index.view().unwrap().0.segments[0].len() <= 64);
+
+    let relative = std::path::Path::new("data/file-0.jsonl");
+    for number in 0..70 {
+        std::fs::write(root.join(relative), format!("{{\"updated\":{number}}}\n")).unwrap();
+        let handle = index
+            .view()
+            .unwrap()
+            .file_handle_for_path(relative)
+            .unwrap();
+        let prepared = index.prepare_replace_file(handle, relative).unwrap();
+        let expected = prepared.expected_revision;
+        let staged = index.stage_prepared_replace(prepared).unwrap();
+        index.publish_prepared(expected, staged).unwrap();
+    }
+    assert_eq!(
+        index.view().unwrap().search(&all_records()).unwrap().count,
+        Some(70)
+    );
+    assert!(index.view().unwrap().0.segments[0].len() <= 64);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
     let root = std::env::temp_dir().join(format!(
         "objekte-live-query-{}-{:?}",
