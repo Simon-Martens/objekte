@@ -16,10 +16,10 @@ use crate::build::IndexedCollectionSegment;
 use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
 use crate::executor::{
     Plan, PlanningCounters, Proof, TermChoice, estimate_expr, estimate_fts_candidates,
-    estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution,
+    estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
-use crate::lifecycle::IndexRevision;
+use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
 use crate::measurement::{ScanWork, WorkCounters};
@@ -1877,6 +1877,408 @@ pub(crate) fn get_segment_record_by_id(
         diagnostic_ref: record.diagnostic_ref,
         payload,
     }))
+}
+
+struct MergedPageHit {
+    key: RankKey,
+    hit: SearchHit,
+    segment: Option<(usize, usize)>,
+}
+
+impl PartialEq for MergedPageHit {
+    fn eq(&self, other: &Self) -> bool {
+        self.key == other.key
+    }
+}
+
+impl Eq for MergedPageHit {}
+
+impl PartialOrd for MergedPageHit {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for MergedPageHit {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.key.cmp(&other.key)
+    }
+}
+
+fn offer_merged(winners: &mut BinaryHeap<MergedPageHit>, cap: usize, candidate: MergedPageHit) {
+    if cap == 0 {
+        return;
+    }
+    if winners.len() < cap {
+        winners.push(candidate);
+    } else if winners
+        .peek()
+        .is_some_and(|worst| candidate.key < worst.key)
+    {
+        winners.pop();
+        winners.push(candidate);
+    }
+}
+
+fn segment_rank_key(
+    repo: &Repository,
+    sort: &ResolvedSort<'_>,
+    collection_index: usize,
+    segment: &IndexedCollectionSegment,
+    record: &RecordEntry,
+) -> Result<RankKey, String> {
+    let terms = sort.bound.terms[collection_index]
+        .as_ref()
+        .ok_or("segment sort collection missing")?;
+    let mut parts = Vec::with_capacity(terms.len());
+    for term in terms {
+        let BoundSortSource::Stored(base_column) = &term.source else {
+            return Err("computed sort over indexed segments is not implemented".into());
+        };
+        let column = segment.sorting.column(&base_column.path.display())?;
+        let key = column
+            .keys
+            .get(record.slot.0 as usize)
+            .ok_or("segment sort slot missing")?
+            .clone();
+        parts.push((key, term.descending, column.options));
+    }
+    Ok(RankKey {
+        parts,
+        collection: repo.collections[collection_index].definition.name.clone(),
+        id: record.id.0.clone(),
+    })
+}
+
+fn segment_locator_hit(
+    collection: &CollectionState,
+    resolved: SegmentRecordRef<'_>,
+    revision: IndexRevision,
+    mut matched_fields: Vec<String>,
+) -> SearchHit {
+    matched_fields.sort();
+    let record = resolved.record;
+    let file = resolved.file;
+    SearchHit {
+        collection: collection.definition.name.clone(),
+        record_id: record.id.0.clone(),
+        generation: revision.0,
+        file_id: file.id.0,
+        file_path: file.relative_path.clone(),
+        file_size: file.revision.size,
+        file_created_ns: file.created_ns,
+        byte_start: record.range.start,
+        byte_end: record.range.end,
+        modified_ns: record.revision.modified_ns,
+        matched_fields,
+        file_status: file.status,
+        record_class: record.class,
+        diagnostic_ref: record.diagnostic_ref,
+        payload: None,
+    }
+}
+
+fn bound_expr_has_relations(expr: &BoundExpr) -> bool {
+    match expr {
+        BoundExpr::Term(term) => {
+            term.related.is_some()
+                || term.path.root == PathRoot::Backlinks
+                || term
+                    .rhs
+                    .as_ref()
+                    .is_some_and(|rhs| rhs.path.root == PathRoot::Backlinks)
+        }
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => parts.iter().any(bound_expr_has_relations),
+        BoundExpr::Not(inner) => bound_expr_has_relations(inner),
+    }
+}
+
+/// Search the base and bounded indexed deltas as one pinned page. Segment
+/// candidates use local slot domains; only ranked hits cross shard boundaries.
+/// Relation and computed-sort resolution need the merged relation resolver and
+/// are rejected until that route is installed.
+pub(crate) fn search_segmented(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+) -> Result<SearchResult, String> {
+    if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
+        return Err("segment query collection count mismatch".into());
+    }
+    let sort = ResolvedSort::new(repo, query)?;
+    if sort.bound.has_computed {
+        return Err("computed sort over indexed segments is not implemented".into());
+    }
+    let (prepared, _) = crate::prepared::prepare(repo, query)?;
+    if prepared.collections.iter().any(|(_, filter, fts)| {
+        filter.as_ref().is_some_and(bound_expr_has_relations)
+            || fts
+                .as_ref()
+                .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
+    }) {
+        return Err("relation query over indexed segments is not implemented".into());
+    }
+    let cap = query
+        .options
+        .offset
+        .checked_add(query.options.limit)
+        .ok_or("page size overflow")?;
+    let mut base_query = query.clone();
+    base_query.options.offset = 0;
+    base_query.options.limit = cap;
+    base_query.options.count = true;
+    let base = search_active(repo, &base_query, base_active)?;
+    let mut counters = base.counters;
+    let mut total = base.count.ok_or("base match count missing")? as u64;
+    let mut winners = BinaryHeap::new();
+    for mut hit in base.hits {
+        let collection_index = repo
+            .collections
+            .iter()
+            .position(|collection| collection.definition.name == hit.collection)
+            .ok_or("base hit collection missing")?;
+        let collection = &repo.collections[collection_index];
+        let slot = collection
+            .id_lookup
+            .get(&RecordId(hit.record_id.clone()))
+            .ok_or("base hit ID missing")?;
+        let record = collection
+            .generation
+            .records
+            .get(slot.0 as usize)
+            .ok_or("base hit slot missing")?;
+        let key = rank_key(&sort, repo, collection_index, record);
+        hit.generation = revision.0;
+        offer_merged(
+            &mut winners,
+            cap,
+            MergedPageHit {
+                key,
+                hit,
+                segment: None,
+            },
+        );
+    }
+    let mut delta_opened = HashSet::new();
+    for (collection_index, filter, fts) in prepared.collections {
+        let collection = &repo.collections[collection_index];
+        for (segment_index, published) in segments[collection_index].iter().enumerate() {
+            if published.index.collection != collection.generation.collection {
+                return Err("segment collection mismatch".into());
+            }
+            let segment = &published.index;
+            let bounds = filter
+                .as_ref()
+                .map(|filter| segment_filter_bounds(segment, &published.active, filter))
+                .transpose()?;
+            let candidates = bounds
+                .as_ref()
+                .map_or_else(|| published.active.bitmap(), |bounds| bounds.may.clone());
+            counters.candidates += candidates.len();
+            let index_exact = !query.options.evidence
+                && fts.is_none()
+                && bounds
+                    .as_ref()
+                    .is_none_or(|bounds| bounds.may == bounds.must);
+            if index_exact {
+                for slot in candidates.iter() {
+                    let resolved =
+                        segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
+                            .ok_or("active segment candidate missing")?;
+                    total += 1;
+                    counters.exact_posting_matches += 1;
+                    let key =
+                        segment_rank_key(repo, &sort, collection_index, segment, resolved.record)?;
+                    let hit = segment_locator_hit(collection, resolved, revision, Vec::new());
+                    offer_merged(
+                        &mut winners,
+                        cap,
+                        MergedPageHit {
+                            key,
+                            hit,
+                            segment: Some((collection_index, segment_index)),
+                        },
+                    );
+                }
+                continue;
+            }
+            let mut files: BTreeMap<u32, Vec<(u32, ByteRange)>> = BTreeMap::new();
+            for slot in candidates.iter() {
+                let record = segment
+                    .record(RecordSlot(slot))
+                    .ok_or("segment candidate missing")?;
+                files
+                    .entry(record.file.0)
+                    .or_default()
+                    .push((slot, record.range));
+            }
+            for (file_id, ranges) in files {
+                let file = catalog
+                    .entry(crate::model::FileId(file_id))
+                    .ok_or("active segment candidate file is retired")?;
+                let path = repo.files.root.join(&file.relative_path);
+                let mut reader = RecordRangeReader::open(&path, file.revision)?;
+                delta_opened.insert(file_id);
+                counters.files_opened += 1;
+                let mut cursor = 0;
+                while cursor < ranges.len() {
+                    let start = cursor;
+                    let mut batch_bytes = 0u64;
+                    while cursor < ranges.len() && cursor - start < 128 {
+                        let next = ranges[cursor].1.len();
+                        if cursor > start && batch_bytes.saturating_add(next) > 1024 * 1024 {
+                            break;
+                        }
+                        batch_bytes = batch_bytes.saturating_add(next);
+                        cursor += 1;
+                    }
+                    let (read, bytes_read) = reader.read(&ranges[start..cursor])?;
+                    counters.bytes_read += bytes_read;
+                    for (slot, bytes) in read {
+                        let resolved = segment_record_ref(
+                            segment,
+                            &published.active,
+                            catalog,
+                            RecordSlot(slot),
+                        )?
+                        .ok_or("active segment scan slot missing")?;
+                        let record = resolved.record;
+                        let extracted = if record.class == RecordClass::Logical {
+                            counters.record_parses += 1;
+                            prepare_query_record_with_execution(
+                                &collection.source,
+                                &collection.definition.schema,
+                                &bytes,
+                                &ScanProjection::full(fts.is_some()),
+                                false,
+                                None,
+                            )?
+                        } else {
+                            ExtractedRecord {
+                                value: Value::Object(Default::default()),
+                                text: Vec::new(),
+                            }
+                        };
+                        counters.scanned_records += 1;
+                        let ctx = RecordContext {
+                            value: &extracted.value,
+                            source_bytes: Some(&bytes),
+                            record,
+                            file: resolved.file,
+                            collection_name: &collection.definition.name,
+                            repository_root: &repo.files.root,
+                        };
+                        let mut evidence = HashSet::new();
+                        let filter_matches = if let Some(filter) = filter.as_ref() {
+                            counters.residual_evaluations += 1;
+                            if record.class == RecordClass::RawFallback {
+                                eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
+                            } else {
+                                let mut work = crate::relation_query::RelationWork::default();
+                                crate::relation_query::eval_filter_truth(
+                                    repo,
+                                    filter,
+                                    &ctx,
+                                    &mut evidence,
+                                    crate::relation_query::EvaluationMode::Indexed,
+                                    &mut work,
+                                )? == Some(true)
+                            }
+                        } else {
+                            true
+                        };
+                        if !filter_matches {
+                            continue;
+                        }
+                        let fts_matches = if let Some(fts) = fts.as_ref() {
+                            if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
+                                counters.raw_text_verifications += 1;
+                                let matched = crate::reference::raw_fallback_contains(
+                                    fts,
+                                    &String::from_utf8_lossy(&bytes),
+                                );
+                                if matched && query.options.evidence {
+                                    evidence.insert("@record.raw_text".into());
+                                }
+                                matched
+                            } else {
+                                crate::reference::eval_bound_fts(
+                                    fts,
+                                    &extracted.text,
+                                    &ctx,
+                                    &mut evidence,
+                                )?
+                            }
+                        } else {
+                            true
+                        };
+                        if !fts_matches {
+                            continue;
+                        }
+                        total += 1;
+                        let key = segment_rank_key(repo, &sort, collection_index, segment, record)?;
+                        let hit = segment_locator_hit(
+                            collection,
+                            resolved,
+                            revision,
+                            if query.options.evidence {
+                                evidence.into_iter().collect()
+                            } else {
+                                Vec::new()
+                            },
+                        );
+                        offer_merged(
+                            &mut winners,
+                            cap,
+                            MergedPageHit {
+                                key,
+                                hit,
+                                segment: Some((collection_index, segment_index)),
+                            },
+                        );
+                    }
+                }
+            }
+        }
+    }
+    let mut page = winners.into_sorted_vec();
+    page = page
+        .into_iter()
+        .skip(query.options.offset)
+        .take(query.options.limit)
+        .collect();
+    if query.options.return_mode != ReturnMode::Locator {
+        for winner in &mut page {
+            if let Some((collection_index, segment_index)) = winner.segment {
+                let published = &segments[collection_index][segment_index];
+                let mut materialized = get_segment_record_by_id(
+                    repo,
+                    collection_index,
+                    &published.index,
+                    &published.active,
+                    catalog,
+                    revision,
+                    &winner.hit.record_id,
+                    query.options.return_mode.clone(),
+                )?
+                .ok_or("selected segment record retired")?;
+                materialized.matched_fields = winner.hit.matched_fields.clone();
+                winner.hit = materialized;
+            }
+        }
+    }
+    counters.total_matches = total;
+    counters.match_count_complete = true;
+    counters.returned_records = page.len() as u64;
+    counters.distinct_files += delta_opened.len() as u64;
+    Ok(SearchResult {
+        count: query.options.count.then_some(total as usize),
+        hits: page.into_iter().map(|winner| winner.hit).collect(),
+        counters,
+    })
 }
 
 fn offer(
