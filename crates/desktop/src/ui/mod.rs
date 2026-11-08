@@ -1,6 +1,7 @@
 //! GPUI presentation and interaction state for the desktop application.
 
 pub mod model;
+pub mod open_dialog;
 mod panels;
 pub mod preferences;
 mod render;
