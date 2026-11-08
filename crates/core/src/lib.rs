@@ -20,6 +20,7 @@ pub mod inference;
 pub mod inventory;
 mod json_scalar_text;
 pub mod lifecycle;
+mod lifecycle_catalog;
 mod lifecycle_open;
 mod lifecycle_scan;
 mod materialization;

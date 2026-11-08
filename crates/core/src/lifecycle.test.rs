@@ -162,6 +162,7 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     .unwrap();
     let old = index.view().unwrap();
     let handle = old.file_handle(FileId(0)).unwrap();
+    assert_eq!(old.file_handle_for_path(&source), Some(handle));
     let query = Query {
         collections: vec!["left".into(), "right".into()],
         fts: None,
@@ -187,6 +188,7 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     assert_eq!(current.search(&query).unwrap().count, Some(0));
     assert_eq!(current.search_reference(&query).unwrap().count, Some(0));
     assert!(current.file_handle(FileId(0)).is_none());
+    assert!(current.file_handle_for_path(&source).is_none());
     assert!(
         current
             .get_record(

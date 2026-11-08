@@ -5,11 +5,13 @@
 //! phases; a wrapped static repository does not imply those operations exist.
 
 use std::fmt;
+use std::path::Path;
 use std::sync::{Arc, Mutex, RwLock};
 
 use serde::{Deserialize, Serialize};
 
 use crate::inventory::{ActiveRecords, FileVersions};
+use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::query::Query;
 use crate::repository::{Repository, SearchHit, SearchResult};
@@ -195,7 +197,7 @@ pub(crate) struct PublishedIndex {
     pub(crate) revision: IndexRevision,
     pub(crate) repository: Arc<Repository>,
     pub(crate) active: Vec<ActiveRecords>,
-    pub(crate) active_files: Arc<roaring::RoaringBitmap>,
+    pub(crate) catalog: FileCatalog,
     pub(crate) file_versions: FileVersions,
     pub(crate) saved_revision: Option<IndexRevision>,
     pub(crate) reconciliation: ReconciliationState,
@@ -216,16 +218,14 @@ impl PublishedIndex {
             .map_err(IndexError::ResourceLimit)?;
         let file_versions =
             FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
-        let file_count = u32::try_from(repository.files().files.len())
-            .map_err(|_| IndexError::ResourceLimit("too many indexed files".into()))?;
-        let mut active_files = roaring::RoaringBitmap::new();
-        active_files.insert_range(0..file_count);
+        let catalog = FileCatalog::from_repository(Arc::clone(&repository))
+            .map_err(IndexError::ResourceLimit)?;
         Ok(Self {
             instance_id,
             revision,
             repository,
             active,
-            active_files: Arc::new(active_files),
+            catalog,
             file_versions,
             saved_revision: None,
             reconciliation: ReconciliationState::NotStarted,
@@ -233,13 +233,13 @@ impl PublishedIndex {
     }
 
     fn status(&self) -> IndexStatus {
-        debug_assert!(self.active_files.len() <= self.file_versions.len() as u64);
+        debug_assert_eq!(self.catalog.allocated_files(), self.file_versions.len());
         IndexStatus {
             instance_id: self.instance_id,
             revision: self.revision,
             saved_revision: self.saved_revision,
             reconciliation: self.reconciliation,
-            indexed_files: self.active_files.len() as usize,
+            indexed_files: self.catalog.active_files() as usize,
             live_records: self.active.iter().map(ActiveRecords::len).sum(),
         }
     }
@@ -314,15 +314,13 @@ impl Index {
                 actual,
             });
         }
-        if !current.0.active_files.contains(handle.file_id.0) {
+        if !current.0.catalog.is_active(handle.file_id) {
             return Err(IndexError::UnknownFile);
         }
         let file = current
             .0
-            .repository
-            .files()
-            .files
-            .get(handle.file_id.0 as usize)
+            .catalog
+            .entry(handle.file_id)
             .ok_or(IndexError::UnknownFile)?;
         let mut next = (*current.0).clone();
         let mut retired_records = 0u64;
@@ -348,7 +346,10 @@ impl Index {
             retired_records += slots.len() as u64;
             affected_collections.push(collection.definition.name.clone());
         }
-        Arc::make_mut(&mut next.active_files).remove(handle.file_id.0);
+        next.catalog = next
+            .catalog
+            .retired(handle.file_id)
+            .map_err(IndexError::InvalidPublication)?;
         next.file_versions = next
             .file_versions
             .advanced(handle.file_id)
@@ -418,7 +419,7 @@ impl IndexView {
     }
 
     pub fn file_handle(&self, file: FileId) -> Option<FileHandle> {
-        self.0.active_files.contains(file.0).then(|| {
+        self.0.catalog.is_active(file).then(|| {
             self.0.file_versions.get(file).map(|version| FileHandle {
                 instance_id: self.0.instance_id,
                 file_id: file,
@@ -427,10 +428,24 @@ impl IndexView {
         })?
     }
 
+    /// Resolve an active file by a repository-relative path, or by an
+    /// absolute path beneath this view's source root.
+    pub fn file_handle_for_path(&self, path: &Path) -> Option<FileHandle> {
+        let relative = if path.is_absolute() {
+            path.strip_prefix(&self.0.repository.files().root).ok()?
+        } else {
+            path
+        };
+        self.0
+            .catalog
+            .id_for(relative)
+            .and_then(|id| self.file_handle(id))
+    }
+
     pub fn file_version(&self, file: FileId) -> Option<FileVersion> {
         self.0
-            .active_files
-            .contains(file.0)
+            .catalog
+            .is_active(file)
             .then(|| self.0.file_versions.get(file))?
     }
 
