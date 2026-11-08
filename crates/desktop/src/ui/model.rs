@@ -569,6 +569,10 @@ pub enum UiAction {
     },
     SetAutomaticSaving(bool),
     CancelIndexTask(IndexTaskKind),
+    RequestClose,
+    RetryClose,
+    CloseWithoutSaving,
+    CancelClose,
     RefreshResults,
     RefreshRecord(u64),
     ChooseIndexLoadPath {
@@ -610,6 +614,11 @@ pub enum UiUpdate {
     /// A validated replacement for the same source configuration preserves UI drafts/tabs.
     IndexReplaced(IndexUiStatus),
     IndexStatus(IndexUiStatus),
+    ClosingIndex {
+        error: Option<String>,
+    },
+    CloseCancelled,
+    CloseReady,
     SaveIndexOverwriteRequired(String),
     ResultsOutdated(bool),
     ChosenIndexLoadPath {

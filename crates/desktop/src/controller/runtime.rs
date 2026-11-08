@@ -305,12 +305,18 @@ enum WorkerEvent {
     IndexSaved {
         open_generation: u64,
         operation_id: u64,
+        make_default: bool,
         result: IndexSaveCompletion,
     },
     IndexLoaded {
         open_generation: u64,
         operation_id: u64,
         result: Result<OpenedSession, String>,
+    },
+    IndexShutdown {
+        open_generation: u64,
+        operation_id: u64,
+        result: Result<(), String>,
     },
     AutomaticCheckChanged {
         open_generation: u64,
@@ -362,10 +368,13 @@ pub struct DesktopController {
     index_operation_id: u64,
     save_operation_id: u64,
     load_operation_id: u64,
+    close_operation_id: u64,
+    closing: bool,
     automatic_check_operation_id: u64,
     automatic_save_operation_id: u64,
     load_cancellation: CancellationToken,
     pending_index_overwrite: Option<PathBuf>,
+    pending_save_select_default: bool,
     preferences: Option<DesktopPreferences>,
     open_diagnostics: String,
     open_draft: Option<OpenDraft>,
@@ -451,10 +460,13 @@ impl DesktopController {
                 index_operation_id: 0,
                 save_operation_id: 0,
                 load_operation_id: 0,
+                close_operation_id: 0,
+                closing: false,
                 automatic_check_operation_id: 0,
                 automatic_save_operation_id: 0,
                 load_cancellation: CancellationToken::new(),
                 pending_index_overwrite: None,
+                pending_save_select_default: false,
                 preferences: None,
                 open_diagnostics: String::new(),
                 open_draft: None,
@@ -1077,16 +1089,20 @@ impl DesktopController {
             } => {
                 self.start_batch(source, text, path, output_path, updates);
             }
-            UiAction::WriteIndex | UiAction::SaveIndex => self.save_index(None, false, cx, updates),
+            UiAction::WriteIndex | UiAction::SaveIndex => {
+                self.save_index(None, false, true, cx, updates)
+            }
             UiAction::Index { mode, directory } => match mode {
                 SnapshotMode::None => self.start_check(updates),
-                SnapshotMode::Write => self.save_index(Some(directory), false, cx, updates),
+                SnapshotMode::Write => self.save_index(Some(directory), false, true, cx, updates),
                 SnapshotMode::Load => self.load_index(directory, cx, updates),
                 SnapshotMode::LoadAndWrite => self.load_index(directory, cx, updates),
             },
             UiAction::CheckForChanges => self.start_check(updates),
-            UiAction::SaveIndexAs(path) => self.save_index(Some(path), false, cx, updates),
-            UiAction::ConfirmSaveIndexAs(path) => self.save_index(Some(path), true, cx, updates),
+            UiAction::SaveIndexAs(path) => self.save_index(Some(path), false, false, cx, updates),
+            UiAction::ConfirmSaveIndexAs(path) => {
+                self.save_index(Some(path), true, false, cx, updates)
+            }
             UiAction::LoadIndex(path) => self.load_index(path, cx, updates),
             UiAction::RebuildIndex => {
                 self.start_maintenance(MaintenanceOperation::Rebuild, updates)
@@ -1100,6 +1116,17 @@ impl DesktopController {
             } => self.set_automatic_check(enabled, interval_seconds, updates),
             UiAction::SetAutomaticSaving(enabled) => self.set_automatic_save(enabled, updates),
             UiAction::CancelIndexTask(kind) => self.cancel_index_task(kind, updates),
+            UiAction::RequestClose | UiAction::RetryClose => self.request_close(updates),
+            UiAction::CloseWithoutSaving => {
+                self.closing = false;
+                self.close_operation_id = self.close_operation_id.wrapping_add(1);
+                updates.push(UiUpdate::CloseReady);
+            }
+            UiAction::CancelClose => {
+                if !self.closing {
+                    updates.push(UiUpdate::CloseCancelled);
+                }
+            }
             UiAction::RefreshResults => self.refresh_results_if_ready(updates),
             UiAction::RefreshRecord(id) => self.refresh_record(id, updates),
             UiAction::ChooseIndexLoadPath {
@@ -1109,7 +1136,10 @@ impl DesktopController {
             UiAction::ChooseIndexSavePath {
                 generation,
                 save_after_selection,
-            } => self.choose_index_path(generation, false, save_after_selection, cx),
+            } => {
+                self.pending_save_select_default = false;
+                self.choose_index_path(generation, false, save_after_selection, cx);
+            }
             UiAction::SaveQuery(draft) => {
                 if let Some(session) = &self.session
                     && let FilterValidationState::Invalid { message, .. } =
@@ -2802,7 +2832,13 @@ impl DesktopController {
                             path: path.clone(),
                         });
                         if run_after_selection {
-                            self.save_index(Some(path), false, cx, updates);
+                            self.save_index(
+                                Some(path),
+                                false,
+                                self.pending_save_select_default,
+                                cx,
+                                updates,
+                            );
                         }
                     }
                 }
@@ -2815,13 +2851,14 @@ impl DesktopController {
             WorkerEvent::IndexSaved {
                 open_generation,
                 operation_id,
+                make_default,
                 result,
             } if open_generation == self.open_generation
                 && operation_id == self.save_operation_id =>
             {
                 match result {
                     IndexSaveCompletion::Saved(saved) => {
-                        if let Some(session) = &self.session {
+                        if make_default && let Some(session) = &self.session {
                             self.session =
                                 Some(session.with_first_save_target(saved.destination.clone()));
                         }
@@ -2902,6 +2939,19 @@ impl DesktopController {
                         self.index_ui.load = IndexTaskState::Failed(message);
                         updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
                     }
+                }
+            }
+            WorkerEvent::IndexShutdown {
+                open_generation,
+                operation_id,
+                result,
+            } if open_generation == self.open_generation
+                && operation_id == self.close_operation_id =>
+            {
+                self.closing = false;
+                match result {
+                    Ok(()) => updates.push(UiUpdate::CloseReady),
+                    Err(error) => updates.push(UiUpdate::ClosingIndex { error: Some(error) }),
                 }
             }
             WorkerEvent::AutomaticCheckChanged {
@@ -3349,6 +3399,47 @@ impl DesktopController {
         });
     }
 
+    fn request_close(&mut self, updates: &mut Vec<UiUpdate>) {
+        if self.closing {
+            return;
+        }
+        let Some(session) = self.session.clone() else {
+            updates.push(UiUpdate::CloseReady);
+            return;
+        };
+        if !self.index_ui.automatic_save {
+            // The index is derived data; manual mode makes no implicit write.
+            let _ = thread::Builder::new()
+                .name("objekte-index-stop".into())
+                .spawn(move || {
+                    let _ = backend::index_lifecycle::stop_automation(&session);
+                });
+            updates.push(UiUpdate::CloseReady);
+            return;
+        }
+        if matches!(self.index_ui.save, IndexTaskState::Running { .. }) {
+            updates.push(UiUpdate::ClosingIndex {
+                error: Some("Wait for the current index save to finish, then Retry".into()),
+            });
+            return;
+        }
+        self.closing = true;
+        self.close_operation_id = self.close_operation_id.wrapping_add(1);
+        let operation_id = self.close_operation_id;
+        let open_generation = self.open_generation;
+        let sender = self.worker_tx.clone();
+        updates.push(UiUpdate::ClosingIndex { error: None });
+        thread::spawn(move || {
+            let result = backend::index_lifecycle::shutdown_with_final_save(&session)
+                .map_err(|error| error.to_string());
+            let _ = sender.send(WorkerEvent::IndexShutdown {
+                open_generation,
+                operation_id,
+                result,
+            });
+        });
+    }
+
     fn start_check(&mut self, updates: &mut Vec<UiUpdate>) {
         let Some(session) = &self.session else {
             return;
@@ -3408,6 +3499,7 @@ impl DesktopController {
         &mut self,
         requested: Option<String>,
         allow_replace: bool,
+        make_default: bool,
         cx: &mut App,
         updates: &mut Vec<UiUpdate>,
     ) {
@@ -3419,6 +3511,7 @@ impl DesktopController {
             .map(PathBuf::from)
             .or_else(|| session.configuration.cache_save.clone());
         let Some(destination) = destination else {
+            self.pending_save_select_default = make_default;
             self.index_picker_generation = self.index_picker_generation.wrapping_add(1);
             self.choose_index_path(self.index_picker_generation, false, true, cx);
             return;
@@ -3463,7 +3556,12 @@ impl DesktopController {
             {
                 IndexSaveCompletion::OverwriteRequired(destination)
             } else {
-                match backend::index_lifecycle::save_index(&session, &destination, allow_replace) {
+                let save = if make_default {
+                    backend::index_lifecycle::save_index(&session, &destination, allow_replace)
+                } else {
+                    backend::index_lifecycle::save_index_copy(&session, &destination, allow_replace)
+                };
+                match save {
                     Ok(saved) => IndexSaveCompletion::Saved(saved),
                     Err(error) => IndexSaveCompletion::Failed(error.to_string()),
                 }
@@ -3471,6 +3569,7 @@ impl DesktopController {
             let _ = sender.send(WorkerEvent::IndexSaved {
                 open_generation,
                 operation_id,
+                make_default,
                 result,
             });
         });

@@ -75,6 +75,23 @@ pub fn save_index(
     destination: &Path,
     allow_replace: bool,
 ) -> Result<SaveOutcome, BackendError> {
+    save_index_internal(session, destination, allow_replace, true)
+}
+
+pub fn save_index_copy(
+    session: &OpenedSession,
+    destination: &Path,
+    allow_replace: bool,
+) -> Result<SaveOutcome, BackendError> {
+    save_index_internal(session, destination, allow_replace, false)
+}
+
+fn save_index_internal(
+    session: &OpenedSession,
+    destination: &Path,
+    allow_replace: bool,
+    select_if_none: bool,
+) -> Result<SaveOutcome, BackendError> {
     if destination.as_os_str().is_empty() {
         return Err(BackendError::new(
             BackendErrorKind::Options,
@@ -101,11 +118,13 @@ pub fn save_index(
         }
         _ => {}
     }
-    let (saved_revision, stats) = session
-        .repository
-        .index()
-        .flush_cache_with_stats(destination)
-        .map_err(lifecycle_error)?;
+    let index = session.repository.index();
+    let (saved_revision, stats) = if select_if_none {
+        index.flush_cache_with_stats(destination)
+    } else {
+        index.flush_cache_copy_with_stats(destination)
+    }
+    .map_err(lifecycle_error)?;
     Ok(SaveOutcome {
         destination: destination.to_path_buf(),
         saved_revision,
@@ -232,6 +251,21 @@ pub fn shutdown(session: &OpenedSession) -> Result<(), BackendError> {
         .shutdown()
         .map_err(lifecycle_error)?;
     Ok(())
+}
+
+/// Stop repository automation, flush the latest published view to the selected
+/// cache, then release lifecycle workers. A failed flush leaves the index
+/// available so the desktop can offer Retry or close without saving the cache.
+pub fn shutdown_with_final_save(session: &OpenedSession) -> Result<(), BackendError> {
+    stop_automation(session)?;
+    let destination = session.configuration.cache_save.as_ref().ok_or_else(|| {
+        BackendError::new(
+            BackendErrorKind::Options,
+            "No index save destination is selected",
+        )
+    })?;
+    save_index(session, destination, true)?;
+    shutdown(session)
 }
 
 #[cfg(test)]

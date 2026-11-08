@@ -74,6 +74,87 @@ fn panel_menu_item(
 }
 
 impl DesktopView {
+    fn render_close_dialog(&self, cx: &mut Context<Self>) -> impl IntoElement {
+        let colors = palette(self.state.dark);
+        let error = self
+            .state
+            .closing_index
+            .as_ref()
+            .and_then(|error| error.clone());
+        let waiting = error.is_none();
+        let surface = div()
+            .w(px(430.))
+            .max_w_full()
+            .p_4()
+            .flex()
+            .flex_col()
+            .gap_3()
+            .bg(rgb(colors.panel))
+            .border_1()
+            .border_color(rgb(colors.border))
+            .rounded_lg()
+            .child(div().text_lg().child("Closing Objekte"))
+            .child(div().text_sm().child(error.unwrap_or_else(|| {
+                "Saving the latest index and stopping background work…".into()
+            })))
+            .child(div().text_xs().text_color(rgb(colors.secondary)).child(
+                "Source files are unaffected. You can close without saving the derived index cache.",
+            ))
+            .child(
+                div()
+                    .flex()
+                    .flex_wrap()
+                    .gap_2()
+                    .when(!waiting, |this| {
+                        this.child(
+                            Button::new("close-retry")
+                                .label("Retry")
+                                .on_click(cx.listener(|this, _, _, cx| {
+                                    this.send(UiAction::RetryClose);
+                                    cx.notify();
+                                })),
+                        )
+                        .child(
+                            Button::new("close-cancel")
+                                .ghost()
+                                .label("Cancel close")
+                                .on_click(cx.listener(|this, _, _, cx| {
+                                    this.send(UiAction::CancelClose);
+                                    cx.notify();
+                                })),
+                        )
+                    })
+                    .child(
+                        Button::new("close-without-saving")
+                            .ghost()
+                            .label("Close without saving index")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.send(UiAction::CloseWithoutSaving);
+                                cx.notify();
+                            })),
+                    ),
+            );
+        gpui_kit::base::Dialog::new(cx)
+            .open(self.state.closing_index.is_some())
+            .close_on_backdrop_press(false)
+            .backdrop(div().bg(gpui_kit::rgba(0x00000099)))
+            .popup(surface)
+            .on_cancel({
+                let target = cx.entity();
+                move |_, _, cx| {
+                    if waiting {
+                        false
+                    } else {
+                        target.update(cx, |view, cx| {
+                            view.send(UiAction::CancelClose);
+                            cx.notify();
+                        });
+                        true
+                    }
+                }
+            })
+    }
+
     fn render_header(&self, cx: &mut Context<Self>) -> impl IntoElement {
         let colors = palette(self.state.dark);
         let root = self.state.root.as_deref().and_then(|path| {
@@ -1205,6 +1286,9 @@ impl Render for DesktopView {
             .child(self.render_status(cx))
             .when(self.state.open_dialog.visible, |this| {
                 this.child(self.render_open_dialog(cx))
+            })
+            .when(self.state.closing_index.is_some(), |this| {
+                this.child(self.render_close_dialog(cx))
             })
     }
 }

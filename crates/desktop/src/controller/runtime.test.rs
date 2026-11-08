@@ -133,6 +133,60 @@ fn cancelled_replacement_open_invalidates_late_loader_without_losing_active_draf
 }
 
 #[test]
+fn publication_changes_invalidate_results_once_but_noop_checks_do_not() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    let view = fixture.session.repository.index().view().unwrap();
+    let initial = Publication {
+        instance_id: view.instance_id(),
+        revision: view.revision(),
+    };
+    controller.observed_publication = Some(initial);
+    controller.executed_view = Some(view);
+    controller.executed_spec = Some(backend::QuerySpec::default());
+    controller.executed_draft = Some(SearchDraft::default());
+    controller.session = Some(fixture.session);
+    let mut updates = Vec::new();
+    controller.poll_publication(&mut updates);
+    assert!(updates.is_empty());
+    let report = backend::index_lifecycle::check_for_changes(controller.session.as_ref().unwrap())
+        .unwrap()
+        .wait()
+        .unwrap();
+    assert_eq!(report.added + report.updated + report.removed, 0);
+    controller.poll_publication(&mut updates);
+    assert!(!controller.results_outdated);
+    assert!(updates.is_empty());
+
+    std::fs::write(fixture._root.path().join("new.json"), r#"{"title":"New"}"#).unwrap();
+    backend::index_lifecycle::check_for_changes(controller.session.as_ref().unwrap())
+        .unwrap()
+        .wait()
+        .unwrap();
+    controller.poll_publication(&mut updates);
+    assert!(controller.results_outdated);
+    assert!(controller.executed_view.is_none());
+    assert!(matches!(
+        updates.as_slice(),
+        [UiUpdate::ResultsOutdated(true)]
+    ));
+    updates.clear();
+    controller.poll_publication(&mut updates);
+    assert!(updates.is_empty());
+}
+
+#[test]
+fn manual_close_has_no_implicit_index_save() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    let mut updates = Vec::new();
+    controller.request_close(&mut updates);
+    assert!(matches!(updates.as_slice(), [UiUpdate::CloseReady]));
+    assert!(!fixture._root.path().join(".objekte").exists());
+}
+
+#[test]
 fn invalid_filter_does_not_start_query_or_replace_visible_page() {
     let fixture = crate::backend::test_support::fixture();
     let (mut controller, _) = DesktopController::new();

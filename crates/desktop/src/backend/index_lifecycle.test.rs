@@ -61,6 +61,23 @@ fn save_revision_and_load_replacement_are_explicit() {
 }
 
 #[test]
+fn save_as_copy_does_not_select_an_automatic_destination() {
+    let fixture = fixture();
+    let output = tempfile::tempdir().unwrap();
+    let copy = output.path().join("copy.snapshot");
+    let before = status(&fixture.session).unwrap();
+    assert!(before.dirty());
+    let saved = save_index_copy(&fixture.session, &copy, false).unwrap();
+    assert_eq!(saved.saved_revision, before.revision);
+    assert!(copy.exists());
+    let after = status(&fixture.session).unwrap();
+    assert_eq!(after.saved_revision, None);
+    assert!(after.dirty());
+    save_index(&fixture.session, &copy, true).unwrap();
+    assert!(!status(&fixture.session).unwrap().dirty());
+}
+
+#[test]
 fn automatic_save_requires_configured_repository_and_selected_destination() {
     let fixture = fixture();
     assert_eq!(
@@ -93,5 +110,12 @@ fn automatic_save_requires_configured_repository_and_selected_destination() {
     set_automatic_save(&session, true).unwrap();
     set_automatic_save(&session, false).unwrap();
     assert!(session.configuration.cache_save.as_ref().unwrap().exists());
+    assert!(!status(&session).unwrap().dirty());
+
+    std::fs::write(root.path().join("data/b.json"), br#"{"name":"B"}"#).unwrap();
+    check_for_changes(&session).unwrap().wait().unwrap();
+    assert!(status(&session).unwrap().dirty());
+    set_automatic_save(&session, true).unwrap();
+    shutdown_with_final_save(&session).unwrap();
     assert!(!status(&session).unwrap().dirty());
 }

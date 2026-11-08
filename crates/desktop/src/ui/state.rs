@@ -13,7 +13,6 @@ use super::model::{
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
 
-
 /// One contextual secondary surface at a time.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum ActionPanel {
@@ -23,7 +22,6 @@ pub enum ActionPanel {
     Index,
     Diagnostics,
 }
-
 
 /// Which operation currently owns the visible progress indicator.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -35,7 +33,6 @@ pub enum Busy {
     Batch,
 }
 
-
 /// Shared inspector text built once from a bounded detail projection.
 #[derive(Clone, Debug, Default)]
 pub struct DetailCache {
@@ -44,7 +41,6 @@ pub struct DetailCache {
     pub relation_labels: Vec<SharedString>,
     pub relation_values: Vec<SharedString>,
 }
-
 
 /// Bounded state rendered in one desktop window.
 #[derive(Clone, Debug, Default)]
@@ -84,6 +80,7 @@ pub struct UiState {
     pub batch_outcome: Option<String>,
     pub busy: Busy,
     pub status: String,
+    pub closing_index: Option<Option<String>>,
     pub preference_write_failed: bool,
     pub diagnostics: String,
     pub errors: BTreeMap<ErrorField, String>,
@@ -124,7 +121,6 @@ pub struct UiState {
     pub showing_last_valid_results: bool,
     pub show_filter_builder: bool,
 }
-
 
 impl UiState {
     /// Apply one controller update without retaining unbounded result content.
@@ -201,6 +197,8 @@ impl UiState {
                 self.result_outdated = true;
             }
             UiUpdate::IndexStatus(status) => self.install_index_status(status, false),
+            UiUpdate::ClosingIndex { error } => self.closing_index = Some(error),
+            UiUpdate::CloseCancelled | UiUpdate::CloseReady => self.closing_index = None,
             UiUpdate::SaveIndexOverwriteRequired(path) => self.index_overwrite_pending = Some(path),
             UiUpdate::ResultsOutdated(outdated) => self.result_outdated = outdated,
             UiUpdate::ChosenIndexLoadPath { generation, path } => {
@@ -553,7 +551,6 @@ impl UiState {
         }
     }
 }
-
 
 #[cfg(test)]
 #[path = "state.test.rs"]

@@ -1211,6 +1211,23 @@ impl Index {
         &self,
         path: &Path,
     ) -> Result<(IndexRevision, crate::storage::SnapshotSaveStats), IndexError> {
+        self.flush_cache_with_stats_select(path, true)
+    }
+
+    /// Persist an additional cache copy without selecting it as the target of
+    /// later automatic writes when no target has been selected yet.
+    pub fn flush_cache_copy_with_stats(
+        &self,
+        path: &Path,
+    ) -> Result<(IndexRevision, crate::storage::SnapshotSaveStats), IndexError> {
+        self.flush_cache_with_stats_select(path, false)
+    }
+
+    fn flush_cache_with_stats_select(
+        &self,
+        path: &Path,
+        select_if_none: bool,
+    ) -> Result<(IndexRevision, crate::storage::SnapshotSaveStats), IndexError> {
         let view = self.view()?;
         let destination = crate::lifecycle_cache_guard::canonical_cache_destination(path)
             .map_err(IndexError::InvalidCache)?;
@@ -1222,6 +1239,18 @@ impl Index {
         if let Some(saved) = persistence.saved.get(&destination).copied()
             && saved >= view.revision()
         {
+            if select_if_none && persistence.selected_cache.is_none() {
+                persistence.selected_cache = Some(destination);
+                drop(persistence);
+                let mut published = self
+                    .0
+                    .published
+                    .write()
+                    .map_err(|_| IndexError::LockPoisoned)?;
+                let mut next = (**published).clone();
+                next.saved_revision = Some(saved);
+                *published = Arc::new(next);
+            }
             return Ok((saved, crate::storage::SnapshotSaveStats::default()));
         }
         let guard = crate::lifecycle_cache_guard::CacheDestinationGuard::new(
@@ -1243,10 +1272,11 @@ impl Index {
             .insert(destination.clone(), view.revision());
         let selected = match &persistence.selected_cache {
             Some(selected) => selected == &destination,
-            None => {
+            None if select_if_none => {
                 persistence.selected_cache = Some(destination);
                 true
             }
+            None => false,
         };
         drop(persistence);
         if selected {
