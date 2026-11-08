@@ -231,9 +231,146 @@ fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
     let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
     check(&repo);
     repo.save_default_snapshot_for_test();
-    let restored = Repository::open_with_options(&root, vec![definition], options).unwrap();
+    let restored = Arc::new(Repository::open_with_options(&root, vec![definition], options).unwrap());
     assert!(restored.startup().restored);
     check(&restored);
+    use crate::build::{
+        FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
+    };
+    use crate::inventory::SourceRevision;
+    use crate::lifecycle::{IndexRevision, PublishedSegment};
+    use crate::lifecycle_catalog::FileCatalog;
+    use crate::model::{CollectionId, FileId};
+    for (name, body) in [
+        ("07", r#"{"code":"A1"}"#),
+        ("08", r#"{"code":"Long2"}"#),
+        ("09", r#"{"code":123}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let state = &restored.collections()[0];
+    let mut admission = None;
+    for (index, name) in ["07", "08", "09"].into_iter().enumerate() {
+        let relative_path = format!("data/{name}.json");
+        let path = root.join(&relative_path);
+        let prepared = prepare_file_build(
+            &root,
+            SourceFileInput {
+                id: FileId((restored.files().files.len() + index) as u32),
+                relative_path: relative_path.into(),
+                revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap())
+                    .unwrap(),
+                created_ns: None,
+            },
+            &[FilePreparationBinding {
+                collection: CollectionId(0),
+                definition: &state.definition,
+                source: &state.source,
+            }],
+            restored.options().bigram_alphabet,
+            restored.options().inference,
+            1,
+        )
+        .unwrap();
+        let batch =
+            admission.get_or_insert_with(|| SegmentAdmission::new(CollectionId(0), &state.source));
+        batch
+            .admit(
+                &prepared.source,
+                prepared.collections.into_iter().next().unwrap(),
+            )
+            .unwrap();
+    }
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let mut index = admission
+        .unwrap()
+        .seal()
+        .into_indexed(
+            &state.definition,
+            restored.options().bigram_alphabet,
+            restored.options().inference,
+            1,
+            &pool,
+        )
+        .unwrap();
+    index.inference = None;
+    let mut catalog = FileCatalog::from_repository(Arc::clone(&restored)).unwrap();
+    for file in &index.files {
+        catalog = catalog.appended(file.entry.clone(), None, None).unwrap();
+    }
+    let active = vec![ActiveRecords::all(state.generation.records.len()).unwrap()];
+    let segments = vec![Arc::new(vec![Arc::new(PublishedSegment {
+        ordinal: 1,
+        active: ActiveRecords::all(index.records.len()).unwrap(),
+        index: Arc::new(index),
+    })])];
+    let page = posting_values_segmented(
+        &restored,
+        &PostingValuesRequest::new("data", "code", 10),
+        IndexRevision(2),
+        &active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
+    assert_eq!(page.coverage.eligible_records, 9);
+    assert_eq!(page.coverage.indexed_records, 3);
+    assert_eq!(page.coverage.unresolved_records, 6);
+    assert!(!page.coverage.value_counts_complete);
+    assert_eq!(
+        page.values
+            .iter()
+            .find(|entry| { entry.value == ScalarKey::String("A1".into()) })
+            .unwrap()
+            .count,
+        3
+    );
+    assert!(
+        !page
+            .values
+            .iter()
+            .any(|entry| { entry.value == ScalarKey::String("Long2".into()) })
+    );
+    assert!(
+        page.values
+            .iter()
+            .any(|entry| { matches!(entry.value, ScalarKey::Number(_)) && entry.count == 1 })
+    );
+    let mut request = PostingValuesRequest::new("data", "code", 1);
+    let mut paged = Vec::new();
+    loop {
+        let next = posting_values_segmented(
+            &restored,
+            &request,
+            IndexRevision(2),
+            &active,
+            &segments,
+            &catalog,
+        )
+        .unwrap();
+        assert_eq!(next.coverage, page.coverage);
+        paged.extend(next.values);
+        let Some(cursor) = next.continuation else {
+            break;
+        };
+        request.continuation = Some(cursor);
+    }
+    assert_eq!(paged, page.values);
+    std::fs::remove_file(root.join("data/08.json")).unwrap();
+    assert!(
+        posting_values_segmented(
+            &restored,
+            &PostingValuesRequest::new("data", "code", 10),
+            IndexRevision(2),
+            &active,
+            &segments,
+            &catalog,
+        )
+        .is_err()
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
