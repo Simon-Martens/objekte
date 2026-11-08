@@ -128,6 +128,45 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     };
     let result =
         search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+    let selection = crate::posting_values::select_exact_segmented(
+        &repo, "data", &query, revision, &base_active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(selection.len(), 3);
+    let mut values_request = crate::posting_values::PostingValuesRequest::new("data", "kind", 1);
+    let first_values = crate::posting_values::posting_values_segmented(
+        &repo, &values_request, revision, &base_active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(first_values.values[0].value, crate::posting::ScalarKey::String("a".into()));
+    assert_eq!(first_values.values[0].count, 2);
+    assert_eq!(first_values.coverage.eligible_records, 5);
+    let old_cursor = first_values.continuation.clone();
+    values_request.continuation = first_values.continuation;
+    let second_values = crate::posting_values::posting_values_segmented(
+        &repo, &values_request, revision, &base_active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(second_values.values[0].value, crate::posting::ScalarKey::String("b".into()));
+    assert_eq!(second_values.values[0].count, 2);
+    values_request.continuation = second_values.continuation;
+    let third_values = crate::posting_values::posting_values_segmented(
+        &repo, &values_request, revision, &base_active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(third_values.values[0].value, crate::posting::ScalarKey::String("c".into()));
+    assert_eq!(third_values.values[0].count, 1);
+    assert!(third_values.continuation.is_none());
+    values_request.continuation = None;
+    values_request.selection = Some(selection);
+    let selected_values = crate::posting_values::posting_values_segmented(
+        &repo, &values_request, revision, &base_active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(selected_values.coverage.selected_records, Some(3));
+    assert_eq!(selected_values.values[0].count, 2);
+    values_request.selection = None;
+    values_request.descending = true;
+    let descending = crate::posting_values::posting_values_segmented(
+        &repo, &values_request, revision, &base_active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(descending.values[0].value, crate::posting::ScalarKey::String("c".into()));
+    values_request.descending = false;
     assert_eq!(result.count, Some(3));
     assert_eq!(
         result.hits[0].file_path,
@@ -340,6 +379,19 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     )
     .unwrap();
     assert_eq!(live.count, Some(3));
+    values_request.selection = None;
+    let live_values = crate::posting_values::posting_values_segmented(
+        &repo, &values_request, IndexRevision(3), &retired_base,
+        &retired_segments, &catalog,
+    ).unwrap();
+    assert_eq!(live_values.coverage.eligible_records, 3);
+    assert_eq!(live_values.values[0].count, 2);
+    values_request.continuation = old_cursor;
+    assert!(crate::posting_values::posting_values_segmented(
+        &repo, &values_request, IndexRevision(3), &retired_base,
+        &retired_segments, &catalog,
+    ).is_err());
+    values_request.continuation = None;
     assert!(live.hits.iter().all(
         |hit| hit.file_path != std::path::Path::new("data/base.jsonl") || hit.byte_start != 0
     ));
