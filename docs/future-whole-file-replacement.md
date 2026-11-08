@@ -21,8 +21,11 @@ revision when path, metadata, memberships, configuration, and digest agree.
 
 `update_file_with_options` and `delete_file_with_old_content` accept complete
 old bytes for verified maintenance. The stored SHA-256 digest and compatible
-reader layout must agree. Eligible delta segments can discard old postings
-physically before publication. Invalid or unsupported hints use the normal
+reader layout must agree. Fresh builds and lifecycle caches retain digests for
+base files, so eligible base and delta contributions can discard old postings
+physically before publication. Base maintenance compacts a private staged
+root, bounded to 262,144 scanned records per collection; ordinary mutations
+remain sparse. Invalid or unsupported hints use the normal
 tombstone strategy and report a structured fallback reason. This is an index
 optimization; it does not change source data. Old pinned views keep their old
 immutable contributions.
@@ -38,6 +41,9 @@ retired slots exist. `Index::rebuild` rereads the current explicit source
 configuration while searches continue on the previous view. Both operations
 publish only against the revision they captured; a concurrent mutation causes
 a bounded retry. Compaction and rebuilding do not imply a cache write.
+`start_compaction` and `start_rebuild` return observable, cancellable worker
+handles. Cancellation before publication leaves the current view installed;
+`shutdown` cancels and joins active maintenance workers.
 
 `Index::build` and `Index::load_cache` use explicit definitions and paths.
 Loading a compatible cache restores a searchable view first, then starts
@@ -54,3 +60,7 @@ The active record set and index revision are persisted with the index cache.
 Prepared and verified query caches stay in memory and are scoped to the
 published revision. Source access still checks the recorded revision, so an
 old pinned view does not make changed or missing source bytes available.
+Availability-oriented searches and streams report incomplete results and
+bounded source diagnostics when needed bytes cannot be read. Exact count and
+strict search reject such results; direct lookup has a distinct unavailable
+outcome. A detected source failure requests coalesced reconciliation.
