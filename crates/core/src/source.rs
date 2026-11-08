@@ -7,6 +7,7 @@ use std::sync::Arc;
 
 use serde::de::{DeserializeSeed, IgnoredAny, MapAccess, Visitor};
 use serde::{Deserialize, Serialize};
+use sha2::{Digest, Sha256};
 
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::measurement::SourceUnavailableKind;
@@ -1127,7 +1128,7 @@ pub fn extract_file_outcomes<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, false, consume)
+    extract_file_outcomes_impl(path, source, expected, false, None, consume)
 }
 
 pub(crate) fn extract_file_build_outcomes<F>(
@@ -1139,7 +1140,30 @@ pub(crate) fn extract_file_build_outcomes<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, true, consume)
+    extract_file_outcomes_impl(path, source, expected, true, None, consume)
+}
+
+/// Capture the exact whole-file digest while the fresh builder's normal
+/// extraction read is still resident. An unreadable file has no fingerprint.
+pub(crate) fn extract_file_build_outcomes_hashed<F>(
+    path: &Path,
+    source: &dyn SourceReader,
+    expected: SourceRevision,
+    consume: F,
+) -> Result<(ExtractionCounters, Option<[u8; 32]>), String>
+where
+    F: FnMut(SourceOutcome) -> Result<(), String>,
+{
+    let mut fingerprint = None;
+    let counters = extract_file_outcomes_impl(
+        path,
+        source,
+        expected,
+        true,
+        Some(&mut fingerprint),
+        consume,
+    )?;
+    Ok((counters, fingerprint))
 }
 
 fn extract_file_outcomes_impl<F>(
@@ -1147,6 +1171,7 @@ fn extract_file_outcomes_impl<F>(
     source: &dyn SourceReader,
     expected: SourceRevision,
     for_build: bool,
+    fingerprint: Option<&mut Option<[u8; 32]>>,
     mut consume: F,
 ) -> Result<ExtractionCounters, String>
 where
@@ -1178,6 +1203,9 @@ where
             ),
         })?;
         return Ok(ExtractionCounters::default());
+    }
+    if let Some(fingerprint) = fingerprint {
+        *fingerprint = Some(Sha256::digest(&bytes).into());
     }
     if !for_build {
         check_revision(path, &file, expected)?;

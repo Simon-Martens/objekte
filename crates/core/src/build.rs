@@ -34,7 +34,8 @@ use crate::sorting::{SortBuilder, SortKey};
 use crate::source::{
     BoundedBuildChunk, BoundedJsonLines, DiagnosticCategory, ExtractedRecord, PreparedSource,
     ReaderDiagnostic, ReaderFailure, SourceOutcome, TextDerivation, extract_file_build_outcomes,
-    extract_framed_build_outcomes, frame_file_for_build, read_record_range_for_build,
+    extract_file_build_outcomes_hashed, extract_framed_build_outcomes, frame_file_for_build,
+    read_record_range_for_build,
     visit_logical_strings_and_empty,
 };
 use crate::workload::BigramAlphabet;
@@ -119,6 +120,9 @@ pub(crate) fn file_batches<'a>(
 /// worker/coordinator boundary. Slots remain local until ordered admission.
 pub(crate) struct BatchContribution {
     files: Vec<BatchFile>,
+    /// Complete physical-file digests captured during this batch's own reads.
+    /// Framed chunks only report a digest once, after the whole read succeeds.
+    file_fingerprints: Vec<(FileId, [u8; 32])>,
     records: Vec<RecordEntry>,
     postings: PostingCollection,
     inference: Option<InferenceBuilder>,
@@ -132,6 +136,12 @@ pub(crate) struct BatchContribution {
     relations: Vec<RelationContribution>,
     pub record_parses: u64,
     pub failed_parses: u64,
+}
+
+impl BatchContribution {
+    pub(crate) fn file_fingerprints(&self) -> &[(FileId, [u8; 32])] {
+        &self.file_fingerprints
+    }
 }
 
 
@@ -529,6 +539,7 @@ impl<'a> BatchBuilder<'a> {
             .collect::<Result<HashMap<_, _>, _>>()?;
         Ok(BatchContribution {
             files,
+            file_fingerprints: Vec::new(),
             records: self.records,
             postings: self.postings,
             inference: self.inference,
@@ -569,15 +580,19 @@ pub(crate) fn process_batch(
     )?;
     let mut files = Vec::with_capacity(file_ids.len());
     let (mut record_parses, mut failed_parses) = (0, 0);
+    let mut file_fingerprints = Vec::with_capacity(file_ids.len());
     for &file_id in file_ids {
         let original = &source_files[file_id.0 as usize];
         let path = root.join(&original.relative_path);
         let mut file = original.for_collection(collection);
         let start = builder.records.len();
-        let stats =
-            extract_file_build_outcomes(&path, source.reader(), file.revision, |outcome| {
+        let (stats, fingerprint) =
+            extract_file_build_outcomes_hashed(&path, source.reader(), file.revision, |outcome| {
                 builder.outcome(&mut file, &path, outcome, None)
             })?;
+        if let Some(fingerprint) = fingerprint {
+            file_fingerprints.push((file_id, fingerprint));
+        }
         record_parses += stats.record_parses;
         failed_parses += stats.failed_parses;
         files.push(BatchFile {
@@ -586,7 +601,9 @@ pub(crate) fn process_batch(
             first_range: true,
         });
     }
-    builder.finish(files, record_parses, failed_parses)
+    let mut batch = builder.finish(files, record_parses, failed_parses)?;
+    batch.file_fingerprints = file_fingerprints;
+    Ok(batch)
 }
 
 
@@ -1217,9 +1234,14 @@ fn process_unframed_large_file(
         inference,
         inference_jobs,
     )?;
+    let file_fingerprint = batch
+        .file_fingerprints()
+        .first()
+        .map(|(_, digest)| (file_id, *digest));
     let started = Instant::now();
     admit(batch)?;
     Ok(BuildScheduleStats {
+        file_fingerprint,
         weight_limit_bytes: 64 * 1024 * 1024,
         peak_weight_bytes: source_files[file_id.0 as usize].revision.size,
         admission_ns: started.elapsed().as_nanos() as u64,
@@ -1280,6 +1302,7 @@ pub(crate) fn process_framed_file(
             &mut admit,
         );
     };
+    let file_fingerprint = Some((file_id, Sha256::digest(&*bytes).into()));
     let source_bytes = bytes.len() as u64;
     let mut chunks = Vec::new();
     let mut start = 0;
@@ -1387,6 +1410,7 @@ pub(crate) fn process_framed_file(
         return Err(error);
     }
     stats.peak_weight_bytes = source_bytes.saturating_add(peak_bytes);
+    stats.file_fingerprint = file_fingerprint;
     counters.add_to(&mut stats);
     Ok(stats)
 }
@@ -1409,8 +1433,8 @@ fn process_bounded_json_lines_file(
 ) -> Result<BuildScheduleStats, String> {
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let path = root.join(&source_files[file_id.0 as usize].relative_path);
-    let reader = match BoundedJsonLines::open(&path) {
-        Ok(reader) => reader,
+    let file = match std::fs::File::open(&path) {
+        Ok(file) => file,
         Err(_) => {
             return process_unframed_large_file(
                 &root,
@@ -1426,7 +1450,15 @@ fn process_bounded_json_lines_file(
             );
         }
     };
-    process_bounded_json_lines_reader(
+    let mut digest = Sha256::new();
+    let mut bytes_read = 0u64;
+    let expected_size = source_files[file_id.0 as usize].revision.size;
+    let reader = BoundedJsonLines::from_reader(BufReader::new(HashingReader {
+        inner: &file,
+        digest: Some(&mut digest),
+        bytes_read: &mut bytes_read,
+    }));
+    let mut stats = process_bounded_json_lines_reader(
         pool,
         root,
         definition,
@@ -1439,7 +1471,13 @@ fn process_bounded_json_lines_file(
         reader,
         BoundedBuildLimits::default(),
         admit,
-    )
+    )?;
+    // A fallback can already provide the complete normal-extraction digest.
+    // Otherwise only a complete bounded read may identify the indexed bytes.
+    if stats.file_fingerprint.is_none() && bytes_read == expected_size {
+        stats.file_fingerprint = Some((file_id, digest.finalize().into()));
+    }
+    Ok(stats)
 }
 
 
@@ -1674,6 +1712,9 @@ fn fits_allowance(current: u64, weight: u64, limit: u64) -> bool {
 
 #[derive(Clone, Copy, Debug, Default)]
 pub(crate) struct BuildScheduleStats {
+    /// Digest of the one large file scheduled by this call, if readable.
+    /// The repository coordinator must collect it before aggregate `absorb`.
+    pub(crate) file_fingerprint: Option<(FileId, [u8; 32])>,
     pub weight_limit_bytes: u64,
     pub peak_weight_bytes: u64,
     pub peak_active_jobs: usize,
