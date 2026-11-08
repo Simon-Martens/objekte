@@ -371,6 +371,8 @@ fn restored_file_versions_keep_tokens_across_chunks() {
 #[test]
 fn published_active_records_keep_old_view_and_cross_chunk_boundaries() {
     let first = ActiveRecords::all(65_538).unwrap();
+    assert_eq!(first.bitmap().len(), 65_538);
+    assert_eq!(first.bitmap().max(), Some(65_537));
     let second = first
         .retired(&[RecordSlot(0), RecordSlot(65_536), RecordSlot(65_536)])
         .unwrap();

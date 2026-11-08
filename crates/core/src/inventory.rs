@@ -445,6 +445,11 @@ impl ActiveRecords {
     }
 
     pub(crate) fn bitmap(&self) -> RoaringBitmap {
+        if self.live_count == self.slot_count as u64 {
+            let mut full = RoaringBitmap::new();
+            full.insert_range(0..self.slot_count);
+            return full;
+        }
         self.chunks
             .iter()
             .enumerate()
