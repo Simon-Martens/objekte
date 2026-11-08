@@ -15,6 +15,7 @@ pub mod diagnostics;
 pub mod discovery;
 pub mod execution_options;
 pub mod executor;
+pub mod fts_preview;
 pub mod inference;
 pub mod inventory;
 mod json_scalar_text;

@@ -61,6 +61,21 @@ pub fn field_choices(
                 })
                 .or_insert(kind);
         }
+        if let Some(report) = &collection.inference {
+            for inferred in &report.report.fields {
+                let path = FieldPath {
+                    root: PathRoot::Data,
+                    segments: inferred.path.clone(),
+                }
+                .display();
+                let kind = if inferred.observed_kinds.len() == 1 {
+                    builder_type(&inferred.observed_kinds[0])
+                } else {
+                    None
+                };
+                fields.entry(path).or_insert(kind);
+            }
+        }
     }
     for column in available_columns.iter().take(MAX_FIELD_CHOICES) {
         if QueryPath::parse(column).is_ok() {

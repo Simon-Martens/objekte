@@ -10,8 +10,9 @@ use gpui_kit::component::{
 };
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::{
-    Context, Entity, Focusable as _, InteractiveElement as _, IntoElement, ParentElement as _,
-    Render, StatefulInteractiveElement as _, Styled as _, Window, div, list, px, rgb,
+    Context, Entity, Focusable as _, FontWeight, HighlightStyle, InteractiveElement as _,
+    IntoElement, ParentElement as _, Render, StatefulInteractiveElement as _, Styled as _,
+    StyledText, Window, div, list, px, rgb,
 };
 use objekte_search_core::query::parse_structured_filter;
 
@@ -728,6 +729,11 @@ impl DesktopView {
                         .get(&index)
                         .map(|row| row.cells.clone())
                         .unwrap_or_default();
+                    let match_highlights = state
+                        .projected_rows
+                        .get(&index)
+                        .map(|row| row.match_highlights.clone())
+                        .unwrap_or_default();
                     let shade = if selected {
                         colors.selected
                     } else if index % 2 == 0 {
@@ -754,7 +760,34 @@ impl DesktopView {
                                 .child((index + 1).to_string()),
                         )
                         .children(row_columns.iter().map(
-                            |(column_index, _column, width, wrapped)| {
+                            |(column_index, column, width, wrapped)| {
+                                let cell = cells.get(*column_index).cloned().unwrap_or_default();
+                                let content = if column == "@match" {
+                                    let highlights = match_highlights
+                                        .iter()
+                                        .filter(|(range, _)| {
+                                            range.end <= cell.len()
+                                                && cell.is_char_boundary(range.start)
+                                                && cell.is_char_boundary(range.end)
+                                        })
+                                        .map(|(range, span)| {
+                                            (
+                                                range.clone(),
+                                                HighlightStyle {
+                                                    font_weight: Some(FontWeight::BOLD),
+                                                    color: (*span)
+                                                        .then(|| rgb(colors.accent).into()),
+                                                    ..Default::default()
+                                                },
+                                            )
+                                        })
+                                        .collect::<Vec<_>>();
+                                    StyledText::new(cell.clone())
+                                        .with_highlights(highlights)
+                                        .into_any_element()
+                                } else {
+                                    div().child(cell).into_any_element()
+                                };
                                 div()
                                     .w(px(*width))
                                     .flex_shrink_0()
@@ -765,7 +798,7 @@ impl DesktopView {
                                     .when(!*wrapped, |this| {
                                         this.whitespace_nowrap().text_ellipsis()
                                     })
-                                    .child(cells.get(*column_index).cloned().unwrap_or_default())
+                                    .child(content)
                             },
                         ))
                         .on_click({
@@ -792,7 +825,7 @@ impl DesktopView {
                 .min_h_0()
                 .min_w(px(table_width)),
             );
-        let first = if loaded_count == 0 {
+        let first = if self.state.delivered_count == 0 {
             0
         } else {
             page.offset + 1

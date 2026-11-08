@@ -4,10 +4,12 @@
 use gpui_kit::SharedString;
 use std::collections::{BTreeMap, VecDeque};
 
+use super::completion::{CompletionContext, CompletionTarget};
+use super::filter_builder::FieldChoice;
 use super::model::{
     BatchRow, BatchSource, DetailView, ErrorField, ExportFormat, FilterValidationState,
     MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry, RecordTabSummary, ResultRow, SearchDraft,
-    SnapshotMode, UiUpdate,
+    SnapshotMode, TabViewState, UiUpdate,
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
 
@@ -65,7 +67,7 @@ pub struct UiState {
     pub detail: Option<DetailView>,
     pub tabs: Vec<RecordTabSummary>,
     pub active_tab: Option<u64>,
-    pub(super) tab_views: BTreeMap<u64, (bool, bool, bool)>,
+    pub(super) tab_views: BTreeMap<u64, TabViewState>,
     pub detail_cache: DetailCache,
     pub detail_source: Option<SharedString>,
     pub history: Vec<QueryEntry>,
@@ -103,6 +105,13 @@ pub struct UiState {
     pub show_detail_metadata: bool,
     pub filter_validation_generation: u64,
     pub filter_validation: Option<FilterValidationState>,
+    pub completion_fields: Vec<FieldChoice>,
+    pub completion_revision: u64,
+    pub completion_context: Option<CompletionContext>,
+    pub completion_suggestions: Vec<(String, String)>,
+    pub completion_selected: usize,
+    pub completion_partial: bool,
+    pub completion_pending: bool,
     pub showing_last_valid_results: bool,
     pub show_filter_builder: bool,
 }
@@ -126,6 +135,9 @@ impl UiState {
                 self.collections = collections;
                 self.single_collection = single_collection;
                 self.available_columns.clear();
+                self.completion_fields.clear();
+                self.completion_context = None;
+                self.completion_suggestions.clear();
                 self.hidden_columns.clear();
                 self.column_widths.clear();
                 self.wrapped_columns.clear();
@@ -189,7 +201,7 @@ impl UiState {
                 self.projected_rows.clear();
                 self.cached_page_starts.clear();
                 self.has_more = page.has_next;
-                if !self.has_more && page.exact_total.is_none() {
+                if !self.has_more && page.exact_total.is_none() && (page.offset == 0 || self.delivered_count > 0) {
                     page.exact_total = Some(self.loaded_count);
                 }
                 self.loading_more = false;
@@ -261,21 +273,14 @@ impl UiState {
             }
             UiUpdate::RevealRow(index) => self.page.selected = Some(index),
             UiUpdate::Tabs { tabs, active } => {
-                if let Some(id) = self.active_tab {
-                    self.tab_views.insert(
-                        id,
-                        (self.show_raw, self.show_links, self.show_detail_metadata),
-                    );
-                }
                 let changed = self.active_tab != active;
                 self.tabs = tabs;
                 self.active_tab = active;
                 self.tab_views
                     .retain(|id, _| self.tabs.iter().any(|tab| tab.id == *id));
                 if changed {
-                    (self.show_raw, self.show_links, self.show_detail_metadata) = active
-                        .and_then(|id| self.tab_views.get(&id).copied())
-                        .unwrap_or((false, false, false));
+                    let view = active.and_then(|id| self.tab_views.get(&id).copied()).unwrap_or_default();
+                    (self.show_raw, self.show_links, self.show_detail_metadata) = (view.raw, view.links, view.metadata);
                     self.detail = None;
                     self.detail_cache = DetailCache::default();
                     self.detail_source = None;
@@ -327,6 +332,10 @@ impl UiState {
                 if self.detail.is_none() {
                     self.show_raw = false;
                 }
+            }
+            UiUpdate::RestoreTabView(view) => {
+                (self.show_raw, self.show_links, self.show_detail_metadata) = (view.raw, view.links, view.metadata);
+                if let Some(id) = self.active_tab { self.tab_views.insert(id, view); }
             }
             UiUpdate::History {
                 mut entries,
@@ -410,6 +419,8 @@ impl UiState {
             UiUpdate::ChosenFolder { .. } | UiUpdate::ChosenSchema { .. } => {}
             UiUpdate::RestoreQuery(draft) => {
                 self.search = draft;
+                self.completion_context = None;
+                self.completion_suggestions.clear();
                 self.page = PageView::default();
                 self.loaded_count = 0;
                 self.delivered_count = 0;
@@ -434,7 +445,20 @@ impl UiState {
                     }
                 }
             }
-            UiUpdate::FieldChoices(_) => {}
+            UiUpdate::FieldChoices(fields) => {
+                self.completion_fields = fields;
+            }
+            UiUpdate::CompletionValues { revision, field, prefix, values, partial, .. } => {
+                if revision == self.completion_revision
+                    && self.completion_context.as_ref().is_some_and(|context| {
+                        context.prefix == prefix && matches!(&context.target, CompletionTarget::Value { field: active } if active == &field)
+                    }) {
+                    self.completion_suggestions = values;
+                    self.completion_selected = 0;
+                    self.completion_partial = partial;
+                    self.completion_pending = false;
+                }
+            }
             UiUpdate::Theme { dark } => self.dark = dark,
         }
     }

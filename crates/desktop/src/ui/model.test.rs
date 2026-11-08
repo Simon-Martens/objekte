@@ -13,6 +13,7 @@ fn page_bounds_rows_columns_and_multibyte_cells_without_changing_total() {
             },
             cells: vec!["Ä".repeat(MAX_CELL_BYTES)],
             matched_fields: Vec::new(),
+            match_highlights: Vec::new(),
             preview: None,
         })
         .collect();
@@ -56,6 +57,7 @@ fn page_budget_does_not_change_row_identity() {
                     .map(|_| "x".repeat(MAX_CELL_BYTES))
                     .collect(),
                 matched_fields: Vec::new(),
+                match_highlights: Vec::new(),
                 preview: None,
             })
             .collect(),

@@ -82,3 +82,30 @@ fn nested_projection_distinguishes_null_missing_and_unavailable() {
         "Unavailable"
     );
 }
+
+#[test]
+fn match_preview_marks_actual_field_and_fts_span() {
+    let fixture = fixture();
+    let spec = QuerySpec {
+        full_text: "Alpha".into(),
+        filter: "year = 2024".into(),
+        ..Default::default()
+    };
+    let page = query_page(&fixture.session, &spec, 0, 10, &CancellationToken::new()).unwrap();
+    let (view, _) = page_view_with_prior(
+        &page,
+        &spec,
+        &[],
+        &[
+            "@id".into(),
+            "@status".into(),
+            "@match".into(),
+            "title".into(),
+            "year".into(),
+        ],
+    );
+    let row = &view.rows[0];
+    assert_eq!(row.cells[2], "title: Alpha");
+    assert_eq!(row.match_highlights, [(0..5, false), (7..12, true)]);
+    assert!(!row.cells[2].contains("year"));
+}

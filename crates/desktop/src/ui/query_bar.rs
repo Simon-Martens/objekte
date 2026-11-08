@@ -461,6 +461,28 @@ impl DesktopView {
                         .flex()
                         .flex_col()
                         .gap_1()
+                        .on_key_down(cx.listener(|this, event: &gpui_kit::KeyDownEvent, _, cx| {
+                            let handled = match event.keystroke.key.as_str() {
+                                "up" => this.move_completion(false, cx),
+                                "down" => this.move_completion(true, cx),
+                                "escape" if this.state.completion_context.is_some() => {
+                                    this.dismiss_completion(cx);
+                                    true
+                                }
+                                _ => false,
+                            };
+                            if handled {
+                                cx.stop_propagation();
+                            }
+                        }))
+                        .on_key_up(cx.listener(|this, event: &gpui_kit::KeyUpEvent, _, cx| {
+                            if matches!(
+                                event.keystroke.key.as_str(),
+                                "left" | "right" | "home" | "end"
+                            ) {
+                                this.refresh_completion(cx);
+                            }
+                        }))
                         .child(
                             div()
                                 .flex()
@@ -468,24 +490,34 @@ impl DesktopView {
                                 .gap_2()
                                 .child(div().text_sm().child("Filter records"))
                                 .child(
-                                    Input::new(&self.inputs.structured)
-                                        .id("structured-input")
-                                        .w_full()
-                                        .border_color(rgb(if filter_invalid {
-                                            0xdc6b55
-                                        } else if dark {
-                                            0x394655
-                                        } else {
-                                            0xcbd5e1
-                                        }))
-                                        .aria_label(if filter_invalid {
-                                            format!(
-                                                "Structured filter, invalid: {}",
-                                                filter_explanation.clone().unwrap_or_default()
-                                            )
-                                        } else {
-                                            "Structured filter".into()
-                                        }),
+                                    gpui_kit::base::Popup::new(
+                                        "filter-completions",
+                                        Input::new(&self.inputs.structured)
+                                            .id("structured-input")
+                                            .w_full()
+                                            .border_color(rgb(if filter_invalid {
+                                                0xdc6b55
+                                            } else if dark {
+                                                0x394655
+                                            } else {
+                                                0xcbd5e1
+                                            }))
+                                            .aria_label(if filter_invalid {
+                                                format!(
+                                                    "Structured filter, invalid: {}",
+                                                    filter_explanation.clone().unwrap_or_default()
+                                                )
+                                            } else {
+                                                "Structured filter".into()
+                                            }),
+                                    )
+                                    .w_full()
+                                    .when(
+                                        self.state.completion_context.is_some()
+                                            && (self.state.completion_pending
+                                                || !self.state.completion_suggestions.is_empty()),
+                                        |popup| popup.content(self.render_completion_overlay(cx)),
+                                    ),
                                 )
                                 .child(
                                     Button::new("filter-builder-toggle")
@@ -526,6 +558,41 @@ impl DesktopView {
                         }),
                 )
             })
+    }
+
+    pub(super) fn render_completion_overlay(&self, cx: &mut Context<Self>) -> impl IntoElement {
+        let colors = super::theme::palette(self.state.dark);
+        div()
+            .id("filter-completions")
+            .w(px(430.))
+            .max_h(px(250.))
+            .p_1()
+            .flex()
+            .flex_col()
+            .bg(rgb(colors.panel))
+            .border_1()
+            .border_color(rgb(colors.border))
+            .rounded_sm()
+            .overflow_y_scrollbar()
+            .children(self.state.completion_suggestions.iter().enumerate().map(
+                |(index, (_, label))| {
+                    Button::new(format!("filter-completion-{index}"))
+                        .ghost()
+                        .label(label.clone())
+                        .selected(index == self.state.completion_selected)
+                        .on_click(cx.listener(move |this, _, window, cx| {
+                            this.state.completion_selected = index;
+                            this.accept_completion(window, cx);
+                        }))
+                },
+            ))
+            .when(self.state.completion_pending, |this| {
+                this.child(div().text_xs().child("Loading suggestions…"))
+            })
+            .when(
+                self.state.completion_partial && !self.state.completion_pending,
+                |this| this.child(div().text_xs().child("More values may exist")),
+            )
     }
 
     pub(super) fn render_builder_overlay(&self) -> impl IntoElement {

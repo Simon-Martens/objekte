@@ -133,6 +133,9 @@ pub struct ResultRow {
     pub key: RowKey,
     pub cells: Vec<String>,
     pub matched_fields: Vec<String>,
+    /// Byte ranges in the Match cell: `true` marks an exact FTS span;
+    /// `false` marks a verified field label.
+    pub match_highlights: Vec<(std::ops::Range<usize>, bool)>,
     pub preview: Option<String>,
 }
 
@@ -242,6 +245,7 @@ pub struct RelationRow {
     pub value: String,
     pub available: bool,
     pub continuation: bool,
+    pub target: bool,
 }
 
 
@@ -359,6 +363,18 @@ pub enum ErrorField {
 }
 
 
+/// Local inspector choices and scroll offsets saved with each navigation frame.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TabViewState {
+    pub raw: bool,
+    pub links: bool,
+    pub metadata: bool,
+    pub fields_y: i32,
+    pub links_y: i32,
+    pub source_y: i32,
+}
+
+
 /// User intent emitted from GPUI controls to the integrator.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum UiAction {
@@ -378,6 +394,12 @@ pub enum UiAction {
     Open(OpenDraft),
     SearchEdited(SearchDraft),
     SearchNow(SearchDraft),
+    CompleteValues {
+        revision: u64,
+        collection: Option<String>,
+        field: String,
+        prefix: String,
+    },
     Cancel,
     VisibleRows {
         start: usize,
@@ -388,6 +410,10 @@ pub enum UiAction {
     SelectRow(usize),
     OpenRecord(usize),
     ActivateTab(u64),
+    SetTabView {
+        id: u64,
+        view: TabViewState,
+    },
     CloseTab(u64),
     OpenTabQuery,
     LoadLinks,
@@ -399,6 +425,7 @@ pub enum UiAction {
     DetailSectionRelative(bool),
     ToggleRawSource,
     FollowRelation(usize),
+    OpenRelationTab(usize),
     CopyRelation(usize),
     BackRelation,
     CopyRecord,
@@ -477,6 +504,7 @@ pub enum UiUpdate {
         active: Option<u64>,
     },
     Detail(Option<DetailView>),
+    RestoreTabView(TabViewState),
     History {
         entries: Vec<QueryEntry>,
         saved: Vec<QueryEntry>,
@@ -512,6 +540,14 @@ pub enum UiUpdate {
         state: FilterValidationState,
     },
     FieldChoices(Vec<super::filter_builder::FieldChoice>),
+    CompletionValues {
+        revision: u64,
+        field: String,
+        prefix: String,
+        values: Vec<(String, String)>,
+        partial: bool,
+        visited_keys: u64,
+    },
     Theme {
         dark: bool,
     },

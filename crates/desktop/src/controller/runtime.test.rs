@@ -1,6 +1,51 @@
 use super::*;
 
 #[test]
+fn completion_uses_bounded_postings_and_keeps_typed_literals() {
+    use objekte_search_core::model::LogicalType;
+    use objekte_search_core::reference::FieldDefinition;
+    use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
+    use objekte_search_core::source::SourceFormat;
+
+    let fixture = crate::backend::test_support::fixture();
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir(root.path().join("items")).unwrap();
+    std::fs::write(root.path().join("items/a.json"), r#"{"name":"Alpha"}"#).unwrap();
+    std::fs::write(root.path().join("items/b.json"), r#"{"name":"Beta"}"#).unwrap();
+    let mut definition = CollectionDefinition::folder("files", "items", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["name".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let repository =
+        Repository::open_with_options(root.path(), vec![definition], RepositoryOptions::default())
+            .unwrap();
+    let mut session = fixture.session;
+    session.repository = Arc::new(repository);
+    session.collections = vec!["files".into()];
+    let (values, partial, visited) = posting_completions(
+        &session,
+        &CompletionRequest {
+            revision: 1,
+            collection: Some("files".into()),
+            field: "name".into(),
+            prefix: "Al".into(),
+        },
+    );
+    assert_eq!(values, [(r#""Alpha""#.into(), r#""Alpha""#.into())]);
+    assert!(!partial);
+    assert!(visited <= 20);
+}
+
+#[test]
 fn bounded_batch_status_extraction_skips_large_hits() {
     let temp = tempfile::tempdir().unwrap();
     let output = temp.path().join("events.ndjson");

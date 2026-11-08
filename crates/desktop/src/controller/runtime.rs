@@ -1,6 +1,6 @@
 //! Generation-checked operations around one native window and retained repository.
 
-use std::collections::{HashSet, VecDeque};
+use std::collections::{HashMap, HashSet, VecDeque};
 use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
@@ -10,6 +10,8 @@ use std::time::{Duration, Instant};
 
 use gpui_kit::{App, PathPromptOptions};
 use objekte_cli::execution::Exit;
+use objekte_search_core::posting::ScalarKey;
+use objekte_search_core::posting_values::PostingValuesRequest;
 use objekte_search_core::repository::SearchHit;
 use objekte_search_core::streaming::CancellationToken;
 use objekte_tui::relations::{self, LinkAction};
@@ -18,7 +20,7 @@ use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
     BatchRow, BatchSource as UiBatchSource, DetailView, ErrorField, ExportFormat,
     FilterValidationState, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft,
-    SnapshotMode, UiAction, UiUpdate,
+    SnapshotMode, TabViewState, UiAction, UiUpdate,
 };
 use crate::ui::preferences::DesktopPreferences;
 
@@ -47,6 +49,8 @@ struct TabContext {
 struct TabFrame {
     key: RecordKey,
     anchor: usize,
+    view: TabViewState,
+    in_results: bool,
 }
 
 
@@ -57,6 +61,8 @@ struct RecordTab {
     anchor: usize,
     back: Vec<TabFrame>,
     expanded: HashSet<String>,
+    view: TabViewState,
+    in_results: bool,
     operation_generation: u64,
     cancellation: CancellationToken,
     loading: bool,
@@ -90,6 +96,19 @@ type QueryCompletion = Result<
 >;
 type OpenCompletion = Result<(OpenedSession, Result<DesktopPreferences, String>), String>;
 type TabCompletion = Result<Option<(SearchHit, DetailView, Vec<Option<LinkAction>>)>, String>;
+
+
+#[derive(Clone)]
+struct CompletionRequest {
+    revision: u64,
+    collection: Option<String>,
+    field: String,
+    prefix: String,
+}
+
+
+type CompletionCacheKey = (u64, Option<String>, String, String);
+type CompletionCacheValue = (Vec<(String, String)>, bool, u64);
 
 
 #[derive(Clone, Copy)]
@@ -175,6 +194,12 @@ enum WorkerEvent {
         open_generation: u64,
         query_generation: u64,
         result: Result<usize, String>,
+    },
+    CompletionValues {
+        open_generation: u64,
+        completion_generation: u64,
+        request: CompletionRequest,
+        values: CompletionCacheValue,
     },
     TabLoaded {
         open_generation: u64,
@@ -277,6 +302,10 @@ pub struct DesktopController {
     relation_actions: Vec<Option<LinkAction>>,
     expanded: HashSet<String>,
     pending_edit: Option<(Instant, SearchDraft)>,
+    pending_completion: Option<(Instant, CompletionRequest)>,
+    completion_generation: u64,
+    completion_cache: HashMap<CompletionCacheKey, CompletionCacheValue>,
+    completion_cache_order: VecDeque<CompletionCacheKey>,
 }
 
 
@@ -339,6 +368,10 @@ impl DesktopController {
                 relation_actions: Vec::new(),
                 expanded: HashSet::new(),
                 pending_edit: None,
+                pending_completion: None,
+                completion_generation: 0,
+                completion_cache: HashMap::new(),
+                completion_cache_order: VecDeque::new(),
             },
             action_tx,
         )
@@ -366,6 +399,14 @@ impl DesktopController {
         {
             let (_, draft) = self.pending_edit.take().expect("checked pending query");
             self.start_validation(draft, &mut updates);
+        }
+        if self
+            .pending_completion
+            .as_ref()
+            .is_some_and(|(at, _)| at.elapsed() >= Duration::from_millis(120))
+        {
+            let (_, request) = self.pending_completion.take().expect("checked completion");
+            self.start_completion(request, &mut updates);
         }
         updates
     }
@@ -396,6 +437,23 @@ impl DesktopController {
                 self.current_draft = draft.clone();
                 self.start_validation(draft, updates);
             }
+            UiAction::CompleteValues {
+                revision,
+                collection,
+                field,
+                prefix,
+            } => {
+                self.completion_generation += 1;
+                self.pending_completion = Some((
+                    Instant::now(),
+                    CompletionRequest {
+                        revision,
+                        collection,
+                        field,
+                        prefix,
+                    },
+                ));
+            }
             UiAction::Cancel => {
                 self.cancellation.cancel();
                 self.output_cancellation.cancel();
@@ -425,6 +483,11 @@ impl DesktopController {
             UiAction::SelectRow(index) => self.select_row(index, updates),
             UiAction::OpenRecord(index) => self.open_record(index, updates),
             UiAction::ActivateTab(id) => self.activate_tab(id, updates),
+            UiAction::SetTabView { id, view } => {
+                if let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) {
+                    tab.view = view;
+                }
+            }
             UiAction::CloseTab(id) => self.close_tab(id, updates),
             UiAction::OpenTabQuery => self.open_tab_query(updates),
             UiAction::LoadLinks => self.load_links(updates),
@@ -493,6 +556,7 @@ impl DesktopController {
             }
             UiAction::DetailSectionRelative(forward) => self.move_detail_section(forward, updates),
             UiAction::FollowRelation(index) => self.follow_relation(index, updates),
+            UiAction::OpenRelationTab(index) => self.open_relation_tab(index, updates),
             UiAction::CopyRelation(index) => {
                 if let Some(relation) = self
                     .detail
@@ -728,6 +792,10 @@ impl DesktopController {
         self.output_cancellation.cancel();
         self.cancellation = CancellationToken::new();
         self.open_generation += 1;
+        self.pending_completion = None;
+        self.completion_generation += 1;
+        self.completion_cache.clear();
+        self.completion_cache_order.clear();
         self.detection_generation = self.detection_generation.wrapping_add(1);
         self.picker_generation = self.picker_generation.wrapping_add(1);
         self.query_generation += 1;
@@ -965,6 +1033,41 @@ impl DesktopController {
         });
     }
 
+    fn start_completion(&mut self, request: CompletionRequest, updates: &mut Vec<UiUpdate>) {
+        let Some(session) = self.session.clone() else {
+            return;
+        };
+        let key = (
+            self.open_generation,
+            request.collection.clone(),
+            request.field.clone(),
+            request.prefix.clone(),
+        );
+        if let Some((values, partial, visited_keys)) = self.completion_cache.get(&key) {
+            updates.push(UiUpdate::CompletionValues {
+                revision: request.revision,
+                field: request.field,
+                prefix: request.prefix,
+                values: values.clone(),
+                partial: *partial,
+                visited_keys: *visited_keys,
+            });
+            return;
+        }
+        let sender = self.worker_tx.clone();
+        let open_generation = self.open_generation;
+        let completion_generation = self.completion_generation;
+        thread::spawn(move || {
+            let values = posting_completions(&session, &request);
+            let _ = sender.send(WorkerEvent::CompletionValues {
+                open_generation,
+                completion_generation,
+                request,
+                values,
+            });
+        });
+    }
+
     fn select_row(&mut self, index: usize, updates: &mut Vec<UiUpdate>) {
         if self.keys.get(index).and_then(Option::as_ref).is_none() {
             return;
@@ -1025,6 +1128,8 @@ impl DesktopController {
             anchor: index,
             back: Vec::new(),
             expanded: HashSet::new(),
+            view: TabViewState::default(),
+            in_results: true,
             operation_generation: 0,
             cancellation: CancellationToken::new(),
             loading: false,
@@ -1140,6 +1245,8 @@ impl DesktopController {
         let token = tab.cancellation.clone();
         let spec = tab.context.spec.clone();
         let key = tab.key.clone();
+        let tab_anchor = tab.anchor;
+        let in_results = tab.in_results;
         let open_generation = self.open_generation;
         let sender = self.worker_tx.clone();
         self.emit_tabs(updates);
@@ -1153,10 +1260,23 @@ impl DesktopController {
                     backend::record_by_id(&session, &key.collection, &key.id, &token)
                 }
                 TabLoadKind::Back { frame } => {
-                    backend::record_by_id(&session, &frame.key.collection, &frame.key.id, &token)
+                    if frame.in_results {
+                        tab_result_hit(&session, &spec, frame.anchor, &frame.key, &token)
+                    } else {
+                        backend::record_by_id(
+                            &session,
+                            &frame.key.collection,
+                            &frame.key.id,
+                            &token,
+                        )
+                    }
                 }
                 TabLoadKind::Open => {
-                    backend::record_by_id(&session, &key.collection, &key.id, &token)
+                    if in_results {
+                        tab_result_hit(&session, &spec, tab_anchor, &key, &token)
+                    } else {
+                        backend::record_by_id(&session, &key.collection, &key.id, &token)
+                    }
                 }
             }
             .map(|hit| hit.map(|hit| record_presentation(&session, hit)))
@@ -1416,6 +1536,36 @@ impl DesktopController {
                     }),
                 }
             }
+            WorkerEvent::CompletionValues {
+                open_generation,
+                completion_generation,
+                request,
+                values,
+            } if open_generation == self.open_generation
+                && completion_generation == self.completion_generation =>
+            {
+                let key = (
+                    open_generation,
+                    request.collection.clone(),
+                    request.field.clone(),
+                    request.prefix.clone(),
+                );
+                self.completion_cache.insert(key.clone(), values.clone());
+                self.completion_cache_order.push_back(key);
+                while self.completion_cache_order.len() > 64 {
+                    if let Some(old) = self.completion_cache_order.pop_front() {
+                        self.completion_cache.remove(&old);
+                    }
+                }
+                updates.push(UiUpdate::CompletionValues {
+                    revision: request.revision,
+                    field: request.field,
+                    prefix: request.prefix,
+                    values: values.0,
+                    partial: values.1,
+                    visited_keys: values.2,
+                });
+            }
             WorkerEvent::TabLoaded {
                 open_generation,
                 tab_id,
@@ -1440,8 +1590,11 @@ impl DesktopController {
                                 tab.back.push(TabFrame {
                                     key: tab.key.clone(),
                                     anchor: tab.anchor,
+                                    view: tab.view,
+                                    in_results: tab.in_results,
                                 });
                                 tab.anchor = *anchor;
+                                tab.in_results = true;
                                 tab.end_confirmed = false;
                                 tab.expanded.clear();
                                 tab.links_loaded = false;
@@ -1453,8 +1606,11 @@ impl DesktopController {
                                 tab.back.push(TabFrame {
                                     key: tab.key.clone(),
                                     anchor: tab.anchor,
+                                    view: tab.view,
+                                    in_results: tab.in_results,
                                 });
                                 tab.expanded.clear();
+                                tab.in_results = false;
                                 tab.links_loaded = false;
                             }
                             TabLoadKind::Back { frame } => {
@@ -1464,6 +1620,8 @@ impl DesktopController {
                                     tab.back.pop();
                                 }
                                 tab.anchor = frame.anchor;
+                                tab.view = frame.view;
+                                tab.in_results = frame.in_results;
                                 tab.expanded.clear();
                                 tab.links_loaded = false;
                             }
@@ -1480,6 +1638,9 @@ impl DesktopController {
                             self.relation_actions = actions;
                             self.expanded = tab.expanded.clone();
                             updates.push(UiUpdate::Detail(Some(view)));
+                            if matches!(kind, TabLoadKind::Back { .. }) {
+                                updates.push(UiUpdate::RestoreTabView(tab.view));
+                            }
                         }
                     }
                     Ok(None) => {
@@ -1753,6 +1914,52 @@ impl DesktopController {
         }
     }
 
+    fn open_relation_tab(&mut self, index: usize, updates: &mut Vec<UiUpdate>) {
+        let Some(LinkAction::Target { collection, id }) =
+            self.relation_actions.get(index).cloned().flatten()
+        else {
+            return;
+        };
+        let Some(origin) = self
+            .active_tab
+            .and_then(|active| self.tabs.iter().find(|tab| tab.id == active))
+        else {
+            return;
+        };
+        let context = origin.context.clone();
+        let anchor = origin.anchor;
+        let key = RecordKey { collection, id };
+        if let Some(existing) = self
+            .tabs
+            .iter()
+            .find(|tab| tab.key == key && Arc::ptr_eq(&tab.context, &context))
+            .map(|tab| tab.id)
+        {
+            self.activate_tab(existing, updates);
+            return;
+        }
+        let id = self.next_tab_id;
+        self.next_tab_id += 1;
+        self.tabs.push(RecordTab {
+            id,
+            context,
+            key: key.clone(),
+            anchor,
+            back: Vec::new(),
+            expanded: HashSet::new(),
+            view: TabViewState::default(),
+            in_results: false,
+            operation_generation: 0,
+            cancellation: CancellationToken::new(),
+            loading: false,
+            links_pending: false,
+            links_loaded: false,
+            end_confirmed: false,
+            title: key.id.clone(),
+        });
+        self.activate_tab(id, updates);
+    }
+
     fn start_export(&mut self, format: ExportFormat, path: String, updates: &mut Vec<UiUpdate>) {
         let Some(session) = self.session.clone() else {
             updates.push(UiUpdate::Error {
@@ -2020,12 +2227,14 @@ fn relation_presentation(
                 Some(LinkAction::MoreOutgoing { .. } | LinkAction::MoreBacklinks { .. })
             );
             let available = row.action.is_some();
+            let target = matches!(row.action.as_ref(), Some(LinkAction::Target { .. }));
             (
                 RelationRow {
                     label: row.label,
                     value: row.value,
                     available,
                     continuation,
+                    target,
                 },
                 row.action,
             )
@@ -2044,6 +2253,123 @@ fn query_error_field(message: &str, draft: &SearchDraft) -> ErrorField {
     } else {
         ErrorField::Structured
     }
+}
+
+/// Query already-built posting dictionaries only. Missing or partial indexes
+/// yield fewer suggestions; they never trigger a source-document scan.
+fn tab_result_hit(
+    session: &OpenedSession,
+    spec: &backend::QuerySpec,
+    anchor: usize,
+    key: &RecordKey,
+    token: &CancellationToken,
+) -> Result<Option<SearchHit>, backend::BackendError> {
+    let mut page = backend::query_page(session, spec, anchor, 1, token)?;
+    if let Some(hit) = page.hits.pop()
+        && hit.collection == key.collection
+        && hit.record_id == key.id
+    {
+        return Ok(Some(hit));
+    }
+    backend::record_by_id(session, &key.collection, &key.id, token)
+}
+
+fn posting_completions(
+    session: &OpenedSession,
+    request: &CompletionRequest,
+) -> CompletionCacheValue {
+    let mut values = Vec::new();
+    let mut partial = false;
+    let mut visited_keys = 0;
+    let path = match objekte_search_core::model::FieldPath::parse(&request.field) {
+        Ok(path) => path,
+        Err(_) => return (values, true, visited_keys),
+    };
+    for collection in session.repository.collections() {
+        if request
+            .collection
+            .as_deref()
+            .is_some_and(|scope| scope != collection.definition.name)
+        {
+            continue;
+        }
+        // A transformed posting key need not be a valid source literal. The
+        // public posting API intentionally exposes stored keys, not inverse
+        // transforms, so withhold custom-bound fields.
+        if collection
+            .definition
+            .schema
+            .custom_bindings()
+            .keys()
+            .any(|(segments, _)| segments == &path.segments)
+        {
+            partial = true;
+            continue;
+        }
+        let mut query = PostingValuesRequest::new(&collection.definition.name, &request.field, 20);
+        if !request.prefix.is_empty() {
+            query.prefix = Some(request.prefix.clone());
+        }
+        let page = match session.repository.posting_values(&query) {
+            Ok(page) => page,
+            Err(_) => {
+                // Numeric and boolean dictionaries do not support native
+                // prefixes. A bounded first page is still useful.
+                query.prefix = None;
+                match session.repository.posting_values(&query) {
+                    Ok(page) => page,
+                    Err(_) => {
+                        partial = true;
+                        continue;
+                    }
+                }
+            }
+        };
+        visited_keys += page.visited_keys;
+        partial |= !page.coverage.value_counts_complete || page.continuation.is_some();
+        for value in page.values {
+            let Some(literal) = scalar_literal(&value.value) else {
+                continue;
+            };
+            if !request.prefix.is_empty()
+                && !literal
+                    .to_lowercase()
+                    .contains(&request.prefix.to_lowercase())
+            {
+                continue;
+            }
+            let label = if request.collection.is_some() {
+                literal.clone()
+            } else {
+                format!("{literal} · {}", collection.definition.name)
+            };
+            if !values.iter().any(|(existing, _)| existing == &literal) {
+                values.push((literal, label));
+            }
+            if values.len() >= 50 {
+                partial = true;
+                break;
+            }
+        }
+        if values.len() >= 50 {
+            break;
+        }
+    }
+    (values, partial, visited_keys)
+}
+
+fn scalar_literal(value: &ScalarKey) -> Option<String> {
+    use objekte_search_core::model::Number;
+    Some(match value {
+        ScalarKey::String(value) | ScalarKey::Id(value) => serde_json::to_string(value).ok()?,
+        ScalarKey::Number(Number::Integer(value)) => value.to_string(),
+        ScalarKey::Number(Number::Float(value)) => value.to_string(),
+        ScalarKey::Number(Number::ExactDecimal(value)) => value.to_string(),
+        ScalarKey::Bool(value) => value.to_string(),
+        ScalarKey::Date(value) => serde_json::to_string(&value.to_string()).ok()?,
+        ScalarKey::Datetime(value) => serde_json::to_string(&value.to_string()).ok()?,
+        ScalarKey::Unixtime(value) => value.to_string(),
+    })
 }
 
 /// Read only short event lines; complete record events can be arbitrarily large.

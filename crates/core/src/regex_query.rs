@@ -251,6 +251,12 @@ impl CompiledRegex {
         self.matcher.is_match(text)
     }
 
+    pub(crate) fn find(&self, text: &str) -> Option<std::ops::Range<usize>> {
+        self.matcher
+            .find(text)
+            .map(|found| found.start()..found.end())
+    }
+
     pub fn condition(&self) -> Option<&RegexCondition> {
         self.condition.as_ref()
     }

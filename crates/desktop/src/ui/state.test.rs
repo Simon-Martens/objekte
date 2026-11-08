@@ -17,6 +17,7 @@ fn replacement_open_retains_old_workspace_until_success() {
         },
         cells: vec!["old".into()],
         matched_fields: Vec::new(),
+        match_highlights: Vec::new(),
         preview: None,
     });
     state.detail = Some(DetailView::default());
@@ -120,6 +121,7 @@ fn projection_refresh_keeps_detail_and_cache_is_bounded() {
             },
             cells: vec!["first".into()],
             matched_fields: vec![],
+            match_highlights: vec![],
             preview: Some("preview".into()),
         }],
         selected: Some(0),
@@ -146,6 +148,7 @@ fn projection_refresh_keeps_detail_and_cache_is_bounded() {
                 },
                 cells: vec!["value".into()],
                 matched_fields: vec![],
+                match_highlights: vec![],
                 preview: None,
             }],
             offset: start,
@@ -170,6 +173,7 @@ fn continuation_appends_once_and_exhaustion_establishes_total() {
         },
         cells: vec![index.to_string()],
         matched_fields: Vec::new(),
+        match_highlights: Vec::new(),
         preview: None,
     };
     let mut state = UiState::default();

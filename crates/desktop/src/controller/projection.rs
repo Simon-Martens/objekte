@@ -2,9 +2,12 @@
 
 use std::collections::{BTreeSet, HashSet};
 
+use objekte_search_core::fts_preview::PreviewMatcher;
 use objekte_search_core::inventory::{FileStatus, RecordClass};
 use objekte_search_core::model::PathRoot;
-use objekte_search_core::query::{FilterExpr, parse_structured_filter};
+use objekte_search_core::query::{
+    CaseSensitivity, FilterExpr, FtsMode, FtsQuery, RegexOptions, parse_structured_filter,
+};
 use objekte_search_core::query_path::{PathStep, QueryPath};
 use objekte_search_core::repository::{Payload, SearchHit};
 use serde_json::Value;
@@ -106,19 +109,38 @@ pub fn page_view_with_prior(
     columns.retain(|column| !hidden.contains(column));
     let clipped = columns.len() > MAX_COLUMNS;
     columns.truncate(MAX_COLUMNS);
+    let matcher = (!spec.full_text.trim().is_empty())
+        .then(|| FtsQuery {
+            case_sensitivity: if spec.case_sensitive {
+                CaseSensitivity::Sensitive
+            } else {
+                CaseSensitivity::Insensitive
+            },
+            mode: if spec.regex {
+                FtsMode::Regex(RegexOptions::default())
+            } else {
+                FtsMode::Literal
+            },
+            literal: spec.full_text.trim().to_owned(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        })
+        .and_then(|query| PreviewMatcher::new(&query).ok());
     let rows = page
         .hits
         .iter()
         .enumerate()
         .map(|(index, hit)| {
             let json = payload_json(hit);
+            let (match_text, match_highlights) =
+                match_preview(hit, json.as_ref(), matcher.as_ref());
             let cells = columns
                 .iter()
                 .map(|column| match column.as_str() {
                     "@collection" => hit.collection.clone(),
                     "@id" => hit.record_id.clone(),
                     "@status" => status_label(hit),
-                    "@match" => match_preview(hit, json.as_ref(), spec),
+                    "@match" => match_text.clone(),
                     "@file" => hit.file_path.display().to_string(),
                     field => project_field(json.as_ref(), field),
                 })
@@ -133,6 +155,7 @@ pub fn page_view_with_prior(
                 },
                 cells,
                 matched_fields: hit.matched_fields.clone(),
+                match_highlights,
                 preview: json.as_ref().map(value_label),
             }
         })
@@ -193,44 +216,66 @@ fn project_field(json: Option<&Value>, path: &str) -> String {
     }
 }
 
-fn match_preview(hit: &SearchHit, json: Option<&Value>, spec: &QuerySpec) -> String {
-    if hit.matched_fields.is_empty() {
-        return "Source: match".into();
-    }
-    let mut lines = Vec::new();
-    for field in hit.matched_fields.iter().take(3) {
-        let excerpt = if field.starts_with('@') {
-            "matched".to_owned()
+fn match_preview(
+    hit: &SearchHit,
+    json: Option<&Value>,
+    matcher: Option<&PreviewMatcher>,
+) -> (String, Vec<(std::ops::Range<usize>, bool)>) {
+    let mut text = String::new();
+    let mut highlights = Vec::new();
+    for field in &hit.matched_fields {
+        if highlights.len() >= 6 {
+            break;
+        }
+        let found = if field == "@record.raw_text" {
+            Some(("Source".to_owned(), "raw text match".to_owned(), None))
         } else {
-            let value = project_field(json, field);
-            if value == "Unavailable" || value == "—" {
-                "matched; inspect Source".to_owned()
-            } else if !spec.regex && spec.case_sensitive {
-                match value.find(&spec.full_text) {
-                    Some(start) => {
-                        let before = value[..start]
-                            .char_indices()
-                            .rev()
-                            .nth(30)
-                            .map_or(0, |(at, _)| at);
-                        let after = value[start..]
-                            .char_indices()
-                            .nth(100)
-                            .map_or(value.len(), |(at, _)| start + at);
-                        value[before..after].to_owned()
-                    }
-                    None => "matched; inspect record".to_owned(),
-                }
+            let value = if field == "@root" {
+                json.map(value_label).unwrap_or_default()
             } else {
-                "matched; inspect record".to_owned()
-            }
+                project_field(json, field)
+            };
+            let max = value.floor_char_boundary(value.len().min(64 * 1024));
+            let visible = &value[..max];
+            matcher
+                .and_then(|matcher| matcher.find(visible))
+                .map(|span| {
+                    let before = visible[..span.start]
+                        .char_indices()
+                        .rev()
+                        .nth(30)
+                        .map_or(0, |(at, _)| at);
+                    let after = visible[span.end..]
+                        .char_indices()
+                        .nth(100)
+                        .map_or(visible.len(), |(at, _)| span.end + at);
+                    (
+                        field.clone(),
+                        visible[before..after].to_owned(),
+                        Some(span.start - before..span.end - before),
+                    )
+                })
         };
-        lines.push(format!("{field}: {excerpt}"));
+        let Some((label, excerpt, span)) = found else {
+            continue;
+        };
+        if !text.is_empty() {
+            text.push_str(" · ");
+        }
+        let label_start = text.len();
+        text.push_str(&label);
+        highlights.push((label_start..text.len(), false));
+        text.push_str(": ");
+        let excerpt_start = text.len();
+        text.push_str(&excerpt);
+        if let Some(span) = span {
+            highlights.push((excerpt_start + span.start..excerpt_start + span.end, true));
+        }
     }
-    if hit.matched_fields.len() > 3 {
-        lines.push(format!("+{} more", hit.matched_fields.len() - 3));
+    if text.is_empty() {
+        text.push_str("FTS match; excerpt unavailable");
     }
-    lines.join(" · ")
+    (text, highlights)
 }
 
 /// Present the original source, parsed structure, and locator metadata.

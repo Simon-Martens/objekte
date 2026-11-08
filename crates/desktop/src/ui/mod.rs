@@ -1,5 +1,6 @@
 //! GPUI presentation and interaction state for the desktop application.
 
+mod completion;
 pub mod filter_builder;
 pub mod model;
 pub mod open_dialog;
@@ -22,7 +23,7 @@ use gpui_kit::{
     ScrollHandle, Subscription, Window, px,
 };
 
-use model::{SearchDraft, UiAction, UiUpdate};
+use model::{SearchDraft, TabViewState, UiAction, UiUpdate};
 use query_bar::{BuilderEvent, FilterBuilderView};
 use state::UiState;
 
@@ -57,6 +58,9 @@ pub struct DesktopView {
     grid_horizontal_scroll: ScrollHandle,
     columns_scroll: ScrollHandle,
     detail_focus: FocusHandle,
+    fields_scroll: ScrollHandle,
+    links_scroll: ScrollHandle,
+    source_scroll: ScrollHandle,
     restoring_query: bool,
     _subscriptions: Vec<Subscription>,
     open_extra_subscriptions: Vec<Subscription>,
@@ -112,15 +116,35 @@ impl DesktopView {
                 }
             },
         ));
-        for input in [&inputs.full_text, &inputs.structured] {
-            subscriptions.push(
-                cx.subscribe(input, |this: &mut Self, _, event, cx| match event {
+        subscriptions.push(
+            cx.subscribe(
+                &inputs.full_text,
+                |this: &mut Self, _, event, cx| match event {
                     InputEvent::Change => this.search_from_inputs(false, cx),
                     InputEvent::PressEnter { .. } => this.search_from_inputs(true, cx),
                     _ => {}
-                }),
-            );
-        }
+                },
+            ),
+        );
+        subscriptions.push(cx.subscribe_in(
+            &inputs.structured,
+            window,
+            |this: &mut Self, _, event, window, cx| match event {
+                InputEvent::Change => {
+                    this.search_from_inputs(false, cx);
+                    this.refresh_completion(cx);
+                }
+                InputEvent::Focus => this.refresh_completion(cx),
+                InputEvent::PressEnter { .. } => {
+                    if !this.accept_completion(window, cx) {
+                        this.search_from_inputs(true, cx);
+                    }
+                }
+                InputEvent::Blur => {
+                    // Pointer selection is handled by the popup's own item click.
+                }
+            },
+        ));
         subscriptions.push(
             cx.subscribe(&inputs.rename_title, |this: &mut Self, _, event, cx| {
                 if matches!(event, InputEvent::PressEnter { .. }) {
@@ -160,6 +184,9 @@ impl DesktopView {
             grid_horizontal_scroll: ScrollHandle::new(),
             columns_scroll: ScrollHandle::new(),
             detail_focus: cx.focus_handle(),
+            fields_scroll: ScrollHandle::new(),
+            links_scroll: ScrollHandle::new(),
+            source_scroll: ScrollHandle::new(),
             restoring_query: false,
             _subscriptions: subscriptions,
             open_extra_subscriptions: Vec::new(),
@@ -236,6 +263,21 @@ impl DesktopView {
                 .update(cx, |builder, cx| builder.set_fields(fields.clone(), cx));
         }
         let reset_grid_scroll = matches!(&update, UiUpdate::QueryStarted(_) | UiUpdate::Page(_));
+        let switching_tab =
+            matches!(&update, UiUpdate::Tabs { active, .. } if *active != self.state.active_tab);
+        if switching_tab && let Some(id) = self.state.active_tab {
+            let view = self.capture_tab_view();
+            self.state.tab_views.insert(id, view);
+            self.send(UiAction::SetTabView { id, view });
+        }
+        let restore_view = match &update {
+            UiUpdate::RestoreTabView(view) => Some(*view),
+            UiUpdate::Tabs { active, .. } if switching_tab => {
+                active.and_then(|id| self.state.tab_views.get(&id).copied())
+            }
+            _ => None,
+        };
+        let refresh_fields = matches!(&update, UiUpdate::FieldChoices(_));
         let old_count = self.state.loaded_count;
         let append = matches!(&update, UiUpdate::AppendPage(_));
         let remeasure_grid = matches!(&update, UiUpdate::TablePresentation { .. });
@@ -245,6 +287,12 @@ impl DesktopView {
         };
         let inspected_record = matches!(&update, UiUpdate::Detail(Some(_)));
         self.state.apply(update);
+        if switching_tab || restore_view.is_some() {
+            self.restore_tab_scroll(restore_view.unwrap_or_default());
+        }
+        if refresh_fields && self.state.completion_context.is_some() {
+            self.refresh_completion(cx);
+        }
         if inspected_record && self.state.show_links {
             self.send(UiAction::LoadLinks);
         }
@@ -296,6 +344,125 @@ impl DesktopView {
             UiAction::SearchEdited(draft)
         });
         cx.notify();
+    }
+
+    fn refresh_completion(&mut self, cx: &mut Context<Self>) {
+        self.state.completion_revision += 1;
+        self.state.completion_selected = 0;
+        self.state.completion_suggestions.clear();
+        self.state.completion_pending = false;
+        self.state.completion_partial = false;
+        if !self.state.search.filter_enabled || self.state.root.is_none() {
+            self.state.completion_context = None;
+            cx.notify();
+            return;
+        }
+        let input = self.inputs.structured.read(cx);
+        let value = input.value().to_string();
+        let caret = input.cursor();
+        let context = completion::context(&value, caret);
+        if let Some(context) = &context {
+            match &context.target {
+                completion::CompletionTarget::Field { .. } => {
+                    let prefix = context.prefix.to_lowercase();
+                    self.state.completion_suggestions = self
+                        .state
+                        .completion_fields
+                        .iter()
+                        .filter(|choice| choice.path.to_lowercase().starts_with(&prefix))
+                        .take(20)
+                        .map(|choice| (choice.path.clone(), choice.path.clone()))
+                        .collect();
+                }
+                completion::CompletionTarget::Value { field } => {
+                    self.state.completion_pending = true;
+                    self.send(UiAction::CompleteValues {
+                        revision: self.state.completion_revision,
+                        collection: self.state.search.collection.clone(),
+                        field: field.clone(),
+                        prefix: context.prefix.clone(),
+                    });
+                }
+            }
+        }
+        self.state.completion_context = context;
+        cx.notify();
+    }
+
+    fn dismiss_completion(&mut self, cx: &mut Context<Self>) {
+        self.state.completion_context = None;
+        self.state.completion_suggestions.clear();
+        self.state.completion_pending = false;
+        self.state.completion_revision += 1;
+        cx.notify();
+    }
+
+    fn move_completion(&mut self, forward: bool, cx: &mut Context<Self>) -> bool {
+        let count = self.state.completion_suggestions.len();
+        if self.state.completion_context.is_none() || count == 0 {
+            return false;
+        }
+        self.state.completion_selected = if forward {
+            (self.state.completion_selected + 1) % count
+        } else {
+            (self.state.completion_selected + count - 1) % count
+        };
+        cx.notify();
+        true
+    }
+
+    fn accept_completion(&mut self, window: &mut Window, cx: &mut Context<Self>) -> bool {
+        let Some(context) = self.state.completion_context.clone() else {
+            return false;
+        };
+        let Some((insert, _)) = self
+            .state
+            .completion_suggestions
+            .get(self.state.completion_selected)
+            .cloned()
+        else {
+            return false;
+        };
+        let input = self.inputs.structured.read(cx);
+        let value = input.value().to_string();
+        if completion::insert(&value, context.replace.clone(), &insert).is_none() {
+            return false;
+        }
+        self.dismiss_completion(cx);
+        self.inputs.structured.update(cx, |input, cx| {
+            input.set_selected_range(context.replace, cx);
+            input.replace(insert, window, cx);
+            input.focus(window, cx);
+        });
+        true
+    }
+
+    fn capture_tab_view(&self) -> TabViewState {
+        TabViewState {
+            raw: self.state.show_raw,
+            links: self.state.show_links,
+            metadata: self.state.show_detail_metadata,
+            fields_y: f32::from(self.fields_scroll.offset().y).round() as i32,
+            links_y: f32::from(self.links_scroll.offset().y).round() as i32,
+            source_y: f32::from(self.source_scroll.offset().y).round() as i32,
+        }
+    }
+
+    fn restore_tab_scroll(&self, view: TabViewState) {
+        self.fields_scroll
+            .set_offset(gpui_kit::point(px(0.), px(view.fields_y as f32)));
+        self.links_scroll
+            .set_offset(gpui_kit::point(px(0.), px(view.links_y as f32)));
+        self.source_scroll
+            .set_offset(gpui_kit::point(px(0.), px(view.source_y as f32)));
+    }
+
+    fn save_tab_view(&mut self) {
+        if let Some(id) = self.state.active_tab {
+            let view = self.capture_tab_view();
+            self.state.tab_views.insert(id, view);
+            self.send(UiAction::SetTabView { id, view });
+        }
     }
 
     /// Cycle one header through the authoritative filter expression.

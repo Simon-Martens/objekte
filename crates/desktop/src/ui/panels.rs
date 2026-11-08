@@ -289,6 +289,7 @@ impl DesktopView {
                             .accessibility_label("Back")
                             .disabled(!active_tab.is_some_and(|tab| tab.can_back))
                             .on_click(cx.listener(|this, _, _, _| {
+                                this.save_tab_view();
                                 this.send(UiAction::BackRelation);
                             })),
                     )
@@ -300,6 +301,7 @@ impl DesktopView {
                             .accessibility_label("Previous result")
                             .disabled(!active_tab.is_some_and(|tab| tab.can_previous))
                             .on_click(cx.listener(|this, _, _, _| {
+                                this.save_tab_view();
                                 this.send(UiAction::AdjacentResult(false));
                             })),
                     )
@@ -311,6 +313,7 @@ impl DesktopView {
                             .accessibility_label("Next result")
                             .disabled(!active_tab.is_some_and(|tab| tab.can_next))
                             .on_click(cx.listener(|this, _, _, _| {
+                                this.save_tab_view();
                                 this.send(UiAction::AdjacentResult(true));
                             })),
                     )
@@ -384,6 +387,7 @@ impl DesktopView {
                             ))
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_detail_metadata = !this.state.show_detail_metadata;
+                                this.save_tab_view();
                                 cx.notify();
                             })),
                     ),
@@ -425,6 +429,7 @@ impl DesktopView {
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_raw = false;
                                 this.state.show_links = false;
+                                this.save_tab_view();
                                 cx.notify();
                             })),
                     )
@@ -436,6 +441,7 @@ impl DesktopView {
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_raw = false;
                                 this.state.show_links = true;
+                                this.save_tab_view();
                                 this.send(UiAction::LoadLinks);
                                 cx.notify();
                             })),
@@ -476,6 +482,7 @@ impl DesktopView {
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_raw = true;
                                 this.state.show_links = false;
+                                this.save_tab_view();
                                 this.send(UiAction::ToggleRawSource);
                                 cx.notify();
                             })),
@@ -498,50 +505,69 @@ impl DesktopView {
                         .min_h_0()
                         .p_3()
                         .font_family(super::typography::MONO)
+                        .track_scroll(&self.source_scroll)
                         .text_sm()
                         .child(self.state.detail_source.clone().unwrap_or_default())
                         .overflow_y_scrollbar(),
                 );
         } else if self.state.show_links {
-            let links = div().id("record-links").flex_1().min_h_0().children(
-                detail
-                    .relations
-                    .iter()
-                    .enumerate()
-                    .map(|(index, relation)| {
-                        let label = self
-                            .state
-                            .detail_cache
-                            .relation_labels
-                            .get(index)
-                            .cloned()
-                            .unwrap_or_default();
-                        let value = self
-                            .state
-                            .detail_cache
-                            .relation_values
-                            .get(index)
-                            .cloned()
-                            .unwrap_or_default();
-                        div()
-                            .flex()
-                            .items_center()
-                            .gap_1()
-                            .px_3()
-                            .py_1()
-                            .border_b_1()
-                            .border_color(rgb(colors.border))
-                            .child(
-                                Button::new(format!("relation-{index}"))
-                                    .ghost()
-                                    .disabled(!relation.available)
-                                    .child(div().flex().gap_1().child(label).child(value))
-                                    .on_click(cx.listener(move |this, _, _, _| {
-                                        this.send(UiAction::FollowRelation(index));
-                                    })),
-                            )
-                    }),
-            );
+            let links = div()
+                .id("record-links")
+                .track_scroll(&self.links_scroll)
+                .flex_1()
+                .min_h_0()
+                .children(
+                    detail
+                        .relations
+                        .iter()
+                        .enumerate()
+                        .map(|(index, relation)| {
+                            let label = self
+                                .state
+                                .detail_cache
+                                .relation_labels
+                                .get(index)
+                                .cloned()
+                                .unwrap_or_default();
+                            let value = self
+                                .state
+                                .detail_cache
+                                .relation_values
+                                .get(index)
+                                .cloned()
+                                .unwrap_or_default();
+                            div()
+                                .flex()
+                                .items_center()
+                                .gap_1()
+                                .px_3()
+                                .py_1()
+                                .border_b_1()
+                                .border_color(rgb(colors.border))
+                                .child(
+                                    Button::new(format!("relation-{index}"))
+                                        .ghost()
+                                        .disabled(!relation.available)
+                                        .child(div().flex().gap_1().child(label).child(value))
+                                        .on_click(cx.listener(move |this, _, _, _| {
+                                            this.save_tab_view();
+                                            this.send(UiAction::FollowRelation(index));
+                                        })),
+                                )
+                                .when(relation.target, |this| {
+                                    this.child(
+                                        Button::new(format!("relation-new-tab-{index}"))
+                                            .ghost()
+                                            .label("New tab")
+                                            .tooltip("Open relation in a new record tab")
+                                            .on_click(cx.listener(move |this, _, _, _| {
+                                                this.save_tab_view();
+                                                this.send(UiAction::OpenRelationTab(index));
+                                            })),
+                                    )
+                                })
+                        }),
+                );
             panel = panel.child(
                 links
                     .when(detail.relations.is_empty(), |this| {
@@ -571,6 +597,7 @@ impl DesktopView {
                 .collect::<Vec<_>>();
             let content = div()
                 .id("structured-detail")
+                .track_scroll(&self.fields_scroll)
                 .flex()
                 .flex_col()
                 .flex_1()
@@ -945,6 +972,7 @@ impl DesktopView {
             .right(px(8.))
             .w(px(470.))
             .max_h(px(600.))
+            .overflow_y_scrollbar()
             .flex()
             .flex_col()
             .gap_2()
@@ -966,12 +994,13 @@ impl DesktopView {
                         this.state.show_help = false;
                         cx.notify();
                     }))))
-            .child(div().text_sm().child("Open a folder, choose a collection, search, then select a row to inspect it."))
-            .child(div().text_sm().child("Search words go in Search. Enable Filter to edit the complete structured expression; search and filter combine with AND."))
+            .child(div().text_sm().child("Open a folder and search. Saved queries appear in the sidebar; expand History to revisit recent searches. Save from the application menu, then rename a saved row with F2."))
+            .child(div().text_sm().child("Search words go in Search. The funnel reveals Filter; the adjacent icon opens Filter Builder. Search and Filter combine with AND, and Filter suggests fields and indexed values."))
             .child(div().text_sm().child("A complete quoted JSON string in Filter runs as a CLI-style text query when Search is empty. Batch accepts one CLI query per line."))
-            .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Use Query options for sort expressions, ranges, and exact count."))
+            .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Headers edit SORT BY in Filter. Drag a header edge to resize; right-click it to wrap text. Columns chooses visible fields. Count all requests an exact total."))
             .child(div().text_sm().child("Ctrl+O: Open · Ctrl+F: Search · Ctrl+L: Filter · F1: Help · Escape: close the nearest panel."))
-            .child(div().text_sm().child("Use Up/Down and Home/End in the table. Page Up/Down changes result pages. Enter inspects the selected record."))
+            .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to open a record tab."))
+            .child(div().text_sm().child("Record tabs retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; the Source icon opens the original record with Copy and Export actions."))
             .child(div().text_sm().child("Source records and schemas are read-only. Export and index writes are explicit actions."))
     }
 }
