@@ -810,20 +810,25 @@ impl SortBuilder {
         Ok(())
     }
 
-    pub fn finish(mut self, generation: &CollectionGeneration) -> Result<SortCollection, String> {
+    pub fn finish(self, generation: &CollectionGeneration) -> Result<SortCollection, String> {
+        self.finish_for_records(&generation.records)
+    }
+
+    /// Finalize a locally slotted incremental segment without constructing
+    /// the dense per-file ownership table required by a base generation.
+    pub(crate) fn finish_for_records(
+        mut self,
+        records: &[RecordEntry],
+    ) -> Result<SortCollection, String> {
         for column in self.columns.values_mut() {
-            if column.keys.len() != generation.records.len() {
+            if column.keys.len() != records.len() {
                 return Err("sort column coverage mismatch".into());
             }
-            column.ascending = generation.records.iter().map(|r| r.slot).collect();
+            column.ascending = records.iter().map(|r| r.slot).collect();
             column.ascending.sort_by(|a, b| {
                 column.keys[a.0 as usize]
                     .compare_with(&column.keys[b.0 as usize], false, column.options)
-                    .then_with(|| {
-                        generation.records[a.0 as usize]
-                            .id
-                            .cmp(&generation.records[b.0 as usize].id)
-                    })
+                    .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
             });
             column.descending = descending_order(&column.ascending, &column.keys, column.options);
         }
@@ -835,17 +840,10 @@ impl SortBuilder {
                     .iter()
                     .map(|field| (&self.columns[&field.path], field.descending))
                     .collect();
-                let mut order: Vec<_> = generation
-                    .records
-                    .iter()
-                    .map(|record| record.slot)
-                    .collect();
+                let mut order: Vec<_> = records.iter().map(|record| record.slot).collect();
                 order.sort_by(|a, b| {
-                    compare_composite(&columns, *a, *b).then_with(|| {
-                        generation.records[a.0 as usize]
-                            .id
-                            .cmp(&generation.records[b.0 as usize].id)
-                    })
+                    compare_composite(&columns, *a, *b)
+                        .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
                 });
                 CompositeSortOrder { fields, order }
             })
