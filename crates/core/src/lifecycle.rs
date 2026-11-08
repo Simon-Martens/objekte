@@ -1022,6 +1022,28 @@ impl Index {
         Ok(())
     }
 
+    /// Protect explicitly selected schema and configuration paths from cache
+    /// writes. Register them before the first flush; this operation resolves
+    /// relative paths against the current working directory once.
+    pub fn protect_configuration_files(&self, paths: &[PathBuf]) -> Result<(), IndexError> {
+        let mut resolved = Vec::with_capacity(paths.len());
+        for path in paths {
+            resolved.push(
+                std::path::absolute(path)
+                    .map_err(|error| IndexError::InvalidCache(error.to_string()))?,
+            );
+        }
+        let mut persistence = self
+            .0
+            .persistence
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        persistence.protected_files.extend(resolved);
+        persistence.protected_files.sort();
+        persistence.protected_files.dedup();
+        Ok(())
+    }
+
     /// Enable one bounded, coalescing background cache writer for the selected
     /// repository destination. Mutation commits only send a nonblocking signal.
     pub(crate) fn enable_sync_cache(&self) -> Result<(), IndexError> {
@@ -1051,8 +1073,14 @@ impl Index {
             .name("objekte-sync-cache".into())
             .spawn(move || {
                 while receiver.recv().is_ok() {
-                    // A quiet window folds bursts into a single snapshot.
-                    while receiver.recv_timeout(Duration::from_millis(100)).is_ok() {}
+                    // A quiet window folds bursts into one snapshot, while
+                    // a one-second ceiling prevents continuous writes from
+                    // postponing persistence indefinitely.
+                    let first_signal = Instant::now();
+                    while first_signal.elapsed() < Duration::from_secs(1)
+                        && receiver.recv_timeout(Duration::from_millis(100)).is_ok()
+                    {
+                    }
                     let Some(inner) = owner.upgrade() else { break };
                     let index = Index(inner);
                     let destination = index
@@ -1868,8 +1896,14 @@ impl IndexView {
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
         if !self.has_segments() {
-            crate::run::search_active(self.repository(), resolved.as_ref(), &self.0.active)
-                .map(|result| self.stamp_result(result))
+            crate::run::search_active_available(
+                self.repository(),
+                resolved.as_ref(),
+                &self.0.active,
+                &self.0.catalog,
+                self.revision(),
+            )
+            .map(|result| self.stamp_result(result))
         } else {
             crate::run::search_segmented(
                 self.repository(),
@@ -1892,11 +1926,13 @@ impl IndexView {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
         if !self.has_segments() {
-            crate::run::search_with_context_active(
+            crate::run::search_active_available_with_context(
                 self.repository(),
                 &resolved,
-                context,
                 &self.0.active,
+                &self.0.catalog,
+                self.revision(),
+                context,
             )
             .map(|result| self.stamp_result(result))
         } else {
