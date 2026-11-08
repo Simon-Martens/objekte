@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use super::FileCatalog;
-use crate::model::FileId;
+use crate::model::{CollectionId, FileId};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
 use crate::source::SourceFormat;
 
@@ -75,5 +75,59 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     assert!(scan_baseline.contains_key(std::path::Path::new("data/renamed.json")));
     assert!(scan_baseline.contains_key(std::path::Path::new("data/new.json")));
     assert!(!scan_baseline.contains_key(std::path::Path::new("data/b.json")));
+
+    let slots = (0..appended.allocated_files())
+        .map(|number| {
+            let id = FileId(number as u32);
+            appended
+                .entry(id)
+                .cloned()
+                .map(|entry| (entry, appended.fingerprint(id), appended.configuration(id)))
+        })
+        .collect::<Vec<_>>();
+    let restored = FileCatalog::restored(Arc::clone(&repository), slots.clone()).unwrap();
+    assert_eq!(restored.allocated_files(), 3);
+    assert_eq!(restored.active_files(), 2);
+    assert!(Arc::ptr_eq(&restored.base, &repository));
+    assert_eq!(restored.id_for(std::path::Path::new("data/a.json")), None);
+    assert_eq!(restored.id_for(std::path::Path::new("data/b.json")), None);
+    assert_eq!(
+        restored.id_for(std::path::Path::new("data/renamed.json")),
+        Some(FileId(0))
+    );
+    assert_eq!(
+        restored.id_for(std::path::Path::new("data/new.json")),
+        Some(FileId(2))
+    );
+    assert_eq!(restored.fingerprint(FileId(0)), Some([7; 32]));
+    assert_eq!(restored.configuration(FileId(0)), Some([8; 32]));
+    assert!(restored.entry(FileId(1)).is_none());
+
+    let unchanged = repository
+        .files()
+        .files
+        .iter()
+        .cloned()
+        .map(|entry| Some((entry, None, None)))
+        .collect();
+    let baseline = FileCatalog::restored(Arc::clone(&repository), unchanged).unwrap();
+    assert!(baseline.changed.iter().all(|bucket| bucket.is_empty()));
+    assert!(
+        baseline
+            .changed_paths
+            .iter()
+            .all(|bucket| bucket.is_empty())
+    );
+
+    let mut duplicate_path = slots.clone();
+    duplicate_path[2].as_mut().unwrap().0.relative_path = "data/renamed.json".into();
+    assert!(FileCatalog::restored(Arc::clone(&repository), duplicate_path).is_err());
+    let mut wrong_id = slots.clone();
+    wrong_id[2].as_mut().unwrap().0.id = FileId(7);
+    assert!(FileCatalog::restored(Arc::clone(&repository), wrong_id).is_err());
+    let mut invalid_membership = slots;
+    invalid_membership[2].as_mut().unwrap().0.collections = vec![CollectionId(9)];
+    assert!(FileCatalog::restored(Arc::clone(&repository), invalid_membership).is_err());
+    assert!(FileCatalog::restored(Arc::clone(&repository), vec![None]).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }

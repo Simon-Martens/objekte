@@ -248,6 +248,23 @@ pub(crate) struct FileVersions {
 
 
 impl FileVersions {
+    /// Restore version tokens without replaying every historical mutation.
+    pub(crate) fn from_versions(versions: Vec<FileVersion>) -> Result<Self, String> {
+        let len = versions.len();
+        u32::try_from(len).map_err(|_| "too many indexed file versions")?;
+        if versions.iter().any(|version| version.0 == 0) {
+            return Err("file version must be nonzero".into());
+        }
+        let chunks = versions
+            .chunks(FILE_VERSION_CHUNK)
+            .map(|chunk| Arc::new(chunk.to_vec()))
+            .collect();
+        Ok(Self {
+            chunks: Arc::new(chunks),
+            len,
+        })
+    }
+
     pub(crate) fn initial(len: usize) -> Self {
         Self::filled(len, FileVersion::INITIAL)
     }
@@ -331,6 +348,24 @@ pub(crate) struct ActiveRecords {
 
 
 impl ActiveRecords {
+    /// Restore a sparse active domain, including fully retired chunks.
+    pub(crate) fn from_bitmap(slot_count: usize, bitmap: RoaringBitmap) -> Result<Self, String> {
+        let slot_count = u32::try_from(slot_count).map_err(|_| "too many records")?;
+        if bitmap.max().is_some_and(|slot| slot >= slot_count) {
+            return Err("active record slot out of bounds".into());
+        }
+        let chunk_count = (slot_count as usize).div_ceil(ACTIVE_SLOT_CHUNK as usize);
+        let mut chunks = vec![RoaringBitmap::new(); chunk_count];
+        for slot in bitmap.iter() {
+            chunks[(slot / ACTIVE_SLOT_CHUNK) as usize].insert(slot % ACTIVE_SLOT_CHUNK);
+        }
+        Ok(Self {
+            chunks: Arc::new(chunks.into_iter().map(Arc::new).collect()),
+            slot_count,
+            live_count: bitmap.len(),
+        })
+    }
+
     pub(crate) fn all(slot_count: usize) -> Result<Self, String> {
         let slot_count = u32::try_from(slot_count).map_err(|_| "too many records")?;
         let mut chunks = Vec::new();
