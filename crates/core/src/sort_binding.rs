@@ -102,6 +102,7 @@ pub(crate) struct SortTargetCache {
 pub(crate) struct MergedSortTargetCache {
     values: HashMap<MergedRecordSlot, Arc<Value>>,
     retained_bytes: u64,
+    execution: Option<crate::streaming::ExecutionContext>,
     pub edge_visits: u64,
     pub reads: u64,
     pub reuse: u64,
@@ -109,7 +110,17 @@ pub(crate) struct MergedSortTargetCache {
 }
 
 impl MergedSortTargetCache {
+    pub(crate) fn configure_execution(
+        &mut self,
+        execution: Option<&crate::streaming::ExecutionContext>,
+    ) {
+        self.execution = execution.cloned();
+    }
+
     fn edge(&mut self) -> Result<(), String> {
+        if let Some(execution) = &self.execution {
+            execution.charge_edges(1)?;
+        }
         self.edge_visits = self.edge_visits.checked_add(1).ok_or("sort edge overflow")?;
         if self.edge_visits > MAX_SORT_EDGE_VISITS {
             return Err("sort relation edge budget exceeded".into());
@@ -146,18 +157,31 @@ impl MergedSortTargetCache {
         if next > MAX_SORT_TARGET_BYTES {
             return Err("sort target cache budget exceeded".into());
         }
-        let bytes = crate::source::read_record_range(
-            &view.repository_root().join(&current.file.relative_path),
-            current.record.revision,
-            current.record.range,
-        )?;
+        let path = view.repository_root().join(&current.file.relative_path);
+        let bytes = if let Some(execution) = &self.execution {
+            execution.check_string()?;
+            execution.charge_reads(1)?;
+            execution.charge_bytes(current.record.range.len())?;
+            crate::source::read_record_range_with_execution(
+                &path,
+                current.record.revision,
+                current.record.range,
+                execution,
+            )?
+        } else {
+            crate::source::read_record_range(
+                &path,
+                current.record.revision,
+                current.record.range,
+            )?
+        };
         let extracted = crate::record_preparation::prepare_query_record_with_execution(
             &current.collection.source,
             &current.collection.definition.schema,
             &bytes,
             &crate::source::ScanProjection::full(false),
             false,
-            None,
+            self.execution.as_ref(),
         )?;
         let value = Arc::new(extracted.value);
         self.retained_bytes = next;
