@@ -20,60 +20,60 @@ fn is_false(value: &bool) -> bool {
 
 /// The two query lines and the collection they searched.
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
-pub(super) struct Query {
+pub struct Query {
     #[serde(default, skip_serializing_if = "String::is_empty")]
-    pub(super) search: String,
+    pub search: String,
     #[serde(default, skip_serializing_if = "String::is_empty")]
-    pub(super) filter: String,
+    pub filter: String,
     /// Collection name; none searches all collections.
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub(super) collection: Option<String>,
+    pub collection: Option<String>,
     /// The current TUI default is case-sensitive. Older settings omit this.
     #[serde(default, skip_serializing_if = "is_false")]
-    pub(super) case_insensitive: bool,
+    pub case_insensitive: bool,
     #[serde(default, skip_serializing_if = "is_false")]
-    pub(super) regex: bool,
+    pub regex: bool,
 }
 
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub(super) struct SavedQuery {
-    pub(super) name: String,
+pub struct SavedQuery {
+    pub name: String,
     #[serde(flatten)]
-    pub(super) query: Query,
+    pub query: Query,
 }
 
 
 /// Hidden result columns for one collection, or `*` for all collections.
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
-pub(super) struct Columns {
+pub struct Columns {
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    pub(super) hidden: Vec<String>,
+    pub hidden: Vec<String>,
 }
 
 
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
-pub(super) struct Settings {
+pub struct Settings {
     /// `light` or `dark`; unset follows the terminal.
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub(super) theme: Option<String>,
+    pub theme: Option<String>,
     /// Newest last.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    pub(super) history: Vec<Query>,
+    pub history: Vec<Query>,
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    pub(super) saved: Vec<SavedQuery>,
+    pub saved: Vec<SavedQuery>,
     #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
-    pub(super) columns: BTreeMap<String, Columns>,
+    pub columns: BTreeMap<String, Columns>,
 }
 
 
 impl Settings {
-    pub(super) fn path(root: &Path) -> PathBuf {
+    pub fn path(root: &Path) -> PathBuf {
         root.join(".objekte/.cache/tui.json")
     }
 
     /// Read the settings; a missing file gives defaults.
-    pub(super) fn load(path: &Path) -> Result<Self, String> {
+    pub fn load(path: &Path) -> Result<Self, String> {
         match fs::read(path) {
             Ok(bytes) => serde_json::from_slice(&bytes)
                 .map_err(|error| format!("{}: {error}", path.display())),
@@ -83,7 +83,7 @@ impl Settings {
     }
 
     /// Write the settings atomically next to the repository configuration.
-    pub(super) fn save(&self, path: &Path) -> Result<(), String> {
+    pub fn save(&self, path: &Path) -> Result<(), String> {
         let describe = |error: &dyn std::fmt::Display| format!("{}: {error}", path.display());
         let parent = path
             .parent()
@@ -97,7 +97,7 @@ impl Settings {
     }
 
     /// Remember a query, moving a repeated one to the end.
-    pub(super) fn remember(&mut self, query: Query) {
+    pub fn remember(&mut self, query: Query) {
         if query.search.trim().is_empty() && query.filter.trim().is_empty() {
             return;
         }
@@ -107,13 +107,13 @@ impl Settings {
         self.history.drain(..excess);
     }
 
-    pub(super) fn hidden(&self, collection: Option<&str>) -> &[String] {
+    pub fn hidden(&self, collection: Option<&str>) -> &[String] {
         self.columns
             .get(collection.unwrap_or("*"))
             .map_or(&[], |columns| columns.hidden.as_slice())
     }
 
-    pub(super) fn toggle_column(&mut self, collection: Option<&str>, key: &str) {
+    pub fn toggle_column(&mut self, collection: Option<&str>, key: &str) {
         let hidden = &mut self
             .columns
             .entry(collection.unwrap_or("*").to_owned())

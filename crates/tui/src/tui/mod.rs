@@ -2,11 +2,11 @@
 
 mod app;
 mod clipboard;
-mod export;
+pub mod export;
 mod input;
 mod record;
 mod relations;
-mod settings;
+pub mod settings;
 #[cfg(test)]
 mod test_support;
 mod view;

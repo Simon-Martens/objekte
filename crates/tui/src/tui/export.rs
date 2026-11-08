@@ -27,7 +27,7 @@ fn record(hit: &SearchHit) -> Result<Value, String> {
     }
 }
 
-fn hit_value(hit: &SearchHit) -> Result<Value, String> {
+pub fn hit_value(hit: &SearchHit) -> Result<Value, String> {
     Ok(json!({
         "collection": hit.collection,
         "id": hit.record_id,
@@ -44,7 +44,7 @@ fn hit_value(hit: &SearchHit) -> Result<Value, String> {
     }))
 }
 
-pub(super) fn one(hit: &SearchHit, path: &Path) -> Result<(), String> {
+pub fn one(hit: &SearchHit, path: &Path) -> Result<(), String> {
     let file = OpenOptions::new()
         .write(true)
         .create_new(true)
