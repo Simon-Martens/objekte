@@ -6,13 +6,13 @@ use std::time::Instant;
 
 use objekte_search_core::discovery::SymlinkPolicy;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
-use objekte_search_core::lifecycle::Index;
+use objekte_search_core::lifecycle::{Index, IndexError};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::lifecycle_repository::{
     CacheFailurePolicy, CacheOpenPolicy, RepositoryOpenOptions,
 };
 use objekte_search_core::repository::{
-    CollectionDefinition, Repository, RepositoryOptions, SnapshotMode, SnapshotOpenPolicy,
+    CollectionDefinition, RepositoryOptions, SnapshotMode, SnapshotOpenPolicy,
 };
 use objekte_search_core::repository_configuration::{
     RepositoryConfiguration, load_explicit_schema, load_repository_configuration,
@@ -200,6 +200,7 @@ pub fn open_repository(
     policy: SnapshotOpenPolicy,
     write_requested: bool,
     configured_repository: bool,
+    require_current_sources: bool,
 ) -> Result<(IndexedRepository, u128, Option<SnapshotSaveStats>), String> {
     let directory = policy
         .directory
@@ -234,27 +235,65 @@ pub fn open_repository(
         )
         .map_err(|error| error.to_string())?
     } else {
-        let repo = Repository::open_with_snapshot_policy(
-            root,
-            configured.definitions.clone(),
-            options,
-            policy,
-        )?;
-        Index::from_repository(repo).map_err(|error| error.to_string())?
+        let cache =
+            objekte_search_core::storage::snapshot_path_in(&directory, options.bigram_alphabet);
+        let build = || Index::build(root, configured.definitions.clone(), options);
+        let load = || Index::load_cache(root, configured.definitions.clone(), options, &cache);
+        let index = match policy.mode {
+            SnapshotMode::Disabled => build(),
+            SnapshotMode::Required => load(),
+            SnapshotMode::IfValid => match std::fs::symlink_metadata(&cache) {
+                Err(error) if error.kind() == std::io::ErrorKind::NotFound => build(),
+                Err(error) => Err(IndexError::Io(format!("{}: {error}", cache.display()))),
+                Ok(_) => match load() {
+                    Ok(index) => Ok(index),
+                    Err(IndexError::InvalidCache(_) | IndexError::IncompatibleConfiguration(_)) => {
+                        build()
+                    }
+                    Err(error) => Err(error),
+                },
+            },
+        }
+        .map_err(|error| error.to_string())?;
+        index
+            .protect_configuration_files(&configured.protected_files)
+            .map_err(|error| error.to_string())?;
+        index
     };
     let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
+    if require_current_sources && repo.startup().restored {
+        let report = repo
+            .index()
+            .wait_for_reconciliation()
+            .map_err(|error| error.to_string())?
+            .ok_or("restored cache has no reconciliation task")?;
+        if report.cancelled || !report.issues.is_empty() || report.omitted_issues > 0 {
+            return Err(format!(
+                "cache reconciliation incomplete: {} source issues",
+                report.issues.len() + report.omitted_issues
+            ));
+        }
+        if !write_requested && (report.added > 0 || report.updated > 0 || report.removed > 0) {
+            return Err("loaded cache is stale; use --load-index with --write-index to reconcile and save it".into());
+        }
+    }
     let open_ns = open_started.elapsed().as_nanos();
-    if write_requested && !repo.startup().restored {
+    if write_requested
+        && (!repo.startup().restored
+            || (require_current_sources
+                && repo
+                    .index()
+                    .status()
+                    .map_err(|error| error.to_string())?
+                    .dirty()))
+    {
         let path =
             objekte_search_core::storage::snapshot_path_in(&directory, options.bigram_alphabet);
-        let saved = if configured_repository {
-            repo.index()
-                .flush_cache_with_stats(&path)
-                .map_err(|error| error.to_string())?
-                .1
-        } else {
-            repo.save_snapshot_with_stats(&path)?
-        };
+        let saved = repo
+            .index()
+            .flush_cache_with_stats(&path)
+            .map_err(|error| error.to_string())?
+            .1;
         return Ok((repo, open_ns, Some(saved)));
     }
     Ok((repo, open_ns, None))

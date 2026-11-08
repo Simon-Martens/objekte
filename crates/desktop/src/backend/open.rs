@@ -80,6 +80,7 @@ pub fn open(
         policy,
         spec.args.write_index.is_some(),
         spec.args.repo.is_some(),
+        false,
     )
     .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?;
     if cancellation.is_cancelled() {

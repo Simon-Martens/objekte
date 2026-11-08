@@ -86,3 +86,43 @@ fn write_then_load_uses_explicit_snapshot_policy() {
     assert!(second.diagnostics.startup.restored);
     assert!(second.diagnostics.snapshot_save.is_none());
 }
+
+#[test]
+fn desktop_combined_load_and_write_returns_before_source_reconciliation() {
+    let root = tempfile::tempdir().unwrap();
+    write_records(root.path());
+    let mut args = Arguments {
+        path: vec![root.path().to_path_buf()],
+        write_index: Some(String::new()),
+        ..Default::default()
+    };
+    let spec = |args: Arguments| OpenSpec {
+        args,
+        cwd: root.path().to_path_buf(),
+    };
+    let first = open(&spec(args.clone()), &CancellationToken::new()).unwrap();
+    assert!(first.diagnostics.snapshot_save.is_some());
+    let cache = objekte_search_core::storage::snapshot_path(
+        root.path(),
+        objekte_search_core::workload::BigramAlphabet::Ascii,
+    );
+    let saved = std::fs::read(&cache).unwrap();
+    std::fs::write(
+        root.path().join("a.json"),
+        r#"{"title":"Changed","year":2024}"#,
+    )
+    .unwrap();
+    args.load_index = Some(String::new());
+    let second = open(&spec(args), &CancellationToken::new()).unwrap();
+    assert!(second.diagnostics.startup.restored);
+    assert!(second.diagnostics.snapshot_save.is_none());
+    let report = second
+        .repository
+        .index()
+        .wait_for_reconciliation()
+        .unwrap()
+        .unwrap();
+    assert_eq!(report.updated, 1);
+    assert!(second.repository.index().status().unwrap().dirty());
+    assert_eq!(std::fs::read(cache).unwrap(), saved);
+}
