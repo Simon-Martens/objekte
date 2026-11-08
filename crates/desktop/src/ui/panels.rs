@@ -1,6 +1,5 @@
 //! Ordinary controls for opening, inspection, history, and output actions.
 
-use gpui_kit::assets::IconName as AssetIconName;
 use gpui_kit::component::{
     Disableable as _, IconName, Selectable as _,
     button::{Button, ButtonVariants},
@@ -604,7 +603,6 @@ impl DesktopView {
         let colors = super::theme::palette(self.state.dark);
         let kind = self.state.action_panel;
         let title = match kind {
-            ActionPanel::Menu => "Menu",
             ActionPanel::Columns => "Columns",
             ActionPanel::Export => "Export",
             ActionPanel::Index => "Index",
@@ -640,19 +638,6 @@ impl DesktopView {
                             .font_weight(gpui_kit::FontWeight::SEMIBOLD)
                             .child(title),
                     )
-                    .when(kind != ActionPanel::Menu, |this| {
-                        this.child(
-                            Button::new("action-back")
-                                .ghost()
-                                .icon(IconName::ArrowLeft)
-                                .tooltip("Back to menu")
-                                .accessibility_label("Back to menu")
-                                .on_click(cx.listener(|this, _, _, cx| {
-                                    this.state.action_panel = ActionPanel::Menu;
-                                    cx.notify();
-                                })),
-                        )
-                    })
                     .child(
                         Button::new("action-close")
                             .ghost()
@@ -673,133 +658,6 @@ impl DesktopView {
             .max_h(px(530.))
             .overflow_y_scrollbar();
         match kind {
-            ActionPanel::Menu => {
-                for (id, label, icon, next) in [
-                    (
-                        "menu-columns",
-                        "Columns…",
-                        AssetIconName::PanelLeft,
-                        ActionPanel::Columns,
-                    ),
-                    (
-                        "menu-export",
-                        "Export…",
-                        AssetIconName::ArrowRight,
-                        ActionPanel::Export,
-                    ),
-                    (
-                        "menu-index",
-                        "Index…",
-                        AssetIconName::HardDrive,
-                        ActionPanel::Index,
-                    ),
-                    (
-                        "menu-diagnostics",
-                        "Diagnostics",
-                        AssetIconName::Info,
-                        ActionPanel::Diagnostics,
-                    ),
-                ] {
-                    content = content.child(
-                        Button::new(id)
-                            .ghost()
-                            .w_full()
-                            .icon(icon)
-                            .accessibility_label(label)
-                            .child(div().w_full().text_left().child(label))
-                            .on_click(cx.listener(move |this, _, _, cx| {
-                                this.state.action_panel = next;
-                                cx.notify();
-                            })),
-                    );
-                }
-                content = content
-                    .child(
-                        Button::new("menu-save")
-                            .ghost()
-                            .w_full()
-                            .icon(AssetIconName::Bookmark)
-                            .accessibility_label("Save current query")
-                            .child(div().w_full().text_left().child("Save current query"))
-                            .disabled(!matches!(
-                                self.state.filter_validation,
-                                Some(super::model::FilterValidationState::Valid)
-                            ))
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                let draft = this.query_from_inputs(cx);
-                                this.send(UiAction::SaveQuery(draft));
-                                this.state.show_actions = false;
-                                cx.notify();
-                            })),
-                    )
-                    .child(
-                        Button::new("menu-batch")
-                            .ghost()
-                            .w_full()
-                            .icon(IconName::SquareTerminal)
-                            .accessibility_label("Run query batch")
-                            .child(div().w_full().text_left().child("Run query batch…"))
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.show_actions = false;
-                                this.state.show_batch = true;
-                                cx.notify();
-                            })),
-                    )
-                    .child(
-                        Button::new("menu-theme")
-                            .ghost()
-                            .w_full()
-                            .icon(if self.state.dark {
-                                IconName::Sun
-                            } else {
-                                IconName::Moon
-                            })
-                            .accessibility_label(if self.state.dark {
-                                "Light theme"
-                            } else {
-                                "Dark theme"
-                            })
-                            .child(div().w_full().text_left().child(if self.state.dark {
-                                "Light theme"
-                            } else {
-                                "Dark theme"
-                            }))
-                            .on_click(cx.listener(|this, _, window, cx| {
-                                this.state.dark = !this.state.dark;
-                                gpui_kit::component::Theme::change(
-                                    if this.state.dark {
-                                        gpui_kit::component::ThemeMode::Dark
-                                    } else {
-                                        gpui_kit::component::ThemeMode::Light
-                                    },
-                                    Some(window),
-                                    cx,
-                                );
-                                super::typography::apply_theme_fonts(cx);
-                                this.send(UiAction::SetTheme {
-                                    dark: this.state.dark,
-                                });
-                                this.builder_view.update(cx, |builder, cx| {
-                                    builder.set_dark(this.state.dark, cx)
-                                });
-                                this.state.show_actions = false;
-                                cx.notify();
-                            })),
-                    )
-                    .child(
-                        Button::new("menu-help")
-                            .ghost()
-                            .w_full()
-                            .icon(IconName::Info)
-                            .accessibility_label("Help and shortcuts")
-                            .child(div().w_full().text_left().child("Help and shortcuts"))
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.show_help = true;
-                                this.state.show_actions = false;
-                                cx.notify();
-                            })),
-                    );
-            }
             ActionPanel::Columns => {
                 for column in &self.state.available_columns {
                     let column = column.clone();

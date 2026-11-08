@@ -1,16 +1,17 @@
 //! Read-only workspace layout inspired by DBDelve's dense sidebar and grid.
 
+use gpui_kit::assets::IconName as AssetIconName;
 use gpui_kit::component::{
     Disableable as _, Icon, IconName, Selectable as _,
     button::{Button, ButtonVariants},
     input::Input,
-    menu::{ContextMenuExt as _, PopupMenuItem},
+    menu::{ContextMenuExt as _, DropdownMenu as _, PopupMenuItem},
     scroll::ScrollableElement as _,
 };
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::{
-    Context, Focusable as _, InteractiveElement as _, IntoElement, ParentElement as _, Render,
-    StatefulInteractiveElement as _, Styled as _, Window, div, px, rgb,
+    Context, Entity, Focusable as _, InteractiveElement as _, IntoElement, ParentElement as _,
+    Render, StatefulInteractiveElement as _, Styled as _, Window, div, px, rgb,
 };
 use objekte_search_core::query::parse_structured_filter;
 
@@ -51,6 +52,23 @@ fn sidebar_item(
                         .child(label),
                 ),
         )
+}
+
+fn panel_menu_item(
+    target: Entity<DesktopView>,
+    label: &'static str,
+    icon: AssetIconName,
+    panel: ActionPanel,
+) -> PopupMenuItem {
+    PopupMenuItem::new(label)
+        .icon(icon)
+        .on_click(move |_, _, cx| {
+            target.update(cx, |this, cx| {
+                this.state.action_panel = panel;
+                this.state.show_actions = true;
+                cx.notify();
+            });
+        })
 }
 
 
@@ -125,17 +143,111 @@ impl DesktopView {
                         this.show_open_dialog(window, cx);
                     })),
             )
-            .child(
+            .child({
+                let target = cx.entity();
+                let can_save = matches!(
+                    self.state.filter_validation,
+                    Some(super::model::FilterValidationState::Valid)
+                );
+                let dark = self.state.dark;
                 Button::new("actions-panel")
                     .icon(IconName::Menu)
                     .tooltip("Application menu")
                     .accessibility_label("Application menu")
-                    .on_click(cx.listener(|this, _, _, cx| {
-                        this.state.show_actions = !this.state.show_actions;
-                        this.state.action_panel = ActionPanel::Menu;
-                        cx.notify();
-                    })),
-            )
+                    .dropdown_menu(move |menu, _, _| {
+                        let save_target = target.clone();
+                        let batch_target = target.clone();
+                        let theme_target = target.clone();
+                        let help_target = target.clone();
+                        menu.item(
+                            PopupMenuItem::new("Save current query")
+                                .icon(AssetIconName::Bookmark)
+                                .disabled(!can_save)
+                                .on_click(move |_, _, cx| {
+                                    save_target.update(cx, |this, cx| {
+                                        let draft = this.query_from_inputs(cx);
+                                        this.send(UiAction::SaveQuery(draft));
+                                    });
+                                }),
+                        )
+                        .item(panel_menu_item(
+                            target.clone(),
+                            "Columns…",
+                            AssetIconName::Columns3,
+                            ActionPanel::Columns,
+                        ))
+                        .separator()
+                        .item(panel_menu_item(
+                            target.clone(),
+                            "Export…",
+                            AssetIconName::ArrowRight,
+                            ActionPanel::Export,
+                        ))
+                        .item(panel_menu_item(
+                            target.clone(),
+                            "Index…",
+                            AssetIconName::HardDrive,
+                            ActionPanel::Index,
+                        ))
+                        .item(
+                            PopupMenuItem::new("Run query batch…")
+                                .icon(AssetIconName::SquareTerminal)
+                                .on_click(move |_, _, cx| {
+                                    batch_target.update(cx, |this, cx| {
+                                        this.state.show_batch = true;
+                                        cx.notify();
+                                    });
+                                }),
+                        )
+                        .separator()
+                        .item(panel_menu_item(
+                            target.clone(),
+                            "Diagnostics",
+                            AssetIconName::Info,
+                            ActionPanel::Diagnostics,
+                        ))
+                        .item(
+                            PopupMenuItem::new(if dark { "Light theme" } else { "Dark theme" })
+                                .icon(if dark {
+                                    AssetIconName::Sun
+                                } else {
+                                    AssetIconName::Moon
+                                })
+                                .on_click(move |_, window, cx| {
+                                    theme_target.update(cx, |this, cx| {
+                                        this.state.dark = !this.state.dark;
+                                        gpui_kit::component::Theme::change(
+                                            if this.state.dark {
+                                                gpui_kit::component::ThemeMode::Dark
+                                            } else {
+                                                gpui_kit::component::ThemeMode::Light
+                                            },
+                                            Some(window),
+                                            cx,
+                                        );
+                                        super::typography::apply_theme_fonts(cx);
+                                        this.send(UiAction::SetTheme {
+                                            dark: this.state.dark,
+                                        });
+                                        this.builder_view.update(cx, |builder, cx| {
+                                            builder.set_dark(this.state.dark, cx)
+                                        });
+                                        cx.notify();
+                                    });
+                                }),
+                        )
+                        .item(
+                            PopupMenuItem::new("Help and shortcuts")
+                                .icon(AssetIconName::Info)
+                                .on_click(move |_, _, cx| {
+                                    help_target.update(cx, |this, cx| {
+                                        this.state.show_help = true;
+                                        cx.notify();
+                                    });
+                                }),
+                        )
+                    })
+            })
     }
 
     fn render_sidebar(&self, cx: &mut Context<Self>) -> impl IntoElement {

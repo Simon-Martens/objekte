@@ -15,7 +15,6 @@ use super::open_dialog::{DetectionState, OpenDialogState};
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum ActionPanel {
     #[default]
-    Menu,
     Columns,
     Export,
     Index,
@@ -306,7 +305,6 @@ impl UiState {
             UiUpdate::ChosenFolder { .. } | UiUpdate::ChosenSchema { .. } => {}
             UiUpdate::RestoreQuery(draft) => {
                 self.search = draft;
-                self.search.filter_enabled |= !self.search.structured.trim().is_empty();
                 self.page = PageView::default();
                 self.grid_cache = GridCache::default();
                 self.detail = None;

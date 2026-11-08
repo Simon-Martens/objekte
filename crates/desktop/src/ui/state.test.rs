@@ -95,6 +95,18 @@ fn query_restore_keeps_exact_inputs() {
 }
 
 #[test]
+fn query_restore_does_not_activate_retained_filter() {
+    let mut state = UiState::default();
+    let draft = SearchDraft {
+        structured: "year >= 1900 SORT BY year DESC".into(),
+        filter_enabled: false,
+        ..SearchDraft::default()
+    };
+    state.apply(UiUpdate::RestoreQuery(draft.clone()));
+    assert_eq!(state.search, draft);
+}
+
+#[test]
 fn page_refresh_keeps_detail_for_same_selected_token() {
     let mut state = UiState::default();
     let page = PageView {
