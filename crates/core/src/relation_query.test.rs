@@ -385,6 +385,29 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         edge.reverse_alias.as_deref() == Some("mentions")
     }).unwrap();
     assert_eq!(retired_edge.unresolved_occurrence_count, 3);
+    std::fs::remove_file(root.join("entries/new-a.json")).unwrap();
+    let unavailable_target = crate::run::search_segmented(
+        &repo,
+        &query("mentions", Some("!(entry.title = 'New Hymn')"), None, None, false),
+        &active, &segments, &catalog, IndexRevision(3),
+    ).unwrap();
+    assert_eq!(unavailable_target.count, None);
+    assert!(!unavailable_target.counters.match_count_complete);
+    assert_eq!(unavailable_target.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::Missing);
+    assert!(!unavailable_target.hits.iter().any(|hit| hit.record_id == "m1" || hit.record_id == "m8"));
+    let mut unavailable_sort = query("mentions", None, None, None, false);
+    unavailable_sort.options.sort = vec![crate::execution_options::SortField::computed(
+        crate::workload::SortExpression {
+            path: "entry.title".into(), binding: Some("lower".into()), reducer: None,
+        },
+        false,
+    )];
+    let unavailable_sort = crate::run::search_segmented(
+        &repo, &unavailable_sort, &active, &segments, &catalog, IndexRevision(3),
+    ).unwrap();
+    assert_eq!(unavailable_sort.count, None);
+    assert!(!unavailable_sort.hits.iter().any(|hit| hit.record_id == "m1" || hit.record_id == "m8"));
     std::fs::remove_dir_all(root).unwrap();
 }
 

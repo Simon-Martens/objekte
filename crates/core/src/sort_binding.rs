@@ -158,22 +158,19 @@ impl MergedSortTargetCache {
             return Err("sort target cache budget exceeded".into());
         }
         let path = view.repository_root().join(&current.file.relative_path);
-        let bytes = if let Some(execution) = &self.execution {
+        if let Some(execution) = &self.execution {
             execution.check_string()?;
             execution.charge_reads(1)?;
             execution.charge_bytes(current.record.range.len())?;
-            crate::source::read_record_range_with_execution(
-                &path,
-                current.record.revision,
-                current.record.range,
-                execution,
-            )?
-        } else {
-            crate::source::read_record_range(
-                &path,
-                current.record.revision,
-                current.record.range,
-            )?
+        }
+        let bytes = match crate::source::read_record_range(
+            &path, current.record.revision, current.record.range,
+        ) {
+            Ok(bytes) => bytes,
+            Err(message) => {
+                view.record_source_failure(current.file, current.record.range, message);
+                return Ok(None);
+            }
         };
         let extracted = crate::record_preparation::prepare_query_record_with_execution(
             &current.collection.source,
@@ -518,9 +515,10 @@ impl ComputedSort {
                 } else {
                     None
                 };
-                let value = source_value
-                    .or(owned.as_deref())
-                    .ok_or("merged sort target value unavailable")?;
+                let Some(value) = source_value.or(owned.as_deref()) else {
+                    reduced.observe_unavailable()?;
+                    return Ok(());
+                };
                 let mut selected = Vec::new();
                 let mut expanded = false;
                 select_values(value, &terminal.steps, &mut selected, &mut expanded);
@@ -558,9 +556,10 @@ impl ComputedSort {
                     } else {
                         None
                     };
-                    let value = source_value
-                        .or(owned.as_deref())
-                        .ok_or("merged sort relation source unavailable")?;
+                    let Some(value) = source_value.or(owned.as_deref()) else {
+                        reduced.observe_unavailable()?;
+                        return Ok(());
+                    };
                     let mut positions = Vec::new();
                     visit_reference_occurrences(
                         value,
