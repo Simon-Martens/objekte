@@ -2874,6 +2874,76 @@ pub(crate) fn search_segmented_reference(
     )
 }
 
+pub(crate) fn explain_segmented(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    revision: IndexRevision,
+) -> Result<Vec<QueryPlanTrace>, String> {
+    if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
+        return Err("segment explanation collection count mismatch".into());
+    }
+    let mut traces = explain_with_active(repo, query, Some(base_active))?;
+    for trace in &mut traces {
+        let collection_index = repo.collections.iter()
+            .position(|collection| collection.definition.name == trace.collection)
+            .ok_or("explained collection missing")?;
+        let delta = segments[collection_index].iter()
+            .map(|segment| segment.active.len())
+            .fold(0u64, u64::saturating_add);
+        trace.generation = revision.0;
+        trace.input_records = trace.input_records.saturating_add(delta);
+        trace.candidates = trace.candidates.saturating_add(delta);
+        trace.fts_estimated_candidates = trace.fts_estimated_candidates
+            .map(|estimate| estimate.saturating_add(delta));
+        trace.candidates_estimated = true;
+        if delta > 0 {
+            trace.sort_strategy = "merged base and indexed segment top-k".into();
+            trace.sort_strategy_estimated = true;
+        }
+        if delta > 0 && (query.filter.is_some() || query.fts.is_some()) {
+            trace.filter_exact = false;
+            trace.remaining_verification = true;
+        }
+    }
+    Ok(traces)
+}
+
+pub(crate) fn search_analyze_segmented(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
+    let mut traces = explain_segmented(repo, query, base_active, segments, revision)?;
+    let result = search_segmented(repo, query, base_active, segments, catalog, revision)?;
+    if traces.len() == 1 {
+        let trace = &mut traces[0];
+        let counters = &result.counters;
+        trace.actual = Some(PlanActual {
+            files_opened: counters.files_opened,
+            bytes_read: counters.bytes_read,
+            record_parses: counters.record_parses,
+            raw_text_verifications: counters.raw_text_verifications,
+            residual_evaluations: counters.residual_evaluations,
+            index_proven_matches: counters.exact_posting_matches,
+            relation_target_candidates: counters.relation_target_candidates,
+            relation_target_matches: counters.relation_target_matches,
+            relation_target_reads: counters.relation_target_reads,
+            relation_target_file_opens: counters.relation_target_file_opens,
+            relation_edge_visits: counters.relation_edge_visits,
+            relation_backlink_probe_visits: counters.relation_backlink_probe_visits,
+            relation_bytes_read: counters.relation_bytes_read,
+            relation_reverse_postings_visited: counters.relation_reverse_postings_visited,
+            relation_verified_targets_reused: counters.relation_verified_targets_reused,
+        });
+    }
+    Ok((result, traces))
+}
+
 fn segmented_stream_error(
     delivery: &mut Delivery<'_>,
     context: &ExecutionContext,
