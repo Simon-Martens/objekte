@@ -2725,6 +2725,33 @@ fn search_segmented_relations(
     })
 }
 
+/// Scan the pinned base and segment domains without posting pruning. This is
+/// the independent candidate path used to check merged planner results.
+pub(crate) fn search_segmented_reference(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+) -> Result<SearchResult, String> {
+    if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
+        return Err("segment query collection count mismatch".into());
+    }
+    let sort = ResolvedSort::new(repo, query)?;
+    let (prepared, _) = crate::prepared::prepare(repo, query)?;
+    search_segmented_relations(
+        repo,
+        query,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        &sort,
+        &prepared.collections,
+    )
+}
+
 fn offer(
     repo: &Repository,
     query: &Query,
