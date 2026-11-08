@@ -262,6 +262,9 @@ impl OpenDialogState {
 
     fn invalidate_detection(&mut self) {
         self.generation = self.generation.wrapping_add(1);
+        self.picker_generation = self.picker_generation.wrapping_add(1);
+        self.pending_picker_slot = None;
+        self.pending_schema_picker = false;
         self.detection = DetectionState::Idle;
         self.error = None;
     }

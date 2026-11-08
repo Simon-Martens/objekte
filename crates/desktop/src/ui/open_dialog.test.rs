@@ -36,9 +36,19 @@ fn picker_and_detection_reject_late_results_after_edit_or_close() {
     let picker = dialog.begin_picker(0).unwrap();
     dialog.edit_folder(0, "/tmp/new".into());
     assert!(!dialog.accept_detection(generation, &path, Ok(DetectedSource::PlainFolder)));
+    assert!(!dialog.accept_picker(picker, 0, "/tmp/stale".into()));
     dialog.close();
     assert!(!dialog.accept_picker(picker, 0, "/tmp/stale".into()));
     assert_eq!(dialog.folders[0], "/tmp/new");
+}
+
+#[test]
+fn editing_folder_invalidates_pending_schema_picker() {
+    let mut dialog = OpenDialogState::default();
+    dialog.show();
+    let generation = dialog.begin_schema_picker().unwrap();
+    dialog.edit_folder(0, "/tmp/replaced".into());
+    assert!(!dialog.accept_schema_picker(generation));
 }
 
 #[test]
