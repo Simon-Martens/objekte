@@ -7,6 +7,120 @@ use crate::repository::{Repository, RepositoryOptions, SnapshotMode};
 use crate::source::{SourceFormat, TextSegment};
 use crate::workload::ReturnMode;
 
+#[test]
+fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-build-digests-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("shared.jsonl");
+    let bytes = b"{\"name\":\"one\"}\n{broken}\n{\"name\":\"three\"}\n";
+    std::fs::write(&path, bytes).unwrap();
+    let input = SourceFileInput {
+        id: FileId(0),
+        relative_path: "shared.jsonl".into(),
+        revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        created_ns: None,
+    };
+    let definition = CollectionDefinition::folder("shared", ".", SourceFormat::JsonLines);
+    let source = crate::source::SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    let expected = Some((input.id, Sha256::digest(bytes).into()));
+    let batch = process_batch(
+        &root,
+        &definition,
+        CollectionId(0),
+        &source,
+        &[input.id],
+        &[input.clone()],
+        BigramAlphabet::Ascii,
+        InferenceConfig::default(),
+        1,
+    )
+    .unwrap();
+    assert_eq!(batch.records.len(), 3);
+    assert_eq!(batch.file_fingerprints(), &[expected.unwrap()]);
+
+    std::fs::remove_file(&path).unwrap();
+    let missing = process_batch(
+        &root,
+        &definition,
+        CollectionId(0),
+        &source,
+        &[input.id],
+        &[input.clone()],
+        BigramAlphabet::Ascii,
+        InferenceConfig::default(),
+        1,
+    )
+    .unwrap();
+    assert!(missing.file_fingerprints().is_empty());
+    std::fs::write(&path, bytes).unwrap();
+
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let mut admitted = 0;
+    let bounded = process_framed_file(
+        &pool,
+        Arc::new(root.clone()),
+        Arc::new(definition),
+        CollectionId(0),
+        source,
+        input.id,
+        Arc::new(vec![input]),
+        BigramAlphabet::Ascii,
+        InferenceConfig::default(),
+        |batch| {
+            admitted += batch.records.len();
+            Ok(())
+        },
+    )
+    .unwrap();
+    assert_eq!(admitted, 3);
+    assert_eq!(bounded.file_fingerprint, expected);
+
+    let json_bytes = b"{\"name\":\"single\"}";
+    std::fs::write(root.join("single.json"), json_bytes).unwrap();
+    let json_input = SourceFileInput {
+        id: FileId(0),
+        relative_path: "single.json".into(),
+        revision: SourceRevision::from_metadata(
+            &std::fs::metadata(root.join("single.json")).unwrap(),
+        )
+        .unwrap(),
+        created_ns: None,
+    };
+    let json_source = crate::source::SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    let generic = process_framed_file(
+        &pool,
+        Arc::new(root.clone()),
+        Arc::new(CollectionDefinition::folder("single", ".", SourceFormat::Json)),
+        CollectionId(0),
+        json_source,
+        json_input.id,
+        Arc::new(vec![json_input]),
+        BigramAlphabet::Ascii,
+        InferenceConfig::default(),
+        |_| Ok(()),
+    )
+    .unwrap();
+    assert_eq!(
+        generic.file_fingerprint,
+        Some((FileId(0), Sha256::digest(json_bytes).into()))
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn assert_same_preparation(file: &PreparedFileBuild, supplied: &PreparedFileBuild) {
     if file.fingerprint.is_some() {
         assert_eq!(file.fingerprint, supplied.fingerprint);
