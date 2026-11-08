@@ -62,3 +62,12 @@ fn adding_and_removing_rows_switches_to_multiple_folder_request() {
     assert_eq!(dialog.folders.len(), 1);
     assert!(dialog.to_open_draft(&OpenDraft::default()).is_err());
 }
+
+#[test]
+fn schema_picker_is_rejected_after_dialog_closes() {
+    let mut dialog = OpenDialogState::default();
+    dialog.show();
+    let generation = dialog.begin_schema_picker().unwrap();
+    dialog.close();
+    assert!(!dialog.accept_schema_picker(generation));
+}

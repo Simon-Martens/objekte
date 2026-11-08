@@ -45,6 +45,7 @@ pub struct OpenDialogState {
     pub generation: u64,
     pub picker_generation: u64,
     pub pending_picker_slot: Option<usize>,
+    pub pending_schema_picker: bool,
     pub error: Option<String>,
 }
 
@@ -60,6 +61,7 @@ impl Default for OpenDialogState {
             generation: 0,
             picker_generation: 0,
             pending_picker_slot: None,
+            pending_schema_picker: false,
             error: None,
         }
     }
@@ -77,6 +79,7 @@ impl OpenDialogState {
         self.generation = self.generation.wrapping_add(1);
         self.picker_generation = self.picker_generation.wrapping_add(1);
         self.pending_picker_slot = None;
+        self.pending_schema_picker = false;
         self.detection = DetectionState::Idle;
         self.error = None;
     }
@@ -156,6 +159,7 @@ impl OpenDialogState {
         }
         self.picker_generation = self.picker_generation.wrapping_add(1);
         self.pending_picker_slot = Some(slot);
+        self.pending_schema_picker = false;
         Some(self.picker_generation)
     }
 
@@ -168,6 +172,24 @@ impl OpenDialogState {
         }
         self.pending_picker_slot = None;
         self.edit_folder(slot, path)
+    }
+
+    pub fn begin_schema_picker(&mut self) -> Option<u64> {
+        if !self.visible || self.folders.len() != 1 {
+            return None;
+        }
+        self.picker_generation = self.picker_generation.wrapping_add(1);
+        self.pending_picker_slot = None;
+        self.pending_schema_picker = true;
+        Some(self.picker_generation)
+    }
+
+    pub fn accept_schema_picker(&mut self, generation: u64) -> bool {
+        if !self.visible || !self.pending_schema_picker || self.picker_generation != generation {
+            return false;
+        }
+        self.pending_schema_picker = false;
+        true
     }
 
     pub fn to_open_draft(&self, template: &OpenDraft) -> Result<OpenDraft, String> {

@@ -106,6 +106,7 @@ pub struct DesktopController {
     preferences: Option<DesktopPreferences>,
     open_diagnostics: String,
     open_draft: Option<OpenDraft>,
+    opening_draft: Option<OpenDraft>,
     open_generation: u64,
     query_generation: u64,
     detail_generation: u64,
@@ -152,6 +153,7 @@ impl DesktopController {
                 preferences: None,
                 open_diagnostics: String::new(),
                 open_draft: None,
+                opening_draft: None,
                 open_generation: 0,
                 query_generation: 0,
                 detail_generation: 0,
@@ -495,17 +497,7 @@ impl DesktopController {
         self.open_generation += 1;
         self.query_generation += 1;
         self.output_generation += 1;
-        self.session = None;
-        self.preferences = None;
-        self.open_diagnostics.clear();
-        self.open_draft = Some(draft);
-        self.keys.clear();
-        self.selected_hit = None;
-        self.detail = None;
-        self.relation_actions.clear();
-        self.relation_back.clear();
-        self.page = PageView::default();
-        self.available_columns.clear();
+        self.opening_draft = Some(draft);
         self.pending_edit = None;
         let generation = self.open_generation;
         let token = self.cancellation.clone();
@@ -639,6 +631,15 @@ impl DesktopController {
             WorkerEvent::Opened { generation, result } if generation == self.open_generation => {
                 match *result {
                     Ok((session, preferences)) => {
+                        self.open_draft = self.opening_draft.take();
+                        self.keys.clear();
+                        self.selected_hit = None;
+                        self.detail = None;
+                        self.relation_actions.clear();
+                        self.relation_back.clear();
+                        self.page = PageView::default();
+                        self.available_columns.clear();
+                        self.preferences = None;
                         let root = session.paths.root.display().to_string();
                         let collections = session.collections.clone();
                         let single_collection = session.single_collection;
@@ -683,10 +684,13 @@ impl DesktopController {
                         };
                         self.start_query(draft, 0, updates);
                     }
-                    Err(message) => updates.push(UiUpdate::Error {
-                        field: ErrorField::Open,
-                        message,
-                    }),
+                    Err(message) => {
+                        self.opening_draft = None;
+                        updates.push(UiUpdate::Error {
+                            field: ErrorField::Open,
+                            message,
+                        });
+                    }
                 }
             }
             WorkerEvent::Queried {
