@@ -348,7 +348,7 @@ impl Render for FilterBuilderView {
 
 
 impl DesktopView {
-    /// Compact search row, optional filter line, and expandable query options.
+    /// Compact search row and optional filter line.
     /// The two InputState values remain authoritative across every render.
     pub(super) fn render_query_bar(&self, cx: &mut Context<Self>) -> impl IntoElement {
         let text_error = self.state.errors.get(&ErrorField::FullText).cloned();
@@ -356,6 +356,16 @@ impl DesktopView {
         let validation = self.state.filter_validation.clone();
         let invalid = !matches!(validation, Some(FilterValidationState::Valid));
         let filter_invalid = matches!(validation, Some(FilterValidationState::Invalid { .. }));
+        let filter_explanation = filter_error.or_else(|| match &validation {
+            Some(FilterValidationState::Invalid {
+                message,
+                byte_offset,
+            }) => Some(byte_offset.map_or_else(
+                || message.clone(),
+                |offset| format!("{message} (byte {offset})"),
+            )),
+            _ => None,
+        });
         let filter_enabled = self.state.search.filter_enabled;
         let querying = self.state.busy == Busy::Querying;
         let dark = self.state.dark;
@@ -469,9 +479,12 @@ impl DesktopView {
                                             0xcbd5e1
                                         }))
                                         .aria_label(if filter_invalid {
-                                            "Structured filter, invalid"
+                                            format!(
+                                                "Structured filter, invalid: {}",
+                                                filter_explanation.clone().unwrap_or_default()
+                                            )
                                         } else {
-                                            "Structured filter"
+                                            "Structured filter".into()
                                         }),
                                 )
                                 .child(
@@ -510,47 +523,8 @@ impl DesktopView {
                                         }
                                     })),
                             )
-                        })
-                        .when(filter_error.is_some(), |this| {
-                            this.child(
-                                div()
-                                    .text_sm()
-                                    .text_color(rgb(0xdc6b55))
-                                    .child(filter_error.unwrap_or_default()),
-                            )
                         }),
                 )
-            })
-            .when(filter_enabled && validation.is_some(), |this| {
-                this.child(
-                    div()
-                        .text_sm()
-                        .text_color(rgb(match validation {
-                            Some(FilterValidationState::Invalid { .. }) => 0xdc6b55,
-                            _ => {
-                                if dark {
-                                    0xaab7c4
-                                } else {
-                                    0x43566a
-                                }
-                            }
-                        }))
-                        .child(match validation {
-                            Some(FilterValidationState::Pending) => "Checking filter…".to_owned(),
-                            Some(FilterValidationState::Valid) => "Filter valid".to_owned(),
-                            Some(FilterValidationState::Invalid {
-                                message,
-                                byte_offset,
-                            }) => match byte_offset {
-                                Some(offset) => format!("Error: {message} (byte {offset})"),
-                                None => format!("Error: {message}"),
-                            },
-                            None => String::new(),
-                        }),
-                )
-            })
-            .when(self.state.showing_last_valid_results, |this| {
-                this.child(div().text_sm().child("Showing last valid results"))
             })
     }
 

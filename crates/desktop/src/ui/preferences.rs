@@ -291,6 +291,41 @@ impl DesktopPreferences {
         }
     }
 
+    pub fn table_presentation(
+        &self,
+        collection: Option<&str>,
+    ) -> (BTreeMap<String, u16>, Vec<String>) {
+        let columns = self.settings.columns.get(collection.unwrap_or("*"));
+        columns.map_or_else(
+            || (BTreeMap::new(), Vec::new()),
+            |columns| (columns.widths.clone(), columns.wrapped.clone()),
+        )
+    }
+
+    pub fn set_column_width_local(&mut self, collection: Option<&str>, key: &str, width: f32) {
+        let columns = self
+            .settings
+            .columns
+            .entry(collection.unwrap_or("*").to_owned())
+            .or_default();
+        columns
+            .widths
+            .insert(key.to_owned(), width.clamp(80., 600.).round() as u16);
+    }
+
+    pub fn toggle_wrap_local(&mut self, collection: Option<&str>, key: &str) {
+        let columns = self
+            .settings
+            .columns
+            .entry(collection.unwrap_or("*").to_owned())
+            .or_default();
+        if let Some(index) = columns.wrapped.iter().position(|name| name == key) {
+            columns.wrapped.remove(index);
+        } else {
+            columns.wrapped.push(key.to_owned());
+        }
+    }
+
     pub fn dark(&self) -> Option<bool> {
         self.settings.theme.as_deref().map(|theme| theme == "dark")
     }

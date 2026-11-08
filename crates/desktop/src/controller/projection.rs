@@ -2,14 +2,58 @@
 
 use std::collections::{BTreeSet, HashSet};
 
+use objekte_search_core::inventory::{FileStatus, RecordClass};
+use objekte_search_core::model::PathRoot;
+use objekte_search_core::query::{FilterExpr, parse_structured_filter};
+use objekte_search_core::query_path::{PathStep, QueryPath};
 use objekte_search_core::repository::{Payload, SearchHit};
 use serde_json::Value;
 
-use crate::backend::{QueryPage, QuerySpec};
+use crate::backend::{OpenedSession, QueryPage, QuerySpec};
 use crate::ui::model::{
     DetailOrigin, DetailRow, DetailValueKind, DetailView, MAX_COLUMNS, MAX_DETAIL_ROWS, PageView,
-    RelationRow, ResultRow, RowKey,
+    RelationRow, ResultRow, RowKey, SearchDraft,
 };
+
+use super::filter_validation::field_choices;
+
+/// Build a stable leading schema from the effective predicate and declared fields.
+pub fn initial_columns(session: &OpenedSession, draft: &SearchDraft) -> Vec<String> {
+    let mut columns = vec!["@id".to_owned(), "@status".to_owned()];
+    if !draft.full_text.is_empty() {
+        columns.push("@match".to_owned());
+    }
+    if draft.filter_enabled {
+        if let Ok(parsed) = parse_structured_filter(&draft.structured) {
+            if let Some(filter) = &parsed.filter {
+                append_predicate_fields(filter, &mut columns);
+            }
+        }
+    }
+    for field in field_choices(session, draft.collection.as_deref(), &[]) {
+        if !columns.contains(&field.path) {
+            columns.push(field.path);
+        }
+    }
+    columns
+}
+
+fn append_predicate_fields(expression: &FilterExpr, columns: &mut Vec<String>) {
+    match expression {
+        FilterExpr::Term(term) => {
+            let path = term.path.display.clone();
+            if !columns.contains(&path) {
+                columns.push(path);
+            }
+        }
+        FilterExpr::And(parts) | FilterExpr::Or(parts) => {
+            for part in parts {
+                append_predicate_fields(part, columns);
+            }
+        }
+        FilterExpr::Not(part) => append_predicate_fields(part, columns),
+    }
+}
 
 /// Present a bounded query page while keeping its full backend hits separately.
 pub fn page_view(page: &QueryPage, spec: &QuerySpec, hidden: &[String]) -> PageView {
@@ -33,7 +77,11 @@ pub fn page_view_with_prior(
     prior: &[String],
 ) -> (PageView, Vec<String>) {
     let mut columns = if prior.is_empty() {
-        vec!["@id".to_owned()]
+        let mut leading = vec!["@id".to_owned(), "@status".to_owned()];
+        if !spec.full_text.is_empty() {
+            leading.push("@match".to_owned());
+        }
+        leading
     } else {
         prior.to_vec()
     };
@@ -44,7 +92,8 @@ pub fn page_view_with_prior(
         }
     }
     for key in discovered {
-        if key != "@collection" && key != "@file" && !columns.contains(&key) {
+        if key != "@collection" && key != "@file" && !columns.contains(&key) && columns.len() < 254
+        {
             columns.push(key);
         }
     }
@@ -53,6 +102,9 @@ pub fn page_view_with_prior(
             columns.push(metadata.to_owned());
         }
     }
+    let available = columns.clone();
+    columns.retain(|column| !hidden.contains(column));
+    let clipped = columns.len() > MAX_COLUMNS;
     columns.truncate(MAX_COLUMNS);
     let rows = page
         .hits
@@ -65,13 +117,10 @@ pub fn page_view_with_prior(
                 .map(|column| match column.as_str() {
                     "@collection" => hit.collection.clone(),
                     "@id" => hit.record_id.clone(),
+                    "@status" => status_label(hit),
+                    "@match" => match_preview(hit, json.as_ref(), spec),
                     "@file" => hit.file_path.display().to_string(),
-                    field => json
-                        .as_ref()
-                        .and_then(Value::as_object)
-                        .and_then(|object| object.get(field))
-                        .map(value_label)
-                        .unwrap_or_default(),
+                    field => project_field(json.as_ref(), field),
                 })
                 .collect();
             ResultRow {
@@ -88,7 +137,6 @@ pub fn page_view_with_prior(
             }
         })
         .collect();
-    let available = columns.clone();
     let view = PageView {
         columns,
         rows,
@@ -99,47 +147,99 @@ pub fn page_view_with_prior(
         has_previous: page.page_start > 0,
         has_next: page.next_page_start.is_some(),
         selected: None,
-        clipped: false,
+        clipped,
     }
-    .without_hidden(hidden)
     .bounded();
     (view, available)
 }
 
-
-/// Add visible-column filtering without reducing the underlying result set.
-trait VisibleColumns {
-    fn without_hidden(self, hidden: &[String]) -> Self;
-}
-
-
-impl VisibleColumns for PageView {
-    fn without_hidden(mut self, hidden: &[String]) -> Self {
-        let indexes: Vec<_> = self
-            .columns
-            .iter()
-            .enumerate()
-            .filter_map(|(index, column)| (!hidden.contains(column)).then_some(index))
-            .collect();
-        self.columns = indexes
-            .iter()
-            .map(|index| self.columns[*index].clone())
-            .collect();
-        for row in &mut self.rows {
-            row.cells = indexes
-                .iter()
-                .map(|index| row.cells[*index].clone())
-                .collect();
-        }
-        self
+fn status_label(hit: &SearchHit) -> String {
+    if hit.record_class == RecordClass::RawFallback {
+        format!("{} · raw fallback", hit.file_status.label())
+    } else {
+        hit.file_status.label().to_owned()
     }
 }
 
+fn project_field(json: Option<&Value>, path: &str) -> String {
+    let Some(path) = QueryPath::parse(path).ok() else {
+        return "Unavailable".into();
+    };
+    if path.field.root != PathRoot::Data {
+        return "Unavailable".into();
+    }
+    let Some(mut value) = json else {
+        return "Unavailable".into();
+    };
+    for step in &path.steps {
+        value = match step {
+            PathStep::Field(name) => match value.get(name) {
+                Some(value) => value,
+                None => return "—".into(),
+            },
+            PathStep::ArrayIndex(index) => match value.get(*index as usize) {
+                Some(value) => value,
+                None => return "—".into(),
+            },
+            PathStep::EachElement => return "Unavailable".into(),
+        };
+    }
+    match value {
+        Value::Null => "null".into(),
+        Value::String(text) if text.is_empty() => "\"\"".into(),
+        Value::Array(values) => format!("{} items", values.len()),
+        Value::Object(object) => format!("{} fields", object.len()),
+        _ => value_label(value),
+    }
+}
+
+fn match_preview(hit: &SearchHit, json: Option<&Value>, spec: &QuerySpec) -> String {
+    if hit.matched_fields.is_empty() {
+        return "Source: match".into();
+    }
+    let mut lines = Vec::new();
+    for field in hit.matched_fields.iter().take(3) {
+        let excerpt = if field.starts_with('@') {
+            "matched".to_owned()
+        } else {
+            let value = project_field(json, field);
+            if value == "Unavailable" || value == "—" {
+                "matched; inspect Source".to_owned()
+            } else if !spec.regex && spec.case_sensitive {
+                match value.find(&spec.full_text) {
+                    Some(start) => {
+                        let before = value[..start]
+                            .char_indices()
+                            .rev()
+                            .nth(30)
+                            .map_or(0, |(at, _)| at);
+                        let after = value[start..]
+                            .char_indices()
+                            .nth(100)
+                            .map_or(value.len(), |(at, _)| start + at);
+                        value[before..after].to_owned()
+                    }
+                    None => "matched; inspect record".to_owned(),
+                }
+            } else {
+                "matched; inspect record".to_owned()
+            }
+        };
+        lines.push(format!("{field}: {excerpt}"));
+    }
+    if hit.matched_fields.len() > 3 {
+        lines.push(format!("+{} more", hit.matched_fields.len() - 3));
+    }
+    lines.join(" · ")
+}
 
 /// Present the original source, parsed structure, and locator metadata.
 pub fn detail_view(hit: &SearchHit, expanded: &HashSet<String>) -> DetailView {
     let mut detail = DetailView {
         title: format!("{} / {}", hit.collection, hit.record_id),
+        validity: Some(
+            hit.file_status == FileStatus::Valid && hit.record_class == RecordClass::Logical,
+        ),
         raw_source: source_text(hit),
         source_label: match hit.payload {
             Some(Payload::Bytes(_)) => "Original source".into(),
@@ -209,11 +309,13 @@ fn append_value(
     if rows.len() >= MAX_DETAIL_ROWS {
         return;
     }
-    let expandable = matches!(value, Value::Array(_) | Value::Object(_));
-    let is_expanded = depth == 0 || expanded.contains(path);
+    let Some((display, expandable)) = field_display(value) else {
+        return;
+    };
+    let is_expanded = expandable && ((depth == 0 && value.is_object()) || expanded.contains(path));
     rows.push(DetailRow {
         label: path.into(),
-        value: value_label(value),
+        value: display,
         depth,
         matched: matched_fields.iter().any(|field| {
             let path = path.strip_prefix("$.").unwrap_or(path);
@@ -259,6 +361,37 @@ fn append_value(
             }
         }
         _ => {}
+    }
+}
+
+/// Keep arrays with a small scalar shape inline; large or nested containers
+/// stay collapsed until requested so opening a record does not flatten them.
+fn field_display(value: &Value) -> Option<(String, bool)> {
+    match value {
+        Value::Null => None,
+        Value::String(text) if text.trim().is_empty() => None,
+        Value::Array(values) if values.is_empty() => None,
+        Value::Array(values)
+            if values.len() <= 64
+                && values
+                    .iter()
+                    .all(|value| !value.is_array() && !value.is_object()) =>
+        {
+            let visible = values
+                .iter()
+                .filter_map(|value| match value {
+                    Value::Null => None,
+                    Value::String(text) if text.trim().is_empty() => None,
+                    Value::String(text) => Some(text.clone()),
+                    _ => Some(value.to_string()),
+                })
+                .collect::<Vec<_>>();
+            (!visible.is_empty()).then(|| (visible.join("; "), false))
+        }
+        Value::Array(values) => Some((format!("{} items", values.len()), true)),
+        Value::Object(object) if object.is_empty() => None,
+        Value::Object(object) => Some((format!("{} fields", object.len()), true)),
+        _ => Some((value_label(value), false)),
     }
 }
 

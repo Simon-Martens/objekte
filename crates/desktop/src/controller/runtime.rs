@@ -17,21 +17,64 @@ use objekte_tui::relations::{self, LinkAction};
 use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
     BatchRow, BatchSource as UiBatchSource, DetailView, ErrorField, ExportFormat,
-    FilterValidationState, OpenDraft, PageView, RelationRow, SearchDraft, SnapshotMode, UiAction,
-    UiUpdate,
+    FilterValidationState, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft,
+    SnapshotMode, UiAction, UiUpdate,
 };
 use crate::ui::preferences::DesktopPreferences;
 
 use super::filter_validation::{field_choices, validate_request};
 use super::open_detection::{DetectedSource, detect_source};
-use super::{detail_view, open_spec, page_view_with_prior, query_spec};
+use super::{detail_view, initial_columns, open_spec, page_view_with_prior, query_spec};
+
 
 /// One lightweight locator retained for every delivered result.
-#[derive(Clone)]
+#[derive(Clone, Eq, PartialEq)]
 struct RecordKey {
     collection: String,
     id: String,
 }
+
+
+#[derive(Clone)]
+struct TabContext {
+    query_generation: u64,
+    spec: backend::QuerySpec,
+    draft: SearchDraft,
+}
+
+
+#[derive(Clone)]
+struct TabFrame {
+    key: RecordKey,
+    anchor: usize,
+}
+
+
+struct RecordTab {
+    id: u64,
+    context: Arc<TabContext>,
+    key: RecordKey,
+    anchor: usize,
+    back: Vec<TabFrame>,
+    expanded: HashSet<String>,
+    operation_generation: u64,
+    cancellation: CancellationToken,
+    loading: bool,
+    links_pending: bool,
+    links_loaded: bool,
+    end_confirmed: bool,
+    title: String,
+}
+
+
+#[derive(Clone)]
+enum TabLoadKind {
+    Open,
+    Adjacent { anchor: usize },
+    Relation { key: RecordKey },
+    Back { frame: TabFrame },
+}
+
 
 type QueryCompletion = Result<
     (
@@ -46,7 +89,8 @@ type QueryCompletion = Result<
     String,
 >;
 type OpenCompletion = Result<(OpenedSession, Result<DesktopPreferences, String>), String>;
-type DetailCompletion = Result<(SearchHit, DetailView, Vec<Option<LinkAction>>), String>;
+type TabCompletion = Result<Option<(SearchHit, DetailView, Vec<Option<LinkAction>>)>, String>;
+
 
 #[derive(Clone, Copy)]
 enum GridRequestKind {
@@ -54,6 +98,7 @@ enum GridRequestKind {
     Continuation(usize),
     Projection(usize),
 }
+
 
 fn spawn_grid_page(
     session: OpenedSession,
@@ -107,6 +152,7 @@ fn spawn_grid_page(
     });
 }
 
+
 /// Completion messages from off-thread filesystem and search operations.
 enum WorkerEvent {
     Validated {
@@ -130,15 +176,21 @@ enum WorkerEvent {
         query_generation: u64,
         result: Result<usize, String>,
     },
-    Detailed {
+    TabLoaded {
         open_generation: u64,
-        query_generation: u64,
-        detail_generation: u64,
-        result: Box<DetailCompletion>,
+        tab_id: u64,
+        operation_generation: u64,
+        kind: TabLoadKind,
+        result: Box<TabCompletion>,
+    },
+    LinksLoaded {
+        open_generation: u64,
+        tab_id: u64,
+        operation_generation: u64,
+        rows: Vec<relations::RelationRow>,
     },
     Expanded {
         open_generation: u64,
-        query_generation: u64,
         detail_generation: u64,
         view: DetailView,
     },
@@ -184,6 +236,7 @@ enum WorkerEvent {
     },
 }
 
+
 /// UI-thread coordinator; expensive work is owned by short-lived workers.
 pub struct DesktopController {
     actions: Receiver<UiAction>,
@@ -214,14 +267,18 @@ pub struct DesktopController {
     projected_pages: VecDeque<usize>,
     selected_index: Option<usize>,
     available_columns: Vec<String>,
-    keys: Vec<RecordKey>,
+    keys: Vec<Option<RecordKey>>,
+    pending_reveal: Option<usize>,
+    tabs: Vec<RecordTab>,
+    active_tab: Option<u64>,
+    next_tab_id: u64,
     selected_hit: Option<Arc<SearchHit>>,
     detail: Option<DetailView>,
     relation_actions: Vec<Option<LinkAction>>,
-    relation_back: Vec<(Arc<SearchHit>, DetailView, Vec<Option<LinkAction>>)>,
     expanded: HashSet<String>,
     pending_edit: Option<(Instant, SearchDraft)>,
 }
+
 
 impl DesktopController {
     /// Make the action sender consumed by `DesktopView` and its controller.
@@ -273,10 +330,13 @@ impl DesktopController {
                 selected_index: None,
                 available_columns: Vec::new(),
                 keys: Vec::new(),
+                pending_reveal: None,
+                tabs: Vec::new(),
+                active_tab: None,
+                next_tab_id: 1,
                 selected_hit: None,
                 detail: None,
                 relation_actions: Vec::new(),
-                relation_back: Vec::new(),
                 expanded: HashSet::new(),
                 pending_edit: None,
             },
@@ -363,24 +423,22 @@ impl DesktopController {
             }
             UiAction::CountExact => self.start_count(updates),
             UiAction::SelectRow(index) => self.select_row(index, updates),
+            UiAction::OpenRecord(index) => self.open_record(index, updates),
+            UiAction::ActivateTab(id) => self.activate_tab(id, updates),
+            UiAction::CloseTab(id) => self.close_tab(id, updates),
+            UiAction::OpenTabQuery => self.open_tab_query(updates),
+            UiAction::LoadLinks => self.load_links(updates),
             UiAction::OpenDetail => {
                 if let Some(index) = self.selected_index {
-                    self.select_row(index, updates);
+                    self.open_record(index, updates);
                 }
             }
             UiAction::CloseDetail => {
-                self.detail = None;
-                updates.push(UiUpdate::Detail(None));
+                if let Some(id) = self.active_tab {
+                    self.close_tab(id, updates);
+                }
             }
-            UiAction::AdjacentResult(forward) => {
-                let selected = self.selected_index.unwrap_or(0);
-                let next = if forward {
-                    selected.saturating_add(1)
-                } else {
-                    selected.saturating_sub(1)
-                };
-                self.select_row(next, updates);
-            }
+            UiAction::AdjacentResult(forward) => self.navigate_tab(forward, updates),
             UiAction::ToggleDetailExpansion(index) => {
                 if let Some(hit) = &self.selected_hit
                     && let Some(row) = self
@@ -392,6 +450,12 @@ impl DesktopController {
                     if !self.expanded.insert(path.clone()) {
                         self.expanded.remove(&path);
                     }
+                    if let Some(tab) = self
+                        .active_tab
+                        .and_then(|id| self.tabs.iter_mut().find(|tab| tab.id == id))
+                    {
+                        tab.expanded = self.expanded.clone();
+                    }
                     let hit = hit.clone();
                     let expanded = self.expanded.clone();
                     let relations = self
@@ -401,7 +465,6 @@ impl DesktopController {
                     let selected = index;
                     self.detail_generation += 1;
                     let open_generation = self.open_generation;
-                    let query_generation = self.query_generation;
                     let detail_generation = self.detail_generation;
                     let sender = self.worker_tx.clone();
                     thread::spawn(move || {
@@ -410,7 +473,6 @@ impl DesktopController {
                         view.selected_row = selected.min(view.structured.len().saturating_sub(1));
                         let _ = sender.send(WorkerEvent::Expanded {
                             open_generation,
-                            query_generation,
                             detail_generation,
                             view: view.bounded(),
                         });
@@ -430,9 +492,6 @@ impl DesktopController {
                 }
             }
             UiAction::DetailSectionRelative(forward) => self.move_detail_section(forward, updates),
-            UiAction::FindInRecord { text, forward } => {
-                self.find_in_record(&text, forward, updates)
-            }
             UiAction::FollowRelation(index) => self.follow_relation(index, updates),
             UiAction::CopyRelation(index) => {
                 if let Some(relation) = self
@@ -445,45 +504,12 @@ impl DesktopController {
                 }
             }
             UiAction::BackRelation => {
-                if let Some((hit, view, actions)) = self.relation_back.pop() {
-                    self.selected_hit = Some(hit);
-                    self.detail = Some(view.clone());
-                    self.relation_actions = actions;
-                    updates.push(UiUpdate::Detail(Some(view)));
-                }
-            }
-            UiAction::CopySelectedValue => {
-                if let Some(detail) = &self.detail {
-                    if let Some(row) = detail.structured.get(detail.selected_row) {
-                        if row.value.ends_with('…')
-                            && row.origin == crate::ui::model::DetailOrigin::Structured
-                        {
-                            if let Some(hit) = &self.selected_hit {
-                                let hit = hit.clone();
-                                let path = row.label.clone();
-                                let sender = self.worker_tx.clone();
-                                let open_generation = self.open_generation;
-                                let detail_generation = self.detail_generation;
-                                thread::spawn(move || {
-                                    let result = full_field_value(&hit, &path)
-                                        .map(|value| (value, "Complete field value copied".into()));
-                                    let _ = sender.send(WorkerEvent::CopiedValue {
-                                        open_generation,
-                                        detail_generation,
-                                        result,
-                                    });
-                                });
-                            }
-                        } else {
-                            updates.push(UiUpdate::Clipboard(row.value.clone()));
-                            updates.push(UiUpdate::Status("Selected value copied".into()));
-                        }
-                    } else if let Some(row) = detail
-                        .relations
-                        .get(detail.selected_row.saturating_sub(detail.structured.len()))
-                    {
-                        updates.push(UiUpdate::Clipboard(row.value.clone()));
-                        updates.push(UiUpdate::Status("Relation value copied".into()));
+                if let Some(tab) = self
+                    .active_tab
+                    .and_then(|id| self.tabs.iter().find(|tab| tab.id == id))
+                {
+                    if let Some(frame) = tab.back.last().cloned() {
+                        self.start_tab_load(tab.id, TabLoadKind::Back { frame }, updates);
                     }
                 }
             }
@@ -579,6 +605,30 @@ impl DesktopController {
                         .toggle_column_local(self.current_draft.collection.as_deref(), &column);
                     let _ = self.preference_tx.send(preferences.clone());
                     self.start_query(self.current_draft.clone(), 0, updates);
+                }
+            }
+            UiAction::ResizeColumn { column, width } => {
+                if let Some(preferences) = &mut self.preferences {
+                    preferences.set_column_width_local(
+                        self.current_draft.collection.as_deref(),
+                        &column,
+                        width as f32,
+                    );
+                    let _ = self.preference_tx.send(preferences.clone());
+                }
+            }
+            UiAction::ToggleWrapColumn(column) => {
+                if let Some(preferences) = &mut self.preferences {
+                    preferences
+                        .toggle_wrap_local(self.current_draft.collection.as_deref(), &column);
+                    let _ = self.preference_tx.send(preferences.clone());
+                    let (widths, wrapped) =
+                        preferences.table_presentation(self.current_draft.collection.as_deref());
+                    updates.push(UiUpdate::TablePresentation {
+                        scope: self.current_draft.collection.clone(),
+                        widths,
+                        wrapped,
+                    });
                 }
             }
             UiAction::RestoreHistory(index) => {
@@ -773,31 +823,36 @@ impl DesktopController {
         self.cancellation.cancel();
         self.cancellation = CancellationToken::new();
         self.query_generation += 1;
-        self.detail_generation += 1;
         self.current_draft = draft.clone();
         self.executed_draft = Some(draft.clone());
         self.executed_spec = Some(spec.clone());
         self.selected_index = None;
         self.keys.clear();
+        self.pending_reveal = None;
         self.next_page_start = None;
         self.pending_continuation = None;
         self.continuation_failed = false;
         self.pending_projections.clear();
         self.projected_pages.clear();
-        self.selected_hit = None;
-        self.detail = None;
-        self.relation_actions.clear();
-        self.relation_back.clear();
         let hidden = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
             prefs.hidden(draft.collection.as_deref()).to_vec()
         });
+        if let Some(preferences) = &self.preferences {
+            let (widths, wrapped) = preferences.table_presentation(draft.collection.as_deref());
+            updates.push(UiUpdate::TablePresentation {
+                scope: draft.collection.clone(),
+                widths,
+                wrapped,
+            });
+        }
         updates.push(UiUpdate::QueryStarted("Searching…".into()));
+        let columns = initial_columns(&session, &draft);
         spawn_grid_page(
             session,
             spec,
             page_start,
             hidden,
-            Vec::new(),
+            columns,
             self.cancellation.clone(),
             self.worker_tx.clone(),
             self.open_generation,
@@ -911,37 +966,244 @@ impl DesktopController {
     }
 
     fn select_row(&mut self, index: usize, updates: &mut Vec<UiUpdate>) {
-        let (Some(session), Some(key)) = (self.session.clone(), self.keys.get(index).cloned())
+        if self.keys.get(index).and_then(Option::as_ref).is_none() {
+            return;
+        }
+        self.selected_index = Some(index);
+        updates.push(UiUpdate::RowSelected(index));
+    }
+
+    fn emit_tabs(&self, updates: &mut Vec<UiUpdate>) {
+        updates.push(UiUpdate::Tabs {
+            tabs: self
+                .tabs
+                .iter()
+                .map(|tab| RecordTabSummary {
+                    id: tab.id,
+                    title: tab.title.clone(),
+                    identity: format!("{} / {}", tab.key.collection, tab.key.id),
+                    position: tab.anchor + 1,
+                    can_back: !tab.back.is_empty(),
+                    can_previous: tab.anchor > 0,
+                    can_next: !tab.end_confirmed,
+                    loading: tab.loading,
+                    links_loading: tab.links_pending,
+                })
+                .collect(),
+            active: self.active_tab,
+        });
+    }
+
+    fn open_record(&mut self, index: usize, updates: &mut Vec<UiUpdate>) {
+        let (Some(key), Some(spec), Some(draft)) = (
+            self.keys.get(index).cloned().flatten(),
+            self.executed_spec.clone(),
+            self.executed_draft.clone(),
+        ) else {
+            return;
+        };
+        self.select_row(index, updates);
+        if let Some(id) = self
+            .tabs
+            .iter()
+            .find(|tab| tab.key == key && tab.context.query_generation == self.query_generation)
+            .map(|tab| tab.id)
+        {
+            self.activate_tab(id, updates);
+            return;
+        }
+        let id = self.next_tab_id;
+        self.next_tab_id += 1;
+        self.tabs.push(RecordTab {
+            id,
+            context: Arc::new(TabContext {
+                query_generation: self.query_generation,
+                spec,
+                draft,
+            }),
+            key: key.clone(),
+            anchor: index,
+            back: Vec::new(),
+            expanded: HashSet::new(),
+            operation_generation: 0,
+            cancellation: CancellationToken::new(),
+            loading: false,
+            links_pending: false,
+            links_loaded: false,
+            end_confirmed: false,
+            title: key.id.clone(),
+        });
+        self.activate_tab(id, updates);
+    }
+
+    fn activate_tab(&mut self, id: u64, updates: &mut Vec<UiUpdate>) {
+        let Some(index) = self.tabs.iter().position(|tab| tab.id == id) else {
+            return;
+        };
+        if self.active_tab == Some(id) && self.detail.is_some() {
+            self.emit_tabs(updates);
+            return;
+        }
+        if let Some(old) = self
+            .active_tab
+            .and_then(|old| self.tabs.iter_mut().find(|tab| tab.id == old))
+        {
+            old.expanded = self.expanded.clone();
+        }
+        self.active_tab = Some(id);
+        self.detail_generation += 1;
+        self.selected_hit = None;
+        self.detail = None;
+        self.relation_actions.clear();
+        self.expanded = self.tabs[index].expanded.clone();
+        self.tabs[index].links_loaded = false;
+        self.tabs[index].links_pending = false;
+        self.emit_tabs(updates);
+        self.start_tab_load(id, TabLoadKind::Open, updates);
+    }
+
+    fn close_tab(&mut self, id: u64, updates: &mut Vec<UiUpdate>) {
+        let Some(index) = self.tabs.iter().position(|tab| tab.id == id) else {
+            return;
+        };
+        self.tabs[index].cancellation.cancel();
+        self.tabs.remove(index);
+        if self.active_tab == Some(id) {
+            self.active_tab = None;
+            self.detail_generation += 1;
+            self.selected_hit = None;
+            self.detail = None;
+            self.relation_actions.clear();
+            self.expanded.clear();
+            if let Some(next) = self
+                .tabs
+                .get(index.min(self.tabs.len().saturating_sub(1)))
+                .map(|tab| tab.id)
+            {
+                self.activate_tab(next, updates);
+                return;
+            }
+            updates.push(UiUpdate::Detail(None));
+        }
+        self.emit_tabs(updates);
+    }
+
+    fn navigate_tab(&mut self, forward: bool, updates: &mut Vec<UiUpdate>) {
+        let Some(tab) = self
+            .active_tab
+            .and_then(|id| self.tabs.iter().find(|tab| tab.id == id))
         else {
             return;
         };
-        self.selected_index = Some(index);
-        self.detail = None;
-        self.relation_actions.clear();
-        updates.push(UiUpdate::RowSelected(index));
-        self.detail_generation += 1;
-        let detail_generation = self.detail_generation;
+        if !forward && tab.anchor == 0 {
+            return;
+        }
+        if forward && tab.end_confirmed {
+            return;
+        }
+        let anchor = if forward {
+            tab.anchor + 1
+        } else {
+            tab.anchor - 1
+        };
+        self.start_tab_load(tab.id, TabLoadKind::Adjacent { anchor }, updates);
+    }
+
+    fn open_tab_query(&mut self, updates: &mut Vec<UiUpdate>) {
+        let Some(tab) = self
+            .active_tab
+            .and_then(|id| self.tabs.iter().find(|tab| tab.id == id))
+        else {
+            return;
+        };
+        let draft = tab.context.draft.clone();
+        let anchor = tab.anchor;
+        updates.push(UiUpdate::RestoreQuery(draft.clone()));
+        self.start_query(draft, (anchor / 100) * 100, updates);
+        self.pending_reveal = Some(anchor);
+    }
+
+    fn start_tab_load(&mut self, id: u64, kind: TabLoadKind, updates: &mut Vec<UiUpdate>) {
+        let (Some(session), Some(tab)) = (
+            self.session.clone(),
+            self.tabs.iter_mut().find(|tab| tab.id == id),
+        ) else {
+            return;
+        };
+        tab.cancellation.cancel();
+        tab.cancellation = CancellationToken::new();
+        tab.operation_generation += 1;
+        tab.loading = true;
+        tab.links_loaded = false;
+        tab.links_pending = false;
+        let operation_generation = tab.operation_generation;
+        let token = tab.cancellation.clone();
+        let spec = tab.context.spec.clone();
+        let key = tab.key.clone();
         let open_generation = self.open_generation;
-        let query_generation = self.query_generation;
-        let token = self.cancellation.clone();
         let sender = self.worker_tx.clone();
+        self.emit_tabs(updates);
         thread::spawn(move || {
-            let result = backend::record_by_id(&session, &key.collection, &key.id, &token)
-                .and_then(|hit| {
-                    hit.ok_or_else(|| {
-                        backend::BackendError::new(
-                            backend::BackendErrorKind::Query,
-                            "Record is no longer available",
-                        )
-                    })
-                })
-                .map(|hit| record_presentation(&session, hit))
-                .map_err(|error| error.to_string());
-            let _ = sender.send(WorkerEvent::Detailed {
+            let result = match &kind {
+                TabLoadKind::Adjacent { anchor } => {
+                    backend::query_page(&session, &spec, *anchor, 1, &token)
+                        .map(|mut page| page.hits.pop())
+                }
+                TabLoadKind::Relation { key } => {
+                    backend::record_by_id(&session, &key.collection, &key.id, &token)
+                }
+                TabLoadKind::Back { frame } => {
+                    backend::record_by_id(&session, &frame.key.collection, &frame.key.id, &token)
+                }
+                TabLoadKind::Open => {
+                    backend::record_by_id(&session, &key.collection, &key.id, &token)
+                }
+            }
+            .map(|hit| hit.map(|hit| record_presentation(&session, hit)))
+            .map_err(|error| error.to_string());
+            let _ = sender.send(WorkerEvent::TabLoaded {
                 open_generation,
-                query_generation,
-                detail_generation,
+                tab_id: id,
+                operation_generation,
+                kind,
                 result: Box::new(result),
+            });
+        });
+    }
+
+    fn load_links(&mut self, updates: &mut Vec<UiUpdate>) {
+        let (Some(session), Some(hit), Some(id)) = (
+            self.session.clone(),
+            self.selected_hit.clone(),
+            self.active_tab,
+        ) else {
+            return;
+        };
+        let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) else {
+            return;
+        };
+        if tab.links_loaded || tab.links_pending {
+            return;
+        }
+        tab.links_pending = true;
+        let operation_generation = tab.operation_generation;
+        let token = tab.cancellation.clone();
+        let open_generation = self.open_generation;
+        let sender = self.worker_tx.clone();
+        self.emit_tabs(updates);
+        thread::spawn(move || {
+            if token.is_cancelled() {
+                return;
+            }
+            let rows = relations::rows(&session.repository, &hit);
+            if token.is_cancelled() {
+                return;
+            }
+            let _ = sender.send(WorkerEvent::LinksLoaded {
+                open_generation,
+                tab_id: id,
+                operation_generation,
+                rows,
             });
         });
     }
@@ -967,6 +1229,12 @@ impl DesktopController {
             WorkerEvent::Opened { generation, result } if generation == self.open_generation => {
                 match *result {
                     Ok((session, preferences)) => {
+                        for tab in &self.tabs {
+                            tab.cancellation.cancel();
+                        }
+                        self.tabs.clear();
+                        self.active_tab = None;
+                        self.emit_tabs(updates);
                         self.open_draft = self.opening_draft.take();
                         self.executed_spec = None;
                         self.executed_draft = None;
@@ -979,7 +1247,6 @@ impl DesktopController {
                         self.selected_hit = None;
                         self.detail = None;
                         self.relation_actions.clear();
-                        self.relation_back.clear();
                         self.selected_index = None;
                         self.available_columns.clear();
                         self.preferences = None;
@@ -1050,10 +1317,15 @@ impl DesktopController {
                         match kind {
                             GridRequestKind::First => {
                                 self.available_columns = available.clone();
-                                self.keys = keys;
+                                self.keys = vec![None; view.offset];
+                                self.keys.extend(keys.into_iter().map(Some));
                                 self.next_page_start = next;
-                                self.remember_projection(0);
+                                self.remember_projection(view.offset);
                                 updates.push(UiUpdate::Page(view));
+                                if let Some(index) = self.pending_reveal.take() {
+                                    self.selected_index = Some(index);
+                                    updates.push(UiUpdate::RevealRow(index));
+                                }
                                 updates.push(UiUpdate::Status(format!(
                                     "Query complete in {:.1} ms",
                                     elapsed_ns as f64 / 1_000_000.0
@@ -1077,7 +1349,7 @@ impl DesktopController {
                                 }
                                 self.pending_continuation = None;
                                 self.continuation_failed = false;
-                                self.keys.extend(keys);
+                                self.keys.extend(keys.into_iter().map(Some));
                                 self.next_page_start = next;
                                 self.remember_projection(start);
                                 updates.push(UiUpdate::AppendPage(view));
@@ -1085,6 +1357,11 @@ impl DesktopController {
                             GridRequestKind::Projection(start) => {
                                 if !self.pending_projections.remove(&start) {
                                     return;
+                                }
+                                for (index, key) in keys.into_iter().enumerate() {
+                                    if let Some(slot) = self.keys.get_mut(start + index) {
+                                        *slot = Some(key);
+                                    }
                                 }
                                 self.remember_projection(start);
                                 updates.push(UiUpdate::Projection(view));
@@ -1139,28 +1416,112 @@ impl DesktopController {
                     }),
                 }
             }
-            WorkerEvent::Detailed {
+            WorkerEvent::TabLoaded {
                 open_generation,
-                query_generation,
-                detail_generation,
+                tab_id,
+                operation_generation,
+                kind,
                 result,
-            } if open_generation == self.open_generation
-                && query_generation == self.query_generation
-                && detail_generation == self.detail_generation =>
-            {
+            } if open_generation == self.open_generation => {
+                let Some(index) = self.tabs.iter().position(|tab| {
+                    tab.id == tab_id && tab.operation_generation == operation_generation
+                }) else {
+                    return;
+                };
+                self.tabs[index].loading = false;
                 match *result {
-                    Ok((hit, view, actions)) => {
-                        self.selected_hit = Some(Arc::new(hit));
-                        self.expanded.clear();
-                        self.detail = Some(view.clone());
-                        self.relation_actions = actions;
-                        updates.push(UiUpdate::Detail(Some(view)));
+                    Ok(Some((hit, view, actions))) => {
+                        let tab = &mut self.tabs[index];
+                        match &kind {
+                            TabLoadKind::Adjacent { anchor } => {
+                                if tab.back.len() >= 32 {
+                                    tab.back.remove(0);
+                                }
+                                tab.back.push(TabFrame {
+                                    key: tab.key.clone(),
+                                    anchor: tab.anchor,
+                                });
+                                tab.anchor = *anchor;
+                                tab.end_confirmed = false;
+                                tab.expanded.clear();
+                                tab.links_loaded = false;
+                            }
+                            TabLoadKind::Relation { .. } => {
+                                if tab.back.len() >= 32 {
+                                    tab.back.remove(0);
+                                }
+                                tab.back.push(TabFrame {
+                                    key: tab.key.clone(),
+                                    anchor: tab.anchor,
+                                });
+                                tab.expanded.clear();
+                                tab.links_loaded = false;
+                            }
+                            TabLoadKind::Back { frame } => {
+                                if tab.back.last().is_some_and(|last| {
+                                    last.key == frame.key && last.anchor == frame.anchor
+                                }) {
+                                    tab.back.pop();
+                                }
+                                tab.anchor = frame.anchor;
+                                tab.expanded.clear();
+                                tab.links_loaded = false;
+                            }
+                            TabLoadKind::Open => {}
+                        }
+                        tab.key = RecordKey {
+                            collection: hit.collection.clone(),
+                            id: hit.record_id.clone(),
+                        };
+                        tab.title = view.title.clone();
+                        if self.active_tab == Some(tab_id) {
+                            self.selected_hit = Some(Arc::new(hit));
+                            self.detail = Some(view.clone());
+                            self.relation_actions = actions;
+                            self.expanded = tab.expanded.clone();
+                            updates.push(UiUpdate::Detail(Some(view)));
+                        }
+                    }
+                    Ok(None) => {
+                        if matches!(kind, TabLoadKind::Adjacent { .. }) {
+                            self.tabs[index].end_confirmed = true;
+                            updates.push(UiUpdate::Status("End of results".into()));
+                        } else {
+                            updates.push(UiUpdate::Error {
+                                field: ErrorField::General,
+                                message: "Record is unavailable".into(),
+                            });
+                        }
                     }
                     Err(message) => updates.push(UiUpdate::Error {
                         field: ErrorField::General,
                         message,
                     }),
                 }
+                self.emit_tabs(updates);
+            }
+            WorkerEvent::LinksLoaded {
+                open_generation,
+                tab_id,
+                operation_generation,
+                rows,
+            } if open_generation == self.open_generation => {
+                let Some(tab) = self.tabs.iter_mut().find(|tab| {
+                    tab.id == tab_id && tab.operation_generation == operation_generation
+                }) else {
+                    return;
+                };
+                tab.links_pending = false;
+                tab.links_loaded = true;
+                if self.active_tab == Some(tab_id) {
+                    let (relations, actions) = relation_presentation(rows);
+                    if let Some(detail) = &mut self.detail {
+                        detail.relations = relations;
+                        self.relation_actions = actions;
+                        updates.push(UiUpdate::Detail(Some(detail.clone())));
+                    }
+                }
+                self.emit_tabs(updates);
             }
             WorkerEvent::Detected { generation, result }
                 if generation == self.detection_generation =>
@@ -1208,11 +1569,9 @@ impl DesktopController {
             }
             WorkerEvent::Expanded {
                 open_generation,
-                query_generation,
                 detail_generation,
                 view,
             } if open_generation == self.open_generation
-                && query_generation == self.query_generation
                 && detail_generation == self.detail_generation =>
             {
                 self.detail = Some(view.clone());
@@ -1325,31 +1684,6 @@ impl DesktopController {
         }
     }
 
-    fn find_in_record(&mut self, text: &str, forward: bool, updates: &mut Vec<UiUpdate>) {
-        let Some(detail) = &mut self.detail else {
-            return;
-        };
-        if text.is_empty() || detail.structured.is_empty() {
-            return;
-        }
-        let len = detail.structured.len();
-        let start = detail.selected_row;
-        for step in 1..=len {
-            let index = if forward {
-                (start + step) % len
-            } else {
-                (start + len - step % len) % len
-            };
-            let row = &detail.structured[index];
-            if row.label.contains(text) || row.value.contains(text) {
-                detail.selected_row = index;
-                updates.push(UiUpdate::Detail(Some(detail.clone())));
-                return;
-            }
-        }
-        updates.push(UiUpdate::Status(format!("No field contains {text}")));
-    }
-
     fn move_detail_section(&mut self, forward: bool, updates: &mut Vec<UiUpdate>) {
         let Some(detail) = &mut self.detail else {
             return;
@@ -1384,51 +1718,26 @@ impl DesktopController {
         let Some(action) = self.relation_actions.get(index).cloned().flatten() else {
             return;
         };
-        let Some(session) = self.session.clone() else {
-            return;
-        };
         match action {
             LinkAction::Target { collection, id } => {
-                if let (Some(hit), Some(view)) = (&self.selected_hit, &self.detail) {
-                    if self.relation_back.len() >= 32 {
-                        self.relation_back.remove(0);
-                    }
-                    self.relation_back.push((
-                        hit.clone(),
-                        view.clone(),
-                        self.relation_actions.clone(),
-                    ));
-                }
-                self.detail_generation += 1;
-                let detail_generation = self.detail_generation;
-                let open_generation = self.open_generation;
-                let query_generation = self.query_generation;
-                let token = self.cancellation.clone();
-                let sender = self.worker_tx.clone();
+                let Some(tab_id) = self.active_tab else {
+                    return;
+                };
                 updates.push(UiUpdate::Status(format!(
                     "Following relation to {collection} / {id}…"
                 )));
-                thread::spawn(move || {
-                    let result = backend::record_by_id(&session, &collection, &id, &token)
-                        .and_then(|hit| {
-                            hit.ok_or_else(|| {
-                                backend::BackendError::new(
-                                    backend::BackendErrorKind::Query,
-                                    "Related record is unavailable",
-                                )
-                            })
-                        })
-                        .map(|hit| record_presentation(&session, hit))
-                        .map_err(|error| error.to_string());
-                    let _ = sender.send(WorkerEvent::Detailed {
-                        open_generation,
-                        query_generation,
-                        detail_generation,
-                        result: Box::new(result),
-                    });
-                });
+                self.start_tab_load(
+                    tab_id,
+                    TabLoadKind::Relation {
+                        key: RecordKey { collection, id },
+                    },
+                    updates,
+                );
             }
             continuation => {
+                let Some(session) = self.session.clone() else {
+                    return;
+                };
                 let open_generation = self.open_generation;
                 let detail_generation = self.detail_generation;
                 let sender = self.worker_tx.clone();
@@ -1452,10 +1761,12 @@ impl DesktopController {
             });
             return;
         };
-        if !matches!(
-            validate_request(&session, &self.current_draft),
-            FilterValidationState::Valid
-        ) {
+        if format != ExportFormat::SelectedJson
+            && !matches!(
+                validate_request(&session, &self.current_draft),
+                FilterValidationState::Valid
+            )
+        {
             updates.push(UiUpdate::Error {
                 field: ErrorField::Export,
                 message: "Finish or clear the current filter before exporting".into(),
@@ -1470,14 +1781,18 @@ impl DesktopController {
             });
             return;
         }
-        let spec = match query_spec(&self.current_draft) {
-            Ok(spec) => Some(spec),
-            Err(message) => {
-                updates.push(UiUpdate::Error {
-                    field: ErrorField::Export,
-                    message,
-                });
-                return;
+        let spec = if format == ExportFormat::SelectedJson {
+            None
+        } else {
+            match query_spec(&self.current_draft) {
+                Ok(spec) => Some(spec),
+                Err(message) => {
+                    updates.push(UiUpdate::Error {
+                        field: ErrorField::Export,
+                        message,
+                    });
+                    return;
+                }
             }
         };
         let hit = self.selected_hit.clone();
@@ -1676,6 +1991,7 @@ impl DesktopController {
     }
 }
 
+
 fn open_with_preferences(
     spec: &OpenSpec,
     token: &CancellationToken,
@@ -1686,16 +2002,11 @@ fn open_with_preferences(
 }
 
 fn record_presentation(
-    session: &OpenedSession,
+    _session: &OpenedSession,
     hit: SearchHit,
 ) -> (SearchHit, DetailView, Vec<Option<LinkAction>>) {
-    let mut view = detail_view(&hit, &HashSet::new());
-    let (rows, actions) = relation_presentation(relations::rows(&session.repository, &hit));
-    view.relations = rows;
-    view = view.bounded();
-    let mut actions = actions;
-    actions.truncate(view.relations.len());
-    (hit, view, actions)
+    let view = detail_view(&hit, &HashSet::new());
+    (hit, view, Vec::new())
 }
 
 fn relation_presentation(
@@ -1732,45 +2043,6 @@ fn query_error_field(message: &str, draft: &SearchDraft) -> ErrorField {
         ErrorField::FullText
     } else {
         ErrorField::Structured
-    }
-}
-
-/// Resolve a visible JSON field from the retained source when its display text was clipped.
-fn full_field_value(hit: &SearchHit, path: &str) -> Result<String, String> {
-    let value = objekte_tui::record_json_value(hit)
-        .ok_or_else(|| "Selected field is unavailable".to_string())?;
-    let found = find_json_path(&value, "$", path)
-        .ok_or_else(|| "Selected field is no longer available".to_string())?;
-    Ok(match found {
-        serde_json::Value::String(text) => text.clone(),
-        other => other.to_string(),
-    })
-}
-
-fn find_json_path<'a>(
-    value: &'a serde_json::Value,
-    current: &str,
-    target: &str,
-) -> Option<&'a serde_json::Value> {
-    if current == target {
-        return Some(value);
-    }
-    match value {
-        serde_json::Value::Object(fields) => fields.iter().find_map(|(key, child)| {
-            let next = format!("{current}.{key}");
-            target
-                .starts_with(&next)
-                .then(|| find_json_path(child, &next, target))
-                .flatten()
-        }),
-        serde_json::Value::Array(values) => values.iter().enumerate().find_map(|(index, child)| {
-            let next = format!("{current}[{index}]");
-            target
-                .starts_with(&next)
-                .then(|| find_json_path(child, &next, target))
-                .flatten()
-        }),
-        _ => None,
     }
 }
 

@@ -249,6 +249,7 @@ pub struct RelationRow {
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DetailView {
     pub title: String,
+    pub validity: Option<bool>,
     pub structured: Vec<DetailRow>,
     pub raw_source: String,
     pub source_label: String,
@@ -297,6 +298,21 @@ pub struct QueryEntry {
     pub id: Option<u64>,
     pub name: Option<String>,
     pub draft: SearchDraft,
+}
+
+
+/// Lightweight identity and navigation controls for one retained inspector tab.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct RecordTabSummary {
+    pub id: u64,
+    pub title: String,
+    pub identity: String,
+    pub position: usize,
+    pub can_back: bool,
+    pub can_previous: bool,
+    pub can_next: bool,
+    pub loading: bool,
+    pub links_loading: bool,
 }
 
 
@@ -370,6 +386,11 @@ pub enum UiAction {
     RetryContinuation,
     CountExact,
     SelectRow(usize),
+    OpenRecord(usize),
+    ActivateTab(u64),
+    CloseTab(u64),
+    OpenTabQuery,
+    LoadLinks,
     OpenDetail,
     CloseDetail,
     AdjacentResult(bool),
@@ -377,14 +398,9 @@ pub enum UiAction {
     ToggleDetailExpansion(usize),
     DetailSectionRelative(bool),
     ToggleRawSource,
-    FindInRecord {
-        text: String,
-        forward: bool,
-    },
     FollowRelation(usize),
     CopyRelation(usize),
     BackRelation,
-    CopySelectedValue,
     CopyRecord,
     SaveQuery(SearchDraft),
     RenameSaved {
@@ -396,6 +412,11 @@ pub enum UiAction {
     RestoreHistory(usize),
     RestoreSaved(u64),
     ToggleColumn(String),
+    ResizeColumn {
+        column: String,
+        width: u16,
+    },
+    ToggleWrapColumn(String),
     TogglePreview,
     Export {
         format: ExportFormat,
@@ -450,6 +471,11 @@ pub enum UiUpdate {
     CountStarted,
     ExactCount(usize),
     RowSelected(usize),
+    RevealRow(usize),
+    Tabs {
+        tabs: Vec<RecordTabSummary>,
+        active: Option<u64>,
+    },
     Detail(Option<DetailView>),
     History {
         entries: Vec<QueryEntry>,
@@ -458,6 +484,11 @@ pub enum UiUpdate {
     Columns {
         available: Vec<String>,
         hidden: Vec<String>,
+    },
+    TablePresentation {
+        scope: Option<String>,
+        widths: std::collections::BTreeMap<String, u16>,
+        wrapped: Vec<String>,
     },
     Batch {
         rows: Vec<BatchRow>,

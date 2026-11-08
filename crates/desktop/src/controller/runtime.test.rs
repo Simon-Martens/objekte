@@ -1,13 +1,6 @@
 use super::*;
 
 #[test]
-fn full_field_path_resolves_nested_json_without_display_clipping() {
-    let value = serde_json::json!({"nested": [{"title": "a".repeat(9000)}]});
-    let found = find_json_path(&value, "$", "$.nested[0].title").unwrap();
-    assert_eq!(found.as_str().unwrap().len(), 9000);
-}
-
-#[test]
 fn bounded_batch_status_extraction_skips_large_hits() {
     let temp = tempfile::tempdir().unwrap();
     let output = temp.path().join("events.ndjson");
@@ -76,6 +69,47 @@ fn invalid_filter_does_not_start_query_or_replace_visible_page() {
             .iter()
             .any(|update| matches!(update, UiUpdate::QueryStarted(_)))
     );
+}
+
+#[test]
+fn main_query_change_preserves_tab_context_and_close_cancels_its_work() {
+    let fixture = crate::backend::test_support::fixture();
+    let page = backend::query_page(
+        &fixture.session,
+        &backend::QuerySpec::default(),
+        0,
+        1,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let hit = &page.hits[0];
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.executed_spec = Some(backend::QuerySpec::default());
+    controller.executed_draft = Some(SearchDraft::default());
+    controller.keys.push(Some(RecordKey {
+        collection: hit.collection.clone(),
+        id: hit.record_id.clone(),
+    }));
+    let mut updates = Vec::new();
+    controller.open_record(0, &mut updates);
+    assert_eq!(controller.tabs.len(), 1);
+    let tab_id = controller.tabs[0].id;
+    let token = controller.tabs[0].cancellation.clone();
+    controller.start_query(
+        SearchDraft {
+            full_text: "different".into(),
+            ..SearchDraft::default()
+        },
+        0,
+        &mut updates,
+    );
+    assert_eq!(controller.tabs[0].context.query_generation, 0);
+    assert_eq!(controller.tabs[0].context.draft, SearchDraft::default());
+    assert!(!token.is_cancelled());
+    controller.close_tab(tab_id, &mut updates);
+    assert!(controller.tabs.is_empty());
+    assert!(token.is_cancelled());
 }
 
 #[test]

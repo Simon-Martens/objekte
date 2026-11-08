@@ -155,7 +155,7 @@ fn projection_refresh_keeps_detail_and_cache_is_bounded() {
     assert!(!state.projected_rows.contains_key(&0));
     assert_eq!(state.projected_rows.len(), 3);
     state.apply(UiUpdate::QueryStarted("Searching".into()));
-    assert!(state.detail.is_none());
+    assert_eq!(state.detail.as_ref().unwrap().title, "record");
 }
 
 #[test]

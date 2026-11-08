@@ -17,6 +17,7 @@ use objekte_search_core::query::parse_structured_filter;
 
 use super::DesktopView;
 use super::model::UiAction;
+use super::sort;
 use super::state::{ActionPanel, Busy};
 use super::theme::palette;
 
@@ -584,12 +585,15 @@ impl DesktopView {
             )
             .children(visible_columns.iter().map(|(_, column, width)| {
                 let name = (*column).to_owned();
+                let wrapped = self.state.wrapped_columns.contains(&name);
+                let sortable = sort::sort_field_for_column(&name);
+                let display = sort::column_label(&name).to_owned();
                 let label = sort
                     .iter()
-                    .position(|field| field.field == name)
+                    .position(|field| sortable.is_some_and(|key| field.field == key))
                     .map(|index| {
                         format!(
-                            "{name} {}{}",
+                            "{display} {}{}",
                             if sort[index].descending { "↓" } else { "↑" },
                             if sort.len() > 1 {
                                 format!("{}", index + 1)
@@ -598,23 +602,95 @@ impl DesktopView {
                             }
                         )
                     })
-                    .unwrap_or_else(|| name.clone());
-                Button::new(format!("sort-{name}"))
-                    .ghost()
-                    .label(label)
-                    .tooltip(format!("Sort by {name}: ascending, descending, clear"))
+                    .unwrap_or(display);
+                let sort_name = name.clone();
+                let resize_name = name.clone();
+                let menu_name = name.clone();
+                let menu_target = cx.entity();
+                div()
+                    .id(format!("header-{name}"))
+                    .flex()
+                    .items_center()
                     .w(px(*width))
                     .h(px(31.))
-                    .justify_start()
-                    .text_xs()
-                    .on_click(cx.listener(move |this, _, window, cx| {
-                        this.sort_by_column(name.clone(), window, cx);
-                    }))
+                    .flex_shrink_0()
+                    .child(
+                        Button::new(format!("sort-{name}"))
+                            .ghost()
+                            .label(label)
+                            .tooltip(if sortable.is_some() {
+                                format!(
+                                    "Sort by {}: ascending, descending, clear",
+                                    sort::column_label(&name)
+                                )
+                            } else {
+                                "Match excerpts cannot be sorted".to_owned()
+                            })
+                            .disabled(sortable.is_none())
+                            .w(px((*width - 7.).max(40.)))
+                            .h(px(31.))
+                            .justify_start()
+                            .text_xs()
+                            .on_click(cx.listener(move |this, _, window, cx| {
+                                this.sort_by_column(sort_name.clone(), window, cx);
+                            })),
+                    )
+                    .child(
+                        div()
+                            .id(format!("resize-{name}"))
+                            .w(px(7.))
+                            .h_full()
+                            .cursor_col_resize()
+                            .on_mouse_down(
+                                gpui_kit::MouseButton::Left,
+                                cx.listener(
+                                    move |this, event: &gpui_kit::MouseDownEvent, _, cx| {
+                                        let width = *this
+                                            .state
+                                            .column_widths
+                                            .get(&resize_name)
+                                            .unwrap_or(&160.);
+                                        this.state.column_resize_origin = Some((
+                                            resize_name.clone(),
+                                            f32::from(event.position.x),
+                                            width,
+                                        ));
+                                        this.state.status = format!(
+                                            "Resizing {}…",
+                                            sort::column_label(&resize_name)
+                                        );
+                                        cx.notify();
+                                        cx.stop_propagation();
+                                    },
+                                ),
+                            ),
+                    )
+                    .context_menu(move |menu, _, _| {
+                        let target = menu_target.clone();
+                        let column = menu_name.clone();
+                        menu.item(PopupMenuItem::new("Wrap text").checked(wrapped).on_click(
+                            move |_, _, cx| {
+                                target.update(cx, |this, _| {
+                                    this.send(UiAction::ToggleWrapColumn(column.clone()))
+                                });
+                            },
+                        ))
+                    })
             }));
         let target = cx.entity();
         let row_columns = visible_columns
             .iter()
-            .map(|(index, _, width)| (*index, *width))
+            .map(|(index, column, width)| {
+                (
+                    *index,
+                    (*column).to_owned(),
+                    *width,
+                    self.state
+                        .wrapped_columns
+                        .iter()
+                        .any(|wrapped| wrapped == *column),
+                )
+            })
             .collect::<Vec<_>>();
         let rows = div()
             .id("results-scroll")
@@ -662,9 +738,9 @@ impl DesktopView {
                     div()
                         .id(("result-row", index))
                         .flex()
-                        .items_center()
+                        .items_start()
                         .w_full()
-                        .h(px(30.))
+                        .min_h(px(30.))
                         .bg(rgb(shade))
                         .border_b_1()
                         .border_color(rgb(colors.border))
@@ -677,25 +753,35 @@ impl DesktopView {
                                 .text_color(rgb(colors.secondary))
                                 .child((index + 1).to_string()),
                         )
-                        .children(row_columns.iter().map(|(column_index, width)| {
-                            div()
-                                .w(px(*width))
-                                .flex_shrink_0()
-                                .px_2()
-                                .overflow_hidden()
-                                .whitespace_nowrap()
-                                .text_ellipsis()
-                                .text_sm()
-                                .child(cells.get(*column_index).cloned().unwrap_or_default())
-                        }))
+                        .children(row_columns.iter().map(
+                            |(column_index, _column, width, wrapped)| {
+                                div()
+                                    .w(px(*width))
+                                    .flex_shrink_0()
+                                    .px_2()
+                                    .overflow_hidden()
+                                    .text_sm()
+                                    .when(*wrapped, |this| this.whitespace_normal().line_clamp(4))
+                                    .when(!*wrapped, |this| {
+                                        this.whitespace_nowrap().text_ellipsis()
+                                    })
+                                    .child(cells.get(*column_index).cloned().unwrap_or_default())
+                            },
+                        ))
                         .on_click({
                             let target = target.clone();
                             move |_, window, cx| {
                                 target.update(cx, |this, cx| {
                                     window.focus(&this.grid_focus, cx);
                                     this.state.page.selected = Some(index);
-                                    this.state.inspector_visible = this.state.show_preview;
-                                    this.send(UiAction::SelectRow(index));
+                                    if this.state.show_preview {
+                                        this.state.inspector_visible = true;
+                                    }
+                                    this.send(if this.state.show_preview {
+                                        UiAction::OpenRecord(index)
+                                    } else {
+                                        UiAction::SelectRow(index)
+                                    });
                                     cx.notify();
                                 });
                             }
@@ -706,13 +792,29 @@ impl DesktopView {
                 .min_h_0()
                 .min_w(px(table_width)),
             );
-        let first = if loaded_count == 0 { 0 } else { 1 };
-        let last = loaded_count;
-        let range = match page.exact_total {
-            Some(total) => format!("{first}–{last} of {total} matches"),
-            None if page.count_pending => format!("{first}–{last} loaded · counting…"),
-            None => format!("{first}–{last} loaded"),
+        let first = if loaded_count == 0 {
+            0
+        } else {
+            page.offset + 1
         };
+        let last = loaded_count;
+        let mut range = match page.exact_total {
+            Some(total) => format!("{first}–{last} of {total} matches"),
+            None if page.count_pending => {
+                format!("{} loaded · counting…", self.state.delivered_count)
+            }
+            None => format!("{} loaded", self.state.delivered_count),
+        };
+        let undisplayed = self
+            .state
+            .available_columns
+            .iter()
+            .filter(|column| !self.state.hidden_columns.contains(column))
+            .count()
+            .saturating_sub(page.columns.len());
+        if undisplayed > 0 {
+            range.push_str(&format!(" · +{undisplayed} columns (Columns)"));
+        }
         let range = if self.state.showing_last_valid_results {
             format!("Last valid: {range}")
         } else {
@@ -853,12 +955,33 @@ impl Render for DesktopView {
                         this.state.inspector_width = (start_width + distance).clamp(300., 600.);
                         cx.notify();
                     }
+                    if let Some((column, start_x, start_width)) = &this.state.column_resize_origin {
+                        let width = (*start_width + f32::from(event.position.x) - *start_x)
+                            .clamp(80., 600.);
+                        this.state.column_widths.insert(column.clone(), width);
+                        let first = this
+                            .grid_list
+                            .logical_scroll_top()
+                            .item_ix
+                            .saturating_sub(10);
+                        this.grid_list
+                            .remeasure_items(first..(first + 100).min(this.state.loaded_count));
+                        cx.notify();
+                    }
                 }),
             )
             .on_mouse_up(
                 gpui_kit::MouseButton::Left,
                 cx.listener(|this, _, _, _| {
                     this.state.inspector_resize_origin = None;
+                    if let Some((column, _, _)) = this.state.column_resize_origin.take() {
+                        if let Some(width) = this.state.column_widths.get(&column) {
+                            this.send(UiAction::ResizeColumn {
+                                column,
+                                width: width.round() as u16,
+                            });
+                        }
+                    }
                 }),
             )
             .on_mouse_down(
@@ -967,8 +1090,7 @@ impl Render for DesktopView {
                             .child(self.render_grid(cx)),
                     )
                     .when(
-                        self.state.inspector_visible
-                            && (self.state.detail.is_some() || self.state.page.selected.is_some()),
+                        self.state.inspector_visible && self.state.active_tab.is_some(),
                         |this| this.child(self.render_detail(cx)),
                     ),
             )

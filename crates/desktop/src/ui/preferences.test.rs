@@ -94,3 +94,17 @@ fn generated_titles_are_display_only() {
         "All collections · All records"
     );
 }
+
+#[test]
+fn column_widths_and_wrapping_persist_per_collection() {
+    let temp = tempfile::tempdir().unwrap();
+    let mut preferences = DesktopPreferences::load(temp.path()).unwrap();
+    preferences.set_column_width_local(Some("letters"), "title", 237.4);
+    preferences.toggle_wrap_local(Some("letters"), "title");
+    preferences.persist().unwrap();
+    let reloaded = DesktopPreferences::load(temp.path()).unwrap();
+    let (widths, wrapped) = reloaded.table_presentation(Some("letters"));
+    assert_eq!(widths["title"], 237);
+    assert_eq!(wrapped, ["title"]);
+    assert!(reloaded.table_presentation(Some("other")).0.is_empty());
+}

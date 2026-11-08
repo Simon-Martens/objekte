@@ -35,7 +35,6 @@ struct Inputs {
     snapshot_directory: Entity<InputState>,
     full_text: Entity<InputState>,
     structured: Entity<InputState>,
-    find: Entity<InputState>,
     rename_title: Entity<InputState>,
     export_path: Entity<InputState>,
     batch_text: Entity<TextareaState>,
@@ -56,6 +55,7 @@ pub struct DesktopView {
     grid_focus: FocusHandle,
     grid_list: ListState,
     grid_horizontal_scroll: ScrollHandle,
+    columns_scroll: ScrollHandle,
     detail_focus: FocusHandle,
     restoring_query: bool,
     _subscriptions: Vec<Subscription>,
@@ -76,7 +76,6 @@ impl DesktopView {
             structured: cx.new(|cx| {
                 InputState::new(window, cx).placeholder("year >= 1900 && type = \"book\"")
             }),
-            find: cx.new(|cx| InputState::new(window, cx).placeholder("Find in record")),
             rename_title: cx.new(|cx| InputState::new(window, cx).placeholder("Query title")),
             export_path: cx.new(|cx| InputState::new(window, cx).placeholder("New output path")),
             batch_text: cx.new(|cx| TextareaState::new(window, cx)),
@@ -159,6 +158,7 @@ impl DesktopView {
             grid_focus: cx.focus_handle(),
             grid_list,
             grid_horizontal_scroll: ScrollHandle::new(),
+            columns_scroll: ScrollHandle::new(),
             detail_focus: cx.focus_handle(),
             restoring_query: false,
             _subscriptions: subscriptions,
@@ -238,14 +238,28 @@ impl DesktopView {
         let reset_grid_scroll = matches!(&update, UiUpdate::QueryStarted(_) | UiUpdate::Page(_));
         let old_count = self.state.loaded_count;
         let append = matches!(&update, UiUpdate::AppendPage(_));
+        let remeasure_grid = matches!(&update, UiUpdate::TablePresentation { .. });
+        let reveal = match &update {
+            UiUpdate::RevealRow(index) => Some(*index),
+            _ => None,
+        };
         let inspected_record = matches!(&update, UiUpdate::Detail(Some(_)));
         self.state.apply(update);
+        if inspected_record && self.state.show_links {
+            self.send(UiAction::LoadLinks);
+        }
         if reset_grid_scroll {
             self.grid_list
                 .reset_with_uniform_height(self.state.loaded_count, px(30.));
         } else if append && self.state.loaded_count > old_count {
             self.grid_list
                 .splice(old_count..old_count, self.state.loaded_count - old_count);
+        }
+        if let Some(index) = reveal {
+            self.grid_list.scroll_to_reveal_item(index);
+        }
+        if remeasure_grid {
+            self.grid_list.remeasure();
         }
         if inspected_record
             && self.state.inspector_visible
@@ -286,6 +300,11 @@ impl DesktopView {
 
     /// Cycle one header through the authoritative filter expression.
     fn sort_by_column(&mut self, column: String, window: &mut Window, cx: &mut Context<Self>) {
+        let Some(sort_field) = sort::sort_field_for_column(&column) else {
+            self.state.status = "Match snippets cannot be sorted".into();
+            cx.notify();
+            return;
+        };
         let current = self.inputs.structured.read(cx).value().to_string();
         if self.state.search.filter_enabled
             && !current.trim().is_empty()
@@ -305,7 +324,7 @@ impl DesktopView {
         } else {
             current
         };
-        let next = match sort::cycle_header_sort(&source, &column) {
+        let next = match sort::cycle_header_sort(&source, sort_field) {
             Ok(next) => next,
             Err(message) => {
                 self.state.status = message;
@@ -371,7 +390,9 @@ impl DesktopView {
             current.saturating_add_signed(delta).min(len - 1)
         });
         self.state.page.selected = Some(next);
-        self.state.inspector_visible = self.state.show_preview;
+        if self.state.show_preview {
+            self.state.inspector_visible = self.state.active_tab.is_some();
+        }
         self.grid_list.scroll_to_reveal_item(next);
         self.send(UiAction::VisibleRows {
             start: next,
@@ -388,7 +409,9 @@ impl DesktopView {
         }
         let index = if last { len - 1 } else { 0 };
         self.state.page.selected = Some(index);
-        self.state.inspector_visible = self.state.show_preview;
+        if self.state.show_preview {
+            self.state.inspector_visible = self.state.active_tab.is_some();
+        }
         self.grid_list.scroll_to_reveal_item(index);
         self.send(UiAction::VisibleRows {
             start: index,

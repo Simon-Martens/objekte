@@ -6,8 +6,8 @@ use std::collections::{BTreeMap, VecDeque};
 
 use super::model::{
     BatchRow, BatchSource, DetailView, ErrorField, ExportFormat, FilterValidationState,
-    MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry, ResultRow, SearchDraft, SnapshotMode,
-    UiUpdate,
+    MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry, RecordTabSummary, ResultRow, SearchDraft,
+    SnapshotMode, UiUpdate,
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
 
@@ -56,12 +56,16 @@ pub struct UiState {
     pub page: PageView,
     /// Lightweight extent is separate from a bounded cache of projected text.
     pub loaded_count: usize,
+    pub delivered_count: usize,
     pub projected_rows: BTreeMap<usize, ResultRow>,
     pub(super) cached_page_starts: VecDeque<usize>,
     pub has_more: bool,
     pub loading_more: bool,
     pub continuation_error: Option<String>,
     pub detail: Option<DetailView>,
+    pub tabs: Vec<RecordTabSummary>,
+    pub active_tab: Option<u64>,
+    pub(super) tab_views: BTreeMap<u64, (bool, bool, bool)>,
     pub detail_cache: DetailCache,
     pub detail_source: Option<SharedString>,
     pub history: Vec<QueryEntry>,
@@ -70,6 +74,9 @@ pub struct UiState {
     pub hidden_columns: Vec<String>,
     /// Widths are measured once from the first bounded page for each column.
     pub column_widths: BTreeMap<String, f32>,
+    pub wrapped_columns: Vec<String>,
+    pub table_scope: Option<String>,
+    pub column_resize_origin: Option<(String, f32, f32)>,
     pub batch: Vec<BatchRow>,
     pub batch_source: BatchSource,
     pub batch_outcome: Option<String>,
@@ -88,6 +95,7 @@ pub struct UiState {
     pub export_format: ExportFormat,
     pub index_mode: SnapshotMode,
     pub show_raw: bool,
+    pub show_links: bool,
     pub sidebar_visible: bool,
     pub history_expanded: bool,
     pub inspector_width: f32,
@@ -120,16 +128,23 @@ impl UiState {
                 self.available_columns.clear();
                 self.hidden_columns.clear();
                 self.column_widths.clear();
+                self.wrapped_columns.clear();
+                self.table_scope = None;
+                self.column_resize_origin = None;
                 self.history.clear();
                 self.saved.clear();
                 self.page = PageView::default();
                 self.loaded_count = 0;
+                self.delivered_count = 0;
                 self.projected_rows.clear();
                 self.cached_page_starts.clear();
                 self.has_more = false;
                 self.loading_more = false;
                 self.continuation_error = None;
                 self.detail = None;
+                self.tabs.clear();
+                self.active_tab = None;
+                self.tab_views.clear();
                 self.detail_cache = DetailCache::default();
                 self.detail_source = None;
                 self.inspector_visible = false;
@@ -148,7 +163,6 @@ impl UiState {
             UiUpdate::QueryStarted(status) => {
                 self.busy = Busy::Querying;
                 self.status = status;
-                self.detail = None;
                 self.errors.remove(&ErrorField::FullText);
                 self.errors.remove(&ErrorField::Structured);
                 self.errors.remove(&ErrorField::Sort);
@@ -170,7 +184,8 @@ impl UiState {
                     });
                 }
                 page = page.bounded();
-                self.loaded_count = page.rows.len();
+                self.delivered_count = page.rows.len();
+                self.loaded_count = page.offset + self.delivered_count;
                 self.projected_rows.clear();
                 self.cached_page_starts.clear();
                 self.has_more = page.has_next;
@@ -181,17 +196,12 @@ impl UiState {
                 self.continuation_error = None;
                 self.insert_projection(&mut page);
                 self.page = page;
-                self.detail = None;
-                self.detail_cache = DetailCache::default();
-                self.detail_source = None;
-                self.show_raw = false;
-                self.inspector_visible = false;
                 self.showing_last_valid_results = false;
                 self.busy = Busy::None;
-                self.status = if self.loaded_count == 0 {
+                self.status = if self.delivered_count == 0 {
                     "No matching records".into()
                 } else {
-                    format!("{} records loaded", self.loaded_count)
+                    format!("{} records loaded", self.delivered_count)
                 };
             }
             UiUpdate::AppendPage(mut page) => {
@@ -217,6 +227,7 @@ impl UiState {
                 let delivered = page.rows.len();
                 self.insert_projection(&mut page);
                 self.loaded_count += delivered;
+                self.delivered_count += delivered;
                 self.has_more = page.has_next;
                 self.loading_more = false;
                 self.continuation_error = None;
@@ -225,7 +236,7 @@ impl UiState {
                 } else if !self.has_more {
                     self.page.exact_total = Some(self.loaded_count);
                 }
-                self.status = format!("{} records loaded", self.loaded_count);
+                self.status = format!("{} records loaded", self.delivered_count);
             }
             UiUpdate::Projection(mut page) => {
                 page = page.bounded();
@@ -246,13 +257,30 @@ impl UiState {
                 self.page.count_pending = false;
             }
             UiUpdate::RowSelected(index) => {
-                if self.page.selected != Some(index) {
+                self.page.selected = Some(index);
+            }
+            UiUpdate::RevealRow(index) => self.page.selected = Some(index),
+            UiUpdate::Tabs { tabs, active } => {
+                if let Some(id) = self.active_tab {
+                    self.tab_views.insert(
+                        id,
+                        (self.show_raw, self.show_links, self.show_detail_metadata),
+                    );
+                }
+                let changed = self.active_tab != active;
+                self.tabs = tabs;
+                self.active_tab = active;
+                self.tab_views
+                    .retain(|id, _| self.tabs.iter().any(|tab| tab.id == *id));
+                if changed {
+                    (self.show_raw, self.show_links, self.show_detail_metadata) = active
+                        .and_then(|id| self.tab_views.get(&id).copied())
+                        .unwrap_or((false, false, false));
                     self.detail = None;
                     self.detail_cache = DetailCache::default();
                     self.detail_source = None;
-                    self.show_raw = false;
                 }
-                self.page.selected = Some(index);
+                self.inspector_visible = active.is_some();
             }
             UiUpdate::Detail(detail) => {
                 self.detail = detail.map(DetailView::bounded);
@@ -263,7 +291,18 @@ impl UiState {
                             labels: detail
                                 .structured
                                 .iter()
-                                .map(|row| SharedString::from(row.label.clone()))
+                                .map(|row| {
+                                    SharedString::from(
+                                        if row.origin == super::model::DetailOrigin::Structured {
+                                            row.label
+                                                .strip_prefix("$.")
+                                                .unwrap_or(&row.label)
+                                                .to_owned()
+                                        } else {
+                                            row.label.clone()
+                                        },
+                                    )
+                                })
                                 .collect(),
                             values: detail
                                 .structured
@@ -306,10 +345,23 @@ impl UiState {
                 mut available,
                 mut hidden,
             } => {
-                available.truncate(super::model::MAX_COLUMNS);
-                hidden.truncate(super::model::MAX_COLUMNS);
+                available.truncate(256);
+                hidden.truncate(256);
                 self.available_columns = available;
                 self.hidden_columns = hidden;
+            }
+            UiUpdate::TablePresentation {
+                scope,
+                widths,
+                wrapped,
+            } => {
+                if self.table_scope != scope {
+                    self.column_widths.clear();
+                    self.table_scope = scope;
+                }
+                self.column_widths
+                    .extend(widths.into_iter().map(|(name, width)| (name, width as f32)));
+                self.wrapped_columns = wrapped;
             }
             UiUpdate::Batch {
                 mut rows,
@@ -360,18 +412,19 @@ impl UiState {
                 self.search = draft;
                 self.page = PageView::default();
                 self.loaded_count = 0;
+                self.delivered_count = 0;
                 self.projected_rows.clear();
                 self.cached_page_starts.clear();
                 self.has_more = false;
                 self.loading_more = false;
                 self.continuation_error = None;
-                self.detail = None;
-                self.detail_cache = DetailCache::default();
-                self.detail_source = None;
             }
             UiUpdate::FilterValidation { generation, state } => {
                 if generation >= self.filter_validation_generation {
                     self.filter_validation_generation = generation;
+                    if let FilterValidationState::Invalid { message, .. } = &state {
+                        self.status = format!("Filter error: {message}");
+                    }
                     self.showing_last_valid_results = self.root.is_some()
                         && !matches!(state, FilterValidationState::Valid)
                         && self.loaded_count > 0;

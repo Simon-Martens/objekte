@@ -61,3 +61,28 @@ mod tests {
         assert!(cycle_header_sort("year >= ", "year").is_err());
     }
 }
+
+
+/// Resolve display-only columns to core metadata paths for the authoritative
+/// SORT BY expression. Match excerpts have no ordering key.
+pub fn sort_field_for_column(column: &str) -> Option<&str> {
+    match column {
+        "@id" => Some("@record.id"),
+        "@status" => Some("@file.status"),
+        "@match" => None,
+        "@collection" => Some("@collection.name"),
+        "@file" => Some("@file.path"),
+        field => Some(field),
+    }
+}
+
+pub fn column_label(column: &str) -> &str {
+    match column {
+        "@id" => "ID",
+        "@status" => "Status",
+        "@match" => "Match",
+        "@collection" => "Collection",
+        "@file" => "File",
+        field => field,
+    }
+}

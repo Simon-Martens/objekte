@@ -7,4 +7,6 @@ mod projection;
 pub mod runtime;
 
 pub use adapt::{open_spec, query_spec};
-pub use projection::{detail_view, page_view, page_view_with_available, page_view_with_prior};
+pub use projection::{
+    detail_view, initial_columns, page_view, page_view_with_available, page_view_with_prior,
+};
