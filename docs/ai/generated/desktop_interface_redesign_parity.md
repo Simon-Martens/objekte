@@ -21,6 +21,7 @@ All links point to committed PNGs in [the evidence directory](desktop_interface_
 | Invalid request | [Retained results](desktop_interface_redesign_evidence/redesigned-invalid-closed.png) | `score >=` shows the byte-position error, disables Run, and labels the old two rows as last valid. |
 | Record inspection | [Fields](desktop_interface_redesign_evidence/redesigned-fields-final.png), [original source](desktop_interface_redesign_evidence/redesigned-source-final2.png) | One inspector provides tabs, find, and contextual copy/export. |
 | Secondary options | [Query options](desktop_interface_redesign_evidence/redesigned-options-final.png) | Sort, offset, limit, and exact count float over the table. |
+| Explicit output actions | [Index completed](desktop_interface_redesign_evidence/redesigned-index-done.png), [Export choices](desktop_interface_redesign_evidence/redesigned-export-menu2.png) | A custom snapshot directory and a JSON export were exercised while the current workspace remained available. |
 | Theme and narrow window | [Light theme](desktop_interface_redesign_evidence/redesigned-light.png), [1024 × 768 with inspector](desktop_interface_redesign_evidence/redesigned-1024-inspector.png) | Text and controls remain readable. Selecting a record at 1024 px collapses the sidebar to leave room for the search field and inspector. |
 
 The dark palette, hierarchy, and table emphasis follow the PDF direction. The native result is intentionally denser than the draft illustration where real controls and current data require it. At 1024 px the table itself scrolls horizontally; the application window does not.
@@ -46,7 +47,7 @@ The dark palette, hierarchy, and table emphasis follow the PDF direction. The na
 | Batch queries | **Menu → Run query batch…** with bounded outcomes | `ui/panels.rs`, `controller/runtime.rs` |
 | Diagnostics, theme, help/version | Status-bar Diagnostics and header **Menu** | `ui/render.rs`, `ui/panels.rs` |
 
-The CLI and TUI remain available and share the same core and source-safety paths. Source documents and schemas are read-only; explicit exports and snapshot writes retain their no-overwrite and source-directory restrictions. Tests for request mapping, modal/detection state, filter serialization and validation, exports, backend behavior, CLI, and TUI ran in the workspace suite. The native review exercised the default and advanced open dialogs, folder detection, table/inspector/source, filter validation and builder edit, menu/options, theme, and narrow window. It did not manually exercise every file picker, relation, batch, or export format in the native session; those paths are covered by targeted and existing automated tests where available.
+The CLI and TUI remain available and share the same core and source-safety paths. Source documents and schemas are read-only; explicit exports and snapshot writes retain their no-overwrite and source-directory restrictions. Tests for request mapping, modal/detection state, filter serialization and validation, exports, backend behavior, CLI, and TUI ran in the workspace suite. The native review exercised the default and advanced open dialogs, folder detection, table/inspector/source, filter validation and builder edit, menu/options, theme, narrow window, index-only operation, and results JSON export. The index action wrote `search-core-ascii.snapshot` to a custom directory outside the source; the export action wrote a two-hit JSON document outside the source. Both left the current session visible. It did not manually exercise every file picker, relation, batch, or export format in the native session; those paths are covered by targeted and existing automated tests where available.
 
 ## Performance and validation
 
@@ -59,6 +60,17 @@ Release core benchmark on `examples/musenalm` (148,486 files), `bench_musenalm -
 | Build | 1.252 s | 1.130 s | One build per branch; not a stable throughput estimate. |
 | Snapshot write | 0.326 s | 0.249 s | One write per branch; affected by host I/O. |
 
-These results do not establish a speedup from a visual redesign. The first single-run integration sample was slower than its prior record; matching five-run baseline/integration measurements resolved that apparent discrepancy. The code limits rendered rows to the current page, derives field choices from schemas/available columns, and validates filters without walking source records. Native GUI input and screenshots were inspected separately from index build time. A pure GPUI frame-latency benchmark for warm typing, scrolling, selection, and resizing is not present in the repository; local control timings, if cited, include WayVNC dispatch and are not comparable to core query timings.
+These results do not establish a speedup from a visual redesign. The first single-run integration sample was slower than its prior record; matching five-run baseline/integration measurements resolved that apparent discrepancy. The code limits rendered rows to the current page, derives field choices from schemas/available columns, and validates filters without walking source records.
+
+Warm local GUI control was measured separately from index building and image capture, on both revisions with the same 200-file JSON folder, debug build, dark theme, fixed virtual output, and 1920 × 1080 app window except during resize. Each median is eight commands from the local shell; resize alternated 1440 × 900 and 1280 × 800 app windows while leaving the virtual output fixed. Capture medians are separate `desktop_control.py screenshot` calls after each input. No SSH viewer or remote screenshot transport was involved.
+
+| Action | Baseline control dispatch | Integration control dispatch | Baseline capture | Integration capture |
+| --- | ---: | ---: | ---: | ---: |
+| Scroll | 307.1 ms | 308.1 ms | 121.1 ms | 119.7 ms |
+| Selection/inspector | 310.9 ms | 312.9 ms | 117.8 ms | 116.3 ms |
+| Resize | 27.5 ms | 28.4 ms | 120.5 ms | 126.5 ms |
+| Type one character | 344.4 ms | 343.8 ms | 122.0 ms | 122.5 ms |
+
+The nearly identical results show the local control/capture loop's cost, not GPUI frame latency; every input command starts a helper process and pointer/keyboard bridge. The captures verified that each action took effect. A pure application frame benchmark is not available, so no UI speedup is claimed from these figures.
 
 `cargo test --locked --workspace`, `cargo clippy --locked --workspace --all-targets`, and `python3 scripts/format-rust-spacing.py --check` passed on the combined branch. Clippy emits pre-existing warnings in core/CLI tests but none in the desktop crate. The native launcher verified output size, scale, and refresh before each capture.
