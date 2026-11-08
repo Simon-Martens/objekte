@@ -169,5 +169,8 @@ fn configured_repository_reuses_cache_unless_build_in_memory_is_selected() {
     assert!(!memory.diagnostics.startup.restored);
     assert!(memory.configuration.cache_load.is_none());
     assert!(memory.configuration.cache_save.is_none());
+    let separate_cache = root.path().join("manual.snapshot");
+    memory.repository.index().flush_cache(&separate_cache).unwrap();
+    assert!(!memory.repository.index().status().unwrap().dirty());
     restored.repository.index().shutdown().unwrap();
 }
