@@ -8,7 +8,7 @@ use sha2::{Digest, Sha256};
 use crate::build::{FilePreparationBinding, SourceFileInput, prepare_file_build_from_bytes};
 use crate::lifecycle::{FileHandle, IndexView, PublishedIndex, PublishedSegment};
 use crate::lifecycle_mutation::VerifiedFallbackReason;
-use crate::model::CollectionId;
+use crate::model::{CollectionId, FileId, RecordSlot};
 
 const MAX_VERIFIED_SCANNED_RECORDS: usize = 16_384;
 
@@ -132,6 +132,88 @@ pub(crate) fn verify_old_content(
         }
     }
     Ok(VerifiedPlan { old_shards })
+}
+
+/// Replace a single-file, single-record shard with an independently built
+/// replacement while retaining its ordinal and local slot zero in the new
+/// published revision. The old shard Arc remains in every pinned old view.
+/// Any uncertainty leaves `next` intact for verified physical removal.
+pub(crate) fn preserve_single_record_slots(
+    view: &IndexView,
+    next: &PublishedIndex,
+    plan: &VerifiedPlan,
+    file: FileId,
+) -> Option<PublishedIndex> {
+    let old_entry = view.file_entry(file)?;
+    let new_entry = next.catalog.entry(file)?;
+    if old_entry.collections != new_entry.collections || old_entry.collections.is_empty() {
+        return None;
+    }
+    let mut replacements = Vec::with_capacity(old_entry.collections.len());
+    for collection in &old_entry.collections {
+        let mut ordinals = plan
+            .old_shards
+            .iter()
+            .filter(|(id, _)| id == collection)
+            .map(|(_, ordinal)| *ordinal);
+        let old_ordinal = ordinals.next()?;
+        if ordinals.next().is_some() {
+            return None;
+        }
+        let old = view
+            .segments(*collection)?
+            .iter()
+            .find(|shard| shard.ordinal == old_ordinal)?;
+        if old.index.files.len() != 1
+            || old.index.records.len() != 1
+            || old.active.len() != 1
+            || !old.active.contains(RecordSlot(0))
+            || old.index.file_records(file)? != [RecordSlot(0)]
+        {
+            return None;
+        }
+        let group = next.segments.get(collection.0 as usize)?;
+        let old_position = group
+            .iter()
+            .position(|shard| shard.ordinal == old_ordinal)?;
+        if group[old_position].active.len() != 0 {
+            return None;
+        }
+        let new_position = group
+            .iter()
+            .enumerate()
+            .filter(|(_, shard)| shard.index.file(file).is_some())
+            .max_by_key(|(_, shard)| shard.ordinal)?
+            .0;
+        if new_position == old_position {
+            return None;
+        }
+        let new = &group[new_position];
+        if new.index.files.len() != 1
+            || new.index.records.len() != 1
+            || new.active.len() != 1
+            || !new.active.contains(RecordSlot(0))
+            || new.index.file_records(file)? != [RecordSlot(0)]
+            || old.index.source_id != new.index.source_id
+            || old.index.source_version != new.index.source_version
+            || old.index.records[0].class != new.index.records[0].class
+        {
+            return None;
+        }
+        replacements.push((*collection, old_position, new_position, old_ordinal));
+    }
+    let mut candidate = next.clone();
+    for (collection, old_position, new_position, old_ordinal) in replacements {
+        let group = Arc::make_mut(candidate.segments.get_mut(collection.0 as usize)?);
+        let replacement = Arc::clone(&group[new_position]);
+        group[old_position] = Arc::new(PublishedSegment {
+            ordinal: old_ordinal,
+            index: Arc::clone(&replacement.index),
+            active: replacement.active.clone(),
+        });
+        group.remove(new_position);
+    }
+    Some(candidate)
 }
 
 /// Project all retired old shards out of a private staged root. A failure

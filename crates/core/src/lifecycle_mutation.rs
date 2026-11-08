@@ -14,7 +14,9 @@ use crate::lifecycle::{
     DeleteResult, DeleteStrategy, FileHandle, Index, IndexError, IndexRevision, IndexView,
     PreparedReplacement,
 };
-use crate::lifecycle_verified::{remove_verified_old_shards, verify_old_content};
+use crate::lifecycle_verified::{
+    preserve_single_record_slots, remove_verified_old_shards, verify_old_content,
+};
 use crate::model::CollectionId;
 
 const MAX_PUBLICATION_RETRIES: usize = 8;
@@ -35,6 +37,7 @@ pub enum FileMutationKind {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum FileMutationStrategy {
     AppendReplacement,
+    VerifiedSlotPreserving,
     VerifiedPhysicalRemoval,
     Unchanged,
 }
@@ -433,14 +436,28 @@ impl Index {
                 Err(error) => return Err(error),
             };
             let (next, strategy, fallback_reason) = match verified {
-                Some(Ok(plan)) => match remove_verified_old_shards(&next, &plan, handle.file_id) {
-                    Ok(compacted) => (
-                        compacted,
-                        FileMutationStrategy::VerifiedPhysicalRemoval,
-                        None,
-                    ),
-                    Err(reason) => (next, FileMutationStrategy::AppendReplacement, Some(reason)),
-                },
+                Some(Ok(plan)) => {
+                    if let Some(preserved) =
+                        preserve_single_record_slots(&view, &next, &plan, handle.file_id)
+                    {
+                        (
+                            preserved,
+                            FileMutationStrategy::VerifiedSlotPreserving,
+                            None,
+                        )
+                    } else {
+                        match remove_verified_old_shards(&next, &plan, handle.file_id) {
+                            Ok(compacted) => (
+                                compacted,
+                                FileMutationStrategy::VerifiedPhysicalRemoval,
+                                None,
+                            ),
+                            Err(reason) => {
+                                (next, FileMutationStrategy::AppendReplacement, Some(reason))
+                            }
+                        }
+                    }
+                }
                 Some(Err(reason)) => (next, FileMutationStrategy::AppendReplacement, Some(reason)),
                 None => (next, FileMutationStrategy::AppendReplacement, None),
             };
