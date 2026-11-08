@@ -9,6 +9,107 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
 #[test]
+fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() {
+    use crate::build::{
+        FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
+    };
+    use crate::inventory::{ActiveRecords, SourceRevision};
+    use crate::model::{CollectionId, FileId, RecordSlot};
+    use crate::source::SourceRegistry;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-segment-bounds-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("data.jsonl");
+    std::fs::write(
+        &path,
+        b"{\"kind\":\"a\"}\n{\"kind\":\"b\"}\n{bad}\n{\"kind\":\"a\"}\n",
+    )
+    .unwrap();
+    let mut definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["kind".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    let inference = crate::inference::InferenceConfig::default();
+    let alphabet = crate::workload::BigramAlphabet::Ascii;
+    let prepared = prepare_file_build(
+        &root,
+        SourceFileInput {
+            id: FileId(200),
+            relative_path: "data.jsonl".into(),
+            revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+            created_ns: None,
+        },
+        &[FilePreparationBinding {
+            collection: CollectionId(0),
+            definition: &definition,
+            source: &source,
+        }],
+        alphabet,
+        inference,
+        1,
+    )
+    .unwrap();
+    let mut admission = SegmentAdmission::new(CollectionId(0), &source);
+    admission
+        .admit(
+            &prepared.source,
+            prepared.collections.into_iter().next().unwrap(),
+        )
+        .unwrap();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let segment = admission
+        .seal()
+        .into_indexed(&definition, alphabet, inference, 1, &pool)
+        .unwrap();
+    assert_eq!(segment.records.len(), 4);
+    let active = ActiveRecords::all(4)
+        .unwrap()
+        .retired(&[RecordSlot(3)])
+        .unwrap();
+    let positive =
+        crate::reference::bind_filter(&parse_filter("kind = 'a'").unwrap(), &definition.schema)
+            .unwrap();
+    let bounds = segment_filter_bounds(&segment, &active, &positive).unwrap();
+    assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [0, 2]);
+    assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [0]);
+    let negative =
+        crate::reference::bind_filter(&parse_filter("!(kind = 'a')").unwrap(), &definition.schema)
+            .unwrap();
+    let bounds = segment_filter_bounds(&segment, &active, &negative).unwrap();
+    assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [1, 2]);
+    assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [1]);
+    let impossible = crate::reference::bind_filter(
+        &parse_filter("kind = 'a' && !(kind = 'a')").unwrap(),
+        &definition.schema,
+    )
+    .unwrap();
+    let bounds = segment_filter_bounds(&segment, &active, &impossible).unwrap();
+    assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [2]);
+    assert!(bounds.must.is_empty());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
     let root = std::env::temp_dir().join(format!("objekte-folded-index-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();

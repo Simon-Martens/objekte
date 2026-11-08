@@ -4,6 +4,8 @@ use std::collections::{BTreeMap, HashMap};
 
 use roaring::RoaringBitmap;
 
+use crate::build::IndexedCollectionSegment;
+use crate::inventory::ActiveRecords;
 use crate::model::{LogicalType, MetadataField, PathRoot, Value};
 use crate::posting::ScalarKey;
 use crate::query::{FtsMode, Operator, Quantifier};
@@ -14,6 +16,117 @@ use crate::repository::{CollectionState, Repository};
 use crate::sorting::SortKey;
 use crate::source::LogicalTextCoverage;
 use serde::Serialize;
+
+/// Conservative predicate bounds for one locally slotted delta. `may` is a
+/// superset of true records; `must` is a subset. Carrying both through NOT
+/// prevents an unavailable or unindexed value from becoming a false proof.
+pub(crate) struct SegmentCandidateBounds {
+    pub may: RoaringBitmap,
+    pub must: RoaringBitmap,
+}
+
+impl SegmentCandidateBounds {
+    fn unknown(domain: &RoaringBitmap) -> Self {
+        Self {
+            may: domain.clone(),
+            must: RoaringBitmap::new(),
+        }
+    }
+}
+
+pub(crate) fn segment_filter_bounds(
+    segment: &IndexedCollectionSegment,
+    active: &ActiveRecords,
+    expr: &BoundExpr,
+) -> Result<SegmentCandidateBounds, String> {
+    if active.slot_count() as usize != segment.records.len() {
+        return Err("segment active domain length mismatch".into());
+    }
+    let domain = active.bitmap();
+    let logical_active = &domain & &segment.logical_records;
+    let fallback_active = &domain - &segment.logical_records;
+    Ok(segment_expr_bounds(
+        segment,
+        expr,
+        &domain,
+        &logical_active,
+        &fallback_active,
+    ))
+}
+
+fn segment_expr_bounds(
+    segment: &IndexedCollectionSegment,
+    expr: &BoundExpr,
+    domain: &RoaringBitmap,
+    logical_active: &RoaringBitmap,
+    fallback_active: &RoaringBitmap,
+) -> SegmentCandidateBounds {
+    match expr {
+        BoundExpr::Term(term) => {
+            if term.related.is_some() || term.rhs.is_some() || term.path.root != PathRoot::Data {
+                return SegmentCandidateBounds::unknown(domain);
+            }
+            let exact = if term.operation.is_some() {
+                segment
+                    .custom_postings
+                    .get(&(term.path.segments.clone(), term.binding_name.clone()))
+                    .filter(|posting| posting.complete)
+                    .and_then(|posting| {
+                        posting.index.exact_set_restricted(
+                            term,
+                            &segment.logical_records,
+                            logical_active,
+                        )
+                    })
+            } else {
+                segment
+                    .postings
+                    .fields
+                    .get(&term.path.segments)
+                    .and_then(|posting| {
+                        posting.exact_set_restricted(term, &segment.logical_records, logical_active)
+                    })
+            };
+            match exact {
+                Some(matches) => SegmentCandidateBounds {
+                    may: &matches | fallback_active,
+                    must: matches,
+                },
+                None => SegmentCandidateBounds::unknown(domain),
+            }
+        }
+        BoundExpr::And(parts) => {
+            let mut may = domain.clone();
+            let mut must = domain.clone();
+            for part in parts {
+                let child =
+                    segment_expr_bounds(segment, part, domain, logical_active, fallback_active);
+                may &= child.may;
+                must &= child.must;
+            }
+            SegmentCandidateBounds { may, must }
+        }
+        BoundExpr::Or(parts) => {
+            let mut may = RoaringBitmap::new();
+            let mut must = RoaringBitmap::new();
+            for part in parts {
+                let child =
+                    segment_expr_bounds(segment, part, domain, logical_active, fallback_active);
+                may |= child.may;
+                must |= child.must;
+            }
+            SegmentCandidateBounds { may, must }
+        }
+        BoundExpr::Not(inner) => {
+            let child =
+                segment_expr_bounds(segment, inner, domain, logical_active, fallback_active);
+            SegmentCandidateBounds {
+                may: domain - &child.must,
+                must: domain - &child.may,
+            }
+        }
+    }
+}
 
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
