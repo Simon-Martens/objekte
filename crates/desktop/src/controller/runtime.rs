@@ -365,6 +365,7 @@ pub struct DesktopController {
     maintenance_task: Option<MaintenanceTask>,
     last_index_poll: Instant,
     index_ui: IndexUiStatus,
+    last_index_status_sent: Option<IndexUiStatus>,
     index_operation_id: u64,
     save_operation_id: u64,
     load_operation_id: u64,
@@ -457,6 +458,7 @@ impl DesktopController {
                 maintenance_task: None,
                 last_index_poll: Instant::now(),
                 index_ui: IndexUiStatus::default(),
+                last_index_status_sent: None,
                 index_operation_id: 0,
                 save_operation_id: 0,
                 load_operation_id: 0,
@@ -667,7 +669,10 @@ impl DesktopController {
         {
             self.index_ui.save = IndexTaskState::Failed(error);
         }
-        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+        if self.last_index_status_sent.as_ref() != Some(&self.index_ui) {
+            self.last_index_status_sent = Some(self.index_ui.clone());
+            updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+        }
     }
 
     fn invalidate_published_contexts(&mut self, updates: &mut Vec<UiUpdate>) {

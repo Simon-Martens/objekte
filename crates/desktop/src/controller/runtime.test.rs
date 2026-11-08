@@ -187,6 +187,32 @@ fn manual_close_has_no_implicit_index_save() {
 }
 
 #[test]
+fn unchanged_index_status_does_not_redraw_the_workspace() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    let status = controller
+        .session
+        .as_ref()
+        .unwrap()
+        .repository
+        .index()
+        .status()
+        .unwrap();
+    let mut updates = Vec::new();
+    controller.update_index_ui(&status, &mut updates);
+    assert!(matches!(updates.as_slice(), [UiUpdate::IndexStatus(_)]));
+
+    updates.clear();
+    controller.update_index_ui(&status, &mut updates);
+    assert!(updates.is_empty());
+
+    controller.index_ui.check = IndexTaskState::Succeeded("Files checked".into());
+    controller.update_index_ui(&status, &mut updates);
+    assert!(matches!(updates.as_slice(), [UiUpdate::IndexStatus(_)]));
+}
+
+#[test]
 fn invalid_filter_does_not_start_query_or_replace_visible_page() {
     let fixture = crate::backend::test_support::fixture();
     let (mut controller, _) = DesktopController::new();
