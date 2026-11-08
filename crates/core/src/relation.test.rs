@@ -171,10 +171,12 @@ fn check(repo: &Repository) {
         entry.edges(m1).unwrap()[0].target,
         RelationTarget::Resolved(entries.id_lookup["A"])
     );
+    assert_eq!(entry.edges(m1).unwrap()[0].target_id(), "A");
     assert_eq!(
         entry.edges(m2).unwrap()[0].target,
         RelationTarget::Unresolved("Z".into())
     );
+    assert_eq!(entry.edges(m2).unwrap()[0].target_id(), "Z");
     assert!(entry.edges(m3).unwrap().is_empty());
     assert!(entry.edges(m4).unwrap().is_empty());
     assert!(entry.present().contains(m3.0));
@@ -223,10 +225,12 @@ fn check(repo: &Repository) {
         links[0].target,
         RelationTarget::Resolved(people.id_lookup["P"])
     );
+    assert_eq!(links[0].target_id(), "P");
     assert_eq!(
         links[1].target,
         RelationTarget::Resolved(people.id_lookup["A"])
     );
+    assert_eq!(links[1].target_id(), "A");
     assert_eq!(
         repo.relation_reverse_sources(contributors, "P")
             .unwrap()
@@ -254,6 +258,7 @@ fn check(repo: &Repository) {
         nested.edges(m1).unwrap()[1].target,
         RelationTarget::Unresolved("Z".into())
     );
+    assert_eq!(nested.edges(m1).unwrap()[1].target_id(), "Z");
     assert_eq!(nested.unresolved_count(), 1);
     assert!(nested.empty_arrays().contains(m2.0));
     assert!(nested.present().contains(m2.0));
@@ -293,7 +298,7 @@ fn check(repo: &Repository) {
         corrupted
             .validate(mentions, entries)
             .unwrap_err()
-            .contains("forward/reverse")
+            .contains("resolved target ID mismatch")
     );
 }
 
@@ -404,6 +409,15 @@ fn publication_validation_still_rejects_broken_relation_state() {
         .clone();
     let (target, source) = (&repo.collections[0], &repo.collections[2]);
 
+    let mut retained = original.clone();
+    let previous_heap = retained.estimated_heap_bytes();
+    let previous_capacity = retained.edges[0].target_id.capacity();
+    retained.edges[0].target_id.reserve(128);
+    assert_eq!(
+        retained.estimated_heap_bytes() - previous_heap,
+        retained.edges[0].target_id.capacity() - previous_capacity
+    );
+
     let mut bad_offsets = original.clone();
     bad_offsets.offsets[1] = u32::MAX;
     assert!(
@@ -433,11 +447,30 @@ fn publication_validation_still_rejects_broken_relation_state() {
 
     let mut wrong_reverse = original.clone();
     wrong_reverse.edges[0].target = RelationTarget::Resolved(target.id_lookup["B"]);
+    wrong_reverse.edges[0].target_id = "B".into();
     assert!(
         wrong_reverse
             .validate(source, target)
             .unwrap_err()
             .contains("forward/reverse")
+    );
+
+    let mut wrong_resolved_id = original.clone();
+    wrong_resolved_id.edges[0].target_id = "B".into();
+    assert!(
+        wrong_resolved_id
+            .validate(source, target)
+            .unwrap_err()
+            .contains("resolved target ID mismatch")
+    );
+
+    let mut wrong_unresolved_id = original.clone();
+    wrong_unresolved_id.edges[1].target_id = "elsewhere".into();
+    assert!(
+        wrong_unresolved_id
+            .validate(source, target)
+            .unwrap_err()
+            .contains("unresolved target ID mismatch")
     );
 
     let target_slot = target.id_lookup["A"].0 as usize;
@@ -734,6 +767,7 @@ fn jsonl_siblings_and_shared_target_file_keep_relation_ownership() {
             relation.edges(source).unwrap()[0].target,
             RelationTarget::Resolved(entries.id_lookup[target_id])
         );
+        assert_eq!(relation.edges(source).unwrap()[0].target_id(), target_id);
         assert_eq!(
             repo.relation_reverse_sources(relation, target_id)
                 .unwrap()
@@ -794,6 +828,10 @@ fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
         assert_eq!(
             relation.edges(source_slot).unwrap()[0].target,
             RelationTarget::Resolved(target_slot)
+        );
+        assert_eq!(
+            relation.edges(source_slot).unwrap()[0].target_id(),
+            target_id
         );
         assert_eq!(
             target.generation.records[target_slot.0 as usize].class,
