@@ -5,6 +5,150 @@ use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
+#[test]
+fn segment_direct_lookup_uses_local_slot_and_sparse_file_id() {
+    use crate::build::{
+        FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
+    };
+    use crate::inventory::SourceRevision;
+    use crate::model::{CollectionId, FileId, RecordSlot};
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-segment-lookup-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/base.jsonl"), b"{\"name\":\"base\"}\n").unwrap();
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let path = root.join("data/added.jsonl");
+    std::fs::write(&path, b"{\"name\":\"added\"}\n").unwrap();
+    let collection = &repo.collections()[0];
+    let input = SourceFileInput {
+        id: FileId(500),
+        relative_path: "data/added.jsonl".into(),
+        revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        created_ns: None,
+    };
+    let prepared = prepare_file_build(
+        &root,
+        input,
+        &[FilePreparationBinding {
+            collection: CollectionId(0),
+            definition: &collection.definition,
+            source: &collection.source,
+        }],
+        repo.options.bigram_alphabet,
+        repo.options.inference,
+        1,
+    )
+    .unwrap();
+    let mut admission = SegmentAdmission::new(CollectionId(0), &collection.source);
+    admission
+        .admit(
+            &prepared.source,
+            prepared.collections.into_iter().next().unwrap(),
+        )
+        .unwrap();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let segment = admission
+        .seal()
+        .into_indexed(
+            &collection.definition,
+            repo.options.bigram_alphabet,
+            repo.options.inference,
+            1,
+            &pool,
+        )
+        .unwrap();
+    let id = segment.records[0].id.0.as_str();
+    let active = ActiveRecords::all(segment.records.len()).unwrap();
+    let revision = IndexRevision(9);
+    let locator = get_segment_record_by_id(
+        &repo,
+        0,
+        &segment,
+        &active,
+        revision,
+        id,
+        ReturnMode::Locator,
+    )
+    .unwrap()
+    .unwrap();
+    assert_eq!(locator.file_id, 500);
+    assert_eq!(locator.generation, revision.0);
+    assert_eq!(locator.file_path, std::path::Path::new("data/added.jsonl"));
+    assert_eq!(locator.record_id, id);
+    assert!(locator.payload.is_none());
+    let bytes =
+        get_segment_record_by_id(&repo, 0, &segment, &active, revision, id, ReturnMode::Bytes)
+            .unwrap()
+            .unwrap();
+    assert_eq!(
+        bytes.payload,
+        Some(Payload::Bytes(b"{\"name\":\"added\"}".to_vec()))
+    );
+    let logical = get_segment_record_by_id(
+        &repo,
+        0,
+        &segment,
+        &active,
+        revision,
+        id,
+        ReturnMode::Logical,
+    )
+    .unwrap()
+    .unwrap();
+    assert!(matches!(logical.payload, Some(Payload::Logical(_))));
+    let retired = active.retired(&[RecordSlot(0)]).unwrap();
+    assert!(
+        get_segment_record_by_id(
+            &repo,
+            0,
+            &segment,
+            &retired,
+            revision,
+            id,
+            ReturnMode::Locator
+        )
+        .unwrap()
+        .is_none()
+    );
+    assert!(
+        get_segment_record_by_id(
+            &repo,
+            0,
+            &segment,
+            &active,
+            revision,
+            "missing",
+            ReturnMode::Locator,
+        )
+        .unwrap()
+        .is_none()
+    );
+    std::fs::write(&path, b"{\"name\":\"different\"}\n").unwrap();
+    assert!(
+        get_segment_record_by_id(&repo, 0, &segment, &active, revision, id, ReturnMode::Bytes)
+            .is_err()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn concurrent_test_inferred_column(path: &str) -> SortColumn {
     SortColumn {
         path: FieldPath::parse(path).unwrap(),
