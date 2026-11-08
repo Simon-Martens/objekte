@@ -554,6 +554,80 @@ impl IndexView {
             .search_reference_with_active(query, Some(&self.0.active))
     }
 
+    pub fn select_exact(
+        &self,
+        collection: &str,
+        query: &Query,
+    ) -> Result<crate::posting_values::ExactSelection, String> {
+        self.repository()
+            .select_exact_for_view(collection, query, self.revision(), &self.0.active)
+    }
+
+    pub fn posting_values(
+        &self,
+        request: &crate::posting_values::PostingValuesRequest,
+    ) -> Result<crate::posting_values::PostingValuesPage, String> {
+        self.repository()
+            .posting_values_for_view(request, self.revision(), &self.0.active)
+    }
+
+    pub fn relation_outgoing_page(
+        &self,
+        source_collection: &str,
+        relation_path: &[String],
+        source_id: &str,
+        offset: usize,
+        limit: usize,
+    ) -> Result<crate::relation_inspection::OutgoingReferencePage, String> {
+        self.repository().relation_outgoing_page_for_view(
+            source_collection,
+            relation_path,
+            source_id,
+            offset,
+            limit,
+            &self.0.active,
+        )
+    }
+
+    pub fn relation_backlink_page(
+        &self,
+        target_collection: &str,
+        reverse_alias: &str,
+        target_id: &str,
+        offset: usize,
+        limit: usize,
+    ) -> Result<crate::relation_inspection::BacklinkPage, String> {
+        self.repository().relation_backlink_page_for_view(
+            target_collection,
+            reverse_alias,
+            target_id,
+            offset,
+            limit,
+            &self.0.active,
+        )
+    }
+
+    pub fn collection_graph(&self) -> Result<crate::relation_inspection::CollectionGraph, String> {
+        self.repository().collection_graph_for_view(&self.0.active)
+    }
+
+    pub fn search_analyze(
+        &self,
+        query: &Query,
+    ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
+        let resolved = query.resolve_current_clock()?;
+        crate::run::search_analyze_with_active(
+            self.repository(),
+            resolved.as_ref(),
+            Some(&self.0.active),
+        )
+    }
+
+    pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+        let resolved = query.resolve_current_clock()?;
+        crate::run::explain_with_active(self.repository(), resolved.as_ref(), Some(&self.0.active))
+    }
+
     pub fn search_stream<F>(
         &self,
         query: &Query,

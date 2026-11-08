@@ -178,6 +178,7 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     };
     let previous = old.search(&query).unwrap();
     assert_eq!(previous.count, Some(4));
+    assert_eq!(old.select_exact("left", &query).unwrap().len(), 2);
     let result = index.delete_file(handle).unwrap();
     assert_eq!(result.revision, IndexRevision(2));
     assert_eq!(result.retired_records, 4);
@@ -187,6 +188,23 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     let current = index.view().unwrap();
     assert_eq!(current.search(&query).unwrap().count, Some(0));
     assert_eq!(current.search_reference(&query).unwrap().count, Some(0));
+    assert_eq!(current.select_exact("left", &query).unwrap().len(), 0);
+    assert_eq!(current.search_analyze(&query).unwrap().0.count, Some(0));
+    assert!(
+        current
+            .explain(&query)
+            .unwrap()
+            .iter()
+            .all(|trace| trace.input_records == 0)
+    );
+    assert!(
+        current
+            .collection_graph()
+            .unwrap()
+            .nodes
+            .iter()
+            .all(|node| node.record_count == 0)
+    );
     assert!(current.file_handle(FileId(0)).is_none());
     assert!(current.file_handle_for_path(&source).is_none());
     assert!(
