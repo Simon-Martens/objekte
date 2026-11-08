@@ -546,7 +546,7 @@ impl ComputedSort {
         };
         match hop.direction {
             HopDirection::Forward => {
-                let (edges, _present, null, unavailable) =
+                let (edges, _present, null, _empty, unavailable) =
                     view.forward_edges(address, hop.relation.ordinal as usize)?;
                 if unavailable {
                     reduced.observe_unavailable()?;

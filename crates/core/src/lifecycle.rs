@@ -169,6 +169,16 @@ pub struct IndexStatus {
     pub live_records: u64,
 }
 
+/// Outcome of explicit full reconstruction from the configured source files.
+#[derive(Clone, Debug)]
+pub struct RebuildReport {
+    pub revision: IndexRevision,
+    pub attempts: usize,
+    pub indexed_files: usize,
+    pub live_records: u64,
+    pub duration: Duration,
+}
+
 /// Result of removing one physical source entry from the published index.
 /// The source file itself is never changed.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -868,6 +878,59 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?
             .reconciliation;
         Ok(status)
+    }
+
+    /// Rebuild from the current explicit configuration. Queries keep using
+    /// their pinned prior view while source extraction runs. A concurrent
+    /// commit makes the candidate stale and causes a fresh bounded retry.
+    pub fn rebuild(&self) -> Result<RebuildReport, IndexError> {
+        self.rebuild_with_before_publish(|_| {})
+    }
+
+    fn rebuild_with_before_publish(
+        &self,
+        mut before_publish: impl FnMut(usize),
+    ) -> Result<RebuildReport, IndexError> {
+        let started = Instant::now();
+        let mut conflict = None;
+        for attempt in 1..=3 {
+            let view = self.view()?;
+            let repository = view.repository();
+            let definitions = repository
+                .collections()
+                .iter()
+                .map(|collection| collection.definition.clone())
+                .collect::<Vec<_>>();
+            let fresh = Self::build_with_sources(
+                repository.files().root.clone(),
+                definitions,
+                repository.options(),
+                repository.sources.clone(),
+            )?;
+            let rebuilt_repository = Arc::clone(&fresh.view()?.0.repository);
+            let next_revision = view.revision().next()?;
+            let next = PublishedIndex::from_repository(
+                self.instance_id(),
+                next_revision,
+                rebuilt_repository,
+            )?;
+            before_publish(attempt);
+            match self.publish_prepared(view.revision(), next) {
+                Ok(revision) => {
+                    let status = self.status()?;
+                    return Ok(RebuildReport {
+                        revision,
+                        attempts: attempt,
+                        indexed_files: status.indexed_files,
+                        live_records: status.live_records,
+                        duration: started.elapsed(),
+                    });
+                }
+                Err(error @ IndexError::RevisionConflict { .. }) => conflict = Some(error),
+                Err(error) => return Err(error),
+            }
+        }
+        Err(conflict.expect("rebuild retry always captures a revision conflict"))
     }
 
     /// Persist one pinned revision to an explicit destination. Snapshot
@@ -1685,16 +1748,6 @@ impl IndexView {
         self.0.segments.iter().any(|group| !group.is_empty())
     }
 
-    fn require_base_only(&self, route: &str) -> Result<(), String> {
-        if self.has_segments() {
-            Err(format!(
-                "{route} across indexed segments is not available yet"
-            ))
-        } else {
-            Ok(())
-        }
-    }
-
     fn stamp_result(&self, mut result: SearchResult) -> SearchResult {
         for hit in &mut result.hits {
             hit.generation = self.revision().0;
@@ -1960,7 +2013,17 @@ impl IndexView {
         collection: &str,
         query: &Query,
     ) -> Result<crate::posting_values::ExactSelection, String> {
-        self.require_base_only("exact selection")?;
+        if self.has_segments() {
+            return crate::posting_values::select_exact_segmented(
+                self.repository(),
+                collection,
+                query,
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository()
             .select_exact_for_view(collection, query, self.revision(), &self.0.active)
     }
@@ -1969,7 +2032,16 @@ impl IndexView {
         &self,
         request: &crate::posting_values::PostingValuesRequest,
     ) -> Result<crate::posting_values::PostingValuesPage, String> {
-        self.require_base_only("posting values")?;
+        if self.has_segments() {
+            return crate::posting_values::posting_values_segmented(
+                self.repository(),
+                request,
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository()
             .posting_values_for_view(request, self.revision(), &self.0.active)
     }
@@ -1982,7 +2054,20 @@ impl IndexView {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::OutgoingReferencePage, String> {
-        self.require_base_only("outgoing relation inspection")?;
+        if self.has_segments() {
+            return crate::relation_inspection::relation_outgoing_page_segmented(
+                self.repository(),
+                source_collection,
+                relation_path,
+                source_id,
+                offset,
+                limit,
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository().relation_outgoing_page_for_view(
             source_collection,
             relation_path,
@@ -2001,7 +2086,20 @@ impl IndexView {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::BacklinkPage, String> {
-        self.require_base_only("backlink relation inspection")?;
+        if self.has_segments() {
+            return crate::relation_inspection::relation_backlink_page_segmented(
+                self.repository(),
+                target_collection,
+                reverse_alias,
+                target_id,
+                offset,
+                limit,
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository().relation_backlink_page_for_view(
             target_collection,
             reverse_alias,
@@ -2013,7 +2111,15 @@ impl IndexView {
     }
 
     pub fn collection_graph(&self) -> Result<crate::relation_inspection::CollectionGraph, String> {
-        self.require_base_only("collection graph")?;
+        if self.has_segments() {
+            return crate::relation_inspection::collection_graph_segmented(
+                self.repository(),
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository().collection_graph_for_view(&self.0.active)
     }
 

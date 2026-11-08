@@ -49,6 +49,37 @@ fn all_records() -> Query {
 }
 
 #[test]
+fn rebuild_retries_after_concurrent_file_commit_without_losing_it() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-rebuild-retry-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let index = Index::from_repository(fixture_repository(&root)).unwrap();
+    let old = index.view().unwrap();
+    let b = root.join("data/b.json");
+    let report = index
+        .rebuild_with_before_publish(|attempt| {
+            if attempt == 1 {
+                std::fs::write(&b, br#"{"name":"B"}"#).unwrap();
+                index.add_file(&b).unwrap();
+            }
+        })
+        .unwrap();
+    assert_eq!(report.attempts, 2);
+    assert_eq!(old.search(&all_records()).unwrap().count, Some(1));
+    assert_eq!(
+        index.view().unwrap().search(&all_records()).unwrap().count,
+        Some(2)
+    );
+    assert_eq!(report.live_records, 2);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn pinned_view_stays_stable_when_a_new_root_is_published() {
     let root = std::env::temp_dir().join(format!(
         "objekte-published-view-{}-{:?}",
