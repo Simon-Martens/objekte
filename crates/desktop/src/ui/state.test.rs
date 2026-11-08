@@ -2,7 +2,7 @@ use super::*;
 use crate::ui::model::{ResultRow, RowKey};
 
 #[test]
-fn new_repository_discards_old_results_and_detail() {
+fn replacement_open_retains_old_workspace_until_success() {
     let mut state = UiState {
         root: Some("old".into()),
         ..UiState::default()
@@ -21,10 +21,18 @@ fn new_repository_discards_old_results_and_detail() {
     });
     state.detail = Some(DetailView::default());
     state.apply(UiUpdate::Opening("Opening".into()));
-    assert!(state.root.is_none());
+    assert_eq!(state.root.as_deref(), Some("old"));
+    assert_eq!(state.page.rows.len(), 1);
+    assert!(state.detail.is_some());
+    assert_eq!(state.busy, Busy::Opening);
+    state.apply(UiUpdate::Opened {
+        root: "new".into(),
+        collections: vec!["records".into()],
+        single_collection: true,
+    });
+    assert_eq!(state.root.as_deref(), Some("new"));
     assert!(state.page.rows.is_empty());
     assert!(state.detail.is_none());
-    assert_eq!(state.busy, Busy::Opening);
 }
 
 #[test]

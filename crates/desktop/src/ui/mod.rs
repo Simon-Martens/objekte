@@ -22,6 +22,8 @@ use state::UiState;
 /// GPUI input entities owned by one desktop window.
 struct Inputs {
     paths: Entity<TextareaState>,
+    open_folder: Entity<InputState>,
+    open_extra_folders: Vec<Entity<InputState>>,
     schema: Entity<InputState>,
     snapshot_directory: Entity<InputState>,
     full_text: Entity<InputState>,
@@ -48,6 +50,7 @@ pub struct DesktopView {
     detail_focus: FocusHandle,
     restoring_query: bool,
     _subscriptions: Vec<Subscription>,
+    open_extra_subscriptions: Vec<Subscription>,
 }
 
 
@@ -55,6 +58,8 @@ impl DesktopView {
     pub fn new(window: &mut Window, cx: &mut Context<Self>, actions: Sender<UiAction>) -> Self {
         let inputs = Inputs {
             paths: cx.new(|cx| TextareaState::new(window, cx)),
+            open_folder: cx.new(|cx| InputState::new(window, cx).placeholder("Choose a folder")),
+            open_extra_folders: Vec::new(),
             schema: cx
                 .new(|cx| InputState::new(window, cx).placeholder("Schema file (single folder)")),
             snapshot_directory: cx
@@ -76,6 +81,13 @@ impl DesktopView {
                 .new(|cx| InputState::new(window, cx).placeholder("New NDJSON output path")),
         };
         let mut subscriptions = Vec::new();
+        subscriptions.push(
+            cx.subscribe(&inputs.open_folder, |this: &mut Self, _, event, cx| {
+                if matches!(event, InputEvent::Change) {
+                    this.open_folder_edited(0, cx);
+                }
+            }),
+        );
         for input in [
             &inputs.full_text,
             &inputs.structured,
@@ -107,6 +119,7 @@ impl DesktopView {
             detail_focus: cx.focus_handle(),
             restoring_query: false,
             _subscriptions: subscriptions,
+            open_extra_subscriptions: Vec::new(),
         }
     }
 
@@ -135,6 +148,34 @@ impl DesktopView {
             self.inputs
                 .paths
                 .update(cx, |input, cx| input.set_value(paths.clone(), window, cx));
+        }
+        if let UiUpdate::ChosenFolder {
+            generation,
+            slot,
+            path,
+        } = &update
+            && self
+                .state
+                .open_dialog
+                .accept_picker(*generation, *slot, path.clone())
+        {
+            let input = if *slot == 0 {
+                Some(&self.inputs.open_folder)
+            } else {
+                self.inputs.open_extra_folders.get(*slot - 1)
+            };
+            if let Some(input) = input {
+                input.update(cx, |input, cx| input.set_value(path.clone(), window, cx));
+            }
+            self.start_open_detection();
+        }
+        if let UiUpdate::ChosenSchema { generation, path } = &update
+            && self.state.open_dialog.accept_schema_picker(*generation)
+        {
+            self.state.open.schema = path.clone();
+            self.inputs
+                .schema
+                .update(cx, |input, cx| input.set_value(path.clone(), window, cx));
         }
         if let UiUpdate::RestoreQuery(draft) = &update {
             self.restoring_query = true;
@@ -208,7 +249,14 @@ impl DesktopView {
     fn choose_folder(&mut self, cx: &mut Context<Self>) {
         let mut draft = self.state.open.clone();
         draft.paths = self.inputs.paths.read(cx).value().to_string();
-        self.send(UiAction::ChooseFolder(draft));
+        self.state.open_dialog.show();
+        if let Some(generation) = self.state.open_dialog.begin_picker(0) {
+            self.send(UiAction::ChooseFolder {
+                draft,
+                slot: 0,
+                generation,
+            });
+        }
     }
 
     fn send(&mut self, action: UiAction) {

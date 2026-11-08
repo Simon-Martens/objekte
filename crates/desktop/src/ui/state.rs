@@ -7,6 +7,7 @@ use super::model::{
     BatchRow, BatchSource, DetailView, ErrorField, FilterValidationState, MAX_BATCH_ROWS,
     OpenDraft, PageView, QueryEntry, SearchDraft, UiUpdate,
 };
+use super::open_dialog::{DetectionState, OpenDialogState};
 
 
 /// Which operation currently owns the visible progress indicator.
@@ -24,6 +25,7 @@ pub enum Busy {
 #[derive(Clone, Debug, Default)]
 pub struct UiState {
     pub open: OpenDraft,
+    pub open_dialog: OpenDialogState,
     pub search: SearchDraft,
     pub root: Option<String>,
     pub collections: Vec<String>,
@@ -66,16 +68,6 @@ impl UiState {
             UiUpdate::Opening(status) => {
                 self.busy = Busy::Opening;
                 self.status = status;
-                self.root = None;
-                self.collections.clear();
-                self.available_columns.clear();
-                self.hidden_columns.clear();
-                self.history.clear();
-                self.saved.clear();
-                self.page = PageView::default();
-                self.detail = None;
-                self.diagnostics.clear();
-                self.errors.clear();
             }
             UiUpdate::Opened {
                 root,
@@ -88,6 +80,11 @@ impl UiState {
                 self.busy = Busy::None;
                 self.status = "Repository ready".into();
                 self.show_open_options = false;
+                self.open_dialog.close();
+                self.page = PageView::default();
+                self.detail = None;
+                self.available_columns.clear();
+                self.hidden_columns.clear();
                 self.errors.remove(&ErrorField::Open);
                 if single_collection {
                     self.search.collection = self.collections.first().cloned();
@@ -181,6 +178,9 @@ impl UiState {
                 self.busy = Busy::None;
             }
             UiUpdate::Error { field, message } => {
+                if field == ErrorField::Open {
+                    self.open_dialog.error = Some(message.clone());
+                }
                 self.errors.insert(field, message.clone());
                 self.status = message;
                 self.busy = Busy::None;
@@ -191,6 +191,13 @@ impl UiState {
             UiUpdate::ChosenPaths(paths) => {
                 self.open.paths = paths;
             }
+            UiUpdate::OpenDetection { generation, result } => {
+                if let DetectionState::Pending { path } = &self.open_dialog.detection {
+                    let path = path.clone();
+                    self.open_dialog.accept_detection(generation, &path, result);
+                }
+            }
+            UiUpdate::ChosenFolder { .. } | UiUpdate::ChosenSchema { .. } => {}
             UiUpdate::RestoreQuery(draft) => {
                 self.search = draft;
                 self.search.filter_enabled |= !self.search.structured.trim().is_empty();
