@@ -1,8 +1,10 @@
 //! GPUI presentation and interaction state for the desktop application.
 
+pub mod filter_builder;
 pub mod model;
 mod panels;
 pub mod preferences;
+pub mod query_bar;
 mod render;
 mod state;
 
@@ -15,6 +17,7 @@ use gpui_kit::{
 };
 
 use model::{SearchDraft, UiAction, UiUpdate};
+use query_bar::{BuilderEvent, FilterBuilderView};
 use state::UiState;
 
 
@@ -42,6 +45,8 @@ pub struct DesktopView {
     actions: Sender<UiAction>,
     state: UiState,
     inputs: Inputs,
+    builder_view: Entity<FilterBuilderView>,
+    show_query_options: bool,
     grid_focus: FocusHandle,
     grid_scroll: ScrollHandle,
     detail_focus: FocusHandle,
@@ -75,6 +80,26 @@ impl DesktopView {
                 .new(|cx| InputState::new(window, cx).placeholder("New NDJSON output path")),
         };
         let mut subscriptions = Vec::new();
+        let builder_view = cx.new(|cx| FilterBuilderView::new(window, cx));
+        subscriptions.push(cx.subscribe_in(
+            &builder_view,
+            window,
+            |this: &mut Self, _, event: &BuilderEvent, window, cx| match event {
+                BuilderEvent::Complete(text) => {
+                    this.state.search.filter_enabled = true;
+                    this.inputs
+                        .structured
+                        .update(cx, |input, cx| input.replace_all(text.clone(), window, cx));
+                }
+                BuilderEvent::Close => {
+                    this.state.show_filter_builder = false;
+                    this.inputs
+                        .structured
+                        .update(cx, |input, cx| input.focus(window, cx));
+                    cx.notify();
+                }
+            },
+        ));
         for input in [
             &inputs.full_text,
             &inputs.structured,
@@ -101,6 +126,8 @@ impl DesktopView {
             actions,
             state,
             inputs,
+            builder_view,
+            show_query_options: false,
             grid_focus: cx.focus_handle(),
             grid_scroll: ScrollHandle::new(),
             detail_focus: cx.focus_handle(),
@@ -137,6 +164,10 @@ impl DesktopView {
         }
         if let UiUpdate::RestoreQuery(draft) = &update {
             self.restoring_query = true;
+            self.show_query_options = !draft.sort.is_empty()
+                || draft.offset != "0"
+                || !draft.limit.is_empty()
+                || draft.count;
             self.inputs.full_text.update(cx, |input, cx| {
                 input.set_value(draft.full_text.clone(), window, cx)
             });
@@ -151,6 +182,9 @@ impl DesktopView {
             });
             self.inputs.limit.update(cx, |input, cx| {
                 input.set_value(draft.limit.clone(), window, cx)
+            });
+            self.builder_view.update(cx, |builder, cx| {
+                builder.sync_from_text(&draft.structured, cx)
             });
         }
         let reset_grid_scroll = match &update {
@@ -186,6 +220,9 @@ impl DesktopView {
             return;
         }
         let draft = self.query_from_inputs(cx);
+        self.builder_view.update(cx, |builder, cx| {
+            builder.sync_from_text(&draft.structured, cx)
+        });
         self.state.search = draft.clone();
         self.send(if explicit {
             UiAction::SearchNow(draft)

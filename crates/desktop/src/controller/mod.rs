@@ -1,6 +1,7 @@
 //! Desktop-only translation between editable controls and retained core work.
 
 mod adapt;
+pub mod filter_validation;
 mod projection;
 pub mod runtime;
 
