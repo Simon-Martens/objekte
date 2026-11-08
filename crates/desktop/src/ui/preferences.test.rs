@@ -108,3 +108,19 @@ fn column_widths_and_wrapping_persist_per_collection() {
     assert_eq!(wrapped, ["title"]);
     assert!(reloaded.table_presentation(Some("other")).0.is_empty());
 }
+
+#[test]
+fn nested_column_visibility_is_explicit_and_scoped() {
+    let temp = tempfile::tempdir().unwrap();
+    let mut preferences = DesktopPreferences::load(temp.path()).unwrap();
+    assert!(nested_column("nested.title"));
+    assert!(!nested_column("[\"literal.key\"]"));
+    assert!(preferences.shown_nested(Some("letters")).is_empty());
+    preferences.toggle_column_local(Some("letters"), "nested.title");
+    preferences.persist().unwrap();
+    let mut reloaded = DesktopPreferences::load(temp.path()).unwrap();
+    assert_eq!(reloaded.shown_nested(Some("letters")), ["nested.title"]);
+    assert!(reloaded.shown_nested(Some("other")).is_empty());
+    reloaded.toggle_column_local(Some("letters"), "nested.title");
+    assert!(reloaded.shown_nested(Some("letters")).is_empty());
+}

@@ -77,6 +77,7 @@ struct RecordTab {
 #[derive(Clone)]
 enum TabLoadKind {
     Open,
+    Replace { key: RecordKey, context: Arc<TabContext>, anchor: usize },
     Adjacent { anchor: usize },
     Relation { key: RecordKey },
     Back { frame: TabFrame },
@@ -126,6 +127,7 @@ fn spawn_grid_page(
     spec: backend::QuerySpec,
     page_start: usize,
     hidden: Vec<String>,
+    shown_nested: Vec<String>,
     prior_columns: Vec<String>,
     token: CancellationToken,
     sender: Sender<WorkerEvent>,
@@ -144,7 +146,8 @@ fn spawn_grid_page(
                     page.count,
                     page.counters,
                 );
-                let (view, available) = page_view_with_prior(&page, &spec, &hidden, &prior_columns);
+                let (view, available, hidden) =
+                    page_view_with_prior(&page, &spec, &hidden, &shown_nested, &prior_columns);
                 let keys = page
                     .hits
                     .into_iter()
@@ -489,7 +492,8 @@ impl DesktopController {
             }
             UiAction::CountExact => self.start_count(updates),
             UiAction::SelectRow(index) => self.select_row(index, updates),
-            UiAction::OpenRecord(index) => self.open_record(index, updates),
+            UiAction::OpenRecord(index) => self.open_record(index, false, updates),
+            UiAction::OpenRecordNewTab(index) => self.open_record(index, true, updates),
             UiAction::ActivateTab(id) => self.activate_tab(id, updates),
             UiAction::SetTabView { id, view } => {
                 if let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) {
@@ -501,7 +505,7 @@ impl DesktopController {
             UiAction::LoadLinks => self.load_links(updates),
             UiAction::OpenDetail => {
                 if let Some(index) = self.selected_index {
-                    self.open_record(index, updates);
+                    self.open_record(index, false, updates);
                 }
             }
             UiAction::CloseDetail => {
@@ -920,6 +924,9 @@ impl DesktopController {
         let hidden = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
             prefs.hidden(draft.collection.as_deref()).to_vec()
         });
+        let shown_nested = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
+            prefs.shown_nested(draft.collection.as_deref()).to_vec()
+        });
         if let Some(preferences) = &self.preferences {
             let (widths, wrapped) = preferences.table_presentation(draft.collection.as_deref());
             updates.push(UiUpdate::TablePresentation {
@@ -935,6 +942,7 @@ impl DesktopController {
             spec,
             page_start,
             hidden,
+            shown_nested,
             columns,
             self.cancellation.clone(),
             self.worker_tx.clone(),
@@ -965,12 +973,17 @@ impl DesktopController {
                 )
                 .to_vec()
         });
+        let collection = self.executed_draft.as_ref().and_then(|draft| draft.collection.as_deref());
+        let shown_nested = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
+            prefs.shown_nested(collection).to_vec()
+        });
         updates.push(UiUpdate::ContinuationStarted);
         spawn_grid_page(
             session,
             spec,
             start,
             hidden,
+            shown_nested,
             self.available_columns.clone(),
             self.cancellation.clone(),
             self.worker_tx.clone(),
@@ -1005,11 +1018,16 @@ impl DesktopController {
                     )
                     .to_vec()
             });
+            let collection = self.executed_draft.as_ref().and_then(|draft| draft.collection.as_deref());
+            let shown_nested = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
+                prefs.shown_nested(collection).to_vec()
+            });
             spawn_grid_page(
                 session.clone(),
                 spec.clone(),
                 start,
                 hidden,
+                shown_nested,
                 self.available_columns.clone(),
                 self.cancellation.clone(),
                 self.worker_tx.clone(),
@@ -1117,7 +1135,7 @@ impl DesktopController {
         });
     }
 
-    fn open_record(&mut self, index: usize, updates: &mut Vec<UiUpdate>) {
+    fn open_record(&mut self, index: usize, new_tab: bool, updates: &mut Vec<UiUpdate>) {
         let (Some(key), Some(spec), Some(draft)) = (
             self.keys.get(index).cloned().flatten(),
             self.executed_spec.clone(),
@@ -1126,24 +1144,35 @@ impl DesktopController {
             return;
         };
         self.select_row(index, updates);
-        if let Some(id) = self
-            .tabs
-            .iter()
-            .find(|tab| tab.key == key && tab.context.query_generation == self.query_generation)
-            .map(|tab| tab.id)
-        {
-            self.activate_tab(id, updates);
-            return;
+        let context = Arc::new(TabContext {
+            query_generation: self.query_generation,
+            spec,
+            draft,
+        });
+        if !new_tab {
+            if let Some(id) = self.active_tab {
+                self.start_tab_load(
+                    id,
+                    TabLoadKind::Replace { key, context, anchor: index },
+                    updates,
+                );
+                return;
+            }
+        }
+        if !new_tab {
+            if let Some(id) = self.tabs.iter()
+                .find(|tab| tab.key == key && tab.context.query_generation == self.query_generation)
+                .map(|tab| tab.id)
+            {
+                self.activate_tab(id, updates);
+                return;
+            }
         }
         let id = self.next_tab_id;
         self.next_tab_id += 1;
         self.tabs.push(RecordTab {
             id,
-            context: Arc::new(TabContext {
-                query_generation: self.query_generation,
-                spec,
-                draft,
-            }),
+            context,
             key: key.clone(),
             anchor: index,
             back: Vec::new(),
@@ -1272,12 +1301,16 @@ impl DesktopController {
         self.emit_tabs(updates);
         thread::spawn(move || {
             let query_result = match &kind {
+                TabLoadKind::Replace { .. } => true,
                 TabLoadKind::Adjacent { .. } => true,
                 TabLoadKind::Relation { .. } => false,
                 TabLoadKind::Back { frame } => frame.in_results,
                 TabLoadKind::Open => in_results,
             };
             let result = match &kind {
+                TabLoadKind::Replace { key, context, anchor } => {
+                    tab_result_hit(&session, &context.spec, *anchor, key, &token)
+                }
                 TabLoadKind::Adjacent { anchor } => {
                     backend::query_page(&session, &spec, *anchor, 1, &token)
                         .map(|mut page| page.hits.pop())
@@ -1306,7 +1339,13 @@ impl DesktopController {
                 }
             }
             .map(|hit| {
-                hit.map(|hit| record_presentation(&session, query_result.then_some(&spec), hit))
+                let presentation_spec = match &kind {
+                    TabLoadKind::Replace { context, .. } => &context.spec,
+                    _ => &spec,
+                };
+                hit.map(|hit| {
+                    record_presentation(&session, query_result.then_some(presentation_spec), hit)
+                })
             })
             .map_err(|error| error.to_string());
             let _ = sender.send(WorkerEvent::TabLoaded {
@@ -1464,12 +1503,16 @@ impl DesktopController {
                     Ok((view, keys, next, elapsed_ns, available, hidden, diagnostics)) => {
                         match kind {
                             GridRequestKind::First => {
+                                let needs_count = view.exact_total.is_none() && view.has_next;
                                 self.available_columns = available.clone();
                                 self.keys = vec![None; view.offset];
                                 self.keys.extend(keys.into_iter().map(Some));
                                 self.next_page_start = next;
                                 self.remember_projection(view.offset);
                                 updates.push(UiUpdate::Page(view));
+                                if needs_count {
+                                    self.start_count(updates);
+                                }
                                 if let Some(index) = self.pending_reveal.take() {
                                     self.selected_index = Some(index);
                                     updates.push(UiUpdate::RevealRow(index));
@@ -1558,10 +1601,7 @@ impl DesktopController {
             {
                 match result {
                     Ok(total) => updates.push(UiUpdate::ExactCount(total)),
-                    Err(message) => updates.push(UiUpdate::Error {
-                        field: ErrorField::General,
-                        message,
-                    }),
+                    Err(message) => updates.push(UiUpdate::CountFailed(message)),
                 }
             }
             WorkerEvent::CompletionValues {
@@ -1612,6 +1652,16 @@ impl DesktopController {
                     Ok(Some((hit, view, actions))) => {
                         let tab = &mut self.tabs[index];
                         match &kind {
+                            TabLoadKind::Replace { context, anchor, .. } => {
+                                tab.context = context.clone();
+                                tab.anchor = *anchor;
+                                tab.back.clear();
+                                tab.view = TabViewState::default();
+                                tab.in_results = true;
+                                tab.end_confirmed = false;
+                                tab.expanded.clear();
+                                tab.links_loaded = false;
+                            }
                             TabLoadKind::Adjacent { anchor } => {
                                 if tab.back.len() >= 32 {
                                     tab.back.remove(0);

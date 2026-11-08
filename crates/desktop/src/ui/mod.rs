@@ -143,16 +143,26 @@ impl DesktopView {
             |this: &mut Self, _, event, window, cx| match event {
                 InputEvent::Change => {
                     this.search_from_inputs(false, cx);
+                    if this.state.completion_focused { this.refresh_completion(cx); }
+                }
+                InputEvent::Focus => {
+                    this.state.completion_focused = true;
                     this.refresh_completion(cx);
                 }
-                InputEvent::Focus => this.refresh_completion(cx),
                 InputEvent::PressEnter { .. } => {
                     if !this.accept_completion(window, cx) {
                         this.search_from_inputs(true, cx);
                     }
                 }
                 InputEvent::Blur => {
-                    // Pointer selection is handled by the popup's own item click.
+                    // GPUI can emit Blur while the focus handle still owns the
+                    // window. Inspect the settled focus on the next frame.
+                    cx.on_next_frame(window, |this, window, cx| {
+                        if !this.inputs.structured.read(cx).focus_handle(cx).is_focused(window) {
+                            this.state.completion_focused = false;
+                            this.dismiss_completion(cx);
+                        }
+                    });
                 }
             },
         ));
@@ -379,7 +389,8 @@ impl DesktopView {
         self.state.completion_suggestions.clear();
         self.state.completion_pending = false;
         self.state.completion_partial = false;
-        if !self.state.search.filter_enabled
+        if !self.state.completion_focused
+            || !self.state.search.filter_enabled
             || self.state.root.is_none()
             || self.state.show_filter_builder
         {
@@ -605,7 +616,7 @@ impl DesktopView {
             start: next,
             end: next + 1,
         });
-        self.send(UiAction::SelectRow(next));
+        self.send(UiAction::OpenRecord(next));
         cx.notify();
     }
 
@@ -624,7 +635,7 @@ impl DesktopView {
             start: index,
             end: index + 1,
         });
-        self.send(UiAction::SelectRow(index));
+        self.send(UiAction::OpenRecord(index));
         cx.notify();
     }
 

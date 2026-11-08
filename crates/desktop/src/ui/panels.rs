@@ -751,8 +751,14 @@ impl DesktopView {
         let panel = div()
             .id("action-panel")
             .absolute()
-            .top(px(48.))
-            .right(px(8.))
+            .when(kind == ActionPanel::Columns, |this| {
+                this.bottom(px(60.)).right(px(if self.state.inspector_visible && self.state.active_tab.is_some() {
+                    self.state.inspector_width + 8.
+                } else {
+                    8.
+                }))
+            })
+            .when(kind != ActionPanel::Columns, |this| this.top(px(48.)).right(px(8.)))
             .w(px(370.))
             .max_h(px(600.))
             .flex()

@@ -427,6 +427,7 @@ pub enum UiAction {
     CountExact,
     SelectRow(usize),
     OpenRecord(usize),
+    OpenRecordNewTab(usize),
     ActivateTab(u64),
     SetTabView {
         id: u64,
@@ -515,6 +516,7 @@ pub enum UiUpdate {
     ContinuationFailed(String),
     CountStarted,
     ExactCount(usize),
+    CountFailed(String),
     RowSelected(usize),
     RevealRow(usize),
     Tabs {

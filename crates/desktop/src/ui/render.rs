@@ -551,8 +551,7 @@ impl DesktopView {
                 (index, column.as_str(), width)
             })
             .collect::<Vec<_>>();
-        let table_width = 52.
-            + visible_columns
+        let table_width = visible_columns
                 .iter()
                 .map(|(_, _, width)| *width)
                 .sum::<f32>();
@@ -575,15 +574,6 @@ impl DesktopView {
             .bg(rgb(colors.raised))
             .border_b_1()
             .border_color(rgb(colors.border))
-            .child(
-                div()
-                    .w(px(52.))
-                    .flex_shrink_0()
-                    .px_2()
-                    .text_xs()
-                    .text_color(rgb(colors.secondary))
-                    .child("#"),
-            )
             .children(visible_columns.iter().map(|(_, column, width)| {
                 let name = (*column).to_owned();
                 let wrapped = self.state.wrapped_columns.contains(&name);
@@ -750,19 +740,19 @@ impl DesktopView {
                         .bg(rgb(shade))
                         .border_b_1()
                         .border_color(rgb(colors.border))
-                        .child(
-                            div()
-                                .w(px(52.))
-                                .flex_shrink_0()
-                                .px_2()
-                                .text_xs()
-                                .text_color(rgb(colors.secondary))
-                                .child((index + 1).to_string()),
-                        )
                         .children(row_columns.iter().map(
                             |(column_index, column, width, wrapped)| {
                                 let cell = cells.get(*column_index).cloned().unwrap_or_default();
-                                let content = if column == "@match" {
+                                let content = if column == "@status" {
+                                    let valid = cell.starts_with("Valid");
+                                    div()
+                                        .id(("status-dot", index))
+                                        .aria_label(cell.clone())
+                                        .text_base()
+                                        .text_color(rgb(if valid { 0x28a66a } else { colors.error }))
+                                        .child("●")
+                                        .into_any_element()
+                                } else if column == "@match" {
                                     let highlights = match_highlights
                                         .iter()
                                         .filter(|(range, _)| {
@@ -794,8 +784,8 @@ impl DesktopView {
                                     .px_2()
                                     .overflow_hidden()
                                     .text_sm()
-                                    .when(*wrapped, |this| this.whitespace_normal().line_clamp(4))
-                                    .when(!*wrapped, |this| {
+                                    .when(*wrapped || column == "@match", |this| this.whitespace_normal())
+                                    .when(!*wrapped && column != "@match", |this| {
                                         this.whitespace_nowrap().text_ellipsis()
                                     })
                                     .child(content)
@@ -803,20 +793,29 @@ impl DesktopView {
                         ))
                         .on_click({
                             let target = target.clone();
-                            move |_, window, cx| {
+                            move |event: &gpui_kit::ClickEvent, window, cx| {
                                 target.update(cx, |this, cx| {
                                     window.focus(&this.grid_focus, cx);
                                     this.state.page.selected = Some(index);
                                     if this.state.show_preview {
                                         this.state.inspector_visible = true;
                                     }
-                                    this.send(if this.state.show_preview {
-                                        UiAction::OpenRecord(index)
+                                    this.send(if event.modifiers().shift {
+                                        UiAction::OpenRecordNewTab(index)
                                     } else {
-                                        UiAction::SelectRow(index)
+                                        UiAction::OpenRecord(index)
                                     });
                                     cx.notify();
                                 });
+                            }
+                        })
+                        .context_menu({
+                            let target = target.clone();
+                            move |menu, _, _| {
+                                let target = target.clone();
+                                menu.item(PopupMenuItem::new("Open in new tab").on_click(move |_, _, cx| {
+                                    target.update(cx, |this, _| this.send(UiAction::OpenRecordNewTab(index)));
+                                }))
                             }
                         })
                         .into_any_element()
@@ -871,7 +870,8 @@ impl DesktopView {
                     .min_w_0()
                     .child(header)
                     .child(rows)
-                    .overflow_x_scroll(),
+                    .overflow_x_scroll()
+                    .restrict_scroll_to_axis(),
             )
             .child(
                 div()
@@ -887,27 +887,11 @@ impl DesktopView {
                     .text_color(rgb(colors.secondary))
                     .child(range)
                     .child(div().flex_1())
-                    .child(
-                        Button::new("table-columns")
-                            .ghost()
-                            .icon(IconName::PanelLeft)
-                            .label("Columns")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.action_panel = ActionPanel::Columns;
-                                this.state.show_actions = true;
-                                cx.notify();
-                            })),
-                    )
-                    .when(page.exact_total.is_none(), |this| {
+                    .when(page.exact_total.is_none() && !page.count_pending, |this| {
                         this.child(
                             Button::new("count-exact")
                                 .ghost()
-                                .label(if page.count_pending {
-                                    "Counting…"
-                                } else {
-                                    "Count all"
-                                })
-                                .disabled(page.count_pending)
+                                .label("Count all")
                                 .on_click(cx.listener(|this, _, _, _| {
                                     this.send(UiAction::CountExact);
                                 })),
@@ -923,7 +907,18 @@ impl DesktopView {
                                 })),
                         )
                     })
-                    .when(self.state.loading_more, |this| this.child("Loading more…")),
+                    .when(self.state.loading_more, |this| this.child("Loading more…"))
+                    .child(
+                        Button::new("table-columns")
+                            .ghost()
+                            .icon(IconName::PanelLeft)
+                            .label("Columns")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.action_panel = ActionPanel::Columns;
+                                this.state.show_actions = true;
+                                cx.notify();
+                            })),
+                    ),
             )
             .into_any_element()
     }

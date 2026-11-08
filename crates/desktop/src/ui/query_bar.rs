@@ -613,7 +613,8 @@ impl DesktopView {
                                     )
                                     .w_full()
                                     .when(
-                                        !self.state.show_filter_builder
+                                        self.state.completion_focused
+                                            && !self.state.show_filter_builder
                                             && self.state.completion_context.is_some()
                                             && (self.state.completion_pending
                                                 || !self.state.completion_suggestions.is_empty()),
@@ -682,18 +683,32 @@ impl DesktopView {
             .border_color(rgb(colors.border))
             .rounded_sm()
             .overflow_y_scrollbar()
-            .children(self.state.completion_suggestions.iter().enumerate().map(
-                |(index, (_, label))| {
-                    Button::new(format!("filter-completion-{index}"))
-                        .ghost()
-                        .label(label.clone())
-                        .selected(index == self.state.completion_selected)
-                        .on_click(cx.listener(move |this, _, window, cx| {
-                            this.state.completion_selected = index;
-                            this.accept_completion(window, cx);
-                        }))
-                },
-            ))
+            .children(self.state.completion_suggestions.iter().enumerate().map(|(index, (_, label))| {
+                let (name, kind) = label.rsplit_once(" · ").unwrap_or((label.as_str(), "Value"));
+                let selected = index == self.state.completion_selected;
+                div()
+                    .id(format!("filter-completion-{index}"))
+                    .flex()
+                    .items_center()
+                    .justify_start()
+                    .gap_2()
+                    .w_full()
+                    .h(px(26.))
+                    .px_2()
+                    .bg(rgb(if selected { if self.state.dark { 0x244767 } else { 0xdceafe } } else { colors.panel }))
+                    .border_l_2()
+                    .border_color(rgb(if selected { colors.accent } else { colors.panel }))
+                    .child(div().flex_1().min_w_0().overflow_hidden().whitespace_nowrap().text_ellipsis()
+                        .font_family(super::typography::MONO).font_weight(gpui_kit::FontWeight::BOLD)
+                        .text_sm().child(name.to_owned()))
+                    .child(div().text_xs().text_color(rgb(colors.secondary))
+                        .font_weight(gpui_kit::FontWeight::LIGHT).italic().child(kind.to_owned()))
+                    .on_mouse_down(gpui_kit::MouseButton::Left, cx.listener(move |this, _, window, cx| {
+                        this.state.completion_selected = index;
+                        this.accept_completion(window, cx);
+                        cx.stop_propagation();
+                    }))
+            }))
             .when(self.state.completion_pending, |this| {
                 this.child(div().text_xs().child("Loading suggestions…"))
             })

@@ -108,6 +108,7 @@ pub struct UiState {
     pub completion_fields: Vec<FieldChoice>,
     pub completion_revision: u64,
     pub completion_context: Option<CompletionContext>,
+    pub completion_focused: bool,
     pub completion_suggestions: Vec<(String, String)>,
     pub completion_selected: usize,
     pub completion_partial: bool,
@@ -183,6 +184,7 @@ impl UiState {
             UiUpdate::Page(mut page) => {
                 for (index, column) in page.columns.iter().enumerate() {
                     self.column_widths.entry(column.clone()).or_insert_with(|| {
+                        if column == "@status" { return 68.; }
                         let widest = page
                             .rows
                             .iter()
@@ -224,6 +226,7 @@ impl UiState {
                 }
                 for (index, column) in page.columns.iter().enumerate() {
                     self.column_widths.entry(column.clone()).or_insert_with(|| {
+                        if column == "@status" { return 68.; }
                         let widest = page
                             .rows
                             .iter()
@@ -269,6 +272,10 @@ impl UiState {
             UiUpdate::ExactCount(total) => {
                 self.page.exact_total = Some(total);
                 self.page.count_pending = false;
+            }
+            UiUpdate::CountFailed(message) => {
+                self.page.count_pending = false;
+                self.status = format!("Could not count matches: {message}");
             }
             UiUpdate::RowSelected(index) => {
                 self.page.selected = Some(index);

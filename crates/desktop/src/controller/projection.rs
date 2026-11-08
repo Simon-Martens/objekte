@@ -17,12 +17,13 @@ use crate::ui::model::{
     DetailOrigin, DetailRow, DetailValueKind, DetailView, MAX_COLUMNS, MAX_DETAIL_ROWS, PageView,
     RelationRow, ResultRow, RowKey, SearchDraft,
 };
+use crate::ui::preferences::nested_column;
 
 use super::filter_validation::field_choices;
 
 /// Build a stable leading schema from the effective predicate and declared fields.
 pub fn initial_columns(session: &OpenedSession, draft: &SearchDraft) -> Vec<String> {
-    let mut columns = vec!["@id".to_owned(), "@status".to_owned()];
+    let mut columns = vec!["@status".to_owned(), "@id".to_owned()];
     if !draft.full_text.is_empty() {
         columns.push("@match".to_owned());
     }
@@ -69,7 +70,8 @@ pub fn page_view_with_available(
     spec: &QuerySpec,
     hidden: &[String],
 ) -> (PageView, Vec<String>) {
-    page_view_with_prior(page, spec, hidden, &[])
+    let (view, available, _) = page_view_with_prior(page, spec, hidden, &[], &[]);
+    (view, available)
 }
 
 /// Preserve the established order when a later delivery page reveals fields.
@@ -77,10 +79,11 @@ pub fn page_view_with_prior(
     page: &QueryPage,
     spec: &QuerySpec,
     hidden: &[String],
+    shown_nested: &[String],
     prior: &[String],
-) -> (PageView, Vec<String>) {
+) -> (PageView, Vec<String>, Vec<String>) {
     let mut columns = if prior.is_empty() {
-        let mut leading = vec!["@id".to_owned(), "@status".to_owned()];
+        let mut leading = vec!["@status".to_owned(), "@id".to_owned()];
         if !spec.full_text.is_empty() {
             leading.push("@match".to_owned());
         }
@@ -90,8 +93,8 @@ pub fn page_view_with_prior(
     };
     let mut discovered = BTreeSet::new();
     for hit in &page.hits {
-        if let Some(Value::Object(object)) = payload_json(hit) {
-            discovered.extend(object.keys().cloned());
+        if let Some(value) = payload_json(hit) {
+            discover_columns(&value, &mut Vec::new(), &mut discovered);
         }
     }
     for key in discovered {
@@ -106,7 +109,15 @@ pub fn page_view_with_prior(
         }
     }
     let available = columns.clone();
-    columns.retain(|column| !hidden.contains(column));
+    let effective_hidden = available
+        .iter()
+        .filter(|column| {
+            hidden.contains(*column)
+                || (nested_column(column) && !shown_nested.contains(*column))
+        })
+        .cloned()
+        .collect::<Vec<_>>();
+    columns.retain(|column| !effective_hidden.contains(column));
     let clipped = columns.len() > MAX_COLUMNS;
     columns.truncate(MAX_COLUMNS);
     let matcher = (!spec.full_text.trim().is_empty())
@@ -173,7 +184,40 @@ pub fn page_view_with_prior(
         clipped,
     }
     .bounded();
-    (view, available)
+    (view, available, effective_hidden)
+}
+
+/// Include nested object paths in the chooser while the default visibility
+/// policy keeps them out of the table. Discovery is bounded per page.
+fn discover_columns(value: &Value, segments: &mut Vec<String>, found: &mut BTreeSet<String>) {
+    if segments.len() >= 4 || found.len() >= 254 {
+        return;
+    }
+    if let Value::Array(items) = value {
+        for item in items.iter().take(8) {
+            discover_columns(item, segments, found);
+        }
+        return;
+    }
+    let Value::Object(object) = value else { return; };
+    for (name, child) in object {
+        if segments.is_empty() && matches!(name.as_str(), "@collection" | "@file") {
+            continue;
+        }
+        segments.push(name.clone());
+        found.insert(
+            objekte_search_core::model::FieldPath {
+                root: PathRoot::Data,
+                segments: segments.clone(),
+            }
+            .display(),
+        );
+        discover_columns(child, segments, found);
+        segments.pop();
+        if found.len() >= 254 {
+            break;
+        }
+    }
 }
 
 fn status_label(hit: &SearchHit) -> String {
@@ -191,25 +235,44 @@ fn project_field(json: Option<&Value>, path: &str) -> String {
     if path.field.root != PathRoot::Data {
         return "Unavailable".into();
     }
-    let Some(mut value) = json else {
+    let Some(value) = json else {
         return "Unavailable".into();
     };
-    for step in &path.steps {
-        value = match step {
-            PathStep::Field(name) => match value.get(name) {
-                Some(value) => value,
-                None => return "—".into(),
-            },
-            PathStep::ArrayIndex(index) => match value.get(*index as usize) {
-                Some(value) => value,
-                None => return "—".into(),
-            },
-            PathStep::EachElement => return "Unavailable".into(),
-        };
+    let mut values = Vec::new();
+    path_values(value, &path.steps, &mut values);
+    if values.is_empty() { return "—".into(); }
+    values.into_iter().take(16).map(project_value).collect::<Vec<_>>().join("; ")
+}
+
+fn path_values<'a>(value: &'a Value, steps: &[PathStep], found: &mut Vec<&'a Value>) {
+    if found.len() >= 16 { return; }
+    let Some((step, rest)) = steps.split_first() else {
+        found.push(value);
+        return;
+    };
+    match step {
+        PathStep::Field(name) => {
+            if let Value::Array(items) = value {
+                for item in items { path_values(item, steps, found); }
+            } else if let Some(child) = value.get(name) {
+                path_values(child, rest, found);
+            }
+        }
+        PathStep::ArrayIndex(index) => {
+            if let Some(child) = value.get(*index as usize) { path_values(child, rest, found); }
+        }
+        PathStep::EachElement => {
+            if let Value::Array(items) = value {
+                for item in items { path_values(item, rest, found); }
+            }
+        }
     }
+}
+
+fn project_value(value: &Value) -> String {
     match value {
         Value::Null => "null".into(),
-        Value::String(text) if text.is_empty() => "\"\"".into(),
+        Value::String(text) if text.is_empty() => "-".into(),
         Value::Array(values) => format!("{} items", values.len()),
         Value::Object(object) => format!("{} fields", object.len()),
         _ => value_label(value),
@@ -224,67 +287,75 @@ fn match_preview(
     let mut text = String::new();
     let mut highlights = Vec::new();
     for field in &hit.matched_fields {
-        if highlights.len() >= 6 {
-            break;
-        }
-        let found = if field == "@record.raw_text" {
-            Some(("Source".to_owned(), "raw text match".to_owned(), None))
-        } else {
-            let value = if field == "@root" {
-                json.map(value_label).unwrap_or_default()
+        let found = matcher.and_then(|matcher| {
+            if field == "@root" {
+                json.and_then(|value| matching_excerpt(value, matcher))
             } else {
-                project_field(json, field)
-            };
-            let max = value.floor_char_boundary(value.len().min(64 * 1024));
-            let visible = &value[..max];
-            matcher
-                .and_then(|matcher| matcher.find(visible))
-                .map(|span| {
-                    let before = visible[..span.start]
-                        .char_indices()
-                        .rev()
-                        .nth(12)
-                        .map_or(0, |(at, _)| at);
-                    let after = visible[span.end..]
-                        .char_indices()
-                        .nth(60)
-                        .map_or(visible.len(), |(at, _)| span.end + at);
-                    let mut excerpt = String::new();
-                    if before > 0 {
-                        excerpt.push('…');
-                    }
-                    let prefix_bytes = excerpt.len();
-                    excerpt.push_str(&visible[before..after]);
-                    if after < visible.len() {
-                        excerpt.push('…');
-                    }
-                    (
-                        field.clone(),
-                        excerpt,
-                        Some(prefix_bytes + span.start - before..prefix_bytes + span.end - before),
-                    )
-                })
-        };
-        let Some((label, excerpt, span)) = found else {
-            continue;
-        };
+                matched_excerpt(json, field, matcher)
+            }
+        });
         if !text.is_empty() {
-            text.push_str(" · ");
+            text.push('\n');
         }
         let label_start = text.len();
-        text.push_str(&label);
+        text.push_str(field);
         highlights.push((label_start..text.len(), false));
-        text.push_str(": ");
-        let excerpt_start = text.len();
-        text.push_str(&excerpt);
-        if let Some(span) = span {
+        if let Some((excerpt, span)) = found {
+            text.push_str(": ");
+            let excerpt_start = text.len();
+            text.push_str(&excerpt);
             highlights.push((excerpt_start + span.start..excerpt_start + span.end, true));
         }
     }
     if text.is_empty() {
-        text.push_str("FTS match; excerpt unavailable");
+        text.push_str("Match field unavailable");
     }
     (text, highlights)
+}
+
+fn matched_excerpt(json: Option<&Value>, field: &str, matcher: &PreviewMatcher) -> Option<(String, std::ops::Range<usize>)> {
+    let path = QueryPath::parse(field).ok()?;
+    if path.field.root != PathRoot::Data { return None; }
+    matching_excerpt_at(json?, &path.steps, matcher)
+}
+
+fn matching_excerpt_at(value: &Value, steps: &[PathStep], matcher: &PreviewMatcher) -> Option<(String, std::ops::Range<usize>)> {
+    let Some((step, rest)) = steps.split_first() else { return matching_excerpt(value, matcher); };
+    match step {
+        PathStep::Field(name) => {
+            if let Value::Array(items) = value {
+                items.iter().find_map(|item| matching_excerpt_at(item, steps, matcher))
+            } else {
+                matching_excerpt_at(value.get(name)?, rest, matcher)
+            }
+        }
+        PathStep::ArrayIndex(index) => matching_excerpt_at(value.get(*index as usize)?, rest, matcher),
+        PathStep::EachElement => match value {
+            Value::Array(items) => items.iter().find_map(|item| matching_excerpt_at(item, rest, matcher)),
+            _ => None,
+        }
+    }
+}
+
+fn matching_excerpt(value: &Value, matcher: &PreviewMatcher) -> Option<(String, std::ops::Range<usize>)> {
+    match value {
+        Value::Object(fields) => fields.values().find_map(|value| matching_excerpt(value, matcher)),
+        Value::Array(items) => items.iter().find_map(|value| matching_excerpt(value, matcher)),
+        _ => {
+            let value = value.as_str().map(str::to_owned).unwrap_or_else(|| value_label(value));
+            let max = value.floor_char_boundary(value.len().min(64 * 1024));
+            let visible = &value[..max];
+            let span = matcher.find(visible)?;
+            let before = visible[..span.start].char_indices().rev().nth(12).map_or(0, |(at, _)| at);
+            let after = visible[span.end..].char_indices().nth(60).map_or(visible.len(), |(at, _)| span.end + at);
+            let mut excerpt = String::new();
+            if before > 0 { excerpt.push('…'); }
+            let prefix_bytes = excerpt.len();
+            excerpt.push_str(&visible[before..after]);
+            if after < visible.len() { excerpt.push('…'); }
+            Some((excerpt, prefix_bytes + span.start - before..prefix_bytes + span.end - before))
+        }
+    }
 }
 
 /// Present the original source, parsed structure, and locator metadata.

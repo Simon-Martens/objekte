@@ -178,7 +178,7 @@ fn main_query_change_preserves_tab_context_and_close_cancels_its_work() {
         id: hit.record_id.clone(),
     }));
     let mut updates = Vec::new();
-    controller.open_record(0, &mut updates);
+    controller.open_record(0, false, &mut updates);
     assert_eq!(controller.tabs.len(), 1);
     let tab_id = controller.tabs[0].id;
     let token = controller.tabs[0].cancellation.clone();
@@ -196,6 +196,27 @@ fn main_query_change_preserves_tab_context_and_close_cancels_its_work() {
     controller.close_tab(tab_id, &mut updates);
     assert!(controller.tabs.is_empty());
     assert!(token.is_cancelled());
+}
+
+#[test]
+fn row_open_reuses_active_tab_and_explicit_new_tab_adds_one() {
+    let fixture = crate::backend::test_support::fixture();
+    let page = backend::query_page(&fixture.session, &backend::QuerySpec::default(), 0, 10, &CancellationToken::new()).unwrap();
+    assert!(page.hits.len() >= 2);
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.executed_spec = Some(backend::QuerySpec::default());
+    controller.executed_draft = Some(SearchDraft::default());
+    controller.keys = page.hits.iter().map(|hit| Some(RecordKey { collection: hit.collection.clone(), id: hit.record_id.clone() })).collect();
+    let mut updates = Vec::new();
+    controller.open_record(0, false, &mut updates);
+    let first_id = controller.active_tab.unwrap();
+    controller.open_record(1, false, &mut updates);
+    assert_eq!(controller.active_tab, Some(first_id));
+    assert_eq!(controller.tabs.len(), 1);
+    controller.open_record(1, true, &mut updates);
+    assert_eq!(controller.tabs.len(), 2);
+    assert_ne!(controller.active_tab, Some(first_id));
 }
 
 #[test]

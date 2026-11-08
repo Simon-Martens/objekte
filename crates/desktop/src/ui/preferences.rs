@@ -8,6 +8,7 @@ use std::{
 };
 
 use objekte_tui::settings::{Query as LegacyQuery, Settings as LegacySettings};
+use objekte_search_core::query_path::QueryPath;
 use serde::{Deserialize, Serialize};
 
 use super::model::{QueryEntry, SearchDraft};
@@ -71,10 +72,17 @@ struct Bookmark {
 struct ColumnPreferences {
     #[serde(default)]
     hidden: Vec<String>,
+    /// Nested paths start hidden; this list records explicit choices to show them.
+    #[serde(default)]
+    shown_nested: Vec<String>,
     #[serde(default)]
     widths: BTreeMap<String, u16>,
     #[serde(default)]
     wrapped: Vec<String>,
+}
+
+pub(crate) fn nested_column(column: &str) -> bool {
+    QueryPath::parse(column).is_ok_and(|path| path.steps.len() > 1)
 }
 
 
@@ -278,13 +286,27 @@ impl DesktopPreferences {
             .map_or(&[], |columns| columns.hidden.as_slice())
     }
 
+    pub fn shown_nested(&self, collection: Option<&str>) -> &[String] {
+        self.settings
+            .columns
+            .get(collection.unwrap_or("*"))
+            .map_or(&[], |columns| columns.shown_nested.as_slice())
+    }
+
     pub fn toggle_column_local(&mut self, collection: Option<&str>, key: &str) {
         let columns = self
             .settings
             .columns
             .entry(collection.unwrap_or("*").to_owned())
             .or_default();
-        if let Some(index) = columns.hidden.iter().position(|name| name == key) {
+        if nested_column(key) {
+            if let Some(index) = columns.shown_nested.iter().position(|name| name == key) {
+                columns.shown_nested.remove(index);
+            } else {
+                columns.hidden.retain(|name| name != key);
+                columns.shown_nested.push(key.to_owned());
+            }
+        } else if let Some(index) = columns.hidden.iter().position(|name| name == key) {
             columns.hidden.remove(index);
         } else {
             columns.hidden.push(key.to_owned());
