@@ -24,6 +24,7 @@ pub(crate) mod lifecycle_cache_guard;
 mod lifecycle_catalog;
 mod lifecycle_open;
 mod lifecycle_scan;
+mod lifecycle_segment_codec;
 mod materialization;
 pub mod measurement;
 pub mod model;

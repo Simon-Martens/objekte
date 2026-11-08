@@ -9,7 +9,7 @@ use std::path::Path;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Condvar, Mutex, RwLock};
 use std::thread::JoinHandle;
-use std::time::SystemTime;
+use std::time::{Duration, Instant, SystemTime};
 
 use serde::{Deserialize, Serialize};
 
@@ -32,6 +32,8 @@ use crate::workload::ReturnMode;
 pub use crate::inventory::FileVersion;
 
 const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
+const MAX_CONSOLIDATED_RECORDS: usize = 262_144;
+const MAX_RECONCILIATION_ISSUES: usize = 128;
 
 /// Monotonic publication sequence within one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
@@ -187,13 +189,61 @@ pub struct DeleteResult {
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct ReconciliationReport {
     pub examined: usize,
+    pub planned_changes: usize,
     pub unchanged: usize,
     pub added: usize,
     pub updated: usize,
     pub removed: usize,
     pub skipped: usize,
+    pub indexed_bytes: u64,
+    pub duration: Duration,
     pub cancelled: bool,
     pub issues: Vec<String>,
+    pub omitted_issues: usize,
+}
+
+impl ReconciliationReport {
+    fn record_issue(&mut self, issue: String) {
+        if self.issues.len() < MAX_RECONCILIATION_ISSUES {
+            self.issues.push(issue);
+        } else {
+            self.omitted_issues = self.omitted_issues.saturating_add(1);
+        }
+    }
+}
+
+/// Small, copyable observation while a reconciliation pass is running.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ReconciliationProgress {
+    pub examined: usize,
+    pub planned_changes: usize,
+    pub unchanged: usize,
+    pub added: usize,
+    pub updated: usize,
+    pub removed: usize,
+    pub skipped: usize,
+    pub indexed_bytes: u64,
+    pub duration: Duration,
+    pub cancelled: bool,
+    pub issue_count: usize,
+}
+
+impl From<&ReconciliationReport> for ReconciliationProgress {
+    fn from(report: &ReconciliationReport) -> Self {
+        Self {
+            examined: report.examined,
+            planned_changes: report.planned_changes,
+            unchanged: report.unchanged,
+            added: report.added,
+            updated: report.updated,
+            removed: report.removed,
+            skipped: report.skipped,
+            indexed_bytes: report.indexed_bytes,
+            duration: report.duration,
+            cancelled: report.cancelled,
+            issue_count: report.issues.len().saturating_add(report.omitted_issues),
+        }
+    }
 }
 
 /// Private work captured before the mutation writer validates and publishes
@@ -312,6 +362,12 @@ impl PublishedIndex {
         index: IndexedCollectionSegment,
     ) -> Result<Self, IndexError> {
         let number = index.collection.0 as usize;
+        if number >= self.segments.len() {
+            return Err(IndexError::InvalidPublication(
+                "segment collection missing".into(),
+            ));
+        }
+        self.make_room_for_segment(number)?;
         let collection =
             self.repository.collections().get(number).ok_or_else(|| {
                 IndexError::InvalidPublication("segment collection missing".into())
@@ -321,11 +377,6 @@ impl PublishedIndex {
         {
             return Err(IndexError::IncompatibleConfiguration(
                 "segment source registration changed".into(),
-            ));
-        }
-        if self.segments[number].len() >= MAX_SEGMENTS_PER_COLLECTION {
-            return Err(IndexError::ResourceLimit(
-                "collection segment budget reached; compaction is required".into(),
             ));
         }
         for file in &index.files {
@@ -371,6 +422,103 @@ impl PublishedIndex {
             active,
         }));
         Ok(self)
+    }
+
+    /// Keep query merge width bounded. This runs only on a private staged
+    /// root, after preparation and before publication; no source bytes or
+    /// publication lock are needed.
+    fn make_room_for_segment(&mut self, number: usize) -> Result<(), IndexError> {
+        if self.segments[number].len() < MAX_SEGMENTS_PER_COLLECTION {
+            return Ok(());
+        }
+        let catalog = self.catalog.clone();
+        let group = Arc::make_mut(&mut self.segments[number]);
+        group.retain(|segment| segment.active.len() > 0);
+        if group.len() < MAX_SEGMENTS_PER_COLLECTION {
+            return Ok(());
+        }
+        for segment in group.iter_mut() {
+            if segment.active.len() == segment.index.records.len() as u64
+                || segment.index.records.len() > MAX_CONSOLIDATED_RECORDS
+            {
+                continue;
+            }
+            let compacted = segment
+                .index
+                .compact_active(&segment.active, MAX_CONSOLIDATED_RECORDS, |entry| {
+                    catalog.entry(entry.id).is_some_and(|current| {
+                        current.relative_path == entry.relative_path
+                            && current.revision == entry.revision
+                            && current.created_ns == entry.created_ns
+                            && current.collections.contains(&segment.index.collection)
+                    })
+                })
+                .map_err(IndexError::Build)?;
+            if compacted.active.len() == 0 {
+                continue;
+            }
+            let ordinal = self.next_segment_ordinal;
+            self.next_segment_ordinal = self
+                .next_segment_ordinal
+                .checked_add(1)
+                .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+            *segment = Arc::new(PublishedSegment {
+                ordinal,
+                index: Arc::new(compacted.index),
+                active: compacted.active,
+            });
+        }
+        group.retain(|segment| segment.active.len() > 0);
+        if group.len() < MAX_SEGMENTS_PER_COLLECTION {
+            return Ok(());
+        }
+        let mut choice = None;
+        for left in 0..group.len() {
+            for right in left + 1..group.len() {
+                let left_index = &group[left].index;
+                let right_index = &group[right].index;
+                let combined = left_index.records.len() + right_index.records.len();
+                if combined > MAX_CONSOLIDATED_RECORDS
+                    || left_index
+                        .files
+                        .iter()
+                        .any(|file| right_index.file(file.entry.id).is_some())
+                    || left_index
+                        .id_lookup
+                        .keys()
+                        .any(|id| right_index.id_lookup.contains_key(id))
+                {
+                    continue;
+                }
+                if choice.is_none_or(|(_, _, smallest)| combined < smallest) {
+                    choice = Some((left, right, combined));
+                }
+            }
+        }
+        let (left, right, _) = choice.ok_or_else(|| {
+            IndexError::ResourceLimit("no bounded segment consolidation is possible".into())
+        })?;
+        let merged = IndexedCollectionSegment::consolidate(
+            &[&group[left].index, &group[right].index],
+            MAX_CONSOLIDATED_RECORDS,
+        )
+        .map_err(IndexError::Build)?;
+        let active = merged
+            .translate_active(&[&group[left].active, &group[right].active])
+            .map_err(IndexError::Build)?;
+        let ordinal = self.next_segment_ordinal;
+        self.next_segment_ordinal = self
+            .next_segment_ordinal
+            .checked_add(1)
+            .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+        group.remove(right);
+        group.remove(left);
+        group.push(Arc::new(PublishedSegment {
+            ordinal,
+            index: Arc::new(merged.index),
+            active,
+        }));
+        Ok(())
     }
 
     /// Retire slots owned by one incarnation without touching the catalog.
@@ -569,6 +717,7 @@ struct MaintenanceState {
 
 struct ReconciliationJob {
     cancelled: AtomicBool,
+    progress: Mutex<ReconciliationProgress>,
     result: Mutex<Option<ReconciliationReport>>,
     complete: Condvar,
     worker: Mutex<Option<JoinHandle<()>>>,
@@ -590,6 +739,14 @@ impl ReconciliationTask {
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?
             .is_some())
+    }
+
+    pub fn progress(&self) -> Result<ReconciliationProgress, IndexError> {
+        Ok(*self
+            .0
+            .progress
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?)
     }
 
     pub fn wait(&self) -> Result<ReconciliationReport, IndexError> {
@@ -689,6 +846,7 @@ impl Index {
         }
         let job = Arc::new(ReconciliationJob {
             cancelled: AtomicBool::new(false),
+            progress: Mutex::new(ReconciliationProgress::default()),
             result: Mutex::new(None),
             complete: Condvar::new(),
             worker: Mutex::new(None),
@@ -702,15 +860,25 @@ impl Index {
                     maintenance.reconciliation = ReconciliationState::Running;
                 }
                 let report = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                    owner.reconcile_pass(|| worker_job.cancelled.load(Ordering::Acquire))
+                    owner.reconcile_pass_with_progress(
+                        || worker_job.cancelled.load(Ordering::Acquire),
+                        |progress| {
+                            if let Ok(mut observed) = worker_job.progress.lock() {
+                                *observed = ReconciliationProgress::from(progress);
+                            }
+                        },
+                    )
                 }))
                 .unwrap_or_else(|_| ReconciliationReport {
                     issues: vec!["reconciliation worker panicked".into()],
                     ..ReconciliationReport::default()
                 });
+                if let Ok(mut observed) = worker_job.progress.lock() {
+                    *observed = ReconciliationProgress::from(&report);
+                }
                 let state = if report.cancelled {
                     ReconciliationState::Cancelled
-                } else if report.issues.is_empty() {
+                } else if report.issues.is_empty() && report.omitted_issues == 0 {
                     ReconciliationState::Complete
                 } else {
                     ReconciliationState::Partial
@@ -931,13 +1099,24 @@ impl Index {
     /// this outside query threads; an unchanged pass does not read content or
     /// publish a new data revision.
     pub(crate) fn reconcile_pass(&self, cancelled: impl Fn() -> bool) -> ReconciliationReport {
+        self.reconcile_pass_with_progress(cancelled, |_| {})
+    }
+
+    fn reconcile_pass_with_progress(
+        &self,
+        cancelled: impl Fn() -> bool,
+        mut on_progress: impl FnMut(&ReconciliationReport),
+    ) -> ReconciliationReport {
         use crate::lifecycle_scan::{ScanChange, plan_scan, scan_sources};
 
+        let started = Instant::now();
         let mut report = ReconciliationReport::default();
         let snapshot = match self.view() {
             Ok(snapshot) => snapshot,
             Err(error) => {
-                report.issues.push(error.to_string());
+                report.record_issue(error.to_string());
+                report.duration = started.elapsed();
+                on_progress(&report);
                 return report;
             }
         };
@@ -952,19 +1131,29 @@ impl Index {
         let scan = scan_sources(root, &definitions, &repository.sources, &cancelled);
         report.examined = scan.examined;
         report.cancelled = scan.cancelled;
-        report.issues.extend(
-            scan.issues
-                .iter()
-                .map(|issue| format!("collection {}: {}", issue.collection.0, issue.message)),
-        );
+        for issue in &scan.issues {
+            report.record_issue(format!(
+                "collection {}: {}",
+                issue.collection.0, issue.message
+            ));
+        }
         let plan = plan_scan(&prior, &scan);
         report.unchanged = plan.unchanged;
         report.skipped = plan.skipped;
+        report.planned_changes = plan.changes.len();
+        report.duration = started.elapsed();
+        on_progress(&report);
         for change in plan.changes {
             if cancelled() {
                 report.cancelled = true;
                 break;
             }
+            let bytes = match &change {
+                ScanChange::Add(observed) | ScanChange::Update { observed, .. } => {
+                    observed.revision.size
+                }
+                ScanChange::Remove(_) => 0,
+            };
             let path = match &change {
                 ScanChange::Add(observed) | ScanChange::Remove(observed) => &observed.path,
                 ScanChange::Update { observed, .. } => &observed.path,
@@ -1013,17 +1202,24 @@ impl Index {
                     ),
             };
             match outcome {
-                Ok(()) => match scan.files.get(&path) {
-                    Some(_) if prior.contains_key(&path) => report.updated += 1,
-                    Some(_) => report.added += 1,
-                    None => report.removed += 1,
-                },
+                Ok(()) => {
+                    report.indexed_bytes = report.indexed_bytes.saturating_add(bytes);
+                    match scan.files.get(&path) {
+                        Some(_) if prior.contains_key(&path) => report.updated += 1,
+                        Some(_) => report.added += 1,
+                        None => report.removed += 1,
+                    }
+                }
                 Err(error) => {
                     report.skipped += 1;
-                    report.issues.push(format!("{}: {error}", path.display()));
+                    report.record_issue(format!("{}: {error}", path.display()));
                 }
             }
+            report.duration = started.elapsed();
+            on_progress(&report);
         }
+        report.duration = started.elapsed();
+        on_progress(&report);
         report
     }
 
