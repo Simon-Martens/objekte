@@ -8,6 +8,7 @@ use super::model::{
     BatchRow, BatchSource, DetailView, ErrorField, FilterValidationState, MAX_BATCH_ROWS,
     OpenDraft, PageView, QueryEntry, SearchDraft, UiUpdate,
 };
+use super::open_dialog::{DetectionState, OpenDialogState};
 
 
 /// Which operation currently owns the visible progress indicator.
@@ -42,6 +43,7 @@ pub struct DetailCache {
 #[derive(Clone, Debug, Default)]
 pub struct UiState {
     pub open: OpenDraft,
+    pub open_dialog: OpenDialogState,
     pub search: SearchDraft,
     pub root: Option<String>,
     pub collections: Vec<String>,
@@ -67,7 +69,6 @@ pub struct UiState {
     pub dark: bool,
     pub show_preview: bool,
     pub inspector_visible: bool,
-    pub show_open_options: bool,
     pub show_batch: bool,
     pub show_history: bool,
     pub show_saved: bool,
@@ -118,7 +119,7 @@ impl UiState {
                 self.diagnostics.clear();
                 self.busy = Busy::None;
                 self.status = "Repository ready".into();
-                self.show_open_options = false;
+                self.open_dialog.close();
                 self.errors.remove(&ErrorField::Open);
                 if single_collection {
                     self.search.collection = self.collections.first().cloned();
@@ -265,6 +266,9 @@ impl UiState {
                 self.busy = Busy::None;
             }
             UiUpdate::Error { field, message } => {
+                if field == ErrorField::Open {
+                    self.open_dialog.error = Some(message.clone());
+                }
                 self.errors.insert(field, message.clone());
                 self.status = message;
                 self.busy = Busy::None;
@@ -272,9 +276,13 @@ impl UiState {
             UiUpdate::ClearError(field) => {
                 self.errors.remove(&field);
             }
-            UiUpdate::ChosenPaths(paths) => {
-                self.open.paths = paths;
+            UiUpdate::OpenDetection { generation, result } => {
+                if let DetectionState::Pending { path } = &self.open_dialog.detection {
+                    let path = path.clone();
+                    self.open_dialog.accept_detection(generation, &path, result);
+                }
             }
+            UiUpdate::ChosenFolder { .. } | UiUpdate::ChosenSchema { .. } => {}
             UiUpdate::RestoreQuery(draft) => {
                 self.search = draft;
                 self.search.filter_enabled |= !self.search.structured.trim().is_empty();

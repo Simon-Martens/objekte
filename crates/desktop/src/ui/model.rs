@@ -354,7 +354,19 @@ pub enum ErrorField {
 /// User intent emitted from GPUI controls to the integrator.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum UiAction {
-    ChooseFolder(OpenDraft),
+    DetectOpen {
+        path: String,
+        generation: u64,
+    },
+    ChooseFolder {
+        draft: OpenDraft,
+        slot: usize,
+        generation: u64,
+    },
+    ChooseSchema {
+        generation: u64,
+    },
+    CancelOpen,
     Open(OpenDraft),
     SearchEdited(SearchDraft),
     SearchNow(SearchDraft),
@@ -406,6 +418,19 @@ pub enum UiAction {
 /// Backend-owned state that the UI may display after generation validation.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum UiUpdate {
+    OpenDetection {
+        generation: u64,
+        result: Result<crate::controller::open_detection::DetectedSource, String>,
+    },
+    ChosenFolder {
+        generation: u64,
+        slot: usize,
+        path: String,
+    },
+    ChosenSchema {
+        generation: u64,
+        path: String,
+    },
     Opening(String),
     Opened {
         root: String,
@@ -437,7 +462,6 @@ pub enum UiUpdate {
         message: String,
     },
     ClearError(ErrorField),
-    ChosenPaths(String),
     RestoreQuery(SearchDraft),
     FilterValidation {
         generation: u64,

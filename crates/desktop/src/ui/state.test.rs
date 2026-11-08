@@ -2,7 +2,7 @@ use super::*;
 use crate::ui::model::{ResultRow, RowKey};
 
 #[test]
-fn opening_retains_old_workspace_until_success() {
+fn replacement_open_retains_old_workspace_until_success() {
     let mut state = UiState {
         root: Some("old".into()),
         ..UiState::default()
@@ -30,6 +30,7 @@ fn opening_retains_old_workspace_until_success() {
         collections: vec!["records".into()],
         single_collection: true,
     });
+    assert_eq!(state.root.as_deref(), Some("new"));
     assert!(state.page.rows.is_empty());
     assert!(state.detail.is_none());
 }
@@ -37,7 +38,10 @@ fn opening_retains_old_workspace_until_success() {
 #[test]
 fn opening_a_repository_returns_to_the_results_workspace() {
     let mut state = UiState {
-        show_open_options: true,
+        open_dialog: super::super::open_dialog::OpenDialogState {
+            visible: true,
+            ..super::super::open_dialog::OpenDialogState::default()
+        },
         ..UiState::default()
     };
     state.apply(UiUpdate::Opened {
@@ -45,7 +49,7 @@ fn opening_a_repository_returns_to_the_results_workspace() {
         collections: vec!["records".into()],
         single_collection: true,
     });
-    assert!(!state.show_open_options);
+    assert!(!state.open_dialog.visible);
     assert_eq!(state.search.collection.as_deref(), Some("records"));
 }
 

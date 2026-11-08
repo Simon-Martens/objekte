@@ -11,7 +11,6 @@ use crate::ui::model::{OpenDraft, OpenMode, SearchDraft, SnapshotMode};
 /// Build the existing CLI opening arguments from visible controls.
 pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
     let mut args = Arguments {
-        no_recurse: !draft.recursive,
         auto_index: draft.auto_index,
         index_alphabet: if draft.unicode_index {
             Alphabet::Unicode
@@ -28,18 +27,26 @@ pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
         .filter(|line| !line.is_empty())
         .map(PathBuf::from)
         .collect();
+    if paths.is_empty() {
+        return Err("Choose a folder before opening data".into());
+    }
     match draft.mode {
         OpenMode::Folder => {
             if paths.len() > 1 {
                 return Err("Choose one folder in single-folder mode".into());
             }
             args.path = paths;
+            args.no_recurse = !draft.recursive;
+            if !draft.schema.trim().is_empty() {
+                args.schema = Some(PathBuf::from(draft.schema.trim()));
+            }
         }
         OpenMode::MultipleFolders => {
             if paths.len() < 2 {
                 return Err("Choose at least two folders for multiple-folder mode".into());
             }
             args.path = paths;
+            args.no_recurse = !draft.recursive;
         }
         OpenMode::ConfiguredRepository => {
             if paths.len() != 1 {
@@ -48,16 +55,9 @@ pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
             args.repo = paths.into_iter().next();
         }
     }
-    if !draft.schema.trim().is_empty() {
-        args.schema = Some(PathBuf::from(draft.schema.trim()));
-    }
     let snapshot_path = draft.snapshot_directory.trim().to_owned();
     match draft.snapshot {
-        SnapshotMode::None => {
-            if !snapshot_path.is_empty() {
-                return Err("Choose a snapshot operation for the specified index directory".into());
-            }
-        }
+        SnapshotMode::None => {}
         SnapshotMode::Write => args.write_index = Some(snapshot_path),
         SnapshotMode::Load => args.load_index = Some(snapshot_path),
         SnapshotMode::LoadAndWrite => {

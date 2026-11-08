@@ -21,3 +21,28 @@ fn bounded_batch_status_extraction_skips_large_hits() {
     assert_eq!(rows[0].query, "a = 1");
     assert_eq!(rows[0].error.as_deref(), Some("invalid"));
 }
+
+#[test]
+fn cancelled_replacement_open_invalidates_late_loader_without_losing_active_draft() {
+    let (mut controller, _) = DesktopController::new();
+    let active = OpenDraft {
+        paths: "/tmp/active".into(),
+        ..OpenDraft::default()
+    };
+    let attempted = OpenDraft {
+        paths: "/tmp/attempted".into(),
+        ..OpenDraft::default()
+    };
+    controller.open_draft = Some(active.clone());
+    controller.opening_draft = Some(attempted);
+    controller.open_generation = 7;
+    let mut updates = Vec::new();
+    controller.cancel_open(&mut updates);
+    assert_eq!(controller.open_generation, 8);
+    assert!(controller.opening_draft.is_none());
+    assert_eq!(controller.open_draft, Some(active));
+    assert!(controller.cancellation.is_cancelled());
+    assert!(
+        matches!(updates.as_slice(), [UiUpdate::Status(message)] if message == "Open cancelled")
+    );
+}

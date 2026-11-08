@@ -120,9 +120,8 @@ impl DesktopView {
                 Button::new("open-panel")
                     .icon(IconName::FolderOpen)
                     .label("Open…")
-                    .on_click(cx.listener(|this, _, _, cx| {
-                        this.state.show_open_options = true;
-                        cx.notify();
+                    .on_click(cx.listener(|this, _, window, cx| {
+                        this.show_open_dialog(window, cx);
                     })),
             )
             .child(
@@ -457,15 +456,14 @@ impl DesktopView {
                             "Open a folder to browse, search, and inspect its records."
                         }),
                 )
-                .when(!opening && !self.state.show_open_options, |this| {
+                .when(!opening && !self.state.open_dialog.visible, |this| {
                     this.child(
                         Button::new("empty-open")
                             .primary()
                             .icon(IconName::FolderOpen)
                             .label("Open data…")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.show_open_options = true;
-                                cx.notify();
+                            .on_click(cx.listener(|this, _, window, cx| {
+                                this.show_open_dialog(window, cx);
                             })),
                     )
                 })
@@ -747,7 +745,7 @@ impl Render for DesktopView {
                     let key = event.keystroke.key.as_str();
                     if event.keystroke.modifiers.control {
                         match key {
-                            "o" => this.state.show_open_options = true,
+                            "o" => this.show_open_dialog(window, cx),
                             "f" => {
                                 let focus = this.inputs.full_text.read(cx).focus_handle(cx);
                                 window.focus(&focus, cx);
@@ -765,7 +763,6 @@ impl Render for DesktopView {
                                 this.state.show_help = false;
                                 this.state.show_actions = false;
                                 this.state.show_batch = false;
-                                this.state.show_open_options = false;
                             }
                             _ => return,
                         }
@@ -780,9 +777,6 @@ impl Render for DesktopView {
             .bg(rgb(colors.canvas))
             .text_color(rgb(colors.text))
             .child(self.render_header(cx))
-            .when(self.state.show_open_options, |this| {
-                this.child(self.render_open_options(cx))
-            })
             .when(self.state.show_batch, |this| {
                 this.child(self.render_batch(cx))
             })
@@ -818,5 +812,8 @@ impl Render for DesktopView {
             })
             .when(self.state.show_help, |this| this.child(self.render_help()))
             .child(self.render_status(cx))
+            .when(self.state.open_dialog.visible, |this| {
+                this.child(self.render_open_dialog(cx))
+            })
     }
 }

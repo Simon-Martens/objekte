@@ -17,10 +17,11 @@ use objekte_tui::relations::{self, LinkAction};
 use crate::backend::{self, OpenSpec, OpenedSession, QuerySpec};
 use crate::ui::model::{
     BatchRow, BatchSource as UiBatchSource, DetailView, ErrorField, ExportFormat, OpenDraft,
-    OpenMode, PageView, RelationRow, SearchDraft, SnapshotMode, UiAction, UiUpdate,
+    PageView, RelationRow, SearchDraft, SnapshotMode, UiAction, UiUpdate,
 };
 use crate::ui::preferences::DesktopPreferences;
 
+use super::open_detection::{DetectedSource, detect_source};
 use super::{detail_view, open_spec, page_view_with_available, query_spec};
 
 
@@ -76,7 +77,19 @@ enum WorkerEvent {
         detail_generation: u64,
         result: Vec<relations::RelationRow>,
     },
-    Picked(Result<Option<Vec<PathBuf>>, String>, OpenDraft),
+    Detected {
+        generation: u64,
+        result: Result<DetectedSource, String>,
+    },
+    PickedFolder {
+        generation: u64,
+        slot: usize,
+        result: Result<Option<Vec<PathBuf>>, String>,
+    },
+    PickedSchema {
+        generation: u64,
+        result: Result<Option<Vec<PathBuf>>, String>,
+    },
     Exported {
         open_generation: u64,
         output_generation: u64,
@@ -106,6 +119,9 @@ pub struct DesktopController {
     preferences: Option<DesktopPreferences>,
     open_diagnostics: String,
     open_draft: Option<OpenDraft>,
+    opening_draft: Option<OpenDraft>,
+    detection_generation: u64,
+    picker_generation: u64,
     open_generation: u64,
     query_generation: u64,
     detail_generation: u64,
@@ -152,6 +168,9 @@ impl DesktopController {
                 preferences: None,
                 open_diagnostics: String::new(),
                 open_draft: None,
+                opening_draft: None,
+                detection_generation: 0,
+                picker_generation: 0,
                 open_generation: 0,
                 query_generation: 0,
                 detail_generation: 0,
@@ -204,7 +223,14 @@ impl DesktopController {
 
     fn handle(&mut self, action: UiAction, cx: &mut App, updates: &mut Vec<UiUpdate>) {
         match action {
-            UiAction::ChooseFolder(draft) => self.choose_folder(draft, cx),
+            UiAction::DetectOpen { path, generation } => self.start_detection(path, generation),
+            UiAction::ChooseFolder {
+                draft: _,
+                slot,
+                generation,
+            } => self.choose_folder(slot, generation, cx),
+            UiAction::ChooseSchema { generation } => self.choose_schema(generation, cx),
+            UiAction::CancelOpen => self.cancel_open(updates),
             UiAction::Open(draft) => self.start_open(draft, updates),
             UiAction::SearchEdited(draft) => {
                 self.cancellation.cancel();
@@ -459,12 +485,22 @@ impl DesktopController {
         }
     }
 
-    fn choose_folder(&self, draft: OpenDraft, cx: &mut App) {
+    fn start_detection(&mut self, path: String, generation: u64) {
+        self.detection_generation = generation;
+        let sender = self.worker_tx.clone();
+        thread::spawn(move || {
+            let result = detect_source(Path::new(&path));
+            let _ = sender.send(WorkerEvent::Detected { generation, result });
+        });
+    }
+
+    fn choose_folder(&mut self, slot: usize, generation: u64, cx: &mut App) {
+        self.picker_generation = generation;
         let sender = self.worker_tx.clone();
         let receiver = cx.prompt_for_paths(PathPromptOptions {
             files: false,
             directories: true,
-            multiple: draft.mode == OpenMode::MultipleFolders,
+            multiple: false,
             prompt: Some("Choose Objekte folder".into()),
         });
         cx.spawn(async move |_| {
@@ -472,7 +508,30 @@ impl DesktopController {
                 .await
                 .map_err(|error| error.to_string())
                 .and_then(|result| result.map_err(|error| error.to_string()));
-            let _ = sender.send(WorkerEvent::Picked(result, draft));
+            let _ = sender.send(WorkerEvent::PickedFolder {
+                generation,
+                slot,
+                result,
+            });
+        })
+        .detach();
+    }
+
+    fn choose_schema(&mut self, generation: u64, cx: &mut App) {
+        self.picker_generation = generation;
+        let sender = self.worker_tx.clone();
+        let receiver = cx.prompt_for_paths(PathPromptOptions {
+            files: true,
+            directories: false,
+            multiple: false,
+            prompt: Some("Choose JSON Schema".into()),
+        });
+        cx.spawn(async move |_| {
+            let result = receiver
+                .await
+                .map_err(|error| error.to_string())
+                .and_then(|result| result.map_err(|error| error.to_string()));
+            let _ = sender.send(WorkerEvent::PickedSchema { generation, result });
         })
         .detach();
     }
@@ -493,19 +552,11 @@ impl DesktopController {
         self.output_cancellation.cancel();
         self.cancellation = CancellationToken::new();
         self.open_generation += 1;
+        self.detection_generation = self.detection_generation.wrapping_add(1);
+        self.picker_generation = self.picker_generation.wrapping_add(1);
         self.query_generation += 1;
         self.output_generation += 1;
-        self.session = None;
-        self.preferences = None;
-        self.open_diagnostics.clear();
-        self.open_draft = Some(draft);
-        self.keys.clear();
-        self.selected_hit = None;
-        self.detail = None;
-        self.relation_actions.clear();
-        self.relation_back.clear();
-        self.page = PageView::default();
-        self.available_columns.clear();
+        self.opening_draft = Some(draft);
         self.pending_edit = None;
         let generation = self.open_generation;
         let token = self.cancellation.clone();
@@ -520,6 +571,14 @@ impl DesktopController {
                 result: Box::new(result),
             });
         });
+    }
+
+    fn cancel_open(&mut self, updates: &mut Vec<UiUpdate>) {
+        if self.opening_draft.take().is_some() {
+            self.cancellation.cancel();
+            self.open_generation = self.open_generation.wrapping_add(1);
+            updates.push(UiUpdate::Status("Open cancelled".into()));
+        }
     }
 
     fn start_query(&mut self, draft: SearchDraft, page_start: usize, updates: &mut Vec<UiUpdate>) {
@@ -639,6 +698,15 @@ impl DesktopController {
             WorkerEvent::Opened { generation, result } if generation == self.open_generation => {
                 match *result {
                     Ok((session, preferences)) => {
+                        self.open_draft = self.opening_draft.take();
+                        self.keys.clear();
+                        self.selected_hit = None;
+                        self.detail = None;
+                        self.relation_actions.clear();
+                        self.relation_back.clear();
+                        self.page = PageView::default();
+                        self.available_columns.clear();
+                        self.preferences = None;
                         let root = session.paths.root.display().to_string();
                         let collections = session.collections.clone();
                         let single_collection = session.single_collection;
@@ -683,10 +751,13 @@ impl DesktopController {
                         };
                         self.start_query(draft, 0, updates);
                     }
-                    Err(message) => updates.push(UiUpdate::Error {
-                        field: ErrorField::Open,
-                        message,
-                    }),
+                    Err(message) => {
+                        self.opening_draft = None;
+                        updates.push(UiUpdate::Error {
+                            field: ErrorField::Open,
+                            message,
+                        });
+                    }
                 }
             }
             WorkerEvent::Queried {
@@ -750,28 +821,50 @@ impl DesktopController {
                     }),
                 }
             }
-            WorkerEvent::Picked(result, draft) => match result {
-                Ok(Some(paths)) if !paths.is_empty() => {
-                    let selected = paths
-                        .into_iter()
-                        .map(|path| path.display().to_string())
-                        .collect::<Vec<_>>()
-                        .join("\n");
-                    let text = if draft.mode == OpenMode::MultipleFolders
-                        && !draft.paths.trim().is_empty()
-                    {
-                        format!("{}\n{selected}", draft.paths.trim())
-                    } else {
-                        selected
-                    };
-                    updates.push(UiUpdate::ChosenPaths(text));
+            WorkerEvent::Detected { generation, result }
+                if generation == self.detection_generation =>
+            {
+                updates.push(UiUpdate::OpenDetection { generation, result });
+            }
+            WorkerEvent::PickedFolder {
+                generation,
+                slot,
+                result,
+            } if generation == self.picker_generation => match result {
+                Ok(Some(paths)) => {
+                    if let Some(path) = paths.into_iter().next() {
+                        updates.push(UiUpdate::ChosenFolder {
+                            generation,
+                            slot,
+                            path: path.display().to_string(),
+                        });
+                    }
                 }
-                Ok(_) => {}
+                Ok(None) => {}
                 Err(message) => updates.push(UiUpdate::Error {
                     field: ErrorField::Open,
                     message: format!("Folder chooser failed: {message}. Enter a path instead."),
                 }),
             },
+            WorkerEvent::PickedSchema { generation, result }
+                if generation == self.picker_generation =>
+            {
+                match result {
+                    Ok(Some(paths)) => {
+                        if let Some(path) = paths.into_iter().next() {
+                            updates.push(UiUpdate::ChosenSchema {
+                                generation,
+                                path: path.display().to_string(),
+                            });
+                        }
+                    }
+                    Ok(None) => {}
+                    Err(message) => updates.push(UiUpdate::Error {
+                        field: ErrorField::Open,
+                        message: format!("Schema chooser failed: {message}. Enter a path instead."),
+                    }),
+                }
+            }
             WorkerEvent::Expanded {
                 open_generation,
                 query_generation,

@@ -22,12 +22,14 @@ fn opening_modes_preserve_cli_validation() {
     draft.mode = OpenMode::MultipleFolders;
     draft.paths = "/tmp/one\n/tmp/two".into();
     draft.schema = "schema.json".into();
-    assert!(open_spec(&draft, cwd).unwrap_err().contains("--schema"));
+    assert!(open_spec(&draft, cwd).unwrap().args.schema.is_none());
     draft.mode = OpenMode::ConfiguredRepository;
     draft.paths = "/tmp/repo".into();
-    draft.schema.clear();
     draft.recursive = false;
-    assert!(open_spec(&draft, cwd).unwrap_err().contains("--no-recurse"));
+    let repo = open_spec(&draft, cwd).unwrap();
+    assert!(!repo.args.no_recurse);
+    assert!(repo.args.schema.is_none());
+    assert_eq!(repo.args.repo, Some("/tmp/repo".into()));
 }
 
 #[test]
@@ -36,7 +38,14 @@ fn snapshot_is_explicit_and_range_is_not_viewport_size() {
         snapshot_directory: "/tmp/index".into(),
         ..OpenDraft::default()
     };
-    assert!(open_spec(&opening, Path::new("/tmp")).is_err());
+    opening.paths = "/tmp/data".into();
+    assert!(
+        open_spec(&opening, Path::new("/tmp"))
+            .unwrap()
+            .args
+            .write_index
+            .is_none()
+    );
     opening.snapshot = SnapshotMode::LoadAndWrite;
     let spec = open_spec(&opening, Path::new("/tmp")).unwrap();
     assert_eq!(spec.args.load_index.as_deref(), Some("/tmp/index"));
@@ -54,6 +63,15 @@ fn snapshot_is_explicit_and_range_is_not_viewport_size() {
     assert!(spec.count);
     let unlimited = query_spec(&SearchDraft::default()).unwrap();
     assert_eq!(unlimited.limit, None);
+}
+
+#[test]
+fn empty_path_never_defaults_to_process_working_directory() {
+    assert!(
+        open_spec(&OpenDraft::default(), Path::new("/tmp"))
+            .unwrap_err()
+            .contains("Choose a folder")
+    );
 }
 
 #[test]
