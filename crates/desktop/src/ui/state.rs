@@ -83,6 +83,7 @@ impl UiState {
                 self.single_collection = single_collection;
                 self.busy = Busy::None;
                 self.status = "Repository ready".into();
+                self.show_open_options = false;
                 self.errors.remove(&ErrorField::Open);
                 if single_collection {
                     self.search.collection = self.collections.first().cloned();

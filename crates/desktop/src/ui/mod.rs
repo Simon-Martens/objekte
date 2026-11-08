@@ -10,7 +10,9 @@ use std::sync::mpsc::Sender;
 
 use gpui_kit::component::input::{InputEvent, InputState, TextareaState};
 use gpui_kit::component::{Theme, ThemeMode};
-use gpui_kit::{AppContext as _, Context, Entity, FocusHandle, Subscription, Window};
+use gpui_kit::{
+    AppContext as _, Context, Entity, FocusHandle, ScrollHandle, Subscription, Window, point, px,
+};
 
 use model::{SearchDraft, UiAction, UiUpdate};
 use state::UiState;
@@ -41,6 +43,7 @@ pub struct DesktopView {
     state: UiState,
     inputs: Inputs,
     grid_focus: FocusHandle,
+    grid_scroll: ScrollHandle,
     detail_focus: FocusHandle,
     restoring_query: bool,
     _subscriptions: Vec<Subscription>,
@@ -87,7 +90,9 @@ impl DesktopView {
                 }),
             );
         }
+        Theme::change(ThemeMode::Dark, Some(window), cx);
         let state = UiState {
+            dark: true,
             show_preview: true,
             status: "Open a folder or configured repository to begin".into(),
             ..UiState::default()
@@ -97,6 +102,7 @@ impl DesktopView {
             state,
             inputs,
             grid_focus: cx.focus_handle(),
+            grid_scroll: ScrollHandle::new(),
             detail_focus: cx.focus_handle(),
             restoring_query: false,
             _subscriptions: subscriptions,
@@ -147,7 +153,19 @@ impl DesktopView {
                 input.set_value(draft.limit.clone(), window, cx)
             });
         }
+        let reset_grid_scroll = match &update {
+            UiUpdate::Opening(_) | UiUpdate::QueryStarted(_) => true,
+            UiUpdate::Page(page) => {
+                page.offset != self.state.page.offset
+                    || page.rows.first().map(|row| row.key.token)
+                        != self.state.page.rows.first().map(|row| row.key.token)
+            }
+            _ => false,
+        };
         self.state.apply(update);
+        if reset_grid_scroll {
+            self.grid_scroll.set_offset(point(px(0.), px(0.)));
+        }
         self.restoring_query = false;
         cx.notify();
     }
@@ -207,6 +225,7 @@ impl DesktopView {
             current.saturating_add_signed(delta).min(len - 1)
         });
         self.state.page.selected = Some(next);
+        self.grid_scroll.scroll_to_item(next + 1);
         self.send(UiAction::SelectRow(next));
         cx.notify();
     }
@@ -218,6 +237,7 @@ impl DesktopView {
         }
         let index = if last { len - 1 } else { 0 };
         self.state.page.selected = Some(index);
+        self.grid_scroll.scroll_to_item(index + 1);
         self.send(UiAction::SelectRow(index));
         cx.notify();
     }

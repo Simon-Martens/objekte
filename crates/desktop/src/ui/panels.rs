@@ -1,7 +1,7 @@
 //! Ordinary controls for opening, inspection, history, and output actions.
 
 use gpui_kit::component::{
-    Disableable as _,
+    Disableable as _, IconName, Selectable as _,
     button::{Button, ButtonVariants},
     checkbox::Checkbox,
     input::{Input, Textarea},
@@ -30,14 +30,20 @@ impl DesktopView {
             .gap_2()
             .p_3()
             .bg(rgb(if self.state.dark { 0x202a35 } else { 0xe8f0f7 }))
-            .child(div().child("Open repository"))
+            .child(
+                div()
+                    .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                    .child("Open repository"),
+            )
             .child(
                 div()
                     .flex()
                     .gap_2()
                     .child(
                         Button::new("mode-folder")
+                            .icon(IconName::FolderClosed)
                             .label("One folder")
+                            .selected(self.state.open.mode == OpenMode::Folder)
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.open.mode = OpenMode::Folder;
                                 cx.notify();
@@ -45,7 +51,9 @@ impl DesktopView {
                     )
                     .child(
                         Button::new("mode-multiple")
+                            .icon(IconName::FolderOpen)
                             .label("Multiple folders")
+                            .selected(self.state.open.mode == OpenMode::MultipleFolders)
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.open.mode = OpenMode::MultipleFolders;
                                 cx.notify();
@@ -53,7 +61,9 @@ impl DesktopView {
                     )
                     .child(
                         Button::new("mode-repo")
+                            .icon(IconName::LayoutDashboard)
                             .label("Configured repository")
+                            .selected(self.state.open.mode == OpenMode::ConfiguredRepository)
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.open.mode = OpenMode::ConfiguredRepository;
                                 cx.notify();
@@ -61,6 +71,7 @@ impl DesktopView {
                     )
                     .child(
                         Button::new("choose-folder")
+                            .icon(IconName::FolderOpen)
                             .label("Choose folder…")
                             .on_click(cx.listener(|this, _, _, cx| this.choose_folder(cx))),
                     ),
@@ -167,6 +178,7 @@ impl DesktopView {
                     .child(
                         Button::new("snapshot-none")
                             .label("None")
+                            .selected(self.state.open.snapshot == SnapshotMode::None)
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.open.snapshot = SnapshotMode::None;
                                 cx.notify();
@@ -175,6 +187,7 @@ impl DesktopView {
                     .child(
                         Button::new("snapshot-load")
                             .label("Load")
+                            .selected(self.state.open.snapshot == SnapshotMode::Load)
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.open.snapshot = SnapshotMode::Load;
                                 cx.notify();
@@ -183,17 +196,21 @@ impl DesktopView {
                     .child(
                         Button::new("snapshot-write")
                             .label("Write")
+                            .selected(self.state.open.snapshot == SnapshotMode::Write)
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.open.snapshot = SnapshotMode::Write;
                                 cx.notify();
                             })),
                     )
-                    .child(Button::new("snapshot-both").label("Load + Write").on_click(
-                        cx.listener(|this, _, _, cx| {
-                            this.state.open.snapshot = SnapshotMode::LoadAndWrite;
-                            cx.notify();
-                        }),
-                    ))
+                    .child(
+                        Button::new("snapshot-both")
+                            .label("Load + Write")
+                            .selected(self.state.open.snapshot == SnapshotMode::LoadAndWrite)
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.open.snapshot = SnapshotMode::LoadAndWrite;
+                                cx.notify();
+                            })),
+                    )
                     .child(
                         Input::new(&self.inputs.snapshot_directory)
                             .id("snapshot-directory")
@@ -202,19 +219,16 @@ impl DesktopView {
                     .child(
                         Button::new("open-repository")
                             .primary()
+                            .icon(IconName::FolderOpen)
                             .label("Open")
                             .on_click(cx.listener(|this, _, _, cx| this.open_from_inputs(cx))),
                     )
                     .child(
                         Button::new("write-index")
+                            .icon(IconName::HardDrive)
                             .label("Write Index")
                             .on_click(cx.listener(|this, _, _, _| this.send(UiAction::WriteIndex))),
                     ),
-            )
-            .child(
-                div()
-                    .text_sm()
-                    .child(format!("Snapshot choice: {:?}", self.state.open.snapshot)),
             )
             .when(open_error.is_some(), |this| {
                 this.child(
@@ -291,6 +305,7 @@ impl DesktopView {
                     .child(
                         Button::new("run-batch")
                             .primary()
+                            .icon(IconName::Play)
                             .label("Run Batch")
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.send(UiAction::RunBatch {
@@ -308,6 +323,7 @@ impl DesktopView {
                     )
                     .child(
                         Button::new("cancel-batch")
+                            .icon(IconName::Close)
                             .label("Cancel")
                             .on_click(cx.listener(|this, _, _, _| this.send(UiAction::Cancel))),
                     ),
@@ -341,58 +357,77 @@ impl DesktopView {
             .selected
             .and_then(|index| self.state.page.rows.get(index))
             .and_then(|row| row.preview.clone());
-        let mut panel =
-            div()
-                .id("record-panel")
-                .track_focus(&self.detail_focus)
-                .on_key_down(
-                    cx.listener(|this, event: &gpui_kit::KeyDownEvent, window, cx| {
-                        if window.focused(cx).as_ref() != Some(&this.detail_focus) {
-                            return;
-                        }
-                        match event.keystroke.key.as_str() {
-                            "up" => this.select_detail_relative(-1, cx),
-                            "down" => this.select_detail_relative(1, cx),
-                            "enter" => this.activate_detail_row(),
-                            _ => return,
-                        }
-                        cx.stop_propagation();
-                    }),
-                )
-                .flex()
-                .flex_col()
-                .w(px(365.))
-                .h_full()
-                .gap_2()
-                .p_3()
-                .bg(rgb(if self.state.dark { 0x17202b } else { 0xf2f6fa }))
-                .child(div().child("Record"))
-                .child(
-                    div()
-                        .flex()
-                        .gap_1()
-                        .child(Button::new("previous-record").label("←").on_click(
-                            cx.listener(|this, _, _, _| this.send(UiAction::AdjacentResult(false))),
-                        ))
-                        .child(Button::new("next-record").label("→").on_click(
-                            cx.listener(|this, _, _, _| this.send(UiAction::AdjacentResult(true))),
-                        ))
-                        .child(Button::new("relation-back").label("Back").on_click(
-                            cx.listener(|this, _, _, _| this.send(UiAction::BackRelation)),
-                        ))
-                        .child(Button::new("close-detail").label("Close").on_click(
-                            cx.listener(|this, _, _, _| this.send(UiAction::CloseDetail)),
-                        )),
-                )
-                .when(self.state.show_preview && preview.is_some(), |this| {
-                    this.child(div().text_sm().child("Preview")).child(
-                        div()
-                            .id("record-preview")
-                            .max_h(px(110.))
-                            .child(preview.unwrap_or_default())
-                            .overflow_y_scrollbar(),
+        let mut panel = div()
+            .id("record-panel")
+            .track_focus(&self.detail_focus)
+            .on_key_down(
+                cx.listener(|this, event: &gpui_kit::KeyDownEvent, window, cx| {
+                    if window.focused(cx).as_ref() != Some(&this.detail_focus) {
+                        return;
+                    }
+                    match event.keystroke.key.as_str() {
+                        "up" => this.select_detail_relative(-1, cx),
+                        "down" => this.select_detail_relative(1, cx),
+                        "enter" => this.activate_detail_row(),
+                        _ => return,
+                    }
+                    cx.stop_propagation();
+                }),
+            )
+            .flex()
+            .flex_col()
+            .w(px(365.))
+            .h_full()
+            .gap_2()
+            .p_3()
+            .bg(rgb(if self.state.dark { 0x17202b } else { 0xf2f6fa }))
+            .child(div().child("Record"))
+            .child(
+                div()
+                    .flex()
+                    .gap_1()
+                    .child(
+                        Button::new("previous-record")
+                            .icon(IconName::ArrowLeft)
+                            .tooltip("Previous result")
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.send(UiAction::AdjacentResult(false))
+                            })),
                     )
-                });
+                    .child(
+                        Button::new("next-record")
+                            .icon(IconName::ArrowRight)
+                            .tooltip("Next result")
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.send(UiAction::AdjacentResult(true))
+                            })),
+                    )
+                    .child(
+                        Button::new("relation-back")
+                            .icon(IconName::Undo)
+                            .label("Back")
+                            .on_click(
+                                cx.listener(|this, _, _, _| this.send(UiAction::BackRelation)),
+                            ),
+                    )
+                    .child(
+                        Button::new("close-detail")
+                            .icon(IconName::Close)
+                            .label("Close")
+                            .on_click(
+                                cx.listener(|this, _, _, _| this.send(UiAction::CloseDetail)),
+                            ),
+                    ),
+            )
+            .when(self.state.show_preview && preview.is_some(), |this| {
+                this.child(div().text_sm().child("Preview")).child(
+                    div()
+                        .id("record-preview")
+                        .max_h(px(110.))
+                        .child(preview.unwrap_or_default())
+                        .overflow_y_scrollbar(),
+                )
+            });
         let Some(detail) = detail else {
             return panel.child(
                 div()
@@ -401,88 +436,93 @@ impl DesktopView {
             );
         };
         let relation_selected = detail.selected_row.checked_sub(detail.structured.len());
-        panel =
-            panel
-                .child(div().text_sm().child(detail.title.clone()))
-                .child(
-                    div()
-                        .flex()
-                        .gap_1()
-                        .child(Button::new("structured-view").label("Structured").on_click(
-                            cx.listener(|this, _, _, cx| {
-                                this.state.show_raw = false;
-                                cx.notify();
-                            }),
-                        ))
-                        .child(Button::new("raw-view").label("Original source").on_click(
-                            cx.listener(|this, _, _, cx| {
+        panel = panel
+            .child(div().text_sm().child(detail.title.clone()))
+            .child(
+                div()
+                    .flex()
+                    .gap_1()
+                    .child(Button::new("structured-view").label("Structured").on_click(
+                        cx.listener(|this, _, _, cx| {
+                            this.state.show_raw = false;
+                            cx.notify();
+                        }),
+                    ))
+                    .child(
+                        Button::new("raw-view")
+                            .label("Original source")
+                            .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_raw = true;
                                 this.send(UiAction::ToggleRawSource);
                                 cx.notify();
-                            }),
-                        )),
-                )
-                .child(
-                    div()
-                        .flex()
-                        .gap_1()
-                        .child(
-                            Button::new("copy-value")
-                                .label("Copy value")
-                                .on_click(cx.listener(|this, _, _, _| {
-                                    this.send(if this.state.show_raw {
-                                        UiAction::CopyRecord
-                                    } else {
-                                        UiAction::CopySelectedValue
-                                    });
-                                })),
-                        )
-                        .child(Button::new("copy-record").label("Copy record").on_click(
-                            cx.listener(|this, _, _, _| this.send(UiAction::CopyRecord)),
-                        )),
-                )
-                .child(
-                    div()
-                        .flex()
-                        .gap_1()
-                        .child(
-                            Button::new("previous-section")
-                                .label("Previous section")
-                                .on_click(cx.listener(|this, _, _, _| {
-                                    this.send(UiAction::DetailSectionRelative(false))
-                                })),
-                        )
-                        .child(Button::new("next-section").label("Next section").on_click(
-                            cx.listener(|this, _, _, _| {
-                                this.send(UiAction::DetailSectionRelative(true))
-                            }),
-                        )),
-                )
-                .child(
-                    div()
-                        .flex()
-                        .gap_1()
-                        .items_center()
-                        .child(Input::new(&self.inputs.find).id("record-find").w(px(180.)))
-                        .child(
-                            Button::new("find-previous")
-                                .label("↑")
-                                .on_click(cx.listener(|this, _, _, cx| {
-                                    this.send(UiAction::FindInRecord {
-                                        text: this.inputs.find.read(cx).value().to_string(),
-                                        forward: false,
-                                    });
-                                })),
-                        )
-                        .child(Button::new("find-next").label("↓").on_click(cx.listener(
-                            |this, _, _, cx| {
+                            })),
+                    ),
+            )
+            .child(
+                div()
+                    .flex()
+                    .gap_1()
+                    .child(
+                        Button::new("copy-value")
+                            .icon(IconName::Copy)
+                            .label("Copy value")
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.send(if this.state.show_raw {
+                                    UiAction::CopyRecord
+                                } else {
+                                    UiAction::CopySelectedValue
+                                });
+                            })),
+                    )
+                    .child(
+                        Button::new("copy-record")
+                            .icon(IconName::Copy)
+                            .label("Copy record")
+                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::CopyRecord))),
+                    ),
+            )
+            .child(
+                div()
+                    .flex()
+                    .gap_1()
+                    .child(
+                        Button::new("previous-section")
+                            .label("Previous section")
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.send(UiAction::DetailSectionRelative(false))
+                            })),
+                    )
+                    .child(Button::new("next-section").label("Next section").on_click(
+                        cx.listener(|this, _, _, _| {
+                            this.send(UiAction::DetailSectionRelative(true))
+                        }),
+                    )),
+            )
+            .child(
+                div()
+                    .flex()
+                    .gap_1()
+                    .items_center()
+                    .child(Input::new(&self.inputs.find).id("record-find").w(px(180.)))
+                    .child(
+                        Button::new("find-previous")
+                            .label("↑")
+                            .on_click(cx.listener(|this, _, _, cx| {
                                 this.send(UiAction::FindInRecord {
                                     text: this.inputs.find.read(cx).value().to_string(),
-                                    forward: true,
+                                    forward: false,
                                 });
-                            },
-                        ))),
-                );
+                            })),
+                    )
+                    .child(Button::new("find-next").label("↓").on_click(cx.listener(
+                        |this, _, _, cx| {
+                            this.send(UiAction::FindInRecord {
+                                text: this.inputs.find.read(cx).value().to_string(),
+                                forward: true,
+                            });
+                        },
+                    ))),
+            );
         if self.state.show_raw {
             panel = panel
                 .child(div().text_sm().child(detail.source_label))

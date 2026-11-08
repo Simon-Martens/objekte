@@ -29,6 +29,21 @@ fn new_repository_discards_old_results_and_detail() {
 }
 
 #[test]
+fn opening_a_repository_returns_to_the_results_workspace() {
+    let mut state = UiState {
+        show_open_options: true,
+        ..UiState::default()
+    };
+    state.apply(UiUpdate::Opened {
+        root: "example".into(),
+        collections: vec!["records".into()],
+        single_collection: true,
+    });
+    assert!(!state.show_open_options);
+    assert_eq!(state.search.collection.as_deref(), Some("records"));
+}
+
+#[test]
 fn query_restore_keeps_exact_inputs() {
     let mut state = UiState::default();
     let draft = SearchDraft {

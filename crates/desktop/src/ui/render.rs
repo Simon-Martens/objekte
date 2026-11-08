@@ -1,7 +1,7 @@
 //! Read-only workspace layout inspired by DBDelve's dense sidebar and grid.
 
 use gpui_kit::component::{
-    Disableable as _,
+    Disableable as _, IconName, Selectable as _,
     button::{Button, ButtonVariants},
     checkbox::Checkbox,
     input::Input,
@@ -32,11 +32,24 @@ impl DesktopView {
             .px_4()
             .py_2()
             .bg(rgb(if self.state.dark { 0x171c25 } else { 0xe9eef5 }))
-            .child(div().text_lg().child("Objekte"))
-            .child(div().flex_1().min_w_0().text_sm().child(root))
+            .child(
+                div()
+                    .text_lg()
+                    .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                    .child("Objekte"),
+            )
+            .child(
+                div()
+                    .flex_1()
+                    .min_w_0()
+                    .text_sm()
+                    .text_color(rgb(if self.state.dark { 0x93a4b8 } else { 0x526276 }))
+                    .child(root),
+            )
             .child(
                 Button::new("open-panel")
-                    .label("Open")
+                    .icon(IconName::FolderOpen)
+                    .label("Open repository")
                     .on_click(cx.listener(|this, _, _, cx| {
                         this.state.show_open_options = !this.state.show_open_options;
                         cx.notify();
@@ -44,6 +57,7 @@ impl DesktopView {
             )
             .child(
                 Button::new("batch-panel")
+                    .icon(IconName::SquareTerminal)
                     .label("Batch")
                     .on_click(cx.listener(|this, _, _, cx| {
                         this.state.show_batch = !this.state.show_batch;
@@ -52,6 +66,7 @@ impl DesktopView {
             )
             .child(
                 Button::new("actions-panel")
+                    .icon(IconName::Ellipsis)
                     .label("Actions")
                     .on_click(cx.listener(|this, _, _, cx| {
                         this.state.show_actions = !this.state.show_actions;
@@ -60,6 +75,11 @@ impl DesktopView {
             )
             .child(
                 Button::new("theme-button")
+                    .icon(if self.state.dark {
+                        IconName::Sun
+                    } else {
+                        IconName::Moon
+                    })
                     .label(if self.state.dark { "Light" } else { "Dark" })
                     .on_click(cx.listener(|this, _, _, cx| {
                         this.state.dark = !this.state.dark;
@@ -80,6 +100,7 @@ impl DesktopView {
             )
             .child(
                 Button::new("help-button")
+                    .icon(IconName::Info)
                     .label("Help")
                     .on_click(cx.listener(|this, _, _, cx| {
                         this.state.show_help = !this.state.show_help;
@@ -97,28 +118,40 @@ impl DesktopView {
             .flex_col()
             .w(px(220.))
             .h_full()
+            .flex_shrink_0()
             .gap_1()
             .p_3()
             .bg(rgb(if self.state.dark { 0x131922 } else { 0xf0f4f8 }))
-            .child(div().child("Collections"));
-        if !self.state.single_collection {
-            sidebar = sidebar.child(Button::new("scope-all").label("All collections").on_click(
-                cx.listener(|this, _, _, cx| {
-                    this.state.search.collection = None;
-                    this.search_from_inputs(false, cx);
-                }),
-            ));
+            .child(
+                div()
+                    .text_sm()
+                    .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                    .child("COLLECTIONS"),
+            );
+        if !self.state.single_collection && !self.state.collections.is_empty() {
+            sidebar = sidebar.child(
+                Button::new("scope-all")
+                    .icon(IconName::LayoutDashboard)
+                    .label("All collections")
+                    .selected(selected.is_none())
+                    .on_click(cx.listener(|this, _, _, cx| {
+                        this.state.search.collection = None;
+                        this.search_from_inputs(false, cx);
+                    })),
+            );
         }
         let names = self.state.collections.clone();
         sidebar
             .children(names.into_iter().enumerate().map(|(index, name)| {
                 let chosen = selected.as_deref() == Some(name.as_str());
                 Button::new(format!("scope-{index}"))
-                    .label(if chosen {
-                        format!("● {name}")
+                    .icon(if chosen {
+                        IconName::FolderOpen
                     } else {
-                        name.clone()
+                        IconName::FolderClosed
                     })
+                    .label(name.clone())
+                    .selected(chosen)
                     .on_click(cx.listener(move |this, _, _, cx| {
                         this.state.search.collection = Some(name.clone());
                         this.search_from_inputs(false, cx);
@@ -135,9 +168,14 @@ impl DesktopView {
         div()
             .flex()
             .flex_col()
+            .flex_shrink_0()
             .gap_2()
             .p_3()
-            .child(div().child("Query"))
+            .child(
+                div()
+                    .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                    .child("Search"),
+            )
             .child(div().text_sm().child("Full Text"))
             .child(
                 Input::new(&self.inputs.full_text)
@@ -228,6 +266,7 @@ impl DesktopView {
                     .child(
                         Button::new("run-query")
                             .primary()
+                            .icon(IconName::Search)
                             .label("Run Query")
                             .on_click(
                                 cx.listener(|this, _, _, cx| this.search_from_inputs(true, cx)),
@@ -235,6 +274,7 @@ impl DesktopView {
                     )
                     .child(
                         Button::new("cancel-query")
+                            .icon(IconName::Close)
                             .label("Cancel")
                             .on_click(cx.listener(|this, _, _, _| this.send(UiAction::Cancel))),
                     ),
@@ -256,6 +296,7 @@ impl DesktopView {
                     .child(Input::new(&self.inputs.limit).id("limit-input").w(px(90.)))
                     .child(
                         Button::new("columns-button")
+                            .icon(IconName::PanelLeft)
                             .label("Columns")
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_columns = !this.state.show_columns;
@@ -265,6 +306,11 @@ impl DesktopView {
                     )
                     .child(
                         Button::new("preview-button")
+                            .icon(if self.state.show_preview {
+                                IconName::EyeOff
+                            } else {
+                                IconName::Eye
+                            })
                             .label(if self.state.show_preview {
                                 "Hide preview"
                             } else {
@@ -296,6 +342,48 @@ impl DesktopView {
     }
 
     fn render_grid(&self, cx: &mut Context<Self>) -> impl IntoElement {
+        if self.state.root.is_none() {
+            let opening = self.state.busy == Busy::Opening;
+            return div()
+                .flex()
+                .flex_col()
+                .flex_1()
+                .items_center()
+                .justify_center()
+                .gap_3()
+                .child(
+                    div()
+                        .text_2xl()
+                        .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                        .child(if opening {
+                            "Opening repository"
+                        } else {
+                            "Explore your data"
+                        }),
+                )
+                .child(
+                    div()
+                        .text_color(rgb(if self.state.dark { 0x93a4b8 } else { 0x526276 }))
+                        .child(if opening {
+                            "Building the search index. The window remains usable."
+                        } else {
+                            "Open a folder or configured repository to search and inspect records."
+                        }),
+                )
+                .when(!opening && !self.state.show_open_options, |this| {
+                    this.child(
+                        Button::new("empty-open")
+                            .primary()
+                            .icon(IconName::FolderOpen)
+                            .label("Open repository")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_open_options = true;
+                                cx.notify();
+                            })),
+                    )
+                })
+                .into_any_element();
+        }
         let page = self.state.page.clone();
         let total = page.exact_total.map_or_else(
             || {
@@ -309,13 +397,22 @@ impl DesktopView {
         );
         let header = div()
             .flex()
+            .items_center()
+            .h(px(36.))
+            .flex_shrink_0()
             .gap_1()
-            .child(div().w(px(52.)).child("#"))
-            .children(
-                page.columns
-                    .iter()
-                    .map(|column| div().w(px(160.)).child(column.clone())),
-            );
+            .bg(rgb(if self.state.dark { 0x25303d } else { 0xe8eef4 }))
+            .child(div().w(px(52.)).flex_shrink_0().px_2().child("#"))
+            .children(page.columns.iter().map(|column| {
+                div()
+                    .w(px(160.))
+                    .flex_shrink_0()
+                    .px_2()
+                    .overflow_hidden()
+                    .whitespace_nowrap()
+                    .text_ellipsis()
+                    .child(column.clone())
+            }));
         let selected = page.selected;
         let visible_columns = page.columns.len();
         let offset = page.offset;
@@ -332,11 +429,21 @@ impl DesktopView {
                     .flex()
                     .items_center()
                     .gap_2()
-                    .child(div().child("Results"))
-                    .child(div().text_sm().child(total))
+                    .child(
+                        div()
+                            .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                            .child("Results"),
+                    )
+                    .child(
+                        div()
+                            .text_sm()
+                            .text_color(rgb(if self.state.dark { 0x93a4b8 } else { 0x526276 }))
+                            .child(total),
+                    )
                     .child(div().flex_1())
                     .child(
                         Button::new("previous-page")
+                            .icon(IconName::ChevronLeft)
                             .label("Previous")
                             .disabled(!page.has_previous)
                             .on_click(
@@ -345,6 +452,7 @@ impl DesktopView {
                     )
                     .child(
                         Button::new("next-page")
+                            .icon(IconName::ChevronRight)
                             .label("Next")
                             .disabled(!page.has_next)
                             .on_click(
@@ -353,6 +461,7 @@ impl DesktopView {
                     )
                     .child(
                         Button::new("open-detail")
+                            .icon(IconName::PanelRightOpen)
                             .label("Inspect")
                             .on_click(cx.listener(|this, _, _, _| this.send(UiAction::OpenDetail))),
                     ),
@@ -361,6 +470,7 @@ impl DesktopView {
                 div()
                     .id("results-scroll")
                     .track_focus(&self.grid_focus)
+                    .track_scroll(&self.grid_scroll)
                     .on_key_down(cx.listener(|this, event: &gpui_kit::KeyDownEvent, _, cx| {
                         match event.keystroke.key.as_str() {
                             "up" => this.select_relative(-1, cx),
@@ -379,6 +489,7 @@ impl DesktopView {
                     .flex_1()
                     .min_h_0()
                     .min_w_0()
+                    .bg(rgb(if self.state.dark { 0x141c26 } else { 0xffffff }))
                     .child(header)
                     .children(page.rows.into_iter().enumerate().map(|(index, row)| {
                         let chosen = selected == Some(index);
@@ -400,12 +511,29 @@ impl DesktopView {
                         let mut line = div()
                             .id(("result-row", index))
                             .flex()
+                            .items_center()
+                            .h(px(36.))
+                            .flex_shrink_0()
                             .gap_1()
-                            .py_1()
                             .bg(rgb(shade))
-                            .child(div().w(px(52.)).child((offset + index + 1).to_string()));
+                            .child(
+                                div()
+                                    .w(px(52.))
+                                    .flex_shrink_0()
+                                    .px_2()
+                                    .child((offset + index + 1).to_string()),
+                            );
                         for cell in row.cells.into_iter().take(visible_columns) {
-                            line = line.child(div().w(px(160.)).child(cell));
+                            line = line.child(
+                                div()
+                                    .w(px(160.))
+                                    .flex_shrink_0()
+                                    .px_2()
+                                    .overflow_hidden()
+                                    .whitespace_nowrap()
+                                    .text_ellipsis()
+                                    .child(cell),
+                            );
                         }
                         let match_label = row
                             .matched_fields
@@ -419,14 +547,15 @@ impl DesktopView {
                             this.send(UiAction::SelectRow(index));
                             cx.notify();
                         }));
-                        div().flex().flex_col().child(line).when(
+                        div().flex().flex_col().flex_shrink_0().child(line).when(
                             chosen && !match_label.is_empty(),
                             |this| {
                                 this.child(div().text_sm().child(format!("Matched: {match_label}")))
                             },
                         )
                     }))
-                    .overflow_scrollbar(),
+                    .overflow_scroll()
+                    .vertical_scrollbar(&self.grid_scroll),
             )
             .when(clipped, |this| {
                 this.child(
@@ -435,6 +564,7 @@ impl DesktopView {
                         .child("Visible cells are clipped; exports contain complete records."),
                 )
             })
+            .into_any_element()
     }
 
     fn render_status(&self) -> impl IntoElement {
@@ -506,17 +636,26 @@ impl Render for DesktopView {
                     .flex()
                     .flex_1()
                     .min_h_0()
-                    .child(self.render_sidebar(cx))
+                    .when(self.state.root.is_some(), |this| {
+                        this.child(self.render_sidebar(cx))
+                    })
                     .child(
                         div()
                             .flex()
                             .flex_col()
                             .flex_1()
+                            .min_h_0()
                             .min_w_0()
-                            .child(self.render_query(cx))
+                            .when(self.state.root.is_some(), |this| {
+                                this.child(self.render_query(cx))
+                            })
                             .child(self.render_grid(cx)),
                     )
-                    .child(self.render_detail(cx)),
+                    .when(
+                        self.state.detail.is_some()
+                            || (self.state.show_preview && self.state.page.selected.is_some()),
+                        |this| this.child(self.render_detail(cx)),
+                    ),
             )
             .when(self.state.show_actions, |this| {
                 this.child(self.render_actions(cx))
