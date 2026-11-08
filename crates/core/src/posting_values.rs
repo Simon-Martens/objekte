@@ -10,12 +10,15 @@ use crate::lifecycle::PublishedSegment;
 use crate::lifecycle_catalog::FileCatalog;
 use crate::inference::InferenceMode;
 use crate::build::IndexedCollectionSegment;
-use crate::inventory::ActiveRecords;
+use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
-use crate::model::{FieldPath, LogicalType, PathRoot, RecordId};
+use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
 use crate::posting::{PostingIndex, ScalarKey};
 use crate::query::Query;
+use crate::record_preparation::prepare_query_record_with_execution;
+use crate::reference::FieldDefinition;
 use crate::repository::{CollectionState, Repository};
+use crate::source::{RecordRangeReader, ScanProjection};
 
 static NEXT_SELECTION_ID: AtomicU64 = AtomicU64::new(1);
 pub const MAX_POSTING_VALUES_PAGE: usize = 4096;
@@ -292,6 +295,110 @@ fn resolve_segment<'a>(
     })
 }
 
+struct ScannedSegmentPosting {
+    index: PostingIndex,
+    complete_values: RoaringBitmap,
+}
+
+fn fully_represented(value: &Value, max_short_string: Option<usize>) -> bool {
+    match value {
+        Value::Array(array) => {
+            (max_short_string.is_none() || !array.values.is_empty())
+                && array.values.iter().all(|value| {
+                    !matches!(value, Value::Array(_) | Value::Object(_))
+                        && fully_represented(value, max_short_string)
+                })
+        }
+        Value::Null => max_short_string.is_none(),
+        Value::String(text) => max_short_string.is_none_or(|limit| text.len() <= limit),
+        value => max_short_string.is_none() && ScalarKey::from_value(value).is_some(),
+    }
+}
+
+fn scan_inferred_segment(
+    repo: &Repository,
+    collection: &CollectionState,
+    segment: &PublishedSegment,
+    catalog: &FileCatalog,
+    path: &FieldPath,
+    kind: &LogicalType,
+    multi: bool,
+    max_short_string: Option<usize>,
+) -> Result<ScannedSegmentPosting, String> {
+    let field = FieldDefinition {
+        path: path.segments.clone(),
+        kind: kind.clone(),
+        required: false,
+        nullable: true,
+        indexed: true,
+        multi,
+        element_nullable: Vec::new(),
+    };
+    let mut index = PostingIndex::new(&field);
+    let mut complete_values = RoaringBitmap::new();
+    for file in &segment.index.files {
+        let ranges = file
+            .records
+            .iter()
+            .filter(|slot| segment.active.contains(**slot))
+            .filter_map(|slot| {
+                let record = &segment.index.records[slot.0 as usize];
+                (record.class == RecordClass::Logical).then_some((slot.0, record.range))
+            })
+            .collect::<Vec<_>>();
+        if ranges.is_empty() {
+            continue;
+        }
+        let current = catalog
+            .entry(file.entry.id)
+            .ok_or("active inferred segment file retired")?;
+        if current.relative_path != file.entry.relative_path
+            || current.revision != file.entry.revision
+        {
+            return Err("active inferred segment file changed without retirement".into());
+        }
+        let mut reader = RecordRangeReader::open(
+            &repo.files.root.join(&current.relative_path),
+            current.revision,
+        )?;
+        for batch in ranges.chunks(128) {
+            for (slot, bytes) in reader.read(batch)?.0 {
+                let value = prepare_query_record_with_execution(
+                    &collection.source,
+                    &collection.definition.schema,
+                    &bytes,
+                    &ScanProjection::full(false),
+                    false,
+                    None,
+                )?
+                .value;
+                index.add(crate::model::RecordSlot(slot), &value)?;
+                if crate::reference::data_values(&value, &path.segments).map_or(
+                    max_short_string.is_none(),
+                    |values| {
+                        (max_short_string.is_none() || !values.is_empty())
+                            && values
+                                .iter()
+                                .all(|value| fully_represented(value, max_short_string))
+                    },
+                ) {
+                    complete_values.insert(slot);
+                }
+            }
+        }
+    }
+    if let Some(limit) = max_short_string {
+        index
+            .values
+            .retain(|key, _| !matches!(key, ScalarKey::String(text) if text.len() > limit));
+    }
+    index.finish_stats();
+    Ok(ScannedSegmentPosting {
+        index,
+        complete_values,
+    })
+}
+
 fn key_kind(kind: &LogicalType) -> &LogicalType {
     match kind {
         LogicalType::Array(inner) => key_kind(inner),
@@ -475,8 +582,33 @@ pub(crate) fn posting_values_segmented(
     }
     let binding = base.binding.clone();
     let binding_version = base.binding_version;
-    let mut resolved = vec![base];
+    let short_limit = (binding == "inferred"
+        && base.indexed_records.is_some()
+        && key_kind(&base.index.kind) == &LogicalType::String)
+        .then_some(repo.options.inference.policy.short_string_max_utf8_bytes);
+    let mut fallbacks = Vec::with_capacity(segments[collection_index].len());
     for segment in segments[collection_index].iter() {
+        let missing = binding == "inferred"
+            && segment.active.len() > 0
+            && resolve_segment(collection, &segment.index, &path, &binding, binding_version)
+                .map_or(true, |posting| posting.index.kind != base.index.kind);
+        fallbacks.push(if missing {
+            Some(scan_inferred_segment(
+                repo,
+                collection,
+                segment,
+                catalog,
+                &path,
+                &base.index.kind,
+                base.index.multi,
+                short_limit,
+            )?)
+        } else {
+            None
+        });
+    }
+    let mut resolved = vec![base];
+    for (segment_index, segment) in segments[collection_index].iter().enumerate() {
         if segment.active.len() == 0 {
             resolved.push(ResolvedPosting {
                 index: resolved[0].index,
@@ -487,9 +619,24 @@ pub(crate) fn posting_values_segmented(
             });
             continue;
         }
+        if let Some(fallback) = &fallbacks[segment_index] {
+            resolved.push(ResolvedPosting {
+                index: &fallback.index,
+                binding: binding.clone(),
+                binding_version,
+                indexed_records: Some(&fallback.complete_values),
+                native_prefix: true,
+            });
+            continue;
+        }
         for file in &segment.index.files {
-            if file.records.iter().any(|slot| segment.active.contains(*slot)) {
-                let current = catalog.entry(file.entry.id)
+            if file
+                .records
+                .iter()
+                .any(|slot| segment.active.contains(*slot))
+            {
+                let current = catalog
+                    .entry(file.entry.id)
                     .ok_or("active segment posting file retired")?;
                 if current.relative_path != file.entry.relative_path
                     || current.revision != file.entry.revision
@@ -499,10 +646,17 @@ pub(crate) fn posting_values_segmented(
             }
         }
         resolved.push(resolve_segment(
-            collection, &segment.index, &path, &binding, binding_version,
+            collection,
+            &segment.index,
+            &path,
+            &binding,
+            binding_version,
         )?);
     }
-    if resolved.iter().any(|shard| shard.index.kind != resolved[0].index.kind) {
+    if resolved
+        .iter()
+        .any(|shard| shard.index.kind != resolved[0].index.kind)
+    {
         return Err("segment posting key type changed".into());
     }
     let selection = request.selection.as_ref().map(|selection| &selection.0);
