@@ -62,6 +62,10 @@ impl<'a> MergedRelationView<'a> {
         &self.repo.files.root
     }
 
+    pub(crate) fn segment_ordinal(&self, address: MergedRecordSlot) -> Option<u64> {
+        address.segment.map(|index| self.segments[address.collection.0 as usize][index].ordinal)
+    }
+
     pub(crate) fn relation_cardinality(
         &self,
         relation: RelationId,
@@ -233,7 +237,7 @@ impl<'a> MergedRelationView<'a> {
         &self,
         address: MergedRecordSlot,
         relation_index: usize,
-    ) -> Result<(Vec<(&str, &[u32])>, bool, bool, bool), String> {
+    ) -> Result<(Vec<(&str, &[u32])>, bool, bool, bool, bool), String> {
         let index = address.collection.0 as usize;
         if let Some(segment_index) = address.segment {
             let published = &self.segments[index][segment_index];
@@ -249,6 +253,7 @@ impl<'a> MergedRelationView<'a> {
                     .unwrap_or_default(),
                 contribution.present().contains(address.slot.0),
                 contribution.nulls().contains(address.slot.0),
+                contribution.empty_arrays().contains(address.slot.0),
                 contribution.unavailable().contains(address.slot.0),
             ))
         } else {
@@ -265,6 +270,7 @@ impl<'a> MergedRelationView<'a> {
                     .collect(),
                 relation.present().contains(address.slot.0),
                 relation.nulls().contains(address.slot.0),
+                relation.empty_arrays().contains(address.slot.0),
                 relation.unavailable().contains(address.slot.0),
             ))
         }

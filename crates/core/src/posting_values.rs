@@ -6,10 +6,13 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
+use crate::lifecycle::PublishedSegment;
+use crate::lifecycle_catalog::FileCatalog;
 use crate::inference::InferenceMode;
+use crate::build::IndexedCollectionSegment;
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::IndexRevision;
-use crate::model::{FieldPath, LogicalType, PathRoot};
+use crate::model::{FieldPath, LogicalType, PathRoot, RecordId};
 use crate::posting::{PostingIndex, ScalarKey};
 use crate::query::Query;
 use crate::repository::{CollectionState, Repository};
@@ -39,16 +42,19 @@ struct SelectionData {
     generation: u64,
     revision: Option<IndexRevision>,
     members: RoaringBitmap,
+    segment_members: Vec<RoaringBitmap>,
 }
 
 
 impl ExactSelection {
     pub fn len(&self) -> u64 {
-        self.0.members.len()
+        self.0.segment_members.iter().fold(self.0.members.len(), |total, members| {
+            total.saturating_add(members.len())
+        })
     }
 
     pub fn is_empty(&self) -> bool {
-        self.0.members.is_empty()
+        self.len() == 0
     }
 }
 
@@ -235,6 +241,57 @@ fn resolve<'a>(
     })
 }
 
+fn resolve_segment<'a>(
+    collection: &CollectionState,
+    segment: &'a IndexedCollectionSegment,
+    path: &FieldPath,
+    binding: &str,
+    binding_version: u32,
+) -> Result<ResolvedPosting<'a>, String> {
+    let (index, indexed_records) = if binding == "inferred" {
+        let inference = segment.inference.as_ref()
+            .filter(|state| state.report.mode == InferenceMode::AutoIndex && state.report.complete)
+            .ok_or("segment has no complete inferred posting index")?;
+        if inference.report.policy.version != binding_version {
+            return Err("segment inferred posting policy changed".into());
+        }
+        (
+            inference.indexes.get(&path.segments)
+                .ok_or("segment inferred posting field missing")?,
+            inference.short_string_coverage.get(&path.segments),
+        )
+    } else if binding == "default" {
+        (
+            segment.postings.fields.get(&path.segments)
+                .ok_or("segment posting field missing")?,
+            None,
+        )
+    } else {
+        let key = (path.segments.clone(), binding.to_owned());
+        let registration = collection.definition.schema.operations.get(&key)
+            .ok_or("segment posting binding missing")?;
+        if registration.version != binding_version {
+            return Err("segment posting binding version changed".into());
+        }
+        let custom = segment.custom_postings.get(&key)
+            .ok_or("segment custom posting missing")?;
+        if !custom.complete {
+            return Err("incomplete segment custom posting coverage".into());
+        }
+        (&custom.index, None)
+    };
+    if index.covered_records as u64 != segment.logical_records.len() {
+        return Err("incomplete segment posting logical coverage".into());
+    }
+    Ok(ResolvedPosting {
+        index,
+        binding: binding.to_owned(),
+        binding_version,
+        indexed_records,
+        native_prefix: binding == "default" || binding == "inferred",
+    })
+}
+
 fn key_kind(kind: &LogicalType) -> &LogicalType {
     match kind {
         LogicalType::Array(inner) => key_kind(inner),
@@ -325,6 +382,303 @@ fn empty_range(lower: &Bound<ScalarKey>, upper: &Bound<ScalarKey>) -> bool {
     }
 }
 
+pub(crate) fn select_exact_segmented(
+    repo: &Repository,
+    collection: &str,
+    query: &Query,
+    revision: IndexRevision,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+) -> Result<ExactSelection, String> {
+    let (collection_index, state) = repo.collections.iter().enumerate()
+        .find(|(_, state)| state.definition.name == collection)
+        .ok_or("unknown collection")?;
+    if !query.collections.is_empty() && !query.collections.iter().any(|name| name == collection) {
+        return Err("selection query excludes requested collection".into());
+    }
+    let mut request = query.resolve_current_clock()?.into_owned();
+    request.collections = vec![collection.to_owned()];
+    request.options.count = true;
+    request.options.offset = 0;
+    request.options.sort.clear();
+    request.options.evidence = false;
+    request.options.return_mode = crate::execution_options::ReturnMode::Locator;
+    request.options.limit = segments[collection_index].iter()
+        .try_fold(base_active[collection_index].len() as usize, |total, segment| {
+            total.checked_add(segment.active.len() as usize)
+        }).ok_or("selection domain too large")?;
+    let result = crate::run::search_segmented(
+        repo, &request, base_active, segments, catalog, revision,
+    )?;
+    if result.count != Some(result.hits.len()) {
+        return Err("exact selection result incomplete".into());
+    }
+    let mut members = RoaringBitmap::new();
+    let mut segment_members = vec![RoaringBitmap::new(); segments[collection_index].len()];
+    for hit in result.hits {
+        let id = RecordId(hit.record_id);
+        if let Some(slot) = state.id_lookup.get(&id)
+            && base_active[collection_index].contains(*slot)
+        {
+            members.insert(slot.0);
+            continue;
+        }
+        let mut found = false;
+        for (index, segment) in segments[collection_index].iter().enumerate() {
+            if let Some(slot) = segment.index.id_lookup.get(&id)
+                && segment.active.contains(*slot)
+            {
+                if found {
+                    return Err("duplicate active selection ID".into());
+                }
+                segment_members[index].insert(slot.0);
+                found = true;
+            }
+        }
+        if !found {
+            return Err("exact selection hit no longer resolves".into());
+        }
+    }
+    Ok(ExactSelection(Arc::new(SelectionData {
+        id: NEXT_SELECTION_ID.fetch_add(1, Ordering::Relaxed),
+        instance_id: repo.instance_id,
+        collection_index,
+        generation: state.generation.generation,
+        revision: Some(revision),
+        members,
+        segment_members,
+    })))
+}
+
+pub(crate) fn posting_values_segmented(
+    repo: &Repository,
+    request: &PostingValuesRequest,
+    revision: IndexRevision,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+) -> Result<PostingValuesPage, String> {
+    let (collection_index, collection) = repo.collections.iter().enumerate()
+        .find(|(_, collection)| collection.definition.name == request.collection)
+        .ok_or("unknown collection")?;
+    if base_active.len() != repo.collections.len() || segments.len() != repo.collections.len() {
+        return Err("posting value collection count mismatch".into());
+    }
+    if request.limit > MAX_POSTING_VALUES_PAGE {
+        return Err("posting value page limit exceeds maximum".into());
+    }
+    let path = FieldPath::parse(&request.field)?;
+    let base = resolve(collection, request, &path)?;
+    if base.index.covered_records as u64 != collection.logical_records.len() {
+        return Err("incomplete posting logical coverage".into());
+    }
+    let binding = base.binding.clone();
+    let binding_version = base.binding_version;
+    let mut resolved = vec![base];
+    for segment in segments[collection_index].iter() {
+        if segment.active.len() == 0 {
+            resolved.push(ResolvedPosting {
+                index: resolved[0].index,
+                binding: binding.clone(),
+                binding_version,
+                indexed_records: None,
+                native_prefix: resolved[0].native_prefix,
+            });
+            continue;
+        }
+        for file in &segment.index.files {
+            if file.records.iter().any(|slot| segment.active.contains(*slot)) {
+                let current = catalog.entry(file.entry.id)
+                    .ok_or("active segment posting file retired")?;
+                if current.relative_path != file.entry.relative_path
+                    || current.revision != file.entry.revision
+                {
+                    return Err("active segment posting file changed without retirement".into());
+                }
+            }
+        }
+        resolved.push(resolve_segment(
+            collection, &segment.index, &path, &binding, binding_version,
+        )?);
+    }
+    if resolved.iter().any(|shard| shard.index.kind != resolved[0].index.kind) {
+        return Err("segment posting key type changed".into());
+    }
+    let selection = request.selection.as_ref().map(|selection| &selection.0);
+    if selection.is_some_and(|selection| {
+        selection.instance_id != repo.instance_id
+            || selection.collection_index != collection_index
+            || selection.generation != collection.generation.generation
+            || selection.revision != Some(revision)
+            || selection.segment_members.len() != segments[collection_index].len()
+    }) {
+        return Err("exact selection scope mismatch".into());
+    }
+    for bound in [&request.lower, &request.upper].into_iter().flatten() {
+        if !compatible(&resolved[0].index.kind, &bound.value) {
+            return Err("posting value bound has incompatible type".into());
+        }
+    }
+    let prepared_prefix = if let Some(prefix) = &request.prefix {
+        if key_kind(&resolved[0].index.kind) != &LogicalType::String {
+            return Err("posting prefix requires a string field".into());
+        }
+        if resolved[0].native_prefix {
+            Some(prefix.clone())
+        } else {
+            let key = (path.segments.clone(), binding.clone());
+            Some(collection.definition.schema.operations[&key].operation
+                .prepare_posting_prefix(prefix)?
+                .ok_or("binding does not preserve prefix semantics")?)
+        }
+    } else {
+        None
+    };
+    let mut domains = Vec::with_capacity(resolved.len());
+    domains.push(base_active[collection_index].bitmap());
+    for segment in segments[collection_index].iter() {
+        domains.push(segment.active.bitmap());
+    }
+    if let Some(selection) = selection {
+        domains[0] &= &selection.members;
+        for (domain, members) in domains.iter_mut().skip(1).zip(&selection.segment_members) {
+            *domain &= members;
+        }
+    }
+    let mut eligible = 0u64;
+    let mut present = 0u64;
+    let mut nulls = 0u64;
+    let mut indexed = 0u64;
+    let mut selected_total = 0u64;
+    for (index, shard) in resolved.iter().enumerate() {
+        let logical = if index == 0 {
+            &collection.logical_records
+        } else {
+            &segments[collection_index][index - 1].index.logical_records
+        };
+        let domain = &domains[index];
+        selected_total += domain.len();
+        eligible += domain.intersection_len(logical);
+        present += domain.intersection_len(&shard.index.presence);
+        nulls += domain.intersection_len(&shard.index.nulls);
+        indexed += shard.indexed_records.map_or_else(
+            || domain.intersection_len(logical),
+            |covered| domain.intersection_len(covered),
+        );
+    }
+    let unresolved = eligible.saturating_sub(indexed);
+    let coverage = PostingValuesCoverage {
+        eligible_records: eligible,
+        unavailable_records: selected_total.saturating_sub(eligible),
+        selected_records: selection.map(|_| selected_total),
+        present_records: present,
+        explicit_null_records: nulls,
+        indexed_records: indexed,
+        unresolved_records: unresolved,
+        value_counts_complete: unresolved == 0,
+    };
+    let last = if let Some(cursor) = &request.continuation {
+        if cursor.instance_id != repo.instance_id
+            || cursor.collection_index != collection_index
+            || cursor.generation != collection.generation.generation
+            || cursor.revision != Some(revision)
+            || cursor.field != path.segments
+            || cursor.binding != binding
+            || cursor.binding_version != binding_version
+            || cursor.descending != request.descending
+            || cursor.lower != request.lower
+            || cursor.upper != request.upper
+            || cursor.prefix != request.prefix
+            || cursor.selection_id != selection.map(|selection| selection.id)
+        {
+            return Err("posting value continuation scope mismatch".into());
+        }
+        Some(&cursor.last_key)
+    } else {
+        None
+    };
+    if request.limit == 0 {
+        return Ok(PostingValuesPage {
+            values: Vec::new(), continuation: None, coverage, visited_keys: 0,
+        });
+    }
+    let mut lower = request_bound(&request.lower);
+    let mut upper = request_bound(&request.upper);
+    if let Some(prefix) = &prepared_prefix && !prefix.is_empty() {
+        lower = tighten_lower(lower, Included(ScalarKey::String(prefix.clone())));
+        if let Some(end) = prefix_successor(prefix) {
+            upper = tighten_upper(upper, Excluded(ScalarKey::String(end)));
+        }
+    }
+    if let Some(last) = last {
+        if request.descending {
+            upper = tighten_upper(upper, Excluded(last.clone()));
+        } else {
+            lower = tighten_lower(lower, Excluded(last.clone()));
+        }
+    }
+    if empty_range(&lower, &upper) {
+        return Ok(PostingValuesPage {
+            values: Vec::new(), continuation: None, coverage, visited_keys: 0,
+        });
+    }
+    let mut iterators = resolved.iter().map(|shard| {
+        let range = shard.index.values.range((lower.clone(), upper.clone()));
+        if request.descending {
+            Box::new(range.rev()) as Box<dyn Iterator<Item = (&ScalarKey, &RoaringBitmap)> + '_>
+        } else {
+            Box::new(range) as Box<dyn Iterator<Item = (&ScalarKey, &RoaringBitmap)> + '_>
+        }
+    }).collect::<Vec<_>>();
+    let mut heads = iterators.iter_mut().map(|iterator| iterator.next()).collect::<Vec<_>>();
+    let mut values = Vec::new();
+    let mut visited_keys = 0;
+    let mut has_more = false;
+    loop {
+        let key = heads.iter().filter_map(|head| head.as_ref().map(|(key, _)| *key))
+            .reduce(|current, next| {
+                if (request.descending && next > current)
+                    || (!request.descending && next < current) {
+                    next
+                } else { current }
+            });
+        let Some(key) = key else { break };
+        visited_keys += 1;
+        let mut count = 0u64;
+        for (index, head) in heads.iter_mut().enumerate() {
+            if head.as_ref().is_some_and(|(candidate, _)| *candidate == key) {
+                count += head.as_ref().unwrap().1.intersection_len(&domains[index]);
+                *head = iterators[index].next();
+            }
+        }
+        if count == 0 { continue; }
+        if values.len() == request.limit {
+            has_more = true;
+            break;
+        }
+        values.push(PostingValueCount { value: key.clone(), count });
+    }
+    let continuation = if has_more {
+        values.last().map(|entry| PostingValuesCursor {
+            instance_id: repo.instance_id,
+            collection_index,
+            generation: collection.generation.generation,
+            revision: Some(revision),
+            field: path.segments,
+            binding,
+            binding_version,
+            descending: request.descending,
+            lower: request.lower.clone(),
+            upper: request.upper.clone(),
+            prefix: request.prefix.clone(),
+            selection_id: selection.map(|selection| selection.id),
+            last_key: entry.value.clone(),
+        })
+    } else { None };
+    Ok(PostingValuesPage { values, continuation, coverage, visited_keys })
+}
+
 
 impl Repository {
     pub fn select_exact(&self, collection: &str, query: &Query) -> Result<ExactSelection, String> {
@@ -372,6 +726,7 @@ impl Repository {
             generation: state.generation.generation,
             revision,
             members,
+            segment_members: Vec::new(),
         })))
     }
 
