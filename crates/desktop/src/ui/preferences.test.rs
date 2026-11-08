@@ -1,6 +1,5 @@
 use super::*;
 
-
 #[test]
 fn settings_use_distinct_path_and_restore_tui_query_fields() {
     let temp = tempfile::tempdir().unwrap();
@@ -12,6 +11,7 @@ fn settings_use_distinct_path_and_restore_tui_query_fields() {
     let query = SearchDraft {
         full_text: "Goethe".into(),
         structured: "year < 1800".into(),
+        filter_enabled: true,
         collection: Some("contents".into()),
         case_sensitive: false,
         regex: true,
