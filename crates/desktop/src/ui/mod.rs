@@ -5,13 +5,15 @@ mod panels;
 pub mod preferences;
 mod render;
 mod state;
+mod theme;
 
 use std::sync::mpsc::Sender;
 
 use gpui_kit::component::input::{InputEvent, InputState, TextareaState};
 use gpui_kit::component::{Theme, ThemeMode};
 use gpui_kit::{
-    AppContext as _, Context, Entity, FocusHandle, ScrollHandle, Subscription, Window, point, px,
+    AppContext as _, Context, Entity, FocusHandle, Focusable as _, ScrollHandle, Subscription,
+    Window, point, px,
 };
 
 use model::{SearchDraft, UiAction, UiUpdate};
@@ -44,6 +46,7 @@ pub struct DesktopView {
     inputs: Inputs,
     grid_focus: FocusHandle,
     grid_scroll: ScrollHandle,
+    grid_horizontal_scroll: ScrollHandle,
     detail_focus: FocusHandle,
     restoring_query: bool,
     _subscriptions: Vec<Subscription>,
@@ -93,6 +96,8 @@ impl DesktopView {
         Theme::change(ThemeMode::Dark, Some(window), cx);
         let state = UiState {
             dark: true,
+            sidebar_visible: true,
+            inspector_width: 365.,
             show_preview: true,
             status: "Open a folder or configured repository to begin".into(),
             ..UiState::default()
@@ -103,6 +108,7 @@ impl DesktopView {
             inputs,
             grid_focus: cx.focus_handle(),
             grid_scroll: ScrollHandle::new(),
+            grid_horizontal_scroll: ScrollHandle::new(),
             detail_focus: cx.focus_handle(),
             restoring_query: false,
             _subscriptions: subscriptions,
@@ -195,6 +201,39 @@ impl DesktopView {
         cx.notify();
     }
 
+    /// Cycle a column's global query sort without changing an inline SORT BY.
+    fn sort_by_column(&mut self, column: String, window: &mut Window, cx: &mut Context<Self>) {
+        if self.state.search.filter_enabled
+            && self
+                .inputs
+                .structured
+                .read(cx)
+                .value()
+                .to_ascii_uppercase()
+                .contains("SORT BY")
+        {
+            self.state.status = "Edit SORT BY in the Filter line to change ordering".into();
+            let focus = self.inputs.structured.read(cx).focus_handle(cx);
+            window.focus(&focus, cx);
+            cx.notify();
+            return;
+        }
+        let current = self.inputs.sort.read(cx).value().trim().to_owned();
+        let next = if current == format!("{column} ASC") {
+            format!("{column} DESC")
+        } else if current == format!("{column} DESC") {
+            String::new()
+        } else {
+            format!("{column} ASC")
+        };
+        self.restoring_query = true;
+        self.inputs
+            .sort
+            .update(cx, |input, cx| input.set_value(next, window, cx));
+        self.restoring_query = false;
+        self.search_from_inputs(false, cx);
+    }
+
     fn open_from_inputs(&mut self, cx: &mut Context<Self>) {
         let mut draft = self.state.open.clone();
         draft.paths = self.inputs.paths.read(cx).value().to_string();
@@ -225,7 +264,7 @@ impl DesktopView {
             current.saturating_add_signed(delta).min(len - 1)
         });
         self.state.page.selected = Some(next);
-        self.grid_scroll.scroll_to_item(next + 1);
+        self.grid_scroll.scroll_to_item(next);
         self.send(UiAction::SelectRow(next));
         cx.notify();
     }
@@ -237,7 +276,7 @@ impl DesktopView {
         }
         let index = if last { len - 1 } else { 0 };
         self.state.page.selected = Some(index);
-        self.grid_scroll.scroll_to_item(index + 1);
+        self.grid_scroll.scroll_to_item(index);
         self.send(UiAction::SelectRow(index));
         cx.notify();
     }

@@ -1,6 +1,7 @@
 //! Local view state. Every update arrives only after the integrator has
 //! checked the repository and query generations that produced it.
 
+use gpui_kit::SharedString;
 use std::collections::BTreeMap;
 
 use super::model::{
@@ -20,6 +21,23 @@ pub enum Busy {
 }
 
 
+/// Shared cell text built once when a bounded result page arrives.
+#[derive(Clone, Debug, Default)]
+pub struct GridCache {
+    pub rows: Vec<Vec<SharedString>>,
+}
+
+
+/// Shared inspector text built once from a bounded detail projection.
+#[derive(Clone, Debug, Default)]
+pub struct DetailCache {
+    pub labels: Vec<SharedString>,
+    pub values: Vec<SharedString>,
+    pub relation_labels: Vec<SharedString>,
+    pub relation_values: Vec<SharedString>,
+}
+
+
 /// Bounded state rendered in one desktop window.
 #[derive(Clone, Debug, Default)]
 pub struct UiState {
@@ -29,11 +47,16 @@ pub struct UiState {
     pub collections: Vec<String>,
     pub single_collection: bool,
     pub page: PageView,
+    pub grid_cache: GridCache,
     pub detail: Option<DetailView>,
+    pub detail_cache: DetailCache,
+    pub detail_source: Option<SharedString>,
     pub history: Vec<QueryEntry>,
     pub saved: Vec<QueryEntry>,
     pub available_columns: Vec<String>,
     pub hidden_columns: Vec<String>,
+    /// Widths are measured once from the first bounded page for each column.
+    pub column_widths: BTreeMap<String, f32>,
     pub batch: Vec<BatchRow>,
     pub batch_source: BatchSource,
     pub batch_outcome: Option<String>,
@@ -52,6 +75,10 @@ pub struct UiState {
     pub show_actions: bool,
     pub show_diagnostics: bool,
     pub show_raw: bool,
+    pub sidebar_visible: bool,
+    pub inspector_width: f32,
+    pub inspector_resize_origin: Option<(f32, f32)>,
+    pub show_detail_metadata: bool,
     pub filter_validation_generation: u64,
     pub filter_validation: Option<FilterValidationState>,
     pub showing_last_valid_results: bool,
@@ -66,15 +93,6 @@ impl UiState {
             UiUpdate::Opening(status) => {
                 self.busy = Busy::Opening;
                 self.status = status;
-                self.root = None;
-                self.collections.clear();
-                self.available_columns.clear();
-                self.hidden_columns.clear();
-                self.history.clear();
-                self.saved.clear();
-                self.page = PageView::default();
-                self.detail = None;
-                self.diagnostics.clear();
                 self.errors.clear();
             }
             UiUpdate::Opened {
@@ -85,6 +103,17 @@ impl UiState {
                 self.root = Some(root);
                 self.collections = collections;
                 self.single_collection = single_collection;
+                self.available_columns.clear();
+                self.hidden_columns.clear();
+                self.column_widths.clear();
+                self.history.clear();
+                self.saved.clear();
+                self.page = PageView::default();
+                self.grid_cache = GridCache::default();
+                self.detail = None;
+                self.detail_cache = DetailCache::default();
+                self.detail_source = None;
+                self.diagnostics.clear();
                 self.busy = Busy::None;
                 self.status = "Repository ready".into();
                 self.show_open_options = false;
@@ -105,6 +134,20 @@ impl UiState {
                 self.errors.remove(&ErrorField::Range);
             }
             UiUpdate::Page(page) => {
+                for (index, column) in page.columns.iter().enumerate() {
+                    self.column_widths.entry(column.clone()).or_insert_with(|| {
+                        let widest = page
+                            .rows
+                            .iter()
+                            .take(24)
+                            .filter_map(|row| row.cells.get(index))
+                            .map(|cell| cell.chars().take(56).count())
+                            .max()
+                            .unwrap_or(0)
+                            .max(column.chars().count());
+                        (widest as f32 * 7.3 + 30.).clamp(110., 420.)
+                    });
+                }
                 let previous_token = self
                     .page
                     .selected
@@ -117,8 +160,15 @@ impl UiState {
                     .map(|row| row.key.token);
                 if next_token.is_none() || previous_token != next_token {
                     self.detail = None;
+                    self.detail_cache = DetailCache::default();
+                    self.detail_source = None;
                     self.show_raw = false;
                 }
+                self.grid_cache.rows = page
+                    .rows
+                    .iter()
+                    .map(|row| row.cells.iter().cloned().map(SharedString::from).collect())
+                    .collect();
                 self.page = page;
                 self.showing_last_valid_results = false;
                 self.busy = Busy::None;
@@ -134,6 +184,35 @@ impl UiState {
             }
             UiUpdate::Detail(detail) => {
                 self.detail = detail.map(DetailView::bounded);
+                self.detail_cache =
+                    self.detail
+                        .as_ref()
+                        .map_or_else(DetailCache::default, |detail| DetailCache {
+                            labels: detail
+                                .structured
+                                .iter()
+                                .map(|row| SharedString::from(row.label.clone()))
+                                .collect(),
+                            values: detail
+                                .structured
+                                .iter()
+                                .map(|row| SharedString::from(row.value.clone()))
+                                .collect(),
+                            relation_labels: detail
+                                .relations
+                                .iter()
+                                .map(|row| SharedString::from(row.label.clone()))
+                                .collect(),
+                            relation_values: detail
+                                .relations
+                                .iter()
+                                .map(|row| SharedString::from(row.value.clone()))
+                                .collect(),
+                        });
+                self.detail_source = self
+                    .detail
+                    .as_ref()
+                    .map(|detail| SharedString::from(detail.raw_source.clone()));
                 if self.detail.is_none() {
                     self.show_raw = false;
                 }
@@ -195,7 +274,10 @@ impl UiState {
                 self.search = draft;
                 self.search.filter_enabled |= !self.search.structured.trim().is_empty();
                 self.page = PageView::default();
+                self.grid_cache = GridCache::default();
                 self.detail = None;
+                self.detail_cache = DetailCache::default();
+                self.detail_source = None;
             }
             UiUpdate::FilterValidation { generation, state } => {
                 if generation == self.filter_validation_generation {

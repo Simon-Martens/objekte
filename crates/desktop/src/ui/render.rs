@@ -1,7 +1,7 @@
 //! Read-only workspace layout inspired by DBDelve's dense sidebar and grid.
 
 use gpui_kit::component::{
-    Disableable as _, IconName, Selectable as _,
+    Disableable as _, Icon, IconName, Selectable as _,
     button::{Button, ButtonVariants},
     checkbox::Checkbox,
     input::Input,
@@ -16,101 +16,128 @@ use gpui_kit::{
 use super::DesktopView;
 use super::model::{ErrorField, UiAction};
 use super::state::Busy;
+use super::theme::palette;
+
+/// A compact, left-aligned navigation control with keyboard and screen-reader support.
+fn sidebar_item(
+    id: String,
+    icon: gpui_kit::assets::IconName,
+    label: String,
+    selected: bool,
+) -> Button {
+    Button::new(id)
+        .ghost()
+        .w_full()
+        .h(px(30.))
+        .selected(selected)
+        .accessibility_label(label.clone())
+        .child(
+            div()
+                .flex()
+                .items_center()
+                .gap_2()
+                .w_full()
+                .child(Icon::new(icon).size_4())
+                .child(
+                    div()
+                        .flex_1()
+                        .min_w_0()
+                        .overflow_hidden()
+                        .whitespace_nowrap()
+                        .text_ellipsis()
+                        .text_left()
+                        .text_sm()
+                        .child(label),
+                ),
+        )
+}
 
 
 impl DesktopView {
     fn render_header(&self, cx: &mut Context<Self>) -> impl IntoElement {
-        let root = self
-            .state
-            .root
-            .clone()
-            .unwrap_or_else(|| "No repository open".into());
+        let colors = palette(self.state.dark);
+        let root = self.state.root.as_deref().and_then(|path| {
+            std::path::Path::new(path)
+                .file_name()
+                .map(|name| name.to_string_lossy().into_owned())
+        });
+        let collection = self.state.search.collection.as_deref();
         div()
             .flex()
             .items_center()
-            .gap_3()
-            .px_4()
-            .py_2()
-            .bg(rgb(if self.state.dark { 0x171c25 } else { 0xe9eef5 }))
+            .h(px(44.))
+            .flex_shrink_0()
+            .gap_2()
+            .px_3()
+            .bg(rgb(colors.panel))
+            .border_b_1()
+            .border_color(rgb(colors.border))
             .child(
                 div()
-                    .text_lg()
                     .font_weight(gpui_kit::FontWeight::SEMIBOLD)
                     .child("Objekte"),
             )
-            .child(
-                div()
-                    .flex_1()
-                    .min_w_0()
-                    .text_sm()
-                    .text_color(rgb(if self.state.dark { 0x93a4b8 } else { 0x526276 }))
-                    .child(root),
-            )
+            .when(self.state.root.is_some(), |this| {
+                this.child(
+                    Button::new("sidebar-toggle")
+                        .ghost()
+                        .icon(IconName::PanelLeft)
+                        .tooltip(if self.state.sidebar_visible {
+                            "Hide collections"
+                        } else {
+                            "Show collections"
+                        })
+                        .accessibility_label("Toggle collection sidebar")
+                        .on_click(cx.listener(|this, _, _, cx| {
+                            this.state.sidebar_visible = !this.state.sidebar_visible;
+                            cx.notify();
+                        })),
+                )
+            })
+            .when_some(root, |this, root| {
+                this.child(div().text_color(rgb(colors.secondary)).child("/"))
+                    .child(div().min_w_0().text_sm().child(root))
+            })
+            .when_some(collection, |this, collection| {
+                this.child(div().text_color(rgb(colors.secondary)).child("/"))
+                    .child(div().min_w_0().text_sm().child(collection.to_owned()))
+            })
+            .when(self.state.root.is_some(), |this| {
+                this.child(
+                    div()
+                        .ml_2()
+                        .px_2()
+                        .py_1()
+                        .rounded_sm()
+                        .bg(rgb(colors.raised))
+                        .text_xs()
+                        .text_color(rgb(colors.secondary))
+                        .child("Read-only"),
+                )
+            })
+            .child(div().flex_1())
             .child(
                 Button::new("open-panel")
                     .icon(IconName::FolderOpen)
-                    .label("Open repository")
+                    .label("Open…")
                     .on_click(cx.listener(|this, _, _, cx| {
-                        this.state.show_open_options = !this.state.show_open_options;
-                        cx.notify();
-                    })),
-            )
-            .child(
-                Button::new("batch-panel")
-                    .icon(IconName::SquareTerminal)
-                    .label("Batch")
-                    .on_click(cx.listener(|this, _, _, cx| {
-                        this.state.show_batch = !this.state.show_batch;
+                        this.state.show_open_options = true;
                         cx.notify();
                     })),
             )
             .child(
                 Button::new("actions-panel")
                     .icon(IconName::Ellipsis)
-                    .label("Actions")
+                    .label("Menu")
                     .on_click(cx.listener(|this, _, _, cx| {
                         this.state.show_actions = !this.state.show_actions;
-                        cx.notify();
-                    })),
-            )
-            .child(
-                Button::new("theme-button")
-                    .icon(if self.state.dark {
-                        IconName::Sun
-                    } else {
-                        IconName::Moon
-                    })
-                    .label(if self.state.dark { "Light" } else { "Dark" })
-                    .on_click(cx.listener(|this, _, _, cx| {
-                        this.state.dark = !this.state.dark;
-                        gpui_kit::component::Theme::change(
-                            if this.state.dark {
-                                gpui_kit::component::ThemeMode::Dark
-                            } else {
-                                gpui_kit::component::ThemeMode::Light
-                            },
-                            None,
-                            cx,
-                        );
-                        this.send(UiAction::SetTheme {
-                            dark: this.state.dark,
-                        });
-                        cx.notify();
-                    })),
-            )
-            .child(
-                Button::new("help-button")
-                    .icon(IconName::Info)
-                    .label("Help")
-                    .on_click(cx.listener(|this, _, _, cx| {
-                        this.state.show_help = !this.state.show_help;
-                        this.send(UiAction::ShowHelp);
                         cx.notify();
                     })),
             )
     }
 
     fn render_sidebar(&self, cx: &mut Context<Self>) -> impl IntoElement {
+        let colors = palette(self.state.dark);
         let selected = self.state.search.collection.clone();
         let mut sidebar = div()
             .id("collection-sidebar")
@@ -120,44 +147,101 @@ impl DesktopView {
             .h_full()
             .flex_shrink_0()
             .gap_1()
-            .p_3()
-            .bg(rgb(if self.state.dark { 0x131922 } else { 0xf0f4f8 }))
+            .px_2()
+            .py_3()
+            .bg(rgb(colors.panel))
+            .border_r_1()
+            .border_color(rgb(colors.border))
             .child(
                 div()
-                    .text_sm()
+                    .px_2()
+                    .mb_1()
+                    .text_xs()
+                    .text_color(rgb(colors.secondary))
                     .font_weight(gpui_kit::FontWeight::SEMIBOLD)
                     .child("COLLECTIONS"),
             );
         if !self.state.single_collection && !self.state.collections.is_empty() {
             sidebar = sidebar.child(
-                Button::new("scope-all")
-                    .icon(IconName::LayoutDashboard)
-                    .label("All collections")
-                    .selected(selected.is_none())
-                    .on_click(cx.listener(|this, _, _, cx| {
-                        this.state.search.collection = None;
-                        this.search_from_inputs(false, cx);
-                    })),
+                sidebar_item(
+                    "scope-all".into(),
+                    gpui_kit::assets::IconName::LayoutDashboard,
+                    "All collections".into(),
+                    selected.is_none(),
+                )
+                .on_click(cx.listener(|this, _, _, cx| {
+                    this.state.search.collection = None;
+                    this.search_from_inputs(false, cx);
+                })),
             );
         }
         let names = self.state.collections.clone();
-        sidebar
-            .children(names.into_iter().enumerate().map(|(index, name)| {
-                let chosen = selected.as_deref() == Some(name.as_str());
-                Button::new(format!("scope-{index}"))
-                    .icon(if chosen {
-                        IconName::FolderOpen
-                    } else {
-                        IconName::FolderClosed
-                    })
-                    .label(name.clone())
-                    .selected(chosen)
-                    .on_click(cx.listener(move |this, _, _, cx| {
-                        this.state.search.collection = Some(name.clone());
-                        this.search_from_inputs(false, cx);
-                    }))
+        sidebar = sidebar.children(names.into_iter().enumerate().map(|(index, name)| {
+            let chosen = selected.as_deref() == Some(name.as_str());
+            sidebar_item(
+                format!("scope-{index}"),
+                if chosen {
+                    gpui_kit::assets::IconName::FolderOpen
+                } else {
+                    gpui_kit::assets::IconName::FolderClosed
+                },
+                name.clone(),
+                chosen,
+            )
+            .on_click(cx.listener(move |this, _, _, cx| {
+                this.state.search.collection = Some(name.clone());
+                this.search_from_inputs(false, cx);
             }))
-            .overflow_y_scrollbar()
+        }));
+        sidebar
+            .child(div().flex_1())
+            .child(
+                div()
+                    .border_t_1()
+                    .border_color(rgb(colors.border))
+                    .pt_3()
+                    .px_2()
+                    .text_xs()
+                    .text_color(rgb(colors.secondary))
+                    .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                    .child("QUERIES"),
+            )
+            .child(
+                sidebar_item(
+                    "sidebar-history".into(),
+                    gpui_kit::assets::IconName::Clock,
+                    "History".into(),
+                    false,
+                )
+                .on_click(cx.listener(|this, _, _, cx| {
+                    this.state.show_history = true;
+                    this.state.show_saved = false;
+                    this.state.show_actions = true;
+                    cx.notify();
+                })),
+            )
+            .child(
+                sidebar_item(
+                    "sidebar-saved".into(),
+                    gpui_kit::assets::IconName::Bookmark,
+                    "Saved queries".into(),
+                    false,
+                )
+                .on_click(cx.listener(|this, _, _, cx| {
+                    this.state.show_saved = true;
+                    this.state.show_history = false;
+                    this.state.show_actions = true;
+                    cx.notify();
+                })),
+            )
+            .child(
+                div()
+                    .px_2()
+                    .mt_2()
+                    .text_xs()
+                    .text_color(rgb(colors.secondary))
+                    .child(format!("{} collections", self.state.collections.len())),
+            )
     }
 
     fn render_query(&self, cx: &mut Context<Self>) -> impl IntoElement {
@@ -342,6 +426,7 @@ impl DesktopView {
     }
 
     fn render_grid(&self, cx: &mut Context<Self>) -> impl IntoElement {
+        let colors = palette(self.state.dark);
         if self.state.root.is_none() {
             let opening = self.state.busy == Busy::Opening;
             return div()
@@ -351,23 +436,25 @@ impl DesktopView {
                 .items_center()
                 .justify_center()
                 .gap_3()
+                .bg(rgb(colors.canvas))
                 .child(
                     div()
-                        .text_2xl()
+                        .text_xl()
                         .font_weight(gpui_kit::FontWeight::SEMIBOLD)
                         .child(if opening {
-                            "Opening repository"
+                            "Opening data"
                         } else {
                             "Explore your data"
                         }),
                 )
                 .child(
                     div()
-                        .text_color(rgb(if self.state.dark { 0x93a4b8 } else { 0x526276 }))
+                        .text_sm()
+                        .text_color(rgb(colors.secondary))
                         .child(if opening {
-                            "Building the search index. The window remains usable."
+                            "Building the search index. This window remains usable."
                         } else {
-                            "Open a folder or configured repository to search and inspect records."
+                            "Open a folder to browse, search, and inspect its records."
                         }),
                 )
                 .when(!opening && !self.state.show_open_options, |this| {
@@ -375,7 +462,7 @@ impl DesktopView {
                         Button::new("empty-open")
                             .primary()
                             .icon(IconName::FolderOpen)
-                            .label("Open repository")
+                            .label("Open data…")
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_open_options = true;
                                 cx.notify();
@@ -384,209 +471,272 @@ impl DesktopView {
                 })
                 .into_any_element();
         }
-        let page = self.state.page.clone();
-        let total = page.exact_total.map_or_else(
-            || {
-                if page.count_pending {
-                    "Count pending".into()
-                } else {
-                    "Count not requested".into()
-                }
-            },
-            |count| format!("{count} total"),
-        );
+
+        let page = &self.state.page;
+        let visible_columns = page
+            .columns
+            .iter()
+            .enumerate()
+            .map(|(index, column)| {
+                let width = *self.state.column_widths.get(column).unwrap_or(&160.);
+                (index, column.as_str(), width)
+            })
+            .collect::<Vec<_>>();
+        let table_width = 52.
+            + visible_columns
+                .iter()
+                .map(|(_, _, width)| *width)
+                .sum::<f32>();
+        let selected = page.selected;
+        let offset = page.offset;
+        let sort = self.state.search.sort.trim();
         let header = div()
             .flex()
             .items_center()
-            .h(px(36.))
+            .w_full()
+            .min_w(px(table_width))
+            .h(px(32.))
             .flex_shrink_0()
-            .gap_1()
-            .bg(rgb(if self.state.dark { 0x25303d } else { 0xe8eef4 }))
-            .child(div().w(px(52.)).flex_shrink_0().px_2().child("#"))
-            .children(page.columns.iter().map(|column| {
+            .bg(rgb(colors.raised))
+            .border_b_1()
+            .border_color(rgb(colors.border))
+            .child(
                 div()
-                    .w(px(160.))
+                    .w(px(52.))
                     .flex_shrink_0()
                     .px_2()
-                    .overflow_hidden()
-                    .whitespace_nowrap()
-                    .text_ellipsis()
-                    .child(column.clone())
+                    .text_xs()
+                    .text_color(rgb(colors.secondary))
+                    .child("#"),
+            )
+            .children(visible_columns.iter().map(|(_, column, width)| {
+                let name = (*column).to_owned();
+                let label = if sort == format!("{name} ASC") {
+                    format!("{name} ↑")
+                } else if sort == format!("{name} DESC") {
+                    format!("{name} ↓")
+                } else {
+                    name.clone()
+                };
+                Button::new(format!("sort-{name}"))
+                    .ghost()
+                    .label(label)
+                    .tooltip(format!("Sort by {name}: ascending, descending, clear"))
+                    .w(px(*width))
+                    .h(px(31.))
+                    .justify_start()
+                    .text_xs()
+                    .on_click(cx.listener(move |this, _, window, cx| {
+                        this.sort_by_column(name.clone(), window, cx);
+                    }))
             }));
-        let selected = page.selected;
-        let visible_columns = page.columns.len();
-        let offset = page.offset;
-        let clipped = page.clipped;
+        let rows = div()
+            .id("results-scroll")
+            .track_focus(&self.grid_focus)
+            .track_scroll(&self.grid_scroll)
+            .on_key_down(cx.listener(|this, event: &gpui_kit::KeyDownEvent, _, cx| {
+                match event.keystroke.key.as_str() {
+                    "up" => this.select_relative(-1, cx),
+                    "down" => this.select_relative(1, cx),
+                    "home" => this.select_absolute(false, cx),
+                    "end" => this.select_absolute(true, cx),
+                    "pageup" => this.send(UiAction::PageRelative(-1)),
+                    "pagedown" => this.send(UiAction::PageRelative(1)),
+                    "enter" => this.send(UiAction::OpenDetail),
+                    _ => return,
+                }
+                cx.stop_propagation();
+            }))
+            .flex()
+            .flex_col()
+            .flex_1()
+            .min_h_0()
+            .w_full()
+            .min_w(px(table_width))
+            .bg(rgb(colors.panel))
+            .children(page.rows.iter().enumerate().map(|(index, _row)| {
+                let chosen = selected == Some(index);
+                let shade = if chosen {
+                    colors.selected
+                } else if index % 2 == 0 {
+                    colors.panel
+                } else {
+                    colors.row_alt
+                };
+                div()
+                    .id(("result-row", index))
+                    .flex()
+                    .items_center()
+                    .w_full()
+                    .h(px(30.))
+                    .flex_shrink_0()
+                    .bg(rgb(shade))
+                    .border_b_1()
+                    .border_color(rgb(colors.border))
+                    .child(
+                        div()
+                            .w(px(52.))
+                            .flex_shrink_0()
+                            .px_2()
+                            .text_xs()
+                            .text_color(rgb(colors.secondary))
+                            .child((offset + index + 1).to_string()),
+                    )
+                    .children(visible_columns.iter().map(|(column_index, _, width)| {
+                        div()
+                            .w(px(*width))
+                            .flex_shrink_0()
+                            .px_2()
+                            .overflow_hidden()
+                            .whitespace_nowrap()
+                            .text_ellipsis()
+                            .text_sm()
+                            .child(
+                                self.state
+                                    .grid_cache
+                                    .rows
+                                    .get(index)
+                                    .and_then(|cells| cells.get(*column_index))
+                                    .cloned()
+                                    .unwrap_or_default(),
+                            )
+                    }))
+                    .on_click(cx.listener(move |this, _, window, cx| {
+                        window.focus(&this.grid_focus, cx);
+                        this.state.page.selected = Some(index);
+                        this.send(UiAction::SelectRow(index));
+                        cx.notify();
+                    }))
+            }))
+            .overflow_y_scrollbar();
+        let first = if page.rows.is_empty() { 0 } else { offset + 1 };
+        let last = offset + page.rows.len();
+        let range = match page.exact_total {
+            Some(total) => format!("{first}–{last} of {total} matches"),
+            None if page.count_pending => format!("{first}–{last} · counting…"),
+            None => format!("{first}–{last}"),
+        };
+        let range = if self.state.showing_last_valid_results {
+            format!("Last valid: {range}")
+        } else {
+            range
+        };
         div()
             .flex()
             .flex_col()
             .flex_1()
             .min_h_0()
-            .p_3()
-            .gap_2()
+            .min_w_0()
+            .bg(rgb(colors.panel))
             .child(
                 div()
-                    .flex()
-                    .items_center()
-                    .gap_2()
-                    .child(
-                        div()
-                            .font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                            .child("Results"),
-                    )
-                    .child(
-                        div()
-                            .text_sm()
-                            .text_color(rgb(if self.state.dark { 0x93a4b8 } else { 0x526276 }))
-                            .child(total),
-                    )
-                    .child(div().flex_1())
-                    .child(
-                        Button::new("previous-page")
-                            .icon(IconName::ChevronLeft)
-                            .label("Previous")
-                            .disabled(!page.has_previous)
-                            .on_click(
-                                cx.listener(|this, _, _, _| this.send(UiAction::PageRelative(-1))),
-                            ),
-                    )
-                    .child(
-                        Button::new("next-page")
-                            .icon(IconName::ChevronRight)
-                            .label("Next")
-                            .disabled(!page.has_next)
-                            .on_click(
-                                cx.listener(|this, _, _, _| this.send(UiAction::PageRelative(1))),
-                            ),
-                    )
-                    .child(
-                        Button::new("open-detail")
-                            .icon(IconName::PanelRightOpen)
-                            .label("Inspect")
-                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::OpenDetail))),
-                    ),
-            )
-            .child(
-                div()
-                    .id("results-scroll")
-                    .track_focus(&self.grid_focus)
-                    .track_scroll(&self.grid_scroll)
-                    .on_key_down(cx.listener(|this, event: &gpui_kit::KeyDownEvent, _, cx| {
-                        match event.keystroke.key.as_str() {
-                            "up" => this.select_relative(-1, cx),
-                            "down" => this.select_relative(1, cx),
-                            "home" => this.select_absolute(false, cx),
-                            "end" => this.select_absolute(true, cx),
-                            "pageup" => this.send(UiAction::PageRelative(-1)),
-                            "pagedown" => this.send(UiAction::PageRelative(1)),
-                            "enter" => this.send(UiAction::OpenDetail),
-                            _ => return,
-                        }
-                        cx.stop_propagation();
-                    }))
+                    .id("table-horizontal")
+                    .track_scroll(&self.grid_horizontal_scroll)
                     .flex()
                     .flex_col()
                     .flex_1()
                     .min_h_0()
                     .min_w_0()
-                    .bg(rgb(if self.state.dark { 0x141c26 } else { 0xffffff }))
                     .child(header)
-                    .children(page.rows.into_iter().enumerate().map(|(index, row)| {
-                        let chosen = selected == Some(index);
-                        let shade = if self.state.dark {
-                            if chosen {
-                                0x294d62
-                            } else if index % 2 == 0 {
-                                0x222a35
-                            } else {
-                                0x1a222d
-                            }
-                        } else if chosen {
-                            0xc8e4f3
-                        } else if index % 2 == 0 {
-                            0xffffff
-                        } else {
-                            0xf1f5f9
-                        };
-                        let mut line = div()
-                            .id(("result-row", index))
-                            .flex()
-                            .items_center()
-                            .h(px(36.))
-                            .flex_shrink_0()
-                            .gap_1()
-                            .bg(rgb(shade))
-                            .child(
-                                div()
-                                    .w(px(52.))
-                                    .flex_shrink_0()
-                                    .px_2()
-                                    .child((offset + index + 1).to_string()),
-                            );
-                        for cell in row.cells.into_iter().take(visible_columns) {
-                            line = line.child(
-                                div()
-                                    .w(px(160.))
-                                    .flex_shrink_0()
-                                    .px_2()
-                                    .overflow_hidden()
-                                    .whitespace_nowrap()
-                                    .text_ellipsis()
-                                    .child(cell),
-                            );
-                        }
-                        let match_label = row
-                            .matched_fields
-                            .into_iter()
-                            .take(4)
-                            .collect::<Vec<_>>()
-                            .join(", ");
-                        let line = line.on_click(cx.listener(move |this, _, window, cx| {
-                            window.focus(&this.grid_focus, cx);
-                            this.state.page.selected = Some(index);
-                            this.send(UiAction::SelectRow(index));
-                            cx.notify();
-                        }));
-                        div().flex().flex_col().flex_shrink_0().child(line).when(
-                            chosen && !match_label.is_empty(),
-                            |this| {
-                                this.child(div().text_sm().child(format!("Matched: {match_label}")))
-                            },
-                        )
-                    }))
-                    .overflow_scroll()
-                    .vertical_scrollbar(&self.grid_scroll),
+                    .child(rows)
+                    .overflow_x_scroll(),
             )
-            .when(clipped, |this| {
-                this.child(
-                    div()
-                        .text_sm()
-                        .child("Visible cells are clipped; exports contain complete records."),
-                )
-            })
+            .child(
+                div()
+                    .flex()
+                    .items_center()
+                    .h(px(32.))
+                    .flex_shrink_0()
+                    .px_3()
+                    .gap_2()
+                    .border_t_1()
+                    .border_color(rgb(colors.border))
+                    .text_xs()
+                    .text_color(rgb(colors.secondary))
+                    .child(range)
+                    .child(div().flex_1())
+                    .child(
+                        Button::new("previous-page")
+                            .ghost()
+                            .icon(IconName::ChevronLeft)
+                            .tooltip("Previous page")
+                            .accessibility_label("Previous page")
+                            .disabled(!page.has_previous)
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.send(UiAction::PageRelative(-1));
+                            })),
+                    )
+                    .child(format!("Page {}", offset / 100 + 1))
+                    .child(
+                        Button::new("next-page")
+                            .ghost()
+                            .icon(IconName::ChevronRight)
+                            .tooltip("Next page")
+                            .accessibility_label("Next page")
+                            .disabled(!page.has_next)
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.send(UiAction::PageRelative(1));
+                            })),
+                    ),
+            )
             .into_any_element()
     }
 
-    fn render_status(&self) -> impl IntoElement {
+    fn render_status(&self, cx: &mut Context<Self>) -> impl IntoElement {
+        let colors = palette(self.state.dark);
         let status = if self.state.busy == Busy::None {
             self.state.status.clone()
         } else {
             format!("Working: {}", self.state.status)
         };
         div()
-            .px_4()
-            .py_2()
-            .bg(rgb(if self.state.dark { 0x171c25 } else { 0xe9eef5 }))
-            .text_sm()
+            .flex()
+            .items_center()
+            .h(px(28.))
+            .flex_shrink_0()
+            .px_3()
+            .bg(rgb(colors.panel))
+            .border_t_1()
+            .border_color(rgb(colors.border))
+            .text_xs()
+            .text_color(rgb(colors.secondary))
             .child(status)
+            .child(div().flex_1())
+            .child(
+                Button::new("status-diagnostics")
+                    .ghost()
+                    .label("Diagnostics")
+                    .on_click(cx.listener(|this, _, _, cx| {
+                        this.state.show_diagnostics = !this.state.show_diagnostics;
+                        this.state.show_actions = this.state.show_diagnostics;
+                        cx.notify();
+                    })),
+            )
     }
 }
 
 
 impl Render for DesktopView {
     fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+        let colors = palette(self.state.dark);
         div()
             .id("desktop-root")
+            .relative()
+            .on_mouse_move(
+                cx.listener(|this, event: &gpui_kit::MouseMoveEvent, _, cx| {
+                    if let Some((start_x, start_width)) = this.state.inspector_resize_origin {
+                        let distance = start_x - f32::from(event.position.x);
+                        this.state.inspector_width = (start_width + distance).clamp(300., 600.);
+                        cx.notify();
+                    }
+                }),
+            )
+            .on_mouse_up(
+                gpui_kit::MouseButton::Left,
+                cx.listener(|this, _, _, _| {
+                    this.state.inspector_resize_origin = None;
+                }),
+            )
             .on_key_down(
                 cx.listener(|this, event: &gpui_kit::KeyDownEvent, window, cx| {
                     let key = event.keystroke.key.as_str();
@@ -622,8 +772,8 @@ impl Render for DesktopView {
             .flex()
             .flex_col()
             .size_full()
-            .bg(rgb(if self.state.dark { 0x111821 } else { 0xf8fafc }))
-            .text_color(rgb(if self.state.dark { 0xe2e8f0 } else { 0x172033 }))
+            .bg(rgb(colors.canvas))
+            .text_color(rgb(colors.text))
             .child(self.render_header(cx))
             .when(self.state.show_open_options, |this| {
                 this.child(self.render_open_options(cx))
@@ -636,9 +786,10 @@ impl Render for DesktopView {
                     .flex()
                     .flex_1()
                     .min_h_0()
-                    .when(self.state.root.is_some(), |this| {
-                        this.child(self.render_sidebar(cx))
-                    })
+                    .when(
+                        self.state.root.is_some() && self.state.sidebar_visible,
+                        |this| this.child(self.render_sidebar(cx)),
+                    )
                     .child(
                         div()
                             .flex()
@@ -661,6 +812,6 @@ impl Render for DesktopView {
                 this.child(self.render_actions(cx))
             })
             .when(self.state.show_help, |this| this.child(self.render_help()))
-            .child(self.render_status())
+            .child(self.render_status(cx))
     }
 }

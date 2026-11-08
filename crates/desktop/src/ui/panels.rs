@@ -246,13 +246,20 @@ impl DesktopView {
         let outcome = self.state.batch_outcome.clone();
         div()
             .id("batch-panel")
-            .max_h(px(240.))
+            .absolute()
+            .top(px(100.))
+            .left(px(300.))
+            .w(px(640.))
+            .max_h(px(600.))
             .overflow_y_scrollbar()
             .flex()
             .flex_col()
             .gap_2()
             .p_3()
-            .bg(rgb(if self.state.dark { 0x202a35 } else { 0xe8f0f7 }))
+            .bg(rgb(super::theme::palette(self.state.dark).panel))
+            .border_1()
+            .border_color(rgb(super::theme::palette(self.state.dark).border))
+            .rounded_md()
             .child(div().child("Query batch: paste one query per physical line or choose a file"))
             .child(
                 div()
@@ -350,13 +357,15 @@ impl DesktopView {
     }
 
     pub(super) fn render_detail(&self, cx: &mut Context<Self>) -> impl IntoElement {
-        let detail = self.state.detail.clone();
+        let colors = super::theme::palette(self.state.dark);
+        let detail = self.state.detail.as_ref();
         let preview = self
             .state
             .page
             .selected
             .and_then(|index| self.state.page.rows.get(index))
-            .and_then(|row| row.preview.clone());
+            .and_then(|row| row.preview.as_ref());
+        let title = detail.map_or_else(|| "Record".to_owned(), |detail| detail.title.clone());
         let mut panel = div()
             .id("record-panel")
             .track_focus(&self.detail_focus)
@@ -376,81 +385,129 @@ impl DesktopView {
             )
             .flex()
             .flex_col()
-            .w(px(365.))
+            .w(px(self.state.inspector_width))
             .h_full()
-            .gap_2()
-            .p_3()
-            .bg(rgb(if self.state.dark { 0x17202b } else { 0xf2f6fa }))
-            .child(div().child("Record"))
+            .flex_shrink_0()
+            .relative()
+            .bg(rgb(colors.panel))
+            .border_l_1()
+            .border_color(rgb(colors.border))
+            .child(
+                div()
+                    .id("inspector-resize")
+                    .absolute()
+                    .left_0()
+                    .top_0()
+                    .h_full()
+                    .w(px(5.))
+                    .cursor_col_resize()
+                    .on_mouse_down(
+                        gpui_kit::MouseButton::Left,
+                        cx.listener(|this, event: &gpui_kit::MouseDownEvent, _, cx| {
+                            this.state.inspector_resize_origin =
+                                Some((f32::from(event.position.x), this.state.inspector_width));
+                            cx.stop_propagation();
+                        }),
+                    ),
+            )
             .child(
                 div()
                     .flex()
+                    .items_center()
+                    .h(px(40.))
+                    .flex_shrink_0()
+                    .px_3()
                     .gap_1()
+                    .border_b_1()
+                    .border_color(rgb(colors.border))
+                    .child(
+                        div()
+                            .flex_1()
+                            .min_w_0()
+                            .overflow_hidden()
+                            .whitespace_nowrap()
+                            .text_ellipsis()
+                            .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                            .child(title),
+                    )
                     .child(
                         Button::new("previous-record")
+                            .ghost()
                             .icon(IconName::ArrowLeft)
                             .tooltip("Previous result")
+                            .accessibility_label("Previous result")
                             .on_click(cx.listener(|this, _, _, _| {
-                                this.send(UiAction::AdjacentResult(false))
+                                this.send(UiAction::AdjacentResult(false));
                             })),
                     )
                     .child(
                         Button::new("next-record")
+                            .ghost()
                             .icon(IconName::ArrowRight)
                             .tooltip("Next result")
+                            .accessibility_label("Next result")
                             .on_click(cx.listener(|this, _, _, _| {
-                                this.send(UiAction::AdjacentResult(true))
+                                this.send(UiAction::AdjacentResult(true));
                             })),
                     )
                     .child(
                         Button::new("relation-back")
+                            .ghost()
                             .icon(IconName::Undo)
-                            .label("Back")
-                            .on_click(
-                                cx.listener(|this, _, _, _| this.send(UiAction::BackRelation)),
-                            ),
+                            .tooltip("Back from relation")
+                            .accessibility_label("Back from relation")
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.send(UiAction::BackRelation);
+                            })),
                     )
                     .child(
                         Button::new("close-detail")
+                            .ghost()
                             .icon(IconName::Close)
-                            .label("Close")
-                            .on_click(
-                                cx.listener(|this, _, _, _| this.send(UiAction::CloseDetail)),
-                            ),
+                            .tooltip("Close inspector")
+                            .accessibility_label("Close inspector")
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.send(UiAction::CloseDetail);
+                            })),
                     ),
-            )
-            .when(self.state.show_preview && preview.is_some(), |this| {
-                this.child(div().text_sm().child("Preview")).child(
-                    div()
-                        .id("record-preview")
-                        .max_h(px(110.))
-                        .child(preview.unwrap_or_default())
-                        .overflow_y_scrollbar(),
-                )
-            });
-        let Some(detail) = detail else {
-            return panel.child(
-                div()
-                    .text_sm()
-                    .child("Select a result to inspect its fields and source."),
             );
+        let Some(detail) = detail else {
+            return panel
+                .child(
+                    div()
+                        .p_3()
+                        .text_sm()
+                        .text_color(rgb(colors.secondary))
+                        .child(preview.cloned().unwrap_or_else(|| "Loading record…".into())),
+                )
+                .into_any_element();
         };
-        let relation_selected = detail.selected_row.checked_sub(detail.structured.len());
         panel = panel
-            .child(div().text_sm().child(detail.title.clone()))
             .child(
                 div()
                     .flex()
+                    .items_center()
+                    .h(px(36.))
+                    .flex_shrink_0()
+                    .px_2()
                     .gap_1()
-                    .child(Button::new("structured-view").label("Structured").on_click(
-                        cx.listener(|this, _, _, cx| {
-                            this.state.show_raw = false;
-                            cx.notify();
-                        }),
-                    ))
+                    .border_b_1()
+                    .border_color(rgb(colors.border))
                     .child(
-                        Button::new("raw-view")
-                            .label("Original source")
+                        Button::new("fields-tab")
+                            .ghost()
+                            .label("Fields")
+                            .selected(!self.state.show_raw)
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_raw = false;
+                                cx.notify();
+                            })),
+                    )
+                    .child(
+                        Button::new("source-tab")
+                            .ghost()
+                            .label("Source")
+                            .selected(self.state.show_raw)
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_raw = true;
                                 this.send(UiAction::ToggleRawSource);
@@ -461,9 +518,237 @@ impl DesktopView {
             .child(
                 div()
                     .flex()
+                    .items_center()
+                    .h(px(42.))
+                    .flex_shrink_0()
+                    .px_2()
                     .gap_1()
+                    .child(Input::new(&self.inputs.find).id("record-find").w_full())
+                    .child(
+                        Button::new("find-previous")
+                            .ghost()
+                            .label("↑")
+                            .tooltip("Previous match in record")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.send(UiAction::FindInRecord {
+                                    text: this.inputs.find.read(cx).value().to_string(),
+                                    forward: false,
+                                });
+                            })),
+                    )
+                    .child(
+                        Button::new("find-next")
+                            .ghost()
+                            .label("↓")
+                            .tooltip("Next match in record")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.send(UiAction::FindInRecord {
+                                    text: this.inputs.find.read(cx).value().to_string(),
+                                    forward: true,
+                                });
+                            })),
+                    ),
+            );
+        if self.state.show_raw {
+            panel = panel
+                .child(
+                    div()
+                        .px_3()
+                        .py_2()
+                        .text_xs()
+                        .text_color(rgb(colors.secondary))
+                        .child(detail.source_label.clone()),
+                )
+                .child(
+                    div()
+                        .id("raw-source")
+                        .flex_1()
+                        .min_h_0()
+                        .p_3()
+                        .font_family("DejaVu Sans Mono")
+                        .text_sm()
+                        .child(self.state.detail_source.clone().unwrap_or_default())
+                        .overflow_y_scrollbar(),
+                );
+        } else {
+            let mut content = div()
+                .id("structured-detail")
+                .flex()
+                .flex_col()
+                .flex_1()
+                .min_h_0();
+            content = content.children(
+                detail
+                    .structured
+                    .iter()
+                    .enumerate()
+                    .filter(|(_, row)| {
+                        (row.origin == DetailOrigin::Structured
+                            && !(row.depth == 0 && row.label == "$" && detail.structured.len() > 1))
+                            || (self.state.show_detail_metadata
+                                && row.origin != DetailOrigin::Structured)
+                    })
+                    .map(|(index, row)| {
+                        let value = match row.value_kind {
+                            DetailValueKind::Present => self
+                                .state
+                                .detail_cache
+                                .values
+                                .get(index)
+                                .cloned()
+                                .unwrap_or_default(),
+                            DetailValueKind::JsonNull => "null (JSON)".into(),
+                            DetailValueKind::LogicalUnavailable => {
+                                "unavailable logical data".into()
+                            }
+                        };
+                        let marker = if row.expandable {
+                            if row.expanded { "▾" } else { "▸" }
+                        } else {
+                            " "
+                        };
+                        let expandable = row.expandable;
+                        div()
+                            .id(("detail-row", index))
+                            .flex()
+                            .flex_col()
+                            .gap_1()
+                            .px_3()
+                            .py_2()
+                            .pl(px(12. + row.depth.min(10) as f32 * 12.))
+                            .border_b_1()
+                            .border_color(rgb(colors.border))
+                            .bg(rgb(if detail.selected_row == index {
+                                colors.selected
+                            } else {
+                                colors.panel
+                            }))
+                            .child(
+                                div()
+                                    .flex()
+                                    .items_center()
+                                    .gap_1()
+                                    .text_xs()
+                                    .text_color(rgb(colors.secondary))
+                                    .child(marker)
+                                    .child(
+                                        self.state
+                                            .detail_cache
+                                            .labels
+                                            .get(index)
+                                            .cloned()
+                                            .unwrap_or_default(),
+                                    )
+                                    .when(row.matched, |this| this.child("· match")),
+                            )
+                            .child(div().text_sm().child(value))
+                            .on_click(cx.listener(move |this, _, window, cx| {
+                                window.focus(&this.detail_focus, cx);
+                                if let Some(detail) = this.state.detail.as_mut() {
+                                    detail.selected_row = index;
+                                }
+                                this.send(UiAction::DetailRowSelected(index));
+                                if expandable {
+                                    this.send(UiAction::ToggleDetailExpansion(index));
+                                }
+                                cx.notify();
+                            }))
+                    }),
+            );
+            content = content.children(detail.relations.iter().enumerate().map(
+                |(index, relation)| {
+                    let label = self
+                        .state
+                        .detail_cache
+                        .relation_labels
+                        .get(index)
+                        .cloned()
+                        .unwrap_or_default();
+                    let value = self
+                        .state
+                        .detail_cache
+                        .relation_values
+                        .get(index)
+                        .cloned()
+                        .unwrap_or_default();
+                    div()
+                        .flex()
+                        .items_center()
+                        .gap_1()
+                        .px_3()
+                        .py_1()
+                        .border_b_1()
+                        .border_color(rgb(colors.border))
+                        .child(
+                            Button::new(format!("relation-{index}"))
+                                .ghost()
+                                .disabled(!relation.available)
+                                .child(div().flex().gap_1().child(label).child("↗").child(value))
+                                .on_click(cx.listener(move |this, _, _, _| {
+                                    this.send(UiAction::FollowRelation(index));
+                                })),
+                        )
+                        .child(
+                            Button::new(format!("copy-relation-{index}"))
+                                .ghost()
+                                .icon(IconName::Copy)
+                                .tooltip("Copy relation value")
+                                .accessibility_label("Copy relation value")
+                                .on_click(cx.listener(move |this, _, _, _| {
+                                    this.send(UiAction::CopyRelation(index));
+                                })),
+                        )
+                },
+            ));
+            panel = panel.child(content.overflow_y_scrollbar()).child(
+                Button::new("metadata-toggle")
+                    .ghost()
+                    .label(if self.state.show_detail_metadata {
+                        "▾ Metadata & diagnostics"
+                    } else {
+                        "▸ Metadata & diagnostics"
+                    })
+                    .on_click(cx.listener(|this, _, _, cx| {
+                        this.state.show_detail_metadata = !this.state.show_detail_metadata;
+                        cx.notify();
+                    })),
+            );
+        }
+        panel
+            .when(detail.clipped, |this| {
+                this.child(
+                    div()
+                        .px_3()
+                        .text_xs()
+                        .text_color(rgb(colors.secondary))
+                        .child("Visible values clipped; copy and export use complete records."),
+                )
+            })
+            .when(
+                self.state.show_detail_metadata && detail.diagnostic.is_some(),
+                |this| {
+                    this.child(
+                        div()
+                            .px_3()
+                            .text_xs()
+                            .text_color(rgb(colors.error))
+                            .child(detail.diagnostic.clone().unwrap_or_default()),
+                    )
+                },
+            )
+            .child(
+                div()
+                    .flex()
+                    .items_center()
+                    .h(px(42.))
+                    .flex_shrink_0()
+                    .px_2()
+                    .gap_1()
+                    .border_t_1()
+                    .border_color(rgb(colors.border))
                     .child(
                         Button::new("copy-value")
+                            .ghost()
                             .icon(IconName::Copy)
                             .label("Copy value")
                             .on_click(cx.listener(|this, _, _, _| {
@@ -476,181 +761,23 @@ impl DesktopView {
                     )
                     .child(
                         Button::new("copy-record")
-                            .icon(IconName::Copy)
+                            .ghost()
                             .label("Copy record")
-                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::CopyRecord))),
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.send(UiAction::CopyRecord);
+                            })),
+                    )
+                    .child(
+                        Button::new("inspector-export")
+                            .ghost()
+                            .label("Export…")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_actions = true;
+                                cx.notify();
+                            })),
                     ),
             )
-            .child(
-                div()
-                    .flex()
-                    .gap_1()
-                    .child(
-                        Button::new("previous-section")
-                            .label("Previous section")
-                            .on_click(cx.listener(|this, _, _, _| {
-                                this.send(UiAction::DetailSectionRelative(false))
-                            })),
-                    )
-                    .child(Button::new("next-section").label("Next section").on_click(
-                        cx.listener(|this, _, _, _| {
-                            this.send(UiAction::DetailSectionRelative(true))
-                        }),
-                    )),
-            )
-            .child(
-                div()
-                    .flex()
-                    .gap_1()
-                    .items_center()
-                    .child(Input::new(&self.inputs.find).id("record-find").w(px(180.)))
-                    .child(
-                        Button::new("find-previous")
-                            .label("↑")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.send(UiAction::FindInRecord {
-                                    text: this.inputs.find.read(cx).value().to_string(),
-                                    forward: false,
-                                });
-                            })),
-                    )
-                    .child(Button::new("find-next").label("↓").on_click(cx.listener(
-                        |this, _, _, cx| {
-                            this.send(UiAction::FindInRecord {
-                                text: this.inputs.find.read(cx).value().to_string(),
-                                forward: true,
-                            });
-                        },
-                    ))),
-            );
-        if self.state.show_raw {
-            panel = panel
-                .child(div().text_sm().child(detail.source_label))
-                .child(
-                    div()
-                        .id("raw-source")
-                        .flex_1()
-                        .min_h_0()
-                        .text_sm()
-                        .child(detail.raw_source)
-                        .overflow_y_scrollbar(),
-                );
-        } else {
-            panel =
-                panel.child(
-                    div()
-                        .id("structured-detail")
-                        .flex()
-                        .flex_col()
-                        .flex_1()
-                        .min_h_0()
-                        .children(
-                            detail
-                                .structured
-                                .into_iter()
-                                .enumerate()
-                                .map(|(index, row)| {
-                                    let kind = match row.origin {
-                                        DetailOrigin::Structured => "Field",
-                                        DetailOrigin::Metadata => "Metadata",
-                                        DetailOrigin::Diagnostic => "Diagnostic",
-                                    };
-                                    let value = match row.value_kind {
-                                        DetailValueKind::Present => row.value,
-                                        DetailValueKind::JsonNull => "null (JSON)".into(),
-                                        DetailValueKind::LogicalUnavailable => {
-                                            "unavailable logical data".into()
-                                        }
-                                    };
-                                    let marker = if row.expandable {
-                                        if row.expanded { "▾ " } else { "▸ " }
-                                    } else {
-                                        ""
-                                    };
-                                    let matched = if row.matched { " · match" } else { "" };
-                                    let selected = detail.selected_row == index;
-                                    div()
-                                        .id(("detail-row", index))
-                                        .flex()
-                                        .flex_col()
-                                        .py_1()
-                                        .bg(rgb(if selected {
-                                            if self.state.dark { 0x294d62 } else { 0xc8e4f3 }
-                                        } else if self.state.dark {
-                                            0x17202b
-                                        } else {
-                                            0xf2f6fa
-                                        }))
-                                        .child(div().text_sm().child(format!(
-                                            "{}{}{} · {kind}{matched}",
-                                            "  ".repeat(row.depth.min(10)),
-                                            marker,
-                                            row.label
-                                        )))
-                                        .child(div().child(value))
-                                        .on_click(cx.listener(move |this, _, window, cx| {
-                                            window.focus(&this.detail_focus, cx);
-                                            if let Some(detail) = this.state.detail.as_mut() {
-                                                detail.selected_row = index;
-                                            }
-                                            this.send(UiAction::DetailRowSelected(index));
-                                            if row.expandable {
-                                                this.send(UiAction::ToggleDetailExpansion(index));
-                                            }
-                                            cx.notify();
-                                        }))
-                                }),
-                        )
-                        .children(detail.relations.into_iter().enumerate().map(
-                            |(index, relation)| {
-                                div()
-                                    .flex()
-                                    .gap_1()
-                                    .child(
-                                        Button::new(format!("relation-{index}"))
-                                            .label(format!(
-                                                "{}{}: {}",
-                                                if relation_selected == Some(index) {
-                                                    "▶ "
-                                                } else {
-                                                    ""
-                                                },
-                                                relation.label,
-                                                relation.value
-                                            ))
-                                            .disabled(!relation.available)
-                                            .on_click(cx.listener(move |this, _, _, _| {
-                                                this.send(UiAction::FollowRelation(index))
-                                            })),
-                                    )
-                                    .child(
-                                        Button::new(format!("copy-relation-{index}"))
-                                            .label("Copy")
-                                            .on_click(cx.listener(move |this, _, _, _| {
-                                                this.send(UiAction::CopyRelation(index))
-                                            })),
-                                    )
-                            },
-                        ))
-                        .overflow_y_scrollbar(),
-                );
-        }
-        panel
-            .when(detail.clipped, |this| {
-                this.child(
-                    div()
-                        .text_sm()
-                        .child("Visible detail clipped; original source/export is complete."),
-                )
-            })
-            .when(detail.diagnostic.is_some(), |this| {
-                this.child(
-                    div()
-                        .text_sm()
-                        .text_color(rgb(0xc2410c))
-                        .child(detail.diagnostic.unwrap_or_default()),
-                )
-            })
+            .into_any_element()
     }
 
     pub(super) fn render_actions(&self, cx: &mut Context<Self>) -> impl IntoElement {
@@ -661,13 +788,100 @@ impl DesktopView {
         let export_error = self.state.errors.get(&ErrorField::Export).cloned();
         div()
             .id("action-panel")
-            .max_h(px(240.))
+            .absolute()
+            .top(px(48.))
+            .right(px(8.))
+            .w(px(700.))
+            .max_h(px(560.))
             .overflow_y_scrollbar()
             .flex()
             .flex_col()
             .gap_2()
             .p_3()
-            .bg(rgb(if self.state.dark { 0x202a35 } else { 0xe8f0f7 }))
+            .bg(rgb(super::theme::palette(self.state.dark).panel))
+            .border_1()
+            .border_color(rgb(super::theme::palette(self.state.dark).border))
+            .rounded_md()
+            .on_mouse_down_out(cx.listener(|this, _, _, cx| {
+                this.state.show_actions = false;
+                cx.notify();
+            }))
+            .child(
+                div()
+                    .flex()
+                    .items_center()
+                    .gap_2()
+                    .child(
+                        div()
+                            .flex_1()
+                            .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                            .child("Menu"),
+                    )
+                    .child(
+                        Button::new("menu-batch")
+                            .icon(IconName::SquareTerminal)
+                            .label("Run query batch…")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_actions = false;
+                                this.state.show_batch = true;
+                                cx.notify();
+                            })),
+                    )
+                    .child(
+                        Button::new("menu-index")
+                            .icon(IconName::HardDrive)
+                            .label("Index…")
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.send(UiAction::WriteIndex);
+                            })),
+                    )
+                    .child(
+                        Button::new("menu-theme")
+                            .icon(if self.state.dark {
+                                IconName::Sun
+                            } else {
+                                IconName::Moon
+                            })
+                            .label(if self.state.dark { "Light" } else { "Dark" })
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.dark = !this.state.dark;
+                                gpui_kit::component::Theme::change(
+                                    if this.state.dark {
+                                        gpui_kit::component::ThemeMode::Dark
+                                    } else {
+                                        gpui_kit::component::ThemeMode::Light
+                                    },
+                                    None,
+                                    cx,
+                                );
+                                this.send(UiAction::SetTheme {
+                                    dark: this.state.dark,
+                                });
+                                cx.notify();
+                            })),
+                    )
+                    .child(
+                        Button::new("menu-help")
+                            .icon(IconName::Info)
+                            .label("Help")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_help = true;
+                                this.state.show_actions = false;
+                                this.send(UiAction::ShowHelp);
+                                cx.notify();
+                            })),
+                    )
+                    .child(
+                        Button::new("menu-close")
+                            .icon(IconName::Close)
+                            .tooltip("Close menu")
+                            .accessibility_label("Close menu")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_actions = false;
+                                cx.notify();
+                            })),
+                    ),
+            )
             .child(
                 div()
                     .flex()
@@ -816,7 +1030,7 @@ impl DesktopView {
     }
 
     pub(super) fn render_help(&self) -> impl IntoElement {
-        div().id("help-panel").flex().flex_col().gap_1().p_3()
+        div().id("help-panel").absolute().top(px(100.)).right(px(16.)).w(px(600.)).max_h(px(600.)).overflow_y_scrollbar().flex().flex_col().gap_1().p_3()
             .bg(rgb(if self.state.dark { 0x202a35 } else { 0xe8f0f7 }))
             .child(div().child(format!("Objekte Desktop {} · Help", env!("CARGO_PKG_VERSION"))))
             .child(div().text_sm().child("Use Open to choose a folder or configured repository. Type in Full Text and Structured independently; they run together."))
