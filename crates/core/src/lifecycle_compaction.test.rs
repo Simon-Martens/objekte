@@ -1,4 +1,5 @@
 use super::*;
+use crate::model::CollectionId;
 use crate::query::{Query, QueryOptions};
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
@@ -160,6 +161,62 @@ fn background_compaction_preserves_pinned_reader_and_reports_completion() {
     );
     assert_eq!(old.search(&all()).unwrap().count, Some(1));
     assert_eq!(index.view().unwrap().search(&all()).unwrap().count, Some(0));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-segment-admission-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for name in ["a", "b", "c"] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            format!("{{\"name\":\"{name}\"}}"),
+        )
+        .unwrap();
+    }
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let a = root.join("data/a.json");
+    let b = root.join("data/b.json");
+    let initial = index.view().unwrap();
+    index
+        .delete_file(initial.file_handle_for_path(&a).unwrap())
+        .unwrap();
+    index.compact().unwrap();
+    let b_handle = index.view().unwrap().file_handle_for_path(&b).unwrap();
+    std::fs::write(&b, br#"{"name":"bb"}"#).unwrap();
+    index.update_file(b_handle, &b).unwrap();
+    let dense = index.view().unwrap().segments(CollectionId(0)).unwrap()[0].clone();
+    assert!(dense.active.len() < dense.index.records.len() as u64);
+    for number in 0..70 {
+        let path = root.join(format!("data/new-{number}.json"));
+        std::fs::write(&path, format!("{{\"name\":\"new-{number}\"}}")).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    let current = index.view().unwrap();
+    assert!(
+        current
+            .segments(CollectionId(0))
+            .unwrap()
+            .iter()
+            .any(|segment| Arc::ptr_eq(segment, &dense))
+    );
+    assert_eq!(current.search(&all()).unwrap().count, Some(72));
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
