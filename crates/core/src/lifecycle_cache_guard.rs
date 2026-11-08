@@ -46,12 +46,15 @@ fn resolved_destination(path: &Path) -> Result<PathBuf, String> {
     }
 }
 
+pub(crate) fn canonical_cache_destination(path: &Path) -> Result<PathBuf, String> {
+    resolved_destination(path)
+}
+
 #[cfg(unix)]
 fn same_file(left: &fs::Metadata, right: &fs::Metadata) -> bool {
     use std::os::unix::fs::MetadataExt;
     left.dev() == right.dev() && left.ino() == right.ino()
 }
-
 
 /// Prepared checks for one published view. Construct once for a flush, then
 /// call `ensure_safe` before writing and immediately before rename.
@@ -64,7 +67,6 @@ pub(crate) struct CacheDestinationGuard<'a> {
     protected_files: &'a [PathBuf],
     source_symlinks_possible: bool,
 }
-
 
 impl<'a> CacheDestinationGuard<'a> {
     pub(crate) fn new(publication: &'a PublishedIndex, protected_files: &'a [PathBuf]) -> Self {
@@ -185,7 +187,6 @@ impl<'a> CacheDestinationGuard<'a> {
         Ok(())
     }
 }
-
 
 /// Exclude only the selected cache file and snapshot writer temporary names
 /// from supplied collection definitions. Other files in the same directory

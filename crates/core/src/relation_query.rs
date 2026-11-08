@@ -58,6 +58,22 @@ pub(crate) struct MergedRelationView<'a> {
 }
 
 impl<'a> MergedRelationView<'a> {
+    pub(crate) fn repository_root(&self) -> &std::path::Path {
+        &self.repo.files.root
+    }
+
+    pub(crate) fn relation_cardinality(
+        &self,
+        relation: RelationId,
+    ) -> Result<RelationCardinality, String> {
+        Ok(self.repo.collections[relation.source.0 as usize]
+            .relations
+            .get(relation.ordinal as usize)
+            .ok_or("merged relation declaration missing")?
+            .declaration
+            .cardinality)
+    }
+
     pub(crate) fn new(
         repo: &'a Repository,
         base_active: &'a [ActiveRecords],
@@ -175,7 +191,7 @@ impl<'a> MergedRelationView<'a> {
         }))
     }
 
-    fn resolve_id(
+    pub(crate) fn resolve_id(
         &self,
         collection: CollectionId,
         id: &str,
@@ -211,6 +227,93 @@ impl<'a> MergedRelationView<'a> {
             }
         }
         Ok(found)
+    }
+
+    pub(crate) fn forward_edges(
+        &self,
+        address: MergedRecordSlot,
+        relation_index: usize,
+    ) -> Result<(Vec<(&str, &[u32])>, bool, bool, bool), String> {
+        let index = address.collection.0 as usize;
+        if let Some(segment_index) = address.segment {
+            let published = &self.segments[index][segment_index];
+            let contribution = published
+                .index
+                .relations
+                .get(relation_index)
+                .ok_or("merged segment relation missing")?;
+            Ok((
+                self.forward
+                    .get(&(index, segment_index, relation_index, address.slot.0))
+                    .cloned()
+                    .unwrap_or_default(),
+                contribution.present().contains(address.slot.0),
+                contribution.nulls().contains(address.slot.0),
+                contribution.unavailable().contains(address.slot.0),
+            ))
+        } else {
+            let relation = self.repo.collections[index]
+                .relations
+                .get(relation_index)
+                .ok_or("merged base relation missing")?;
+            Ok((
+                relation
+                    .edges(address.slot)
+                    .ok_or("merged base relation slot missing")?
+                    .iter()
+                    .map(|edge| (edge.target_id(), edge.positions.as_slice()))
+                    .collect(),
+                relation.present().contains(address.slot.0),
+                relation.nulls().contains(address.slot.0),
+                relation.unavailable().contains(address.slot.0),
+            ))
+        }
+    }
+
+    pub(crate) fn backlink_sources(
+        &self,
+        relation: RelationId,
+        target_id: &str,
+    ) -> Result<Vec<MergedRecordSlot>, String> {
+        let index = relation.source.0 as usize;
+        let collection = self.repo.collections.get(index).ok_or("backlink source missing")?;
+        let base = collection
+            .relations
+            .get(relation.ordinal as usize)
+            .ok_or("backlink relation missing")?;
+        let mut sources = Vec::new();
+        if let Some(slots) = self.repo.relation_reverse_sources(base, target_id) {
+            for slot in slots.iter() {
+                let slot = RecordSlot(slot);
+                if self.base_active[index].contains(slot) {
+                    sources.push(MergedRecordSlot {
+                        collection: relation.source,
+                        segment: None,
+                        slot,
+                    });
+                }
+            }
+        }
+        if let Some(extra) = self
+            .backlinks
+            .get(&(index, relation.ordinal as usize, target_id.to_owned()))
+        {
+            sources.extend(extra.iter().copied());
+        }
+        sources.sort_unstable_by(|a, b| {
+            let id = |address: &MergedRecordSlot| {
+                if let Some(segment_index) = address.segment {
+                    &self.segments[index][segment_index].index.records[address.slot.0 as usize]
+                        .id
+                        .0
+                } else {
+                    &collection.generation.records[address.slot.0 as usize].id.0
+                }
+            };
+            id(a).cmp(id(b))
+        });
+        sources.dedup();
+        Ok(sources)
     }
 }
 
