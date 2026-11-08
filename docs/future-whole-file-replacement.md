@@ -30,6 +30,13 @@ tombstone strategy and report a structured fallback reason. This is an index
 optimization; it does not change source data. Old pinned views keep their old
 immutable contributions.
 
+The verified base path is a storage optimization with collection-sized work.
+On the 148,486-file Musenalm fixture it took about 1.28 seconds and temporarily
+raised process memory above 1 GiB, while a normal appended update took about
+0.33 milliseconds. Use the ordinary update path when write latency matters,
+and compact later. A future per-file base partition could make verified base
+removal incremental without the current collection-sized rewrite.
+
 For a compatible isolated one-record delta shard, a verified replacement can
 retain its segment ordinal and local slot in a new immutable shard. The old
 and new views have distinct index revisions; an old pinned view still owns its
