@@ -173,3 +173,99 @@ pub fn discover(
     paths.sort();
     Ok(paths)
 }
+
+/// Check one repository-relative path against the source, glob, hidden,
+/// recursion and symlink eligibility rules used by full discovery. Global
+/// deduplication of multiple symlink aliases still belongs to the mutation
+/// coordinator. This direct check avoids enumerating sibling files.
+pub fn selects_file(
+    root: &Path,
+    source_path: &Path,
+    rules: &Discovery,
+    source: &PreparedSource,
+    relative_path: &Path,
+) -> Result<bool, String> {
+    if source_path.is_absolute()
+        || source_path
+            .components()
+            .any(|part| !matches!(part, Component::Normal(_)))
+        || relative_path.is_absolute()
+        || relative_path
+            .components()
+            .any(|part| !matches!(part, Component::Normal(_)))
+    {
+        return Err("file and source paths must be contained repository-relative paths".into());
+    }
+    let Ok(selected) = relative_path.strip_prefix(source_path) else {
+        return Ok(false);
+    };
+    if selected.as_os_str().is_empty()
+        || (!rules.recursive && selected.components().count() != 1)
+        || (!rules.hidden && hidden(selected))
+        || relative_path
+            .extension()
+            .is_none_or(|ext| ext != source.extension())
+        || rules
+            .exclude_files
+            .iter()
+            .any(|excluded| selected == excluded)
+    {
+        return Ok(false);
+    }
+    let includes = compile(&rules.include)?;
+    let excludes = compile(&rules.exclude)?;
+    if (!rules.include.is_empty() && !includes.is_match(selected)) || excludes.is_match(selected) {
+        return Ok(false);
+    }
+    let mut prefix = PathBuf::new();
+    for part in selected
+        .components()
+        .take(selected.components().count() - 1)
+    {
+        prefix.push(part);
+        if rules
+            .exclude_directories
+            .iter()
+            .any(|excluded| *excluded == prefix)
+            || excludes.is_match(&prefix)
+        {
+            return Ok(false);
+        }
+    }
+    let source_directory = root.join(source_path);
+    let physical_root = source_directory
+        .canonicalize()
+        .map_err(|error| format!("{}: {error}", source_directory.display()))?;
+    if !physical_root.starts_with(root) || !physical_root.is_dir() {
+        return Err(
+            "collection source directory escapes repository root or is not a directory".into(),
+        );
+    }
+    let path = root.join(relative_path);
+    if rules.symlinks == SymlinkPolicy::Skip {
+        let mut component_path = source_directory;
+        for part in selected.components() {
+            component_path.push(part);
+            let metadata = match std::fs::symlink_metadata(&component_path) {
+                Ok(metadata) => metadata,
+                Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(false),
+                Err(error) => return Err(format!("{}: {error}", component_path.display())),
+            };
+            if metadata.file_type().is_symlink() {
+                return Ok(false);
+            }
+        }
+        Ok(path.is_file())
+    } else {
+        let physical = match path.canonicalize() {
+            Ok(path) => path,
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(false),
+            Err(error) => return Err(format!("{}: {error}", path.display())),
+        };
+        Ok(physical.starts_with(&physical_root) && physical.is_file())
+    }
+}
+
+#[cfg(test)]
+#[path = "discovery.test.rs"]
+mod tests;
