@@ -28,6 +28,7 @@ pub mod posting_values;
 mod prepared;
 pub mod query;
 pub mod query_path;
+mod query_validation;
 mod record_preparation;
 pub mod reference;
 mod regex_query;
