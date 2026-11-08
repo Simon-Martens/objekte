@@ -399,6 +399,23 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         |hit| hit.file_path != std::path::Path::new("data/delta.jsonl")
             || hit.byte_start != retired_segments[0][0].index.records[1].range.start
     ));
+    std::fs::write(&path, b"a replaced source revision with unrelated content").unwrap();
+    let changed = search_segmented_reference(
+        &repo, &query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
+    ).unwrap();
+    assert_eq!(changed.count, None);
+    assert!(!changed.counters.match_count_complete);
+    assert_eq!(changed.counters.source_unavailable_events, 1);
+    assert_eq!(changed.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::RevisionMismatch);
+    assert!(changed.hits.iter().all(|hit| hit.file_path != std::path::Path::new("data/delta.jsonl")));
+    std::fs::remove_file(&path).unwrap();
+    let missing = search_segmented_reference(
+        &repo, &query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
+    ).unwrap();
+    assert_eq!(missing.count, None);
+    assert_eq!(missing.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::Missing);
     std::fs::remove_dir_all(root).unwrap();
 }
 
