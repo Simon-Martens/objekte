@@ -16,11 +16,10 @@ use gpui_kit::{
 
 use super::DesktopView;
 use super::model::{
-    BatchSource, DetailOrigin, DetailRow, DetailValueKind, ErrorField, ExportFormat,
-    IndexTaskKind, IndexTaskState, TabFreshness, UiAction,
+    BatchSource, DetailOrigin, DetailRow, DetailValueKind, ErrorField, ExportFormat, IndexTaskKind,
+    IndexTaskState, TabFreshness, UiAction,
 };
 use super::state::ActionPanel;
-
 
 impl DesktopView {
     pub(super) fn render_batch(&self, cx: &mut Context<Self>) -> impl IntoElement {
@@ -144,7 +143,9 @@ impl DesktopView {
                         Button::new("cancel-batch")
                             .icon(IconName::Close)
                             .label("Cancel")
-                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::Cancel))),
+                            .on_click(
+                                cx.listener(|this, _, _, _| this.send(UiAction::CancelBatch)),
+                            ),
                     ),
             )
             .when(error.is_some(), |this| {
@@ -190,6 +191,10 @@ impl DesktopView {
             .find(|tab| Some(tab.id) == self.state.active_tab);
         let freshness = active_tab.map_or(TabFreshness::Current, |tab| tab.freshness);
         let navigation_current = freshness == TabFreshness::Current;
+        let record_current = matches!(
+            freshness,
+            TabFreshness::Current | TabFreshness::NavigationUnavailable
+        );
         let mut panel = div()
             .id("record-panel")
             .track_focus(&self.detail_focus)
@@ -288,9 +293,15 @@ impl DesktopView {
                         Button::new("record-back")
                             .ghost()
                             .icon(IconName::Undo)
-                            .tooltip(if navigation_current { "Back" } else { "Refresh record to navigate" })
+                            .tooltip(if navigation_current {
+                                "Back"
+                            } else {
+                                "Refresh record to navigate"
+                            })
                             .accessibility_label("Back")
-                            .disabled(!navigation_current || !active_tab.is_some_and(|tab| tab.can_back))
+                            .disabled(
+                                !navigation_current || !active_tab.is_some_and(|tab| tab.can_back),
+                            )
                             .on_click(cx.listener(|this, _, _, _| {
                                 this.save_tab_view();
                                 this.send(UiAction::BackRelation);
@@ -300,9 +311,16 @@ impl DesktopView {
                         Button::new("previous-record")
                             .ghost()
                             .icon(IconName::ArrowLeft)
-                            .tooltip(if navigation_current { "Previous result" } else { "Refresh record to navigate" })
+                            .tooltip(if navigation_current {
+                                "Previous result"
+                            } else {
+                                "Refresh record to navigate"
+                            })
                             .accessibility_label("Previous result")
-                            .disabled(!navigation_current || !active_tab.is_some_and(|tab| tab.can_previous))
+                            .disabled(
+                                !navigation_current
+                                    || !active_tab.is_some_and(|tab| tab.can_previous),
+                            )
                             .on_click(cx.listener(|this, _, _, _| {
                                 this.save_tab_view();
                                 this.send(UiAction::AdjacentResult(false));
@@ -312,9 +330,15 @@ impl DesktopView {
                         Button::new("next-record")
                             .ghost()
                             .icon(IconName::ArrowRight)
-                            .tooltip(if navigation_current { "Next result" } else { "Refresh record to navigate" })
+                            .tooltip(if navigation_current {
+                                "Next result"
+                            } else {
+                                "Refresh record to navigate"
+                            })
                             .accessibility_label("Next result")
-                            .disabled(!navigation_current || !active_tab.is_some_and(|tab| tab.can_next))
+                            .disabled(
+                                !navigation_current || !active_tab.is_some_and(|tab| tab.can_next),
+                            )
                             .on_click(cx.listener(|this, _, _, _| {
                                 this.save_tab_view();
                                 this.send(UiAction::AdjacentResult(true));
@@ -348,21 +372,39 @@ impl DesktopView {
                     TabFreshness::Current => "",
                     TabFreshness::Refreshing => "Refreshing record…",
                     TabFreshness::Outdated => "Record may have changed — previously loaded content",
-                    TabFreshness::Removed => "Record is no longer available — previously loaded content",
+                    TabFreshness::NavigationUnavailable => {
+                        "Record refreshed — position in original results unavailable"
+                    }
+                    TabFreshness::Removed => {
+                        "Record is no longer available — previously loaded content"
+                    }
                     TabFreshness::Failed => "Could not refresh record — previously loaded content",
                 };
-                this.child(div().id("record-freshness").flex().items_center().gap_2()
-                    .px_3().py_1().bg(rgb(colors.raised))
-                    .child(div().text_xs().flex_1().child(label))
-                    .when(freshness != TabFreshness::Refreshing, |this| this.child(
-                        Button::new("refresh-record").ghost().label("Refresh")
-                            .tooltip("Refresh record")
-                            .accessibility_label("Refresh record")
-                            .on_click(cx.listener(|this, _, _, _| {
-                                if let Some(id) = this.state.active_tab {
-                                    this.send(UiAction::RefreshRecord(id));
-                                }
-                            })))))
+                this.child(
+                    div()
+                        .id("record-freshness")
+                        .flex()
+                        .items_center()
+                        .gap_2()
+                        .px_3()
+                        .py_1()
+                        .bg(rgb(colors.raised))
+                        .child(div().text_xs().flex_1().child(label))
+                        .when(freshness != TabFreshness::Refreshing, |this| {
+                            this.child(
+                                Button::new("refresh-record")
+                                    .ghost()
+                                    .label("Refresh")
+                                    .tooltip("Refresh record")
+                                    .accessibility_label("Refresh record")
+                                    .on_click(cx.listener(|this, _, _, _| {
+                                        if let Some(id) = this.state.active_tab {
+                                            this.send(UiAction::RefreshRecord(id));
+                                        }
+                                    })),
+                            )
+                        }),
+                )
             });
         let Some(detail) = detail else {
             return panel
@@ -477,7 +519,7 @@ impl DesktopView {
                             Button::new("copy-record")
                                 .ghost()
                                 .icon(AssetIconName::Copy)
-                                .disabled(!navigation_current)
+                                .disabled(!record_current)
                                 .tooltip("Copy record")
                                 .accessibility_label("Copy record")
                                 .on_click(
@@ -488,7 +530,7 @@ impl DesktopView {
                             Button::new("export-record")
                                 .ghost()
                                 .icon(AssetIconName::Download)
-                                .disabled(!navigation_current)
+                                .disabled(!record_current)
                                 .tooltip("Export record")
                                 .accessibility_label("Export record")
                                 .on_click(cx.listener(|this, _, _, cx| {
@@ -780,14 +822,22 @@ impl DesktopView {
             .id("action-panel")
             .absolute()
             .when(kind == ActionPanel::Columns, |this| {
-                this.bottom(px(60.)).right(px(if self.state.inspector_visible && self.state.active_tab.is_some() {
-                    self.state.inspector_width + 8.
-                } else {
-                    8.
-                }))
+                this.bottom(px(60.)).right(px(
+                    if self.state.inspector_visible && self.state.active_tab.is_some() {
+                        self.state.inspector_width + 8.
+                    } else {
+                        8.
+                    },
+                ))
             })
-            .when(kind != ActionPanel::Columns, |this| this.top(px(48.)).right(px(8.)))
-            .w(px(if kind == ActionPanel::Index { 440. } else { 370. }))
+            .when(kind != ActionPanel::Columns, |this| {
+                this.top(px(48.)).right(px(8.))
+            })
+            .w(px(if kind == ActionPanel::Index {
+                440.
+            } else {
+                370.
+            }))
             .max_h(px(600.))
             .flex()
             .flex_col()
@@ -1114,15 +1164,30 @@ impl DesktopView {
                     ("File check", IndexTaskKind::Check, &index.check),
                     ("Saving", IndexTaskKind::Save, &index.save),
                     ("Loading", IndexTaskKind::Load, &index.load),
-                    ("Maintenance", index.maintenance_kind.unwrap_or(IndexTaskKind::Rebuild), &index.maintenance),
+                    (
+                        "Maintenance",
+                        index.maintenance_kind.unwrap_or(IndexTaskKind::Rebuild),
+                        &index.maintenance,
+                    ),
                 ] {
                     if let Some(summary) = index_task_summary(label, task) {
-                        content = content.child(div().flex().items_center().gap_2()
-                            .child(div().text_xs().flex_1().child(summary))
-                            .when(matches!(task, IndexTaskState::Running { .. }), |this| this.child(
-                                Button::new(format!("index-cancel-{kind:?}"))
-                                    .ghost().label("Cancel")
-                                    .on_click(cx.listener(move |this, _, _, _| this.send(UiAction::CancelIndexTask(kind)))))));
+                        content = content.child(
+                            div()
+                                .flex()
+                                .items_center()
+                                .gap_2()
+                                .child(div().text_xs().flex_1().child(summary))
+                                .when(matches!(task, IndexTaskState::Running { .. }), |this| {
+                                    this.child(
+                                        Button::new(format!("index-cancel-{kind:?}"))
+                                            .ghost()
+                                            .label("Cancel")
+                                            .on_click(cx.listener(move |this, _, _, _| {
+                                                this.send(UiAction::CancelIndexTask(kind))
+                                            })),
+                                    )
+                                }),
+                        );
                     }
                 }
             }
@@ -1187,7 +1252,6 @@ impl DesktopView {
     }
 }
 
-
 fn parse_index_interval_seconds(raw: &str) -> Result<u64, String> {
     let seconds = raw
         .trim()
@@ -1199,11 +1263,12 @@ fn parse_index_interval_seconds(raw: &str) -> Result<u64, String> {
     Ok(seconds)
 }
 
-
 fn index_task_summary(label: &str, task: &IndexTaskState) -> Option<String> {
     match task {
         IndexTaskState::Idle => None,
-        IndexTaskState::Running { processed, total, .. } => Some(match (processed, total) {
+        IndexTaskState::Running {
+            processed, total, ..
+        } => Some(match (processed, total) {
             (Some(done), Some(total)) => format!("{label}: {done} of {total}"),
             (Some(done), None) => format!("{label}: {done} processed"),
             _ => format!("{label}…"),
@@ -1213,7 +1278,6 @@ fn index_task_summary(label: &str, task: &IndexTaskState) -> Option<String> {
         IndexTaskState::Cancelled => Some(format!("{label} stopped")),
     }
 }
-
 
 #[cfg(test)]
 mod index_controls_tests {
@@ -1234,6 +1298,9 @@ mod index_controls_tests {
             processed: Some(7),
             total: None,
         };
-        assert_eq!(index_task_summary("File check", &task), Some("File check: 7 processed".into()));
+        assert_eq!(
+            index_task_summary("File check", &task),
+            Some("File check: 7 processed".into())
+        );
     }
 }

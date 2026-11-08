@@ -69,6 +69,7 @@ fn declared_enum_completes_without_a_posting_dictionary() {
                 ..Default::default()
             },
             cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -117,12 +118,15 @@ fn cancelled_replacement_open_invalidates_late_loader_without_losing_active_draf
     controller.open_draft = Some(active.clone());
     controller.opening_draft = Some(attempted);
     controller.open_generation = 7;
+    controller.pending_open_generation = 12;
     let mut updates = Vec::new();
     controller.cancel_open(&mut updates);
-    assert_eq!(controller.open_generation, 8);
+    assert_eq!(controller.open_generation, 7);
+    assert_eq!(controller.pending_open_generation, 13);
     assert!(controller.opening_draft.is_none());
     assert_eq!(controller.open_draft, Some(active));
-    assert!(controller.cancellation.is_cancelled());
+    assert!(controller.open_cancellation.is_cancelled());
+    assert!(!controller.cancellation.is_cancelled());
     assert!(
         matches!(updates.as_slice(), [UiUpdate::Status(message)] if message == "Open cancelled")
     );
@@ -203,13 +207,29 @@ fn main_query_change_preserves_tab_context_and_close_cancels_its_work() {
 #[test]
 fn row_open_reuses_active_tab_and_explicit_new_tab_adds_one() {
     let fixture = crate::backend::test_support::fixture();
-    let page = backend::query_page(&fixture.session, &backend::QuerySpec::default(), 0, 10, &CancellationToken::new()).unwrap();
+    let page = backend::query_page(
+        &fixture.session,
+        &backend::QuerySpec::default(),
+        0,
+        10,
+        &CancellationToken::new(),
+    )
+    .unwrap();
     assert!(page.hits.len() >= 2);
     let (mut controller, _) = DesktopController::new();
     controller.session = Some(fixture.session);
     controller.executed_spec = Some(backend::QuerySpec::default());
     controller.executed_draft = Some(SearchDraft::default());
-    controller.keys = page.hits.iter().map(|hit| Some(RecordKey { collection: hit.collection.clone(), id: hit.record_id.clone() })).collect();
+    controller.keys = page
+        .hits
+        .iter()
+        .map(|hit| {
+            Some(RecordKey {
+                collection: hit.collection.clone(),
+                id: hit.record_id.clone(),
+            })
+        })
+        .collect();
     let mut updates = Vec::new();
     controller.open_record(0, false, &mut updates);
     let first_id = controller.active_tab.unwrap();

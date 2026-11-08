@@ -17,7 +17,7 @@ use gpui_kit::{
 use objekte_search_core::query::parse_structured_filter;
 
 use super::DesktopView;
-use super::model::UiAction;
+use super::model::{IndexTaskState, UiAction};
 use super::sort;
 use super::state::{ActionPanel, Busy};
 use super::theme::palette;
@@ -72,7 +72,6 @@ fn panel_menu_item(
             });
         })
 }
-
 
 impl DesktopView {
     fn render_header(&self, cx: &mut Context<Self>) -> impl IntoElement {
@@ -159,6 +158,7 @@ impl DesktopView {
                     .dropdown_menu(move |menu, _, _| {
                         let save_target = target.clone();
                         let batch_target = target.clone();
+                        let check_target = target.clone();
                         let theme_target = target.clone();
                         let help_target = target.clone();
                         menu.item(
@@ -185,6 +185,16 @@ impl DesktopView {
                             AssetIconName::ArrowRight,
                             ActionPanel::Export,
                         ))
+                        .separator()
+                        .item(
+                            PopupMenuItem::new("Check for changes")
+                                .icon(AssetIconName::RefreshCw)
+                                .on_click(move |_, _, cx| {
+                                    check_target.update(cx, |this, _| {
+                                        this.send(UiAction::CheckForChanges);
+                                    });
+                                }),
+                        )
                         .item(panel_menu_item(
                             target.clone(),
                             "Index…",
@@ -552,9 +562,9 @@ impl DesktopView {
             })
             .collect::<Vec<_>>();
         let table_width = visible_columns
-                .iter()
-                .map(|(_, _, width)| *width)
-                .sum::<f32>();
+            .iter()
+            .map(|(_, _, width)| *width)
+            .sum::<f32>();
         let loaded_count = self.state.loaded_count;
         let sort = self
             .state
@@ -749,7 +759,11 @@ impl DesktopView {
                                         .id(("status-dot", index))
                                         .aria_label(cell.clone())
                                         .text_base()
-                                        .text_color(rgb(if valid { 0x28a66a } else { colors.error }))
+                                        .text_color(rgb(if valid {
+                                            0x28a66a
+                                        } else {
+                                            colors.error
+                                        }))
                                         .child("●")
                                         .into_any_element()
                                 } else if column == "@match" {
@@ -784,7 +798,9 @@ impl DesktopView {
                                     .px_2()
                                     .overflow_hidden()
                                     .text_sm()
-                                    .when(*wrapped || column == "@match", |this| this.whitespace_normal())
+                                    .when(*wrapped || column == "@match", |this| {
+                                        this.whitespace_normal()
+                                    })
                                     .when(!*wrapped && column != "@match", |this| {
                                         this.whitespace_nowrap().text_ellipsis()
                                     })
@@ -813,9 +829,13 @@ impl DesktopView {
                             let target = target.clone();
                             move |menu, _, _| {
                                 let target = target.clone();
-                                menu.item(PopupMenuItem::new("Open in new tab").on_click(move |_, _, cx| {
-                                    target.update(cx, |this, _| this.send(UiAction::OpenRecordNewTab(index)));
-                                }))
+                                menu.item(PopupMenuItem::new("Open in new tab").on_click(
+                                    move |_, _, cx| {
+                                        target.update(cx, |this, _| {
+                                            this.send(UiAction::OpenRecordNewTab(index))
+                                        });
+                                    },
+                                ))
                             }
                         })
                         .into_any_element()
@@ -930,6 +950,28 @@ impl DesktopView {
         } else {
             format!("Working: {}", self.state.status)
         };
+        let index = &self.state.index_status;
+        let index_status = if matches!(index.maintenance, IndexTaskState::Running { .. }) {
+            if index.maintenance_kind == Some(super::model::IndexTaskKind::Compact) {
+                "Compacting index…"
+            } else {
+                "Rebuilding index…"
+            }
+        } else if matches!(index.check, IndexTaskState::Running { .. }) {
+            "Checking files…"
+        } else if matches!(index.save, IndexTaskState::Running { .. }) {
+            "Saving index…"
+        } else if matches!(index.check, IndexTaskState::Failed(_)) {
+            "Some files could not be checked"
+        } else if matches!(index.save, IndexTaskState::Failed(_)) {
+            "Index could not be saved"
+        } else if index.dirty {
+            "Index changes not saved"
+        } else if index.check_complete == Some(true) {
+            "Files checked"
+        } else {
+            "Index ready"
+        };
         div()
             .flex()
             .items_center()
@@ -943,6 +985,30 @@ impl DesktopView {
             .text_color(rgb(colors.secondary))
             .child(status)
             .child(div().flex_1())
+            .when(self.state.result_outdated, |this| {
+                this.child(
+                    Button::new("results-refresh")
+                        .ghost()
+                        .label("Results changed — Refresh")
+                        .tooltip("Refresh the last valid results with the latest index")
+                        .on_click(cx.listener(|this, _, _, _| {
+                            this.send(UiAction::RefreshResults);
+                        })),
+                )
+            })
+            .when(self.state.root.is_some(), |this| {
+                this.child(
+                    Button::new("index-status")
+                        .ghost()
+                        .label(index_status)
+                        .tooltip("Index status and maintenance")
+                        .on_click(cx.listener(|this, _, _, cx| {
+                            this.state.show_actions = true;
+                            this.state.action_panel = ActionPanel::Index;
+                            cx.notify();
+                        })),
+                )
+            })
             .when(self.state.preference_write_failed, |this| {
                 this.child(
                     Button::new("retry-preferences")
@@ -968,7 +1034,6 @@ impl DesktopView {
             )
     }
 }
-
 
 impl Render for DesktopView {
     fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {

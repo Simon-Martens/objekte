@@ -10,17 +10,23 @@ use std::time::{Duration, Instant};
 
 use gpui_kit::{App, PathPromptOptions};
 use objekte_cli::execution::Exit;
+use objekte_search_core::lifecycle::{
+    IndexRevision, IndexStatus, IndexView, MaintenanceOperation, MaintenanceTask,
+    ReconciliationState, ReconciliationTask,
+};
 use objekte_search_core::posting::ScalarKey;
 use objekte_search_core::posting_values::PostingValuesRequest;
 use objekte_search_core::repository::SearchHit;
+use objekte_search_core::run::DirectLookupResult;
 use objekte_search_core::streaming::CancellationToken;
 use objekte_tui::relations::{self, LinkAction};
 
 use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
     BatchRow, BatchSource as UiBatchSource, CompletionOrigin, DetailView, ErrorField, ExportFormat,
-    FilterValidationState, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft,
-    SnapshotMode, TabViewState, UiAction, UiUpdate,
+    FilterValidationState, IndexTaskKind, IndexTaskState, IndexUiStatus, OpenDraft, PageView,
+    RecordTabSummary, RelationRow, SearchDraft, SnapshotMode, TabFreshness, TabViewState, UiAction,
+    UiUpdate,
 };
 use crate::ui::preferences::DesktopPreferences;
 
@@ -29,7 +35,6 @@ use super::open_detection::{DetectedSource, detect_source};
 use super::projection::detail_view_with_query;
 use super::{initial_columns, open_spec, page_view_with_prior, query_spec};
 
-
 /// One lightweight locator retained for every delivered result.
 #[derive(Clone, Eq, PartialEq)]
 struct RecordKey {
@@ -37,14 +42,13 @@ struct RecordKey {
     id: String,
 }
 
-
 #[derive(Clone)]
 struct TabContext {
     query_generation: u64,
+    publication: Publication,
     spec: backend::QuerySpec,
     draft: SearchDraft,
 }
-
 
 #[derive(Clone)]
 struct TabFrame {
@@ -53,7 +57,6 @@ struct TabFrame {
     view: TabViewState,
     in_results: bool,
 }
-
 
 struct RecordTab {
     id: u64,
@@ -71,18 +74,53 @@ struct RecordTab {
     links_loaded: bool,
     end_confirmed: bool,
     title: String,
+    freshness: TabFreshness,
+    navigation_outdated: bool,
+    cached_detail: Option<DetailView>,
 }
 
+/// Source publications are comparable only within one live index instance.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+struct Publication {
+    instance_id: u64,
+    revision: IndexRevision,
+}
+
+impl From<&IndexStatus> for Publication {
+    fn from(status: &IndexStatus) -> Self {
+        Self {
+            instance_id: status.instance_id,
+            revision: status.revision,
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum CheckOrigin {
+    Initial,
+    Explicit,
+    Periodic,
+}
 
 #[derive(Clone)]
 enum TabLoadKind {
     Open,
-    Replace { key: RecordKey, context: Arc<TabContext>, anchor: usize },
-    Adjacent { anchor: usize },
-    Relation { key: RecordKey },
-    Back { frame: TabFrame },
+    Refresh,
+    Replace {
+        key: RecordKey,
+        context: Arc<TabContext>,
+        anchor: usize,
+    },
+    Adjacent {
+        anchor: usize,
+    },
+    Relation {
+        key: RecordKey,
+    },
+    Back {
+        frame: TabFrame,
+    },
 }
-
 
 type QueryCompletion = Result<
     (
@@ -99,6 +137,11 @@ type QueryCompletion = Result<
 type OpenCompletion = Result<(OpenedSession, Result<DesktopPreferences, String>), String>;
 type TabCompletion = Result<Option<(SearchHit, DetailView, Vec<Option<LinkAction>>)>, String>;
 
+enum IndexSaveCompletion {
+    Saved(backend::index_lifecycle::SaveOutcome),
+    OverwriteRequired(PathBuf),
+    Failed(String),
+}
 
 #[derive(Clone)]
 struct CompletionRequest {
@@ -109,10 +152,8 @@ struct CompletionRequest {
     prefix: String,
 }
 
-
 type CompletionCacheKey = (u64, Option<String>, String, String);
 type CompletionCacheValue = (Vec<(String, String)>, bool, u64);
-
 
 #[derive(Clone, Copy)]
 enum GridRequestKind {
@@ -121,9 +162,9 @@ enum GridRequestKind {
     Projection(usize),
 }
 
-
 fn spawn_grid_page(
     session: OpenedSession,
+    view: IndexView,
     spec: backend::QuerySpec,
     page_start: usize,
     hidden: Vec<String>,
@@ -136,7 +177,11 @@ fn spawn_grid_page(
     kind: GridRequestKind,
 ) {
     thread::spawn(move || {
-        let result = backend::query_page(&session, &spec, page_start, 100, &token)
+        let publication = Publication {
+            instance_id: view.instance_id(),
+            revision: view.revision(),
+        };
+        let result = backend::query_page_on_view(&session, &view, &spec, page_start, 100, &token)
             .map(|page| {
                 let diagnostics = format!(
                     "Query: {:.1} ms; page start {}; rows {}; exact total {:?}\nCounters: {:#?}",
@@ -170,12 +215,12 @@ fn spawn_grid_page(
         let _ = sender.send(WorkerEvent::Queried {
             open_generation,
             query_generation,
+            publication,
             kind,
             result: Box::new(result),
         });
     });
 }
-
 
 /// Completion messages from off-thread filesystem and search operations.
 enum WorkerEvent {
@@ -192,12 +237,14 @@ enum WorkerEvent {
     Queried {
         open_generation: u64,
         query_generation: u64,
+        publication: Publication,
         kind: GridRequestKind,
         result: Box<QueryCompletion>,
     },
     Counted {
         open_generation: u64,
         query_generation: u64,
+        publication: Publication,
         result: Result<usize, String>,
     },
     CompletionValues {
@@ -208,6 +255,7 @@ enum WorkerEvent {
     },
     TabLoaded {
         open_generation: u64,
+        publication: Publication,
         tab_id: u64,
         operation_generation: u64,
         kind: TabLoadKind,
@@ -215,6 +263,7 @@ enum WorkerEvent {
     },
     LinksLoaded {
         open_generation: u64,
+        publication: Publication,
         tab_id: u64,
         operation_generation: u64,
         rows: Vec<relations::RelationRow>,
@@ -242,30 +291,55 @@ enum WorkerEvent {
         generation: u64,
         result: Result<Option<Vec<PathBuf>>, String>,
     },
+    PickedIndexPath {
+        generation: u64,
+        load: bool,
+        run_after_selection: bool,
+        result: Result<Option<PathBuf>, String>,
+    },
     Exported {
         open_generation: u64,
-        output_generation: u64,
+        export_generation: u64,
         result: Result<String, String>,
     },
-    Indexed {
+    IndexSaved {
         open_generation: u64,
-        output_generation: u64,
-        result: Result<String, String>,
+        operation_id: u64,
+        result: IndexSaveCompletion,
+    },
+    IndexLoaded {
+        open_generation: u64,
+        operation_id: u64,
+        result: Result<OpenedSession, String>,
+    },
+    AutomaticCheckChanged {
+        open_generation: u64,
+        operation_id: u64,
+        enabled: bool,
+        interval_seconds: u64,
+        result: Result<(), String>,
+    },
+    AutomaticSaveChanged {
+        open_generation: u64,
+        operation_id: u64,
+        enabled: bool,
+        result: Result<(), String>,
     },
     Batched {
         open_generation: u64,
-        output_generation: u64,
+        batch_generation: u64,
         result: Result<(backend::BatchReport, Vec<BatchRow>), String>,
     },
     PreferenceError(String),
     PreferenceSaved,
     CopiedValue {
         open_generation: u64,
-        detail_generation: u64,
+        publication: Publication,
+        tab_id: u64,
+        operation_generation: u64,
         result: Result<(String, String), String>,
     },
 }
-
 
 /// UI-thread coordinator; expensive work is owned by short-lived workers.
 pub struct DesktopController {
@@ -274,19 +348,42 @@ pub struct DesktopController {
     workers: Receiver<WorkerEvent>,
     preference_tx: Sender<DesktopPreferences>,
     session: Option<OpenedSession>,
+    observed_publication: Option<Publication>,
+    executed_view: Option<IndexView>,
+    results_outdated: bool,
+    refreshing_results: bool,
+    refresh_anchor: Option<RecordKey>,
+    pending_outdated_open: Option<(RecordKey, bool)>,
+    check_task: Option<ReconciliationTask>,
+    check_origin: Option<CheckOrigin>,
+    maintenance_task: Option<MaintenanceTask>,
+    last_index_poll: Instant,
+    index_ui: IndexUiStatus,
+    index_operation_id: u64,
+    save_operation_id: u64,
+    load_operation_id: u64,
+    automatic_check_operation_id: u64,
+    automatic_save_operation_id: u64,
+    load_cancellation: CancellationToken,
+    pending_index_overwrite: Option<PathBuf>,
     preferences: Option<DesktopPreferences>,
     open_diagnostics: String,
     open_draft: Option<OpenDraft>,
     opening_draft: Option<OpenDraft>,
     detection_generation: u64,
     picker_generation: u64,
+    index_picker_generation: u64,
+    pending_open_generation: u64,
     open_generation: u64,
     query_generation: u64,
     validation_generation: u64,
     detail_generation: u64,
-    output_generation: u64,
+    export_generation: u64,
+    batch_generation: u64,
     cancellation: CancellationToken,
-    output_cancellation: CancellationToken,
+    open_cancellation: CancellationToken,
+    export_cancellation: CancellationToken,
+    batch_cancellation: CancellationToken,
     current_draft: SearchDraft,
     executed_spec: Option<backend::QuerySpec>,
     executed_draft: Option<SearchDraft>,
@@ -314,7 +411,6 @@ pub struct DesktopController {
     completion_cache_order: VecDeque<CompletionCacheKey>,
 }
 
-
 impl DesktopController {
     /// Make the action sender consumed by `DesktopView` and its controller.
     pub fn new() -> (Self, Sender<UiAction>) {
@@ -341,19 +437,42 @@ impl DesktopController {
                 workers,
                 preference_tx,
                 session: None,
+                observed_publication: None,
+                executed_view: None,
+                results_outdated: false,
+                refreshing_results: false,
+                refresh_anchor: None,
+                pending_outdated_open: None,
+                check_task: None,
+                check_origin: None,
+                maintenance_task: None,
+                last_index_poll: Instant::now(),
+                index_ui: IndexUiStatus::default(),
+                index_operation_id: 0,
+                save_operation_id: 0,
+                load_operation_id: 0,
+                automatic_check_operation_id: 0,
+                automatic_save_operation_id: 0,
+                load_cancellation: CancellationToken::new(),
+                pending_index_overwrite: None,
                 preferences: None,
                 open_diagnostics: String::new(),
                 open_draft: None,
                 opening_draft: None,
                 detection_generation: 0,
                 picker_generation: 0,
+                index_picker_generation: 0,
+                pending_open_generation: 0,
                 open_generation: 0,
                 query_generation: 0,
                 validation_generation: 0,
                 detail_generation: 0,
-                output_generation: 0,
+                export_generation: 0,
+                batch_generation: 0,
                 cancellation: CancellationToken::new(),
-                output_cancellation: CancellationToken::new(),
+                open_cancellation: CancellationToken::new(),
+                export_cancellation: CancellationToken::new(),
+                batch_cancellation: CancellationToken::new(),
                 current_draft: SearchDraft::default(),
                 executed_spec: None,
                 executed_draft: None,
@@ -399,6 +518,11 @@ impl DesktopController {
                 Err(_) => break,
             }
         }
+        if self.last_index_poll.elapsed() >= Duration::from_millis(100) {
+            self.last_index_poll = Instant::now();
+            self.poll_publication(&mut updates);
+            self.poll_index_tasks(&mut updates);
+        }
         if self
             .pending_edit
             .as_ref()
@@ -438,6 +562,276 @@ impl DesktopController {
             }
         }
         updates
+    }
+
+    fn poll_publication(&mut self, updates: &mut Vec<UiUpdate>) {
+        let Some(session) = &self.session else {
+            return;
+        };
+        let Ok(status) = session.repository.index().status() else {
+            return;
+        };
+        let current = Publication::from(&status);
+        match self.observed_publication {
+            None => self.observed_publication = Some(current),
+            Some(previous) if previous != current => {
+                self.observed_publication = Some(current);
+                self.invalidate_published_contexts(updates);
+            }
+            Some(_) => {}
+        }
+    }
+
+    fn publication_is_current(&self, publication: Publication) -> bool {
+        self.executed_view.as_ref().is_some_and(|view| {
+            view.instance_id() == publication.instance_id && view.revision() == publication.revision
+        }) && self.session.as_ref().is_some_and(|session| {
+            session
+                .repository
+                .index()
+                .status()
+                .is_ok_and(|status| Publication::from(&status) == publication)
+        })
+    }
+
+    fn session_publication_is_current(&self, publication: Publication) -> bool {
+        self.session.as_ref().is_some_and(|session| {
+            session
+                .repository
+                .index()
+                .status()
+                .is_ok_and(|status| Publication::from(&status) == publication)
+        })
+    }
+
+    fn update_index_ui(&mut self, status: &IndexStatus, updates: &mut Vec<UiUpdate>) {
+        let Some(session) = &self.session else {
+            return;
+        };
+        self.index_ui.source_location = session.paths.root.display().to_string();
+        self.index_ui.opening_mode = if session.configuration.configured_repository {
+            "Configured repository".into()
+        } else if session.args.multiple_collections() {
+            "Multiple folders".into()
+        } else {
+            "Plain folder".into()
+        };
+        self.index_ui.loaded_from = session
+            .diagnostics
+            .startup
+            .restored
+            .then(|| session.configuration.cache_load.as_ref())
+            .flatten()
+            .map(|path| path.display().to_string());
+        self.index_ui.save_destination = session
+            .configuration
+            .cache_save
+            .as_ref()
+            .map(|path| path.display().to_string());
+        self.index_ui.schema_paths = session
+            .diagnostics
+            .schema_files
+            .iter()
+            .map(|path| path.display().to_string())
+            .collect();
+        self.index_ui.indexed_files = Some(status.indexed_files);
+        self.index_ui.live_records = usize::try_from(status.live_records).ok();
+        self.index_ui.index_instance = status.instance_id;
+        self.index_ui.revision = status.revision.0;
+        self.index_ui.saved_revision = status.saved_revision.map(|revision| revision.0);
+        self.index_ui.dirty = status.dirty();
+        self.index_ui.check_complete = match status.reconciliation {
+            ReconciliationState::Complete => Some(true),
+            ReconciliationState::Partial | ReconciliationState::Cancelled => Some(false),
+            _ => None,
+        };
+        self.index_ui.automatic_save_available = session.configuration.configured_repository
+            && session.configuration.cache_save.is_some();
+        self.index_ui.automatic_save_reason = (!self.index_ui.automatic_save_available).then(|| {
+            "Automatic saving is available for configured repositories with a selected index destination".into()
+        });
+        if let Ok(Some(error)) = backend::index_lifecycle::automatic_save_error(session)
+            && !matches!(self.index_ui.save, IndexTaskState::Running { .. })
+        {
+            self.index_ui.save = IndexTaskState::Failed(error);
+        }
+        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+    }
+
+    fn invalidate_published_contexts(&mut self, updates: &mut Vec<UiUpdate>) {
+        if self.executed_spec.is_some() {
+            self.results_outdated = true;
+            self.cancellation.cancel();
+            self.query_generation = self.query_generation.wrapping_add(1);
+            self.next_page_start = None;
+            self.pending_continuation = None;
+            self.pending_projections.clear();
+            self.projected_pages.clear();
+            self.executed_view = None;
+            updates.push(UiUpdate::ResultsOutdated(true));
+        }
+        self.detail_generation = self.detail_generation.wrapping_add(1);
+        self.selected_hit = None;
+        self.relation_actions.clear();
+        for tab in &mut self.tabs {
+            tab.cancellation.cancel();
+            tab.operation_generation = tab.operation_generation.wrapping_add(1);
+            tab.freshness = TabFreshness::Outdated;
+            tab.navigation_outdated = true;
+            tab.loading = false;
+            tab.links_pending = false;
+            tab.links_loaded = false;
+        }
+        if !self.tabs.is_empty() {
+            self.emit_tabs(updates);
+        }
+    }
+
+    fn poll_index_tasks(&mut self, updates: &mut Vec<UiUpdate>) {
+        let Some(session) = &self.session else {
+            return;
+        };
+        let index = session.repository.index().clone();
+        if self.check_task.is_none()
+            && matches!(
+                index.status().map(|status| status.reconciliation),
+                Ok(ReconciliationState::Pending | ReconciliationState::Running)
+            )
+        {
+            self.check_task = index.current_reconciliation_task().ok().flatten();
+            self.check_origin = self.check_task.as_ref().map(|_| CheckOrigin::Periodic);
+        }
+        if let Some(task) = &self.check_task
+            && let Ok(progress) = task.progress()
+            && !task.is_complete().unwrap_or(false)
+        {
+            self.index_ui.check = IndexTaskState::Running {
+                operation_id: self.index_operation_id,
+                processed: Some(progress.examined as u64),
+                total: None,
+            };
+        }
+        let completed = self
+            .check_task
+            .as_ref()
+            .and_then(|task| task.is_complete().ok())
+            .unwrap_or(false);
+        if completed {
+            let origin = self.check_origin.take();
+            let task = self.check_task.take().expect("completed check task");
+            match task.wait() {
+                Ok(report) => {
+                    if report.cancelled {
+                        self.index_ui.check = IndexTaskState::Cancelled;
+                        updates.push(UiUpdate::Status("File check stopped".into()));
+                    } else if !report.issues.is_empty() || report.omitted_issues > 0 {
+                        self.index_ui.check = IndexTaskState::Failed(format!(
+                            "Some files could not be checked ({} issues)",
+                            report.issues.len() + report.omitted_issues
+                        ));
+                        self.index_ui.last_check = Some("Partial check this session".into());
+                        updates.push(UiUpdate::Status("Some files could not be checked".into()));
+                    } else {
+                        self.index_ui.check = IndexTaskState::Succeeded(format!(
+                            "Files checked: {} examined, {} changed",
+                            report.examined,
+                            report.added + report.updated + report.removed
+                        ));
+                        self.index_ui.last_check = Some("Checked this session".into());
+                    }
+                    if !report.cancelled
+                        && matches!(origin, Some(CheckOrigin::Initial | CheckOrigin::Explicit))
+                    {
+                        self.refresh_results_if_ready(updates);
+                    }
+                }
+                Err(error) => {
+                    self.index_ui.check = IndexTaskState::Failed(error.to_string());
+                    updates.push(UiUpdate::Error {
+                        field: ErrorField::General,
+                        message: format!("File check failed: {error}"),
+                    });
+                }
+            }
+        }
+        if let Some(task) = &self.maintenance_task
+            && let Ok(progress) = task.progress()
+            && !task.is_complete().unwrap_or(false)
+        {
+            self.index_ui.maintenance = IndexTaskState::Running {
+                operation_id: self.index_operation_id,
+                processed: Some(progress.attempt as u64),
+                total: None,
+            };
+        }
+        let maintenance_done = self
+            .maintenance_task
+            .as_ref()
+            .and_then(|task| task.is_complete().ok())
+            .unwrap_or(false);
+        if maintenance_done {
+            let task = self.maintenance_task.take().expect("completed maintenance");
+            match task.wait() {
+                Ok(report) => {
+                    self.index_ui.maintenance = IndexTaskState::Succeeded(match report {
+                        objekte_search_core::lifecycle::MaintenanceReport::Compact(ref compact) => {
+                            format!(
+                                "Index compacted: {} obsolete slots removed",
+                                compact.retired_slots_removed
+                            )
+                        }
+                        objekte_search_core::lifecycle::MaintenanceReport::Rebuild(ref rebuild) => {
+                            format!("Index rebuilt: {} files", rebuild.indexed_files)
+                        }
+                    });
+                    if let Some(session) = &self.session {
+                        match session.refresh_base_metadata() {
+                            Ok(refreshed) => self.session = Some(refreshed),
+                            Err(error) => {
+                                self.index_ui.maintenance =
+                                    IndexTaskState::Failed(error.to_string())
+                            }
+                        }
+                    }
+                    self.refresh_results_if_ready(updates);
+                }
+                Err(error) => {
+                    self.index_ui.maintenance = if matches!(
+                        &error,
+                        objekte_search_core::lifecycle::IndexError::Cancelled
+                    ) {
+                        IndexTaskState::Cancelled
+                    } else {
+                        IndexTaskState::Failed(error.to_string())
+                    };
+                }
+            }
+        }
+        if let Ok(status) = index.status() {
+            self.update_index_ui(&status, updates);
+        }
+    }
+
+    fn refresh_results_if_ready(&mut self, updates: &mut Vec<UiUpdate>) {
+        if !self.results_outdated || self.refreshing_results {
+            return;
+        }
+        let Some(draft) = self.executed_draft.clone() else {
+            return;
+        };
+        if self.current_draft != draft {
+            return;
+        }
+        let Some(session) = &self.session else {
+            return;
+        };
+        if !matches!(
+            validate_request(session, &draft),
+            FilterValidationState::Valid
+        ) {
+            return;
+        }
+        self.start_query_impl(draft, 0, true, updates);
     }
 
     fn handle(&mut self, action: UiAction, cx: &mut App, updates: &mut Vec<UiUpdate>) {
@@ -489,9 +883,7 @@ impl DesktopController {
             }
             UiAction::Cancel => {
                 self.cancellation.cancel();
-                self.output_cancellation.cancel();
                 self.query_generation += 1;
-                self.output_generation += 1;
                 self.pending_edit = None;
                 self.validation_generation += 1;
                 if let Some(session) = &self.session {
@@ -501,6 +893,15 @@ impl DesktopController {
                     });
                 }
                 updates.push(UiUpdate::Status("Operation cancelled".into()));
+            }
+            UiAction::CancelBatch => {
+                self.batch_cancellation.cancel();
+                self.batch_generation = self.batch_generation.wrapping_add(1);
+                updates.push(UiUpdate::Batch {
+                    rows: Vec::new(),
+                    running: false,
+                    outcome: Some("Batch stopped".into()),
+                });
             }
             UiAction::VisibleRows { start, end } => {
                 self.ensure_projection(start, end);
@@ -617,23 +1018,55 @@ impl DesktopController {
                 }
             }
             UiAction::CopyRecord => {
-                if let Some(hit) = &self.selected_hit {
-                    let hit = hit.clone();
-                    let sender = self.worker_tx.clone();
-                    let open_generation = self.open_generation;
-                    let detail_generation = self.detail_generation;
-                    thread::spawn(move || {
-                        let result = Ok((
-                            objekte_tui::record_raw_text(&hit),
-                            "Complete record copied".into(),
-                        ));
-                        let _ = sender.send(WorkerEvent::CopiedValue {
-                            open_generation,
-                            detail_generation,
-                            result,
-                        });
-                    });
+                let Some(tab) = self
+                    .active_tab
+                    .and_then(|id| self.tabs.iter().find(|tab| tab.id == id))
+                else {
+                    return;
+                };
+                if !matches!(
+                    tab.freshness,
+                    TabFreshness::Current | TabFreshness::NavigationUnavailable
+                ) {
+                    updates.push(UiUpdate::Status(
+                        "Refresh this record before copying it".into(),
+                    ));
+                    return;
                 }
+                let Some(session) = &self.session else {
+                    return;
+                };
+                let Ok(view) = session.repository.index().view() else {
+                    return;
+                };
+                let publication = Publication {
+                    instance_id: view.instance_id(),
+                    revision: view.revision(),
+                };
+                let key = tab.key.clone();
+                let tab_id = tab.id;
+                let operation_generation = tab.operation_generation;
+                let token = tab.cancellation.clone();
+                let sender = self.worker_tx.clone();
+                let open_generation = self.open_generation;
+                thread::spawn(move || {
+                    let result = canonical_hit_on_view(&view, &key, &token)
+                        .map_err(|error| error.to_string())
+                        .and_then(|hit| hit.ok_or_else(|| "Record is no longer available".into()))
+                        .map(|hit| {
+                            (
+                                objekte_tui::record_raw_text(&hit),
+                                "Complete record copied".into(),
+                            )
+                        });
+                    let _ = sender.send(WorkerEvent::CopiedValue {
+                        open_generation,
+                        publication,
+                        tab_id,
+                        operation_generation,
+                        result,
+                    });
+                });
             }
             UiAction::Export { format, path } => self.start_export(format, path, updates),
             UiAction::RunBatch {
@@ -644,8 +1077,39 @@ impl DesktopController {
             } => {
                 self.start_batch(source, text, path, output_path, updates);
             }
-            UiAction::WriteIndex => self.start_index(SnapshotMode::Write, String::new(), updates),
-            UiAction::Index { mode, directory } => self.start_index(mode, directory, updates),
+            UiAction::WriteIndex | UiAction::SaveIndex => self.save_index(None, false, cx, updates),
+            UiAction::Index { mode, directory } => match mode {
+                SnapshotMode::None => self.start_check(updates),
+                SnapshotMode::Write => self.save_index(Some(directory), false, cx, updates),
+                SnapshotMode::Load => self.load_index(directory, cx, updates),
+                SnapshotMode::LoadAndWrite => self.load_index(directory, cx, updates),
+            },
+            UiAction::CheckForChanges => self.start_check(updates),
+            UiAction::SaveIndexAs(path) => self.save_index(Some(path), false, cx, updates),
+            UiAction::ConfirmSaveIndexAs(path) => self.save_index(Some(path), true, cx, updates),
+            UiAction::LoadIndex(path) => self.load_index(path, cx, updates),
+            UiAction::RebuildIndex => {
+                self.start_maintenance(MaintenanceOperation::Rebuild, updates)
+            }
+            UiAction::CompactIndex => {
+                self.start_maintenance(MaintenanceOperation::Compact, updates)
+            }
+            UiAction::SetAutomaticChecking {
+                enabled,
+                interval_seconds,
+            } => self.set_automatic_check(enabled, interval_seconds, updates),
+            UiAction::SetAutomaticSaving(enabled) => self.set_automatic_save(enabled, updates),
+            UiAction::CancelIndexTask(kind) => self.cancel_index_task(kind, updates),
+            UiAction::RefreshResults => self.refresh_results_if_ready(updates),
+            UiAction::RefreshRecord(id) => self.refresh_record(id, updates),
+            UiAction::ChooseIndexLoadPath {
+                generation,
+                load_after_selection,
+            } => self.choose_index_path(generation, true, load_after_selection, cx),
+            UiAction::ChooseIndexSavePath {
+                generation,
+                save_after_selection,
+            } => self.choose_index_path(generation, false, save_after_selection, cx),
             UiAction::SaveQuery(draft) => {
                 if let Some(session) = &self.session
                     && let FilterValidationState::Invalid { message, .. } =
@@ -815,6 +1279,71 @@ impl DesktopController {
         .detach();
     }
 
+    fn choose_index_path(
+        &mut self,
+        generation: u64,
+        load: bool,
+        run_after_selection: bool,
+        cx: &mut App,
+    ) {
+        let Some(session) = &self.session else {
+            return;
+        };
+        self.index_picker_generation = generation;
+        let sender = self.worker_tx.clone();
+        if load {
+            let receiver = cx.prompt_for_paths(PathPromptOptions {
+                files: true,
+                directories: false,
+                multiple: false,
+                prompt: Some("Load Objekte index".into()),
+            });
+            cx.spawn(async move |_| {
+                let result = receiver
+                    .await
+                    .map_err(|error| error.to_string())
+                    .and_then(|result| result.map_err(|error| error.to_string()))
+                    .map(|paths| paths.and_then(|paths| paths.into_iter().next()));
+                let _ = sender.send(WorkerEvent::PickedIndexPath {
+                    generation,
+                    load,
+                    run_after_selection,
+                    result,
+                });
+            })
+            .detach();
+        } else {
+            let suggested = session.configuration.cache_save.clone().unwrap_or_else(|| {
+                objekte_search_core::storage::snapshot_path_in(
+                    &session.paths.root.join(".objekte"),
+                    session.configuration.options.bigram_alphabet,
+                )
+            });
+            let directory = suggested
+                .parent()
+                .unwrap_or(&session.paths.root)
+                .to_path_buf();
+            let name = suggested
+                .file_name()
+                .and_then(|name| name.to_str())
+                .map(str::to_owned);
+            let receiver = cx.prompt_for_new_path(&directory, name.as_deref());
+            cx.spawn(async move |_| {
+                let result = receiver
+                    .await
+                    .map_err(|error| error.to_string())
+                    .and_then(|result| result.map_err(|error| error.to_string()));
+                let _ = sender.send(WorkerEvent::PickedIndexPath {
+                    generation,
+                    load,
+                    run_after_selection,
+                    result,
+                });
+            })
+            .detach();
+        }
+    }
+
     fn start_open(&mut self, draft: OpenDraft, updates: &mut Vec<UiUpdate>) {
         let cwd = std::env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
         let spec = match open_spec(&draft, &cwd) {
@@ -827,25 +1356,14 @@ impl DesktopController {
                 return;
             }
         };
-        self.cancellation.cancel();
-        self.output_cancellation.cancel();
-        self.cancellation = CancellationToken::new();
-        self.open_generation += 1;
-        self.pending_completion = None;
-        self.completion_token.cancel();
-        self.completion_token = CancellationToken::new();
-        self.completion_generation += 1;
-        self.completion_cache.clear();
-        self.completion_cache_order.clear();
+        self.open_cancellation.cancel();
+        self.open_cancellation = CancellationToken::new();
+        self.pending_open_generation += 1;
         self.detection_generation = self.detection_generation.wrapping_add(1);
         self.picker_generation = self.picker_generation.wrapping_add(1);
-        self.query_generation += 1;
-        self.validation_generation += 1;
-        self.output_generation += 1;
         self.opening_draft = Some(draft);
-        self.pending_edit = None;
-        let generation = self.open_generation;
-        let token = self.cancellation.clone();
+        let generation = self.pending_open_generation;
+        let token = self.open_cancellation.clone();
         let sender = self.worker_tx.clone();
         updates.push(UiUpdate::Opening(
             "Opening repository and building indexes…".into(),
@@ -861,8 +1379,8 @@ impl DesktopController {
 
     fn cancel_open(&mut self, updates: &mut Vec<UiUpdate>) {
         if self.opening_draft.take().is_some() {
-            self.cancellation.cancel();
-            self.open_generation = self.open_generation.wrapping_add(1);
+            self.open_cancellation.cancel();
+            self.pending_open_generation = self.pending_open_generation.wrapping_add(1);
             updates.push(UiUpdate::Status("Open cancelled".into()));
         }
     }
@@ -901,6 +1419,17 @@ impl DesktopController {
     }
 
     fn start_query(&mut self, draft: SearchDraft, page_start: usize, updates: &mut Vec<UiUpdate>) {
+        self.start_query_impl(draft, page_start, false, updates);
+    }
+
+    fn start_query_impl(
+        &mut self,
+        draft: SearchDraft,
+        page_start: usize,
+        refresh: bool,
+        updates: &mut Vec<UiUpdate>,
+    ) {
+        self.poll_publication(updates);
         let Some(session) = self.session.clone() else {
             updates.push(UiUpdate::Error {
                 field: ErrorField::General,
@@ -929,14 +1458,37 @@ impl DesktopController {
                 return;
             }
         };
+        let view = match session.repository.index().view() {
+            Ok(view) => view,
+            Err(error) => {
+                updates.push(UiUpdate::Error {
+                    field: ErrorField::General,
+                    message: error.to_string(),
+                });
+                return;
+            }
+        };
         self.cancellation.cancel();
         self.cancellation = CancellationToken::new();
         self.query_generation += 1;
+        self.executed_view = Some(view);
+        self.refreshing_results = refresh;
+        self.refresh_anchor = refresh
+            .then(|| {
+                self.selected_index
+                    .and_then(|index| self.keys.get(index).cloned().flatten())
+            })
+            .flatten();
+        if !refresh {
+            self.pending_outdated_open = None;
+        }
         self.current_draft = draft.clone();
         self.executed_draft = Some(draft.clone());
         self.executed_spec = Some(spec.clone());
-        self.selected_index = None;
-        self.keys.clear();
+        if !refresh {
+            self.selected_index = None;
+            self.keys.clear();
+        }
         self.pending_reveal = None;
         self.next_page_start = None;
         self.pending_continuation = None;
@@ -957,10 +1509,18 @@ impl DesktopController {
                 wrapped,
             });
         }
-        updates.push(UiUpdate::QueryStarted("Searching…".into()));
+        updates.push(UiUpdate::QueryStarted(if refresh {
+            "Updating results…".into()
+        } else {
+            "Searching…".into()
+        }));
         let columns = initial_columns(&session, &draft);
         spawn_grid_page(
             session,
+            self.executed_view
+                .as_ref()
+                .expect("query view pinned")
+                .clone(),
             spec,
             page_start,
             hidden,
@@ -975,8 +1535,12 @@ impl DesktopController {
     }
 
     fn start_continuation(&mut self, updates: &mut Vec<UiUpdate>) {
-        let (Some(session), Some(spec), Some(start)) = (
+        if self.results_outdated || self.refreshing_results {
+            return;
+        }
+        let (Some(session), Some(view), Some(spec), Some(start)) = (
             self.session.clone(),
+            self.executed_view.clone(),
             self.executed_spec.clone(),
             self.next_page_start,
         ) else {
@@ -995,13 +1559,18 @@ impl DesktopController {
                 )
                 .to_vec()
         });
-        let collection = self.executed_draft.as_ref().and_then(|draft| draft.collection.as_deref());
-        let shown_nested = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
-            prefs.shown_nested(collection).to_vec()
-        });
+        let collection = self
+            .executed_draft
+            .as_ref()
+            .and_then(|draft| draft.collection.as_deref());
+        let shown_nested = self
+            .preferences
+            .as_ref()
+            .map_or_else(Vec::new, |prefs| prefs.shown_nested(collection).to_vec());
         updates.push(UiUpdate::ContinuationStarted);
         spawn_grid_page(
             session,
+            view,
             spec,
             start,
             hidden,
@@ -1016,7 +1585,14 @@ impl DesktopController {
     }
 
     fn ensure_projection(&mut self, first: usize, end: usize) {
-        let (Some(session), Some(spec)) = (self.session.clone(), self.executed_spec.clone()) else {
+        if self.results_outdated || self.refreshing_results {
+            return;
+        }
+        let (Some(session), Some(view), Some(spec)) = (
+            self.session.clone(),
+            self.executed_view.clone(),
+            self.executed_spec.clone(),
+        ) else {
             return;
         };
         let last = end.min(self.keys.len());
@@ -1040,12 +1616,17 @@ impl DesktopController {
                     )
                     .to_vec()
             });
-            let collection = self.executed_draft.as_ref().and_then(|draft| draft.collection.as_deref());
-            let shown_nested = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
-                prefs.shown_nested(collection).to_vec()
-            });
+            let collection = self
+                .executed_draft
+                .as_ref()
+                .and_then(|draft| draft.collection.as_deref());
+            let shown_nested = self
+                .preferences
+                .as_ref()
+                .map_or_else(Vec::new, |prefs| prefs.shown_nested(collection).to_vec());
             spawn_grid_page(
                 session.clone(),
+                view.clone(),
                 spec.clone(),
                 start,
                 hidden,
@@ -1069,20 +1650,29 @@ impl DesktopController {
     }
 
     fn start_count(&mut self, updates: &mut Vec<UiUpdate>) {
-        let (Some(session), Some(spec)) = (self.session.clone(), self.executed_spec.clone()) else {
+        if self.results_outdated || self.refreshing_results {
+            return;
+        }
+        let (Some(view), Some(spec)) = (self.executed_view.clone(), self.executed_spec.clone())
+        else {
             return;
         };
         let sender = self.worker_tx.clone();
         let token = self.cancellation.clone();
         let open_generation = self.open_generation;
         let query_generation = self.query_generation;
+        let publication = Publication {
+            instance_id: view.instance_id(),
+            revision: view.revision(),
+        };
         updates.push(UiUpdate::CountStarted);
         thread::spawn(move || {
-            let result =
-                backend::count_exact(&session, &spec, &token).map_err(|error| error.to_string());
+            let result = backend::count_exact_on_view(&view, &spec, &token)
+                .map_err(|error| error.to_string());
             let _ = sender.send(WorkerEvent::Counted {
                 open_generation,
                 query_generation,
+                publication,
                 result,
             });
         });
@@ -1146,11 +1736,18 @@ impl DesktopController {
                     title: tab.title.clone(),
                     identity: format!("{} / {}", tab.key.collection, tab.key.id),
                     position: tab.anchor + 1,
-                    can_back: !tab.back.is_empty(),
-                    can_previous: tab.anchor > 0,
-                    can_next: !tab.end_confirmed,
+                    can_back: !tab.back.is_empty()
+                        && tab.freshness == TabFreshness::Current
+                        && !tab.navigation_outdated,
+                    can_previous: tab.anchor > 0
+                        && tab.freshness == TabFreshness::Current
+                        && !tab.navigation_outdated,
+                    can_next: !tab.end_confirmed
+                        && tab.freshness == TabFreshness::Current
+                        && !tab.navigation_outdated,
                     loading: tab.loading,
                     links_loading: tab.links_pending,
+                    freshness: tab.freshness,
                 })
                 .collect(),
             active: self.active_tab,
@@ -1165,9 +1762,34 @@ impl DesktopController {
         ) else {
             return;
         };
+        if self.results_outdated {
+            if self.current_draft == self.executed_draft.clone().unwrap_or_default() {
+                self.pending_outdated_open = Some((key, new_tab));
+                updates.push(UiUpdate::Status(
+                    "Updating results before opening this record".into(),
+                ));
+                self.refresh_results_if_ready(updates);
+            } else {
+                updates.push(UiUpdate::Status(
+                    "Finish the current query before opening an outdated result".into(),
+                ));
+            }
+            return;
+        }
+        let Some(view) = self.executed_view.clone().or_else(|| {
+            self.session
+                .as_ref()
+                .and_then(|session| session.repository.index().view().ok())
+        }) else {
+            return;
+        };
         self.select_row(index, updates);
         let context = Arc::new(TabContext {
             query_generation: self.query_generation,
+            publication: Publication {
+                instance_id: view.instance_id(),
+                revision: view.revision(),
+            },
             spec,
             draft,
         });
@@ -1175,14 +1797,20 @@ impl DesktopController {
             if let Some(id) = self.active_tab {
                 self.start_tab_load(
                     id,
-                    TabLoadKind::Replace { key, context, anchor: index },
+                    TabLoadKind::Replace {
+                        key,
+                        context,
+                        anchor: index,
+                    },
                     updates,
                 );
                 return;
             }
         }
         if !new_tab {
-            if let Some(id) = self.tabs.iter()
+            if let Some(id) = self
+                .tabs
+                .iter()
                 .find(|tab| tab.key == key && tab.context.query_generation == self.query_generation)
                 .map(|tab| tab.id)
             {
@@ -1208,8 +1836,93 @@ impl DesktopController {
             links_loaded: false,
             end_confirmed: false,
             title: key.id.clone(),
+            freshness: TabFreshness::Current,
+            navigation_outdated: false,
+            cached_detail: None,
         });
         self.activate_tab(id, updates);
+    }
+
+    /// A stale row retains its canonical identity, but its old position is not
+    /// a locator in the new index. Re-resolve the identity without scanning a
+    /// deep result prefix when it is absent from the refreshed first page.
+    fn open_canonical_outside_results(
+        &mut self,
+        key: RecordKey,
+        new_tab: bool,
+        updates: &mut Vec<UiUpdate>,
+    ) {
+        let (Some(spec), Some(draft), Some(view)) = (
+            self.executed_spec.clone(),
+            self.executed_draft.clone(),
+            self.executed_view.clone(),
+        ) else {
+            return;
+        };
+        let context = Arc::new(TabContext {
+            query_generation: self.query_generation,
+            publication: Publication {
+                instance_id: view.instance_id(),
+                revision: view.revision(),
+            },
+            spec,
+            draft,
+        });
+        let id = if !new_tab {
+            if let Some(id) = self.active_tab {
+                if let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) {
+                    tab.cancellation.cancel();
+                    tab.context = context.clone();
+                    tab.key = key.clone();
+                    tab.anchor = 0;
+                    tab.back.clear();
+                    tab.expanded.clear();
+                    tab.view = TabViewState::default();
+                    tab.in_results = false;
+                    tab.navigation_outdated = true;
+                    tab.cached_detail = None;
+                    tab.freshness = TabFreshness::Outdated;
+                    tab.title = key.id.clone();
+                    id
+                } else {
+                    return;
+                }
+            } else {
+                self.next_tab_id
+            }
+        } else {
+            self.next_tab_id
+        };
+        if id == self.next_tab_id {
+            self.next_tab_id = self.next_tab_id.wrapping_add(1);
+            self.tabs.push(RecordTab {
+                id,
+                context,
+                key: key.clone(),
+                anchor: 0,
+                back: Vec::new(),
+                expanded: HashSet::new(),
+                view: TabViewState::default(),
+                in_results: false,
+                operation_generation: 0,
+                cancellation: CancellationToken::new(),
+                loading: false,
+                links_pending: false,
+                links_loaded: false,
+                end_confirmed: false,
+                title: key.id.clone(),
+                freshness: TabFreshness::Outdated,
+                navigation_outdated: true,
+                cached_detail: None,
+            });
+        }
+        self.active_tab = Some(id);
+        self.selected_hit = None;
+        self.detail = None;
+        self.relation_actions.clear();
+        updates.push(UiUpdate::Detail(None));
+        self.emit_tabs(updates);
+        self.start_tab_load(id, TabLoadKind::Refresh, updates);
     }
 
     fn activate_tab(&mut self, id: u64, updates: &mut Vec<UiUpdate>) {
@@ -1235,7 +1948,13 @@ impl DesktopController {
         self.tabs[index].links_loaded = false;
         self.tabs[index].links_pending = false;
         self.emit_tabs(updates);
-        self.start_tab_load(id, TabLoadKind::Open, updates);
+        if self.tabs[index].freshness == TabFreshness::Current {
+            self.start_tab_load(id, TabLoadKind::Open, updates);
+        } else {
+            let detail = self.tabs[index].cached_detail.clone();
+            self.detail = detail.clone();
+            updates.push(UiUpdate::Detail(detail));
+        }
     }
 
     fn close_tab(&mut self, id: u64, updates: &mut Vec<UiUpdate>) {
@@ -1306,10 +2025,32 @@ impl DesktopController {
         ) else {
             return;
         };
+        let Ok(index_view) = session.repository.index().view() else {
+            return;
+        };
+        let publication = Publication {
+            instance_id: index_view.instance_id(),
+            revision: index_view.revision(),
+        };
+        let expected = match &kind {
+            TabLoadKind::Replace { context, .. } => context.publication,
+            _ => tab.context.publication,
+        };
+        if !matches!(&kind, TabLoadKind::Refresh)
+            && (tab.freshness != TabFreshness::Current || expected != publication)
+        {
+            tab.freshness = TabFreshness::Outdated;
+            tab.navigation_outdated = true;
+            self.emit_tabs(updates);
+            return;
+        }
         tab.cancellation.cancel();
         tab.cancellation = CancellationToken::new();
         tab.operation_generation += 1;
         tab.loading = true;
+        if matches!(&kind, TabLoadKind::Refresh) {
+            tab.freshness = TabFreshness::Refreshing;
+        }
         tab.links_loaded = false;
         tab.links_pending = false;
         let operation_generation = tab.operation_generation;
@@ -1323,6 +2064,7 @@ impl DesktopController {
         self.emit_tabs(updates);
         thread::spawn(move || {
             let query_result = match &kind {
+                TabLoadKind::Refresh => true,
                 TabLoadKind::Replace { .. } => true,
                 TabLoadKind::Adjacent { .. } => true,
                 TabLoadKind::Relation { .. } => false,
@@ -1330,33 +2072,50 @@ impl DesktopController {
                 TabLoadKind::Open => in_results,
             };
             let result = match &kind {
-                TabLoadKind::Replace { key, context, anchor } => {
-                    tab_result_hit(&session, &context.spec, *anchor, key, &token)
-                }
+                TabLoadKind::Refresh => canonical_hit_on_view(&index_view, &key, &token),
+                TabLoadKind::Replace {
+                    key,
+                    context,
+                    anchor,
+                } => tab_result_hit_on_view(
+                    &session,
+                    &index_view,
+                    &context.spec,
+                    *anchor,
+                    key,
+                    &token,
+                ),
                 TabLoadKind::Adjacent { anchor } => {
-                    backend::query_page(&session, &spec, *anchor, 1, &token)
+                    backend::query_page_on_view(&session, &index_view, &spec, *anchor, 1, &token)
                         .map(|mut page| page.hits.pop())
                 }
-                TabLoadKind::Relation { key } => {
-                    backend::record_by_id(&session, &key.collection, &key.id, &token)
-                }
+                TabLoadKind::Relation { key } => canonical_hit_on_view(&index_view, key, &token),
                 TabLoadKind::Back { frame } => {
                     if frame.in_results {
-                        tab_result_hit(&session, &spec, frame.anchor, &frame.key, &token)
-                    } else {
-                        backend::record_by_id(
+                        tab_result_hit_on_view(
                             &session,
-                            &frame.key.collection,
-                            &frame.key.id,
+                            &index_view,
+                            &spec,
+                            frame.anchor,
+                            &frame.key,
                             &token,
                         )
+                    } else {
+                        canonical_hit_on_view(&index_view, &frame.key, &token)
                     }
                 }
                 TabLoadKind::Open => {
                     if in_results {
-                        tab_result_hit(&session, &spec, tab_anchor, &key, &token)
+                        tab_result_hit_on_view(
+                            &session,
+                            &index_view,
+                            &spec,
+                            tab_anchor,
+                            &key,
+                            &token,
+                        )
                     } else {
-                        backend::record_by_id(&session, &key.collection, &key.id, &token)
+                        canonical_hit_on_view(&index_view, &key, &token)
                     }
                 }
             }
@@ -1372,6 +2131,7 @@ impl DesktopController {
             .map_err(|error| error.to_string());
             let _ = sender.send(WorkerEvent::TabLoaded {
                 open_generation,
+                publication,
                 tab_id: id,
                 operation_generation,
                 kind,
@@ -1391,7 +2151,23 @@ impl DesktopController {
         let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) else {
             return;
         };
+        if tab.freshness != TabFreshness::Current || tab.navigation_outdated {
+            return;
+        }
         if tab.links_loaded || tab.links_pending {
+            return;
+        }
+        let Ok(view) = session.repository.index().view() else {
+            return;
+        };
+        let publication = Publication {
+            instance_id: view.instance_id(),
+            revision: view.revision(),
+        };
+        if tab.context.publication != publication {
+            tab.freshness = TabFreshness::Outdated;
+            tab.navigation_outdated = true;
+            self.emit_tabs(updates);
             return;
         }
         tab.links_pending = true;
@@ -1404,12 +2180,16 @@ impl DesktopController {
             if token.is_cancelled() {
                 return;
             }
-            let rows = relations::rows(&session.repository, &hit);
+            let Ok(pinned) = session.repository.with_pinned_view(view) else {
+                return;
+            };
+            let rows = relations::rows(&pinned, &hit);
             if token.is_cancelled() {
                 return;
             }
             let _ = sender.send(WorkerEvent::LinksLoaded {
                 open_generation,
+                publication,
                 tab_id: id,
                 operation_generation,
                 rows,
@@ -1417,7 +2197,7 @@ impl DesktopController {
         });
     }
 
-    fn complete(&mut self, event: WorkerEvent, _cx: &mut App, updates: &mut Vec<UiUpdate>) {
+    fn complete(&mut self, event: WorkerEvent, cx: &mut App, updates: &mut Vec<UiUpdate>) {
         match event {
             WorkerEvent::Validated {
                 open_generation,
@@ -1435,9 +2215,46 @@ impl DesktopController {
                     self.start_query(draft, 0, updates);
                 }
             }
-            WorkerEvent::Opened { generation, result } if generation == self.open_generation => {
+            WorkerEvent::Opened { generation, result }
+                if generation == self.pending_open_generation && self.opening_draft.is_some() =>
+            {
                 match *result {
                     Ok((session, preferences)) => {
+                        self.cancellation.cancel();
+                        self.export_cancellation.cancel();
+                        self.batch_cancellation.cancel();
+                        self.open_generation = self.open_generation.wrapping_add(1);
+                        self.query_generation = self.query_generation.wrapping_add(1);
+                        self.validation_generation = self.validation_generation.wrapping_add(1);
+                        self.export_generation = self.export_generation.wrapping_add(1);
+                        self.batch_generation = self.batch_generation.wrapping_add(1);
+                        self.pending_edit = None;
+                        self.pending_completion = None;
+                        self.completion_token.cancel();
+                        self.completion_token = CancellationToken::new();
+                        self.completion_generation = self.completion_generation.wrapping_add(1);
+                        self.completion_cache.clear();
+                        self.completion_cache_order.clear();
+                        self.observed_publication = session
+                            .repository
+                            .index()
+                            .status()
+                            .ok()
+                            .as_ref()
+                            .map(Publication::from);
+                        self.executed_view = None;
+                        self.results_outdated = false;
+                        self.refreshing_results = false;
+                        self.refresh_anchor = None;
+                        self.check_task = session
+                            .repository
+                            .index()
+                            .current_reconciliation_task()
+                            .ok()
+                            .flatten();
+                        self.check_origin = self.check_task.as_ref().map(|_| CheckOrigin::Initial);
+                        self.maintenance_task = None;
+                        updates.push(UiUpdate::ResultsOutdated(false));
                         for tab in &self.tabs {
                             tab.cancellation.cancel();
                         }
@@ -1479,13 +2296,25 @@ impl DesktopController {
                                 ""
                             },
                         );
-                        self.session = Some(session);
+                        let previous_session = self.session.replace(session);
+                        if let Some(previous_session) = previous_session {
+                            thread::spawn(move || {
+                                let _ =
+                                    backend::index_lifecycle::stop_automation(&previous_session);
+                            });
+                        }
+                        self.index_ui = IndexUiStatus::default();
                         self.push_field_choices(updates);
                         updates.push(UiUpdate::Opened {
                             root,
                             collections: collections.clone(),
                             single_collection,
                         });
+                        if let Some(session) = &self.session
+                            && let Ok(status) = backend::index_lifecycle::status(session)
+                        {
+                            self.update_index_ui(&status, updates);
+                        }
                         match preferences {
                             Ok(preferences) => {
                                 updates.push(UiUpdate::History {
@@ -1495,7 +2324,32 @@ impl DesktopController {
                                 if let Some(dark) = preferences.dark() {
                                     updates.push(UiUpdate::Theme { dark });
                                 }
-                                self.preferences = Some(preferences);
+                                if let Some(session) = &self.session {
+                                    let source_key = lifecycle_source_key(session);
+                                    let destination = session
+                                        .configuration
+                                        .cache_save
+                                        .as_ref()
+                                        .map(|path| path.display().to_string());
+                                    let policy = preferences
+                                        .lifecycle_policy(&source_key, destination.as_deref());
+                                    self.index_ui.check_interval_seconds =
+                                        policy.check_interval_seconds;
+                                    self.preferences = Some(preferences);
+                                    if policy.automatic_check {
+                                        self.set_automatic_check(
+                                            true,
+                                            policy.check_interval_seconds,
+                                            updates,
+                                        );
+                                    }
+                                    if policy.automatic_save {
+                                        self.set_automatic_save(true, updates);
+                                    }
+                                    updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                                } else {
+                                    self.preferences = Some(preferences);
+                                }
                             }
                             Err(message) => updates.push(UiUpdate::Error {
                                 field: ErrorField::General,
@@ -1523,22 +2377,58 @@ impl DesktopController {
             WorkerEvent::Queried {
                 open_generation,
                 query_generation,
+                publication,
                 kind,
                 result,
             } if open_generation == self.open_generation
                 && query_generation == self.query_generation =>
             {
+                if !self.publication_is_current(publication) {
+                    self.poll_publication(updates);
+                    return;
+                }
                 match *result {
                     Ok((view, keys, next, elapsed_ns, available, hidden, diagnostics)) => {
                         match kind {
                             GridRequestKind::First => {
+                                let was_refresh = self.refreshing_results;
+                                self.refreshing_results = false;
+                                self.results_outdated = false;
+                                updates.push(UiUpdate::ResultsOutdated(false));
                                 let needs_count = view.exact_total.is_none() && view.has_next;
                                 self.available_columns = available.clone();
                                 self.keys = vec![None; view.offset];
                                 self.keys.extend(keys.into_iter().map(Some));
+                                let refreshed_anchor = self.refresh_anchor.take();
                                 self.next_page_start = next;
                                 self.remember_projection(view.offset);
                                 updates.push(UiUpdate::Page(view));
+                                if let Some(anchor) = refreshed_anchor {
+                                    if let Some(position) = self
+                                        .keys
+                                        .iter()
+                                        .position(|key| key.as_ref() == Some(&anchor))
+                                    {
+                                        self.selected_index = Some(position);
+                                        updates.push(UiUpdate::RevealRow(position));
+                                    } else {
+                                        self.selected_index = None;
+                                        updates.push(UiUpdate::Status("Results updated; reading position reset to the beginning".into()));
+                                    }
+                                }
+                                if was_refresh
+                                    && let Some((key, new_tab)) = self.pending_outdated_open.take()
+                                {
+                                    if let Some(position) = self
+                                        .keys
+                                        .iter()
+                                        .position(|candidate| candidate.as_ref() == Some(&key))
+                                    {
+                                        self.open_record(position, new_tab, updates);
+                                    } else {
+                                        self.open_canonical_outside_results(key, new_tab, updates);
+                                    }
+                                }
                                 if needs_count {
                                     self.start_count(updates);
                                 }
@@ -1550,8 +2440,9 @@ impl DesktopController {
                                     "Query complete in {:.1} ms",
                                     elapsed_ns as f64 / 1_000_000.0
                                 )));
-                                if let (Some(preferences), Some(draft)) =
-                                    (&mut self.preferences, &self.executed_draft)
+                                if !was_refresh
+                                    && let (Some(preferences), Some(draft)) =
+                                        (&mut self.preferences, &self.executed_draft)
                                 {
                                     preferences.remember_local(draft);
                                     let _ = self.preference_tx.send(preferences.clone());
@@ -1598,13 +2489,20 @@ impl DesktopController {
                         )));
                     }
                     Err(message) => match kind {
-                        GridRequestKind::First => updates.push(UiUpdate::Error {
-                            field: query_error_field(
-                                &message,
-                                self.executed_draft.as_ref().unwrap_or(&self.current_draft),
-                            ),
-                            message,
-                        }),
+                        GridRequestKind::First => {
+                            let was_refresh = std::mem::take(&mut self.refreshing_results);
+                            updates.push(UiUpdate::Error {
+                                field: if was_refresh {
+                                    ErrorField::General
+                                } else {
+                                    query_error_field(
+                                        &message,
+                                        self.executed_draft.as_ref().unwrap_or(&self.current_draft),
+                                    )
+                                },
+                                message,
+                            });
+                        }
                         GridRequestKind::Continuation(start) => {
                             if self.pending_continuation == Some(start) {
                                 self.pending_continuation = None;
@@ -1624,10 +2522,15 @@ impl DesktopController {
             WorkerEvent::Counted {
                 open_generation,
                 query_generation,
+                publication,
                 result,
             } if open_generation == self.open_generation
                 && query_generation == self.query_generation =>
             {
+                if !self.publication_is_current(publication) {
+                    self.poll_publication(updates);
+                    return;
+                }
                 match result {
                     Ok(total) => updates.push(UiUpdate::ExactCount(total)),
                     Err(message) => updates.push(UiUpdate::CountFailed(message)),
@@ -1666,11 +2569,16 @@ impl DesktopController {
             }
             WorkerEvent::TabLoaded {
                 open_generation,
+                publication,
                 tab_id,
                 operation_generation,
                 kind,
                 result,
             } if open_generation == self.open_generation => {
+                if !self.session_publication_is_current(publication) {
+                    self.poll_publication(updates);
+                    return;
+                }
                 let Some(index) = self.tabs.iter().position(|tab| {
                     tab.id == tab_id && tab.operation_generation == operation_generation
                 }) else {
@@ -1681,7 +2589,20 @@ impl DesktopController {
                     Ok(Some((hit, view, actions))) => {
                         let tab = &mut self.tabs[index];
                         match &kind {
-                            TabLoadKind::Replace { context, anchor, .. } => {
+                            TabLoadKind::Refresh => {
+                                tab.context = Arc::new(TabContext {
+                                    publication,
+                                    ..(*tab.context).clone()
+                                });
+                                tab.in_results = false;
+                                tab.navigation_outdated = true;
+                                tab.freshness = TabFreshness::NavigationUnavailable;
+                                tab.links_loaded = false;
+                                tab.expanded.clear();
+                            }
+                            TabLoadKind::Replace {
+                                context, anchor, ..
+                            } => {
                                 tab.context = context.clone();
                                 tab.anchor = *anchor;
                                 tab.back.clear();
@@ -1690,6 +2611,7 @@ impl DesktopController {
                                 tab.end_confirmed = false;
                                 tab.expanded.clear();
                                 tab.links_loaded = false;
+                                tab.navigation_outdated = false;
                             }
                             TabLoadKind::Adjacent { anchor } => {
                                 if tab.back.len() >= 32 {
@@ -1735,11 +2657,15 @@ impl DesktopController {
                             }
                             TabLoadKind::Open => {}
                         }
+                        if !matches!(&kind, TabLoadKind::Refresh) {
+                            tab.freshness = TabFreshness::Current;
+                        }
                         tab.key = RecordKey {
                             collection: hit.collection.clone(),
                             id: hit.record_id.clone(),
                         };
                         tab.title = view.title.clone();
+                        tab.cached_detail = Some(view.clone());
                         if self.active_tab == Some(tab_id) {
                             self.selected_hit = Some(Arc::new(hit));
                             self.detail = Some(view.clone());
@@ -1752,7 +2678,14 @@ impl DesktopController {
                         }
                     }
                     Ok(None) => {
-                        if matches!(kind, TabLoadKind::Adjacent { .. }) {
+                        if matches!(kind, TabLoadKind::Refresh) {
+                            self.tabs[index].freshness = TabFreshness::Removed;
+                            self.tabs[index].navigation_outdated = true;
+                            if self.active_tab == Some(tab_id) {
+                                self.selected_hit = None;
+                            }
+                            updates.push(UiUpdate::Status("Record is no longer available".into()));
+                        } else if matches!(kind, TabLoadKind::Adjacent { .. }) {
                             self.tabs[index].end_confirmed = true;
                             updates.push(UiUpdate::Status("End of results".into()));
                         } else {
@@ -1762,19 +2695,30 @@ impl DesktopController {
                             });
                         }
                     }
-                    Err(message) => updates.push(UiUpdate::Error {
-                        field: ErrorField::General,
-                        message,
-                    }),
+                    Err(message) => {
+                        if matches!(kind, TabLoadKind::Refresh) {
+                            self.tabs[index].freshness = TabFreshness::Failed;
+                            self.tabs[index].navigation_outdated = true;
+                        }
+                        updates.push(UiUpdate::Error {
+                            field: ErrorField::General,
+                            message,
+                        });
+                    }
                 }
                 self.emit_tabs(updates);
             }
             WorkerEvent::LinksLoaded {
                 open_generation,
+                publication,
                 tab_id,
                 operation_generation,
                 rows,
             } if open_generation == self.open_generation => {
+                if !self.session_publication_is_current(publication) {
+                    self.poll_publication(updates);
+                    return;
+                }
                 let Some(tab) = self.tabs.iter_mut().find(|tab| {
                     tab.id == tab_id && tab.operation_generation == operation_generation
                 }) else {
@@ -1836,6 +2780,198 @@ impl DesktopController {
                     }),
                 }
             }
+            WorkerEvent::PickedIndexPath {
+                generation,
+                load,
+                run_after_selection,
+                result,
+            } if generation == self.index_picker_generation => match result {
+                Ok(Some(path)) => {
+                    let path = path.display().to_string();
+                    if load {
+                        updates.push(UiUpdate::ChosenIndexLoadPath {
+                            generation,
+                            path: path.clone(),
+                        });
+                        if run_after_selection {
+                            self.load_index(path, cx, updates);
+                        }
+                    } else {
+                        updates.push(UiUpdate::ChosenIndexSavePath {
+                            generation,
+                            path: path.clone(),
+                        });
+                        if run_after_selection {
+                            self.save_index(Some(path), false, cx, updates);
+                        }
+                    }
+                }
+                Ok(None) => {}
+                Err(message) => updates.push(UiUpdate::Error {
+                    field: ErrorField::General,
+                    message: format!("Index picker failed: {message}. Enter a path instead."),
+                }),
+            },
+            WorkerEvent::IndexSaved {
+                open_generation,
+                operation_id,
+                result,
+            } if open_generation == self.open_generation
+                && operation_id == self.save_operation_id =>
+            {
+                match result {
+                    IndexSaveCompletion::Saved(saved) => {
+                        if let Some(session) = &self.session {
+                            self.session =
+                                Some(session.with_first_save_target(saved.destination.clone()));
+                        }
+                        self.index_ui.save = IndexTaskState::Succeeded(
+                            if saved.current_status.revision == saved.saved_revision {
+                                "Index saved".into()
+                            } else {
+                                "Newer index changes are not saved yet".into()
+                            },
+                        );
+                        self.update_index_ui(&saved.current_status, updates);
+                    }
+                    IndexSaveCompletion::OverwriteRequired(path) => {
+                        self.pending_index_overwrite = Some(path.clone());
+                        self.index_ui.save = IndexTaskState::Failed(
+                            "This file already exists; confirm replacement".into(),
+                        );
+                        updates.push(UiUpdate::SaveIndexOverwriteRequired(
+                            path.display().to_string(),
+                        ));
+                        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                    }
+                    IndexSaveCompletion::Failed(message) => {
+                        self.index_ui.save = IndexTaskState::Failed(message);
+                        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                    }
+                }
+            }
+            WorkerEvent::IndexLoaded {
+                open_generation,
+                operation_id,
+                result,
+            } if open_generation == self.open_generation
+                && operation_id == self.load_operation_id =>
+            {
+                match result {
+                    Ok(session) => {
+                        self.cancellation.cancel();
+                        self.export_cancellation.cancel();
+                        self.batch_cancellation.cancel();
+                        self.open_generation = self.open_generation.wrapping_add(1);
+                        self.query_generation = self.query_generation.wrapping_add(1);
+                        self.export_generation = self.export_generation.wrapping_add(1);
+                        self.batch_generation = self.batch_generation.wrapping_add(1);
+                        self.check_task = session
+                            .repository
+                            .index()
+                            .current_reconciliation_task()
+                            .ok()
+                            .flatten();
+                        self.check_origin = self.check_task.as_ref().map(|_| CheckOrigin::Initial);
+                        self.observed_publication = session
+                            .repository
+                            .index()
+                            .status()
+                            .ok()
+                            .as_ref()
+                            .map(Publication::from);
+                        let old = self.session.replace(session);
+                        self.invalidate_published_contexts(updates);
+                        self.index_ui.load = IndexTaskState::Succeeded("Index loaded".into());
+                        if let Some(session) = &self.session
+                            && let Ok(status) = backend::index_lifecycle::status(session)
+                        {
+                            self.update_index_ui(&status, updates);
+                        }
+                        updates.push(UiUpdate::IndexReplaced(self.index_ui.clone()));
+                        if self.check_task.is_none() {
+                            self.refresh_results_if_ready(updates);
+                        }
+                        if let Some(old) = old {
+                            thread::spawn(move || {
+                                let _ = backend::index_lifecycle::stop_automation(&old);
+                            });
+                        }
+                    }
+                    Err(message) => {
+                        self.index_ui.load = IndexTaskState::Failed(message);
+                        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                    }
+                }
+            }
+            WorkerEvent::AutomaticCheckChanged {
+                open_generation,
+                operation_id,
+                enabled,
+                interval_seconds,
+                result,
+            } if open_generation == self.open_generation
+                && operation_id == self.automatic_check_operation_id =>
+            {
+                match result {
+                    Ok(()) => {
+                        self.index_ui.automatic_check = enabled;
+                        self.index_ui.check_interval_seconds = interval_seconds;
+                        if let (Some(session), Some(preferences)) =
+                            (&self.session, &mut self.preferences)
+                        {
+                            let key = lifecycle_source_key(session);
+                            if preferences
+                                .set_automatic_check_local(&key, enabled, interval_seconds)
+                                .is_ok()
+                            {
+                                let _ = self.preference_tx.send(preferences.clone());
+                            }
+                        }
+                        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                    }
+                    Err(message) => updates.push(UiUpdate::Error {
+                        field: ErrorField::General,
+                        message,
+                    }),
+                }
+            }
+            WorkerEvent::AutomaticSaveChanged {
+                open_generation,
+                operation_id,
+                enabled,
+                result,
+            } if open_generation == self.open_generation
+                && operation_id == self.automatic_save_operation_id =>
+            {
+                match result {
+                    Ok(()) => {
+                        self.index_ui.automatic_save = enabled;
+                        if let (Some(session), Some(preferences)) =
+                            (&self.session, &mut self.preferences)
+                        {
+                            let key = lifecycle_source_key(session);
+                            if let Some(destination) = session.configuration.cache_save.as_ref() {
+                                if preferences
+                                    .set_automatic_save_local(
+                                        &key,
+                                        &destination.display().to_string(),
+                                        enabled,
+                                    )
+                                    .is_ok()
+                                {
+                                    let _ = self.preference_tx.send(preferences.clone());
+                                }
+                            }
+                        }
+                        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                    }
+                    Err(message) => updates.push(UiUpdate::Error {
+                        field: ErrorField::General,
+                        message,
+                    }),
+                }
+            }
             WorkerEvent::Expanded {
                 open_generation,
                 detail_generation,
@@ -1848,10 +2984,10 @@ impl DesktopController {
             }
             WorkerEvent::Exported {
                 open_generation,
-                output_generation,
+                export_generation,
                 result,
             } if open_generation == self.open_generation
-                && output_generation == self.output_generation =>
+                && export_generation == self.export_generation =>
             {
                 match result {
                     Ok(message) => updates.push(UiUpdate::Status(message)),
@@ -1861,27 +2997,12 @@ impl DesktopController {
                     }),
                 }
             }
-            WorkerEvent::Indexed {
-                open_generation,
-                output_generation,
-                result,
-            } if open_generation == self.open_generation
-                && output_generation == self.output_generation =>
-            {
-                match result {
-                    Ok(message) => updates.push(UiUpdate::Status(message)),
-                    Err(message) => updates.push(UiUpdate::Error {
-                        field: ErrorField::General,
-                        message,
-                    }),
-                }
-            }
             WorkerEvent::Batched {
                 open_generation,
-                output_generation,
+                batch_generation,
                 result,
             } if open_generation == self.open_generation
-                && output_generation == self.output_generation =>
+                && batch_generation == self.batch_generation =>
             {
                 match result {
                     Ok((report, rows)) => {
@@ -1933,10 +3054,21 @@ impl DesktopController {
             WorkerEvent::PreferenceSaved => updates.push(UiUpdate::PreferenceSaved),
             WorkerEvent::CopiedValue {
                 open_generation,
-                detail_generation,
+                publication,
+                tab_id,
+                operation_generation,
                 result,
             } if open_generation == self.open_generation
-                && detail_generation == self.detail_generation =>
+                && self.session_publication_is_current(publication)
+                && self.active_tab == Some(tab_id)
+                && self.tabs.iter().any(|tab| {
+                    tab.id == tab_id
+                        && tab.operation_generation == operation_generation
+                        && matches!(
+                            tab.freshness,
+                            TabFreshness::Current | TabFreshness::NavigationUnavailable
+                        )
+                }) =>
             {
                 match result {
                     Ok((value, message)) => {
@@ -2064,6 +3196,9 @@ impl DesktopController {
             links_loaded: false,
             end_confirmed: false,
             title: key.id.clone(),
+            freshness: TabFreshness::Current,
+            navigation_outdated: false,
+            cached_detail: None,
         });
         self.activate_tab(id, updates);
     }
@@ -2110,110 +3245,387 @@ impl DesktopController {
                 }
             }
         };
-        let hit = self.selected_hit.clone();
+        let selected_key = if format == ExportFormat::SelectedJson {
+            let Some(tab) = self
+                .active_tab
+                .and_then(|id| self.tabs.iter().find(|tab| tab.id == id))
+            else {
+                updates.push(UiUpdate::Error {
+                    field: ErrorField::Export,
+                    message: "Select a record before exporting it".into(),
+                });
+                return;
+            };
+            if !matches!(
+                tab.freshness,
+                TabFreshness::Current | TabFreshness::NavigationUnavailable
+            ) {
+                updates.push(UiUpdate::Error {
+                    field: ErrorField::Export,
+                    message: "Refresh this record before exporting it".into(),
+                });
+                return;
+            }
+            Some(tab.key.clone())
+        } else {
+            None
+        };
+        let view = match session.repository.index().view() {
+            Ok(view) => view,
+            Err(error) => {
+                updates.push(UiUpdate::Error {
+                    field: ErrorField::Export,
+                    message: error.to_string(),
+                });
+                return;
+            }
+        };
         let open_generation = self.open_generation;
-        self.output_cancellation.cancel();
-        self.output_cancellation = CancellationToken::new();
-        self.output_generation += 1;
-        let output_generation = self.output_generation;
-        let token = self.output_cancellation.clone();
+        self.export_cancellation.cancel();
+        self.export_cancellation = CancellationToken::new();
+        self.export_generation += 1;
+        let export_generation = self.export_generation;
+        let token = self.export_cancellation.clone();
         let sender = self.worker_tx.clone();
         updates.push(UiUpdate::ClearError(ErrorField::Export));
         updates.push(UiUpdate::Status("Exporting…".into()));
         thread::spawn(move || {
             let result = match format {
-                ExportFormat::SelectedJson => match hit {
-                    Some(hit) => backend::export_selected_json(&session, &hit, &path, &token)
-                        .map(|()| format!("Selected record exported to {}", path.display()))
-                        .map_err(|error| error.to_string()),
+                ExportFormat::SelectedJson => match selected_key {
+                    Some(key) => backend::export_selected_json_on_view(
+                        &session,
+                        &view,
+                        &key.collection,
+                        &key.id,
+                        &path,
+                        &token,
+                    )
+                    .map(|()| format!("Selected record exported to {}", path.display()))
+                    .map_err(|error| error.to_string()),
                     None => Err("Select a record before exporting it".into()),
                 },
                 ExportFormat::ResultsJson => match spec {
-                    Some(spec) => backend::export_all_json(&session, &spec, &path, &token)
-                        .map(|count| format!("Exported {count} results to {}", path.display()))
-                        .map_err(|error| error.to_string()),
+                    Some(spec) => {
+                        backend::export_all_json_on_view(&session, &view, &spec, &path, &token)
+                            .map(|count| format!("Exported {count} results to {}", path.display()))
+                            .map_err(|error| error.to_string())
+                    }
                     None => Err("Run a query before exporting results".into()),
                 },
                 ExportFormat::Ndjson => match spec {
-                    Some(spec) => backend::export_query_ndjson(&session, &spec, &path, &token)
-                        .and_then(|report| {
-                            if report.exit == Exit::Success {
-                                Ok(report)
-                            } else {
-                                Err(backend::BackendError::new(
-                                    backend::BackendErrorKind::Query,
-                                    format!(
-                                        "NDJSON ended {:?}; inspect {} for events",
-                                        report.exit,
-                                        report.path.display()
-                                    ),
-                                ))
-                            }
-                        })
-                        .map(|report| {
-                            format!(
-                                "NDJSON complete: {} bytes written to {}",
-                                report.bytes_written,
-                                report.path.display()
-                            )
-                        })
-                        .map_err(|error| error.to_string()),
+                    Some(spec) => {
+                        backend::export_query_ndjson_on_view(&session, &view, &spec, &path, &token)
+                            .and_then(|report| {
+                                if report.exit == Exit::Success {
+                                    Ok(report)
+                                } else {
+                                    Err(backend::BackendError::new(
+                                        backend::BackendErrorKind::Query,
+                                        format!(
+                                            "NDJSON ended {:?}; inspect {} for events",
+                                            report.exit,
+                                            report.path.display()
+                                        ),
+                                    ))
+                                }
+                            })
+                            .map(|report| {
+                                format!(
+                                    "NDJSON complete: {} bytes written to {}",
+                                    report.bytes_written,
+                                    report.path.display()
+                                )
+                            })
+                            .map_err(|error| error.to_string())
+                    }
                     None => Err("Run a query before exporting NDJSON".into()),
                 },
             };
             let _ = sender.send(WorkerEvent::Exported {
                 open_generation,
-                output_generation,
+                export_generation,
                 result,
             });
         });
     }
 
-    fn start_index(&mut self, mode: SnapshotMode, directory: String, updates: &mut Vec<UiUpdate>) {
-        let Some(mut draft) = self.open_draft.clone() else {
-            updates.push(UiUpdate::Error {
-                field: ErrorField::General,
-                message: "Open a repository before running an index operation".into(),
-            });
+    fn start_check(&mut self, updates: &mut Vec<UiUpdate>) {
+        let Some(session) = &self.session else {
             return;
         };
-        draft.snapshot = mode;
-        draft.snapshot_directory = directory;
-        let cwd = std::env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
-        let spec = match open_spec(&draft, &cwd) {
-            Ok(spec) => spec,
-            Err(message) => {
-                updates.push(UiUpdate::Error {
-                    field: ErrorField::General,
-                    message,
-                });
-                return;
+        match backend::index_lifecycle::check_for_changes(session) {
+            Ok(task) => {
+                self.index_operation_id = self.index_operation_id.wrapping_add(1);
+                self.check_task = Some(task);
+                self.check_origin = Some(CheckOrigin::Explicit);
+                self.index_ui.check = IndexTaskState::Running {
+                    operation_id: self.index_operation_id,
+                    processed: Some(0),
+                    total: None,
+                };
+                updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
             }
+            Err(error) => {
+                self.index_ui.check = IndexTaskState::Failed(error.to_string());
+                updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+            }
+        }
+    }
+
+    fn start_maintenance(&mut self, operation: MaintenanceOperation, updates: &mut Vec<UiUpdate>) {
+        let Some(session) = &self.session else {
+            return;
         };
-        self.output_cancellation.cancel();
-        self.output_cancellation = CancellationToken::new();
-        self.output_generation += 1;
-        let output_generation = self.output_generation;
+        if self.maintenance_task.is_some() {
+            self.index_ui.maintenance =
+                IndexTaskState::Failed("Another index maintenance task is running".into());
+            updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+            return;
+        }
+        match backend::index_lifecycle::start_maintenance(session, operation) {
+            Ok(task) => {
+                self.index_operation_id = self.index_operation_id.wrapping_add(1);
+                self.maintenance_task = Some(task);
+                self.index_ui.maintenance_kind = Some(match operation {
+                    MaintenanceOperation::Rebuild => IndexTaskKind::Rebuild,
+                    MaintenanceOperation::Compact => IndexTaskKind::Compact,
+                });
+                self.index_ui.maintenance = IndexTaskState::Running {
+                    operation_id: self.index_operation_id,
+                    processed: None,
+                    total: None,
+                };
+                updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+            }
+            Err(error) => {
+                self.index_ui.maintenance = IndexTaskState::Failed(error.to_string());
+                updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+            }
+        }
+    }
+
+    fn save_index(
+        &mut self,
+        requested: Option<String>,
+        allow_replace: bool,
+        cx: &mut App,
+        updates: &mut Vec<UiUpdate>,
+    ) {
+        let Some(session) = self.session.clone() else {
+            return;
+        };
+        let destination = requested
+            .filter(|path| !path.trim().is_empty())
+            .map(PathBuf::from)
+            .or_else(|| session.configuration.cache_save.clone());
+        let Some(destination) = destination else {
+            self.index_picker_generation = self.index_picker_generation.wrapping_add(1);
+            self.choose_index_path(self.index_picker_generation, false, true, cx);
+            return;
+        };
+        let destination = if destination.is_absolute() {
+            destination
+        } else {
+            session.paths.root.join(destination)
+        };
+        if allow_replace && self.pending_index_overwrite.as_ref() != Some(&destination) {
+            self.index_ui.save =
+                IndexTaskState::Failed("The index destination changed; choose it again".into());
+            updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+            return;
+        }
+        if matches!(self.index_ui.save, IndexTaskState::Running { .. }) {
+            return;
+        }
+        self.pending_index_overwrite = None;
+        self.save_operation_id = self.save_operation_id.wrapping_add(1);
+        let operation_id = self.save_operation_id;
         let open_generation = self.open_generation;
-        let token = self.output_cancellation.clone();
         let sender = self.worker_tx.clone();
-        updates.push(UiUpdate::Status("Running index operation…".into()));
+        self.index_ui.save = IndexTaskState::Running {
+            operation_id,
+            processed: None,
+            total: None,
+        };
+        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
         thread::spawn(move || {
-            let result = backend::open(&spec, &token)
-                .map(|session| {
-                    format!(
-                        "Index operation complete for {} ({:.1} ms)",
-                        session.paths.root.display(),
-                        session.diagnostics.open_ns as f64 / 1_000_000.0
+            let selected = session.configuration.cache_save.as_deref();
+            let same_selected = selected.is_some_and(|selected| {
+                selected == destination
+                    || matches!(
+                        (selected.canonicalize(), destination.canonicalize()),
+                        (Ok(selected), Ok(destination)) if selected == destination
                     )
-                })
-                .map_err(|error| error.to_string());
-            let _ = sender.send(WorkerEvent::Indexed {
+            });
+            let result = if !allow_replace
+                && !same_selected
+                && std::fs::symlink_metadata(&destination).is_ok()
+            {
+                IndexSaveCompletion::OverwriteRequired(destination)
+            } else {
+                match backend::index_lifecycle::save_index(&session, &destination, allow_replace) {
+                    Ok(saved) => IndexSaveCompletion::Saved(saved),
+                    Err(error) => IndexSaveCompletion::Failed(error.to_string()),
+                }
+            };
+            let _ = sender.send(WorkerEvent::IndexSaved {
                 open_generation,
-                output_generation,
+                operation_id,
                 result,
             });
         });
+    }
+
+    fn load_index(&mut self, path: String, cx: &mut App, updates: &mut Vec<UiUpdate>) {
+        let Some(session) = self.session.clone() else {
+            return;
+        };
+        if path.trim().is_empty() {
+            self.index_picker_generation = self.index_picker_generation.wrapping_add(1);
+            self.choose_index_path(self.index_picker_generation, true, true, cx);
+            return;
+        }
+        if self.index_ui.automatic_save
+            || matches!(self.index_ui.save, IndexTaskState::Running { .. })
+        {
+            self.index_ui.load = IndexTaskState::Failed(
+                "Finish saving and turn off automatic saving before loading another index".into(),
+            );
+            updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+            return;
+        }
+        let path = PathBuf::from(path.trim());
+        let path = if path.is_absolute() {
+            path
+        } else {
+            session.paths.root.join(path)
+        };
+        self.load_cancellation.cancel();
+        self.load_cancellation = CancellationToken::new();
+        self.load_operation_id = self.load_operation_id.wrapping_add(1);
+        let operation_id = self.load_operation_id;
+        let token = self.load_cancellation.clone();
+        let open_generation = self.open_generation;
+        let sender = self.worker_tx.clone();
+        self.index_ui.load = IndexTaskState::Running {
+            operation_id,
+            processed: None,
+            total: None,
+        };
+        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+        thread::spawn(move || {
+            let result = backend::index_lifecycle::load_index(&session, &path, &token)
+                .map_err(|error| error.to_string());
+            let _ = sender.send(WorkerEvent::IndexLoaded {
+                open_generation,
+                operation_id,
+                result,
+            });
+        });
+    }
+
+    fn cancel_index_task(&mut self, kind: IndexTaskKind, updates: &mut Vec<UiUpdate>) {
+        match kind {
+            IndexTaskKind::Check => {
+                if let Some(task) = &self.check_task {
+                    task.cancel();
+                }
+            }
+            IndexTaskKind::Rebuild | IndexTaskKind::Compact => {
+                if let Some(task) = &self.maintenance_task {
+                    task.cancel();
+                }
+            }
+            IndexTaskKind::Load => {
+                self.load_cancellation.cancel();
+                self.load_operation_id = self.load_operation_id.wrapping_add(1);
+                self.index_ui.load = IndexTaskState::Cancelled;
+            }
+            IndexTaskKind::Save => {
+                updates.push(UiUpdate::Status(
+                    "An index save already in progress finishes atomically".into(),
+                ));
+            }
+        }
+        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+    }
+
+    fn set_automatic_check(
+        &mut self,
+        enabled: bool,
+        interval_seconds: u64,
+        updates: &mut Vec<UiUpdate>,
+    ) {
+        let Some(session) = self.session.clone() else {
+            return;
+        };
+        if !(1..=86_400).contains(&interval_seconds) {
+            updates.push(UiUpdate::Error {
+                field: ErrorField::General,
+                message: "Check interval must be between 1 and 86,400 seconds".into(),
+            });
+            return;
+        }
+        self.automatic_check_operation_id = self.automatic_check_operation_id.wrapping_add(1);
+        let operation_id = self.automatic_check_operation_id;
+        let open_generation = self.open_generation;
+        let sender = self.worker_tx.clone();
+        thread::spawn(move || {
+            let result = backend::index_lifecycle::set_periodic_check(
+                &session,
+                enabled.then(|| Duration::from_secs(interval_seconds)),
+            )
+            .map_err(|error| error.to_string());
+            let _ = sender.send(WorkerEvent::AutomaticCheckChanged {
+                open_generation,
+                operation_id,
+                enabled,
+                interval_seconds,
+                result,
+            });
+        });
+    }
+
+    fn set_automatic_save(&mut self, enabled: bool, updates: &mut Vec<UiUpdate>) {
+        let Some(session) = self.session.clone() else {
+            return;
+        };
+        if enabled && !self.index_ui.automatic_save_available {
+            updates.push(UiUpdate::Error {
+                field: ErrorField::General,
+                message: self
+                    .index_ui
+                    .automatic_save_reason
+                    .clone()
+                    .unwrap_or_else(|| {
+                        "Choose a configured repository index destination first".into()
+                    }),
+            });
+            return;
+        }
+        self.automatic_save_operation_id = self.automatic_save_operation_id.wrapping_add(1);
+        let operation_id = self.automatic_save_operation_id;
+        let open_generation = self.open_generation;
+        let sender = self.worker_tx.clone();
+        thread::spawn(move || {
+            let result = backend::index_lifecycle::set_automatic_save(&session, enabled)
+                .map_err(|error| error.to_string());
+            let _ = sender.send(WorkerEvent::AutomaticSaveChanged {
+                open_generation,
+                operation_id,
+                enabled,
+                result,
+            });
+        });
+    }
+
+    fn refresh_record(&mut self, id: u64, updates: &mut Vec<UiUpdate>) {
+        let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) else {
+            return;
+        };
+        tab.freshness = TabFreshness::Refreshing;
+        self.emit_tabs(updates);
+        self.start_tab_load(id, TabLoadKind::Refresh, updates);
     }
 
     fn start_batch(
@@ -2276,13 +3688,23 @@ impl DesktopController {
             limit: query.limit,
             count: query.count,
         };
+        let view = match session.repository.index().view() {
+            Ok(view) => view,
+            Err(error) => {
+                updates.push(UiUpdate::Error {
+                    field: ErrorField::Batch,
+                    message: error.to_string(),
+                });
+                return;
+            }
+        };
         let path = PathBuf::from(output_path.trim());
-        self.output_cancellation.cancel();
-        self.output_cancellation = CancellationToken::new();
-        self.output_generation += 1;
-        let output_generation = self.output_generation;
+        self.batch_cancellation.cancel();
+        self.batch_cancellation = CancellationToken::new();
+        self.batch_generation += 1;
+        let batch_generation = self.batch_generation;
         let open_generation = self.open_generation;
-        let token = self.output_cancellation.clone();
+        let token = self.batch_cancellation.clone();
         let sender = self.worker_tx.clone();
         updates.push(UiUpdate::ClearError(ErrorField::Batch));
         updates.push(UiUpdate::Batch {
@@ -2291,7 +3713,7 @@ impl DesktopController {
             outcome: None,
         });
         thread::spawn(move || {
-            let result = backend::run_batch(&session, &spec, &path, &token)
+            let result = backend::run_batch_on_view(&session, &view, &spec, &path, &token)
                 .map(|report| {
                     let rows = batch_rows(&report.path).unwrap_or_default();
                     (report, rows)
@@ -2299,13 +3721,12 @@ impl DesktopController {
                 .map_err(|error| error.to_string());
             let _ = sender.send(WorkerEvent::Batched {
                 open_generation,
-                output_generation,
+                batch_generation,
                 result,
             });
         });
     }
 }
-
 
 fn open_with_preferences(
     spec: &OpenSpec,
@@ -2314,6 +3735,16 @@ fn open_with_preferences(
     let session = backend::open(spec, token).map_err(|error| error.to_string())?;
     let preferences = DesktopPreferences::load(&session.paths.root);
     Ok((session, preferences))
+}
+
+fn lifecycle_source_key(session: &OpenedSession) -> String {
+    let mut key = session.paths.root.display().to_string();
+    key.push('|');
+    for byte in session.configuration.configuration_identity {
+        use std::fmt::Write as _;
+        let _ = write!(&mut key, "{byte:02x}");
+    }
+    key
 }
 
 fn record_presentation(
@@ -2366,21 +3797,37 @@ fn query_error_field(message: &str, draft: &SearchDraft) -> ErrorField {
 
 /// Query already-built posting dictionaries only. Missing or partial indexes
 /// yield fewer suggestions; they never trigger a source-document scan.
-fn tab_result_hit(
+fn tab_result_hit_on_view(
     session: &OpenedSession,
+    view: &IndexView,
     spec: &backend::QuerySpec,
     anchor: usize,
     key: &RecordKey,
     token: &CancellationToken,
 ) -> Result<Option<SearchHit>, backend::BackendError> {
-    let mut page = backend::query_page(session, spec, anchor, 1, token)?;
+    let mut page = backend::query_page_on_view(session, view, spec, anchor, 1, token)?;
     if let Some(hit) = page.hits.pop()
         && hit.collection == key.collection
         && hit.record_id == key.id
     {
         return Ok(Some(hit));
     }
-    backend::record_by_id(session, &key.collection, &key.id, token)
+    Ok(None)
+}
+
+fn canonical_hit_on_view(
+    view: &IndexView,
+    key: &RecordKey,
+    token: &CancellationToken,
+) -> Result<Option<SearchHit>, backend::BackendError> {
+    match backend::record_by_id_on_view(view, &key.collection, &key.id, token)? {
+        DirectLookupResult::Found(hit) => Ok(Some(hit)),
+        DirectLookupResult::NotFound => Ok(None),
+        DirectLookupResult::SourceUnavailable(diagnostic) => Err(backend::BackendError::new(
+            backend::BackendErrorKind::Query,
+            diagnostic.message,
+        )),
+    }
 }
 
 fn posting_completions(

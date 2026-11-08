@@ -15,10 +15,23 @@ fn plain_folder_and_missing_path_are_distinct() {
 #[test]
 fn existing_configured_repository_is_recognized_without_opening_data() {
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
-    assert_eq!(
-        detect_source(&root).unwrap(),
-        DetectedSource::ConfiguredRepository { collections: 7 }
+    let detected = detect_source(&root).unwrap();
+    let DetectedSource::ConfiguredRepository {
+        collections,
+        schema_files,
+        default_cache,
+    } = detected
+    else {
+        panic!("expected configured repository");
+    };
+    assert_eq!(collections, 7);
+    assert_eq!(schema_files.len(), 7);
+    assert!(
+        schema_files
+            .iter()
+            .all(|path| path.ends_with(".schema.json"))
     );
+    assert!(default_cache.contains(".objekte"));
 }
 
 #[test]

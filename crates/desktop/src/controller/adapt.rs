@@ -3,6 +3,7 @@
 use std::path::{Path, PathBuf};
 
 use objekte_cli::arguments::{Alphabet, Arguments};
+use objekte_search_core::lifecycle_repository::CacheOpenPolicy;
 
 use crate::backend::{OpenSpec, QuerySpec};
 use crate::ui::model::{OpenDraft, OpenMode, SearchDraft, SnapshotMode};
@@ -55,6 +56,19 @@ pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
         }
     }
     let snapshot_path = draft.snapshot_directory.trim().to_owned();
+    if draft.snapshot != SnapshotMode::None && snapshot_path.is_empty() {
+        return Err("Choose a concrete index location for this opening policy".into());
+    }
+    let configured_cache_policy = if draft.mode == OpenMode::ConfiguredRepository {
+        match draft.snapshot {
+            SnapshotMode::None if draft.configured_use_repository_settings => None,
+            SnapshotMode::None | SnapshotMode::Write => Some(CacheOpenPolicy::Ignore),
+            SnapshotMode::Load => Some(CacheOpenPolicy::Required),
+            SnapshotMode::LoadAndWrite => Some(CacheOpenPolicy::IfPresent),
+        }
+    } else {
+        None
+    };
     match draft.snapshot {
         SnapshotMode::None => {}
         SnapshotMode::Write => args.write_index = Some(snapshot_path),
@@ -68,6 +82,7 @@ pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
     Ok(OpenSpec {
         args,
         cwd: cwd.to_path_buf(),
+        configured_cache_policy,
     })
 }
 
