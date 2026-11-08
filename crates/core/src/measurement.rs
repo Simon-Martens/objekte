@@ -1,6 +1,27 @@
 //! Runtime work accounting shared by query execution and diagnostics.
 
 use serde::{Deserialize, Serialize};
+use std::path::PathBuf;
+
+/// Why a pinned source range could not be read during a live query.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum SourceUnavailableKind {
+    Missing,
+    RevisionMismatch,
+    UnusableRange,
+    Unreadable,
+}
+
+/// A bounded example of source unavailability. `source_unavailable_events`
+/// counts every occurrence even after the diagnostic limit is reached.
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct SourceDiagnostic {
+    pub file_id: u32,
+    pub file_path: PathBuf,
+    pub kind: SourceUnavailableKind,
+    pub message: String,
+}
 
 
 /// Observed candidate, source, cache, and result work.
@@ -13,6 +34,12 @@ pub struct WorkCounters {
     /// Whether `total_matches` covers the entire selected query domain.
     #[serde(default)]
     pub match_count_complete: bool,
+    /// Number of source-read failures excluded from this result.
+    #[serde(default)]
+    pub source_unavailable_events: u64,
+    /// First 32 source-read failures, in execution order.
+    #[serde(default)]
+    pub source_diagnostics: Vec<SourceDiagnostic>,
     pub returned_records: u64,
     pub files_opened: u64,
     /// Physical primary-source files opened at least once. Relation target
@@ -95,6 +122,20 @@ pub(crate) struct ScanWork {
 
 
 impl WorkCounters {
+    pub(crate) fn record_source_unavailable(&mut self, mut diagnostic: SourceDiagnostic) {
+        self.source_unavailable_events = self.source_unavailable_events.saturating_add(1);
+        self.match_count_complete = false;
+        if self.source_diagnostics.len() < 32 {
+            if diagnostic.message.len() > 256 {
+                let end = (0..=256).rev()
+                    .find(|end| diagnostic.message.is_char_boundary(*end))
+                    .unwrap_or(0);
+                diagnostic.message.truncate(end);
+            }
+            self.source_diagnostics.push(diagnostic);
+        }
+    }
+
     pub(crate) fn add_scan(
         &mut self,
         scan: ScanWork,
@@ -138,4 +179,22 @@ impl WorkCounters {
         self.record_parses += work.target_reads;
         crate::relation_query::check_query_work_budget(self)
     }
+}
+
+#[cfg(test)]
+#[test]
+fn source_diagnostics_remain_bounded_after_many_failures() {
+    let mut counters = WorkCounters { match_count_complete: true, ..Default::default() };
+    for file_id in 0..40 {
+        counters.record_source_unavailable(SourceDiagnostic {
+            file_id,
+            file_path: PathBuf::from(format!("file-{file_id}")),
+            kind: SourceUnavailableKind::Missing,
+            message: "é".repeat(200),
+        });
+    }
+    assert_eq!(counters.source_unavailable_events, 40);
+    assert!(!counters.match_count_complete);
+    assert_eq!(counters.source_diagnostics.len(), 32);
+    assert!(counters.source_diagnostics.iter().all(|entry| entry.message.len() <= 256));
 }

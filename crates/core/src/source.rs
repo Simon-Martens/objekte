@@ -9,6 +9,7 @@ use serde::de::{DeserializeSeed, IgnoredAny, MapAccess, Visitor};
 use serde::{Deserialize, Serialize};
 
 use crate::inventory::{ByteRange, SourceRevision};
+use crate::measurement::SourceUnavailableKind;
 use crate::model::Value;
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
@@ -17,6 +18,28 @@ fn source_changed(execution: Option<&ExecutionContext>, message: String) -> Stri
         execution.fail(ExecutionErrorKind::SourceChanged, message)
     } else {
         message
+    }
+}
+
+/// Classify an error from a source reader. Call this only for open/read errors,
+/// after resource and cancellation checks have completed. The metadata probe
+/// happens solely on the error path and never accepts new bytes as old ranges.
+pub(crate) fn classify_source_read_failure(
+    path: &Path,
+    expected: SourceRevision,
+    range: Option<ByteRange>,
+) -> SourceUnavailableKind {
+    match std::fs::metadata(path) {
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => SourceUnavailableKind::Missing,
+        Err(_) => SourceUnavailableKind::Unreadable,
+        Ok(metadata) => match SourceRevision::from_metadata(&metadata) {
+            Ok(actual) if actual != expected => SourceUnavailableKind::RevisionMismatch,
+            Err(_) => SourceUnavailableKind::Unreadable,
+            Ok(_) if range.is_some_and(|range| range.start > range.end || range.end > expected.size) => {
+                SourceUnavailableKind::UnusableRange
+            }
+            Ok(_) => SourceUnavailableKind::Unreadable,
+        },
     }
 }
 

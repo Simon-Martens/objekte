@@ -1924,12 +1924,37 @@ impl IndexView {
         }
     }
 
+    /// Search only when every required source was available to this execution.
+    pub fn search_strict(&self, query: &Query) -> Result<SearchResult, String> {
+        let result = self.search(query)?;
+        if !result.counters.match_count_complete {
+            return Err("search source data is incomplete".into());
+        }
+        Ok(result)
+    }
+
+    /// Context-aware strict search with a typed source-change failure.
+    pub fn search_strict_with_context(
+        &self,
+        query: &Query,
+        context: &ExecutionContext,
+    ) -> Result<SearchResult, ExecutionError> {
+        let result = self.search_with_context(query, context)?;
+        if !result.counters.match_count_complete {
+            return Err(context.error(
+                crate::streaming::ExecutionErrorKind::SourceChanged,
+                "search source data is incomplete",
+            ));
+        }
+        Ok(result)
+    }
+
     pub fn count_exact(&self, query: &Query) -> Result<usize, String> {
         let mut request = query.clone();
         request.options.count = true;
         request.options.limit = 0;
         request.options.offset = 0;
-        self.search(&request)?
+        self.search_strict(&request)?
             .count
             .ok_or("count result missing".into())
     }
@@ -1943,7 +1968,7 @@ impl IndexView {
         request.options.count = true;
         request.options.limit = 0;
         request.options.offset = 0;
-        self.search_with_context(&request, context)?
+        self.search_strict_with_context(&request, context)?
             .count
             .ok_or_else(|| ExecutionError {
                 kind: crate::streaming::ExecutionErrorKind::Execution,
