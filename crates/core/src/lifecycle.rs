@@ -169,6 +169,16 @@ pub struct IndexStatus {
     pub live_records: u64,
 }
 
+/// Outcome of explicit full reconstruction from the configured source files.
+#[derive(Clone, Debug)]
+pub struct RebuildReport {
+    pub revision: IndexRevision,
+    pub attempts: usize,
+    pub indexed_files: usize,
+    pub live_records: u64,
+    pub duration: Duration,
+}
+
 /// Result of removing one physical source entry from the published index.
 /// The source file itself is never changed.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -868,6 +878,59 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?
             .reconciliation;
         Ok(status)
+    }
+
+    /// Rebuild from the current explicit configuration. Queries keep using
+    /// their pinned prior view while source extraction runs. A concurrent
+    /// commit makes the candidate stale and causes a fresh bounded retry.
+    pub fn rebuild(&self) -> Result<RebuildReport, IndexError> {
+        self.rebuild_with_before_publish(|_| {})
+    }
+
+    fn rebuild_with_before_publish(
+        &self,
+        mut before_publish: impl FnMut(usize),
+    ) -> Result<RebuildReport, IndexError> {
+        let started = Instant::now();
+        let mut conflict = None;
+        for attempt in 1..=3 {
+            let view = self.view()?;
+            let repository = view.repository();
+            let definitions = repository
+                .collections()
+                .iter()
+                .map(|collection| collection.definition.clone())
+                .collect::<Vec<_>>();
+            let fresh = Self::build_with_sources(
+                repository.files().root.clone(),
+                definitions,
+                repository.options(),
+                repository.sources.clone(),
+            )?;
+            let rebuilt_repository = Arc::clone(&fresh.view()?.0.repository);
+            let next_revision = view.revision().next()?;
+            let next = PublishedIndex::from_repository(
+                self.instance_id(),
+                next_revision,
+                rebuilt_repository,
+            )?;
+            before_publish(attempt);
+            match self.publish_prepared(view.revision(), next) {
+                Ok(revision) => {
+                    let status = self.status()?;
+                    return Ok(RebuildReport {
+                        revision,
+                        attempts: attempt,
+                        indexed_files: status.indexed_files,
+                        live_records: status.live_records,
+                        duration: started.elapsed(),
+                    });
+                }
+                Err(error @ IndexError::RevisionConflict { .. }) => conflict = Some(error),
+                Err(error) => return Err(error),
+            }
+        }
+        Err(conflict.expect("rebuild retry always captures a revision conflict"))
     }
 
     /// Persist one pinned revision to an explicit destination. Snapshot
