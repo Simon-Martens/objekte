@@ -439,6 +439,31 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     ).unwrap();
     assert_eq!(with_context.count, None);
     assert_eq!(with_context.hits, missing.hits);
+    let mut payload_query = query.clone();
+    payload_query.filter = Some(parse_filter("kind = 'c'").unwrap());
+    payload_query.options.evidence = false;
+    payload_query.options.return_mode = ReturnMode::Bytes;
+    let payload = search_segmented(
+        &repo, &payload_query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
+    ).unwrap();
+    assert_eq!(payload.count, None);
+    assert!(payload.hits.is_empty());
+    assert_eq!(payload.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::Missing);
+    let stream_context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(), None,
+    );
+    let streamed = search_stream_segmented_with_context(
+        &repo, &payload_query, ResultScope::All { offset: 0 },
+        StreamOptions::default(), &stream_context, &retired_base, &retired_segments,
+        &catalog, IndexRevision(3), &mut |_| Ok(StreamControl::Continue),
+    ).unwrap();
+    let StreamOutcome::Complete(summary) = streamed else { panic!("stream did not complete") };
+    assert_eq!(summary.count, None);
+    assert_eq!(summary.returned_rows, 0);
+    assert_eq!(summary.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::Missing);
     std::fs::remove_file(root.join("data/base.jsonl")).unwrap();
     query.options.return_mode = ReturnMode::Bytes;
     let base_only = search_active_available(

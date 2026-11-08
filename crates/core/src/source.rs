@@ -30,18 +30,39 @@ pub(crate) fn classify_source_read_failure(
     expected: SourceRevision,
     range: Option<ByteRange>,
 ) -> SourceUnavailableKind {
-    match std::fs::metadata(path) {
-        Err(error) if error.kind() == std::io::ErrorKind::NotFound => SourceUnavailableKind::Missing,
-        Err(_) => SourceUnavailableKind::Unreadable,
-        Ok(metadata) => match SourceRevision::from_metadata(&metadata) {
-            Ok(actual) if actual != expected => SourceUnavailableKind::RevisionMismatch,
-            Err(_) => SourceUnavailableKind::Unreadable,
-            Ok(_) if range.is_some_and(|range| range.start > range.end || range.end > expected.size) => {
-                SourceUnavailableKind::UnusableRange
-            }
-            Ok(_) => SourceUnavailableKind::Unreadable,
-        },
+    probe_source_unavailable(path, expected, range).unwrap_or(SourceUnavailableKind::Unreadable)
+}
+
+/// A metadata/open probe for distinguishing source unavailability from parse,
+/// schema, and programming failures after a composite operation returned an
+/// untyped error. It runs only on that operation's error path.
+pub(crate) fn probe_source_unavailable(
+    path: &Path,
+    expected: SourceRevision,
+    range: Option<ByteRange>,
+) -> Option<SourceUnavailableKind> {
+    let file = match std::fs::File::open(path) {
+        Ok(file) => file,
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+            return Some(SourceUnavailableKind::Missing)
+        }
+        Err(_) => return Some(SourceUnavailableKind::Unreadable),
+    };
+    let metadata = match file.metadata() {
+        Ok(metadata) => metadata,
+        Err(_) => return Some(SourceUnavailableKind::Unreadable),
+    };
+    let actual = match SourceRevision::from_metadata(&metadata) {
+        Ok(actual) => actual,
+        Err(_) => return Some(SourceUnavailableKind::Unreadable),
+    };
+    if actual != expected {
+        return Some(SourceUnavailableKind::RevisionMismatch);
     }
+    if range.is_some_and(|range| range.start > range.end || range.end > expected.size) {
+        return Some(SourceUnavailableKind::UnusableRange);
+    }
+    None
 }
 
 
