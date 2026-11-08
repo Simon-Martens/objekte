@@ -60,7 +60,11 @@ fn adding_and_removing_rows_switches_to_multiple_folder_request() {
     dialog.accept_detection(
         generation,
         &path,
-        Ok(DetectedSource::ConfiguredRepository { collections: 2 }),
+        Ok(DetectedSource::ConfiguredRepository {
+            collections: 2,
+            schema_files: vec!["/tmp/one/.objekte/collections/a.json".into()],
+            default_cache: "/tmp/one/.objekte/.cache/index-ascii.bin".into(),
+        }),
     );
     let second = dialog.add_folder();
     assert!(dialog.to_open_draft(&OpenDraft::default()).is_err());
@@ -71,6 +75,30 @@ fn adding_and_removing_rows_switches_to_multiple_folder_request() {
     dialog.remove_folder(second);
     assert_eq!(dialog.folders.len(), 1);
     assert!(dialog.to_open_draft(&OpenDraft::default()).is_err());
+}
+
+#[test]
+fn configured_repository_uses_settings_unless_manual_policy_is_selected() {
+    let mut dialog = OpenDialogState::default();
+    dialog.show();
+    dialog.edit_folder(0, "/tmp/one".into());
+    let (generation, path) = dialog.begin_detection().unwrap();
+    dialog.accept_detection(generation, &path, Ok(DetectedSource::ConfiguredRepository {
+        collections: 1,
+        schema_files: vec!["/tmp/one/.objekte/collections/a.json".into()],
+        default_cache: "/tmp/one/.objekte/.cache/index-ascii.bin".into(),
+    }));
+    let default = dialog.to_open_draft(&OpenDraft::default()).unwrap();
+    assert_eq!(default.mode, OpenMode::ConfiguredRepository);
+    assert!(default.configured_use_repository_settings);
+    let manual = OpenDraft {
+        configured_use_repository_settings: false,
+        snapshot: super::super::model::SnapshotMode::Load,
+        ..OpenDraft::default()
+    };
+    assert!(dialog.to_open_draft(&manual).unwrap_err().contains("concrete index location"));
+    let manual = OpenDraft { snapshot_directory: "/tmp/index.bin".into(), ..manual };
+    assert_eq!(dialog.to_open_draft(&manual).unwrap().snapshot_directory, "/tmp/index.bin");
 }
 
 #[test]

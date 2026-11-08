@@ -16,7 +16,8 @@ use gpui_kit::{
 
 use super::DesktopView;
 use super::model::{
-    BatchSource, DetailOrigin, DetailRow, DetailValueKind, ErrorField, ExportFormat, UiAction,
+    BatchSource, DetailOrigin, DetailRow, DetailValueKind, ErrorField, ExportFormat,
+    IndexTaskKind, IndexTaskState, TabFreshness, UiAction,
 };
 use super::state::ActionPanel;
 
@@ -187,6 +188,8 @@ impl DesktopView {
             .tabs
             .iter()
             .find(|tab| Some(tab.id) == self.state.active_tab);
+        let freshness = active_tab.map_or(TabFreshness::Current, |tab| tab.freshness);
+        let navigation_current = freshness == TabFreshness::Current;
         let mut panel = div()
             .id("record-panel")
             .track_focus(&self.detail_focus)
@@ -285,9 +288,9 @@ impl DesktopView {
                         Button::new("record-back")
                             .ghost()
                             .icon(IconName::Undo)
-                            .tooltip("Back")
+                            .tooltip(if navigation_current { "Back" } else { "Refresh record to navigate" })
                             .accessibility_label("Back")
-                            .disabled(!active_tab.is_some_and(|tab| tab.can_back))
+                            .disabled(!navigation_current || !active_tab.is_some_and(|tab| tab.can_back))
                             .on_click(cx.listener(|this, _, _, _| {
                                 this.save_tab_view();
                                 this.send(UiAction::BackRelation);
@@ -297,9 +300,9 @@ impl DesktopView {
                         Button::new("previous-record")
                             .ghost()
                             .icon(IconName::ArrowLeft)
-                            .tooltip("Previous result")
+                            .tooltip(if navigation_current { "Previous result" } else { "Refresh record to navigate" })
                             .accessibility_label("Previous result")
-                            .disabled(!active_tab.is_some_and(|tab| tab.can_previous))
+                            .disabled(!navigation_current || !active_tab.is_some_and(|tab| tab.can_previous))
                             .on_click(cx.listener(|this, _, _, _| {
                                 this.save_tab_view();
                                 this.send(UiAction::AdjacentResult(false));
@@ -309,9 +312,9 @@ impl DesktopView {
                         Button::new("next-record")
                             .ghost()
                             .icon(IconName::ArrowRight)
-                            .tooltip("Next result")
+                            .tooltip(if navigation_current { "Next result" } else { "Refresh record to navigate" })
                             .accessibility_label("Next result")
-                            .disabled(!active_tab.is_some_and(|tab| tab.can_next))
+                            .disabled(!navigation_current || !active_tab.is_some_and(|tab| tab.can_next))
                             .on_click(cx.listener(|this, _, _, _| {
                                 this.save_tab_view();
                                 this.send(UiAction::AdjacentResult(true));
@@ -339,7 +342,28 @@ impl DesktopView {
                                 cx.notify();
                             })),
                     ),
-            );
+            )
+            .when(freshness != TabFreshness::Current, |this| {
+                let label = match freshness {
+                    TabFreshness::Current => "",
+                    TabFreshness::Refreshing => "Refreshing record…",
+                    TabFreshness::Outdated => "Record may have changed — previously loaded content",
+                    TabFreshness::Removed => "Record is no longer available — previously loaded content",
+                    TabFreshness::Failed => "Could not refresh record — previously loaded content",
+                };
+                this.child(div().id("record-freshness").flex().items_center().gap_2()
+                    .px_3().py_1().bg(rgb(colors.raised))
+                    .child(div().text_xs().flex_1().child(label))
+                    .when(freshness != TabFreshness::Refreshing, |this| this.child(
+                        Button::new("refresh-record").ghost().label("Refresh")
+                            .tooltip("Refresh record")
+                            .accessibility_label("Refresh record")
+                            .on_click(cx.listener(|this, _, _, _| {
+                                if let Some(id) = this.state.active_tab {
+                                    this.send(UiAction::RefreshRecord(id));
+                                }
+                            })))))
+            });
         let Some(detail) = detail else {
             return panel
                 .child(
@@ -437,6 +461,7 @@ impl DesktopView {
                         Button::new("links-tab")
                             .ghost()
                             .label("Links")
+                            .disabled(!navigation_current)
                             .selected(self.state.show_links)
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_raw = false;
@@ -452,6 +477,7 @@ impl DesktopView {
                             Button::new("copy-record")
                                 .ghost()
                                 .icon(AssetIconName::Copy)
+                                .disabled(!navigation_current)
                                 .tooltip("Copy record")
                                 .accessibility_label("Copy record")
                                 .on_click(
@@ -462,6 +488,7 @@ impl DesktopView {
                             Button::new("export-record")
                                 .ghost()
                                 .icon(AssetIconName::Download)
+                                .disabled(!navigation_current)
                                 .tooltip("Export record")
                                 .accessibility_label("Export record")
                                 .on_click(cx.listener(|this, _, _, cx| {
@@ -547,7 +574,7 @@ impl DesktopView {
                                 .child(
                                     Button::new(format!("relation-{index}"))
                                         .ghost()
-                                        .disabled(!relation.available)
+                                        .disabled(!navigation_current || !relation.available)
                                         .child(div().flex().gap_1().child(label).child(value))
                                         .on_click(cx.listener(move |this, _, _, _| {
                                             this.save_tab_view();
@@ -559,6 +586,7 @@ impl DesktopView {
                                         Button::new(format!("relation-new-tab-{index}"))
                                             .ghost()
                                             .label("New tab")
+                                            .disabled(!navigation_current || !relation.available)
                                             .tooltip("Open relation in a new record tab")
                                             .on_click(cx.listener(move |this, _, _, _| {
                                                 this.save_tab_view();
@@ -759,7 +787,7 @@ impl DesktopView {
                 }))
             })
             .when(kind != ActionPanel::Columns, |this| this.top(px(48.)).right(px(8.)))
-            .w(px(370.))
+            .w(px(if kind == ActionPanel::Index { 440. } else { 370. }))
             .max_h(px(600.))
             .flex()
             .flex_col()
@@ -908,72 +936,195 @@ impl DesktopView {
                 }
             }
             ActionPanel::Index => {
-                content = content.child(div().text_sm().child("Run an index operation on the open source. The current results stay available."));
-                for (id, label, mode) in [
-                    (
-                        "index-memory",
-                        "Build in memory",
-                        super::model::SnapshotMode::None,
-                    ),
-                    (
-                        "index-load",
-                        "Load existing index",
-                        super::model::SnapshotMode::Load,
-                    ),
-                    (
-                        "index-write",
-                        "Build and save index",
-                        super::model::SnapshotMode::Write,
-                    ),
-                    (
-                        "index-load-write",
-                        "Load or rebuild and save",
-                        super::model::SnapshotMode::LoadAndWrite,
-                    ),
-                ] {
-                    content = content.child(
-                        Button::new(id)
-                            .ghost()
-                            .w_full()
-                            .label(label)
-                            .selected(self.state.index_mode == mode)
-                            .on_click(cx.listener(move |this, _, _, cx| {
-                                this.state.index_mode = mode;
+                let index = &self.state.index_status;
+                let source = if index.source_location.is_empty() {
+                    "No repository open".to_owned()
+                } else {
+                    index.source_location.clone()
+                };
+                content = content
+                    .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Source checking"))
+                    .child(div().text_xs().child(format!("Source: {source}")))
+                    .child(div().text_xs().child(format!("Mode: {}", index.opening_mode)))
+                    .child(div().text_xs().child(match &index.last_check {
+                        Some(time) if index.check_complete == Some(true) => format!("Last check: {time} · complete"),
+                        Some(time) => format!("Last check: {time} · some files could not be checked"),
+                        None => "Files have not been checked yet".to_owned(),
+                    }))
+                    .child(div().flex().items_center().gap_2().child(
+                        Button::new("index-check-now")
+                            .label("Check for changes")
+                            .disabled(self.state.root.is_none())
+                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::CheckForChanges))),
+                    ))
+                    .child(
+                        Checkbox::new("index-auto-check")
+                            .checked(index.automatic_check)
+                            .accessibility_label("Automatically check for changes")
+                            .child("Automatically check for changes")
+                            .disabled(self.state.root.is_none())
+                            .on_change(cx.listener(|this, enabled: &bool, _, cx| {
+                                let seconds = if *enabled {
+                                    parse_index_interval_seconds(
+                                        this.inputs.index_interval.read(cx).value().as_ref(),
+                                    )
+                                } else {
+                                    Ok(this.state.index_status.check_interval_seconds)
+                                };
+                                match seconds {
+                                    Ok(interval_seconds) => {
+                                        this.state.index_interval_error = None;
+                                        this.send(UiAction::SetAutomaticChecking {
+                                            enabled: *enabled,
+                                            interval_seconds,
+                                        });
+                                    }
+                                    Err(message) => this.state.index_interval_error = Some(message),
+                                }
                                 cx.notify();
                             })),
-                    );
-                }
-                if self.state.index_mode != super::model::SnapshotMode::None {
-                    content = content
-                        .child(
-                            div()
-                                .text_sm()
-                                .child("Index directory (empty uses default)"),
-                        )
-                        .child(
-                            Input::new(&self.inputs.snapshot_directory)
-                                .id("index-directory")
-                                .w_full(),
-                        );
-                }
-                content = content.child(
-                    Button::new("index-run")
-                        .primary()
-                        .label("Run index operation")
+                    )
+                    .child(div().flex().items_center().gap_2()
+                        .child(div().text_xs().child("Interval (seconds)"))
+                        .child(Input::new(&self.inputs.index_interval).id("index-check-interval").w(px(95.)))
+                        .child(Button::new("index-apply-interval").label("Apply")
+                            .disabled(!index.automatic_check)
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                match parse_index_interval_seconds(
+                                    this.inputs.index_interval.read(cx).value().as_ref(),
+                                ) {
+                                    Ok(interval_seconds) => {
+                                        this.state.index_interval_error = None;
+                                        this.send(UiAction::SetAutomaticChecking { enabled: true, interval_seconds });
+                                    }
+                                    Err(message) => this.state.index_interval_error = Some(message),
+                                }
+                                cx.notify();
+                            }))))
+                    .when(self.state.index_interval_error.is_some(), |this| this.child(
+                        div().text_xs().text_color(rgb(colors.error))
+                            .child(self.state.index_interval_error.clone().unwrap_or_default())
+                    ))
+                    .child(div().text_xs().text_color(rgb(colors.secondary)).child(
+                        "The first check after loading a saved index runs even when periodic checking is off.",
+                    ))
+                    .child(div().h(px(1.)).my_2().bg(rgb(colors.border)))
+                    .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Saved index"))
+                    .child(div().text_xs().child(format!("Loaded from: {}", index.loaded_from.as_deref().unwrap_or("None"))))
+                    .child(div().text_xs().child(format!("Save destination: {}", index.save_destination.as_deref().unwrap_or("None selected"))))
+                    .child(div().text_xs().child(if index.save_destination.is_none() {
+                        "No save destination selected"
+                    } else if index.dirty {
+                        "Index changes not saved"
+                    } else {
+                        "Index saved to selected destination"
+                    }))
+                    .child(div().flex().gap_2()
+                        .child(Button::new("index-save").label("Save index")
+                            .disabled(self.state.root.is_none())
+                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::SaveIndex))))
+                        .child(Button::new("index-save-as").label("Save index as…")
+                            .disabled(self.state.root.is_none())
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.index_overwrite_pending = None;
+                                let path = this.inputs.index_save_path.read(cx).value().to_string();
+                                if path.trim().is_empty() {
+                                    this.state.index_picker_generation = this.state.index_picker_generation.wrapping_add(1);
+                                    this.send(UiAction::ChooseIndexSavePath { generation: this.state.index_picker_generation, save_after_selection: true });
+                                } else {
+                                    this.send(UiAction::SaveIndexAs(path));
+                                }
+                            }))))
+                    .when(self.state.index_overwrite_pending.is_some(), |this| {
+                        let path = self.state.index_overwrite_pending.clone().unwrap_or_default();
+                        this.child(div().flex().flex_col().gap_1().p_2().bg(rgb(colors.raised))
+                            .child(div().text_xs().text_color(rgb(colors.error))
+                                .child(format!("A different file already exists at {path}. Replace it with this index?")))
+                            .child(div().flex().gap_2()
+                                .child(Button::new("index-confirm-overwrite").label("Replace file")
+                                    .on_click(cx.listener(move |this, _, _, _| {
+                                        this.send(UiAction::ConfirmSaveIndexAs(path.clone()));
+                                    })))
+                                .child(Button::new("index-cancel-overwrite").ghost().label("Cancel")
+                                    .on_click(cx.listener(|this, _, _, cx| {
+                                        this.state.index_overwrite_pending = None;
+                                        cx.notify();
+                                    })))))
+                    })
+                    .child(div().flex().items_center().gap_2()
+                        .child(Input::new(&self.inputs.index_save_path).id("index-save-path").w_full())
+                        .child(Button::new("index-save-browse").label("Browse…")
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.state.index_picker_generation = this.state.index_picker_generation.wrapping_add(1);
+                                this.send(UiAction::ChooseIndexSavePath { generation: this.state.index_picker_generation, save_after_selection: false });
+                            }))))
+                    .child(div().text_xs().child("Save index as writes a separate snapshot. It does not change automatic saving."))
+                    .child(div().flex().items_center().gap_2()
+                        .child(Input::new(&self.inputs.index_load_path).id("index-load-path").w_full())
+                        .child(Button::new("index-load-browse").label("Browse…")
+                            .on_click(cx.listener(|this, _, _, _| {
+                                this.state.index_picker_generation = this.state.index_picker_generation.wrapping_add(1);
+                                this.send(UiAction::ChooseIndexLoadPath { generation: this.state.index_picker_generation, load_after_selection: false });
+                            }))))
+                    .child(Button::new("index-load").label("Load index…")
+                        .disabled(self.state.root.is_none())
                         .on_click(cx.listener(|this, _, _, cx| {
-                            this.send(UiAction::Index {
-                                mode: this.state.index_mode,
-                                directory: this
-                                    .inputs
-                                    .snapshot_directory
-                                    .read(cx)
-                                    .value()
-                                    .to_string(),
-                            });
-                            this.state.show_actions = false;
+                            let path = this.inputs.index_load_path.read(cx).value().to_string();
+                            if path.trim().is_empty() {
+                                this.state.index_picker_generation = this.state.index_picker_generation.wrapping_add(1);
+                                this.send(UiAction::ChooseIndexLoadPath { generation: this.state.index_picker_generation, load_after_selection: true });
+                            } else {
+                                this.send(UiAction::LoadIndex(path));
+                            }
+                        })))
+                    .child(
+                        Checkbox::new("index-auto-save")
+                            .checked(index.automatic_save)
+                            .accessibility_label("Automatically save index")
+                            .child("Automatically save index")
+                            .disabled(!index.automatic_save_available)
+                            .on_change(cx.listener(|this, enabled: &bool, _, _| {
+                                this.send(UiAction::SetAutomaticSaving(*enabled));
+                            })),
+                    )
+                    .when(index.automatic_save_reason.is_some(), |this| this.child(
+                        div().text_xs().text_color(rgb(colors.secondary))
+                            .child(index.automatic_save_reason.clone().unwrap_or_default())
+                    ))
+                    .child(div().h(px(1.)).my_2().bg(rgb(colors.border)))
+                    .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Maintenance"))
+                    .child(div().text_xs().child(format!("{} files · {} records",
+                        index.indexed_files.map_or_else(|| "—".to_owned(), |n| n.to_string()),
+                        index.live_records.map_or_else(|| "—".to_owned(), |n| n.to_string()))))
+                    .child(div().flex().gap_2()
+                        .child(Button::new("index-rebuild").label("Rebuild index")
+                            .disabled(self.state.root.is_none())
+                            .tooltip("Reread configured source files")
+                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::RebuildIndex))))
+                        .child(Button::new("index-compact").label("Compact index")
+                            .disabled(self.state.root.is_none())
+                            .tooltip("Remove obsolete index entries without deleting source files")
+                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::CompactIndex)))))
+                    .child(Button::new("index-details").ghost().label("Details…")
+                        .on_click(cx.listener(|this, _, _, cx| {
+                            this.state.action_panel = ActionPanel::Diagnostics;
                             cx.notify();
-                        })),
-                );
+                        })));
+                for (label, kind, task) in [
+                    ("File check", IndexTaskKind::Check, &index.check),
+                    ("Saving", IndexTaskKind::Save, &index.save),
+                    ("Loading", IndexTaskKind::Load, &index.load),
+                    ("Maintenance", index.maintenance_kind.unwrap_or(IndexTaskKind::Rebuild), &index.maintenance),
+                ] {
+                    if let Some(summary) = index_task_summary(label, task) {
+                        content = content.child(div().flex().items_center().gap_2()
+                            .child(div().text_xs().flex_1().child(summary))
+                            .when(matches!(task, IndexTaskState::Running { .. }), |this| this.child(
+                                Button::new(format!("index-cancel-{kind:?}"))
+                                    .ghost().label("Cancel")
+                                    .on_click(cx.listener(move |this, _, _, _| this.send(UiAction::CancelIndexTask(kind)))))));
+                    }
+                }
             }
             ActionPanel::Diagnostics => {
                 content = content.children(
@@ -1033,5 +1184,56 @@ impl DesktopView {
             .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to open a record tab."))
             .child(div().text_sm().child("Record tabs retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; the Source icon opens the original record with Copy and Export actions."))
             .child(div().text_sm().child("Source records and schemas are read-only. Export and index writes are explicit actions."))
+    }
+}
+
+
+fn parse_index_interval_seconds(raw: &str) -> Result<u64, String> {
+    let seconds = raw
+        .trim()
+        .parse::<u64>()
+        .map_err(|_| "Enter a whole number of seconds".to_owned())?;
+    if !(1..=86_400).contains(&seconds) {
+        return Err("Choose an interval from 1 to 86,400 seconds".into());
+    }
+    Ok(seconds)
+}
+
+
+fn index_task_summary(label: &str, task: &IndexTaskState) -> Option<String> {
+    match task {
+        IndexTaskState::Idle => None,
+        IndexTaskState::Running { processed, total, .. } => Some(match (processed, total) {
+            (Some(done), Some(total)) => format!("{label}: {done} of {total}"),
+            (Some(done), None) => format!("{label}: {done} processed"),
+            _ => format!("{label}…"),
+        }),
+        IndexTaskState::Succeeded(message) => Some(format!("{label}: {message}")),
+        IndexTaskState::Failed(message) => Some(format!("{label} failed: {message}")),
+        IndexTaskState::Cancelled => Some(format!("{label} stopped")),
+    }
+}
+
+
+#[cfg(test)]
+mod index_controls_tests {
+    use super::*;
+
+    #[test]
+    fn interval_is_validated_only_when_applied() {
+        assert_eq!(parse_index_interval_seconds("30"), Ok(30));
+        assert!(parse_index_interval_seconds("0").is_err());
+        assert!(parse_index_interval_seconds("1.5").is_err());
+        assert!(parse_index_interval_seconds("86401").is_err());
+    }
+
+    #[test]
+    fn unknown_total_is_indeterminate() {
+        let task = IndexTaskState::Running {
+            operation_id: 1,
+            processed: Some(7),
+            total: None,
+        };
+        assert_eq!(index_task_summary("File check", &task), Some("File check: 7 processed".into()));
     }
 }

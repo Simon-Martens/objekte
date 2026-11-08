@@ -232,3 +232,79 @@ fn successful_query_start_clears_previous_input_errors() {
     state.apply(UiUpdate::QueryStarted("Searching".into()));
     assert!(state.errors.is_empty());
 }
+
+#[test]
+fn index_progress_does_not_erase_query_validation_or_displayed_page() {
+    let mut state = UiState { root: Some("repo".into()), ..UiState::default() };
+    state.apply(UiUpdate::Error {
+        field: ErrorField::Structured,
+        message: "invalid draft".into(),
+    });
+    state.loaded_count = 100;
+    let mut status = IndexUiStatus::default();
+    status.index_instance = 1;
+    status.source_location = "repo".into();
+    status.check = super::super::model::IndexTaskState::Running {
+        operation_id: 7,
+        processed: Some(3),
+        total: None,
+    };
+    state.apply(UiUpdate::IndexStatus(status));
+    assert_eq!(state.errors.get(&ErrorField::Structured).map(String::as_str), Some("invalid draft"));
+    assert_eq!(state.loaded_count, 100);
+    assert_eq!(state.status, "invalid draft");
+    assert!(matches!(state.index_status.check, super::super::model::IndexTaskState::Running { operation_id: 7, .. }));
+}
+
+#[test]
+fn same_repository_index_replacement_keeps_tabs_and_drafts() {
+    let mut state = UiState {
+        root: Some("repo".into()),
+        search: SearchDraft { full_text: "retained".into(), ..SearchDraft::default() },
+        ..UiState::default()
+    };
+    state.tabs.push(RecordTabSummary {
+        id: 3,
+        title: "record".into(),
+        identity: "docs:1".into(),
+        position: 0,
+        can_back: false,
+        can_previous: false,
+        can_next: false,
+        loading: false,
+        links_loading: false,
+        freshness: super::super::model::TabFreshness::Outdated,
+    });
+    let status = IndexUiStatus { index_instance: 2, source_location: "repo".into(), ..IndexUiStatus::default() };
+    state.apply(UiUpdate::IndexReplaced(status));
+    assert_eq!(state.tabs.len(), 1);
+    assert_eq!(state.search.full_text, "retained");
+    assert!(state.result_outdated);
+}
+
+#[test]
+fn exhausted_incomplete_page_never_infers_an_exact_total() {
+    let mut state = UiState::default();
+    state.apply(UiUpdate::Page(PageView {
+        incomplete: true,
+        rows: vec![ResultRow {
+            key: RowKey { token: 1, collection: "docs".into(), record_id: "1".into(), file: "a.json".into(), byte_start: 0 },
+            cells: vec!["one".into()], matched_fields: Vec::new(), match_highlights: Vec::new(), preview: None,
+        }],
+        ..PageView::default()
+    }));
+    assert_eq!(state.page.exact_total, None);
+    assert!(state.page.incomplete);
+}
+
+#[test]
+fn overwrite_prompt_names_exact_path_and_clears_after_success() {
+    let mut state = UiState::default();
+    state.apply(UiUpdate::SaveIndexOverwriteRequired("/tmp/other-index.bin".into()));
+    assert_eq!(state.index_overwrite_pending.as_deref(), Some("/tmp/other-index.bin"));
+    state.apply(UiUpdate::IndexStatus(IndexUiStatus {
+        save: super::super::model::IndexTaskState::Succeeded("Index saved".into()),
+        ..IndexUiStatus::default()
+    }));
+    assert!(state.index_overwrite_pending.is_none());
+}

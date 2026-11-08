@@ -251,6 +251,12 @@ impl OpenDialogState {
         };
         let mut draft = template.clone();
         draft.mode = mode;
+        if !(mode == OpenMode::ConfiguredRepository && draft.configured_use_repository_settings)
+            && draft.snapshot != super::model::SnapshotMode::None
+            && draft.snapshot_directory.trim().is_empty()
+        {
+            return Err("Choose a concrete index location for this opening policy".into());
+        }
         draft.paths = self
             .folders
             .iter()
@@ -349,12 +355,13 @@ impl DesktopView {
                     false,
                 )),
                 DetectionState::Ready {
-                    source: DetectedSource::ConfiguredRepository { collections },
+                    source: DetectedSource::ConfiguredRepository { collections, schema_files, default_cache },
                     ..
                 } => Some((
                     "Objekte repository detected".to_owned(),
                     format!(
-                        "Use the {collections} configured collection definitions in this folder."
+                        "{collections} configured collections · Schemas: {} · Default index: {default_cache}. Use repository settings to load a compatible index without writing automatically.",
+                        if schema_files.is_empty() { "none".to_owned() } else { schema_files.join(", ") },
                     ),
                     false,
                 )),
@@ -381,13 +388,27 @@ impl DesktopView {
                         }
                     ));
         let stored = self.state.open.snapshot;
+        let configured_mode = folders.len() == 1
+            && (source_choice == SourceChoice::ConfiguredRepository
+                || source_choice == SourceChoice::Automatic
+                    && matches!(
+                        self.state.open_dialog.detection,
+                        DetectionState::Ready {
+                            source: DetectedSource::ConfiguredRepository { .. },
+                            ..
+                        }
+                    ));
+        let use_repository_settings = configured_mode
+            && self.state.open.configured_use_repository_settings;
         let can_open = self
             .state
             .open_dialog
             .to_open_draft(&self.state.open)
             .is_ok()
             && self.state.busy != super::state::Busy::Opening;
-        let advanced_summary = if self.state.open.snapshot == super::model::SnapshotMode::None {
+        let advanced_summary = if use_repository_settings {
+            "Configured repository settings will select schemas and a compatible stored index. No automatic index write is enabled.".to_owned()
+        } else if self.state.open.snapshot == super::model::SnapshotMode::None {
             "Source files are read-only. No index file will be saved.".to_owned()
         } else {
             format!("Source files are read-only. Stored index: {:?}.", stored)
@@ -603,11 +624,22 @@ impl DesktopView {
                                 .font_weight(gpui_kit::FontWeight::SEMIBOLD)
                                 .child("Stored index"),
                         )
+                        .when(configured_mode, |this| {
+                            this.child(
+                                Button::new("open-use-repository-settings")
+                                    .label("Use repository settings")
+                                    .selected(use_repository_settings)
+                                    .on_click(cx.listener(|this, _, _, cx| {
+                                        this.state.open.configured_use_repository_settings = true;
+                                        cx.notify();
+                                    })),
+                            )
+                        })
                         .child(
                             div().flex().flex_wrap().gap_2().children(
                                 [
                                     (super::model::SnapshotMode::None, "Build in memory"),
-                                    (super::model::SnapshotMode::Load, "Load existing"),
+                                    (super::model::SnapshotMode::Load, "Load selected index"),
                                     (super::model::SnapshotMode::Write, "Build and save"),
                                     (
                                         super::model::SnapshotMode::LoadAndWrite,
@@ -618,15 +650,16 @@ impl DesktopView {
                                 .map(|(mode, label)| {
                                     Button::new(format!("open-snapshot-{mode:?}"))
                                         .label(label)
-                                        .selected(stored == mode)
+                                        .selected(!use_repository_settings && stored == mode)
                                         .on_click(cx.listener(move |this, _, _, cx| {
                                             this.state.open.snapshot = mode;
+                                            this.state.open.configured_use_repository_settings = false;
                                             cx.notify();
                                         }))
                                 }),
                             ),
                         )
-                        .when(stored != super::model::SnapshotMode::None, |this| {
+                        .when(!use_repository_settings && stored != super::model::SnapshotMode::None, |this| {
                             this.child(
                                 Input::new(&self.inputs.snapshot_directory)
                                     .id("open-index-directory")
@@ -634,7 +667,7 @@ impl DesktopView {
                             )
                             .child(
                                 div().text_xs().text_color(rgb(secondary)).child(
-                                    "Leave the location empty to use the repository default.",
+                                    "Choose the exact index file or legacy index directory. The selected location will be shown after opening.",
                                 ),
                             )
                         }),

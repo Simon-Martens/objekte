@@ -54,6 +54,9 @@ pub struct OpenDraft {
     pub unicode_index: bool,
     pub snapshot: SnapshotMode,
     pub snapshot_directory: String,
+    /// Configured repositories use their declared schemas/cache by default.
+    /// A selected manual snapshot policy takes precedence when this is false.
+    pub configured_use_repository_settings: bool,
     pub diagnostic: bool,
 }
 
@@ -69,6 +72,7 @@ impl Default for OpenDraft {
             unicode_index: false,
             snapshot: SnapshotMode::None,
             snapshot_directory: String::new(),
+            configured_use_repository_settings: true,
             diagnostic: false,
         }
     }
@@ -148,6 +152,8 @@ pub struct PageView {
     pub offset: usize,
     pub requested_limit: Option<usize>,
     pub exact_total: Option<usize>,
+    /// Missing source data prevents inferring an exact total from exhaustion.
+    pub incomplete: bool,
     pub count_pending: bool,
     pub has_previous: bool,
     pub has_next: bool,
@@ -326,6 +332,106 @@ pub struct RecordTabSummary {
     pub can_next: bool,
     pub loading: bool,
     pub links_loading: bool,
+    pub freshness: TabFreshness,
+}
+
+
+/// Freshness of a tab's displayed record and originating navigation context.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum TabFreshness {
+    #[default]
+    Current,
+    Refreshing,
+    Outdated,
+    Removed,
+    Failed,
+}
+
+
+/// Independent index task categories; query Stop never targets these tasks.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum IndexTaskKind {
+    Check,
+    Save,
+    Load,
+    Rebuild,
+    Compact,
+}
+
+
+/// Terminal outcomes and bounded progress for one index operation.
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub enum IndexTaskState {
+    #[default]
+    Idle,
+    Running {
+        operation_id: u64,
+        processed: Option<u64>,
+        total: Option<u64>,
+    },
+    Succeeded(String),
+    Failed(String),
+    Cancelled,
+}
+
+
+/// Cheap status snapshot supplied by the active lifecycle handle.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct IndexUiStatus {
+    pub source_location: String,
+    pub opening_mode: String,
+    pub loaded_from: Option<String>,
+    pub save_destination: Option<String>,
+    pub schema_paths: Vec<String>,
+    pub indexed_files: Option<usize>,
+    pub live_records: Option<usize>,
+    pub index_instance: u64,
+    pub revision: u64,
+    pub saved_revision: Option<u64>,
+    pub dirty: bool,
+    pub last_check: Option<String>,
+    pub check_complete: Option<bool>,
+    pub automatic_check: bool,
+    pub check_interval_seconds: u64,
+    pub automatic_save: bool,
+    pub automatic_save_available: bool,
+    pub automatic_save_reason: Option<String>,
+    pub check: IndexTaskState,
+    pub save: IndexTaskState,
+    pub load: IndexTaskState,
+    pub maintenance: IndexTaskState,
+    pub maintenance_kind: Option<IndexTaskKind>,
+}
+
+
+impl Default for IndexUiStatus {
+    fn default() -> Self {
+        Self {
+            source_location: String::new(),
+            opening_mode: String::new(),
+            loaded_from: None,
+            save_destination: None,
+            schema_paths: Vec::new(),
+            indexed_files: None,
+            live_records: None,
+            index_instance: 0,
+            revision: 0,
+            saved_revision: None,
+            dirty: false,
+            last_check: None,
+            check_complete: None,
+            automatic_check: false,
+            check_interval_seconds: 30,
+            automatic_save: false,
+            automatic_save_available: false,
+            automatic_save_reason: None,
+            check: IndexTaskState::Idle,
+            save: IndexTaskState::Idle,
+            load: IndexTaskState::Idle,
+            maintenance: IndexTaskState::Idle,
+            maintenance_kind: None,
+        }
+    }
 }
 
 
@@ -479,6 +585,20 @@ pub enum UiAction {
         mode: SnapshotMode,
         directory: String,
     },
+    CheckForChanges,
+    SaveIndex,
+    SaveIndexAs(String),
+    ConfirmSaveIndexAs(String),
+    LoadIndex(String),
+    RebuildIndex,
+    CompactIndex,
+    SetAutomaticChecking { enabled: bool, interval_seconds: u64 },
+    SetAutomaticSaving(bool),
+    CancelIndexTask(IndexTaskKind),
+    RefreshResults,
+    RefreshRecord(u64),
+    ChooseIndexLoadPath { generation: u64, load_after_selection: bool },
+    ChooseIndexSavePath { generation: u64, save_after_selection: bool },
     SetTheme {
         dark: bool,
     },
@@ -508,6 +628,13 @@ pub enum UiUpdate {
         collections: Vec<String>,
         single_collection: bool,
     },
+    /// A validated replacement for the same source configuration preserves UI drafts/tabs.
+    IndexReplaced(IndexUiStatus),
+    IndexStatus(IndexUiStatus),
+    SaveIndexOverwriteRequired(String),
+    ResultsOutdated(bool),
+    ChosenIndexLoadPath { generation: u64, path: String },
+    ChosenIndexSavePath { generation: u64, path: String },
     QueryStarted(String),
     Page(PageView),
     AppendPage(PageView),
