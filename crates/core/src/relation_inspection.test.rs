@@ -304,3 +304,113 @@ fn collection_graph_marks_a_single_collection_self_cycle() {
         ]
     );
 }
+
+#[test]
+fn live_inspection_preserves_outgoing_occurrences_and_pages_only_active_backlinks() {
+    let root = fixture();
+    let repo = Repository::open_with_options(
+        &root,
+        definitions(),
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let all = repo
+        .collections()
+        .iter()
+        .map(|collection| ActiveRecords::all(collection.generation.records.len()).unwrap())
+        .collect::<Vec<_>>();
+    let target_a = repo.collections()[0].id_lookup["A"];
+    let source_m4 = repo.collections()[1].id_lookup["m4"];
+    let mut target_retired = all.clone();
+    target_retired[0] = target_retired[0].retired(&[target_a]).unwrap();
+    target_retired[1] = target_retired[1].retired(&[source_m4]).unwrap();
+    let first = repo
+        .relation_outgoing_page_for_view(
+            "mentions",
+            &["others".into()],
+            "m1",
+            0,
+            2,
+            &target_retired,
+        )
+        .unwrap();
+    assert_eq!(first.total_occurrences, 3);
+    assert_eq!(first.next_offset, Some(2));
+    assert!(
+        first
+            .references
+            .iter()
+            .all(|edge| { edge.target_id == "A" && edge.resolved.is_none() })
+    );
+    assert!(
+        repo.relation_outgoing_page_for_view(
+            "mentions",
+            &["others".into()],
+            "m4",
+            0,
+            1,
+            &target_retired,
+        )
+        .is_err()
+    );
+    assert!(
+        repo.relation_backlink_page_for_view(
+            "entries",
+            "other_mentions",
+            "A",
+            0,
+            1,
+            &target_retired,
+        )
+        .is_err()
+    );
+    assert!(
+        repo.relation_outgoing_page("mentions", &["others".into()], "m1", 0, 2)
+            .unwrap()
+            .references
+            .iter()
+            .all(|edge| edge.resolved.is_some())
+    );
+    let graph = repo.collection_graph_for_view(&target_retired).unwrap();
+    assert_eq!(graph.nodes[0].record_count, all[0].len() as usize - 1);
+    assert_eq!(graph.nodes[1].record_count, all[1].len() as usize - 1);
+    let others = graph
+        .edges
+        .iter()
+        .find(|edge| edge.source == CollectionId(1) && edge.path == ["others"])
+        .unwrap();
+    assert_eq!(others.occurrence_count, 3);
+    assert_eq!(others.unresolved_occurrence_count, 3);
+
+    let mut source_retired = all.clone();
+    source_retired[1] = source_retired[1].retired(&[source_m4]).unwrap();
+    let backlink = repo
+        .relation_backlink_page_for_view("entries", "other_mentions", "A", 0, 1, &source_retired)
+        .unwrap();
+    assert_eq!(backlink.total_sources, 1);
+    assert_eq!(backlink.sources[0].id, "m1");
+    assert!(backlink.next_offset.is_none());
+    assert!(
+        repo.relation_backlink_page_for_view(
+            "entries",
+            "other_mentions",
+            "A",
+            1,
+            1,
+            &source_retired,
+        )
+        .unwrap()
+        .sources
+        .is_empty()
+    );
+    assert_eq!(
+        repo.relation_backlink_page("entries", "other_mentions", "A", 0, 1)
+            .unwrap()
+            .total_sources,
+        2
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}

@@ -2466,10 +2466,11 @@ fn deliver_ranked_all(
     Ok(())
 }
 
-pub(crate) fn exact_members(
+pub(crate) fn exact_members_with_active(
     repo: &Repository,
     query: &Query,
     collection_index: usize,
+    active: Option<&[ActiveRecords]>,
 ) -> Result<RoaringBitmap, String> {
     BoundSort::bind(repo, query)?;
     let mut scoped = query.clone();
@@ -2481,6 +2482,14 @@ pub(crate) fn exact_members(
     scoped.options.return_mode = ReturnMode::Locator;
     scoped.options.evidence = false;
     let mut members = RoaringBitmap::new();
+    let active_context = active.map(|active| {
+        ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(),
+            None,
+        )
+        .with_active(active)
+    });
     let result = search_impl_with_collector(
         repo,
         &scoped,
@@ -2493,8 +2502,8 @@ pub(crate) fn exact_members(
         Some(ExactCollector {
             members: Some(&mut members),
         }),
-        None,
-        None,
+        active_context.as_ref(),
+        active,
     )?;
     if result.count != Some(members.len() as usize) {
         return Err("exact selection is incomplete".into());
@@ -3880,12 +3889,48 @@ pub fn search_analyze(
     repo: &Repository,
     query: &Query,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
+    search_analyze_with_active(repo, query, None)
+}
+
+pub(crate) fn search_analyze_with_active(
+    repo: &Repository,
+    query: &Query,
+    active: Option<&[ActiveRecords]>,
+) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
     let mut traces = Vec::new();
-    let result = search_impl(repo, query, Some(&mut traces), None, None, None, None, None)?;
+    let active_context = active.map(|active| {
+        ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(),
+            None,
+        )
+        .with_active(active)
+    });
+    let result = search_impl_with_collector(
+        repo,
+        query,
+        Some(&mut traces),
+        None,
+        None,
+        None,
+        None,
+        None,
+        None,
+        active_context.as_ref(),
+        active,
+    )?;
     Ok((result, traces))
 }
 
 pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, String> {
+    explain_with_active(repo, query, None)
+}
+
+pub(crate) fn explain_with_active(
+    repo: &Repository,
+    query: &Query,
+    active: Option<&[ActiveRecords]>,
+) -> Result<Vec<QueryPlanTrace>, String> {
     let bound_sort = BoundSort::bind(repo, query)?;
     let (prepared, _) = crate::prepared::prepare(repo, query)?;
     let has_source_dependent = prepared.collections.iter().any(|(_, filter, _)| {
@@ -3897,7 +3942,8 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
         fts.as_ref()
             .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
-    let inferred_order = !has_source_dependent
+    let inferred_order = active.is_none()
+        && !has_source_dependent
         && !has_related_fts
         && prepared.collections.len() == 1
         && inferred_order_index(repo, query)
@@ -3906,7 +3952,9 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
     let mut ordered_candidate_total = 0u64;
     for (collection_index, filter, fts) in prepared.collections {
         let collection = &repo.collections[collection_index];
-        let domain_len = collection.generation.records.len() as u64;
+        let domain_len = active.map_or(collection.generation.records.len() as u64, |domains| {
+            domains[collection_index].len()
+        });
         let estimated = filter
             .as_ref()
             .map(|expr| estimate_plan_expr(collection, expr, domain_len));
@@ -3916,7 +3964,8 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
         let candidates = estimated
             .as_ref()
             .map_or(domain_len, |plan| plan.candidates)
-            .min(fts_estimate.map_or(domain_len, |estimate| estimate.0));
+            .min(fts_estimate.map_or(domain_len, |estimate| estimate.0))
+            .min(domain_len);
         let related_fts = fts
             .as_ref()
             .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()));
@@ -3934,7 +3983,7 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             fts_exact_literal: fts.as_ref().map(|fts| fts.source_literal.clone()),
             fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref()),
             fts_covered_target: fts_covered_target(fts.as_ref()),
-            fts_estimated_candidates: fts_estimate.map(|estimate| estimate.0),
+            fts_estimated_candidates: fts_estimate.map(|estimate| estimate.0.min(domain_len)),
             remaining_verification: fts.is_some() || !filter_exact,
             input_records: domain_len,
             fts_strategy: if fts.as_ref().is_some_and(|fts| fts.fields.is_empty())

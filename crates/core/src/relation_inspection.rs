@@ -1,6 +1,6 @@
 //! Resident relation pages and the declared collection graph.
 
-use crate::inventory::{DiagnosticRef, FileStatus, RecordClass};
+use crate::inventory::{ActiveRecords, DiagnosticRef, FileStatus, RecordClass};
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::relation::{RelationCardinality, RelationId, RelationTarget};
 use crate::repository::{CollectionState, Repository};
@@ -170,6 +170,44 @@ impl Repository {
         offset: usize,
         limit: usize,
     ) -> Result<OutgoingReferencePage, String> {
+        self.relation_outgoing_page_with_active(
+            source_collection,
+            relation_path,
+            source_id,
+            offset,
+            limit,
+            None,
+        )
+    }
+
+    pub(crate) fn relation_outgoing_page_for_view(
+        &self,
+        source_collection: &str,
+        relation_path: &[String],
+        source_id: &str,
+        offset: usize,
+        limit: usize,
+        active: &[ActiveRecords],
+    ) -> Result<OutgoingReferencePage, String> {
+        self.relation_outgoing_page_with_active(
+            source_collection,
+            relation_path,
+            source_id,
+            offset,
+            limit,
+            Some(active),
+        )
+    }
+
+    fn relation_outgoing_page_with_active(
+        &self,
+        source_collection: &str,
+        relation_path: &[String],
+        source_id: &str,
+        offset: usize,
+        limit: usize,
+        active: Option<&[ActiveRecords]>,
+    ) -> Result<OutgoingReferencePage, String> {
         let limit = page_limit(limit)?;
         let source = self
             .collections
@@ -183,6 +221,11 @@ impl Repository {
             .id_lookup
             .get(source_id)
             .ok_or("source ID not found")?;
+        if active
+            .is_some_and(|domains| !domains[source.generation.collection.0 as usize].contains(slot))
+        {
+            return Err("source ID not found".into());
+        }
         let target = self
             .collections
             .get(relation.target_collection.0 as usize)
@@ -191,17 +234,24 @@ impl Repository {
         let (start, end, next_offset) = page_bounds(edges.len(), offset, limit);
         let mut references = Vec::with_capacity(end - start);
         for edge in &edges[start..end] {
-            let (target_id, resolved) = match &edge.target {
-                RelationTarget::Resolved(target_slot) => {
-                    let record = inspected_record(self, target, *target_slot)?;
-                    (record.id.clone(), Some(record))
+            let target_slot = if let Some(domains) = active {
+                target
+                    .id_lookup
+                    .get(edge.target_id())
+                    .copied()
+                    .filter(|slot| domains[relation.target_collection.0 as usize].contains(*slot))
+            } else {
+                match &edge.target {
+                    RelationTarget::Resolved(slot) => Some(*slot),
+                    RelationTarget::Unresolved(_) => None,
                 }
-                RelationTarget::Unresolved(id) => (id.clone(), None),
             };
             references.push(OutgoingReference {
                 positions: edge.positions.clone(),
-                target_id,
-                resolved,
+                target_id: edge.target_id().to_owned(),
+                resolved: target_slot
+                    .map(|slot| inspected_record(self, target, slot))
+                    .transpose()?,
             });
         }
         let presence = if relation.unavailable().contains(slot.0) {
@@ -234,6 +284,44 @@ impl Repository {
         offset: usize,
         limit: usize,
     ) -> Result<BacklinkPage, String> {
+        self.relation_backlink_page_with_active(
+            target_collection,
+            reverse_alias,
+            target_id,
+            offset,
+            limit,
+            None,
+        )
+    }
+
+    pub(crate) fn relation_backlink_page_for_view(
+        &self,
+        target_collection: &str,
+        reverse_alias: &str,
+        target_id: &str,
+        offset: usize,
+        limit: usize,
+        active: &[ActiveRecords],
+    ) -> Result<BacklinkPage, String> {
+        self.relation_backlink_page_with_active(
+            target_collection,
+            reverse_alias,
+            target_id,
+            offset,
+            limit,
+            Some(active),
+        )
+    }
+
+    fn relation_backlink_page_with_active(
+        &self,
+        target_collection: &str,
+        reverse_alias: &str,
+        target_id: &str,
+        offset: usize,
+        limit: usize,
+        active: Option<&[ActiveRecords]>,
+    ) -> Result<BacklinkPage, String> {
         let limit = page_limit(limit)?;
         let target = self
             .collections
@@ -247,15 +335,26 @@ impl Repository {
             .id_lookup
             .get(target_id)
             .ok_or("target ID not found")?;
+        if active.is_some_and(|domains| {
+            !domains[target.generation.collection.0 as usize].contains(target_slot)
+        }) {
+            return Err("target ID not found".into());
+        }
         let source = self
             .collections
             .get(relation.id.source.0 as usize)
             .ok_or("relation source collection missing")?;
         let posting = self.relation_reverse_sources(relation, target_id);
-        let total = posting.map_or(0, |slots| slots.len() as usize);
+        let visible = posting.map(|slots| {
+            active.map_or_else(
+                || slots.clone(),
+                |domains| slots & &domains[relation.id.source.0 as usize].bitmap(),
+            )
+        });
+        let total = visible.as_ref().map_or(0, |slots| slots.len() as usize);
         let (start, end, next_offset) = page_bounds(total, offset, limit);
         let mut sources = Vec::with_capacity(end - start);
-        if let Some(slots) = posting {
+        if let Some(slots) = visible {
             for slot in slots.iter().skip(start).take(end - start) {
                 sources.push(inspected_record(self, source, RecordSlot(slot))?);
             }
@@ -273,6 +372,20 @@ impl Repository {
 
     /// Inspect all declared collections and relation edges without source reads.
     pub fn collection_graph(&self) -> Result<CollectionGraph, String> {
+        self.collection_graph_with_active(None)
+    }
+
+    pub(crate) fn collection_graph_for_view(
+        &self,
+        active: &[ActiveRecords],
+    ) -> Result<CollectionGraph, String> {
+        self.collection_graph_with_active(Some(active))
+    }
+
+    fn collection_graph_with_active(
+        &self,
+        active: Option<&[ActiveRecords]>,
+    ) -> Result<CollectionGraph, String> {
         let mut nodes = self
             .collections
             .iter()
@@ -280,7 +393,9 @@ impl Repository {
                 id: collection.generation.collection,
                 name: collection.definition.name.clone(),
                 generation: collection.generation.generation,
-                record_count: collection.generation.records.len(),
+                record_count: active.map_or(collection.generation.records.len(), |domains| {
+                    domains[collection.generation.collection.0 as usize].len() as usize
+                }),
                 outgoing: Vec::new(),
                 incoming: Vec::new(),
             })
@@ -300,6 +415,34 @@ impl Repository {
                     .ok_or("relation graph target collection missing")?
                     .incoming
                     .push(relation.id);
+                let (occurrence_count, unresolved_occurrence_count) = if let Some(domains) = active
+                {
+                    let mut occurrences = 0usize;
+                    let mut unresolved = 0u64;
+                    let target_collection = &self.collections[target];
+                    for slot in domains[source].bitmap().iter() {
+                        let edges = relation
+                            .edges(RecordSlot(slot))
+                            .ok_or("relation source slot missing")?;
+                        occurrences = occurrences
+                            .checked_add(edges.len())
+                            .ok_or("relation occurrence count overflow")?;
+                        for edge in edges {
+                            if !target_collection
+                                .id_lookup
+                                .get(edge.target_id())
+                                .is_some_and(|slot| domains[target].contains(*slot))
+                            {
+                                unresolved = unresolved
+                                    .checked_add(1)
+                                    .ok_or("relation unresolved count overflow")?;
+                            }
+                        }
+                    }
+                    (occurrences, unresolved)
+                } else {
+                    (relation.edge_count(), relation.unresolved_count())
+                };
                 edges.push(CollectionGraphEdge {
                     id: relation.id,
                     source: relation.id.source,
@@ -307,8 +450,8 @@ impl Repository {
                     target: relation.target_collection,
                     cardinality: relation.declaration.cardinality,
                     reverse_alias: relation.declaration.reverse_alias.clone(),
-                    occurrence_count: relation.edge_count(),
-                    unresolved_occurrence_count: relation.unresolved_count(),
+                    occurrence_count,
+                    unresolved_occurrence_count,
                 });
             }
         }
