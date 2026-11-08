@@ -220,6 +220,96 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             .collect::<Vec<_>>(),
         ["aardvark", "alpha", "beta", "bravo", "charlie"]
     );
+    let stream_context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(CancellationToken::new()),
+    );
+    let mut streamed = Vec::new();
+    let outcome = search_stream_segmented_with_context(
+        &repo,
+        &query,
+        ResultScope::All { offset: 0 },
+        StreamOptions { batch_rows: 2, ..Default::default() },
+        &stream_context,
+        &base_active,
+        &segments,
+        &catalog,
+        revision,
+        &mut |event| {
+            if let StreamEvent::OrderedRows { rows, .. } = event {
+                streamed.extend_from_slice(rows);
+            }
+            Ok(StreamControl::Continue)
+        },
+    )
+    .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else { panic!("stream incomplete") };
+    assert_eq!(summary.count, Some(5));
+    assert_eq!(summary.returned_rows, 5);
+    assert_eq!(streamed, computed.hits);
+    let page_context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(CancellationToken::new()),
+    );
+    let mut replacement = Vec::new();
+    let page = search_stream_segmented_with_context(
+        &repo, &query, ResultScope::Page { offset: 1, limit: 2 },
+        StreamOptions { mode: crate::streaming::StreamMode::PageReplacements, ..Default::default() },
+        &page_context, &base_active, &segments, &catalog, revision,
+        &mut |event| {
+            if let StreamEvent::PageReplacement { rows, .. } = event {
+                replacement.extend_from_slice(rows);
+            }
+            Ok(StreamControl::Continue)
+        },
+    ).unwrap();
+    let StreamOutcome::Complete(page) = page else { panic!("page stream incomplete") };
+    assert_eq!(page.count, Some(5));
+    assert_eq!(replacement, computed.hits[1..3]);
+    let cancelled = CancellationToken::new();
+    cancelled.cancel();
+    let cancelled_context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(cancelled),
+    );
+    assert!(matches!(
+        search_stream_segmented_with_context(
+            &repo, &query, ResultScope::Page { offset: 0, limit: 1 },
+            StreamOptions::default(), &cancelled_context, &base_active, &segments,
+            &catalog, revision, &mut |_| Ok(StreamControl::Continue),
+        ).unwrap(),
+        StreamOutcome::Cancelled(_)
+    ));
+    let during_context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(CancellationToken::new()),
+    );
+    during_context.cancel_on_check_for_test(8);
+    assert!(matches!(
+        search_stream_segmented_with_context(
+            &repo, &query, ResultScope::All { offset: 0 },
+            StreamOptions::default(), &during_context, &base_active, &segments,
+            &catalog, revision, &mut |_| Ok(StreamControl::Continue),
+        ).unwrap(),
+        StreamOutcome::Cancelled(_)
+    ));
+    let limited_context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits { source_record_bytes: 8, ..Default::default() },
+        Some(CancellationToken::new()),
+    );
+    assert!(matches!(
+        search_stream_segmented_with_context(
+            &repo, &query, ResultScope::Page { offset: 0, limit: 1 },
+            StreamOptions::default(), &limited_context, &base_active, &segments,
+            &catalog, revision, &mut |_| Ok(StreamControl::Continue),
+        ),
+        Err(StreamError::Resource { .. })
+    ));
     query.options.return_mode = ReturnMode::Locator;
     query.options.sort.clear();
     let mut retired_base = base_active.clone();
