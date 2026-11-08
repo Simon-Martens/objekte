@@ -1500,6 +1500,8 @@ impl Repository {
             scanned_records: 0,
             total_matches: 0,
             match_count_complete: false,
+            source_unavailable_events: 0,
+            source_diagnostics: Vec::new(),
             returned_records: 0,
             files_opened: 0,
             distinct_files: 0,

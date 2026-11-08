@@ -2,6 +2,33 @@ use super::*;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 #[test]
+fn source_failure_classifier_keeps_missing_revision_and_range_distinct() {
+    use crate::measurement::SourceUnavailableKind;
+    let root = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("target")
+        .join(format!("source-failure-classifier-{}", std::process::id()));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("record.json");
+    std::fs::write(&path, b"{}").unwrap();
+    let original = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    assert_eq!(
+        classify_source_read_failure(&path, original, Some(ByteRange { start: 0, end: 3 })),
+        SourceUnavailableKind::UnusableRange,
+    );
+    std::fs::write(&path, b"{\"id\":1}").unwrap();
+    assert_eq!(
+        classify_source_read_failure(&path, original, None),
+        SourceUnavailableKind::RevisionMismatch,
+    );
+    std::fs::remove_file(&path).unwrap();
+    assert_eq!(
+        classify_source_read_failure(&path, original, None),
+        SourceUnavailableKind::Missing,
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn bounded_jsonl_chunks_preserve_whole_file_ranges_and_line_origins() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("target")
