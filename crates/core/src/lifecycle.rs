@@ -1486,12 +1486,65 @@ impl IndexView {
                 progress: Default::default(),
             })?;
         let scoped_context = context.with_active(&self.0.active);
+        let revision = self.revision().0;
+        let mut stamped = |event: StreamEvent<'_>| match event {
+            StreamEvent::OrderedRows {
+                sequence,
+                start,
+                rows,
+                progress,
+            } => {
+                if rows.iter().all(|hit| hit.generation == revision) {
+                    return sink(StreamEvent::OrderedRows {
+                        sequence,
+                        start,
+                        rows,
+                        progress,
+                    });
+                }
+                let mut rows = rows.to_vec();
+                for hit in &mut rows {
+                    hit.generation = revision;
+                }
+                sink(StreamEvent::OrderedRows {
+                    sequence,
+                    start,
+                    rows: &rows,
+                    progress,
+                })
+            }
+            StreamEvent::PageReplacement {
+                sequence,
+                rows,
+                progress,
+            } => {
+                if rows.iter().all(|hit| hit.generation == revision) {
+                    return sink(StreamEvent::PageReplacement {
+                        sequence,
+                        rows,
+                        progress,
+                    });
+                }
+                let mut rows = rows.to_vec();
+                for hit in &mut rows {
+                    hit.generation = revision;
+                }
+                sink(StreamEvent::PageReplacement {
+                    sequence,
+                    rows: &rows,
+                    progress,
+                })
+            }
+            StreamEvent::Progress { sequence, progress } => {
+                sink(StreamEvent::Progress { sequence, progress })
+            }
+        };
         self.repository().search_stream_scoped_with_context_active(
             query,
             scope,
             options,
             &scoped_context,
-            sink,
+            &mut stamped,
             Some(&self.0.active),
         )
     }
