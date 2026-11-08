@@ -1,5 +1,6 @@
 //! Terminal entry point for a repository described by optional schema files.
 
+#[cfg(test)]
 mod schema;
 
 use std::path::PathBuf;
@@ -56,12 +57,16 @@ fn run() -> Result<(), String> {
         }
     }
     let root = root.unwrap_or_else(|| PathBuf::from("."));
-    let definitions = schema::load_definitions(&root)?;
-    if definitions.is_empty() {
-        return Err(format!("no collection schemas found in {}", root.display()));
-    }
-    objekte_tui::run_with_loader(
-        move || objekte_search_core::repository::Repository::open(root, definitions),
+    objekte_tui::run_with_index_loader(
+        move || {
+            let index = objekte_search_core::lifecycle::Index::open_repository(
+                root,
+                objekte_search_core::lifecycle_repository::RepositoryOpenOptions::default(),
+            )
+            .map_err(|error| error.to_string())?;
+            objekte_search_core::lifecycle_caller::IndexedRepository::new(index)
+                .map_err(|error| error.to_string())
+        },
         objekte_tui::TuiOptions::default(),
     )
     .map_err(|error| error.to_string())

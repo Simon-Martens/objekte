@@ -29,7 +29,9 @@ fn completion_uses_bounded_postings_and_keeps_typed_literals() {
         Repository::open_with_options(root.path(), vec![definition], RepositoryOptions::default())
             .unwrap();
     let mut session = fixture.session;
-    session.repository = Arc::new(repository);
+    let index = objekte_search_core::lifecycle::Index::from_repository(repository).unwrap();
+    session.repository =
+        Arc::new(objekte_search_core::lifecycle_caller::IndexedRepository::new(index).unwrap());
     session.collections = vec!["files".into()];
     let (values, partial, visited) = posting_completions(
         &session,

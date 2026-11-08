@@ -1,7 +1,8 @@
 //! Resident relation rows for the detail view.
 
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::relation_inspection::{MAX_RELATION_PAGE_SIZE, RelationPresence};
-use objekte_search_core::repository::{Repository, SearchHit};
+use objekte_search_core::repository::SearchHit;
 
 const PAGE_SIZE: usize = 100;
 
@@ -54,14 +55,17 @@ impl RelationRow {
 }
 
 
-fn collection_name(repo: &Repository, id: objekte_search_core::model::CollectionId) -> String {
+fn collection_name(
+    repo: &IndexedRepository,
+    id: objekte_search_core::model::CollectionId,
+) -> String {
     repo.collections().get(id.0 as usize).map_or_else(
         || format!("collection {}", id.0),
         |collection| collection.definition.name.clone(),
     )
 }
 
-pub fn rows(repo: &Repository, hit: &SearchHit) -> Vec<RelationRow> {
+pub fn rows(repo: &IndexedRepository, hit: &SearchHit) -> Vec<RelationRow> {
     let graph = match repo.collection_graph() {
         Ok(graph) => graph,
         Err(error) => return vec![RelationRow::plain("Relation inspection error", error)],
@@ -97,7 +101,7 @@ pub fn rows(repo: &Repository, hit: &SearchHit) -> Vec<RelationRow> {
 }
 
 fn outgoing(
-    repo: &Repository,
+    repo: &IndexedRepository,
     source: &str,
     path: &[String],
     id: &str,
@@ -174,7 +178,7 @@ fn outgoing(
 }
 
 fn backlinks(
-    repo: &Repository,
+    repo: &IndexedRepository,
     target: &str,
     alias: &str,
     id: &str,
@@ -218,7 +222,7 @@ fn backlinks(
     rows
 }
 
-pub fn continuation(repo: &Repository, action: &LinkAction) -> Vec<RelationRow> {
+pub fn continuation(repo: &IndexedRepository, action: &LinkAction) -> Vec<RelationRow> {
     match action {
         LinkAction::Target { .. } => Vec::new(),
         LinkAction::MoreOutgoing {
