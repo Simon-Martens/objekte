@@ -196,6 +196,7 @@ pub(crate) struct PublishedIndex {
     pub(crate) instance_id: u64,
     pub(crate) revision: IndexRevision,
     pub(crate) repository: Arc<Repository>,
+    pub(crate) configuration_identity: [u8; 32],
     pub(crate) active: Vec<ActiveRecords>,
     pub(crate) catalog: FileCatalog,
     pub(crate) file_versions: FileVersions,
@@ -210,6 +211,17 @@ impl PublishedIndex {
         revision: IndexRevision,
         repository: Arc<Repository>,
     ) -> Result<Self, IndexError> {
+        let definitions = repository
+            .collections()
+            .iter()
+            .map(|collection| collection.definition.clone())
+            .collect::<Vec<_>>();
+        let configuration_identity = crate::storage::configuration_hash(
+            &definitions,
+            repository.options(),
+            &repository.sources,
+        )
+        .map_err(IndexError::IncompatibleConfiguration)?;
         let active = repository
             .collections()
             .iter()
@@ -224,6 +236,7 @@ impl PublishedIndex {
             instance_id,
             revision,
             repository,
+            configuration_identity,
             active,
             catalog,
             file_versions,
@@ -416,6 +429,12 @@ impl IndexView {
 
     pub fn revision(&self) -> IndexRevision {
         self.0.revision
+    }
+
+    /// Fingerprint of the schema, source registrations and index settings
+    /// captured by this publication.
+    pub fn configuration_identity(&self) -> [u8; 32] {
+        self.0.configuration_identity
     }
 
     pub fn file_handle(&self, file: FileId) -> Option<FileHandle> {
