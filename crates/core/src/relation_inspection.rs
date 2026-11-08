@@ -1,8 +1,13 @@
 //! Resident relation pages and the declared collection graph.
 
+use std::sync::Arc;
+
 use crate::inventory::{ActiveRecords, DiagnosticRef, FileStatus, RecordClass};
+use crate::lifecycle::{IndexRevision, PublishedSegment};
+use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::relation::{RelationCardinality, RelationId, RelationTarget};
+use crate::relation_query::{MergedRecordSlot, MergedRelationView};
 use crate::repository::{CollectionState, Repository};
 
 /// Maximum number of outgoing occurrences or distinct backlink sources per page.
@@ -14,6 +19,8 @@ pub const MAX_RELATION_PAGE_SIZE: usize = 1024;
 pub struct InspectedRecord {
     pub collection: CollectionId,
     pub generation: u64,
+    /// Qualifies a local slot when this record belongs to an indexed delta.
+    pub segment_ordinal: Option<u64>,
     pub slot: RecordSlot,
     pub id: String,
     pub file: FileId,
@@ -150,6 +157,7 @@ fn inspected_record(
     Ok(InspectedRecord {
         collection: collection.generation.collection,
         generation: collection.generation.generation,
+        segment_ordinal: None,
         slot,
         id: record.id.0.clone(),
         file: record.file,
@@ -462,6 +470,193 @@ impl Repository {
             components,
         })
     }
+}
+
+fn inspected_merged_record(
+    view: &MergedRelationView<'_>,
+    address: MergedRecordSlot,
+    revision: IndexRevision,
+) -> Result<InspectedRecord, String> {
+    let current = view.record(address)?.ok_or("inspection record retired")?;
+    Ok(InspectedRecord {
+        collection: address.collection,
+        generation: revision.0,
+        segment_ordinal: view.segment_ordinal(address),
+        slot: address.slot,
+        id: current.record.id.0.clone(),
+        file: current.record.file,
+        file_status: current.file.status,
+        class: current.record.class,
+        diagnostic_ref: current.record.diagnostic_ref,
+    })
+}
+
+pub(crate) fn relation_outgoing_page_segmented(
+    repo: &Repository,
+    source_collection: &str,
+    relation_path: &[String],
+    source_id: &str,
+    offset: usize,
+    limit: usize,
+    revision: IndexRevision,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+) -> Result<OutgoingReferencePage, String> {
+    let limit = page_limit(limit)?;
+    let source = repo.collections.iter()
+        .find(|collection| collection.definition.name == source_collection)
+        .ok_or("source collection not found")?;
+    let relation = repo.relation_index(source_collection, relation_path)
+        .ok_or("relation not found in source collection")?;
+    let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
+    let source_address = view.resolve_id(source.generation.collection, source_id)?
+        .ok_or("source ID not found")?;
+    let (edges, present, null, empty, unavailable) =
+        view.forward_edges(source_address, relation.id.ordinal as usize)?;
+    let (start, end, next_offset) = page_bounds(edges.len(), offset, limit);
+    let mut references = Vec::with_capacity(end - start);
+    for (target_id, positions) in &edges[start..end] {
+        let resolved = view.resolve_id(relation.target_collection, target_id)?
+            .map(|address| inspected_merged_record(&view, address, revision))
+            .transpose()?;
+        references.push(OutgoingReference {
+            positions: positions.to_vec(),
+            target_id: (*target_id).to_owned(),
+            resolved,
+        });
+    }
+    Ok(OutgoingReferencePage {
+        relation: relation.id,
+        source: inspected_merged_record(&view, source_address, revision)?,
+        target_collection: relation.target_collection,
+        presence: if unavailable {
+            RelationPresence::Unavailable
+        } else if present {
+            RelationPresence::Present
+        } else {
+            RelationPresence::Missing
+        },
+        contains_null: null,
+        contains_empty_array: empty,
+        total_occurrences: edges.len(),
+        offset,
+        next_offset,
+        references,
+    })
+}
+
+pub(crate) fn relation_backlink_page_segmented(
+    repo: &Repository,
+    target_collection: &str,
+    reverse_alias: &str,
+    target_id: &str,
+    offset: usize,
+    limit: usize,
+    revision: IndexRevision,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+) -> Result<BacklinkPage, String> {
+    let limit = page_limit(limit)?;
+    let target = repo.collections.iter()
+        .find(|collection| collection.definition.name == target_collection)
+        .ok_or("target collection not found")?;
+    let relation = repo.backlink_relation(target_collection, reverse_alias)
+        .ok_or("reverse relation alias not found")?;
+    let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
+    let target_address = view.resolve_id(target.generation.collection, target_id)?
+        .ok_or("target ID not found")?;
+    let sources = view.backlink_sources(relation.id, target_id)?;
+    let (start, end, next_offset) = page_bounds(sources.len(), offset, limit);
+    let page = sources[start..end].iter()
+        .map(|address| inspected_merged_record(&view, *address, revision))
+        .collect::<Result<Vec<_>, _>>()?;
+    Ok(BacklinkPage {
+        relation: relation.id,
+        target: inspected_merged_record(&view, target_address, revision)?,
+        source_collection: relation.id.source,
+        total_sources: sources.len(),
+        offset,
+        next_offset,
+        sources: page,
+    })
+}
+
+pub(crate) fn collection_graph_segmented(
+    repo: &Repository,
+    revision: IndexRevision,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+) -> Result<CollectionGraph, String> {
+    let view = MergedRelationView::new(repo, base_active, segments, catalog)?;
+    let mut nodes = repo.collections.iter().enumerate().map(|(index, collection)| {
+        let records = segments[index].iter()
+            .fold(base_active[index].len() as usize, |count, segment| {
+                count.saturating_add(segment.active.len() as usize)
+            });
+        CollectionGraphNode {
+            id: collection.generation.collection,
+            name: collection.definition.name.clone(),
+            generation: revision.0,
+            record_count: records,
+            outgoing: Vec::new(),
+            incoming: Vec::new(),
+        }
+    }).collect::<Vec<_>>();
+    let mut edges = Vec::new();
+    for (source_index, collection) in repo.collections.iter().enumerate() {
+        for relation in &collection.relations {
+            let target_index = relation.target_collection.0 as usize;
+            nodes[source_index].outgoing.push(relation.id);
+            nodes[target_index].incoming.push(relation.id);
+            let mut occurrences = 0usize;
+            let mut unresolved = 0u64;
+            let mut visit = |address| -> Result<(), String> {
+                view.record(address)?.ok_or("active graph source retired")?;
+                let (references, _, _, _, _) =
+                    view.forward_edges(address, relation.id.ordinal as usize)?;
+                occurrences = occurrences.checked_add(references.len())
+                    .ok_or("relation occurrence count overflow")?;
+                for (target_id, _) in references {
+                    if view.resolve_id(relation.target_collection, target_id)?.is_none() {
+                        unresolved = unresolved.checked_add(1)
+                            .ok_or("relation unresolved count overflow")?;
+                    }
+                }
+                Ok(())
+            };
+            for slot in base_active[source_index].bitmap().iter() {
+                visit(MergedRecordSlot {
+                    collection: relation.id.source,
+                    segment: None,
+                    slot: RecordSlot(slot),
+                })?;
+            }
+            for (index, segment) in segments[source_index].iter().enumerate() {
+                for slot in segment.active.bitmap().iter() {
+                    visit(MergedRecordSlot {
+                        collection: relation.id.source,
+                        segment: Some(index),
+                        slot: RecordSlot(slot),
+                    })?;
+                }
+            }
+            edges.push(CollectionGraphEdge {
+                id: relation.id,
+                source: relation.id.source,
+                path: relation.declaration.path.clone(),
+                target: relation.target_collection,
+                cardinality: relation.declaration.cardinality,
+                reverse_alias: relation.declaration.reverse_alias.clone(),
+                occurrence_count: occurrences,
+                unresolved_occurrence_count: unresolved,
+            });
+        }
+    }
+    let components = graph_components(nodes.len(), &edges);
+    Ok(CollectionGraph { nodes, edges, components })
 }
 
 
