@@ -2,6 +2,7 @@
 
 use std::time::Instant;
 
+use objekte_search_core::lifecycle::{IndexRevision, IndexView};
 use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, RegexOptions, parse_structured_filter,
 };
@@ -15,7 +16,6 @@ use super::{BackendError, BackendErrorKind, OpenedSession};
 
 pub const MAX_PAGE_ROWS: usize = 100;
 
-
 /// Search controls and the full requested range, independent of viewport pages.
 #[derive(Clone, Debug)]
 pub struct QuerySpec {
@@ -28,7 +28,6 @@ pub struct QuerySpec {
     pub limit: Option<usize>,
     pub count: bool,
 }
-
 
 impl Default for QuerySpec {
     fn default() -> Self {
@@ -45,10 +44,12 @@ impl Default for QuerySpec {
     }
 }
 
-
 /// One verified viewport page; `count` is exact or absent, never an estimate.
 #[derive(Clone, Debug)]
 pub struct QueryPage {
+    /// The immutable publication used for this page and its continuation.
+    pub instance_id: u64,
+    pub revision: IndexRevision,
     pub hits: Vec<SearchHit>,
     pub page_start: usize,
     pub requested_offset: usize,
@@ -58,6 +59,13 @@ pub struct QueryPage {
     pub elapsed_ns: u128,
 }
 
+impl QueryPage {
+    /// A source range could not be verified, so delivered rows and count may
+    /// cover only part of the requested domain.
+    pub fn incomplete(&self) -> bool {
+        self.counters.source_unavailable_events > 0
+    }
+}
 
 /// Parse the full accepted structured syntax while keeping FTS independent.
 ///
@@ -106,6 +114,24 @@ pub fn query_page(
     page_size: usize,
     cancellation: &CancellationToken,
 ) -> Result<QueryPage, BackendError> {
+    let view = session
+        .repository
+        .index()
+        .view()
+        .map_err(|error| BackendError::new(BackendErrorKind::Query, error.to_string()))?;
+    query_page_on_view(session, &view, spec, page_start, page_size, cancellation)
+}
+
+/// Return a page from the caller's pinned publication. Reuse the same view for
+/// every continuation, projection, and exact count in one executed context.
+pub fn query_page_on_view(
+    session: &OpenedSession,
+    view: &IndexView,
+    spec: &QuerySpec,
+    page_start: usize,
+    page_size: usize,
+    cancellation: &CancellationToken,
+) -> Result<QueryPage, BackendError> {
     if !(1..=MAX_PAGE_ROWS).contains(&page_size) {
         return Err(BackendError::new(
             BackendErrorKind::Options,
@@ -136,7 +162,7 @@ pub fn query_page(
     query.options.limit = requested_rows;
     let started = Instant::now();
     let mut page = Vec::new();
-    let outcome = session.repository.search_stream(
+    let outcome = view.search_stream(
         &query,
         StreamOptions {
             mode: StreamMode::PageReplacements,
@@ -153,7 +179,11 @@ pub fn query_page(
     match outcome {
         Ok(StreamOutcome::Complete(summary)) => {
             let next = page_start.saturating_add(page.len());
-            let visible_total = summary.count.map(|total| {
+            let count = (summary.counters.match_count_complete
+                && summary.counters.source_unavailable_events == 0)
+                .then_some(summary.count)
+                .flatten();
+            let visible_total = count.map(|total| {
                 spec.limit
                     .map_or(total.saturating_sub(spec.offset), |limit| {
                         limit.min(total.saturating_sub(spec.offset))
@@ -168,11 +198,13 @@ pub fn query_page(
                 Some(next)
             };
             Ok(QueryPage {
+                instance_id: view.instance_id(),
+                revision: view.revision(),
                 hits: page,
                 page_start,
                 requested_offset,
                 next_page_start,
-                count: summary.count,
+                count,
                 counters: summary.counters,
                 elapsed_ns: started.elapsed().as_nanos(),
             })
@@ -191,6 +223,20 @@ pub fn count_exact(
     spec: &QuerySpec,
     cancellation: &CancellationToken,
 ) -> Result<usize, BackendError> {
+    let view = session
+        .repository
+        .index()
+        .view()
+        .map_err(|error| BackendError::new(BackendErrorKind::Query, error.to_string()))?;
+    count_exact_on_view(&view, spec, cancellation)
+}
+
+/// Count against the exact publication supplying the displayed result pages.
+pub fn count_exact_on_view(
+    view: &IndexView,
+    spec: &QuerySpec,
+    cancellation: &CancellationToken,
+) -> Result<usize, BackendError> {
     if cancellation.is_cancelled() {
         return Err(BackendError::cancelled());
     }
@@ -201,7 +247,7 @@ pub fn count_exact(
     query.options.count = true;
     query.options.sort.clear();
     query.options.return_mode = ReturnMode::Locator;
-    match session.repository.search_stream(
+    match view.search_stream(
         &query,
         StreamOptions {
             mode: StreamMode::PageReplacements,
@@ -210,9 +256,19 @@ pub fn count_exact(
         cancellation,
         &mut |_event| Ok(StreamControl::Continue),
     ) {
-        Ok(StreamOutcome::Complete(summary)) => summary.count.ok_or_else(|| {
-            BackendError::new(BackendErrorKind::Query, "search omitted exact count")
-        }),
+        Ok(StreamOutcome::Complete(summary)) => {
+            if !summary.counters.match_count_complete
+                || summary.counters.source_unavailable_events > 0
+            {
+                return Err(BackendError::new(
+                    BackendErrorKind::Query,
+                    "some source records could not be checked; exact count is unavailable",
+                ));
+            }
+            summary.count.ok_or_else(|| {
+                BackendError::new(BackendErrorKind::Query, "search omitted exact count")
+            })
+        }
         Ok(StreamOutcome::Cancelled(_)) => Err(BackendError::cancelled()),
         Err(error) => Err(BackendError::new(
             BackendErrorKind::Query,

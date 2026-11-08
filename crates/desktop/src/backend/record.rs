@@ -1,9 +1,11 @@
 //! Bounded record and resident relation access for the detail panel.
 
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::relation_inspection::{
     BacklinkPage, CollectionGraph, OutgoingReferencePage,
 };
 use objekte_search_core::repository::SearchHit;
+use objekte_search_core::run::DirectLookupResult;
 use objekte_search_core::streaming::CancellationToken;
 use objekte_search_core::workload::ReturnMode;
 
@@ -29,6 +31,26 @@ pub fn record_by_id(
     Ok(hit)
 }
 
+/// Resolve a canonical collection-local identity under a caller-owned view.
+/// This never follows a retired slot or a row number into a newer publication.
+pub fn record_by_id_on_view(
+    view: &IndexView,
+    collection: &str,
+    id: &str,
+    cancellation: &CancellationToken,
+) -> Result<DirectLookupResult, BackendError> {
+    if cancellation.is_cancelled() {
+        return Err(BackendError::cancelled());
+    }
+    let outcome = view
+        .get_record_available(collection, id, ReturnMode::Bytes)
+        .map_err(|message| BackendError::new(BackendErrorKind::Query, message))?;
+    if cancellation.is_cancelled() {
+        return Err(BackendError::cancelled());
+    }
+    Ok(outcome)
+}
+
 /// Inspect declared relations without reading all source documents.
 pub fn collection_graph(
     session: &OpenedSession,
@@ -40,6 +62,17 @@ pub fn collection_graph(
     session
         .repository
         .collection_graph()
+        .map_err(|message| BackendError::new(BackendErrorKind::Query, message))
+}
+
+pub fn collection_graph_on_view(
+    view: &IndexView,
+    cancellation: &CancellationToken,
+) -> Result<CollectionGraph, BackendError> {
+    if cancellation.is_cancelled() {
+        return Err(BackendError::cancelled());
+    }
+    view.collection_graph()
         .map_err(|message| BackendError::new(BackendErrorKind::Query, message))
 }
 
@@ -62,6 +95,22 @@ pub fn outgoing_page(
         .map_err(|message| BackendError::new(BackendErrorKind::Query, message))
 }
 
+pub fn outgoing_page_on_view(
+    view: &IndexView,
+    source_collection: &str,
+    path: &[String],
+    source_id: &str,
+    offset: usize,
+    limit: usize,
+    cancellation: &CancellationToken,
+) -> Result<OutgoingReferencePage, BackendError> {
+    if cancellation.is_cancelled() {
+        return Err(BackendError::cancelled());
+    }
+    view.relation_outgoing_page(source_collection, path, source_id, offset, limit)
+        .map_err(|message| BackendError::new(BackendErrorKind::Query, message))
+}
+
 /// Page backlink sources from the resident reverse index.
 pub fn backlink_page(
     session: &OpenedSession,
@@ -80,3 +129,23 @@ pub fn backlink_page(
         .relation_backlink_page(target_collection, reverse_alias, target_id, offset, limit)
         .map_err(|message| BackendError::new(BackendErrorKind::Query, message))
 }
+
+pub fn backlink_page_on_view(
+    view: &IndexView,
+    target_collection: &str,
+    reverse_alias: &str,
+    target_id: &str,
+    offset: usize,
+    limit: usize,
+    cancellation: &CancellationToken,
+) -> Result<BacklinkPage, BackendError> {
+    if cancellation.is_cancelled() {
+        return Err(BackendError::cancelled());
+    }
+    view.relation_backlink_page(target_collection, reverse_alias, target_id, offset, limit)
+        .map_err(|message| BackendError::new(BackendErrorKind::Query, message))
+}
+
+#[cfg(test)]
+#[path = "record.test.rs"]
+mod tests;

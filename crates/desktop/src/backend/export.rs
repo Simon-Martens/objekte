@@ -4,11 +4,14 @@ use std::fs;
 use std::io::{BufWriter, Write};
 use std::path::Path;
 
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::repository::SearchHit;
+use objekte_search_core::run::DirectLookupResult;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
     StreamOutcome,
 };
+use objekte_search_core::workload::ReturnMode;
 use objekte_tui::export::{hit_value, one};
 use serde_json::json;
 
@@ -29,9 +32,59 @@ pub fn export_selected_json(
     one(hit, path).map_err(|message| BackendError::new(BackendErrorKind::Output, message))
 }
 
+/// Re-resolve a record before a Source action, using its canonical identity
+/// and the current pinned publication rather than a prior grid row or preview.
+pub fn export_selected_json_on_view(
+    session: &OpenedSession,
+    view: &IndexView,
+    collection: &str,
+    id: &str,
+    path: &Path,
+    cancellation: &CancellationToken,
+) -> Result<(), BackendError> {
+    if cancellation.is_cancelled() {
+        return Err(BackendError::cancelled());
+    }
+    let hit = match view
+        .get_record_available(collection, id, ReturnMode::Bytes)
+        .map_err(|message| BackendError::new(BackendErrorKind::Query, message))?
+    {
+        DirectLookupResult::Found(hit) => hit,
+        DirectLookupResult::NotFound => {
+            return Err(BackendError::new(
+                BackendErrorKind::Query,
+                "record is no longer available",
+            ));
+        }
+        DirectLookupResult::SourceUnavailable(diagnostic) => {
+            return Err(BackendError::new(
+                BackendErrorKind::Query,
+                diagnostic.message,
+            ));
+        }
+    };
+    export_selected_json(session, &hit, path, cancellation)
+}
+
 /// Stream the requested result range once into the terminal search export format.
 pub fn export_all_json(
     session: &OpenedSession,
+    spec: &QuerySpec,
+    path: &Path,
+    cancellation: &CancellationToken,
+) -> Result<usize, BackendError> {
+    let view = session
+        .repository
+        .index()
+        .view()
+        .map_err(|error| BackendError::new(BackendErrorKind::Query, error.to_string()))?;
+    export_all_json_on_view(session, &view, spec, path, cancellation)
+}
+
+/// Export the complete effective query from one immutable index publication.
+pub fn export_all_json_on_view(
+    session: &OpenedSession,
+    view: &IndexView,
     spec: &QuerySpec,
     path: &Path,
     cancellation: &CancellationToken,
@@ -77,7 +130,7 @@ pub fn export_all_json(
                 },
             };
             let mut sink_error = None;
-            let result = session.repository.search_stream_scoped(
+            let result = view.search_stream_scoped(
                 &query,
                 scope,
                 StreamOptions {
@@ -113,7 +166,16 @@ pub fn export_all_json(
                 return Err(BackendError::new(BackendErrorKind::Output, message));
             }
             match result {
-                Ok(StreamOutcome::Complete(_)) => {}
+                Ok(StreamOutcome::Complete(summary)) => {
+                    if summary.counters.source_unavailable_events > 0
+                        || !summary.counters.match_count_complete
+                    {
+                        return Err(BackendError::new(
+                            BackendErrorKind::Query,
+                            "some source records could not be checked; export is incomplete",
+                        ));
+                    }
+                }
                 Ok(StreamOutcome::Cancelled(_)) => return Err(BackendError::cancelled()),
                 Err(error) => {
                     return Err(BackendError::new(

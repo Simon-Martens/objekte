@@ -15,11 +15,13 @@ use crate::streaming::{
 use crate::workload::ReturnMode;
 
 /// A live index with a pinned base repository for existing frontend metadata.
-/// Search and inspection methods always acquire a fresh published view.
+/// Search and inspection acquire a fresh view unless explicitly pinned for a
+/// multi-request desktop operation such as a finite batch export.
 #[derive(Clone)]
 pub struct IndexedRepository {
     index: Index,
     base: IndexView,
+    pinned: Option<IndexView>,
     startup: StartupStats,
 }
 
@@ -34,12 +36,29 @@ impl IndexedRepository {
         Ok(Self {
             index,
             base,
+            pinned: None,
             startup,
         })
     }
 
     pub fn index(&self) -> &Index {
         &self.index
+    }
+
+    /// Keep all subsequent reads on one immutable publication. This lets
+    /// existing CLI-protocol batch/export code execute reproducibly while the
+    /// live index continues to publish revisions in another worker.
+    pub fn with_pinned_view(&self, view: IndexView) -> Result<Self, String> {
+        if view.instance_id() != self.index.instance_id() {
+            return Err("index view belongs to another repository instance".into());
+        }
+        let mut pinned = self.clone();
+        pinned.pinned = Some(view);
+        Ok(pinned)
+    }
+
+    fn read_view(&self) -> Result<IndexView, IndexError> {
+        self.pinned.clone().map_or_else(|| self.index.view(), Ok)
     }
 
     pub fn startup(&self) -> &StartupStats {
@@ -50,12 +69,11 @@ impl IndexedRepository {
     /// after the base repository was built. Return an owned value because the
     /// publication pin is released when this method returns.
     pub fn diagnostic(&self, file: FileId, reference: DiagnosticRef) -> Option<SourceDiagnostic> {
-        self.index.view().ok()?.diagnostic(file, reference).cloned()
+        self.read_view().ok()?.diagnostic(file, reference).cloned()
     }
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
-        self.index
-            .view()
+        self.read_view()
             .map_err(|error| error.to_string())?
             .search(query)
     }
@@ -66,8 +84,7 @@ impl IndexedRepository {
         record_id: &str,
         return_mode: ReturnMode,
     ) -> Result<Option<SearchHit>, String> {
-        self.index
-            .view()
+        self.read_view()
             .map_err(|error| error.to_string())?
             .get_record(collection, record_id, return_mode)
     }
@@ -109,8 +126,7 @@ impl IndexedRepository {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::OutgoingReferencePage, String> {
-        self.index
-            .view()
+        self.read_view()
             .map_err(|error| error.to_string())?
             .relation_outgoing_page(source_collection, relation_path, source_id, offset, limit)
     }
@@ -123,15 +139,13 @@ impl IndexedRepository {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::BacklinkPage, String> {
-        self.index
-            .view()
+        self.read_view()
             .map_err(|error| error.to_string())?
             .relation_backlink_page(target_collection, reverse_alias, target_id, offset, limit)
     }
 
     pub fn collection_graph(&self) -> Result<crate::relation_inspection::CollectionGraph, String> {
-        self.index
-            .view()
+        self.read_view()
             .map_err(|error| error.to_string())?
             .collection_graph()
     }
@@ -140,14 +154,13 @@ impl IndexedRepository {
         &self,
         request: &crate::posting_values::PostingValuesRequest,
     ) -> Result<crate::posting_values::PostingValuesPage, String> {
-        self.index
-            .view()
+        self.read_view()
             .map_err(|error| error.to_string())?
             .posting_values(request)
     }
 
     fn view_for_stream(&self) -> Result<IndexView, StreamError> {
-        self.index.view().map_err(|error| StreamError::Execution {
+        self.read_view().map_err(|error| StreamError::Execution {
             kind: ExecutionErrorKind::Execution,
             message: error.to_string(),
             progress: Default::default(),

@@ -738,11 +738,35 @@ fn execute_query<W: Write>(
     }
     match result {
         Ok(StreamOutcome::Complete(summary)) => {
+            if summary.counters.source_unavailable_events > 0 {
+                let message = format!(
+                    "{} source records could not be checked; query output is incomplete",
+                    summary.counters.source_unavailable_events
+                );
+                if let Err(error) = output
+                    .emit(json!({
+                        "type":"query_error", "query_id":query_id, "line":input.line,
+                        "error":message, "stage":"source", "partial":true,
+                        "emitted_rows":emitted,
+                        "observed_matches":summary.progress.observed_matches,
+                        "exact_total":null, "total_exact":false,
+                        "counters":counters_with_ms(&summary.counters),
+                        "preparation_ms":ms(preparation_ns), "search_ms":ms(search_ns),
+                        "sink_ms":ms(sink_ns),
+                        "query_wall_ms":ms(started.elapsed().as_nanos()),
+                    }))
+                    .and_then(|_| output.flush())
+                {
+                    return output_failure(error);
+                }
+                return Exit::Operation;
+            }
             let event = json!({
                 "type":"query_complete", "query_id":query_id, "line":input.line,
                 "decoded_fts":decoded_fts, "complete":true,
                 "emitted_rows":emitted, "observed_matches":summary.progress.observed_matches,
-                "exact_total":summary.count, "total_exact":summary.count.is_some(),
+                "exact_total":summary.count.filter(|_| summary.counters.match_count_complete),
+                "total_exact":summary.count.is_some() && summary.counters.match_count_complete,
                 "counters":counters_with_ms(&summary.counters), "preparation_ms":ms(preparation_ns),
                 "search_ms":ms(search_ns), "sink_ms":ms(sink_ns),
                 "query_wall_ms":ms(started.elapsed().as_nanos()), "first_hit_ms":first_hit_ns.map(ms),
@@ -819,3 +843,7 @@ fn output_failure(error: io::Error) -> Exit {
         Exit::OutputError
     }
 }
+
+#[cfg(test)]
+#[path = "execution.test.rs"]
+mod tests;

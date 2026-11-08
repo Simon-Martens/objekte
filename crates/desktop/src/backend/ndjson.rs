@@ -3,13 +3,15 @@
 use std::path::Path;
 
 use objekte_cli::execution::{PreparedQuery, run_prepared_on_repository};
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::streaming::CancellationToken;
 use serde_json::json;
 
 use super::batch::{
-    BatchReport, BatchSource, BatchSpec, create_output_file, existing_run, finish_output, run_batch,
+    BatchReport, BatchSource, BatchSpec, create_output_file, existing_run, finish_output,
+    pinned_session, run_batch_on_view,
 };
-use super::{BackendError, OpenedSession, QuerySpec, build_query};
+use super::{BackendError, BackendErrorKind, OpenedSession, QuerySpec, build_query};
 
 /// Export every requested match with the CLI's run/query/record event sequence.
 ///
@@ -18,6 +20,22 @@ use super::{BackendError, OpenedSession, QuerySpec, build_query};
 /// and use `input_mode` and `kind` values of `combined`.
 pub fn export_query_ndjson(
     session: &OpenedSession,
+    spec: &QuerySpec,
+    output_path: &Path,
+    cancellation: &CancellationToken,
+) -> Result<BatchReport, BackendError> {
+    let view = session
+        .repository
+        .index()
+        .view()
+        .map_err(|error| BackendError::new(BackendErrorKind::Query, error.to_string()))?;
+    export_query_ndjson_on_view(session, &view, spec, output_path, cancellation)
+}
+
+/// Emit the established CLI event protocol from a single pinned publication.
+pub fn export_query_ndjson_on_view(
+    session: &OpenedSession,
+    view: &IndexView,
     spec: &QuerySpec,
     output_path: &Path,
     cancellation: &CancellationToken,
@@ -38,8 +56,9 @@ pub fn export_query_ndjson(
             None
         };
         if let Some(source) = source {
-            return run_batch(
+            return run_batch_on_view(
                 session,
+                view,
                 &BatchSpec {
                     source,
                     offset: spec.offset,
@@ -54,6 +73,8 @@ pub fn export_query_ndjson(
     if cancellation.is_cancelled() {
         return Err(BackendError::cancelled());
     }
+    let pinned = pinned_session(session, view)?;
+    let session = &pinned;
     let mut args = session.args.clone();
     args.tui = false;
     args.query = None;

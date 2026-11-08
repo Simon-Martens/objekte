@@ -177,6 +177,7 @@ pub fn page_view_with_prior(
         offset: page.page_start,
         requested_limit: spec.limit,
         exact_total: page.count,
+        incomplete: page.incomplete(),
         count_pending: spec.count && page.count.is_none(),
         has_previous: page.page_start > 0,
         has_next: page.next_page_start.is_some(),
