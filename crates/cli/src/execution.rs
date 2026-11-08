@@ -6,6 +6,7 @@ use std::time::Instant;
 
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
+use objekte_search_core::lifecycle::IndexRevision;
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::path_repr;
 use objekte_search_core::query::Query;
@@ -486,12 +487,23 @@ fn complete_run<W: Write>(
         "run_error"
     };
     let stats = repo.startup();
-    let records: usize = repo
-        .collections()
-        .iter()
-        .map(|item| item.generation.records.len())
-        .sum();
-    let fallback: usize = repo
+    let live = match repo.index().status() {
+        Ok(status) => status,
+        Err(error) => {
+            let message = error.to_string();
+            if let Err(error) = output
+                .emit(
+                    json!({"type":"run_error", "stage":"index_status", "error":message,
+                    "elapsed_ms":ms(started.elapsed().as_nanos())}),
+                )
+                .and_then(|_| output.flush())
+            {
+                return output_failure(error);
+            }
+            return Exit::Operation;
+        }
+    };
+    let base_fallback: usize = repo
         .collections()
         .iter()
         .flat_map(|item| &item.generation.records)
@@ -506,9 +518,11 @@ fn complete_run<W: Write>(
         "type": terminal,
         "query_successes": successes,
         "query_errors": failures,
-        "files": repo.files().files.len(),
-        "records": records,
-        "fallback_records": fallback,
+        "files": live.indexed_files,
+        "records": live.live_records,
+        "index_revision": live.revision.0,
+        "fallback_records": (live.revision == IndexRevision::INITIAL).then_some(base_fallback),
+        "base_fallback_records": base_fallback,
         "build_parses": repo.build_parses(),
         "build_failed_parses": repo.build_failed_parses(),
         "startup_ms": ms(startup_ns),
