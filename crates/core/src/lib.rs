@@ -23,7 +23,7 @@ pub mod lifecycle;
 pub(crate) mod lifecycle_cache_guard;
 mod lifecycle_catalog;
 mod lifecycle_open;
-mod lifecycle_repository;
+pub mod lifecycle_repository;
 mod lifecycle_scan;
 mod lifecycle_segment_codec;
 mod materialization;
