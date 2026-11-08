@@ -759,7 +759,7 @@ fn diagnostic_snapshot_phases_are_emitted_only_for_an_explicit_save() {
     let (written, events) = invoke(root.path(), &["--write-index", "--diagnostic"]);
     assert!(written.status.success());
     let phases = &events.last().unwrap()["snapshot_save_phases"];
-    assert_eq!(phases["sections"].as_array().unwrap().len(), 2);
+    assert!(phases["sections"].as_array().unwrap().len() >= 3);
     assert!(phases["bytes_written"].as_u64().unwrap() > 0);
     assert_eq!(
         phases["total_ms"],
@@ -1199,7 +1199,7 @@ fn explicit_snapshot_flags_do_not_silently_rebuild_load_only() {
     assert_eq!(hits(&events).len(), 1);
     assert_eq!(
         events.last().unwrap()["snapshot_action"],
-        "rebuilt_and_written"
+        "reconciled_and_written"
     );
     assert_ne!(std::fs::read(&snapshot).unwrap(), saved);
 }

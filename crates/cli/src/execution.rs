@@ -93,6 +93,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                 policy,
                 write,
                 configured_repository,
+                false,
             )
             .map(|(repo, _, _)| repo)
         },
@@ -303,6 +304,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         policy,
         args.write_index.is_some(),
         args.repo.is_some(),
+        args.load_index.is_some(),
     ) {
         Ok(result) => result,
         Err(message) => {
@@ -801,6 +803,7 @@ fn index_operation(args: &Arguments) -> &'static str {
 
 fn snapshot_action(action: SnapshotAction, saved: bool, rebuilt: bool) -> &'static str {
     match (action, saved, rebuilt) {
+        (SnapshotAction::Restored, true, _) => "reconciled_and_written",
         (SnapshotAction::Restored, _, _) => "restored",
         (SnapshotAction::BuiltInMemory, true, true) => "rebuilt_and_written",
         (SnapshotAction::BuiltInMemory, true, false) => "built_and_written",

@@ -25,14 +25,14 @@ fn configured_repository_uses_lifecycle_cache_for_load_and_write_flags() {
     let options = RepositoryOptions::default();
     let write = SnapshotOpenPolicy::new(SnapshotMode::Disabled, None);
     let (built, _, save) =
-        open_repository(root.path(), &configured, options, write, true, true).unwrap();
+        open_repository(root.path(), &configured, options, write, true, true, false).unwrap();
     assert!(!built.startup().restored);
     assert!(save.is_some());
     let cache = objekte_search_core::storage::snapshot_path(root.path(), options.bigram_alphabet);
     assert!(cache.is_file());
     let load = SnapshotOpenPolicy::new(SnapshotMode::Required, None);
     let (restored, _, save) =
-        open_repository(root.path(), &configured, options, load, false, true).unwrap();
+        open_repository(root.path(), &configured, options, load, false, true, false).unwrap();
     assert!(restored.startup().restored);
     assert!(save.is_none());
     restored.index().wait_for_reconciliation().unwrap();
@@ -69,9 +69,48 @@ fn configured_open_uses_the_already_loaded_schema() {
         SnapshotOpenPolicy::new(SnapshotMode::Disabled, None),
         false,
         true,
+        false,
     )
     .unwrap();
     assert_eq!(opened.collections()[0].definition.name, "data");
+}
+
+#[test]
+fn explicit_path_cache_write_cannot_replace_a_schema_hardlink() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), br#"{"title":"A"}"#).unwrap();
+    let schema = root.path().join("schema.json");
+    let bytes = br#"{"type":"object","properties":{"title":{"type":"string"}}}"#;
+    std::fs::write(&schema, bytes).unwrap();
+    let cache_dir = root.path().join("cache");
+    std::fs::create_dir(&cache_dir).unwrap();
+    let cache = objekte_search_core::storage::snapshot_path_in(
+        &cache_dir,
+        RepositoryOptions::default().bigram_alphabet,
+    );
+    std::fs::hard_link(&schema, &cache).unwrap();
+    let args = Arguments {
+        path: vec![root.path().to_owned()],
+        schema: Some(schema.clone()),
+        write_index: Some(cache_dir.to_string_lossy().into_owned()),
+        ..Arguments::default()
+    };
+    let paths = args.resolve_paths(root.path()).unwrap();
+    let configured = configure_definitions(&args, &paths).unwrap();
+    let error = open_repository(
+        &paths.root,
+        &configured,
+        repository_options(&args),
+        snapshot_policy(&args, &paths),
+        true,
+        false,
+        false,
+    )
+    .err()
+    .unwrap();
+    assert!(error.contains("aliases configuration file"), "{error}");
+    assert_eq!(std::fs::read(schema).unwrap(), bytes);
+    assert_eq!(std::fs::read(cache).unwrap(), bytes);
 }
 
 #[test]
@@ -153,6 +192,7 @@ fn configured_cache_directory_keeps_unrelated_source_siblings() {
         SnapshotOpenPolicy::new(SnapshotMode::Disabled, Some(cache)),
         true,
         true,
+        false,
     )
     .unwrap();
     assert!(saved.is_some());
