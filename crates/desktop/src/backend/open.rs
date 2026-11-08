@@ -8,8 +8,9 @@ use objekte_cli::arguments::{Arguments, ResolvedPaths};
 use objekte_cli::loader::{
     configure_definitions, open_repository, repository_options, snapshot_policy,
 };
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::{FieldPath, PathRoot};
-use objekte_search_core::repository::{Repository, StartupStats};
+use objekte_search_core::repository::StartupStats;
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::CancellationToken;
 
@@ -39,7 +40,7 @@ pub struct OpenDiagnostics {
 /// Immutable repository handle and CLI opening context reused across searches.
 #[derive(Clone)]
 pub struct OpenedSession {
-    pub repository: Arc<Repository>,
+    pub repository: Arc<IndexedRepository>,
     pub args: Arguments,
     pub paths: ResolvedPaths,
     pub collections: Vec<String>,
@@ -78,6 +79,7 @@ pub fn open(
         options,
         policy,
         spec.args.write_index.is_some(),
+        spec.args.repo.is_some(),
     )
     .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?;
     if cancellation.is_cancelled() {

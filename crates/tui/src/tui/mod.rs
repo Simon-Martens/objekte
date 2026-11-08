@@ -17,6 +17,8 @@ use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
 use app::{Action, App, Focus, Overlay, View};
+use objekte_search_core::lifecycle::Index;
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::repository::{Repository, SnapshotAction};
 use objekte_search_core::streaming::CancellationToken;
 use ratatui::crossterm::{
@@ -43,6 +45,20 @@ pub struct TuiOptions {
 pub fn run_with_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
 where
     F: FnOnce() -> Result<Repository, String> + Send + 'static,
+{
+    run_with_index_loader(
+        move || {
+            let repository = loader()?;
+            let index = Index::from_repository(repository).map_err(|error| error.to_string())?;
+            IndexedRepository::new(index).map_err(|error| error.to_string())
+        },
+        options,
+    )
+}
+
+pub fn run_with_index_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
+where
+    F: FnOnce() -> Result<IndexedRepository, String> + Send + 'static,
 {
     let mut terminal = ratatui::try_init()?;
     let result = (|| -> Result<(), Box<dyn Error>> {

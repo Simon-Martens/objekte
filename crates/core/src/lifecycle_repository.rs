@@ -18,12 +18,24 @@ pub enum CacheFailurePolicy {
     Rebuild,
 }
 
+/// Whether convenience opening may inspect the selected cache.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum CacheOpenPolicy {
+    /// Restore a cache when present, otherwise build from sources.
+    IfPresent,
+    /// Require an existing, compatible cache.
+    Required,
+    /// Build from sources without reading the cache.
+    Ignore,
+}
+
 /// A custom cache directory is resolved relative to the repository root.
 /// With `sync_cache` disabled, opening never writes a cache.
 #[derive(Clone, Debug)]
 pub struct RepositoryOpenOptions {
     pub index: RepositoryOptions,
     pub cache_directory: Option<PathBuf>,
+    pub cache_open: CacheOpenPolicy,
     pub cache_failure: CacheFailurePolicy,
     pub sync_cache: bool,
 }
@@ -33,6 +45,7 @@ impl Default for RepositoryOpenOptions {
         Self {
             index: RepositoryOptions::default(),
             cache_directory: None,
+            cache_open: CacheOpenPolicy::IfPresent,
             cache_failure: CacheFailurePolicy::Report,
             sync_cache: false,
         }
@@ -72,7 +85,13 @@ impl Index {
             Err(error) if error.kind() == std::io::ErrorKind::NotFound => false,
             Err(error) => return Err(IndexError::Io(format!("{}: {error}", cache.display()))),
         };
-        let index = if exists {
+        if !exists && options.cache_open == CacheOpenPolicy::Required {
+            return Err(IndexError::InvalidCache(format!(
+                "required cache is missing: {}",
+                cache.display()
+            )));
+        }
+        let index = if exists && options.cache_open != CacheOpenPolicy::Ignore {
             match Self::load_cache(&root, definitions.clone(), options.index, &cache) {
                 Ok(index) => index,
                 Err(IndexError::InvalidCache(_) | IndexError::IncompatibleConfiguration(_))

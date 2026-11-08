@@ -108,3 +108,34 @@ fn sync_cache_persists_initial_build_at_selected_destination() {
     assert!(index.sync_cache_error().unwrap().is_none());
     fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn explicit_convenience_open_policy_can_require_or_ignore_cache() {
+    let root = fixture("policy");
+    assert!(matches!(
+        Index::open_repository(
+            &root,
+            RepositoryOpenOptions {
+                cache_open: CacheOpenPolicy::Required,
+                ..Default::default()
+            },
+        ),
+        Err(IndexError::InvalidCache(_))
+    ));
+    let cache = snapshot_path_in(
+        &root.join(".objekte"),
+        RepositoryOptions::default().bigram_alphabet,
+    );
+    fs::write(&cache, b"corrupt cache").unwrap();
+    let built = Index::open_repository(
+        &root,
+        RepositoryOpenOptions {
+            cache_open: CacheOpenPolicy::Ignore,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    assert_eq!(count(&built), 1);
+    assert_eq!(fs::read(cache).unwrap(), b"corrupt cache");
+    fs::remove_dir_all(root).unwrap();
+}

@@ -5,17 +5,20 @@ use std::path::PathBuf;
 use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::{FieldPath, LogicalType, PathRoot, Value};
 use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Modifier, Operand, Query, QueryOptions,
     RegexOptions, parse_filter, parse_structured_filter,
 };
 use objekte_search_core::query_path::QueryPath;
-use objekte_search_core::repository::{Repository, SearchHit, SearchResult};
+use objekte_search_core::repository::{SearchHit, SearchResult};
 use objekte_search_core::streaming::{
     CancellationToken, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
 use objekte_search_core::workload::{ReturnMode, SortField};
+#[cfg(test)]
+use objekte_search_core::{lifecycle::Index, repository::Repository};
 use ratatui::layout::Rect;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
@@ -180,7 +183,7 @@ struct Update {
 
 /// Query inputs, page state, and terminal navigation for one repository.
 pub(super) struct App {
-    repo: Arc<Repository>,
+    repo: Arc<IndexedRepository>,
     pub(super) single_collection: bool,
     base_offset: usize,
     result_limit: Option<usize>,
@@ -244,10 +247,14 @@ pub(super) struct App {
 impl App {
     #[cfg(test)]
     pub(super) fn new(repository: Repository) -> Self {
-        Self::with_options(repository, TuiOptions::default())
+        let index = Index::from_repository(repository).unwrap();
+        Self::with_options(
+            IndexedRepository::new(index).unwrap(),
+            TuiOptions::default(),
+        )
     }
 
-    pub(super) fn with_options(repository: Repository, options: TuiOptions) -> Self {
+    pub(super) fn with_options(repository: IndexedRepository, options: TuiOptions) -> Self {
         let (sender, receiver) = mpsc::channel();
         let settings_path = if options.single_collection {
             repository.files().root.join(".objekte/.cache/obj-tui.json")
@@ -626,8 +633,8 @@ impl App {
     pub(super) fn diagnostic(
         &self,
         hit: &SearchHit,
-    ) -> Option<&objekte_search_core::inventory::SourceDiagnostic> {
-        self.repo.files().diagnostic(
+    ) -> Option<objekte_search_core::inventory::SourceDiagnostic> {
+        self.repo.diagnostic(
             objekte_search_core::model::FileId(hit.file_id),
             hit.diagnostic_ref,
         )

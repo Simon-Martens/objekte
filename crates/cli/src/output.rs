@@ -6,9 +6,10 @@ use std::time::Instant;
 
 use objekte_search_core::diagnostics::{milliseconds_3, signed_milliseconds_3};
 use objekte_search_core::inventory::{FileStatus, RecordClass};
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::FileId;
 use objekte_search_core::path_repr;
-use objekte_search_core::repository::{Payload, Repository, SearchHit};
+use objekte_search_core::repository::{Payload, SearchHit};
 use objekte_search_core::workload::WorkCounters;
 use serde::de::IgnoredAny;
 use serde_json::{Number, Value, json};
@@ -97,7 +98,7 @@ impl<W: Write> EventWriter<W> {
 
     pub fn emit_hit(
         &mut self,
-        repo: &Repository,
+        repo: &IndexedRepository,
         hit: &SearchHit,
         query_id: u64,
         position: usize,
@@ -121,9 +122,7 @@ impl<W: Write> EventWriter<W> {
         // validation failure from malformed JSON.
         let valid_json = hit.record_class == RecordClass::Logical
             || serde_json::from_slice::<IgnoredAny>(bytes).is_ok();
-        let diagnostic = repo
-            .files()
-            .diagnostic(FileId(hit.file_id), hit.diagnostic_ref);
+        let diagnostic = repo.diagnostic(FileId(hit.file_id), hit.diagnostic_ref);
         let mut event = json!({
             "protocol_version": PROTOCOL_VERSION,
             "type": "hit",

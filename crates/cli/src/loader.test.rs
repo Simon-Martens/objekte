@@ -1,6 +1,43 @@
 use super::*;
 
 #[test]
+fn configured_repository_uses_lifecycle_cache_for_load_and_write_flags() {
+    let root = tempfile::tempdir().unwrap();
+    let schemas = root.path().join(".objekte/collections");
+    std::fs::create_dir_all(&schemas).unwrap();
+    std::fs::create_dir(root.path().join("data")).unwrap();
+    std::fs::write(root.path().join("data/a.json"), br#"{"title":"A"}"#).unwrap();
+    std::fs::write(
+        schemas.join("data.schema.json"),
+        br#"{
+            "type":"object",
+            "properties":{"title":{"type":"string"}},
+            "x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}
+        }"#,
+    )
+    .unwrap();
+    let definition = || {
+        load_repository_configuration(root.path())
+            .unwrap()
+            .definitions
+    };
+    let options = RepositoryOptions::default();
+    let write = SnapshotOpenPolicy::new(SnapshotMode::Disabled, None);
+    let (built, _, save) =
+        open_repository(root.path(), definition(), options, write, true, true).unwrap();
+    assert!(!built.startup().restored);
+    assert!(save.is_some());
+    let cache = objekte_search_core::storage::snapshot_path(root.path(), options.bigram_alphabet);
+    assert!(cache.is_file());
+    let load = SnapshotOpenPolicy::new(SnapshotMode::Required, None);
+    let (restored, _, save) =
+        open_repository(root.path(), definition(), options, load, false, true).unwrap();
+    assert!(restored.startup().restored);
+    assert!(save.is_none());
+    restored.index().wait_for_reconciliation().unwrap();
+}
+
+#[test]
 fn repository_loader_matches_core_definitions_and_protects_schema_paths() {
     let root = tempfile::tempdir().unwrap();
     let schemas = root.path().join(".objekte/collections");

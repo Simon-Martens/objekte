@@ -6,9 +6,10 @@ use std::time::Instant;
 
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::path_repr;
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::{Repository, SnapshotAction};
+use objekte_search_core::repository::SnapshotAction;
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
@@ -81,9 +82,18 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         ),
     };
     let write = args.write_index.is_some();
+    let configured_repository = args.repo.is_some();
     let result = crate::tui::run_with_loader(
         move || {
-            open_repository(&root, definitions, options, policy, write).map(|(repo, _, _)| repo)
+            open_repository(
+                &root,
+                definitions,
+                options,
+                policy,
+                write,
+                configured_repository,
+            )
+            .map(|(repo, _, _)| repo)
         },
         ui,
     );
@@ -120,7 +130,7 @@ pub enum Exit {
 pub struct ExistingRun<'a> {
     pub args: &'a Arguments,
     pub paths: &'a ResolvedPaths,
-    pub repository: &'a Repository,
+    pub repository: &'a IndexedRepository,
     pub collections: &'a [String],
     pub schema_fields: usize,
     pub schema_files: &'a [PathBuf],
@@ -291,6 +301,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         options,
         policy,
         args.write_index.is_some(),
+        args.repo.is_some(),
     ) {
         Ok(result) => result,
         Err(message) => {
@@ -381,7 +392,7 @@ fn run_start_event(
 
 #[derive(Clone, Copy)]
 struct RunTail<'a> {
-    repo: &'a Repository,
+    repo: &'a IndexedRepository,
     args: &'a Arguments,
     started: &'a Instant,
     startup_ns: u128,
@@ -601,7 +612,7 @@ fn cancel_run<W: Write>(
 }
 
 fn execute_query<W: Write>(
-    repo: &Repository,
+    repo: &IndexedRepository,
     args: &Arguments,
     input: &QueryInput,
     prepared: Option<&PreparedQuery>,
