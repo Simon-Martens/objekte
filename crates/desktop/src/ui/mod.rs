@@ -105,6 +105,14 @@ impl DesktopView {
 
     /// Apply one controller-validated update; only bounded display data remains.
     pub fn apply(&mut self, update: UiUpdate, window: &mut Window, cx: &mut Context<Self>) {
+        if let UiUpdate::Clipboard(text) = update {
+            if std::env::var_os("WAYLAND_DISPLAY").is_some() {
+                std::thread::spawn(move || write_wayland_clipboard(text));
+            } else {
+                cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(text));
+            }
+            return;
+        }
         if let UiUpdate::Theme { dark } = &update {
             Theme::change(
                 if *dark {
@@ -252,5 +260,36 @@ impl DesktopView {
         if let Some(action) = action {
             self.send(action);
         }
+    }
+}
+
+
+/// GPUI's delayed clipboard writes stay internal on the tested headless Wayland
+/// seat. Mirror complete worker results to the system clipboard off the UI thread.
+fn write_wayland_clipboard(text: String) {
+    use std::io::Write as _;
+    use std::process::{Command, Stdio};
+
+    let result = (|| -> std::io::Result<()> {
+        let mut child = Command::new("wl-copy")
+            .arg("--type")
+            .arg("text/plain;charset=utf-8")
+            .stdin(Stdio::piped())
+            .stdout(Stdio::null())
+            .stderr(Stdio::piped())
+            .spawn()?;
+        if let Some(mut stdin) = child.stdin.take() {
+            stdin.write_all(text.as_bytes())?;
+        }
+        let output = child.wait_with_output()?;
+        if !output.status.success() {
+            return Err(std::io::Error::other(
+                String::from_utf8_lossy(&output.stderr).into_owned(),
+            ));
+        }
+        Ok(())
+    })();
+    if let Err(error) = result {
+        eprintln!("objekte desktop: Wayland clipboard update failed: {error}");
     }
 }

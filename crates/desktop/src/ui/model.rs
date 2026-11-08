@@ -414,6 +414,8 @@ pub enum UiUpdate {
         outcome: Option<String>,
     },
     Diagnostics(String),
+    /// Complete clipboard text; consumed by the window without entering bounded display state.
+    Clipboard(String),
     Status(String),
     Error {
         field: ErrorField,

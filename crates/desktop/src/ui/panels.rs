@@ -420,7 +420,12 @@ impl DesktopView {
                                 this.send(UiAction::ToggleRawSource);
                                 cx.notify();
                             }),
-                        ))
+                        )),
+                )
+                .child(
+                    div()
+                        .flex()
+                        .gap_1()
                         .child(
                             Button::new("copy-value")
                                 .label("Copy value")

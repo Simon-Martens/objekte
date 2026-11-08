@@ -8,7 +8,7 @@ use std::sync::mpsc::{self, Receiver, Sender};
 use std::thread;
 use std::time::{Duration, Instant};
 
-use gpui_kit::{App, ClipboardItem, PathPromptOptions};
+use gpui_kit::{App, PathPromptOptions};
 use objekte_cli::execution::Exit;
 use objekte_search_core::repository::SearchHit;
 use objekte_search_core::streaming::CancellationToken;
@@ -315,7 +315,7 @@ impl DesktopController {
                     .as_ref()
                     .and_then(|detail| detail.relations.get(index))
                 {
-                    cx.write_to_clipboard(ClipboardItem::new_string(relation.value.clone()));
+                    updates.push(UiUpdate::Clipboard(relation.value.clone()));
                     updates.push(UiUpdate::Status("Relation value copied".into()));
                 }
             }
@@ -350,14 +350,14 @@ impl DesktopController {
                                 });
                             }
                         } else {
-                            cx.write_to_clipboard(ClipboardItem::new_string(row.value.clone()));
+                            updates.push(UiUpdate::Clipboard(row.value.clone()));
                             updates.push(UiUpdate::Status("Selected value copied".into()));
                         }
                     } else if let Some(row) = detail
                         .relations
                         .get(detail.selected_row.saturating_sub(detail.structured.len()))
                     {
-                        cx.write_to_clipboard(ClipboardItem::new_string(row.value.clone()));
+                        updates.push(UiUpdate::Clipboard(row.value.clone()));
                         updates.push(UiUpdate::Status("Relation value copied".into()));
                     }
                 }
@@ -634,7 +634,7 @@ impl DesktopController {
         });
     }
 
-    fn complete(&mut self, event: WorkerEvent, cx: &mut App, updates: &mut Vec<UiUpdate>) {
+    fn complete(&mut self, event: WorkerEvent, _cx: &mut App, updates: &mut Vec<UiUpdate>) {
         match event {
             WorkerEvent::Opened { generation, result } if generation == self.open_generation => {
                 match *result {
@@ -863,7 +863,7 @@ impl DesktopController {
             {
                 match result {
                     Ok((value, message)) => {
-                        cx.write_to_clipboard(ClipboardItem::new_string(value));
+                        updates.push(UiUpdate::Clipboard(value));
                         updates.push(UiUpdate::Status(message));
                     }
                     Err(message) => updates.push(UiUpdate::Error {

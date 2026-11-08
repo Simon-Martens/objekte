@@ -169,6 +169,7 @@ impl UiState {
             UiUpdate::Diagnostics(diagnostics) => {
                 self.diagnostics = diagnostics.chars().take(16 * 1024).collect();
             }
+            UiUpdate::Clipboard(_) => {}
             UiUpdate::Status(status) => {
                 self.status = status;
                 self.busy = Busy::None;
