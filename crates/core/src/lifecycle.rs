@@ -1960,7 +1960,17 @@ impl IndexView {
         collection: &str,
         query: &Query,
     ) -> Result<crate::posting_values::ExactSelection, String> {
-        self.require_base_only("exact selection")?;
+        if self.has_segments() {
+            return crate::posting_values::select_exact_segmented(
+                self.repository(),
+                collection,
+                query,
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository()
             .select_exact_for_view(collection, query, self.revision(), &self.0.active)
     }
@@ -1969,7 +1979,16 @@ impl IndexView {
         &self,
         request: &crate::posting_values::PostingValuesRequest,
     ) -> Result<crate::posting_values::PostingValuesPage, String> {
-        self.require_base_only("posting values")?;
+        if self.has_segments() {
+            return crate::posting_values::posting_values_segmented(
+                self.repository(),
+                request,
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository()
             .posting_values_for_view(request, self.revision(), &self.0.active)
     }
