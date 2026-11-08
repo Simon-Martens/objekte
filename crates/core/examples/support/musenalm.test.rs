@@ -161,6 +161,29 @@ fn extended_schema_declares_only_annotated_id_relations() {
 }
 
 #[test]
+fn schema_manifest_digest_ignores_object_order_but_not_schema_changes() {
+    let schema = |document: &str| LoadedSchema {
+        collection: "example".into(),
+        path: "schema.json".into(),
+        schema: serde_json::from_str(document).unwrap(),
+        adapter: None,
+    };
+    let first = schema(r#"{"z":{"beta":2,"alpha":1},"a":[{"y":true,"x":false}]}"#);
+    let reordered = schema(r#"{"a":[{"x":false,"y":true}],"z":{"alpha":1,"beta":2}}"#);
+    let changed = schema(r#"{"a":[{"x":false,"y":true}],"z":{"alpha":1,"beta":3}}"#);
+
+    let first_manifest = schema_manifest(&[first]).unwrap();
+    let reordered_manifest = schema_manifest(&[reordered]).unwrap();
+    let changed_manifest = schema_manifest(&[changed]).unwrap();
+    assert_eq!(first_manifest["sha256"], reordered_manifest["sha256"]);
+    assert_eq!(
+        first_manifest["canonical_json"],
+        reordered_manifest["canonical_json"]
+    );
+    assert_ne!(first_manifest["sha256"], changed_manifest["sha256"]);
+}
+
+#[test]
 fn extended_schema_accepts_explicit_alias_on_nullable_array_item() {
     let document = serde_json::json!({
         "properties": {

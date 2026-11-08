@@ -176,7 +176,47 @@ pub fn load_extended_definitions(root: &Path) -> Result<Vec<CollectionDefinition
 }
 
 pub fn schema_manifest(schemas: &[LoadedSchema]) -> Result<serde_json::Value, String> {
-    let canonical_json = serde_json::to_string(schemas).map_err(|error| error.to_string())?;
+    // The desktop's GPUI dependency enables serde_json/preserve_order for
+    // workspace builds. Sort schema object keys explicitly so the provenance
+    // digest does not depend on which other crates Cargo builds alongside us.
+    #[derive(Serialize)]
+    struct CanonicalSchema<'a> {
+        collection: &'a str,
+        path: &'a str,
+        schema: serde_json::Value,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        adapter: Option<&'a str>,
+    }
+
+
+    fn sorted_objects(value: &serde_json::Value) -> serde_json::Value {
+        match value {
+            serde_json::Value::Object(fields) => {
+                let mut entries = fields.iter().collect::<Vec<_>>();
+                entries.sort_unstable_by(|(left, _), (right, _)| left.cmp(right));
+                let mut ordered = serde_json::Map::new();
+                for (key, value) in entries {
+                    ordered.insert(key.clone(), sorted_objects(value));
+                }
+                serde_json::Value::Object(ordered)
+            }
+            serde_json::Value::Array(values) => {
+                serde_json::Value::Array(values.iter().map(sorted_objects).collect())
+            }
+            _ => value.clone(),
+        }
+    }
+
+    let canonical = schemas
+        .iter()
+        .map(|item| CanonicalSchema {
+            collection: &item.collection,
+            path: &item.path,
+            schema: sorted_objects(&item.schema),
+            adapter: item.adapter.as_deref(),
+        })
+        .collect::<Vec<_>>();
+    let canonical_json = serde_json::to_string(&canonical).map_err(|error| error.to_string())?;
     let digest = Sha256::digest(canonical_json.as_bytes());
     Ok(serde_json::json!({
         "version": 1,
