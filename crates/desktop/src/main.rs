@@ -7,7 +7,7 @@ use objekte_desktop::controller::runtime::DesktopController;
 use objekte_desktop::ui::DesktopView;
 
 fn main() {
-    application().with_assets(assets::Assets).run(|cx| {
+    application().with_assets(assets::AllAssets).run(|cx| {
         init(cx);
         let (mut controller, actions) = DesktopController::new();
         let (window_handle, view) = open_window(

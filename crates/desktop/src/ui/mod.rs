@@ -185,6 +185,8 @@ impl DesktopView {
                 Some(window),
                 cx,
             );
+            self.builder_view
+                .update(cx, |builder, cx| builder.set_dark(*dark, cx));
         }
         if let UiUpdate::ChosenFolder {
             generation,
@@ -252,7 +254,14 @@ impl DesktopView {
             }
             _ => false,
         };
+        let inspected_record = matches!(&update, UiUpdate::Detail(Some(_)));
         self.state.apply(update);
+        if inspected_record
+            && self.state.inspector_visible
+            && f32::from(window.bounds().size.width) < 1100.
+        {
+            self.state.sidebar_visible = false;
+        }
         if reset_grid_scroll {
             self.grid_scroll.set_offset(point(px(0.), px(0.)));
         }

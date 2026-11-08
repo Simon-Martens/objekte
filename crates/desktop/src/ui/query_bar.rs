@@ -1,7 +1,7 @@
 //! GPUI controls for the optional synchronized filter builder.
 
 use gpui_kit::component::{
-    ActiveTheme as _, Disableable as _, Selectable as _,
+    Disableable as _, Selectable as _,
     button::{Button, ButtonVariants as _},
     checkbox::Checkbox,
     input::{Input, InputEvent, InputState},
@@ -36,6 +36,7 @@ struct RowInputs {
 
 /// Nonmodal helper; the surrounding search field owns the actual filter text.
 pub struct FilterBuilderView {
+    dark: bool,
     state: BuilderState,
     source_text: String,
     fields: Vec<FieldChoice>,
@@ -53,6 +54,7 @@ impl EventEmitter<BuilderEvent> for FilterBuilderView {}
 impl FilterBuilderView {
     pub fn new(window: &mut Window, cx: &mut Context<Self>) -> Self {
         let mut this = Self {
+            dark: true,
             state: BuilderState::from_text(""),
             source_text: String::new(),
             fields: Vec::new(),
@@ -83,6 +85,11 @@ impl FilterBuilderView {
     pub fn set_fields(&mut self, mut fields: Vec<FieldChoice>, cx: &mut Context<Self>) {
         fields.truncate(128);
         self.fields = fields;
+        cx.notify();
+    }
+
+    pub fn set_dark(&mut self, dark: bool, cx: &mut Context<Self>) {
+        self.dark = dark;
         cx.notify();
     }
 
@@ -302,8 +309,9 @@ impl Render for FilterBuilderView {
             BuilderStatus::Empty | BuilderStatus::Synchronized | BuilderStatus::Incomplete
         );
         div().id("filter-builder").w(px(560.)).max_h(px(320.)).p_3().gap_2().flex().flex_col()
-            .bg(cx.theme().popover).text_color(cx.theme().popover_foreground)
-            .border_1().border_color(cx.theme().border).rounded_md()
+            .bg(rgb(if self.dark { 0x1c1f24 } else { 0xffffff }))
+            .text_color(rgb(if self.dark { 0xe5e7eb } else { 0x172033 }))
+            .border_1().border_color(rgb(if self.dark { 0x30353c } else { 0xcbd5e1 })).rounded_md()
             .child(div().flex().items_center().gap_2()
                 .child(div().flex_1().child("Filter records"))
                 .child(Button::new("filter-builder-close").label("Close").on_click(cx.listener(|_, _, _, cx| cx.emit(BuilderEvent::Close)))))
@@ -460,12 +468,6 @@ impl DesktopView {
                         .flex()
                         .flex_col()
                         .gap_1()
-                        .on_mouse_down_out(cx.listener(|this, _, _, cx| {
-                            if this.state.show_filter_builder {
-                                this.state.show_filter_builder = false;
-                                cx.notify();
-                            }
-                        }))
                         .child(
                             div()
                                 .flex()
@@ -507,15 +509,6 @@ impl DesktopView {
                                     }),
                                 )),
                         )
-                        .when(self.state.show_filter_builder, |this| {
-                            this.child(
-                                div()
-                                    .absolute()
-                                    .top(px(38.))
-                                    .right(px(0.))
-                                    .child(self.builder_view.clone()),
-                            )
-                        })
                         .when(filter_error.is_some(), |this| {
                             this.child(
                                 div()
@@ -557,67 +550,85 @@ impl DesktopView {
             .when(self.state.showing_last_valid_results, |this| {
                 this.child(div().text_sm().child("Showing last valid results"))
             })
-            .when(self.show_query_options, |this| {
-                this.child(
-                    div()
-                        .id("query-options-popover")
-                        .absolute()
-                        .top(px(46.))
-                        .right(px(8.))
-                        .w(px(360.))
-                        .flex()
-                        .flex_col()
-                        .gap_2()
-                        .p_3()
-                        .bg(rgb(if dark { 0x1c1f24 } else { 0xffffff }))
-                        .border_1()
-                        .border_color(rgb(if dark { 0x30353c } else { 0xcbd5e1 }))
-                        .rounded_md()
-                        .on_mouse_down_out(cx.listener(|this, _, _, cx| {
-                            this.show_query_options = false;
-                            cx.notify();
-                        }))
-                        .child(
-                            div()
-                                .font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                                .child("Query options"),
-                        )
-                        .child(div().text_sm().child("Sort"))
-                        .child(
-                            Input::new(&self.inputs.sort)
-                                .id("sort-input")
-                                .w_full()
-                                .aria_label("Sort field"),
-                        )
-                        .child(div().text_sm().child("Offset"))
-                        .child(
-                            Input::new(&self.inputs.offset)
-                                .id("offset-input")
-                                .w_full()
-                                .aria_label("Result offset"),
-                        )
-                        .child(div().text_sm().child("Limit"))
-                        .child(
-                            Input::new(&self.inputs.limit)
-                                .id("limit-input")
-                                .w_full()
-                                .aria_label("Result limit"),
-                        )
-                        .child(
-                            Checkbox::new("query-exact-count")
-                                .accessibility_label("Exact count")
-                                .child(
-                                    div()
-                                        .text_color(rgb(if dark { 0xe2e8f0 } else { 0x172033 }))
-                                        .child("Exact count"),
-                                )
-                                .checked(self.state.search.count)
-                                .on_change(cx.listener(|this, checked: &bool, _, cx| {
-                                    this.state.search.count = *checked;
-                                    this.search_from_inputs(false, cx);
-                                })),
-                        ),
-                )
-            })
+    }
+
+    pub(super) fn render_query_options(&self, cx: &mut Context<Self>) -> impl IntoElement {
+        let dark = self.state.dark;
+        let right = if self.state.inspector_visible {
+            self.state.inspector_width + 8.
+        } else {
+            8.
+        };
+        div()
+            .id("query-options-popover")
+            .absolute()
+            .top(px(96.))
+            .right(px(right))
+            .w(px(360.))
+            .flex()
+            .flex_col()
+            .gap_2()
+            .p_3()
+            .bg(rgb(if dark { 0x1c1f24 } else { 0xffffff }))
+            .border_1()
+            .border_color(rgb(if dark { 0x30353c } else { 0xcbd5e1 }))
+            .rounded_md()
+            .on_mouse_down_out(cx.listener(|this, _, _, cx| {
+                this.show_query_options = false;
+                cx.notify();
+            }))
+            .child(
+                div()
+                    .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                    .child("Query options"),
+            )
+            .child(div().text_sm().child("Sort"))
+            .child(
+                Input::new(&self.inputs.sort)
+                    .id("sort-input")
+                    .w_full()
+                    .aria_label("Sort field"),
+            )
+            .child(div().text_sm().child("Offset"))
+            .child(
+                Input::new(&self.inputs.offset)
+                    .id("offset-input")
+                    .w_full()
+                    .aria_label("Result offset"),
+            )
+            .child(div().text_sm().child("Limit"))
+            .child(
+                Input::new(&self.inputs.limit)
+                    .id("limit-input")
+                    .w_full()
+                    .aria_label("Result limit"),
+            )
+            .child(
+                Checkbox::new("query-exact-count")
+                    .accessibility_label("Exact count")
+                    .child(
+                        div()
+                            .text_color(rgb(if dark { 0xe2e8f0 } else { 0x172033 }))
+                            .child("Exact count"),
+                    )
+                    .checked(self.state.search.count)
+                    .on_change(cx.listener(|this, checked: &bool, _, cx| {
+                        this.state.search.count = *checked;
+                        this.search_from_inputs(false, cx);
+                    })),
+            )
+    }
+
+    pub(super) fn render_builder_overlay(&self) -> impl IntoElement {
+        let right = if self.state.inspector_visible {
+            self.state.inspector_width + 8.
+        } else {
+            8.
+        };
+        div()
+            .absolute()
+            .top(px(150.))
+            .right(px(right))
+            .child(self.builder_view.clone())
     }
 }

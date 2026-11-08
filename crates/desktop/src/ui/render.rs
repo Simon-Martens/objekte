@@ -109,7 +109,7 @@ impl DesktopView {
                         .rounded_sm()
                         .bg(rgb(colors.raised))
                         .text_xs()
-                        .text_color(rgb(colors.secondary))
+                        .text_color(rgb(colors.accent))
                         .child("Read-only"),
                 )
             })
@@ -569,6 +569,32 @@ impl Render for DesktopView {
                     this.state.inspector_resize_origin = None;
                 }),
             )
+            .on_mouse_down(
+                gpui_kit::MouseButton::Left,
+                cx.listener(|this, event: &gpui_kit::MouseDownEvent, window, cx| {
+                    if !this.state.show_filter_builder {
+                        return;
+                    }
+                    let x = f32::from(event.position.x);
+                    let y = f32::from(event.position.y);
+                    let width = f32::from(window.bounds().size.width);
+                    let sidebar = if this.state.sidebar_visible { 220. } else { 0. };
+                    let right = if this.state.inspector_visible {
+                        this.state.inspector_width + 8.
+                    } else {
+                        8.
+                    };
+                    let in_filter_line =
+                        (95.0..180.0).contains(&y) && x >= sidebar + 12. && x <= width - right;
+                    let in_builder = (150.0..470.0).contains(&y)
+                        && x >= width - right - 560.
+                        && x <= width - right;
+                    if !in_filter_line && !in_builder {
+                        this.state.show_filter_builder = false;
+                        cx.notify();
+                    }
+                }),
+            )
             .on_key_down(
                 cx.listener(|this, event: &gpui_kit::KeyDownEvent, window, cx| {
                     let key = event.keystroke.key.as_str();
@@ -648,6 +674,12 @@ impl Render for DesktopView {
                         |this| this.child(self.render_detail(cx)),
                     ),
             )
+            .when(self.show_query_options, |this| {
+                this.child(self.render_query_options(cx))
+            })
+            .when(self.state.show_filter_builder, |this| {
+                this.child(self.render_builder_overlay())
+            })
             .when(self.state.show_actions, |this| {
                 this.child(self.render_actions(cx))
             })

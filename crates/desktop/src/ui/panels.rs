@@ -1,5 +1,6 @@
 //! Ordinary controls for opening, inspection, history, and output actions.
 
+use gpui_kit::assets::IconName as AssetIconName;
 use gpui_kit::component::{
     Disableable as _, IconName, Selectable as _,
     button::{Button, ButtonVariants},
@@ -675,22 +676,62 @@ impl DesktopView {
             .overflow_y_scrollbar();
         match kind {
             ActionPanel::Menu => {
-                for (id, label, next) in [
-                    ("menu-history", "History", ActionPanel::History),
-                    ("menu-saved", "Saved queries", ActionPanel::Saved),
-                    ("menu-save", "Save current query…", ActionPanel::SaveQuery),
-                    ("menu-columns", "Columns…", ActionPanel::Columns),
-                    ("menu-export", "Export…", ActionPanel::Export),
-                    ("menu-index", "Index…", ActionPanel::Index),
-                    ("menu-diagnostics", "Diagnostics", ActionPanel::Diagnostics),
+                for (id, label, icon, next) in [
+                    (
+                        "menu-history",
+                        "History",
+                        AssetIconName::Clock,
+                        ActionPanel::History,
+                    ),
+                    (
+                        "menu-saved",
+                        "Saved queries",
+                        AssetIconName::Bookmark,
+                        ActionPanel::Saved,
+                    ),
+                    (
+                        "menu-save",
+                        "Save current query…",
+                        AssetIconName::Bookmark,
+                        ActionPanel::SaveQuery,
+                    ),
+                    (
+                        "menu-columns",
+                        "Columns…",
+                        AssetIconName::PanelLeft,
+                        ActionPanel::Columns,
+                    ),
+                    (
+                        "menu-export",
+                        "Export…",
+                        AssetIconName::ArrowRight,
+                        ActionPanel::Export,
+                    ),
+                    (
+                        "menu-index",
+                        "Index…",
+                        AssetIconName::HardDrive,
+                        ActionPanel::Index,
+                    ),
+                    (
+                        "menu-diagnostics",
+                        "Diagnostics",
+                        AssetIconName::Info,
+                        ActionPanel::Diagnostics,
+                    ),
                 ] {
-                    content =
-                        content.child(Button::new(id).ghost().w_full().label(label).on_click(
-                            cx.listener(move |this, _, _, cx| {
+                    content = content.child(
+                        Button::new(id)
+                            .ghost()
+                            .w_full()
+                            .icon(icon)
+                            .accessibility_label(label)
+                            .child(div().w_full().text_left().child(label))
+                            .on_click(cx.listener(move |this, _, _, cx| {
                                 this.state.action_panel = next;
                                 cx.notify();
-                            }),
-                        ));
+                            })),
+                    );
                 }
                 content = content
                     .child(
@@ -698,7 +739,8 @@ impl DesktopView {
                             .ghost()
                             .w_full()
                             .icon(IconName::SquareTerminal)
-                            .label("Run query batch…")
+                            .accessibility_label("Run query batch")
+                            .child(div().w_full().text_left().child("Run query batch…"))
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_actions = false;
                                 this.state.show_batch = true;
@@ -714,11 +756,16 @@ impl DesktopView {
                             } else {
                                 IconName::Moon
                             })
-                            .label(if self.state.dark {
+                            .accessibility_label(if self.state.dark {
                                 "Light theme"
                             } else {
                                 "Dark theme"
                             })
+                            .child(div().w_full().text_left().child(if self.state.dark {
+                                "Light theme"
+                            } else {
+                                "Dark theme"
+                            }))
                             .on_click(cx.listener(|this, _, window, cx| {
                                 this.state.dark = !this.state.dark;
                                 gpui_kit::component::Theme::change(
@@ -733,6 +780,9 @@ impl DesktopView {
                                 this.send(UiAction::SetTheme {
                                     dark: this.state.dark,
                                 });
+                                this.builder_view.update(cx, |builder, cx| {
+                                    builder.set_dark(this.state.dark, cx)
+                                });
                                 this.state.show_actions = false;
                                 cx.notify();
                             })),
@@ -742,7 +792,8 @@ impl DesktopView {
                             .ghost()
                             .w_full()
                             .icon(IconName::Info)
-                            .label("Help and shortcuts")
+                            .accessibility_label("Help and shortcuts")
+                            .child(div().w_full().text_left().child("Help and shortcuts"))
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_help = true;
                                 this.state.show_actions = false;
