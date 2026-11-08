@@ -9,7 +9,7 @@ use std::path::Path;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Condvar, Mutex, RwLock};
 use std::thread::JoinHandle;
-use std::time::SystemTime;
+use std::time::{Duration, Instant, SystemTime};
 
 use serde::{Deserialize, Serialize};
 
@@ -188,11 +188,14 @@ pub struct DeleteResult {
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct ReconciliationReport {
     pub examined: usize,
+    pub planned_changes: usize,
     pub unchanged: usize,
     pub added: usize,
     pub updated: usize,
     pub removed: usize,
     pub skipped: usize,
+    pub indexed_bytes: u64,
+    pub duration: Duration,
     pub cancelled: bool,
     pub issues: Vec<String>,
 }
@@ -668,6 +671,7 @@ struct MaintenanceState {
 
 struct ReconciliationJob {
     cancelled: AtomicBool,
+    progress: Mutex<ReconciliationReport>,
     result: Mutex<Option<ReconciliationReport>>,
     complete: Condvar,
     worker: Mutex<Option<JoinHandle<()>>>,
@@ -689,6 +693,15 @@ impl ReconciliationTask {
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?
             .is_some())
+    }
+
+    pub fn progress(&self) -> Result<ReconciliationReport, IndexError> {
+        Ok(self
+            .0
+            .progress
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .clone())
     }
 
     pub fn wait(&self) -> Result<ReconciliationReport, IndexError> {
@@ -788,6 +801,7 @@ impl Index {
         }
         let job = Arc::new(ReconciliationJob {
             cancelled: AtomicBool::new(false),
+            progress: Mutex::new(ReconciliationReport::default()),
             result: Mutex::new(None),
             complete: Condvar::new(),
             worker: Mutex::new(None),
@@ -801,12 +815,22 @@ impl Index {
                     maintenance.reconciliation = ReconciliationState::Running;
                 }
                 let report = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                    owner.reconcile_pass(|| worker_job.cancelled.load(Ordering::Acquire))
+                    owner.reconcile_pass_with_progress(
+                        || worker_job.cancelled.load(Ordering::Acquire),
+                        |progress| {
+                            if let Ok(mut observed) = worker_job.progress.lock() {
+                                *observed = progress.clone();
+                            }
+                        },
+                    )
                 }))
                 .unwrap_or_else(|_| ReconciliationReport {
                     issues: vec!["reconciliation worker panicked".into()],
                     ..ReconciliationReport::default()
                 });
+                if let Ok(mut observed) = worker_job.progress.lock() {
+                    *observed = report.clone();
+                }
                 let state = if report.cancelled {
                     ReconciliationState::Cancelled
                 } else if report.issues.is_empty() {
@@ -1030,13 +1054,24 @@ impl Index {
     /// this outside query threads; an unchanged pass does not read content or
     /// publish a new data revision.
     pub(crate) fn reconcile_pass(&self, cancelled: impl Fn() -> bool) -> ReconciliationReport {
+        self.reconcile_pass_with_progress(cancelled, |_| {})
+    }
+
+    fn reconcile_pass_with_progress(
+        &self,
+        cancelled: impl Fn() -> bool,
+        mut on_progress: impl FnMut(&ReconciliationReport),
+    ) -> ReconciliationReport {
         use crate::lifecycle_scan::{ScanChange, plan_scan, scan_sources};
 
+        let started = Instant::now();
         let mut report = ReconciliationReport::default();
         let snapshot = match self.view() {
             Ok(snapshot) => snapshot,
             Err(error) => {
                 report.issues.push(error.to_string());
+                report.duration = started.elapsed();
+                on_progress(&report);
                 return report;
             }
         };
@@ -1059,11 +1094,20 @@ impl Index {
         let plan = plan_scan(&prior, &scan);
         report.unchanged = plan.unchanged;
         report.skipped = plan.skipped;
+        report.planned_changes = plan.changes.len();
+        report.duration = started.elapsed();
+        on_progress(&report);
         for change in plan.changes {
             if cancelled() {
                 report.cancelled = true;
                 break;
             }
+            let bytes = match &change {
+                ScanChange::Add(observed) | ScanChange::Update { observed, .. } => {
+                    observed.revision.size
+                }
+                ScanChange::Remove(_) => 0,
+            };
             let path = match &change {
                 ScanChange::Add(observed) | ScanChange::Remove(observed) => &observed.path,
                 ScanChange::Update { observed, .. } => &observed.path,
@@ -1112,17 +1156,24 @@ impl Index {
                     ),
             };
             match outcome {
-                Ok(()) => match scan.files.get(&path) {
-                    Some(_) if prior.contains_key(&path) => report.updated += 1,
-                    Some(_) => report.added += 1,
-                    None => report.removed += 1,
-                },
+                Ok(()) => {
+                    report.indexed_bytes = report.indexed_bytes.saturating_add(bytes);
+                    match scan.files.get(&path) {
+                        Some(_) if prior.contains_key(&path) => report.updated += 1,
+                        Some(_) => report.added += 1,
+                        None => report.removed += 1,
+                    }
+                }
                 Err(error) => {
                     report.skipped += 1;
                     report.issues.push(format!("{}: {error}", path.display()));
                 }
             }
+            report.duration = started.elapsed();
+            on_progress(&report);
         }
+        report.duration = started.elapsed();
+        on_progress(&report);
         report
     }
 

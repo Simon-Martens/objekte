@@ -398,12 +398,20 @@ fn reconciliation_applies_metadata_changes_without_revising_unchanged_files() {
     std::fs::write(&added, b"{\"name\":\"b\"}\n").unwrap();
     let report = index.reconcile_pass(|| false);
     assert_eq!((report.added, report.updated, report.removed), (1, 0, 0));
+    assert_eq!(
+        report.indexed_bytes,
+        std::fs::metadata(&added).unwrap().len()
+    );
     assert!(report.issues.is_empty(), "{:?}", report.issues);
     assert_eq!(index.status().unwrap().indexed_files, 2);
 
     std::fs::write(&original, b"{\"name\":\"replacement\"}\n").unwrap();
     let report = index.reconcile_pass(|| false);
     assert_eq!((report.added, report.updated, report.removed), (0, 1, 0));
+    assert_eq!(
+        report.indexed_bytes,
+        std::fs::metadata(&original).unwrap().len()
+    );
     assert!(report.issues.is_empty(), "{:?}", report.issues);
     assert_eq!(index.status().unwrap().live_records, 2);
 
@@ -442,6 +450,7 @@ fn background_reconciliation_reports_completion_and_joins() {
     assert_eq!(report.unchanged, 1);
     assert!(report.issues.is_empty());
     assert!(task.is_complete().unwrap());
+    assert_eq!(task.progress().unwrap(), report);
     assert_eq!(index.status().unwrap().revision, before.revision);
     assert_eq!(
         index.status().unwrap().reconciliation,
