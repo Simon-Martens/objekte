@@ -336,3 +336,40 @@ fn status_codes_and_diagnostic_bounds_are_stable() {
     files.files[0].diagnostics[0].collection = CollectionId(1);
     assert!(files.validate_diagnostics().is_err());
 }
+
+#[test]
+fn published_file_versions_change_only_the_selected_chunk() {
+    let first = FileVersions::initial(1025);
+    let (second, version) = first.advanced(FileId(1024)).unwrap();
+    assert_eq!(version, FileVersion(2));
+    assert_eq!(first.get(FileId(1024)), Some(FileVersion::INITIAL));
+    assert_eq!(second.get(FileId(1024)), Some(FileVersion(2)));
+    assert_eq!(second.get(FileId(0)), Some(FileVersion::INITIAL));
+    assert_eq!(second.get(FileId(1025)), None);
+    let third = second.appended().unwrap();
+    assert_eq!(third.get(FileId(1025)), Some(FileVersion::INITIAL));
+    assert_eq!(second.get(FileId(1025)), None);
+}
+
+#[test]
+fn published_active_records_keep_old_view_and_cross_chunk_boundaries() {
+    let first = ActiveRecords::all(65_538).unwrap();
+    let second = first
+        .retired(&[RecordSlot(0), RecordSlot(65_536), RecordSlot(65_536)])
+        .unwrap();
+    assert_eq!(first.len(), 65_538);
+    assert_eq!(second.len(), 65_536);
+    assert!(first.contains(RecordSlot(0)));
+    assert!(first.contains(RecordSlot(65_536)));
+    assert!(!second.contains(RecordSlot(0)));
+    assert!(!second.contains(RecordSlot(65_536)));
+    assert_eq!(second.slot_count(), 65_538);
+    let third = second.appended(2).unwrap();
+    assert_eq!(third.slot_count(), 65_540);
+    assert_eq!(third.len(), 65_538);
+    assert!(third.contains(RecordSlot(65_538)));
+    assert!(third.contains(RecordSlot(65_539)));
+    assert!(!third.contains(RecordSlot(65_536)));
+    assert_eq!(third.bitmap().len(), third.len());
+    assert!(second.retired(&[RecordSlot(65_538)]).is_err());
+}
