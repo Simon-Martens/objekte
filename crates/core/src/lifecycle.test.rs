@@ -262,6 +262,17 @@ fn one_file_preparation_selects_shared_collections_without_publishing() {
     assert_eq!(prepared.file.source.id, FileId(1));
     assert_eq!(prepared.file.collections.len(), 2);
     assert!(prepared.file.fingerprint.is_some());
+    let staged = index.stage_prepared_add(prepared).unwrap();
+    assert_eq!(staged.status().indexed_files, 2);
+    assert_eq!(staged.status().live_records, 6);
+    assert_eq!(staged.segments[0].len(), 1);
+    assert_eq!(staged.segments[1].len(), 1);
+    assert_eq!(staged.segments[0][0].ordinal, 1);
+    assert_eq!(staged.segments[1][0].ordinal, 2);
+    assert_eq!(
+        staged.catalog.id_for(std::path::Path::new("data/b.jsonl")),
+        Some(FileId(1))
+    );
     assert_eq!(index.status().unwrap(), before);
     std::fs::remove_dir_all(root).unwrap();
 }

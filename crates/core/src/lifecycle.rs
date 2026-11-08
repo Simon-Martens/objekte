@@ -12,11 +12,11 @@ use std::time::SystemTime;
 use serde::{Deserialize, Serialize};
 
 use crate::build::{
-    FilePreparationBinding, IndexedCollectionSegment, PreparedFileBuild, SourceFileInput,
-    prepare_file_build,
+    FilePreparationBinding, IndexedCollectionSegment, PreparedFileBuild, SegmentAdmission,
+    SourceFileInput, prepare_file_build,
 };
 use crate::discovery::selects_file;
-use crate::inventory::{ActiveRecords, FileVersions};
+use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{CollectionId, FileId, RecordSlot};
 use crate::query::Query;
@@ -491,6 +491,106 @@ impl Index {
             configuration_identity: view.configuration_identity(),
             file,
         })
+    }
+
+    /// Build all affected collection segments and metadata privately. This
+    /// returns an unpublished root; its captured revision must still be
+    /// checked by the mutation writer before the eventual root swap.
+    pub(crate) fn stage_prepared_add(
+        &self,
+        prepared: PreparedAdd,
+    ) -> Result<PublishedIndex, IndexError> {
+        let view = self.view()?;
+        if view.revision() != prepared.expected_revision {
+            return Err(IndexError::RevisionConflict {
+                expected: prepared.expected_revision,
+                actual: view.revision(),
+            });
+        }
+        if view.configuration_identity() != prepared.configuration_identity {
+            return Err(IndexError::IncompatibleConfiguration(
+                "configuration changed during file preparation".into(),
+            ));
+        }
+        if view.0.catalog.allocated_files() != prepared.file.source.id.0 as usize {
+            return Err(IndexError::InvalidPublication(
+                "prepared file ID is no longer next".into(),
+            ));
+        }
+        if view
+            .0
+            .catalog
+            .id_for(&prepared.file.source.relative_path)
+            .is_some()
+        {
+            return Err(IndexError::DestinationExists);
+        }
+        let repository = view.repository();
+        let options = repository.options();
+        let source = prepared.file.source;
+        let fingerprint = prepared.file.fingerprint;
+        let mut indexed = Vec::with_capacity(prepared.file.collections.len());
+        for collection in prepared.file.collections {
+            let state = repository
+                .collections()
+                .get(collection.collection.0 as usize)
+                .ok_or_else(|| IndexError::InvalidPublication("collection missing".into()))?;
+            let mut admission = SegmentAdmission::new(collection.collection, &state.source);
+            admission
+                .admit(&source, collection)
+                .map_err(IndexError::Build)?;
+            indexed.push(
+                admission
+                    .seal()
+                    .into_indexed(
+                        &state.definition,
+                        options.bigram_alphabet,
+                        options.inference,
+                        repository.collections().len(),
+                        &repository.workers,
+                    )
+                    .map_err(IndexError::Build)?,
+            );
+        }
+        let memberships = indexed.iter().map(|segment| segment.collection).collect();
+        let mut entry = FileEntry {
+            id: source.id,
+            relative_path: source.relative_path,
+            revision: source.revision,
+            created_ns: source.created_ns,
+            collections: memberships,
+            status: FileStatus::Valid,
+            diagnostics: Vec::new(),
+            omitted_diagnostics: 0,
+        };
+        for segment in &indexed {
+            let file = segment.file(source.id).ok_or_else(|| {
+                IndexError::InvalidPublication("segment file entry missing".into())
+            })?;
+            entry.status = entry.status.max(file.entry.status);
+            entry.omitted_diagnostics = entry
+                .omitted_diagnostics
+                .saturating_add(file.entry.omitted_diagnostics);
+            for diagnostic in &file.entry.diagnostics {
+                entry
+                    .record_diagnostic(diagnostic.clone())
+                    .map_err(IndexError::InvalidPublication)?;
+            }
+        }
+        let mut next = (*view.0).clone();
+        next.catalog = next
+            .catalog
+            .appended(entry, fingerprint, Some(prepared.configuration_identity))
+            .map_err(IndexError::InvalidPublication)?;
+        next.file_versions = next
+            .file_versions
+            .appended()
+            .map_err(IndexError::ResourceLimit)?;
+        for segment in indexed {
+            next = next.with_segment(segment)?;
+        }
+        next.revision = view.revision().next()?;
+        Ok(next)
     }
 
     /// Retire all records owned by one file across its collections in one
