@@ -409,6 +409,28 @@ verified physical removal and compatible single-record slot preservation;
 otherwise the update safely uses tombstones and a new segment. The details
 and source revision limitations are in [runtime file index maintenance](future-whole-file-replacement.md).
 
+`start_compaction()` and `start_rebuild()` run the same maintenance on worker
+threads. Their task handles expose progress, cancellation, completion and
+`wait()`. Cancellation before publication retains the current view. A
+concurrent mutation causes bounded maintenance retries; `shutdown()` cancels
+and joins active maintenance and reconciliation workers. Compaction admits at
+most 262,144 scanned records per collection and returns a resource limit error
+if it cannot stay within that bound.
+
+`IndexView::search` returns an incomplete result with bounded source
+diagnostics when a required file is missing, changed or has an unusable range.
+Its `count` is then `None`; `search_strict` and `count_exact` return an error
+instead. `get_record_available` distinguishes an absent ID from an unavailable
+source. Source failures request a coalesced reconciliation pass. Streams report
+the same incompleteness in their terminal summary. A pinned view still
+describes its captured index revision, not a live filesystem snapshot.
+
+Fresh builds capture file digests during indexing reads. Lifecycle caches
+persist those digests so an old-content hint can be verified after restoration
+without rereading unchanged source files. Verified base maintenance may do
+collection-sized source-free compaction before one atomic publication; ordinary
+updates and deletes retain the sparse appended and tombstone strategy.
+
 The archived implementation under `deprecated/crates/core/` was inspected for query,
 bigram, and ICU behavior. The new record-slot storage, source ownership, and
 index implementations were written for this workspace; no archived crate is
