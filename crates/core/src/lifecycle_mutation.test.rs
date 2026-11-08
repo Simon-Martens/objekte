@@ -39,6 +39,67 @@ fn index(root: &std::path::Path) -> Index {
 }
 
 #[test]
+fn final_mutated_view_matches_independent_fresh_build() {
+    let root = test_root("fresh-oracle");
+    let first = root.join("data/first.jsonl");
+    let second = root.join("data/second.jsonl");
+    std::fs::write(&first, b"{\"name\":\"old-a\"}\n{\"name\":\"old-b\"}\n").unwrap();
+    std::fs::write(&second, b"{\"name\":\"second\"}\n").unwrap();
+    let live = index(&root);
+    let original = live.view().unwrap();
+    let first_handle = original.file_handle_for_path(&first).unwrap();
+    let second_handle = original.file_handle_for_path(&second).unwrap();
+    let third = root.join("data/third.jsonl");
+    std::fs::write(&third, b"{\"name\":\"third\"}\n").unwrap();
+    let third_handle = live.add_file(&third).unwrap().file;
+    std::fs::write(&first, b"{\"name\":\"new-a\"}\n").unwrap();
+    live.update_file(first_handle, &first).unwrap();
+    let moved = root.join("data/moved.jsonl");
+    std::fs::rename(&second, &moved).unwrap();
+    live.move_file(second_handle, &moved).unwrap();
+    std::fs::remove_file(&third).unwrap();
+    live.delete_file(third_handle).unwrap();
+    live.compact().unwrap();
+
+    let fresh = index(&root);
+    let query = Query {
+        collections: vec!["items".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 100,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Bytes,
+            evidence: false,
+        },
+    };
+    let actual = live.view().unwrap().search(&query).unwrap();
+    let expected = fresh.view().unwrap().search(&query).unwrap();
+    assert_eq!(actual.count, expected.count);
+    let rows = |result: crate::repository::SearchResult| {
+        result
+            .hits
+            .into_iter()
+            .map(|hit| {
+                (
+                    hit.collection,
+                    hit.record_id,
+                    hit.file_path,
+                    hit.file_status,
+                    hit.payload,
+                )
+            })
+            .collect::<Vec<_>>()
+    };
+    assert_eq!(rows(actual), rows(expected));
+    live.shutdown().unwrap();
+    fresh.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn public_mutations_add_update_move_and_preserve_version_conflicts() {
     let root = test_root("path");
     let index = index(&root);
@@ -273,7 +334,10 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
         Some(Sha256::digest(old).into())
     );
     assert_eq!(
-        pinned.repository().collections()[0].generation.records.len(),
+        pinned.repository().collections()[0]
+            .generation
+            .records
+            .len(),
         1
     );
     let unchanged = index.update_file(handle, &path).unwrap();
@@ -298,12 +362,18 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
     assert_eq!(updated.fallback_reason, None);
     let current = index.view().unwrap();
     assert_eq!(
-        current.repository().collections()[0].generation.records.len(),
+        current.repository().collections()[0]
+            .generation
+            .records
+            .len(),
         0
     );
     assert_eq!(current.segments(CollectionId(0)).unwrap().len(), 1);
     assert_eq!(
-        pinned.repository().collections()[0].generation.records.len(),
+        pinned.repository().collections()[0]
+            .generation
+            .records
+            .len(),
         1
     );
     assert_eq!(pinned.segments(CollectionId(0)).unwrap().len(), 0);
@@ -312,7 +382,11 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
     index.flush_cache(&cache).unwrap();
     let loaded = Index::load_cache(
         &root,
-        vec![CollectionDefinition::folder("items", "data", SourceFormat::JsonLines)],
+        vec![CollectionDefinition::folder(
+            "items",
+            "data",
+            SourceFormat::JsonLines,
+        )],
         RepositoryOptions::default(),
         &cache,
     )
@@ -342,13 +416,19 @@ fn fresh_base_verified_delete_reclaims_base_without_reading_source() {
     assert_eq!(deleted.fallback_reason, None);
     let current = index.view().unwrap();
     assert_eq!(
-        current.repository().collections()[0].generation.records.len(),
+        current.repository().collections()[0]
+            .generation
+            .records
+            .len(),
         0
     );
     assert!(current.segments(CollectionId(0)).unwrap().is_empty());
     assert_eq!(index.status().unwrap().live_records, 0);
     assert_eq!(
-        pinned.repository().collections()[0].generation.records.len(),
+        pinned.repository().collections()[0]
+            .generation
+            .records
+            .len(),
         1
     );
     assert!(!path.exists());
