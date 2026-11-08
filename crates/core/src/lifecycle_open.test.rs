@@ -131,3 +131,66 @@ fn lifecycle_cache_restores_segments_and_excludes_its_own_source_path() {
     assert!(!restored.status().unwrap().dirty());
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn automatic_cache_writer_coalesces_mutations_and_saves_latest_revision() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-sync-cache-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.jsonl"), b"{\"name\":\"a\"}\n").unwrap();
+    let definitions = vec![CollectionDefinition::folder(
+        "data",
+        "data",
+        SourceFormat::JsonLines,
+    )];
+    let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    let cache = root.join("cache.snapshot");
+    index
+        .select_cache_destination(&cache, None, Vec::new())
+        .unwrap();
+    index.enable_sync_cache().unwrap();
+    for name in ["b", "c"] {
+        let path = root.join(format!("data/{name}.jsonl"));
+        std::fs::write(&path, format!("{{\"name\":\"{name}\"}}\n")).unwrap();
+        let prepared = index.prepare_add_file(&path).unwrap();
+        let expected = prepared.expected_revision;
+        index
+            .publish_prepared(expected, index.stage_prepared_add(prepared).unwrap())
+            .unwrap();
+    }
+    index.stop_sync_cache().unwrap();
+    assert_eq!(index.sync_cache_error().unwrap(), None);
+    assert_eq!(
+        index.status().unwrap().saved_revision,
+        Some(index.view().unwrap().revision())
+    );
+    let restored =
+        Index::load_cache(&root, definitions, RepositoryOptions::default(), &cache).unwrap();
+    assert_eq!(
+        restored
+            .view()
+            .unwrap()
+            .search(&Query {
+                collections: vec!["data".into()],
+                fts: None,
+                filter: None,
+                options: QueryOptions {
+                    sort: Vec::new(),
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: false,
+                },
+            })
+            .unwrap()
+            .count,
+        Some(3)
+    );
+    restored.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
