@@ -1557,10 +1557,26 @@ impl Index {
     /// publication. This changes index state only, and requires no source
     /// content or source-file I/O. A later scan can add a still-present file.
     pub fn delete_file(&self, handle: FileHandle) -> Result<DeleteResult, IndexError> {
+        let _writer = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
+        let (expected, next, retired_records, affected_collections) =
+            self.stage_prepared_delete(handle)?;
+        let revision = self.publish_prepared(expected, next)?;
+        Ok(DeleteResult {
+            revision,
+            file: handle.file_id,
+            retired_records,
+            affected_collections,
+            strategy: DeleteStrategy::Tombstone,
+        })
+    }
+
+    pub(crate) fn stage_prepared_delete(
+        &self,
+        handle: FileHandle,
+    ) -> Result<(IndexRevision, PublishedIndex, u64, Vec<String>), IndexError> {
         if handle.instance_id != self.instance_id() {
             return Err(IndexError::ForeignInstance);
         }
-        let _writer = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
         let current = self.view()?;
         let actual = current
             .0
@@ -1604,14 +1620,12 @@ impl Index {
             .map_err(IndexError::ResourceLimit)?
             .0;
         next.revision = current.revision().next()?;
-        let revision = self.publish_prepared(current.revision(), next)?;
-        Ok(DeleteResult {
-            revision,
-            file: handle.file_id,
+        Ok((
+            current.revision(),
+            next,
             retired_records,
             affected_collections,
-            strategy: DeleteStrategy::Tombstone,
-        })
+        ))
     }
 
     /// Install a fully prepared root only if its captured predecessor is
