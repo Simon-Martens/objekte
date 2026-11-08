@@ -18,8 +18,8 @@ use std::sync::mpsc::Sender;
 use gpui_kit::component::input::{InputEvent, InputState, TextareaState};
 use gpui_kit::component::{Theme, ThemeMode};
 use gpui_kit::{
-    AppContext as _, Context, Entity, FocusHandle, Focusable as _, ScrollHandle, Subscription,
-    Window, point, px,
+    AppContext as _, Context, Entity, FocusHandle, Focusable as _, ListAlignment, ListState,
+    ScrollHandle, Subscription, Window, px,
 };
 
 use model::{SearchDraft, UiAction, UiUpdate};
@@ -54,7 +54,7 @@ pub struct DesktopView {
     renaming_saved: Option<u64>,
     focused_saved: Option<u64>,
     grid_focus: FocusHandle,
-    grid_scroll: ScrollHandle,
+    grid_list: ListState,
     grid_horizontal_scroll: ScrollHandle,
     detail_focus: FocusHandle,
     restoring_query: bool,
@@ -140,6 +140,14 @@ impl DesktopView {
             status: "Open a folder or configured repository to begin".into(),
             ..UiState::default()
         };
+        let grid_list = ListState::new(0, ListAlignment::Top, px(180.));
+        let visible_actions = actions.clone();
+        grid_list.set_scroll_handler(move |event, _, _| {
+            let _ = visible_actions.send(UiAction::VisibleRows {
+                start: event.visible_range.start,
+                end: event.visible_range.end,
+            });
+        });
         Self {
             actions,
             state,
@@ -149,7 +157,7 @@ impl DesktopView {
             renaming_saved: None,
             focused_saved: None,
             grid_focus: cx.focus_handle(),
-            grid_scroll: ScrollHandle::new(),
+            grid_list,
             grid_horizontal_scroll: ScrollHandle::new(),
             detail_focus: cx.focus_handle(),
             restoring_query: false,
@@ -227,25 +235,23 @@ impl DesktopView {
             self.builder_view
                 .update(cx, |builder, cx| builder.set_fields(fields.clone(), cx));
         }
-        let reset_grid_scroll = match &update {
-            UiUpdate::QueryStarted(_) => true,
-            UiUpdate::Page(page) => {
-                page.offset != self.state.page.offset
-                    || page.rows.first().map(|row| row.key.token)
-                        != self.state.page.rows.first().map(|row| row.key.token)
-            }
-            _ => false,
-        };
+        let reset_grid_scroll = matches!(&update, UiUpdate::QueryStarted(_) | UiUpdate::Page(_));
+        let old_count = self.state.loaded_count;
+        let append = matches!(&update, UiUpdate::AppendPage(_));
         let inspected_record = matches!(&update, UiUpdate::Detail(Some(_)));
         self.state.apply(update);
+        if reset_grid_scroll {
+            self.grid_list
+                .reset_with_uniform_height(self.state.loaded_count, px(30.));
+        } else if append && self.state.loaded_count > old_count {
+            self.grid_list
+                .splice(old_count..old_count, self.state.loaded_count - old_count);
+        }
         if inspected_record
             && self.state.inspector_visible
             && f32::from(window.bounds().size.width) < 1100.
         {
             self.state.sidebar_visible = false;
-        }
-        if reset_grid_scroll {
-            self.grid_scroll.set_offset(point(px(0.), px(0.)));
         }
         self.restoring_query = false;
         cx.notify();
@@ -357,7 +363,7 @@ impl DesktopView {
     }
 
     fn select_relative(&mut self, delta: isize, cx: &mut Context<Self>) {
-        let len = self.state.page.rows.len();
+        let len = self.state.loaded_count;
         if len == 0 {
             return;
         }
@@ -366,20 +372,28 @@ impl DesktopView {
         });
         self.state.page.selected = Some(next);
         self.state.inspector_visible = self.state.show_preview;
-        self.grid_scroll.scroll_to_item(next);
+        self.grid_list.scroll_to_reveal_item(next);
+        self.send(UiAction::VisibleRows {
+            start: next,
+            end: next + 1,
+        });
         self.send(UiAction::SelectRow(next));
         cx.notify();
     }
 
     fn select_absolute(&mut self, last: bool, cx: &mut Context<Self>) {
-        let len = self.state.page.rows.len();
+        let len = self.state.loaded_count;
         if len == 0 {
             return;
         }
         let index = if last { len - 1 } else { 0 };
         self.state.page.selected = Some(index);
         self.state.inspector_visible = self.state.show_preview;
-        self.grid_scroll.scroll_to_item(index);
+        self.grid_list.scroll_to_reveal_item(index);
+        self.send(UiAction::VisibleRows {
+            start: index,
+            end: index + 1,
+        });
         self.send(UiAction::SelectRow(index));
         cx.notify();
     }

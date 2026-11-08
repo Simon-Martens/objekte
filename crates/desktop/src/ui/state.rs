@@ -2,11 +2,12 @@
 //! checked the repository and query generations that produced it.
 
 use gpui_kit::SharedString;
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, VecDeque};
 
 use super::model::{
     BatchRow, BatchSource, DetailView, ErrorField, ExportFormat, FilterValidationState,
-    MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry, SearchDraft, SnapshotMode, UiUpdate,
+    MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry, ResultRow, SearchDraft, SnapshotMode,
+    UiUpdate,
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
 
@@ -33,13 +34,6 @@ pub enum Busy {
 }
 
 
-/// Shared cell text built once when a bounded result page arrives.
-#[derive(Clone, Debug, Default)]
-pub struct GridCache {
-    pub rows: Vec<Vec<SharedString>>,
-}
-
-
 /// Shared inspector text built once from a bounded detail projection.
 #[derive(Clone, Debug, Default)]
 pub struct DetailCache {
@@ -60,7 +54,13 @@ pub struct UiState {
     pub collections: Vec<String>,
     pub single_collection: bool,
     pub page: PageView,
-    pub grid_cache: GridCache,
+    /// Lightweight extent is separate from a bounded cache of projected text.
+    pub loaded_count: usize,
+    pub projected_rows: BTreeMap<usize, ResultRow>,
+    pub(super) cached_page_starts: VecDeque<usize>,
+    pub has_more: bool,
+    pub loading_more: bool,
+    pub continuation_error: Option<String>,
     pub detail: Option<DetailView>,
     pub detail_cache: DetailCache,
     pub detail_source: Option<SharedString>,
@@ -123,7 +123,12 @@ impl UiState {
                 self.history.clear();
                 self.saved.clear();
                 self.page = PageView::default();
-                self.grid_cache = GridCache::default();
+                self.loaded_count = 0;
+                self.projected_rows.clear();
+                self.cached_page_starts.clear();
+                self.has_more = false;
+                self.loading_more = false;
+                self.continuation_error = None;
                 self.detail = None;
                 self.detail_cache = DetailCache::default();
                 self.detail_source = None;
@@ -149,7 +154,7 @@ impl UiState {
                 self.errors.remove(&ErrorField::Sort);
                 self.errors.remove(&ErrorField::Range);
             }
-            UiUpdate::Page(page) => {
+            UiUpdate::Page(mut page) => {
                 for (index, column) in page.columns.iter().enumerate() {
                     self.column_widths.entry(column.clone()).or_insert_with(|| {
                         let widest = page
@@ -164,42 +169,90 @@ impl UiState {
                         (widest as f32 * 7.3 + 30.).clamp(110., 420.)
                     });
                 }
-                let previous_token = self
-                    .page
-                    .selected
-                    .and_then(|index| self.page.rows.get(index))
-                    .map(|row| row.key.token);
-                let page = page.bounded();
-                let next_token = page
-                    .selected
-                    .and_then(|index| page.rows.get(index))
-                    .map(|row| row.key.token);
-                if next_token.is_none() || previous_token != next_token {
+                page = page.bounded();
+                self.loaded_count = page.rows.len();
+                self.projected_rows.clear();
+                self.cached_page_starts.clear();
+                self.has_more = page.has_next;
+                if !self.has_more && page.exact_total.is_none() {
+                    page.exact_total = Some(self.loaded_count);
+                }
+                self.loading_more = false;
+                self.continuation_error = None;
+                self.insert_projection(&mut page);
+                self.page = page;
+                self.detail = None;
+                self.detail_cache = DetailCache::default();
+                self.detail_source = None;
+                self.show_raw = false;
+                self.inspector_visible = false;
+                self.showing_last_valid_results = false;
+                self.busy = Busy::None;
+                self.status = if self.loaded_count == 0 {
+                    "No matching records".into()
+                } else {
+                    format!("{} records loaded", self.loaded_count)
+                };
+            }
+            UiUpdate::AppendPage(mut page) => {
+                page = page.bounded();
+                if page.offset != self.loaded_count {
+                    return;
+                }
+                for (index, column) in page.columns.iter().enumerate() {
+                    self.column_widths.entry(column.clone()).or_insert_with(|| {
+                        let widest = page
+                            .rows
+                            .iter()
+                            .take(24)
+                            .filter_map(|row| row.cells.get(index))
+                            .map(|cell| cell.chars().take(56).count())
+                            .max()
+                            .unwrap_or(0)
+                            .max(column.chars().count());
+                        (widest as f32 * 7.3 + 30.).clamp(110., 420.)
+                    });
+                }
+                self.page.columns = page.columns.clone();
+                let delivered = page.rows.len();
+                self.insert_projection(&mut page);
+                self.loaded_count += delivered;
+                self.has_more = page.has_next;
+                self.loading_more = false;
+                self.continuation_error = None;
+                if let Some(total) = page.exact_total {
+                    self.page.exact_total = Some(total);
+                } else if !self.has_more {
+                    self.page.exact_total = Some(self.loaded_count);
+                }
+                self.status = format!("{} records loaded", self.loaded_count);
+            }
+            UiUpdate::Projection(mut page) => {
+                page = page.bounded();
+                self.insert_projection(&mut page);
+            }
+            UiUpdate::ContinuationStarted => {
+                self.loading_more = true;
+                self.continuation_error = None;
+            }
+            UiUpdate::ContinuationFailed(message) => {
+                self.loading_more = false;
+                self.continuation_error = Some(message.clone());
+                self.status = format!("Next batch failed: {message}");
+            }
+            UiUpdate::CountStarted => self.page.count_pending = true,
+            UiUpdate::ExactCount(total) => {
+                self.page.exact_total = Some(total);
+                self.page.count_pending = false;
+            }
+            UiUpdate::RowSelected(index) => {
+                if self.page.selected != Some(index) {
                     self.detail = None;
                     self.detail_cache = DetailCache::default();
                     self.detail_source = None;
                     self.show_raw = false;
                 }
-                if page.selected.is_none() {
-                    self.inspector_visible = false;
-                }
-                self.grid_cache.rows = page
-                    .rows
-                    .iter()
-                    .map(|row| row.cells.iter().cloned().map(SharedString::from).collect())
-                    .collect();
-                self.page = page;
-                self.showing_last_valid_results = false;
-                self.busy = Busy::None;
-                self.status = if self.page.rows.is_empty() {
-                    "No matching records".into()
-                } else {
-                    format!(
-                        "Showing {} records from offset {}",
-                        self.page.rows.len(),
-                        self.page.offset
-                    )
-                };
+                self.page.selected = Some(index);
             }
             UiUpdate::Detail(detail) => {
                 self.detail = detail.map(DetailView::bounded);
@@ -306,7 +359,12 @@ impl UiState {
             UiUpdate::RestoreQuery(draft) => {
                 self.search = draft;
                 self.page = PageView::default();
-                self.grid_cache = GridCache::default();
+                self.loaded_count = 0;
+                self.projected_rows.clear();
+                self.cached_page_starts.clear();
+                self.has_more = false;
+                self.loading_more = false;
+                self.continuation_error = None;
                 self.detail = None;
                 self.detail_cache = DetailCache::default();
                 self.detail_source = None;
@@ -316,7 +374,7 @@ impl UiState {
                     self.filter_validation_generation = generation;
                     self.showing_last_valid_results = self.root.is_some()
                         && !matches!(state, FilterValidationState::Valid)
-                        && (!self.page.rows.is_empty() || !self.page.columns.is_empty());
+                        && self.loaded_count > 0;
                     self.filter_validation = Some(state);
                     if self.busy == Busy::Querying {
                         self.busy = Busy::None;
@@ -325,6 +383,26 @@ impl UiState {
             }
             UiUpdate::FieldChoices(_) => {}
             UiUpdate::Theme { dark } => self.dark = dark,
+        }
+    }
+
+    /// At most three 4 MiB page projections are resident. Result locators live
+    /// in the controller and are unaffected by this display-cache eviction.
+    fn insert_projection(&mut self, page: &mut PageView) {
+        if page.rows.is_empty() {
+            return;
+        }
+        let start = page.offset;
+        self.cached_page_starts.retain(|old| *old != start);
+        self.cached_page_starts.push_back(start);
+        for (index, row) in std::mem::take(&mut page.rows).into_iter().enumerate() {
+            self.projected_rows.insert(start + index, row);
+        }
+        while self.cached_page_starts.len() > 3 {
+            if let Some(evicted) = self.cached_page_starts.pop_front() {
+                self.projected_rows
+                    .retain(|index, _| *index < evicted || *index >= evicted + 100);
+            }
         }
     }
 }

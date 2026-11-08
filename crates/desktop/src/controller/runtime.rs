@@ -1,6 +1,6 @@
 //! Generation-checked operations around one native window and retained repository.
 
-use std::collections::HashSet;
+use std::collections::{HashSet, VecDeque};
 use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
@@ -24,16 +24,14 @@ use crate::ui::preferences::DesktopPreferences;
 
 use super::filter_validation::{field_choices, validate_request};
 use super::open_detection::{DetectedSource, detect_source};
-use super::{detail_view, open_spec, page_view_with_available, query_spec};
+use super::{detail_view, open_spec, page_view_with_prior, query_spec};
 
-
-/// One record locator retained for the visible page, without source payloads.
+/// One lightweight locator retained for every delivered result.
 #[derive(Clone)]
 struct RecordKey {
     collection: String,
     id: String,
 }
-
 
 type QueryCompletion = Result<
     (
@@ -50,6 +48,64 @@ type QueryCompletion = Result<
 type OpenCompletion = Result<(OpenedSession, Result<DesktopPreferences, String>), String>;
 type DetailCompletion = Result<(SearchHit, DetailView, Vec<Option<LinkAction>>), String>;
 
+#[derive(Clone, Copy)]
+enum GridRequestKind {
+    First,
+    Continuation(usize),
+    Projection(usize),
+}
+
+fn spawn_grid_page(
+    session: OpenedSession,
+    spec: backend::QuerySpec,
+    page_start: usize,
+    hidden: Vec<String>,
+    prior_columns: Vec<String>,
+    token: CancellationToken,
+    sender: Sender<WorkerEvent>,
+    open_generation: u64,
+    query_generation: u64,
+    kind: GridRequestKind,
+) {
+    thread::spawn(move || {
+        let result = backend::query_page(&session, &spec, page_start, 100, &token)
+            .map(|page| {
+                let diagnostics = format!(
+                    "Query: {:.1} ms; page start {}; rows {}; exact total {:?}\nCounters: {:#?}",
+                    page.elapsed_ns as f64 / 1_000_000.0,
+                    page.page_start,
+                    page.hits.len(),
+                    page.count,
+                    page.counters,
+                );
+                let (view, available) = page_view_with_prior(&page, &spec, &hidden, &prior_columns);
+                let keys = page
+                    .hits
+                    .into_iter()
+                    .map(|hit| RecordKey {
+                        collection: hit.collection,
+                        id: hit.record_id,
+                    })
+                    .collect();
+                (
+                    view,
+                    keys,
+                    page.next_page_start,
+                    page.elapsed_ns,
+                    available,
+                    hidden,
+                    diagnostics,
+                )
+            })
+            .map_err(|error| error.to_string());
+        let _ = sender.send(WorkerEvent::Queried {
+            open_generation,
+            query_generation,
+            kind,
+            result: Box::new(result),
+        });
+    });
+}
 
 /// Completion messages from off-thread filesystem and search operations.
 enum WorkerEvent {
@@ -66,7 +122,13 @@ enum WorkerEvent {
     Queried {
         open_generation: u64,
         query_generation: u64,
+        kind: GridRequestKind,
         result: Box<QueryCompletion>,
+    },
+    Counted {
+        open_generation: u64,
+        query_generation: u64,
+        result: Result<usize, String>,
     },
     Detailed {
         open_generation: u64,
@@ -122,7 +184,6 @@ enum WorkerEvent {
     },
 }
 
-
 /// UI-thread coordinator; expensive work is owned by short-lived workers.
 pub struct DesktopController {
     actions: Receiver<UiAction>,
@@ -144,9 +205,14 @@ pub struct DesktopController {
     cancellation: CancellationToken,
     output_cancellation: CancellationToken,
     current_draft: SearchDraft,
-    page_start: usize,
+    executed_spec: Option<backend::QuerySpec>,
+    executed_draft: Option<SearchDraft>,
     next_page_start: Option<usize>,
-    page: PageView,
+    pending_continuation: Option<usize>,
+    continuation_failed: bool,
+    pending_projections: HashSet<usize>,
+    projected_pages: VecDeque<usize>,
+    selected_index: Option<usize>,
     available_columns: Vec<String>,
     keys: Vec<RecordKey>,
     selected_hit: Option<Arc<SearchHit>>,
@@ -156,7 +222,6 @@ pub struct DesktopController {
     expanded: HashSet<String>,
     pending_edit: Option<(Instant, SearchDraft)>,
 }
-
 
 impl DesktopController {
     /// Make the action sender consumed by `DesktopView` and its controller.
@@ -198,9 +263,14 @@ impl DesktopController {
                 cancellation: CancellationToken::new(),
                 output_cancellation: CancellationToken::new(),
                 current_draft: SearchDraft::default(),
-                page_start: 0,
+                executed_spec: None,
+                executed_draft: None,
                 next_page_start: None,
-                page: PageView::default(),
+                pending_continuation: None,
+                continuation_failed: false,
+                pending_projections: HashSet::new(),
+                projected_pages: VecDeque::new(),
+                selected_index: None,
                 available_columns: Vec::new(),
                 keys: Vec::new(),
                 selected_hit: None,
@@ -252,9 +322,6 @@ impl DesktopController {
             UiAction::CancelOpen => self.cancel_open(updates),
             UiAction::Open(draft) => self.start_open(draft, updates),
             UiAction::SearchEdited(draft) => {
-                self.cancellation.cancel();
-                self.query_generation += 1;
-                self.detail_generation += 1;
                 self.current_draft = draft.clone();
                 self.pending_edit = Some((Instant::now(), draft));
                 self.validation_generation += 1;
@@ -266,9 +333,6 @@ impl DesktopController {
             }
             UiAction::SearchNow(draft) => {
                 self.pending_edit = None;
-                self.cancellation.cancel();
-                self.query_generation += 1;
-                self.detail_generation += 1;
                 self.current_draft = draft.clone();
                 self.start_validation(draft, updates);
             }
@@ -287,21 +351,20 @@ impl DesktopController {
                 }
                 updates.push(UiUpdate::Status("Operation cancelled".into()));
             }
-            UiAction::PageRelative(direction) => {
-                let next = if direction > 0 {
-                    self.next_page_start
-                } else if direction < 0 {
-                    (self.page_start > 0).then(|| self.page_start.saturating_sub(100))
-                } else {
-                    None
-                };
-                if let Some(start) = next {
-                    self.start_query(self.current_draft.clone(), start, updates);
+            UiAction::VisibleRows { start, end } => {
+                self.ensure_projection(start, end);
+                if !self.continuation_failed && end.saturating_add(20) >= self.keys.len() {
+                    self.start_continuation(updates);
                 }
             }
+            UiAction::RetryContinuation => {
+                self.continuation_failed = false;
+                self.start_continuation(updates);
+            }
+            UiAction::CountExact => self.start_count(updates),
             UiAction::SelectRow(index) => self.select_row(index, updates),
             UiAction::OpenDetail => {
-                if let Some(index) = self.page.selected {
+                if let Some(index) = self.selected_index {
                     self.select_row(index, updates);
                 }
             }
@@ -310,7 +373,7 @@ impl DesktopController {
                 updates.push(UiUpdate::Detail(None));
             }
             UiAction::AdjacentResult(forward) => {
-                let selected = self.page.selected.unwrap_or(0);
+                let selected = self.selected_index.unwrap_or(0);
                 let next = if forward {
                     selected.saturating_add(1)
                 } else {
@@ -515,7 +578,7 @@ impl DesktopController {
                     preferences
                         .toggle_column_local(self.current_draft.collection.as_deref(), &column);
                     let _ = self.preference_tx.send(preferences.clone());
-                    self.start_query(self.current_draft.clone(), self.page_start, updates);
+                    self.start_query(self.current_draft.clone(), 0, updates);
                 }
             }
             UiAction::RestoreHistory(index) => {
@@ -712,54 +775,137 @@ impl DesktopController {
         self.query_generation += 1;
         self.detail_generation += 1;
         self.current_draft = draft.clone();
-        self.page_start = page_start;
+        self.executed_draft = Some(draft.clone());
+        self.executed_spec = Some(spec.clone());
+        self.selected_index = None;
+        self.keys.clear();
+        self.next_page_start = None;
+        self.pending_continuation = None;
+        self.continuation_failed = false;
+        self.pending_projections.clear();
+        self.projected_pages.clear();
         self.selected_hit = None;
         self.detail = None;
         self.relation_actions.clear();
         self.relation_back.clear();
-        let open_generation = self.open_generation;
-        let query_generation = self.query_generation;
-        let token = self.cancellation.clone();
-        let sender = self.worker_tx.clone();
         let hidden = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
             prefs.hidden(draft.collection.as_deref()).to_vec()
         });
         updates.push(UiUpdate::QueryStarted("Searching…".into()));
-        thread::spawn(move || {
-            let result = backend::query_page(&session, &spec, page_start, 100, &token)
-                .map(|page| {
-                    let diagnostics = format!(
-                        "Query: {:.1} ms; page start {}; rows {}; exact total {:?}\nCounters: {:#?}",
-                        page.elapsed_ns as f64 / 1_000_000.0,
-                        page.page_start,
-                        page.hits.len(),
-                        page.count,
-                        page.counters,
-                    );
-                    let (view, available) = page_view_with_available(&page, &spec, &hidden);
-                    let keys = page
-                        .hits
-                        .into_iter()
-                        .map(|hit| RecordKey {
-                            collection: hit.collection,
-                            id: hit.record_id,
-                        })
-                        .collect();
-                    (
-                        view,
-                        keys,
-                        page.next_page_start,
-                        page.elapsed_ns,
-                        available,
-                        hidden,
-                        diagnostics,
+        spawn_grid_page(
+            session,
+            spec,
+            page_start,
+            hidden,
+            Vec::new(),
+            self.cancellation.clone(),
+            self.worker_tx.clone(),
+            self.open_generation,
+            self.query_generation,
+            GridRequestKind::First,
+        );
+    }
+
+    fn start_continuation(&mut self, updates: &mut Vec<UiUpdate>) {
+        let (Some(session), Some(spec), Some(start)) = (
+            self.session.clone(),
+            self.executed_spec.clone(),
+            self.next_page_start,
+        ) else {
+            return;
+        };
+        if self.pending_continuation.is_some() {
+            return;
+        }
+        self.pending_continuation = Some(start);
+        let hidden = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
+            prefs
+                .hidden(
+                    self.executed_draft
+                        .as_ref()
+                        .and_then(|draft| draft.collection.as_deref()),
+                )
+                .to_vec()
+        });
+        updates.push(UiUpdate::ContinuationStarted);
+        spawn_grid_page(
+            session,
+            spec,
+            start,
+            hidden,
+            self.available_columns.clone(),
+            self.cancellation.clone(),
+            self.worker_tx.clone(),
+            self.open_generation,
+            self.query_generation,
+            GridRequestKind::Continuation(start),
+        );
+    }
+
+    fn ensure_projection(&mut self, first: usize, end: usize) {
+        let (Some(session), Some(spec)) = (self.session.clone(), self.executed_spec.clone()) else {
+            return;
+        };
+        let last = end.min(self.keys.len());
+        if first >= last {
+            return;
+        }
+        for start in ((first / 100) * 100..last).step_by(100) {
+            if self.projected_pages.contains(&start) || !self.pending_projections.insert(start) {
+                continue;
+            }
+            if self.pending_projections.len() > 2 {
+                self.pending_projections.remove(&start);
+                break;
+            }
+            let hidden = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
+                prefs
+                    .hidden(
+                        self.executed_draft
+                            .as_ref()
+                            .and_then(|draft| draft.collection.as_deref()),
                     )
-                })
-                .map_err(|error| error.to_string());
-            let _ = sender.send(WorkerEvent::Queried {
+                    .to_vec()
+            });
+            spawn_grid_page(
+                session.clone(),
+                spec.clone(),
+                start,
+                hidden,
+                self.available_columns.clone(),
+                self.cancellation.clone(),
+                self.worker_tx.clone(),
+                self.open_generation,
+                self.query_generation,
+                GridRequestKind::Projection(start),
+            );
+        }
+    }
+
+    fn remember_projection(&mut self, start: usize) {
+        self.projected_pages.retain(|old| *old != start);
+        self.projected_pages.push_back(start);
+        while self.projected_pages.len() > 3 {
+            self.projected_pages.pop_front();
+        }
+    }
+
+    fn start_count(&mut self, updates: &mut Vec<UiUpdate>) {
+        let (Some(session), Some(spec)) = (self.session.clone(), self.executed_spec.clone()) else {
+            return;
+        };
+        let sender = self.worker_tx.clone();
+        let token = self.cancellation.clone();
+        let open_generation = self.open_generation;
+        let query_generation = self.query_generation;
+        updates.push(UiUpdate::CountStarted);
+        thread::spawn(move || {
+            let result =
+                backend::count_exact(&session, &spec, &token).map_err(|error| error.to_string());
+            let _ = sender.send(WorkerEvent::Counted {
                 open_generation,
                 query_generation,
-                result: Box::new(result),
+                result,
             });
         });
     }
@@ -769,10 +915,10 @@ impl DesktopController {
         else {
             return;
         };
-        self.page.selected = Some(index);
+        self.selected_index = Some(index);
         self.detail = None;
         self.relation_actions.clear();
-        updates.push(UiUpdate::Page(self.page.clone()));
+        updates.push(UiUpdate::RowSelected(index));
         self.detail_generation += 1;
         let detail_generation = self.detail_generation;
         let open_generation = self.open_generation;
@@ -822,12 +968,19 @@ impl DesktopController {
                 match *result {
                     Ok((session, preferences)) => {
                         self.open_draft = self.opening_draft.take();
+                        self.executed_spec = None;
+                        self.executed_draft = None;
+                        self.next_page_start = None;
+                        self.pending_continuation = None;
+                        self.continuation_failed = false;
+                        self.pending_projections.clear();
+                        self.projected_pages.clear();
                         self.keys.clear();
                         self.selected_hit = None;
                         self.detail = None;
                         self.relation_actions.clear();
                         self.relation_back.clear();
-                        self.page = PageView::default();
+                        self.selected_index = None;
                         self.available_columns.clear();
                         self.preferences = None;
                         let root = session.paths.root.display().to_string();
@@ -887,38 +1040,101 @@ impl DesktopController {
             WorkerEvent::Queried {
                 open_generation,
                 query_generation,
+                kind,
                 result,
             } if open_generation == self.open_generation
                 && query_generation == self.query_generation =>
             {
                 match *result {
                     Ok((view, keys, next, elapsed_ns, available, hidden, diagnostics)) => {
-                        self.page = view.clone();
-                        self.available_columns = available.clone();
-                        self.push_field_choices(updates);
-                        self.keys = keys;
-                        self.next_page_start = next;
+                        match kind {
+                            GridRequestKind::First => {
+                                self.available_columns = available.clone();
+                                self.keys = keys;
+                                self.next_page_start = next;
+                                self.remember_projection(0);
+                                updates.push(UiUpdate::Page(view));
+                                updates.push(UiUpdate::Status(format!(
+                                    "Query complete in {:.1} ms",
+                                    elapsed_ns as f64 / 1_000_000.0
+                                )));
+                                if let (Some(preferences), Some(draft)) =
+                                    (&mut self.preferences, &self.executed_draft)
+                                {
+                                    preferences.remember_local(draft);
+                                    let _ = self.preference_tx.send(preferences.clone());
+                                    updates.push(UiUpdate::History {
+                                        entries: preferences.history(),
+                                        saved: preferences.saved(),
+                                    });
+                                }
+                            }
+                            GridRequestKind::Continuation(start) => {
+                                if self.pending_continuation != Some(start)
+                                    || start != self.keys.len()
+                                {
+                                    return;
+                                }
+                                self.pending_continuation = None;
+                                self.continuation_failed = false;
+                                self.keys.extend(keys);
+                                self.next_page_start = next;
+                                self.remember_projection(start);
+                                updates.push(UiUpdate::AppendPage(view));
+                            }
+                            GridRequestKind::Projection(start) => {
+                                if !self.pending_projections.remove(&start) {
+                                    return;
+                                }
+                                self.remember_projection(start);
+                                updates.push(UiUpdate::Projection(view));
+                            }
+                        }
+                        if self.available_columns != available {
+                            self.available_columns = available.clone();
+                            self.push_field_choices(updates);
+                        }
                         updates.push(UiUpdate::Columns { available, hidden });
-                        updates.push(UiUpdate::Page(view));
                         updates.push(UiUpdate::Diagnostics(format!(
                             "{}\n\n{diagnostics}",
                             self.open_diagnostics
                         )));
-                        updates.push(UiUpdate::Status(format!(
-                            "Query complete in {:.1} ms",
-                            elapsed_ns as f64 / 1_000_000.0
-                        )));
-                        if let Some(preferences) = &mut self.preferences {
-                            preferences.remember_local(&self.current_draft);
-                            let _ = self.preference_tx.send(preferences.clone());
-                            updates.push(UiUpdate::History {
-                                entries: preferences.history(),
-                                saved: preferences.saved(),
-                            });
-                        }
                     }
+                    Err(message) => match kind {
+                        GridRequestKind::First => updates.push(UiUpdate::Error {
+                            field: query_error_field(
+                                &message,
+                                self.executed_draft.as_ref().unwrap_or(&self.current_draft),
+                            ),
+                            message,
+                        }),
+                        GridRequestKind::Continuation(start) => {
+                            if self.pending_continuation == Some(start) {
+                                self.pending_continuation = None;
+                                self.continuation_failed = true;
+                                updates.push(UiUpdate::ContinuationFailed(message));
+                            }
+                        }
+                        GridRequestKind::Projection(start) => {
+                            self.pending_projections.remove(&start);
+                            updates.push(UiUpdate::Status(format!(
+                                "Could not refresh visible rows: {message}"
+                            )));
+                        }
+                    },
+                }
+            }
+            WorkerEvent::Counted {
+                open_generation,
+                query_generation,
+                result,
+            } if open_generation == self.open_generation
+                && query_generation == self.query_generation =>
+            {
+                match result {
+                    Ok(total) => updates.push(UiUpdate::ExactCount(total)),
                     Err(message) => updates.push(UiUpdate::Error {
-                        field: query_error_field(&message, &self.current_draft),
+                        field: ErrorField::General,
                         message,
                     }),
                 }
@@ -1459,7 +1675,6 @@ impl DesktopController {
         });
     }
 }
-
 
 fn open_with_preferences(
     spec: &OpenSpec,

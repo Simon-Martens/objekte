@@ -22,7 +22,21 @@ pub fn page_view_with_available(
     spec: &QuerySpec,
     hidden: &[String],
 ) -> (PageView, Vec<String>) {
-    let mut columns = vec!["@id".to_owned()];
+    page_view_with_prior(page, spec, hidden, &[])
+}
+
+/// Preserve the established order when a later delivery page reveals fields.
+pub fn page_view_with_prior(
+    page: &QueryPage,
+    spec: &QuerySpec,
+    hidden: &[String],
+    prior: &[String],
+) -> (PageView, Vec<String>) {
+    let mut columns = if prior.is_empty() {
+        vec!["@id".to_owned()]
+    } else {
+        prior.to_vec()
+    };
     let mut discovered = BTreeSet::new();
     for hit in &page.hits {
         if let Some(Value::Object(object)) = payload_json(hit) {
@@ -34,8 +48,11 @@ pub fn page_view_with_available(
             columns.push(key);
         }
     }
-    columns.push("@collection".to_owned());
-    columns.push("@file".to_owned());
+    for metadata in ["@collection", "@file"] {
+        if !columns.iter().any(|column| column == metadata) {
+            columns.push(metadata.to_owned());
+        }
+    }
     columns.truncate(MAX_COLUMNS);
     let rows = page
         .hits
@@ -75,7 +92,7 @@ pub fn page_view_with_available(
     let view = PageView {
         columns,
         rows,
-        offset: page.requested_offset,
+        offset: page.page_start,
         requested_limit: spec.limit,
         exact_total: page.count,
         count_pending: spec.count && page.count.is_none(),

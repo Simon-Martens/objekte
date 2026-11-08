@@ -11,7 +11,7 @@ use gpui_kit::component::{
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::{
     Context, Entity, Focusable as _, InteractiveElement as _, IntoElement, ParentElement as _,
-    Render, StatefulInteractiveElement as _, Styled as _, Window, div, px, rgb,
+    Render, StatefulInteractiveElement as _, Styled as _, Window, div, list, px, rgb,
 };
 use objekte_search_core::query::parse_structured_filter;
 
@@ -554,8 +554,7 @@ impl DesktopView {
                 .iter()
                 .map(|(_, _, width)| *width)
                 .sum::<f32>();
-        let selected = page.selected;
-        let offset = page.offset;
+        let loaded_count = self.state.loaded_count;
         let sort = self
             .state
             .search
@@ -612,18 +611,22 @@ impl DesktopView {
                         this.sort_by_column(name.clone(), window, cx);
                     }))
             }));
+        let target = cx.entity();
+        let row_columns = visible_columns
+            .iter()
+            .map(|(index, _, width)| (*index, *width))
+            .collect::<Vec<_>>();
         let rows = div()
             .id("results-scroll")
             .track_focus(&self.grid_focus)
-            .track_scroll(&self.grid_scroll)
             .on_key_down(cx.listener(|this, event: &gpui_kit::KeyDownEvent, _, cx| {
                 match event.keystroke.key.as_str() {
                     "up" => this.select_relative(-1, cx),
                     "down" => this.select_relative(1, cx),
                     "home" => this.select_absolute(false, cx),
                     "end" => this.select_absolute(true, cx),
-                    "pageup" => this.send(UiAction::PageRelative(-1)),
-                    "pagedown" => this.send(UiAction::PageRelative(1)),
+                    "pageup" => this.grid_list.scroll_by(px(-600.)),
+                    "pagedown" => this.grid_list.scroll_by(px(600.)),
                     "enter" => {
                         this.state.inspector_visible = true;
                         this.send(UiAction::OpenDetail);
@@ -640,68 +643,75 @@ impl DesktopView {
             .w_full()
             .min_w(px(table_width))
             .bg(rgb(colors.panel))
-            .children(page.rows.iter().enumerate().map(|(index, _row)| {
-                let chosen = selected == Some(index);
-                let shade = if chosen {
-                    colors.selected
-                } else if index % 2 == 0 {
-                    colors.panel
-                } else {
-                    colors.row_alt
-                };
-                div()
-                    .id(("result-row", index))
-                    .flex()
-                    .items_center()
-                    .w_full()
-                    .h(px(30.))
-                    .flex_shrink_0()
-                    .bg(rgb(shade))
-                    .border_b_1()
-                    .border_color(rgb(colors.border))
-                    .child(
-                        div()
-                            .w(px(52.))
-                            .flex_shrink_0()
-                            .px_2()
-                            .text_xs()
-                            .text_color(rgb(colors.secondary))
-                            .child((offset + index + 1).to_string()),
-                    )
-                    .children(visible_columns.iter().map(|(column_index, _, width)| {
-                        div()
-                            .w(px(*width))
-                            .flex_shrink_0()
-                            .px_2()
-                            .overflow_hidden()
-                            .whitespace_nowrap()
-                            .text_ellipsis()
-                            .text_sm()
-                            .child(
-                                self.state
-                                    .grid_cache
-                                    .rows
-                                    .get(index)
-                                    .and_then(|cells| cells.get(*column_index))
-                                    .cloned()
-                                    .unwrap_or_default(),
-                            )
-                    }))
-                    .on_click(cx.listener(move |this, _, window, cx| {
-                        window.focus(&this.grid_focus, cx);
-                        this.state.page.selected = Some(index);
-                        this.state.inspector_visible = this.state.show_preview;
-                        this.send(UiAction::SelectRow(index));
-                        cx.notify();
-                    }))
-            }))
-            .overflow_y_scrollbar();
-        let first = if page.rows.is_empty() { 0 } else { offset + 1 };
-        let last = offset + page.rows.len();
+            .child(
+                list(self.grid_list.clone(), move |index, _, cx| {
+                    let state = &target.read(cx).state;
+                    let selected = state.page.selected == Some(index);
+                    let cells = state
+                        .projected_rows
+                        .get(&index)
+                        .map(|row| row.cells.clone())
+                        .unwrap_or_default();
+                    let shade = if selected {
+                        colors.selected
+                    } else if index % 2 == 0 {
+                        colors.panel
+                    } else {
+                        colors.row_alt
+                    };
+                    div()
+                        .id(("result-row", index))
+                        .flex()
+                        .items_center()
+                        .w_full()
+                        .h(px(30.))
+                        .bg(rgb(shade))
+                        .border_b_1()
+                        .border_color(rgb(colors.border))
+                        .child(
+                            div()
+                                .w(px(52.))
+                                .flex_shrink_0()
+                                .px_2()
+                                .text_xs()
+                                .text_color(rgb(colors.secondary))
+                                .child((index + 1).to_string()),
+                        )
+                        .children(row_columns.iter().map(|(column_index, width)| {
+                            div()
+                                .w(px(*width))
+                                .flex_shrink_0()
+                                .px_2()
+                                .overflow_hidden()
+                                .whitespace_nowrap()
+                                .text_ellipsis()
+                                .text_sm()
+                                .child(cells.get(*column_index).cloned().unwrap_or_default())
+                        }))
+                        .on_click({
+                            let target = target.clone();
+                            move |_, window, cx| {
+                                target.update(cx, |this, cx| {
+                                    window.focus(&this.grid_focus, cx);
+                                    this.state.page.selected = Some(index);
+                                    this.state.inspector_visible = this.state.show_preview;
+                                    this.send(UiAction::SelectRow(index));
+                                    cx.notify();
+                                });
+                            }
+                        })
+                        .into_any_element()
+                })
+                .flex_1()
+                .min_h_0()
+                .min_w(px(table_width)),
+            );
+        let first = if loaded_count == 0 { 0 } else { 1 };
+        let last = loaded_count;
         let range = match page.exact_total {
             Some(total) => format!("{first}–{last} of {total} matches"),
-            None if page.count_pending => format!("{first}–{last} · counting…"),
-            None => format!("{first}–{last}"),
+            None if page.count_pending => format!("{first}–{last} loaded · counting…"),
+            None => format!("{first}–{last} loaded"),
         };
         let range = if self.state.showing_last_valid_results {
             format!("Last valid: {range}")
@@ -753,29 +763,32 @@ impl DesktopView {
                                 cx.notify();
                             })),
                     )
-                    .child(
-                        Button::new("previous-page")
-                            .ghost()
-                            .icon(IconName::ChevronLeft)
-                            .tooltip("Previous page")
-                            .accessibility_label("Previous page")
-                            .disabled(!page.has_previous)
-                            .on_click(cx.listener(|this, _, _, _| {
-                                this.send(UiAction::PageRelative(-1));
-                            })),
-                    )
-                    .child(format!("Page {}", offset / 100 + 1))
-                    .child(
-                        Button::new("next-page")
-                            .ghost()
-                            .icon(IconName::ChevronRight)
-                            .tooltip("Next page")
-                            .accessibility_label("Next page")
-                            .disabled(!page.has_next)
-                            .on_click(cx.listener(|this, _, _, _| {
-                                this.send(UiAction::PageRelative(1));
-                            })),
-                    ),
+                    .when(page.exact_total.is_none(), |this| {
+                        this.child(
+                            Button::new("count-exact")
+                                .ghost()
+                                .label(if page.count_pending {
+                                    "Counting…"
+                                } else {
+                                    "Count all"
+                                })
+                                .disabled(page.count_pending)
+                                .on_click(cx.listener(|this, _, _, _| {
+                                    this.send(UiAction::CountExact);
+                                })),
+                        )
+                    })
+                    .when(self.state.continuation_error.is_some(), |this| {
+                        this.child(
+                            Button::new("retry-more")
+                                .ghost()
+                                .label("Retry loading")
+                                .on_click(cx.listener(|this, _, _, _| {
+                                    this.send(UiAction::RetryContinuation);
+                                })),
+                        )
+                    })
+                    .when(self.state.loading_more, |this| this.child("Loading more…")),
             )
             .into_any_element()
     }

@@ -41,7 +41,7 @@ fn late_validation_cannot_replace_newer_invalid_state() {
         root: Some("records".into()),
         ..UiState::default()
     };
-    state.page.columns.push("year".into());
+    state.loaded_count = 1;
     state.apply(UiUpdate::FilterValidation {
         generation: 2,
         state: FilterValidationState::Invalid {
@@ -107,7 +107,7 @@ fn query_restore_does_not_activate_retained_filter() {
 }
 
 #[test]
-fn page_refresh_keeps_detail_for_same_selected_token() {
+fn projection_refresh_keeps_detail_and_cache_is_bounded() {
     let mut state = UiState::default();
     let page = PageView {
         rows: vec![ResultRow {
@@ -131,11 +131,73 @@ fn page_refresh_keeps_detail_for_same_selected_token() {
         ..DetailView::default()
     })));
     state.show_raw = true;
-    state.apply(UiUpdate::Page(page));
+    state.apply(UiUpdate::Projection(page));
     assert_eq!(state.detail.as_ref().unwrap().title, "record");
     assert!(state.show_raw);
+    for start in [100, 200, 300] {
+        state.apply(UiUpdate::Projection(PageView {
+            rows: vec![ResultRow {
+                key: RowKey {
+                    token: start as u64,
+                    collection: "docs".into(),
+                    record_id: start.to_string(),
+                    file: "a.json".into(),
+                    byte_start: 0,
+                },
+                cells: vec!["value".into()],
+                matched_fields: vec![],
+                preview: None,
+            }],
+            offset: start,
+            ..PageView::default()
+        }));
+    }
+    assert!(!state.projected_rows.contains_key(&0));
+    assert_eq!(state.projected_rows.len(), 3);
     state.apply(UiUpdate::QueryStarted("Searching".into()));
     assert!(state.detail.is_none());
+}
+
+#[test]
+fn continuation_appends_once_and_exhaustion_establishes_total() {
+    let row = |index: usize| ResultRow {
+        key: RowKey {
+            token: index as u64,
+            collection: "docs".into(),
+            record_id: index.to_string(),
+            file: "a.json".into(),
+            byte_start: 0,
+        },
+        cells: vec![index.to_string()],
+        matched_fields: Vec::new(),
+        preview: None,
+    };
+    let mut state = UiState::default();
+    state.apply(UiUpdate::Page(PageView {
+        columns: vec!["@id".into()],
+        rows: (0..100).map(row).collect(),
+        has_next: true,
+        ..PageView::default()
+    }));
+    assert_eq!(state.loaded_count, 100);
+    assert_eq!(state.page.exact_total, None);
+    state.apply(UiUpdate::ContinuationStarted);
+    state.apply(UiUpdate::AppendPage(PageView {
+        columns: vec!["@id".into()],
+        rows: vec![row(100)],
+        offset: 100,
+        ..PageView::default()
+    }));
+    assert_eq!(state.loaded_count, 101);
+    assert_eq!(state.page.exact_total, Some(101));
+    assert!(!state.loading_more);
+    state.apply(UiUpdate::AppendPage(PageView {
+        rows: vec![row(100)],
+        offset: 100,
+        ..PageView::default()
+    }));
+    assert_eq!(state.loaded_count, 101);
+    assert_eq!(state.projected_rows.get(&100).unwrap().key.token, 100);
 }
 
 #[test]

@@ -179,7 +179,7 @@ impl DesktopView {
             .state
             .page
             .selected
-            .and_then(|index| self.state.page.rows.get(index))
+            .and_then(|index| self.state.projected_rows.get(&index))
             .and_then(|row| row.preview.as_ref());
         let title = detail.map_or_else(|| "Record".to_owned(), |detail| detail.title.clone());
         let mut panel = div()

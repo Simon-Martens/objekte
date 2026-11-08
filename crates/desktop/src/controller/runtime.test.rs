@@ -52,7 +52,7 @@ fn invalid_filter_does_not_start_query_or_replace_visible_page() {
     let fixture = crate::backend::test_support::fixture();
     let (mut controller, _) = DesktopController::new();
     controller.session = Some(fixture.session);
-    controller.page.offset = 11;
+    controller.selected_index = Some(11);
     let mut updates = Vec::new();
     controller.start_query(
         SearchDraft {
@@ -63,7 +63,7 @@ fn invalid_filter_does_not_start_query_or_replace_visible_page() {
         0,
         &mut updates,
     );
-    assert_eq!(controller.page.offset, 11);
+    assert_eq!(controller.selected_index, Some(11));
     assert!(updates.iter().any(|update| matches!(
         update,
         UiUpdate::FilterValidation {
