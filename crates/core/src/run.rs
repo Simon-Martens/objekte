@@ -12,15 +12,17 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 use smallvec::SmallVec;
 
+use crate::build::IndexedCollectionSegment;
 use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
 use crate::executor::{
     Plan, PlanningCounters, Proof, TermChoice, estimate_expr, estimate_fts_candidates,
     estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution,
 };
-use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
+use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
+use crate::lifecycle::IndexRevision;
 use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
 use crate::measurement::{ScanWork, WorkCounters};
-use crate::model::{FieldPath, PathRoot, Value};
+use crate::model::{FieldPath, PathRoot, RecordId, RecordSlot, Value};
 use crate::posting::PostingIndex;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
 use crate::record_preparation::{materialize, prepare_query_record_with_execution};
@@ -31,7 +33,7 @@ use crate::reference::{
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
 use crate::sort_binding::{BoundSort, BoundSortSource, BoundSortTerm, SortTargetCache};
 use crate::sorting::{InferredOrderKey, SortColumn, SortKey, SortOptions, simple_composite_part};
-use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection};
+use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range};
 use crate::source_access::SourceAccessSession;
 use crate::streaming::{
     Abort, CancellationToken, Delivery, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
@@ -1778,6 +1780,91 @@ pub(crate) fn make_hit(
         diagnostic_ref: record.diagnostic_ref,
         payload,
     }
+}
+
+/// A segment record has a local slot but retains a repository-global file ID.
+/// Resolve both through the same pinned segment; the base inventory cannot
+/// address a file added after the base generation was built.
+pub(crate) struct SegmentRecordRef<'a> {
+    pub record: &'a RecordEntry,
+    pub file: &'a FileEntry,
+}
+
+pub(crate) fn segment_record_ref<'a>(
+    segment: &'a IndexedCollectionSegment,
+    active: &ActiveRecords,
+    slot: RecordSlot,
+) -> Result<Option<SegmentRecordRef<'a>>, String> {
+    if active.slot_count() as usize != segment.records.len() {
+        return Err("segment active domain length mismatch".into());
+    }
+    if !active.contains(slot) {
+        return Ok(None);
+    }
+    let record = segment.record(slot).ok_or("segment record slot missing")?;
+    let file = &segment
+        .file(record.file)
+        .ok_or("segment record file missing")?
+        .entry;
+    Ok(Some(SegmentRecordRef { record, file }))
+}
+
+/// Direct lookup for one indexed delta. The publication owner chooses the
+/// active segment for an ID and invokes this with that segment's active mask.
+pub(crate) fn get_segment_record_by_id(
+    repo: &Repository,
+    collection_index: usize,
+    segment: &IndexedCollectionSegment,
+    active: &ActiveRecords,
+    revision: IndexRevision,
+    record_id: &str,
+    return_mode: ReturnMode,
+) -> Result<Option<SearchHit>, String> {
+    let collection = repo
+        .collections
+        .get(collection_index)
+        .ok_or("segment collection missing")?;
+    if segment.collection != collection.generation.collection {
+        return Err("segment collection mismatch".into());
+    }
+    let Some(slot) = segment.id_lookup.get(&RecordId(record_id.to_owned())) else {
+        return Ok(None);
+    };
+    let Some(resolved) = segment_record_ref(segment, active, *slot)? else {
+        return Ok(None);
+    };
+    let record = resolved.record;
+    let file = resolved.file;
+    let payload = match return_mode {
+        ReturnMode::Locator => None,
+        ReturnMode::Logical if record.class == RecordClass::RawFallback => {
+            Some(Payload::LogicalUnavailable {
+                diagnostic_ref: record.diagnostic_ref,
+            })
+        }
+        ReturnMode::Bytes | ReturnMode::Logical => {
+            let path = repo.files.root.join(&file.relative_path);
+            let bytes = read_record_range(&path, record.revision, record.range)?;
+            payload_from_bytes(Some(collection), &return_mode, bytes)?.0
+        }
+    };
+    Ok(Some(SearchHit {
+        collection: collection.definition.name.clone(),
+        record_id: record.id.0.clone(),
+        generation: revision.0,
+        file_id: file.id.0,
+        file_path: file.relative_path.clone(),
+        file_size: file.revision.size,
+        file_created_ns: file.created_ns,
+        byte_start: record.range.start,
+        byte_end: record.range.end,
+        modified_ns: record.revision.modified_ns,
+        matched_fields: Vec::new(),
+        file_status: file.status,
+        record_class: record.class,
+        diagnostic_ref: record.diagnostic_ref,
+        payload,
+    }))
 }
 
 fn offer(
