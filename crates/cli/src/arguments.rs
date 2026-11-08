@@ -13,8 +13,15 @@ pub enum Alphabet {
 }
 
 
+impl Default for Alphabet {
+    fn default() -> Self {
+        Self::Ascii
+    }
+}
+
+
 /// One invocation of the general JSON search command.
-#[derive(Clone, Debug, Parser)]
+#[derive(Clone, Debug, Default, Parser)]
 #[command(name = "obj", version, about = "Search a directory of JSON documents")]
 #[command(group(ArgGroup::new("input").args(["query", "fts", "query_file"]).multiple(false)))]
 pub struct Arguments {
