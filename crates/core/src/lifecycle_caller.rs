@@ -25,7 +25,7 @@ impl IndexedRepository {
     pub fn new(index: Index) -> Result<Self, IndexError> {
         let base = index.view()?;
         let mut startup = base.repository().startup().clone();
-        if index.status()?.saved_revision.is_some() {
+        if index.restored_from_cache() {
             startup.restored = true;
             startup.snapshot_action = SnapshotAction::Restored;
         }

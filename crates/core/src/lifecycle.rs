@@ -707,6 +707,7 @@ fn prepare_file_at(
 
 struct IndexInner {
     instance_id: u64,
+    restored_from_cache: AtomicBool,
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
     maintenance: Mutex<MaintenanceState>,
@@ -818,6 +819,7 @@ impl Index {
         let instance_id = published.instance_id;
         Self(Arc::new(IndexInner {
             instance_id,
+            restored_from_cache: AtomicBool::new(false),
             published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
             maintenance: Mutex::new(MaintenanceState {
@@ -837,6 +839,14 @@ impl Index {
 
     pub fn instance_id(&self) -> u64 {
         self.0.instance_id
+    }
+
+    pub fn restored_from_cache(&self) -> bool {
+        self.0.restored_from_cache.load(Ordering::Acquire)
+    }
+
+    pub(crate) fn mark_restored_from_cache(&self) {
+        self.0.restored_from_cache.store(true, Ordering::Release);
     }
 
     /// Acquire one immutable view; no publication lock is held by its queries.
