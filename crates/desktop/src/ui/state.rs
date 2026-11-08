@@ -293,10 +293,18 @@ impl UiState {
                 self.detail_source = None;
             }
             UiUpdate::FilterValidation { generation, state } => {
-                if generation == self.filter_validation_generation {
+                if generation >= self.filter_validation_generation {
+                    self.filter_validation_generation = generation;
+                    self.showing_last_valid_results = self.root.is_some()
+                        && !matches!(state, FilterValidationState::Valid)
+                        && (!self.page.rows.is_empty() || !self.page.columns.is_empty());
                     self.filter_validation = Some(state);
+                    if self.busy == Busy::Querying {
+                        self.busy = Busy::None;
+                    }
                 }
             }
+            UiUpdate::FieldChoices(_) => {}
             UiUpdate::Theme { dark } => self.dark = dark,
         }
     }

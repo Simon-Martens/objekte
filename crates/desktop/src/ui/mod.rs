@@ -228,6 +228,10 @@ impl DesktopView {
                 builder.sync_from_text(&draft.structured, cx)
             });
         }
+        if let UiUpdate::FieldChoices(fields) = &update {
+            self.builder_view
+                .update(cx, |builder, cx| builder.set_fields(fields.clone(), cx));
+        }
         let reset_grid_scroll = match &update {
             UiUpdate::QueryStarted(_) => true,
             UiUpdate::Page(page) => {
@@ -265,6 +269,8 @@ impl DesktopView {
             builder.sync_from_text(&draft.structured, cx)
         });
         self.state.search = draft.clone();
+        self.state.filter_validation = Some(model::FilterValidationState::Pending);
+        self.state.showing_last_valid_results = self.state.root.is_some();
         self.send(if explicit {
             UiAction::SearchNow(draft)
         } else {

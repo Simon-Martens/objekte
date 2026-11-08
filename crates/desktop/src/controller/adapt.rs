@@ -100,7 +100,11 @@ pub fn query_spec(draft: &SearchDraft) -> Result<QuerySpec, String> {
         }
         sort
     };
-    let structured = draft.structured.trim();
+    let structured = if draft.filter_enabled {
+        draft.structured.trim()
+    } else {
+        ""
+    };
     let (full_text, filter) = if structured.starts_with('"') {
         if !draft.full_text.trim().is_empty() {
             return Err(

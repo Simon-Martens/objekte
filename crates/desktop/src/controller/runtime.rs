@@ -16,11 +16,13 @@ use objekte_tui::relations::{self, LinkAction};
 
 use crate::backend::{self, OpenSpec, OpenedSession, QuerySpec};
 use crate::ui::model::{
-    BatchRow, BatchSource as UiBatchSource, DetailView, ErrorField, ExportFormat, OpenDraft,
-    PageView, RelationRow, SearchDraft, SnapshotMode, UiAction, UiUpdate,
+    BatchRow, BatchSource as UiBatchSource, DetailView, ErrorField, ExportFormat,
+    FilterValidationState, OpenDraft, PageView, RelationRow, SearchDraft, SnapshotMode, UiAction,
+    UiUpdate,
 };
 use crate::ui::preferences::DesktopPreferences;
 
+use super::filter_validation::{field_choices, validate_request};
 use super::open_detection::{DetectedSource, detect_source};
 use super::{detail_view, open_spec, page_view_with_available, query_spec};
 
@@ -51,6 +53,12 @@ type DetailCompletion = Result<(SearchHit, DetailView, Vec<Option<LinkAction>>),
 
 /// Completion messages from off-thread filesystem and search operations.
 enum WorkerEvent {
+    Validated {
+        open_generation: u64,
+        validation_generation: u64,
+        draft: SearchDraft,
+        state: FilterValidationState,
+    },
     Opened {
         generation: u64,
         result: Box<OpenCompletion>,
@@ -124,6 +132,7 @@ pub struct DesktopController {
     picker_generation: u64,
     open_generation: u64,
     query_generation: u64,
+    validation_generation: u64,
     detail_generation: u64,
     output_generation: u64,
     cancellation: CancellationToken,
@@ -173,6 +182,7 @@ impl DesktopController {
                 picker_generation: 0,
                 open_generation: 0,
                 query_generation: 0,
+                validation_generation: 0,
                 detail_generation: 0,
                 output_generation: 0,
                 cancellation: CancellationToken::new(),
@@ -216,7 +226,7 @@ impl DesktopController {
             .is_some_and(|(at, _)| at.elapsed() >= Duration::from_millis(180))
         {
             let (_, draft) = self.pending_edit.take().expect("checked pending query");
-            self.start_query(draft, 0, &mut updates);
+            self.start_validation(draft, &mut updates);
         }
         updates
     }
@@ -238,10 +248,20 @@ impl DesktopController {
                 self.detail_generation += 1;
                 self.current_draft = draft.clone();
                 self.pending_edit = Some((Instant::now(), draft));
+                self.validation_generation += 1;
+                updates.push(UiUpdate::FilterValidation {
+                    generation: self.validation_generation,
+                    state: FilterValidationState::Pending,
+                });
+                self.push_field_choices(updates);
             }
             UiAction::SearchNow(draft) => {
                 self.pending_edit = None;
-                self.start_query(draft, 0, updates);
+                self.cancellation.cancel();
+                self.query_generation += 1;
+                self.detail_generation += 1;
+                self.current_draft = draft.clone();
+                self.start_validation(draft, updates);
             }
             UiAction::Cancel => {
                 self.cancellation.cancel();
@@ -249,6 +269,13 @@ impl DesktopController {
                 self.query_generation += 1;
                 self.output_generation += 1;
                 self.pending_edit = None;
+                self.validation_generation += 1;
+                if let Some(session) = &self.session {
+                    updates.push(UiUpdate::FilterValidation {
+                        generation: self.validation_generation,
+                        state: validate_request(session, &self.current_draft),
+                    });
+                }
                 updates.push(UiUpdate::Status("Operation cancelled".into()));
             }
             UiAction::PageRelative(direction) => {
@@ -555,6 +582,7 @@ impl DesktopController {
         self.detection_generation = self.detection_generation.wrapping_add(1);
         self.picker_generation = self.picker_generation.wrapping_add(1);
         self.query_generation += 1;
+        self.validation_generation += 1;
         self.output_generation += 1;
         self.opening_draft = Some(draft);
         self.pending_edit = None;
@@ -581,6 +609,39 @@ impl DesktopController {
         }
     }
 
+    fn start_validation(&mut self, draft: SearchDraft, updates: &mut Vec<UiUpdate>) {
+        let Some(session) = self.session.clone() else {
+            return;
+        };
+        self.validation_generation += 1;
+        let validation_generation = self.validation_generation;
+        let open_generation = self.open_generation;
+        updates.push(UiUpdate::FilterValidation {
+            generation: validation_generation,
+            state: FilterValidationState::Pending,
+        });
+        let sender = self.worker_tx.clone();
+        thread::spawn(move || {
+            let state = validate_request(&session, &draft);
+            let _ = sender.send(WorkerEvent::Validated {
+                open_generation,
+                validation_generation,
+                draft,
+                state,
+            });
+        });
+    }
+
+    fn push_field_choices(&self, updates: &mut Vec<UiUpdate>) {
+        if let Some(session) = &self.session {
+            updates.push(UiUpdate::FieldChoices(field_choices(
+                session,
+                self.current_draft.collection.as_deref(),
+                &self.available_columns,
+            )));
+        }
+    }
+
     fn start_query(&mut self, draft: SearchDraft, page_start: usize, updates: &mut Vec<UiUpdate>) {
         let Some(session) = self.session.clone() else {
             updates.push(UiUpdate::Error {
@@ -589,6 +650,17 @@ impl DesktopController {
             });
             return;
         };
+        self.pending_edit = None;
+        self.validation_generation += 1;
+        let validation = validate_request(&session, &draft);
+        updates.push(UiUpdate::FilterValidation {
+            generation: self.validation_generation,
+            state: validation.clone(),
+        });
+        if !matches!(validation, FilterValidationState::Valid) {
+            self.current_draft = draft;
+            return;
+        }
         let spec = match query_spec(&draft) {
             Ok(spec) => spec,
             Err(message) => {
@@ -695,6 +767,22 @@ impl DesktopController {
 
     fn complete(&mut self, event: WorkerEvent, _cx: &mut App, updates: &mut Vec<UiUpdate>) {
         match event {
+            WorkerEvent::Validated {
+                open_generation,
+                validation_generation,
+                draft,
+                state,
+            } if open_generation == self.open_generation
+                && validation_generation == self.validation_generation =>
+            {
+                updates.push(UiUpdate::FilterValidation {
+                    generation: validation_generation,
+                    state: state.clone(),
+                });
+                if matches!(state, FilterValidationState::Valid) {
+                    self.start_query(draft, 0, updates);
+                }
+            }
             WorkerEvent::Opened { generation, result } if generation == self.open_generation => {
                 match *result {
                     Ok((session, preferences)) => {
@@ -721,6 +809,7 @@ impl DesktopController {
                             session.diagnostics.startup,
                         );
                         self.session = Some(session);
+                        self.push_field_choices(updates);
                         match preferences {
                             Ok(preferences) => {
                                 updates.push(UiUpdate::History {
@@ -771,6 +860,7 @@ impl DesktopController {
                     Ok((view, keys, next, elapsed_ns, available, hidden, diagnostics)) => {
                         self.page = view.clone();
                         self.available_columns = available.clone();
+                        self.push_field_choices(updates);
                         self.keys = keys;
                         self.next_page_start = next;
                         updates.push(UiUpdate::Columns { available, hidden });

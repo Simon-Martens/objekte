@@ -46,3 +46,34 @@ fn cancelled_replacement_open_invalidates_late_loader_without_losing_active_draf
         matches!(updates.as_slice(), [UiUpdate::Status(message)] if message == "Open cancelled")
     );
 }
+
+#[test]
+fn invalid_filter_does_not_start_query_or_replace_visible_page() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.page.offset = 11;
+    let mut updates = Vec::new();
+    controller.start_query(
+        SearchDraft {
+            structured: "year >=".into(),
+            filter_enabled: true,
+            ..SearchDraft::default()
+        },
+        0,
+        &mut updates,
+    );
+    assert_eq!(controller.page.offset, 11);
+    assert!(updates.iter().any(|update| matches!(
+        update,
+        UiUpdate::FilterValidation {
+            state: FilterValidationState::Invalid { .. },
+            ..
+        }
+    )));
+    assert!(
+        !updates
+            .iter()
+            .any(|update| matches!(update, UiUpdate::QueryStarted(_)))
+    );
+}

@@ -78,6 +78,7 @@ fn empty_path_never_defaults_to_process_working_directory() {
 fn quoted_cli_literal_uses_json_string_decoding() {
     let draft = SearchDraft {
         structured: "\"A\\nB\"".into(),
+        filter_enabled: true,
         ..SearchDraft::default()
     };
     let spec = query_spec(&draft).unwrap();
@@ -85,6 +86,7 @@ fn quoted_cli_literal_uses_json_string_decoding() {
     assert!(spec.filter.is_empty());
     let malformed = SearchDraft {
         structured: "\"unterminated".into(),
+        filter_enabled: true,
         ..SearchDraft::default()
     };
     assert!(

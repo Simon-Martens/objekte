@@ -467,6 +467,7 @@ pub enum UiUpdate {
         generation: u64,
         state: FilterValidationState,
     },
+    FieldChoices(Vec<super::filter_builder::FieldChoice>),
     Theme {
         dark: bool,
     },

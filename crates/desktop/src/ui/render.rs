@@ -3,8 +3,6 @@
 use gpui_kit::component::{
     Disableable as _, Icon, IconName, Selectable as _,
     button::{Button, ButtonVariants},
-    checkbox::Checkbox,
-    input::Input,
     scroll::ScrollableElement as _,
 };
 use gpui_kit::prelude::FluentBuilder as _;
@@ -14,7 +12,7 @@ use gpui_kit::{
 };
 
 use super::DesktopView;
-use super::model::{ErrorField, UiAction};
+use super::model::UiAction;
 use super::state::Busy;
 use super::theme::palette;
 
@@ -241,187 +239,6 @@ impl DesktopView {
                     .text_color(rgb(colors.secondary))
                     .child(format!("{} collections", self.state.collections.len())),
             )
-    }
-
-    fn render_query(&self, cx: &mut Context<Self>) -> impl IntoElement {
-        let full_error = self.state.errors.get(&ErrorField::FullText).cloned();
-        let filter_error = self.state.errors.get(&ErrorField::Structured).cloned();
-        let range_error = self.state.errors.get(&ErrorField::Range).cloned();
-        let sort_error = self.state.errors.get(&ErrorField::Sort).cloned();
-        div()
-            .flex()
-            .flex_col()
-            .flex_shrink_0()
-            .gap_2()
-            .p_3()
-            .child(
-                div()
-                    .font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                    .child("Search"),
-            )
-            .child(div().text_sm().child("Full Text"))
-            .child(
-                Input::new(&self.inputs.full_text)
-                    .id("full-text-input")
-                    .w_full(),
-            )
-            .when(full_error.is_some(), |this| {
-                this.child(
-                    div()
-                        .text_sm()
-                        .text_color(rgb(0xc2410c))
-                        .child(full_error.unwrap_or_default()),
-                )
-            })
-            .child(div().text_sm().child("Structured"))
-            .child(
-                Input::new(&self.inputs.structured)
-                    .id("structured-input")
-                    .w_full(),
-            )
-            .when(filter_error.is_some(), |this| {
-                this.child(
-                    div()
-                        .text_sm()
-                        .text_color(rgb(0xc2410c))
-                        .child(filter_error.unwrap_or_default()),
-                )
-            })
-            .child(
-                div()
-                    .flex()
-                    .items_center()
-                    .gap_3()
-                    .child(
-                        Checkbox::new("case-sensitive")
-                            .accessibility_label("Case sensitive")
-                            .child(
-                                div()
-                                    .text_color(rgb(if self.state.dark {
-                                        0xe2e8f0
-                                    } else {
-                                        0x172033
-                                    }))
-                                    .child("Case sensitive"),
-                            )
-                            .checked(self.state.search.case_sensitive)
-                            .on_change(cx.listener(|this, checked: &bool, _, cx| {
-                                this.state.search.case_sensitive = *checked;
-                                this.search_from_inputs(false, cx);
-                            })),
-                    )
-                    .child(
-                        Checkbox::new("regex-search")
-                            .accessibility_label("Regex")
-                            .child(
-                                div()
-                                    .text_color(rgb(if self.state.dark {
-                                        0xe2e8f0
-                                    } else {
-                                        0x172033
-                                    }))
-                                    .child("Regex"),
-                            )
-                            .checked(self.state.search.regex)
-                            .on_change(cx.listener(|this, checked: &bool, _, cx| {
-                                this.state.search.regex = *checked;
-                                this.search_from_inputs(false, cx);
-                            })),
-                    )
-                    .child(
-                        Checkbox::new("exact-count")
-                            .accessibility_label("Exact count")
-                            .child(
-                                div()
-                                    .text_color(rgb(if self.state.dark {
-                                        0xe2e8f0
-                                    } else {
-                                        0x172033
-                                    }))
-                                    .child("Exact count"),
-                            )
-                            .checked(self.state.search.count)
-                            .on_change(cx.listener(|this, checked: &bool, _, cx| {
-                                this.state.search.count = *checked;
-                                this.search_from_inputs(false, cx);
-                            })),
-                    )
-                    .child(
-                        Button::new("run-query")
-                            .primary()
-                            .icon(IconName::Search)
-                            .label("Run Query")
-                            .on_click(
-                                cx.listener(|this, _, _, cx| this.search_from_inputs(true, cx)),
-                            ),
-                    )
-                    .child(
-                        Button::new("cancel-query")
-                            .icon(IconName::Close)
-                            .label("Cancel")
-                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::Cancel))),
-                    ),
-            )
-            .child(
-                div()
-                    .flex()
-                    .items_center()
-                    .gap_2()
-                    .child(div().text_sm().child("Sort"))
-                    .child(Input::new(&self.inputs.sort).id("sort-input").w(px(170.)))
-                    .child(div().text_sm().child("Offset"))
-                    .child(
-                        Input::new(&self.inputs.offset)
-                            .id("offset-input")
-                            .w(px(90.)),
-                    )
-                    .child(div().text_sm().child("Limit"))
-                    .child(Input::new(&self.inputs.limit).id("limit-input").w(px(90.)))
-                    .child(
-                        Button::new("columns-button")
-                            .icon(IconName::PanelLeft)
-                            .label("Columns")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.show_columns = !this.state.show_columns;
-                                this.state.show_actions |= this.state.show_columns;
-                                cx.notify();
-                            })),
-                    )
-                    .child(
-                        Button::new("preview-button")
-                            .icon(if self.state.show_preview {
-                                IconName::EyeOff
-                            } else {
-                                IconName::Eye
-                            })
-                            .label(if self.state.show_preview {
-                                "Hide preview"
-                            } else {
-                                "Show preview"
-                            })
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.show_preview = !this.state.show_preview;
-                                this.send(UiAction::TogglePreview);
-                                cx.notify();
-                            })),
-                    ),
-            )
-            .when(sort_error.is_some(), |this| {
-                this.child(
-                    div()
-                        .text_sm()
-                        .text_color(rgb(0xc2410c))
-                        .child(sort_error.unwrap_or_default()),
-                )
-            })
-            .when(range_error.is_some(), |this| {
-                this.child(
-                    div()
-                        .text_sm()
-                        .text_color(rgb(0xc2410c))
-                        .child(range_error.unwrap_or_default()),
-                )
-            })
     }
 
     fn render_grid(&self, cx: &mut Context<Self>) -> impl IntoElement {

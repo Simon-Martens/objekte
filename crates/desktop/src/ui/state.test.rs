@@ -36,6 +36,32 @@ fn replacement_open_retains_old_workspace_until_success() {
 }
 
 #[test]
+fn late_validation_cannot_replace_newer_invalid_state() {
+    let mut state = UiState {
+        root: Some("records".into()),
+        ..UiState::default()
+    };
+    state.page.columns.push("year".into());
+    state.apply(UiUpdate::FilterValidation {
+        generation: 2,
+        state: FilterValidationState::Invalid {
+            message: "Expected a value".into(),
+            byte_offset: Some(7),
+        },
+    });
+    state.apply(UiUpdate::FilterValidation {
+        generation: 1,
+        state: FilterValidationState::Valid,
+    });
+    assert_eq!(state.filter_validation_generation, 2);
+    assert!(matches!(
+        state.filter_validation,
+        Some(FilterValidationState::Invalid { .. })
+    ));
+    assert!(state.showing_last_valid_results);
+}
+
+#[test]
 fn opening_a_repository_returns_to_the_results_workspace() {
     let mut state = UiState {
         open_dialog: super::super::open_dialog::OpenDialogState {
