@@ -16,25 +16,62 @@ fn configured_repository_uses_lifecycle_cache_for_load_and_write_flags() {
         }"#,
     )
     .unwrap();
-    let definition = || {
-        load_repository_configuration(root.path())
-            .unwrap()
-            .definitions
+    let args = Arguments {
+        repo: Some(root.path().to_owned()),
+        ..Arguments::default()
     };
+    let paths = args.resolve_paths(root.path()).unwrap();
+    let configured = configure_definitions(&args, &paths).unwrap();
     let options = RepositoryOptions::default();
     let write = SnapshotOpenPolicy::new(SnapshotMode::Disabled, None);
     let (built, _, save) =
-        open_repository(root.path(), definition(), options, write, true, true).unwrap();
+        open_repository(root.path(), &configured, options, write, true, true).unwrap();
     assert!(!built.startup().restored);
     assert!(save.is_some());
     let cache = objekte_search_core::storage::snapshot_path(root.path(), options.bigram_alphabet);
     assert!(cache.is_file());
     let load = SnapshotOpenPolicy::new(SnapshotMode::Required, None);
     let (restored, _, save) =
-        open_repository(root.path(), definition(), options, load, false, true).unwrap();
+        open_repository(root.path(), &configured, options, load, false, true).unwrap();
     assert!(restored.startup().restored);
     assert!(save.is_none());
     restored.index().wait_for_reconciliation().unwrap();
+}
+
+#[test]
+fn configured_open_uses_the_already_loaded_schema() {
+    let root = tempfile::tempdir().unwrap();
+    let schemas = root.path().join(".objekte/collections");
+    std::fs::create_dir_all(&schemas).unwrap();
+    std::fs::create_dir(root.path().join("data")).unwrap();
+    std::fs::write(root.path().join("data/a.json"), br#"{"title":"A"}"#).unwrap();
+    let schema = schemas.join("data.schema.json");
+    std::fs::write(
+        &schema,
+        br#"{
+            "type":"object",
+            "properties":{"title":{"type":"string"}},
+            "x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}
+        }"#,
+    )
+    .unwrap();
+    let args = Arguments {
+        repo: Some(root.path().to_owned()),
+        ..Arguments::default()
+    };
+    let paths = args.resolve_paths(root.path()).unwrap();
+    let configured = configure_definitions(&args, &paths).unwrap();
+    std::fs::write(&schema, b"invalid JSON after configuration was captured").unwrap();
+    let (opened, _, _) = open_repository(
+        root.path(),
+        &configured,
+        RepositoryOptions::default(),
+        SnapshotOpenPolicy::new(SnapshotMode::Disabled, None),
+        false,
+        true,
+    )
+    .unwrap();
+    assert_eq!(opened.collections()[0].definition.name, "data");
 }
 
 #[test]
@@ -76,7 +113,7 @@ fn repository_loader_matches_core_definitions_and_protects_schema_paths() {
 }
 
 #[test]
-fn legacy_explicit_cache_directory_excludes_siblings_and_owned_temps() {
+fn configured_cache_directory_keeps_unrelated_source_siblings() {
     let root = tempfile::tempdir().unwrap();
     let schemas = root.path().join(".objekte/collections");
     let data = root.path().join("data");
@@ -105,24 +142,33 @@ fn legacy_explicit_cache_directory_excludes_siblings_and_owned_temps() {
     assert!(definition.discovery.exclude_files.is_empty());
     assert_eq!(
         definition.discovery.exclude_directories,
-        vec![PathBuf::from(".objekte"), PathBuf::from("cache[odd]")]
+        vec![PathBuf::from(".objekte")]
     );
 
     configured.definitions[0].discovery.recursive = true;
-    let repo = Repository::open_with_snapshot_policy(
+    let (repo, _, saved) = open_repository(
         root.path(),
-        configured.definitions,
+        &configured,
         RepositoryOptions::default(),
-        SnapshotOpenPolicy::new(SnapshotMode::Disabled, None),
+        SnapshotOpenPolicy::new(SnapshotMode::Disabled, Some(cache)),
+        true,
+        true,
     )
     .unwrap();
+    assert!(saved.is_some());
     let files = repo
         .files()
         .files
         .iter()
         .map(|file| file.relative_path.clone())
         .collect::<Vec<_>>();
-    assert_eq!(files, vec![PathBuf::from("data/a.json")]);
+    assert_eq!(
+        files,
+        vec![
+            PathBuf::from("data/a.json"),
+            PathBuf::from("data/cache[odd]/keep.json")
+        ]
+    );
 }
 
 #[test]

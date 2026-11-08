@@ -6,8 +6,9 @@ use std::path::{Path, PathBuf};
 
 use crate::lifecycle::{Index, IndexError};
 use crate::repository::RepositoryOptions;
-use crate::repository_configuration::load_repository_configuration;
+use crate::repository_configuration::{RepositoryConfiguration, load_repository_configuration};
 use crate::storage::snapshot_path_in;
+
 
 /// Choices for opening the established `.objekte/collections` layout.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -17,6 +18,7 @@ pub enum CacheFailurePolicy {
     /// Build from sources when an existing cache is invalid.
     Rebuild,
 }
+
 
 /// Whether convenience opening may inspect the selected cache.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -29,6 +31,7 @@ pub enum CacheOpenPolicy {
     Ignore,
 }
 
+
 /// A custom cache directory is resolved relative to the repository root.
 /// With `sync_cache` disabled, opening never writes a cache.
 #[derive(Clone, Debug)]
@@ -39,6 +42,7 @@ pub struct RepositoryOpenOptions {
     pub cache_failure: CacheFailurePolicy,
     pub sync_cache: bool,
 }
+
 
 impl Default for RepositoryOpenOptions {
     fn default() -> Self {
@@ -52,6 +56,7 @@ impl Default for RepositoryOpenOptions {
     }
 }
 
+
 impl Index {
     /// Open the configured repository at `root`. This is the library entry
     /// point that discovers schemas and an alphabet-specific cache. It returns
@@ -63,7 +68,20 @@ impl Index {
     ) -> Result<Self, IndexError> {
         let configuration = load_repository_configuration(root.as_ref())
             .map_err(IndexError::IncompatibleConfiguration)?;
-        let root = configuration.root;
+        Self::open_configured_repository(configuration, options)
+    }
+
+    /// Open an already loaded repository configuration. This explicit entry
+    /// point performs no schema discovery or parsing; callers that need
+    /// opening metadata can retain their original configuration.
+    pub fn open_configured_repository(
+        configuration: RepositoryConfiguration,
+        options: RepositoryOpenOptions,
+    ) -> Result<Self, IndexError> {
+        let root = configuration
+            .root
+            .canonicalize()
+            .map_err(|error| IndexError::Io(error.to_string()))?;
         let cache_directory = match options.cache_directory {
             Some(directory) if directory.is_absolute() => directory,
             Some(directory) => root.join(directory),
@@ -112,6 +130,7 @@ impl Index {
         Ok(index)
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle_repository.test.rs"]

@@ -51,14 +51,14 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         };
         Ok::<_, String>((
             paths.root,
-            configured.definitions,
+            configured,
             options,
             policy,
             initial_search,
             initial_filter,
         ))
     })();
-    let (root, definitions, options, policy, initial_search, initial_filter) = match configured {
+    let (root, configured, options, policy, initial_search, initial_filter) = match configured {
         Ok(configured) => configured,
         Err(error) => {
             eprintln!("obj: {error}");
@@ -88,7 +88,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         move || {
             open_repository(
                 &root,
-                definitions,
+                &configured,
                 options,
                 policy,
                 write,
@@ -298,7 +298,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     let policy = snapshot_policy(args, &paths);
     let (repo, startup_ns, snapshot_save) = match open_repository(
         &paths.root,
-        configured.definitions,
+        &configured,
         options,
         policy,
         args.write_index.is_some(),
