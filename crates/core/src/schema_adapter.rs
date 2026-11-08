@@ -1,6 +1,7 @@
 //! Explicit JSON Schema subset shared by the folder CLI and repository TUI.
 
 use std::collections::HashSet;
+use std::path::Path;
 
 use serde_json::Value;
 
@@ -16,6 +17,19 @@ pub struct CompiledSchema {
     pub sort_fields: Vec<FieldPath>,
 }
 
+
+/// Load exactly the named schema file and compile its supported declarations.
+/// This explicit operation does not discover a repository or search for other
+/// schema files. Relative paths use the process working directory.
+pub fn load_schema_file(path: &Path, collection: &str) -> Result<CompiledSchema, String> {
+    let bytes = std::fs::read(path).map_err(|error| format!("{}: {error}", path.display()))?;
+    let document: Value =
+        serde_json::from_slice(&bytes).map_err(|error| format!("{}: {error}", path.display()))?;
+    let mut compiled = compile_schema(&document, collection)
+        .map_err(|error| format!("{}: {error}", path.display()))?;
+    compiled.schema.set_source_fingerprint(&bytes);
+    Ok(compiled)
+}
 
 /// Compile the supported declarations and Objekte index annotations from one
 /// parsed document. Repository location, reader, and identity stay caller-owned.

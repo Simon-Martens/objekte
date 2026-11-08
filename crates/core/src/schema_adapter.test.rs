@@ -91,3 +91,38 @@ fn root_and_nested_arrays_register_item_properties() {
     let mut invalid = LogicalValue::from_json(serde_json::json!([[{"code":7,"count":1}]])).unwrap();
     assert!(compiled.schema.coerce_record(&mut invalid).is_err());
 }
+
+#[test]
+fn explicit_schema_load_uses_only_the_requested_file() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-explicit-schema-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let selected = root.join("selected.json");
+    std::fs::write(
+        &selected,
+        br#"{"type":"object","properties":{"title":{"type":"string","index":true}}}"#,
+    )
+    .unwrap();
+    let compiled = load_schema_file(&selected, "documents").unwrap();
+    assert!(compiled.schema.fields()[&vec!["title".into()]].indexed);
+    assert!(compiled.schema.source_fingerprint.is_some());
+
+    let unselected = root.join("other.json");
+    assert!(
+        load_schema_file(&unselected, "documents")
+            .err()
+            .unwrap()
+            .contains("other.json")
+    );
+    std::fs::write(&selected, br#"{"type":"object","properties":42}"#).unwrap();
+    assert!(
+        load_schema_file(&selected, "documents")
+            .err()
+            .unwrap()
+            .contains("selected.json")
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
