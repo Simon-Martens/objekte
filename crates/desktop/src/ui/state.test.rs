@@ -1,7 +1,6 @@
 use super::*;
 use crate::ui::model::{ResultRow, RowKey};
 
-
 #[test]
 fn new_repository_discards_old_results_and_detail() {
     let mut state = UiState {
@@ -49,6 +48,7 @@ fn query_restore_keeps_exact_inputs() {
     let draft = SearchDraft {
         full_text: "ÄÖÜ".into(),
         structured: "score >= 10 SORT BY score DESC".into(),
+        filter_enabled: true,
         collection: Some("docs".into()),
         case_sensitive: false,
         regex: true,

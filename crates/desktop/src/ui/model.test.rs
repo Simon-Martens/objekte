@@ -1,6 +1,5 @@
 use super::*;
 
-
 #[test]
 fn page_bounds_rows_columns_and_multibyte_cells_without_changing_total() {
     let rows = (0..MAX_PAGE_ROWS + 3)

@@ -80,6 +80,8 @@ impl Default for OpenDraft {
 pub struct SearchDraft {
     pub full_text: String,
     pub structured: String,
+    /// The filter line can retain an inactive draft without executing it.
+    pub filter_enabled: bool,
     /// None searches all collections.
     pub collection: Option<String>,
     pub case_sensitive: bool,
@@ -99,6 +101,7 @@ impl Default for SearchDraft {
         Self {
             full_text: String::new(),
             structured: String::new(),
+            filter_enabled: false,
             collection: None,
             case_sensitive: true,
             regex: false,
@@ -108,6 +111,18 @@ impl Default for SearchDraft {
             count: false,
         }
     }
+}
+
+
+/// Validation of the current search and filter text, separate from the last result page.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub enum FilterValidationState {
+    Pending,
+    Valid,
+    Invalid {
+        message: String,
+        byte_offset: Option<usize>,
+    },
 }
 
 
@@ -424,6 +439,10 @@ pub enum UiUpdate {
     ClearError(ErrorField),
     ChosenPaths(String),
     RestoreQuery(SearchDraft),
+    FilterValidation {
+        generation: u64,
+        state: FilterValidationState,
+    },
     Theme {
         dark: bool,
     },

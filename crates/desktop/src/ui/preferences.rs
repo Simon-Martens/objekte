@@ -146,6 +146,7 @@ fn from_query(query: &Query) -> SearchDraft {
     SearchDraft {
         full_text: query.search.clone(),
         structured: query.filter.clone(),
+        filter_enabled: !query.filter.trim().is_empty(),
         collection: query.collection.clone(),
         case_sensitive: !query.case_insensitive,
         regex: query.regex,
