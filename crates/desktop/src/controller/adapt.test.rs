@@ -12,6 +12,15 @@ fn opening_modes_preserve_cli_validation() {
     };
     let spec = open_spec(&draft, cwd).unwrap();
     assert_eq!(spec.args.path.len(), 2);
+    draft.mode = OpenMode::Folder;
+    draft.paths = "/tmp/one".into();
+    draft.schema = "schema.json".into();
+    draft.recursive = false;
+    let single = open_spec(&draft, cwd).unwrap();
+    assert_eq!(single.args.schema, Some("schema.json".into()));
+    assert!(single.args.no_recurse);
+    draft.mode = OpenMode::MultipleFolders;
+    draft.paths = "/tmp/one\n/tmp/two".into();
     draft.schema = "schema.json".into();
     assert!(open_spec(&draft, cwd).unwrap_err().contains("--schema"));
     draft.mode = OpenMode::ConfiguredRepository;

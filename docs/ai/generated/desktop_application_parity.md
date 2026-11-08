@@ -1,82 +1,85 @@
 # Desktop capability parity
 
-Task: `desktop-application-initial`. Baseline: Objekte `master` at `1da55f0c6d9dce7d2cb73430c2d67d974577fcce` (8 November 2026). This inventory is the acceptance checklist for the native GPUI application. The CLI and TUI implementations at that commit define the semantics; the task specification `objekte_initial_desktop_application_implementation.md` supplies additional presentation requirements. Results will be filled with test and GUI evidence as each phase is integrated. **Pending means unverified, not implemented.**
+Task: `desktop-application-initial`. Baseline: `master` at `1da55f0c6d9dce7d2cb73430c2d67d974577fcce` (8 November 2026). The merged CLI and TUI at that commit define the feature semantics. The production desktop uses the same CLI loader and event encoder, core query/streaming/relations, and TUI record/export/settings helpers. `crates/desktop/src/{backend,controller,ui}` hold the adapter and tests.
 
-The baseline has two terminal frontends: `crates/cli/src/{arguments,query_input,execution,output}.rs` and `crates/tui/src/tui/`. The latter's actions are in `app.rs` and `mod.rs`; settings, detail, links, and exports are in `settings.rs`, `record.rs`, `relations.rs`, and `export.rs`. `docs/cli/obj.md` describes the public CLI behavior. Some TUI code is also mirrored under `crates/cli/src/tui/`; parity is judged against behavior, not the duplicate source location.
+**Evidence key.** `F` is `/tmp/objekte-desktop-acceptance/items` (`Alpha` score 3, `Beta` score 8); `M` is its two sibling folders `left`/`right`; `X` is the disposable scalar, JSON null, and malformed-root folder; `R` is `examples/musenalm` (seven collections, 148,486 files). Screens named below are the inspected 1920 × 1080 native captures in [desktop_application_evidence](desktop_application_evidence/); additional captures and deterministic output files remain at `target/gui-validation/desktop/` and `/tmp/objekte-desktop-acceptance/` in the retained integration worktree. Tests named below are in `crates/desktop/src/` unless a CLI/TUI path is stated. **Pass** means the stated expected result was observed in the GUI, a focused adapter test, or both; where a subcase was checked only in code/tests, this is identified. The full workspace test, Clippy, and benchmark record follow the tables.
 
 ## Opening and data operations
 
-| ID | Baseline capability | Desktop workflow | Verification |
-| --- | --- | --- | --- |
-| O01 | Default current folder and one explicit `--path`; single `files` collection | Open folder or enter a path | Pending |
-| O02 | Repeated `--path`, distinct names, nonoverlap, useful common root, selected-only discovery | Add multiple folders | Pending |
-| O03 | `--repo` configured collections, schema metadata, relation targets, path validation | Open configured repository | Pending |
-| O04 | `--schema` for one folder and incompatible-option errors | Schema option with validation | Pending |
-| O05 | `--no-recurse` for one-folder discovery; `--repo` conflict | Recursion option with validation | Pending |
-| O06 | In-memory default; no implicit snapshot write | Open with snapshot operation off | Pending |
-| O07 | `--load-index` valid restore or fatal failure, default/custom path | Load Index option | Pending |
-| O08 | `--write-index` fresh build/save; default/custom path | Write Index action | Pending |
-| O09 | Load+write recoverable rebuild/save, matching directory rule | Combined snapshot options | Pending |
-| O10 | Index-only invocation without a query | Write/Load Index with no search | Pending |
-| O11 | `--auto-index` inference and bounded ordered postings | Automatic indexing option | Pending |
-| O12 | `--index-alphabet ascii/unicode`, independent of query case | Alphabet selector | Pending |
-| O13 | Loading before results, startup progress/diagnostics, visible errors | Nonblocking loading/status area | Pending |
-| O14 | One/all collection scope; single-folder semantics | Collection sidebar | Pending |
+| ID | Existing source/test | Desktop control and input | Expected | Result and evidence |
+| --- | --- | --- | --- | --- |
+| O01 | CLI `arguments.rs`, loader; `backend/open.test.rs` | Open One folder, `F` | `files`, two records | Pass: [open](desktop_application_evidence/acceptance-open.png) |
+| O02 | CLI `arguments.rs`, loader; `backend/open.test.rs` | Open Multiple folders, `M` | Separate `left`/`right` collections, all scope | Pass: [multiple](desktop_application_evidence/acceptance-multiple.png); overlap/name rules in adapter test |
+| O03 | CLI loader, repository config; `controller/adapt.test.rs` | Open Configured repository, `R` | Seven named collections and metadata | Pass: [Musenalm diagnostics](desktop_application_evidence/acceptance-musenalm-diagnostics-2.png) |
+| O04 | CLI `arguments.rs`; `controller/adapt.test.rs` | Schema input in One folder; then Configured repository plus schema | Single-folder schema allowed; incompatible combination rejected | Pass: [schema conflict](desktop_application_evidence/acceptance-incompatible-open.png); accepted path in adapter test |
+| O05 | CLI `arguments.rs`; `controller/adapt.test.rs` | Uncheck Recursive; Configured repository | Single-folder recursion option; repo conflict rejected | Pass: [recursion conflict](desktop_application_evidence/acceptance-no-recurse-conflict.png); single-folder behavior in adapter test |
+| O06 | CLI loader; `backend/open.test.rs` | Open `F` with Snapshot None | In-memory build, no snapshot written | Pass: [open](desktop_application_evidence/acceptance-open.png), snapshot absence asserted in test |
+| O07 | CLI loader; `backend/open.test.rs` | Snapshot Load on `F`, custom index directory | Valid restore; invalid/missing snapshot fatal | Pass: [restored](desktop_application_evidence/acceptance-index-load-restored.png); incompatible `R` snapshot gave fatal GUI error; test covers policy |
+| O08 | CLI loader; `backend/open.test.rs` | Snapshot Write and Write Index on `F` | Fresh snapshot at selected path | Pass: `search-core-unicode.snapshot` created in disposable index directory; GUI `acceptance-index-write.png` |
+| O09 | CLI loader; `backend/open.test.rs` | Load + Write, custom directory on `R` | Restore compatible or rebuild/save recoverable snapshot | Pass: [Musenalm diagnostics](desktop_application_evidence/acceptance-musenalm-diagnostics-2.png); missing custom snapshot rebuilt and saved to external directory |
+| O10 | CLI `execution.rs`; `controller/adapt.test.rs` | Write Index with blank query on `F` | Index-only operation, no query required | Pass: GUI `acceptance-write-index-action-2.png`; snapshot file verified |
+| O11 | CLI loader; `controller/adapt.test.rs` | Auto index checkbox on `F` | Inference and index findings | Pass: GUI `acceptance-index-write.png`, diagnostics; loader behavior reused |
+| O12 | CLI `arguments.rs`; `controller/adapt.test.rs` | Unicode alphabet checkbox independent of Case | Unicode snapshot name and query case unchanged | Pass: GUI `acceptance-index-write.png`, `search-core-unicode.snapshot` verified |
+| O13 | CLI loader/diagnostics; `ui/state.test.rs` | Open `R` while loading | Window stays visible; progress/status/errors shown | Pass: GUI `acceptance-musenalm-responsive.png`, [loaded diagnostics](desktop_application_evidence/acceptance-musenalm-diagnostics-2.png) |
+| O14 | TUI `app.rs`; `backend/query.test.rs` | Click one collection or All in sidebar | Scope updates without reopening | Pass: [multiple](desktop_application_evidence/acceptance-multiple.png), `R` collection selection GUI |
 
 ## Search, results, and output
 
-| ID | Baseline capability | Desktop workflow | Verification |
-| --- | --- | --- | --- |
-| Q01 | Separate full-text and structured filter, combined with AND | Full Text and Structured inputs | Pending |
-| Q02 | Full accepted structured syntax and parser errors retained | Structured input and inline error | Pending |
-| Q03 | Literal FTS and CLI-style complete JSON-string literal decoding | Full Text/direct query controls | Pending |
-| Q04 | Regex/literal and case-sensitive/insensitive FTS; sensitive literal default | Regex and Case controls | Pending |
-| Q05 | 180 ms debounce, explicit Enter execution, cancel, stale-result rejection | Live and Run controls | Pending |
-| Q06 | TUI sort picker and inline `SORT BY` with conflict semantics | Sort selector plus query parser | Pending |
-| Q07 | Global result ordering through core, not visible-page sorting | Result grid | Pending |
-| Q08 | `--offset`, finite/unlimited `--limit`, zero-limit | Range controls | Pending |
-| Q09 | Exact `--count`, all-results exact total, count pending state | Count control and status | Pending |
-| Q10 | Bounded result pages, Home/End/Page/arrow and mouse selection | Virtualized result grid | Pending |
-| Q11 | Configured/default columns, show/hide, horizontal navigation | Column menu/grid | Pending |
-| Q12 | Match fields/evidence, preview visibility, selected record | Match indication and preview toggle | Pending |
-| Q13 | Selected-record TUI JSON export with metadata and payload | Export Selected | Pending |
-| Q14 | All-match TUI JSON export over requested query range, no overwrite | Export Results (JSON) | Pending |
-| Q15 | CLI-compatible NDJSON, event order, full payload/metadata, fallback representation | Export Results (NDJSON) | Pending |
-| Q16 | File or pasted physical-line batch, BOM/line endings/blanks, line numbers, per-line continuation | Batch input and outcomes | Pending |
-| Q17 | Query/run/output errors and cancellation; no false success | Status and per-query error list | Pending |
-| Q18 | Operational diagnostics, inference/index counters and timing | Diagnostics panel | Pending |
+| ID | Existing source/test | Desktop control and input | Expected | Result and evidence |
+| --- | --- | --- | --- | --- |
+| Q01 | TUI `app.rs`; `backend/query.test.rs` | Full Text `Beta` and Structured `score > 3`, `F` | Combined AND yields Beta | Pass: [combined query](desktop_application_evidence/acceptance-combined-count.png) |
+| Q02 | CLI `query_input.rs`; `backend/query.test.rs` | Structured `abc`, then corrected expression | Inline parse error keeps text; parser not reduced | Pass: GUI `acceptance-input-select-all.png`; corrected result GUI `acceptance-sort-error-cleared-2.png` |
+| Q03 | CLI `query_input.rs`; `controller/adapt.test.rs` | Full Text literal and quoted JSON-string input | CLI-style quoted decoding, literal behavior | Pass: adapter test for escaped quoted literal; GUI literal in [combined query](desktop_application_evidence/acceptance-combined-count.png) |
+| Q04 | TUI `app.rs`; `backend/query.test.rs` | `beta`, Case toggle, Regex `b.ta`, `F` | Sensitive default misses; insensitive/regex find Beta | Pass: [insensitive](desktop_application_evidence/acceptance-case-insensitive.png), [regex](desktop_application_evidence/acceptance-regex.png) |
+| Q05 | TUI `mod.rs`; `backend/query.test.rs`, `ui/state.test.rs` | Type search; Run Query/Cancel buttons | 180 ms debounce, explicit run, cancellation, stale results rejected | Pass: GUI live changes and controls; cancel and stale generation semantics in focused tests/controller review |
+| Q06 | TUI `mod.rs`; CLI parser; `backend/query.test.rs` | Inline `SORT BY score DESC` plus Sort `name` | Conflict error beside Sort; correction clears it | Pass: [conflict](desktop_application_evidence/acceptance-sort-conflict.png), GUI `acceptance-sort-error-cleared-2.png` |
+| Q07 | Core `query.rs`; `backend/ndjson.test.rs` | Sort on `F`, export requested range | Full-result ordering before page/range | Pass: [global sort](desktop_application_evidence/acceptance-global-sort.png) shows Beta before Alpha; sorted-range adapter test |
+| Q08 | CLI `arguments.rs`; `backend/query.test.rs` | Offset 1, Limit 1; then Limit 0, `F` | Beta only; zero rows at zero limit | Pass: [finite range](desktop_application_evidence/acceptance-offset-limit-count.png), GUI `acceptance-zero-limit-count.png` |
+| Q09 | CLI `execution.rs`; `backend/query.test.rs` | Exact count with finite/zero limit | Two exact total, independent of visible rows | Pass: [2 total](desktop_application_evidence/acceptance-offset-limit-count.png), zero-limit GUI; count returned before rows display |
+| Q10 | TUI `mod.rs`; `ui/model.test.rs` | Grid click/arrow/Home/End/Page controls | Bounded page and stable selection | Pass: GUI row/next/selection, [detail find](desktop_application_evidence/acceptance-detail-find.png); byte/row budget test; keyboard dispatch inspected |
+| Q11 | TUI `settings.rs`; `ui/state.test.rs` | Columns menu, hide `kind`; horizontal grid scroll | Chosen columns persist; identity preserved | Pass: GUI `acceptance-column-hidden.png`, state test |
+| Q12 | TUI `record.rs`; `controller/projection.test.rs` | Inspect row, Preview toggle | Preview and core matched-field evidence | Pass: [detail find](desktop_application_evidence/acceptance-detail-find.png), evidence projection test |
+| Q13 | TUI `export.rs`; `backend/export.test.rs` | Export Selected Beta to new JSON file | Complete TUI record/metadata shape | Pass: GUI `acceptance-selected-export.png`; `selected.json` payload checked |
+| Q14 | TUI `export.rs`; `backend/export.test.rs` | Export Results from `F` to new JSON file | All requested matches, beyond viewport, no overwrite | Pass: GUI `acceptance-export.png`; all/zero/offscreen tests |
+| Q15 | CLI `output.rs`; `backend/ndjson.test.rs` | Export NDJSON for `F` | Ordered run/query/hit/complete events and full data | Pass: `direct.ndjson` has two full hits and terminal events; event-order tests |
+| Q16 | CLI `query_input.rs`; `backend/batch.test.rs` | Paste lines; file with BOM, CRLF, blank line, error | Physical lines 1/3/4, continue after line 3 | Pass: [file outcomes](desktop_application_evidence/acceptance-file-batch-outcomes.png), `file-batch.ndjson` event sequence; pasted GUI `acceptance-batch-status.png` |
+| Q17 | CLI `execution.rs`; `backend/batch.test.rs`, `backend/export.test.rs` | Invalid batch line and invalid export path | Per-query error, run error, output failure visible | Pass: [batch error](desktop_application_evidence/acceptance-file-batch-outcomes.png), [source output rejected](desktop_application_evidence/acceptance-export-source-rejected.png) |
+| Q18 | CLI diagnostics; `backend/open.test.rs` | Diagnostics checkbox/panel on `R` | Open/query counters, timing and errors visible | Pass: [Musenalm diagnostics](desktop_application_evidence/acceptance-musenalm-diagnostics-2.png) |
 
 ## Inspection and interaction
 
-| ID | Baseline capability | Desktop workflow | Verification |
-| --- | --- | --- | --- |
-| I01 | Selected record preview, structured detail, raw source | Preview/detail panel and raw toggle | Pending |
-| I02 | Object fold and bounded array expansion | Detail tree controls | Pending |
-| I03 | Metadata and source diagnostic fields | Detail metadata/diagnostic sections | Pending |
-| I04 | JSON null versus logical unavailable/fallback/raw records | Distinct detail labels | Pending |
-| I05 | Previous/next result and section navigation | Detail navigation | Pending |
-| I06 | Find in record, next/previous match | Detail Find controls | Pending |
-| I07 | Outgoing and backlink relation traversal, continuation, Back | Relation rows and Back | Pending |
-| I08 | Copy selected value/relation and complete record | Copy Value/Copy Record | Pending |
-| I09 | Query history (bounded, deduplicated, newest last) | History menu | Pending |
-| I10 | Named saved queries with replace/restore semantics | Save Query/Saved Queries | Pending |
-| I11 | Restore text, filter, collection, case, regex from history/saved | Restore action | Pending |
-| I12 | Persisted theme and hidden columns without overwriting TUI settings | Desktop preferences | Pending |
-| I13 | Action picker, shortcut help, mouse/keyboard navigation | Actions/help/focus traversal | Pending |
-| I14 | Discoverable help/version and desktop instead of `--tui` terminal launch | About/help | Pending |
+| ID | Existing source/test | Desktop control and input | Expected | Result and evidence |
+| --- | --- | --- | --- | --- |
+| I01 | TUI `record.rs`; `ui/model.test.rs` | Select Beta; Structured/Original source | Logical fields and original bytes distinct | Pass: [detail](desktop_application_evidence/acceptance-detail-find.png), GUI `acceptance-original-source.png` |
+| I02 | TUI `record.rs`; `ui/model.test.rs` | Expand nested object and array in `X` detail | Bounded object/array children | Pass: [object](desktop_application_evidence/acceptance-nested-expanded.png), [array](desktop_application_evidence/acceptance-array-expanded.png); nested-row bound test |
+| I03 | TUI `record.rs`; `controller/projection.test.rs` | Inspect malformed `X` record | Metadata and diagnostic rows visible | Pass: [malformed detail](desktop_application_evidence/acceptance-malformed-detail.png) |
+| I04 | TUI `record.rs`; `backend/export.test.rs` | Inspect null and malformed `X` roots | JSON null distinct from unavailable logical data | Pass: [null](desktop_application_evidence/acceptance-json-null-detail.png), [fallback](desktop_application_evidence/acceptance-malformed-detail.png) |
+| I05 | TUI `mod.rs`; `controller/runtime.rs` | Previous/next record and section buttons | Adjacent result/section navigation | Pass: [adjacent record](desktop_application_evidence/acceptance-adjacent-record.png), [next section](desktop_application_evidence/acceptance-detail-section.png) |
+| I06 | TUI `record.rs`; `controller/runtime.rs` | Find `score`, next/previous | Highlight matching detail field | Pass: [find](desktop_application_evidence/acceptance-detail-find.png) |
+| I07 | TUI `relations.rs`; `controller/runtime.rs` | Follow `entries` to `contents`, Back on `R` | Target then original record restored | Pass: [follow](desktop_application_evidence/acceptance-relation-follow.png), [Back](desktop_application_evidence/acceptance-relation-back.png); pagination via TUI relation API |
+| I08 | TUI `record.rs`, `relations.rs`; `controller/runtime.test.rs` | Copy Record and selected `score` | Complete raw text and `8` on system clipboard | Pass: GUI [copy controls](desktop_application_evidence/acceptance-clipboard-fixed.png); `wl-paste` returned exact raw Beta JSON and `8`; complete clipped-field path test |
+| I09 | TUI `settings.rs`; `ui/preferences.test.rs` | History menu after queries | Bounded, deduplicated recall | Pass: GUI `acceptance-history.png`, restored screenshot |
+| I10 | TUI `settings.rs`; `ui/preferences.test.rs` | Save Query with name; Saved Queries | Named entry persists/replaces | Pass: GUI `acceptance-saved-query.png`, upsert test |
+| I11 | TUI `settings.rs`; `ui/state.test.rs` | Restore saved/history query | Text/filter/scope/case/regex restored | Pass: GUI `acceptance-history-restored.png`, `acceptance-saved-restored.png`; state test |
+| I12 | TUI `settings.rs`; `ui/preferences.test.rs` | Dark button, Columns menu | Theme/columns persist in desktop file, TUI file separate | Pass: GUI `acceptance-musenalm-responsive.png`, `acceptance-column-hidden.png`; settings path test |
+| I13 | TUI `mod.rs`; `ui/mod.rs` | Actions, Help, mouse and keyboard focus | Discoverable conventional controls | Pass: GUI `acceptance-actions.png`, `acceptance-help-version.png`; focus keyboard paths reviewed |
+| I14 | CLI `arguments.rs`; `ui/panels.rs` | Help button | Version 0.1.0 and desktop shortcuts | Pass: GUI `acceptance-help-version.png` |
 
 ## Safety and responsiveness
 
-| ID | Baseline or task requirement | Desktop workflow | Verification |
-| --- | --- | --- | --- |
-| S01 | Source JSON and schemas remain unchanged | Read-only open, query, inspect | Pending |
-| S02 | Generated indexes, exports, and settings have explicit destinations | Write Index/Export Results/Save Query | Pending |
-| S03 | Exports cannot overwrite source records or add scanned records | Output path validation | Pending |
-| S04 | Repository retained across query/scope changes; superseded work canceled | Worker controller | Pending |
-| S05 | All-results mode streams output without retaining all bodies in the UI | Paged grid and export worker | Pending |
-| S06 | Display stays responsive during load, scan, export, and cancellation | Native GUI interaction | Pending |
-| S07 | 1920 × 1080 at scale 1/60 Hz; RFB viewer does not resize output | Existing headless launcher | Pending |
+| ID | Existing source/test | Desktop control and input | Expected | Result and evidence |
+| --- | --- | --- | --- | --- |
+| S01 | Core repository; `backend/open.test.rs` | Open/query/inspect `F`, `X`, `R` | Source JSON and schemas unchanged | Pass: no source diff; no app writes to disposable input files; fixture setup and explicit output paths checked |
+| S02 | TUI settings/export; CLI loader; adapter tests | Save Query, Export Results, Write Index | Desktop settings, new export files, derived snapshot only | Pass: GUI saved/export/index captures; `.objekte/.cache/obj-desktop.json` distinct from TUI settings |
+| S03 | TUI export; `backend/export.test.rs`, `backend/batch.test.rs` | Export into scanned `F` path | Reject without creating/overwriting source | Pass: [rejected](desktop_application_evidence/acceptance-export-source-rejected.png), tests |
+| S04 | Core cancellation; `ui/state.test.rs`, `backend/query.test.rs` | Change query/repository while work active | Retain repository; superseded result cannot replace current | Pass: generation/cancellation tests and controller review; GUI repository changes inspected |
+| S05 | Core `streaming.rs`; `ui/model.test.rs`, `backend/export.test.rs` | Unlimited grid and all-match export | UI page at most 100 rows/4 MiB; export includes offscreen hits | Pass: model and offscreen export tests; `R` first page remained 100 rows |
+| S06 | Worker controller; `ui/model.test.rs` | Toggle theme/input during `R` build | Window responsive, load outside render thread | Pass: GUI `acceptance-musenalm-responsive.png`; 56.5 s debug build did not freeze window |
+| S07 | `scripts/gui/headless_session.py`, `run_desktop.sh`; migration report | Prepare and connect loopback WayVNC; fresh `ssh localhost` status/screenshot | 1920 × 1080, scale 1, 60 Hz, viewer cannot resize | Pass: launcher/status validated mode; WayVNC `-R`; screenshot dimensions inspected; prior actual RFB connection left mode unchanged; fresh SSH captured production window |
 
-## Presentation reference
+## Validation and measured limits
 
-The [DBDelve project](https://github.com/ShayanAbbas1/dbdelve), its [query screenshot](https://github.com/ShayanAbbas1/dbdelve/blob/main/assets/screenshots/query-dark.png), [record screenshot](https://github.com/ShayanAbbas1/dbdelve/blob/main/assets/screenshots/table-dark.png), and the README's scrolling/launch demonstrations were inspected on 8 November 2026. The desktop layout will adapt the compact sidebar, query area, result grid, and right record panel. DBDelve's SQL, connection management, query tabs, and record editing are outside this task.
+- `cargo test --locked --workspace`: pass on combined integration result (including 35 desktop library tests). `cargo clippy --locked --workspace --all-targets`: pass. Existing core, CLI, and TUI warnings remain; desktop has no Clippy warnings. `python3 scripts/format-rust-spacing.py --check` and `git diff --check`: pass.
+- Existing release benchmark: `target/release/examples/bench_musenalm --root examples/musenalm --extended --cases Q035,Q045 --profiles ascii-off --repetitions 1 --result-dir target/gui-validation/desktop/bench-musenalm-integration`. On 148,486 files: Q035 106.819 µs, Q045 357.540 µs, build 1.125 s, snapshot write 0.245 s, peak 680,779,776 bytes, restore median 0.527 s. One repetition is a smoke/performance check, not a distribution.
+- Comparable no-snapshot **debug** CLI runs on `R`, `--fts Musenalm --limit 1 --diagnostic`: baseline `master` 54.83 s / 571,612 KiB peak; integration 55.57 s / 580,680 KiB peak (single runs, +1.35% time / +1.6% memory). Core source is unchanged. Debug GUI open 56.5 s / about 711 MiB RSS, then first 100-row page 8.1 ms. GUI startup, index construction, query, render, and SSH transfer were not collapsed into one number; SSH image transfer was not measured. Host: Fedora 44, Rust 1.99.1, Intel RPL-S Mesa Vulkan, headless Sway 1080p/60 Hz; no snapshot on these open timings. The release core benchmark is not directly comparable to the debug GUI.
+- CLI and TUI remain in the workspace and passed their tests. DBDelve inspired sidebar/query/grid/detail density; SQL, connection management, multiple tabs, and editing were deliberately excluded. The desktop remains read-only for source data. The GPUI Wayland clipboard does not expose delayed worker copies to the external headless seat, so complete values are handed to `wl-copy` on a background thread; `run_desktop.sh prepare` checks that command.
