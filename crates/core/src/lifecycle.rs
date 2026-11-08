@@ -179,6 +179,37 @@ pub struct RebuildReport {
     pub duration: Duration,
 }
 
+/// The kind of a long-running index maintenance task.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum MaintenanceOperation {
+    Compact,
+    Rebuild,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum MaintenancePhase {
+    Pending,
+    Preparing,
+    Publishing,
+    Complete,
+    Cancelled,
+    Failed,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct MaintenanceProgress {
+    pub operation: MaintenanceOperation,
+    pub phase: MaintenancePhase,
+    pub attempt: usize,
+    pub elapsed: Duration,
+}
+
+#[derive(Clone, Debug)]
+pub enum MaintenanceReport {
+    Compact(crate::lifecycle_compaction::CompactionReport),
+    Rebuild(RebuildReport),
+}
+
 /// Result of removing one physical source entry from the published index.
 /// The source file itself is never changed.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -721,6 +752,7 @@ struct IndexInner {
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
     maintenance: Mutex<MaintenanceState>,
+    maintenance_operation: Mutex<Option<Arc<MaintenanceJob>>>,
     periodic: Mutex<Option<PeriodicReconciliation>>,
     persistence: Mutex<PersistenceState>,
     sync_cache: Mutex<Option<SyncCacheWorker>>,
@@ -754,6 +786,86 @@ struct ReconciliationJob {
     result: Mutex<Option<ReconciliationReport>>,
     complete: Condvar,
     worker: Mutex<Option<JoinHandle<()>>>,
+}
+
+struct MaintenanceJob {
+    operation: MaintenanceOperation,
+    started: Instant,
+    cancelled: AtomicBool,
+    progress: Mutex<MaintenanceProgress>,
+    result: Mutex<Option<Result<MaintenanceReport, IndexError>>>,
+    complete: Condvar,
+    worker: Mutex<Option<JoinHandle<()>>>,
+}
+
+/// One observable compaction or rebuild. Cancellation prevents publication
+/// and leaves the current view available.
+#[derive(Clone)]
+pub struct MaintenanceTask(Arc<MaintenanceJob>);
+
+impl MaintenanceTask {
+    pub fn cancel(&self) {
+        self.0.cancelled.store(true, Ordering::Release);
+    }
+
+    pub fn progress(&self) -> Result<MaintenanceProgress, IndexError> {
+        let mut progress = *self
+            .0
+            .progress
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        if !matches!(
+            progress.phase,
+            MaintenancePhase::Complete | MaintenancePhase::Cancelled | MaintenancePhase::Failed
+        ) {
+            progress.elapsed = self.0.started.elapsed();
+        }
+        Ok(progress)
+    }
+
+    pub fn is_complete(&self) -> Result<bool, IndexError> {
+        Ok(self
+            .0
+            .result
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .is_some())
+    }
+
+    pub fn wait(&self) -> Result<MaintenanceReport, IndexError> {
+        let mut result = self.0.result.lock().map_err(|_| IndexError::LockPoisoned)?;
+        while result.is_none() {
+            result = self
+                .0
+                .complete
+                .wait(result)
+                .map_err(|_| IndexError::LockPoisoned)?;
+        }
+        let outcome = result.as_ref().cloned().ok_or(IndexError::LockPoisoned)?;
+        drop(result);
+        if let Some(worker) = self
+            .0
+            .worker
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .take()
+        {
+            worker.join().map_err(|_| {
+                IndexError::InvalidPublication("maintenance worker panicked".into())
+            })?;
+        }
+        outcome
+    }
+}
+
+impl MaintenanceJob {
+    fn set_progress(&self, phase: MaintenancePhase, attempt: usize, elapsed: Duration) {
+        if let Ok(mut progress) = self.progress.lock() {
+            progress.phase = phase;
+            progress.attempt = attempt;
+            progress.elapsed = elapsed;
+        }
+    }
 }
 
 /// Observable, cancellable handle for one metadata reconciliation pass.
@@ -836,6 +948,7 @@ impl Index {
                 reconciliation: ReconciliationState::NotStarted,
                 current: None,
             }),
+            maintenance_operation: Mutex::new(None),
             periodic: Mutex::new(None),
             persistence: Mutex::new(PersistenceState {
                 selected_cache: None,
@@ -880,6 +993,124 @@ impl Index {
         Ok(status)
     }
 
+    /// Run one source-free compaction on a worker while pinned queries use
+    /// their current view. Concurrent requests for the same operation share
+    /// its handle; a different operation waits for the active one to finish.
+    pub fn start_compaction(&self) -> Result<MaintenanceTask, IndexError> {
+        self.start_maintenance(MaintenanceOperation::Compact)
+    }
+
+    /// Reconstruct the index from the current explicit configuration on a
+    /// worker. Cancellation leaves the published view unchanged.
+    pub fn start_rebuild(&self) -> Result<MaintenanceTask, IndexError> {
+        self.start_maintenance(MaintenanceOperation::Rebuild)
+    }
+
+    fn start_maintenance(
+        &self,
+        operation: MaintenanceOperation,
+    ) -> Result<MaintenanceTask, IndexError> {
+        let mut current = self
+            .0
+            .maintenance_operation
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        if let Some(job) = current.as_ref() {
+            if job
+                .result
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?
+                .is_none()
+            {
+                if job.operation == operation {
+                    return Ok(MaintenanceTask(Arc::clone(job)));
+                }
+                return Err(IndexError::ResourceLimit(
+                    "another index maintenance task is running".into(),
+                ));
+            }
+        }
+        let job = Arc::new(MaintenanceJob {
+            operation,
+            started: Instant::now(),
+            cancelled: AtomicBool::new(false),
+            progress: Mutex::new(MaintenanceProgress {
+                operation,
+                phase: MaintenancePhase::Pending,
+                attempt: 0,
+                elapsed: Duration::ZERO,
+            }),
+            result: Mutex::new(None),
+            complete: Condvar::new(),
+            worker: Mutex::new(None),
+        });
+        let owner = self.clone();
+        let worker_job = Arc::clone(&job);
+        let worker = std::thread::Builder::new()
+            .name(
+                match operation {
+                    MaintenanceOperation::Compact => "objekte-compact",
+                    MaintenanceOperation::Rebuild => "objekte-rebuild",
+                }
+                .into(),
+            )
+            .spawn(move || {
+                let outcome =
+                    std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| match operation {
+                        MaintenanceOperation::Compact => owner
+                            .compact_with_control(
+                                || worker_job.cancelled.load(Ordering::Acquire),
+                                |phase, attempt| {
+                                    worker_job.set_progress(
+                                        phase,
+                                        attempt,
+                                        worker_job.started.elapsed(),
+                                    )
+                                },
+                            )
+                            .map(MaintenanceReport::Compact),
+                        MaintenanceOperation::Rebuild => owner
+                            .rebuild_with_control(
+                                || worker_job.cancelled.load(Ordering::Acquire),
+                                |phase, attempt| {
+                                    worker_job.set_progress(
+                                        phase,
+                                        attempt,
+                                        worker_job.started.elapsed(),
+                                    )
+                                },
+                                |_| {},
+                            )
+                            .map(MaintenanceReport::Rebuild),
+                    }))
+                    .unwrap_or_else(|_| {
+                        Err(IndexError::InvalidPublication(
+                            "maintenance worker panicked".into(),
+                        ))
+                    });
+                let phase = match &outcome {
+                    Ok(_) => MaintenancePhase::Complete,
+                    Err(IndexError::Cancelled) => MaintenancePhase::Cancelled,
+                    Err(_) => MaintenancePhase::Failed,
+                };
+                let attempt = worker_job
+                    .progress
+                    .lock()
+                    .ok()
+                    .map(|progress| progress.attempt)
+                    .unwrap_or(0);
+                worker_job.set_progress(phase, attempt, worker_job.started.elapsed());
+                if let Ok(mut result) = worker_job.result.lock() {
+                    *result = Some(outcome);
+                    worker_job.complete.notify_all();
+                }
+            })
+            .map_err(|error| IndexError::Io(error.to_string()))?;
+        *job.worker.lock().map_err(|_| IndexError::LockPoisoned)? = Some(worker);
+        *current = Some(Arc::clone(&job));
+        Ok(MaintenanceTask(job))
+    }
+
     /// Rebuild from the current explicit configuration. Queries keep using
     /// their pinned prior view while source extraction runs. A concurrent
     /// commit makes the candidate stale and causes a fresh bounded retry.
@@ -891,9 +1122,22 @@ impl Index {
         &self,
         mut before_publish: impl FnMut(usize),
     ) -> Result<RebuildReport, IndexError> {
+        self.rebuild_with_control(|| false, |_, _| {}, |attempt| before_publish(attempt))
+    }
+
+    fn rebuild_with_control(
+        &self,
+        cancelled: impl Fn() -> bool,
+        mut progress: impl FnMut(MaintenancePhase, usize),
+        mut before_publish: impl FnMut(usize),
+    ) -> Result<RebuildReport, IndexError> {
         let started = Instant::now();
         let mut conflict = None;
         for attempt in 1..=3 {
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
+            progress(MaintenancePhase::Preparing, attempt);
             let view = self.view()?;
             let repository = view.repository();
             let definitions = repository
@@ -914,7 +1158,14 @@ impl Index {
                 next_revision,
                 rebuilt_repository,
             )?;
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
+            progress(MaintenancePhase::Publishing, attempt);
             before_publish(attempt);
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
             match self.publish_prepared(view.revision(), next) {
                 Ok(revision) => {
                     let status = self.status()?;
@@ -1286,6 +1537,22 @@ impl Index {
     pub fn shutdown(&self) -> Result<Option<ReconciliationReport>, IndexError> {
         self.stop_periodic_reconciliation()?;
         self.stop_sync_cache()?;
+        let operation = self
+            .0
+            .maintenance_operation
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .take();
+        let operation_error = if let Some(job) = operation {
+            let task = MaintenanceTask(job);
+            task.cancel();
+            match task.wait() {
+                Ok(_) | Err(IndexError::Cancelled) => None,
+                Err(error) => Some(error),
+            }
+        } else {
+            None
+        };
         let current = self
             .0
             .maintenance
@@ -1293,13 +1560,17 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?
             .current
             .clone();
-        current
+        let reconciliation = current
             .map(|job| {
                 let task = ReconciliationTask(job);
                 task.cancel();
                 task.wait()
             })
-            .transpose()
+            .transpose()?;
+        if let Some(error) = operation_error {
+            return Err(error);
+        }
+        Ok(reconciliation)
     }
 
     /// Prepare a selected source without holding the publication or writer
