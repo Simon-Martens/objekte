@@ -8,11 +8,13 @@ use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Path, PathBuf};
 use std::time::SystemTime;
 
-use crate::discovery::discover;
+use crate::discovery::discover_bounded;
 use crate::inventory::SourceRevision;
 use crate::model::CollectionId;
 use crate::repository::CollectionDefinition;
 use crate::source::SourceRegistry;
+
+const MAX_RECONCILIATION_FILES: usize = 250_000;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub(crate) struct FileStamp {
@@ -65,11 +67,12 @@ pub(crate) fn scan_sources(
         };
         let selected = (|| -> Result<Vec<(PathBuf, SourceRevision, Option<i128>)>, String> {
             let source = sources.resolve(&definition.format)?;
-            let paths = discover(
+            let paths = discover_bounded(
                 root,
                 &definition.source_path,
                 &definition.discovery,
                 &source,
+                MAX_RECONCILIATION_FILES.saturating_sub(scan.files.len()),
             )?;
             let mut selected = Vec::with_capacity(paths.len());
             for path in paths {

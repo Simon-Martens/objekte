@@ -7,14 +7,12 @@ use globset::{Glob, GlobSet, GlobSetBuilder};
 
 use crate::source::PreparedSource;
 
-
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum SymlinkPolicy {
     #[default]
     Skip,
     FollowWithinRoot,
 }
-
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Discovery {
@@ -29,7 +27,6 @@ pub struct Discovery {
     pub symlinks: SymlinkPolicy,
 }
 
-
 impl Default for Discovery {
     fn default() -> Self {
         Self {
@@ -43,7 +40,6 @@ impl Default for Discovery {
         }
     }
 }
-
 
 fn compile(patterns: &[String]) -> Result<GlobSet, String> {
     let mut builder = GlobSetBuilder::new();
@@ -68,6 +64,18 @@ pub fn discover(
     source_path: &Path,
     rules: &Discovery,
     source: &PreparedSource,
+) -> Result<Vec<PathBuf>, String> {
+    discover_bounded(root, source_path, rules, source, usize::MAX)
+}
+
+/// The reconciliation path sets an admission ceiling so an unexpectedly
+/// large filesystem cannot grow its pending path inventory without bound.
+pub(crate) fn discover_bounded(
+    root: &Path,
+    source_path: &Path,
+    rules: &Discovery,
+    source: &PreparedSource,
+    max_paths: usize,
 ) -> Result<Vec<PathBuf>, String> {
     if source_path.is_absolute()
         || source_path
@@ -110,6 +118,9 @@ pub fn discover(
             if rules.symlinks == SymlinkPolicy::Skip {
                 if kind.is_dir() && rules.recursive {
                     if !directory_excluded && !excludes.is_match(selected_path) {
+                        if pending.len() >= max_paths {
+                            return Err("source discovery directory budget exceeded".into());
+                        }
                         pending.push((path, ancestors.clone()));
                     }
                 } else if kind.is_file()
@@ -123,6 +134,9 @@ pub fn discover(
                         .iter()
                         .any(|excluded| selected_path == excluded)
                 {
+                    if direct_files.len() >= max_paths {
+                        return Err("source discovery file budget exceeded".into());
+                    }
                     direct_files.push(path);
                 }
                 continue;
@@ -141,6 +155,9 @@ pub fn discover(
                 {
                     let mut child_ancestors = ancestors.clone();
                     child_ancestors.push(physical);
+                    if pending.len() >= max_paths {
+                        return Err("source discovery directory budget exceeded".into());
+                    }
                     pending.push((path, child_ancestors));
                 }
             } else if physical.is_file()
@@ -154,6 +171,9 @@ pub fn discover(
                     .iter()
                     .any(|excluded| selected_path == excluded)
             {
+                if !aliases.contains_key(&physical) && aliases.len() >= max_paths {
+                    return Err("source discovery file budget exceeded".into());
+                }
                 aliases
                     .entry(physical)
                     .and_modify(|existing| {

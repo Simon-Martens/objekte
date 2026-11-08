@@ -1,7 +1,7 @@
 use std::collections::HashSet;
 use std::path::Path;
 
-use super::{Discovery, discover, selects_file};
+use super::{Discovery, discover, discover_bounded, selects_file};
 use crate::source::{SourceFormat, SourceRegistry};
 
 #[test]
@@ -42,6 +42,11 @@ fn direct_selection_matches_full_discovery_without_enumerating_siblings() {
         .map(|path| path.strip_prefix(&root).unwrap().to_owned())
         .collect::<HashSet<_>>();
     assert_eq!(full.len(), 2);
+    assert!(
+        discover_bounded(&root, Path::new("data"), &rules, &source, 1)
+            .unwrap_err()
+            .contains("budget exceeded")
+    );
     for file in [
         "data/a.json",
         "data/nested/b.json",
