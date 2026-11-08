@@ -1073,8 +1073,14 @@ impl Index {
             .name("objekte-sync-cache".into())
             .spawn(move || {
                 while receiver.recv().is_ok() {
-                    // A quiet window folds bursts into a single snapshot.
-                    while receiver.recv_timeout(Duration::from_millis(100)).is_ok() {}
+                    // A quiet window folds bursts into one snapshot, while
+                    // a one-second ceiling prevents continuous writes from
+                    // postponing persistence indefinitely.
+                    let first_signal = Instant::now();
+                    while first_signal.elapsed() < Duration::from_secs(1)
+                        && receiver.recv_timeout(Duration::from_millis(100)).is_ok()
+                    {
+                    }
                     let Some(inner) = owner.upgrade() else { break };
                     let index = Index(inner);
                     let destination = index
