@@ -180,6 +180,20 @@ pub struct DeleteResult {
     pub strategy: DeleteStrategy,
 }
 
+/// One metadata scan and its applied index changes. Errors affecting only a
+/// source remain visible here while other independent files can proceed.
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct ReconciliationReport {
+    pub examined: usize,
+    pub unchanged: usize,
+    pub added: usize,
+    pub updated: usize,
+    pub removed: usize,
+    pub skipped: usize,
+    pub cancelled: bool,
+    pub issues: Vec<String>,
+}
+
 /// Private work captured before the mutation writer validates and publishes
 /// one file across all eligible collections.
 pub(crate) struct PreparedAdd {
@@ -760,6 +774,107 @@ impl Index {
         }
         next.revision = view.revision().next()?;
         Ok(next)
+    }
+
+    /// Apply one complete metadata observation through the same file
+    /// preparation/publication paths as explicit mutations. Callers schedule
+    /// this outside query threads; an unchanged pass does not read content or
+    /// publish a new data revision.
+    pub(crate) fn reconcile_pass(&self, cancelled: impl Fn() -> bool) -> ReconciliationReport {
+        use crate::lifecycle_scan::{ScanChange, plan_scan, scan_sources};
+
+        let mut report = ReconciliationReport::default();
+        let snapshot = match self.view() {
+            Ok(snapshot) => snapshot,
+            Err(error) => {
+                report.issues.push(error.to_string());
+                return report;
+            }
+        };
+        let repository = snapshot.repository();
+        let root = &repository.files().root;
+        let definitions = repository
+            .collections()
+            .iter()
+            .map(|collection| collection.definition.clone())
+            .collect::<Vec<_>>();
+        let prior = snapshot.0.catalog.scan_stamps();
+        let scan = scan_sources(root, &definitions, &repository.sources, &cancelled);
+        report.examined = scan.examined;
+        report.cancelled = scan.cancelled;
+        report.issues.extend(
+            scan.issues
+                .iter()
+                .map(|issue| format!("collection {}: {}", issue.collection.0, issue.message)),
+        );
+        let plan = plan_scan(&prior, &scan);
+        report.unchanged = plan.unchanged;
+        report.skipped = plan.skipped;
+        for change in plan.changes {
+            if cancelled() {
+                report.cancelled = true;
+                break;
+            }
+            let path = match &change {
+                ScanChange::Add(observed) | ScanChange::Remove(observed) => &observed.path,
+                ScanChange::Update { observed, .. } => &observed.path,
+            }
+            .clone();
+            let outcome = match change {
+                ScanChange::Add(observed) => {
+                    self.prepare_add_file(&observed.path).and_then(|prepared| {
+                        if prepared.file.source.revision != observed.revision {
+                            return Err(IndexError::SourceUnavailable(
+                                "source changed after metadata scan".into(),
+                            ));
+                        }
+                        let expected = prepared.expected_revision;
+                        let next = self.stage_prepared_add(prepared)?;
+                        self.publish_prepared(expected, next).map(|_| ())
+                    })
+                }
+                ScanChange::Update { previous, observed } => snapshot
+                    .file_handle_for_path(&previous.path)
+                    .ok_or(IndexError::UnknownFile)
+                    .and_then(|handle| {
+                        let prepared = self.prepare_replace_file(handle, &observed.path)?;
+                        if prepared.file.source.revision != observed.revision {
+                            return Err(IndexError::SourceUnavailable(
+                                "source changed after metadata scan".into(),
+                            ));
+                        }
+                        let expected = prepared.expected_revision;
+                        let next = self.stage_prepared_replace(prepared)?;
+                        self.publish_prepared(expected, next).map(|_| ())
+                    }),
+                ScanChange::Remove(observed) => snapshot
+                    .file_handle_for_path(&observed.path)
+                    .ok_or(IndexError::UnknownFile)
+                    .and_then(
+                        |handle| match std::fs::metadata(root.join(&observed.path)) {
+                            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+                                self.delete_file(handle).map(|_| ())
+                            }
+                            Ok(_) => Err(IndexError::SourceUnavailable(
+                                "source reappeared after metadata scan".into(),
+                            )),
+                            Err(error) => Err(IndexError::Io(error.to_string())),
+                        },
+                    ),
+            };
+            match outcome {
+                Ok(()) => match scan.files.get(&path) {
+                    Some(_) if prior.contains_key(&path) => report.updated += 1,
+                    Some(_) => report.added += 1,
+                    None => report.removed += 1,
+                },
+                Err(error) => {
+                    report.skipped += 1;
+                    report.issues.push(format!("{}: {error}", path.display()));
+                }
+            }
+        }
+        report
     }
 
     /// Retire all records owned by one file across its collections in one

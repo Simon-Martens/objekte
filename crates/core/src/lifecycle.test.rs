@@ -336,6 +336,56 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
 }
 
 #[test]
+fn reconciliation_applies_metadata_changes_without_revising_unchanged_files() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-reconcile-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let original = root.join("data/a.jsonl");
+    std::fs::write(&original, b"{\"name\":\"a\"}\n").unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::JsonLines,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let initial = index.status().unwrap();
+    let unchanged = index.reconcile_pass(|| false);
+    assert_eq!(unchanged.examined, 1);
+    assert_eq!(unchanged.unchanged, 1);
+    assert!(unchanged.issues.is_empty());
+    assert_eq!(index.status().unwrap(), initial);
+
+    let added = root.join("data/b.jsonl");
+    std::fs::write(&added, b"{\"name\":\"b\"}\n").unwrap();
+    let report = index.reconcile_pass(|| false);
+    assert_eq!((report.added, report.updated, report.removed), (1, 0, 0));
+    assert!(report.issues.is_empty(), "{:?}", report.issues);
+    assert_eq!(index.status().unwrap().indexed_files, 2);
+
+    std::fs::write(&original, b"{\"name\":\"replacement\"}\n").unwrap();
+    let report = index.reconcile_pass(|| false);
+    assert_eq!((report.added, report.updated, report.removed), (0, 1, 0));
+    assert!(report.issues.is_empty(), "{:?}", report.issues);
+    assert_eq!(index.status().unwrap().live_records, 2);
+
+    std::fs::remove_file(&added).unwrap();
+    let report = index.reconcile_pass(|| false);
+    assert_eq!((report.added, report.updated, report.removed), (0, 0, 1));
+    assert!(report.issues.is_empty(), "{:?}", report.issues);
+    assert_eq!(index.status().unwrap().indexed_files, 1);
+    assert_eq!(index.status().unwrap().live_records, 1);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
     let root = std::env::temp_dir().join(format!(
         "objekte-live-query-{}-{:?}",
