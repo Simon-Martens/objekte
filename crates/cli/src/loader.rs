@@ -7,10 +7,12 @@ use std::time::Instant;
 use objekte_search_core::discovery::SymlinkPolicy;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
-    SnapshotOpenPolicy,
+    CollectionDefinition, Repository, RepositoryOptions, SnapshotMode, SnapshotOpenPolicy,
 };
-use objekte_search_core::schema_adapter::{CompiledSchema, compile_schema};
+use objekte_search_core::repository_configuration::{
+    load_explicit_schema, load_repository_configuration,
+};
+use objekte_search_core::schema_adapter::CompiledSchema;
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::workload::BigramAlphabet;
@@ -23,17 +25,8 @@ fn load_schema_configuration(
     let Some(path) = paths.schema_file.as_deref() else {
         return Ok(None);
     };
-    let bytes = std::fs::read(path).map_err(|error| format!("{}: {error}", path.display()))?;
-    let mut document: serde_json::Value =
-        serde_json::from_slice(&bytes).map_err(|error| format!("{}: {error}", path.display()))?;
-    omit_unavailable_relations(
-        &mut document,
-        &std::collections::HashSet::from(["files".to_owned()]),
-    );
-    let mut compiled = compile_schema(&document, "files")
-        .map_err(|error| format!("{}: {error}", path.display()))?;
-    compiled.schema.set_source_fingerprint(&bytes);
-    Ok(Some((compiled, document.get("x-objekte").is_some())))
+    let loaded = load_explicit_schema(path, "files")?;
+    Ok(Some((loaded.compiled, loaded.ignored_repository_metadata)))
 }
 
 
@@ -41,6 +34,8 @@ fn load_schema_configuration(
 pub struct ConfiguredDefinitions {
     pub definitions: Vec<CollectionDefinition>,
     pub schema_files: Vec<PathBuf>,
+    /// Canonical schema/configuration targets to protect from snapshot writes.
+    pub protected_files: Vec<PathBuf>,
     pub schema_fields: usize,
     pub ignored_repository_metadata: bool,
 }
@@ -52,7 +47,21 @@ pub fn configure_definitions(
     paths: &ResolvedPaths,
 ) -> Result<ConfiguredDefinitions, String> {
     if args.repo.is_some() {
-        return load_repository_definitions(&paths.root, paths.index_directory.as_deref());
+        let loaded = load_repository_configuration(&paths.root)?;
+        let mut definitions = loaded.definitions;
+        if let Some(directory) = paths.index_directory.as_deref() {
+            for definition in &mut definitions {
+                let source_root = paths.root.join(&definition.source_path);
+                exclude_cache_directory(definition, &source_root, directory);
+            }
+        }
+        return Ok(ConfiguredDefinitions {
+            definitions,
+            schema_files: loaded.schema_files,
+            protected_files: loaded.protected_files,
+            schema_fields: loaded.schema_fields,
+            ignored_repository_metadata: false,
+        });
     }
     if paths.collection_paths.len() > 1 {
         let mut names = HashSet::new();
@@ -75,6 +84,7 @@ pub fn configure_definitions(
         return Ok(ConfiguredDefinitions {
             definitions,
             schema_files: Vec::new(),
+            protected_files: Vec::new(),
             schema_fields: 0,
             ignored_repository_metadata: false,
         });
@@ -94,159 +104,30 @@ pub fn configure_definitions(
             schema.map(|(compiled, _)| compiled),
         )],
         schema_files: paths.schema_file.iter().cloned().collect(),
+        protected_files: paths.schema_file.iter().cloned().collect(),
         schema_fields,
         ignored_repository_metadata,
     })
 }
 
-fn load_repository_definitions(
-    root: &Path,
-    index_directory: Option<&Path>,
-) -> Result<ConfiguredDefinitions, String> {
-    let directory = root.join(".objekte/collections");
-    let mut schema_files = std::fs::read_dir(&directory)
-        .map_err(|error| format!("{}: {error}", directory.display()))?
-        .map(|entry| {
-            entry
-                .map(|entry| entry.path())
-                .map_err(|error| error.to_string())
-        })
-        .collect::<Result<Vec<_>, _>>()?;
-    schema_files.retain(|path| {
-        path.file_name()
-            .and_then(|name| name.to_str())
-            .is_some_and(|name| name.ends_with(".schema.json"))
-    });
-    schema_files.sort();
-    if schema_files.is_empty() {
-        return Err(format!(
-            "{} contains no collection schemas",
-            directory.display()
-        ));
-    }
-    let mut documents = Vec::with_capacity(schema_files.len());
-    let mut names = HashSet::new();
-    for path in &schema_files {
-        let bytes = std::fs::read(path).map_err(|error| format!("{}: {error}", path.display()))?;
-        let document: serde_json::Value = serde_json::from_slice(&bytes)
-            .map_err(|error| format!("{}: {error}", path.display()))?;
-        let metadata = document
-            .get("x-objekte")
-            .ok_or_else(|| format!("{}: missing x-objekte", path.display()))?;
-        let name = repository_metadata(metadata, "name", path)?.to_owned();
-        if !names.insert(name.clone()) {
-            return Err(format!(
-                "{}: duplicate collection name {name}",
-                path.display()
-            ));
-        }
-        documents.push((path.clone(), bytes, document, name));
-    }
-    let mut definitions = Vec::with_capacity(documents.len());
-    let mut schema_fields = 0usize;
-    for (path, bytes, mut document, name) in documents {
-        omit_unavailable_relations(&mut document, &names);
-        let metadata = document.get("x-objekte").unwrap();
-        let source_path = PathBuf::from(repository_metadata(metadata, "path", &path)?);
-        let format = match repository_metadata(metadata, "format", &path)? {
-            "json" => SourceFormat::Json,
-            "jsonl" => SourceFormat::JsonLines,
-            "json_decoded_scalars" => SourceFormat::JsonDecodedScalars,
-            other => {
-                return Err(format!(
-                    "{}: unsupported source format {other}",
-                    path.display()
-                ));
-            }
-        };
-        let identity = match repository_metadata(metadata, "id", &path)? {
-            "filename" => IdentityPolicy::Filename,
-            "generated" => IdentityPolicy::Generated,
-            "relative_path" => IdentityPolicy::RelativePath,
-            other => {
-                return Err(format!(
-                    "{}: unsupported identity policy {other}",
-                    path.display()
-                ));
-            }
-        };
-        let mut compiled = compile_schema(&document, &name)
-            .map_err(|error| format!("{}: {error}", path.display()))?;
-        compiled.schema.set_source_fingerprint(&bytes);
-        schema_fields = schema_fields.saturating_add(compiled.schema.fields().len());
-        let mut definition = CollectionDefinition {
-            name,
-            source_path,
-            format,
-            identity,
-            discovery: Default::default(),
-            schema: compiled.schema,
-            sort_fields: compiled.sort_fields,
-            sort_locale: document
-                .get("x-language")
-                .and_then(serde_json::Value::as_str)
-                .unwrap_or("und")
-                .to_owned(),
-            sort_options: Default::default(),
-            sort_overrides: Default::default(),
-        };
-        definition.discovery.exclude = vec![".git".into(), "**/.git".into()];
-        definition.discovery.exclude_directories = vec![PathBuf::from(".objekte")];
-        if let Some(index_directory) = index_directory
-            && let Ok(relative) = index_directory.strip_prefix(root.join(&definition.source_path))
-            && !relative.as_os_str().is_empty()
-        {
-            definition
-                .discovery
-                .exclude_directories
-                .push(relative.to_owned());
-        }
-        definitions.push(definition);
-    }
-    Ok(ConfiguredDefinitions {
-        definitions,
-        schema_files,
-        schema_fields,
-        ignored_repository_metadata: false,
-    })
-}
-
-fn repository_metadata<'a>(
-    metadata: &'a serde_json::Value,
-    key: &str,
-    path: &Path,
-) -> Result<&'a str, String> {
-    metadata
-        .get(key)
-        .and_then(serde_json::Value::as_str)
-        .filter(|value| !value.is_empty())
-        .ok_or_else(|| format!("{}: missing x-objekte.{key}", path.display()))
-}
-
-fn omit_unavailable_relations(
-    document: &mut serde_json::Value,
-    collections: &std::collections::HashSet<String>,
+/// Preserve the legacy CLI snapshot policy: a custom cache directory is not
+/// part of source discovery, including JSON files added after a cache write.
+fn exclude_cache_directory(
+    definition: &mut CollectionDefinition,
+    source_root: &Path,
+    directory: &Path,
 ) {
-    match document {
-        serde_json::Value::Object(fields) => {
-            if fields
-                .get("x-relation")
-                .and_then(|relation| relation.get("collection"))
-                .and_then(serde_json::Value::as_str)
-                .is_some_and(|target| !collections.contains(target))
-            {
-                fields.remove("x-relation");
-            }
-            for value in fields.values_mut() {
-                omit_unavailable_relations(value, collections);
-            }
-        }
-        serde_json::Value::Array(values) => {
-            for value in values {
-                omit_unavailable_relations(value, collections);
-            }
-        }
-        _ => {}
+    let source_root = source_root
+        .canonicalize()
+        .unwrap_or_else(|_| source_root.to_owned());
+    let Ok(relative) = directory.strip_prefix(&source_root) else {
+        return;
+    };
+    if !relative.as_os_str().is_empty() {
+        definition
+            .discovery
+            .exclude_directories
+            .push(relative.to_owned());
     }
 }
 
@@ -277,14 +158,8 @@ fn make_definition(
     {
         definition.discovery.exclude_files.push(relative.to_owned());
     }
-    if let Some(directory) = paths.index_directory.as_deref()
-        && let Ok(relative) = directory.strip_prefix(source_root)
-        && !relative.as_os_str().is_empty()
-    {
-        definition
-            .discovery
-            .exclude_directories
-            .push(relative.to_owned());
+    if let Some(directory) = paths.index_directory.as_deref() {
+        exclude_cache_directory(&mut definition, source_root, directory);
     }
     definition
 }
@@ -342,3 +217,7 @@ pub fn open_repository(
     }
     Ok((repo, open_ns, None))
 }
+
+#[cfg(test)]
+#[path = "loader.test.rs"]
+mod tests;
