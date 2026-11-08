@@ -1745,6 +1745,18 @@ impl IndexView {
         self.0.catalog.entry(file)
     }
 
+    pub fn diagnostic(
+        &self,
+        file: FileId,
+        reference: crate::inventory::DiagnosticRef,
+    ) -> Option<&crate::inventory::SourceDiagnostic> {
+        self.0
+            .catalog
+            .entry(file)?
+            .diagnostics
+            .get(reference.stored_index()?)
+    }
+
     pub(crate) fn file_fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
         self.0.catalog.fingerprint(file)
     }
