@@ -6,7 +6,9 @@
 
 use std::fmt;
 use std::path::Path;
-use std::sync::{Arc, Mutex, RwLock};
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::{Arc, Condvar, Mutex, RwLock};
+use std::thread::JoinHandle;
 use std::time::SystemTime;
 
 use serde::{Deserialize, Serialize};
@@ -178,6 +180,20 @@ pub struct DeleteResult {
     pub retired_records: u64,
     pub affected_collections: Vec<String>,
     pub strategy: DeleteStrategy,
+}
+
+/// One metadata scan and its applied index changes. Errors affecting only a
+/// source remain visible here while other independent files can proceed.
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct ReconciliationReport {
+    pub examined: usize,
+    pub unchanged: usize,
+    pub added: usize,
+    pub updated: usize,
+    pub removed: usize,
+    pub skipped: usize,
+    pub cancelled: bool,
+    pub issues: Vec<String>,
 }
 
 /// Private work captured before the mutation writer validates and publishes
@@ -543,6 +559,63 @@ struct IndexInner {
     instance_id: u64,
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
+    maintenance: Mutex<MaintenanceState>,
+}
+
+struct MaintenanceState {
+    reconciliation: ReconciliationState,
+    current: Option<Arc<ReconciliationJob>>,
+}
+
+struct ReconciliationJob {
+    cancelled: AtomicBool,
+    result: Mutex<Option<ReconciliationReport>>,
+    complete: Condvar,
+    worker: Mutex<Option<JoinHandle<()>>>,
+}
+
+/// Observable, cancellable handle for one metadata reconciliation pass.
+#[derive(Clone)]
+pub struct ReconciliationTask(Arc<ReconciliationJob>);
+
+impl ReconciliationTask {
+    pub fn cancel(&self) {
+        self.0.cancelled.store(true, Ordering::Release);
+    }
+
+    pub fn is_complete(&self) -> Result<bool, IndexError> {
+        Ok(self
+            .0
+            .result
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .is_some())
+    }
+
+    pub fn wait(&self) -> Result<ReconciliationReport, IndexError> {
+        let mut guard = self.0.result.lock().map_err(|_| IndexError::LockPoisoned)?;
+        while guard.is_none() {
+            guard = self
+                .0
+                .complete
+                .wait(guard)
+                .map_err(|_| IndexError::LockPoisoned)?;
+        }
+        let result = guard.as_ref().cloned().ok_or(IndexError::LockPoisoned)?;
+        drop(guard);
+        if let Some(worker) = self
+            .0
+            .worker
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .take()
+        {
+            worker.join().map_err(|_| {
+                IndexError::InvalidPublication("reconciliation worker panicked".into())
+            })?;
+        }
+        Ok(result)
+    }
 }
 
 /// Shared lifecycle owner. Cloning this handle does not copy indexed data.
@@ -563,6 +636,10 @@ impl Index {
             instance_id,
             published: RwLock::new(published),
             writer: Mutex::new(()),
+            maintenance: Mutex::new(MaintenanceState {
+                reconciliation: ReconciliationState::NotStarted,
+                current: None,
+            }),
         })))
     }
 
@@ -581,7 +658,94 @@ impl Index {
     }
 
     pub fn status(&self) -> Result<IndexStatus, IndexError> {
-        Ok(self.view()?.0.status())
+        let mut status = self.view()?.0.status();
+        status.reconciliation = self
+            .0
+            .maintenance
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .reconciliation;
+        Ok(status)
+    }
+
+    /// Coalesce concurrent scan requests into one worker. The scan runs
+    /// without holding a query or publication lock; waiters receive its
+    /// report and can retry a later pass after partial failure.
+    pub(crate) fn start_reconcile(&self) -> Result<ReconciliationTask, IndexError> {
+        let mut maintenance = self
+            .0
+            .maintenance
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        if let Some(job) = &maintenance.current {
+            if job
+                .result
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?
+                .is_none()
+            {
+                return Ok(ReconciliationTask(Arc::clone(job)));
+            }
+        }
+        let job = Arc::new(ReconciliationJob {
+            cancelled: AtomicBool::new(false),
+            result: Mutex::new(None),
+            complete: Condvar::new(),
+            worker: Mutex::new(None),
+        });
+        let owner = self.clone();
+        let worker_job = Arc::clone(&job);
+        let worker = std::thread::Builder::new()
+            .name("objekte-reconcile".into())
+            .spawn(move || {
+                if let Ok(mut maintenance) = owner.0.maintenance.lock() {
+                    maintenance.reconciliation = ReconciliationState::Running;
+                }
+                let report = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                    owner.reconcile_pass(|| worker_job.cancelled.load(Ordering::Acquire))
+                }))
+                .unwrap_or_else(|_| ReconciliationReport {
+                    issues: vec!["reconciliation worker panicked".into()],
+                    ..ReconciliationReport::default()
+                });
+                let state = if report.cancelled {
+                    ReconciliationState::Cancelled
+                } else if report.issues.is_empty() {
+                    ReconciliationState::Complete
+                } else {
+                    ReconciliationState::Partial
+                };
+                if let Ok(mut maintenance) = owner.0.maintenance.lock() {
+                    maintenance.reconciliation = state;
+                }
+                if let Ok(mut result) = worker_job.result.lock() {
+                    *result = Some(report);
+                    worker_job.complete.notify_all();
+                }
+            })
+            .map_err(|error| IndexError::Io(error.to_string()))?;
+        *job.worker.lock().map_err(|_| IndexError::LockPoisoned)? = Some(worker);
+        maintenance.reconciliation = ReconciliationState::Pending;
+        maintenance.current = Some(Arc::clone(&job));
+        Ok(ReconciliationTask(job))
+    }
+
+    /// Cancel and join the current scan worker before releasing this handle.
+    pub fn shutdown(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        let current = self
+            .0
+            .maintenance
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .current
+            .clone();
+        current
+            .map(|job| {
+                let task = ReconciliationTask(job);
+                task.cancel();
+                task.wait()
+            })
+            .transpose()
     }
 
     /// Prepare a selected source without holding the publication or writer
@@ -762,6 +926,107 @@ impl Index {
         Ok(next)
     }
 
+    /// Apply one complete metadata observation through the same file
+    /// preparation/publication paths as explicit mutations. Callers schedule
+    /// this outside query threads; an unchanged pass does not read content or
+    /// publish a new data revision.
+    pub(crate) fn reconcile_pass(&self, cancelled: impl Fn() -> bool) -> ReconciliationReport {
+        use crate::lifecycle_scan::{ScanChange, plan_scan, scan_sources};
+
+        let mut report = ReconciliationReport::default();
+        let snapshot = match self.view() {
+            Ok(snapshot) => snapshot,
+            Err(error) => {
+                report.issues.push(error.to_string());
+                return report;
+            }
+        };
+        let repository = snapshot.repository();
+        let root = &repository.files().root;
+        let definitions = repository
+            .collections()
+            .iter()
+            .map(|collection| collection.definition.clone())
+            .collect::<Vec<_>>();
+        let prior = snapshot.0.catalog.scan_stamps();
+        let scan = scan_sources(root, &definitions, &repository.sources, &cancelled);
+        report.examined = scan.examined;
+        report.cancelled = scan.cancelled;
+        report.issues.extend(
+            scan.issues
+                .iter()
+                .map(|issue| format!("collection {}: {}", issue.collection.0, issue.message)),
+        );
+        let plan = plan_scan(&prior, &scan);
+        report.unchanged = plan.unchanged;
+        report.skipped = plan.skipped;
+        for change in plan.changes {
+            if cancelled() {
+                report.cancelled = true;
+                break;
+            }
+            let path = match &change {
+                ScanChange::Add(observed) | ScanChange::Remove(observed) => &observed.path,
+                ScanChange::Update { observed, .. } => &observed.path,
+            }
+            .clone();
+            let outcome = match change {
+                ScanChange::Add(observed) => {
+                    self.prepare_add_file(&observed.path).and_then(|prepared| {
+                        if prepared.file.source.revision != observed.revision {
+                            return Err(IndexError::SourceUnavailable(
+                                "source changed after metadata scan".into(),
+                            ));
+                        }
+                        let expected = prepared.expected_revision;
+                        let next = self.stage_prepared_add(prepared)?;
+                        self.publish_prepared(expected, next).map(|_| ())
+                    })
+                }
+                ScanChange::Update { previous, observed } => snapshot
+                    .file_handle_for_path(&previous.path)
+                    .ok_or(IndexError::UnknownFile)
+                    .and_then(|handle| {
+                        let prepared = self.prepare_replace_file(handle, &observed.path)?;
+                        if prepared.file.source.revision != observed.revision {
+                            return Err(IndexError::SourceUnavailable(
+                                "source changed after metadata scan".into(),
+                            ));
+                        }
+                        let expected = prepared.expected_revision;
+                        let next = self.stage_prepared_replace(prepared)?;
+                        self.publish_prepared(expected, next).map(|_| ())
+                    }),
+                ScanChange::Remove(observed) => snapshot
+                    .file_handle_for_path(&observed.path)
+                    .ok_or(IndexError::UnknownFile)
+                    .and_then(
+                        |handle| match std::fs::metadata(root.join(&observed.path)) {
+                            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+                                self.delete_file(handle).map(|_| ())
+                            }
+                            Ok(_) => Err(IndexError::SourceUnavailable(
+                                "source reappeared after metadata scan".into(),
+                            )),
+                            Err(error) => Err(IndexError::Io(error.to_string())),
+                        },
+                    ),
+            };
+            match outcome {
+                Ok(()) => match scan.files.get(&path) {
+                    Some(_) if prior.contains_key(&path) => report.updated += 1,
+                    Some(_) => report.added += 1,
+                    None => report.removed += 1,
+                },
+                Err(error) => {
+                    report.skipped += 1;
+                    report.issues.push(format!("{}: {error}", path.display()));
+                }
+            }
+        }
+        report
+    }
+
     /// Retire all records owned by one file across its collections in one
     /// publication. This changes index state only, and requires no source
     /// content or source-file I/O. A later scan can add a still-present file.
@@ -865,6 +1130,27 @@ impl Index {
 pub struct IndexView(Arc<PublishedIndex>);
 
 impl IndexView {
+    fn has_segments(&self) -> bool {
+        self.0.segments.iter().any(|group| !group.is_empty())
+    }
+
+    fn require_base_only(&self, route: &str) -> Result<(), String> {
+        if self.has_segments() {
+            Err(format!(
+                "{route} across indexed segments is not available yet"
+            ))
+        } else {
+            Ok(())
+        }
+    }
+
+    fn stamp_result(&self, mut result: SearchResult) -> SearchResult {
+        for hit in &mut result.hits {
+            hit.generation = self.revision().0;
+        }
+        result
+    }
+
     pub fn instance_id(&self) -> u64 {
         self.0.instance_id
     }
@@ -937,7 +1223,19 @@ impl IndexView {
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
-        crate::run::search_active(self.repository(), resolved.as_ref(), &self.0.active)
+        if !self.has_segments() {
+            crate::run::search_active(self.repository(), resolved.as_ref(), &self.0.active)
+                .map(|result| self.stamp_result(result))
+        } else {
+            crate::run::search_segmented(
+                self.repository(),
+                resolved.as_ref(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+            )
+        }
     }
 
     pub fn search_with_context(
@@ -949,12 +1247,27 @@ impl IndexView {
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
-        crate::run::search_with_context_active(
-            self.repository(),
-            &resolved,
-            context,
-            &self.0.active,
-        )
+        if !self.has_segments() {
+            crate::run::search_with_context_active(
+                self.repository(),
+                &resolved,
+                context,
+                &self.0.active,
+            )
+            .map(|result| self.stamp_result(result))
+        } else {
+            crate::run::search_segmented(
+                self.repository(),
+                &resolved,
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+            )
+            .map_err(|message| {
+                context.error(crate::streaming::ExecutionErrorKind::Execution, message)
+            })
+        }
     }
 
     pub fn count_exact(&self, query: &Query) -> Result<usize, String> {
@@ -990,17 +1303,46 @@ impl IndexView {
         record_id: &str,
         return_mode: ReturnMode,
     ) -> Result<Option<SearchHit>, String> {
-        self.repository().get_record_with_active(
+        let mut base = self.repository().get_record_with_active(
             collection,
             record_id,
-            return_mode,
+            return_mode.clone(),
             Some(&self.0.active),
-        )
+        )?;
+        if let Some(hit) = &mut base {
+            hit.generation = self.revision().0;
+        }
+        if base.is_some() {
+            return Ok(base);
+        }
+        let number = self
+            .repository()
+            .collections()
+            .iter()
+            .position(|state| state.definition.name == collection)
+            .ok_or_else(|| format!("unknown collection {collection}"))?;
+        for segment in self.0.segments[number].iter() {
+            if let Some(hit) = crate::run::get_segment_record_by_id(
+                self.repository(),
+                number,
+                &segment.index,
+                &segment.active,
+                &self.0.catalog,
+                self.revision(),
+                record_id,
+                return_mode.clone(),
+            )? {
+                return Ok(Some(hit));
+            }
+        }
+        Ok(None)
     }
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
+        self.require_base_only("reference search")?;
         self.repository()
             .search_reference_with_active(query, Some(&self.0.active))
+            .map(|result| self.stamp_result(result))
     }
 
     pub fn select_exact(
@@ -1008,6 +1350,7 @@ impl IndexView {
         collection: &str,
         query: &Query,
     ) -> Result<crate::posting_values::ExactSelection, String> {
+        self.require_base_only("exact selection")?;
         self.repository()
             .select_exact_for_view(collection, query, self.revision(), &self.0.active)
     }
@@ -1016,6 +1359,7 @@ impl IndexView {
         &self,
         request: &crate::posting_values::PostingValuesRequest,
     ) -> Result<crate::posting_values::PostingValuesPage, String> {
+        self.require_base_only("posting values")?;
         self.repository()
             .posting_values_for_view(request, self.revision(), &self.0.active)
     }
@@ -1028,6 +1372,7 @@ impl IndexView {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::OutgoingReferencePage, String> {
+        self.require_base_only("outgoing relation inspection")?;
         self.repository().relation_outgoing_page_for_view(
             source_collection,
             relation_path,
@@ -1046,6 +1391,7 @@ impl IndexView {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::BacklinkPage, String> {
+        self.require_base_only("backlink relation inspection")?;
         self.repository().relation_backlink_page_for_view(
             target_collection,
             reverse_alias,
@@ -1057,6 +1403,7 @@ impl IndexView {
     }
 
     pub fn collection_graph(&self) -> Result<crate::relation_inspection::CollectionGraph, String> {
+        self.require_base_only("collection graph")?;
         self.repository().collection_graph_for_view(&self.0.active)
     }
 
@@ -1064,15 +1411,18 @@ impl IndexView {
         &self,
         query: &Query,
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
+        self.require_base_only("analyzed search")?;
         let resolved = query.resolve_current_clock()?;
         crate::run::search_analyze_with_active(
             self.repository(),
             resolved.as_ref(),
             Some(&self.0.active),
         )
+        .map(|(result, trace)| (self.stamp_result(result), trace))
     }
 
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+        self.require_base_only("query explanation")?;
         let resolved = query.resolve_current_clock()?;
         crate::run::explain_with_active(self.repository(), resolved.as_ref(), Some(&self.0.active))
     }
@@ -1129,6 +1479,12 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
+        self.require_base_only("streamed search")
+            .map_err(|message| StreamError::Execution {
+                kind: crate::streaming::ExecutionErrorKind::Execution,
+                message,
+                progress: Default::default(),
+            })?;
         let scoped_context = context.with_active(&self.0.active);
         self.repository().search_stream_scoped_with_context_active(
             query,

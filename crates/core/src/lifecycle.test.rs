@@ -82,6 +82,14 @@ fn pinned_view_stays_stable_when_a_new_root_is_published() {
     let current = clone.view().unwrap();
     assert_eq!(current.revision(), new_revision);
     assert_eq!(current.search(&all_records()).unwrap().count, Some(2));
+    assert!(
+        current
+            .search(&all_records())
+            .unwrap()
+            .hits
+            .iter()
+            .all(|hit| hit.generation == new_revision.0)
+    );
     assert_eq!(current.file_version(FileId(0)).unwrap().0, new_revision.0);
     assert_eq!(old.file_handle(FileId(0)).unwrap(), first_file);
     assert_eq!(old.search(&all_records()).unwrap().count, Some(1));
@@ -328,10 +336,118 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     );
     assert_eq!(index.status().unwrap(), before);
     index.publish_prepared(before.revision, staged).unwrap();
+    let query = Query {
+        collections: vec!["left".into(), "right".into()],
+        ..all_records()
+    };
+    let current = index.view().unwrap();
+    let result = current.search(&query).unwrap();
+    assert_eq!(result.count, Some(2));
+    assert!(
+        result
+            .hits
+            .iter()
+            .all(|hit| hit.file_path.ends_with("new.jsonl"))
+    );
+    for hit in &result.hits {
+        assert_eq!(
+            current
+                .get_record(&hit.collection, &hit.record_id, ReturnMode::Locator)
+                .unwrap()
+                .unwrap()
+                .file_path,
+            hit.file_path
+        );
+    }
     assert!(matches!(
         index.prepare_replace_file(handle, &new_path),
         Err(IndexError::FileConflict { .. })
     ));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn reconciliation_applies_metadata_changes_without_revising_unchanged_files() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-reconcile-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let original = root.join("data/a.jsonl");
+    std::fs::write(&original, b"{\"name\":\"a\"}\n").unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::JsonLines,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let initial = index.status().unwrap();
+    let unchanged = index.reconcile_pass(|| false);
+    assert_eq!(unchanged.examined, 1);
+    assert_eq!(unchanged.unchanged, 1);
+    assert!(unchanged.issues.is_empty());
+    assert_eq!(index.status().unwrap(), initial);
+
+    let added = root.join("data/b.jsonl");
+    std::fs::write(&added, b"{\"name\":\"b\"}\n").unwrap();
+    let report = index.reconcile_pass(|| false);
+    assert_eq!((report.added, report.updated, report.removed), (1, 0, 0));
+    assert!(report.issues.is_empty(), "{:?}", report.issues);
+    assert_eq!(index.status().unwrap().indexed_files, 2);
+
+    std::fs::write(&original, b"{\"name\":\"replacement\"}\n").unwrap();
+    let report = index.reconcile_pass(|| false);
+    assert_eq!((report.added, report.updated, report.removed), (0, 1, 0));
+    assert!(report.issues.is_empty(), "{:?}", report.issues);
+    assert_eq!(index.status().unwrap().live_records, 2);
+
+    std::fs::remove_file(&added).unwrap();
+    let report = index.reconcile_pass(|| false);
+    assert_eq!((report.added, report.updated, report.removed), (0, 0, 1));
+    assert!(report.issues.is_empty(), "{:?}", report.issues);
+    assert_eq!(index.status().unwrap().indexed_files, 1);
+    assert_eq!(index.status().unwrap().live_records, 1);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn background_reconciliation_reports_completion_and_joins() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-background-reconcile-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.jsonl"), b"{\"name\":\"a\"}\n").unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::JsonLines,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let before = index.status().unwrap();
+    let task = index.start_reconcile().unwrap();
+    let report = task.wait().unwrap();
+    assert_eq!(report.unchanged, 1);
+    assert!(report.issues.is_empty());
+    assert!(task.is_complete().unwrap());
+    assert_eq!(index.status().unwrap().revision, before.revision);
+    assert_eq!(
+        index.status().unwrap().reconciliation,
+        super::ReconciliationState::Complete
+    );
+    assert_eq!(index.shutdown().unwrap(), Some(report));
     std::fs::remove_dir_all(root).unwrap();
 }
 
