@@ -181,6 +181,35 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         text.hits[0].file_path,
         std::path::Path::new("data/delta.jsonl")
     );
+    query.fts = None;
+    query.options.sort = vec![SortField::computed(
+        crate::workload::SortExpression {
+            path: "title".into(),
+            binding: Some("lower".into()),
+            reducer: None,
+        },
+        false,
+    )];
+    query.options.return_mode = ReturnMode::Logical;
+    let computed =
+        search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+    assert_eq!(computed.count, Some(5));
+    assert_eq!(
+        computed
+            .hits
+            .iter()
+            .map(|hit| match hit.payload.as_ref().unwrap() {
+                Payload::Logical(Value::Object(fields)) => match &fields["title"] {
+                    Value::String(title) => title.as_str(),
+                    _ => panic!("title is not a string"),
+                },
+                _ => panic!("logical payload missing"),
+            })
+            .collect::<Vec<_>>(),
+        ["aardvark", "alpha", "beta", "bravo", "charlie"]
+    );
+    query.options.return_mode = ReturnMode::Locator;
+    query.options.sort.clear();
     let mut retired_base = base_active.clone();
     retired_base[0] = retired_base[0]
         .retired(&[crate::model::RecordSlot(0)])
@@ -191,7 +220,6 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         .retired(&[crate::model::RecordSlot(1)])
         .unwrap();
     let retired_segments = vec![Arc::new(vec![Arc::new(retired_delta)])];
-    query.fts = None;
     let live = search_segmented(
         &repo,
         &query,
