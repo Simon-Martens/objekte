@@ -415,6 +415,28 @@ impl DesktopController {
             let (_, request) = self.pending_completion.take().expect("checked completion");
             self.start_completion(request, &mut updates);
         }
+        if let Some(result) = self
+            .session
+            .as_ref()
+            .and_then(OpenedSession::take_background_snapshot_save)
+        {
+            match result {
+                Ok(Some(stats)) => {
+                    self.open_diagnostics
+                        .push_str(&format!("\nReconciled cache save: {stats:#?}"));
+                    updates.push(UiUpdate::Diagnostics(self.open_diagnostics.clone()));
+                }
+                Ok(None) => {
+                    self.open_diagnostics
+                        .push_str("\nReconciled cache: already current");
+                    updates.push(UiUpdate::Diagnostics(self.open_diagnostics.clone()));
+                }
+                Err(message) => updates.push(UiUpdate::Error {
+                    field: ErrorField::Open,
+                    message: format!("Cache write after reconciliation failed: {message}"),
+                }),
+            }
+        }
         updates
     }
 
@@ -1441,7 +1463,7 @@ impl DesktopController {
                         let collections = session.collections.clone();
                         let single_collection = session.single_collection;
                         self.open_diagnostics = format!(
-                            "Open: {:.1} ms\nRoot: {}\nCollections: {}\nSchema fields: {}; files: {:?}\nSnapshot save: {:#?}\nStartup: {:#?}",
+                            "Open: {:.1} ms\nRoot: {}\nCollections: {}\nSchema fields: {}; files: {:?}\nSnapshot save: {:#?}\nStartup: {:#?}{}",
                             session.diagnostics.open_ns as f64 / 1_000_000.0,
                             root,
                             collections.join(", "),
@@ -1449,6 +1471,13 @@ impl DesktopController {
                             session.diagnostics.schema_files,
                             session.diagnostics.snapshot_save,
                             session.diagnostics.startup,
+                            if session.diagnostics.startup.restored
+                                && session.args.write_index.is_some()
+                            {
+                                "\nReconciled cache write: pending"
+                            } else {
+                                ""
+                            },
                         );
                         self.session = Some(session);
                         self.push_field_choices(updates);
