@@ -274,6 +274,40 @@ pub(crate) struct RelationContribution {
 
 
 impl RelationContribution {
+    pub(crate) fn declaration(&self) -> &RelationDefinition {
+        &self.declaration
+    }
+
+    pub(crate) fn record_count(&self) -> u32 {
+        self.record_count
+    }
+
+    pub(crate) fn references(&self) -> impl Iterator<Item = (RecordSlot, &str, &[u32])> {
+        self.references.iter().map(|reference| {
+            (
+                reference.source,
+                reference.target_id.as_str(),
+                reference.positions.as_slice(),
+            )
+        })
+    }
+
+    pub(crate) fn present(&self) -> &RoaringBitmap {
+        &self.present
+    }
+
+    pub(crate) fn nulls(&self) -> &RoaringBitmap {
+        &self.nulls
+    }
+
+    pub(crate) fn empty_arrays(&self) -> &RoaringBitmap {
+        &self.empty_arrays
+    }
+
+    pub(crate) fn unavailable(&self) -> &RoaringBitmap {
+        &self.unavailable
+    }
+
     pub(crate) fn for_schema(schema: &Schema) -> Vec<Self> {
         schema
             .relations()

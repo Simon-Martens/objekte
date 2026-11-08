@@ -346,12 +346,20 @@ fn nested_array_occurrences_retain_every_scope_position() {
     contribution.add_logical(RecordSlot(0), &value).unwrap();
     assert_eq!(
         contribution
-            .references
-            .iter()
-            .map(|reference| (reference.target_id.as_str(), reference.positions.as_slice()))
+            .references()
+            .map(|(source, target, positions)| {
+                assert_eq!(source, RecordSlot(0));
+                (target, positions)
+            })
             .collect::<Vec<_>>(),
         [("A", &[0, 0][..]), ("A", &[0, 1][..]), ("B", &[1, 0][..])]
     );
+    assert_eq!(contribution.record_count(), 1);
+    assert_eq!(contribution.declaration().target_collection, "entries");
+    assert!(contribution.present().contains(0));
+    assert!(contribution.nulls().is_empty());
+    assert!(contribution.empty_arrays().is_empty());
+    assert!(contribution.unavailable().is_empty());
 }
 
 #[test]
