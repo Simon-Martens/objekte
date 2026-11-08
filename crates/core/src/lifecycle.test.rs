@@ -386,6 +386,41 @@ fn reconciliation_applies_metadata_changes_without_revising_unchanged_files() {
 }
 
 #[test]
+fn background_reconciliation_reports_completion_and_joins() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-background-reconcile-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.jsonl"), b"{\"name\":\"a\"}\n").unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::JsonLines,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let before = index.status().unwrap();
+    let task = index.start_reconcile().unwrap();
+    let report = task.wait().unwrap();
+    assert_eq!(report.unchanged, 1);
+    assert!(report.issues.is_empty());
+    assert!(task.is_complete().unwrap());
+    assert_eq!(index.status().unwrap().revision, before.revision);
+    assert_eq!(
+        index.status().unwrap().reconciliation,
+        super::ReconciliationState::Complete
+    );
+    assert_eq!(index.shutdown().unwrap(), Some(report));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
     let root = std::env::temp_dir().join(format!(
         "objekte-live-query-{}-{:?}",
