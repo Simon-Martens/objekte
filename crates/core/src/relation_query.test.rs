@@ -1,4 +1,5 @@
 use std::path::PathBuf;
+use std::sync::Arc;
 
 use crate::model::LogicalType;
 use crate::query::{CaseSensitivity, FtsMode, Query};
@@ -8,6 +9,358 @@ use crate::repository::{
     CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
 };
 use crate::source::SourceFormat;
+
+#[test]
+fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
+    use crate::build::{
+        FilePreparationBinding, IndexedCollectionSegment, SegmentAdmission, SourceFileInput,
+        prepare_file_build,
+    };
+    use crate::inventory::{ActiveRecords, SourceRevision};
+    use crate::lifecycle::{IndexRevision, PublishedSegment};
+    use crate::lifecycle_catalog::FileCatalog;
+    use crate::model::{CollectionId, FileId};
+
+    fn stage(
+        repo: &Repository,
+        root: &std::path::Path,
+        collection_index: usize,
+        file_id: FileId,
+        relative_path: &str,
+    ) -> IndexedCollectionSegment {
+        let collection = &repo.collections()[collection_index];
+        let path = root.join(relative_path);
+        let prepared = prepare_file_build(
+            root,
+            SourceFileInput {
+                id: file_id,
+                relative_path: relative_path.into(),
+                revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap())
+                    .unwrap(),
+                created_ns: None,
+            },
+            &[FilePreparationBinding {
+                collection: CollectionId(collection_index as u32),
+                definition: &collection.definition,
+                source: &collection.source,
+            }],
+            repo.options().bigram_alphabet,
+            repo.options().inference,
+            repo.collections().len(),
+        )
+        .unwrap();
+        let mut admission =
+            SegmentAdmission::new(CollectionId(collection_index as u32), &collection.source);
+        admission
+            .admit(
+                &prepared.source,
+                prepared.collections.into_iter().next().unwrap(),
+            )
+            .unwrap();
+        let pool = rayon::ThreadPoolBuilder::new()
+            .num_threads(1)
+            .build()
+            .unwrap();
+        admission
+            .seal()
+            .into_indexed(
+                &collection.definition,
+                repo.options().bigram_alphabet,
+                repo.options().inference,
+                repo.collections().len(),
+                &pool,
+            )
+            .unwrap()
+    }
+
+    let (root, definitions) = fixture();
+    let repo = Arc::new(
+        Repository::open_with_options(
+            &root,
+            definitions,
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                ..Default::default()
+            },
+        )
+        .unwrap(),
+    );
+    let mut active = repo
+        .collections()
+        .iter()
+        .map(|collection| ActiveRecords::all(collection.generation.records.len()).unwrap())
+        .collect::<Vec<_>>();
+    let old_a = repo.collections()[0].id_lookup["A"];
+    let old_a_file = repo.collections()[0].generation.records[old_a.0 as usize].file;
+    active[0] = active[0].retired(&[old_a]).unwrap();
+    let empty_segments = vec![Arc::new(Vec::new()); repo.collections().len()];
+    let catalog = FileCatalog::from_repository(Arc::clone(&repo))
+        .unwrap()
+        .retired(old_a_file)
+        .unwrap();
+    let missing = crate::run::search_segmented(
+        &repo,
+        &query(
+            "mentions",
+            Some("!(entry.title = 'Hymn')"),
+            None,
+            None,
+            false,
+        ),
+        &active,
+        &empty_segments,
+        &catalog,
+        IndexRevision(2),
+    )
+    .unwrap();
+    assert!(!missing.hits.iter().any(|hit| hit.record_id == "m1"));
+    std::fs::remove_file(root.join("entries/a.json")).unwrap();
+
+    std::fs::write(
+        root.join("entries/new-a.json"),
+        r#"{"id":"A","title":"New Hymn"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/new-m.json"),
+        r#"{"id":"m8","entry":"A","title":"New source"}"#,
+    )
+    .unwrap();
+    let next_file = repo.files().files.len() as u32;
+    let target = stage(&repo, &root, 0, FileId(next_file), "entries/new-a.json");
+    let source = stage(
+        &repo,
+        &root,
+        1,
+        FileId(next_file + 1),
+        "mentions/new-m.json",
+    );
+    let catalog = catalog
+        .appended(target.files[0].entry.clone(), None, None)
+        .unwrap()
+        .appended(source.files[0].entry.clone(), None, None)
+        .unwrap();
+    let segments = vec![
+        Arc::new(vec![Arc::new(PublishedSegment {
+            ordinal: 1,
+            active: ActiveRecords::all(target.records.len()).unwrap(),
+            index: Arc::new(target),
+        })]),
+        Arc::new(vec![Arc::new(PublishedSegment {
+            ordinal: 2,
+            active: ActiveRecords::all(source.records.len()).unwrap(),
+            index: Arc::new(source),
+        })]),
+    ];
+    let find = |request: Query| {
+        crate::run::search_segmented(
+            &repo,
+            &request,
+            &active,
+            &segments,
+            &catalog,
+            IndexRevision(3),
+        )
+        .unwrap()
+        .hits
+        .into_iter()
+        .map(|hit| hit.record_id)
+        .collect::<Vec<_>>()
+    };
+    assert_eq!(
+        find(query(
+            "mentions",
+            Some("entry.title = 'New Hymn'"),
+            None,
+            None,
+            false
+        )),
+        ["m1", "m8"]
+    );
+    assert_eq!(
+        find(query(
+            "mentions",
+            None,
+            Some("New"),
+            Some("entry.title"),
+            false
+        )),
+        ["m1", "m8"]
+    );
+    assert!(
+        find(query(
+            "mentions",
+            Some("!(entry.title = 'New Hymn')"),
+            None,
+            None,
+            false
+        ))
+        .contains(&"m2".to_owned())
+    );
+    assert_eq!(
+        find(query(
+            "entries",
+            Some("@backlinks.mentions.title ?~ 'Festival'"),
+            None,
+            None,
+            false
+        )),
+        ["A"]
+    );
+    assert_eq!(
+        find(query(
+            "entries",
+            Some("@backlinks.mentions.title ?~ 'New source'"),
+            None,
+            None,
+            false
+        )),
+        ["A"]
+    );
+    let mut retired_target = (*segments[0][0]).clone();
+    retired_target.active = retired_target
+        .active
+        .retired(&[crate::model::RecordSlot(0)])
+        .unwrap();
+    let retired_segments = vec![
+        Arc::new(vec![Arc::new(retired_target)]),
+        Arc::clone(&segments[1]),
+    ];
+    let retired = |request: Query| {
+        crate::run::search_segmented(
+            &repo,
+            &request,
+            &active,
+            &retired_segments,
+            &catalog,
+            IndexRevision(4),
+        )
+        .unwrap()
+        .hits
+        .into_iter()
+        .map(|hit| hit.record_id)
+        .collect::<Vec<_>>()
+    };
+    let negated = retired(query(
+        "mentions",
+        Some("!(entry.title = 'New Hymn')"),
+        None,
+        None,
+        false,
+    ));
+    assert!(!negated.contains(&"m1".to_owned()));
+    assert!(!negated.contains(&"m8".to_owned()));
+    assert!(
+        retired(query(
+            "mentions",
+            None,
+            Some("New"),
+            Some("entry.title"),
+            false
+        ))
+        .is_empty()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn merged_relation_walker_matches_static_reference_semantics() {
+    use crate::inventory::ActiveRecords;
+    use crate::lifecycle::IndexRevision;
+    use crate::lifecycle_catalog::FileCatalog;
+
+    let (root, definitions) = fixture();
+    let repo = Arc::new(
+        Repository::open_with_options(
+            &root,
+            definitions,
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                ..Default::default()
+            },
+        )
+        .unwrap(),
+    );
+    let active = repo
+        .collections()
+        .iter()
+        .map(|collection| ActiveRecords::all(collection.generation.records.len()).unwrap())
+        .collect::<Vec<_>>();
+    let segments = vec![Arc::new(Vec::new()); repo.collections().len()];
+    let catalog = FileCatalog::from_repository(Arc::clone(&repo)).unwrap();
+    for request in [
+        query("mentions", Some("entry.title = 'Hymn'"), None, None, false),
+        query(
+            "mentions",
+            Some("contributors[0].title = 'Hymn'"),
+            None,
+            None,
+            false,
+        ),
+        query(
+            "mentions",
+            Some("entry.related_entry.title = 'Festival'"),
+            None,
+            None,
+            false,
+        ),
+        query(
+            "mentions",
+            Some("entry.title = local_title"),
+            None,
+            None,
+            false,
+        ),
+        query(
+            "mentions",
+            Some("!(entry.title = 'Hymn')"),
+            None,
+            None,
+            false,
+        ),
+        query(
+            "entries",
+            Some("@backlinks.mentions.title ?~ 'Festival'"),
+            None,
+            None,
+            false,
+        ),
+        query("mentions", None, Some("Hymn"), Some("entry.title"), false),
+        query(
+            "entries",
+            None,
+            Some("Festival"),
+            Some("@backlinks.mentions.title"),
+            false,
+        ),
+    ] {
+        let expected = repo.search_reference(&request).unwrap();
+        let actual = crate::run::search_segmented(
+            &repo,
+            &request,
+            &active,
+            &segments,
+            &catalog,
+            IndexRevision(1),
+        )
+        .unwrap();
+        assert_eq!(actual.count, expected.count, "{request:?}");
+        assert_eq!(
+            actual
+                .hits
+                .iter()
+                .map(|hit| (&hit.record_id, &hit.matched_fields))
+                .collect::<Vec<_>>(),
+            expected
+                .hits
+                .iter()
+                .map(|hit| (&hit.record_id, &hit.matched_fields))
+                .collect::<Vec<_>>(),
+            "{request:?}"
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
 use crate::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamError, StreamEvent, StreamOptions,
     StreamOutcome,

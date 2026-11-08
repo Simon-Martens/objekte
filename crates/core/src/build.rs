@@ -1815,6 +1815,6 @@ mod tests;
 mod mutation_segment;
 
 pub(crate) use mutation_segment::{
-    CollectionSegment, ConsolidatedSegment, IndexedCollectionSegment, SegmentAdmission,
-    SegmentLimits,
+    CollectionSegment, CompactedSegment, ConsolidatedSegment, IndexedCollectionSegment,
+    SegmentAdmission, SegmentFile, SegmentLimits,
 };

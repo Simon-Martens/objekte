@@ -2013,13 +2013,23 @@ pub(crate) fn search_segmented(
         return Err("computed sort over indexed segments is not implemented".into());
     }
     let (prepared, _) = crate::prepared::prepare(repo, query)?;
-    if prepared.collections.iter().any(|(_, filter, fts)| {
+    let has_relations = prepared.collections.iter().any(|(_, filter, fts)| {
         filter.as_ref().is_some_and(bound_expr_has_relations)
             || fts
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
-    }) {
-        return Err("relation query over indexed segments is not implemented".into());
+    });
+    if has_relations {
+        return search_segmented_relations(
+            repo,
+            query,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            &sort,
+            &prepared.collections,
+        );
     }
     let cap = query
         .options
@@ -2274,6 +2284,327 @@ pub(crate) fn search_segmented(
     counters.match_count_complete = true;
     counters.returned_records = page.len() as u64;
     counters.distinct_files += delta_opened.len() as u64;
+    Ok(SearchResult {
+        count: query.options.count.then_some(total as usize),
+        hits: page.into_iter().map(|winner| winner.hit).collect(),
+        counters,
+    })
+}
+
+fn search_segmented_relations(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    sort: &ResolvedSort<'_>,
+    prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
+) -> Result<SearchResult, String> {
+    let view =
+        crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
+    let cap = query
+        .options
+        .offset
+        .checked_add(query.options.limit)
+        .ok_or("page size overflow")?;
+    let mut winners = BinaryHeap::new();
+    let mut counters = WorkCounters::default();
+    let mut total = 0u64;
+    let mut opened = HashSet::new();
+    for (collection_index, filter, fts) in prepared {
+        let collection_index = *collection_index;
+        let collection_id = repo.collections[collection_index].generation.collection;
+        let mut process = |address: crate::relation_query::MergedRecordSlot,
+                           bytes: Vec<u8>,
+                           opened_source: bool|
+         -> Result<(), String> {
+            let Some(resolved) = view.record(address)? else {
+                return Ok(());
+            };
+            counters.candidates += 1;
+            let record = resolved.record;
+            let extracted = if record.class == RecordClass::Logical {
+                prepare_query_record_with_execution(
+                    &resolved.collection.source,
+                    &resolved.collection.definition.schema,
+                    &bytes,
+                    &ScanProjection::full(fts.is_some()),
+                    false,
+                    None,
+                )?
+            } else {
+                ExtractedRecord {
+                    value: Value::Object(Default::default()),
+                    text: Vec::new(),
+                }
+            };
+            let ctx = RecordContext {
+                value: &extracted.value,
+                source_bytes: Some(&bytes),
+                record,
+                file: resolved.file,
+                collection_name: &resolved.collection.definition.name,
+                repository_root: &repo.files.root,
+            };
+            let mut evidence = HashSet::new();
+            let mut relation_work = crate::relation_query::RelationWork::default();
+            let filter_matches = if let Some(filter) = filter.as_ref() {
+                if record.class == RecordClass::RawFallback {
+                    eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
+                } else {
+                    crate::relation_query::eval_filter_truth_merged(
+                        &view,
+                        filter,
+                        address,
+                        &ctx,
+                        &mut evidence,
+                        &mut relation_work,
+                    )? == Some(true)
+                }
+            } else {
+                true
+            };
+            let fts_matches = if filter_matches {
+                if let Some(fts) = fts.as_ref() {
+                    if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
+                        let matched = crate::reference::raw_fallback_contains(
+                            fts,
+                            &String::from_utf8_lossy(&bytes),
+                        );
+                        if matched && query.options.evidence {
+                            evidence.insert("@record.raw_text".into());
+                        }
+                        matched
+                    } else {
+                        crate::relation_query::eval_fts_with_relations_merged(
+                            &view,
+                            fts,
+                            &extracted.text,
+                            address,
+                            &ctx,
+                            &mut evidence,
+                            &mut relation_work,
+                        )?
+                    }
+                } else {
+                    true
+                }
+            } else {
+                false
+            };
+            counters.add_scan(
+                ScanWork {
+                    files_opened: u64::from(opened_source),
+                    bytes_read: bytes.len() as u64,
+                    record_parses: u64::from(record.class == RecordClass::Logical),
+                    raw_text_verifications: u64::from(
+                        filter_matches
+                            && record.class == RecordClass::RawFallback
+                            && fts.as_ref().is_some_and(|fts| fts.fields.is_empty()),
+                    ),
+                    scanned_records: 1,
+                    residual_evaluations: u64::from(filter.is_some()),
+                    ..ScanWork::default()
+                },
+                &relation_work,
+            )?;
+            if !(filter_matches && fts_matches) {
+                return Ok(());
+            }
+            total += 1;
+            let key = if let Some(segment_index) = address.segment {
+                segment_rank_key(
+                    repo,
+                    sort,
+                    collection_index,
+                    &segments[collection_index][segment_index].index,
+                    record,
+                )?
+            } else {
+                rank_key(sort, repo, collection_index, record)
+            };
+            let hit = segment_locator_hit(
+                resolved.collection,
+                SegmentRecordRef {
+                    record,
+                    file: resolved.file,
+                },
+                revision,
+                if query.options.evidence {
+                    evidence.into_iter().collect()
+                } else {
+                    Vec::new()
+                },
+            );
+            offer_merged(
+                &mut winners,
+                cap,
+                MergedPageHit {
+                    key,
+                    hit,
+                    segment: address
+                        .segment
+                        .map(|segment_index| (collection_index, segment_index)),
+                },
+            );
+            Ok(())
+        };
+        let collection = &repo.collections[collection_index];
+        for file_id in &collection.generation.files {
+            let slots = collection
+                .generation
+                .file_records
+                .records_for(*file_id)
+                .ok_or("merged base file ownership missing")?;
+            let ranges = slots
+                .iter()
+                .filter(|slot| base_active[collection_index].contains(**slot))
+                .map(|slot| {
+                    let record = &collection.generation.records[slot.0 as usize];
+                    (slot.0, record.range)
+                })
+                .collect::<Vec<_>>();
+            if ranges.is_empty() {
+                continue;
+            }
+            let first = crate::relation_query::MergedRecordSlot {
+                collection: collection_id,
+                segment: None,
+                slot: RecordSlot(ranges[0].0),
+            };
+            let resolved = view
+                .record(first)?
+                .ok_or("active merged base file missing")?;
+            let path = repo.files.root.join(&resolved.file.relative_path);
+            let mut reader = RecordRangeReader::open(&path, resolved.file.revision)?;
+            opened.insert(file_id.0);
+            let mut cursor = 0;
+            while cursor < ranges.len() {
+                let start = cursor;
+                let mut batch_bytes = 0u64;
+                while cursor < ranges.len() && cursor - start < 128 {
+                    let next = ranges[cursor].1.len();
+                    if cursor > start && batch_bytes.saturating_add(next) > 1024 * 1024 {
+                        break;
+                    }
+                    batch_bytes = batch_bytes.saturating_add(next);
+                    cursor += 1;
+                }
+                for (index, (slot, bytes)) in reader
+                    .read(&ranges[start..cursor])?
+                    .0
+                    .into_iter()
+                    .enumerate()
+                {
+                    process(
+                        crate::relation_query::MergedRecordSlot {
+                            collection: collection_id,
+                            segment: None,
+                            slot: RecordSlot(slot),
+                        },
+                        bytes,
+                        start == 0 && index == 0,
+                    )?;
+                }
+            }
+        }
+        for (segment_index, published) in segments[collection_index].iter().enumerate() {
+            for file in &published.index.files {
+                let ranges = file
+                    .records
+                    .iter()
+                    .filter(|slot| published.active.contains(**slot))
+                    .map(|slot| {
+                        let record = &published.index.records[slot.0 as usize];
+                        (slot.0, record.range)
+                    })
+                    .collect::<Vec<_>>();
+                if ranges.is_empty() {
+                    continue;
+                }
+                let first = crate::relation_query::MergedRecordSlot {
+                    collection: collection_id,
+                    segment: Some(segment_index),
+                    slot: RecordSlot(ranges[0].0),
+                };
+                let resolved = view
+                    .record(first)?
+                    .ok_or("active merged segment file missing")?;
+                let path = repo.files.root.join(&resolved.file.relative_path);
+                let mut reader = RecordRangeReader::open(&path, resolved.file.revision)?;
+                opened.insert(file.entry.id.0);
+                let mut cursor = 0;
+                while cursor < ranges.len() {
+                    let start = cursor;
+                    let mut batch_bytes = 0u64;
+                    while cursor < ranges.len() && cursor - start < 128 {
+                        let next = ranges[cursor].1.len();
+                        if cursor > start && batch_bytes.saturating_add(next) > 1024 * 1024 {
+                            break;
+                        }
+                        batch_bytes = batch_bytes.saturating_add(next);
+                        cursor += 1;
+                    }
+                    for (index, (slot, bytes)) in reader
+                        .read(&ranges[start..cursor])?
+                        .0
+                        .into_iter()
+                        .enumerate()
+                    {
+                        process(
+                            crate::relation_query::MergedRecordSlot {
+                                collection: collection_id,
+                                segment: Some(segment_index),
+                                slot: RecordSlot(slot),
+                            },
+                            bytes,
+                            start == 0 && index == 0,
+                        )?;
+                    }
+                }
+            }
+        }
+    }
+    let mut page = winners
+        .into_sorted_vec()
+        .into_iter()
+        .skip(query.options.offset)
+        .take(query.options.limit)
+        .collect::<Vec<_>>();
+    if query.options.return_mode != ReturnMode::Locator {
+        for winner in &mut page {
+            let mut payload_hit = if let Some((collection_index, segment_index)) = winner.segment {
+                let published = &segments[collection_index][segment_index];
+                get_segment_record_by_id(
+                    repo,
+                    collection_index,
+                    &published.index,
+                    &published.active,
+                    catalog,
+                    revision,
+                    &winner.hit.record_id,
+                    query.options.return_mode.clone(),
+                )?
+                .ok_or("selected segment record retired")?
+            } else {
+                repo.get_record_with_active(
+                    &winner.hit.collection,
+                    &winner.hit.record_id,
+                    query.options.return_mode.clone(),
+                    Some(base_active),
+                )?
+                .ok_or("selected base record retired")?
+            };
+            payload_hit.generation = revision.0;
+            payload_hit.matched_fields = winner.hit.matched_fields.clone();
+            winner.hit = payload_hit;
+        }
+    }
+    counters.total_matches = total;
+    counters.match_count_complete = true;
+    counters.returned_records = page.len() as u64;
+    counters.distinct_files = opened.len() as u64;
     Ok(SearchResult {
         count: query.options.count.then_some(total as usize),
         hits: page.into_iter().map(|winner| winner.hit).collect(),
