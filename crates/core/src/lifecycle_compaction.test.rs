@@ -70,3 +70,40 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     assert_eq!(old.search(&all()).unwrap().count, Some(2));
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn compacted_base_contributions_round_trip_through_cache() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-compact-cache-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let a = root.join("data/a.json");
+    let b = root.join("data/b.json");
+    std::fs::write(&a, br#"{"name":"A"}"#).unwrap();
+    std::fs::write(&b, br#"{"name":"B"}"#).unwrap();
+    let definitions = vec![CollectionDefinition::folder(
+        "data",
+        "data",
+        SourceFormat::Json,
+    )];
+    let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    let handle = index.view().unwrap().file_handle_for_path(&a).unwrap();
+    index.delete_file(handle).unwrap();
+    std::fs::remove_file(&a).unwrap();
+    assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
+    let cache = root.join("index.snapshot");
+    index.flush_cache(&cache).unwrap();
+    let restored =
+        Index::load_cache(&root, definitions, RepositoryOptions::default(), &cache).unwrap();
+    assert_eq!(
+        restored.view().unwrap().search(&all()).unwrap().count,
+        Some(1)
+    );
+    let scan = restored.wait_for_reconciliation().unwrap().unwrap();
+    assert_eq!(scan.added + scan.updated + scan.removed, 0);
+    restored.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
