@@ -5210,8 +5210,12 @@ name = "objekte-desktop"
 version = "0.1.0"
 dependencies = [
  "gpui-kit",
+ "objekte-cli",
+ "objekte-search-core",
+ "objekte-tui",
  "serde",
  "serde_json",
+ "tempfile",
 ]
 
 [[package]]
