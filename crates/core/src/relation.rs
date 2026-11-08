@@ -16,14 +16,12 @@ thread_local! {
     static REVERSE_RECONSTRUCTIONS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
-
 /// Declared cardinality of a source relation field.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub enum RelationCardinality {
     One,
     Many,
 }
-
 
 /// Format-independent declaration of one source field's target namespace.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -34,7 +32,6 @@ pub struct RelationDefinition {
     pub reverse_alias: Option<String>,
 }
 
-
 /// Stable relation identity within a repository configuration.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub struct RelationId {
@@ -42,14 +39,12 @@ pub struct RelationId {
     pub ordinal: u32,
 }
 
-
 /// Resolved target slot or an ID that has no target in its declared namespace.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub enum RelationTarget {
     Resolved(RecordSlot),
     Unresolved(String),
 }
-
 
 /// One source occurrence of a declared ID, with array indexes from outer to inner.
 /// The logical target ID remains available when the resolved slot is retired.
@@ -66,7 +61,6 @@ impl RelationEdge {
     }
 }
 
-
 /// Immutable CSR adjacency for one declaration. A source's file provenance is
 /// read from its `CollectionGeneration` record; no file ID is duplicated here.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -82,7 +76,6 @@ pub struct RelationIndex {
     unavailable: RoaringBitmap,
     unresolved_count: u64,
 }
-
 
 impl RelationIndex {
     pub fn edges(&self, source: RecordSlot) -> Option<&[RelationEdge]> {
@@ -252,7 +245,6 @@ impl RelationIndex {
     }
 }
 
-
 /// One local ID occurrence before target inventories are available.
 #[derive(Clone)]
 struct PendingReference {
@@ -260,7 +252,6 @@ struct PendingReference {
     target_id: String,
     positions: Vec<u32>,
 }
-
 
 /// Construction-only relation state, merged in deterministic batch order.
 #[derive(Clone)]
@@ -273,7 +264,6 @@ pub(crate) struct RelationContribution {
     empty_arrays: RoaringBitmap,
     unavailable: RoaringBitmap,
 }
-
 
 impl RelationContribution {
     pub(crate) fn declaration(&self) -> &RelationDefinition {
@@ -308,6 +298,69 @@ impl RelationContribution {
 
     pub(crate) fn unavailable(&self) -> &RoaringBitmap {
         &self.unavailable
+    }
+
+    /// Project a shard to retained local slots while preserving unresolved
+    /// target identities. The map must assign dense new slots in old-slot
+    /// order; old pinned contributions remain untouched.
+    pub(crate) fn project_slots(&self, old_to_new: &[Option<RecordSlot>]) -> Result<Self, String> {
+        if old_to_new.len() != self.record_count as usize {
+            return Err("relation projection coverage mismatch".into());
+        }
+        let mut next_count = 0u32;
+        for mapped in old_to_new {
+            if let Some(slot) = mapped {
+                if slot.0 != next_count {
+                    return Err("relation projection slots are not dense".into());
+                }
+                next_count = next_count
+                    .checked_add(1)
+                    .ok_or("relation projection slot overflow")?;
+            }
+        }
+        let project = |bitmap: &RoaringBitmap| -> Result<RoaringBitmap, String> {
+            let mut projected = RoaringBitmap::new();
+            for old in bitmap.iter() {
+                let mapped = old_to_new
+                    .get(old as usize)
+                    .ok_or("relation projection bitmap out of bounds")?;
+                if let Some(slot) = mapped {
+                    projected.insert(slot.0);
+                }
+            }
+            Ok(projected)
+        };
+        let references = self
+            .references
+            .iter()
+            .filter_map(|reference| {
+                old_to_new
+                    .get(reference.source.0 as usize)
+                    .map(|mapped| mapped.map(|source| (reference, source)))
+            })
+            .flatten()
+            .map(|(reference, source)| PendingReference {
+                source,
+                target_id: reference.target_id.clone(),
+                positions: reference.positions.clone(),
+            })
+            .collect::<Vec<_>>();
+        if self
+            .references
+            .iter()
+            .any(|reference| reference.source.0 >= self.record_count)
+        {
+            return Err("relation projection source out of bounds".into());
+        }
+        Ok(Self {
+            declaration: self.declaration.clone(),
+            record_count: next_count,
+            references,
+            present: project(&self.present)?,
+            nulls: project(&self.nulls)?,
+            empty_arrays: project(&self.empty_arrays)?,
+            unavailable: project(&self.unavailable)?,
+        })
     }
 
     pub(crate) fn for_schema(schema: &Schema) -> Vec<Self> {
@@ -474,7 +527,6 @@ impl RelationContribution {
     }
 }
 
-
 fn visit_reference(
     value: &Value,
     path: &[String],
@@ -522,7 +574,6 @@ fn visit_reference(
         _ => Ok(false),
     }
 }
-
 
 impl Schema {
     pub fn relations(&self) -> &BTreeMap<Vec<String>, RelationDefinition> {
@@ -577,7 +628,6 @@ impl Schema {
         Ok(())
     }
 }
-
 
 pub(crate) fn validate_field_against_relations(
     field: &FieldDefinition,

@@ -363,6 +363,45 @@ fn nested_array_occurrences_retain_every_scope_position() {
 }
 
 #[test]
+fn projecting_relation_contributions_preserves_references_and_unknown_rows() {
+    let mut contribution = RelationContribution {
+        declaration: relation(&["target"], "entries", RelationCardinality::One, "mentions"),
+        record_count: 0,
+        references: Vec::new(),
+        present: RoaringBitmap::new(),
+        nulls: RoaringBitmap::new(),
+        empty_arrays: RoaringBitmap::new(),
+        unavailable: RoaringBitmap::new(),
+    };
+    contribution.add_unavailable(RecordSlot(0)).unwrap();
+    contribution
+        .add_logical(
+            RecordSlot(1),
+            &Value::Object(BTreeMap::from([("target".into(), Value::Id("A".into()))])),
+        )
+        .unwrap();
+    contribution.add_unavailable(RecordSlot(2)).unwrap();
+    let projected = contribution
+        .project_slots(&[None, Some(RecordSlot(0)), Some(RecordSlot(1))])
+        .unwrap();
+    assert_eq!(projected.record_count(), 2);
+    assert_eq!(
+        projected.references().collect::<Vec<_>>(),
+        [(RecordSlot(0), "A", &[][..])]
+    );
+    assert!(projected.present().contains(0));
+    assert!(projected.unavailable().contains(1));
+    assert!(!projected.unavailable().contains(0));
+    assert_eq!(contribution.record_count(), 3);
+    assert!(contribution.unavailable().contains(0));
+    assert!(
+        contribution
+            .project_slots(&[None, Some(RecordSlot(1)), Some(RecordSlot(0))])
+            .is_err()
+    );
+}
+
+#[test]
 fn declared_links_resolve_once_and_survive_snapshot_restore() {
     let root = fixture("restore");
     let options = RepositoryOptions {
