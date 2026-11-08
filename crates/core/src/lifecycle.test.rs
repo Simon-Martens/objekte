@@ -82,6 +82,14 @@ fn pinned_view_stays_stable_when_a_new_root_is_published() {
     let current = clone.view().unwrap();
     assert_eq!(current.revision(), new_revision);
     assert_eq!(current.search(&all_records()).unwrap().count, Some(2));
+    assert!(
+        current
+            .search(&all_records())
+            .unwrap()
+            .hits
+            .iter()
+            .all(|hit| hit.generation == new_revision.0)
+    );
     assert_eq!(current.file_version(FileId(0)).unwrap().0, new_revision.0);
     assert_eq!(old.file_handle(FileId(0)).unwrap(), first_file);
     assert_eq!(old.search(&all_records()).unwrap().count, Some(1));

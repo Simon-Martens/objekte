@@ -1144,6 +1144,13 @@ impl IndexView {
         }
     }
 
+    fn stamp_result(&self, mut result: SearchResult) -> SearchResult {
+        for hit in &mut result.hits {
+            hit.generation = self.revision().0;
+        }
+        result
+    }
+
     pub fn instance_id(&self) -> u64 {
         self.0.instance_id
     }
@@ -1218,6 +1225,7 @@ impl IndexView {
         let resolved = query.resolve_current_clock()?;
         if !self.has_segments() {
             crate::run::search_active(self.repository(), resolved.as_ref(), &self.0.active)
+                .map(|result| self.stamp_result(result))
         } else {
             crate::run::search_segmented(
                 self.repository(),
@@ -1246,6 +1254,7 @@ impl IndexView {
                 context,
                 &self.0.active,
             )
+            .map(|result| self.stamp_result(result))
         } else {
             crate::run::search_segmented(
                 self.repository(),
@@ -1294,12 +1303,15 @@ impl IndexView {
         record_id: &str,
         return_mode: ReturnMode,
     ) -> Result<Option<SearchHit>, String> {
-        let base = self.repository().get_record_with_active(
+        let mut base = self.repository().get_record_with_active(
             collection,
             record_id,
             return_mode.clone(),
             Some(&self.0.active),
         )?;
+        if let Some(hit) = &mut base {
+            hit.generation = self.revision().0;
+        }
         if base.is_some() {
             return Ok(base);
         }
@@ -1330,6 +1342,7 @@ impl IndexView {
         self.require_base_only("reference search")?;
         self.repository()
             .search_reference_with_active(query, Some(&self.0.active))
+            .map(|result| self.stamp_result(result))
     }
 
     pub fn select_exact(
@@ -1405,6 +1418,7 @@ impl IndexView {
             resolved.as_ref(),
             Some(&self.0.active),
         )
+        .map(|(result, trace)| (self.stamp_result(result), trace))
     }
 
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
