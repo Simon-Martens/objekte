@@ -207,6 +207,68 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         )),
         ["A"]
     );
+    let outgoing = crate::relation_inspection::relation_outgoing_page_segmented(
+        &repo, "mentions", &["entry".into()], "m8", 0, 1,
+        IndexRevision(3), &active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(outgoing.source.segment_ordinal, Some(2));
+    assert_eq!(outgoing.total_occurrences, 1);
+    assert_eq!(outgoing.references[0].resolved.as_ref().unwrap().id, "A");
+    assert_eq!(outgoing.references[0].resolved.as_ref().unwrap().segment_ordinal, Some(1));
+    let nested = crate::relation_inspection::relation_outgoing_page_segmented(
+        &repo, "mentions", &["items".into(), "entry".into()], "m1", 0, 1,
+        IndexRevision(3), &active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(nested.total_occurrences, 2);
+    assert_eq!(nested.next_offset, Some(1));
+    assert_eq!(nested.references[0].positions, [0]);
+    assert_eq!(nested.references[0].resolved.as_ref().unwrap().segment_ordinal, Some(1));
+    let null = crate::relation_inspection::relation_outgoing_page_segmented(
+        &repo, "mentions", &["entry".into()], "m4", 0, 1,
+        IndexRevision(3), &active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(null.presence, crate::relation_inspection::RelationPresence::Present);
+    assert!(null.contains_null);
+    assert_eq!(null.total_occurrences, 0);
+    let backlinks = crate::relation_inspection::relation_backlink_page_segmented(
+        &repo, "entries", "mentions", "A", 0, 1,
+        IndexRevision(3), &active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(backlinks.total_sources, 2);
+    assert_eq!(backlinks.next_offset, Some(1));
+    assert_eq!(backlinks.sources[0].id, "m1");
+    let backlink_tail = crate::relation_inspection::relation_backlink_page_segmented(
+        &repo, "entries", "mentions", "A", 1, 1,
+        IndexRevision(3), &active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(backlink_tail.sources[0].id, "m8");
+    assert_eq!(backlink_tail.sources[0].segment_ordinal, Some(2));
+    let graph = crate::relation_inspection::collection_graph_segmented(
+        &repo, IndexRevision(3), &active, &segments, &catalog,
+    ).unwrap();
+    assert_eq!(graph.nodes[0].record_count, 2);
+    assert_eq!(graph.nodes[1].generation, 3);
+    let mentions_edge = graph.edges.iter().find(|edge| {
+        edge.reverse_alias.as_deref() == Some("mentions")
+    }).unwrap();
+    assert_eq!(mentions_edge.occurrence_count, 4);
+    assert_eq!(mentions_edge.unresolved_occurrence_count, 1);
+    let mut retired_source = (*segments[1][0]).clone();
+    retired_source.active = retired_source.active
+        .retired(&[crate::model::RecordSlot(0)]).unwrap();
+    let without_source = vec![Arc::clone(&segments[0]), Arc::new(vec![Arc::new(retired_source)])];
+    let source_retired_backlinks = crate::relation_inspection::relation_backlink_page_segmented(
+        &repo, "entries", "mentions", "A", 0, 10,
+        IndexRevision(4), &active, &without_source, &catalog,
+    ).unwrap();
+    assert_eq!(source_retired_backlinks.total_sources, 1);
+    assert_eq!(source_retired_backlinks.sources[0].id, "m1");
+    let source_retired_graph = crate::relation_inspection::collection_graph_segmented(
+        &repo, IndexRevision(4), &active, &without_source, &catalog,
+    ).unwrap();
+    assert_eq!(source_retired_graph.edges.iter().find(|edge| {
+        edge.reverse_alias.as_deref() == Some("mentions")
+    }).unwrap().occurrence_count, 3);
     assert_eq!(
         find(query(
             "entries",
@@ -307,6 +369,22 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         ))
         .is_empty()
     );
+    let unresolved = crate::relation_inspection::relation_outgoing_page_segmented(
+        &repo, "mentions", &["entry".into()], "m8", 0, 1,
+        IndexRevision(4), &active, &retired_segments, &catalog,
+    ).unwrap();
+    assert!(unresolved.references[0].resolved.is_none());
+    assert!(crate::relation_inspection::relation_backlink_page_segmented(
+        &repo, "entries", "mentions", "A", 0, 1,
+        IndexRevision(4), &active, &retired_segments, &catalog,
+    ).is_err());
+    let retired_graph = crate::relation_inspection::collection_graph_segmented(
+        &repo, IndexRevision(4), &active, &retired_segments, &catalog,
+    ).unwrap();
+    let retired_edge = retired_graph.edges.iter().find(|edge| {
+        edge.reverse_alias.as_deref() == Some("mentions")
+    }).unwrap();
+    assert_eq!(retired_edge.unresolved_occurrence_count, 3);
     std::fs::remove_dir_all(root).unwrap();
 }
 
