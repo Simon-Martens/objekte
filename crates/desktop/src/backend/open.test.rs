@@ -85,6 +85,7 @@ fn write_then_load_uses_explicit_snapshot_policy() {
     .unwrap();
     assert!(second.diagnostics.startup.restored);
     assert!(second.diagnostics.snapshot_save.is_none());
+    assert!(second.take_background_snapshot_save().is_none());
 }
 
 #[test]
@@ -116,13 +117,15 @@ fn desktop_combined_load_and_write_returns_before_source_reconciliation() {
     let second = open(&spec(args), &CancellationToken::new()).unwrap();
     assert!(second.diagnostics.startup.restored);
     assert!(second.diagnostics.snapshot_save.is_none());
-    let report = second
-        .repository
-        .index()
-        .wait_for_reconciliation()
-        .unwrap()
-        .unwrap();
-    assert_eq!(report.updated, 1);
-    assert!(second.repository.index().status().unwrap().dirty());
-    assert_eq!(std::fs::read(cache).unwrap(), saved);
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    let result = loop {
+        if let Some(result) = second.take_background_snapshot_save() {
+            break result;
+        }
+        assert!(std::time::Instant::now() < deadline, "background cache write timed out");
+        std::thread::sleep(std::time::Duration::from_millis(10));
+    };
+    assert!(result.unwrap().is_some());
+    assert!(!second.repository.index().status().unwrap().dirty());
+    assert_ne!(std::fs::read(cache).unwrap(), saved);
 }

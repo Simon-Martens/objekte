@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 use std::path::PathBuf;
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
 
 use objekte_cli::arguments::{Arguments, ResolvedPaths};
 use objekte_cli::loader::{
@@ -36,6 +36,8 @@ pub struct OpenDiagnostics {
     pub ignored_repository_metadata: bool,
 }
 
+type BackgroundSnapshotSave = Arc<Mutex<Option<Result<Option<SnapshotSaveStats>, String>>>>;
+
 
 /// Immutable repository handle and CLI opening context reused across searches.
 #[derive(Clone)]
@@ -48,6 +50,21 @@ pub struct OpenedSession {
     pub diagnostics: OpenDiagnostics,
     /// Declared schema literals, parsed once on the opening worker.
     pub declared_values: Arc<HashMap<(String, String), Vec<String>>>,
+    background_snapshot_save: Option<BackgroundSnapshotSave>,
+}
+
+impl OpenedSession {
+    /// Take the result of an explicit write requested while a restored cache
+    /// reconciles in the background. `None` means no result is ready.
+    pub fn take_background_snapshot_save(
+        &self,
+    ) -> Option<Result<Option<SnapshotSaveStats>, String>> {
+        self.background_snapshot_save
+            .as_ref()?
+            .lock()
+            .ok()?
+            .take()
+    }
 }
 
 
@@ -73,6 +90,10 @@ pub fn open(
     }
     let options = repository_options(&spec.args);
     let policy = snapshot_policy(&spec.args, &paths);
+    let cache_directory = policy
+        .directory
+        .clone()
+        .unwrap_or_else(|| paths.root.join(".objekte"));
     let (repository, open_ns, snapshot_save) = open_repository(
         &paths.root,
         &configured,
@@ -87,6 +108,45 @@ pub fn open(
         return Err(BackendError::cancelled());
     }
     let startup = repository.startup().clone();
+    let background_snapshot_save = if spec.args.write_index.is_some() && startup.restored {
+        let result = Arc::new(Mutex::new(None));
+        let result_for_worker = Arc::clone(&result);
+        let index = repository.index().clone();
+        let cache = objekte_search_core::storage::snapshot_path_in(
+            &cache_directory,
+            options.bigram_alphabet,
+        );
+        std::thread::Builder::new()
+            .name("objekte-desktop-cache-save".into())
+            .spawn(move || {
+                let outcome = (|| -> Result<Option<SnapshotSaveStats>, String> {
+                    let report = index
+                        .wait_for_reconciliation()
+                        .map_err(|error| error.to_string())?
+                        .ok_or("restored cache has no reconciliation task")?;
+                    if report.cancelled || !report.issues.is_empty() || report.omitted_issues > 0 {
+                        return Err(format!(
+                            "cache reconciliation incomplete: {} source issues",
+                            report.issues.len() + report.omitted_issues
+                        ));
+                    }
+                    if !index.status().map_err(|error| error.to_string())?.dirty() {
+                        return Ok(None);
+                    }
+                    index
+                        .flush_cache_with_stats(&cache)
+                        .map(|(_, stats)| Some(stats))
+                        .map_err(|error| error.to_string())
+                })();
+                if let Ok(mut result) = result_for_worker.lock() {
+                    *result = Some(outcome);
+                }
+            })
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+        Some(result)
+    } else {
+        None
+    };
     let collections: Vec<String> = repository
         .collections()
         .iter()
@@ -100,6 +160,7 @@ pub fn open(
         collections,
         single_collection: !spec.args.multiple_collections(),
         declared_values,
+        background_snapshot_save,
         diagnostics: OpenDiagnostics {
             open_ns,
             startup,
