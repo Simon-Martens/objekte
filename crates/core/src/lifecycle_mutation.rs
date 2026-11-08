@@ -12,14 +12,22 @@ use crate::discovery::selects_file;
 use crate::inventory::SourceRevision;
 use crate::lifecycle::{
     DeleteResult, DeleteStrategy, FileHandle, Index, IndexError, IndexRevision, IndexView,
-    PreparedReplacement,
+    PreparedReplacement, PublishedIndex,
 };
+use crate::lifecycle_compaction::compact_published;
 use crate::lifecycle_verified::{
     preserve_single_record_slots, remove_verified_old_shards, verify_old_content,
 };
 use crate::model::CollectionId;
 
 const MAX_PUBLICATION_RETRIES: usize = 8;
+
+fn compact_verified_base(next: &PublishedIndex) -> Result<PublishedIndex, VerifiedFallbackReason> {
+    compact_published(next, next.revision).map_err(|error| match error {
+        IndexError::ResourceLimit(_) => VerifiedFallbackReason::CompactionBudget,
+        _ => VerifiedFallbackReason::CompactionUnavailable,
+    })
+}
 
 
 /// The change actually published by a file mutation. `Unchanged` keeps both
@@ -437,7 +445,18 @@ impl Index {
             };
             let (next, strategy, fallback_reason) = match verified {
                 Some(Ok(plan)) => {
-                    if let Some(preserved) =
+                    if plan.requires_base_compaction() {
+                        match compact_verified_base(&next) {
+                            Ok(compacted) => (
+                                compacted,
+                                FileMutationStrategy::VerifiedPhysicalRemoval,
+                                None,
+                            ),
+                            Err(reason) => {
+                                (next, FileMutationStrategy::AppendReplacement, Some(reason))
+                            }
+                        }
+                    } else if let Some(preserved) =
                         preserve_single_record_slots(&view, &next, &plan, handle.file_id)
                     {
                         (
@@ -527,6 +546,10 @@ impl Index {
                 continue;
             }
             let (next, strategy, fallback_reason) = match verified {
+                Ok(plan) if plan.requires_base_compaction() => match compact_verified_base(&next) {
+                    Ok(compacted) => (compacted, DeleteStrategy::VerifiedPhysicalRemoval, None),
+                    Err(reason) => (next, DeleteStrategy::Tombstone, Some(reason)),
+                },
                 Ok(plan) => match remove_verified_old_shards(&next, &plan, handle.file_id) {
                     Ok(compacted) => (compacted, DeleteStrategy::VerifiedPhysicalRemoval, None),
                     Err(reason) => (next, DeleteStrategy::Tombstone, Some(reason)),

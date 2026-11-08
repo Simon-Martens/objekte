@@ -282,6 +282,10 @@ impl CollectionStats {
 /// ```
 pub struct Repository {
     pub(crate) files: FileInventory,
+    /// Whole-file SHA-256 captured during the fresh builder's indexed reads.
+    /// A missing digest means at least one eligible binding could not read
+    /// complete bytes, so verified maintenance must fall back.
+    pub(crate) base_fingerprints: Vec<Option<[u8; 32]>>,
     pub(crate) collections: Vec<CollectionState>,
     pub(crate) sources: SourceRegistry,
     pub(crate) build_parses: u64,
@@ -293,6 +297,44 @@ pub struct Repository {
     pub(crate) prepared: Mutex<crate::prepared::PreparedCache>,
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
     pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
+}
+
+fn finish_fresh_fingerprints(
+    files: &FileInventory,
+    mut bindings: Vec<Vec<(CollectionId, [u8; 32])>>,
+) -> Result<Vec<Option<[u8; 32]>>, String> {
+    if bindings.len() != files.files.len() {
+        return Err("fresh digest inventory length mismatch".into());
+    }
+    files
+        .files
+        .iter()
+        .zip(&mut bindings)
+        .map(|(file, reads)| {
+            reads.sort_unstable_by_key(|(collection, _)| collection.0);
+            let mut previous = None;
+            let mut observed = 0usize;
+            let mut consensus = None;
+            for &(collection, digest) in reads.iter() {
+                if !file.collections.contains(&collection) {
+                    return Err("fresh digest belongs to an ineligible collection".into());
+                }
+                if consensus.is_some_and(|expected| expected != digest) {
+                    return Err("source content changed between collection build reads".into());
+                }
+                consensus = Some(digest);
+                if previous != Some(collection) {
+                    previous = Some(collection);
+                    observed += 1;
+                }
+            }
+            if observed == file.collections.len() {
+                Ok(consensus)
+            } else {
+                Ok(None)
+            }
+        })
+        .collect()
 }
 
 /// Time spent restoring, reconciling, building, and writing state.
@@ -1095,6 +1137,8 @@ impl Repository {
         let mut extraction_index_ns = 0u64;
         let mut finalization_ns = 0u64;
         let mut schedule_stats = crate::build::BuildScheduleStats::default();
+        let mut digest_bindings = vec![Vec::new(); files.files.len()];
+        let mut large_digests = Vec::new();
         let collection_count = selected.len();
         for (definition, id, source, member_files) in selected {
             let builder = CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
@@ -1193,6 +1237,12 @@ impl Repository {
         }
         let mut normal = Vec::new();
         let mut admit = |collection_index: usize, batch: crate::build::BatchContribution| {
+            for &(file_id, digest) in batch.file_fingerprints() {
+                digest_bindings
+                    .get_mut(file_id.0 as usize)
+                    .ok_or("fresh digest file ID out of bounds")?
+                    .push((CollectionId(collection_index as u32), digest));
+            }
             build_parses += batch.record_parses;
             build_failed_parses += batch.failed_parses;
             pending[collection_index].admit(&mut files, batch)
@@ -1232,6 +1282,9 @@ impl Repository {
                         options.inference,
                         |batch| admit(collection_index, batch),
                     )?;
+                    if let Some((file_id, digest)) = stats.file_fingerprint {
+                        large_digests.push((file_id, CollectionId(collection_index as u32), digest));
+                    }
                     schedule_stats.absorb(stats);
                 }
             }
@@ -1249,6 +1302,13 @@ impl Repository {
             schedule_stats.absorb(stats);
         }
         drop(admit);
+        for (file_id, collection, digest) in large_digests {
+            digest_bindings
+                .get_mut(file_id.0 as usize)
+                .ok_or("fresh digest file ID out of bounds")?
+                .push((collection, digest));
+        }
+        let base_fingerprints = finish_fresh_fingerprints(&files, digest_bindings)?;
         extraction_index_ns += extraction_started.elapsed().as_nanos() as u64;
         let mut collections = Vec::new();
         let mut pending_relations = Vec::new();
@@ -1411,6 +1471,7 @@ impl Repository {
         drop(build_pool);
         Ok(Self {
             files,
+            base_fingerprints,
             collections,
             sources: sources.clone(),
             build_parses,

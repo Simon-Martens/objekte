@@ -1205,7 +1205,9 @@ where
         return Ok(ExtractionCounters::default());
     }
     if let Some(fingerprint) = fingerprint {
-        *fingerprint = Some(Sha256::digest(&bytes).into());
+        if bytes.len() as u64 == expected.size {
+            *fingerprint = Some(Sha256::digest(&bytes).into());
+        }
     }
     if !for_build {
         check_revision(path, &file, expected)?;

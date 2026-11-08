@@ -103,13 +103,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     assert_eq!(restored.configuration(FileId(0)), Some([8; 32]));
     assert!(restored.entry(FileId(1)).is_none());
 
-    let unchanged = repository
-        .files()
-        .files
-        .iter()
-        .cloned()
-        .map(|entry| Some((entry, None, None)))
-        .collect();
+    let unchanged = original.snapshot_slots();
     let baseline = FileCatalog::restored(Arc::clone(&repository), unchanged).unwrap();
     assert!(baseline.changed.iter().all(|bucket| bucket.is_empty()));
     assert!(
