@@ -137,6 +137,12 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     query.options.offset = 0;
     query.options.limit = 3;
     let all = search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+    let reference = search_segmented_reference(
+        &repo, &query, &base_active, &segments, &catalog, revision,
+    )
+    .unwrap();
+    assert_eq!(all.count, reference.count);
+    assert_eq!(all.hits, reference.hits);
     assert_eq!(
         all.hits
             .iter()
@@ -176,6 +182,12 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     query.options.limit = 10;
     let text =
         search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
+    let reference_text = search_segmented_reference(
+        &repo, &query, &base_active, &segments, &catalog, revision,
+    )
+    .unwrap();
+    assert_eq!(text.count, reference_text.count);
+    assert_eq!(text.hits, reference_text.hits);
     assert_eq!(text.count, Some(1));
     assert_eq!(
         text.hits[0].file_path,
