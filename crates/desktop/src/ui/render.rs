@@ -797,7 +797,7 @@ impl Render for DesktopView {
                             .min_h_0()
                             .min_w_0()
                             .when(self.state.root.is_some(), |this| {
-                                this.child(self.render_query(cx))
+                                this.child(self.render_query_bar(cx))
                             })
                             .child(self.render_grid(cx)),
                     )

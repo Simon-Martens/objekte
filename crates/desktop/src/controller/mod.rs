@@ -2,6 +2,7 @@
 
 mod adapt;
 pub mod open_detection;
+pub mod filter_validation;
 mod projection;
 pub mod runtime;
 
