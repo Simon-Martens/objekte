@@ -1,5 +1,3 @@
-mod execution;
-
 use std::io;
 use std::time::{Instant, SystemTime};
 
@@ -7,6 +5,7 @@ use clap::Parser;
 use objekte_search_core::streaming::CancellationToken;
 
 use objekte_cli::arguments::Arguments;
+use objekte_cli::execution;
 use objekte_cli::output::milliseconds_value;
 
 fn main() {
