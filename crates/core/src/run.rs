@@ -1926,28 +1926,88 @@ fn segment_rank_key(
     collection_index: usize,
     segment: &IndexedCollectionSegment,
     record: &RecordEntry,
+    ctx: Option<&RecordContext<'_>>,
 ) -> Result<RankKey, String> {
     let terms = sort.bound.terms[collection_index]
         .as_ref()
         .ok_or("segment sort collection missing")?;
     let mut parts = Vec::with_capacity(terms.len());
     for term in terms {
-        let BoundSortSource::Stored(base_column) = &term.source else {
-            return Err("computed sort over indexed segments is not implemented".into());
+        let key = match &term.source {
+            BoundSortSource::Stored(base_column) => {
+                let column = segment.sorting.column(&base_column.path.display())?;
+                column
+                    .keys
+                    .get(record.slot.0 as usize)
+                    .ok_or("segment sort slot missing")?
+                    .clone()
+            }
+            BoundSortSource::Computed(computed) => {
+                computed.key_local(ctx.ok_or("computed segment sort needs record context")?)?
+            }
         };
-        let column = segment.sorting.column(&base_column.path.display())?;
-        let key = column
-            .keys
-            .get(record.slot.0 as usize)
-            .ok_or("segment sort slot missing")?
-            .clone();
-        parts.push((key, term.descending, column.options));
+        parts.push((key, term.descending, term.options));
     }
     Ok(RankKey {
         parts,
         collection: repo.collections[collection_index].definition.name.clone(),
         id: record.id.0.clone(),
     })
+}
+
+fn base_rank_key_merged(
+    repo: &Repository,
+    sort: &ResolvedSort<'_>,
+    collection_index: usize,
+    record: &RecordEntry,
+    catalog: &FileCatalog,
+) -> Result<RankKey, String> {
+    if !sort.bound.has_computed {
+        return Ok(rank_key(sort, repo, collection_index, record));
+    }
+    let collection = &repo.collections[collection_index];
+    let original = repo
+        .files
+        .files
+        .get(record.file.0 as usize)
+        .ok_or("base sort file missing")?;
+    let file = catalog.entry(record.file).ok_or("base sort file retired")?;
+    if file.relative_path != original.relative_path || file.revision != original.revision {
+        return Err("base sort file changed without retirement".into());
+    }
+    let bytes = if sort.bound.needs_source {
+        Some(read_record_range(
+            &repo.files.root.join(&file.relative_path),
+            record.revision,
+            record.range,
+        )?)
+    } else {
+        None
+    };
+    let extracted = if let Some(bytes) = bytes.as_ref() {
+        prepare_query_record_with_execution(
+            &collection.source,
+            &collection.definition.schema,
+            bytes,
+            &ScanProjection::full(false),
+            false,
+            None,
+        )?
+    } else {
+        ExtractedRecord {
+            value: Value::Object(Default::default()),
+            text: Vec::new(),
+        }
+    };
+    let ctx = RecordContext {
+        value: &extracted.value,
+        source_bytes: bytes.as_deref(),
+        record,
+        file,
+        collection_name: &collection.definition.name,
+        repository_root: &repo.files.root,
+    };
+    rank_key_from_context(sort, repo, collection_index, &ctx, None)
 }
 
 fn segment_locator_hit(
@@ -2009,8 +2069,10 @@ pub(crate) fn search_segmented(
         return Err("segment query collection count mismatch".into());
     }
     let sort = ResolvedSort::new(repo, query)?;
-    if sort.bound.has_computed {
-        return Err("computed sort over indexed segments is not implemented".into());
+    if sort.bound.terms.iter().flatten().flatten().any(|term| {
+        matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
+    }) {
+        return Err("related computed sort over indexed segments is not implemented".into());
     }
     let (prepared, _) = crate::prepared::prepare(repo, query)?;
     let has_relations = prepared.collections.iter().any(|(_, filter, fts)| {
@@ -2060,7 +2122,7 @@ pub(crate) fn search_segmented(
             .records
             .get(slot.0 as usize)
             .ok_or("base hit slot missing")?;
-        let key = rank_key(&sort, repo, collection_index, record);
+        let key = base_rank_key_merged(repo, &sort, collection_index, record, catalog)?;
         hit.generation = revision.0;
         offer_merged(
             &mut winners,
@@ -2089,6 +2151,7 @@ pub(crate) fn search_segmented(
                 .map_or_else(|| published.active.bitmap(), |bounds| bounds.may.clone());
             counters.candidates += candidates.len();
             let index_exact = !query.options.evidence
+                && !sort.bound.has_computed
                 && fts.is_none()
                 && bounds
                     .as_ref()
@@ -2100,8 +2163,14 @@ pub(crate) fn search_segmented(
                             .ok_or("active segment candidate missing")?;
                     total += 1;
                     counters.exact_posting_matches += 1;
-                    let key =
-                        segment_rank_key(repo, &sort, collection_index, segment, resolved.record)?;
+                    let key = segment_rank_key(
+                        repo,
+                        &sort,
+                        collection_index,
+                        segment,
+                        resolved.record,
+                        None,
+                    )?;
                     let hit = segment_locator_hit(collection, resolved, revision, Vec::new());
                     offer_merged(
                         &mut winners,
@@ -2229,7 +2298,14 @@ pub(crate) fn search_segmented(
                             continue;
                         }
                         total += 1;
-                        let key = segment_rank_key(repo, &sort, collection_index, segment, record)?;
+                        let key = segment_rank_key(
+                            repo,
+                            &sort,
+                            collection_index,
+                            segment,
+                            record,
+                            Some(&ctx),
+                        )?;
                         let hit = segment_locator_hit(
                             collection,
                             resolved,
@@ -2420,7 +2496,10 @@ fn search_segmented_relations(
                     collection_index,
                     &segments[collection_index][segment_index].index,
                     record,
+                    Some(&ctx),
                 )?
+            } else if sort.bound.has_computed {
+                rank_key_from_context(sort, repo, collection_index, &ctx, None)?
             } else {
                 rank_key(sort, repo, collection_index, record)
             };

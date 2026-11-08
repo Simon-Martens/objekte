@@ -338,6 +338,15 @@ impl ComputedSort {
             )?;
             return reduced.finish(self);
         }
+        self.key_local(ctx)
+    }
+
+    /// Evaluate a computed key that only uses the current record. The caller
+    /// may provide a base or a segment-local RecordContext.
+    pub(crate) fn key_local(&self, ctx: &RecordContext<'_>) -> Result<SortKey, String> {
+        if self.related.is_some() {
+            return Err("related sort needs merged relation resolution".into());
+        }
         if let PathRoot::Metadata(field) = &self.path.field.root {
             let value = metadata_value(*field, ctx)?;
             return self.reduce(&[&value], false);
