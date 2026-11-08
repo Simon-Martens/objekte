@@ -86,13 +86,6 @@ pub struct SearchDraft {
     pub collection: Option<String>,
     pub case_sensitive: bool,
     pub regex: bool,
-    /// Explicit sort control; inline SORT BY remains part of `structured`.
-    pub sort: String,
-    /// Numeric input is kept as text so a validation error does not erase it.
-    pub offset: String,
-    /// Empty means unlimited; zero means count-only when explicitly entered.
-    pub limit: String,
-    pub count: bool,
 }
 
 
@@ -105,10 +98,6 @@ impl Default for SearchDraft {
             collection: None,
             case_sensitive: true,
             regex: false,
-            sort: String::new(),
-            offset: "0".into(),
-            limit: String::new(),
-            count: false,
         }
     }
 }
@@ -304,6 +293,8 @@ impl DetailView {
 /// A query stored in history or under a user-provided name.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct QueryEntry {
+    /// Stable bookmark identity; history entries have no bookmark ID.
+    pub id: Option<u64>,
     pub name: Option<String>,
     pub draft: SearchDraft,
 }
@@ -390,12 +381,15 @@ pub enum UiAction {
     BackRelation,
     CopySelectedValue,
     CopyRecord,
-    SaveQuery {
-        name: String,
-        draft: SearchDraft,
+    SaveQuery(SearchDraft),
+    RenameSaved {
+        id: u64,
+        title: String,
     },
+    RemoveSaved(u64),
+    RetryPreferences,
     RestoreHistory(usize),
-    RestoreSaved(String),
+    RestoreSaved(u64),
     ToggleColumn(String),
     TogglePreview,
     Export {
@@ -462,6 +456,8 @@ pub enum UiUpdate {
     /// Complete clipboard text; consumed by the window without entering bounded display state.
     Clipboard(String),
     Status(String),
+    PreferenceSaved,
+    PreferenceFailed(String),
     Error {
         field: ErrorField,
         message: String,

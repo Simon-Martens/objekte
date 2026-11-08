@@ -114,6 +114,7 @@ enum WorkerEvent {
         result: Result<(backend::BatchReport, Vec<BatchRow>), String>,
     },
     PreferenceError(String),
+    PreferenceSaved,
     CopiedValue {
         open_generation: u64,
         detail_generation: u64,
@@ -166,8 +167,13 @@ impl DesktopController {
         let preference_results = worker_tx.clone();
         thread::spawn(move || {
             for preferences in preferences_to_save {
-                if let Err(message) = preferences.persist() {
-                    let _ = preference_results.send(WorkerEvent::PreferenceError(message));
+                match preferences.persist() {
+                    Ok(()) => {
+                        let _ = preference_results.send(WorkerEvent::PreferenceSaved);
+                    }
+                    Err(message) => {
+                        let _ = preference_results.send(WorkerEvent::PreferenceError(message));
+                    }
                 }
             }
         });
@@ -448,9 +454,29 @@ impl DesktopController {
             }
             UiAction::WriteIndex => self.start_index(SnapshotMode::Write, String::new(), updates),
             UiAction::Index { mode, directory } => self.start_index(mode, directory, updates),
-            UiAction::SaveQuery { name, draft } => {
+            UiAction::SaveQuery(draft) => {
+                if let Some(session) = &self.session
+                    && let FilterValidationState::Invalid { message, .. } =
+                        validate_request(session, &draft)
+                {
+                    updates.push(UiUpdate::Error {
+                        field: ErrorField::Structured,
+                        message,
+                    });
+                    return;
+                }
                 if let Some(preferences) = &mut self.preferences {
-                    match preferences.save_query_local(&name, &draft) {
+                    preferences.save_query_local(&draft);
+                    let _ = self.preference_tx.send(preferences.clone());
+                    updates.push(UiUpdate::History {
+                        entries: preferences.history(),
+                        saved: preferences.saved(),
+                    });
+                }
+            }
+            UiAction::RenameSaved { id, title } => {
+                if let Some(preferences) = &mut self.preferences {
+                    match preferences.rename_local(id, &title) {
                         Ok(()) => {
                             let _ = self.preference_tx.send(preferences.clone());
                             updates.push(UiUpdate::History {
@@ -463,6 +489,22 @@ impl DesktopController {
                             message,
                         }),
                     }
+                }
+            }
+            UiAction::RemoveSaved(id) => {
+                if let Some(preferences) = &mut self.preferences
+                    && preferences.remove_local(id)
+                {
+                    let _ = self.preference_tx.send(preferences.clone());
+                    updates.push(UiUpdate::History {
+                        entries: preferences.history(),
+                        saved: preferences.saved(),
+                    });
+                }
+            }
+            UiAction::RetryPreferences => {
+                if let Some(preferences) = &self.preferences {
+                    let _ = self.preference_tx.send(preferences.clone());
                 }
             }
             UiAction::ToggleColumn(column) => {
@@ -486,11 +528,11 @@ impl DesktopController {
                     self.start_query(draft, 0, updates);
                 }
             }
-            UiAction::RestoreSaved(name) => {
+            UiAction::RestoreSaved(id) => {
                 if let Some(draft) = self
                     .preferences
                     .as_ref()
-                    .and_then(|prefs| prefs.restore_saved(&name))
+                    .and_then(|prefs| prefs.restore_saved(id))
                 {
                     updates.push(UiUpdate::RestoreQuery(draft.clone()));
                     self.start_query(draft, 0, updates);
@@ -803,6 +845,11 @@ impl DesktopController {
                         );
                         self.session = Some(session);
                         self.push_field_choices(updates);
+                        updates.push(UiUpdate::Opened {
+                            root,
+                            collections: collections.clone(),
+                            single_collection,
+                        });
                         match preferences {
                             Ok(preferences) => {
                                 updates.push(UiUpdate::History {
@@ -819,11 +866,6 @@ impl DesktopController {
                                 message,
                             }),
                         }
-                        updates.push(UiUpdate::Opened {
-                            root,
-                            collections: collections.clone(),
-                            single_collection,
-                        });
                         updates.push(UiUpdate::Diagnostics(self.open_diagnostics.clone()));
                         let mut draft = self.current_draft.clone();
                         draft.collection = if single_collection {
@@ -1041,10 +1083,10 @@ impl DesktopController {
                     updates.push(UiUpdate::Detail(Some(detail.clone())));
                 }
             }
-            WorkerEvent::PreferenceError(message) => updates.push(UiUpdate::Error {
-                field: ErrorField::General,
-                message,
-            }),
+            WorkerEvent::PreferenceError(message) => {
+                updates.push(UiUpdate::PreferenceFailed(message))
+            }
+            WorkerEvent::PreferenceSaved => updates.push(UiUpdate::PreferenceSaved),
             WorkerEvent::CopiedValue {
                 open_generation,
                 detail_generation,

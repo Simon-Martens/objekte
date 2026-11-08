@@ -1,9 +1,9 @@
 //! GPUI controls for the optional synchronized filter builder.
 
+use gpui_kit::assets::IconName as AssetIconName;
 use gpui_kit::component::{
     Disableable as _, Selectable as _,
     button::{Button, ButtonVariants as _},
-    checkbox::Checkbox,
     input::{Input, InputEvent, InputState},
     scroll::ScrollableElement as _,
 };
@@ -402,7 +402,9 @@ impl DesktopView {
                     )
                     .child(
                         Button::new("query-filter-toggle")
-                            .label("Filter")
+                            .icon(AssetIconName::Funnel)
+                            .tooltip("Filter")
+                            .accessibility_label("Filter")
                             .selected(filter_enabled)
                             .on_click(cx.listener(|this, _, window, cx| {
                                 this.state.search.filter_enabled =
@@ -415,25 +417,6 @@ impl DesktopView {
                                     this.state.show_filter_builder = false;
                                 }
                                 this.search_from_inputs(false, cx);
-                            })),
-                    )
-                    .child(
-                        Button::new("query-options-toggle")
-                            .label(
-                                if self.state.search.sort.is_empty()
-                                    && self.state.search.offset == "0"
-                                    && self.state.search.limit.is_empty()
-                                    && !self.state.search.count
-                                {
-                                    "Options"
-                                } else {
-                                    "Options •"
-                                },
-                            )
-                            .selected(self.show_query_options)
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.show_query_options = !this.show_query_options;
-                                cx.notify();
                             })),
                     )
                     .child(
@@ -493,7 +476,9 @@ impl DesktopView {
                                 )
                                 .child(
                                     Button::new("filter-builder-toggle")
-                                        .label("Build filter")
+                                        .icon(AssetIconName::ListFilterPlus)
+                                        .tooltip("Filter Builder")
+                                        .accessibility_label("Filter Builder")
                                         .selected(self.state.show_filter_builder)
                                         .on_click(cx.listener(|this, _, _, cx| {
                                             this.state.show_filter_builder =
@@ -509,6 +494,23 @@ impl DesktopView {
                                     }),
                                 )),
                         )
+                        .when(self.suspended_filter.is_some(), |this| {
+                            this.child(
+                                Button::new("restore-inactive-filter")
+                                    .ghost()
+                                    .label("Restore inactive filter")
+                                    .tooltip("Restore the filter retained before sorting")
+                                    .on_click(cx.listener(|this, _, window, cx| {
+                                        if let Some(text) = this.suspended_filter.take() {
+                                            this.inputs.structured.update(cx, |input, cx| {
+                                                input.set_value(text, window, cx)
+                                            });
+                                            this.state.search.filter_enabled = true;
+                                            this.search_from_inputs(false, cx);
+                                        }
+                                    })),
+                            )
+                        })
                         .when(filter_error.is_some(), |this| {
                             this.child(
                                 div()
@@ -550,73 +552,6 @@ impl DesktopView {
             .when(self.state.showing_last_valid_results, |this| {
                 this.child(div().text_sm().child("Showing last valid results"))
             })
-    }
-
-    pub(super) fn render_query_options(&self, cx: &mut Context<Self>) -> impl IntoElement {
-        let dark = self.state.dark;
-        let right = if self.state.inspector_visible {
-            self.state.inspector_width + 8.
-        } else {
-            8.
-        };
-        div()
-            .id("query-options-popover")
-            .absolute()
-            .top(px(96.))
-            .right(px(right))
-            .w(px(360.))
-            .flex()
-            .flex_col()
-            .gap_2()
-            .p_3()
-            .bg(rgb(if dark { 0x1c1f24 } else { 0xffffff }))
-            .border_1()
-            .border_color(rgb(if dark { 0x30353c } else { 0xcbd5e1 }))
-            .rounded_md()
-            .on_mouse_down_out(cx.listener(|this, _, _, cx| {
-                this.show_query_options = false;
-                cx.notify();
-            }))
-            .child(
-                div()
-                    .font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                    .child("Query options"),
-            )
-            .child(div().text_sm().child("Sort"))
-            .child(
-                Input::new(&self.inputs.sort)
-                    .id("sort-input")
-                    .w_full()
-                    .aria_label("Sort field"),
-            )
-            .child(div().text_sm().child("Offset"))
-            .child(
-                Input::new(&self.inputs.offset)
-                    .id("offset-input")
-                    .w_full()
-                    .aria_label("Result offset"),
-            )
-            .child(div().text_sm().child("Limit"))
-            .child(
-                Input::new(&self.inputs.limit)
-                    .id("limit-input")
-                    .w_full()
-                    .aria_label("Result limit"),
-            )
-            .child(
-                Checkbox::new("query-exact-count")
-                    .accessibility_label("Exact count")
-                    .child(
-                        div()
-                            .text_color(rgb(if dark { 0xe2e8f0 } else { 0x172033 }))
-                            .child("Exact count"),
-                    )
-                    .checked(self.state.search.count)
-                    .on_change(cx.listener(|this, checked: &bool, _, cx| {
-                        this.state.search.count = *checked;
-                        this.search_from_inputs(false, cx);
-                    })),
-            )
     }
 
     pub(super) fn render_builder_overlay(&self) -> impl IntoElement {

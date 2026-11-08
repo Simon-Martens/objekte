@@ -9,7 +9,7 @@ use objekte_search_core::repository::SearchHit;
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
-use objekte_search_core::workload::{ReturnMode, SortField, WorkCounters};
+use objekte_search_core::workload::{ReturnMode, WorkCounters};
 
 use super::{BackendError, BackendErrorKind, OpenedSession};
 
@@ -24,7 +24,6 @@ pub struct QuerySpec {
     pub scope: Option<String>,
     pub case_sensitive: bool,
     pub regex: bool,
-    pub sort: Vec<SortField>,
     pub offset: usize,
     pub limit: Option<usize>,
     pub count: bool,
@@ -39,7 +38,6 @@ impl Default for QuerySpec {
             scope: None,
             case_sensitive: true,
             regex: false,
-            sort: Vec::new(),
             offset: 0,
             limit: None,
             count: false,
@@ -71,9 +69,6 @@ pub fn build_query(spec: &QuerySpec) -> Result<Query, String> {
     let parsed = (!filter.is_empty())
         .then(|| parse_structured_filter(filter))
         .transpose()?;
-    if parsed.as_ref().is_some_and(|parsed| parsed.sort.is_some()) && !spec.sort.is_empty() {
-        return Err("inline SORT BY conflicts with independent sort options".into());
-    }
     Ok(Query {
         collections: spec.scope.iter().cloned().collect(),
         fts: (!full_text.is_empty()).then(|| FtsQuery {
@@ -93,9 +88,7 @@ pub fn build_query(spec: &QuerySpec) -> Result<Query, String> {
         }),
         filter: parsed.as_ref().and_then(|parsed| parsed.filter.clone()),
         options: QueryOptions {
-            sort: parsed
-                .and_then(|parsed| parsed.sort)
-                .unwrap_or_else(|| spec.sort.clone()),
+            sort: parsed.and_then(|parsed| parsed.sort).unwrap_or_default(),
             limit: spec.limit.unwrap_or(0),
             offset: spec.offset,
             count: spec.count,

@@ -16,10 +16,7 @@ use super::open_dialog::{DetectionState, OpenDialogState};
 pub enum ActionPanel {
     #[default]
     Menu,
-    History,
-    Saved,
     Columns,
-    SaveQuery,
     Export,
     Index,
     Diagnostics,
@@ -79,6 +76,7 @@ pub struct UiState {
     pub batch_outcome: Option<String>,
     pub busy: Busy,
     pub status: String,
+    pub preference_write_failed: bool,
     pub diagnostics: String,
     pub errors: BTreeMap<ErrorField, String>,
     pub dark: bool,
@@ -92,6 +90,7 @@ pub struct UiState {
     pub index_mode: SnapshotMode,
     pub show_raw: bool,
     pub sidebar_visible: bool,
+    pub history_expanded: bool,
     pub inspector_width: f32,
     pub inspector_resize_origin: Option<(f32, f32)>,
     pub show_detail_metadata: bool,
@@ -131,6 +130,7 @@ impl UiState {
                 self.detail_source = None;
                 self.inspector_visible = false;
                 self.diagnostics.clear();
+                self.preference_write_failed = false;
                 self.busy = Busy::None;
                 self.status = "Repository ready".into();
                 self.open_dialog.close();
@@ -278,6 +278,13 @@ impl UiState {
             UiUpdate::Status(status) => {
                 self.status = status;
                 self.busy = Busy::None;
+            }
+            UiUpdate::PreferenceSaved => {
+                self.preference_write_failed = false;
+            }
+            UiUpdate::PreferenceFailed(message) => {
+                self.preference_write_failed = true;
+                self.status = format!("Preferences not saved: {message}");
             }
             UiUpdate::Error { field, message } => {
                 if field == ErrorField::Open {

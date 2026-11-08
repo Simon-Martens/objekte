@@ -3,6 +3,8 @@
 use gpui_kit::component::{
     Disableable as _, Icon, IconName, Selectable as _,
     button::{Button, ButtonVariants},
+    input::Input,
+    menu::{ContextMenuExt as _, PopupMenuItem},
     scroll::ScrollableElement as _,
 };
 use gpui_kit::prelude::FluentBuilder as _;
@@ -10,6 +12,7 @@ use gpui_kit::{
     Context, Focusable as _, InteractiveElement as _, IntoElement, ParentElement as _, Render,
     StatefulInteractiveElement as _, Styled as _, Window, div, px, rgb,
 };
+use objekte_search_core::query::parse_structured_filter;
 
 use super::DesktopView;
 use super::model::UiAction;
@@ -124,8 +127,9 @@ impl DesktopView {
             )
             .child(
                 Button::new("actions-panel")
-                    .icon(IconName::Ellipsis)
-                    .label("Menu")
+                    .icon(IconName::Menu)
+                    .tooltip("Application menu")
+                    .accessibility_label("Application menu")
                     .on_click(cx.listener(|this, _, _, cx| {
                         this.state.show_actions = !this.state.show_actions;
                         this.state.action_panel = ActionPanel::Menu;
@@ -147,6 +151,7 @@ impl DesktopView {
             .gap_1()
             .px_2()
             .py_3()
+            .overflow_y_scrollbar()
             .bg(rgb(colors.panel))
             .border_r_1()
             .border_color(rgb(colors.border))
@@ -191,53 +196,189 @@ impl DesktopView {
                 this.search_from_inputs(false, cx);
             }))
         }));
-        sidebar
-            .child(div().flex_1())
-            .child(
-                div()
-                    .border_t_1()
-                    .border_color(rgb(colors.border))
-                    .pt_3()
-                    .px_2()
-                    .text_xs()
-                    .text_color(rgb(colors.secondary))
-                    .font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                    .child("QUERIES"),
-            )
-            .child(
-                sidebar_item(
-                    "sidebar-history".into(),
-                    gpui_kit::assets::IconName::Clock,
-                    "History".into(),
-                    false,
-                )
-                .on_click(cx.listener(|this, _, _, cx| {
-                    this.state.show_actions = true;
-                    this.state.action_panel = ActionPanel::History;
-                    cx.notify();
-                })),
-            )
-            .child(
-                sidebar_item(
-                    "sidebar-saved".into(),
-                    gpui_kit::assets::IconName::Bookmark,
-                    "Saved queries".into(),
-                    false,
-                )
-                .on_click(cx.listener(|this, _, _, cx| {
-                    this.state.show_actions = true;
-                    this.state.action_panel = ActionPanel::Saved;
-                    cx.notify();
-                })),
-            )
-            .child(
+        sidebar = sidebar.child(
+            div()
+                .border_t_1()
+                .border_color(rgb(colors.border))
+                .mt_3()
+                .pt_3()
+                .px_2()
+                .text_xs()
+                .text_color(rgb(colors.secondary))
+                .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                .child("SAVED QUERIES"),
+        );
+        if self.state.saved.is_empty() {
+            sidebar = sidebar.child(
                 div()
                     .px_2()
-                    .mt_2()
-                    .text_xs()
+                    .py_1()
+                    .text_sm()
                     .text_color(rgb(colors.secondary))
-                    .child(format!("{} collections", self.state.collections.len())),
+                    .child("No saved queries"),
+            );
+        }
+        for entry in &self.state.saved {
+            let Some(id) = entry.id else { continue };
+            let title = entry
+                .name
+                .clone()
+                .unwrap_or_else(|| super::preferences::generated_title(&entry.draft));
+            let description = super::preferences::generated_title(&entry.draft);
+            let active = self.state.search == entry.draft;
+            let mut row = div()
+                .id(("saved-row", id as usize))
+                .flex()
+                .items_center()
+                .min_w_0();
+            if self.renaming_saved == Some(id) {
+                row = row.child(
+                    Input::new(&self.inputs.rename_title)
+                        .id("rename-saved-input")
+                        .flex_1()
+                        .min_w_0(),
+                );
+            } else {
+                row = row.child(
+                    Button::new(format!("sidebar-saved-{id}"))
+                        .ghost()
+                        .flex_1()
+                        .min_w_0()
+                        .h(px(30.))
+                        .selected(active)
+                        .tooltip(description)
+                        .accessibility_label(title.clone())
+                        .child(
+                            div()
+                                .min_w_0()
+                                .overflow_hidden()
+                                .whitespace_nowrap()
+                                .text_ellipsis()
+                                .text_left()
+                                .text_sm()
+                                .child(title),
+                        )
+                        .on_click(cx.listener(move |this, _, _, cx| {
+                            this.focused_saved = Some(id);
+                            this.send(UiAction::RestoreSaved(id));
+                            cx.notify();
+                        })),
+                );
+            }
+            row = row.child(
+                Button::new(format!("sidebar-remove-{id}"))
+                    .ghost()
+                    .icon(IconName::Star)
+                    .tooltip("Remove saved query")
+                    .accessibility_label("Remove saved query")
+                    .on_click(cx.listener(move |this, _, _, cx| {
+                        this.send(UiAction::RemoveSaved(id));
+                        cx.notify();
+                    })),
+            );
+            let target = cx.entity();
+            sidebar = sidebar.child(row.context_menu(move |menu, _, _| {
+                let rename_target = target.clone();
+                let remove_target = target.clone();
+                menu.item(PopupMenuItem::new("Rename").on_click(move |_, window, cx| {
+                    rename_target.update(cx, |this, cx| this.begin_rename(id, window, cx));
+                }))
+                .item(PopupMenuItem::new("Remove").on_click(move |_, _, cx| {
+                    remove_target.update(cx, |this, _| this.send(UiAction::RemoveSaved(id)));
+                }))
+            }));
+        }
+        sidebar = sidebar.child(
+            sidebar_item(
+                "sidebar-history".into(),
+                if self.state.history_expanded {
+                    gpui_kit::assets::IconName::ChevronDown
+                } else {
+                    gpui_kit::assets::IconName::ChevronRight
+                },
+                "History".into(),
+                self.state.history_expanded,
             )
+            .on_click(cx.listener(|this, _, _, cx| {
+                this.state.history_expanded = !this.state.history_expanded;
+                cx.notify();
+            })),
+        );
+        if self.state.history_expanded {
+            for (index, entry) in self.state.history.iter().rev().enumerate() {
+                let title = super::preferences::generated_title(&entry.draft);
+                let bookmark = self
+                    .state
+                    .saved
+                    .iter()
+                    .find(|saved| saved.draft == entry.draft)
+                    .and_then(|saved| saved.id);
+                let draft = entry.draft.clone();
+                let active = self.state.search == entry.draft;
+                sidebar = sidebar.child(
+                    div()
+                        .flex()
+                        .items_center()
+                        .min_w_0()
+                        .child(
+                            Button::new(format!("sidebar-history-{index}"))
+                                .ghost()
+                                .flex_1()
+                                .min_w_0()
+                                .h(px(30.))
+                                .selected(active)
+                                .tooltip(title.clone())
+                                .accessibility_label(title.clone())
+                                .child(
+                                    div()
+                                        .min_w_0()
+                                        .overflow_hidden()
+                                        .whitespace_nowrap()
+                                        .text_ellipsis()
+                                        .text_left()
+                                        .text_sm()
+                                        .child(title),
+                                )
+                                .on_click(cx.listener(move |this, _, _, cx| {
+                                    this.send(UiAction::RestoreHistory(index));
+                                    cx.notify();
+                                })),
+                        )
+                        .child(
+                            Button::new(format!("sidebar-star-{index}"))
+                                .ghost()
+                                .icon(IconName::Star)
+                                .selected(bookmark.is_some())
+                                .tooltip(if bookmark.is_some() {
+                                    "Remove bookmark"
+                                } else {
+                                    "Save query"
+                                })
+                                .accessibility_label(if bookmark.is_some() {
+                                    "Remove bookmark"
+                                } else {
+                                    "Save query"
+                                })
+                                .on_click(cx.listener(move |this, _, _, cx| {
+                                    if let Some(id) = bookmark {
+                                        this.send(UiAction::RemoveSaved(id));
+                                    } else {
+                                        this.send(UiAction::SaveQuery(draft.clone()));
+                                    }
+                                    cx.notify();
+                                })),
+                        ),
+                );
+            }
+        }
+        sidebar.child(
+            div()
+                .px_2()
+                .mt_2()
+                .text_xs()
+                .text_color(rgb(colors.secondary))
+                .child(format!("{} collections", self.state.collections.len())),
+        )
     }
 
     fn render_grid(&self, cx: &mut Context<Self>) -> impl IntoElement {
@@ -303,7 +444,14 @@ impl DesktopView {
                 .sum::<f32>();
         let selected = page.selected;
         let offset = page.offset;
-        let sort = self.state.search.sort.trim();
+        let sort = self
+            .state
+            .search
+            .filter_enabled
+            .then(|| parse_structured_filter(&self.state.search.structured).ok())
+            .flatten()
+            .and_then(|parsed| parsed.sort)
+            .unwrap_or_default();
         let header = div()
             .flex()
             .items_center()
@@ -325,13 +473,21 @@ impl DesktopView {
             )
             .children(visible_columns.iter().map(|(_, column, width)| {
                 let name = (*column).to_owned();
-                let label = if sort == format!("{name} ASC") {
-                    format!("{name} ↑")
-                } else if sort == format!("{name} DESC") {
-                    format!("{name} ↓")
-                } else {
-                    name.clone()
-                };
+                let label = sort
+                    .iter()
+                    .position(|field| field.field == name)
+                    .map(|index| {
+                        format!(
+                            "{name} {}{}",
+                            if sort[index].descending { "↓" } else { "↑" },
+                            if sort.len() > 1 {
+                                format!("{}", index + 1)
+                            } else {
+                                String::new()
+                            }
+                        )
+                    })
+                    .unwrap_or_else(|| name.clone());
                 Button::new(format!("sort-{name}"))
                     .ghost()
                     .label(label)
@@ -532,6 +688,17 @@ impl DesktopView {
             .text_color(rgb(colors.secondary))
             .child(status)
             .child(div().flex_1())
+            .when(self.state.preference_write_failed, |this| {
+                this.child(
+                    Button::new("retry-preferences")
+                        .ghost()
+                        .label("Retry save")
+                        .tooltip("Retry saving desktop preferences")
+                        .on_click(cx.listener(|this, _, _, _| {
+                            this.send(UiAction::RetryPreferences);
+                        })),
+                )
+            })
             .child(
                 Button::new("status-diagnostics")
                     .ghost()
@@ -618,6 +785,12 @@ impl Render for DesktopView {
                     } else {
                         match key {
                             "f1" => this.state.show_help = !this.state.show_help,
+                            "f2" if this.focused_saved.is_some() => {
+                                this.begin_rename(this.focused_saved.unwrap(), window, cx);
+                            }
+                            "escape" if this.renaming_saved.is_some() => {
+                                this.renaming_saved = None;
+                            }
                             "escape" if this.state.open_dialog.visible => {
                                 this.close_open_dialog(cx);
                             }
@@ -626,7 +799,6 @@ impl Render for DesktopView {
                                 let focus = this.inputs.structured.read(cx).focus_handle(cx);
                                 window.focus(&focus, cx);
                             }
-                            "escape" if this.show_query_options => this.show_query_options = false,
                             "escape" if this.state.show_help => this.state.show_help = false,
                             "escape" if this.state.show_actions => this.state.show_actions = false,
                             "escape" if this.state.show_batch => this.state.show_batch = false,
@@ -675,9 +847,6 @@ impl Render for DesktopView {
                         |this| this.child(self.render_detail(cx)),
                     ),
             )
-            .when(self.show_query_options, |this| {
-                this.child(self.render_query_options(cx))
-            })
             .when(self.state.show_filter_builder, |this| {
                 this.child(self.render_builder_overlay())
             })

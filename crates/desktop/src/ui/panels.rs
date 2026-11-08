@@ -4,6 +4,7 @@ use gpui_kit::assets::IconName as AssetIconName;
 use gpui_kit::component::{
     Disableable as _, IconName, Selectable as _,
     button::{Button, ButtonVariants},
+    checkbox::Checkbox,
     input::{Input, Textarea},
     scroll::ScrollableElement as _,
 };
@@ -604,10 +605,7 @@ impl DesktopView {
         let kind = self.state.action_panel;
         let title = match kind {
             ActionPanel::Menu => "Menu",
-            ActionPanel::History => "History",
-            ActionPanel::Saved => "Saved queries",
             ActionPanel::Columns => "Columns",
-            ActionPanel::SaveQuery => "Save query",
             ActionPanel::Export => "Export",
             ActionPanel::Index => "Index",
             ActionPanel::Diagnostics => "Diagnostics",
@@ -678,24 +676,6 @@ impl DesktopView {
             ActionPanel::Menu => {
                 for (id, label, icon, next) in [
                     (
-                        "menu-history",
-                        "History",
-                        AssetIconName::Clock,
-                        ActionPanel::History,
-                    ),
-                    (
-                        "menu-saved",
-                        "Saved queries",
-                        AssetIconName::Bookmark,
-                        ActionPanel::Saved,
-                    ),
-                    (
-                        "menu-save",
-                        "Save current query…",
-                        AssetIconName::Bookmark,
-                        ActionPanel::SaveQuery,
-                    ),
-                    (
                         "menu-columns",
                         "Columns…",
                         AssetIconName::PanelLeft,
@@ -734,6 +714,24 @@ impl DesktopView {
                     );
                 }
                 content = content
+                    .child(
+                        Button::new("menu-save")
+                            .ghost()
+                            .w_full()
+                            .icon(AssetIconName::Bookmark)
+                            .accessibility_label("Save current query")
+                            .child(div().w_full().text_left().child("Save current query"))
+                            .disabled(!matches!(
+                                self.state.filter_validation,
+                                Some(super::model::FilterValidationState::Valid)
+                            ))
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                let draft = this.query_from_inputs(cx);
+                                this.send(UiAction::SaveQuery(draft));
+                                this.state.show_actions = false;
+                                cx.notify();
+                            })),
+                    )
                     .child(
                         Button::new("menu-batch")
                             .ghost()
@@ -802,99 +800,30 @@ impl DesktopView {
                             })),
                     );
             }
-            ActionPanel::History => {
-                content = content.child(
-                    Input::new(&self.inputs.action_search)
-                        .id("history-search")
-                        .w_full(),
-                );
-                let needle = self.inputs.action_search.read(cx).value().to_lowercase();
-                for (index, entry) in self.state.history.iter().enumerate().rev().take(100) {
-                    let label = format!("{} {}", entry.draft.full_text, entry.draft.structured);
-                    if !label.to_lowercase().contains(&needle) {
-                        continue;
-                    }
-                    content = content.child(
-                        Button::new(format!("history-{index}"))
-                            .ghost()
-                            .w_full()
-                            .label(if label.trim().is_empty() {
-                                "All records".to_owned()
-                            } else {
-                                label
-                            })
-                            .on_click(cx.listener(move |this, _, _, cx| {
-                                this.send(UiAction::RestoreHistory(index));
-                                this.state.show_actions = false;
-                                cx.notify();
-                            })),
-                    );
-                }
-            }
-            ActionPanel::Saved => {
-                content = content.child(
-                    Input::new(&self.inputs.action_search)
-                        .id("saved-search")
-                        .w_full(),
-                );
-                let needle = self.inputs.action_search.read(cx).value().to_lowercase();
-                for name in self
-                    .state
-                    .saved
-                    .iter()
-                    .filter_map(|entry| entry.name.as_ref())
-                {
-                    if !name.to_lowercase().contains(&needle) {
-                        continue;
-                    }
-                    let name = name.clone();
-                    content = content.child(
-                        Button::new(format!("saved-{name}"))
-                            .ghost()
-                            .w_full()
-                            .label(name.clone())
-                            .on_click(cx.listener(move |this, _, _, cx| {
-                                this.send(UiAction::RestoreSaved(name.clone()));
-                                this.state.show_actions = false;
-                                cx.notify();
-                            })),
-                    );
-                }
-            }
             ActionPanel::Columns => {
                 for column in &self.state.available_columns {
                     let column = column.clone();
                     let visible = !self.state.hidden_columns.contains(&column);
                     content = content.child(
-                        Button::new(format!("column-{column}"))
-                            .ghost()
+                        Checkbox::new(format!("column-{column}"))
                             .w_full()
-                            .label(format!("{} {column}", if visible { "☑" } else { "☐" }))
-                            .on_click(cx.listener(move |this, _, _, _| {
+                            .checked(visible)
+                            .accessibility_label(format!("Show {column}"))
+                            .child(
+                                div()
+                                    .flex_1()
+                                    .min_w_0()
+                                    .overflow_hidden()
+                                    .whitespace_nowrap()
+                                    .text_ellipsis()
+                                    .text_left()
+                                    .child(column.clone()),
+                            )
+                            .on_change(cx.listener(move |this, _: &bool, _, _| {
                                 this.send(UiAction::ToggleColumn(column.clone()));
                             })),
                     );
                 }
-            }
-            ActionPanel::SaveQuery => {
-                content = content
-                    .child(div().text_sm().child("Name"))
-                    .child(
-                        Input::new(&self.inputs.query_name)
-                            .id("query-name")
-                            .w_full(),
-                    )
-                    .child(
-                        Button::new("save-query")
-                            .primary()
-                            .label("Save query")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.send(UiAction::SaveQuery {
-                                    name: this.inputs.query_name.read(cx).value().to_string(),
-                                    draft: this.query_from_inputs(cx),
-                                });
-                            })),
-                    );
             }
             ActionPanel::Export => {
                 let invalid = !matches!(

@@ -1,7 +1,6 @@
 use super::*;
 use crate::backend::{BackendErrorKind, query_page, test_support::fixture};
 use objekte_cli::execution::Exit;
-use objekte_search_core::workload::SortField;
 use serde_json::Value;
 
 fn events(path: &Path) -> Vec<Value> {
@@ -19,9 +18,8 @@ fn combined_query_exports_full_sorted_range_with_cli_event_order() {
     let token = CancellationToken::new();
     let spec = QuerySpec {
         full_text: "alpha".into(),
-        filter: "year >= 2022".into(),
+        filter: "year >= 2022 SORT BY year DESC".into(),
         case_sensitive: false,
-        sort: vec![SortField::simple("year", true)],
         count: true,
         ..Default::default()
     };
@@ -58,8 +56,8 @@ fn combined_query_exports_full_sorted_range_with_cli_event_order() {
     assert_eq!(events[1]["count_requested"], true);
     let input: Value = serde_json::from_str(events[1]["input"].as_str().unwrap()).unwrap();
     assert_eq!(input["full_text"], "alpha");
-    assert_eq!(input["filter"], "year >= 2022");
-    assert_eq!(input["sort"][0]["field"], "year");
+    assert_eq!(input["filter"], "year >= 2022 SORT BY year DESC");
+    assert!(input.get("sort").is_none());
     for (event, hit) in events[2..4].iter().zip(&expected.hits) {
         assert_eq!(event["file"]["record_id"], hit.record_id);
         assert_eq!(event["requested_offset"], 0);
@@ -134,8 +132,7 @@ fn invalid_combination_emits_input_error_and_output_never_overwrites() {
     let output = tempfile::tempdir().unwrap();
     let spec = QuerySpec {
         full_text: "alpha".into(),
-        filter: "year >= 2022 SORT BY year DESC".into(),
-        sort: vec![SortField::simple("year", false)],
+        filter: "year >= 2022 SORT BY".into(),
         ..Default::default()
     };
     let path = output.path().join("error.ndjson");

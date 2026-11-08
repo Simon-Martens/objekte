@@ -7,6 +7,7 @@ mod panels;
 pub mod preferences;
 pub mod query_bar;
 mod render;
+mod sort;
 mod state;
 mod theme;
 pub mod typography;
@@ -34,12 +35,8 @@ struct Inputs {
     snapshot_directory: Entity<InputState>,
     full_text: Entity<InputState>,
     structured: Entity<InputState>,
-    sort: Entity<InputState>,
-    offset: Entity<InputState>,
-    limit: Entity<InputState>,
     find: Entity<InputState>,
-    query_name: Entity<InputState>,
-    action_search: Entity<InputState>,
+    rename_title: Entity<InputState>,
     export_path: Entity<InputState>,
     batch_text: Entity<TextareaState>,
     batch_path: Entity<InputState>,
@@ -53,7 +50,9 @@ pub struct DesktopView {
     state: UiState,
     inputs: Inputs,
     builder_view: Entity<FilterBuilderView>,
-    show_query_options: bool,
+    suspended_filter: Option<String>,
+    renaming_saved: Option<u64>,
+    focused_saved: Option<u64>,
     grid_focus: FocusHandle,
     grid_scroll: ScrollHandle,
     grid_horizontal_scroll: ScrollHandle,
@@ -77,12 +76,8 @@ impl DesktopView {
             structured: cx.new(|cx| {
                 InputState::new(window, cx).placeholder("year >= 1900 && type = \"book\"")
             }),
-            sort: cx.new(|cx| InputState::new(window, cx).placeholder("Sort field (optional)")),
-            offset: cx.new(|cx| InputState::new(window, cx).default_value("0")),
-            limit: cx.new(|cx| InputState::new(window, cx).placeholder("Unlimited")),
             find: cx.new(|cx| InputState::new(window, cx).placeholder("Find in record")),
-            query_name: cx.new(|cx| InputState::new(window, cx).placeholder("Saved query name")),
-            action_search: cx.new(|cx| InputState::new(window, cx).placeholder("Find a query")),
+            rename_title: cx.new(|cx| InputState::new(window, cx).placeholder("Query title")),
             export_path: cx.new(|cx| InputState::new(window, cx).placeholder("New output path")),
             batch_text: cx.new(|cx| TextareaState::new(window, cx)),
             batch_path: cx
@@ -118,13 +113,7 @@ impl DesktopView {
                 }
             },
         ));
-        for input in [
-            &inputs.full_text,
-            &inputs.structured,
-            &inputs.sort,
-            &inputs.offset,
-            &inputs.limit,
-        ] {
+        for input in [&inputs.full_text, &inputs.structured] {
             subscriptions.push(
                 cx.subscribe(input, |this: &mut Self, _, event, cx| match event {
                     InputEvent::Change => this.search_from_inputs(false, cx),
@@ -134,9 +123,9 @@ impl DesktopView {
             );
         }
         subscriptions.push(
-            cx.subscribe(&inputs.action_search, |_: &mut Self, _, event, cx| {
-                if matches!(event, InputEvent::Change) {
-                    cx.notify();
+            cx.subscribe(&inputs.rename_title, |this: &mut Self, _, event, cx| {
+                if matches!(event, InputEvent::PressEnter { .. }) {
+                    this.commit_rename(cx);
                 }
             }),
         );
@@ -156,7 +145,9 @@ impl DesktopView {
             state,
             inputs,
             builder_view,
-            show_query_options: false,
+            suspended_filter: None,
+            renaming_saved: None,
+            focused_saved: None,
             grid_focus: cx.focus_handle(),
             grid_scroll: ScrollHandle::new(),
             grid_horizontal_scroll: ScrollHandle::new(),
@@ -221,24 +212,12 @@ impl DesktopView {
         }
         if let UiUpdate::RestoreQuery(draft) = &update {
             self.restoring_query = true;
-            self.show_query_options = !draft.sort.is_empty()
-                || draft.offset != "0"
-                || !draft.limit.is_empty()
-                || draft.count;
+            self.suspended_filter = None;
             self.inputs.full_text.update(cx, |input, cx| {
                 input.set_value(draft.full_text.clone(), window, cx)
             });
             self.inputs.structured.update(cx, |input, cx| {
                 input.set_value(draft.structured.clone(), window, cx)
-            });
-            self.inputs.sort.update(cx, |input, cx| {
-                input.set_value(draft.sort.clone(), window, cx)
-            });
-            self.inputs.offset.update(cx, |input, cx| {
-                input.set_value(draft.offset.clone(), window, cx)
-            });
-            self.inputs.limit.update(cx, |input, cx| {
-                input.set_value(draft.limit.clone(), window, cx)
             });
             self.builder_view.update(cx, |builder, cx| {
                 builder.sync_from_text(&draft.structured, cx)
@@ -272,14 +251,11 @@ impl DesktopView {
         cx.notify();
     }
 
-    /// Read the current query without losing invalid numeric text.
+    /// Read the current query definition without changing its source text.
     fn query_from_inputs(&self, cx: &mut Context<Self>) -> SearchDraft {
         let mut draft = self.state.search.clone();
         draft.full_text = self.inputs.full_text.read(cx).value().to_string();
         draft.structured = self.inputs.structured.read(cx).value().to_string();
-        draft.sort = self.inputs.sort.read(cx).value().to_string();
-        draft.offset = self.inputs.offset.read(cx).value().to_string();
-        draft.limit = self.inputs.limit.read(cx).value().to_string();
         draft
     }
 
@@ -302,33 +278,41 @@ impl DesktopView {
         cx.notify();
     }
 
-    /// Cycle a column's global query sort without changing an inline SORT BY.
+    /// Cycle one header through the authoritative filter expression.
     fn sort_by_column(&mut self, column: String, window: &mut Window, cx: &mut Context<Self>) {
+        let current = self.inputs.structured.read(cx).value().to_string();
         if self.state.search.filter_enabled
-            && parse_structured_filter(&self.inputs.structured.read(cx).value())
-                .ok()
-                .and_then(|filter| filter.sort)
-                .is_some()
+            && !current.trim().is_empty()
+            && parse_structured_filter(&current).is_err()
         {
-            self.state.status = "Edit SORT BY in the Filter line to change ordering".into();
+            self.state.status = "Correct the Filter expression before sorting".into();
             let focus = self.inputs.structured.read(cx).focus_handle(cx);
             window.focus(&focus, cx);
             cx.notify();
             return;
         }
-        let current = self.inputs.sort.read(cx).value().trim().to_owned();
-        let next = if current == format!("{column} ASC") {
-            format!("{column} DESC")
-        } else if current == format!("{column} DESC") {
+        // A retained inactive predicate must never become active from a
+        // header click. Keep it in the editor until explicitly restored.
+        let source = if !self.state.search.filter_enabled && !current.trim().is_empty() {
+            self.suspended_filter = Some(current);
             String::new()
         } else {
-            format!("{column} ASC")
+            current
+        };
+        let next = match sort::cycle_header_sort(&source, &column) {
+            Ok(next) => next,
+            Err(message) => {
+                self.state.status = message;
+                cx.notify();
+                return;
+            }
         };
         self.restoring_query = true;
         self.inputs
-            .sort
+            .structured
             .update(cx, |input, cx| input.set_value(next, window, cx));
         self.restoring_query = false;
+        self.state.search.filter_enabled = true;
         self.search_from_inputs(false, cx);
     }
 
@@ -336,6 +320,40 @@ impl DesktopView {
         if self.actions.send(action).is_err() {
             self.state.status = "Desktop controller disconnected".into();
         }
+    }
+
+    fn begin_rename(&mut self, id: u64, window: &mut Window, cx: &mut Context<Self>) {
+        let Some(title) = self
+            .state
+            .saved
+            .iter()
+            .find(|entry| entry.id == Some(id))
+            .and_then(|entry| entry.name.clone())
+        else {
+            return;
+        };
+        self.renaming_saved = Some(id);
+        self.focused_saved = Some(id);
+        self.inputs.rename_title.update(cx, |input, cx| {
+            input.set_value(title, window, cx);
+            input.focus(window, cx);
+        });
+        cx.notify();
+    }
+
+    fn commit_rename(&mut self, cx: &mut Context<Self>) {
+        let Some(id) = self.renaming_saved else {
+            return;
+        };
+        let title = self.inputs.rename_title.read(cx).value().to_string();
+        if title.trim().is_empty() {
+            self.state.status = "Saved query title cannot be empty".into();
+            cx.notify();
+            return;
+        }
+        self.send(UiAction::RenameSaved { id, title });
+        self.renaming_saved = None;
+        cx.notify();
     }
 
     fn select_relative(&mut self, delta: isize, cx: &mut Context<Self>) {

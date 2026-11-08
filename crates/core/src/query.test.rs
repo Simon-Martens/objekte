@@ -1,6 +1,16 @@
 use super::*;
 
 #[test]
+fn sort_span_ignores_literals_and_nested_text() {
+    let text = r#"title = 'SORT BY year' && note = 'x' SORT BY year DESC"#;
+    let start = structured_sort_start(text).unwrap().unwrap();
+    assert_eq!(&text[start..], "SORT BY year DESC");
+    assert_eq!(structured_sort_start("SORT BY year ASC").unwrap(), Some(0));
+    assert_eq!(structured_sort_start("title = 'SORT BY'").unwrap(), None);
+    assert!(structured_sort_start("title = ").is_err());
+}
+
+#[test]
 fn sort_grammar_preserves_typed_reductions_positions_and_bindings() {
     let parsed = parse_structured_filter(
         "SORT BY min(prices[*]) DESC, contributors[0].name, body:normalized ASC, LAST(@backlinks.mentions.year)",

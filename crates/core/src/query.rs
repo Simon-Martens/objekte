@@ -920,6 +920,32 @@ pub fn parse_structured_filter(input: &str) -> Result<StructuredFilter, String> 
     Ok(StructuredFilter { filter, sort })
 }
 
+/// Byte offset of the top-level ordering clause, if one exists. This uses the
+/// same lexer and parser as execution, so quoted "SORT BY" text and nested
+/// expressions cannot be mistaken for a clause during editor transforms.
+pub fn structured_sort_start(input: &str) -> Result<Option<usize>, String> {
+    let mut parser = Parser {
+        tokens: lex(input)?,
+        pos: 0,
+    };
+    if !parser.sort_clause_start() {
+        parser.or()?;
+    }
+    let start = parser
+        .sort_clause_start()
+        .then(|| parser.tokens[parser.pos].start);
+    if start.is_some() {
+        parser.sort_clause()?;
+    }
+    if !matches!(parser.peek(), TokenKind::End) {
+        return Err(format!(
+            "unexpected token at byte {}",
+            parser.tokens[parser.pos].start
+        ));
+    }
+    Ok(start)
+}
+
 pub fn parse_filter(input: &str) -> Result<FilterExpr, String> {
     let mut parser = Parser {
         tokens: lex(input)?,

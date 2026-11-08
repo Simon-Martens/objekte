@@ -52,14 +52,13 @@ fn viewport_pages_respect_range_without_becoming_total_limit() {
 }
 
 #[test]
-fn invalid_sort_conflict_and_cancelled_work_are_reported() {
+fn inline_sort_and_cancelled_work_are_reported() {
     let fixture = fixture();
     let spec = QuerySpec {
         filter: "year >= 2022 SORT BY year DESC".into(),
-        sort: vec![SortField::simple("title", false)],
         ..QuerySpec::default()
     };
-    assert!(build_query(&spec).unwrap_err().contains("conflicts"));
+    assert_eq!(build_query(&spec).unwrap().options.sort.len(), 1);
     let cancelled = CancellationToken::new();
     cancelled.cancel();
     assert_eq!(

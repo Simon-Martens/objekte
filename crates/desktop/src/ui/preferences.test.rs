@@ -1,56 +1,96 @@
 use super::*;
 
 #[test]
-fn settings_use_distinct_path_and_restore_tui_query_fields() {
+fn migration_preserves_legacy_names_order_columns_and_theme() {
     let temp = tempfile::tempdir().unwrap();
-    let mut settings = DesktopPreferences::load(temp.path()).unwrap();
-    assert_ne!(
-        DesktopPreferences::path(temp.path()),
-        Settings::path(temp.path())
+    let path = DesktopPreferences::path(temp.path());
+    fs::create_dir_all(path.parent().unwrap()).unwrap();
+    let legacy = serde_json::json!({
+        "theme": "light",
+        "history": [
+            {"search": "first"},
+            {"search": "last", "filter": "year >= 1900", "regex": true}
+        ],
+        "saved": [
+            {"name": "My old title", "search": "first"},
+            {"name": "Another title", "search": "last", "filter": "year >= 1900"}
+        ],
+        "columns": {"letters": {"hidden": ["summary"]}}
+    });
+    fs::write(&path, serde_json::to_vec(&legacy).unwrap()).unwrap();
+    let mut preferences = DesktopPreferences::load(temp.path()).unwrap();
+    assert_eq!(preferences.dark(), Some(false));
+    assert_eq!(preferences.hidden(Some("letters")), ["summary"]);
+    assert_eq!(preferences.restore_history(0).unwrap().full_text, "last");
+    assert_eq!(preferences.saved()[0].name.as_deref(), Some("My old title"));
+    assert_ne!(preferences.saved()[0].id, preferences.saved()[1].id);
+    assert!(preferences.saved()[1].draft.filter_enabled);
+    // Reading legacy settings alone does not rewrite the file.
+    assert_eq!(
+        fs::read(&path).unwrap(),
+        serde_json::to_vec(&legacy).unwrap()
     );
-    let query = SearchDraft {
-        full_text: "Goethe".into(),
-        structured: "year < 1800".into(),
-        filter_enabled: true,
-        collection: Some("contents".into()),
+    preferences.set_dark_local(true);
+    preferences.persist().unwrap();
+    let reloaded = DesktopPreferences::load(temp.path()).unwrap();
+    assert_eq!(reloaded.saved()[0].name.as_deref(), Some("My old title"));
+    assert_eq!(reloaded.dark(), Some(true));
+    assert_eq!(
+        serde_json::from_slice::<serde_json::Value>(&fs::read(&path).unwrap()).unwrap()["version"],
+        VERSION
+    );
+    assert_ne!(path, LegacySettings::path(temp.path()));
+}
+
+#[test]
+fn bookmarks_use_definition_identity_and_keep_disabled_filter() {
+    let temp = tempfile::tempdir().unwrap();
+    let mut preferences = DesktopPreferences::load(temp.path()).unwrap();
+    let first = SearchDraft {
+        collection: Some("letters".into()),
+        structured: "year >= 1900".into(),
+        filter_enabled: false,
         case_sensitive: false,
         regex: true,
         ..SearchDraft::default()
     };
-    settings.remember(&query).unwrap();
-    settings.save_query("Early", &query).unwrap();
-    settings
-        .toggle_column(Some("contents"), "annotation")
-        .unwrap();
-    settings.set_dark(true).unwrap();
-    let loaded = DesktopPreferences::load(temp.path()).unwrap();
-    assert_eq!(loaded.restore_history(0), Some(query.clone()));
-    assert_eq!(loaded.restore_saved("Early"), Some(query));
-    assert_eq!(loaded.hidden(Some("contents")), ["annotation"]);
-    assert_eq!(loaded.dark(), Some(true));
+    let mut second = first.clone();
+    second.structured = "year > 1900".into();
+    let first_id = preferences.save_query(&first).unwrap();
+    let second_id = preferences.save_query(&second).unwrap();
+    assert_ne!(first_id, second_id);
+    assert_eq!(preferences.saved().len(), 2);
+    assert_eq!(preferences.saved()[0].name, preferences.saved()[1].name);
+    preferences.rename_local(first_id, "My collection").unwrap();
+    assert_eq!(preferences.save_query(&first).unwrap(), first_id);
+    preferences.remember(&first).unwrap();
+    preferences.remember(&second).unwrap();
+    preferences.remember(&first).unwrap();
+    let reloaded = DesktopPreferences::load(temp.path()).unwrap();
+    assert_eq!(reloaded.saved()[0].name.as_deref(), Some("My collection"));
+    assert_eq!(reloaded.restore_saved(first_id), Some(first.clone()));
+    assert_eq!(reloaded.restore_saved(second_id), Some(second));
+    assert_eq!(reloaded.history().len(), 2);
+    assert_eq!(reloaded.restore_history(0), Some(first));
 }
 
 #[test]
-fn named_query_upsert_and_empty_validation_match_tui() {
-    let temp = tempfile::tempdir().unwrap();
-    let mut settings = DesktopPreferences::load(temp.path()).unwrap();
-    assert!(settings.save_query("", &SearchDraft::default()).is_err());
-    assert!(
-        settings
-            .save_query("empty", &SearchDraft::default())
-            .is_err()
+fn generated_titles_are_display_only() {
+    let draft = SearchDraft {
+        full_text: "  Heidel  berg ".into(),
+        structured: "year >= 1900 SORT BY year DESC".into(),
+        filter_enabled: true,
+        collection: Some("letters".into()),
+        ..SearchDraft::default()
+    };
+    assert_eq!(
+        generated_title(&draft),
+        "letters · Heidel berg · year >= 1900 SORT BY year DESC"
     );
-    for text in ["first", "replaced"] {
-        settings
-            .save_query(
-                "Name",
-                &SearchDraft {
-                    full_text: text.into(),
-                    ..SearchDraft::default()
-                },
-            )
-            .unwrap();
-    }
-    assert_eq!(settings.saved().len(), 1);
-    assert_eq!(settings.saved()[0].draft.full_text, "replaced");
+    assert_eq!(draft.full_text, "  Heidel  berg ");
+    assert_eq!(draft.structured, "year >= 1900 SORT BY year DESC");
+    assert_eq!(
+        generated_title(&SearchDraft::default()),
+        "All collections · All records"
+    );
 }

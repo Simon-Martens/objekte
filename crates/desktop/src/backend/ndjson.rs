@@ -24,7 +24,7 @@ pub fn export_query_ndjson(
 ) -> Result<BatchReport, BackendError> {
     let filter_empty = spec.filter.trim().is_empty();
     let full_text_empty = spec.full_text.trim().is_empty();
-    if spec.scope.is_none() && spec.sort.is_empty() {
+    if spec.scope.is_none() {
         let source = if full_text_empty && !filter_empty {
             Some(BatchSource::DirectStructured(spec.filter.clone()))
         } else if filter_empty
@@ -68,7 +68,6 @@ pub fn export_query_ndjson(
         "scope": spec.scope,
         "case_sensitive": spec.case_sensitive,
         "regex": spec.regex,
-        "sort": spec.sort,
     })
     .to_string();
     let prepared = PreparedQuery {

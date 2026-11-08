@@ -40,14 +40,9 @@ fn disabled_filter_is_ignored_without_changing_its_draft() {
 }
 
 #[test]
-fn combined_options_and_quoted_literal_conflicts_are_checked() {
+fn inline_sort_and_quoted_literal_conflicts_are_checked() {
     let fixture = fixture();
     let mut query = draft("year >= 2022 SORT BY year DESC");
-    query.sort = "title".into();
-    assert!(
-        matches!(validate_request(&fixture.session, &query), FilterValidationState::Invalid { message, .. } if message.contains("conflicts"))
-    );
-    query.sort.clear();
     assert_eq!(
         validate_request(&fixture.session, &query),
         FilterValidationState::Valid

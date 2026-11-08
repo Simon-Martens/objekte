@@ -33,7 +33,7 @@ fn opening_modes_preserve_cli_validation() {
 }
 
 #[test]
-fn snapshot_is_explicit_and_range_is_not_viewport_size() {
+fn snapshot_is_explicit_and_desktop_query_has_no_range() {
     let mut opening = OpenDraft {
         snapshot_directory: "/tmp/index".into(),
         ..OpenDraft::default()
@@ -51,16 +51,10 @@ fn snapshot_is_explicit_and_range_is_not_viewport_size() {
     assert_eq!(spec.args.load_index.as_deref(), Some("/tmp/index"));
     assert_eq!(spec.args.write_index.as_deref(), Some("/tmp/index"));
 
-    let query = SearchDraft {
-        offset: "10".into(),
-        limit: "0".into(),
-        count: true,
-        ..SearchDraft::default()
-    };
-    let spec = query_spec(&query).unwrap();
-    assert_eq!(spec.offset, 10);
-    assert_eq!(spec.limit, Some(0));
-    assert!(spec.count);
+    let spec = query_spec(&SearchDraft::default()).unwrap();
+    assert_eq!(spec.offset, 0);
+    assert_eq!(spec.limit, None);
+    assert!(!spec.count);
     let unlimited = query_spec(&SearchDraft::default()).unwrap();
     assert_eq!(unlimited.limit, None);
 }
@@ -94,4 +88,16 @@ fn quoted_cli_literal_uses_json_string_decoding() {
             .unwrap_err()
             .contains("invalid FTS JSON string literal")
     );
+}
+
+#[test]
+fn disabled_filter_keeps_editor_text_out_of_execution() {
+    let draft = SearchDraft {
+        structured: "year >= 1900 SORT BY year DESC".into(),
+        filter_enabled: false,
+        ..SearchDraft::default()
+    };
+    let spec = query_spec(&draft).unwrap();
+    assert!(spec.filter.is_empty());
+    assert_eq!(draft.structured, "year >= 1900 SORT BY year DESC");
 }

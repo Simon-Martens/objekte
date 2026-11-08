@@ -89,10 +89,6 @@ fn query_restore_keeps_exact_inputs() {
         collection: Some("docs".into()),
         case_sensitive: false,
         regex: true,
-        sort: String::new(),
-        offset: "10".into(),
-        limit: "0".into(),
-        count: true,
     };
     state.apply(UiUpdate::RestoreQuery(draft.clone()));
     assert_eq!(state.search, draft);
