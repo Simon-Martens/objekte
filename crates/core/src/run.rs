@@ -36,7 +36,7 @@ use crate::sort_binding::{
     BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache, SortTargetCache,
 };
 use crate::sorting::{InferredOrderKey, SortColumn, SortKey, SortOptions, simple_composite_part};
-use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection, classify_source_read_failure, read_record_range};
+use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection, classify_source_read_failure, probe_source_unavailable, read_record_range};
 use crate::source_access::SourceAccessSession;
 use crate::streaming::{
     Abort, CancellationToken, Delivery, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
@@ -2093,6 +2093,29 @@ fn segment_locator_hit(
     }
 }
 
+fn record_unavailable_hit(
+    repo: &Repository,
+    catalog: &FileCatalog,
+    hit: &SearchHit,
+    message: String,
+    counters: &mut WorkCounters,
+) -> Result<bool, String> {
+    let file = catalog.entry(crate::model::FileId(hit.file_id))
+        .ok_or("materialized hit file missing from pinned catalog")?;
+    let path = repo.files.root.join(&file.relative_path);
+    let range = ByteRange { start: hit.byte_start, end: hit.byte_end };
+    let Some(kind) = probe_source_unavailable(&path, file.revision, Some(range)) else {
+        return Ok(false);
+    };
+    counters.record_source_unavailable(SourceDiagnostic {
+        file_id: file.id.0,
+        file_path: file.relative_path.clone(),
+        kind,
+        message,
+    });
+    Ok(true)
+}
+
 fn bound_expr_has_relations(expr: &BoundExpr) -> bool {
     match expr {
         BoundExpr::Term(term) => {
@@ -2217,10 +2240,7 @@ fn has_unavailable_active_source(
 ) -> bool {
     let unavailable = |file: &FileEntry| {
         let path = repo.files.root.join(&file.relative_path);
-        std::fs::File::open(&path).ok()
-            .and_then(|handle| handle.metadata().ok())
-            .and_then(|metadata| crate::inventory::SourceRevision::from_metadata(&metadata).ok())
-            != Some(file.revision)
+        probe_source_unavailable(&path, file.revision, None).is_some()
     };
     for (index, collection) in repo.collections.iter().enumerate() {
         for file_id in &collection.generation.files {
@@ -2558,7 +2578,8 @@ fn search_segmented_impl(
         .take(query.options.limit)
         .collect();
     if query.options.return_mode != ReturnMode::Locator {
-        for winner in &mut page {
+        let mut retained = Vec::with_capacity(page.len());
+        for mut winner in page {
             if let Some((collection_index, segment_index)) = winner.segment {
                 if let Some(context) = context {
                     context.check_string()?;
@@ -2566,7 +2587,7 @@ fn search_segmented_impl(
                     context.charge_bytes(winner.hit.byte_end.saturating_sub(winner.hit.byte_start))?;
                 }
                 let published = &segments[collection_index][segment_index];
-                let mut materialized = get_segment_record_by_id(
+                let materialized = get_segment_record_by_id(
                     repo,
                     collection_index,
                     &published.index,
@@ -2575,19 +2596,30 @@ fn search_segmented_impl(
                     revision,
                     &winner.hit.record_id,
                     query.options.return_mode.clone(),
-                )?
-                .ok_or("selected segment record retired")?;
+                );
+                let mut materialized = match materialized {
+                    Ok(Some(materialized)) => materialized,
+                    Ok(None) => return Err("selected segment record retired".into()),
+                    Err(message) => {
+                        if record_unavailable_hit(repo, catalog, &winner.hit, message.clone(), &mut counters)? {
+                            continue;
+                        }
+                        return Err(message);
+                    }
+                };
                 materialized.matched_fields = winner.hit.matched_fields.clone();
                 winner.hit = materialized;
             }
+            retained.push(winner);
         }
+        page = retained;
     }
     counters.total_matches = total;
-    counters.match_count_complete = true;
+    counters.match_count_complete = counters.source_unavailable_events == 0;
     counters.returned_records = page.len() as u64;
     counters.distinct_files += delta_opened.len() as u64;
     Ok(SearchResult {
-        count: query.options.count.then_some(total as usize),
+        count: (query.options.count && counters.match_count_complete).then_some(total as usize),
         hits: page.into_iter().map(|winner| winner.hit).collect(),
         counters,
     })
@@ -2949,13 +2981,14 @@ fn search_segmented_relations(
         .take(query.options.limit)
         .collect::<Vec<_>>();
     if query.options.return_mode != ReturnMode::Locator {
-        for winner in &mut page {
+        let mut retained = Vec::with_capacity(page.len());
+        for mut winner in page {
             if let Some(context) = context {
                 context.check_string()?;
                 context.charge_reads(1)?;
                 context.charge_bytes(winner.hit.byte_end.saturating_sub(winner.hit.byte_start))?;
             }
-            let mut payload_hit = if let Some((collection_index, segment_index)) = winner.segment {
+            let payload_hit = if let Some((collection_index, segment_index)) = winner.segment {
                 let published = &segments[collection_index][segment_index];
                 get_segment_record_by_id(
                     repo,
@@ -2966,21 +2999,31 @@ fn search_segmented_relations(
                     revision,
                     &winner.hit.record_id,
                     query.options.return_mode.clone(),
-                )?
-                .ok_or("selected segment record retired")?
+                )
             } else {
                 repo.get_record_with_active(
                     &winner.hit.collection,
                     &winner.hit.record_id,
                     query.options.return_mode.clone(),
                     Some(base_active),
-                )?
-                .ok_or("selected base record retired")?
+                )
+            };
+            let mut payload_hit = match payload_hit {
+                Ok(Some(payload_hit)) => payload_hit,
+                Ok(None) => return Err("selected record retired in pinned view".into()),
+                Err(message) => {
+                    if record_unavailable_hit(repo, catalog, &winner.hit, message.clone(), &mut counters)? {
+                        continue;
+                    }
+                    return Err(message);
+                }
             };
             payload_hit.generation = revision.0;
             payload_hit.matched_fields = winner.hit.matched_fields.clone();
             winner.hit = payload_hit;
+            retained.push(winner);
         }
+        page = retained;
     }
     counters.total_matches = total;
     source_errors.apply(&mut counters);
@@ -3269,12 +3312,32 @@ pub(crate) fn search_stream_segmented_with_context(
             if let Err(message) = delivery.check() {
                 return segmented_stream_error(&mut delivery, context, message);
             }
+            let locator = hit.clone();
             let hit = match materialize_segmented_stream_hit(
                 repo, hit, query.options.return_mode.clone(), base_active, segments,
                 catalog, revision, context,
             ) {
                 Ok(hit) => hit,
-                Err(message) => return segmented_stream_error(&mut delivery, context, message),
+                Err(message) => {
+                    if !matches!(
+                        context.recorded_error(message.clone()).kind,
+                        ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution
+                    ) {
+                        return segmented_stream_error(&mut delivery, context, message);
+                    }
+                    match record_unavailable_hit(
+                        repo, catalog, &locator, message.clone(), &mut result.counters,
+                    ) {
+                        Ok(true) => {
+                            result.count = None;
+                            result.counters.total_matches =
+                                result.counters.total_matches.saturating_sub(1);
+                            continue;
+                        }
+                        Ok(false) => return segmented_stream_error(&mut delivery, context, message),
+                        Err(error) => return segmented_stream_error(&mut delivery, context, error),
+                    }
+                }
             };
             if query.options.return_mode != ReturnMode::Locator {
                 result.counters.files_opened += 1;
