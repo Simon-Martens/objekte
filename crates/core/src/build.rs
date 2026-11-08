@@ -1810,3 +1810,8 @@ impl CollectionAdmission<'_> {
 #[cfg(test)]
 #[path = "build.test.rs"]
 mod tests;
+
+#[path = "mutation_segment.rs"]
+mod mutation_segment;
+
+pub(crate) use mutation_segment::{CollectionSegment, SegmentAdmission};
