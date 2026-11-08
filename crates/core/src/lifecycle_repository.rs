@@ -1,0 +1,99 @@
+//! Repository-layout convenience opening. Schema and cache discovery are
+//! confined to this entry point; all index work uses explicit primitives.
+
+use std::fs;
+use std::path::{Path, PathBuf};
+
+use crate::lifecycle::{Index, IndexError};
+use crate::repository::RepositoryOptions;
+use crate::repository_configuration::load_repository_configuration;
+use crate::storage::snapshot_path_in;
+
+/// Choices for opening the established `.objekte/collections` layout.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum CacheFailurePolicy {
+    /// Report a corrupt or incompatible cache and preserve it for inspection.
+    Report,
+    /// Build from sources when an existing cache is invalid.
+    Rebuild,
+}
+
+/// A custom cache directory is resolved relative to the repository root.
+/// With `sync_cache` disabled, opening never writes a cache.
+#[derive(Clone, Debug)]
+pub struct RepositoryOpenOptions {
+    pub index: RepositoryOptions,
+    pub cache_directory: Option<PathBuf>,
+    pub cache_failure: CacheFailurePolicy,
+    pub sync_cache: bool,
+}
+
+impl Default for RepositoryOpenOptions {
+    fn default() -> Self {
+        Self {
+            index: RepositoryOptions::default(),
+            cache_directory: None,
+            cache_failure: CacheFailurePolicy::Report,
+            sync_cache: false,
+        }
+    }
+}
+
+impl Index {
+    /// Open the configured repository at `root`. This is the library entry
+    /// point that discovers schemas and an alphabet-specific cache. It returns
+    /// a searchable restored view before background source reconciliation;
+    /// when no cache exists, initial source indexing completes before return.
+    pub fn open_repository(
+        root: impl AsRef<Path>,
+        options: RepositoryOpenOptions,
+    ) -> Result<Self, IndexError> {
+        let configuration = load_repository_configuration(root.as_ref())
+            .map_err(IndexError::IncompatibleConfiguration)?;
+        let root = configuration.root;
+        let cache_directory = match options.cache_directory {
+            Some(directory) if directory.is_absolute() => directory,
+            Some(directory) => root.join(directory),
+            None => root.join(".objekte"),
+        };
+        let cache = snapshot_path_in(&cache_directory, options.index.bigram_alphabet);
+        let mut definitions = configuration.definitions;
+        crate::lifecycle_cache_guard::exclude_cache_artifacts(&root, &mut definitions, &cache)
+            .map_err(IndexError::IncompatibleConfiguration)?;
+        let mut protected = configuration.schema_files;
+        protected.extend(configuration.protected_files);
+        protected.sort();
+        protected.dedup();
+
+        // `symlink_metadata` keeps a broken cache symlink from being mistaken
+        // for an absent cache. Access errors are never treated as a miss.
+        let exists = match fs::symlink_metadata(&cache) {
+            Ok(_) => true,
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => false,
+            Err(error) => return Err(IndexError::Io(format!("{}: {error}", cache.display()))),
+        };
+        let index = if exists {
+            match Self::load_cache(&root, definitions.clone(), options.index, &cache) {
+                Ok(index) => index,
+                Err(IndexError::InvalidCache(_) | IndexError::IncompatibleConfiguration(_))
+                    if options.cache_failure == CacheFailurePolicy::Rebuild =>
+                {
+                    Self::build(&root, definitions, options.index)?
+                }
+                Err(error) => return Err(error),
+            }
+        } else {
+            Self::build(&root, definitions, options.index)?
+        };
+        let saved = index.status()?.saved_revision;
+        index.select_cache_destination(&cache, saved, protected)?;
+        if options.sync_cache {
+            index.enable_sync_cache()?;
+        }
+        Ok(index)
+    }
+}
+
+#[cfg(test)]
+#[path = "lifecycle_repository.test.rs"]
+mod tests;
