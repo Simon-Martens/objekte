@@ -33,6 +33,7 @@ pub use crate::inventory::FileVersion;
 
 const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
 const MAX_CONSOLIDATED_RECORDS: usize = 262_144;
+const MAX_RECONCILIATION_ISSUES: usize = 128;
 
 /// Monotonic publication sequence within one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
@@ -198,6 +199,51 @@ pub struct ReconciliationReport {
     pub duration: Duration,
     pub cancelled: bool,
     pub issues: Vec<String>,
+    pub omitted_issues: usize,
+}
+
+impl ReconciliationReport {
+    fn record_issue(&mut self, issue: String) {
+        if self.issues.len() < MAX_RECONCILIATION_ISSUES {
+            self.issues.push(issue);
+        } else {
+            self.omitted_issues = self.omitted_issues.saturating_add(1);
+        }
+    }
+}
+
+/// Small, copyable observation while a reconciliation pass is running.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ReconciliationProgress {
+    pub examined: usize,
+    pub planned_changes: usize,
+    pub unchanged: usize,
+    pub added: usize,
+    pub updated: usize,
+    pub removed: usize,
+    pub skipped: usize,
+    pub indexed_bytes: u64,
+    pub duration: Duration,
+    pub cancelled: bool,
+    pub issue_count: usize,
+}
+
+impl From<&ReconciliationReport> for ReconciliationProgress {
+    fn from(report: &ReconciliationReport) -> Self {
+        Self {
+            examined: report.examined,
+            planned_changes: report.planned_changes,
+            unchanged: report.unchanged,
+            added: report.added,
+            updated: report.updated,
+            removed: report.removed,
+            skipped: report.skipped,
+            indexed_bytes: report.indexed_bytes,
+            duration: report.duration,
+            cancelled: report.cancelled,
+            issue_count: report.issues.len().saturating_add(report.omitted_issues),
+        }
+    }
 }
 
 /// Private work captured before the mutation writer validates and publishes
@@ -671,7 +717,7 @@ struct MaintenanceState {
 
 struct ReconciliationJob {
     cancelled: AtomicBool,
-    progress: Mutex<ReconciliationReport>,
+    progress: Mutex<ReconciliationProgress>,
     result: Mutex<Option<ReconciliationReport>>,
     complete: Condvar,
     worker: Mutex<Option<JoinHandle<()>>>,
@@ -695,13 +741,12 @@ impl ReconciliationTask {
             .is_some())
     }
 
-    pub fn progress(&self) -> Result<ReconciliationReport, IndexError> {
-        Ok(self
+    pub fn progress(&self) -> Result<ReconciliationProgress, IndexError> {
+        Ok(*self
             .0
             .progress
             .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
-            .clone())
+            .map_err(|_| IndexError::LockPoisoned)?)
     }
 
     pub fn wait(&self) -> Result<ReconciliationReport, IndexError> {
@@ -801,7 +846,7 @@ impl Index {
         }
         let job = Arc::new(ReconciliationJob {
             cancelled: AtomicBool::new(false),
-            progress: Mutex::new(ReconciliationReport::default()),
+            progress: Mutex::new(ReconciliationProgress::default()),
             result: Mutex::new(None),
             complete: Condvar::new(),
             worker: Mutex::new(None),
@@ -819,7 +864,7 @@ impl Index {
                         || worker_job.cancelled.load(Ordering::Acquire),
                         |progress| {
                             if let Ok(mut observed) = worker_job.progress.lock() {
-                                *observed = progress.clone();
+                                *observed = ReconciliationProgress::from(progress);
                             }
                         },
                     )
@@ -829,11 +874,11 @@ impl Index {
                     ..ReconciliationReport::default()
                 });
                 if let Ok(mut observed) = worker_job.progress.lock() {
-                    *observed = report.clone();
+                    *observed = ReconciliationProgress::from(&report);
                 }
                 let state = if report.cancelled {
                     ReconciliationState::Cancelled
-                } else if report.issues.is_empty() {
+                } else if report.issues.is_empty() && report.omitted_issues == 0 {
                     ReconciliationState::Complete
                 } else {
                     ReconciliationState::Partial
@@ -1069,7 +1114,7 @@ impl Index {
         let snapshot = match self.view() {
             Ok(snapshot) => snapshot,
             Err(error) => {
-                report.issues.push(error.to_string());
+                report.record_issue(error.to_string());
                 report.duration = started.elapsed();
                 on_progress(&report);
                 return report;
@@ -1086,11 +1131,12 @@ impl Index {
         let scan = scan_sources(root, &definitions, &repository.sources, &cancelled);
         report.examined = scan.examined;
         report.cancelled = scan.cancelled;
-        report.issues.extend(
-            scan.issues
-                .iter()
-                .map(|issue| format!("collection {}: {}", issue.collection.0, issue.message)),
-        );
+        for issue in &scan.issues {
+            report.record_issue(format!(
+                "collection {}: {}",
+                issue.collection.0, issue.message
+            ));
+        }
         let plan = plan_scan(&prior, &scan);
         report.unchanged = plan.unchanged;
         report.skipped = plan.skipped;
@@ -1166,7 +1212,7 @@ impl Index {
                 }
                 Err(error) => {
                     report.skipped += 1;
-                    report.issues.push(format!("{}: {error}", path.display()));
+                    report.record_issue(format!("{}: {error}", path.display()));
                 }
             }
             report.duration = started.elapsed();

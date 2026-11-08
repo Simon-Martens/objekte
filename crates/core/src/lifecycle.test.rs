@@ -450,7 +450,10 @@ fn background_reconciliation_reports_completion_and_joins() {
     assert_eq!(report.unchanged, 1);
     assert!(report.issues.is_empty());
     assert!(task.is_complete().unwrap());
-    assert_eq!(task.progress().unwrap(), report);
+    assert_eq!(
+        task.progress().unwrap(),
+        super::ReconciliationProgress::from(&report)
+    );
     assert_eq!(index.status().unwrap().revision, before.revision);
     assert_eq!(
         index.status().unwrap().reconciliation,
