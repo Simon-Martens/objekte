@@ -15,7 +15,7 @@ use objekte_search_core::repository::{
     CollectionDefinition, Repository, RepositoryOptions, SnapshotMode, SnapshotOpenPolicy,
 };
 use objekte_search_core::repository_configuration::{
-    load_explicit_schema, load_repository_configuration,
+    RepositoryConfiguration, load_explicit_schema, load_repository_configuration,
 };
 use objekte_search_core::schema_adapter::CompiledSchema;
 use objekte_search_core::source::SourceFormat;
@@ -53,15 +53,8 @@ pub fn configure_definitions(
 ) -> Result<ConfiguredDefinitions, String> {
     if args.repo.is_some() {
         let loaded = load_repository_configuration(&paths.root)?;
-        let mut definitions = loaded.definitions;
-        if let Some(directory) = paths.index_directory.as_deref() {
-            for definition in &mut definitions {
-                let source_root = paths.root.join(&definition.source_path);
-                exclude_cache_directory(definition, &source_root, directory);
-            }
-        }
         return Ok(ConfiguredDefinitions {
-            definitions,
+            definitions: loaded.definitions,
             schema_files: loaded.schema_files,
             protected_files: loaded.protected_files,
             schema_fields: loaded.schema_fields,
@@ -202,7 +195,7 @@ pub fn snapshot_policy(args: &Arguments, paths: &ResolvedPaths) -> SnapshotOpenP
 /// Open once and write a snapshot only when explicitly requested.
 pub fn open_repository(
     root: &Path,
-    definitions: Vec<CollectionDefinition>,
+    configured: &ConfiguredDefinitions,
     options: RepositoryOptions,
     policy: SnapshotOpenPolicy,
     write_requested: bool,
@@ -214,8 +207,14 @@ pub fn open_repository(
         .unwrap_or_else(|| root.join(".objekte"));
     let open_started = Instant::now();
     let index = if configured_repository {
-        Index::open_repository(
-            root,
+        Index::open_configured_repository(
+            RepositoryConfiguration {
+                root: root.to_owned(),
+                definitions: configured.definitions.clone(),
+                schema_files: configured.schema_files.clone(),
+                protected_files: configured.protected_files.clone(),
+                schema_fields: configured.schema_fields,
+            },
             RepositoryOpenOptions {
                 index: options,
                 cache_directory: Some(directory.clone()),
@@ -235,7 +234,12 @@ pub fn open_repository(
         )
         .map_err(|error| error.to_string())?
     } else {
-        let repo = Repository::open_with_snapshot_policy(root, definitions, options, policy)?;
+        let repo = Repository::open_with_snapshot_policy(
+            root,
+            configured.definitions.clone(),
+            options,
+            policy,
+        )?;
         Index::from_repository(repo).map_err(|error| error.to_string())?
     };
     let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;

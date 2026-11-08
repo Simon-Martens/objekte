@@ -75,7 +75,7 @@ pub fn open(
     let policy = snapshot_policy(&spec.args, &paths);
     let (repository, open_ns, snapshot_save) = open_repository(
         &paths.root,
-        configured.definitions,
+        &configured,
         options,
         policy,
         spec.args.write_index.is_some(),
