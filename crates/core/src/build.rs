@@ -618,6 +618,17 @@ pub(crate) struct PreparedFileBuild {
 }
 
 
+impl PreparedFileBuild {
+    pub(crate) fn record_count(&self) -> u64 {
+        self.collections
+            .iter()
+            .flat_map(|collection| &collection.contributions)
+            .map(|contribution| contribution.records.len() as u64)
+            .sum()
+    }
+}
+
+
 /// Failure while preparing a complete replacement supplied by the caller.
 /// A registered reader that cannot frame supplied bytes must be handled by
 /// the path-based preparation route before publication.

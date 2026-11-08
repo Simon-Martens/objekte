@@ -178,6 +178,7 @@ impl Index {
         published.next_segment_ordinal = state.next_segment_ordinal;
         published.saved_revision = Some(revision);
         let index = Index::from_published(published);
+        index.mark_restored_from_cache();
         index.select_cache_destination(path, Some(revision), Vec::new())?;
         index.start_reconcile()?;
         Ok(index)

@@ -169,6 +169,16 @@ pub struct IndexStatus {
     pub live_records: u64,
 }
 
+/// Outcome of explicit full reconstruction from the configured source files.
+#[derive(Clone, Debug)]
+pub struct RebuildReport {
+    pub revision: IndexRevision,
+    pub attempts: usize,
+    pub indexed_files: usize,
+    pub live_records: u64,
+    pub duration: Duration,
+}
+
 /// Result of removing one physical source entry from the published index.
 /// The source file itself is never changed.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -707,6 +717,7 @@ fn prepare_file_at(
 
 struct IndexInner {
     instance_id: u64,
+    restored_from_cache: AtomicBool,
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
     maintenance: Mutex<MaintenanceState>,
@@ -818,6 +829,7 @@ impl Index {
         let instance_id = published.instance_id;
         Self(Arc::new(IndexInner {
             instance_id,
+            restored_from_cache: AtomicBool::new(false),
             published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
             maintenance: Mutex::new(MaintenanceState {
@@ -839,6 +851,14 @@ impl Index {
         self.0.instance_id
     }
 
+    pub fn restored_from_cache(&self) -> bool {
+        self.0.restored_from_cache.load(Ordering::Acquire)
+    }
+
+    pub(crate) fn mark_restored_from_cache(&self) {
+        self.0.restored_from_cache.store(true, Ordering::Release);
+    }
+
     /// Acquire one immutable view; no publication lock is held by its queries.
     pub fn view(&self) -> Result<IndexView, IndexError> {
         let published = self
@@ -858,6 +878,59 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?
             .reconciliation;
         Ok(status)
+    }
+
+    /// Rebuild from the current explicit configuration. Queries keep using
+    /// their pinned prior view while source extraction runs. A concurrent
+    /// commit makes the candidate stale and causes a fresh bounded retry.
+    pub fn rebuild(&self) -> Result<RebuildReport, IndexError> {
+        self.rebuild_with_before_publish(|_| {})
+    }
+
+    fn rebuild_with_before_publish(
+        &self,
+        mut before_publish: impl FnMut(usize),
+    ) -> Result<RebuildReport, IndexError> {
+        let started = Instant::now();
+        let mut conflict = None;
+        for attempt in 1..=3 {
+            let view = self.view()?;
+            let repository = view.repository();
+            let definitions = repository
+                .collections()
+                .iter()
+                .map(|collection| collection.definition.clone())
+                .collect::<Vec<_>>();
+            let fresh = Self::build_with_sources(
+                repository.files().root.clone(),
+                definitions,
+                repository.options(),
+                repository.sources.clone(),
+            )?;
+            let rebuilt_repository = Arc::clone(&fresh.view()?.0.repository);
+            let next_revision = view.revision().next()?;
+            let next = PublishedIndex::from_repository(
+                self.instance_id(),
+                next_revision,
+                rebuilt_repository,
+            )?;
+            before_publish(attempt);
+            match self.publish_prepared(view.revision(), next) {
+                Ok(revision) => {
+                    let status = self.status()?;
+                    return Ok(RebuildReport {
+                        revision,
+                        attempts: attempt,
+                        indexed_files: status.indexed_files,
+                        live_records: status.live_records,
+                        duration: started.elapsed(),
+                    });
+                }
+                Err(error @ IndexError::RevisionConflict { .. }) => conflict = Some(error),
+                Err(error) => return Err(error),
+            }
+        }
+        Err(conflict.expect("rebuild retry always captures a revision conflict"))
     }
 
     /// Persist one pinned revision to an explicit destination. Snapshot
@@ -1557,10 +1630,26 @@ impl Index {
     /// publication. This changes index state only, and requires no source
     /// content or source-file I/O. A later scan can add a still-present file.
     pub fn delete_file(&self, handle: FileHandle) -> Result<DeleteResult, IndexError> {
+        let _writer = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
+        let (expected, next, retired_records, affected_collections) =
+            self.stage_prepared_delete(handle)?;
+        let revision = self.publish_prepared(expected, next)?;
+        Ok(DeleteResult {
+            revision,
+            file: handle.file_id,
+            retired_records,
+            affected_collections,
+            strategy: DeleteStrategy::Tombstone,
+        })
+    }
+
+    pub(crate) fn stage_prepared_delete(
+        &self,
+        handle: FileHandle,
+    ) -> Result<(IndexRevision, PublishedIndex, u64, Vec<String>), IndexError> {
         if handle.instance_id != self.instance_id() {
             return Err(IndexError::ForeignInstance);
         }
-        let _writer = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
         let current = self.view()?;
         let actual = current
             .0
@@ -1604,14 +1693,12 @@ impl Index {
             .map_err(IndexError::ResourceLimit)?
             .0;
         next.revision = current.revision().next()?;
-        let revision = self.publish_prepared(current.revision(), next)?;
-        Ok(DeleteResult {
-            revision,
-            file: handle.file_id,
+        Ok((
+            current.revision(),
+            next,
             retired_records,
             affected_collections,
-            strategy: DeleteStrategy::Tombstone,
-        })
+        ))
     }
 
     /// Install a fully prepared root only if its captured predecessor is
@@ -1729,6 +1816,18 @@ impl IndexView {
 
     pub(crate) fn file_entry(&self, file: FileId) -> Option<&FileEntry> {
         self.0.catalog.entry(file)
+    }
+
+    pub fn diagnostic(
+        &self,
+        file: FileId,
+        reference: crate::inventory::DiagnosticRef,
+    ) -> Option<&crate::inventory::SourceDiagnostic> {
+        self.0
+            .catalog
+            .entry(file)?
+            .diagnostics
+            .get(reference.stored_index()?)
     }
 
     pub(crate) fn file_fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
@@ -1924,7 +2023,17 @@ impl IndexView {
         collection: &str,
         query: &Query,
     ) -> Result<crate::posting_values::ExactSelection, String> {
-        self.require_base_only("exact selection")?;
+        if self.has_segments() {
+            return crate::posting_values::select_exact_segmented(
+                self.repository(),
+                collection,
+                query,
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository()
             .select_exact_for_view(collection, query, self.revision(), &self.0.active)
     }
@@ -1933,7 +2042,16 @@ impl IndexView {
         &self,
         request: &crate::posting_values::PostingValuesRequest,
     ) -> Result<crate::posting_values::PostingValuesPage, String> {
-        self.require_base_only("posting values")?;
+        if self.has_segments() {
+            return crate::posting_values::posting_values_segmented(
+                self.repository(),
+                request,
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository()
             .posting_values_for_view(request, self.revision(), &self.0.active)
     }
@@ -1985,8 +2103,17 @@ impl IndexView {
         &self,
         query: &Query,
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
-        self.require_base_only("analyzed search")?;
         let resolved = query.resolve_current_clock()?;
+        if self.has_segments() {
+            return crate::run::search_analyze_segmented(
+                self.repository(),
+                resolved.as_ref(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+            );
+        }
         crate::run::search_analyze_with_active(
             self.repository(),
             resolved.as_ref(),
@@ -1996,8 +2123,16 @@ impl IndexView {
     }
 
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
-        self.require_base_only("query explanation")?;
         let resolved = query.resolve_current_clock()?;
+        if self.has_segments() {
+            return crate::run::explain_segmented(
+                self.repository(),
+                resolved.as_ref(),
+                &self.0.active,
+                &self.0.segments,
+                self.revision(),
+            );
+        }
         crate::run::explain_with_active(self.repository(), resolved.as_ref(), Some(&self.0.active))
     }
 
