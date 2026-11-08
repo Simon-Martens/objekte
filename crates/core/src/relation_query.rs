@@ -4,6 +4,8 @@ use std::collections::HashMap;
 use std::sync::Arc;
 
 use crate::inventory::{ActiveRecords, RecordClass};
+use crate::lifecycle::PublishedSegment;
+use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{CollectionId, FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 use crate::query::{FilterExpr, FtsField, FtsQuery, Literal, Operand, Quantifier, Term};
 use crate::query_path::{PathStep, QueryPath};
@@ -14,6 +16,7 @@ use crate::reference::{
 };
 use crate::relation::{RelationCardinality, RelationId, RelationTarget};
 use crate::relation_target_cache::TargetValueCache;
+use crate::repository::CollectionState;
 use crate::repository::Repository;
 use crate::source::{
     ScanProjection, TextDerivation, TextSegment, read_record_range,
@@ -26,6 +29,190 @@ const MAX_QUERY_EDGE_VISITS: u64 = 32_000_000;
 const MAX_QUERY_BACKLINK_PROBES: u64 = 32_000_000;
 const MAX_QUERY_RECORD_READS: u64 = 5_000_000;
 const MAX_QUERY_RELATION_BYTES: u64 = 1024 * 1024 * 1024;
+
+/// One record address in a pinned base-plus-delta publication. A local slot
+/// alone cannot identify a record after multiple segments have been added.
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub(crate) struct MergedRecordSlot {
+    pub collection: CollectionId,
+    pub segment: Option<usize>,
+    pub slot: RecordSlot,
+}
+
+pub(crate) struct MergedRecord<'a> {
+    pub record: &'a crate::inventory::RecordEntry,
+    pub file: &'a crate::inventory::FileEntry,
+    pub collection: &'a CollectionState,
+}
+
+/// Query-local relation lookup over a single immutable publication. Segment
+/// edge lists are grouped once, so traversing many sources does not rescan a
+/// whole segment for each source record.
+pub(crate) struct MergedRelationView<'a> {
+    repo: &'a Repository,
+    base_active: &'a [ActiveRecords],
+    segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &'a FileCatalog,
+    forward: HashMap<(usize, usize, usize, u32), Vec<(&'a str, &'a [u32])>>,
+    backlinks: HashMap<(usize, usize, String), Vec<MergedRecordSlot>>,
+}
+
+impl<'a> MergedRelationView<'a> {
+    pub(crate) fn new(
+        repo: &'a Repository,
+        base_active: &'a [ActiveRecords],
+        segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
+        catalog: &'a FileCatalog,
+    ) -> Result<Self, String> {
+        if base_active.len() != repo.collections.len() || segments.len() != repo.collections.len() {
+            return Err("merged relation collection count mismatch".into());
+        }
+        let mut forward = HashMap::new();
+        let mut backlinks = HashMap::new();
+        for (collection_index, shards) in segments.iter().enumerate() {
+            for (segment_index, published) in shards.iter().enumerate() {
+                if published.index.collection.0 as usize != collection_index
+                    || published.active.slot_count() as usize != published.index.records.len()
+                {
+                    return Err("merged relation segment scope mismatch".into());
+                }
+                for (relation_index, relation) in published.index.relations.iter().enumerate() {
+                    if relation.record_count() as usize != published.index.records.len()
+                        || repo.collections[collection_index]
+                            .relations
+                            .get(relation_index)
+                            .is_none_or(|base| base.declaration != *relation.declaration())
+                    {
+                        return Err("merged relation segment declaration mismatch".into());
+                    }
+                    for (source, target_id, positions) in relation.references() {
+                        if !published.active.contains(source) {
+                            continue;
+                        }
+                        forward
+                            .entry((collection_index, segment_index, relation_index, source.0))
+                            .or_insert_with(Vec::new)
+                            .push((target_id, positions));
+                        backlinks
+                            .entry((collection_index, relation_index, target_id.to_owned()))
+                            .or_insert_with(Vec::new)
+                            .push(MergedRecordSlot {
+                                collection: CollectionId(collection_index as u32),
+                                segment: Some(segment_index),
+                                slot: source,
+                            });
+                    }
+                }
+            }
+        }
+        Ok(Self {
+            repo,
+            base_active,
+            segments,
+            catalog,
+            forward,
+            backlinks,
+        })
+    }
+
+    pub(crate) fn record(
+        &self,
+        address: MergedRecordSlot,
+    ) -> Result<Option<MergedRecord<'a>>, String> {
+        let index = address.collection.0 as usize;
+        let collection = self
+            .repo
+            .collections
+            .get(index)
+            .ok_or("merged collection missing")?;
+        let (record, original_file) = if let Some(segment_index) = address.segment {
+            let published = self.segments[index]
+                .get(segment_index)
+                .ok_or("merged segment missing")?;
+            if !published.active.contains(address.slot) {
+                return Ok(None);
+            }
+            let segment = &published.index;
+            let record = segment
+                .record(address.slot)
+                .ok_or("merged segment slot missing")?;
+            let file = &segment
+                .file(record.file)
+                .ok_or("merged segment file missing")?
+                .entry;
+            (record, file)
+        } else {
+            if !self.base_active[index].contains(address.slot) {
+                return Ok(None);
+            }
+            let record = collection
+                .generation
+                .records
+                .get(address.slot.0 as usize)
+                .ok_or("merged base slot missing")?;
+            let file = self
+                .repo
+                .files
+                .files
+                .get(record.file.0 as usize)
+                .ok_or("merged base file missing")?;
+            (record, file)
+        };
+        let file = self
+            .catalog
+            .entry(record.file)
+            .ok_or("active merged record file is retired")?;
+        if file.relative_path != original_file.relative_path
+            || file.revision != original_file.revision
+            || !file.collections.contains(&address.collection)
+        {
+            return Err("active merged record file changed without retirement".into());
+        }
+        Ok(Some(MergedRecord {
+            record,
+            file,
+            collection,
+        }))
+    }
+
+    fn resolve_id(
+        &self,
+        collection: CollectionId,
+        id: &str,
+    ) -> Result<Option<MergedRecordSlot>, String> {
+        let index = collection.0 as usize;
+        let state = self
+            .repo
+            .collections
+            .get(index)
+            .ok_or("merged target collection missing")?;
+        let mut found = None;
+        if let Some(slot) = state.id_lookup.get(id).copied()
+            && self.base_active[index].contains(slot)
+        {
+            found = Some(MergedRecordSlot {
+                collection,
+                segment: None,
+                slot,
+            });
+        }
+        for (segment_index, published) in self.segments[index].iter().enumerate() {
+            if let Some(slot) = published.index.id_lookup.get(id).copied()
+                && published.active.contains(slot)
+            {
+                if found.is_some() {
+                    return Err("duplicate active merged record ID".into());
+                }
+                found = Some(MergedRecordSlot {
+                    collection,
+                    segment: Some(segment_index),
+                    slot,
+                });
+            }
+        }
+        Ok(found)
+    }
+}
 
 
 /// Direction of a declared, collection-scoped relation hop.
@@ -1034,6 +1221,399 @@ fn merge_truth(current: &mut Option<bool>, next: Option<bool>, quantifier: Quant
 
 fn decisive(truth: Option<bool>, quantifier: Quantifier) -> bool {
     truth == Some(quantifier == Quantifier::Any)
+}
+
+fn visit_merged_hop(
+    view: &MergedRelationView<'_>,
+    hops: &[BoundRelationHop],
+    depth: usize,
+    address: MergedRecordSlot,
+    quantifier: Quantifier,
+    collect_text: bool,
+    truth: &mut Option<bool>,
+    work: &mut RelationWork,
+    source_positions: &[u32],
+    terminal: &mut impl FnMut(&RecordContext<'_>, &[TextSegment], &[u32]) -> Result<bool, String>,
+) -> Result<(), String> {
+    if decisive(*truth, quantifier) {
+        return Ok(());
+    }
+    let Some(current) = view.record(address)? else {
+        merge_truth(truth, None, quantifier);
+        return Ok(());
+    };
+    if depth == hops.len() {
+        if current.record.class == RecordClass::RawFallback {
+            merge_truth(truth, None, quantifier);
+            return Ok(());
+        }
+        if current.record.range.len() > MAX_QUERY_RELATION_BYTES {
+            return Err(format!(
+                "relation target record exceeds {MAX_QUERY_RELATION_BYTES} source bytes"
+            ));
+        }
+        work.before_read(current.record.range.len(), true)?;
+        let path = view.repo.files.root.join(&current.file.relative_path);
+        let bytes = if let Some(execution) = work.execution.as_ref() {
+            read_record_range_with_execution(
+                &path,
+                current.record.revision,
+                current.record.range,
+                execution,
+            )?
+        } else {
+            read_record_range(&path, current.record.revision, current.record.range)?
+        };
+        work.target_read(bytes.len() as u64)?;
+        let extracted = crate::record_preparation::prepare_query_record_with_execution(
+            &current.collection.source,
+            &current.collection.definition.schema,
+            &bytes,
+            &ScanProjection::full(collect_text),
+            false,
+            work.execution.as_ref(),
+        )?;
+        let ctx = RecordContext {
+            value: &extracted.value,
+            source_bytes: Some(&bytes),
+            record: current.record,
+            file: current.file,
+            collection_name: &current.collection.definition.name,
+            repository_root: &view.repo.files.root,
+        };
+        merge_truth(
+            truth,
+            Some(terminal(&ctx, &extracted.text, source_positions)?),
+            quantifier,
+        );
+        return Ok(());
+    }
+    let hop = &hops[depth];
+    if hop.from != address.collection {
+        return Err("merged relation hop collection mismatch".into());
+    }
+    let source_index = hop.relation.source.0 as usize;
+    let relation_index = hop.relation.ordinal as usize;
+    let source_collection = view
+        .repo
+        .collections
+        .get(source_index)
+        .ok_or("merged relation source collection missing")?;
+    let relation = source_collection
+        .relations
+        .get(relation_index)
+        .ok_or("merged relation declaration missing")?;
+    match hop.direction {
+        HopDirection::Forward => {
+            let (references, present, null, unavailable) =
+                if let Some(segment_index) = address.segment {
+                    let published = &view.segments[source_index][segment_index];
+                    let contribution = published
+                        .index
+                        .relations
+                        .get(relation_index)
+                        .ok_or("merged segment relation missing")?;
+                    (
+                        view.forward
+                            .get(&(source_index, segment_index, relation_index, address.slot.0))
+                            .cloned()
+                            .unwrap_or_default(),
+                        contribution.present().contains(address.slot.0),
+                        contribution.nulls().contains(address.slot.0),
+                        contribution.unavailable().contains(address.slot.0),
+                    )
+                } else {
+                    (
+                        relation
+                            .edges(address.slot)
+                            .ok_or("merged base relation slot missing")?
+                            .iter()
+                            .map(|edge| (edge.target_id(), edge.positions.as_slice()))
+                            .collect(),
+                        relation.present().contains(address.slot.0),
+                        relation.nulls().contains(address.slot.0),
+                        relation.unavailable().contains(address.slot.0),
+                    )
+                };
+            if unavailable {
+                merge_truth(truth, None, quantifier);
+                return Ok(());
+            }
+            let mut selected = 0usize;
+            for (target_id, positions) in references {
+                if !positions_match(&hop.selectors, positions) {
+                    continue;
+                }
+                work.edge()?;
+                selected += 1;
+                if let Some(target) = view.resolve_id(hop.to, target_id)? {
+                    visit_merged_hop(
+                        view,
+                        hops,
+                        depth + 1,
+                        target,
+                        quantifier,
+                        collect_text,
+                        truth,
+                        work,
+                        if depth == 0 {
+                            positions
+                        } else {
+                            source_positions
+                        },
+                        terminal,
+                    )?;
+                } else {
+                    merge_truth(truth, None, quantifier);
+                }
+                if decisive(*truth, quantifier) {
+                    break;
+                }
+            }
+            if selected == 0 && (!present || null || hop.selectors.iter().any(Option::is_some)) {
+                merge_truth(truth, Some(false), quantifier);
+            }
+        }
+        HopDirection::Backlink => {
+            let target_id = current.record.id.0.as_str();
+            let mut sources = Vec::new();
+            if let Some(base) = view.repo.relation_reverse_sources(relation, target_id) {
+                for slot in base.iter() {
+                    let slot = RecordSlot(slot);
+                    if view.base_active[source_index].contains(slot) {
+                        sources.push(MergedRecordSlot {
+                            collection: hop.to,
+                            segment: None,
+                            slot,
+                        });
+                    }
+                }
+            }
+            if let Some(extra) =
+                view.backlinks
+                    .get(&(source_index, relation_index, target_id.to_owned()))
+            {
+                sources.extend(extra.iter().copied());
+            }
+            sources.sort_unstable_by(|a, b| {
+                let a_id = if let Some(segment_index) = a.segment {
+                    &view.segments[source_index][segment_index].index.records[a.slot.0 as usize]
+                        .id
+                        .0
+                } else {
+                    &source_collection.generation.records[a.slot.0 as usize].id.0
+                };
+                let b_id = if let Some(segment_index) = b.segment {
+                    &view.segments[source_index][segment_index].index.records[b.slot.0 as usize]
+                        .id
+                        .0
+                } else {
+                    &source_collection.generation.records[b.slot.0 as usize].id.0
+                };
+                a_id.cmp(b_id)
+            });
+            sources.dedup();
+            let mut selected = 0usize;
+            for (position, source) in sources.into_iter().enumerate() {
+                work.backlink_probe()?;
+                work.edge()?;
+                if hop.selectors.first().is_some_and(|selector| {
+                    selector.is_some_and(|index| index as usize != position)
+                }) {
+                    continue;
+                }
+                selected += 1;
+                visit_merged_hop(
+                    view,
+                    hops,
+                    depth + 1,
+                    source,
+                    quantifier,
+                    collect_text,
+                    truth,
+                    work,
+                    source_positions,
+                    terminal,
+                )?;
+                if decisive(*truth, quantifier) {
+                    break;
+                }
+            }
+            if selected == 0 && hop.selectors.iter().any(Option::is_some) {
+                merge_truth(truth, Some(false), quantifier);
+            }
+        }
+    }
+    Ok(())
+}
+
+fn eval_related_term_merged(
+    view: &MergedRelationView<'_>,
+    term: &BoundTerm,
+    source_slot: MergedRecordSlot,
+    source: &RecordContext<'_>,
+    work: &mut RelationWork,
+) -> Result<Option<bool>, String> {
+    let related = term
+        .related
+        .as_ref()
+        .ok_or("merged relation term is not bound")?;
+    let mut truth = Some(term.quantifier != Quantifier::Any);
+    visit_merged_hop(
+        view,
+        &related.hops,
+        0,
+        source_slot,
+        term.quantifier,
+        false,
+        &mut truth,
+        work,
+        &[],
+        &mut |target, _, positions| {
+            if let Some(source_operand) = &related.source_operand {
+                eval_cross_record_field_term(
+                    &related.terminal,
+                    source_operand,
+                    target,
+                    source,
+                    related.target_is_lhs,
+                    positions,
+                    &related.hops[0].selectors,
+                )
+            } else {
+                eval_term(&related.terminal, target)
+            }
+        },
+    )?;
+    Ok(truth)
+}
+
+pub(crate) fn eval_filter_truth_merged(
+    view: &MergedRelationView<'_>,
+    expr: &BoundExpr,
+    source_slot: MergedRecordSlot,
+    source: &RecordContext<'_>,
+    evidence: &mut std::collections::HashSet<String>,
+    work: &mut RelationWork,
+) -> Result<Option<bool>, String> {
+    match expr {
+        BoundExpr::Term(term) => {
+            let result = if term.related.is_some() {
+                eval_related_term_merged(view, term, source_slot, source, work)?
+            } else {
+                Some(eval_term(term, source)?)
+            };
+            if result == Some(true)
+                && term.derived == crate::reference::Derived::None
+                && !matches!(
+                    term.operator,
+                    crate::query::Operator::Ne | crate::query::Operator::NotContains
+                )
+            {
+                evidence.insert(term.query_path.display.clone());
+                if let Some(rhs) = &term.rhs {
+                    evidence.insert(rhs.query_path.display.clone());
+                }
+                if let Some(related) = &term.related {
+                    evidence.insert(related.evidence_path.clone());
+                }
+            }
+            Ok(result)
+        }
+        BoundExpr::And(parts) => {
+            let mut truth = Some(true);
+            let mut fields = std::collections::HashSet::new();
+            for part in parts {
+                if truth == Some(false) {
+                    break;
+                }
+                let next =
+                    eval_filter_truth_merged(view, part, source_slot, source, &mut fields, work)?;
+                truth = match (truth, next) {
+                    (Some(false), _) | (_, Some(false)) => Some(false),
+                    (None, _) | (_, None) => None,
+                    _ => Some(true),
+                };
+            }
+            if truth == Some(true) {
+                evidence.extend(fields);
+            }
+            Ok(truth)
+        }
+        BoundExpr::Or(parts) => {
+            let mut truth = Some(false);
+            for part in parts {
+                let mut fields = std::collections::HashSet::new();
+                let next =
+                    eval_filter_truth_merged(view, part, source_slot, source, &mut fields, work)?;
+                truth = match (truth, next) {
+                    (Some(true), _) | (_, Some(true)) => Some(true),
+                    (None, _) | (_, None) => None,
+                    _ => Some(false),
+                };
+                if next == Some(true) {
+                    evidence.extend(fields);
+                }
+            }
+            Ok(truth)
+        }
+        BoundExpr::Not(inner) => eval_filter_truth_merged(
+            view,
+            inner,
+            source_slot,
+            source,
+            &mut Default::default(),
+            work,
+        )
+        .map(|truth| truth.map(|value| !value)),
+    }
+}
+
+pub(crate) fn eval_fts_with_relations_merged(
+    view: &MergedRelationView<'_>,
+    fts: &BoundFts,
+    segments: &[TextSegment],
+    source_slot: MergedRecordSlot,
+    source: &RecordContext<'_>,
+    evidence: &mut std::collections::HashSet<String>,
+    work: &mut RelationWork,
+) -> Result<bool, String> {
+    if fts.fields.iter().all(|field| field.related.is_none()) {
+        return eval_bound_fts(fts, segments, source, evidence);
+    }
+    let mut matched = false;
+    for field in &fts.fields {
+        if let Some(hops) = &field.related {
+            let mut truth = Some(false);
+            visit_merged_hop(
+                view,
+                hops,
+                0,
+                source_slot,
+                Quantifier::Any,
+                true,
+                &mut truth,
+                work,
+                &[],
+                &mut |target, target_segments, _| {
+                    eval_bound_fts_field(field, fts.case_sensitivity, target_segments, target, None)
+                },
+            )?;
+            if truth == Some(true) {
+                matched = true;
+                evidence.insert(field.evidence_path.clone());
+            }
+        } else if eval_bound_fts_field(
+            field,
+            fts.case_sensitivity,
+            segments,
+            source,
+            Some(evidence),
+        )? {
+            matched = true;
+        }
+    }
+    Ok(matched)
 }
 
 fn visit_hop(
