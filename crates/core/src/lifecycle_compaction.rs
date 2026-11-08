@@ -96,6 +96,80 @@ fn slot_count(root: &PublishedIndex) -> u64 {
         .sum()
 }
 
+/// Rebuild one staged publication from its active contributions. The caller
+/// chooses the already reserved revision and performs the single CAS publish.
+pub(crate) fn compact_published(
+    old: &PublishedIndex,
+    next_revision: IndexRevision,
+) -> Result<PublishedIndex, IndexError> {
+    let empty = Arc::new(old.repository.empty_like().map_err(IndexError::Build)?);
+    let mut next =
+        PublishedIndex::from_repository(old.instance_id, next_revision, Arc::clone(&empty))?;
+    if next.configuration_identity != old.configuration_identity {
+        return Err(IndexError::IncompatibleConfiguration(
+            "compaction configuration changed".into(),
+        ));
+    }
+    next.catalog = FileCatalog::restored(Arc::clone(&empty), old.catalog.snapshot_slots())
+        .map_err(IndexError::InvalidPublication)?;
+    next.file_versions = old.file_versions.clone();
+    next.next_segment_ordinal = old.next_segment_ordinal;
+    next.saved_revision = old.saved_revision;
+    next.reconciliation = old.reconciliation;
+    for (number, collection) in old.repository.collections().iter().enumerate() {
+        let scanned = collection.generation.records.len()
+            + old.segments[number]
+                .iter()
+                .map(|segment| segment.index.records.len())
+                .sum::<usize>();
+        if scanned > MAX_COMPACTION_RECORDS_PER_COLLECTION {
+            return Err(IndexError::ResourceLimit(
+                "compaction record budget exceeded".into(),
+            ));
+        }
+        let mut compacted = Vec::new();
+        let mut compact_source =
+            |source: &IndexedCollectionSegment, active: &ActiveRecords| -> Result<(), IndexError> {
+                let dense = source
+                    .compact_active(active, MAX_COMPACTION_RECORDS_PER_COLLECTION, |entry| {
+                        next.catalog.entry(entry.id).is_some_and(|current| {
+                            current.relative_path == entry.relative_path
+                                && current.revision == entry.revision
+                                && current.created_ns == entry.created_ns
+                                && current.collections.contains(&source.collection)
+                        })
+                    })
+                    .map_err(IndexError::Build)?;
+                if dense.index.records.is_empty() {
+                    return Ok(());
+                }
+                let ordinal = next.next_segment_ordinal;
+                next.next_segment_ordinal = ordinal
+                    .checked_add(1)
+                    .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+                compacted.push(Arc::new(PublishedSegment {
+                    ordinal,
+                    index: Arc::new(dense.index),
+                    active: dense.active,
+                }));
+                Ok(())
+            };
+        if !collection.generation.records.is_empty() {
+            let base = base_as_segment(collection, old.repository.files())?;
+            compact_source(&base, &old.active[number])?;
+        }
+        for segment in old.segments[number].iter() {
+            compact_source(&segment.index, &segment.active)?;
+        }
+        drop(compact_source);
+        next.segments[number] = Arc::new(compacted);
+        while next.segments[number].len() > super::lifecycle::MAX_SEGMENTS_PER_COLLECTION {
+            next.make_room_for_segment(number)?;
+        }
+    }
+    Ok(next)
+}
+
 impl Index {
     /// Reclaim retired base and delta records without reading source files.
     /// Preparation runs on a pinned root; a concurrent commit causes a
@@ -125,76 +199,7 @@ impl Index {
                     duration: started.elapsed(),
                 });
             }
-            let empty = Arc::new(old.repository.empty_like().map_err(IndexError::Build)?);
-            let next_revision = view.revision().next()?;
-            let mut next = PublishedIndex::from_repository(
-                self.instance_id(),
-                next_revision,
-                Arc::clone(&empty),
-            )?;
-            if next.configuration_identity != old.configuration_identity {
-                return Err(IndexError::IncompatibleConfiguration(
-                    "compaction configuration changed".into(),
-                ));
-            }
-            next.catalog = FileCatalog::restored(Arc::clone(&empty), old.catalog.snapshot_slots())
-                .map_err(IndexError::InvalidPublication)?;
-            next.file_versions = old.file_versions.clone();
-            next.next_segment_ordinal = old.next_segment_ordinal;
-            next.saved_revision = old.saved_revision;
-            next.reconciliation = old.reconciliation;
-            for (number, collection) in old.repository.collections().iter().enumerate() {
-                let scanned = collection.generation.records.len()
-                    + old.segments[number]
-                        .iter()
-                        .map(|segment| segment.index.records.len())
-                        .sum::<usize>();
-                if scanned > MAX_COMPACTION_RECORDS_PER_COLLECTION {
-                    return Err(IndexError::ResourceLimit(
-                        "compaction record budget exceeded".into(),
-                    ));
-                }
-                let mut compacted = Vec::new();
-                let mut compact_source = |source: &IndexedCollectionSegment,
-                                          active: &ActiveRecords|
-                 -> Result<(), IndexError> {
-                    let dense = source
-                        .compact_active(active, MAX_COMPACTION_RECORDS_PER_COLLECTION, |entry| {
-                            next.catalog.entry(entry.id).is_some_and(|current| {
-                                current.relative_path == entry.relative_path
-                                    && current.revision == entry.revision
-                                    && current.created_ns == entry.created_ns
-                                    && current.collections.contains(&source.collection)
-                            })
-                        })
-                        .map_err(IndexError::Build)?;
-                    if dense.index.records.is_empty() {
-                        return Ok(());
-                    }
-                    let ordinal = next.next_segment_ordinal;
-                    next.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
-                        IndexError::ResourceLimit("segment ordinal overflow".into())
-                    })?;
-                    compacted.push(Arc::new(PublishedSegment {
-                        ordinal,
-                        index: Arc::new(dense.index),
-                        active: dense.active,
-                    }));
-                    Ok(())
-                };
-                if !collection.generation.records.is_empty() {
-                    let base = base_as_segment(collection, old.repository.files())?;
-                    compact_source(&base, &old.active[number])?;
-                }
-                for segment in old.segments[number].iter() {
-                    compact_source(&segment.index, &segment.active)?;
-                }
-                drop(compact_source);
-                next.segments[number] = Arc::new(compacted);
-                while next.segments[number].len() > super::lifecycle::MAX_SEGMENTS_PER_COLLECTION {
-                    next.make_room_for_segment(number)?;
-                }
-            }
+            let next = compact_published(old, view.revision().next()?)?;
             let after = slot_count(&next);
             let pinned_prior_views = Arc::strong_count(&view.0).saturating_sub(2);
             match self.publish_prepared(view.revision(), next) {
