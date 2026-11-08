@@ -346,10 +346,7 @@ impl DesktopView {
         let text_error = self.state.errors.get(&ErrorField::FullText).cloned();
         let filter_error = self.state.errors.get(&ErrorField::Structured).cloned();
         let validation = self.state.filter_validation.clone();
-        let invalid = matches!(
-            validation,
-            Some(FilterValidationState::Pending | FilterValidationState::Invalid { .. })
-        );
+        let invalid = !matches!(validation, Some(FilterValidationState::Valid));
         let filter_invalid = matches!(validation, Some(FilterValidationState::Invalid { .. }));
         let filter_enabled = self.state.search.filter_enabled;
         let querying = self.state.busy == Busy::Querying;
