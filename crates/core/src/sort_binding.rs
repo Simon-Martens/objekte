@@ -13,7 +13,9 @@ use crate::query::Query;
 use crate::query_path::{PathStep, QueryPath, split_path_binding};
 use crate::reference::{BindingOperation, RecordContext, Transform, metadata_value};
 use crate::relation::RelationTarget;
-use crate::relation_query::{BoundRelationHop, HopDirection, resolve_path};
+use crate::relation_query::{
+    BoundRelationHop, HopDirection, MergedRecordSlot, MergedRelationView, resolve_path,
+};
 use crate::repository::Repository;
 use crate::sorting::{SortColumn, SortConfig, SortKey, SortOptions, make_collator};
 use crate::workload::{SortExpression, SortField, SortReducer};
@@ -94,6 +96,76 @@ pub(crate) struct SortTargetCache {
     pub reuse: u64,
     pub edge_visits: u64,
     pub bytes_read: u64,
+}
+
+#[derive(Default)]
+pub(crate) struct MergedSortTargetCache {
+    values: HashMap<MergedRecordSlot, Arc<Value>>,
+    retained_bytes: u64,
+    pub edge_visits: u64,
+    pub reads: u64,
+    pub reuse: u64,
+    pub bytes_read: u64,
+}
+
+impl MergedSortTargetCache {
+    fn edge(&mut self) -> Result<(), String> {
+        self.edge_visits = self.edge_visits.checked_add(1).ok_or("sort edge overflow")?;
+        if self.edge_visits > MAX_SORT_EDGE_VISITS {
+            return Err("sort relation edge budget exceeded".into());
+        }
+        Ok(())
+    }
+
+    fn load(
+        &mut self,
+        view: &MergedRelationView<'_>,
+        address: MergedRecordSlot,
+    ) -> Result<Option<Arc<Value>>, String> {
+        if let Some(value) = self.values.get(&address) {
+            self.reuse += 1;
+            return Ok(Some(value.clone()));
+        }
+        let Some(current) = view.record(address)? else {
+            return Ok(None);
+        };
+        if current.record.class == RecordClass::RawFallback {
+            return Ok(None);
+        }
+        let estimated = current
+            .record
+            .range
+            .len()
+            .checked_mul(4)
+            .and_then(|bytes| bytes.checked_add(128))
+            .ok_or("sort target byte estimate overflow")?;
+        let next = self
+            .retained_bytes
+            .checked_add(estimated)
+            .ok_or("sort target byte budget overflow")?;
+        if next > MAX_SORT_TARGET_BYTES {
+            return Err("sort target cache budget exceeded".into());
+        }
+        let bytes = crate::source::read_record_range(
+            &view.repository_root().join(&current.file.relative_path),
+            current.record.revision,
+            current.record.range,
+        )?;
+        let extracted = crate::record_preparation::prepare_query_record_with_execution(
+            &current.collection.source,
+            &current.collection.definition.schema,
+            &bytes,
+            &crate::source::ScanProjection::full(false),
+            false,
+            None,
+        )?;
+        let value = Arc::new(extracted.value);
+        self.retained_bytes = next;
+        self.reads += 1;
+        self.bytes_read += bytes.len() as u64;
+        self.values.insert(address, value.clone());
+        Ok(Some(value))
+    }
 }
 
 
@@ -358,6 +430,177 @@ impl ComputedSort {
         let mut expanded = false;
         let _present = select_values(ctx.value, &self.path.steps, &mut selected, &mut expanded);
         self.reduce(&selected, expanded)
+    }
+
+    pub(crate) fn key_merged(
+        &self,
+        view: &MergedRelationView<'_>,
+        address: MergedRecordSlot,
+        ctx: &RecordContext<'_>,
+        cache: &mut MergedSortTargetCache,
+    ) -> Result<SortKey, String> {
+        let Some((hops, terminal)) = &self.related else {
+            return self.key_local(ctx);
+        };
+        let mut reduced = SortAccumulator::new(self.reducer);
+        self.visit_related_merged(
+            view,
+            hops,
+            terminal,
+            0,
+            address,
+            Some(ctx.value),
+            cache,
+            &mut reduced,
+        )?;
+        reduced.finish(self)
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn visit_related_merged(
+        &self,
+        view: &MergedRelationView<'_>,
+        hops: &[BoundRelationHop],
+        terminal: &QueryPath,
+        depth: usize,
+        address: MergedRecordSlot,
+        source_value: Option<&Value>,
+        cache: &mut MergedSortTargetCache,
+        reduced: &mut SortAccumulator,
+    ) -> Result<(), String> {
+        let Some(current) = view.record(address)? else {
+            reduced.observe_unavailable()?;
+            return Ok(());
+        };
+        if current.record.class == RecordClass::RawFallback {
+            reduced.observe_unavailable()?;
+            return Ok(());
+        }
+        if depth == hops.len() {
+            if let PathRoot::Metadata(field) = terminal.field.root {
+                let empty = Value::Null;
+                let ctx = RecordContext {
+                    value: source_value.unwrap_or(&empty),
+                    source_bytes: None,
+                    record: current.record,
+                    file: current.file,
+                    collection_name: &current.collection.definition.name,
+                    repository_root: view.repository_root(),
+                };
+                reduced.observe_value(&metadata_value(field, &ctx)?, self)?;
+            } else {
+                let owned = if source_value.is_none() {
+                    cache.load(view, address)?
+                } else {
+                    None
+                };
+                let value = source_value
+                    .or(owned.as_deref())
+                    .ok_or("merged sort target value unavailable")?;
+                let mut selected = Vec::new();
+                let mut expanded = false;
+                select_values(value, &terminal.steps, &mut selected, &mut expanded);
+                reduced.expanded |= expanded;
+                for value in selected {
+                    reduced.observe_value(value, self)?;
+                }
+            }
+            return Ok(());
+        }
+        let hop = &hops[depth];
+        if hop.from != address.collection {
+            return Err("merged sort relation hop collection mismatch".into());
+        }
+        let has_position = hop.selectors.iter().any(Option::is_some);
+        reduced.expanded |= match hop.direction {
+            HopDirection::Backlink => !has_position,
+            HopDirection::Forward => {
+                view.relation_cardinality(hop.relation)?
+                    == crate::relation::RelationCardinality::Many
+                    && !has_position
+            }
+        };
+        match hop.direction {
+            HopDirection::Forward => {
+                let (edges, _present, null, unavailable) =
+                    view.forward_edges(address, hop.relation.ordinal as usize)?;
+                if unavailable {
+                    reduced.observe_unavailable()?;
+                    return Ok(());
+                }
+                if matches!(self.reducer, Some(SortReducer::First | SortReducer::Last)) {
+                    let owned = if source_value.is_none() {
+                        cache.load(view, address)?
+                    } else {
+                        None
+                    };
+                    let value = source_value
+                        .or(owned.as_deref())
+                        .ok_or("merged sort relation source unavailable")?;
+                    let mut positions = Vec::new();
+                    visit_reference_occurrences(
+                        value,
+                        &current.collection.relations[hop.relation.ordinal as usize]
+                            .declaration
+                            .path,
+                        &mut positions,
+                        &mut |id, positions| {
+                            if !positions_match(&hop.selectors, positions) {
+                                return Ok(());
+                            }
+                            cache.edge()?;
+                            if let Some(id) = id {
+                                if let Some(target) = view.resolve_id(hop.to, id)? {
+                                    self.visit_related_merged(
+                                        view, hops, terminal, depth + 1, target, None, cache,
+                                        reduced,
+                                    )
+                                } else {
+                                    reduced.observe_unavailable()
+                                }
+                            } else {
+                                reduced.observe_value(&Value::Null, self)
+                            }
+                        },
+                    )?;
+                } else {
+                    for (id, positions) in edges {
+                        if !positions_match(&hop.selectors, positions) {
+                            continue;
+                        }
+                        cache.edge()?;
+                        if let Some(target) = view.resolve_id(hop.to, id)? {
+                            self.visit_related_merged(
+                                view, hops, terminal, depth + 1, target, None, cache, reduced,
+                            )?;
+                        } else {
+                            reduced.observe_unavailable()?;
+                        }
+                    }
+                    if null {
+                        reduced.observe_value(&Value::Null, self)?;
+                    }
+                }
+            }
+            HopDirection::Backlink => {
+                for (position, source) in view
+                    .backlink_sources(hop.relation, &current.record.id.0)?
+                    .into_iter()
+                    .enumerate()
+                {
+                    cache.edge()?;
+                    if hop.selectors.first().is_some_and(|selector| {
+                        selector.is_some_and(|index| index as usize != position)
+                    }) {
+                        continue;
+                    }
+                    self.visit_related_merged(
+                        view, hops, terminal, depth + 1, source, None, cache, reduced,
+                    )?;
+                }
+            }
+        }
+        Ok(())
     }
 
     fn scalar_key(&self, value: &Value) -> Result<SortKey, String> {
@@ -892,7 +1135,7 @@ impl ComputedSort {
             .relations
             .get(hop.relation.ordinal as usize)
             .ok_or("sort relation index is missing")?;
-        if relation.unavailable().contains(slot.0) {
+        if hop.direction == HopDirection::Forward && relation.unavailable().contains(slot.0) {
             reduced.observe_unavailable()?;
             return Ok(());
         }

@@ -217,6 +217,53 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         )),
         ["A"]
     );
+    let mut sorted = query("mentions", None, None, None, false);
+    sorted.options.sort = vec![crate::execution_options::SortField::computed(
+        crate::workload::SortExpression {
+            path: "entry.title".into(),
+            binding: Some("lower".into()),
+            reducer: None,
+        },
+        false,
+    )];
+    let ordered = find(sorted);
+    let at = |id: &str| ordered.iter().position(|found| found == id).unwrap();
+    assert!(at("m2") < at("m1"));
+    assert!(at("m1") < at("m8"));
+    let mut first = query("mentions", None, None, None, false);
+    first.options.sort = vec![crate::execution_options::SortField::computed(
+        crate::workload::SortExpression {
+            path: "items.entry.title".into(),
+            binding: None,
+            reducer: Some(crate::workload::SortReducer::First),
+        },
+        false,
+    )];
+    let first_order = find(first);
+    let first_at = |id: &str| first_order.iter().position(|found| found == id).unwrap();
+    assert!(first_at("m2") < first_at("m1"));
+    let mut last = query("mentions", None, None, None, false);
+    last.options.sort = vec![crate::execution_options::SortField::computed(
+        crate::workload::SortExpression {
+            path: "items.entry.title".into(),
+            binding: None,
+            reducer: Some(crate::workload::SortReducer::Last),
+        },
+        false,
+    )];
+    let last_order = find(last);
+    let last_at = |id: &str| last_order.iter().position(|found| found == id).unwrap();
+    assert!(last_at("m1") < last_at("m2"));
+    let mut backlink_sort = query("entries", None, None, None, false);
+    backlink_sort.options.sort = vec![crate::execution_options::SortField::computed(
+        crate::workload::SortExpression {
+            path: "@backlinks.mentions.title".into(),
+            binding: None,
+            reducer: Some(crate::workload::SortReducer::Min),
+        },
+        false,
+    )];
+    assert_eq!(find(backlink_sort), ["A", "B"]);
     let mut retired_target = (*segments[0][0]).clone();
     retired_target.active = retired_target
         .active
@@ -357,6 +404,39 @@ fn merged_relation_walker_matches_static_reference_semantics() {
                 .map(|hit| (&hit.record_id, &hit.matched_fields))
                 .collect::<Vec<_>>(),
             "{request:?}"
+        );
+    }
+    for (collection, path, reducer) in [
+        ("mentions", "entry.title", None),
+        ("mentions", "items.entry.title", Some(crate::workload::SortReducer::First)),
+        ("mentions", "items.entry.title", Some(crate::workload::SortReducer::Last)),
+        ("mentions", "contributors.title", Some(crate::workload::SortReducer::Min)),
+        ("entries", "@backlinks.mentions.title", Some(crate::workload::SortReducer::Min)),
+    ] {
+        let mut request = query(collection, None, None, None, false);
+        request.options.sort = vec![crate::execution_options::SortField::computed(
+            crate::workload::SortExpression {
+                path: path.into(),
+                binding: None,
+                reducer,
+            },
+            false,
+        )];
+        let expected = repo.search_reference(&request).unwrap();
+        let actual = crate::run::search_segmented(
+            &repo,
+            &request,
+            &active,
+            &segments,
+            &catalog,
+            IndexRevision(1),
+        )
+        .unwrap();
+        assert_eq!(actual.count, expected.count, "{path}");
+        assert_eq!(
+            actual.hits.iter().map(|hit| &hit.record_id).collect::<Vec<_>>(),
+            expected.hits.iter().map(|hit| &hit.record_id).collect::<Vec<_>>(),
+            "{path}"
         );
     }
     std::fs::remove_dir_all(root).unwrap();
