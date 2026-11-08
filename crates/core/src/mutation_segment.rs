@@ -1023,6 +1023,427 @@ impl IndexedCollectionSegment {
 }
 
 
+/// A dense active-only shard plus a locator translation for callers that
+/// retained an old local slot. Retired slots map to `None`.
+pub(crate) struct CompactedSegment {
+    pub index: IndexedCollectionSegment,
+    pub active: ActiveRecords,
+    pub old_to_new: Vec<Option<RecordSlot>>,
+}
+
+
+fn project_bitmap(
+    source: &RoaringBitmap,
+    slots: &[Option<RecordSlot>],
+) -> Result<RoaringBitmap, String> {
+    let mut projected = RoaringBitmap::new();
+    for old in source.iter() {
+        if let Some(slot) = slots
+            .get(old as usize)
+            .ok_or("posting slot outside segment")?
+        {
+            projected.insert(slot.0);
+        }
+    }
+    Ok(projected)
+}
+
+fn project_posting(
+    index: &PostingIndex,
+    slots: &[Option<RecordSlot>],
+    logical_count: u32,
+) -> Result<PostingIndex, String> {
+    let mut projected = index.clone();
+    projected.presence = project_bitmap(&index.presence, slots)?;
+    projected.nulls = project_bitmap(&index.nulls, slots)?;
+    for (key, bitmap) in &index.values {
+        let kept = project_bitmap(bitmap, slots)?;
+        if kept.is_empty() {
+            projected.values.remove(key);
+        } else {
+            projected.values.insert(key.clone(), kept);
+        }
+    }
+    for (key, bitmap) in &index.lengths {
+        let kept = project_bitmap(bitmap, slots)?;
+        if kept.is_empty() {
+            projected.lengths.remove(key);
+        } else {
+            projected.lengths.insert(key.clone(), kept);
+        }
+    }
+    projected.covered_records = logical_count;
+    projected.finish_stats();
+    Ok(projected)
+}
+
+fn project_bigram(
+    index: &BigramIndex,
+    slots: &[Option<RecordSlot>],
+    new_count: u32,
+) -> Result<BigramIndex, String> {
+    let mut projected = BigramIndex::new(index.alphabet);
+    projected.record_count = new_count;
+    for (key, bitmap) in &index.normal {
+        let kept = project_bitmap(bitmap, slots)?;
+        if !kept.is_empty() {
+            projected.normal.insert(*key, kept);
+        }
+    }
+    for (key, bitmap) in &index.skip {
+        let kept = project_bitmap(bitmap, slots)?;
+        if !kept.is_empty() {
+            projected.skip.insert(*key, kept);
+        }
+    }
+    Ok(projected)
+}
+
+fn project_sorting(
+    source: &SortCollection,
+    slots: &[Option<RecordSlot>],
+    records: &[RecordEntry],
+) -> Result<SortCollection, String> {
+    let mut sorting = source.clone();
+    for column in sorting.columns.values_mut() {
+        let old_keys = std::mem::take(&mut column.keys);
+        if old_keys.len() != slots.len() {
+            return Err("sort projection coverage mismatch".into());
+        }
+        column.keys = old_keys
+            .into_iter()
+            .enumerate()
+            .filter_map(|(old, key)| slots[old].map(|_| key))
+            .collect();
+        if column.keys.len() != records.len() {
+            return Err("sort projection slot mismatch".into());
+        }
+        column.ascending = records.iter().map(|record| record.slot).collect();
+        column.ascending.sort_by(|a, b| {
+            column.keys[a.0 as usize]
+                .compare_with(&column.keys[b.0 as usize], false, column.options)
+                .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+        });
+        column.descending = records.iter().map(|record| record.slot).collect();
+        column.descending.sort_by(|a, b| {
+            column.keys[a.0 as usize]
+                .compare_with(&column.keys[b.0 as usize], true, column.options)
+                .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+        });
+    }
+    for composite in &mut sorting.composites {
+        let columns = composite
+            .fields
+            .iter()
+            .map(|part| {
+                sorting
+                    .columns
+                    .get(&part.path)
+                    .map(|column| (column, part.descending))
+                    .ok_or("composite sort column missing")
+            })
+            .collect::<Result<Vec<_>, _>>()?;
+        composite.order = records.iter().map(|record| record.slot).collect();
+        composite.order.sort_by(|a, b| {
+            compare_composite(&columns, *a, *b)
+                .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
+        });
+    }
+    Ok(sorting)
+}
+
+fn project_inference(
+    source: &Option<InferenceState>,
+    slots: &[Option<RecordSlot>],
+    logical: &RoaringBitmap,
+    new_count: usize,
+) -> Result<Option<InferenceState>, String> {
+    let Some(source) = source else {
+        return Ok(None);
+    };
+    let mut state = source.clone();
+    let eligible = u32::try_from(logical.len()).map_err(|_| "inference slot overflow")?;
+    state.indexes = source
+        .indexes
+        .iter()
+        .map(|(path, index)| {
+            project_posting(index, slots, eligible).map(|index| (path.clone(), index))
+        })
+        .collect::<Result<HashMap<_, _>, _>>()?;
+    state.empty_selections = source
+        .empty_selections
+        .iter()
+        .map(|(path, bitmap)| project_bitmap(bitmap, slots).map(|bitmap| (path.clone(), bitmap)))
+        .collect::<Result<HashMap<_, _>, _>>()?;
+    state.short_string_coverage = source
+        .short_string_coverage
+        .iter()
+        .map(|(path, bitmap)| project_bitmap(bitmap, slots).map(|bitmap| (path.clone(), bitmap)))
+        .collect::<Result<HashMap<_, _>, _>>()?;
+    let eligible = logical.len();
+    let unavailable = new_count as u64 - eligible;
+    state.report.eligible_records = eligible;
+    state.report.unavailable_records = unavailable;
+    for field in &mut state.report.fields {
+        field.eligible_records = eligible;
+        field.unavailable_records = unavailable;
+        field.distinct_nonblank_strings = None;
+        if let Some(index) = state.indexes.get(&field.path) {
+            field.index_status = InferenceIndexStatus::Built;
+            field.complete = true;
+            field.present_records = index.presence.len();
+            field.exact_null_records = index.nulls.len();
+            field.null_occurrence_records = field.exact_null_records;
+            field.empty_selection_records = state.empty_selections[&field.path].len();
+            field.short_string_covered_records = state
+                .short_string_coverage
+                .get(&field.path)
+                .map_or(0, RoaringBitmap::len);
+            field.short_string_distinct_values = if field.short_string_covered_records > 0 {
+                index.values.len()
+            } else {
+                0
+            };
+            field.scalar_records = if index.multi {
+                0
+            } else {
+                field.present_records
+            };
+            field.array_records = if index.multi {
+                field.present_records
+            } else {
+                0
+            };
+        } else {
+            field.index_status = InferenceIndexStatus::Incomplete;
+            field.complete = false;
+            field.reason = "retired records removed from incomplete inference summary".into();
+            field.present_records = 0;
+            field.null_occurrence_records = 0;
+            field.exact_null_records = 0;
+            field.empty_selection_records = 0;
+            field.short_string_covered_records = 0;
+            field.short_string_distinct_values = 0;
+            field.scalar_records = 0;
+            field.array_records = 0;
+            field.index_bytes_estimate = 0;
+        }
+        field.missing_records = eligible - field.present_records;
+        field.short_string_unresolved_records = eligible - field.short_string_covered_records;
+        field.object_records = 0;
+        field.value_occurrences = 0;
+        field.nonblank_occurrences = 0;
+        field.nonblank_records = 0;
+        field.short_string_observed_occurrences = 0;
+        field.retained_bytes_estimate = field
+            .summary_bytes_estimate
+            .saturating_add(field.index_bytes_estimate);
+    }
+    state.report.admitted_paths = state.indexes.len();
+    state.report.dropped_paths = state
+        .report
+        .fields
+        .iter()
+        .filter(|field| {
+            matches!(
+                field.index_status,
+                InferenceIndexStatus::Incompatible
+                    | InferenceIndexStatus::Incomplete
+                    | InferenceIndexStatus::BudgetExceeded
+                    | InferenceIndexStatus::BelowThreshold
+            )
+        })
+        .count();
+    state.report.summary_bytes_estimate = state.report.fields.iter().fold(0usize, |sum, field| {
+        sum.saturating_add(field.summary_bytes_estimate)
+    });
+    state.report.index_bytes_estimate = state.report.fields.iter().fold(0usize, |sum, field| {
+        sum.saturating_add(field.index_bytes_estimate)
+    });
+    state.report.retained_bytes_estimate = state
+        .report
+        .summary_bytes_estimate
+        .saturating_add(state.report.index_bytes_estimate);
+    Ok(Some(state))
+}
+
+
+impl IndexedCollectionSegment {
+    /// Build a dense active-only shard without opening source data. The file
+    /// predicate distinguishes a current zero-record file from an obsolete
+    /// historical incarnation with no live records.
+    pub fn compact_active(
+        &self,
+        active: &ActiveRecords,
+        max_scanned_records: usize,
+        retain_file: impl Fn(&FileEntry) -> bool,
+    ) -> Result<CompactedSegment, String> {
+        if active.slot_count() as usize != self.records.len() {
+            return Err("compaction active-mask coverage mismatch".into());
+        }
+        if self.records.len() > max_scanned_records {
+            return Err("compaction record budget exceeded".into());
+        }
+        let mut old_to_new = Vec::with_capacity(self.records.len());
+        let mut next = 0u32;
+        for record in &self.records {
+            if record.slot.0 as usize != old_to_new.len() {
+                return Err("compaction record slots out of order".into());
+            }
+            if active.contains(record.slot) {
+                old_to_new.push(Some(RecordSlot(next)));
+                next = next.checked_add(1).ok_or("compaction slot overflow")?;
+            } else {
+                old_to_new.push(None);
+            }
+        }
+        let mut files = Vec::new();
+        let mut file_index = HashMap::new();
+        let mut diagnostic_refs: HashMap<FileId, Vec<Option<DiagnosticRef>>> = HashMap::new();
+        for file in &self.files {
+            let retained = retain_file(&file.entry);
+            let mut owned = Vec::new();
+            for old in &file.records {
+                let mapped = old_to_new
+                    .get(old.0 as usize)
+                    .ok_or("file record slot out of bounds")?;
+                if let Some(slot) = mapped {
+                    owned.push(*slot);
+                }
+            }
+            if !retained {
+                if !owned.is_empty() {
+                    return Err("active record belongs to obsolete file".into());
+                }
+                continue;
+            }
+            let mut entry = file.entry.clone();
+            let old_diagnostics = std::mem::take(&mut entry.diagnostics);
+            entry.status = FileStatus::Valid;
+            let omitted = entry.omitted_diagnostics;
+            entry.omitted_diagnostics = 0;
+            let mut refs = Vec::with_capacity(old_diagnostics.len());
+            for mut diagnostic in old_diagnostics {
+                if let Some(old) = diagnostic.record {
+                    let new = old_to_new
+                        .get(old.0 as usize)
+                        .ok_or("diagnostic slot out of bounds")?;
+                    diagnostic.record = *new;
+                }
+                refs.push(Some(entry.record_diagnostic(diagnostic)?));
+            }
+            entry.omitted_diagnostics = entry.omitted_diagnostics.saturating_add(omitted);
+            if omitted > 0 {
+                entry.status = entry.status.max(file.entry.status);
+            }
+            diagnostic_refs.insert(entry.id, refs);
+            file_index.insert(entry.id, files.len());
+            files.push(SegmentFile {
+                entry,
+                records: owned,
+            });
+        }
+        let mut records = Vec::with_capacity(next as usize);
+        let mut id_lookup = HashMap::new();
+        for record in &self.records {
+            let Some(slot) = old_to_new[record.slot.0 as usize] else {
+                continue;
+            };
+            if !file_index.contains_key(&record.file) {
+                return Err("active record file missing".into());
+            }
+            let mut compacted = record.clone();
+            compacted.slot = slot;
+            if compacted.class == RecordClass::RawFallback {
+                compacted.diagnostic_ref = match compacted.diagnostic_ref.stored_index() {
+                    Some(old) => diagnostic_refs
+                        .get(&compacted.file)
+                        .and_then(|refs| refs.get(old))
+                        .and_then(|reference| *reference)
+                        .ok_or("active fallback diagnostic removed")?,
+                    None => DiagnosticRef(u32::MAX),
+                };
+            }
+            if id_lookup.insert(compacted.id.clone(), slot).is_some() {
+                return Err("duplicate active record ID during compaction".into());
+            }
+            records.push(compacted);
+        }
+        let logical_records = project_bitmap(&self.logical_records, &old_to_new)?;
+        let empty_array_records = project_bitmap(&self.empty_array_records, &old_to_new)?;
+        let logical_count =
+            u32::try_from(logical_records.len()).map_err(|_| "logical slot overflow")?;
+        let mut postings = self.postings.clone();
+        for index in postings.fields.values_mut() {
+            *index = project_posting(index, &old_to_new, logical_count)?;
+        }
+        let mut custom_postings = self.custom_postings.clone();
+        for custom in custom_postings.values_mut() {
+            custom.index = project_posting(&custom.index, &old_to_new, logical_count)?;
+        }
+        let raw = project_bigram(&self.raw, &old_to_new, next)?;
+        let fallback_text = project_bigram(&self.fallback_text, &old_to_new, next)?;
+        let custom_text = self
+            .custom_text
+            .iter()
+            .map(|(key, index)| {
+                project_bigram(index, &old_to_new, next).map(|index| (key.clone(), index))
+            })
+            .collect::<Result<HashMap<_, _>, _>>()?;
+        let sorting = project_sorting(&self.sorting, &old_to_new, &records)?;
+        let inference = project_inference(
+            &self.inference,
+            &old_to_new,
+            &logical_records,
+            records.len(),
+        )?;
+        let relations = self
+            .relations
+            .iter()
+            .map(|relation| relation.project_slots(&old_to_new))
+            .collect::<Result<Vec<_>, _>>()?;
+        let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
+        identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
+        postings.validate_eligible(records.len(), logical_records.len() as usize)?;
+        if logical_records.len() as usize != records.len() {
+            postings.validate_domain(&logical_records)?;
+        }
+        raw.validate(records.len())?;
+        fallback_text.validate(records.len())?;
+        for index in custom_text.values() {
+            index.validate(records.len())?;
+        }
+        let index = IndexedCollectionSegment {
+            collection: self.collection,
+            source_id: self.source_id.clone(),
+            source_version: self.source_version,
+            files,
+            file_index,
+            records,
+            id_lookup,
+            identity_order,
+            postings,
+            inference,
+            custom_postings,
+            raw,
+            fallback_text,
+            custom_text,
+            logical_records,
+            empty_array_records,
+            sorting,
+            relations,
+            record_parses: self.record_parses,
+            failed_parses: self.failed_parses,
+        };
+        Ok(CompactedSegment {
+            active: ActiveRecords::all(index.records.len())?,
+            index,
+            old_to_new,
+        })
+    }
+}
+
+
 #[cfg(test)]
 #[path = "mutation_segment.test.rs"]
 mod tests;
