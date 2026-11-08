@@ -159,34 +159,44 @@ pub fn open(
         .unwrap_or_else(|| paths.root.join(".objekte"));
     let (repository, open_ns, snapshot_save) = if spec.args.repo.is_some() {
         let opened = Instant::now();
-        let index = Index::open_configured_repository(
-            RepositoryConfiguration {
-                root: paths.root.clone(),
-                definitions: configured.definitions.clone(),
-                schema_files: configured.schema_files.clone(),
-                protected_files: configured.protected_files.clone(),
-                schema_fields: configured.schema_fields,
-            },
-            RepositoryOpenOptions {
-                index: options,
-                cache_directory: Some(cache_directory.clone()),
-                cache_open: spec.configured_cache_policy.unwrap_or(match policy.mode {
-                    SnapshotMode::Required => CacheOpenPolicy::Required,
-                    SnapshotMode::IfValid => CacheOpenPolicy::IfPresent,
-                    SnapshotMode::Disabled if spec.args.write_index.is_some() => CacheOpenPolicy::Ignore,
-                    SnapshotMode::Disabled => CacheOpenPolicy::IfPresent,
-                }),
-                cache_failure: if spec.args.write_index.is_some()
-                    && policy.mode == SnapshotMode::IfValid
-                {
-                    CacheFailurePolicy::Rebuild
-                } else {
-                    CacheFailurePolicy::Report
+        let cache_open = spec.configured_cache_policy.unwrap_or(match policy.mode {
+            SnapshotMode::Required => CacheOpenPolicy::Required,
+            SnapshotMode::IfValid => CacheOpenPolicy::IfPresent,
+            SnapshotMode::Disabled if spec.args.write_index.is_some() => CacheOpenPolicy::Ignore,
+            SnapshotMode::Disabled => CacheOpenPolicy::IfPresent,
+        });
+        let index = if cache_open == CacheOpenPolicy::Ignore {
+            let index = Index::build(&paths.root, configured.definitions.clone(), options)
+                .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+            index
+                .protect_configuration_files(&configured.protected_files)
+                .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+            index
+        } else {
+            Index::open_configured_repository(
+                RepositoryConfiguration {
+                    root: paths.root.clone(),
+                    definitions: configured.definitions.clone(),
+                    schema_files: configured.schema_files.clone(),
+                    protected_files: configured.protected_files.clone(),
+                    schema_fields: configured.schema_fields,
                 },
-                sync_cache: false,
-            },
-        )
-        .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+                RepositoryOpenOptions {
+                    index: options,
+                    cache_directory: Some(cache_directory.clone()),
+                    cache_open,
+                    cache_failure: if spec.args.write_index.is_some()
+                        && policy.mode == SnapshotMode::IfValid
+                    {
+                        CacheFailurePolicy::Rebuild
+                    } else {
+                        CacheFailurePolicy::Report
+                    },
+                    sync_cache: false,
+                },
+            )
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
+        };
         let repository = IndexedRepository::new(index)
             .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
         let open_ns = opened.elapsed().as_nanos();
