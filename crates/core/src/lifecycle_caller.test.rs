@@ -78,3 +78,60 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
     assert_eq!(adapter.files().files.len(), 1);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn pinned_adapter_keeps_batch_queries_on_one_publication() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-indexed-adapter-pin-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let adapter = IndexedRepository::new(index.clone()).unwrap();
+    let pinned = adapter.with_pinned_view(index.view().unwrap()).unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert_eq!(pinned.search(&query).unwrap().count, Some(1));
+    let second = root.join("data/b.json");
+    std::fs::write(&second, br#"{"name":"B"}"#).unwrap();
+    index.add_file(&second).unwrap();
+    assert_eq!(adapter.search(&query).unwrap().count, Some(2));
+    assert_eq!(pinned.search(&query).unwrap().count, Some(1));
+    let other = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    assert!(adapter.with_pinned_view(other.view().unwrap()).is_err());
+    other.shutdown().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}

@@ -22,6 +22,7 @@ fn hundred_row_continuations_keep_equal_sort_keys_unique_at_boundaries() {
                 ..Default::default()
             },
             cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -128,5 +129,69 @@ fn inline_sort_and_cancelled_work_are_reported() {
         .unwrap_err()
         .kind,
         BackendErrorKind::Options
+    );
+}
+
+#[test]
+fn pinned_pages_and_counts_do_not_mix_after_a_publication() {
+    let fixture = fixture();
+    let index = fixture.session.repository.index();
+    let old_view = index.view().unwrap();
+    let spec = QuerySpec {
+        count: true,
+        ..Default::default()
+    };
+    let token = CancellationToken::new();
+    let first = query_page_on_view(&fixture.session, &old_view, &spec, 0, 2, &token).unwrap();
+    assert_eq!(first.count, Some(3));
+    assert_eq!(first.instance_id, old_view.instance_id());
+    assert_eq!(first.revision, old_view.revision());
+    let added = fixture._root.path().join("d.json");
+    std::fs::write(&added, r#"{"title":"Delta","year":2025}"#).unwrap();
+    index.add_file(&added).unwrap();
+    let new_view = index.view().unwrap();
+    assert_ne!(old_view.revision(), new_view.revision());
+    let old_continuation =
+        query_page_on_view(&fixture.session, &old_view, &spec, 2, 2, &token).unwrap();
+    assert_eq!(old_continuation.count, Some(3));
+    assert_eq!(old_continuation.hits.len(), 1);
+    assert_eq!(count_exact_on_view(&old_view, &spec, &token).unwrap(), 3);
+    let new_first = query_page_on_view(&fixture.session, &new_view, &spec, 0, 2, &token).unwrap();
+    assert_eq!(new_first.count, Some(4));
+    assert_eq!(count_exact_on_view(&new_view, &spec, &token).unwrap(), 4);
+}
+
+#[test]
+fn source_unavailability_never_supplies_a_false_exact_total() {
+    let fixture = fixture();
+    let view = fixture.session.repository.index().view().unwrap();
+    std::fs::remove_file(fixture._root.path().join("a.json")).unwrap();
+    let page = query_page_on_view(
+        &fixture.session,
+        &view,
+        &QuerySpec {
+            count: true,
+            ..Default::default()
+        },
+        0,
+        10,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert!(page.incomplete());
+    assert_eq!(page.count, None);
+    assert!(page.counters.source_unavailable_events > 0);
+    assert_eq!(
+        count_exact_on_view(
+            &view,
+            &QuerySpec {
+                filter: "year >= 0".into(),
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+        )
+        .unwrap_err()
+        .kind,
+        BackendErrorKind::Query
     );
 }

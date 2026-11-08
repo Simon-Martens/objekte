@@ -156,3 +156,68 @@ fn direct_structured_and_full_text_match_cli_protocol() {
         );
     }
 }
+
+#[test]
+fn finite_batch_uses_one_pinned_publication_after_addition() {
+    let fixture = fixture();
+    let index = fixture.session.repository.index();
+    let old_view = index.view().unwrap();
+    let added = fixture._root.path().join("d.json");
+    std::fs::write(&added, r#"{"title":"Delta","year":2025}"#).unwrap();
+    index.add_file(&added).unwrap();
+    let output = tempfile::tempdir().unwrap();
+    let path = output.path().join("pinned.ndjson");
+    let report = run_batch_on_view(
+        &fixture.session,
+        &old_view,
+        &BatchSpec {
+            source: BatchSource::Text("year >= 2023\nyear >= 2022".into()),
+            offset: 0,
+            limit: None,
+            count: true,
+        },
+        &path,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert_eq!(report.exit, Exit::Success);
+    let data = events(&std::fs::read(path).unwrap());
+    assert_eq!(
+        data.iter().filter(|event| event["type"] == "hit").count(),
+        5
+    );
+    let totals: Vec<_> = data
+        .iter()
+        .filter(|event| event["type"] == "query_complete")
+        .map(|event| event["exact_total"].as_u64())
+        .collect();
+    assert_eq!(totals, [Some(2), Some(3)]);
+}
+
+#[test]
+fn partial_source_batch_keeps_the_protocol_but_reports_failure() {
+    let fixture = fixture();
+    let view = fixture.session.repository.index().view().unwrap();
+    std::fs::remove_file(fixture._root.path().join("a.json")).unwrap();
+    let output = tempfile::tempdir().unwrap();
+    let path = output.path().join("partial.ndjson");
+    let report = run_batch_on_view(
+        &fixture.session,
+        &view,
+        &BatchSpec {
+            source: BatchSource::Text("year >= 2022".into()),
+            offset: 0,
+            limit: None,
+            count: true,
+        },
+        &path,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert_eq!(report.exit, Exit::Operation);
+    let data = events(&std::fs::read(path).unwrap());
+    assert!(data.iter().any(|event| event["type"] == "query_error"
+        && event["stage"] == "source"
+        && event["partial"] == true));
+    assert_eq!(data.last().unwrap()["type"], "run_error");
+}

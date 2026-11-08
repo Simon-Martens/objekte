@@ -2,13 +2,14 @@
 
 use std::fs::{self, File, OpenOptions};
 use std::path::{Path, PathBuf};
+use std::sync::Arc;
 
 use objekte_cli::execution::{ExistingRun, Exit, run_on_repository};
 use objekte_cli::query_input::QuerySource;
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::streaming::CancellationToken;
 
 use super::{BackendError, BackendErrorKind, OpenedSession};
-
 
 /// Batch text already in memory, or a physical query file.
 #[derive(Clone, Debug)]
@@ -20,7 +21,6 @@ pub enum BatchSource {
     IndexOnly,
 }
 
-
 /// CLI page/count controls applied to every batch query.
 #[derive(Clone, Debug)]
 pub struct BatchSpec {
@@ -30,7 +30,6 @@ pub struct BatchSpec {
     pub count: bool,
 }
 
-
 /// Protocol exit status and the file containing the ordered NDJSON events.
 #[derive(Clone, Debug)]
 pub struct BatchReport {
@@ -39,7 +38,6 @@ pub struct BatchReport {
     pub bytes_written: u64,
 }
 
-
 /// Run every line through the CLI parser and event protocol without reopening data.
 pub fn run_batch(
     session: &OpenedSession,
@@ -47,6 +45,25 @@ pub fn run_batch(
     output_path: &Path,
     cancellation: &CancellationToken,
 ) -> Result<BatchReport, BackendError> {
+    let view = session
+        .repository
+        .index()
+        .view()
+        .map_err(|error| BackendError::new(BackendErrorKind::Query, error.to_string()))?;
+    run_batch_on_view(session, &view, spec, output_path, cancellation)
+}
+
+/// Run all batch entries against one captured publication, including entries
+/// executed after an external index change has been committed.
+pub fn run_batch_on_view(
+    session: &OpenedSession,
+    view: &IndexView,
+    spec: &BatchSpec,
+    output_path: &Path,
+    cancellation: &CancellationToken,
+) -> Result<BatchReport, BackendError> {
+    let pinned = pinned_session(session, view)?;
+    let session = &pinned;
     if cancellation.is_cancelled() {
         return Err(BackendError::cancelled());
     }
@@ -94,6 +111,20 @@ pub fn run_batch(
     let file = create_output_file(session, output_path)?;
     let exit = run_on_repository(existing_run(session, &args), source, file, cancellation);
     finish_output(exit, output_path)
+}
+
+pub(super) fn pinned_session(
+    session: &OpenedSession,
+    view: &IndexView,
+) -> Result<OpenedSession, BackendError> {
+    let mut pinned = session.clone();
+    pinned.repository = Arc::new(
+        session
+            .repository
+            .with_pinned_view(view.clone())
+            .map_err(|message| BackendError::new(BackendErrorKind::Query, message))?,
+    );
+    Ok(pinned)
 }
 
 pub(super) fn existing_run<'a>(

@@ -88,6 +88,7 @@ fn malformed_source_keeps_raw_fallback_payload_in_export() {
                 ..Default::default()
             },
             cwd: source.path().to_path_buf(),
+            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -119,4 +120,68 @@ fn all_export_includes_rows_beyond_loaded_viewport() {
     assert_eq!(count, 3);
     let value: Value = serde_json::from_slice(&fs::read(path).unwrap()).unwrap();
     assert_eq!(value["hits"].as_array().unwrap().len(), 3);
+}
+
+#[test]
+fn json_export_can_retain_the_selected_publication() {
+    let fixture = fixture();
+    let index = fixture.session.repository.index();
+    let old_view = index.view().unwrap();
+    let added = fixture._root.path().join("d.json");
+    fs::write(&added, r#"{"title":"Delta","year":2025}"#).unwrap();
+    index.add_file(&added).unwrap();
+    let output = tempfile::tempdir().unwrap();
+    let path = output.path().join("old.json");
+    let count = export_all_json_on_view(
+        &fixture.session,
+        &old_view,
+        &QuerySpec::default(),
+        &path,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert_eq!(count, 3);
+    let value: Value = serde_json::from_slice(&fs::read(path).unwrap()).unwrap();
+    assert_eq!(value["hits"].as_array().unwrap().len(), 3);
+}
+
+#[test]
+fn unavailable_source_does_not_leave_a_shortened_successful_export() {
+    let fixture = fixture();
+    let view = fixture.session.repository.index().view().unwrap();
+    fs::remove_file(fixture._root.path().join("a.json")).unwrap();
+    let output = tempfile::tempdir().unwrap();
+    let path = output.path().join("incomplete.json");
+    let result = export_all_json_on_view(
+        &fixture.session,
+        &view,
+        &QuerySpec::default(),
+        &path,
+        &CancellationToken::new(),
+    );
+    assert_eq!(result.unwrap_err().kind, BackendErrorKind::Query);
+    assert!(!path.exists());
+}
+
+#[test]
+fn removed_record_cannot_be_exported_from_an_old_row_identity() {
+    let fixture = fixture();
+    let index = fixture.session.repository.index();
+    let old_view = index.view().unwrap();
+    let source = fixture._root.path().join("a.json");
+    let handle = old_view.file_handle_for_path(&source).unwrap();
+    index.delete_file(handle).unwrap();
+    let current_view = index.view().unwrap();
+    let output = tempfile::tempdir().unwrap();
+    let path = output.path().join("selected.json");
+    let result = export_selected_json_on_view(
+        &fixture.session,
+        &current_view,
+        &fixture.session.collections[0],
+        "path:a.json",
+        &path,
+        &CancellationToken::new(),
+    );
+    assert_eq!(result.unwrap_err().kind, BackendErrorKind::Query);
+    assert!(!path.exists());
 }
