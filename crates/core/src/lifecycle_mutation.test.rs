@@ -4,11 +4,13 @@ use super::{
 };
 use crate::inventory::SourceRevision;
 use crate::lifecycle::DeleteStrategy;
-use crate::model::CollectionId;
-use crate::query::{Query, QueryOptions};
-use crate::repository::{CollectionDefinition, RepositoryOptions};
+use crate::model::{CollectionId, FieldPath, LogicalType, RecordSlot};
+use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
+use crate::reference::{FieldDefinition, Schema};
+use crate::relation::{RelationCardinality, RelationDefinition};
+use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
 use crate::source::SourceFormat;
-use crate::workload::ReturnMode;
+use crate::workload::{ReturnMode, SortField};
 
 fn test_root(label: &str) -> std::path::PathBuf {
     let root = std::env::temp_dir().join(format!(
@@ -156,7 +158,7 @@ fn move_rejects_destination_owned_by_another_file() {
 }
 
 #[test]
-fn verified_update_removes_old_shard_and_bad_hint_falls_back() {
+fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
     let root = test_root("verified");
     let index = index(&root);
     let path = root.join("data/verified.jsonl");
@@ -180,7 +182,7 @@ fn verified_update_removes_old_shard_and_bad_hint_falls_back() {
         .unwrap();
     assert_eq!(
         verified.strategy,
-        FileMutationStrategy::VerifiedPhysicalRemoval
+        FileMutationStrategy::VerifiedSlotPreserving
     );
     assert_eq!(verified.fallback_reason, None);
     assert_eq!(verified.previous_records, 1);
@@ -194,7 +196,7 @@ fn verified_update_removes_old_shard_and_bad_hint_falls_back() {
             .len(),
         1
     );
-    assert_ne!(
+    assert_eq!(
         index.view().unwrap().segments(CollectionId(0)).unwrap()[0].ordinal,
         old_ordinal
     );
@@ -430,5 +432,303 @@ fn verified_update_removes_departed_collection_membership() {
     assert_eq!(view.file_record_count(changed.file.file_id), Some(1));
     assert_eq!(view.segments(CollectionId(1)).unwrap().len(), 1);
     assert!(!source.exists() && destination.exists());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
+    let root = test_root("slot-routes");
+    std::fs::create_dir_all(root.join("sources")).unwrap();
+    std::fs::create_dir_all(root.join("targets")).unwrap();
+    std::fs::write(root.join("targets/t.json"), b"{\"id\":\"T\"}").unwrap();
+    let mut target_schema = Schema::default();
+    target_schema
+        .register_field(FieldDefinition {
+            path: vec!["id".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let mut targets = CollectionDefinition::folder("targets", "targets", SourceFormat::Json);
+    targets.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    targets.schema = target_schema;
+    let mut source_schema = Schema::default();
+    for (field, kind) in [
+        ("id", LogicalType::Id),
+        ("entry", LogicalType::Id),
+        ("score", LogicalType::Number),
+        ("title", LogicalType::String),
+    ] {
+        source_schema
+            .register_field(FieldDefinition {
+                path: vec![field.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    source_schema
+        .register_relation(RelationDefinition {
+            path: vec!["entry".into()],
+            target_collection: "targets".into(),
+            cardinality: RelationCardinality::One,
+            reverse_alias: Some("sources".into()),
+        })
+        .unwrap();
+    let mut sources = CollectionDefinition::folder("sources", "sources", SourceFormat::JsonLines);
+    sources.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    sources.schema = source_schema;
+    sources.sort_fields = vec![FieldPath::parse("score").unwrap()];
+    let definitions = vec![targets, sources];
+    let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    let path = root.join("sources/s.jsonl");
+    let other_path = root.join("sources/r.jsonl");
+    let original = b"{\"id\":\"S\",\"entry\":\"T\",\"score\":1,\"title\":\"alpha\"}\n";
+    std::fs::write(&path, original).unwrap();
+    let added = index.add_file(&path).unwrap();
+    std::fs::write(
+        &other_path,
+        b"{\"id\":\"R\",\"entry\":\"T\",\"score\":2,\"title\":\"other\"}\n",
+    )
+    .unwrap();
+    index.add_file(&other_path).unwrap();
+    let relation_path = vec!["entry".into()];
+    let pinned = index.view().unwrap();
+    let original_locator = pinned
+        .relation_outgoing_page("sources", &relation_path, "S", 0, 10)
+        .unwrap()
+        .source;
+    assert_eq!(original_locator.slot, RecordSlot(0));
+    let ordinal = original_locator.segment_ordinal.unwrap();
+    let sorted = Query {
+        collections: vec!["sources".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("score", false)],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let ids = |view: &crate::lifecycle::IndexView| {
+        view.search(&sorted)
+            .unwrap()
+            .hits
+            .into_iter()
+            .map(|hit| hit.record_id)
+            .collect::<Vec<_>>()
+    };
+    assert_eq!(ids(&pinned), ["S", "R"]);
+
+    let same_id = b"{\"id\":\"S\",\"entry\":\"T\",\"score\":3,\"title\":\"bravo replacement\"}\n";
+    std::fs::write(&path, same_id).unwrap();
+    let first = index
+        .update_file_with_options(
+            added.file,
+            &path,
+            UpdateOptions {
+                old_content: Some(original),
+                strategy: UpdateStrategy::PreferVerified,
+            },
+        )
+        .unwrap();
+    assert_eq!(first.strategy, FileMutationStrategy::VerifiedSlotPreserving);
+    let after_first = index.view().unwrap();
+    let first_locator = after_first
+        .relation_outgoing_page("sources", &relation_path, "S", 0, 10)
+        .unwrap()
+        .source;
+    assert_eq!(first_locator.segment_ordinal, Some(ordinal));
+    assert_eq!(first_locator.slot, RecordSlot(0));
+    assert_ne!(first_locator.generation, original_locator.generation);
+    assert_eq!(
+        pinned
+            .relation_outgoing_page("sources", &relation_path, "S", 0, 10)
+            .unwrap()
+            .source,
+        original_locator
+    );
+    assert_eq!(ids(&after_first), ["R", "S"]);
+    let mut score_three = sorted.clone();
+    score_three.filter = Some(parse_filter("score = 3").unwrap());
+    assert_eq!(after_first.search(&score_three).unwrap().count, Some(1));
+    assert_eq!(
+        after_first.search(&score_three).unwrap().hits,
+        after_first.search_reference(&score_three).unwrap().hits
+    );
+    let mut text = sorted.clone();
+    text.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: "bravo".into(),
+        pattern_parameter: None,
+        fields: vec![],
+    });
+    assert_eq!(after_first.search(&text).unwrap().count, Some(1));
+    assert_eq!(
+        after_first.search(&text).unwrap().hits,
+        after_first.search_reference(&text).unwrap().hits
+    );
+    let backlink = after_first
+        .relation_backlink_page("targets", "sources", "T", 0, 10)
+        .unwrap();
+    assert_eq!(backlink.total_sources, 2);
+    assert!(backlink.sources.iter().any(|source| source.id == "S"));
+
+    let changed_id =
+        b"{\"id\":\"S2\",\"entry\":\"T\",\"score\":0,\"title\":\"charlie replacement\"}\n";
+    std::fs::write(&path, changed_id).unwrap();
+    let second = index
+        .update_file_with_options(
+            first.file,
+            &path,
+            UpdateOptions {
+                old_content: Some(same_id),
+                strategy: UpdateStrategy::PreferVerified,
+            },
+        )
+        .unwrap();
+    assert_eq!(
+        second.strategy,
+        FileMutationStrategy::VerifiedSlotPreserving
+    );
+    let current = index.view().unwrap();
+    let changed_locator = current
+        .relation_outgoing_page("sources", &relation_path, "S2", 0, 10)
+        .unwrap()
+        .source;
+    assert_eq!(changed_locator.segment_ordinal, Some(ordinal));
+    assert_eq!(changed_locator.slot, RecordSlot(0));
+    assert_ne!(changed_locator.generation, first_locator.generation);
+    assert!(
+        current
+            .get_record("sources", "S", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert_eq!(ids(&current), ["S2", "R"]);
+    assert_eq!(
+        current
+            .relation_backlink_page("targets", "sources", "T", 0, 10)
+            .unwrap()
+            .total_sources,
+        2
+    );
+    assert!(
+        current
+            .relation_backlink_page("targets", "sources", "T", 0, 10)
+            .unwrap()
+            .sources
+            .iter()
+            .any(|source| source.id == "S2")
+    );
+
+    let cache = root.join("cache.bin");
+    assert_eq!(index.flush_cache(&cache).unwrap(), current.revision());
+    let restored =
+        Index::load_cache(&root, definitions, RepositoryOptions::default(), &cache).unwrap();
+    let loaded = restored.view().unwrap();
+    assert_eq!(loaded.revision(), current.revision());
+    assert_eq!(ids(&loaded), ["S2", "R"]);
+    let restored_locator = loaded
+        .relation_outgoing_page("sources", &relation_path, "S2", 0, 10)
+        .unwrap()
+        .source;
+    assert_eq!(restored_locator.segment_ordinal, Some(ordinal));
+    assert_eq!(restored_locator.slot, RecordSlot(0));
+    restored.wait_for_reconciliation().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn incompatible_one_record_class_uses_verified_physical_removal() {
+    let root = test_root("slot-class-fallback");
+    let index = index(&root);
+    let path = root.join("data/item.jsonl");
+    let old = b"{\"name\":\"valid\"}\n";
+    std::fs::write(&path, old).unwrap();
+    let added = index.add_file(&path).unwrap();
+    let old_ordinal = index.view().unwrap().segments(CollectionId(0)).unwrap()[0].ordinal;
+    std::fs::write(&path, b"{broken}\n").unwrap();
+    let updated = index
+        .update_file_with_options(
+            added.file,
+            &path,
+            UpdateOptions {
+                old_content: Some(old),
+                strategy: UpdateStrategy::PreferVerified,
+            },
+        )
+        .unwrap();
+    assert_eq!(
+        updated.strategy,
+        FileMutationStrategy::VerifiedPhysicalRemoval
+    );
+    assert_eq!(updated.fallback_reason, None);
+    let current = index.view().unwrap();
+    assert_ne!(
+        current.segments(CollectionId(0)).unwrap()[0].ordinal,
+        old_ordinal
+    );
+    assert_eq!(index.status().unwrap().live_records, 1);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn one_record_shared_file_preserves_every_collection_slot_atomically() {
+    let root = test_root("shared-slot");
+    let index = Index::build(
+        &root,
+        vec![
+            CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
+            CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
+        ],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let path = root.join("data/shared.jsonl");
+    let old = b"{\"name\":\"old\"}\n";
+    std::fs::write(&path, old).unwrap();
+    let added = index.add_file(&path).unwrap();
+    let pinned = index.view().unwrap();
+    let ordinals = [CollectionId(0), CollectionId(1)]
+        .map(|collection| pinned.segments(collection).unwrap()[0].ordinal);
+    std::fs::write(&path, b"{\"name\":\"new value\"}\n").unwrap();
+    let updated = index
+        .update_file_with_options(
+            added.file,
+            &path,
+            UpdateOptions {
+                old_content: Some(old),
+                strategy: UpdateStrategy::PreferVerified,
+            },
+        )
+        .unwrap();
+    assert_eq!(
+        updated.strategy,
+        FileMutationStrategy::VerifiedSlotPreserving
+    );
+    assert_eq!(updated.previous_records, 2);
+    assert_eq!(updated.indexed_records, 2);
+    let current = index.view().unwrap();
+    for (collection, ordinal) in [CollectionId(0), CollectionId(1)].into_iter().zip(ordinals) {
+        let shards = current.segments(collection).unwrap();
+        assert_eq!(shards.len(), 1);
+        assert_eq!(shards[0].ordinal, ordinal);
+        assert_eq!(shards[0].index.records[0].slot, RecordSlot(0));
+        assert_eq!(pinned.segments(collection).unwrap()[0].ordinal, ordinal);
+    }
+    assert_eq!(index.status().unwrap().live_records, 2);
     std::fs::remove_dir_all(root).unwrap();
 }
