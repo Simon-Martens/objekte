@@ -104,6 +104,17 @@ pub(crate) fn compact_published(
     old: &PublishedIndex,
     next_revision: IndexRevision,
 ) -> Result<PublishedIndex, IndexError> {
+    compact_published_with_cancel(old, next_revision, || false)
+}
+
+fn compact_published_with_cancel(
+    old: &PublishedIndex,
+    next_revision: IndexRevision,
+    cancelled: impl Fn() -> bool,
+) -> Result<PublishedIndex, IndexError> {
+    if cancelled() {
+        return Err(IndexError::Cancelled);
+    }
     let empty = Arc::new(old.repository.empty_like().map_err(IndexError::Build)?);
     let mut next =
         PublishedIndex::from_repository(old.instance_id, next_revision, Arc::clone(&empty))?;
@@ -119,6 +130,9 @@ pub(crate) fn compact_published(
     next.saved_revision = old.saved_revision;
     next.reconciliation = old.reconciliation;
     for (number, collection) in old.repository.collections().iter().enumerate() {
+        if cancelled() {
+            return Err(IndexError::Cancelled);
+        }
         let scanned = collection.generation.records.len()
             + old.segments[number]
                 .iter()
@@ -132,6 +146,9 @@ pub(crate) fn compact_published(
         let mut compacted = Vec::new();
         let mut compact_source =
             |source: &IndexedCollectionSegment, active: &ActiveRecords| -> Result<(), IndexError> {
+                if cancelled() {
+                    return Err(IndexError::Cancelled);
+                }
                 let dense = source
                     .compact_active(active, MAX_COMPACTION_RECORDS_PER_COLLECTION, |entry| {
                         next.catalog.entry(entry.id).is_some_and(|current| {
@@ -142,6 +159,9 @@ pub(crate) fn compact_published(
                         })
                     })
                     .map_err(IndexError::Build)?;
+                if cancelled() {
+                    return Err(IndexError::Cancelled);
+                }
                 if dense.index.records.is_empty() {
                     return Ok(());
                 }
@@ -166,6 +186,9 @@ pub(crate) fn compact_published(
         drop(compact_source);
         next.segments[number] = Arc::new(compacted);
         while next.segments[number].len() > super::lifecycle::MAX_SEGMENTS_PER_COLLECTION {
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
             next.make_room_for_segment(number)?;
         }
     }
@@ -213,7 +236,7 @@ impl Index {
                     duration: started.elapsed(),
                 });
             }
-            let next = compact_published(old, view.revision().next()?)?;
+            let next = compact_published_with_cancel(old, view.revision().next()?, &cancelled)?;
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }

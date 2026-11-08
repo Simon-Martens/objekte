@@ -57,6 +57,17 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     std::fs::remove_file(&b).unwrap();
     let before = index.view().unwrap().search(&all()).unwrap();
     assert_eq!(before.count, Some(1));
+    let revision_before = index.view().unwrap().revision();
+    let checks = std::cell::Cell::new(0);
+    let cancelled = index.compact_with_control(
+        || {
+            checks.set(checks.get() + 1);
+            checks.get() >= 4
+        },
+        |_, _| {},
+    );
+    assert_eq!(cancelled.unwrap_err(), IndexError::Cancelled);
+    assert_eq!(index.view().unwrap().revision(), revision_before);
     let report = index.compact().unwrap();
     assert_eq!(report.slots_before, 3);
     assert_eq!(report.slots_after, 1);
