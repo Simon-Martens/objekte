@@ -7,6 +7,363 @@ use crate::repository::{Repository, RepositoryOptions, SnapshotMode};
 use crate::source::{SourceFormat, TextSegment};
 use crate::workload::ReturnMode;
 
+fn assert_same_preparation(file: &PreparedFileBuild, supplied: &PreparedFileBuild) {
+    if file.fingerprint.is_some() {
+        assert_eq!(file.fingerprint, supplied.fingerprint);
+    }
+    assert_eq!(file.source.id, supplied.source.id);
+    assert_eq!(file.source.revision, supplied.source.revision);
+    assert_eq!(file.collections.len(), supplied.collections.len());
+    for (expected, actual) in file.collections.iter().zip(&supplied.collections) {
+        assert_eq!(expected.collection, actual.collection);
+        assert_eq!(expected.source_id, actual.source_id);
+        assert_eq!(expected.source_version, actual.source_version);
+        assert_eq!(expected.contributions.len(), actual.contributions.len());
+        for (expected, actual) in expected.contributions.iter().zip(&actual.contributions) {
+            assert_eq!(expected.record_parses, actual.record_parses);
+            assert_eq!(expected.failed_parses, actual.failed_parses);
+            assert_eq!(expected.files[0].first_range, actual.files[0].first_range);
+            assert_eq!(expected.files[0].entry.status, actual.files[0].entry.status);
+            assert_eq!(
+                expected.files[0].entry.diagnostics,
+                actual.files[0].entry.diagnostics
+            );
+            assert_eq!(expected.records.len(), actual.records.len());
+            for (expected, actual) in expected.records.iter().zip(&actual.records) {
+                assert_eq!(expected.id, actual.id);
+                assert_eq!(expected.file, actual.file);
+                assert_eq!(expected.range, actual.range);
+                assert_eq!(expected.revision, actual.revision);
+                assert_eq!(expected.class, actual.class);
+            }
+        }
+    }
+}
+
+#[test]
+fn supplied_bytes_match_shared_jsonl_and_never_touch_source_path() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-supplied-jsonl-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("shared.jsonl");
+    let definitions = [
+        CollectionDefinition::folder("first", ".", SourceFormat::JsonLines),
+        CollectionDefinition::folder("second", ".", SourceFormat::JsonLines),
+    ];
+    let source = crate::source::SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    let bindings = definitions
+        .iter()
+        .enumerate()
+        .map(|(index, definition)| FilePreparationBinding {
+            collection: CollectionId(index as u32),
+            definition,
+            source: &source,
+        })
+        .collect::<Vec<_>>();
+    let inference = InferenceConfig {
+        mode: crate::inference::InferenceMode::Disabled,
+        policy: Default::default(),
+    };
+    for bytes in [
+        b"".as_slice(),
+        b"{\"name\":\"one\"}\n{broken}\n{\"name\":\"three\"}\n".as_slice(),
+    ] {
+        std::fs::write(&path, bytes).unwrap();
+        let input = SourceFileInput {
+            id: FileId(91),
+            relative_path: "shared.jsonl".into(),
+            revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+            created_ns: Some(123),
+        };
+        let expected = prepare_file_build(
+            &root,
+            input.clone(),
+            &bindings,
+            BigramAlphabet::Ascii,
+            inference,
+            1,
+        )
+        .unwrap();
+        std::fs::remove_file(&path).unwrap();
+        let supplied = prepare_file_build_from_bytes(
+            &root,
+            input,
+            bytes,
+            &bindings,
+            BigramAlphabet::Ascii,
+            inference,
+            1,
+        )
+        .unwrap();
+        assert_same_preparation(&expected, &supplied);
+        assert!(!path.exists());
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn supplied_bytes_match_registered_shifted_ranges_and_reject_wrong_size() {
+    use crate::source::{
+        DiagnosticCategory, ReaderDiagnostic, ReaderFailure, SourceReader, SourceRegistry,
+    };
+    use sha2::Digest;
+
+
+    struct ShiftedReader;
+
+
+    impl SourceReader for ShiftedReader {
+        fn name(&self) -> &'static str {
+            "shifted"
+        }
+
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            if bytes != b"header|one|two|" {
+                return Err("unsupported document".into());
+            }
+            Ok(vec![
+                ByteRange::checked(7, 10, bytes.len() as u64)?,
+                ByteRange::checked(11, 14, bytes.len() as u64)?,
+            ])
+        }
+
+        fn frame_outcome(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, ReaderFailure> {
+            if bytes == b"badframe" {
+                return Err(ReaderFailure::Malformed(ReaderDiagnostic::new(
+                    DiagnosticCategory::Framing,
+                    "shifted.frame",
+                    "invalid shifted frame",
+                )));
+            }
+            self.frame(bytes).map_err(ReaderFailure::Fatal)
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            if bytes != b"one" && bytes != b"two" {
+                return Err("unexpected record".into());
+            }
+            Ok(ExtractedRecord {
+                value: Value::Object(Default::default()),
+                text: Vec::new(),
+            })
+        }
+    }
+
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-supplied-shifted-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("shifted.shift");
+    let bytes = b"header|one|two|";
+    std::fs::write(&path, bytes).unwrap();
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register("shifted", 1, "shift", std::sync::Arc::new(ShiftedReader))
+        .unwrap();
+    let definition =
+        CollectionDefinition::folder("shifted", ".", SourceFormat::registered("shifted"));
+    let source = sources
+        .resolve(&SourceFormat::registered("shifted"))
+        .unwrap();
+    let binding = FilePreparationBinding {
+        collection: CollectionId(0),
+        definition: &definition,
+        source: &source,
+    };
+    let input = SourceFileInput {
+        id: FileId(301),
+        relative_path: "shifted.shift".into(),
+        revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        created_ns: None,
+    };
+    let inference = InferenceConfig {
+        mode: crate::inference::InferenceMode::Disabled,
+        policy: Default::default(),
+    };
+    let expected = prepare_file_build(
+        &root,
+        input.clone(),
+        &[binding],
+        BigramAlphabet::Ascii,
+        inference,
+        1,
+    )
+    .unwrap();
+    std::fs::remove_file(&path).unwrap();
+    let supplied = prepare_file_build_from_bytes(
+        &root,
+        input.clone(),
+        bytes,
+        &[binding],
+        BigramAlphabet::Ascii,
+        inference,
+        1,
+    )
+    .unwrap();
+    assert_same_preparation(&expected, &supplied);
+    assert_eq!(
+        supplied.collections[0].contributions[0].records[0]
+            .range
+            .start,
+        7
+    );
+    assert_eq!(
+        supplied.collections[0].contributions[0].records[1]
+            .range
+            .start,
+        11
+    );
+    assert!(!path.exists());
+    let mut wrong = input.clone();
+    wrong.revision.size += 1;
+    assert_eq!(
+        prepare_file_build_from_bytes(
+            &root,
+            wrong,
+            bytes,
+            &[binding],
+            BigramAlphabet::Ascii,
+            inference,
+            1,
+        )
+        .err(),
+        Some(BytesPreparationError::RevisionSizeMismatch {
+            declared: bytes.len() as u64 + 1,
+            actual: bytes.len() as u64,
+        })
+    );
+    let unsupported = b"unsupported";
+    let unsupported_input = SourceFileInput {
+        revision: SourceRevision {
+            modified_ns: 77,
+            size: unsupported.len() as u64,
+        },
+        ..input.clone()
+    };
+    assert_eq!(
+        prepare_file_build_from_bytes(
+            &root,
+            unsupported_input,
+            unsupported,
+            &[binding],
+            BigramAlphabet::Ascii,
+            inference,
+            1,
+        )
+        .err(),
+        Some(BytesPreparationError::UnsupportedReader {
+            source_id: "shifted".into(),
+            reason: "unsupported document".into(),
+        })
+    );
+    let malformed = b"badframe";
+    std::fs::write(&path, malformed).unwrap();
+    let malformed_input = SourceFileInput {
+        revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        ..input
+    };
+    let expected = prepare_file_build(
+        &root,
+        malformed_input.clone(),
+        &[binding],
+        BigramAlphabet::Ascii,
+        inference,
+        1,
+    )
+    .unwrap();
+    std::fs::remove_file(&path).unwrap();
+    let supplied = prepare_file_build_from_bytes(
+        &root,
+        malformed_input,
+        malformed,
+        &[binding],
+        BigramAlphabet::Ascii,
+        inference,
+        1,
+    )
+    .unwrap();
+    assert_same_preparation(&expected, &supplied);
+    assert_eq!(
+        supplied.fingerprint,
+        Some(sha2::Sha256::digest(malformed).into())
+    );
+    assert!(!path.exists());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn supplied_bytes_match_json_and_broken_fallback_without_file() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-supplied-json-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("data.json");
+    let definition = CollectionDefinition::folder("data", ".", SourceFormat::Json);
+    let source = crate::source::SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    let binding = FilePreparationBinding {
+        collection: CollectionId(0),
+        definition: &definition,
+        source: &source,
+    };
+    let inference = InferenceConfig {
+        mode: crate::inference::InferenceMode::Disabled,
+        policy: Default::default(),
+    };
+    for bytes in [b"{\"name\":\"one\"}".as_slice(), b"{broken}".as_slice()] {
+        std::fs::write(&path, bytes).unwrap();
+        let input = SourceFileInput {
+            id: FileId(19),
+            relative_path: "data.json".into(),
+            revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+            created_ns: None,
+        };
+        let expected = prepare_file_build(
+            &root,
+            input.clone(),
+            &[binding],
+            BigramAlphabet::Ascii,
+            inference,
+            1,
+        )
+        .unwrap();
+        std::fs::remove_file(&path).unwrap();
+        let supplied = prepare_file_build_from_bytes(
+            &root,
+            input,
+            bytes,
+            &[binding],
+            BigramAlphabet::Ascii,
+            inference,
+            1,
+        )
+        .unwrap();
+        assert_same_preparation(&expected, &supplied);
+        assert!(!path.exists());
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 #[test]
 fn single_file_preparation_handles_jsonl_cardinality_and_shared_membership() {
     use sha2::{Digest, Sha256};

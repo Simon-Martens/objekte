@@ -1,7 +1,7 @@
 //! Bounded file-batch contributions and deterministic index admission.
 
 use std::collections::{BTreeMap, HashMap, VecDeque};
-use std::io::{BufRead, BufReader, Read};
+use std::io::{BufRead, BufReader, Cursor, Read};
 use std::num::NonZeroUsize;
 use std::ops::Range;
 use std::path::Path;
@@ -33,7 +33,7 @@ use crate::repository::{
 use crate::sorting::{SortBuilder, SortKey};
 use crate::source::{
     BoundedBuildChunk, BoundedJsonLines, DiagnosticCategory, ExtractedRecord, PreparedSource,
-    ReaderDiagnostic, SourceOutcome, TextDerivation, extract_file_build_outcomes,
+    ReaderDiagnostic, ReaderFailure, SourceOutcome, TextDerivation, extract_file_build_outcomes,
     extract_framed_build_outcomes, frame_file_for_build, read_record_range_for_build,
     visit_logical_strings_and_empty,
 };
@@ -618,6 +618,24 @@ pub(crate) struct PreparedFileBuild {
 }
 
 
+/// Failure while preparing a complete replacement supplied by the caller.
+/// A registered reader that cannot frame supplied bytes must be handled by
+/// the path-based preparation route before publication.
+#[derive(Debug, Eq, PartialEq)]
+pub(crate) enum BytesPreparationError {
+    RevisionSizeMismatch { declared: u64, actual: u64 },
+    UnsupportedReader { source_id: String, reason: String },
+    Build(String),
+}
+
+
+impl From<String> for BytesPreparationError {
+    fn from(error: String) -> Self {
+        Self::Build(error)
+    }
+}
+
+
 struct HashingReader<'a, R> {
     inner: R,
     digest: Option<&'a mut Sha256>,
@@ -855,6 +873,206 @@ pub(crate) fn prepare_file_build(
         fingerprint,
         collections,
     })
+}
+
+/// Prepare a complete replacement without opening or writing its source path.
+/// The caller owns `bytes` and must validate the declared revision and file
+/// identity again before publishing the returned contributions. No raw payload
+/// is kept in the result.
+pub(crate) fn prepare_file_build_from_bytes(
+    root: &Path,
+    input: SourceFileInput,
+    bytes: &[u8],
+    bindings: &[FilePreparationBinding<'_>],
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+) -> Result<PreparedFileBuild, BytesPreparationError> {
+    let actual = u64::try_from(bytes.len())
+        .map_err(|_| BytesPreparationError::Build("source size overflow".into()))?;
+    if input.revision.size != actual {
+        return Err(BytesPreparationError::RevisionSizeMismatch {
+            declared: input.revision.size,
+            actual,
+        });
+    }
+    let fingerprint = Some(Sha256::digest(bytes).into());
+    let mut collections = Vec::with_capacity(bindings.len());
+    for binding in bindings {
+        let mut contributions = Vec::new();
+        if binding.source.reader().supports_bounded_json_lines_build() {
+            let mut reader = BoundedJsonLines::from_reader(BufReader::new(Cursor::new(bytes)));
+            let limits = BoundedBuildLimits::default();
+            while let Some(chunk) = reader
+                .next_chunk(limits.chunk_bytes, limits.ranges)
+                .map_err(BytesPreparationError::Build)?
+            {
+                contributions.push(process_framed_batch(
+                    root,
+                    &input,
+                    binding,
+                    &chunk.bytes,
+                    &chunk.ranges,
+                    chunk.file_offset,
+                    chunk.preceding_lines,
+                    contributions.is_empty(),
+                    alphabet,
+                    inference,
+                    inference_jobs,
+                )?);
+            }
+            if contributions.is_empty() {
+                contributions.push(process_framed_batch(
+                    root,
+                    &input,
+                    binding,
+                    &[],
+                    &[],
+                    0,
+                    0,
+                    true,
+                    alphabet,
+                    inference,
+                    inference_jobs,
+                )?);
+            }
+        } else {
+            match binding.source.reader().frame_outcome(bytes) {
+                Ok(ranges) => {
+                    validate_supplied_ranges(&ranges, actual)?;
+                    let mut start = 0;
+                    while start < ranges.len() {
+                        let mut end = start;
+                        let mut weight = 0u64;
+                        while end < ranges.len() && end - start < 256 {
+                            let size = ranges[end].end - ranges[end].start;
+                            if end > start && weight.saturating_add(size) > 1024 * 1024 {
+                                break;
+                            }
+                            weight = weight.saturating_add(size);
+                            end += 1;
+                        }
+                        contributions.push(process_framed_batch(
+                            root,
+                            &input,
+                            binding,
+                            bytes,
+                            &ranges[start..end],
+                            0,
+                            0,
+                            contributions.is_empty(),
+                            alphabet,
+                            inference,
+                            inference_jobs,
+                        )?);
+                        start = end;
+                    }
+                    if contributions.is_empty() {
+                        contributions.push(process_framed_batch(
+                            root,
+                            &input,
+                            binding,
+                            bytes,
+                            &[],
+                            0,
+                            0,
+                            true,
+                            alphabet,
+                            inference,
+                            inference_jobs,
+                        )?);
+                    }
+                }
+                Err(ReaderFailure::Malformed(diagnostic)) => {
+                    contributions.push(prepare_malformed_supplied_file(
+                        root,
+                        &input,
+                        binding,
+                        bytes,
+                        diagnostic,
+                        alphabet,
+                        inference,
+                        inference_jobs,
+                    )?);
+                }
+                Err(ReaderFailure::Fatal(reason)) => {
+                    return Err(BytesPreparationError::UnsupportedReader {
+                        source_id: binding.source.id().into(),
+                        reason,
+                    });
+                }
+            }
+        }
+        collections.push(PreparedCollectionBuild {
+            collection: binding.collection,
+            source_id: binding.source.id().into(),
+            source_version: binding.source.version(),
+            contributions,
+        });
+    }
+    Ok(PreparedFileBuild {
+        source: input,
+        fingerprint,
+        collections,
+    })
+}
+
+fn validate_supplied_ranges(ranges: &[ByteRange], size: u64) -> Result<(), BytesPreparationError> {
+    let mut previous_end = 0;
+    for range in ranges {
+        ByteRange::checked(range.start, range.end, size)
+            .map_err(|error| BytesPreparationError::Build(format!("reader contract: {error}")))?;
+        if range.start < previous_end {
+            return Err(BytesPreparationError::Build(
+                "reader contract: record ranges overlap or are out of order".into(),
+            ));
+        }
+        previous_end = range.end;
+    }
+    Ok(())
+}
+
+fn prepare_malformed_supplied_file(
+    root: &Path,
+    input: &SourceFileInput,
+    binding: &FilePreparationBinding<'_>,
+    bytes: &[u8],
+    diagnostic: ReaderDiagnostic,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+) -> Result<BatchContribution, BytesPreparationError> {
+    let path = root.join(&input.relative_path);
+    let mut file = input.for_collection(binding.collection);
+    let mut builder = BatchBuilder::new(
+        root,
+        binding.definition,
+        binding.collection,
+        binding.source,
+        alphabet,
+        inference,
+        inference_jobs,
+    )?;
+    builder.outcome(
+        &mut file,
+        &path,
+        SourceOutcome::Malformed {
+            range: ByteRange::checked(0, input.revision.size, input.revision.size)?,
+            diagnostic,
+            bytes: bytes.to_vec(),
+        },
+        None,
+    )?;
+    let count = builder.records.len();
+    Ok(builder.finish(
+        vec![BatchFile {
+            entry: file,
+            records: 0..count,
+            first_range: true,
+        }],
+        0,
+        0,
+    )?)
 }
 
 fn process_framed_batch(
