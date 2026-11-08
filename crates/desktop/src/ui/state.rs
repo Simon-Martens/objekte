@@ -8,8 +8,8 @@ use super::completion::{CompletionContext, CompletionTarget};
 use super::filter_builder::FieldChoice;
 use super::model::{
     BatchRow, BatchSource, DetailView, ErrorField, ExportFormat, FilterValidationState,
-    MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry, RecordTabSummary, ResultRow, SearchDraft,
-    SnapshotMode, TabViewState, UiUpdate,
+    IndexUiStatus, MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry, RecordTabSummary, ResultRow,
+    SearchDraft, SnapshotMode, TabViewState, UiUpdate,
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
 
@@ -96,6 +96,14 @@ pub struct UiState {
     pub action_panel: ActionPanel,
     pub export_format: ExportFormat,
     pub index_mode: SnapshotMode,
+    pub index_status: IndexUiStatus,
+    pub index_load_draft: String,
+    pub index_save_draft: String,
+    pub index_overwrite_pending: Option<String>,
+    pub index_interval_draft: String,
+    pub index_interval_error: Option<String>,
+    pub index_picker_generation: u64,
+    pub result_outdated: bool,
     pub show_raw: bool,
     pub show_links: bool,
     pub sidebar_visible: bool,
@@ -162,6 +170,13 @@ impl UiState {
                 self.detail_source = None;
                 self.inspector_visible = false;
                 self.diagnostics.clear();
+                self.index_status = IndexUiStatus::default();
+                self.index_load_draft.clear();
+                self.index_save_draft.clear();
+                self.index_overwrite_pending = None;
+                self.index_interval_draft.clear();
+                self.index_interval_error = None;
+                self.result_outdated = false;
                 self.preference_write_failed = false;
                 self.busy = Busy::None;
                 self.status = "Repository ready".into();
@@ -181,7 +196,27 @@ impl UiState {
                 self.errors.remove(&ErrorField::Sort);
                 self.errors.remove(&ErrorField::Range);
             }
+            UiUpdate::IndexReplaced(status) => {
+                self.install_index_status(status, true);
+                self.result_outdated = true;
+            }
+            UiUpdate::IndexStatus(status) => self.install_index_status(status, false),
+            UiUpdate::SaveIndexOverwriteRequired(path) => self.index_overwrite_pending = Some(path),
+            UiUpdate::ResultsOutdated(outdated) => self.result_outdated = outdated,
+            UiUpdate::ChosenIndexLoadPath { generation, path } => {
+                if generation == self.index_picker_generation {
+                    self.index_load_draft = path;
+                }
+            }
+            UiUpdate::ChosenIndexSavePath { generation, path } => {
+                if generation == self.index_picker_generation {
+                    self.index_save_draft = path;
+                }
+            }
             UiUpdate::Page(mut page) => {
+                if page.incomplete {
+                    page.exact_total = None;
+                }
                 for (index, column) in page.columns.iter().enumerate() {
                     self.column_widths.entry(column.clone()).or_insert_with(|| {
                         if column == "@status" { return 68.; }
@@ -204,7 +239,7 @@ impl UiState {
                 self.projected_rows.clear();
                 self.cached_page_starts.clear();
                 self.has_more = page.has_next;
-                if !self.has_more && page.exact_total.is_none() && (page.offset == 0 || self.delivered_count > 0) {
+                if !self.has_more && !page.incomplete && page.exact_total.is_none() && (page.offset == 0 || self.delivered_count > 0) {
                     page.exact_total = Some(self.loaded_count);
                 }
                 self.loading_more = false;
@@ -212,8 +247,11 @@ impl UiState {
                 self.insert_projection(&mut page);
                 self.page = page;
                 self.showing_last_valid_results = false;
+                self.result_outdated = false;
                 self.busy = Busy::None;
-                self.status = if self.delivered_count == 0 {
+                self.status = if self.page.incomplete {
+                    "Some results could not be checked".into()
+                } else if self.delivered_count == 0 {
                     "No matching records".into()
                 } else {
                     format!("{} records loaded", self.delivered_count)
@@ -248,12 +286,19 @@ impl UiState {
                 self.has_more = page.has_next;
                 self.loading_more = false;
                 self.continuation_error = None;
-                if let Some(total) = page.exact_total {
+                self.page.incomplete |= page.incomplete;
+                if self.page.incomplete {
+                    self.page.exact_total = None;
+                } else if let Some(total) = page.exact_total {
                     self.page.exact_total = Some(total);
                 } else if !self.has_more {
                     self.page.exact_total = Some(self.loaded_count);
                 }
-                self.status = format!("{} records loaded", self.delivered_count);
+                self.status = if self.page.incomplete {
+                    "Some results could not be checked".into()
+                } else {
+                    format!("{} records loaded", self.delivered_count)
+                };
             }
             UiUpdate::Projection(mut page) => {
                 page = page.bounded();
@@ -270,7 +315,9 @@ impl UiState {
             }
             UiUpdate::CountStarted => self.page.count_pending = true,
             UiUpdate::ExactCount(total) => {
-                self.page.exact_total = Some(total);
+                if !self.page.incomplete {
+                    self.page.exact_total = Some(total);
+                }
                 self.page.count_pending = false;
             }
             UiUpdate::CountFailed(message) => {
@@ -471,6 +518,19 @@ impl UiState {
             }
             UiUpdate::Theme { dark } => self.dark = dark,
         }
+    }
+
+    fn install_index_status(&mut self, status: IndexUiStatus, replacement: bool) {
+        if replacement || self.index_status.index_instance != status.index_instance {
+            self.index_load_draft = status.loaded_from.clone().unwrap_or_default();
+            self.index_save_draft = status.save_destination.clone().unwrap_or_default();
+            self.index_interval_draft = status.check_interval_seconds.to_string();
+            self.index_interval_error = None;
+        }
+        if matches!(status.save, super::model::IndexTaskState::Succeeded(_)) {
+            self.index_overwrite_pending = None;
+        }
+        self.index_status = status;
     }
 
     /// At most three 4 MiB page projections are resident. Result locators live
