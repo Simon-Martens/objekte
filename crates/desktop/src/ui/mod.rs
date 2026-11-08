@@ -9,6 +9,7 @@ mod state;
 use std::sync::mpsc::Sender;
 
 use gpui_kit::component::input::{InputEvent, InputState, TextareaState};
+use gpui_kit::component::{Theme, ThemeMode};
 use gpui_kit::{AppContext as _, Context, Entity, FocusHandle, Subscription, Window};
 
 use model::{SearchDraft, UiAction, UiUpdate};
@@ -104,6 +105,17 @@ impl DesktopView {
 
     /// Apply one controller-validated update; only bounded display data remains.
     pub fn apply(&mut self, update: UiUpdate, window: &mut Window, cx: &mut Context<Self>) {
+        if let UiUpdate::Theme { dark } = &update {
+            Theme::change(
+                if *dark {
+                    ThemeMode::Dark
+                } else {
+                    ThemeMode::Light
+                },
+                Some(window),
+                cx,
+            );
+        }
         if let UiUpdate::ChosenPaths(paths) = &update {
             self.inputs
                 .paths
