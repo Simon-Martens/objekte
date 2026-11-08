@@ -1688,7 +1688,16 @@ impl IndexView {
     }
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
-        self.require_base_only("reference search")?;
+        if self.0.segments.iter().any(|segments| !segments.is_empty()) {
+            return crate::run::search_segmented_reference(
+                self.repository(),
+                query,
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+            );
+        }
         self.repository()
             .search_reference_with_active(query, Some(&self.0.active))
             .map(|result| self.stamp_result(result))
