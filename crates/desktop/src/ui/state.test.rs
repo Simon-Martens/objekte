@@ -4,8 +4,10 @@ use crate::ui::model::{ResultRow, RowKey};
 
 #[test]
 fn new_repository_discards_old_results_and_detail() {
-    let mut state = UiState::default();
-    state.root = Some("old".into());
+    let mut state = UiState {
+        root: Some("old".into()),
+        ..UiState::default()
+    };
     state.page.rows.push(ResultRow {
         key: RowKey {
             token: 1,
@@ -42,4 +44,47 @@ fn query_restore_keeps_exact_inputs() {
     };
     state.apply(UiUpdate::RestoreQuery(draft.clone()));
     assert_eq!(state.search, draft);
+}
+
+#[test]
+fn page_refresh_keeps_detail_for_same_selected_token() {
+    let mut state = UiState::default();
+    let page = PageView {
+        rows: vec![ResultRow {
+            key: RowKey {
+                token: 42,
+                collection: "docs".into(),
+                record_id: "1".into(),
+                file: "a.json".into(),
+                byte_start: 0,
+            },
+            cells: vec!["first".into()],
+            matched_fields: vec![],
+            preview: Some("preview".into()),
+        }],
+        selected: Some(0),
+        ..PageView::default()
+    };
+    state.apply(UiUpdate::Page(page.clone()));
+    state.apply(UiUpdate::Detail(Some(DetailView {
+        title: "record".into(),
+        ..DetailView::default()
+    })));
+    state.show_raw = true;
+    state.apply(UiUpdate::Page(page));
+    assert_eq!(state.detail.as_ref().unwrap().title, "record");
+    assert!(state.show_raw);
+    state.apply(UiUpdate::QueryStarted("Searching".into()));
+    assert!(state.detail.is_none());
+}
+
+#[test]
+fn columns_update_preserves_hidden_choices() {
+    let mut state = UiState::default();
+    state.apply(UiUpdate::Columns {
+        available: vec!["id".into(), "title".into()],
+        hidden: vec!["title".into()],
+    });
+    assert_eq!(state.available_columns, ["id", "title"]);
+    assert_eq!(state.hidden_columns, ["title"]);
 }

@@ -1,6 +1,7 @@
 //! Read-only workspace layout inspired by DBDelve's dense sidebar and grid.
 
 use gpui_kit::component::{
+    Disableable as _,
     button::{Button, ButtonVariants},
     checkbox::Checkbox,
     input::Input,
@@ -8,7 +9,7 @@ use gpui_kit::component::{
 };
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::{
-    Context, InteractiveElement as _, IntoElement, ParentElement as _, Render,
+    Context, Focusable as _, InteractiveElement as _, IntoElement, ParentElement as _, Render,
     StatefulInteractiveElement as _, Styled as _, Window, div, px, rgb,
 };
 
@@ -163,7 +164,16 @@ impl DesktopView {
                     .gap_3()
                     .child(
                         Checkbox::new("case-sensitive")
-                            .label("Case sensitive")
+                            .accessibility_label("Case sensitive")
+                            .child(
+                                div()
+                                    .text_color(rgb(if self.state.dark {
+                                        0xe2e8f0
+                                    } else {
+                                        0x172033
+                                    }))
+                                    .child("Case sensitive"),
+                            )
                             .checked(self.state.search.case_sensitive)
                             .on_change(cx.listener(|this, checked: &bool, _, cx| {
                                 this.state.search.case_sensitive = *checked;
@@ -172,7 +182,16 @@ impl DesktopView {
                     )
                     .child(
                         Checkbox::new("regex-search")
-                            .label("Regex")
+                            .accessibility_label("Regex")
+                            .child(
+                                div()
+                                    .text_color(rgb(if self.state.dark {
+                                        0xe2e8f0
+                                    } else {
+                                        0x172033
+                                    }))
+                                    .child("Regex"),
+                            )
                             .checked(self.state.search.regex)
                             .on_change(cx.listener(|this, checked: &bool, _, cx| {
                                 this.state.search.regex = *checked;
@@ -181,7 +200,16 @@ impl DesktopView {
                     )
                     .child(
                         Checkbox::new("exact-count")
-                            .label("Exact count")
+                            .accessibility_label("Exact count")
+                            .child(
+                                div()
+                                    .text_color(rgb(if self.state.dark {
+                                        0xe2e8f0
+                                    } else {
+                                        0x172033
+                                    }))
+                                    .child("Exact count"),
+                            )
                             .checked(self.state.search.count)
                             .on_change(cx.listener(|this, checked: &bool, _, cx| {
                                 this.state.search.count = *checked;
@@ -222,6 +250,7 @@ impl DesktopView {
                             .label("Columns")
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_columns = !this.state.show_columns;
+                                this.state.show_actions |= this.state.show_columns;
                                 cx.notify();
                             })),
                     )
@@ -297,12 +326,22 @@ impl DesktopView {
                     .child(div().child("Results"))
                     .child(div().text_sm().child(total))
                     .child(div().flex_1())
-                    .child(Button::new("previous-page").label("Previous").on_click(
-                        cx.listener(|this, _, _, _| this.send(UiAction::PageRelative(-1))),
-                    ))
-                    .child(Button::new("next-page").label("Next").on_click(
-                        cx.listener(|this, _, _, _| this.send(UiAction::PageRelative(1))),
-                    ))
+                    .child(
+                        Button::new("previous-page")
+                            .label("Previous")
+                            .disabled(!page.has_previous)
+                            .on_click(
+                                cx.listener(|this, _, _, _| this.send(UiAction::PageRelative(-1))),
+                            ),
+                    )
+                    .child(
+                        Button::new("next-page")
+                            .label("Next")
+                            .disabled(!page.has_next)
+                            .on_click(
+                                cx.listener(|this, _, _, _| this.send(UiAction::PageRelative(1))),
+                            ),
+                    )
                     .child(
                         Button::new("open-detail")
                             .label("Inspect")
@@ -312,6 +351,18 @@ impl DesktopView {
             .child(
                 div()
                     .id("results-scroll")
+                    .track_focus(&self.grid_focus)
+                    .on_key_down(cx.listener(|this, event: &gpui_kit::KeyDownEvent, _, cx| {
+                        match event.keystroke.key.as_str() {
+                            "up" => this.select_relative(-1, cx),
+                            "down" => this.select_relative(1, cx),
+                            "pageup" => this.send(UiAction::PageRelative(-1)),
+                            "pagedown" => this.send(UiAction::PageRelative(1)),
+                            "enter" => this.send(UiAction::OpenDetail),
+                            _ => return,
+                        }
+                        cx.stop_propagation();
+                    }))
                     .flex()
                     .flex_col()
                     .flex_1()
@@ -320,12 +371,20 @@ impl DesktopView {
                     .child(header)
                     .children(page.rows.into_iter().enumerate().map(|(index, row)| {
                         let chosen = selected == Some(index);
-                        let shade = if chosen {
-                            0x294d62
+                        let shade = if self.state.dark {
+                            if chosen {
+                                0x294d62
+                            } else if index % 2 == 0 {
+                                0x222a35
+                            } else {
+                                0x1a222d
+                            }
+                        } else if chosen {
+                            0xc8e4f3
                         } else if index % 2 == 0 {
-                            0x222a35
+                            0xffffff
                         } else {
-                            0x1a222d
+                            0xf1f5f9
                         };
                         let mut line = div()
                             .id(("result-row", index))
@@ -337,11 +396,24 @@ impl DesktopView {
                         for cell in row.cells.into_iter().take(visible_columns) {
                             line = line.child(div().w(px(160.)).child(cell));
                         }
-                        line.on_click(cx.listener(move |this, _, _, cx| {
+                        let match_label = row
+                            .matched_fields
+                            .into_iter()
+                            .take(4)
+                            .collect::<Vec<_>>()
+                            .join(", ");
+                        let line = line.on_click(cx.listener(move |this, _, window, cx| {
+                            window.focus(&this.grid_focus, cx);
                             this.state.page.selected = Some(index);
                             this.send(UiAction::SelectRow(index));
                             cx.notify();
-                        }))
+                        }));
+                        div().flex().flex_col().child(line).when(
+                            chosen && !match_label.is_empty(),
+                            |this| {
+                                this.child(div().text_sm().child(format!("Matched: {match_label}")))
+                            },
+                        )
                     }))
                     .overflow_scrollbar(),
             )
@@ -373,6 +445,39 @@ impl DesktopView {
 impl Render for DesktopView {
     fn render(&mut self, _: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         div()
+            .id("desktop-root")
+            .on_key_down(
+                cx.listener(|this, event: &gpui_kit::KeyDownEvent, window, cx| {
+                    let key = event.keystroke.key.as_str();
+                    if event.keystroke.modifiers.control {
+                        match key {
+                            "o" => this.state.show_open_options = true,
+                            "f" => {
+                                let focus = this.inputs.full_text.read(cx).focus_handle(cx);
+                                window.focus(&focus, cx);
+                            }
+                            "l" => {
+                                let focus = this.inputs.structured.read(cx).focus_handle(cx);
+                                window.focus(&focus, cx);
+                            }
+                            _ => return,
+                        }
+                    } else {
+                        match key {
+                            "f1" => this.state.show_help = !this.state.show_help,
+                            "escape" => {
+                                this.state.show_help = false;
+                                this.state.show_actions = false;
+                                this.state.show_batch = false;
+                                this.state.show_open_options = false;
+                            }
+                            _ => return,
+                        }
+                    }
+                    cx.stop_propagation();
+                    cx.notify();
+                }),
+            )
             .flex()
             .flex_col()
             .size_full()

@@ -1,6 +1,7 @@
 //! Ordinary controls for opening, inspection, history, and output actions.
 
 use gpui_kit::component::{
+    Disableable as _,
     button::{Button, ButtonVariants},
     checkbox::Checkbox,
     input::{Input, Textarea},
@@ -14,7 +15,8 @@ use gpui_kit::{
 
 use super::DesktopView;
 use super::model::{
-    DetailOrigin, DetailValueKind, ErrorField, ExportFormat, OpenMode, SnapshotMode, UiAction,
+    BatchSource, DetailOrigin, DetailValueKind, ErrorField, ExportFormat, OpenMode, SnapshotMode,
+    UiAction,
 };
 
 
@@ -85,7 +87,16 @@ impl DesktopView {
                     )
                     .child(
                         Checkbox::new("recursive")
-                            .label("Recursive")
+                            .accessibility_label("Recursive")
+                            .child(
+                                div()
+                                    .text_color(rgb(if self.state.dark {
+                                        0xe2e8f0
+                                    } else {
+                                        0x172033
+                                    }))
+                                    .child("Recursive"),
+                            )
                             .checked(self.state.open.recursive)
                             .on_change(cx.listener(|this, checked: &bool, _, cx| {
                                 this.state.open.recursive = *checked;
@@ -94,7 +105,16 @@ impl DesktopView {
                     )
                     .child(
                         Checkbox::new("auto-index")
-                            .label("Auto index")
+                            .accessibility_label("Auto index")
+                            .child(
+                                div()
+                                    .text_color(rgb(if self.state.dark {
+                                        0xe2e8f0
+                                    } else {
+                                        0x172033
+                                    }))
+                                    .child("Auto index"),
+                            )
                             .checked(self.state.open.auto_index)
                             .on_change(cx.listener(|this, checked: &bool, _, cx| {
                                 this.state.open.auto_index = *checked;
@@ -103,7 +123,16 @@ impl DesktopView {
                     )
                     .child(
                         Checkbox::new("unicode-index")
-                            .label("Unicode index alphabet")
+                            .accessibility_label("Unicode index alphabet")
+                            .child(
+                                div()
+                                    .text_color(rgb(if self.state.dark {
+                                        0xe2e8f0
+                                    } else {
+                                        0x172033
+                                    }))
+                                    .child("Unicode index alphabet"),
+                            )
                             .checked(self.state.open.unicode_index)
                             .on_change(cx.listener(|this, checked: &bool, _, cx| {
                                 this.state.open.unicode_index = *checked;
@@ -112,7 +141,16 @@ impl DesktopView {
                     )
                     .child(
                         Checkbox::new("diagnostics")
-                            .label("Diagnostics")
+                            .accessibility_label("Diagnostics")
+                            .child(
+                                div()
+                                    .text_color(rgb(if self.state.dark {
+                                        0xe2e8f0
+                                    } else {
+                                        0x172033
+                                    }))
+                                    .child("Diagnostics"),
+                            )
                             .checked(self.state.open.diagnostic)
                             .on_change(cx.listener(|this, checked: &bool, _, cx| {
                                 this.state.open.diagnostic = *checked;
@@ -191,14 +229,46 @@ impl DesktopView {
     pub(super) fn render_batch(&self, cx: &mut Context<Self>) -> impl IntoElement {
         let error = self.state.errors.get(&ErrorField::Batch).cloned();
         let rows = self.state.batch.clone();
+        let outcome = self.state.batch_outcome.clone();
         div()
             .id("batch-panel")
+            .max_h(px(240.))
+            .overflow_y_scrollbar()
             .flex()
             .flex_col()
             .gap_2()
             .p_3()
             .bg(rgb(if self.state.dark { 0x202a35 } else { 0xe8f0f7 }))
             .child(div().child("Query batch: paste one query per physical line or choose a file"))
+            .child(
+                div()
+                    .flex()
+                    .gap_2()
+                    .child(
+                        Button::new("batch-source-paste")
+                            .label(if self.state.batch_source == BatchSource::PastedText {
+                                "● Pasted lines"
+                            } else {
+                                "Pasted lines"
+                            })
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.batch_source = BatchSource::PastedText;
+                                cx.notify();
+                            })),
+                    )
+                    .child(
+                        Button::new("batch-source-file")
+                            .label(if self.state.batch_source == BatchSource::QueryFile {
+                                "● Query file"
+                            } else {
+                                "Query file"
+                            })
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.batch_source = BatchSource::QueryFile;
+                                cx.notify();
+                            })),
+                    ),
+            )
             .child(
                 Input::new(&self.inputs.batch_path)
                     .id("batch-file-path")
@@ -210,6 +280,11 @@ impl DesktopView {
                     .child(Textarea::new(&self.inputs.batch_text).w_full().h(px(100.))),
             )
             .child(
+                Input::new(&self.inputs.batch_output_path)
+                    .id("batch-output-path")
+                    .w_full(),
+            )
+            .child(
                 div()
                     .flex()
                     .gap_2()
@@ -219,8 +294,15 @@ impl DesktopView {
                             .label("Run Batch")
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.send(UiAction::RunBatch {
+                                    source: this.state.batch_source,
                                     text: this.inputs.batch_text.read(cx).value().to_string(),
                                     path: this.inputs.batch_path.read(cx).value().to_string(),
+                                    output_path: this
+                                        .inputs
+                                        .batch_output_path
+                                        .read(cx)
+                                        .value()
+                                        .to_string(),
                                 });
                             })),
                     )
@@ -238,6 +320,9 @@ impl DesktopView {
                         .child(error.unwrap_or_default()),
                 )
             })
+            .when(outcome.is_some(), |this| {
+                this.child(div().text_sm().child(outcome.unwrap_or_default()))
+            })
             .children(rows.into_iter().map(|row| {
                 div().text_sm().child(format!(
                     "Line {}: {} — {}",
@@ -250,9 +335,30 @@ impl DesktopView {
 
     pub(super) fn render_detail(&self, cx: &mut Context<Self>) -> impl IntoElement {
         let detail = self.state.detail.clone();
+        let preview = self
+            .state
+            .page
+            .selected
+            .and_then(|index| self.state.page.rows.get(index))
+            .and_then(|row| row.preview.clone());
         let mut panel =
             div()
                 .id("record-panel")
+                .track_focus(&self.detail_focus)
+                .on_key_down(
+                    cx.listener(|this, event: &gpui_kit::KeyDownEvent, window, cx| {
+                        if window.focused(cx).as_ref() != Some(&this.detail_focus) {
+                            return;
+                        }
+                        match event.keystroke.key.as_str() {
+                            "up" => this.select_detail_relative(-1, cx),
+                            "down" => this.select_detail_relative(1, cx),
+                            "enter" => this.activate_detail_row(),
+                            _ => return,
+                        }
+                        cx.stop_propagation();
+                    }),
+                )
                 .flex()
                 .flex_col()
                 .w(px(365.))
@@ -277,7 +383,16 @@ impl DesktopView {
                         .child(Button::new("close-detail").label("Close").on_click(
                             cx.listener(|this, _, _, _| this.send(UiAction::CloseDetail)),
                         )),
-                );
+                )
+                .when(self.state.show_preview && preview.is_some(), |this| {
+                    this.child(div().text_sm().child("Preview")).child(
+                        div()
+                            .id("record-preview")
+                            .max_h(px(110.))
+                            .child(preview.unwrap_or_default())
+                            .overflow_y_scrollbar(),
+                    )
+                });
         let Some(detail) = detail else {
             return panel.child(
                 div()
@@ -310,6 +425,23 @@ impl DesktopView {
                         ))
                         .child(Button::new("copy-record").label("Copy record").on_click(
                             cx.listener(|this, _, _, _| this.send(UiAction::CopyRecord)),
+                        )),
+                )
+                .child(
+                    div()
+                        .flex()
+                        .gap_1()
+                        .child(
+                            Button::new("previous-section")
+                                .label("Previous section")
+                                .on_click(cx.listener(|this, _, _, _| {
+                                    this.send(UiAction::DetailSectionRelative(false))
+                                })),
+                        )
+                        .child(Button::new("next-section").label("Next section").on_click(
+                            cx.listener(|this, _, _, _| {
+                                this.send(UiAction::DetailSectionRelative(true))
+                            }),
                         )),
                 )
                 .child(
@@ -376,18 +508,37 @@ impl DesktopView {
                                             "unavailable logical data".into()
                                         }
                                     };
+                                    let marker = if row.expandable {
+                                        if row.expanded { "▾ " } else { "▸ " }
+                                    } else {
+                                        ""
+                                    };
+                                    let matched = if row.matched { " · match" } else { "" };
+                                    let selected = detail.selected_row == index;
                                     div()
                                         .id(("detail-row", index))
                                         .flex()
                                         .flex_col()
                                         .py_1()
+                                        .bg(rgb(if selected {
+                                            if self.state.dark { 0x294d62 } else { 0xc8e4f3 }
+                                        } else if self.state.dark {
+                                            0x17202b
+                                        } else {
+                                            0xf2f6fa
+                                        }))
                                         .child(div().text_sm().child(format!(
-                                            "{}{} · {kind}",
+                                            "{}{}{} · {kind}{matched}",
                                             "  ".repeat(row.depth.min(10)),
+                                            marker,
                                             row.label
                                         )))
                                         .child(div().child(value))
-                                        .on_click(cx.listener(move |this, _, _, cx| {
+                                        .on_click(cx.listener(move |this, _, window, cx| {
+                                            window.focus(&this.detail_focus, cx);
+                                            if let Some(detail) = this.state.detail.as_mut() {
+                                                detail.selected_row = index;
+                                            }
                                             this.send(UiAction::DetailRowSelected(index));
                                             if row.expandable {
                                                 this.send(UiAction::ToggleDetailExpansion(index));
@@ -400,6 +551,7 @@ impl DesktopView {
                             |(index, relation)| {
                                 Button::new(format!("relation-{index}"))
                                     .label(format!("{}: {}", relation.label, relation.value))
+                                    .disabled(!relation.available)
                                     .on_click(cx.listener(move |this, _, _, _| {
                                         this.send(UiAction::FollowRelation(index))
                                     }))
@@ -429,10 +581,13 @@ impl DesktopView {
     pub(super) fn render_actions(&self, cx: &mut Context<Self>) -> impl IntoElement {
         let history = self.state.history.clone();
         let saved = self.state.saved.clone();
-        let columns = self.state.page.columns.clone();
+        let columns = self.state.available_columns.clone();
+        let hidden_columns = self.state.hidden_columns.clone();
         let export_error = self.state.errors.get(&ErrorField::Export).cloned();
         div()
             .id("action-panel")
+            .max_h(px(240.))
+            .overflow_y_scrollbar()
             .flex()
             .flex_col()
             .gap_2()
@@ -501,7 +656,14 @@ impl DesktopView {
             .when(self.state.show_columns, |this| {
                 this.children(columns.into_iter().map(|column| {
                     Button::new(format!("column-{column}"))
-                        .label(column.clone())
+                        .label(format!(
+                            "{} {column}",
+                            if hidden_columns.contains(&column) {
+                                "○"
+                            } else {
+                                "●"
+                            }
+                        ))
                         .on_click(cx.listener(move |this, _, _, _| {
                             this.send(UiAction::ToggleColumn(column.clone()))
                         }))
@@ -562,6 +724,8 @@ impl DesktopView {
             .child(div().child("Help"))
             .child(div().text_sm().child("Use Open to choose a folder or configured repository. Type in Full Text and Structured independently; they run together."))
             .child(div().text_sm().child("Enter confirms a query. Select a result and Inspect to view fields. Use Previous/Next for bounded pages."))
+            .child(div().text_sm().child("Ctrl+O opens repository choices; Ctrl+F focuses Full Text; Ctrl+L focuses Structured. F1 opens Help; Escape closes panels."))
+            .child(div().text_sm().child("Click a result to focus the grid. Up/Down select rows; Page Up/Down change pages; Enter inspects the selected record."))
             .child(div().text_sm().child("Save Query stores query inputs. Export Results and Write Index are explicit derived-output actions. Source documents remain read-only."))
     }
 }

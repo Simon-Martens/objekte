@@ -5,7 +5,7 @@ mod clipboard;
 pub mod export;
 mod input;
 mod record;
-mod relations;
+pub mod relations;
 pub mod settings;
 #[cfg(test)]
 mod test_support;
