@@ -3,6 +3,9 @@
 use std::error::Error;
 use std::fs;
 use std::path::{Path, PathBuf};
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::{Arc, mpsc};
+use std::thread;
 use std::time::{Duration, Instant};
 
 use objekte_search_core::lifecycle::Index;
@@ -12,6 +15,128 @@ use objekte_search_core::query::{Query, QueryOptions};
 use objekte_search_core::repository::RepositoryOptions;
 use objekte_search_core::storage::snapshot_path;
 use objekte_search_core::workload::ReturnMode;
+
+struct QueryProbe {
+    times_ns: Vec<u64>,
+    errors: usize,
+}
+
+impl QueryProbe {
+    fn detail(mut self) -> String {
+        self.times_ns.sort_unstable();
+        let n = self.times_ns.len();
+        if n == 0 {
+            return format!("probe_samples=0;probe_errors={}", self.errors);
+        }
+        let ms = |i: usize| self.times_ns[i] as f64 / 1_000_000.0;
+        format!(
+            "probe_samples={n};probe_p50_ms={:.4};probe_p95_ms={:.4};probe_p99_ms={:.4};probe_max_ms={:.4};probe_errors={}",
+            ms(n / 2),
+            ms((n - 1) * 95 / 100),
+            ms((n - 1) * 99 / 100),
+            ms(n - 1),
+            self.errors
+        )
+    }
+}
+
+fn maintenance_query() -> Query {
+    Query {
+        collections: vec!["agents".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 50,
+            offset: 500,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    }
+}
+
+fn while_querying<T>(
+    index: &Index,
+    query: &Query,
+    action: impl FnOnce() -> Result<T, Box<dyn Error>>,
+) -> Result<(T, Duration, QueryProbe), Box<dyn Error>> {
+    let owner = index.clone();
+    let query = query.clone();
+    let stop = Arc::new(AtomicBool::new(false));
+    let worker_stop = Arc::clone(&stop);
+    let (ready_send, ready_recv) = mpsc::channel();
+    let worker = thread::spawn(move || {
+        let warm = owner
+            .view()
+            .map_err(|error| error.to_string())
+            .and_then(|view| view.search(&query));
+        let expected = warm
+            .as_ref()
+            .map(|result| (result.count, result.hits.len()))
+            .map_err(Clone::clone);
+        let _ = ready_send.send(expected.as_ref().map(|_| ()).map_err(Clone::clone));
+        let mut probe = QueryProbe {
+            times_ns: Vec::new(),
+            errors: 0,
+        };
+        if expected.is_err() {
+            return probe;
+        }
+        while !worker_stop.load(Ordering::Acquire) {
+            let started = Instant::now();
+            let result = owner
+                .view()
+                .map_err(|error| error.to_string())
+                .and_then(|view| view.search(&query));
+            probe.times_ns.push(started.elapsed().as_nanos() as u64);
+            match result {
+                Ok(result) if Ok((result.count, result.hits.len())) == expected => {}
+                _ => probe.errors += 1,
+            }
+            thread::sleep(Duration::from_millis(2));
+        }
+        probe
+    });
+    ready_recv.recv_timeout(Duration::from_secs(10))??;
+    let started = Instant::now();
+    let result = action();
+    let elapsed = started.elapsed();
+    stop.store(true, Ordering::Release);
+    let probe = worker.join().map_err(|_| "query probe panicked")?;
+    Ok((result?, elapsed, probe))
+}
+
+fn batch_update(index: &Index, paths: &[PathBuf]) -> Result<(Duration, String), Box<dyn Error>> {
+    let mut inputs = Vec::with_capacity(paths.len());
+    for path in paths {
+        let handle = index
+            .view()?
+            .file_handle_for_path(path)
+            .ok_or("batch file missing")?;
+        let mut bytes = fs::read(path)?;
+        bytes.extend_from_slice(b" \n");
+        fs::write(path, bytes)?;
+        inputs.push((handle, path));
+    }
+    let started = Instant::now();
+    let mut times = Vec::with_capacity(inputs.len());
+    for (handle, path) in inputs {
+        let one = Instant::now();
+        index.update_file(handle, path)?;
+        times.push(one.elapsed().as_nanos() as u64);
+    }
+    let elapsed = started.elapsed();
+    times.sort_unstable();
+    let n = times.len();
+    let detail = format!(
+        "batch_files={n};update_p50_ms={:.4};update_p95_ms={:.4};update_max_ms={:.4}",
+        times[n / 2] as f64 / 1_000_000.0,
+        times[(n - 1) * 95 / 100] as f64 / 1_000_000.0,
+        times[n - 1] as f64 / 1_000_000.0,
+    );
+    Ok((elapsed, detail))
+}
 
 fn memory_kb(label: &str) -> u64 {
     fs::read_to_string("/proc/self/status")
@@ -97,8 +222,8 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
     if std::env::var("OBJEKTE_BENCH_MUTATE_COPY").as_deref() != Ok("1") {
         return Err("set OBJEKTE_BENCH_MUTATE_COPY=1 for a disposable fixture copy".into());
     }
-    if !matches!(mode, "small" | "large") {
-        return Err("mode must be small or large".into());
+    if !matches!(mode, "small" | "large" | "stress") {
+        return Err("mode must be small, large, or stress".into());
     }
     if mode == "small" {
         setup_small(root)?;
@@ -144,6 +269,14 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
         format!("collection_count={}", count(&index, collection)?),
     );
     let base_count = count(&index, collection)?;
+    let probe_query = (mode == "stress").then(maintenance_query);
+    if let Some(query) = &probe_query {
+        let (_, elapsed, probe) = while_querying(&index, query, || {
+            thread::sleep(Duration::from_millis(500));
+            Ok(())
+        })?;
+        emit("query_steady", elapsed, &index, probe.detail());
+    }
 
     fs::write(&add_path, &added_bytes)?;
     let started = Instant::now();
@@ -227,34 +360,152 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
         ),
     );
 
-    let started = Instant::now();
-    let compacted = index.compact()?;
+    if let Some(query) = &probe_query {
+        let mut paths = fs::read_dir(root.join("data/contents"))?
+            .filter_map(Result::ok)
+            .map(|entry| entry.path())
+            .filter(|path| path.extension().is_some_and(|ext| ext == "json"))
+            .collect::<Vec<_>>();
+        paths.sort();
+        if paths.len() < 137 {
+            return Err("stress fixture needs at least 137 JSON files".into());
+        }
+        let verified_path = &paths[136];
+        let verified_handle = index
+            .view()?
+            .file_handle_for_path(verified_path)
+            .ok_or("verified base file missing")?;
+        let old_content = fs::read(verified_path)?;
+        let mut changed = old_content.clone();
+        changed.extend_from_slice(b" \n");
+        fs::write(verified_path, changed)?;
+        let started = Instant::now();
+        let verified_base = index.update_file_with_options(
+            verified_handle,
+            verified_path,
+            UpdateOptions {
+                old_content: Some(&old_content),
+                strategy: UpdateStrategy::PreferVerified,
+            },
+        )?;
+        emit(
+            "update_verified_base",
+            started.elapsed(),
+            &index,
+            format!(
+                "strategy={:?};fallback={:?}",
+                verified_base.strategy, verified_base.fallback_reason,
+            ),
+        );
+        let (elapsed, detail) = batch_update(&index, &paths[..8])?;
+        emit("batch_small_8", elapsed, &index, detail);
+        let (elapsed, detail) = batch_update(&index, &paths[8..136])?;
+        emit("batch_large_128", elapsed, &index, detail);
+
+        let mut handle = index
+            .view()?
+            .file_handle_for_path(&source)
+            .ok_or("repeated-update file missing")?;
+        let started = Instant::now();
+        let mut times = Vec::new();
+        for _ in 0..32 {
+            let mut bytes = fs::read(&source)?;
+            bytes.extend_from_slice(b" \n");
+            fs::write(&source, bytes)?;
+            let one = Instant::now();
+            handle = index.update_file(handle, &source)?.file;
+            times.push(one.elapsed().as_nanos() as u64);
+        }
+        let elapsed = started.elapsed();
+        times.sort_unstable();
+        emit(
+            "repeat_update_32",
+            elapsed,
+            &index,
+            format!(
+                "updates=32;api_p50_ms={:.4};api_p95_ms={:.4};api_max_ms={:.4}",
+                times[16] as f64 / 1_000_000.0,
+                times[31 * 95 / 100] as f64 / 1_000_000.0,
+                times[31] as f64 / 1_000_000.0,
+            ),
+        );
+        if count(&index, collection)? != base_count {
+            return Err("stress updates changed logical record count".into());
+        }
+        let (report, elapsed, probe) =
+            while_querying(&index, query, || Ok(index.start_reconcile()?.wait()?))?;
+        if report.cancelled || !report.issues.is_empty() || report.omitted_issues > 0 {
+            return Err("stress reconciliation incomplete".into());
+        }
+        emit(
+            "reconcile_with_query",
+            elapsed,
+            &index,
+            format!(
+                "examined={};unchanged={};{}",
+                report.examined,
+                report.unchanged,
+                probe.detail()
+            ),
+        );
+    }
+
+    let (compacted, compact_elapsed, compact_probe) = if let Some(query) = &probe_query {
+        let (report, elapsed, probe) = while_querying(&index, query, || Ok(index.compact()?))?;
+        (report, elapsed, probe.detail())
+    } else {
+        let started = Instant::now();
+        (index.compact()?, started.elapsed(), String::new())
+    };
     emit(
         "compact",
-        started.elapsed(),
+        compact_elapsed,
         &index,
         format!(
-            "retired_slots_removed={};slots_after={}",
-            compacted.retired_slots_removed, compacted.slots_after
+            "retired_slots_removed={};slots_after={};{}",
+            compacted.retired_slots_removed, compacted.slots_after, compact_probe
         ),
     );
     let count_after = count(&index, collection)?;
     if count_after != base_count {
         return Err(format!("count changed: {base_count} -> {count_after}").into());
     }
+    if let Some(query) = &probe_query {
+        let (report, elapsed, probe) = while_querying(&index, query, || Ok(index.rebuild()?))?;
+        if report.live_records != index.status()?.live_records {
+            return Err("rebuild record count mismatch".into());
+        }
+        emit(
+            "rebuild_with_query",
+            elapsed,
+            &index,
+            format!("attempts={};{}", report.attempts, probe.detail()),
+        );
+    }
 
     let cache = snapshot_path(root, RepositoryOptions::default().bigram_alphabet);
-    let started = Instant::now();
-    let (revision, stats) = index.flush_cache_with_stats(&cache)?;
+    let ((revision, stats), flush_elapsed, flush_probe) = if let Some(query) = &probe_query {
+        let (result, elapsed, probe) =
+            while_querying(&index, query, || Ok(index.flush_cache_with_stats(&cache)?))?;
+        (result, elapsed, probe.detail())
+    } else {
+        let started = Instant::now();
+        (
+            index.flush_cache_with_stats(&cache)?,
+            started.elapsed(),
+            String::new(),
+        )
+    };
     emit(
         "flush",
-        started.elapsed(),
+        flush_elapsed,
         &index,
         format!(
-            "revision={};bytes={};stats_ms={:.3}",
+            "revision={};bytes={};stats_ms={:.3};{}",
             revision.0,
             stats.bytes_written,
-            stats.total_ns as f64 / 1_000_000.0
+            stats.total_ns as f64 / 1_000_000.0,
+            flush_probe,
         ),
     );
     drop(index);
@@ -292,7 +543,7 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
 fn main() {
     let args: Vec<_> = std::env::args().collect();
     if args.len() != 3 {
-        eprintln!("usage: lifecycle-perf small|large ROOT");
+        eprintln!("usage: lifecycle-perf small|large|stress ROOT");
         std::process::exit(2);
     }
     if let Err(error) = run(&args[1], Path::new(&args[2])) {
