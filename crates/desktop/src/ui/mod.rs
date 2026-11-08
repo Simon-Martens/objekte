@@ -23,7 +23,7 @@ use gpui_kit::{
     ScrollHandle, Subscription, Window, px,
 };
 
-use model::{SearchDraft, TabViewState, UiAction, UiUpdate};
+use model::{CompletionOrigin, SearchDraft, TabViewState, UiAction, UiUpdate};
 use query_bar::{BuilderEvent, FilterBuilderView};
 use state::UiState;
 
@@ -50,6 +50,7 @@ pub struct DesktopView {
     state: UiState,
     inputs: Inputs,
     builder_view: Entity<FilterBuilderView>,
+    builder_completion_revision: u64,
     suspended_filter: Option<String>,
     renaming_saved: Option<u64>,
     focused_saved: Option<u64>,
@@ -114,6 +115,16 @@ impl DesktopView {
                         .update(cx, |input, cx| input.focus(window, cx));
                     cx.notify();
                 }
+                BuilderEvent::CompleteValues { field, prefix } => {
+                    this.builder_completion_revision += 1;
+                    this.send(UiAction::CompleteValues {
+                        origin: CompletionOrigin::Builder,
+                        revision: this.builder_completion_revision,
+                        collection: this.state.search.collection.clone(),
+                        field: field.clone(),
+                        prefix: prefix.clone(),
+                    });
+                }
             },
         ));
         subscriptions.push(
@@ -176,6 +187,7 @@ impl DesktopView {
             state,
             inputs,
             builder_view,
+            builder_completion_revision: 0,
             suspended_filter: None,
             renaming_saved: None,
             focused_saved: None,
@@ -195,6 +207,21 @@ impl DesktopView {
 
     /// Apply one controller-validated update; only bounded display data remains.
     pub fn apply(&mut self, update: UiUpdate, window: &mut Window, cx: &mut Context<Self>) {
+        if let UiUpdate::CompletionValues {
+            origin: CompletionOrigin::Builder,
+            revision,
+            field,
+            prefix,
+            values,
+            partial,
+            ..
+        } = &update
+            && *revision == self.builder_completion_revision
+        {
+            self.builder_view.update(cx, |builder, cx| {
+                builder.set_value_choices(field, prefix, values.clone(), *partial, cx)
+            });
+        }
         if let UiUpdate::Clipboard(text) = update {
             if std::env::var_os("WAYLAND_DISPLAY").is_some() {
                 std::thread::spawn(move || write_wayland_clipboard(text));
@@ -352,7 +379,10 @@ impl DesktopView {
         self.state.completion_suggestions.clear();
         self.state.completion_pending = false;
         self.state.completion_partial = false;
-        if !self.state.search.filter_enabled || self.state.root.is_none() {
+        if !self.state.search.filter_enabled
+            || self.state.root.is_none()
+            || self.state.show_filter_builder
+        {
             self.state.completion_context = None;
             cx.notify();
             return;
@@ -371,12 +401,22 @@ impl DesktopView {
                         .iter()
                         .filter(|choice| choice.path.to_lowercase().starts_with(&prefix))
                         .take(20)
-                        .map(|choice| (choice.path.clone(), choice.path.clone()))
+                        .map(|choice| {
+                            let kind = match choice.value_type {
+                                Some(filter_builder::ValueType::String) => "String",
+                                Some(filter_builder::ValueType::Number) => "Number",
+                                Some(filter_builder::ValueType::Boolean) => "Boolean",
+                                Some(filter_builder::ValueType::Null) => "Null",
+                                None => "Mixed or unknown",
+                            };
+                            (choice.path.clone(), format!("{} · {kind}", choice.path))
+                        })
                         .collect();
                 }
                 completion::CompletionTarget::Value { field } => {
                     self.state.completion_pending = true;
                     self.send(UiAction::CompleteValues {
+                        origin: CompletionOrigin::Filter,
                         revision: self.state.completion_revision,
                         collection: self.state.search.collection.clone(),
                         field: field.clone(),

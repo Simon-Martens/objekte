@@ -109,3 +109,32 @@ fn match_preview_marks_actual_field_and_fts_span() {
     assert_eq!(row.match_highlights, [(0..5, false), (7..12, true)]);
     assert!(!row.cells[2].contains("year"));
 }
+
+#[test]
+fn inspector_uses_captured_query_for_filter_and_fts_emphasis() {
+    let fixture = fixture();
+    let spec = QuerySpec {
+        full_text: "Alpha".into(),
+        filter: "year = 2024".into(),
+        ..Default::default()
+    };
+    let page = query_page(&fixture.session, &spec, 0, 10, &CancellationToken::new()).unwrap();
+    let view = detail_view_with_query(&page.hits[0], &HashSet::new(), Some(&spec));
+    let title = view
+        .structured
+        .iter()
+        .find(|row| row.label == "$.title")
+        .unwrap();
+    assert!(title.fts_matched);
+    assert!(!title.filter_participant);
+    assert_eq!(title.value_highlights.len(), 1);
+    assert_eq!(title.value_highlights[0], 0..5);
+    let year = view
+        .structured
+        .iter()
+        .find(|row| row.label == "$.year")
+        .unwrap();
+    assert!(year.filter_participant);
+    assert!(!year.fts_matched);
+    assert!(year.value_highlights.is_empty());
+}

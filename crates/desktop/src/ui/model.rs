@@ -231,6 +231,9 @@ pub struct DetailRow {
     pub value: String,
     pub depth: usize,
     pub matched: bool,
+    pub filter_participant: bool,
+    pub fts_matched: bool,
+    pub value_highlights: Vec<std::ops::Range<usize>>,
     pub expandable: bool,
     pub expanded: bool,
     pub origin: DetailOrigin,
@@ -281,6 +284,12 @@ impl DetailView {
         for row in &mut self.structured {
             self.clipped |= fit_budget(&mut row.label, &mut budget, MAX_CELL_BYTES);
             self.clipped |= fit_budget(&mut row.value, &mut budget, MAX_CELL_BYTES);
+            row.value_highlights.retain(|span| {
+                span.start < span.end
+                    && span.end <= row.value.len()
+                    && row.value.is_char_boundary(span.start)
+                    && row.value.is_char_boundary(span.end)
+            });
         }
         for row in &mut self.relations {
             self.clipped |= fit_budget(&mut row.label, &mut budget, MAX_CELL_BYTES);
@@ -375,6 +384,14 @@ pub struct TabViewState {
 }
 
 
+/// Which editor owns a bounded posting-value completion request.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum CompletionOrigin {
+    Filter,
+    Builder,
+}
+
+
 /// User intent emitted from GPUI controls to the integrator.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum UiAction {
@@ -395,6 +412,7 @@ pub enum UiAction {
     SearchEdited(SearchDraft),
     SearchNow(SearchDraft),
     CompleteValues {
+        origin: CompletionOrigin,
         revision: u64,
         collection: Option<String>,
         field: String,
@@ -541,6 +559,7 @@ pub enum UiUpdate {
     },
     FieldChoices(Vec<super::filter_builder::FieldChoice>),
     CompletionValues {
+        origin: CompletionOrigin,
         revision: u64,
         field: String,
         prefix: String,

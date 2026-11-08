@@ -23,6 +23,7 @@ use super::state::Busy;
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum BuilderEvent {
     Complete(String),
+    CompleteValues { field: String, prefix: String },
     Close,
 }
 
@@ -43,6 +44,9 @@ pub struct FilterBuilderView {
     rows: Vec<RowInputs>,
     subscriptions: Vec<Subscription>,
     selected_row: usize,
+    value_focused: bool,
+    value_choices: Vec<(String, String)>,
+    value_choices_partial: bool,
     local_error: Option<String>,
     needs_rebuild: bool,
 }
@@ -61,6 +65,9 @@ impl FilterBuilderView {
             rows: Vec::new(),
             subscriptions: Vec::new(),
             selected_row: 0,
+            value_focused: false,
+            value_choices: Vec::new(),
+            value_choices_partial: false,
             local_error: None,
             needs_rebuild: false,
         };
@@ -78,18 +85,43 @@ impl FilterBuilderView {
         self.state = BuilderState::from_text(text);
         self.local_error = None;
         self.selected_row = 0;
+        self.value_focused = false;
+        self.value_choices.clear();
         self.needs_rebuild = true;
         cx.notify();
     }
 
-    pub fn set_fields(&mut self, mut fields: Vec<FieldChoice>, cx: &mut Context<Self>) {
-        fields.truncate(128);
+    pub fn set_fields(&mut self, fields: Vec<FieldChoice>, cx: &mut Context<Self>) {
         self.fields = fields;
         cx.notify();
     }
 
     pub fn set_dark(&mut self, dark: bool, cx: &mut Context<Self>) {
         self.dark = dark;
+        cx.notify();
+    }
+
+    pub fn set_value_choices(
+        &mut self,
+        field: &str,
+        prefix: &str,
+        values: Vec<(String, String)>,
+        partial: bool,
+        cx: &mut Context<Self>,
+    ) {
+        if !self.value_focused
+            || !self.state.rows.get(self.selected_row).is_some_and(|row| {
+                row.field == field
+                    && self
+                        .rows
+                        .get(self.selected_row)
+                        .is_some_and(|inputs| inputs.value.read(cx).value().as_ref() == prefix)
+            })
+        {
+            return;
+        }
+        self.value_choices = values;
+        self.value_choices_partial = partial;
         cx.notify();
     }
 
@@ -123,6 +155,8 @@ impl FilterBuilderView {
                 }
                 if matches!(event, InputEvent::Focus) {
                     this.selected_row = index;
+                    this.value_focused = false;
+                    this.value_choices.clear();
                     cx.notify();
                 }
             },
@@ -135,6 +169,8 @@ impl FilterBuilderView {
                 }
                 if matches!(event, InputEvent::Focus) {
                     this.selected_row = index;
+                    this.value_focused = true;
+                    this.request_values(index, cx);
                     cx.notify();
                 }
             },
@@ -162,6 +198,28 @@ impl FilterBuilderView {
         };
         draft.value = Some(inputs.value.read(cx).value().to_string());
         self.publish(cx);
+        self.value_focused = true;
+        self.request_values(index, cx);
+    }
+
+    fn request_values(&mut self, index: usize, cx: &mut Context<Self>) {
+        self.value_choices.clear();
+        let Some(row) = self.state.rows.get(index) else {
+            return;
+        };
+        if row.field.is_empty()
+            || !matches!(row.value_type, Some(ValueType::String | ValueType::Number))
+        {
+            return;
+        }
+        let Some(inputs) = self.rows.get(index) else {
+            return;
+        };
+        let prefix = inputs.value.read(cx).value().to_string();
+        cx.emit(BuilderEvent::CompleteValues {
+            field: row.field.clone(),
+            prefix,
+        });
     }
 
     fn publish(&mut self, cx: &mut Context<Self>) {
@@ -180,6 +238,8 @@ impl FilterBuilderView {
     }
 
     fn choose_field(&mut self, choice: &FieldChoice, window: &mut Window, cx: &mut Context<Self>) {
+        self.value_focused = false;
+        self.value_choices.clear();
         let index = self.selected_row.min(self.rows.len().saturating_sub(1));
         let Some(row) = self.state.rows.get_mut(index) else {
             return;
@@ -195,6 +255,28 @@ impl FilterBuilderView {
         self.rows[index].field.update(cx, |input, cx| {
             input.set_value(choice.path.clone(), window, cx)
         });
+        self.publish(cx);
+    }
+
+    fn choose_value(&mut self, literal: &str, window: &mut Window, cx: &mut Context<Self>) {
+        let index = self.selected_row;
+        let Some(row) = self.state.rows.get_mut(index) else {
+            return;
+        };
+        let value = if row.value_type == Some(ValueType::String) {
+            serde_json::from_str::<String>(literal).unwrap_or_else(|_| literal.to_owned())
+        } else {
+            literal.to_owned()
+        };
+        row.value = Some(value.clone());
+        self.value_choices.clear();
+        let Some(inputs) = self.rows.get(index) else {
+            return;
+        };
+        inputs
+            .value
+            .update(cx, |input, cx| input.set_value(value, window, cx));
+        self.value_focused = false;
         self.publish(cx);
     }
 
@@ -304,11 +386,22 @@ impl Render for FilterBuilderView {
             .take(8)
             .cloned()
             .collect();
+        let value_suggestions = if self.value_focused {
+            self.value_choices
+                .iter()
+                .take(8)
+                .cloned()
+                .collect::<Vec<_>>()
+        } else {
+            Vec::new()
+        };
         let editable = matches!(
             status,
             BuilderStatus::Empty | BuilderStatus::Synchronized | BuilderStatus::Incomplete
         );
-        div().id("filter-builder").w(px(560.)).max_h(px(320.)).p_3().gap_2().flex().flex_col()
+        div().id("filter-builder")
+            .on_mouse_down(gpui_kit::MouseButton::Left, cx.listener(|_, _, _, cx| cx.stop_propagation()))
+            .w(px(560.)).max_h(px(320.)).p_3().gap_2().flex().flex_col()
             .bg(rgb(if self.dark { 0x1c1f24 } else { 0xffffff }))
             .text_color(rgb(if self.dark { 0xe5e7eb } else { 0x172033 }))
             .border_1().border_color(rgb(if self.dark { 0x30353c } else { 0xcbd5e1 })).rounded_md()
@@ -333,6 +426,13 @@ impl Render for FilterBuilderView {
                 Button::new(("builder-suggestion", index)).label(choice.path.clone())
                     .on_click(cx.listener(move |this, _, window, cx| this.choose_field(&choice, window, cx)))
             }))))
+            .when(editable && !value_suggestions.is_empty(), |this| this.child(
+                div().flex().flex_wrap().gap_1().children(value_suggestions.into_iter().enumerate().map(|(index, (literal, label))| {
+                    Button::new(("builder-value-suggestion", index)).label(label)
+                        .on_click(cx.listener(move |this, _, window, cx| this.choose_value(&literal, window, cx)))
+                }))
+            ))
+            .when(editable && self.value_focused && self.value_choices_partial, |this| this.child(div().text_sm().child("More indexed values may exist")))
             .when(editable, |this| this.child(Button::new("builder-add").label("+ Add condition").disabled(self.state.rows.len() >= 16).on_click(cx.listener(|this, _, window, cx| this.add_row(window, cx)))))
             .child(div().text_sm().child(match status {
                 BuilderStatus::Empty => "Add a condition; the filter text stays empty until it is complete.".into(),
@@ -513,7 +613,8 @@ impl DesktopView {
                                     )
                                     .w_full()
                                     .when(
-                                        self.state.completion_context.is_some()
+                                        !self.state.show_filter_builder
+                                            && self.state.completion_context.is_some()
                                             && (self.state.completion_pending
                                                 || !self.state.completion_suggestions.is_empty()),
                                         |popup| popup.content(self.render_completion_overlay(cx)),
@@ -528,6 +629,9 @@ impl DesktopView {
                                         .on_click(cx.listener(|this, _, _, cx| {
                                             this.state.show_filter_builder =
                                                 !this.state.show_filter_builder;
+                                            if this.state.show_filter_builder {
+                                                this.dismiss_completion(cx);
+                                            }
                                             cx.notify();
                                         })),
                                 )
@@ -564,6 +668,10 @@ impl DesktopView {
         let colors = super::theme::palette(self.state.dark);
         div()
             .id("filter-completions")
+            .on_mouse_down(
+                gpui_kit::MouseButton::Left,
+                cx.listener(|_, _, _, cx| cx.stop_propagation()),
+            )
             .w(px(430.))
             .max_h(px(250.))
             .p_1()

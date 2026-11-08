@@ -192,7 +192,8 @@ impl UiState {
                             .max()
                             .unwrap_or(0)
                             .max(column.chars().count());
-                        (widest as f32 * 7.3 + 30.).clamp(110., 420.)
+                        (widest as f32 * 7.3 + 30.)
+                            .clamp(if column == "@match" { 260. } else { 110. }, 420.)
                     });
                 }
                 page = page.bounded();
@@ -232,7 +233,8 @@ impl UiState {
                             .max()
                             .unwrap_or(0)
                             .max(column.chars().count());
-                        (widest as f32 * 7.3 + 30.).clamp(110., 420.)
+                        (widest as f32 * 7.3 + 30.)
+                            .clamp(if column == "@match" { 260. } else { 110. }, 420.)
                     });
                 }
                 self.page.columns = page.columns.clone();
@@ -448,8 +450,9 @@ impl UiState {
             UiUpdate::FieldChoices(fields) => {
                 self.completion_fields = fields;
             }
-            UiUpdate::CompletionValues { revision, field, prefix, values, partial, .. } => {
-                if revision == self.completion_revision
+            UiUpdate::CompletionValues { origin, revision, field, prefix, values, partial, .. } => {
+                if origin == super::model::CompletionOrigin::Filter
+                    && revision == self.completion_revision
                     && self.completion_context.as_ref().is_some_and(|context| {
                         context.prefix == prefix && matches!(&context.target, CompletionTarget::Value { field: active } if active == &field)
                     }) {

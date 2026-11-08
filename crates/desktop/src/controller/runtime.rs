@@ -18,7 +18,7 @@ use objekte_tui::relations::{self, LinkAction};
 
 use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
-    BatchRow, BatchSource as UiBatchSource, DetailView, ErrorField, ExportFormat,
+    BatchRow, BatchSource as UiBatchSource, CompletionOrigin, DetailView, ErrorField, ExportFormat,
     FilterValidationState, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft,
     SnapshotMode, TabViewState, UiAction, UiUpdate,
 };
@@ -26,7 +26,8 @@ use crate::ui::preferences::DesktopPreferences;
 
 use super::filter_validation::{field_choices, validate_request};
 use super::open_detection::{DetectedSource, detect_source};
-use super::{detail_view, initial_columns, open_spec, page_view_with_prior, query_spec};
+use super::projection::detail_view_with_query;
+use super::{initial_columns, open_spec, page_view_with_prior, query_spec};
 
 
 /// One lightweight locator retained for every delivered result.
@@ -100,6 +101,7 @@ type TabCompletion = Result<Option<(SearchHit, DetailView, Vec<Option<LinkAction
 
 #[derive(Clone)]
 struct CompletionRequest {
+    origin: CompletionOrigin,
     revision: u64,
     collection: Option<String>,
     field: String,
@@ -304,6 +306,7 @@ pub struct DesktopController {
     pending_edit: Option<(Instant, SearchDraft)>,
     pending_completion: Option<(Instant, CompletionRequest)>,
     completion_generation: u64,
+    completion_token: CancellationToken,
     completion_cache: HashMap<CompletionCacheKey, CompletionCacheValue>,
     completion_cache_order: VecDeque<CompletionCacheKey>,
 }
@@ -370,6 +373,7 @@ impl DesktopController {
                 pending_edit: None,
                 pending_completion: None,
                 completion_generation: 0,
+                completion_token: CancellationToken::new(),
                 completion_cache: HashMap::new(),
                 completion_cache_order: VecDeque::new(),
             },
@@ -438,15 +442,19 @@ impl DesktopController {
                 self.start_validation(draft, updates);
             }
             UiAction::CompleteValues {
+                origin,
                 revision,
                 collection,
                 field,
                 prefix,
             } => {
+                self.completion_token.cancel();
+                self.completion_token = CancellationToken::new();
                 self.completion_generation += 1;
                 self.pending_completion = Some((
                     Instant::now(),
                     CompletionRequest {
+                        origin,
                         revision,
                         collection,
                         field,
@@ -521,6 +529,11 @@ impl DesktopController {
                     }
                     let hit = hit.clone();
                     let expanded = self.expanded.clone();
+                    let spec = self
+                        .active_tab
+                        .and_then(|id| self.tabs.iter().find(|tab| tab.id == id))
+                        .filter(|tab| tab.in_results)
+                        .map(|tab| tab.context.spec.clone());
                     let relations = self
                         .detail
                         .as_ref()
@@ -531,7 +544,7 @@ impl DesktopController {
                     let detail_generation = self.detail_generation;
                     let sender = self.worker_tx.clone();
                     thread::spawn(move || {
-                        let mut view = detail_view(&hit, &expanded);
+                        let mut view = detail_view_with_query(&hit, &expanded, spec.as_ref());
                         view.relations = relations;
                         view.selected_row = selected.min(view.structured.len().saturating_sub(1));
                         let _ = sender.send(WorkerEvent::Expanded {
@@ -793,6 +806,8 @@ impl DesktopController {
         self.cancellation = CancellationToken::new();
         self.open_generation += 1;
         self.pending_completion = None;
+        self.completion_token.cancel();
+        self.completion_token = CancellationToken::new();
         self.completion_generation += 1;
         self.completion_cache.clear();
         self.completion_cache_order.clear();
@@ -1045,6 +1060,7 @@ impl DesktopController {
         );
         if let Some((values, partial, visited_keys)) = self.completion_cache.get(&key) {
             updates.push(UiUpdate::CompletionValues {
+                origin: request.origin,
                 revision: request.revision,
                 field: request.field,
                 prefix: request.prefix,
@@ -1057,8 +1073,12 @@ impl DesktopController {
         let sender = self.worker_tx.clone();
         let open_generation = self.open_generation;
         let completion_generation = self.completion_generation;
+        let token = self.completion_token.clone();
         thread::spawn(move || {
-            let values = posting_completions(&session, &request);
+            let values = posting_completions(&session, &request, &token);
+            if token.is_cancelled() {
+                return;
+            }
             let _ = sender.send(WorkerEvent::CompletionValues {
                 open_generation,
                 completion_generation,
@@ -1251,6 +1271,12 @@ impl DesktopController {
         let sender = self.worker_tx.clone();
         self.emit_tabs(updates);
         thread::spawn(move || {
+            let query_result = match &kind {
+                TabLoadKind::Adjacent { .. } => true,
+                TabLoadKind::Relation { .. } => false,
+                TabLoadKind::Back { frame } => frame.in_results,
+                TabLoadKind::Open => in_results,
+            };
             let result = match &kind {
                 TabLoadKind::Adjacent { anchor } => {
                     backend::query_page(&session, &spec, *anchor, 1, &token)
@@ -1279,7 +1305,9 @@ impl DesktopController {
                     }
                 }
             }
-            .map(|hit| hit.map(|hit| record_presentation(&session, hit)))
+            .map(|hit| {
+                hit.map(|hit| record_presentation(&session, query_result.then_some(&spec), hit))
+            })
             .map_err(|error| error.to_string());
             let _ = sender.send(WorkerEvent::TabLoaded {
                 open_generation,
@@ -1558,6 +1586,7 @@ impl DesktopController {
                     }
                 }
                 updates.push(UiUpdate::CompletionValues {
+                    origin: request.origin,
                     revision: request.revision,
                     field: request.field,
                     prefix: request.prefix,
@@ -2210,9 +2239,10 @@ fn open_with_preferences(
 
 fn record_presentation(
     _session: &OpenedSession,
+    spec: Option<&backend::QuerySpec>,
     hit: SearchHit,
 ) -> (SearchHit, DetailView, Vec<Option<LinkAction>>) {
-    let view = detail_view(&hit, &HashSet::new());
+    let view = detail_view_with_query(&hit, &HashSet::new(), spec);
     (hit, view, Vec::new())
 }
 
@@ -2277,6 +2307,7 @@ fn tab_result_hit(
 fn posting_completions(
     session: &OpenedSession,
     request: &CompletionRequest,
+    token: &CancellationToken,
 ) -> CompletionCacheValue {
     let mut values = Vec::new();
     let mut partial = false;
@@ -2285,13 +2316,50 @@ fn posting_completions(
         Ok(path) => path,
         Err(_) => return (values, true, visited_keys),
     };
+    let mut visited_collections = 0;
     for collection in session.repository.collections() {
+        if token.is_cancelled() {
+            break;
+        }
         if request
             .collection
             .as_deref()
             .is_some_and(|scope| scope != collection.definition.name)
         {
             continue;
+        }
+        // One worker visits a bounded set of collection dictionaries. A
+        // larger all-collection scope is explicitly partial in the popup.
+        visited_collections += 1;
+        if visited_collections > 8 {
+            partial = true;
+            break;
+        }
+        if let Some(declared) = session
+            .declared_values
+            .get(&(collection.definition.name.clone(), request.field.clone()))
+        {
+            for literal in declared
+                .iter()
+                .filter(|literal| completion_literal_matches(literal, &request.prefix))
+                .take(20)
+            {
+                if values.len() >= 50 {
+                    partial = true;
+                    break;
+                }
+                add_completion_value(
+                    &mut values,
+                    literal.clone(),
+                    &collection.definition.name,
+                    request.collection.is_some(),
+                );
+            }
+            partial |= declared.len() > 20;
+        }
+        if values.len() >= 50 {
+            partial = true;
+            break;
         }
         // A transformed posting key need not be a valid source literal. The
         // public posting API intentionally exposes stored keys, not inverse
@@ -2331,21 +2399,15 @@ fn posting_completions(
             let Some(literal) = scalar_literal(&value.value) else {
                 continue;
             };
-            if !request.prefix.is_empty()
-                && !literal
-                    .to_lowercase()
-                    .contains(&request.prefix.to_lowercase())
-            {
+            if !completion_literal_matches(&literal, &request.prefix) {
                 continue;
             }
-            let label = if request.collection.is_some() {
-                literal.clone()
-            } else {
-                format!("{literal} · {}", collection.definition.name)
-            };
-            if !values.iter().any(|(existing, _)| existing == &literal) {
-                values.push((literal, label));
-            }
+            add_completion_value(
+                &mut values,
+                literal,
+                &collection.definition.name,
+                request.collection.is_some(),
+            );
             if values.len() >= 50 {
                 partial = true;
                 break;
@@ -2356,6 +2418,35 @@ fn posting_completions(
         }
     }
     (values, partial, visited_keys)
+}
+
+fn completion_literal_matches(literal: &str, prefix: &str) -> bool {
+    if prefix.is_empty() {
+        return true;
+    }
+    let value = serde_json::from_str::<String>(literal).unwrap_or_else(|_| literal.to_owned());
+    value.to_lowercase().contains(&prefix.to_lowercase())
+}
+
+fn add_completion_value(
+    values: &mut Vec<(String, String)>,
+    literal: String,
+    collection: &str,
+    scoped: bool,
+) {
+    if let Some((_, label)) = values.iter_mut().find(|(existing, _)| existing == &literal) {
+        if !scoped && !label.ends_with(collection) {
+            label.push_str(", ");
+            label.push_str(collection);
+        }
+    } else {
+        let label = if scoped {
+            literal.clone()
+        } else {
+            format!("{literal} · {collection}")
+        };
+        values.push((literal, label));
+    }
 }
 
 fn scalar_literal(value: &ScalarKey) -> Option<String> {

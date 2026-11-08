@@ -1005,14 +1005,20 @@ impl Render for DesktopView {
             )
             .on_mouse_up(
                 gpui_kit::MouseButton::Left,
-                cx.listener(|this, _, _, _| {
+                cx.listener(|this, _, _, cx| {
                     this.state.inspector_resize_origin = None;
                     if let Some((column, _, _)) = this.state.column_resize_origin.take() {
                         if let Some(width) = this.state.column_widths.get(&column) {
+                            this.state.status = format!(
+                                "{} width: {} px",
+                                sort::column_label(&column),
+                                width.round() as u16
+                            );
                             this.send(UiAction::ResizeColumn {
                                 column,
                                 width: width.round() as u16,
                             });
+                            cx.notify();
                         }
                     }
                 }),

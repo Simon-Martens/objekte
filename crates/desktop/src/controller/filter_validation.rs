@@ -11,8 +11,6 @@ use crate::ui::model::{FilterValidationState, SearchDraft};
 
 use super::query_spec;
 
-const MAX_FIELD_CHOICES: usize = 128;
-
 /// Check the exact combined request against parser, options, and all selected
 /// collection bindings without executing a query or scanning source records.
 /// Call this on a worker; the controller attaches its own generation identity.
@@ -77,14 +75,13 @@ pub fn field_choices(
             }
         }
     }
-    for column in available_columns.iter().take(MAX_FIELD_CHOICES) {
+    for column in available_columns {
         if QueryPath::parse(column).is_ok() {
             fields.entry(column.clone()).or_insert(None);
         }
     }
     fields
         .into_iter()
-        .take(MAX_FIELD_CHOICES)
         .map(|(path, value_type)| FieldChoice { path, value_type })
         .collect()
 }

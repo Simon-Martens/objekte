@@ -1,5 +1,6 @@
 //! One retained repository per desktop Open operation.
 
+use std::collections::HashMap;
 use std::path::PathBuf;
 use std::sync::Arc;
 
@@ -7,6 +8,7 @@ use objekte_cli::arguments::{Arguments, ResolvedPaths};
 use objekte_cli::loader::{
     configure_definitions, open_repository, repository_options, snapshot_policy,
 };
+use objekte_search_core::model::{FieldPath, PathRoot};
 use objekte_search_core::repository::{Repository, StartupStats};
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::CancellationToken;
@@ -43,6 +45,8 @@ pub struct OpenedSession {
     pub collections: Vec<String>,
     pub single_collection: bool,
     pub diagnostics: OpenDiagnostics,
+    /// Declared schema literals, parsed once on the opening worker.
+    pub declared_values: Arc<HashMap<(String, String), Vec<String>>>,
 }
 
 
@@ -80,17 +84,19 @@ pub fn open(
         return Err(BackendError::cancelled());
     }
     let startup = repository.startup().clone();
-    let collections = repository
+    let collections: Vec<String> = repository
         .collections()
         .iter()
         .map(|collection| collection.definition.name.clone())
         .collect();
+    let declared_values = Arc::new(read_declared_values(&configured.schema_files, &collections));
     Ok(OpenedSession {
         repository: Arc::new(repository),
         args: spec.args.clone(),
         paths,
         collections,
         single_collection: !spec.args.multiple_collections(),
+        declared_values,
         diagnostics: OpenDiagnostics {
             open_ns,
             startup,
@@ -100,6 +106,69 @@ pub fn open(
             ignored_repository_metadata: configured.ignored_repository_metadata,
         },
     })
+}
+
+fn read_declared_values(
+    schema_files: &[PathBuf],
+    collections: &[String],
+) -> HashMap<(String, String), Vec<String>> {
+    fn visit(
+        node: &serde_json::Value,
+        path: &mut Vec<String>,
+        collection: &str,
+        result: &mut HashMap<(String, String), Vec<String>>,
+    ) {
+        if !path.is_empty() {
+            if let Some(values) = node.get("enum").and_then(serde_json::Value::as_array) {
+                let key = FieldPath {
+                    root: PathRoot::Data,
+                    segments: path.clone(),
+                }
+                .display();
+                let choices = result.entry((collection.to_owned(), key)).or_default();
+                for value in values.iter().take(256) {
+                    if !value.is_null() && !value.is_array() && !value.is_object() {
+                        let literal = value.to_string();
+                        if !choices.contains(&literal) {
+                            choices.push(literal);
+                        }
+                    }
+                }
+            }
+        }
+        if let Some(properties) = node
+            .get("properties")
+            .and_then(serde_json::Value::as_object)
+        {
+            for (name, child) in properties {
+                path.push(name.clone());
+                visit(child, path, collection, result);
+                path.pop();
+            }
+        }
+        if let Some(items) = node.get("items") {
+            visit(items, path, collection, result);
+        }
+    }
+
+    let mut result = HashMap::new();
+    for file in schema_files {
+        let Ok(bytes) = std::fs::read(file) else {
+            continue;
+        };
+        let Ok(schema) = serde_json::from_slice::<serde_json::Value>(&bytes) else {
+            continue;
+        };
+        let collection = schema
+            .get("x-objekte")
+            .and_then(|config| config.get("name"))
+            .and_then(serde_json::Value::as_str)
+            .or_else(|| (collections.len() == 1).then(|| collections[0].as_str()));
+        if let Some(collection) = collection {
+            visit(&schema, &mut Vec::new(), collection, &mut result);
+        }
+    }
+    result
 }
 
 #[cfg(test)]

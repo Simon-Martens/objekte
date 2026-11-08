@@ -10,8 +10,8 @@ use gpui_kit::component::{
 };
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::{
-    Context, InteractiveElement as _, IntoElement, ParentElement as _,
-    StatefulInteractiveElement as _, Styled as _, div, px, rgb,
+    Context, FontWeight, HighlightStyle, InteractiveElement as _, IntoElement, ParentElement as _,
+    StatefulInteractiveElement as _, Styled as _, StyledText, div, px, rgb,
 };
 
 use super::DesktopView;
@@ -663,6 +663,21 @@ impl DesktopView {
             .detail
             .as_ref()
             .is_some_and(|detail| detail.selected_row == index);
+        let highlights = row
+            .value_highlights
+            .iter()
+            .cloned()
+            .map(|range| {
+                (
+                    range,
+                    HighlightStyle {
+                        font_weight: Some(FontWeight::BOLD),
+                        color: Some(rgb(colors.accent).into()),
+                        ..Default::default()
+                    },
+                )
+            })
+            .collect::<Vec<_>>();
         div()
             .id(("detail-row", index))
             .flex()
@@ -704,7 +719,13 @@ impl DesktopView {
                             .unwrap_or_default()
                     )),
             )
-            .child(div().flex_1().min_w_0().text_sm().child(value))
+            .child(
+                div()
+                    .flex_1()
+                    .min_w_0()
+                    .text_sm()
+                    .child(StyledText::new(value).with_highlights(highlights)),
+            )
             .on_click(cx.listener(move |this, _, window, cx| {
                 window.focus(&this.detail_focus, cx);
                 if let Some(detail) = this.state.detail.as_mut() {
@@ -742,6 +763,10 @@ impl DesktopView {
             .border_1()
             .border_color(rgb(colors.border))
             .rounded_md()
+            .on_mouse_down(
+                gpui_kit::MouseButton::Left,
+                cx.listener(|_, _, _, cx| cx.stop_propagation()),
+            )
             .on_mouse_down_out(cx.listener(|this, _, _, cx| {
                 this.state.show_actions = false;
                 cx.notify();

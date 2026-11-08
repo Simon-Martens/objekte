@@ -243,16 +243,25 @@ fn match_preview(
                     let before = visible[..span.start]
                         .char_indices()
                         .rev()
-                        .nth(30)
+                        .nth(12)
                         .map_or(0, |(at, _)| at);
                     let after = visible[span.end..]
                         .char_indices()
-                        .nth(100)
+                        .nth(60)
                         .map_or(visible.len(), |(at, _)| span.end + at);
+                    let mut excerpt = String::new();
+                    if before > 0 {
+                        excerpt.push('…');
+                    }
+                    let prefix_bytes = excerpt.len();
+                    excerpt.push_str(&visible[before..after]);
+                    if after < visible.len() {
+                        excerpt.push('…');
+                    }
                     (
                         field.clone(),
-                        visible[before..after].to_owned(),
-                        Some(span.start - before..span.end - before),
+                        excerpt,
+                        Some(prefix_bytes + span.start - before..prefix_bytes + span.end - before),
                     )
                 })
         };
@@ -280,6 +289,40 @@ fn match_preview(
 
 /// Present the original source, parsed structure, and locator metadata.
 pub fn detail_view(hit: &SearchHit, expanded: &HashSet<String>) -> DetailView {
+    detail_view_with_query(hit, expanded, None)
+}
+
+pub fn detail_view_with_query(
+    hit: &SearchHit,
+    expanded: &HashSet<String>,
+    spec: Option<&QuerySpec>,
+) -> DetailView {
+    let matcher = spec.and_then(|spec| {
+        (!spec.full_text.trim().is_empty())
+            .then(|| FtsQuery {
+                case_sensitivity: if spec.case_sensitive {
+                    CaseSensitivity::Sensitive
+                } else {
+                    CaseSensitivity::Insensitive
+                },
+                mode: if spec.regex {
+                    FtsMode::Regex(RegexOptions::default())
+                } else {
+                    FtsMode::Literal
+                },
+                literal: spec.full_text.trim().to_owned(),
+                pattern_parameter: None,
+                fields: Vec::new(),
+            })
+            .and_then(|query| PreviewMatcher::new(&query).ok())
+    });
+    let mut filter_fields = Vec::new();
+    if let Some(spec) = spec
+        && let Ok(parsed) = parse_structured_filter(&spec.filter)
+        && let Some(filter) = &parsed.filter
+    {
+        append_predicate_fields(filter, &mut filter_fields);
+    }
     let mut detail = DetailView {
         title: format!("{} / {}", hit.collection, hit.record_id),
         validity: Some(
@@ -303,12 +346,17 @@ pub fn detail_view(hit: &SearchHit, expanded: &HashSet<String>) -> DetailView {
             0,
             expanded,
             &hit.matched_fields,
+            &filter_fields,
+            matcher.as_ref(),
         ),
         None => detail.structured.push(DetailRow {
             label: "Payload".into(),
             value: "Logical data unavailable; inspect original source and diagnostics".into(),
             depth: 0,
             matched: false,
+            filter_participant: false,
+            fts_matched: false,
+            value_highlights: Vec::new(),
             expandable: false,
             expanded: false,
             origin: DetailOrigin::Diagnostic,
@@ -333,6 +381,9 @@ pub fn detail_view(hit: &SearchHit, expanded: &HashSet<String>) -> DetailView {
             value,
             depth: 0,
             matched: false,
+            filter_participant: false,
+            fts_matched: false,
+            value_highlights: Vec::new(),
             expandable: false,
             expanded: false,
             origin: DetailOrigin::Metadata,
@@ -350,6 +401,8 @@ fn append_value(
     depth: usize,
     expanded: &HashSet<String>,
     matched_fields: &[String],
+    filter_fields: &[String],
+    matcher: Option<&PreviewMatcher>,
 ) {
     if rows.len() >= MAX_DETAIL_ROWS {
         return;
@@ -358,16 +411,31 @@ fn append_value(
         return;
     };
     let is_expanded = expandable && ((depth == 0 && value.is_object()) || expanded.contains(path));
+    let display_path = path.strip_prefix("$.").unwrap_or(path);
+    let participates = filter_fields
+        .iter()
+        .any(|field| field_at_or_below(field, display_path));
+    let has_evidence = matched_fields
+        .iter()
+        .any(|field| field_at_or_below(field, display_path));
+    let value_highlights = if has_evidence && !expandable {
+        matcher
+            .and_then(|matcher| matcher.find(&display))
+            .into_iter()
+            .collect()
+    } else {
+        Vec::new()
+    };
+    let fts_matched = !value_highlights.is_empty()
+        || (expandable && !participates && matcher.is_some() && has_evidence);
     rows.push(DetailRow {
         label: path.into(),
         value: display,
         depth,
-        matched: matched_fields.iter().any(|field| {
-            let path = path.strip_prefix("$.").unwrap_or(path);
-            field == path
-                || field.starts_with(&format!("{path}."))
-                || field.starts_with(&format!("{path}["))
-        }),
+        matched: participates || has_evidence,
+        filter_participant: participates,
+        fts_matched,
+        value_highlights,
         expandable,
         expanded: is_expanded,
         origin: DetailOrigin::Structured,
@@ -390,6 +458,8 @@ fn append_value(
                     depth + 1,
                     expanded,
                     matched_fields,
+                    filter_fields,
+                    matcher,
                 );
             }
         }
@@ -402,11 +472,19 @@ fn append_value(
                     depth + 1,
                     expanded,
                     matched_fields,
+                    filter_fields,
+                    matcher,
                 );
             }
         }
         _ => {}
     }
+}
+
+fn field_at_or_below(field: &str, path: &str) -> bool {
+    field == path
+        || field.starts_with(&format!("{path}."))
+        || field.starts_with(&format!("{path}["))
 }
 
 /// Keep arrays with a small scalar shape inline; large or nested containers

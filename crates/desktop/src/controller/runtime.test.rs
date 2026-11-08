@@ -34,15 +34,56 @@ fn completion_uses_bounded_postings_and_keeps_typed_literals() {
     let (values, partial, visited) = posting_completions(
         &session,
         &CompletionRequest {
+            origin: CompletionOrigin::Filter,
             revision: 1,
             collection: Some("files".into()),
             field: "name".into(),
             prefix: "Al".into(),
         },
+        &CancellationToken::new(),
     );
     assert_eq!(values, [(r#""Alpha""#.into(), r#""Alpha""#.into())]);
     assert!(!partial);
     assert!(visited <= 20);
+}
+
+#[test]
+fn declared_enum_completes_without_a_posting_dictionary() {
+    use objekte_cli::arguments::Arguments;
+
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), r#"{"status":"Ready"}"#).unwrap();
+    let schema = root.path().join("schema.json");
+    std::fs::write(
+        &schema,
+        r#"{"type":"object","properties":{"status":{"type":"string","enum":["Ready","Paused"]}}}"#,
+    )
+    .unwrap();
+    let session = backend::open(
+        &OpenSpec {
+            args: Arguments {
+                path: vec![root.path().to_path_buf()],
+                schema: Some(schema),
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let (values, _, visited) = posting_completions(
+        &session,
+        &CompletionRequest {
+            origin: CompletionOrigin::Filter,
+            revision: 1,
+            collection: Some("files".into()),
+            field: "status".into(),
+            prefix: "Re".into(),
+        },
+        &CancellationToken::new(),
+    );
+    assert_eq!(values, [(r#""Ready""#.into(), r#""Ready""#.into())]);
+    assert_eq!(visited, 0);
 }
 
 #[test]

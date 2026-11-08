@@ -34,11 +34,24 @@ pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
             quoted_start = quoted_start.map_or(Some(at), |_| None);
         }
     }
-    let (start, end, prefix) = if let Some(quote) = quoted_start {
+    let quoted_path = quoted_start.is_some_and(|quote| text[..quote].ends_with('['));
+    let (start, end, prefix) = if let Some(quote) = quoted_start.filter(|_| !quoted_path) {
         let end = text[caret..]
             .find('"')
             .map_or(text.len(), |offset| caret + offset + 1);
         (quote, end, text[quote + 1..caret].to_owned())
+    } else if quoted_path {
+        // A path suggestion replaces the complete path token. Replacing only
+        // the quoted segment would leave doubled brackets for `["a.b"]`.
+        let start = text[..caret]
+            .char_indices()
+            .rev()
+            .find(|(_, ch)| token_boundary(*ch))
+            .map_or(0, |(at, ch)| at + ch.len_utf8());
+        let end = text[caret..]
+            .find("]")
+            .map_or(text.len(), |offset| caret + offset + 1);
+        (start, end, text[start..caret].to_owned())
     } else {
         let start = text[..caret]
             .char_indices()
@@ -150,5 +163,19 @@ mod tests {
         );
         let (result, _) = insert(text, completion.replace, "\"Heidelberg\"").unwrap();
         assert_eq!(result, "name = \"Heidelberg\" && age > 1");
+    }
+
+    #[test]
+    fn quoted_nested_path_replaces_one_complete_token() {
+        let text = "foo[\"ba\"] = 1";
+        let at = text.find("ba").unwrap() + 2;
+        let context = context(text, at).unwrap();
+        assert_eq!(context.replace, 0..9);
+        assert_eq!(context.prefix, "foo[\"ba");
+        assert_eq!(context.target, CompletionTarget::Field { sort: false });
+        assert_eq!(
+            insert(text, context.replace, "foo[\"bar\"]").unwrap().0,
+            "foo[\"bar\"] = 1"
+        );
     }
 }

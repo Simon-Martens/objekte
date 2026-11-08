@@ -2,6 +2,56 @@ use super::*;
 use crate::backend::test_support::fixture;
 
 #[test]
+fn hundred_row_continuations_keep_equal_sort_keys_unique_at_boundaries() {
+    use crate::backend::{OpenSpec, open};
+    use objekte_cli::arguments::Arguments;
+    use std::collections::HashSet;
+
+    let root = tempfile::tempdir().unwrap();
+    for n in 0..1001 {
+        std::fs::write(
+            root.path().join(format!("{n:04}.json")),
+            format!(r#"{{"n":{n},"bucket":"same"}}"#),
+        )
+        .unwrap();
+    }
+    let session = open(
+        &OpenSpec {
+            args: Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    for count in [0, 1, 99, 100, 101, 200, 201, 1000] {
+        let spec = QuerySpec {
+            filter: format!("n < {count} SORT BY bucket ASC"),
+            ..QuerySpec::default()
+        };
+        let mut seen = HashSet::new();
+        let mut next = Some(0);
+        let mut requests = 0;
+        while let Some(start) = next {
+            requests += 1;
+            assert!(requests <= 12, "continuation must make progress");
+            let page = query_page(&session, &spec, start, 100, &CancellationToken::new()).unwrap();
+            for hit in page.hits {
+                assert!(seen.insert((hit.collection, hit.record_id)));
+            }
+            next = page.next_page_start;
+        }
+        assert_eq!(seen.len(), count, "wrong result count for {count}");
+        assert_eq!(
+            std::fs::read_to_string(root.path().join("0000.json")).unwrap(),
+            r#"{"n":0,"bucket":"same"}"#
+        );
+    }
+}
+
+#[test]
 fn combines_full_text_filter_and_case_options() {
     let fixture = fixture();
     let spec = QuerySpec {
