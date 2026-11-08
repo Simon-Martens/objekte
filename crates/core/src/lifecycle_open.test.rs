@@ -49,6 +49,39 @@ fn explicit_build_ignores_implicit_cache_even_when_legacy_mode_requires_it() {
 }
 
 #[test]
+fn explicit_schema_path_is_protected_from_cache_flush() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-explicit-schema-guard-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), b"{}").unwrap();
+    let schema = root.join("selected.schema.json");
+    std::fs::write(&schema, b"{\"title\":\"schema\"}").unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    index
+        .protect_configuration_files(&[schema.clone()])
+        .unwrap();
+    assert!(matches!(
+        index.flush_cache(&schema),
+        Err(IndexError::InvalidCache(_))
+    ));
+    assert_eq!(std::fs::read(&schema).unwrap(), b"{\"title\":\"schema\"}");
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn lifecycle_cache_restores_segments_and_excludes_its_own_source_path() {
     let root = std::env::temp_dir().join(format!(
         "objekte-explicit-lifecycle-cache-{}-{:?}",

@@ -1022,6 +1022,28 @@ impl Index {
         Ok(())
     }
 
+    /// Protect explicitly selected schema and configuration paths from cache
+    /// writes. Register them before the first flush; this operation resolves
+    /// relative paths against the current working directory once.
+    pub fn protect_configuration_files(&self, paths: &[PathBuf]) -> Result<(), IndexError> {
+        let mut resolved = Vec::with_capacity(paths.len());
+        for path in paths {
+            resolved.push(
+                std::path::absolute(path)
+                    .map_err(|error| IndexError::InvalidCache(error.to_string()))?,
+            );
+        }
+        let mut persistence = self
+            .0
+            .persistence
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        persistence.protected_files.extend(resolved);
+        persistence.protected_files.sort();
+        persistence.protected_files.dedup();
+        Ok(())
+    }
+
     /// Enable one bounded, coalescing background cache writer for the selected
     /// repository destination. Mutation commits only send a nonblocking signal.
     pub(crate) fn enable_sync_cache(&self) -> Result<(), IndexError> {
