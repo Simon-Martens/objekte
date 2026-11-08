@@ -1,11 +1,13 @@
 //! Repository-aware binding and exact evaluation of finite relation paths.
 
+use std::cell::RefCell;
 use std::collections::HashMap;
 use std::sync::Arc;
 
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::PublishedSegment;
 use crate::lifecycle_catalog::FileCatalog;
+use crate::measurement::{SourceAvailabilityLog, SourceDiagnostic};
 use crate::model::{CollectionId, FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 use crate::query::{FilterExpr, FtsField, FtsQuery, Literal, Operand, Quantifier, Term};
 use crate::query_path::{PathStep, QueryPath};
@@ -19,7 +21,7 @@ use crate::relation_target_cache::TargetValueCache;
 use crate::repository::CollectionState;
 use crate::repository::Repository;
 use crate::source::{
-    ScanProjection, TextDerivation, TextSegment, read_record_range,
+    ScanProjection, TextDerivation, TextSegment, classify_source_read_failure, read_record_range,
     read_record_range_with_execution,
 };
 
@@ -55,9 +57,33 @@ pub(crate) struct MergedRelationView<'a> {
     catalog: &'a FileCatalog,
     forward: HashMap<(usize, usize, usize, u32), Vec<(&'a str, &'a [u32])>>,
     backlinks: HashMap<(usize, usize, String), Vec<MergedRecordSlot>>,
+    source_errors: RefCell<SourceAvailabilityLog>,
 }
 
 impl<'a> MergedRelationView<'a> {
+    pub(crate) fn source_error_events(&self) -> u64 {
+        self.source_errors.borrow().events()
+    }
+
+    pub(crate) fn take_source_errors(&self) -> SourceAvailabilityLog {
+        std::mem::take(&mut *self.source_errors.borrow_mut())
+    }
+
+    pub(crate) fn record_source_failure(
+        &self,
+        file: &crate::inventory::FileEntry,
+        range: crate::inventory::ByteRange,
+        message: String,
+    ) {
+        let path = self.repo.files.root.join(&file.relative_path);
+        self.source_errors.borrow_mut().record(SourceDiagnostic {
+            file_id: file.id.0,
+            file_path: file.relative_path.clone(),
+            kind: classify_source_read_failure(&path, file.revision, Some(range)),
+            message,
+        });
+    }
+
     pub(crate) fn repository_root(&self) -> &std::path::Path {
         &self.repo.files.root
     }
@@ -132,6 +158,7 @@ impl<'a> MergedRelationView<'a> {
             catalog,
             forward,
             backlinks,
+            source_errors: RefCell::new(SourceAvailabilityLog::default()),
         })
     }
 
@@ -1363,15 +1390,16 @@ fn visit_merged_hop(
         }
         work.before_read(current.record.range.len(), true)?;
         let path = view.repo.files.root.join(&current.file.relative_path);
-        let bytes = if let Some(execution) = work.execution.as_ref() {
-            read_record_range_with_execution(
-                &path,
-                current.record.revision,
-                current.record.range,
-                execution,
-            )?
-        } else {
-            read_record_range(&path, current.record.revision, current.record.range)?
+        if let Some(execution) = work.execution.as_ref() {
+            execution.check_string()?;
+        }
+        let bytes = match read_record_range(&path, current.record.revision, current.record.range) {
+            Ok(bytes) => bytes,
+            Err(message) => {
+                view.record_source_failure(current.file, current.record.range, message);
+                merge_truth(truth, None, quantifier);
+                return Ok(());
+            }
         };
         work.target_read(bytes.len() as u64)?;
         let extracted = crate::record_preparation::prepare_query_record_with_execution(

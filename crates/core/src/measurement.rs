@@ -181,6 +181,35 @@ impl WorkCounters {
     }
 }
 
+/// Query-local collector; it counts every unavailable read while retaining a
+/// fixed number of representative diagnostics.
+#[derive(Default)]
+pub(crate) struct SourceAvailabilityLog {
+    events: u64,
+    diagnostics: Vec<SourceDiagnostic>,
+}
+
+impl SourceAvailabilityLog {
+    pub(crate) fn events(&self) -> u64 { self.events }
+
+    pub(crate) fn record(&mut self, diagnostic: SourceDiagnostic) {
+        self.events = self.events.saturating_add(1);
+        if self.diagnostics.len() < 32 {
+            self.diagnostics.push(diagnostic);
+        }
+    }
+
+    pub(crate) fn apply(self, counters: &mut WorkCounters) {
+        let shown = self.diagnostics.len() as u64;
+        for diagnostic in self.diagnostics {
+            counters.record_source_unavailable(diagnostic);
+        }
+        counters.source_unavailable_events = counters.source_unavailable_events.saturating_add(
+            self.events.saturating_sub(shown),
+        );
+    }
+}
+
 #[cfg(test)]
 #[test]
 fn source_diagnostics_remain_bounded_after_many_failures() {
