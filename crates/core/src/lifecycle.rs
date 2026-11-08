@@ -1312,6 +1312,18 @@ impl Index {
 
     /// Enable one bounded, coalescing background cache writer for the selected
     /// repository destination. Mutation commits only send a nonblocking signal.
+    /// Configure the repository's selected cache writer at runtime. Enabling
+    /// requires a cache destination, as selected by repository opening or a
+    /// previous explicit flush. Disabling stops future writes and joins the
+    /// worker; callers must run this off interactive threads.
+    pub fn set_sync_cache(&self, enabled: bool) -> Result<(), IndexError> {
+        if enabled {
+            self.enable_sync_cache()
+        } else {
+            self.stop_sync_cache()
+        }
+    }
+
     pub(crate) fn enable_sync_cache(&self) -> Result<(), IndexError> {
         if self
             .0
@@ -1478,6 +1490,20 @@ impl Index {
         maintenance.reconciliation = ReconciliationState::Pending;
         maintenance.current = Some(Arc::clone(&job));
         Ok(ReconciliationTask(job))
+    }
+
+    /// Observe the most recently started reconciliation without scheduling a
+    /// new pass. The returned handle remains valid after the pass completes;
+    /// callers can inspect progress and retrieve its bounded outcome.
+    pub fn current_reconciliation_task(&self) -> Result<Option<ReconciliationTask>, IndexError> {
+        Ok(self
+            .0
+            .maintenance
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .current
+            .as_ref()
+            .map(|job| ReconciliationTask(Arc::clone(job))))
     }
 
     /// Schedule one coalesced metadata reconciliation at each interval.
