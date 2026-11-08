@@ -4,8 +4,8 @@
 use std::collections::BTreeMap;
 
 use super::model::{
-    BatchRow, BatchSource, DetailView, ErrorField, MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry,
-    SearchDraft, UiUpdate,
+    BatchRow, BatchSource, DetailView, ErrorField, FilterValidationState, MAX_BATCH_ROWS,
+    OpenDraft, PageView, QueryEntry, SearchDraft, UiUpdate,
 };
 
 
@@ -52,6 +52,10 @@ pub struct UiState {
     pub show_actions: bool,
     pub show_diagnostics: bool,
     pub show_raw: bool,
+    pub filter_validation_generation: u64,
+    pub filter_validation: Option<FilterValidationState>,
+    pub showing_last_valid_results: bool,
+    pub show_filter_builder: bool,
 }
 
 
@@ -116,6 +120,7 @@ impl UiState {
                     self.show_raw = false;
                 }
                 self.page = page;
+                self.showing_last_valid_results = false;
                 self.busy = Busy::None;
                 self.status = if self.page.rows.is_empty() {
                     "No matching records".into()
@@ -188,8 +193,14 @@ impl UiState {
             }
             UiUpdate::RestoreQuery(draft) => {
                 self.search = draft;
+                self.search.filter_enabled |= !self.search.structured.trim().is_empty();
                 self.page = PageView::default();
                 self.detail = None;
+            }
+            UiUpdate::FilterValidation { generation, state } => {
+                if generation == self.filter_validation_generation {
+                    self.filter_validation = Some(state);
+                }
             }
             UiUpdate::Theme { dark } => self.dark = dark,
         }
