@@ -1130,6 +1130,20 @@ impl Index {
 pub struct IndexView(Arc<PublishedIndex>);
 
 impl IndexView {
+    fn has_segments(&self) -> bool {
+        self.0.segments.iter().any(|group| !group.is_empty())
+    }
+
+    fn require_base_only(&self, route: &str) -> Result<(), String> {
+        if self.has_segments() {
+            Err(format!(
+                "{route} across indexed segments is not available yet"
+            ))
+        } else {
+            Ok(())
+        }
+    }
+
     pub fn instance_id(&self) -> u64 {
         self.0.instance_id
     }
@@ -1202,7 +1216,18 @@ impl IndexView {
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
-        crate::run::search_active(self.repository(), resolved.as_ref(), &self.0.active)
+        if !self.has_segments() {
+            crate::run::search_active(self.repository(), resolved.as_ref(), &self.0.active)
+        } else {
+            crate::run::search_segmented(
+                self.repository(),
+                resolved.as_ref(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+            )
+        }
     }
 
     pub fn search_with_context(
@@ -1214,12 +1239,26 @@ impl IndexView {
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
-        crate::run::search_with_context_active(
-            self.repository(),
-            &resolved,
-            context,
-            &self.0.active,
-        )
+        if !self.has_segments() {
+            crate::run::search_with_context_active(
+                self.repository(),
+                &resolved,
+                context,
+                &self.0.active,
+            )
+        } else {
+            crate::run::search_segmented(
+                self.repository(),
+                &resolved,
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+            )
+            .map_err(|message| {
+                context.error(crate::streaming::ExecutionErrorKind::Execution, message)
+            })
+        }
     }
 
     pub fn count_exact(&self, query: &Query) -> Result<usize, String> {
@@ -1255,15 +1294,40 @@ impl IndexView {
         record_id: &str,
         return_mode: ReturnMode,
     ) -> Result<Option<SearchHit>, String> {
-        self.repository().get_record_with_active(
+        let base = self.repository().get_record_with_active(
             collection,
             record_id,
-            return_mode,
+            return_mode.clone(),
             Some(&self.0.active),
-        )
+        )?;
+        if base.is_some() {
+            return Ok(base);
+        }
+        let number = self
+            .repository()
+            .collections()
+            .iter()
+            .position(|state| state.definition.name == collection)
+            .ok_or_else(|| format!("unknown collection {collection}"))?;
+        for segment in self.0.segments[number].iter() {
+            if let Some(hit) = crate::run::get_segment_record_by_id(
+                self.repository(),
+                number,
+                &segment.index,
+                &segment.active,
+                &self.0.catalog,
+                self.revision(),
+                record_id,
+                return_mode.clone(),
+            )? {
+                return Ok(Some(hit));
+            }
+        }
+        Ok(None)
     }
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
+        self.require_base_only("reference search")?;
         self.repository()
             .search_reference_with_active(query, Some(&self.0.active))
     }
@@ -1273,6 +1337,7 @@ impl IndexView {
         collection: &str,
         query: &Query,
     ) -> Result<crate::posting_values::ExactSelection, String> {
+        self.require_base_only("exact selection")?;
         self.repository()
             .select_exact_for_view(collection, query, self.revision(), &self.0.active)
     }
@@ -1281,6 +1346,7 @@ impl IndexView {
         &self,
         request: &crate::posting_values::PostingValuesRequest,
     ) -> Result<crate::posting_values::PostingValuesPage, String> {
+        self.require_base_only("posting values")?;
         self.repository()
             .posting_values_for_view(request, self.revision(), &self.0.active)
     }
@@ -1293,6 +1359,7 @@ impl IndexView {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::OutgoingReferencePage, String> {
+        self.require_base_only("outgoing relation inspection")?;
         self.repository().relation_outgoing_page_for_view(
             source_collection,
             relation_path,
@@ -1311,6 +1378,7 @@ impl IndexView {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::BacklinkPage, String> {
+        self.require_base_only("backlink relation inspection")?;
         self.repository().relation_backlink_page_for_view(
             target_collection,
             reverse_alias,
@@ -1322,6 +1390,7 @@ impl IndexView {
     }
 
     pub fn collection_graph(&self) -> Result<crate::relation_inspection::CollectionGraph, String> {
+        self.require_base_only("collection graph")?;
         self.repository().collection_graph_for_view(&self.0.active)
     }
 
@@ -1329,6 +1398,7 @@ impl IndexView {
         &self,
         query: &Query,
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
+        self.require_base_only("analyzed search")?;
         let resolved = query.resolve_current_clock()?;
         crate::run::search_analyze_with_active(
             self.repository(),
@@ -1338,6 +1408,7 @@ impl IndexView {
     }
 
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+        self.require_base_only("query explanation")?;
         let resolved = query.resolve_current_clock()?;
         crate::run::explain_with_active(self.repository(), resolved.as_ref(), Some(&self.0.active))
     }
@@ -1394,6 +1465,12 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
+        self.require_base_only("streamed search")
+            .map_err(|message| StreamError::Execution {
+                kind: crate::streaming::ExecutionErrorKind::Execution,
+                message,
+                progress: Default::default(),
+            })?;
         let scoped_context = context.with_active(&self.0.active);
         self.repository().search_stream_scoped_with_context_active(
             query,

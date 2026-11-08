@@ -328,6 +328,29 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     );
     assert_eq!(index.status().unwrap(), before);
     index.publish_prepared(before.revision, staged).unwrap();
+    let query = Query {
+        collections: vec!["left".into(), "right".into()],
+        ..all_records()
+    };
+    let current = index.view().unwrap();
+    let result = current.search(&query).unwrap();
+    assert_eq!(result.count, Some(2));
+    assert!(
+        result
+            .hits
+            .iter()
+            .all(|hit| hit.file_path.ends_with("new.jsonl"))
+    );
+    for hit in &result.hits {
+        assert_eq!(
+            current
+                .get_record(&hit.collection, &hit.record_id, ReturnMode::Locator)
+                .unwrap()
+                .unwrap()
+                .file_path,
+            hit.file_path
+        );
+    }
     assert!(matches!(
         index.prepare_replace_file(handle, &new_path),
         Err(IndexError::FileConflict { .. })
