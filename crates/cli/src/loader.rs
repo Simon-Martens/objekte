@@ -6,6 +6,11 @@ use std::time::Instant;
 
 use objekte_search_core::discovery::SymlinkPolicy;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
+use objekte_search_core::lifecycle::Index;
+use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::lifecycle_repository::{
+    CacheFailurePolicy, CacheOpenPolicy, RepositoryOpenOptions,
+};
 use objekte_search_core::repository::{
     CollectionDefinition, Repository, RepositoryOptions, SnapshotMode, SnapshotOpenPolicy,
 };
@@ -201,18 +206,51 @@ pub fn open_repository(
     options: RepositoryOptions,
     policy: SnapshotOpenPolicy,
     write_requested: bool,
-) -> Result<(Repository, u128, Option<SnapshotSaveStats>), String> {
+    configured_repository: bool,
+) -> Result<(IndexedRepository, u128, Option<SnapshotSaveStats>), String> {
     let directory = policy
         .directory
         .clone()
         .unwrap_or_else(|| root.join(".objekte"));
     let open_started = Instant::now();
-    let repo = Repository::open_with_snapshot_policy(root, definitions, options, policy)?;
+    let index = if configured_repository {
+        Index::open_repository(
+            root,
+            RepositoryOpenOptions {
+                index: options,
+                cache_directory: Some(directory.clone()),
+                cache_open: match policy.mode {
+                    SnapshotMode::Required => CacheOpenPolicy::Required,
+                    SnapshotMode::IfValid => CacheOpenPolicy::IfPresent,
+                    SnapshotMode::Disabled if write_requested => CacheOpenPolicy::Ignore,
+                    SnapshotMode::Disabled => CacheOpenPolicy::IfPresent,
+                },
+                cache_failure: if write_requested && policy.mode == SnapshotMode::IfValid {
+                    CacheFailurePolicy::Rebuild
+                } else {
+                    CacheFailurePolicy::Report
+                },
+                sync_cache: false,
+            },
+        )
+        .map_err(|error| error.to_string())?
+    } else {
+        let repo = Repository::open_with_snapshot_policy(root, definitions, options, policy)?;
+        Index::from_repository(repo).map_err(|error| error.to_string())?
+    };
+    let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
     let open_ns = open_started.elapsed().as_nanos();
     if write_requested && !repo.startup().restored {
         let path =
             objekte_search_core::storage::snapshot_path_in(&directory, options.bigram_alphabet);
-        let saved = repo.save_snapshot_with_stats(&path)?;
+        let saved = if configured_repository {
+            repo.index()
+                .flush_cache_with_stats(&path)
+                .map_err(|error| error.to_string())?
+                .1
+        } else {
+            repo.save_snapshot_with_stats(&path)?
+        };
         return Ok((repo, open_ns, Some(saved)));
     }
     Ok((repo, open_ns, None))
