@@ -1881,6 +1881,89 @@ pub(crate) fn get_segment_record_by_id(
     }))
 }
 
+/// One current-view direct lookup. A missing source is distinct from an ID
+/// that is absent from the pinned active domain.
+#[derive(Clone, Debug)]
+pub enum DirectLookupResult {
+    Found(SearchHit),
+    NotFound,
+    SourceUnavailable(SourceDiagnostic),
+}
+
+pub(crate) fn direct_lookup_segmented(
+    repo: &Repository,
+    collection_name: &str,
+    record_id: &str,
+    return_mode: ReturnMode,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+) -> Result<DirectLookupResult, String> {
+    let collection_index = repo.collections.iter()
+        .position(|collection| collection.definition.name == collection_name)
+        .ok_or("unknown collection")?;
+    let collection = &repo.collections[collection_index];
+    let id = RecordId(record_id.to_owned());
+    let base = collection.id_lookup.get(&id).copied()
+        .filter(|slot| base_active[collection_index].contains(*slot));
+    let mut selected_segment = None;
+    for (index, segment) in segments[collection_index].iter().enumerate() {
+        if let Some(slot) = segment.index.id_lookup.get(&id)
+            && segment.active.contains(*slot)
+        {
+            if base.is_some() || selected_segment.is_some() {
+                return Err("duplicate active direct-lookup ID".into());
+            }
+            selected_segment = Some((index, *slot));
+        }
+    }
+    let (record, file, result) = if let Some(slot) = base {
+        let record = collection.generation.records.get(slot.0 as usize)
+            .ok_or("base direct-lookup slot missing")?;
+        let original = repo.files.files.get(record.file.0 as usize)
+            .ok_or("base direct-lookup file missing")?;
+        let file = catalog.entry(record.file)
+            .ok_or("active base direct-lookup file retired")?;
+        if file.relative_path != original.relative_path || file.revision != original.revision {
+            return Err("active base direct-lookup file changed without retirement".into());
+        }
+        (record, file, repo.get_record_with_active(
+            collection_name, record_id, return_mode, Some(base_active),
+        ))
+    } else if let Some((index, slot)) = selected_segment {
+        let segment = &segments[collection_index][index];
+        let resolved = segment_record_ref(&segment.index, &segment.active, catalog, slot)?
+            .ok_or("active segment direct-lookup slot retired")?;
+        (resolved.record, resolved.file, get_segment_record_by_id(
+            repo, collection_index, &segment.index, &segment.active, catalog,
+            revision, record_id, return_mode,
+        ))
+    } else {
+        return Ok(DirectLookupResult::NotFound);
+    };
+    match result {
+        Ok(Some(mut hit)) => {
+            hit.generation = revision.0;
+            Ok(DirectLookupResult::Found(hit))
+        }
+        Ok(None) => Err("active direct-lookup record disappeared".into()),
+        Err(message) => {
+            let path = repo.files.root.join(&file.relative_path);
+            if let Some(kind) = probe_source_unavailable(&path, file.revision, Some(record.range)) {
+                Ok(DirectLookupResult::SourceUnavailable(SourceDiagnostic {
+                    file_id: file.id.0,
+                    file_path: file.relative_path.clone(),
+                    kind,
+                    message,
+                }))
+            } else {
+                Err(message)
+            }
+        }
+    }
+}
+
 struct MergedPageHit {
     key: RankKey,
     hit: SearchHit,

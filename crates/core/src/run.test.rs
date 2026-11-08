@@ -464,7 +464,32 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(summary.returned_rows, 0);
     assert_eq!(summary.counters.source_diagnostics[0].kind,
         crate::measurement::SourceUnavailableKind::Missing);
+    let delta_id = &retired_segments[0][0].index.records[2].id.0;
+    assert!(matches!(
+        direct_lookup_segmented(
+            &repo, "data", delta_id, ReturnMode::Bytes, &retired_base,
+            &retired_segments, &catalog, IndexRevision(3),
+        ).unwrap(),
+        DirectLookupResult::SourceUnavailable(diagnostic)
+            if diagnostic.kind == crate::measurement::SourceUnavailableKind::Missing
+    ));
     std::fs::remove_file(root.join("data/base.jsonl")).unwrap();
+    let base_id = &repo.collections()[0].generation.records[1].id.0;
+    assert!(matches!(
+        direct_lookup_segmented(
+            &repo, "data", base_id, ReturnMode::Bytes, &retired_base,
+            &retired_segments, &catalog, IndexRevision(3),
+        ).unwrap(),
+        DirectLookupResult::SourceUnavailable(diagnostic)
+            if diagnostic.kind == crate::measurement::SourceUnavailableKind::Missing
+    ));
+    assert!(matches!(
+        direct_lookup_segmented(
+            &repo, "data", "does-not-exist", ReturnMode::Locator, &retired_base,
+            &retired_segments, &catalog, IndexRevision(3),
+        ).unwrap(),
+        DirectLookupResult::NotFound
+    ));
     query.options.return_mode = ReturnMode::Bytes;
     let base_only = search_active_available(
         &repo, &query, &retired_base, &catalog, IndexRevision(3),
