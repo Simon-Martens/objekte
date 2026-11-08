@@ -352,6 +352,23 @@ fn published_file_versions_change_only_the_selected_chunk() {
 }
 
 #[test]
+fn restored_file_versions_keep_tokens_across_chunks() {
+    let mut tokens = vec![FileVersion(1); 1026];
+    tokens[0] = FileVersion(7);
+    tokens[1024] = FileVersion(3);
+    let restored = FileVersions::from_versions(tokens.clone()).unwrap();
+    assert_eq!(restored.len(), tokens.len());
+    assert_eq!(restored.get(FileId(0)), Some(FileVersion(7)));
+    assert_eq!(restored.get(FileId(1024)), Some(FileVersion(3)));
+    let (advanced, version) = restored.advanced(FileId(1024)).unwrap();
+    assert_eq!(version, FileVersion(4));
+    assert_eq!(restored.get(FileId(1024)), Some(FileVersion(3)));
+    assert_eq!(advanced.get(FileId(1025)), Some(FileVersion(1)));
+    tokens[1025] = FileVersion(0);
+    assert!(FileVersions::from_versions(tokens).is_err());
+}
+
+#[test]
 fn published_active_records_keep_old_view_and_cross_chunk_boundaries() {
     let first = ActiveRecords::all(65_538).unwrap();
     let second = first
@@ -372,4 +389,26 @@ fn published_active_records_keep_old_view_and_cross_chunk_boundaries() {
     assert!(!third.contains(RecordSlot(65_536)));
     assert_eq!(third.bitmap().len(), third.len());
     assert!(second.retired(&[RecordSlot(65_538)]).is_err());
+}
+
+#[test]
+fn restored_active_records_keep_sparse_domains_and_append_boundary() {
+    let bitmap = RoaringBitmap::from_iter([0, 65_535, 65_537]);
+    let restored = ActiveRecords::from_bitmap(65_538, bitmap.clone()).unwrap();
+    assert_eq!(restored.slot_count(), 65_538);
+    assert_eq!(restored.len(), 3);
+    assert_eq!(restored.bitmap(), bitmap);
+    assert!(!restored.contains(RecordSlot(65_536)));
+    let appended = restored.appended(2).unwrap();
+    assert!(appended.contains(RecordSlot(65_538)));
+    assert!(appended.contains(RecordSlot(65_539)));
+    assert_eq!(restored.len(), 3);
+    assert!(ActiveRecords::from_bitmap(65_537, bitmap).is_err());
+    assert!(ActiveRecords::from_bitmap(0, RoaringBitmap::from_iter([0])).is_err());
+    assert_eq!(
+        ActiveRecords::from_bitmap(0, RoaringBitmap::new())
+            .unwrap()
+            .len(),
+        0
+    );
 }

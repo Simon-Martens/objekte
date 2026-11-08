@@ -3,7 +3,7 @@
 //! The static repository remains the base. A mutation copies only one small
 //! path shard and one file-metadata shard, never the base inventory.
 
-use std::collections::{BTreeMap, BTreeSet, HashMap};
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 use std::hash::{Hash, Hasher};
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
@@ -17,12 +17,14 @@ use crate::repository::Repository;
 
 const SHARDS: usize = 1024;
 
+
 #[derive(Clone)]
 struct ChangedFile {
     entry: Arc<FileEntry>,
     fingerprint: Option<[u8; 32]>,
     configuration: Option<[u8; 32]>,
 }
+
 
 /// One published view's active file table. Previous views retain their own
 /// path map, metadata and liveness after a new root is published.
@@ -34,6 +36,7 @@ pub(crate) struct FileCatalog {
     active: Arc<RoaringBitmap>,
     len: u32,
 }
+
 
 fn shard<T: Hash>(value: &T) -> usize {
     let mut hasher = std::collections::hash_map::DefaultHasher::new();
@@ -49,7 +52,85 @@ fn valid_relative_path(path: &Path) -> bool {
             .all(|part| matches!(part, std::path::Component::Normal(_)))
 }
 
+
 impl FileCatalog {
+    /// Rebuild a published catalog from checked cache slots. `None` preserves
+    /// a retired file ID, including holes after appended files. Unchanged base
+    /// entries continue to borrow their metadata from `base`.
+    pub(crate) fn restored(
+        base: Arc<Repository>,
+        slots: Vec<Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>>,
+    ) -> Result<Self, String> {
+        let len = u32::try_from(slots.len()).map_err(|_| "too many indexed files")?;
+        if slots.len() < base.files().files.len() {
+            return Err("restored catalog is shorter than base inventory".into());
+        }
+        let mut changed = (0..SHARDS).map(|_| HashMap::new()).collect::<Vec<_>>();
+        let mut changed_paths = (0..SHARDS).map(|_| HashMap::new()).collect::<Vec<_>>();
+        let mut active = RoaringBitmap::new();
+        let mut paths = HashSet::new();
+        for (number, slot) in slots.into_iter().enumerate() {
+            let Some((entry, fingerprint, configuration)) = slot else {
+                continue;
+            };
+            let id = FileId(number as u32);
+            if entry.id != id
+                || !valid_relative_path(&entry.relative_path)
+                || entry.collections.is_empty()
+                || entry
+                    .collections
+                    .iter()
+                    .copied()
+                    .collect::<HashSet<_>>()
+                    .len()
+                    != entry.collections.len()
+                || entry
+                    .collections
+                    .iter()
+                    .any(|collection| collection.0 as usize >= base.collections().len())
+                || entry.diagnostics.iter().any(|diagnostic| {
+                    diagnostic.file != id || !entry.collections.contains(&diagnostic.collection)
+                })
+                || !paths.insert(entry.relative_path.clone())
+            {
+                return Err("invalid restored file catalog entry".into());
+            }
+            let baseline = base.files().files.get(number);
+            let new_path =
+                baseline.is_none_or(|original| original.relative_path != entry.relative_path);
+            let changed_metadata = baseline.is_none_or(|original| {
+                original.revision != entry.revision
+                    || original.created_ns != entry.created_ns
+                    || original.collections != entry.collections
+                    || original.status != entry.status
+                    || original.diagnostics != entry.diagnostics
+                    || original.omitted_diagnostics != entry.omitted_diagnostics
+            });
+            if new_path {
+                let path = entry.relative_path.clone();
+                changed_paths[shard(&path)].insert(path, id);
+            }
+            if new_path || changed_metadata || fingerprint.is_some() || configuration.is_some() {
+                changed[shard(&id)].insert(
+                    id,
+                    ChangedFile {
+                        entry: Arc::new(entry),
+                        fingerprint,
+                        configuration,
+                    },
+                );
+            }
+            active.insert(id.0);
+        }
+        Ok(Self {
+            base,
+            changed: Arc::new(changed.into_iter().map(Arc::new).collect()),
+            changed_paths: Arc::new(changed_paths.into_iter().map(Arc::new).collect()),
+            active: Arc::new(active),
+            len,
+        })
+    }
+
     pub(crate) fn from_repository(base: Arc<Repository>) -> Result<Self, String> {
         let len = u32::try_from(base.files().files.len()).map_err(|_| "too many indexed files")?;
         let mut active = RoaringBitmap::new();
@@ -214,6 +295,7 @@ impl FileCatalog {
         Ok(next)
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle_catalog.test.rs"]
