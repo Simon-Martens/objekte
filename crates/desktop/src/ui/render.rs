@@ -63,6 +63,15 @@ impl DesktopView {
                     .label(if self.state.dark { "Light" } else { "Dark" })
                     .on_click(cx.listener(|this, _, _, cx| {
                         this.state.dark = !this.state.dark;
+                        gpui_kit::component::Theme::change(
+                            if this.state.dark {
+                                gpui_kit::component::ThemeMode::Dark
+                            } else {
+                                gpui_kit::component::ThemeMode::Light
+                            },
+                            None,
+                            cx,
+                        );
                         this.send(UiAction::SetTheme {
                             dark: this.state.dark,
                         });
