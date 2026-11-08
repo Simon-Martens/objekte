@@ -13,8 +13,11 @@ use super::{BackendError, BackendErrorKind, OpenedSession};
 /// Batch text already in memory, or a physical query file.
 #[derive(Clone, Debug)]
 pub enum BatchSource {
+    DirectStructured(String),
+    DirectFullText(String),
     Text(String),
     File(PathBuf),
+    IndexOnly,
 }
 
 
@@ -51,10 +54,19 @@ pub fn run_batch(
     args.tui = false;
     args.query = None;
     args.fts = None;
+    args.query_file = None;
     args.offset = spec.offset;
     args.limit = spec.limit;
     args.count = spec.count;
     let source = match &spec.source {
+        BatchSource::DirectStructured(text) => {
+            args.query = Some(text.clone());
+            QuerySource::open(&args)
+        }
+        BatchSource::DirectFullText(text) => {
+            args.fts = Some(text.clone());
+            QuerySource::open(&args)
+        }
         BatchSource::Text(text) => {
             args.query_file = Some("<pasted batch>".into());
             Ok(QuerySource::from_text(text.clone()))
@@ -67,6 +79,15 @@ pub fn run_batch(
                     })?
                     .to_owned(),
             );
+            QuerySource::open(&args)
+        }
+        BatchSource::IndexOnly => {
+            if args.load_index.is_none() && args.write_index.is_none() {
+                return Err(BackendError::new(
+                    BackendErrorKind::Options,
+                    "index-only output requires an explicit load or write index operation",
+                ));
+            }
             QuerySource::open(&args)
         }
     };
