@@ -2,6 +2,7 @@
 
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
+use std::sync::Arc;
 use std::time::SystemTime;
 
 use roaring::RoaringBitmap;
@@ -212,6 +213,211 @@ impl SourceRevision {
             modified_ns: duration.as_nanos() as i128,
             size: metadata.len(),
         })
+    }
+}
+
+
+/// Index-local incarnation token for a physical file. It is independent of
+/// modification time and changes after every accepted file mutation.
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
+pub struct FileVersion(pub u64);
+
+
+impl FileVersion {
+    pub const INITIAL: Self = Self(1);
+
+    pub fn next(self) -> Result<Self, String> {
+        self.0
+            .checked_add(1)
+            .map(Self)
+            .ok_or("file version overflow".into())
+    }
+}
+
+
+const FILE_VERSION_CHUNK: usize = 1024;
+
+
+/// Version metadata is divided into shared chunks so changing one file does
+/// not copy every file's token. The outer pointer directory is shallow.
+#[derive(Clone, Debug)]
+pub(crate) struct FileVersions {
+    chunks: Arc<Vec<Arc<Vec<FileVersion>>>>,
+    len: usize,
+}
+
+
+impl FileVersions {
+    pub(crate) fn initial(len: usize) -> Self {
+        Self::filled(len, FileVersion::INITIAL)
+    }
+
+    pub(crate) fn filled(len: usize, version: FileVersion) -> Self {
+        let chunks = (0..len)
+            .step_by(FILE_VERSION_CHUNK)
+            .map(|start| Arc::new(vec![version; (len - start).min(FILE_VERSION_CHUNK)]))
+            .collect();
+        Self {
+            chunks: Arc::new(chunks),
+            len,
+        }
+    }
+
+    pub(crate) fn len(&self) -> usize {
+        self.len
+    }
+
+    pub(crate) fn get(&self, file: FileId) -> Option<FileVersion> {
+        let index = file.0 as usize;
+        if index >= self.len {
+            return None;
+        }
+        self.chunks
+            .get(index / FILE_VERSION_CHUNK)?
+            .get(index % FILE_VERSION_CHUNK)
+            .copied()
+    }
+
+    /// Create a private next version without changing any published view.
+    pub(crate) fn advanced(&self, file: FileId) -> Result<(Self, FileVersion), String> {
+        let index = file.0 as usize;
+        if index >= self.len {
+            return Err("file ID out of bounds".into());
+        }
+        let mut chunks = (*self.chunks).clone();
+        let token = Arc::make_mut(&mut chunks[index / FILE_VERSION_CHUNK])
+            .get_mut(index % FILE_VERSION_CHUNK)
+            .ok_or("file version missing")?;
+        *token = token.next()?;
+        let next_version = *token;
+        Ok((
+            Self {
+                chunks: Arc::new(chunks),
+                len: self.len,
+            },
+            next_version,
+        ))
+    }
+
+    /// Assign a never-before-used file ID its first incarnation token.
+    pub(crate) fn appended(&self) -> Result<Self, String> {
+        u32::try_from(self.len).map_err(|_| "too many files")?;
+        let mut chunks = (*self.chunks).clone();
+        if self.len % FILE_VERSION_CHUNK == 0 {
+            chunks.push(Arc::new(vec![FileVersion::INITIAL]));
+        } else {
+            Arc::make_mut(chunks.last_mut().ok_or("file version chunk missing")?)
+                .push(FileVersion::INITIAL);
+        }
+        Ok(Self {
+            chunks: Arc::new(chunks),
+            len: self.len + 1,
+        })
+    }
+}
+
+
+const ACTIVE_SLOT_CHUNK: u32 = 1 << 16;
+
+
+/// Published liveness for one collection. Slot numbers are never reused by
+/// ordinary mutations. Only touched chunks are copied on retirement.
+#[derive(Clone, Debug)]
+pub(crate) struct ActiveRecords {
+    chunks: Arc<Vec<Arc<RoaringBitmap>>>,
+    slot_count: u32,
+    live_count: u64,
+}
+
+
+impl ActiveRecords {
+    pub(crate) fn all(slot_count: usize) -> Result<Self, String> {
+        let slot_count = u32::try_from(slot_count).map_err(|_| "too many records")?;
+        let mut chunks = Vec::new();
+        let mut start = 0u32;
+        while start < slot_count {
+            let end = slot_count.min(start.saturating_add(ACTIVE_SLOT_CHUNK));
+            let mut active = RoaringBitmap::new();
+            active.insert_range(0..end - start);
+            chunks.push(Arc::new(active));
+            start = end;
+        }
+        Ok(Self {
+            chunks: Arc::new(chunks),
+            slot_count,
+            live_count: slot_count as u64,
+        })
+    }
+
+    pub(crate) fn slot_count(&self) -> u32 {
+        self.slot_count
+    }
+
+    pub(crate) fn len(&self) -> u64 {
+        self.live_count
+    }
+
+    pub(crate) fn contains(&self, slot: RecordSlot) -> bool {
+        if slot.0 >= self.slot_count {
+            return false;
+        }
+        self.chunks
+            .get((slot.0 / ACTIVE_SLOT_CHUNK) as usize)
+            .is_some_and(|chunk| chunk.contains(slot.0 % ACTIVE_SLOT_CHUNK))
+    }
+
+    pub(crate) fn retired(&self, slots: &[RecordSlot]) -> Result<Self, String> {
+        let mut chunks = (*self.chunks).clone();
+        let mut live_count = self.live_count;
+        for slot in slots {
+            if slot.0 >= self.slot_count {
+                return Err("record slot out of bounds".into());
+            }
+            let chunk = Arc::make_mut(&mut chunks[(slot.0 / ACTIVE_SLOT_CHUNK) as usize]);
+            if chunk.remove(slot.0 % ACTIVE_SLOT_CHUNK) {
+                live_count -= 1;
+            }
+        }
+        Ok(Self {
+            chunks: Arc::new(chunks),
+            slot_count: self.slot_count,
+            live_count,
+        })
+    }
+
+    pub(crate) fn appended(&self, count: u32) -> Result<Self, String> {
+        let slot_count = self
+            .slot_count
+            .checked_add(count)
+            .ok_or("record slot overflow")?;
+        let mut chunks = (*self.chunks).clone();
+        let mut current = self.slot_count;
+        while current < slot_count {
+            let group = (current / ACTIVE_SLOT_CHUNK) as usize;
+            let local = current % ACTIVE_SLOT_CHUNK;
+            let take = (slot_count - current).min(ACTIVE_SLOT_CHUNK - local);
+            if group == chunks.len() {
+                chunks.push(Arc::new(RoaringBitmap::new()));
+            }
+            Arc::make_mut(&mut chunks[group]).insert_range(local..local + take);
+            current += take;
+        }
+        Ok(Self {
+            chunks: Arc::new(chunks),
+            slot_count,
+            live_count: self.live_count + count as u64,
+        })
+    }
+
+    pub(crate) fn bitmap(&self) -> RoaringBitmap {
+        self.chunks
+            .iter()
+            .enumerate()
+            .flat_map(|(group, chunk)| {
+                let base = group as u32 * ACTIVE_SLOT_CHUNK;
+                chunk.iter().map(move |slot| base + slot)
+            })
+            .collect()
     }
 }
 
