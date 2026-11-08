@@ -1,5 +1,6 @@
 //! Read-only repository operations shared by the desktop controller.
 
+mod batch;
 mod error;
 mod open;
 mod query;
@@ -12,3 +13,4 @@ pub use record::{backlink_page, collection_graph, outgoing_page, record_by_id};
 
 #[cfg(test)]
 mod test_support;
+pub use batch::{BatchReport, BatchSource, BatchSpec, run_batch};

@@ -1,24 +1,24 @@
 //! One repository opening and sequential, ordered query execution.
 
 use std::io::{self, BufWriter, IsTerminal, Write};
+use std::path::PathBuf;
 use std::time::Instant;
 
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
 use objekte_search_core::path_repr;
 use objekte_search_core::repository::{Repository, SnapshotAction};
+use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
     StreamOutcome,
 };
-use serde_json::json;
+use serde_json::{Value, json};
 
-use objekte_cli::arguments::{Alphabet, Arguments};
-use objekte_cli::loader::{
-    configure_definitions, open_repository, repository_options, snapshot_policy,
-};
-use objekte_cli::output::{EventWriter, counters_with_ms, milliseconds_value as ms};
-use objekte_cli::query_input::{QueryInput, QueryKind, QuerySource};
+use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
+use crate::loader::{configure_definitions, open_repository, repository_options, snapshot_policy};
+use crate::output::{EventWriter, counters_with_ms, milliseconds_value as ms};
+use crate::query_input::{QueryInput, QueryKind, QuerySource};
 
 pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     if let Err(error) = args.validate_input() {
@@ -62,7 +62,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             return Exit::Arguments;
         }
     };
-    let ui = objekte_cli::tui::TuiOptions {
+    let ui = crate::tui::TuiOptions {
         single_collection: !args.multiple_collections(),
         initial_search,
         initial_filter,
@@ -80,7 +80,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         ),
     };
     let write = args.write_index.is_some();
-    let result = objekte_cli::tui::run_with_loader(
+    let result = crate::tui::run_with_loader(
         move || {
             open_repository(&root, definitions, options, policy, write).map(|(repo, _, _)| repo)
         },
@@ -114,6 +114,69 @@ pub enum Exit {
     OutputError = 255,
 }
 
+
+/// Metadata from the opening operation, reused by the desktop batch runner.
+pub struct ExistingRun<'a> {
+    pub args: &'a Arguments,
+    pub paths: &'a ResolvedPaths,
+    pub repository: &'a Repository,
+    pub collections: &'a [String],
+    pub schema_fields: usize,
+    pub schema_files: &'a [PathBuf],
+    pub ignored_repository_metadata: bool,
+    pub startup_ns: u128,
+    pub snapshot_save: Option<SnapshotSaveStats>,
+}
+
+
+/// Execute a CLI batch against a repository already opened by another frontend.
+pub fn run_on_repository<W: Write>(
+    run: ExistingRun<'_>,
+    source: Result<QuerySource, String>,
+    writer: W,
+    token: &CancellationToken,
+) -> Exit {
+    let started = Instant::now();
+    let mut output = EventWriter::new(BufWriter::with_capacity(64 * 1024, writer));
+    if let Err(error) = output.emit(run_start_event(
+        run.args,
+        run.paths,
+        run.collections,
+        run.schema_fields,
+        run.schema_files,
+        run.ignored_repository_metadata,
+    )) {
+        return output_failure(error);
+    }
+    let source = match source {
+        Ok(source) => source,
+        Err(message) => {
+            eprintln!("obj: {message}");
+            if let Err(error) = output
+                .emit(
+                    json!({"type":"run_error", "stage":"query_input", "error":message,
+                    "elapsed_ms":ms(started.elapsed().as_nanos())}),
+                )
+                .and_then(|_| output.flush())
+            {
+                return output_failure(error);
+            }
+            return Exit::Operation;
+        }
+    };
+    run_queries(
+        RunTail {
+            repo: run.repository,
+            args: run.args,
+            started: &started,
+            startup_ns: run.startup_ns,
+            snapshot_save: run.snapshot_save,
+        },
+        source,
+        &mut output,
+        token,
+    )
+}
 
 /// Run one command using the supplied output sink and cancellation flag.
 pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> Exit {
@@ -149,37 +212,14 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         .iter()
         .map(|definition| definition.name.clone())
         .collect::<Vec<_>>();
-    let input_mode = if args.query_file.is_some() {
-        "query_file"
-    } else if args.fts.is_some() {
-        "fts"
-    } else if args.query.is_some() {
-        "positional"
-    } else {
-        "index_only"
-    };
-    if let Err(error) = output.emit(json!({
-        "type": "run_start",
-        "executable_version": env!("CARGO_PKG_VERSION"),
-        "core_model_version": objekte_search_core::MODEL_VERSION,
-        "root": path_repr::query_path(&paths.root),
-        "collection": (!args.multiple_collections()).then_some("files"),
-        "collections": collection_names,
-        "recursive": if args.repo.is_some() { false } else { !args.no_recurse },
-        "hidden": args.repo.is_none(),
-        "symlinks": "skip",
-        "extension": (args.repo.is_none()).then_some(".json"),
-        "alphabet": match args.index_alphabet { Alphabet::Ascii => "ascii", Alphabet::Unicode => "unicode" },
-        "text_policy": if args.repo.is_some() { "configured" } else { "decoded_scalar_values" },
-        "schema_fields": configured.schema_fields,
-        "schema_file": paths.schema_file.as_deref().map(path_repr::query_path),
-        "schema_files": configured.schema_files.iter().map(|path| path_repr::query_path(path)).collect::<Vec<_>>(),
-        "schema_repository_metadata_ignored": configured.ignored_repository_metadata,
-        "inference": if args.auto_index { "auto_index" } else { "disabled" },
-        "input_mode": input_mode,
-        "index_operation": index_operation(args),
-        "index_directory": paths.index_directory.as_deref().map(path_repr::query_path),
-    })) {
+    if let Err(error) = output.emit(run_start_event(
+        args,
+        &paths,
+        &collection_names,
+        configured.schema_fields,
+        &configured.schema_files,
+        configured.ignored_repository_metadata,
+    )) {
         return output_failure(error);
     }
     let options = repository_options(args);
@@ -206,7 +246,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             return Exit::Arguments;
         }
     };
-    let mut source = match QuerySource::open(args) {
+    let source = match QuerySource::open(args) {
         Ok(source) => source,
         Err(message) => {
             eprintln!("obj: {message}");
@@ -222,12 +262,88 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             return Exit::Operation;
         }
     };
+    run_queries(
+        RunTail {
+            repo: &repo,
+            args,
+            started: &started,
+            startup_ns,
+            snapshot_save,
+        },
+        source,
+        &mut output,
+        token,
+    )
+}
+
+fn run_start_event(
+    args: &Arguments,
+    paths: &ResolvedPaths,
+    collection_names: &[String],
+    schema_fields: usize,
+    schema_files: &[PathBuf],
+    ignored_repository_metadata: bool,
+) -> Value {
+    let input_mode = if args.query_file.is_some() {
+        "query_file"
+    } else if args.fts.is_some() {
+        "fts"
+    } else if args.query.is_some() {
+        "positional"
+    } else {
+        "index_only"
+    };
+    json!({
+        "type": "run_start",
+        "executable_version": env!("CARGO_PKG_VERSION"),
+        "core_model_version": objekte_search_core::MODEL_VERSION,
+        "root": path_repr::query_path(&paths.root),
+        "collection": (!args.multiple_collections()).then_some("files"),
+        "collections": collection_names,
+        "recursive": if args.repo.is_some() { false } else { !args.no_recurse },
+        "hidden": args.repo.is_none(),
+        "symlinks": "skip",
+        "extension": (args.repo.is_none()).then_some(".json"),
+        "alphabet": match args.index_alphabet { Alphabet::Ascii => "ascii", Alphabet::Unicode => "unicode" },
+        "text_policy": if args.repo.is_some() { "configured" } else { "decoded_scalar_values" },
+        "schema_fields": schema_fields,
+        "schema_file": paths.schema_file.as_deref().map(path_repr::query_path),
+        "schema_files": schema_files.iter().map(|path| path_repr::query_path(path)).collect::<Vec<_>>(),
+        "schema_repository_metadata_ignored": ignored_repository_metadata,
+        "inference": if args.auto_index { "auto_index" } else { "disabled" },
+        "input_mode": input_mode,
+        "index_operation": index_operation(args),
+        "index_directory": paths.index_directory.as_deref().map(path_repr::query_path),
+    })
+}
+
+
+struct RunTail<'a> {
+    repo: &'a Repository,
+    args: &'a Arguments,
+    started: &'a Instant,
+    startup_ns: u128,
+    snapshot_save: Option<SnapshotSaveStats>,
+}
+
+
+fn run_queries<W: Write>(
+    run: RunTail<'_>,
+    mut source: QuerySource,
+    output: &mut EventWriter<W>,
+    token: &CancellationToken,
+) -> Exit {
+    let repo = run.repo;
+    let args = run.args;
+    let started = run.started;
+    let startup_ns = run.startup_ns;
+    let snapshot_save = run.snapshot_save;
     let mut successes = 0usize;
     let mut failures = 0usize;
     let mut query_id = 0u64;
     loop {
         if token.is_cancelled() {
-            return cancel_run(&mut output, successes, failures, &started);
+            return cancel_run(output, successes, failures, started);
         }
         let input = match source.next_input() {
             Ok(Some(input)) => input,
@@ -246,12 +362,12 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             }
         };
         query_id += 1;
-        let query_exit = execute_query(&repo, args, &input, query_id, &mut output, token);
+        let query_exit = execute_query(repo, args, &input, query_id, output, token);
         match query_exit {
             Exit::Success => successes += 1,
             Exit::Operation => failures += 1,
             Exit::Cancelled => {
-                return cancel_run(&mut output, successes, failures, &started);
+                return cancel_run(output, successes, failures, started);
             }
             Exit::Arguments => return Exit::Arguments,
             Exit::PipeClosed => return Exit::PipeClosed,
@@ -259,7 +375,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         }
     }
     if token.is_cancelled() {
-        return cancel_run(&mut output, successes, failures, &started);
+        return cancel_run(output, successes, failures, started);
     }
     if source.is_file()
         && source.yielded() == 0
