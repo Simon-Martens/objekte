@@ -52,10 +52,18 @@ pub enum RelationTarget {
 
 
 /// One source occurrence of a declared ID, with array indexes from outer to inner.
+/// The logical target ID remains available when the resolved slot is retired.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct RelationEdge {
     pub target: RelationTarget,
+    target_id: String,
     pub positions: Vec<u32>,
+}
+
+impl RelationEdge {
+    pub fn target_id(&self) -> &str {
+        &self.target_id
+    }
 }
 
 
@@ -134,6 +142,7 @@ impl RelationIndex {
                 .iter()
                 .map(|edge| {
                     edge.positions.capacity() * 4
+                        + edge.target_id.capacity()
                         + match &edge.target {
                             RelationTarget::Unresolved(id) => id.capacity(),
                             _ => 0,
@@ -214,9 +223,15 @@ impl RelationIndex {
                         if record.slot != *slot {
                             return Err("relation target slot mismatch".into());
                         }
+                        if edge.target_id() != record.id.0.as_str() {
+                            return Err("relation resolved target ID mismatch".into());
+                        }
                         &record.id.0
                     }
                     RelationTarget::Unresolved(id) => {
+                        if edge.target_id() != id.as_str() {
+                            return Err("relation unresolved target ID mismatch".into());
+                        }
                         if target.id_lookup.contains_key(id.as_str()) {
                             return Err("relation unresolved target exists".into());
                         }
@@ -392,10 +407,11 @@ impl RelationContribution {
                         unresolved_count = unresolved_count
                             .checked_add(1)
                             .ok_or("relation unresolved count overflow")?;
-                        RelationTarget::Unresolved(reference.target_id)
+                        RelationTarget::Unresolved(reference.target_id.clone())
                     };
                 edges.push(RelationEdge {
                     target: target_ref,
+                    target_id: reference.target_id,
                     positions: reference.positions,
                 });
             }
