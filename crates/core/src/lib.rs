@@ -22,6 +22,7 @@ mod json_scalar_text;
 pub mod lifecycle;
 pub(crate) mod lifecycle_cache_guard;
 mod lifecycle_catalog;
+pub mod lifecycle_mutation;
 mod lifecycle_open;
 mod lifecycle_repository;
 mod lifecycle_scan;
