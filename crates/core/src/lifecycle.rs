@@ -1985,8 +1985,17 @@ impl IndexView {
         &self,
         query: &Query,
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
-        self.require_base_only("analyzed search")?;
         let resolved = query.resolve_current_clock()?;
+        if self.has_segments() {
+            return crate::run::search_analyze_segmented(
+                self.repository(),
+                resolved.as_ref(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+            );
+        }
         crate::run::search_analyze_with_active(
             self.repository(),
             resolved.as_ref(),
@@ -1996,8 +2005,16 @@ impl IndexView {
     }
 
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
-        self.require_base_only("query explanation")?;
         let resolved = query.resolve_current_clock()?;
+        if self.has_segments() {
+            return crate::run::explain_segmented(
+                self.repository(),
+                resolved.as_ref(),
+                &self.0.active,
+                &self.0.segments,
+                self.revision(),
+            );
+        }
         crate::run::explain_with_active(self.repository(), resolved.as_ref(), Some(&self.0.active))
     }
 
