@@ -32,7 +32,9 @@ use crate::reference::{
     eval_unavailable_filter, same_bound_term,
 };
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
-use crate::sort_binding::{BoundSort, BoundSortSource, BoundSortTerm, SortTargetCache};
+use crate::sort_binding::{
+    BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache, SortTargetCache,
+};
 use crate::sorting::{InferredOrderKey, SortColumn, SortKey, SortOptions, simple_composite_part};
 use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range};
 use crate::source_access::SourceAccessSession;
@@ -2010,6 +2012,44 @@ fn base_rank_key_merged(
     rank_key_from_context(sort, repo, collection_index, &ctx, None)
 }
 
+fn relation_rank_key_merged(
+    repo: &Repository,
+    sort: &ResolvedSort<'_>,
+    view: &crate::relation_query::MergedRelationView<'_>,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    address: crate::relation_query::MergedRecordSlot,
+    ctx: &RecordContext<'_>,
+    cache: &mut MergedSortTargetCache,
+) -> Result<RankKey, String> {
+    let collection_index = address.collection.0 as usize;
+    let terms = sort.bound.terms[collection_index]
+        .as_ref()
+        .ok_or("merged sort collection missing")?;
+    let mut parts = Vec::with_capacity(terms.len());
+    for term in terms {
+        let key = match &term.source {
+            BoundSortSource::Stored(column) => {
+                if let Some(segment_index) = address.segment {
+                    let segment = &segments[collection_index][segment_index].index;
+                    segment.sorting.column(&column.path.display())?
+                        .keys.get(address.slot.0 as usize)
+                        .ok_or("merged segment sort slot missing")?.clone()
+                } else {
+                    column.keys.get(address.slot.0 as usize)
+                        .ok_or("merged base sort slot missing")?.clone()
+                }
+            }
+            BoundSortSource::Computed(computed) => computed.key_merged(view, address, ctx, cache)?,
+        };
+        parts.push((key, term.descending, term.options));
+    }
+    Ok(RankKey {
+        parts,
+        collection: repo.collections[collection_index].definition.name.clone(),
+        id: ctx.record.id.0.clone(),
+    })
+}
+
 fn segment_locator_hit(
     collection: &CollectionState,
     resolved: SegmentRecordRef<'_>,
@@ -2055,8 +2095,7 @@ fn bound_expr_has_relations(expr: &BoundExpr) -> bool {
 
 /// Search the base and bounded indexed deltas as one pinned page. Segment
 /// candidates use local slot domains; only ranked hits cross shard boundaries.
-/// Relation and computed-sort resolution need the merged relation resolver and
-/// are rejected until that route is installed.
+/// Relation and related sort keys use the pinned merged relation resolver.
 pub(crate) fn search_segmented(
     repo: &Repository,
     query: &Query,
@@ -2069,11 +2108,9 @@ pub(crate) fn search_segmented(
         return Err("segment query collection count mismatch".into());
     }
     let sort = ResolvedSort::new(repo, query)?;
-    if sort.bound.terms.iter().flatten().flatten().any(|term| {
+    let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
         matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
-    }) {
-        return Err("related computed sort over indexed segments is not implemented".into());
-    }
+    });
     let (prepared, _) = crate::prepared::prepare(repo, query)?;
     let has_relations = prepared.collections.iter().any(|(_, filter, fts)| {
         filter.as_ref().is_some_and(bound_expr_has_relations)
@@ -2081,7 +2118,7 @@ pub(crate) fn search_segmented(
                 .as_ref()
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
-    if has_relations {
+    if has_relations || related_sort {
         return search_segmented_relations(
             repo,
             query,
@@ -2388,6 +2425,7 @@ fn search_segmented_relations(
     let mut counters = WorkCounters::default();
     let mut total = 0u64;
     let mut opened = HashSet::new();
+    let mut sort_cache = MergedSortTargetCache::default();
     for (collection_index, filter, fts) in prepared {
         let collection_index = *collection_index;
         let collection_id = repo.collections[collection_index].generation.collection;
@@ -2489,20 +2527,10 @@ fn search_segmented_relations(
                 return Ok(());
             }
             total += 1;
-            let key = if let Some(segment_index) = address.segment {
-                segment_rank_key(
-                    repo,
-                    sort,
-                    collection_index,
-                    &segments[collection_index][segment_index].index,
-                    record,
-                    Some(&ctx),
-                )?
-            } else if sort.bound.has_computed {
-                rank_key_from_context(sort, repo, collection_index, &ctx, None)?
-            } else {
-                rank_key(sort, repo, collection_index, record)
-            };
+            let key = relation_rank_key_merged(
+                repo, sort, &view, segments, address, &ctx, &mut sort_cache,
+            )?;
+            counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
             let hit = segment_locator_hit(
                 resolved.collection,
                 SegmentRecordRef {
@@ -2684,6 +2712,12 @@ fn search_segmented_relations(
     counters.match_count_complete = true;
     counters.returned_records = page.len() as u64;
     counters.distinct_files = opened.len() as u64;
+    counters.sort_target_reads += sort_cache.reads;
+    counters.sort_target_reuse += sort_cache.reuse;
+    counters.relation_edge_visits += sort_cache.edge_visits;
+    counters.files_opened += sort_cache.reads;
+    counters.record_parses += sort_cache.reads;
+    counters.bytes_read += sort_cache.bytes_read;
     Ok(SearchResult {
         count: query.options.count.then_some(total as usize),
         hits: page.into_iter().map(|winner| winner.hit).collect(),
