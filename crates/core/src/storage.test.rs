@@ -10,6 +10,33 @@ use crate::source::SourceRegistry;
 use crate::workload::ReturnMode;
 
 #[test]
+fn base_fingerprint_survives_legacy_snapshot_without_source_read() {
+    let (root, definition, options, publication) = lifecycle_fixture();
+    let fingerprint = publication.catalog.fingerprint(FileId(0));
+    assert!(fingerprint.is_some());
+    let cache = root.join("repository.snapshot");
+    publication.repository.save_snapshot(&cache).unwrap();
+    fs::remove_file(root.join("data/a.json")).unwrap();
+    let restored = load_snapshot_checked(
+        root.clone(),
+        vec![definition],
+        options,
+        &SourceRegistry::builtin(),
+        &cache,
+    )
+    .unwrap();
+    assert_eq!(restored.base_fingerprints, vec![fingerprint]);
+    let restored = PublishedIndex::from_repository(
+        2,
+        IndexRevision::INITIAL,
+        std::sync::Arc::new(restored),
+    )
+    .unwrap();
+    assert_eq!(restored.catalog.fingerprint(FileId(0)), fingerprint);
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn one_pass_section_encoding_matches_the_existing_codec_bytes() {
     let value = vec!["alpha".to_owned(), "ßeta".to_owned(), "".to_owned()];
     let expected = codec().serialize(&value).unwrap();
@@ -53,6 +80,7 @@ fn lifecycle_fixture() -> (
 #[test]
 fn lifecycle_snapshot_restores_pinned_liveness_without_source_enumeration() {
     let (root, definition, options, mut publication) = lifecycle_fixture();
+    let base_fingerprint = publication.catalog.fingerprint(FileId(0));
     publication.revision = IndexRevision(7);
     publication.active[0] = publication.active[0].retired(&[RecordSlot(0)]).unwrap();
     let mut appended = publication.repository.files().files[0].clone();
@@ -91,9 +119,11 @@ fn lifecycle_snapshot_restores_pinned_liveness_without_source_enumeration() {
     )
     .unwrap();
     assert_eq!(restored.files().files.len(), 1);
+    assert_eq!(restored.base_fingerprints, vec![base_fingerprint]);
     assert_eq!(state.revision, 7);
     assert!(state.base_active[0].is_empty());
     assert_eq!(state.catalog.len(), 2);
+    assert_eq!(state.catalog[0].as_ref().unwrap().fingerprint, base_fingerprint);
     assert_eq!(
         state.catalog[0]
             .as_ref()

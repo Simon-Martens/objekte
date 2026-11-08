@@ -258,13 +258,28 @@ fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
 }
 
 #[test]
-fn verified_hint_on_unfingerprinted_base_uses_append_fallback() {
-    let root = test_root("base-fallback");
+fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
+    use sha2::{Digest, Sha256};
+
+    let root = test_root("base-verified-update");
     let path = root.join("data/base.jsonl");
     let old = b"{\"name\":\"old\"}\n";
     std::fs::write(&path, old).unwrap();
     let index = index(&root);
-    let handle = index.view().unwrap().file_handle_for_path(&path).unwrap();
+    let pinned = index.view().unwrap();
+    let handle = pinned.file_handle_for_path(&path).unwrap();
+    assert_eq!(
+        pinned.file_fingerprint(handle.file_id),
+        Some(Sha256::digest(old).into())
+    );
+    assert_eq!(
+        pinned.repository().collections()[0].generation.records.len(),
+        1
+    );
+    let unchanged = index.update_file(handle, &path).unwrap();
+    assert_eq!(unchanged.kind, FileMutationKind::Unchanged);
+    assert_eq!(unchanged.revision, pinned.revision());
+    assert_eq!(unchanged.file, handle);
     std::fs::write(&path, b"{\"name\":\"new\"}\n").unwrap();
     let updated = index
         .update_file_with_options(
@@ -276,12 +291,67 @@ fn verified_hint_on_unfingerprinted_base_uses_append_fallback() {
             },
         )
         .unwrap();
-    assert_eq!(updated.strategy, FileMutationStrategy::AppendReplacement);
     assert_eq!(
-        updated.fallback_reason,
-        Some(VerifiedFallbackReason::MissingFingerprint)
+        updated.strategy,
+        FileMutationStrategy::VerifiedPhysicalRemoval
     );
+    assert_eq!(updated.fallback_reason, None);
+    let current = index.view().unwrap();
+    assert_eq!(
+        current.repository().collections()[0].generation.records.len(),
+        0
+    );
+    assert_eq!(current.segments(CollectionId(0)).unwrap().len(), 1);
+    assert_eq!(
+        pinned.repository().collections()[0].generation.records.len(),
+        1
+    );
+    assert_eq!(pinned.segments(CollectionId(0)).unwrap().len(), 0);
     assert_eq!(index.status().unwrap().live_records, 1);
+    let cache = root.join("cache.bin");
+    index.flush_cache(&cache).unwrap();
+    let loaded = Index::load_cache(
+        &root,
+        vec![CollectionDefinition::folder("items", "data", SourceFormat::JsonLines)],
+        RepositoryOptions::default(),
+        &cache,
+    )
+    .unwrap();
+    assert_eq!(
+        loaded.view().unwrap().file_fingerprint(handle.file_id),
+        Some(Sha256::digest(b"{\"name\":\"new\"}\n").into())
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn fresh_base_verified_delete_reclaims_base_without_reading_source() {
+    let root = test_root("base-verified-delete");
+    let path = root.join("data/base.jsonl");
+    let old = b"{\"name\":\"old\"}\n";
+    std::fs::write(&path, old).unwrap();
+    let index = index(&root);
+    let pinned = index.view().unwrap();
+    let handle = pinned.file_handle_for_path(&path).unwrap();
+    std::fs::remove_file(&path).unwrap();
+    let deleted = index.delete_file_with_old_content(handle, old).unwrap();
+    assert_eq!(
+        deleted.deletion.strategy,
+        DeleteStrategy::VerifiedPhysicalRemoval
+    );
+    assert_eq!(deleted.fallback_reason, None);
+    let current = index.view().unwrap();
+    assert_eq!(
+        current.repository().collections()[0].generation.records.len(),
+        0
+    );
+    assert!(current.segments(CollectionId(0)).unwrap().is_empty());
+    assert_eq!(index.status().unwrap().live_records, 0);
+    assert_eq!(
+        pinned.repository().collections()[0].generation.records.len(),
+        1
+    );
+    assert!(!path.exists());
     std::fs::remove_dir_all(root).unwrap();
 }
 

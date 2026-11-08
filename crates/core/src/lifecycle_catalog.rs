@@ -29,6 +29,7 @@ struct ChangedFile {
 #[derive(Clone)]
 pub(crate) struct FileCatalog {
     base: Arc<Repository>,
+    base_configuration: [u8; 32],
     changed: Arc<Vec<Arc<HashMap<FileId, ChangedFile>>>>,
     changed_paths: Arc<Vec<Arc<HashMap<PathBuf, FileId>>>>,
     active: Arc<RoaringBitmap>,
@@ -50,6 +51,15 @@ fn valid_relative_path(path: &Path) -> bool {
 }
 
 impl FileCatalog {
+    fn configuration_for(base: &Repository) -> Result<[u8; 32], String> {
+        let definitions = base
+            .collections()
+            .iter()
+            .map(|collection| collection.definition.clone())
+            .collect::<Vec<_>>();
+        crate::storage::configuration_hash(&definitions, base.options(), &base.sources)
+    }
+
     /// Materialize stable file-ID slots for an explicit maintenance rebase.
     /// Ordinary mutations continue to use the shared sharded representation.
     pub(crate) fn snapshot_slots(
@@ -71,6 +81,7 @@ impl FileCatalog {
         base: Arc<Repository>,
         slots: Vec<Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>>,
     ) -> Result<Self, String> {
+        let base_configuration = Self::configuration_for(&base)?;
         let len = u32::try_from(slots.len()).map_err(|_| "too many indexed files")?;
         if slots.len() < base.files().files.len() {
             return Err("restored catalog is shorter than base inventory".into());
@@ -120,7 +131,13 @@ impl FileCatalog {
                 let path = entry.relative_path.clone();
                 changed_paths[shard(&path)].insert(path, id);
             }
-            if new_path || changed_metadata || fingerprint.is_some() || configuration.is_some() {
+            let base_fingerprint = base.base_fingerprints.get(number).copied().flatten();
+            let base_configuration_for_file = base_fingerprint.map(|_| base_configuration);
+            if new_path
+                || changed_metadata
+                || fingerprint != base_fingerprint
+                || configuration != base_configuration_for_file
+            {
                 changed[shard(&id)].insert(
                     id,
                     ChangedFile {
@@ -134,6 +151,7 @@ impl FileCatalog {
         }
         Ok(Self {
             base,
+            base_configuration,
             changed: Arc::new(changed.into_iter().map(Arc::new).collect()),
             changed_paths: Arc::new(changed_paths.into_iter().map(Arc::new).collect()),
             active: Arc::new(active),
@@ -142,11 +160,13 @@ impl FileCatalog {
     }
 
     pub(crate) fn from_repository(base: Arc<Repository>) -> Result<Self, String> {
+        let base_configuration = Self::configuration_for(&base)?;
         let len = u32::try_from(base.files().files.len()).map_err(|_| "too many indexed files")?;
         let mut active = RoaringBitmap::new();
         active.insert_range(0..len);
         Ok(Self {
             base,
+            base_configuration,
             changed: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
             changed_paths: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
             active: Arc::new(active),
@@ -182,7 +202,8 @@ impl FileCatalog {
         }
         self.changed[shard(&file)]
             .get(&file)
-            .and_then(|changed| changed.fingerprint)
+            .map(|changed| changed.fingerprint)
+            .unwrap_or_else(|| self.base.base_fingerprints.get(file.0 as usize).copied().flatten())
     }
 
     pub(crate) fn configuration(&self, file: FileId) -> Option<[u8; 32]> {
@@ -191,7 +212,8 @@ impl FileCatalog {
         }
         self.changed[shard(&file)]
             .get(&file)
-            .and_then(|changed| changed.configuration)
+            .map(|changed| changed.configuration)
+            .unwrap_or_else(|| self.fingerprint(file).map(|_| self.base_configuration))
     }
 
     pub(crate) fn id_for(&self, path: &Path) -> Option<FileId> {

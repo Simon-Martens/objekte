@@ -32,8 +32,8 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 14;
-pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 15;
+pub const SNAPSHOT_VERSION: u32 = 16;
+pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 17;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -116,6 +116,9 @@ struct EncodedFile {
     status: FileStatus,
     diagnostics: Vec<SourceDiagnostic>,
     omitted_diagnostics: u32,
+    /// Present for complete fresh-build reads in the base inventory section.
+    /// Lifecycle catalog entries carry their own current fingerprint below.
+    fingerprint: Option<[u8; 32]>,
 }
 
 
@@ -197,6 +200,7 @@ impl LifecycleCacheState {
                             status: entry.status,
                             diagnostics: entry.diagnostics.clone(),
                             omitted_diagnostics: entry.omitted_diagnostics,
+                            fingerprint: None,
                         },
                         fingerprint: publication.catalog.fingerprint(id),
                         configuration: publication.catalog.configuration(id),
@@ -847,6 +851,7 @@ impl Repository {
                     status: entry.status,
                     diagnostics: entry.diagnostics.clone(),
                     omitted_diagnostics: entry.omitted_diagnostics,
+                    fingerprint: self.base_fingerprints[entry.id.0 as usize],
                 })
                 .collect();
             stats.inventory_ns = started.elapsed().as_nanos() as u64;
@@ -1095,6 +1100,10 @@ fn load_snapshot_parts(
         return Err("snapshot collection count mismatch".into());
     }
     let encoded_files: Vec<EncodedFile> = read_section(&mut file, 0)?;
+    let base_fingerprints = encoded_files
+        .iter()
+        .map(|file| file.fingerprint)
+        .collect::<Vec<_>>();
     let mut files = FileInventory::new(root);
     for (index, entry) in encoded_files.into_iter().enumerate() {
         if entry.id.0 as usize != index || entry.collections.is_empty() {
@@ -1492,6 +1501,7 @@ fn load_snapshot_parts(
     Ok((
         Repository {
             files,
+            base_fingerprints,
             collections,
             sources: sources.clone(),
             build_parses: 0,

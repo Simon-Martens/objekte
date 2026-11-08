@@ -17,6 +17,13 @@ const MAX_VERIFIED_SCANNED_RECORDS: usize = 16_384;
 /// them, so removal scans the affected collections again in the private root.
 pub(crate) struct VerifiedPlan {
     old_shards: Vec<(CollectionId, u64)>,
+    has_active_base: bool,
+}
+
+impl VerifiedPlan {
+    pub(crate) fn requires_base_compaction(&self) -> bool {
+        self.has_active_base
+    }
 }
 
 
@@ -73,7 +80,35 @@ pub(crate) fn verify_old_content(
     .map_err(|_| VerifiedFallbackReason::ReconstructionFailed)?;
     let mut current = Vec::new();
     let mut old_shards = Vec::new();
+    let mut base_owned = false;
+    let mut has_active_base = false;
     for collection_id in &old.collections {
+        let number = collection_id.0 as usize;
+        let collection = repository
+            .collections()
+            .get(number)
+            .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
+        if collection.generation.files.contains(&handle.file_id) {
+            base_owned = true;
+        }
+        if let Some(slots) = collection.generation.file_records.records_for(handle.file_id) {
+            for slot in slots {
+                if view.0.active[number].contains(*slot) {
+                    let record = collection
+                        .generation
+                        .records
+                        .get(slot.0 as usize)
+                        .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
+                    current.push((
+                        *collection_id,
+                        record.id.clone(),
+                        record.range,
+                        record.class,
+                    ));
+                    has_active_base = true;
+                }
+            }
+        }
         let shards = view
             .segments(*collection_id)
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?;
@@ -98,7 +133,12 @@ pub(crate) fn verify_old_content(
             }
         }
     }
-    if old_shards.is_empty() {
+    // An empty base file still owns its current file incarnation, even though
+    // it has no active record slot to prove that ownership through.
+    if old_shards.is_empty() && base_owned {
+        has_active_base = true;
+    }
+    if old_shards.is_empty() && !has_active_base {
         return Err(VerifiedFallbackReason::BaseIndexUnsupported);
     }
     if current.len() as u64
@@ -106,7 +146,7 @@ pub(crate) fn verify_old_content(
             .file_record_count(handle.file_id)
             .ok_or(VerifiedFallbackReason::IndexedLayoutChanged)?
     {
-        return Err(VerifiedFallbackReason::BaseIndexUnsupported);
+        return Err(VerifiedFallbackReason::IndexedLayoutChanged);
     }
     let mut reconstructed = reconstructed.record_layout();
     let order = |item: &(
@@ -131,7 +171,10 @@ pub(crate) fn verify_old_content(
             return Err(VerifiedFallbackReason::CompactionBudget);
         }
     }
-    Ok(VerifiedPlan { old_shards })
+    Ok(VerifiedPlan {
+        old_shards,
+        has_active_base,
+    })
 }
 
 /// Replace a single-file, single-record shard with an independently built
@@ -144,6 +187,9 @@ pub(crate) fn preserve_single_record_slots(
     plan: &VerifiedPlan,
     file: FileId,
 ) -> Option<PublishedIndex> {
+    if plan.has_active_base {
+        return None;
+    }
     let old_entry = view.file_entry(file)?;
     let new_entry = next.catalog.entry(file)?;
     if old_entry.collections != new_entry.collections || old_entry.collections.is_empty() {
@@ -223,6 +269,9 @@ pub(crate) fn remove_verified_old_shards(
     plan: &VerifiedPlan,
     replaced_file: crate::model::FileId,
 ) -> Result<PublishedIndex, VerifiedFallbackReason> {
+    if plan.has_active_base {
+        return Err(VerifiedFallbackReason::BaseIndexUnsupported);
+    }
     let mut candidate = next.clone();
     let catalog = candidate.catalog.clone();
     let collections = plan

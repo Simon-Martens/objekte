@@ -1302,7 +1302,8 @@ pub(crate) fn process_framed_file(
             &mut admit,
         );
     };
-    let file_fingerprint = Some((file_id, Sha256::digest(&*bytes).into()));
+    let file_fingerprint = (bytes.len() as u64 == input.revision.size)
+        .then(|| (file_id, Sha256::digest(&*bytes).into()));
     let source_bytes = bytes.len() as u64;
     let mut chunks = Vec::new();
     let mut start = 0;
