@@ -92,22 +92,28 @@ pub fn run_batch(
         }
     };
     let file = create_output_file(session, output_path)?;
-    let exit = run_on_repository(
-        ExistingRun {
-            args: &args,
-            paths: &session.paths,
-            repository: &session.repository,
-            collections: &session.collections,
-            schema_fields: session.diagnostics.schema_fields,
-            schema_files: &session.diagnostics.schema_files,
-            ignored_repository_metadata: session.diagnostics.ignored_repository_metadata,
-            startup_ns: session.diagnostics.open_ns,
-            snapshot_save: session.diagnostics.snapshot_save.clone(),
-        },
-        source,
-        file,
-        cancellation,
-    );
+    let exit = run_on_repository(existing_run(session, &args), source, file, cancellation);
+    finish_output(exit, output_path)
+}
+
+pub(super) fn existing_run<'a>(
+    session: &'a OpenedSession,
+    args: &'a objekte_cli::arguments::Arguments,
+) -> ExistingRun<'a> {
+    ExistingRun {
+        args,
+        paths: &session.paths,
+        repository: &session.repository,
+        collections: &session.collections,
+        schema_fields: session.diagnostics.schema_fields,
+        schema_files: &session.diagnostics.schema_files,
+        ignored_repository_metadata: session.diagnostics.ignored_repository_metadata,
+        startup_ns: session.diagnostics.open_ns,
+        snapshot_save: session.diagnostics.snapshot_save.clone(),
+    }
+}
+
+pub(super) fn finish_output(exit: Exit, output_path: &Path) -> Result<BatchReport, BackendError> {
     if matches!(exit, Exit::OutputError | Exit::PipeClosed) {
         let _ = fs::remove_file(output_path);
         return Err(BackendError::new(

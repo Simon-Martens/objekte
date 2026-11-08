@@ -7,6 +7,7 @@ use std::time::Instant;
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
 use objekte_search_core::path_repr;
+use objekte_search_core::query::Query;
 use objekte_search_core::repository::{Repository, SnapshotAction};
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::{
@@ -129,6 +130,14 @@ pub struct ExistingRun<'a> {
 }
 
 
+/// A desktop query already parsed through the shared core query builder.
+pub struct PreparedQuery {
+    pub input: String,
+    pub query: Result<Query, String>,
+    pub decoded_fts: Option<String>,
+}
+
+
 /// Execute a CLI batch against a repository already opened by another frontend.
 pub fn run_on_repository<W: Write>(
     run: ExistingRun<'_>,
@@ -170,12 +179,64 @@ pub fn run_on_repository<W: Write>(
             args: run.args,
             started: &started,
             startup_ns: run.startup_ns,
-            snapshot_save: run.snapshot_save,
+            snapshot_save: run.snapshot_save.as_ref(),
         },
         source,
         &mut output,
         token,
     )
+}
+
+/// Emit one prepared desktop query through the same CLI event formatter and stream.
+pub fn run_prepared_on_repository<W: Write>(
+    run: ExistingRun<'_>,
+    prepared: PreparedQuery,
+    writer: W,
+    token: &CancellationToken,
+) -> Exit {
+    let started = Instant::now();
+    let mut output = EventWriter::new(BufWriter::with_capacity(64 * 1024, writer));
+    let mut start = run_start_event(
+        run.args,
+        run.paths,
+        run.collections,
+        run.schema_fields,
+        run.schema_files,
+        run.ignored_repository_metadata,
+    );
+    start["input_mode"] = json!("combined");
+    if let Err(error) = output.emit(start) {
+        return output_failure(error);
+    }
+    let run = RunTail {
+        repo: run.repository,
+        args: run.args,
+        started: &started,
+        startup_ns: run.startup_ns,
+        snapshot_save: run.snapshot_save.as_ref(),
+    };
+    if token.is_cancelled() {
+        return cancel_run(&mut output, 0, 0, &started);
+    }
+    let input = QueryInput {
+        original: prepared.input.clone(),
+        line: None,
+        kind: QueryKind::Structured,
+    };
+    match execute_query(
+        run.repo,
+        run.args,
+        &input,
+        Some(&prepared),
+        1,
+        &mut output,
+        token,
+    ) {
+        Exit::Success => complete_run(run, 1, 0, &mut output),
+        Exit::Operation => complete_run(run, 0, 1, &mut output),
+        Exit::Cancelled => cancel_run(&mut output, 0, 0, &started),
+        other => other,
+    }
 }
 
 /// Run one command using the supplied output sink and cancellation flag.
@@ -268,7 +329,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             args,
             started: &started,
             startup_ns,
-            snapshot_save,
+            snapshot_save: snapshot_save.as_ref(),
         },
         source,
         &mut output,
@@ -318,12 +379,13 @@ fn run_start_event(
 }
 
 
+#[derive(Clone, Copy)]
 struct RunTail<'a> {
     repo: &'a Repository,
     args: &'a Arguments,
     started: &'a Instant,
     startup_ns: u128,
-    snapshot_save: Option<SnapshotSaveStats>,
+    snapshot_save: Option<&'a SnapshotSaveStats>,
 }
 
 
@@ -336,8 +398,6 @@ fn run_queries<W: Write>(
     let repo = run.repo;
     let args = run.args;
     let started = run.started;
-    let startup_ns = run.startup_ns;
-    let snapshot_save = run.snapshot_save;
     let mut successes = 0usize;
     let mut failures = 0usize;
     let mut query_id = 0u64;
@@ -362,7 +422,7 @@ fn run_queries<W: Write>(
             }
         };
         query_id += 1;
-        let query_exit = execute_query(repo, args, &input, query_id, output, token);
+        let query_exit = execute_query(repo, args, &input, None, query_id, output, token);
         match query_exit {
             Exit::Success => successes += 1,
             Exit::Operation => failures += 1,
@@ -395,6 +455,20 @@ fn run_queries<W: Write>(
         }
         return Exit::Operation;
     }
+    complete_run(run, successes, failures, output)
+}
+
+fn complete_run<W: Write>(
+    run: RunTail<'_>,
+    successes: usize,
+    failures: usize,
+    output: &mut EventWriter<W>,
+) -> Exit {
+    let repo = run.repo;
+    let args = run.args;
+    let started = run.started;
+    let startup_ns = run.startup_ns;
+    let snapshot_save = run.snapshot_save;
     let terminal = if failures == 0 {
         "run_complete"
     } else {
@@ -530,6 +604,7 @@ fn execute_query<W: Write>(
     repo: &Repository,
     args: &Arguments,
     input: &QueryInput,
+    prepared: Option<&PreparedQuery>,
     query_id: u64,
     output: &mut EventWriter<W>,
     token: &CancellationToken,
@@ -549,14 +624,21 @@ fn execute_query<W: Write>(
     };
     if let Err(error) = output.emit(json!({
         "type":"query_start", "query_id":query_id, "input":input.original,
-        "kind": match input.kind { QueryKind::Fts => "fts", QueryKind::Structured => "structured" },
+        "kind": if prepared.is_some() { "combined" } else { match input.kind { QueryKind::Fts => "fts", QueryKind::Structured => "structured" } },
         "line": input.line, "scope":scope_json, "count_requested":args.count,
     })) {
         return output_failure(error);
     }
     let started = Instant::now();
     let preparation_started = Instant::now();
-    let (query, decoded_fts) = match input.parse(args) {
+    let parsed = match prepared {
+        Some(prepared) => prepared
+            .query
+            .clone()
+            .map(|query| (query, prepared.decoded_fts.clone())),
+        None => input.parse(args),
+    };
+    let (query, decoded_fts) = match parsed {
         Ok(result) => result,
         Err(message) => {
             eprintln!("obj: query {query_id}: {message}");
