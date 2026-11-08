@@ -103,6 +103,11 @@ enum WorkerEvent {
         output_generation: u64,
         result: Result<String, String>,
     },
+    Indexed {
+        open_generation: u64,
+        output_generation: u64,
+        result: Result<String, String>,
+    },
     Batched {
         open_generation: u64,
         output_generation: u64,
@@ -443,17 +448,8 @@ impl DesktopController {
             } => {
                 self.start_batch(source, text, path, output_path, updates);
             }
-            UiAction::WriteIndex => {
-                if let Some(mut draft) = self.open_draft.clone() {
-                    draft.snapshot = SnapshotMode::Write;
-                    self.start_open(draft, updates);
-                } else {
-                    updates.push(UiUpdate::Error {
-                        field: ErrorField::Open,
-                        message: "Open a repository before writing an index".into(),
-                    });
-                }
-            }
+            UiAction::WriteIndex => self.start_index(SnapshotMode::Write, String::new(), updates),
+            UiAction::Index { mode, directory } => self.start_index(mode, directory, updates),
             UiAction::SaveQuery { name, draft } => {
                 if let Some(preferences) = &mut self.preferences {
                     match preferences.save_query_local(&name, &draft) {
@@ -982,6 +978,21 @@ impl DesktopController {
                     }),
                 }
             }
+            WorkerEvent::Indexed {
+                open_generation,
+                output_generation,
+                result,
+            } if open_generation == self.open_generation
+                && output_generation == self.output_generation =>
+            {
+                match result {
+                    Ok(message) => updates.push(UiUpdate::Status(message)),
+                    Err(message) => updates.push(UiUpdate::Error {
+                        field: ErrorField::General,
+                        message,
+                    }),
+                }
+            }
             WorkerEvent::Batched {
                 open_generation,
                 output_generation,
@@ -1186,6 +1197,16 @@ impl DesktopController {
             });
             return;
         };
+        if !matches!(
+            validate_request(&session, &self.current_draft),
+            FilterValidationState::Valid
+        ) {
+            updates.push(UiUpdate::Error {
+                field: ErrorField::Export,
+                message: "Finish or clear the current filter before exporting".into(),
+            });
+            return;
+        }
         let path = PathBuf::from(path.trim());
         if path.as_os_str().is_empty() {
             updates.push(UiUpdate::Error {
@@ -1247,6 +1268,53 @@ impl DesktopController {
                 },
             };
             let _ = sender.send(WorkerEvent::Exported {
+                open_generation,
+                output_generation,
+                result,
+            });
+        });
+    }
+
+    fn start_index(&mut self, mode: SnapshotMode, directory: String, updates: &mut Vec<UiUpdate>) {
+        let Some(mut draft) = self.open_draft.clone() else {
+            updates.push(UiUpdate::Error {
+                field: ErrorField::General,
+                message: "Open a repository before running an index operation".into(),
+            });
+            return;
+        };
+        draft.snapshot = mode;
+        draft.snapshot_directory = directory;
+        let cwd = std::env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
+        let spec = match open_spec(&draft, &cwd) {
+            Ok(spec) => spec,
+            Err(message) => {
+                updates.push(UiUpdate::Error {
+                    field: ErrorField::General,
+                    message,
+                });
+                return;
+            }
+        };
+        self.output_cancellation.cancel();
+        self.output_cancellation = CancellationToken::new();
+        self.output_generation += 1;
+        let output_generation = self.output_generation;
+        let open_generation = self.open_generation;
+        let token = self.output_cancellation.clone();
+        let sender = self.worker_tx.clone();
+        updates.push(UiUpdate::Status("Running index operation…".into()));
+        thread::spawn(move || {
+            let result = backend::open(&spec, &token)
+                .map(|session| {
+                    format!(
+                        "Index operation complete for {} ({:.1} ms)",
+                        session.paths.root.display(),
+                        session.diagnostics.open_ns as f64 / 1_000_000.0
+                    )
+                })
+                .map_err(|error| error.to_string());
+            let _ = sender.send(WorkerEvent::Indexed {
                 open_generation,
                 output_generation,
                 result,

@@ -22,11 +22,7 @@ pub fn page_view_with_available(
     spec: &QuerySpec,
     hidden: &[String],
 ) -> (PageView, Vec<String>) {
-    let mut columns = vec![
-        "@collection".to_owned(),
-        "@id".to_owned(),
-        "@file".to_owned(),
-    ];
+    let mut columns = vec!["@id".to_owned()];
     let mut discovered = BTreeSet::new();
     for hit in &page.hits {
         if let Some(Value::Object(object)) = payload_json(hit) {
@@ -34,10 +30,12 @@ pub fn page_view_with_available(
         }
     }
     for key in discovered {
-        if !columns.contains(&key) {
+        if key != "@collection" && key != "@file" && !columns.contains(&key) {
             columns.push(key);
         }
     }
+    columns.push("@collection".to_owned());
+    columns.push("@file".to_owned());
     columns.truncate(MAX_COLUMNS);
     let rows = page
         .hits

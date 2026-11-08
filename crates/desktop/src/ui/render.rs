@@ -13,7 +13,7 @@ use gpui_kit::{
 
 use super::DesktopView;
 use super::model::UiAction;
-use super::state::Busy;
+use super::state::{ActionPanel, Busy};
 use super::theme::palette;
 
 /// A compact, left-aligned navigation control with keyboard and screen-reader support.
@@ -128,6 +128,7 @@ impl DesktopView {
                     .label("Menu")
                     .on_click(cx.listener(|this, _, _, cx| {
                         this.state.show_actions = !this.state.show_actions;
+                        this.state.action_panel = ActionPanel::Menu;
                         cx.notify();
                     })),
             )
@@ -211,9 +212,8 @@ impl DesktopView {
                     false,
                 )
                 .on_click(cx.listener(|this, _, _, cx| {
-                    this.state.show_history = true;
-                    this.state.show_saved = false;
                     this.state.show_actions = true;
+                    this.state.action_panel = ActionPanel::History;
                     cx.notify();
                 })),
             )
@@ -225,9 +225,8 @@ impl DesktopView {
                     false,
                 )
                 .on_click(cx.listener(|this, _, _, cx| {
-                    this.state.show_saved = true;
-                    this.state.show_history = false;
                     this.state.show_actions = true;
+                    this.state.action_panel = ActionPanel::Saved;
                     cx.notify();
                 })),
             )
@@ -476,6 +475,17 @@ impl DesktopView {
                     .child(range)
                     .child(div().flex_1())
                     .child(
+                        Button::new("table-columns")
+                            .ghost()
+                            .icon(IconName::PanelLeft)
+                            .label("Columns")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.action_panel = ActionPanel::Columns;
+                                this.state.show_actions = true;
+                                cx.notify();
+                            })),
+                    )
+                    .child(
                         Button::new("previous-page")
                             .ghost()
                             .icon(IconName::ChevronLeft)
@@ -527,8 +537,10 @@ impl DesktopView {
                     .ghost()
                     .label("Diagnostics")
                     .on_click(cx.listener(|this, _, _, cx| {
-                        this.state.show_diagnostics = !this.state.show_diagnostics;
-                        this.state.show_actions = this.state.show_diagnostics;
+                        let was_open = this.state.show_actions
+                            && this.state.action_panel == ActionPanel::Diagnostics;
+                        this.state.show_actions = !was_open;
+                        this.state.action_panel = ActionPanel::Diagnostics;
                         cx.notify();
                     })),
             )
@@ -568,6 +580,10 @@ impl Render for DesktopView {
                                 window.focus(&focus, cx);
                             }
                             "l" => {
+                                if !this.state.search.filter_enabled {
+                                    this.state.search.filter_enabled = true;
+                                    this.search_from_inputs(false, cx);
+                                }
                                 let focus = this.inputs.structured.read(cx).focus_handle(cx);
                                 window.focus(&focus, cx);
                             }
@@ -576,11 +592,19 @@ impl Render for DesktopView {
                     } else {
                         match key {
                             "f1" => this.state.show_help = !this.state.show_help,
-                            "escape" => {
-                                this.state.show_help = false;
-                                this.state.show_actions = false;
-                                this.state.show_batch = false;
+                            "escape" if this.state.open_dialog.visible => {
+                                this.close_open_dialog(cx);
                             }
+                            "escape" if this.state.show_filter_builder => {
+                                this.state.show_filter_builder = false;
+                                let focus = this.inputs.structured.read(cx).focus_handle(cx);
+                                window.focus(&focus, cx);
+                            }
+                            "escape" if this.show_query_options => this.show_query_options = false,
+                            "escape" if this.state.show_help => this.state.show_help = false,
+                            "escape" if this.state.show_actions => this.state.show_actions = false,
+                            "escape" if this.state.show_batch => this.state.show_batch = false,
+                            "escape" => return,
                             _ => return,
                         }
                     }
@@ -627,7 +651,9 @@ impl Render for DesktopView {
             .when(self.state.show_actions, |this| {
                 this.child(self.render_actions(cx))
             })
-            .when(self.state.show_help, |this| this.child(self.render_help()))
+            .when(self.state.show_help, |this| {
+                this.child(self.render_help(cx))
+            })
             .child(self.render_status(cx))
             .when(self.state.open_dialog.visible, |this| {
                 this.child(self.render_open_dialog(cx))

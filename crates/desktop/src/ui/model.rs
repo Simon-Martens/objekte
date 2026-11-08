@@ -329,9 +329,10 @@ pub enum BatchSource {
 
 
 /// Which export representation is requested.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum ExportFormat {
     SelectedJson,
+    #[default]
     ResultsJson,
     Ndjson,
 }
@@ -408,6 +409,10 @@ pub enum UiAction {
         output_path: String,
     },
     WriteIndex,
+    Index {
+        mode: SnapshotMode,
+        directory: String,
+    },
     SetTheme {
         dark: bool,
     },

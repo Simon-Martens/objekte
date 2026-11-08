@@ -16,6 +16,7 @@ use super::DesktopView;
 use super::model::{
     BatchSource, DetailOrigin, DetailValueKind, ErrorField, ExportFormat, UiAction,
 };
+use super::state::ActionPanel;
 
 
 impl DesktopView {
@@ -38,7 +39,33 @@ impl DesktopView {
             .border_1()
             .border_color(rgb(super::theme::palette(self.state.dark).border))
             .rounded_md()
-            .child(div().child("Query batch: paste one query per physical line or choose a file"))
+            .child(
+                div()
+                    .flex()
+                    .items_center()
+                    .child(
+                        div()
+                            .flex_1()
+                            .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                            .child("Run query batch"),
+                    )
+                    .child(
+                        Button::new("batch-close")
+                            .ghost()
+                            .icon(IconName::Close)
+                            .tooltip("Close batch view")
+                            .accessibility_label("Close batch view")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_batch = false;
+                                cx.notify();
+                            })),
+                    ),
+            )
+            .child(
+                div()
+                    .text_sm()
+                    .child("Paste one CLI query per line or choose a query file."),
+            )
             .child(
                 div()
                     .flex()
@@ -68,16 +95,20 @@ impl DesktopView {
                             })),
                     ),
             )
-            .child(
-                Input::new(&self.inputs.batch_path)
-                    .id("batch-file-path")
-                    .w_full(),
-            )
-            .child(
-                div()
-                    .id("batch-text")
-                    .child(Textarea::new(&self.inputs.batch_text).w_full().h(px(100.))),
-            )
+            .when(self.state.batch_source == BatchSource::QueryFile, |this| {
+                this.child(
+                    Input::new(&self.inputs.batch_path)
+                        .id("batch-file-path")
+                        .w_full(),
+                )
+            })
+            .when(self.state.batch_source == BatchSource::PastedText, |this| {
+                this.child(
+                    div()
+                        .id("batch-text")
+                        .child(Textarea::new(&self.inputs.batch_text).w_full().h(px(100.))),
+                )
+            })
             .child(
                 Input::new(&self.inputs.batch_output_path)
                     .id("batch-output-path")
@@ -124,14 +155,20 @@ impl DesktopView {
             .when(outcome.is_some(), |this| {
                 this.child(div().text_sm().child(outcome.unwrap_or_default()))
             })
-            .children(rows.into_iter().map(|row| {
-                div().text_sm().child(format!(
-                    "Line {}: {} — {}",
-                    row.line,
-                    row.query,
-                    row.error.unwrap_or(row.status)
-                ))
-            }))
+            .child(
+                div()
+                    .id("batch-outcomes")
+                    .max_h(px(230.))
+                    .overflow_y_scrollbar()
+                    .children(rows.into_iter().map(|row| {
+                        div().text_sm().child(format!(
+                            "Line {}: {} — {}",
+                            row.line,
+                            row.query,
+                            row.error.unwrap_or(row.status)
+                        ))
+                    })),
+            )
     }
 
     pub(super) fn render_detail(&self, cx: &mut Context<Self>) -> impl IntoElement {
@@ -553,6 +590,7 @@ impl DesktopView {
                             .label("Export…")
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_actions = true;
+                                this.state.action_panel = ActionPanel::Export;
                                 cx.notify();
                             })),
                     ),
@@ -561,25 +599,32 @@ impl DesktopView {
     }
 
     pub(super) fn render_actions(&self, cx: &mut Context<Self>) -> impl IntoElement {
-        let history = self.state.history.clone();
-        let saved = self.state.saved.clone();
-        let columns = self.state.available_columns.clone();
-        let hidden_columns = self.state.hidden_columns.clone();
-        let export_error = self.state.errors.get(&ErrorField::Export).cloned();
-        div()
+        let colors = super::theme::palette(self.state.dark);
+        let kind = self.state.action_panel;
+        let title = match kind {
+            ActionPanel::Menu => "Menu",
+            ActionPanel::History => "History",
+            ActionPanel::Saved => "Saved queries",
+            ActionPanel::Columns => "Columns",
+            ActionPanel::SaveQuery => "Save query",
+            ActionPanel::Export => "Export",
+            ActionPanel::Index => "Index",
+            ActionPanel::Diagnostics => "Diagnostics",
+        };
+        let panel = div()
             .id("action-panel")
             .absolute()
             .top(px(48.))
             .right(px(8.))
-            .w(px(700.))
-            .max_h(px(560.))
+            .w(px(370.))
+            .max_h(px(600.))
             .flex()
             .flex_col()
             .gap_2()
             .p_3()
-            .bg(rgb(super::theme::palette(self.state.dark).panel))
+            .bg(rgb(colors.panel))
             .border_1()
-            .border_color(rgb(super::theme::palette(self.state.dark).border))
+            .border_color(rgb(colors.border))
             .rounded_md()
             .on_mouse_down_out(cx.listener(|this, _, _, cx| {
                 this.state.show_actions = false;
@@ -594,10 +639,64 @@ impl DesktopView {
                         div()
                             .flex_1()
                             .font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                            .child("Menu"),
+                            .child(title),
                     )
+                    .when(kind != ActionPanel::Menu, |this| {
+                        this.child(
+                            Button::new("action-back")
+                                .ghost()
+                                .icon(IconName::ArrowLeft)
+                                .tooltip("Back to menu")
+                                .accessibility_label("Back to menu")
+                                .on_click(cx.listener(|this, _, _, cx| {
+                                    this.state.action_panel = ActionPanel::Menu;
+                                    cx.notify();
+                                })),
+                        )
+                    })
+                    .child(
+                        Button::new("action-close")
+                            .ghost()
+                            .icon(IconName::Close)
+                            .tooltip("Close")
+                            .accessibility_label("Close")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_actions = false;
+                                cx.notify();
+                            })),
+                    ),
+            );
+        let mut content = div()
+            .id("action-body")
+            .flex()
+            .flex_col()
+            .gap_1()
+            .max_h(px(530.))
+            .overflow_y_scrollbar();
+        match kind {
+            ActionPanel::Menu => {
+                for (id, label, next) in [
+                    ("menu-history", "History", ActionPanel::History),
+                    ("menu-saved", "Saved queries", ActionPanel::Saved),
+                    ("menu-save", "Save current query…", ActionPanel::SaveQuery),
+                    ("menu-columns", "Columns…", ActionPanel::Columns),
+                    ("menu-export", "Export…", ActionPanel::Export),
+                    ("menu-index", "Index…", ActionPanel::Index),
+                    ("menu-diagnostics", "Diagnostics", ActionPanel::Diagnostics),
+                ] {
+                    content =
+                        content.child(Button::new(id).ghost().w_full().label(label).on_click(
+                            cx.listener(move |this, _, _, cx| {
+                                this.state.action_panel = next;
+                                cx.notify();
+                            }),
+                        ));
+                }
+                content = content
                     .child(
                         Button::new("menu-batch")
+                            .ghost()
+                            .w_full()
                             .icon(IconName::SquareTerminal)
                             .label("Run query batch…")
                             .on_click(cx.listener(|this, _, _, cx| {
@@ -607,22 +706,20 @@ impl DesktopView {
                             })),
                     )
                     .child(
-                        Button::new("menu-index")
-                            .icon(IconName::HardDrive)
-                            .label("Index…")
-                            .on_click(cx.listener(|this, _, _, _| {
-                                this.send(UiAction::WriteIndex);
-                            })),
-                    )
-                    .child(
                         Button::new("menu-theme")
+                            .ghost()
+                            .w_full()
                             .icon(if self.state.dark {
                                 IconName::Sun
                             } else {
                                 IconName::Moon
                             })
-                            .label(if self.state.dark { "Light" } else { "Dark" })
-                            .on_click(cx.listener(|this, _, _, cx| {
+                            .label(if self.state.dark {
+                                "Light theme"
+                            } else {
+                                "Dark theme"
+                            })
+                            .on_click(cx.listener(|this, _, window, cx| {
                                 this.state.dark = !this.state.dark;
                                 gpui_kit::component::Theme::change(
                                     if this.state.dark {
@@ -630,175 +727,273 @@ impl DesktopView {
                                     } else {
                                         gpui_kit::component::ThemeMode::Light
                                     },
-                                    None,
+                                    Some(window),
                                     cx,
                                 );
                                 this.send(UiAction::SetTheme {
                                     dark: this.state.dark,
                                 });
+                                this.state.show_actions = false;
                                 cx.notify();
                             })),
                     )
                     .child(
                         Button::new("menu-help")
+                            .ghost()
+                            .w_full()
                             .icon(IconName::Info)
-                            .label("Help")
+                            .label("Help and shortcuts")
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.show_help = true;
                                 this.state.show_actions = false;
-                                this.send(UiAction::ShowHelp);
                                 cx.notify();
                             })),
-                    )
-                    .child(
-                        Button::new("menu-close")
-                            .icon(IconName::Close)
-                            .tooltip("Close menu")
-                            .accessibility_label("Close menu")
-                            .on_click(cx.listener(|this, _, _, cx| {
+                    );
+            }
+            ActionPanel::History => {
+                content = content.child(
+                    Input::new(&self.inputs.action_search)
+                        .id("history-search")
+                        .w_full(),
+                );
+                let needle = self.inputs.action_search.read(cx).value().to_lowercase();
+                for (index, entry) in self.state.history.iter().enumerate().rev().take(100) {
+                    let label = format!("{} {}", entry.draft.full_text, entry.draft.structured);
+                    if !label.to_lowercase().contains(&needle) {
+                        continue;
+                    }
+                    content = content.child(
+                        Button::new(format!("history-{index}"))
+                            .ghost()
+                            .w_full()
+                            .label(if label.trim().is_empty() {
+                                "All records".to_owned()
+                            } else {
+                                label
+                            })
+                            .on_click(cx.listener(move |this, _, _, cx| {
+                                this.send(UiAction::RestoreHistory(index));
                                 this.state.show_actions = false;
                                 cx.notify();
                             })),
-                    ),
-            )
-            .child(
-                div()
-                    .flex()
-                    .gap_2()
-                    .child(
-                        Button::new("history-button")
-                            .label("History")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.show_history = !this.state.show_history;
+                    );
+                }
+            }
+            ActionPanel::Saved => {
+                content = content.child(
+                    Input::new(&self.inputs.action_search)
+                        .id("saved-search")
+                        .w_full(),
+                );
+                let needle = self.inputs.action_search.read(cx).value().to_lowercase();
+                for name in self
+                    .state
+                    .saved
+                    .iter()
+                    .filter_map(|entry| entry.name.as_ref())
+                {
+                    if !name.to_lowercase().contains(&needle) {
+                        continue;
+                    }
+                    let name = name.clone();
+                    content = content.child(
+                        Button::new(format!("saved-{name}"))
+                            .ghost()
+                            .w_full()
+                            .label(name.clone())
+                            .on_click(cx.listener(move |this, _, _, cx| {
+                                this.send(UiAction::RestoreSaved(name.clone()));
+                                this.state.show_actions = false;
                                 cx.notify();
                             })),
-                    )
-                    .child(Button::new("saved-button").label("Saved Queries").on_click(
-                        cx.listener(|this, _, _, cx| {
-                            this.state.show_saved = !this.state.show_saved;
-                            cx.notify();
-                        }),
-                    ))
+                    );
+                }
+            }
+            ActionPanel::Columns => {
+                for column in &self.state.available_columns {
+                    let column = column.clone();
+                    let visible = !self.state.hidden_columns.contains(&column);
+                    content = content.child(
+                        Button::new(format!("column-{column}"))
+                            .ghost()
+                            .w_full()
+                            .label(format!("{} {column}", if visible { "☑" } else { "☐" }))
+                            .on_click(cx.listener(move |this, _, _, _| {
+                                this.send(UiAction::ToggleColumn(column.clone()));
+                            })),
+                    );
+                }
+            }
+            ActionPanel::SaveQuery => {
+                content = content
+                    .child(div().text_sm().child("Name"))
                     .child(
                         Input::new(&self.inputs.query_name)
                             .id("query-name")
-                            .w(px(170.)),
+                            .w_full(),
                     )
                     .child(
                         Button::new("save-query")
-                            .label("Save Query")
+                            .primary()
+                            .label("Save query")
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.send(UiAction::SaveQuery {
                                     name: this.inputs.query_name.read(cx).value().to_string(),
                                     draft: this.query_from_inputs(cx),
                                 });
                             })),
+                    );
+            }
+            ActionPanel::Export => {
+                let invalid = !matches!(
+                    self.state.filter_validation,
+                    Some(super::model::FilterValidationState::Valid)
+                );
+                content = content.child(div().text_sm().child("Export scope and format"));
+                for (id, label, format) in [
+                    (
+                        "export-results",
+                        "All results · JSON",
+                        ExportFormat::ResultsJson,
                     ),
-            )
-            .when(self.state.show_history, |this| {
-                this.children(history.into_iter().rev().enumerate().map(|(index, entry)| {
-                    Button::new(format!("history-{index}"))
-                        .label(format!(
-                            "{} | {}",
-                            entry.draft.full_text, entry.draft.structured
-                        ))
-                        .on_click(cx.listener(move |this, _, _, _| {
-                            this.send(UiAction::RestoreHistory(index))
-                        }))
-                }))
-            })
-            .when(self.state.show_saved, |this| {
-                this.children(
-                    saved
-                        .into_iter()
-                        .filter_map(|entry| entry.name)
-                        .map(|name| {
-                            Button::new(format!("saved-{name}"))
-                                .label(name.clone())
-                                .on_click(cx.listener(move |this, _, _, _| {
-                                    this.send(UiAction::RestoreSaved(name.clone()))
-                                }))
-                        }),
-                )
-            })
-            .when(self.state.show_columns, |this| {
-                this.children(columns.into_iter().map(|column| {
-                    Button::new(format!("column-{column}"))
-                        .label(format!(
-                            "{} {column}",
-                            if hidden_columns.contains(&column) {
-                                "○"
-                            } else {
-                                "●"
-                            }
-                        ))
-                        .on_click(cx.listener(move |this, _, _, _| {
-                            this.send(UiAction::ToggleColumn(column.clone()))
-                        }))
-                }))
-            })
-            .child(
-                div()
-                    .flex()
-                    .gap_2()
-                    .items_center()
+                    (
+                        "export-selected",
+                        "Selected record · JSON",
+                        ExportFormat::SelectedJson,
+                    ),
+                    (
+                        "export-ndjson",
+                        "All results · CLI NDJSON",
+                        ExportFormat::Ndjson,
+                    ),
+                ] {
+                    content = content.child(
+                        Button::new(id)
+                            .ghost()
+                            .w_full()
+                            .label(label)
+                            .selected(self.state.export_format == format)
+                            .on_click(cx.listener(move |this, _, _, cx| {
+                                this.state.export_format = format;
+                                cx.notify();
+                            })),
+                    );
+                }
+                content = content
+                    .child(div().text_sm().child("New output path"))
                     .child(
                         Input::new(&self.inputs.export_path)
                             .id("export-path")
-                            .w(px(260.)),
+                            .w_full(),
                     )
                     .child(
-                        Button::new("export-selected")
-                            .label("Export Selected")
+                        Button::new("export-confirm")
+                            .primary()
+                            .label("Export")
+                            .disabled(
+                                invalid
+                                    || (self.state.export_format == ExportFormat::SelectedJson
+                                        && self.state.page.selected.is_none()),
+                            )
                             .on_click(cx.listener(|this, _, _, cx| {
-                                this.export(ExportFormat::SelectedJson, cx)
+                                this.export(this.state.export_format, cx);
                             })),
-                    )
-                    .child(
-                        Button::new("export-results")
-                            .label("Export Results")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.export(ExportFormat::ResultsJson, cx)
-                            })),
-                    )
-                    .child(
-                        Button::new("export-ndjson")
-                            .label("Export NDJSON")
-                            .on_click(
-                                cx.listener(|this, _, _, cx| this.export(ExportFormat::Ndjson, cx)),
-                            ),
+                    );
+                if invalid {
+                    content = content.child(
+                        div()
+                            .text_sm()
+                            .text_color(rgb(colors.error))
+                            .child("Finish or clear the current filter before exporting."),
+                    );
+                }
+                if let Some(error) = self.state.errors.get(&ErrorField::Export) {
+                    content = content.child(
+                        div()
+                            .text_sm()
+                            .text_color(rgb(colors.error))
+                            .child(error.clone()),
+                    );
+                }
+            }
+            ActionPanel::Index => {
+                content = content.child(div().text_sm().child("Run an index operation on the open source. The current results stay available."));
+                for (id, label, mode) in [
+                    (
+                        "index-memory",
+                        "Build in memory",
+                        super::model::SnapshotMode::None,
                     ),
-            )
-            .when(export_error.is_some(), |this| {
-                this.child(
-                    div()
-                        .text_sm()
-                        .text_color(rgb(0xc2410c))
-                        .child(export_error.unwrap_or_default()),
-                )
-            })
-            .child(
-                Button::new("diagnostics-toggle")
-                    .label("Diagnostics")
-                    .on_click(cx.listener(|this, _, _, cx| {
-                        this.state.show_diagnostics = !this.state.show_diagnostics;
-                        cx.notify();
-                    })),
-            )
-            .when(self.state.show_diagnostics, |this| {
-                this.child(
-                    div()
-                        .id("diagnostics-panel")
-                        .max_h(px(180.))
-                        .overflow_y_scrollbar()
-                        .children(
-                            self.state
-                                .diagnostics
-                                .lines()
-                                .map(|line| div().text_sm().child(line.to_owned())),
-                        ),
-                )
-            })
+                    (
+                        "index-load",
+                        "Load existing index",
+                        super::model::SnapshotMode::Load,
+                    ),
+                    (
+                        "index-write",
+                        "Build and save index",
+                        super::model::SnapshotMode::Write,
+                    ),
+                    (
+                        "index-load-write",
+                        "Load or rebuild and save",
+                        super::model::SnapshotMode::LoadAndWrite,
+                    ),
+                ] {
+                    content = content.child(
+                        Button::new(id)
+                            .ghost()
+                            .w_full()
+                            .label(label)
+                            .selected(self.state.index_mode == mode)
+                            .on_click(cx.listener(move |this, _, _, cx| {
+                                this.state.index_mode = mode;
+                                cx.notify();
+                            })),
+                    );
+                }
+                if self.state.index_mode != super::model::SnapshotMode::None {
+                    content = content
+                        .child(
+                            div()
+                                .text_sm()
+                                .child("Index directory (empty uses default)"),
+                        )
+                        .child(
+                            Input::new(&self.inputs.snapshot_directory)
+                                .id("index-directory")
+                                .w_full(),
+                        );
+                }
+                content = content.child(
+                    Button::new("index-run")
+                        .primary()
+                        .label("Run index operation")
+                        .on_click(cx.listener(|this, _, _, cx| {
+                            this.send(UiAction::Index {
+                                mode: this.state.index_mode,
+                                directory: this
+                                    .inputs
+                                    .snapshot_directory
+                                    .read(cx)
+                                    .value()
+                                    .to_string(),
+                            });
+                            this.state.show_actions = false;
+                            cx.notify();
+                        })),
+                );
+            }
+            ActionPanel::Diagnostics => {
+                content = content.children(
+                    self.state
+                        .diagnostics
+                        .lines()
+                        .map(|line| div().text_sm().child(line.to_owned())),
+                );
+            }
+        }
+        panel.child(content)
     }
 
     fn export(&mut self, format: ExportFormat, cx: &mut Context<Self>) {
@@ -808,15 +1003,42 @@ impl DesktopView {
         });
     }
 
-    pub(super) fn render_help(&self) -> impl IntoElement {
-        div().id("help-panel").absolute().top(px(100.)).right(px(16.)).w(px(600.)).max_h(px(600.)).flex().flex_col().gap_1().p_3()
-            .bg(rgb(if self.state.dark { 0x202a35 } else { 0xe8f0f7 }))
-            .child(div().child(format!("Objekte Desktop {} · Help", env!("CARGO_PKG_VERSION"))))
-            .child(div().text_sm().child("Use Open to choose a folder or configured repository. Type in Full Text and Structured independently; they run together."))
-            .child(div().text_sm().child("A complete JSON string in Structured runs as a CLI-style quoted text query when Full Text is empty. Batch accepts the CLI's physical-line query format."))
-            .child(div().text_sm().child("Enter confirms a query. Select a result and Inspect to view fields. Use Previous/Next for bounded pages."))
-            .child(div().text_sm().child("Ctrl+O opens repository choices; Ctrl+F focuses Full Text; Ctrl+L focuses Structured. F1 opens Help; Escape closes panels."))
-            .child(div().text_sm().child("Click a result to focus the grid. Up/Down and Home/End select rows; Page Up/Down change pages; Enter inspects the selected record."))
-            .child(div().text_sm().child("Save Query stores query inputs. Export Results and Write Index are explicit derived-output actions. Source documents remain read-only."))
+    pub(super) fn render_help(&self, cx: &mut Context<Self>) -> impl IntoElement {
+        let colors = super::theme::palette(self.state.dark);
+        div()
+            .id("help-panel")
+            .absolute()
+            .top(px(48.))
+            .right(px(8.))
+            .w(px(470.))
+            .max_h(px(600.))
+            .flex()
+            .flex_col()
+            .gap_2()
+            .p_3()
+            .bg(rgb(colors.panel))
+            .border_1()
+            .border_color(rgb(colors.border))
+            .rounded_md()
+            .on_mouse_down_out(cx.listener(|this, _, _, cx| {
+                this.state.show_help = false;
+                cx.notify();
+            }))
+            .child(div().flex().items_center()
+                .child(div().flex_1().font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                    .child(format!("Objekte {} · Help", env!("CARGO_PKG_VERSION"))))
+                .child(Button::new("help-close").ghost().icon(IconName::Close)
+                    .tooltip("Close help").accessibility_label("Close help")
+                    .on_click(cx.listener(|this, _, _, cx| {
+                        this.state.show_help = false;
+                        cx.notify();
+                    }))))
+            .child(div().text_sm().child("Open a folder, choose a collection, search, then select a row to inspect it."))
+            .child(div().text_sm().child("Search words go in Search. Enable Filter to edit the complete structured expression; search and filter combine with AND."))
+            .child(div().text_sm().child("A complete quoted JSON string in Filter runs as a CLI-style text query when Search is empty. Batch accepts one CLI query per line."))
+            .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Use Query options for sort expressions, ranges, and exact count."))
+            .child(div().text_sm().child("Ctrl+O: Open · Ctrl+F: Search · Ctrl+L: Filter · F1: Help · Escape: close the nearest panel."))
+            .child(div().text_sm().child("Use Up/Down and Home/End in the table. Page Up/Down changes result pages. Enter inspects the selected record."))
+            .child(div().text_sm().child("Source records and schemas are read-only. Export and index writes are explicit actions."))
     }
 }

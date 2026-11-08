@@ -10,6 +10,7 @@ mod render;
 mod state;
 mod theme;
 
+use objekte_search_core::query::parse_structured_filter;
 use std::sync::mpsc::Sender;
 
 use gpui_kit::component::input::{InputEvent, InputState, TextareaState};
@@ -37,6 +38,7 @@ struct Inputs {
     limit: Entity<InputState>,
     find: Entity<InputState>,
     query_name: Entity<InputState>,
+    action_search: Entity<InputState>,
     export_path: Entity<InputState>,
     batch_text: Entity<TextareaState>,
     batch_path: Entity<InputState>,
@@ -70,15 +72,16 @@ impl DesktopView {
                 .new(|cx| InputState::new(window, cx).placeholder("Schema file (single folder)")),
             snapshot_directory: cx
                 .new(|cx| InputState::new(window, cx).placeholder("Index directory (optional)")),
-            full_text: cx.new(|cx| InputState::new(window, cx).placeholder("Search words or text")),
+            full_text: cx.new(|cx| InputState::new(window, cx).placeholder("Search entries…")),
             structured: cx.new(|cx| {
-                InputState::new(window, cx).placeholder("Structured filter, including SORT BY")
+                InputState::new(window, cx).placeholder("year >= 1900 && type = \"book\"")
             }),
             sort: cx.new(|cx| InputState::new(window, cx).placeholder("Sort field (optional)")),
             offset: cx.new(|cx| InputState::new(window, cx).default_value("0")),
             limit: cx.new(|cx| InputState::new(window, cx).placeholder("Unlimited")),
             find: cx.new(|cx| InputState::new(window, cx).placeholder("Find in record")),
             query_name: cx.new(|cx| InputState::new(window, cx).placeholder("Saved query name")),
+            action_search: cx.new(|cx| InputState::new(window, cx).placeholder("Find a query")),
             export_path: cx.new(|cx| InputState::new(window, cx).placeholder("New output path")),
             batch_text: cx.new(|cx| TextareaState::new(window, cx)),
             batch_path: cx
@@ -129,12 +132,20 @@ impl DesktopView {
                 }),
             );
         }
+        subscriptions.push(
+            cx.subscribe(&inputs.action_search, |_: &mut Self, _, event, cx| {
+                if matches!(event, InputEvent::Change) {
+                    cx.notify();
+                }
+            }),
+        );
         Theme::change(ThemeMode::Dark, Some(window), cx);
         let state = UiState {
             dark: true,
             sidebar_visible: true,
             inspector_width: 365.,
             show_preview: true,
+            index_mode: model::SnapshotMode::Write,
             status: "Open a folder or configured repository to begin".into(),
             ..UiState::default()
         };
@@ -282,13 +293,10 @@ impl DesktopView {
     /// Cycle a column's global query sort without changing an inline SORT BY.
     fn sort_by_column(&mut self, column: String, window: &mut Window, cx: &mut Context<Self>) {
         if self.state.search.filter_enabled
-            && self
-                .inputs
-                .structured
-                .read(cx)
-                .value()
-                .to_ascii_uppercase()
-                .contains("SORT BY")
+            && parse_structured_filter(&self.inputs.structured.read(cx).value())
+                .ok()
+                .and_then(|filter| filter.sort)
+                .is_some()
         {
             self.state.status = "Edit SORT BY in the Filter line to change ordering".into();
             let focus = self.inputs.structured.read(cx).focus_handle(cx);

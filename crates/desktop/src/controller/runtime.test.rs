@@ -77,3 +77,30 @@ fn invalid_filter_does_not_start_query_or_replace_visible_page() {
             .any(|update| matches!(update, UiUpdate::QueryStarted(_)))
     );
 }
+
+#[test]
+fn invalid_current_request_cannot_export_previous_results() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.current_draft = SearchDraft {
+        structured: "year >=".into(),
+        filter_enabled: true,
+        ..SearchDraft::default()
+    };
+    let path = fixture._root.path().join("should-not-export.json");
+    let mut updates = Vec::new();
+    controller.start_export(
+        ExportFormat::ResultsJson,
+        path.display().to_string(),
+        &mut updates,
+    );
+    assert!(!path.exists());
+    assert!(matches!(
+        updates.as_slice(),
+        [UiUpdate::Error {
+            field: ErrorField::Export,
+            ..
+        }]
+    ));
+}

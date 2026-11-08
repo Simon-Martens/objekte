@@ -5,10 +5,25 @@ use gpui_kit::SharedString;
 use std::collections::BTreeMap;
 
 use super::model::{
-    BatchRow, BatchSource, DetailView, ErrorField, FilterValidationState, MAX_BATCH_ROWS,
-    OpenDraft, PageView, QueryEntry, SearchDraft, UiUpdate,
+    BatchRow, BatchSource, DetailView, ErrorField, ExportFormat, FilterValidationState,
+    MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry, SearchDraft, SnapshotMode, UiUpdate,
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
+
+
+/// One contextual secondary surface at a time.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum ActionPanel {
+    #[default]
+    Menu,
+    History,
+    Saved,
+    Columns,
+    SaveQuery,
+    Export,
+    Index,
+    Diagnostics,
+}
 
 
 /// Which operation currently owns the visible progress indicator.
@@ -70,12 +85,11 @@ pub struct UiState {
     pub show_preview: bool,
     pub inspector_visible: bool,
     pub show_batch: bool,
-    pub show_history: bool,
-    pub show_saved: bool,
-    pub show_columns: bool,
     pub show_help: bool,
     pub show_actions: bool,
-    pub show_diagnostics: bool,
+    pub action_panel: ActionPanel,
+    pub export_format: ExportFormat,
+    pub index_mode: SnapshotMode,
     pub show_raw: bool,
     pub sidebar_visible: bool,
     pub inspector_width: f32,

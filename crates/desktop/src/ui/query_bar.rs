@@ -353,6 +353,7 @@ impl DesktopView {
         let dark = self.state.dark;
         div()
             .id("query-bar")
+            .relative()
             .flex()
             .flex_col()
             .flex_shrink_0()
@@ -410,7 +411,17 @@ impl DesktopView {
                     )
                     .child(
                         Button::new("query-options-toggle")
-                            .label("Options")
+                            .label(
+                                if self.state.search.sort.is_empty()
+                                    && self.state.search.offset == "0"
+                                    && self.state.search.limit.is_empty()
+                                    && !self.state.search.count
+                                {
+                                    "Options"
+                                } else {
+                                    "Options •"
+                                },
+                            )
                             .selected(self.show_query_options)
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.show_query_options = !this.show_query_options;
@@ -449,6 +460,12 @@ impl DesktopView {
                         .flex()
                         .flex_col()
                         .gap_1()
+                        .on_mouse_down_out(cx.listener(|this, _, _, cx| {
+                            if this.state.show_filter_builder {
+                                this.state.show_filter_builder = false;
+                                cx.notify();
+                            }
+                        }))
                         .child(
                             div()
                                 .flex()
@@ -543,28 +560,47 @@ impl DesktopView {
             .when(self.show_query_options, |this| {
                 this.child(
                     div()
+                        .id("query-options-popover")
+                        .absolute()
+                        .top(px(46.))
+                        .right(px(8.))
+                        .w(px(360.))
                         .flex()
-                        .items_center()
+                        .flex_col()
                         .gap_2()
+                        .p_3()
+                        .bg(rgb(if dark { 0x1c1f24 } else { 0xffffff }))
+                        .border_1()
+                        .border_color(rgb(if dark { 0x30353c } else { 0xcbd5e1 }))
+                        .rounded_md()
+                        .on_mouse_down_out(cx.listener(|this, _, _, cx| {
+                            this.show_query_options = false;
+                            cx.notify();
+                        }))
+                        .child(
+                            div()
+                                .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                                .child("Query options"),
+                        )
                         .child(div().text_sm().child("Sort"))
                         .child(
                             Input::new(&self.inputs.sort)
                                 .id("sort-input")
-                                .w(px(160.))
+                                .w_full()
                                 .aria_label("Sort field"),
                         )
                         .child(div().text_sm().child("Offset"))
                         .child(
                             Input::new(&self.inputs.offset)
                                 .id("offset-input")
-                                .w(px(90.))
+                                .w_full()
                                 .aria_label("Result offset"),
                         )
                         .child(div().text_sm().child("Limit"))
                         .child(
                             Input::new(&self.inputs.limit)
                                 .id("limit-input")
-                                .w(px(90.))
+                                .w_full()
                                 .aria_label("Result limit"),
                         )
                         .child(
