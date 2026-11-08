@@ -13,6 +13,7 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
 use crate::bigram::{BIGRAM_VERSION, BigramIndex, FOLDED_REPRESENTATION};
+use crate::discovery::SymlinkPolicy;
 use crate::inference::{InferenceMode, InferenceState};
 use crate::inventory::{
     CollectionGeneration, FileInventory, FileStatus, SourceDiagnostic, SourceRevision,
@@ -622,16 +623,57 @@ impl Repository {
         Ok(stats)
     }
 
-    fn ensure_snapshot_destination_is_not_source(&self, path: &Path) -> Result<(), String> {
+    /// Returns the number of source paths inspected individually. Ordinary
+    /// destinations need only the inventory lookup and a few directory checks.
+    fn ensure_snapshot_destination_is_not_source(&self, path: &Path) -> Result<usize, String> {
         let destination = resolved_snapshot_destination(path)?;
+        if let Ok(relative) = destination.strip_prefix(&self.files.root) {
+            if self.files.id_for(relative).is_some() {
+                return Err(format!(
+                    "snapshot destination aliases indexed source file: {}",
+                    destination.display()
+                ));
+            }
+        }
+
         #[cfg(unix)]
         let destination_metadata = fs::metadata(path).ok();
+        #[cfg(unix)]
+        let multiple_links = destination_metadata.as_ref().is_some_and(|metadata| {
+            use std::os::unix::fs::MetadataExt;
+            metadata.nlink() > 1
+        });
+        #[cfg(not(unix))]
+        let multiple_links = false;
 
+        let source_symlinks_possible = self.collections.iter().any(|collection| {
+            if collection.definition.discovery.symlinks == SymlinkPolicy::FollowWithinRoot {
+                return true;
+            }
+            let directory = self.files.root.join(&collection.definition.source_path);
+            match fs::canonicalize(&directory) {
+                Ok(resolved) => resolved != directory,
+                Err(_) => true,
+            }
+        });
+        if !multiple_links && !source_symlinks_possible {
+            return Ok(0);
+        }
+
+        let mut scanned = 0;
         for entry in &self.files.files {
+            scanned += 1;
             let source = self.files.root.join(&entry.relative_path);
             let resolved_source = match fs::canonicalize(&source) {
                 Ok(resolved) => resolved,
-                Err(error) if error.kind() == std::io::ErrorKind::NotFound => source.clone(),
+                Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+                    if let Ok(target) = fs::read_link(&source) {
+                        let parent = source.parent().ok_or("indexed source needs a parent")?;
+                        resolved_snapshot_destination(&parent.join(target))?
+                    } else {
+                        resolved_snapshot_destination(&source)?
+                    }
+                }
                 Err(error) => return Err(format!("indexed source path: {error}")),
             };
             if destination == resolved_source {
@@ -642,21 +684,23 @@ impl Repository {
             }
 
             #[cfg(unix)]
-            if let (Some(destination_metadata), Ok(source_metadata)) =
-                (&destination_metadata, fs::metadata(&source))
-            {
-                use std::os::unix::fs::MetadataExt;
-                if destination_metadata.dev() == source_metadata.dev()
-                    && destination_metadata.ino() == source_metadata.ino()
+            if multiple_links {
+                if let (Some(destination_metadata), Ok(source_metadata)) =
+                    (&destination_metadata, fs::metadata(&source))
                 {
-                    return Err(format!(
-                        "snapshot destination aliases indexed source file: {}",
-                        source.display()
-                    ));
+                    use std::os::unix::fs::MetadataExt;
+                    if destination_metadata.dev() == source_metadata.dev()
+                        && destination_metadata.ino() == source_metadata.ino()
+                    {
+                        return Err(format!(
+                            "snapshot destination aliases indexed source file: {}",
+                            source.display()
+                        ));
+                    }
                 }
             }
         }
-        Ok(())
+        Ok(scanned)
     }
 }
 
