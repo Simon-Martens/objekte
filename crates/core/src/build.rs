@@ -1814,4 +1814,6 @@ mod tests;
 #[path = "mutation_segment.rs"]
 mod mutation_segment;
 
-pub(crate) use mutation_segment::{CollectionSegment, SegmentAdmission};
+pub(crate) use mutation_segment::{
+    CollectionSegment, IndexedCollectionSegment, SegmentAdmission, SegmentLimits,
+};
