@@ -383,7 +383,7 @@ impl DesktopView {
                         .flex_1()
                         .min_h_0()
                         .p_3()
-                        .font_family("DejaVu Sans Mono")
+                        .font_family(super::typography::MONO)
                         .text_sm()
                         .child(self.state.detail_source.clone().unwrap_or_default())
                         .overflow_y_scrollbar(),
@@ -777,6 +777,7 @@ impl DesktopView {
                                     Some(window),
                                     cx,
                                 );
+                                super::typography::apply_theme_fonts(cx);
                                 this.send(UiAction::SetTheme {
                                     dark: this.state.dark,
                                 });

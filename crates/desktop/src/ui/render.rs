@@ -642,6 +642,7 @@ impl Render for DesktopView {
             .flex_col()
             .size_full()
             .bg(rgb(colors.canvas))
+            .font_family(super::typography::SANS)
             .text_color(rgb(colors.text))
             .child(self.render_header(cx))
             .when(self.state.show_batch, |this| {

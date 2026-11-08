@@ -9,6 +9,7 @@ pub mod query_bar;
 mod render;
 mod state;
 mod theme;
+pub mod typography;
 
 use objekte_search_core::query::parse_structured_filter;
 use std::sync::mpsc::Sender;
@@ -140,6 +141,7 @@ impl DesktopView {
             }),
         );
         Theme::change(ThemeMode::Dark, Some(window), cx);
+        typography::apply_theme_fonts(cx);
         let state = UiState {
             dark: true,
             sidebar_visible: true,
@@ -185,6 +187,7 @@ impl DesktopView {
                 Some(window),
                 cx,
             );
+            typography::apply_theme_fonts(cx);
             self.builder_view
                 .update(cx, |builder, cx| builder.set_dark(*dark, cx));
         }
