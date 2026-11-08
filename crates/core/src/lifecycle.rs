@@ -1896,8 +1896,14 @@ impl IndexView {
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
         if !self.has_segments() {
-            crate::run::search_active(self.repository(), resolved.as_ref(), &self.0.active)
-                .map(|result| self.stamp_result(result))
+            crate::run::search_active_available(
+                self.repository(),
+                resolved.as_ref(),
+                &self.0.active,
+                &self.0.catalog,
+                self.revision(),
+            )
+            .map(|result| self.stamp_result(result))
         } else {
             crate::run::search_segmented(
                 self.repository(),
@@ -1920,11 +1926,13 @@ impl IndexView {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
         if !self.has_segments() {
-            crate::run::search_with_context_active(
+            crate::run::search_active_available_with_context(
                 self.repository(),
                 &resolved,
-                context,
                 &self.0.active,
+                &self.0.catalog,
+                self.revision(),
+                context,
             )
             .map(|result| self.stamp_result(result))
         } else {
