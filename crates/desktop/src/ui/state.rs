@@ -4,8 +4,8 @@
 use std::collections::BTreeMap;
 
 use super::model::{
-    BatchRow, DetailView, ErrorField, MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry, SearchDraft,
-    UiUpdate,
+    BatchRow, BatchSource, DetailView, ErrorField, MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry,
+    SearchDraft, UiUpdate,
 };
 
 
@@ -32,7 +32,10 @@ pub struct UiState {
     pub detail: Option<DetailView>,
     pub history: Vec<QueryEntry>,
     pub saved: Vec<QueryEntry>,
+    pub available_columns: Vec<String>,
+    pub hidden_columns: Vec<String>,
     pub batch: Vec<BatchRow>,
+    pub batch_source: BatchSource,
     pub batch_outcome: Option<String>,
     pub busy: Busy,
     pub status: String,
@@ -59,6 +62,10 @@ impl UiState {
                 self.status = status;
                 self.root = None;
                 self.collections.clear();
+                self.available_columns.clear();
+                self.hidden_columns.clear();
+                self.history.clear();
+                self.saved.clear();
                 self.page = PageView::default();
                 self.detail = None;
                 self.errors.remove(&ErrorField::Open);
@@ -76,16 +83,33 @@ impl UiState {
                 self.errors.remove(&ErrorField::Open);
                 if single_collection {
                     self.search.collection = self.collections.first().cloned();
+                } else {
+                    self.search.collection = None;
                 }
             }
             UiUpdate::QueryStarted(status) => {
                 self.busy = Busy::Querying;
                 self.status = status;
+                self.detail = None;
                 self.errors.remove(&ErrorField::FullText);
                 self.errors.remove(&ErrorField::Structured);
             }
             UiUpdate::Page(page) => {
-                self.page = page.bounded();
+                let previous_token = self
+                    .page
+                    .selected
+                    .and_then(|index| self.page.rows.get(index))
+                    .map(|row| row.key.token);
+                let page = page.bounded();
+                let next_token = page
+                    .selected
+                    .and_then(|index| page.rows.get(index))
+                    .map(|row| row.key.token);
+                if next_token.is_none() || previous_token != next_token {
+                    self.detail = None;
+                    self.show_raw = false;
+                }
+                self.page = page;
                 self.busy = Busy::None;
                 self.status = if self.page.rows.is_empty() {
                     "No matching records".into()
@@ -96,11 +120,12 @@ impl UiState {
                         self.page.offset
                     )
                 };
-                self.detail = None;
             }
             UiUpdate::Detail(detail) => {
                 self.detail = detail.map(DetailView::bounded);
-                self.show_raw = false;
+                if self.detail.is_none() {
+                    self.show_raw = false;
+                }
             }
             UiUpdate::History {
                 mut entries,
@@ -114,6 +139,15 @@ impl UiState {
                 }
                 self.history = entries;
                 self.saved = saved;
+            }
+            UiUpdate::Columns {
+                mut available,
+                mut hidden,
+            } => {
+                available.truncate(super::model::MAX_COLUMNS);
+                hidden.truncate(super::model::MAX_COLUMNS);
+                self.available_columns = available;
+                self.hidden_columns = hidden;
             }
             UiUpdate::Batch {
                 mut rows,

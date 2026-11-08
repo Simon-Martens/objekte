@@ -30,6 +30,54 @@ fn page_bounds_rows_columns_and_multibyte_cells_without_changing_total() {
     assert!(page.clipped);
     assert!(page.rows[0].cells[0].ends_with('…'));
     assert!(page.rows[0].cells[0].is_char_boundary(page.rows[0].cells[0].len()));
+    assert_eq!(page.rows[0].key.token, 0);
+    assert_eq!(
+        page.rows
+            .iter()
+            .map(|row| row.key.token)
+            .collect::<Vec<_>>(),
+        (0..MAX_PAGE_ROWS as u64).collect::<Vec<_>>()
+    );
+}
+
+#[test]
+fn page_budget_does_not_change_row_identity() {
+    let page = PageView {
+        columns: vec!["column".into()],
+        rows: (0..10)
+            .map(|index| ResultRow {
+                key: RowKey {
+                    token: index as u64 + 1000,
+                    collection: "ä".repeat(MAX_CELL_BYTES),
+                    record_id: "id".into(),
+                    file: "file".into(),
+                    byte_start: 0,
+                },
+                cells: (0..MAX_COLUMNS)
+                    .map(|_| "x".repeat(MAX_CELL_BYTES))
+                    .collect(),
+                matched_fields: Vec::new(),
+                preview: None,
+            })
+            .collect(),
+        ..PageView::default()
+    }
+    .bounded();
+    let displayed_bytes: usize = page.columns.iter().map(String::len).sum::<usize>()
+        + page
+            .rows
+            .iter()
+            .map(|row| {
+                row.key.collection.len()
+                    + row.key.record_id.len()
+                    + row.key.file.len()
+                    + row.cells.iter().map(String::len).sum::<usize>()
+            })
+            .sum::<usize>();
+    assert!(displayed_bytes <= MAX_PAGE_BYTES);
+    assert_eq!(page.rows[0].key.token, 1000);
+    assert_eq!(page.rows[9].key.token, 1009);
+    assert!(page.clipped);
 }
 
 #[test]

@@ -9,7 +9,7 @@ mod state;
 use std::sync::mpsc::Sender;
 
 use gpui_kit::component::input::{InputEvent, InputState, TextareaState};
-use gpui_kit::{AppContext as _, Context, Entity, Subscription, Window};
+use gpui_kit::{AppContext as _, Context, Entity, FocusHandle, Subscription, Window};
 
 use model::{SearchDraft, UiAction, UiUpdate};
 use state::UiState;
@@ -30,6 +30,7 @@ struct Inputs {
     export_path: Entity<InputState>,
     batch_text: Entity<TextareaState>,
     batch_path: Entity<InputState>,
+    batch_output_path: Entity<InputState>,
 }
 
 
@@ -38,6 +39,9 @@ pub struct DesktopView {
     actions: Sender<UiAction>,
     state: UiState,
     inputs: Inputs,
+    grid_focus: FocusHandle,
+    detail_focus: FocusHandle,
+    restoring_query: bool,
     _subscriptions: Vec<Subscription>,
 }
 
@@ -63,6 +67,8 @@ impl DesktopView {
             batch_text: cx.new(|cx| TextareaState::new(window, cx)),
             batch_path: cx
                 .new(|cx| InputState::new(window, cx).placeholder("Batch file path (optional)")),
+            batch_output_path: cx
+                .new(|cx| InputState::new(window, cx).placeholder("New NDJSON output path")),
         };
         let mut subscriptions = Vec::new();
         for input in [
@@ -80,13 +86,18 @@ impl DesktopView {
                 }),
             );
         }
-        let mut state = UiState::default();
-        state.show_preview = true;
-        state.status = "Open a folder or configured repository to begin".into();
+        let state = UiState {
+            show_preview: true,
+            status: "Open a folder or configured repository to begin".into(),
+            ..UiState::default()
+        };
         Self {
             actions,
             state,
             inputs,
+            grid_focus: cx.focus_handle(),
+            detail_focus: cx.focus_handle(),
+            restoring_query: false,
             _subscriptions: subscriptions,
         }
     }
@@ -99,6 +110,7 @@ impl DesktopView {
                 .update(cx, |input, cx| input.set_value(paths.clone(), window, cx));
         }
         if let UiUpdate::RestoreQuery(draft) = &update {
+            self.restoring_query = true;
             self.inputs.full_text.update(cx, |input, cx| {
                 input.set_value(draft.full_text.clone(), window, cx)
             });
@@ -116,6 +128,7 @@ impl DesktopView {
             });
         }
         self.state.apply(update);
+        self.restoring_query = false;
         cx.notify();
     }
 
@@ -131,6 +144,9 @@ impl DesktopView {
     }
 
     fn search_from_inputs(&mut self, explicit: bool, cx: &mut Context<Self>) {
+        if self.restoring_query {
+            return;
+        }
         let draft = self.query_from_inputs(cx);
         self.state.search = draft.clone();
         self.send(if explicit {
@@ -159,6 +175,59 @@ impl DesktopView {
     fn send(&mut self, action: UiAction) {
         if self.actions.send(action).is_err() {
             self.state.status = "Desktop controller disconnected".into();
+        }
+    }
+
+    fn select_relative(&mut self, delta: isize, cx: &mut Context<Self>) {
+        let len = self.state.page.rows.len();
+        if len == 0 {
+            return;
+        }
+        let next = self.state.page.selected.map_or(0, |current| {
+            current.saturating_add_signed(delta).min(len - 1)
+        });
+        self.state.page.selected = Some(next);
+        self.send(UiAction::SelectRow(next));
+        cx.notify();
+    }
+
+    fn select_detail_relative(&mut self, delta: isize, cx: &mut Context<Self>) {
+        let Some(detail) = self.state.detail.as_mut() else {
+            return;
+        };
+        let len = detail.structured.len() + detail.relations.len();
+        if len == 0 {
+            return;
+        }
+        let next = detail
+            .selected_row
+            .saturating_add_signed(delta)
+            .min(len - 1);
+        detail.selected_row = next;
+        self.send(UiAction::DetailRowSelected(next));
+        cx.notify();
+    }
+
+    fn activate_detail_row(&mut self) {
+        let Some(detail) = self.state.detail.as_ref() else {
+            return;
+        };
+        let selected = detail.selected_row;
+        let action = if let Some(row) = detail.structured.get(selected) {
+            row.expandable
+                .then_some(UiAction::ToggleDetailExpansion(selected))
+        } else {
+            detail
+                .relations
+                .get(selected.saturating_sub(detail.structured.len()))
+                .and_then(|relation| {
+                    relation
+                        .available
+                        .then_some(UiAction::FollowRelation(selected - detail.structured.len()))
+                })
+        };
+        if let Some(action) = action {
+            self.send(action);
         }
     }
 }

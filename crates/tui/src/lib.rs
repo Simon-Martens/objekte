@@ -3,5 +3,6 @@
 mod tui;
 
 pub use tui::export;
+pub use tui::relations;
 pub use tui::settings;
 pub use tui::{TuiOptions, run_with_loader};

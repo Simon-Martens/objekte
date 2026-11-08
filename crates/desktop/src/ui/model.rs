@@ -304,6 +304,15 @@ pub struct BatchRow {
 }
 
 
+/// Explicit source choice when both a pasted batch and file path are present.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum BatchSource {
+    #[default]
+    PastedText,
+    QueryFile,
+}
+
+
 /// Which export representation is requested.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ExportFormat {
@@ -342,21 +351,38 @@ pub enum UiAction {
     AdjacentResult(bool),
     DetailRowSelected(usize),
     ToggleDetailExpansion(usize),
+    DetailSectionRelative(bool),
     ToggleRawSource,
-    FindInRecord { text: String, forward: bool },
+    FindInRecord {
+        text: String,
+        forward: bool,
+    },
     FollowRelation(usize),
     BackRelation,
     CopySelectedValue,
     CopyRecord,
-    SaveQuery { name: String, draft: SearchDraft },
+    SaveQuery {
+        name: String,
+        draft: SearchDraft,
+    },
     RestoreHistory(usize),
     RestoreSaved(String),
     ToggleColumn(String),
     TogglePreview,
-    Export { format: ExportFormat, path: String },
-    RunBatch { text: String, path: String },
+    Export {
+        format: ExportFormat,
+        path: String,
+    },
+    RunBatch {
+        source: BatchSource,
+        text: String,
+        path: String,
+        output_path: String,
+    },
     WriteIndex,
-    SetTheme { dark: bool },
+    SetTheme {
+        dark: bool,
+    },
     ShowHelp,
 }
 
@@ -376,6 +402,10 @@ pub enum UiUpdate {
     History {
         entries: Vec<QueryEntry>,
         saved: Vec<QueryEntry>,
+    },
+    Columns {
+        available: Vec<String>,
+        hidden: Vec<String>,
     },
     Batch {
         rows: Vec<BatchRow>,

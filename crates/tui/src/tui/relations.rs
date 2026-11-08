@@ -7,7 +7,7 @@ const PAGE_SIZE: usize = 100;
 
 
 #[derive(Clone, Debug)]
-pub(super) enum LinkAction {
+pub enum LinkAction {
     Target {
         collection: String,
         id: String,
@@ -28,10 +28,10 @@ pub(super) enum LinkAction {
 
 
 #[derive(Clone, Debug)]
-pub(super) struct RelationRow {
-    pub(super) label: String,
-    pub(super) value: String,
-    pub(super) action: Option<LinkAction>,
+pub struct RelationRow {
+    pub label: String,
+    pub value: String,
+    pub action: Option<LinkAction>,
 }
 
 
@@ -61,7 +61,7 @@ fn collection_name(repo: &Repository, id: objekte_search_core::model::Collection
     )
 }
 
-pub(super) fn rows(repo: &Repository, hit: &SearchHit) -> Vec<RelationRow> {
+pub fn rows(repo: &Repository, hit: &SearchHit) -> Vec<RelationRow> {
     let graph = match repo.collection_graph() {
         Ok(graph) => graph,
         Err(error) => return vec![RelationRow::plain("Relation inspection error", error)],
@@ -218,7 +218,7 @@ fn backlinks(
     rows
 }
 
-pub(super) fn continuation(repo: &Repository, action: &LinkAction) -> Vec<RelationRow> {
+pub fn continuation(repo: &Repository, action: &LinkAction) -> Vec<RelationRow> {
     match action {
         LinkAction::Target { .. } => Vec::new(),
         LinkAction::MoreOutgoing {
