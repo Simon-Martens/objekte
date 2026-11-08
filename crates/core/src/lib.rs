@@ -27,6 +27,7 @@ mod lifecycle_open;
 mod lifecycle_repository;
 mod lifecycle_scan;
 mod lifecycle_segment_codec;
+mod lifecycle_verified;
 mod materialization;
 pub mod measurement;
 pub mod model;

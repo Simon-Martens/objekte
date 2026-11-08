@@ -11,8 +11,10 @@ use crate::build::{
 use crate::discovery::selects_file;
 use crate::inventory::SourceRevision;
 use crate::lifecycle::{
-    FileHandle, Index, IndexError, IndexRevision, IndexView, PreparedReplacement,
+    DeleteResult, DeleteStrategy, FileHandle, Index, IndexError, IndexRevision, IndexView,
+    PreparedReplacement,
 };
+use crate::lifecycle_verified::{remove_verified_old_shards, verify_old_content};
 use crate::model::CollectionId;
 
 const MAX_PUBLICATION_RETRIES: usize = 8;
@@ -33,7 +35,47 @@ pub enum FileMutationKind {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum FileMutationStrategy {
     AppendReplacement,
+    VerifiedPhysicalRemoval,
     Unchanged,
+}
+
+
+/// Why a requested verified operation safely used the normal tombstone and
+/// append strategy. A wrong old-content hint is never a mutation error.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum VerifiedFallbackReason {
+    MissingOldContent,
+    MissingFingerprint,
+    ConfigurationChanged,
+    ContentMismatch,
+    UnsupportedReader,
+    ReconstructionFailed,
+    IndexedLayoutChanged,
+    BaseIndexUnsupported,
+    CompactionBudget,
+    CompactionUnavailable,
+}
+
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum UpdateStrategy {
+    #[default]
+    AppendReplacement,
+    PreferVerified,
+}
+
+
+#[derive(Clone, Copy, Debug, Default)]
+pub struct UpdateOptions<'a> {
+    pub old_content: Option<&'a [u8]>,
+    pub strategy: UpdateStrategy,
+}
+
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VerifiedDeleteResult {
+    pub deletion: DeleteResult,
+    pub fallback_reason: Option<VerifiedFallbackReason>,
 }
 
 
@@ -49,6 +91,7 @@ pub struct FileMutationResult {
     pub affected_collections: Vec<String>,
     pub kind: FileMutationKind,
     pub strategy: FileMutationStrategy,
+    pub fallback_reason: Option<VerifiedFallbackReason>,
 }
 
 
@@ -233,6 +276,7 @@ impl Index {
                         affected_collections,
                         kind: FileMutationKind::Added,
                         strategy: FileMutationStrategy::AppendReplacement,
+                        fallback_reason: None,
                     });
                 }
                 Err(error @ IndexError::RevisionConflict { .. }) => conflict = Some(error),
@@ -249,7 +293,19 @@ impl Index {
         handle: FileHandle,
         path: &Path,
     ) -> Result<FileMutationResult, IndexError> {
-        self.replace_file(handle, FileMutationKind::Replaced, |index| {
+        self.update_file_with_options(handle, path, UpdateOptions::default())
+    }
+
+    /// Optionally verify caller-supplied old content for physical removal.
+    /// If it cannot be verified, the update succeeds through appended
+    /// replacement and reports a structured fallback reason.
+    pub fn update_file_with_options(
+        &self,
+        handle: FileHandle,
+        path: &Path,
+        options: UpdateOptions<'_>,
+    ) -> Result<FileMutationResult, IndexError> {
+        self.replace_file(handle, FileMutationKind::Replaced, options, |index| {
             index.prepare_replace_file(handle, path)
         })
     }
@@ -262,9 +318,12 @@ impl Index {
         handle: FileHandle,
         destination: &Path,
     ) -> Result<FileMutationResult, IndexError> {
-        self.replace_file(handle, FileMutationKind::Moved, |index| {
-            index.prepare_replace_file(handle, destination)
-        })
+        self.replace_file(
+            handle,
+            FileMutationKind::Moved,
+            UpdateOptions::default(),
+            |index| index.prepare_replace_file(handle, destination),
+        )
     }
 
     /// Index complete caller-supplied replacement bytes with their declared
@@ -277,7 +336,24 @@ impl Index {
         bytes: &[u8],
         revision: SourceRevision,
     ) -> Result<FileMutationResult, IndexError> {
-        self.replace_file(handle, FileMutationKind::Replaced, |index| {
+        self.update_file_from_bytes_with_options(
+            handle,
+            path,
+            bytes,
+            revision,
+            UpdateOptions::default(),
+        )
+    }
+
+    pub fn update_file_from_bytes_with_options(
+        &self,
+        handle: FileHandle,
+        path: &Path,
+        bytes: &[u8],
+        revision: SourceRevision,
+        options: UpdateOptions<'_>,
+    ) -> Result<FileMutationResult, IndexError> {
+        self.replace_file(handle, FileMutationKind::Replaced, options, |index| {
             prepare_replacement_bytes(index, handle, path, bytes, revision)
         })
     }
@@ -286,6 +362,7 @@ impl Index {
         &self,
         handle: FileHandle,
         kind: FileMutationKind,
+        options: UpdateOptions<'_>,
         mut prepare: impl FnMut(&Self) -> Result<PreparedReplacement, IndexError>,
     ) -> Result<FileMutationResult, IndexError> {
         let mut conflict = None;
@@ -336,8 +413,16 @@ impl Index {
                     affected_collections,
                     kind: FileMutationKind::Unchanged,
                     strategy: FileMutationStrategy::Unchanged,
+                    fallback_reason: None,
                 });
             }
+            let verified = match options.strategy {
+                UpdateStrategy::AppendReplacement => None,
+                UpdateStrategy::PreferVerified => Some(match options.old_content {
+                    Some(bytes) => verify_old_content(&view, handle, bytes),
+                    None => Err(VerifiedFallbackReason::MissingOldContent),
+                }),
+            };
             let expected = prepared.expected_revision;
             let next = match self.stage_prepared_replace(prepared) {
                 Ok(next) => next,
@@ -346,6 +431,18 @@ impl Index {
                     continue;
                 }
                 Err(error) => return Err(error),
+            };
+            let (next, strategy, fallback_reason) = match verified {
+                Some(Ok(plan)) => match remove_verified_old_shards(&next, &plan, handle.file_id) {
+                    Ok(compacted) => (
+                        compacted,
+                        FileMutationStrategy::VerifiedPhysicalRemoval,
+                        None,
+                    ),
+                    Err(reason) => (next, FileMutationStrategy::AppendReplacement, Some(reason)),
+                },
+                Some(Err(reason)) => (next, FileMutationStrategy::AppendReplacement, Some(reason)),
+                None => (next, FileMutationStrategy::AppendReplacement, None),
             };
             let file = FileHandle {
                 instance_id: self.instance_id(),
@@ -364,7 +461,72 @@ impl Index {
                         indexed_records,
                         affected_collections,
                         kind,
-                        strategy: FileMutationStrategy::AppendReplacement,
+                        strategy,
+                        fallback_reason,
+                    });
+                }
+                Err(error @ IndexError::RevisionConflict { .. }) => conflict = Some(error),
+                Err(error) => return Err(error),
+            }
+        }
+        Err(conflict.expect("publication retry always captures a conflict"))
+    }
+
+    /// Delete an indexed file after optionally proving its old raw bytes.
+    /// A mismatched hint safely falls back to the existing tombstone path.
+    /// The application owns any physical source-file deletion.
+    pub fn delete_file_with_old_content(
+        &self,
+        handle: FileHandle,
+        old_content: &[u8],
+    ) -> Result<VerifiedDeleteResult, IndexError> {
+        let mut conflict = None;
+        for _ in 0..MAX_PUBLICATION_RETRIES {
+            if handle.instance_id != self.instance_id() {
+                return Err(IndexError::ForeignInstance);
+            }
+            let view = self.view()?;
+            let actual = view
+                .file_version_including_inactive(handle.file_id)
+                .ok_or(IndexError::UnknownFile)?;
+            if actual != handle.version {
+                return Err(IndexError::FileConflict {
+                    file: handle.file_id,
+                    expected: handle.version,
+                    actual,
+                });
+            }
+            if view.file_entry(handle.file_id).is_none() {
+                return Err(IndexError::UnknownFile);
+            }
+            let verified = verify_old_content(&view, handle, old_content);
+            let (expected, next, retired_records, affected_collections) =
+                self.stage_prepared_delete(handle)?;
+            if expected != view.revision() {
+                conflict = Some(IndexError::RevisionConflict {
+                    expected: view.revision(),
+                    actual: expected,
+                });
+                continue;
+            }
+            let (next, strategy, fallback_reason) = match verified {
+                Ok(plan) => match remove_verified_old_shards(&next, &plan, handle.file_id) {
+                    Ok(compacted) => (compacted, DeleteStrategy::VerifiedPhysicalRemoval, None),
+                    Err(reason) => (next, DeleteStrategy::Tombstone, Some(reason)),
+                },
+                Err(reason) => (next, DeleteStrategy::Tombstone, Some(reason)),
+            };
+            match self.publish_prepared(expected, next) {
+                Ok(revision) => {
+                    return Ok(VerifiedDeleteResult {
+                        deletion: DeleteResult {
+                            revision,
+                            file: handle.file_id,
+                            retired_records,
+                            affected_collections,
+                            strategy,
+                        },
+                        fallback_reason,
                     });
                 }
                 Err(error @ IndexError::RevisionConflict { .. }) => conflict = Some(error),

@@ -626,6 +626,27 @@ impl PreparedFileBuild {
             .map(|contribution| contribution.records.len() as u64)
             .sum()
     }
+
+    /// Record identity and framing reconstructed from one complete source.
+    /// Verified removal compares this with active indexed ownership before
+    /// using the old-byte hint for physical maintenance.
+    pub(crate) fn record_layout(&self) -> Vec<(CollectionId, RecordId, ByteRange, RecordClass)> {
+        self.collections
+            .iter()
+            .flat_map(|collection| {
+                collection.contributions.iter().flat_map(|contribution| {
+                    contribution.records.iter().map(|record| {
+                        (
+                            collection.collection,
+                            record.id.clone(),
+                            record.range,
+                            record.class,
+                        )
+                    })
+                })
+            })
+            .collect()
+    }
 }
 
 
