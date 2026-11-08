@@ -16,8 +16,10 @@ use crate::bigram::{BIGRAM_VERSION, BigramIndex, FOLDED_REPRESENTATION};
 use crate::discovery::SymlinkPolicy;
 use crate::inference::{InferenceMode, InferenceState};
 use crate::inventory::{
-    CollectionGeneration, FileInventory, FileStatus, SourceDiagnostic, SourceRevision,
+    CollectionGeneration, FileEntry, FileInventory, FileStatus, FileVersion, SourceDiagnostic,
+    SourceRevision,
 };
+use crate::lifecycle::PublishedIndex;
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::relation::RelationIndex;
@@ -31,6 +33,7 @@ use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
 pub const SNAPSHOT_VERSION: u32 = 14;
+pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 15;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -103,7 +106,7 @@ fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadErro
 
 
 /// Snapshot representation of one source-file revision.
-#[derive(Serialize, Deserialize)]
+#[derive(Clone, Serialize, Deserialize)]
 struct EncodedFile {
     id: FileId,
     relative_path: Vec<u8>,
@@ -113,6 +116,272 @@ struct EncodedFile {
     status: FileStatus,
     diagnostics: Vec<SourceDiagnostic>,
     omitted_diagnostics: u32,
+}
+
+
+/// One active catalog entry. A `None` slot is retired; IDs are never reused.
+#[derive(Clone, Serialize, Deserialize)]
+pub(crate) struct LifecycleCatalogFile {
+    file: EncodedFile,
+    pub(crate) fingerprint: Option<[u8; 32]>,
+    pub(crate) configuration: Option<[u8; 32]>,
+}
+
+
+impl LifecycleCatalogFile {
+    pub(crate) fn decode_entry(&self) -> Result<FileEntry, String> {
+        Ok(FileEntry {
+            id: self.file.id,
+            relative_path: path_from_bytes(self.file.relative_path.clone())?,
+            revision: self.file.revision,
+            created_ns: self.file.created_ns,
+            collections: self.file.collections.clone(),
+            status: self.file.status,
+            diagnostics: self.file.diagnostics.clone(),
+            omitted_diagnostics: self.file.omitted_diagnostics,
+        })
+    }
+}
+
+
+/// Encoded indexed segment supplied by the segment owner. Storage checks
+/// envelope identity and active domain; the caller must validate the decoded
+/// index families and relation contributions before publication.
+#[derive(Clone, Serialize, Deserialize)]
+pub(crate) struct LifecycleSegmentCache {
+    pub(crate) ordinal: u64,
+    pub(crate) collection: CollectionId,
+    pub(crate) record_count: u32,
+    pub(crate) active: RoaringBitmap,
+    pub(crate) index: Vec<u8>,
+}
+
+
+/// Mutation state appended after a fully validated base repository snapshot.
+/// The segment payload remains opaque until the caller's structural decoder
+/// validates and restores the segment's private relation representation.
+#[derive(Clone, Serialize, Deserialize)]
+pub(crate) struct LifecycleCacheState {
+    pub(crate) revision: u64,
+    pub(crate) configuration_identity: [u8; 32],
+    pub(crate) base_active: Vec<RoaringBitmap>,
+    pub(crate) catalog: Vec<Option<LifecycleCatalogFile>>,
+    pub(crate) file_versions: Vec<FileVersion>,
+    pub(crate) segments: Vec<Vec<LifecycleSegmentCache>>,
+    pub(crate) next_segment_ordinal: u64,
+}
+
+
+impl LifecycleCacheState {
+    /// Capture one coherent publication without reading the source filesystem.
+    /// The callback owns the private segment encoding contract.
+    pub(crate) fn from_publication(
+        publication: &PublishedIndex,
+        mut encode_segment: impl FnMut(
+            &crate::build::IndexedCollectionSegment,
+        ) -> Result<Vec<u8>, String>,
+    ) -> Result<Self, String> {
+        let catalog = (0..publication.catalog.allocated_files())
+            .map(|number| {
+                let id = FileId(number as u32);
+                publication
+                    .catalog
+                    .entry(id)
+                    .map(|entry| LifecycleCatalogFile {
+                        file: EncodedFile {
+                            id,
+                            relative_path: path_bytes(&entry.relative_path),
+                            revision: entry.revision,
+                            created_ns: entry.created_ns,
+                            collections: entry.collections.clone(),
+                            status: entry.status,
+                            diagnostics: entry.diagnostics.clone(),
+                            omitted_diagnostics: entry.omitted_diagnostics,
+                        },
+                        fingerprint: publication.catalog.fingerprint(id),
+                        configuration: publication.catalog.configuration(id),
+                    })
+            })
+            .collect();
+        let file_versions = (0..publication.file_versions.len())
+            .map(|number| {
+                publication
+                    .file_versions
+                    .get(FileId(number as u32))
+                    .ok_or("file version missing".to_owned())
+            })
+            .collect::<Result<Vec<_>, _>>()?;
+        let segments = publication
+            .segments
+            .iter()
+            .enumerate()
+            .map(|(number, group)| {
+                group
+                    .iter()
+                    .map(|segment| {
+                        Ok(LifecycleSegmentCache {
+                            ordinal: segment.ordinal,
+                            collection: CollectionId(number as u32),
+                            record_count: u32::try_from(segment.index.records.len())
+                                .map_err(|_| "too many segment records")?,
+                            active: segment.active.bitmap(),
+                            index: encode_segment(&segment.index)?,
+                        })
+                    })
+                    .collect::<Result<Vec<_>, String>>()
+            })
+            .collect::<Result<Vec<_>, _>>()?;
+        Ok(Self {
+            revision: publication.revision.0,
+            configuration_identity: publication.configuration_identity,
+            base_active: publication
+                .active
+                .iter()
+                .map(|active| active.bitmap())
+                .collect(),
+            catalog,
+            file_versions,
+            segments,
+            next_segment_ordinal: publication.next_segment_ordinal,
+        })
+    }
+
+    /// Validate all storage-owned domains. `validate_segment` must decode and
+    /// validate every index family, file mapping, and relation contribution.
+    pub(crate) fn validate(
+        &self,
+        repository: &Repository,
+        mut validate_segment: impl FnMut(&LifecycleSegmentCache) -> Result<(), String>,
+    ) -> Result<(), String> {
+        let definitions = repository
+            .collections()
+            .iter()
+            .map(|state| state.definition.clone())
+            .collect::<Vec<_>>();
+        if self.revision == 0
+            || self.configuration_identity
+                != configuration_hash(&definitions, repository.options(), &repository.sources)?
+        {
+            return Err("invalid lifecycle revision or configuration".into());
+        }
+        if self.base_active.len() != repository.collections().len()
+            || self.segments.len() != repository.collections().len()
+            || self.catalog.len() != self.file_versions.len()
+            || self.catalog.len() < repository.files().files.len()
+            || self.catalog.len() > u32::MAX as usize
+            || self.next_segment_ordinal == 0
+            || self
+                .file_versions
+                .iter()
+                .any(|version| version.0 == 0 || version.0 > self.revision)
+        {
+            return Err("lifecycle cache dimensions mismatch".into());
+        }
+        for (number, (active, collection)) in self
+            .base_active
+            .iter()
+            .zip(repository.collections())
+            .enumerate()
+        {
+            if active
+                .max()
+                .is_some_and(|slot| slot as usize >= collection.generation.records.len())
+            {
+                return Err("lifecycle base active slot out of bounds".into());
+            }
+            for slot in active.iter() {
+                let record = &collection.generation.records[slot as usize];
+                if self
+                    .catalog
+                    .get(record.file.0 as usize)
+                    .and_then(Option::as_ref)
+                    .is_none_or(|file| {
+                        !file.file.collections.contains(&CollectionId(number as u32))
+                    })
+                {
+                    return Err("lifecycle active record has no active source".into());
+                }
+            }
+        }
+        let mut paths = HashSet::new();
+        for (number, entry) in self.catalog.iter().enumerate() {
+            let Some(entry) = entry else { continue };
+            if entry.file.id.0 as usize != number || entry.file.collections.is_empty() {
+                return Err("lifecycle catalog identity mismatch".into());
+            }
+            if entry
+                .configuration
+                .is_some_and(|identity| identity != self.configuration_identity)
+                || entry
+                    .file
+                    .collections
+                    .iter()
+                    .copied()
+                    .collect::<HashSet<_>>()
+                    .len()
+                    != entry.file.collections.len()
+                || entry.file.diagnostics.iter().any(|diagnostic| {
+                    diagnostic.file != entry.file.id
+                        || !entry.file.collections.contains(&diagnostic.collection)
+                })
+            {
+                return Err("lifecycle catalog metadata mismatch".into());
+            }
+            let path = path_from_bytes(entry.file.relative_path.clone())?;
+            if path.as_os_str().is_empty()
+                || path.is_absolute()
+                || !path
+                    .components()
+                    .all(|part| matches!(part, std::path::Component::Normal(_)))
+                || !paths.insert(path)
+                || entry
+                    .file
+                    .collections
+                    .iter()
+                    .any(|collection| collection.0 as usize >= self.segments.len())
+            {
+                return Err("lifecycle catalog path or collection invalid".into());
+            }
+        }
+        let mut ordinals = HashSet::new();
+        for (number, group) in self.segments.iter().enumerate() {
+            if group.len() > 64 {
+                return Err("lifecycle segment budget exceeded".into());
+            }
+            for segment in group {
+                if segment.collection.0 as usize != number
+                    || segment.ordinal == 0
+                    || !ordinals.insert(segment.ordinal)
+                    || segment.ordinal >= self.next_segment_ordinal
+                    || segment
+                        .active
+                        .max()
+                        .is_some_and(|slot| slot >= segment.record_count)
+                    || segment.index.is_empty()
+                {
+                    return Err("lifecycle segment identity or active domain invalid".into());
+                }
+                validate_segment(segment)?;
+            }
+        }
+        Ok(())
+    }
+}
+
+
+/// Encode one pinned lifecycle revision with the existing atomic temp-file
+/// protocol. `before_publish` is where the caller rechecks destination safety.
+pub(crate) fn save_lifecycle_snapshot_with_stats(
+    publication: &PublishedIndex,
+    path: &Path,
+    encode_segment: impl FnMut(&crate::build::IndexedCollectionSegment) -> Result<Vec<u8>, String>,
+    before_publish: impl FnOnce() -> Result<(), String>,
+) -> Result<SnapshotSaveStats, String> {
+    let state = LifecycleCacheState::from_publication(publication, encode_segment)?;
+    state.validate(&publication.repository, |_| Ok(()))?;
+    publication
+        .repository
+        .save_snapshot_with_lifecycle_state(path, Some(&state), before_publish)
 }
 
 
@@ -511,6 +780,15 @@ impl Repository {
         path: &Path,
         before_publish: impl FnOnce() -> Result<(), String>,
     ) -> Result<SnapshotSaveStats, String> {
+        self.save_snapshot_with_lifecycle_state(path, None, before_publish)
+    }
+
+    fn save_snapshot_with_lifecycle_state(
+        &self,
+        path: &Path,
+        lifecycle: Option<&LifecycleCacheState>,
+        before_publish: impl FnOnce() -> Result<(), String>,
+    ) -> Result<SnapshotSaveStats, String> {
         let total_started = Instant::now();
         let mut stats = SnapshotSaveStats::default();
         self.ensure_snapshot_destination_is_not_source(path)?;
@@ -542,8 +820,12 @@ impl Repository {
             stats.header_ns = started.elapsed().as_nanos() as u64;
             let started = Instant::now();
             file.write_all(MAGIC).map_err(|e| e.to_string())?;
-            file.write_all(&SNAPSHOT_VERSION.to_le_bytes())
-                .map_err(|e| e.to_string())?;
+            file.write_all(
+                &lifecycle
+                    .map_or(SNAPSHOT_VERSION, |_| LIFECYCLE_SNAPSHOT_VERSION)
+                    .to_le_bytes(),
+            )
+            .map_err(|e| e.to_string())?;
             file.write_all(&crate::MODEL_VERSION.to_le_bytes())
                 .map_err(|e| e.to_string())?;
             file.write_all(&configuration).map_err(|e| e.to_string())?;
@@ -591,6 +873,18 @@ impl Repository {
                     relations: &state.relations,
                 };
                 let section = write_section_measured(&mut file, index as u32 + 1, &encoded)?;
+                stats.write_ns = stats.write_ns.saturating_add(section.write_ns);
+                stats.bytes_written = stats
+                    .bytes_written
+                    .saturating_add(section.payload_bytes + 44);
+                stats.sections.push(section);
+            }
+            if let Some(lifecycle) = lifecycle {
+                let section = write_section_measured(
+                    &mut file,
+                    self.collections.len() as u32 + 1,
+                    lifecycle,
+                )?;
                 stats.write_ns = stats.write_ns.saturating_add(section.write_ns);
                 stats.bytes_written = stats
                     .bytes_written
@@ -735,6 +1029,35 @@ pub(crate) fn load_snapshot_checked(
     sources: &SourceRegistry,
     path: &Path,
 ) -> Result<Repository, SnapshotLoadError> {
+    load_snapshot_parts(root, definitions, options, sources, path, false)
+        .map(|(repository, _)| repository)
+}
+
+/// Restore the validated base and lifecycle section without enumerating
+/// source files. The callback must decode and validate each private segment
+/// representation before this function returns to the publication owner.
+pub(crate) fn load_lifecycle_snapshot_checked(
+    root: PathBuf,
+    definitions: Vec<CollectionDefinition>,
+    options: RepositoryOptions,
+    sources: &SourceRegistry,
+    path: &Path,
+    mut validate_segment: impl FnMut(&LifecycleSegmentCache) -> Result<(), String>,
+) -> Result<(Repository, LifecycleCacheState), SnapshotLoadError> {
+    let (repository, state) = load_snapshot_parts(root, definitions, options, sources, path, true)?;
+    let state = state.ok_or("lifecycle snapshot section missing")?;
+    state.validate(&repository, |segment| validate_segment(segment))?;
+    Ok((repository, state))
+}
+
+fn load_snapshot_parts(
+    root: PathBuf,
+    definitions: Vec<CollectionDefinition>,
+    options: RepositoryOptions,
+    sources: &SourceRegistry,
+    path: &Path,
+    lifecycle: bool,
+) -> Result<(Repository, Option<LifecycleCacheState>), SnapshotLoadError> {
     crate::relation::validate_definitions(&definitions)?;
     let mut file = File::open(path).map_err(|e| {
         SnapshotLoadError::Access(format!("snapshot access: {}: {e}", path.display()))
@@ -755,7 +1078,12 @@ pub(crate) fn load_snapshot_checked(
     file.read_exact(&mut count)
         .map_err(|e| snapshot_read_error("snapshot collection count", e))?;
     if &magic != MAGIC
-        || u32::from_le_bytes(version) != SNAPSHOT_VERSION
+        || u32::from_le_bytes(version)
+            != if lifecycle {
+                LIFECYCLE_SNAPSHOT_VERSION
+            } else {
+                SNAPSHOT_VERSION
+            }
         || u32::from_le_bytes(model) != crate::MODEL_VERSION
     {
         return Err("incompatible snapshot version".into());
@@ -1148,6 +1476,11 @@ pub(crate) fn load_snapshot_checked(
             }
         }
     }
+    let state = if lifecycle {
+        Some(read_section(&mut file, collections.len() as u32 + 1)?)
+    } else {
+        None
+    };
     let mut trailing = [0; 1];
     if file
         .read(&mut trailing)
@@ -1156,26 +1489,29 @@ pub(crate) fn load_snapshot_checked(
     {
         return Err("snapshot trailing bytes".into());
     }
-    Ok(Repository {
-        files,
-        collections,
-        sources: sources.clone(),
-        build_parses: 0,
-        build_failed_parses: 0,
-        instance_id: crate::repository::next_repository_instance(),
-        options,
-        startup: StartupStats::default(),
-        workers: Repository::create_workers(options.query_workers)?,
-        prepared: Mutex::new(crate::prepared::PreparedCache::new(
-            options.prepared_cache_bytes,
-        )),
-        verified: Mutex::new(crate::verified::VerifiedCache::new(
-            options.verified_cache_bytes,
-        )),
-        inferred_orders: Mutex::new(crate::sorting::InferredOrderCache::new(
-            crate::sorting::INFERRED_ORDER_CACHE_BYTES,
-        )),
-    })
+    Ok((
+        Repository {
+            files,
+            collections,
+            sources: sources.clone(),
+            build_parses: 0,
+            build_failed_parses: 0,
+            instance_id: crate::repository::next_repository_instance(),
+            options,
+            startup: StartupStats::default(),
+            workers: Repository::create_workers(options.query_workers)?,
+            prepared: Mutex::new(crate::prepared::PreparedCache::new(
+                options.prepared_cache_bytes,
+            )),
+            verified: Mutex::new(crate::verified::VerifiedCache::new(
+                options.verified_cache_bytes,
+            )),
+            inferred_orders: Mutex::new(crate::sorting::InferredOrderCache::new(
+                crate::sorting::INFERRED_ORDER_CACHE_BYTES,
+            )),
+        },
+        state,
+    ))
 }
 
 #[cfg(test)]

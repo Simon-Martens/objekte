@@ -1,10 +1,12 @@
 use super::*;
+use crate::lifecycle::{IndexRevision, PublishedIndex};
 use crate::model::{FieldPath, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
 use crate::repository::IdentityPolicy;
 use crate::repository::{SnapshotAction, SnapshotMode, SnapshotOpenPolicy};
 use crate::source::SourceFormat;
+use crate::source::SourceRegistry;
 use crate::workload::ReturnMode;
 
 #[test]
@@ -17,6 +19,166 @@ fn one_pass_section_encoding_matches_the_existing_codec_bytes() {
     let mut section = Vec::new();
     write_section(&mut section, 7, &value).unwrap();
     assert_eq!(&section[44..], expected);
+}
+
+fn lifecycle_fixture() -> (
+    PathBuf,
+    CollectionDefinition,
+    RepositoryOptions,
+    PublishedIndex,
+) {
+    let nonce = std::time::SystemTime::now()
+        .duration_since(std::time::SystemTime::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let root = std::env::temp_dir().join(format!(
+        "objekte-lifecycle-cache-{}-{nonce}",
+        std::process::id()
+    ));
+    fs::create_dir_all(root.join("data")).unwrap();
+    fs::write(root.join("data/a.json"), br#"{"title":"A"}"#).unwrap();
+    let definition = CollectionDefinition::folder("files", "data", SourceFormat::Json);
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::Disabled,
+        ..Default::default()
+    };
+    let repository =
+        Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+    let publication =
+        PublishedIndex::from_repository(1, IndexRevision::INITIAL, std::sync::Arc::new(repository))
+            .unwrap();
+    (root, definition, options, publication)
+}
+
+#[test]
+fn lifecycle_snapshot_restores_pinned_liveness_without_source_enumeration() {
+    let (root, definition, options, mut publication) = lifecycle_fixture();
+    publication.revision = IndexRevision(7);
+    publication.active[0] = publication.active[0].retired(&[RecordSlot(0)]).unwrap();
+    let mut appended = publication.repository.files().files[0].clone();
+    appended.id = FileId(1);
+    appended.relative_path = PathBuf::from("data/b.json");
+    publication.catalog = publication
+        .catalog
+        .appended(
+            appended,
+            Some([7; 32]),
+            Some(publication.configuration_identity),
+        )
+        .unwrap();
+    publication.file_versions = publication.file_versions.appended().unwrap();
+    let cache = root.join("cache.snapshot");
+    save_lifecycle_snapshot_with_stats(&publication, &cache, |_| unreachable!(), || Ok(()))
+        .unwrap();
+    assert!(matches!(
+        load_snapshot_checked(
+            root.clone(),
+            vec![definition.clone()],
+            options,
+            &SourceRegistry::builtin(),
+            &cache
+        ),
+        Err(SnapshotLoadError::Invalid(_))
+    ));
+    fs::remove_file(root.join("data/a.json")).unwrap();
+    let (restored, state) = load_lifecycle_snapshot_checked(
+        root.clone(),
+        vec![definition],
+        options,
+        &SourceRegistry::builtin(),
+        &cache,
+        |_| unreachable!(),
+    )
+    .unwrap();
+    assert_eq!(restored.files().files.len(), 1);
+    assert_eq!(state.revision, 7);
+    assert!(state.base_active[0].is_empty());
+    assert_eq!(state.catalog.len(), 2);
+    assert_eq!(
+        state.catalog[0]
+            .as_ref()
+            .unwrap()
+            .decode_entry()
+            .unwrap()
+            .relative_path,
+        PathBuf::from("data/a.json")
+    );
+    assert_eq!(state.file_versions[0].0, 1);
+    assert_eq!(
+        state.catalog[1].as_ref().unwrap().fingerprint,
+        Some([7; 32])
+    );
+    assert_eq!(
+        state.catalog[1]
+            .as_ref()
+            .unwrap()
+            .decode_entry()
+            .unwrap()
+            .relative_path,
+        PathBuf::from("data/b.json")
+    );
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn lifecycle_snapshot_rejects_corrupt_sections_and_preserves_previous_cache() {
+    let (root, definition, options, publication) = lifecycle_fixture();
+    let cache = root.join("cache.snapshot");
+    save_lifecycle_snapshot_with_stats(&publication, &cache, |_| unreachable!(), || Ok(()))
+        .unwrap();
+    let original = fs::read(&cache).unwrap();
+    let error = save_lifecycle_snapshot_with_stats(
+        &publication,
+        &cache,
+        |_| unreachable!(),
+        || Err("injected pre-rename failure".into()),
+    )
+    .unwrap_err();
+    assert_eq!(error, "injected pre-rename failure");
+    assert_eq!(fs::read(&cache).unwrap(), original);
+    let mut corrupted = original.clone();
+    *corrupted.last_mut().unwrap() ^= 0x40;
+    fs::write(&cache, corrupted).unwrap();
+    assert!(matches!(
+        load_lifecycle_snapshot_checked(root.clone(), vec![definition], options, &SourceRegistry::builtin(), &cache, |_| Ok(())),
+        Err(SnapshotLoadError::Invalid(message)) if message.contains("checksum")
+    ));
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn lifecycle_snapshot_validates_active_domains_and_requires_segment_decoder() {
+    let (root, definition, options, publication) = lifecycle_fixture();
+    let cache = root.join("cache.snapshot");
+    let mut state =
+        LifecycleCacheState::from_publication(&publication, |_| unreachable!()).unwrap();
+    state.base_active[0].insert(9);
+    publication
+        .repository
+        .save_snapshot_with_lifecycle_state(&cache, Some(&state), || Ok(()))
+        .unwrap();
+    assert!(matches!(
+        load_lifecycle_snapshot_checked(root.clone(), vec![definition.clone()], options, &SourceRegistry::builtin(), &cache, |_| Ok(())),
+        Err(SnapshotLoadError::Invalid(message)) if message.contains("active slot")
+    ));
+    state.base_active[0].remove(9);
+    state.segments[0].push(LifecycleSegmentCache {
+        ordinal: 1,
+        collection: CollectionId(0),
+        record_count: 1,
+        active: RoaringBitmap::from_iter([0]),
+        index: vec![1, 2, 3],
+    });
+    state.next_segment_ordinal = 2;
+    publication
+        .repository
+        .save_snapshot_with_lifecycle_state(&cache, Some(&state), || Ok(()))
+        .unwrap();
+    assert!(matches!(
+        load_lifecycle_snapshot_checked(root.clone(), vec![definition], options, &SourceRegistry::builtin(), &cache, |_| Err("invalid private segment".into())),
+        Err(SnapshotLoadError::Invalid(message)) if message.contains("invalid private segment")
+    ));
+    fs::remove_dir_all(root).unwrap();
 }
 
 #[test]
