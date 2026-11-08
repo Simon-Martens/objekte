@@ -1,6 +1,25 @@
 # Native GUI development over SSH
 
-Objekte's GUI validation example lives in `crates/desktop/examples/environment_validation.rs`. It verifies GPUI Kit and the native Wayland control loop. There is no Objekte product desktop binary yet. The exact tested host, versions, migration provenance, and evidence are recorded in the [migration report](../ai/generated/gui_repository_migration_report.md).
+Objekte's native application lives in `crates/desktop/src/main.rs`. The separate `crates/desktop/examples/environment_validation.rs` still verifies GPUI Kit and the native Wayland control loop. The exact tested host, versions, migration provenance, and evidence are recorded in the [migration report](../ai/generated/gui_repository_migration_report.md).
+
+## Production desktop application
+
+From the chosen Objekte checkout, launch the read-only application through the tested headless loop:
+
+```bash
+bash scripts/gui/run_desktop.sh prepare
+target/gui-validation/venv/bin/python scripts/gui/desktop_control.py status
+target/gui-validation/venv/bin/python scripts/gui/desktop_control.py screenshot desktop.png
+bash scripts/gui/run_desktop.sh cleanup
+```
+
+`prepare` builds `objekte-desktop`, validates the fixed 1920 × 1080 output at scale 1 and 60 Hz, starts the loopback VNC pointer server, and launches a tracked native window. The viewer cannot resize this output because WayVNC runs with `-R`. The application accepts a folder, several nonoverlapping folders, or a configured repository. Its sidebar chooses a collection or all collections; Full Text and Structured inputs combine in one query. Result pages, detail and source views, relation links, history, saved queries, columns, theme, batch input, and diagnostics are available in the single window. Help shows keyboard controls and the application version.
+
+Source documents and collection schemas remain read-only. **Save Query** writes the dedicated desktop settings file at `.objekte/.cache/obj-desktop.json` under the opened repository root. **Export Results** and **Export Selected** require a new output file outside scanned collection directories; they never overwrite an existing file. **Write Index** explicitly saves a derived snapshot at the selected default or custom index path. Ordinary Open and search with Snapshot None leave snapshots untouched. The TUI's settings file remains separate.
+
+The GPUI window owns bounded display pages and sends typed actions to `DesktopController`. Worker threads own repository loading, queries, record reads, batch execution, exports, snapshot work, and preference writes. The controller retains one repository across searches, cancels superseded requests, and rejects completion messages from old generations. The desktop backend reuses the CLI loader/execution protocol, core query and streaming APIs, and TUI record/export helpers. This keeps complete output available while the window holds at most 100 result rows and bounded detail text.
+
+At the integration branch's debug build, graphical opening of `examples/musenalm` took 56.5 seconds for seven collections and 148,486 records. The first 100-row page took 8.1 ms after opening; the process held about 711 MiB RSS. A same-corpus debug CLI run took 55.6 seconds and about 581 MiB peak RSS. The large startup cost is index construction in debug mode; it does not block the window. A release core benchmark built the corpus in 1.125 seconds, so do not compare that release figure directly with the debug GUI timing. See the [desktop parity record](../ai/generated/desktop_application_parity.md) for exact checks and limits.
 
 ## How the session works
 

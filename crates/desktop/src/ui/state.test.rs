@@ -88,3 +88,21 @@ fn columns_update_preserves_hidden_choices() {
     assert_eq!(state.available_columns, ["id", "title"]);
     assert_eq!(state.hidden_columns, ["title"]);
 }
+
+#[test]
+fn successful_query_start_clears_previous_input_errors() {
+    let mut state = UiState::default();
+    for field in [
+        ErrorField::FullText,
+        ErrorField::Structured,
+        ErrorField::Sort,
+        ErrorField::Range,
+    ] {
+        state.apply(UiUpdate::Error {
+            field,
+            message: "old error".into(),
+        });
+    }
+    state.apply(UiUpdate::QueryStarted("Searching".into()));
+    assert!(state.errors.is_empty());
+}

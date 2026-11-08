@@ -71,7 +71,7 @@ impl UiState {
                 self.page = PageView::default();
                 self.detail = None;
                 self.diagnostics.clear();
-                self.errors.remove(&ErrorField::Open);
+                self.errors.clear();
             }
             UiUpdate::Opened {
                 root,
@@ -96,6 +96,8 @@ impl UiState {
                 self.detail = None;
                 self.errors.remove(&ErrorField::FullText);
                 self.errors.remove(&ErrorField::Structured);
+                self.errors.remove(&ErrorField::Sort);
+                self.errors.remove(&ErrorField::Range);
             }
             UiUpdate::Page(page) => {
                 let previous_token = self

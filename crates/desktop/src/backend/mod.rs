@@ -16,5 +16,5 @@ pub use query::{MAX_PAGE_ROWS, QueryPage, QuerySpec, build_query, count_exact, q
 pub use record::{backlink_page, collection_graph, outgoing_page, record_by_id};
 
 #[cfg(test)]
-mod test_support;
+pub(crate) mod test_support;
 pub use batch::{BatchReport, BatchSource, BatchSpec, run_batch};

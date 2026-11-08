@@ -10,7 +10,7 @@ use objekte_search_core::streaming::CancellationToken;
 
 
 /// Owned documents and their opened repository stay alive for a whole test.
-pub(super) struct Fixture {
+pub(crate) struct Fixture {
     pub _root: TempDir,
     pub session: OpenedSession,
 }
@@ -22,7 +22,7 @@ pub(super) fn write_records(root: &Path) {
     std::fs::write(root.join("c.json"), r#"{"title":"alpha two","year":2022}"#).unwrap();
 }
 
-pub(super) fn fixture() -> Fixture {
+pub(crate) fn fixture() -> Fixture {
     let root = tempfile::tempdir().unwrap();
     write_records(root.path());
     let args = Arguments {

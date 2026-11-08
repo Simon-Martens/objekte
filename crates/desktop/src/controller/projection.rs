@@ -261,3 +261,7 @@ fn value_label(value: &Value) -> String {
         _ => value.to_string(),
     }
 }
+
+#[cfg(test)]
+#[path = "projection.test.rs"]
+mod tests;

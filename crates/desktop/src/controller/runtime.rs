@@ -1020,6 +1020,7 @@ impl DesktopController {
         let output_generation = self.output_generation;
         let token = self.output_cancellation.clone();
         let sender = self.worker_tx.clone();
+        updates.push(UiUpdate::ClearError(ErrorField::Export));
         updates.push(UiUpdate::Status("Exporting…".into()));
         thread::spawn(move || {
             let result = match format {
@@ -1138,6 +1139,7 @@ impl DesktopController {
         let open_generation = self.open_generation;
         let token = self.output_cancellation.clone();
         let sender = self.worker_tx.clone();
+        updates.push(UiUpdate::ClearError(ErrorField::Batch));
         updates.push(UiUpdate::Batch {
             rows: Vec::new(),
             running: true,
