@@ -33,6 +33,7 @@ pub(crate) fn fixture() -> Fixture {
         &OpenSpec {
             args,
             cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )

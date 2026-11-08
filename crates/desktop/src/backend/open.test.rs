@@ -13,6 +13,7 @@ fn opens_folder_without_implicit_snapshot_write() {
         &OpenSpec {
             args,
             cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -40,6 +41,7 @@ fn repeated_paths_keep_cli_collection_names() {
         &OpenSpec {
             args,
             cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -60,25 +62,28 @@ fn write_then_load_uses_explicit_snapshot_policy() {
     let spec = OpenSpec {
         args: args.clone(),
         cwd: root.path().to_path_buf(),
+        configured_cache_policy: None,
     };
     assert!(open(&spec, &CancellationToken::new()).is_err());
     args.load_index = None;
-    args.write_index = Some(String::new());
+    args.write_index = Some(root.path().join(".objekte").display().to_string());
     let first = open(
         &OpenSpec {
             args: args.clone(),
             cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
     .unwrap();
     assert!(first.diagnostics.snapshot_save.is_some());
     args.write_index = None;
-    args.load_index = Some(String::new());
+    args.load_index = Some(root.path().join(".objekte").display().to_string());
     let second = open(
         &OpenSpec {
             args,
             cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -94,12 +99,13 @@ fn desktop_combined_load_and_write_returns_before_source_reconciliation() {
     write_records(root.path());
     let mut args = Arguments {
         path: vec![root.path().to_path_buf()],
-        write_index: Some(String::new()),
+        write_index: Some(root.path().join(".objekte").display().to_string()),
         ..Default::default()
     };
     let spec = |args: Arguments| OpenSpec {
         args,
         cwd: root.path().to_path_buf(),
+        configured_cache_policy: None,
     };
     let first = open(&spec(args.clone()), &CancellationToken::new()).unwrap();
     assert!(first.diagnostics.snapshot_save.is_some());
@@ -113,7 +119,7 @@ fn desktop_combined_load_and_write_returns_before_source_reconciliation() {
         r#"{"title":"Changed","year":2024}"#,
     )
     .unwrap();
-    args.load_index = Some(String::new());
+    args.load_index = Some(root.path().join(".objekte").display().to_string());
     let second = open(&spec(args), &CancellationToken::new()).unwrap();
     assert!(second.diagnostics.startup.restored);
     assert!(second.diagnostics.snapshot_save.is_none());
@@ -128,4 +134,40 @@ fn desktop_combined_load_and_write_returns_before_source_reconciliation() {
     assert!(result.unwrap().is_some());
     assert!(!second.repository.index().status().unwrap().dirty());
     assert_ne!(std::fs::read(cache).unwrap(), saved);
+}
+
+#[test]
+fn configured_repository_reuses_cache_unless_build_in_memory_is_selected() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
+    std::fs::create_dir_all(root.path().join("data")).unwrap();
+    std::fs::write(
+        root.path().join(".objekte/collections/data.schema.json"),
+        br#"{"type":"object","x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}}"#,
+    )
+    .unwrap();
+    std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let spec = |configured_cache_policy| OpenSpec {
+        args: Arguments {
+            repo: Some(root.path().to_path_buf()),
+            ..Default::default()
+        },
+        cwd: root.path().to_path_buf(),
+        configured_cache_policy,
+    };
+    let first = open(&spec(None), &CancellationToken::new()).unwrap();
+    assert!(!first.diagnostics.startup.restored);
+    let cache = first.configuration.cache_save.clone().unwrap();
+    first.repository.index().flush_cache(&cache).unwrap();
+    let restored = open(&spec(None), &CancellationToken::new()).unwrap();
+    assert!(restored.diagnostics.startup.restored);
+    let memory = open(
+        &spec(Some(CacheOpenPolicy::Ignore)),
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert!(!memory.diagnostics.startup.restored);
+    assert!(memory.configuration.cache_load.is_none());
+    assert!(memory.configuration.cache_save.is_none());
+    restored.repository.index().shutdown().unwrap();
 }
