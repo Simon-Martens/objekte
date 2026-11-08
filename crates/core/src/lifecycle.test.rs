@@ -228,6 +228,114 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
 }
 
 #[test]
+fn one_file_preparation_selects_shared_collections_without_publishing() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-prepare-add-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.jsonl"), b"{\"x\":1}\n").unwrap();
+    let index = Index::build(
+        &root,
+        vec![
+            CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
+            CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
+        ],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let before = index.status().unwrap();
+    assert!(matches!(
+        index.prepare_add_file(std::path::Path::new("data/a.jsonl")),
+        Err(IndexError::DestinationExists)
+    ));
+    let added = root.join("data/b.jsonl");
+    std::fs::write(&added, b"{\"x\":2}\n{\"x\":3}\n").unwrap();
+    let prepared = index.prepare_add_file(&added).unwrap();
+    assert_eq!(prepared.expected_revision, before.revision);
+    assert_eq!(
+        prepared.configuration_identity,
+        index.view().unwrap().configuration_identity()
+    );
+    assert_eq!(prepared.file.source.id, FileId(1));
+    assert_eq!(prepared.file.collections.len(), 2);
+    assert!(prepared.file.fingerprint.is_some());
+    let staged = index.stage_prepared_add(prepared).unwrap();
+    assert_eq!(staged.status().indexed_files, 2);
+    assert_eq!(staged.status().live_records, 6);
+    assert_eq!(staged.segments[0].len(), 1);
+    assert_eq!(staged.segments[1].len(), 1);
+    assert_eq!(staged.segments[0][0].ordinal, 1);
+    assert_eq!(staged.segments[1][0].ordinal, 2);
+    assert_eq!(
+        staged.catalog.id_for(std::path::Path::new("data/b.jsonl")),
+        Some(FileId(1))
+    );
+    assert_eq!(index.status().unwrap(), before);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn replacement_stages_shared_memberships_and_retires_old_slots() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-prepare-replace-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let old_path = root.join("data/old.jsonl");
+    std::fs::write(&old_path, b"{\"name\":\"a\"}\n{\"name\":\"b\"}\n").unwrap();
+    let index = Index::build(
+        &root,
+        vec![
+            CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
+            CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
+        ],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let before = index.status().unwrap();
+    let handle = index.view().unwrap().file_handle(FileId(0)).unwrap();
+    let new_path = root.join("data/new.jsonl");
+    std::fs::write(&new_path, b"{\"name\":\"replacement\"}\n").unwrap();
+    let prepared = index.prepare_replace_file(handle, &new_path).unwrap();
+    let staged = index.stage_prepared_replace(prepared).unwrap();
+    assert_eq!(staged.revision, before.revision.next().unwrap());
+    assert_eq!(staged.status().indexed_files, 1);
+    assert_eq!(staged.status().live_records, 2);
+    assert_eq!(staged.active[0].len(), 0);
+    assert_eq!(staged.active[1].len(), 0);
+    assert_eq!(staged.segments[0].len(), 1);
+    assert_eq!(staged.segments[1].len(), 1);
+    assert_eq!(
+        staged
+            .catalog
+            .id_for(std::path::Path::new("data/old.jsonl")),
+        None
+    );
+    assert_eq!(
+        staged
+            .catalog
+            .id_for(std::path::Path::new("data/new.jsonl")),
+        Some(FileId(0))
+    );
+    assert_eq!(
+        staged.file_versions.get(FileId(0)).unwrap().0,
+        handle.version.0 + 1
+    );
+    assert_eq!(index.status().unwrap(), before);
+    index.publish_prepared(before.revision, staged).unwrap();
+    assert!(matches!(
+        index.prepare_replace_file(handle, &new_path),
+        Err(IndexError::FileConflict { .. })
+    ));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
     let root = std::env::temp_dir().join(format!(
         "objekte-live-query-{}-{:?}",
