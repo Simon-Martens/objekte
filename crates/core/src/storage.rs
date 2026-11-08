@@ -44,6 +44,8 @@ pub struct SnapshotSaveStats {
     pub write_ns: u64,
     pub sync_ns: u64,
     pub rename_ns: u64,
+    /// Parent-directory fsync time on Linux; zero where it is not attempted.
+    pub directory_sync_ns: u64,
     pub bytes_written: u64,
     pub sections: Vec<SnapshotSectionSaveStats>,
 }
@@ -192,6 +194,49 @@ fn path_from_bytes(bytes: Vec<u8>) -> Result<PathBuf, String> {
             .map(|b| u16::from_le_bytes([b[0], b[1]]))
             .collect();
         Ok(std::ffi::OsString::from_wide(&wide).into())
+    }
+}
+
+fn normalized_absolute_path(path: &Path) -> Result<PathBuf, String> {
+    let absolute = if path.is_absolute() {
+        path.to_owned()
+    } else {
+        std::env::current_dir()
+            .map_err(|e| e.to_string())?
+            .join(path)
+    };
+    let mut normalized = PathBuf::new();
+    for component in absolute.components() {
+        match component {
+            std::path::Component::CurDir => {}
+            std::path::Component::ParentDir => {
+                normalized.pop();
+            }
+            other => normalized.push(other.as_os_str()),
+        }
+    }
+    Ok(normalized)
+}
+
+fn resolved_snapshot_destination(path: &Path) -> Result<PathBuf, String> {
+    match fs::canonicalize(path) {
+        Ok(resolved) => Ok(resolved),
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+            let parent = path.parent().ok_or("snapshot needs a parent directory")?;
+            let name = path.file_name().ok_or("snapshot needs a filename")?;
+            match fs::canonicalize(if parent.as_os_str().is_empty() {
+                Path::new(".")
+            } else {
+                parent
+            }) {
+                Ok(resolved_parent) => return Ok(resolved_parent.join(name)),
+                Err(error) if error.kind() == std::io::ErrorKind::NotFound => {}
+                Err(error) => return Err(format!("snapshot destination: {error}")),
+            }
+            let absolute = normalized_absolute_path(path)?;
+            Ok(absolute)
+        }
+        Err(error) => Err(format!("snapshot destination: {error}")),
     }
 }
 
@@ -467,6 +512,7 @@ impl Repository {
     ) -> Result<SnapshotSaveStats, String> {
         let total_started = Instant::now();
         let mut stats = SnapshotSaveStats::default();
+        self.ensure_snapshot_destination_is_not_source(path)?;
         let parent = path.parent().ok_or("snapshot needs a parent directory")?;
         let started = Instant::now();
         fs::create_dir_all(parent).map_err(|e| e.to_string())?;
@@ -554,9 +600,18 @@ impl Repository {
             file.sync_all().map_err(|e| e.to_string())?;
             stats.sync_ns = started.elapsed().as_nanos() as u64;
             before_publish()?;
+            self.ensure_snapshot_destination_is_not_source(path)?;
             let started = Instant::now();
             fs::rename(&temporary, path).map_err(|e| e.to_string())?;
             stats.rename_ns = started.elapsed().as_nanos() as u64;
+            #[cfg(target_os = "linux")]
+            {
+                let started = Instant::now();
+                File::open(parent)
+                    .and_then(|directory| directory.sync_all())
+                    .map_err(|e| format!("snapshot directory sync: {e}"))?;
+                stats.directory_sync_ns = started.elapsed().as_nanos() as u64;
+            }
             Ok(())
         })();
         if outcome.is_err() {
@@ -565,6 +620,43 @@ impl Repository {
         outcome?;
         stats.total_ns = total_started.elapsed().as_nanos() as u64;
         Ok(stats)
+    }
+
+    fn ensure_snapshot_destination_is_not_source(&self, path: &Path) -> Result<(), String> {
+        let destination = resolved_snapshot_destination(path)?;
+        #[cfg(unix)]
+        let destination_metadata = fs::metadata(path).ok();
+
+        for entry in &self.files.files {
+            let source = self.files.root.join(&entry.relative_path);
+            let resolved_source = match fs::canonicalize(&source) {
+                Ok(resolved) => resolved,
+                Err(error) if error.kind() == std::io::ErrorKind::NotFound => source.clone(),
+                Err(error) => return Err(format!("indexed source path: {error}")),
+            };
+            if destination == resolved_source {
+                return Err(format!(
+                    "snapshot destination aliases indexed source file: {}",
+                    source.display()
+                ));
+            }
+
+            #[cfg(unix)]
+            if let (Some(destination_metadata), Ok(source_metadata)) =
+                (&destination_metadata, fs::metadata(&source))
+            {
+                use std::os::unix::fs::MetadataExt;
+                if destination_metadata.dev() == source_metadata.dev()
+                    && destination_metadata.ino() == source_metadata.ino()
+                {
+                    return Err(format!(
+                        "snapshot destination aliases indexed source file: {}",
+                        source.display()
+                    ));
+                }
+            }
+        }
+        Ok(())
     }
 }
 
