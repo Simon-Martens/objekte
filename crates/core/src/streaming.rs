@@ -94,6 +94,7 @@ pub struct ExecutionContext {
     pub limits: ExecutionLimits,
     cancellation: Option<CancellationToken>,
     accounting: Arc<ExecutionAccounting>,
+    active: Option<Arc<Vec<crate::inventory::ActiveRecords>>>,
 }
 
 
@@ -108,7 +109,22 @@ impl ExecutionContext {
             limits,
             cancellation,
             accounting: Arc::new(ExecutionAccounting::default()),
+            active: None,
         }
+    }
+
+    pub(crate) fn with_active(&self, active: &[crate::inventory::ActiveRecords]) -> Self {
+        let mut scoped = self.clone();
+        scoped.active = Some(Arc::new(active.to_vec()));
+        scoped
+    }
+
+    pub(crate) fn active_records(&self) -> Option<&[crate::inventory::ActiveRecords]> {
+        self.active.as_deref().map(Vec::as_slice)
+    }
+
+    pub(crate) fn active_records_arc(&self) -> Option<Arc<Vec<crate::inventory::ActiveRecords>>> {
+        self.active.clone()
     }
 
     pub fn cancellation(&self) -> Option<&CancellationToken> {

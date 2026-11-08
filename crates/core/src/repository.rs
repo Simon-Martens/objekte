@@ -16,8 +16,8 @@ use crate::inference::{
     InferenceReport, InferenceState,
 };
 use crate::inventory::{
-    CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus, RecordClass,
-    SourceRevision,
+    ActiveRecords, CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory,
+    FileStatus, RecordClass, SourceRevision,
 };
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
@@ -452,6 +452,16 @@ impl Repository {
         record_id: &str,
         return_mode: ReturnMode,
     ) -> Result<Option<SearchHit>, String> {
+        self.get_record_with_active(collection_name, record_id, return_mode, None)
+    }
+
+    pub(crate) fn get_record_with_active(
+        &self,
+        collection_name: &str,
+        record_id: &str,
+        return_mode: ReturnMode,
+        active: Option<&[ActiveRecords]>,
+    ) -> Result<Option<SearchHit>, String> {
         let collection_index = self
             .collections
             .iter()
@@ -461,6 +471,9 @@ impl Repository {
         let Some(slot) = collection.id_lookup.get(&RecordId(record_id.into())) else {
             return Ok(None);
         };
+        if active.is_some_and(|domains| !domains[collection_index].contains(*slot)) {
+            return Ok(None);
+        }
         let record = collection
             .generation
             .records
@@ -720,6 +733,23 @@ impl Repository {
             crate::streaming::StreamEvent<'e>,
         ) -> Result<crate::streaming::StreamControl, String>,
     {
+        self.search_stream_scoped_with_context_active(query, scope, options, context, sink, None)
+    }
+
+    pub(crate) fn search_stream_scoped_with_context_active<F>(
+        &self,
+        query: &Query,
+        scope: crate::streaming::ResultScope,
+        options: crate::streaming::StreamOptions,
+        context: &crate::streaming::ExecutionContext,
+        sink: &mut F,
+        active: Option<&[ActiveRecords]>,
+    ) -> Result<crate::streaming::StreamOutcome, crate::streaming::StreamError>
+    where
+        F: for<'e> FnMut(
+            crate::streaming::StreamEvent<'e>,
+        ) -> Result<crate::streaming::StreamControl, String>,
+    {
         let cancellation = context.cancellation().cloned().unwrap_or_default();
         if let Err(error) = context.enter() {
             if error.kind == crate::streaming::ExecutionErrorKind::Cancelled {
@@ -751,7 +781,7 @@ impl Repository {
                 request.options.count = true;
             }
         }
-        crate::run::search_stream_scoped_with_context(
+        crate::run::search_stream_scoped_with_context_active(
             self,
             &request,
             scope,
@@ -759,6 +789,7 @@ impl Repository {
             &cancellation,
             context,
             sink,
+            active,
         )
     }
 
@@ -1417,6 +1448,14 @@ impl Repository {
     }
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
+        self.search_reference_with_active(query, None)
+    }
+
+    pub(crate) fn search_reference_with_active(
+        &self,
+        query: &Query,
+        active: Option<&[ActiveRecords]>,
+    ) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
         let query = resolved.as_ref();
         let mut bound = Vec::new();
@@ -1491,8 +1530,14 @@ impl Repository {
             verified_result_hit: false,
         };
         let mut files_read = HashSet::new();
+        let relation_active = active.map(|domains| Arc::new(domains.to_vec()));
         for (collection, filter, fts) in bound {
             for record in &collection.generation.records {
+                if active.is_some_and(|domains| {
+                    !domains[collection.generation.collection.0 as usize].contains(record.slot)
+                }) {
+                    continue;
+                }
                 files_read.insert(record.file.0);
                 let file = &self.files.files[record.file.0 as usize];
                 let path = self
@@ -1533,6 +1578,7 @@ impl Repository {
                 };
                 let mut evidence = HashSet::new();
                 let mut relation_work = crate::relation_query::RelationWork::default();
+                relation_work.attach_active(relation_active.clone());
                 let fts_match = if record.class == RecordClass::RawFallback {
                     if let Some(fts) = &fts {
                         if fts.fields.is_empty() {
@@ -1690,7 +1736,7 @@ impl Repository {
             }
         }
         counters.distinct_files = files_read.len() as u64;
-        sort_rows(self, query, &mut hits, &mut counters)?;
+        sort_rows(self, query, &mut hits, &mut counters, active)?;
         let count = hits.len();
         counters.total_matches = count as u64;
         counters.match_count_complete = true;
@@ -1729,10 +1775,21 @@ pub(crate) fn sort_rows(
     query: &Query,
     hits: &mut [(usize, u32, SearchHit)],
     counters: &mut WorkCounters,
+    active: Option<&[ActiveRecords]>,
 ) -> Result<(), String> {
     let bound = crate::sort_binding::BoundSort::bind(repo, query)?;
     if bound.has_computed {
-        let target_cache = Mutex::new(crate::sort_binding::SortTargetCache::default());
+        let mut cache = crate::sort_binding::SortTargetCache::default();
+        if let Some(active) = active {
+            let context = crate::streaming::ExecutionContext::new(
+                crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+                crate::streaming::ExecutionLimits::default(),
+                None,
+            )
+            .with_active(active);
+            cache.configure_execution(&context);
+        }
+        let target_cache = Mutex::new(cache);
         let empty = Value::Object(Default::default());
         let mut keys = HashMap::with_capacity(hits.len());
         for (collection_index, slot, hit) in hits.iter() {

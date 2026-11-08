@@ -1,8 +1,9 @@
 //! Repository-aware binding and exact evaluation of finite relation paths.
 
 use std::collections::HashMap;
+use std::sync::Arc;
 
-use crate::inventory::RecordClass;
+use crate::inventory::{ActiveRecords, RecordClass};
 use crate::model::{CollectionId, FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 use crate::query::{FilterExpr, FtsField, FtsQuery, Literal, Operand, Quantifier, Term};
 use crate::query_path::{PathStep, QueryPath};
@@ -74,6 +75,7 @@ pub(crate) struct RelationWork {
     pub backlink_probe_visits: u64,
     pub bytes_read: u64,
     execution: Option<crate::streaming::ExecutionContext>,
+    active: Option<Arc<Vec<ActiveRecords>>>,
 }
 
 
@@ -91,6 +93,17 @@ fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), 
 impl RelationWork {
     pub(crate) fn attach(&mut self, execution: Option<&crate::streaming::ExecutionContext>) {
         self.execution = execution.cloned();
+        self.active = execution.and_then(|context| context.active_records_arc());
+    }
+
+    pub(crate) fn attach_active(&mut self, active: Option<Arc<Vec<ActiveRecords>>>) {
+        self.active = active;
+    }
+
+    fn is_active(&self, collection: CollectionId, slot: RecordSlot) -> bool {
+        self.active
+            .as_ref()
+            .is_none_or(|domains| domains[collection.0 as usize].contains(slot))
     }
 
     fn before_read(&self, bytes: u64, target: bool) -> Result<(), String> {
@@ -1044,6 +1057,13 @@ fn visit_hop(
     if decisive(*truth, quantifier) {
         return Ok(());
     }
+    if !work.is_active(
+        repo.collections[collection_index].generation.collection,
+        source_slot,
+    ) {
+        merge_truth(truth, None, quantifier);
+        return Ok(());
+    }
     if depth == hops.len() {
         let collection = &repo.collections[collection_index];
         let record = &collection.generation.records[source_slot.0 as usize];
@@ -1131,7 +1151,8 @@ fn visit_hop(
                 let references = logical_references(&value, &relation.declaration.path)?;
                 let present = references.present;
                 let null = references.null;
-                let targets = &repo.collections[hop.to.0 as usize].generation.records;
+                let target_collection = &repo.collections[hop.to.0 as usize];
+                let targets = &target_collection.generation.records;
                 let mut selected = 0usize;
                 for (id, positions) in references.values {
                     if !positions_match(&hop.selectors, &positions) {
@@ -1139,12 +1160,24 @@ fn visit_hop(
                     }
                     work.edge()?;
                     selected += 1;
-                    if let Some(target) = targets.iter().find(|record| record.id.0 == id) {
+                    let target_slot = if work.active.is_some() {
+                        target_collection
+                            .id_lookup
+                            .get(id.as_str())
+                            .copied()
+                            .filter(|slot| work.is_active(hop.to, *slot))
+                    } else {
+                        targets
+                            .iter()
+                            .find(|record| record.id.0 == id)
+                            .map(|record| record.slot)
+                    };
+                    if let Some(target_slot) = target_slot {
                         visit_hop(
                             config,
                             depth + 1,
                             hop.to.0 as usize,
-                            target.slot,
+                            target_slot,
                             truth,
                             work,
                             if depth == 0 {
@@ -1172,6 +1205,9 @@ fn visit_hop(
                 let mut seen = 0usize;
                 let mut selected = 0usize;
                 for candidate in &source_collection.identity_order {
+                    if !work.is_active(hop.to, *candidate) {
+                        continue;
+                    }
                     work.backlink_probe()?;
                     let Some(value) =
                         read_reference_value(repo, hop.to.0 as usize, *candidate, work)?
@@ -1228,8 +1264,19 @@ fn visit_hop(
                 }
                 work.edge()?;
                 selected += 1;
-                match edge.target {
-                    RelationTarget::Resolved(target) => visit_hop(
+                let target = if work.active.is_some() {
+                    repo.collections[hop.to.0 as usize]
+                        .id_lookup
+                        .get(edge.target_id())
+                        .copied()
+                        .filter(|slot| work.is_active(hop.to, *slot))
+                } else if let RelationTarget::Resolved(target) = edge.target {
+                    Some(target)
+                } else {
+                    None
+                };
+                match target {
+                    Some(target) => visit_hop(
                         config,
                         depth + 1,
                         hop.to.0 as usize,
@@ -1243,7 +1290,7 @@ fn visit_hop(
                         },
                         terminal,
                     )?,
-                    RelationTarget::Unresolved(_) => merge_truth(truth, None, quantifier),
+                    None => merge_truth(truth, None, quantifier),
                 }
                 if decisive(*truth, quantifier) {
                     break;
@@ -1268,6 +1315,9 @@ fn visit_hop(
                     // Without a numeric selector, Boolean truth is independent
                     // of identity-order rank. Visit only actual reverse hits.
                     for source in sources.iter() {
+                        if !work.is_active(hop.to, RecordSlot(source)) {
+                            continue;
+                        }
                         work.backlink_probe()?;
                         work.edge()?;
                         selected += 1;
@@ -1289,6 +1339,9 @@ fn visit_hop(
                     // A positional backlink means rank among sources in
                     // identity order, so retain that ordering here.
                     for source in &source_collection.identity_order {
+                        if !work.is_active(hop.to, *source) {
+                            continue;
+                        }
                         work.backlink_probe()?;
                         if !sources.contains(source.0) {
                             continue;
@@ -1331,6 +1384,9 @@ fn read_reference_value(
     work: &mut RelationWork,
 ) -> Result<Option<crate::model::Value>, String> {
     let collection = &repo.collections[collection_index];
+    if !work.is_active(collection.generation.collection, slot) {
+        return Ok(None);
+    }
     let record = collection
         .generation
         .records

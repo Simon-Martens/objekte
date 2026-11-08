@@ -246,6 +246,7 @@ fn prepare_with_limits(
         }
         let mut current = candidates & &source.logical_records;
         for hop in &related.hops {
+            let active = execution.and_then(ExecutionContext::active_records);
             let collection = repo
                 .collections
                 .get(hop.relation.source.0 as usize)
@@ -256,6 +257,11 @@ fn prepare_with_limits(
                 .ok_or("relation declaration missing")?;
             let mut next = RoaringBitmap::new();
             for slot in current.iter() {
+                if active
+                    .is_some_and(|domains| !domains[hop.from.0 as usize].contains(RecordSlot(slot)))
+                {
+                    continue;
+                }
                 if let Some(execution) = execution {
                     execution.check_string()?;
                 }
@@ -289,7 +295,18 @@ fn prepare_with_limits(
                             execution,
                         ));
                     }
-                    if let RelationTarget::Resolved(target) = edge.target
+                    let target = if let Some(domains) = active {
+                        repo.collections[hop.to.0 as usize]
+                            .id_lookup
+                            .get(edge.target_id())
+                            .copied()
+                            .filter(|slot| domains[hop.to.0 as usize].contains(*slot))
+                    } else if let RelationTarget::Resolved(target) = edge.target {
+                        Some(target)
+                    } else {
+                        None
+                    };
+                    if let Some(target) = target
                         && next.insert(target.0)
                         && max_retained_bytes.is_some()
                     {
@@ -371,6 +388,14 @@ fn prepare_with_limits(
         let collection = &repo.collections[collection_id.0 as usize];
         let mut grouped = BTreeMap::<FileId, Vec<(u32, crate::inventory::ByteRange)>>::new();
         for slot in slots.iter() {
+            if execution
+                .and_then(ExecutionContext::active_records)
+                .is_some_and(|domains| {
+                    !domains[collection_id.0 as usize].contains(RecordSlot(slot))
+                })
+            {
+                continue;
+            }
             let record = collection
                 .generation
                 .records

@@ -17,7 +17,7 @@ use crate::executor::{
     Plan, PlanningCounters, Proof, TermChoice, estimate_expr, estimate_fts_candidates,
     estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution,
 };
-use crate::inventory::{ByteRange, RecordClass, RecordEntry};
+use crate::inventory::{ActiveRecords, ByteRange, RecordClass, RecordEntry};
 use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
 use crate::measurement::{ScanWork, WorkCounters};
 use crate::model::{FieldPath, PathRoot, Value};
@@ -28,7 +28,7 @@ use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
     eval_unavailable_filter, same_bound_term,
 };
-use crate::repository::{Payload, Repository, SearchHit, SearchResult};
+use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
 use crate::sort_binding::{BoundSort, BoundSortSource, BoundSortTerm, SortTargetCache};
 use crate::sorting::{InferredOrderKey, SortColumn, SortKey, SortOptions, simple_composite_part};
 use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection};
@@ -1888,6 +1888,79 @@ fn would_enter_page(
             }))
 }
 
+fn collection_domain(
+    collection: &CollectionState,
+    collection_index: usize,
+    active: Option<&[ActiveRecords]>,
+) -> RoaringBitmap {
+    active.map_or_else(
+        || (0..collection.generation.records.len() as u32).collect(),
+        |domains| domains[collection_index].bitmap(),
+    )
+}
+
+pub(crate) fn search_active(
+    repo: &Repository,
+    query: &Query,
+    active: &[ActiveRecords],
+) -> Result<SearchResult, String> {
+    search_active_inner(repo, query, active, None)
+}
+
+fn search_active_inner(
+    repo: &Repository,
+    query: &Query,
+    active: &[ActiveRecords],
+    context: Option<&ExecutionContext>,
+) -> Result<SearchResult, String> {
+    let scoped_context = context
+        .cloned()
+        .unwrap_or_else(|| {
+            ExecutionContext::new(
+                crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+                ExecutionLimits::default(),
+                None,
+            )
+        })
+        .with_active(active);
+    let mut count_query;
+    let query = if query.options.count && query.options.limit == 0 {
+        BoundSort::bind(repo, query)?;
+        count_query = query.clone();
+        count_query.options.sort.clear();
+        count_query.options.return_mode = ReturnMode::Locator;
+        count_query.options.evidence = false;
+        &count_query
+    } else {
+        query
+    };
+    search_impl_with_collector(
+        repo,
+        query,
+        None,
+        None,
+        None,
+        None,
+        None,
+        None,
+        (query.options.count && query.options.limit == 0)
+            .then_some(ExactCollector { members: None }),
+        Some(&scoped_context),
+        Some(active),
+    )
+}
+
+pub(crate) fn search_with_context_active(
+    repo: &Repository,
+    query: &Query,
+    context: &ExecutionContext,
+    active: &[ActiveRecords],
+) -> Result<SearchResult, crate::streaming::ExecutionError> {
+    context.check()?;
+    search_active_inner(repo, query, active, Some(context))
+        .map_err(|message| context.recorded_error(message))
+}
+
 pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
     if query.options.count && query.options.limit == 0 {
         // Sort syntax still belongs to the request contract, although ordering
@@ -1907,6 +1980,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             None,
             None,
             Some(ExactCollector { members: None }),
+            None,
             None,
         );
     }
@@ -1986,6 +2060,7 @@ pub(crate) fn search_with_context(
             None,
             Some(ExactCollector { members: None }),
             Some(context),
+            None,
         )
     } else {
         search_impl_with_collector(
@@ -1999,6 +2074,7 @@ pub(crate) fn search_with_context(
             None,
             None,
             Some(context),
+            None,
         )
     };
     result.map_err(|message| context.recorded_error(message))
@@ -2051,6 +2127,28 @@ pub(crate) fn search_stream_scoped_with_context(
     context: &ExecutionContext,
     sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
 ) -> Result<StreamOutcome, StreamError> {
+    search_stream_scoped_with_context_active(
+        repo,
+        query,
+        scope,
+        options,
+        cancellation,
+        context,
+        sink,
+        None,
+    )
+}
+
+pub(crate) fn search_stream_scoped_with_context_active(
+    repo: &Repository,
+    query: &Query,
+    scope: ResultScope,
+    options: StreamOptions,
+    cancellation: &CancellationToken,
+    context: &ExecutionContext,
+    sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
+    active: Option<&[ActiveRecords]>,
+) -> Result<StreamOutcome, StreamError> {
     options
         .validate()
         .map_err(|message| StreamError::Execution {
@@ -2075,8 +2173,12 @@ pub(crate) fn search_stream_scoped_with_context(
         execution_query.options.limit = repo
             .collections
             .iter()
-            .try_fold(0usize, |total, collection| {
-                total.checked_add(collection.generation.records.len())
+            .enumerate()
+            .try_fold(0usize, |total, (index, collection)| {
+                let records = active.map_or(collection.generation.records.len(), |domains| {
+                    domains[index].len() as usize
+                });
+                total.checked_add(records)
             })
             .ok_or_else(|| StreamError::Resource {
                 message: "all-results record count overflow".into(),
@@ -2109,7 +2211,8 @@ pub(crate) fn search_stream_scoped_with_context(
     let mut members = Vec::new();
     // The ordered cursor can publish its page before COUNT traverses the rest
     // of the domain. Building a membership cache would force the top-k scan.
-    let cache_key = if context.limits == ExecutionLimits::default()
+    let cache_key = if active.is_none()
+        && context.limits == ExecutionLimits::default()
         && budget > 0
         && !inferred_order
         && execution_query.options.count
@@ -2175,6 +2278,7 @@ pub(crate) fn search_stream_scoped_with_context(
             },
             None,
             Some(context),
+            active,
         )
     };
     let result = result.and_then(|mut result| {
@@ -2389,6 +2493,7 @@ pub(crate) fn exact_members(
         Some(ExactCollector {
             members: Some(&mut members),
         }),
+        None,
         None,
     )?;
     if result.count != Some(members.len() as usize) {
@@ -2753,7 +2858,12 @@ fn try_inferred_order_page(
     mut delivery: Option<&mut Delivery<'_>>,
     all_offset: Option<usize>,
     execution: Option<&ExecutionContext>,
+    active: Option<&[ActiveRecords]>,
 ) -> Result<Option<SearchResult>, String> {
+    if active.is_some() {
+        // A static inferred column may read retired source records while it is built.
+        return Ok(None);
+    }
     let Some((collection_index, column)) = inferred_order_column(repo, query, prepared, execution)?
     else {
         return Ok(None);
@@ -2792,6 +2902,7 @@ fn try_inferred_order_page(
         true,
         None,
         execution,
+        active,
     )?;
     if result.is_some() {
         if let Some(traces) = traces {
@@ -2817,6 +2928,7 @@ fn try_stored_order_page(
     force_order: bool,
     mut rejected: Option<&mut RejectedOrderPlans>,
     execution: Option<&ExecutionContext>,
+    active: Option<&[ActiveRecords]>,
 ) -> Result<Option<SearchResult>, String> {
     if let Some(execution) = execution {
         execution.check_string()?;
@@ -2857,7 +2969,7 @@ fn try_stored_order_page(
     let mut candidate_total = 0u64;
     for (collection_index, filter, fts) in &prepared.collections {
         let collection = &repo.collections[*collection_index];
-        let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
+        let domain = collection_domain(collection, *collection_index, active);
         let mut plan = filter
             .as_ref()
             .map(|expr| {
@@ -2882,7 +2994,8 @@ fn try_stored_order_page(
                 semijoin_work: Default::default(),
                 planning: PlanningCounters::default(),
             });
-        let mut candidates = plan.candidates.take().unwrap_or(domain);
+        let mut candidates = plan.candidates.take().unwrap_or_else(|| domain.clone());
+        candidates &= &domain;
         if let Some(fts_candidates) = fts.as_ref().and_then(|fts| fts_candidates(collection, fts)) {
             candidates &= fts_candidates;
         }
@@ -2949,7 +3062,7 @@ fn try_stored_order_page(
                     estimate_fts_candidates(collection, fts).map(|estimate| estimate.0)
                 }),
                 remaining_verification: entry.fts.is_some() || !entry.plan.exact,
-                input_records: collection.generation.records.len() as u64,
+                input_records: collection_domain(collection, entry.collection_index, active).len(),
                 fts_strategy: if collection.logical_records.len()
                     != collection.generation.records.len() as u64
                     && entry.fts.is_some_and(|fts| fts.fields.is_empty())
@@ -4144,6 +4257,7 @@ fn search_impl<'a>(
         all_offset,
         None,
         None,
+        None,
     )
 }
 
@@ -4158,6 +4272,7 @@ fn search_impl_with_collector<'a>(
     all_offset: Option<usize>,
     mut exact_collector: Option<ExactCollector<'_>>,
     execution: Option<&ExecutionContext>,
+    active: Option<&[ActiveRecords]>,
 ) -> Result<SearchResult, String> {
     if let Some(execution) = execution {
         execution.check_string()?;
@@ -4204,6 +4319,7 @@ fn search_impl_with_collector<'a>(
             delivery.as_deref_mut(),
             all_offset,
             execution,
+            active,
         )? {
             return Ok(result);
         }
@@ -4220,6 +4336,7 @@ fn search_impl_with_collector<'a>(
             false,
             Some(&mut rejected_order),
             execution,
+            active,
         )? {
             return Ok(result);
         }
@@ -4258,7 +4375,7 @@ fn search_impl_with_collector<'a>(
         let diagnostics = traces.is_some();
         let before = traces.as_ref().map(|_| counters.clone());
         let collection = &repo.collections[collection_index];
-        let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
+        let domain = collection_domain(collection, collection_index, active);
         let text_estimate = fts
             .as_ref()
             .and_then(|fts| estimate_fts_candidates(collection, fts));
@@ -4324,6 +4441,7 @@ fn search_impl_with_collector<'a>(
             }
             (plan, candidates, text_first)
         };
+        candidates &= &domain;
         counters.add_semijoin(plan.semijoin_work)?;
         let metadata_only_fts = fts.as_ref().is_some_and(|fts| {
             !fts.fields.is_empty()

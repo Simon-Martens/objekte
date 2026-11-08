@@ -346,7 +346,8 @@ impl IndexView {
     }
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
-        self.repository().search(query)
+        let resolved = query.resolve_current_clock()?;
+        crate::run::search_active(self.repository(), resolved.as_ref(), &self.0.active)
     }
 
     pub fn search_with_context(
@@ -354,11 +355,26 @@ impl IndexView {
         query: &Query,
         context: &ExecutionContext,
     ) -> Result<SearchResult, ExecutionError> {
-        self.repository().search_with_context(query, context)
+        context.enter()?;
+        let resolved = query.with_clock(context.clock.now).map_err(|message| {
+            context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
+        })?;
+        crate::run::search_with_context_active(
+            self.repository(),
+            &resolved,
+            context,
+            &self.0.active,
+        )
     }
 
     pub fn count_exact(&self, query: &Query) -> Result<usize, String> {
-        self.repository().count_exact(query)
+        let mut request = query.clone();
+        request.options.count = true;
+        request.options.limit = 0;
+        request.options.offset = 0;
+        self.search(&request)?
+            .count
+            .ok_or("count result missing".into())
     }
 
     pub fn count_exact_with_context(
@@ -366,7 +382,16 @@ impl IndexView {
         query: &Query,
         context: &ExecutionContext,
     ) -> Result<usize, ExecutionError> {
-        self.repository().count_exact_with_context(query, context)
+        let mut request = query.clone();
+        request.options.count = true;
+        request.options.limit = 0;
+        request.options.offset = 0;
+        self.search_with_context(&request, context)?
+            .count
+            .ok_or_else(|| ExecutionError {
+                kind: crate::streaming::ExecutionErrorKind::Execution,
+                message: "count result missing".into(),
+            })
     }
 
     pub fn get_record(
@@ -375,8 +400,17 @@ impl IndexView {
         record_id: &str,
         return_mode: ReturnMode,
     ) -> Result<Option<SearchHit>, String> {
+        self.repository().get_record_with_active(
+            collection,
+            record_id,
+            return_mode,
+            Some(&self.0.active),
+        )
+    }
+
+    pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
         self.repository()
-            .get_record(collection, record_id, return_mode)
+            .search_reference_with_active(query, Some(&self.0.active))
     }
 
     pub fn search_stream<F>(
@@ -389,8 +423,16 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
-        self.repository()
-            .search_stream(query, options, cancellation, sink)
+        self.search_stream_scoped(
+            query,
+            ResultScope::Page {
+                offset: query.options.offset,
+                limit: query.options.limit,
+            },
+            options,
+            cancellation,
+            sink,
+        )
     }
 
     pub fn search_stream_scoped<F>(
@@ -404,8 +446,12 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
-        self.repository()
-            .search_stream_scoped(query, scope, options, cancellation, sink)
+        let context = ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::streaming::ExecutionLimits::default(),
+            Some(cancellation.clone()),
+        );
+        self.search_stream_scoped_with_context(query, scope, options, &context, sink)
     }
 
     pub fn search_stream_scoped_with_context<F>(
@@ -419,8 +465,15 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
-        self.repository()
-            .search_stream_scoped_with_context(query, scope, options, context, sink)
+        let scoped_context = context.with_active(&self.0.active);
+        self.repository().search_stream_scoped_with_context_active(
+            query,
+            scope,
+            options,
+            &scoped_context,
+            sink,
+            Some(&self.0.active),
+        )
     }
 }
 
