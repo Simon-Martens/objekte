@@ -107,3 +107,43 @@ fn missing_query_file_emits_cli_input_error_after_run_start() {
     assert_eq!(events[1]["type"], "run_error");
     assert_eq!(events[1]["stage"], "query_input");
 }
+
+#[test]
+fn direct_structured_and_full_text_match_cli_protocol() {
+    let fixture = fixture();
+    let output = tempfile::tempdir().unwrap();
+    for (name, source) in [
+        (
+            "structured",
+            BatchSource::DirectStructured("year >= 2023".into()),
+        ),
+        ("fts", BatchSource::DirectFullText("Alpha".into())),
+    ] {
+        let mut args = fixture.session.args.clone();
+        match &source {
+            BatchSource::DirectStructured(text) => args.query = Some(text.clone()),
+            BatchSource::DirectFullText(text) => args.fts = Some(text.clone()),
+            _ => unreachable!(),
+        }
+        let mut direct = Vec::new();
+        let direct_exit = run(&args, &mut direct, &CancellationToken::new());
+        let path = output.path().join(format!("{name}.ndjson"));
+        let report = run_batch(
+            &fixture.session,
+            &BatchSpec {
+                source,
+                offset: 0,
+                limit: None,
+                count: false,
+            },
+            &path,
+            &CancellationToken::new(),
+        )
+        .unwrap();
+        assert_eq!(report.exit, direct_exit);
+        assert_eq!(
+            stable(events(&std::fs::read(path).unwrap())),
+            stable(events(&direct))
+        );
+    }
+}

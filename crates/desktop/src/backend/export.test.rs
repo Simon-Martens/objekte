@@ -1,5 +1,7 @@
 use super::*;
+use crate::backend::{OpenSpec, open};
 use crate::backend::{query_page, test_support::fixture};
+use objekte_cli::arguments::Arguments;
 use serde_json::Value;
 
 #[test]
@@ -72,4 +74,49 @@ fn zero_limit_exports_empty_valid_document() {
     let value: Value = serde_json::from_slice(&fs::read(path).unwrap()).unwrap();
     assert_eq!(value["total"], 0);
     assert!(value["hits"].as_array().unwrap().is_empty());
+}
+
+#[test]
+fn malformed_source_keeps_raw_fallback_payload_in_export() {
+    let source = tempfile::tempdir().unwrap();
+    fs::write(source.path().join("broken.json"), b"{not valid json").unwrap();
+    fs::write(source.path().join("null.json"), b"null").unwrap();
+    let session = open(
+        &OpenSpec {
+            args: Arguments {
+                path: vec![source.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: source.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let output = tempfile::tempdir().unwrap();
+    let path = output.path().join("all.json");
+    export_all_json(
+        &session,
+        &QuerySpec::default(),
+        &path,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let value: Value = serde_json::from_slice(&fs::read(path).unwrap()).unwrap();
+    let hits = value["hits"].as_array().unwrap();
+    assert!(hits.iter().any(|hit| hit["record"] == "{not valid json"));
+    assert!(hits.iter().any(|hit| hit["record"].is_null()));
+}
+
+#[test]
+fn all_export_includes_rows_beyond_loaded_viewport() {
+    let fixture = fixture();
+    let token = CancellationToken::new();
+    let page = query_page(&fixture.session, &QuerySpec::default(), 0, 1, &token).unwrap();
+    assert_eq!(page.hits.len(), 1);
+    let output = tempfile::tempdir().unwrap();
+    let path = output.path().join("all.json");
+    let count = export_all_json(&fixture.session, &QuerySpec::default(), &path, &token).unwrap();
+    assert_eq!(count, 3);
+    let value: Value = serde_json::from_slice(&fs::read(path).unwrap()).unwrap();
+    assert_eq!(value["hits"].as_array().unwrap().len(), 3);
 }
