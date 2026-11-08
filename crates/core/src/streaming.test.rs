@@ -46,6 +46,14 @@ fn execution_context_shares_accounting_and_preserves_failure_kind() {
         other.recorded_error("unrelated".into()).kind,
         ExecutionErrorKind::Extension
     );
+    let recovered = limited_context(ExecutionLimits::default(), None);
+    recovered.fail(ExecutionErrorKind::SourceChanged, "stale source");
+    recovered.clear_recovered_source_changed();
+    recovered.fail(ExecutionErrorKind::Resource, "later budget failure");
+    assert_eq!(
+        recovered.recorded_error("fallback".into()).kind,
+        ExecutionErrorKind::Resource
+    );
     other.enter().unwrap();
     assert_eq!(
         other.enter().unwrap_err().kind,

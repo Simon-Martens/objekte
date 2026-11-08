@@ -2252,6 +2252,7 @@ pub(crate) fn search_segmented_with_context(
             if matches!(error.kind, ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution)
                 && has_unavailable_active_source(repo, base_active, segments, catalog)
             {
+                context.clear_recovered_source_changed();
                 let sort = ResolvedSort::new(repo, query)
                     .map_err(|message| context.recorded_error(message))?;
                 let (prepared, _) = crate::prepared::prepare(repo, query)
@@ -2300,6 +2301,7 @@ pub(crate) fn search_active_available_with_context(
             if matches!(error.kind, ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution)
                 && has_unavailable_active_source(repo, base_active, &empty, catalog) =>
         {
+            context.clear_recovered_source_changed();
             let sort = ResolvedSort::new(repo, query)
                 .map_err(|message| context.recorded_error(message))?;
             let (prepared, _) = crate::prepared::prepare(repo, query)
