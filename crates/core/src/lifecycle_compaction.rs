@@ -6,7 +6,9 @@ use std::time::{Duration, Instant};
 
 use crate::build::{IndexedCollectionSegment, SegmentFile};
 use crate::inventory::ActiveRecords;
-use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex, PublishedSegment};
+use crate::lifecycle::{
+    Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,
+};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::repository::CollectionState;
 
@@ -175,9 +177,21 @@ impl Index {
     /// Preparation runs on a pinned root; a concurrent commit causes a
     /// bounded retry rather than overwriting that newer publication.
     pub fn compact(&self) -> Result<CompactionReport, IndexError> {
+        self.compact_with_control(|| false, |_, _| {})
+    }
+
+    pub(crate) fn compact_with_control(
+        &self,
+        cancelled: impl Fn() -> bool,
+        mut progress: impl FnMut(MaintenancePhase, usize),
+    ) -> Result<CompactionReport, IndexError> {
         let started = Instant::now();
         let mut conflict = None;
         for attempt in 1..=3 {
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
+            progress(MaintenancePhase::Preparing, attempt);
             let view = self.view()?;
             let before = slot_count(&view.0);
             let old = &view.0;
@@ -200,6 +214,10 @@ impl Index {
                 });
             }
             let next = compact_published(old, view.revision().next()?)?;
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
+            progress(MaintenancePhase::Publishing, attempt);
             let after = slot_count(&next);
             let pinned_prior_views = Arc::strong_count(&view.0).saturating_sub(2);
             match self.publish_prepared(view.revision(), next) {

@@ -22,7 +22,7 @@ use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordE
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
-use crate::measurement::{ScanWork, SourceDiagnostic, WorkCounters};
+use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
 use crate::model::{FieldPath, PathRoot, RecordId, RecordSlot, Value};
 use crate::posting::PostingIndex;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
@@ -47,31 +47,6 @@ use crate::verified::{CachedMember, CachedResult};
 
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
-
-#[derive(Default)]
-struct SourceErrors {
-    events: u64,
-    diagnostics: Vec<SourceDiagnostic>,
-}
-
-impl SourceErrors {
-    fn record(&mut self, diagnostic: SourceDiagnostic) {
-        self.events = self.events.saturating_add(1);
-        if self.diagnostics.len() < 32 {
-            self.diagnostics.push(diagnostic);
-        }
-    }
-
-    fn apply(self, counters: &mut WorkCounters) {
-        let shown = self.diagnostics.len() as u64;
-        for diagnostic in self.diagnostics {
-            counters.record_source_unavailable(diagnostic);
-        }
-        counters.source_unavailable_events = counters.source_unavailable_events.saturating_add(
-            self.events.saturating_sub(shown),
-        );
-    }
-}
 
 fn check_computed_sort_budget(payload: u64, keys: u64, targets: u64) -> Result<(), String> {
     check_computed_sort_budget_with_limit(MAX_COMPUTED_SORT_BYTES, payload, keys, targets)
@@ -2640,7 +2615,7 @@ fn search_segmented_relations(
     let mut counters = WorkCounters::default();
     let mut total = 0u64;
     let mut opened = HashSet::new();
-    let mut source_errors = SourceErrors::default();
+    let mut source_errors = SourceAvailabilityLog::default();
     let mut sort_cache = MergedSortTargetCache::default();
     sort_cache.configure_execution(context);
     for (collection_index, filter, fts) in prepared {
@@ -2748,10 +2723,14 @@ fn search_segmented_relations(
             if !(filter_matches && fts_matches) {
                 return Ok(());
             }
-            total += 1;
+            let source_errors_before_sort = view.source_error_events();
             let key = relation_rank_key_merged(
                 repo, sort, &view, segments, address, &ctx, &mut sort_cache,
             )?;
+            if view.source_error_events() > source_errors_before_sort {
+                return Ok(());
+            }
+            total += 1;
             counters.sort_key_evaluations += u64::from(sort.bound.has_computed);
             let hit = segment_locator_hit(
                 resolved.collection,
@@ -3005,6 +2984,7 @@ fn search_segmented_relations(
     }
     counters.total_matches = total;
     source_errors.apply(&mut counters);
+    view.take_source_errors().apply(&mut counters);
     counters.match_count_complete = counters.source_unavailable_events == 0;
     counters.returned_records = page.len() as u64;
     counters.distinct_files = opened.len() as u64;

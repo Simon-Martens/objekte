@@ -50,13 +50,15 @@ fn all_records() -> Query {
 
 #[test]
 fn stopping_periodic_schedule_does_not_cancel_current_reconciliation() {
+    use super::{ReconciliationJob, ReconciliationProgress, ReconciliationState};
     use std::sync::atomic::{AtomicBool, Ordering};
     use std::sync::{Condvar, Mutex};
     use std::time::Duration;
-    use super::{ReconciliationJob, ReconciliationProgress, ReconciliationState};
 
     let root = std::env::temp_dir().join(format!(
-        "objekte-periodic-stop-{}-{:?}", std::process::id(), std::thread::current().id(),
+        "objekte-periodic-stop-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -73,7 +75,9 @@ fn stopping_periodic_schedule_does_not_cancel_current_reconciliation() {
         maintenance.reconciliation = ReconciliationState::Running;
         maintenance.current = Some(Arc::clone(&job));
     }
-    index.start_periodic_reconciliation(Duration::from_secs(60)).unwrap();
+    index
+        .start_periodic_reconciliation(Duration::from_secs(60))
+        .unwrap();
     index.stop_periodic_reconciliation().unwrap();
     assert!(!job.cancelled.load(Ordering::Acquire));
     index.0.maintenance.lock().unwrap().current = None;
@@ -108,6 +112,38 @@ fn rebuild_retries_after_concurrent_file_commit_without_losing_it() {
         Some(2)
     );
     assert_eq!(report.live_records, 2);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn background_rebuild_waits_and_cancelled_preparation_never_publishes() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-background-rebuild-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let index = Index::from_repository(fixture_repository(&root)).unwrap();
+    let initial = index.view().unwrap().revision();
+    let cancelled = index.rebuild_with_control(
+        || true,
+        |_, _| {},
+        |_| panic!("cancelled candidate must never publish"),
+    );
+    assert_eq!(cancelled.unwrap_err(), IndexError::Cancelled);
+    assert_eq!(index.view().unwrap().revision(), initial);
+    let task = index.start_rebuild().unwrap();
+    let super::MaintenanceReport::Rebuild(report) = task.wait().unwrap() else {
+        panic!("wrong operation")
+    };
+    assert_eq!(report.revision, initial.next().unwrap());
+    assert_eq!(
+        task.progress().unwrap().phase,
+        super::MaintenancePhase::Complete
+    );
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

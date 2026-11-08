@@ -107,3 +107,48 @@ fn compacted_base_contributions_round_trip_through_cache() {
     restored.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn background_compaction_preserves_pinned_reader_and_reports_completion() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-background-compact-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let file = root.join("data/a.json");
+    std::fs::write(&file, br#"{"name":"A"}"#).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let old = index.view().unwrap();
+    index
+        .delete_file(old.file_handle_for_path(&file).unwrap())
+        .unwrap();
+    let task = index.start_compaction().unwrap();
+    assert_eq!(
+        task.progress().unwrap().operation,
+        crate::lifecycle::MaintenanceOperation::Compact
+    );
+    let crate::lifecycle::MaintenanceReport::Compact(report) = task.wait().unwrap() else {
+        panic!("wrong operation")
+    };
+    assert_eq!(report.retired_slots_removed, 1);
+    assert!(task.is_complete().unwrap());
+    assert_eq!(
+        task.progress().unwrap().phase,
+        crate::lifecycle::MaintenancePhase::Complete
+    );
+    assert_eq!(old.search(&all()).unwrap().count, Some(1));
+    assert_eq!(index.view().unwrap().search(&all()).unwrap().count, Some(0));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
