@@ -1557,10 +1557,26 @@ impl Index {
     /// publication. This changes index state only, and requires no source
     /// content or source-file I/O. A later scan can add a still-present file.
     pub fn delete_file(&self, handle: FileHandle) -> Result<DeleteResult, IndexError> {
+        let _writer = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
+        let (expected, next, retired_records, affected_collections) =
+            self.stage_prepared_delete(handle)?;
+        let revision = self.publish_prepared(expected, next)?;
+        Ok(DeleteResult {
+            revision,
+            file: handle.file_id,
+            retired_records,
+            affected_collections,
+            strategy: DeleteStrategy::Tombstone,
+        })
+    }
+
+    pub(crate) fn stage_prepared_delete(
+        &self,
+        handle: FileHandle,
+    ) -> Result<(IndexRevision, PublishedIndex, u64, Vec<String>), IndexError> {
         if handle.instance_id != self.instance_id() {
             return Err(IndexError::ForeignInstance);
         }
-        let _writer = self.0.writer.lock().map_err(|_| IndexError::LockPoisoned)?;
         let current = self.view()?;
         let actual = current
             .0
@@ -1604,14 +1620,12 @@ impl Index {
             .map_err(IndexError::ResourceLimit)?
             .0;
         next.revision = current.revision().next()?;
-        let revision = self.publish_prepared(current.revision(), next)?;
-        Ok(DeleteResult {
-            revision,
-            file: handle.file_id,
+        Ok((
+            current.revision(),
+            next,
             retired_records,
             affected_collections,
-            strategy: DeleteStrategy::Tombstone,
-        })
+        ))
     }
 
     /// Install a fully prepared root only if its captured predecessor is
@@ -1731,6 +1745,18 @@ impl IndexView {
         self.0.catalog.entry(file)
     }
 
+    pub fn diagnostic(
+        &self,
+        file: FileId,
+        reference: crate::inventory::DiagnosticRef,
+    ) -> Option<&crate::inventory::SourceDiagnostic> {
+        self.0
+            .catalog
+            .entry(file)?
+            .diagnostics
+            .get(reference.stored_index()?)
+    }
+
     pub(crate) fn file_fingerprint(&self, file: FileId) -> Option<[u8; 32]> {
         self.0.catalog.fingerprint(file)
     }
@@ -1823,17 +1849,15 @@ impl IndexView {
             )
             .map(|result| self.stamp_result(result))
         } else {
-            crate::run::search_segmented(
+            crate::run::search_segmented_with_context(
                 self.repository(),
                 &resolved,
                 &self.0.active,
                 &self.0.segments,
                 &self.0.catalog,
                 self.revision(),
+                context,
             )
-            .map_err(|message| {
-                context.error(crate::streaming::ExecutionErrorKind::Execution, message)
-            })
         }
     }
 
@@ -1987,8 +2011,17 @@ impl IndexView {
         &self,
         query: &Query,
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
-        self.require_base_only("analyzed search")?;
         let resolved = query.resolve_current_clock()?;
+        if self.has_segments() {
+            return crate::run::search_analyze_segmented(
+                self.repository(),
+                resolved.as_ref(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+            );
+        }
         crate::run::search_analyze_with_active(
             self.repository(),
             resolved.as_ref(),
@@ -1998,8 +2031,16 @@ impl IndexView {
     }
 
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
-        self.require_base_only("query explanation")?;
         let resolved = query.resolve_current_clock()?;
+        if self.has_segments() {
+            return crate::run::explain_segmented(
+                self.repository(),
+                resolved.as_ref(),
+                &self.0.active,
+                &self.0.segments,
+                self.revision(),
+            );
+        }
         crate::run::explain_with_active(self.repository(), resolved.as_ref(), Some(&self.0.active))
     }
 
@@ -2055,12 +2096,20 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
-        self.require_base_only("streamed search")
-            .map_err(|message| StreamError::Execution {
-                kind: crate::streaming::ExecutionErrorKind::Execution,
-                message,
-                progress: Default::default(),
-            })?;
+        if self.has_segments() {
+            return crate::run::search_stream_segmented_with_context(
+                self.repository(),
+                query,
+                scope,
+                options,
+                context,
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+                sink,
+            );
+        }
         let scoped_context = context.with_active(&self.0.active);
         let revision = self.revision().0;
         let mut stamped = |event: StreamEvent<'_>| match event {

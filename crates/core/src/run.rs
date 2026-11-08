@@ -1963,6 +1963,7 @@ fn base_rank_key_merged(
     collection_index: usize,
     record: &RecordEntry,
     catalog: &FileCatalog,
+    context: Option<&ExecutionContext>,
 ) -> Result<RankKey, String> {
     if !sort.bound.has_computed {
         return Ok(rank_key(sort, repo, collection_index, record));
@@ -1978,11 +1979,25 @@ fn base_rank_key_merged(
         return Err("base sort file changed without retirement".into());
     }
     let bytes = if sort.bound.needs_source {
-        Some(read_record_range(
-            &repo.files.root.join(&file.relative_path),
-            record.revision,
-            record.range,
-        )?)
+        if let Some(context) = context {
+            context.check_string()?;
+            if record.range.len() > context.limits.source_record_bytes {
+                return Err(context.fail(
+                    ExecutionErrorKind::Resource,
+                    "base sort record exceeds source read allowance",
+                ));
+            }
+            context.charge_reads(1)?;
+            context.charge_bytes(record.range.len())?;
+        }
+        let path = repo.files.root.join(&file.relative_path);
+        Some(if let Some(context) = context {
+            crate::source::read_record_range_with_execution(
+                &path, record.revision, record.range, context,
+            )?
+        } else {
+            read_record_range(&path, record.revision, record.range)?
+        })
     } else {
         None
     };
@@ -1993,7 +2008,7 @@ fn base_rank_key_merged(
             bytes,
             &ScanProjection::full(false),
             false,
-            None,
+            context,
         )?
     } else {
         ExtractedRecord {
@@ -2104,6 +2119,37 @@ pub(crate) fn search_segmented(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
+    search_segmented_impl(repo, query, base_active, segments, catalog, revision, None)
+}
+
+pub(crate) fn search_segmented_with_context(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    context: &ExecutionContext,
+) -> Result<SearchResult, crate::streaming::ExecutionError> {
+    context.check()?;
+    search_segmented_impl(
+        repo, query, base_active, segments, catalog, revision, Some(context),
+    )
+    .map_err(|message| context.recorded_error(message))
+}
+
+fn search_segmented_impl(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    context: Option<&ExecutionContext>,
+) -> Result<SearchResult, String> {
+    if let Some(context) = context {
+        context.check_string()?;
+    }
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
     }
@@ -2128,6 +2174,7 @@ pub(crate) fn search_segmented(
             revision,
             &sort,
             &prepared.collections,
+            context,
         );
     }
     let cap = query
@@ -2139,7 +2186,12 @@ pub(crate) fn search_segmented(
     base_query.options.offset = 0;
     base_query.options.limit = cap;
     base_query.options.count = true;
-    let base = search_active(repo, &base_query, base_active)?;
+    let base = if let Some(context) = context {
+        search_with_context_active(repo, &base_query, context, base_active)
+            .map_err(|error| error.message)?
+    } else {
+        search_active(repo, &base_query, base_active)?
+    };
     let mut counters = base.counters;
     let mut total = base.count.ok_or("base match count missing")? as u64;
     let mut winners = BinaryHeap::new();
@@ -2159,7 +2211,7 @@ pub(crate) fn search_segmented(
             .records
             .get(slot.0 as usize)
             .ok_or("base hit slot missing")?;
-        let key = base_rank_key_merged(repo, &sort, collection_index, record, catalog)?;
+        let key = base_rank_key_merged(repo, &sort, collection_index, record, catalog, context)?;
         hit.generation = revision.0;
         offer_merged(
             &mut winners,
@@ -2175,6 +2227,9 @@ pub(crate) fn search_segmented(
     for (collection_index, filter, fts) in prepared.collections {
         let collection = &repo.collections[collection_index];
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
+            if let Some(context) = context {
+                context.check_string()?;
+            }
             if published.index.collection != collection.generation.collection {
                 return Err("segment collection mismatch".into());
             }
@@ -2195,6 +2250,9 @@ pub(crate) fn search_segmented(
                     .is_none_or(|bounds| bounds.may == bounds.must);
             if index_exact {
                 for slot in candidates.iter() {
+                    if let Some(context) = context {
+                        context.check_string()?;
+                    }
                     let resolved =
                         segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
                             .ok_or("active segment candidate missing")?;
@@ -2226,12 +2284,24 @@ pub(crate) fn search_segmented(
                 let record = segment
                     .record(RecordSlot(slot))
                     .ok_or("segment candidate missing")?;
+                if let Some(context) = context
+                    && record.range.len() > context.limits.source_record_bytes
+                {
+                    return Err(context.fail(
+                        ExecutionErrorKind::Resource,
+                        "segment record exceeds source read allowance",
+                    ));
+                }
                 files
                     .entry(record.file.0)
                     .or_default()
                     .push((slot, record.range));
             }
             for (file_id, ranges) in files {
+                if let Some(context) = context {
+                    context.check_string()?;
+                    context.charge_reads(1)?;
+                }
                 let file = catalog
                     .entry(crate::model::FileId(file_id))
                     .ok_or("active segment candidate file is retired")?;
@@ -2252,8 +2322,14 @@ pub(crate) fn search_segmented(
                         cursor += 1;
                     }
                     let (read, bytes_read) = reader.read(&ranges[start..cursor])?;
+                    if let Some(context) = context {
+                        context.charge_bytes(bytes_read)?;
+                    }
                     counters.bytes_read += bytes_read;
                     for (slot, bytes) in read {
+                        if let Some(context) = context {
+                            context.check_string()?;
+                        }
                         let resolved = segment_record_ref(
                             segment,
                             &published.active,
@@ -2270,7 +2346,7 @@ pub(crate) fn search_segmented(
                                 &bytes,
                                 &ScanProjection::full(fts.is_some()),
                                 false,
-                                None,
+                                context,
                             )?
                         } else {
                             ExtractedRecord {
@@ -2376,6 +2452,11 @@ pub(crate) fn search_segmented(
     if query.options.return_mode != ReturnMode::Locator {
         for winner in &mut page {
             if let Some((collection_index, segment_index)) = winner.segment {
+                if let Some(context) = context {
+                    context.check_string()?;
+                    context.charge_reads(1)?;
+                    context.charge_bytes(winner.hit.byte_end.saturating_sub(winner.hit.byte_start))?;
+                }
                 let published = &segments[collection_index][segment_index];
                 let mut materialized = get_segment_record_by_id(
                     repo,
@@ -2413,6 +2494,7 @@ fn search_segmented_relations(
     revision: IndexRevision,
     sort: &ResolvedSort<'_>,
     prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
+    context: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
     let view =
         crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
@@ -2426,6 +2508,7 @@ fn search_segmented_relations(
     let mut total = 0u64;
     let mut opened = HashSet::new();
     let mut sort_cache = MergedSortTargetCache::default();
+    sort_cache.configure_execution(context);
     for (collection_index, filter, fts) in prepared {
         let collection_index = *collection_index;
         let collection_id = repo.collections[collection_index].generation.collection;
@@ -2433,6 +2516,10 @@ fn search_segmented_relations(
                            bytes: Vec<u8>,
                            opened_source: bool|
          -> Result<(), String> {
+            if let Some(context) = context {
+                context.check_string()?;
+                context.charge_bytes(bytes.len() as u64)?;
+            }
             let Some(resolved) = view.record(address)? else {
                 return Ok(());
             };
@@ -2445,7 +2532,7 @@ fn search_segmented_relations(
                     &bytes,
                     &ScanProjection::full(fts.is_some()),
                     false,
-                    None,
+                    context,
                 )?
             } else {
                 ExtractedRecord {
@@ -2463,6 +2550,7 @@ fn search_segmented_relations(
             };
             let mut evidence = HashSet::new();
             let mut relation_work = crate::relation_query::RelationWork::default();
+            relation_work.attach(context);
             let filter_matches = if let Some(filter) = filter.as_ref() {
                 if record.class == RecordClass::RawFallback {
                     eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
@@ -2559,6 +2647,9 @@ fn search_segmented_relations(
         };
         let collection = &repo.collections[collection_index];
         for file_id in &collection.generation.files {
+            if let Some(context) = context {
+                context.check_string()?;
+            }
             let slots = collection
                 .generation
                 .file_records
@@ -2572,6 +2663,14 @@ fn search_segmented_relations(
                     (slot.0, record.range)
                 })
                 .collect::<Vec<_>>();
+            if let Some(context) = context
+                && ranges.iter().any(|(_, range)| range.len() > context.limits.source_record_bytes)
+            {
+                return Err(context.fail(
+                    ExecutionErrorKind::Resource,
+                    "merged base record exceeds source read allowance",
+                ));
+            }
             if ranges.is_empty() {
                 continue;
             }
@@ -2585,6 +2684,9 @@ fn search_segmented_relations(
                 .ok_or("active merged base file missing")?;
             let path = repo.files.root.join(&resolved.file.relative_path);
             let mut reader = RecordRangeReader::open(&path, resolved.file.revision)?;
+            if let Some(context) = context {
+                context.charge_reads(1)?;
+            }
             opened.insert(file_id.0);
             let mut cursor = 0;
             while cursor < ranges.len() {
@@ -2618,6 +2720,9 @@ fn search_segmented_relations(
         }
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
             for file in &published.index.files {
+                if let Some(context) = context {
+                    context.check_string()?;
+                }
                 let ranges = file
                     .records
                     .iter()
@@ -2627,6 +2732,14 @@ fn search_segmented_relations(
                         (slot.0, record.range)
                     })
                     .collect::<Vec<_>>();
+                if let Some(context) = context
+                    && ranges.iter().any(|(_, range)| range.len() > context.limits.source_record_bytes)
+                {
+                    return Err(context.fail(
+                        ExecutionErrorKind::Resource,
+                        "merged segment record exceeds source read allowance",
+                    ));
+                }
                 if ranges.is_empty() {
                     continue;
                 }
@@ -2640,6 +2753,9 @@ fn search_segmented_relations(
                     .ok_or("active merged segment file missing")?;
                 let path = repo.files.root.join(&resolved.file.relative_path);
                 let mut reader = RecordRangeReader::open(&path, resolved.file.revision)?;
+                if let Some(context) = context {
+                    context.charge_reads(1)?;
+                }
                 opened.insert(file.entry.id.0);
                 let mut cursor = 0;
                 while cursor < ranges.len() {
@@ -2681,6 +2797,11 @@ fn search_segmented_relations(
         .collect::<Vec<_>>();
     if query.options.return_mode != ReturnMode::Locator {
         for winner in &mut page {
+            if let Some(context) = context {
+                context.check_string()?;
+                context.charge_reads(1)?;
+                context.charge_bytes(winner.hit.byte_end.saturating_sub(winner.hit.byte_start))?;
+            }
             let mut payload_hit = if let Some((collection_index, segment_index)) = winner.segment {
                 let published = &segments[collection_index][segment_index];
                 get_segment_record_by_id(
@@ -2749,7 +2870,307 @@ pub(crate) fn search_segmented_reference(
         revision,
         &sort,
         &prepared.collections,
+        None,
     )
+}
+
+pub(crate) fn explain_segmented(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    revision: IndexRevision,
+) -> Result<Vec<QueryPlanTrace>, String> {
+    if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
+        return Err("segment explanation collection count mismatch".into());
+    }
+    let mut traces = explain_with_active(repo, query, Some(base_active))?;
+    for trace in &mut traces {
+        let collection_index = repo.collections.iter()
+            .position(|collection| collection.definition.name == trace.collection)
+            .ok_or("explained collection missing")?;
+        let delta = segments[collection_index].iter()
+            .map(|segment| segment.active.len())
+            .fold(0u64, u64::saturating_add);
+        trace.generation = revision.0;
+        trace.input_records = trace.input_records.saturating_add(delta);
+        trace.candidates = trace.candidates.saturating_add(delta);
+        trace.fts_estimated_candidates = trace.fts_estimated_candidates
+            .map(|estimate| estimate.saturating_add(delta));
+        trace.candidates_estimated = true;
+        if delta > 0 {
+            trace.sort_strategy = "merged base and indexed segment top-k".into();
+            trace.sort_strategy_estimated = true;
+        }
+        if delta > 0 && (query.filter.is_some() || query.fts.is_some()) {
+            trace.filter_exact = false;
+            trace.remaining_verification = true;
+        }
+    }
+    Ok(traces)
+}
+
+pub(crate) fn search_analyze_segmented(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
+    let mut traces = explain_segmented(repo, query, base_active, segments, revision)?;
+    let result = search_segmented(repo, query, base_active, segments, catalog, revision)?;
+    if traces.len() == 1 {
+        let trace = &mut traces[0];
+        let counters = &result.counters;
+        trace.actual = Some(PlanActual {
+            files_opened: counters.files_opened,
+            bytes_read: counters.bytes_read,
+            record_parses: counters.record_parses,
+            raw_text_verifications: counters.raw_text_verifications,
+            residual_evaluations: counters.residual_evaluations,
+            index_proven_matches: counters.exact_posting_matches,
+            relation_target_candidates: counters.relation_target_candidates,
+            relation_target_matches: counters.relation_target_matches,
+            relation_target_reads: counters.relation_target_reads,
+            relation_target_file_opens: counters.relation_target_file_opens,
+            relation_edge_visits: counters.relation_edge_visits,
+            relation_backlink_probe_visits: counters.relation_backlink_probe_visits,
+            relation_bytes_read: counters.relation_bytes_read,
+            relation_reverse_postings_visited: counters.relation_reverse_postings_visited,
+            relation_verified_targets_reused: counters.relation_verified_targets_reused,
+        });
+    }
+    Ok((result, traces))
+}
+
+fn segmented_stream_error(
+    delivery: &mut Delivery<'_>,
+    context: &ExecutionContext,
+    message: String,
+) -> Result<StreamOutcome, StreamError> {
+    match delivery.abort.take() {
+        Some(Abort::Cancelled) => Ok(StreamOutcome::Cancelled(delivery.progress)),
+        Some(Abort::Sink(message)) => Err(StreamError::Sink {
+            message,
+            progress: delivery.progress,
+        }),
+        Some(Abort::Resource(message)) => Err(StreamError::Resource {
+            message,
+            progress: delivery.progress,
+        }),
+        None => {
+            let error = context.recorded_error(message);
+            match error.kind {
+                ExecutionErrorKind::Cancelled => Ok(StreamOutcome::Cancelled(delivery.progress)),
+                ExecutionErrorKind::Resource => Err(StreamError::Resource {
+                    message: error.message,
+                    progress: delivery.progress,
+                }),
+                kind => Err(StreamError::Execution {
+                    kind,
+                    message: error.message,
+                    progress: delivery.progress,
+                }),
+            }
+        }
+    }
+}
+
+fn materialize_segmented_stream_hit(
+    repo: &Repository,
+    mut hit: SearchHit,
+    mode: ReturnMode,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    context: &ExecutionContext,
+) -> Result<SearchHit, String> {
+    if mode == ReturnMode::Locator {
+        return Ok(hit);
+    }
+    context.check_string()?;
+    if hit.byte_end.saturating_sub(hit.byte_start) > context.limits.source_record_bytes {
+        return Err(context.fail(
+            ExecutionErrorKind::Resource,
+            "stream record exceeds source read allowance",
+        ));
+    }
+    context.charge_reads(1)?;
+    context.charge_bytes(hit.byte_end.saturating_sub(hit.byte_start))?;
+    let collection_index = repo
+        .collections
+        .iter()
+        .position(|collection| collection.definition.name == hit.collection)
+        .ok_or("stream hit collection missing")?;
+    let materialized = repo.get_record_with_active(
+        &hit.collection, &hit.record_id, mode.clone(), Some(base_active),
+    )?;
+    let mut materialized = if let Some(materialized) = materialized {
+        materialized
+    } else {
+        let mut found = None;
+        for segment in segments[collection_index].iter() {
+            if let Some(value) = get_segment_record_by_id(
+                repo,
+                collection_index,
+                &segment.index,
+                &segment.active,
+                catalog,
+                revision,
+                &hit.record_id,
+                mode.clone(),
+            )? {
+                found = Some(value);
+                break;
+            }
+        }
+        found.ok_or("stream hit no longer resolves in pinned view")?
+    };
+    materialized.generation = revision.0;
+    materialized.matched_fields = std::mem::take(&mut hit.matched_fields);
+    Ok(materialized)
+}
+
+pub(crate) fn search_stream_segmented_with_context(
+    repo: &Repository,
+    query: &Query,
+    scope: ResultScope,
+    options: StreamOptions,
+    context: &ExecutionContext,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
+) -> Result<StreamOutcome, StreamError> {
+    options.validate().map_err(|message| StreamError::Execution {
+        kind: ExecutionErrorKind::InvalidQuery,
+        message,
+        progress: Default::default(),
+    })?;
+    if matches!(scope, ResultScope::All { .. }) && options.mode != crate::streaming::StreamMode::OrderedRows {
+        return Err(StreamError::Execution {
+            kind: ExecutionErrorKind::InvalidQuery,
+            message: "all-results scope requires ordered rows".into(),
+            progress: Default::default(),
+        });
+    }
+    let cancellation = context.cancellation().cloned().unwrap_or_default();
+    let mut delivery = Delivery::new(options, &cancellation, sink);
+    if delivery.check().is_err() {
+        return Ok(StreamOutcome::Cancelled(delivery.progress));
+    }
+    if let Err(error) = context.enter() {
+        return segmented_stream_error(&mut delivery, context, error.message);
+    }
+    let mut request = query.with_clock(context.clock.now).map_err(|message| StreamError::Execution {
+        kind: ExecutionErrorKind::InvalidQuery,
+        message,
+        progress: delivery.progress,
+    })?;
+    let all = matches!(scope, ResultScope::All { .. });
+    match scope {
+        ResultScope::Page { offset, limit } => {
+            request.options.offset = offset;
+            request.options.limit = limit;
+        }
+        ResultScope::All { .. } => {
+            let slots = base_active.iter().try_fold(0usize, |count, active| {
+                count.checked_add(active.len() as usize)
+            });
+            let slots = segments.iter().flat_map(|group| group.iter()).try_fold(
+                slots.ok_or_else(|| StreamError::Resource {
+                    message: "all-results record count overflow".into(),
+                    progress: delivery.progress,
+                })?,
+                |count, segment| count.checked_add(segment.active.len() as usize),
+            ).ok_or_else(|| StreamError::Resource {
+                message: "all-results record count overflow".into(),
+                progress: delivery.progress,
+            })?;
+            request.options.offset = 0;
+            request.options.limit = slots;
+            request.options.count = true;
+            request.options.return_mode = ReturnMode::Locator;
+        }
+    }
+    let mut result = match search_segmented_with_context(
+        repo, &request, base_active, segments, catalog, revision, context,
+    ) {
+        Ok(result) => result,
+        Err(error) => return segmented_stream_error(&mut delivery, context, error.message),
+    };
+    if let Err(message) = delivery.check_buffer(
+        result.hits.iter().map(crate::streaming::hit_bytes).sum(),
+    ) {
+        return segmented_stream_error(&mut delivery, context, message);
+    }
+    if all {
+        let mut batch = Vec::new();
+        let mut batch_bytes = 0usize;
+        for hit in std::mem::take(&mut result.hits).into_iter().skip(scope.offset()) {
+            if let Err(message) = delivery.check() {
+                return segmented_stream_error(&mut delivery, context, message);
+            }
+            let hit = match materialize_segmented_stream_hit(
+                repo, hit, query.options.return_mode.clone(), base_active, segments,
+                catalog, revision, context,
+            ) {
+                Ok(hit) => hit,
+                Err(message) => return segmented_stream_error(&mut delivery, context, message),
+            };
+            if query.options.return_mode != ReturnMode::Locator {
+                result.counters.files_opened += 1;
+                result.counters.bytes_read += hit.byte_end.saturating_sub(hit.byte_start);
+                result.counters.record_parses += u64::from(
+                    query.options.return_mode == ReturnMode::Logical
+                        && hit.record_class == RecordClass::Logical,
+                );
+            }
+            let size = crate::streaming::hit_bytes(&hit);
+            if !batch.is_empty() && (batch.len() >= options.batch_rows
+                || batch_bytes.saturating_add(size) > options.max_event_bytes)
+            {
+                if let Err(message) = delivery.ordered_batch(&batch, &result.counters) {
+                    return segmented_stream_error(&mut delivery, context, message);
+                }
+                batch.clear();
+                batch_bytes = 0;
+            }
+            batch_bytes = batch_bytes.saturating_add(size);
+            batch.push(hit);
+            if let Err(message) = delivery.check_buffer(batch_bytes) {
+                return segmented_stream_error(&mut delivery, context, message);
+            }
+        }
+        if let Err(message) = delivery.ordered_batch(&batch, &result.counters) {
+            return segmented_stream_error(&mut delivery, context, message);
+        }
+        result.counters.returned_records = delivery.progress.emitted_rows;
+    } else {
+        let delivered = match options.mode {
+            crate::streaming::StreamMode::OrderedRows =>
+                delivery.ordered_rows(&result.hits, &result.counters, true),
+            crate::streaming::StreamMode::PageReplacements =>
+                delivery.replacement(&result.hits, &result.counters, 0),
+        };
+        if let Err(message) = delivered {
+            return segmented_stream_error(&mut delivery, context, message);
+        }
+    }
+    if let Err(message) = delivery.check() {
+        return segmented_stream_error(&mut delivery, context, message);
+    }
+    delivery.observe(&result.counters);
+    Ok(StreamOutcome::Complete(Box::new(StreamSummary {
+        count: result.count,
+        returned_rows: if all { delivery.progress.emitted_rows as usize } else { result.hits.len() },
+        final_sequence: delivery.last_page_sequence(),
+        counters: result.counters,
+        progress: delivery.progress,
+    })))
 }
 
 fn offer(
