@@ -4,8 +4,9 @@
 //! mutation, reconciliation and persistence are added in later lifecycle
 //! phases; a wrapped static repository does not imply those operations exist.
 
+use std::collections::HashMap;
 use std::fmt;
-use std::path::Path;
+use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Condvar, Mutex, RwLock};
 use std::thread::JoinHandle;
@@ -708,6 +709,13 @@ struct IndexInner {
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
     maintenance: Mutex<MaintenanceState>,
+    persistence: Mutex<PersistenceState>,
+}
+
+struct PersistenceState {
+    selected_cache: Option<PathBuf>,
+    saved: HashMap<PathBuf, IndexRevision>,
+    protected_files: Vec<PathBuf>,
 }
 
 struct MaintenanceState {
@@ -784,20 +792,30 @@ impl Index {
     /// This does not trigger discovery, reconciliation or cache persistence.
     pub fn from_repository(repository: Repository) -> Result<Self, IndexError> {
         let instance_id = crate::repository::next_repository_instance();
-        let published = Arc::new(PublishedIndex::from_repository(
+        let published = PublishedIndex::from_repository(
             instance_id,
             IndexRevision::INITIAL,
             Arc::new(repository),
-        )?);
-        Ok(Self(Arc::new(IndexInner {
+        )?;
+        Ok(Self::from_published(published))
+    }
+
+    pub(crate) fn from_published(published: PublishedIndex) -> Self {
+        let instance_id = published.instance_id;
+        Self(Arc::new(IndexInner {
             instance_id,
-            published: RwLock::new(published),
+            published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
             maintenance: Mutex::new(MaintenanceState {
                 reconciliation: ReconciliationState::NotStarted,
                 current: None,
             }),
-        })))
+            persistence: Mutex::new(PersistenceState {
+                selected_cache: None,
+                saved: HashMap::new(),
+                protected_files: Vec::new(),
+            }),
+        }))
     }
 
     pub fn instance_id(&self) -> u64 {
@@ -823,6 +841,95 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?
             .reconciliation;
         Ok(status)
+    }
+
+    /// Persist one pinned revision to an explicit destination. Snapshot
+    /// writers are serialized by destination state, while queries and file
+    /// publication remain free to continue on newer roots.
+    pub fn flush_cache(&self, path: &Path) -> Result<IndexRevision, IndexError> {
+        self.flush_cache_with_stats(path)
+            .map(|(revision, _)| revision)
+    }
+
+    pub fn flush_cache_with_stats(
+        &self,
+        path: &Path,
+    ) -> Result<(IndexRevision, crate::storage::SnapshotSaveStats), IndexError> {
+        let view = self.view()?;
+        let destination = crate::lifecycle_cache_guard::canonical_cache_destination(path)
+            .map_err(IndexError::InvalidCache)?;
+        let mut persistence = self
+            .0
+            .persistence
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        if let Some(saved) = persistence.saved.get(&destination).copied()
+            && saved >= view.revision()
+        {
+            return Ok((saved, crate::storage::SnapshotSaveStats::default()));
+        }
+        let guard = crate::lifecycle_cache_guard::CacheDestinationGuard::new(
+            &view.0,
+            &persistence.protected_files,
+        );
+        guard
+            .ensure_safe(&destination)
+            .map_err(IndexError::InvalidCache)?;
+        let stats = crate::storage::save_lifecycle_snapshot_with_stats(
+            &view.0,
+            &destination,
+            crate::lifecycle_segment_codec::encode_segment,
+            || guard.ensure_safe(&destination),
+        )
+        .map_err(IndexError::Io)?;
+        persistence
+            .saved
+            .insert(destination.clone(), view.revision());
+        let selected = match &persistence.selected_cache {
+            Some(selected) => selected == &destination,
+            None => {
+                persistence.selected_cache = Some(destination);
+                true
+            }
+        };
+        drop(persistence);
+        if selected {
+            let mut published = self
+                .0
+                .published
+                .write()
+                .map_err(|_| IndexError::LockPoisoned)?;
+            if published
+                .saved_revision
+                .is_none_or(|saved| saved < view.revision())
+            {
+                let mut next = (**published).clone();
+                next.saved_revision = Some(view.revision());
+                *published = Arc::new(next);
+            }
+        }
+        Ok((view.revision(), stats))
+    }
+
+    pub(crate) fn select_cache_destination(
+        &self,
+        path: &Path,
+        saved: Option<IndexRevision>,
+        protected_files: Vec<PathBuf>,
+    ) -> Result<(), IndexError> {
+        let destination = crate::lifecycle_cache_guard::canonical_cache_destination(path)
+            .map_err(IndexError::InvalidCache)?;
+        let mut persistence = self
+            .0
+            .persistence
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        persistence.selected_cache = Some(destination.clone());
+        persistence.protected_files = protected_files;
+        if let Some(revision) = saved {
+            persistence.saved.insert(destination, revision);
+        }
+        Ok(())
     }
 
     /// Coalesce concurrent scan requests into one worker. The scan runs
@@ -896,6 +1003,19 @@ impl Index {
         maintenance.reconciliation = ReconciliationState::Pending;
         maintenance.current = Some(Arc::clone(&job));
         Ok(ReconciliationTask(job))
+    }
+
+    pub fn wait_for_reconciliation(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        let current = self
+            .0
+            .maintenance
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .current
+            .clone();
+        current
+            .map(|job| ReconciliationTask(job).wait())
+            .transpose()
     }
 
     /// Cancel and join the current scan worker before releasing this handle.
@@ -1128,7 +1248,40 @@ impl Index {
             .map(|collection| collection.definition.clone())
             .collect::<Vec<_>>();
         let prior = snapshot.0.catalog.scan_stamps();
-        let scan = scan_sources(root, &definitions, &repository.sources, &cancelled);
+        let mut scan = scan_sources(root, &definitions, &repository.sources, &cancelled);
+        let cache_paths = {
+            let persistence = self.0.persistence.lock();
+            match persistence {
+                Ok(persistence) => persistence
+                    .saved
+                    .keys()
+                    .filter_map(|destination| {
+                        destination
+                            .strip_prefix(root)
+                            .ok()
+                            .map(|relative| relative.to_owned())
+                    })
+                    .collect::<Vec<_>>(),
+                Err(_) => {
+                    report.record_issue("cache destination state is unavailable".into());
+                    report.duration = started.elapsed();
+                    on_progress(&report);
+                    return report;
+                }
+            }
+        };
+        scan.files.retain(|path, _| {
+            !cache_paths.iter().any(|cache| {
+                path == cache
+                    || (path.parent() == cache.parent()
+                        && path
+                            .file_name()
+                            .and_then(|name| name.to_str())
+                            .is_some_and(|name| {
+                                name.starts_with(".objekte-snapshot-") && name.ends_with(".tmp")
+                            }))
+            })
+        });
         report.examined = scan.examined;
         report.cancelled = scan.cancelled;
         for issue in &scan.issues {
