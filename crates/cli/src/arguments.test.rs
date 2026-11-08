@@ -91,6 +91,33 @@ fn repository_mode_uses_its_root_and_rejects_single_folder_options() {
 }
 
 #[test]
+fn directly_constructed_open_options_keep_cli_conflicts() {
+    let cwd = tempfile::tempdir().unwrap();
+    let mut args = Arguments::try_parse_from(["obj", "--tui"]).unwrap();
+    args.repo = Some(cwd.path().to_path_buf());
+    args.path.push(cwd.path().to_path_buf());
+    assert!(
+        args.resolve_paths(cwd.path())
+            .unwrap_err()
+            .contains("--repo")
+    );
+    args.path.clear();
+    args.schema = Some(cwd.path().join("schema.json"));
+    assert!(
+        args.validate_open_options()
+            .unwrap_err()
+            .contains("--schema")
+    );
+    args.schema = None;
+    args.no_recurse = true;
+    assert!(
+        args.validate_open_options()
+            .unwrap_err()
+            .contains("--no-recurse")
+    );
+}
+
+#[test]
 fn repeated_paths_resolve_under_one_root_and_select_multiple_collections() {
     let cwd = tempfile::tempdir().unwrap();
     std::fs::create_dir_all(cwd.path().join("data/authors")).unwrap();

@@ -1,7 +1,7 @@
 //! Sequential query input and translation into normal core requests.
 
 use std::fs::File;
-use std::io::{self, BufRead, BufReader};
+use std::io::{self, BufRead, BufReader, Cursor};
 
 use objekte_search_core::query::{
     CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_structured_filter,
@@ -88,6 +88,17 @@ impl QueryInput {
 
 
 impl QuerySource {
+    /// Parse pasted batch text with the same physical-line rules as a query file.
+    pub fn from_text(text: String) -> Self {
+        Self {
+            direct: None,
+            reader: Some(Box::new(BufReader::new(Cursor::new(text.into_bytes())))),
+            line: 0,
+            first_line: true,
+            yielded: 0,
+        }
+    }
+
     pub fn open(args: &Arguments) -> Result<Self, String> {
         let direct = if let Some(text) = &args.fts {
             Some(QueryInput {
