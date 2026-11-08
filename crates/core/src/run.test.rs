@@ -399,6 +399,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         |hit| hit.file_path != std::path::Path::new("data/delta.jsonl")
             || hit.byte_start != retired_segments[0][0].index.records[1].range.start
     ));
+    query.options.evidence = true;
     std::fs::write(&path, b"a replaced source revision with unrelated content").unwrap();
     let changed = search_segmented_reference(
         &repo, &query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
@@ -409,12 +410,42 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(changed.counters.source_diagnostics[0].kind,
         crate::measurement::SourceUnavailableKind::RevisionMismatch);
     assert!(changed.hits.iter().all(|hit| hit.file_path != std::path::Path::new("data/delta.jsonl")));
+    let optimized = search_segmented(
+        &repo, &query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
+    ).unwrap();
+    assert_eq!(optimized.count, None);
+    assert_eq!(optimized.hits, changed.hits);
+    assert_eq!(optimized.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::RevisionMismatch);
     std::fs::remove_file(&path).unwrap();
     let missing = search_segmented_reference(
         &repo, &query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
     ).unwrap();
     assert_eq!(missing.count, None);
     assert_eq!(missing.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::Missing);
+    let optimized = search_segmented(
+        &repo, &query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
+    ).unwrap();
+    assert_eq!(optimized.count, None);
+    assert_eq!(optimized.hits, missing.hits);
+    let context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(), None,
+    );
+    let with_context = search_segmented_with_context(
+        &repo, &query, &retired_base, &retired_segments, &catalog,
+        IndexRevision(3), &context,
+    ).unwrap();
+    assert_eq!(with_context.count, None);
+    assert_eq!(with_context.hits, missing.hits);
+    std::fs::remove_file(root.join("data/base.jsonl")).unwrap();
+    query.options.return_mode = ReturnMode::Bytes;
+    let base_only = search_active_available(
+        &repo, &query, &retired_base, &catalog, IndexRevision(3),
+    ).unwrap();
+    assert_eq!(base_only.count, None);
+    assert_eq!(base_only.counters.source_diagnostics[0].kind,
         crate::measurement::SourceUnavailableKind::Missing);
     std::fs::remove_dir_all(root).unwrap();
 }

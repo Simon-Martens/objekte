@@ -2144,7 +2144,12 @@ pub(crate) fn search_segmented(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
-    search_segmented_impl(repo, query, base_active, segments, catalog, revision, None)
+    match search_segmented_impl(repo, query, base_active, segments, catalog, revision, None) {
+        Err(_error) if has_unavailable_active_source(repo, base_active, segments, catalog) => {
+            search_segmented_reference(repo, query, base_active, segments, catalog, revision)
+        }
+        result => result,
+    }
 }
 
 pub(crate) fn search_segmented_with_context(
@@ -2157,10 +2162,113 @@ pub(crate) fn search_segmented_with_context(
     context: &ExecutionContext,
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     context.check()?;
-    search_segmented_impl(
+    let result = search_segmented_impl(
         repo, query, base_active, segments, catalog, revision, Some(context),
-    )
-    .map_err(|message| context.recorded_error(message))
+    );
+    match result {
+        Err(message) => {
+            let error = context.recorded_error(message);
+            if matches!(error.kind, ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution)
+                && has_unavailable_active_source(repo, base_active, segments, catalog)
+            {
+                let sort = ResolvedSort::new(repo, query)
+                    .map_err(|message| context.recorded_error(message))?;
+                let (prepared, _) = crate::prepared::prepare(repo, query)
+                    .map_err(|message| context.recorded_error(message))?;
+                search_segmented_relations(
+                    repo, query, base_active, segments, catalog, revision,
+                    &sort, &prepared.collections, Some(context),
+                ).map_err(|message| context.recorded_error(message))
+            } else {
+                Err(error)
+            }
+        }
+        Ok(result) => Ok(result),
+    }
+}
+
+/// Preserve the base fast path when no segment is present, while letting a
+/// failed source read fall back to the pinned availability scan.
+pub(crate) fn search_active_available(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+) -> Result<SearchResult, String> {
+    let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
+    match search_active(repo, query, base_active) {
+        Err(_error) if has_unavailable_active_source(repo, base_active, &empty, catalog) => {
+            search_segmented_reference(repo, query, base_active, &empty, catalog, revision)
+        }
+        result => result,
+    }
+}
+
+pub(crate) fn search_active_available_with_context(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    context: &ExecutionContext,
+) -> Result<SearchResult, crate::streaming::ExecutionError> {
+    let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
+    match search_with_context_active(repo, query, context, base_active) {
+        Err(error)
+            if matches!(error.kind, ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution)
+                && has_unavailable_active_source(repo, base_active, &empty, catalog) =>
+        {
+            let sort = ResolvedSort::new(repo, query)
+                .map_err(|message| context.recorded_error(message))?;
+            let (prepared, _) = crate::prepared::prepare(repo, query)
+                .map_err(|message| context.recorded_error(message))?;
+            search_segmented_relations(
+                repo, query, base_active, &empty, catalog, revision,
+                &sort, &prepared.collections, Some(context),
+            ).map_err(|message| context.recorded_error(message))
+        }
+        result => result,
+    }
+}
+
+/// Probe active files only after an optimized query failed. Ordinary queries
+/// keep their index/cache fast path without a per-file metadata pass.
+fn has_unavailable_active_source(
+    repo: &Repository,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+) -> bool {
+    let unavailable = |file: &FileEntry| {
+        let path = repo.files.root.join(&file.relative_path);
+        std::fs::File::open(&path).ok()
+            .and_then(|handle| handle.metadata().ok())
+            .and_then(|metadata| crate::inventory::SourceRevision::from_metadata(&metadata).ok())
+            != Some(file.revision)
+    };
+    for (index, collection) in repo.collections.iter().enumerate() {
+        for file_id in &collection.generation.files {
+            if collection.generation.file_records.records_for(*file_id)
+                .is_some_and(|slots| slots.iter().any(|slot| base_active[index].contains(*slot)))
+                && let Some(file) = catalog.entry(*file_id)
+                && unavailable(file)
+            {
+                return true;
+            }
+        }
+        for segment in segments[index].iter() {
+            for file in &segment.index.files {
+                if file.records.iter().any(|slot| segment.active.contains(*slot))
+                    && let Some(current) = catalog.entry(file.entry.id)
+                    && unavailable(current)
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    false
 }
 
 fn search_segmented_impl(
