@@ -1823,17 +1823,15 @@ impl IndexView {
             )
             .map(|result| self.stamp_result(result))
         } else {
-            crate::run::search_segmented(
+            crate::run::search_segmented_with_context(
                 self.repository(),
                 &resolved,
                 &self.0.active,
                 &self.0.segments,
                 &self.0.catalog,
                 self.revision(),
+                context,
             )
-            .map_err(|message| {
-                context.error(crate::streaming::ExecutionErrorKind::Execution, message)
-            })
         }
     }
 
@@ -2055,12 +2053,20 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
-        self.require_base_only("streamed search")
-            .map_err(|message| StreamError::Execution {
-                kind: crate::streaming::ExecutionErrorKind::Execution,
-                message,
-                progress: Default::default(),
-            })?;
+        if self.has_segments() {
+            return crate::run::search_stream_segmented_with_context(
+                self.repository(),
+                query,
+                scope,
+                options,
+                context,
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+                self.revision(),
+                sink,
+            );
+        }
         let scoped_context = context.with_active(&self.0.active);
         let revision = self.revision().0;
         let mut stamped = |event: StreamEvent<'_>| match event {
