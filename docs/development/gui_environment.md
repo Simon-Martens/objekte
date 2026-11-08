@@ -21,6 +21,8 @@ Source documents and collection schemas remain read-only. **Save Query** writes 
 
 The GPUI window owns bounded display pages and sends typed actions to `DesktopController`. Worker threads own repository loading, queries, record reads, batch execution, exports, snapshot work, and preference writes. The controller retains one repository across searches, cancels superseded requests, and rejects completion messages from old generations. The desktop backend reuses the CLI loader/execution protocol, core query and streaming APIs, and TUI record/export helpers. This keeps complete output available while the window holds at most 100 result rows and bounded detail text.
 
+The CLI loader does not take a cancellation token. A canceled repository open stops affecting the visible window but may finish building on its worker before it exits. Query, batch, and export work use cooperative cancellation.
+
 At the integration branch's debug build, graphical opening of `examples/musenalm` took 56.5 seconds for seven collections and 148,486 records. The first 100-row page took 8.1 ms after opening; the process held about 711 MiB RSS. A same-corpus debug CLI run took 55.6 seconds and about 581 MiB peak RSS. The large startup cost is index construction in debug mode; it does not block the window. A release core benchmark built the corpus in 1.125 seconds, so do not compare that release figure directly with the debug GUI timing. See the [desktop parity record](../ai/generated/desktop_application_parity.md) for exact checks and limits.
 
 ## How the session works
