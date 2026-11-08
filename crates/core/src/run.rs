@@ -2327,21 +2327,34 @@ fn has_unavailable_active_source(
     };
     for (index, collection) in repo.collections.iter().enumerate() {
         for file_id in &collection.generation.files {
-            if collection.generation.file_records.records_for(*file_id)
-                .is_some_and(|slots| slots.iter().any(|slot| base_active[index].contains(*slot)))
+            if let Some(slots) = collection.generation.file_records.records_for(*file_id)
+                && slots.iter().any(|slot| base_active[index].contains(*slot))
                 && let Some(file) = catalog.entry(*file_id)
-                && unavailable(file)
             {
-                return true;
+                if unavailable(file) || slots.iter().filter(|slot| base_active[index].contains(**slot))
+                    .any(|slot| {
+                        let range = collection.generation.records[slot.0 as usize].range;
+                        range.start > range.end || range.end > file.revision.size
+                    })
+                {
+                    return true;
+                }
             }
         }
         for segment in segments[index].iter() {
             for file in &segment.index.files {
                 if file.records.iter().any(|slot| segment.active.contains(*slot))
                     && let Some(current) = catalog.entry(file.entry.id)
-                    && unavailable(current)
                 {
-                    return true;
+                    if unavailable(current) || file.records.iter()
+                        .filter(|slot| segment.active.contains(**slot))
+                        .any(|slot| {
+                            let range = segment.index.records[slot.0 as usize].range;
+                            range.start > range.end || range.end > current.revision.size
+                        })
+                    {
+                        return true;
+                    }
                 }
             }
         }
