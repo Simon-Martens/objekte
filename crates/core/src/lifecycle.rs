@@ -1748,16 +1748,6 @@ impl IndexView {
         self.0.segments.iter().any(|group| !group.is_empty())
     }
 
-    fn require_base_only(&self, route: &str) -> Result<(), String> {
-        if self.has_segments() {
-            Err(format!(
-                "{route} across indexed segments is not available yet"
-            ))
-        } else {
-            Ok(())
-        }
-    }
-
     fn stamp_result(&self, mut result: SearchResult) -> SearchResult {
         for hit in &mut result.hits {
             hit.generation = self.revision().0;
@@ -2064,7 +2054,20 @@ impl IndexView {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::OutgoingReferencePage, String> {
-        self.require_base_only("outgoing relation inspection")?;
+        if self.has_segments() {
+            return crate::relation_inspection::relation_outgoing_page_segmented(
+                self.repository(),
+                source_collection,
+                relation_path,
+                source_id,
+                offset,
+                limit,
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository().relation_outgoing_page_for_view(
             source_collection,
             relation_path,
@@ -2083,7 +2086,20 @@ impl IndexView {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::BacklinkPage, String> {
-        self.require_base_only("backlink relation inspection")?;
+        if self.has_segments() {
+            return crate::relation_inspection::relation_backlink_page_segmented(
+                self.repository(),
+                target_collection,
+                reverse_alias,
+                target_id,
+                offset,
+                limit,
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository().relation_backlink_page_for_view(
             target_collection,
             reverse_alias,
@@ -2095,7 +2111,15 @@ impl IndexView {
     }
 
     pub fn collection_graph(&self) -> Result<crate::relation_inspection::CollectionGraph, String> {
-        self.require_base_only("collection graph")?;
+        if self.has_segments() {
+            return crate::relation_inspection::collection_graph_segmented(
+                self.repository(),
+                self.revision(),
+                &self.0.active,
+                &self.0.segments,
+                &self.0.catalog,
+            );
+        }
         self.repository().collection_graph_for_view(&self.0.active)
     }
 
