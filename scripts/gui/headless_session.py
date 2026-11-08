@@ -171,6 +171,9 @@ def stop():
         if description != "Description=GPUI headless Sway validation":
             raise Problem(f"Refusing to stop unexpected service {UNIT}")
         subprocess.run([sys.executable, str(ROOT / "scripts/gui/gui_control.py"), "cleanup"], check=False)
+        desktop_control = ROOT / "scripts/gui/desktop_control.py"
+        if desktop_control.is_file():
+            subprocess.run([sys.executable, str(desktop_control), "cleanup"], check=False)
         run(["systemctl", "--user", "stop", UNIT])
     MANIFEST.unlink(missing_ok=True)
     print("Stopped task-owned headless Sway session; artifacts retained.")
