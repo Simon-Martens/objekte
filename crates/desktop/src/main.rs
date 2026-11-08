@@ -1,30 +1,16 @@
-use gpui_kit::{
-    AppContext as _, Context, IntoElement, ParentElement as _, Render, Styled as _, Window,
-    WindowOptions, application, assets, div, init, open_window, rgb,
-};
+//! Native Objekte application entry point.
 
+use std::time::Duration;
 
-/// Temporary window while the repository and interaction modules are integrated.
-struct BootstrapView;
-
-
-impl Render for BootstrapView {
-    fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
-        div()
-            .size_full()
-            .p_6()
-            .bg(rgb(0x101820))
-            .text_color(rgb(0xe7edf2))
-            .child(div().text_xl().child("Objekte"))
-            .child(div().child("Desktop workspace is loading"))
-    }
-}
-
+use gpui_kit::{AppContext as _, WindowOptions, application, assets, init, open_window};
+use objekte_desktop::controller::runtime::DesktopController;
+use objekte_desktop::ui::DesktopView;
 
 fn main() {
     application().with_assets(assets::Assets).run(|cx| {
         init(cx);
-        open_window(
+        let (mut controller, actions) = DesktopController::new();
+        let (window_handle, view) = open_window(
             WindowOptions {
                 app_id: Some("dev.objekte.desktop".into()),
                 ..WindowOptions::default()
@@ -32,9 +18,32 @@ fn main() {
             cx,
             |window, cx| {
                 window.set_window_title("Objekte");
-                cx.new(|_| BootstrapView)
+                cx.new(|cx| DesktopView::new(window, cx, actions))
             },
         )
         .expect("failed to open Objekte window");
+        let executor = cx.background_executor().clone();
+        cx.spawn(async move |cx| {
+            loop {
+                executor.timer(Duration::from_millis(16)).await;
+                let updates = cx.update(|app| controller.tick(app));
+                if updates.is_empty() {
+                    continue;
+                }
+                if window_handle
+                    .update(cx, |_, window, app| {
+                        view.update(app, |view, cx| {
+                            for update in updates {
+                                view.apply(update, window, cx);
+                            }
+                        });
+                    })
+                    .is_err()
+                {
+                    break;
+                }
+            }
+        })
+        .detach();
     });
 }
