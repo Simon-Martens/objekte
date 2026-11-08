@@ -18,6 +18,79 @@ fn concurrent_test_inferred_column(path: &str) -> SortColumn {
     }
 }
 
+#[test]
+fn active_inspection_traces_use_live_domain_and_match_search() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-active-trace-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, body) in [
+        ("00", r#"{"kind":"yes","body":"needle"}"#),
+        ("01", r#"{"kind":"yes","body":"needle"}"#),
+        ("02", r#"{"kind":"no","body":"hay"}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["kind".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition],
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let active = vec![
+        crate::inventory::ActiveRecords::all(3)
+            .unwrap()
+            .retired(&[crate::model::RecordSlot(1)])
+            .unwrap(),
+    ];
+    let query = Query {
+        collections: vec!["data".into()],
+        filter: Some(parse_filter("!(kind = 'no')").unwrap()),
+        fts: None,
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let (result, actual) = search_analyze_with_active(&repo, &query, Some(&active)).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(
+        result.hits,
+        search_active(&repo, &query, &active).unwrap().hits
+    );
+    assert_eq!(actual[0].input_records, 2);
+    assert!(actual[0].candidates <= 2);
+    let estimated = explain_with_active(&repo, &query, Some(&active)).unwrap();
+    assert_eq!(estimated[0].input_records, 2);
+    assert!(estimated[0].candidates <= 2);
+    assert_eq!(search_analyze(&repo, &query).unwrap().0.count, Some(2));
+    assert_eq!(explain(&repo, &query).unwrap()[0].input_records, 3);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn assert_concurrent_inferred_builds(same_key: bool) {
     use std::sync::mpsc;
     use std::time::Duration;

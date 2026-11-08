@@ -7,6 +7,8 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use roaring::RoaringBitmap;
 
 use crate::inference::InferenceMode;
+use crate::inventory::ActiveRecords;
+use crate::lifecycle::IndexRevision;
 use crate::model::{FieldPath, LogicalType, PathRoot};
 use crate::posting::{PostingIndex, ScalarKey};
 use crate::query::Query;
@@ -35,6 +37,7 @@ struct SelectionData {
     instance_id: u64,
     collection_index: usize,
     generation: u64,
+    revision: Option<IndexRevision>,
     members: RoaringBitmap,
 }
 
@@ -117,6 +120,7 @@ pub struct PostingValuesCursor {
     instance_id: u64,
     collection_index: usize,
     generation: u64,
+    revision: Option<IndexRevision>,
     field: Vec<String>,
     binding: String,
     binding_version: u32,
@@ -324,6 +328,26 @@ fn empty_range(lower: &Bound<ScalarKey>, upper: &Bound<ScalarKey>) -> bool {
 
 impl Repository {
     pub fn select_exact(&self, collection: &str, query: &Query) -> Result<ExactSelection, String> {
+        self.select_exact_with_active(collection, query, None, None)
+    }
+
+    pub(crate) fn select_exact_for_view(
+        &self,
+        collection: &str,
+        query: &Query,
+        revision: IndexRevision,
+        active: &[ActiveRecords],
+    ) -> Result<ExactSelection, String> {
+        self.select_exact_with_active(collection, query, Some(revision), Some(active))
+    }
+
+    fn select_exact_with_active(
+        &self,
+        collection: &str,
+        query: &Query,
+        revision: Option<IndexRevision>,
+        active: Option<&[ActiveRecords]>,
+    ) -> Result<ExactSelection, String> {
         let (collection_index, state) = self
             .collections
             .iter()
@@ -335,12 +359,18 @@ impl Repository {
             return Err("selection query excludes requested collection".into());
         }
         let resolved = query.resolve_current_clock()?;
-        let members = crate::run::exact_members(self, resolved.as_ref(), collection_index)?;
+        let members = crate::run::exact_members_with_active(
+            self,
+            resolved.as_ref(),
+            collection_index,
+            active,
+        )?;
         Ok(ExactSelection(Arc::new(SelectionData {
             id: NEXT_SELECTION_ID.fetch_add(1, Ordering::Relaxed),
             instance_id: self.instance_id,
             collection_index,
             generation: state.generation.generation,
+            revision,
             members,
         })))
     }
@@ -348,6 +378,24 @@ impl Repository {
     pub fn posting_values(
         &self,
         request: &PostingValuesRequest,
+    ) -> Result<PostingValuesPage, String> {
+        self.posting_values_with_active(request, None, None)
+    }
+
+    pub(crate) fn posting_values_for_view(
+        &self,
+        request: &PostingValuesRequest,
+        revision: IndexRevision,
+        active: &[ActiveRecords],
+    ) -> Result<PostingValuesPage, String> {
+        self.posting_values_with_active(request, Some(revision), Some(active))
+    }
+
+    fn posting_values_with_active(
+        &self,
+        request: &PostingValuesRequest,
+        revision: Option<IndexRevision>,
+        active: Option<&[ActiveRecords]>,
     ) -> Result<PostingValuesPage, String> {
         let (collection_index, collection) = self
             .collections
@@ -375,6 +423,7 @@ impl Repository {
             selection.instance_id != self.instance_id
                 || selection.collection_index != collection_index
                 || selection.generation != collection.generation.generation
+                || selection.revision != revision
         }) {
             return Err("exact selection scope mismatch".into());
         }
@@ -401,13 +450,21 @@ impl Repository {
         } else {
             None
         };
-        let selected_domain = selection.map(|selection| &selection.members);
-        let selected_total = selected_domain.map(RoaringBitmap::len);
+        let live_domain = active.map(|domains| domains[collection_index].bitmap());
+        let selected_domain = match (selection, live_domain) {
+            (Some(selection), Some(live)) => Some(&selection.members & &live),
+            (Some(selection), None) => Some(selection.members.clone()),
+            (None, live) => live,
+        };
+        let selected_domain = selected_domain.as_ref();
+        let selected_total = selection.map(|selection| selection.members.len());
         let eligible = selected_domain.map_or(collection.logical_records.len(), |selected| {
             selected.intersection_len(&collection.logical_records)
         });
-        let unavailable =
-            selected_total.unwrap_or(collection.generation.records.len() as u64) - eligible;
+        let live_total = active.map_or(collection.generation.records.len() as u64, |domains| {
+            domains[collection_index].len()
+        });
+        let unavailable = selected_total.unwrap_or(live_total) - eligible;
         let indexed = indexed_records.map_or(eligible, |covered| {
             selected_domain.map_or(covered.len(), |selected| selected.intersection_len(covered))
         });
@@ -430,6 +487,7 @@ impl Repository {
             if cursor.instance_id != self.instance_id
                 || cursor.collection_index != collection_index
                 || cursor.generation != collection.generation.generation
+                || cursor.revision != revision
                 || cursor.field != path.segments
                 || cursor.binding != binding
                 || cursor.binding_version != binding_version
@@ -518,6 +576,7 @@ impl Repository {
                 instance_id: self.instance_id,
                 collection_index,
                 generation: collection.generation.generation,
+                revision,
                 field: path.segments.clone(),
                 binding,
                 binding_version,

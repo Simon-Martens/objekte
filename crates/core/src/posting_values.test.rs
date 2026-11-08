@@ -2,10 +2,131 @@ use super::*;
 
 use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::model::LogicalType;
+use crate::model::RecordSlot;
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions, SnapshotMode};
 use crate::source::SourceFormat;
 use crate::workload::BigramAlphabet;
+
+#[test]
+fn live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-live-posting-values-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, body) in [
+        ("00", r#"{"tag":"a"}"#),
+        ("01", r#"{"tag":"a"}"#),
+        ("02", r#"{"tag":"b"}"#),
+        ("03", r#"{"tag":"c"}"#),
+        ("04", "{"),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["tag".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let all = vec![ActiveRecords::all(repo.collections()[0].generation.records.len()).unwrap()];
+    let live = vec![
+        all[0]
+            .retired(&[RecordSlot(1), RecordSlot(3), RecordSlot(4)])
+            .unwrap(),
+    ];
+    let old_revision = IndexRevision::INITIAL;
+    let new_revision = old_revision.next().unwrap();
+    let mut request = PostingValuesRequest::new("data", "tag", 1);
+    let old_first = repo
+        .posting_values_for_view(&request, old_revision, &all)
+        .unwrap();
+    assert_eq!(old_first.values[0].count, 2);
+    assert_eq!(old_first.coverage.unavailable_records, 1);
+    let first = repo
+        .posting_values_for_view(&request, new_revision, &live)
+        .unwrap();
+    assert_eq!(first.values[0].value, ScalarKey::String("a".into()));
+    assert_eq!(first.values[0].count, 1);
+    assert_eq!(first.coverage.eligible_records, 2);
+    assert_eq!(first.coverage.unavailable_records, 0);
+    assert_eq!(first.coverage.present_records, 2);
+    assert_eq!(first.coverage.indexed_records, 2);
+    assert!(first.coverage.value_counts_complete);
+    request.continuation = old_first.continuation;
+    assert!(
+        repo.posting_values_for_view(&request, new_revision, &live)
+            .is_err()
+    );
+    request.continuation = first.continuation;
+    let second = repo
+        .posting_values_for_view(&request, new_revision, &live)
+        .unwrap();
+    assert_eq!(second.values[0].value, ScalarKey::String("b".into()));
+    assert_eq!(second.values[0].count, 1);
+    assert!(second.continuation.is_none());
+
+    let query = crate::query::Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(crate::query::parse_filter("tag = 'a'").unwrap()),
+        options: crate::query::QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: crate::workload::ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let old_selection = repo
+        .select_exact_for_view("data", &query, old_revision, &all)
+        .unwrap();
+    assert_eq!(old_selection.len(), 2);
+    let live_selection = repo
+        .select_exact_for_view("data", &query, new_revision, &live)
+        .unwrap();
+    assert_eq!(live_selection.len(), 1);
+    request.continuation = None;
+    request.selection = Some(old_selection);
+    assert!(
+        repo.posting_values_for_view(&request, new_revision, &live)
+            .is_err()
+    );
+    request.selection = Some(live_selection);
+    let selected = repo
+        .posting_values_for_view(&request, new_revision, &live)
+        .unwrap();
+    assert_eq!(selected.values[0].count, 1);
+    assert_eq!(selected.coverage.selected_records, Some(1));
+    assert_eq!(
+        repo.posting_values(&PostingValuesRequest::new("data", "tag", 10))
+            .unwrap()
+            .values
+            .len(),
+        3
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
 
 #[test]
 fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
