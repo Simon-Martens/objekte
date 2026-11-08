@@ -3,7 +3,9 @@
 
 use std::ops::Deref;
 
+use crate::inventory::{DiagnosticRef, SourceDiagnostic};
 use crate::lifecycle::{Index, IndexError, IndexView};
+use crate::model::FileId;
 use crate::query::Query;
 use crate::repository::{Repository, SearchHit, SearchResult, SnapshotAction, StartupStats};
 use crate::streaming::{
@@ -42,6 +44,13 @@ impl IndexedRepository {
 
     pub fn startup(&self) -> &StartupStats {
         &self.startup
+    }
+
+    /// Resolve diagnostics from the current catalog, including files added
+    /// after the base repository was built. Return an owned value because the
+    /// publication pin is released when this method returns.
+    pub fn diagnostic(&self, file: FileId, reference: DiagnosticRef) -> Option<SourceDiagnostic> {
+        self.index.view().ok()?.diagnostic(file, reference).cloned()
     }
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
