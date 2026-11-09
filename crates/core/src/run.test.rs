@@ -200,6 +200,50 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     let StreamOutcome::Complete(no_count) = no_count else { panic!("page incomplete") };
     assert_eq!(no_count.count, None);
     assert!(no_count.counters.scanned_records < 3);
+    let all_query = Query {
+        options: QueryOptions {
+            count: false,
+            ..cached_query.options.clone()
+        },
+        ..cached_query.clone()
+    };
+    let expected = search_segmented(
+        &repo,
+        &Query {
+            options: QueryOptions {
+                count: true,
+                limit: 3,
+                ..all_query.options.clone()
+            },
+            ..all_query.clone()
+        },
+        &segment_only, &segments, &catalog, revision,
+    ).unwrap();
+    let mut streamed_ids = Vec::new();
+    let all = search_stream_segmented_with_context_lifecycle(
+        &repo, &all_query, ResultScope::All { offset: 0 },
+        StreamOptions {
+            batch_rows: 1,
+            max_event_bytes: 1024,
+            max_buffered_bytes: 2048,
+            ..StreamOptions::default()
+        },
+        &ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(), Some(CancellationToken::new()),
+        ), &segment_only, &segments, &catalog, revision,
+        &mut |event| {
+            if let StreamEvent::OrderedRows { rows, .. } = event {
+                streamed_ids.extend(rows.iter().map(|hit| hit.record_id.clone()));
+            }
+            Ok(StreamControl::Continue)
+        }, None,
+    ).unwrap();
+    let StreamOutcome::Complete(all) = all else { panic!("all export incomplete") };
+    assert_eq!(all.count, None);
+    assert_eq!(all.returned_rows, 3);
+    assert!(all.progress.peak_buffered_bytes <= 2048);
+    assert_eq!(streamed_ids, expected.hits.iter().map(|hit| hit.record_id.clone()).collect::<Vec<_>>());
     let mut query = Query {
         collections: vec!["data".into()],
         filter: Some(parse_filter("!(kind = 'b')").unwrap()),
