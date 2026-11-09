@@ -53,11 +53,11 @@ fn compact_source_parts_with_limits(
             "compaction part limit must be positive".into(),
         ));
     }
-    let mut parts = Vec::new();
+    let mut selections = Vec::<(HashSet<FileId>, ActiveRecords)>::new();
     let mut files = HashSet::<FileId>::new();
     let mut slots = RoaringBitmap::new();
     let mut count = 0usize;
-    let seal = |parts: &mut Vec<IndexedCollectionSegment>,
+    let seal = |selections: &mut Vec<(HashSet<FileId>, ActiveRecords)>,
                 files: &mut HashSet<FileId>,
                 slots: &mut RoaringBitmap,
                 count: &mut usize|
@@ -67,18 +67,7 @@ fn compact_source_parts_with_limits(
         }
         let selected = ActiveRecords::from_bitmap(source.records.len(), std::mem::take(slots))
             .map_err(IndexError::InvalidPublication)?;
-        let mut compacted = source
-            .compact_active(&selected, source.records.len(), |entry| {
-                files.contains(&entry.id)
-            })
-            .map_err(IndexError::Build)?;
-        for file in &mut compacted.index.files {
-            if let Some(current) = catalog.entry(file.entry.id) {
-                file.entry.relative_path = current.relative_path.clone();
-            }
-        }
-        parts.push(compacted.index);
-        files.clear();
+        selections.push((std::mem::take(files), selected));
         *count = 0;
         Ok(())
     };
@@ -103,7 +92,7 @@ fn compact_source_parts_with_limits(
             .collect::<Vec<_>>();
         if owned.is_empty() {
             if files.len() >= max_files {
-                seal(&mut parts, &mut files, &mut slots, &mut count)?;
+                seal(&mut selections, &mut files, &mut slots, &mut count)?;
             }
             files.insert(file.entry.id);
             continue;
@@ -112,7 +101,7 @@ fn compact_source_parts_with_limits(
             if count > 0
                 && (count.saturating_add(chunk.len()) > max_records || files.len() >= max_files)
             {
-                seal(&mut parts, &mut files, &mut slots, &mut count)?;
+                seal(&mut selections, &mut files, &mut slots, &mut count)?;
             }
             files.insert(file.entry.id);
             for slot in chunk {
@@ -123,7 +112,34 @@ fn compact_source_parts_with_limits(
             })?;
         }
     }
-    seal(&mut parts, &mut files, &mut slots, &mut count)?;
+    seal(&mut selections, &mut files, &mut slots, &mut count)?;
+    let masks = selections
+        .iter()
+        .map(|(_, active)| active.clone())
+        .collect::<Vec<_>>();
+    let projections = source
+        .project_postings_for_partitions(&masks)
+        .map_err(IndexError::Build)?;
+    let mut parts = Vec::with_capacity(selections.len());
+    for ((files, selected), projection) in selections.into_iter().zip(projections) {
+        if cancelled() {
+            return Err(IndexError::Cancelled);
+        }
+        let mut compacted = source
+            .compact_active_with_postings(
+                &selected,
+                source.records.len(),
+                |entry| files.contains(&entry.id),
+                projection,
+            )
+            .map_err(IndexError::Build)?;
+        for file in &mut compacted.index.files {
+            if let Some(current) = catalog.entry(file.entry.id) {
+                file.entry.relative_path = current.relative_path.clone();
+            }
+        }
+        parts.push(compacted.index);
+    }
     Ok(parts)
 }
 

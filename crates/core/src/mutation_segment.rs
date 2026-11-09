@@ -1016,6 +1016,25 @@ pub(crate) struct CompactedSegment {
     pub old_to_new: Vec<Option<RecordSlot>>,
 }
 
+pub(crate) struct PostingProjection {
+    postings: PostingCollection,
+    custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+}
+
+fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> PostingIndex {
+    PostingIndex {
+        path: source.path.clone(),
+        kind: source.kind.clone(),
+        multi: source.multi,
+        presence: RoaringBitmap::new(),
+        nulls: RoaringBitmap::new(),
+        values: Default::default(),
+        lengths: Default::default(),
+        covered_records: logical_count,
+        stats: Default::default(),
+    }
+}
+
 fn project_bitmap(
     source: &RoaringBitmap,
     slots: &[Option<RecordSlot>],
@@ -1317,6 +1336,194 @@ fn project_inference(
 }
 
 impl IndexedCollectionSegment {
+    /// Scatter typed posting dictionaries through the partition map once.
+    /// Repeatedly projecting the complete source dictionary for each output
+    /// shard is quadratic in the number of partitions for unique IDs.
+    pub(crate) fn project_postings_for_partitions(
+        &self,
+        masks: &[ActiveRecords],
+    ) -> Result<Vec<PostingProjection>, String> {
+        let mut mapping = vec![None; self.records.len()];
+        let mut logical_counts = vec![0u32; masks.len()];
+        for (part, mask) in masks.iter().enumerate() {
+            if mask.slot_count() as usize != self.records.len() {
+                return Err("partition posting mask coverage mismatch".into());
+            }
+            for (local, old) in mask.bitmap().iter().enumerate() {
+                let location = mapping
+                    .get_mut(old as usize)
+                    .ok_or("partition posting slot outside source")?;
+                if location.replace((part, RecordSlot(local as u32))).is_some() {
+                    return Err("partition posting slot selected twice".into());
+                }
+                if self.logical_records.contains(old) {
+                    logical_counts[part] += 1;
+                }
+            }
+        }
+        let mut projected = logical_counts
+            .into_iter()
+            .map(|logical_count| PostingProjection {
+                postings: PostingCollection {
+                    fields: self
+                        .postings
+                        .fields
+                        .iter()
+                        .map(|(path, index)| {
+                            (path.clone(), empty_projected_posting(index, logical_count))
+                        })
+                        .collect(),
+                },
+                custom_postings: self
+                    .custom_postings
+                    .iter()
+                    .map(|(key, custom)| {
+                        (
+                            key.clone(),
+                            CustomPostingIndex {
+                                index: empty_projected_posting(&custom.index, logical_count),
+                                complete: custom.complete,
+                            },
+                        )
+                    })
+                    .collect(),
+            })
+            .collect::<Vec<_>>();
+        for (path, index) in &self.postings.fields {
+            for old in index.presence.iter() {
+                if let Some((part, slot)) = mapping[old as usize] {
+                    projected[part]
+                        .postings
+                        .fields
+                        .get_mut(path)
+                        .unwrap()
+                        .presence
+                        .insert(slot.0);
+                }
+            }
+            for old in index.nulls.iter() {
+                if let Some((part, slot)) = mapping[old as usize] {
+                    projected[part]
+                        .postings
+                        .fields
+                        .get_mut(path)
+                        .unwrap()
+                        .nulls
+                        .insert(slot.0);
+                }
+            }
+            for (key, bitmap) in &index.values {
+                for old in bitmap.iter() {
+                    if let Some((part, slot)) = mapping[old as usize] {
+                        projected[part]
+                            .postings
+                            .fields
+                            .get_mut(path)
+                            .unwrap()
+                            .values
+                            .entry(key.clone())
+                            .or_default()
+                            .insert(slot.0);
+                    }
+                }
+            }
+            for (key, bitmap) in &index.lengths {
+                for old in bitmap.iter() {
+                    if let Some((part, slot)) = mapping[old as usize] {
+                        projected[part]
+                            .postings
+                            .fields
+                            .get_mut(path)
+                            .unwrap()
+                            .lengths
+                            .entry(key.clone())
+                            .or_default()
+                            .insert(slot.0);
+                    }
+                }
+            }
+        }
+        for (key, custom) in &self.custom_postings {
+            let index = &custom.index;
+            for old in index.presence.iter() {
+                if let Some((part, slot)) = mapping[old as usize] {
+                    projected[part]
+                        .custom_postings
+                        .get_mut(key)
+                        .unwrap()
+                        .index
+                        .presence
+                        .insert(slot.0);
+                }
+            }
+            for old in index.nulls.iter() {
+                if let Some((part, slot)) = mapping[old as usize] {
+                    projected[part]
+                        .custom_postings
+                        .get_mut(key)
+                        .unwrap()
+                        .index
+                        .nulls
+                        .insert(slot.0);
+                }
+            }
+            for (value, bitmap) in &index.values {
+                for old in bitmap.iter() {
+                    if let Some((part, slot)) = mapping[old as usize] {
+                        projected[part]
+                            .custom_postings
+                            .get_mut(key)
+                            .unwrap()
+                            .index
+                            .values
+                            .entry(value.clone())
+                            .or_default()
+                            .insert(slot.0);
+                    }
+                }
+            }
+            for (value, bitmap) in &index.lengths {
+                for old in bitmap.iter() {
+                    if let Some((part, slot)) = mapping[old as usize] {
+                        projected[part]
+                            .custom_postings
+                            .get_mut(key)
+                            .unwrap()
+                            .index
+                            .lengths
+                            .entry(value.clone())
+                            .or_default()
+                            .insert(slot.0);
+                    }
+                }
+            }
+        }
+        for part in &mut projected {
+            for index in part.postings.fields.values_mut() {
+                index.finish_stats();
+            }
+            for custom in part.custom_postings.values_mut() {
+                custom.index.finish_stats();
+            }
+        }
+        Ok(projected)
+    }
+
+    pub(crate) fn compact_active_with_postings(
+        &self,
+        active: &ActiveRecords,
+        max_scanned_records: usize,
+        retain_file: impl Fn(&FileEntry) -> bool,
+        projection: PostingProjection,
+    ) -> Result<CompactedSegment, String> {
+        self.compact_active_mapped(
+            active,
+            max_scanned_records,
+            retain_file,
+            None,
+            Some(projection),
+        )
+    }
     /// Build a dense active-only shard without opening source data. The file
     /// predicate distinguishes a current zero-record file from an obsolete
     /// historical incarnation with no live records.
@@ -1326,7 +1533,7 @@ impl IndexedCollectionSegment {
         max_scanned_records: usize,
         retain_file: impl Fn(&FileEntry) -> bool,
     ) -> Result<CompactedSegment, String> {
-        self.compact_active_mapped(active, max_scanned_records, retain_file, None)
+        self.compact_active_mapped(active, max_scanned_records, retain_file, None, None)
     }
 
     /// Reorder a dense bounded shard without changing its physical slot count.
@@ -1337,7 +1544,7 @@ impl IndexedCollectionSegment {
         }
         let active = ActiveRecords::all(self.records.len())?;
         Ok(self
-            .compact_active_mapped(&active, self.records.len(), |_| true, Some(new_slots))?
+            .compact_active_mapped(&active, self.records.len(), |_| true, Some(new_slots), None)?
             .index)
     }
 
@@ -1347,6 +1554,7 @@ impl IndexedCollectionSegment {
         max_scanned_records: usize,
         retain_file: impl Fn(&FileEntry) -> bool,
         new_slots: Option<&[RecordSlot]>,
+        posting_projection: Option<PostingProjection>,
     ) -> Result<CompactedSegment, String> {
         if active.slot_count() as usize != self.records.len() {
             return Err("compaction active-mask coverage mismatch".into());
@@ -1474,32 +1682,39 @@ impl IndexedCollectionSegment {
         let empty_array_records = project_bitmap(&self.empty_array_records, &old_to_new)?;
         let logical_count =
             u32::try_from(logical_records.len()).map_err(|_| "logical slot overflow")?;
-        let postings = PostingCollection {
-            fields: self
-                .postings
-                .fields
+        let (postings, custom_postings) = if let Some(projection) = posting_projection {
+            (projection.postings, projection.custom_postings)
+        } else {
+            let postings = PostingCollection {
+                fields: self
+                    .postings
+                    .fields
+                    .iter()
+                    .map(|(path, index)| {
+                        project_posting(index, &old_to_new, logical_count, bounds)
+                            .map(|projected| (path.clone(), projected))
+                    })
+                    .collect::<Result<HashMap<_, _>, _>>()?,
+            };
+            let custom_postings = self
+                .custom_postings
                 .iter()
-                .map(|(path, index)| {
-                    project_posting(index, &old_to_new, logical_count, bounds)
-                        .map(|projected| (path.clone(), projected))
-                })
-                .collect::<Result<HashMap<_, _>, _>>()?,
-        };
-        let custom_postings = self
-            .custom_postings
-            .iter()
-            .map(|(key, custom)| {
-                project_posting(&custom.index, &old_to_new, logical_count, bounds).map(|index| {
-                    (
-                        key.clone(),
-                        CustomPostingIndex {
-                            index,
-                            complete: custom.complete,
+                .map(|(key, custom)| {
+                    project_posting(&custom.index, &old_to_new, logical_count, bounds).map(
+                        |index| {
+                            (
+                                key.clone(),
+                                CustomPostingIndex {
+                                    index,
+                                    complete: custom.complete,
+                                },
+                            )
                         },
                     )
                 })
-            })
-            .collect::<Result<HashMap<_, _>, _>>()?;
+                .collect::<Result<HashMap<_, _>, _>>()?;
+            (postings, custom_postings)
+        };
         let raw = project_bigram(&self.raw, &old_to_new, next, bounds)?;
         let fallback_text = project_bigram(&self.fallback_text, &old_to_new, next, bounds)?;
         let custom_text = self
