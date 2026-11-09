@@ -1,6 +1,7 @@
 use super::{compact_source_parts_with_limits, partition_base_with_limits};
 use std::sync::Arc;
 
+use crate::inference::{InferenceConfig, InferenceMode};
 use crate::lifecycle::{Index, IndexRevision, PublishedIndex};
 use crate::query::{Query, QueryOptions};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
@@ -153,6 +154,80 @@ fn compacts_one_large_file_in_source_free_parts() {
         9
     );
     assert!(parts.iter().all(|part| part.files.len() == 1));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn partition_and_cache_restore_keep_global_inference_diagnostics() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-partition-inference-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..7 {
+        std::fs::write(
+            root.join(format!("data/{number}.jsonl")),
+            format!("{{\"name\":\"item-{number}\",\"kind\":\"same\"}}\n"),
+        )
+        .unwrap();
+    }
+    let definitions = vec![CollectionDefinition::folder(
+        "items",
+        "data",
+        SourceFormat::JsonLines,
+    )];
+    let options = RepositoryOptions {
+        inference: InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            ..Default::default()
+        },
+        ..Default::default()
+    };
+    let repository = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    let report = serde_json::to_value(repository.inference_report("items").unwrap()).unwrap();
+    let diagnostics =
+        serde_json::to_value(repository.inference_index_diagnostics("items").unwrap()).unwrap();
+    assert!(!diagnostics.as_array().unwrap().is_empty());
+    let published = PublishedIndex::from_repository(
+        crate::repository::next_repository_instance(),
+        IndexRevision::INITIAL,
+        Arc::new(repository),
+    )
+    .unwrap();
+    let partitioned = partition_base_with_limits(published, 2, 2).unwrap();
+    assert!(partitioned.segments[0].len() >= 4);
+    let index = Index::from_published(partitioned);
+    let check = |index: &Index| {
+        let view = index.view().unwrap();
+        let repository = view.repository();
+        assert_eq!(
+            serde_json::to_value(repository.inference_report("items").unwrap()).unwrap(),
+            report
+        );
+        assert_eq!(
+            serde_json::to_value(repository.inference_index_diagnostics("items").unwrap()).unwrap(),
+            diagnostics
+        );
+        assert!(
+            repository.collections()[0]
+                .inference
+                .as_ref()
+                .unwrap()
+                .indexes
+                .is_empty()
+        );
+    };
+    check(&index);
+    let cache = root.join("partition.snapshot");
+    index.flush_cache(&cache).unwrap();
+    let restored = Index::load_cache(&root, definitions, options, &cache).unwrap();
+    check(&restored);
+    restored.shutdown().unwrap();
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

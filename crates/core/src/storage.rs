@@ -24,16 +24,16 @@ use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::relation::RelationIndex;
 use crate::repository::{
-    CollectionDefinition, CollectionState, CollectionStats, Repository, RepositoryOptions,
-    StartupStats,
+    CollectionDefinition, CollectionState, CollectionStats, GlobalInferenceSummary, Repository,
+    RepositoryOptions, StartupStats,
 };
 use crate::sorting::{COLLATION_VERSION, SortCollection};
 use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 16;
-pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 17;
+pub const SNAPSHOT_VERSION: u32 = 17;
+pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 18;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -397,6 +397,7 @@ struct EncodedCollection {
     identity_order: Vec<RecordSlot>,
     postings: PostingCollection,
     inference: Option<InferenceState>,
+    global_inference: Option<GlobalInferenceSummary>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: BigramIndex,
     fallback_text: BigramIndex,
@@ -416,6 +417,7 @@ struct EncodedCollectionRef<'a> {
     identity_order: &'a Vec<RecordSlot>,
     postings: &'a PostingCollection,
     inference: &'a Option<InferenceState>,
+    global_inference: &'a Option<GlobalInferenceSummary>,
     custom_postings: &'a HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: &'a BigramIndex,
     fallback_text: &'a BigramIndex,
@@ -868,6 +870,7 @@ impl Repository {
                     identity_order: &state.identity_order,
                     postings: &state.postings,
                     inference: &state.inference,
+                    global_inference: &state.global_inference,
                     custom_postings: &state.custom_postings,
                     raw: &state.raw,
                     fallback_text: &state.fallback_text,
@@ -1457,6 +1460,7 @@ fn load_snapshot_parts(
             generation,
             postings: encoded.postings,
             inference: encoded.inference,
+            global_inference: encoded.global_inference,
             custom_postings: encoded.custom_postings,
             raw: encoded.raw,
             fallback_text: encoded.fallback_text,
