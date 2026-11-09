@@ -138,6 +138,78 @@ fn nested_source_roots_preserve_all_memberships_without_duplicate_observation() 
 }
 
 #[test]
+fn bounded_scan_marks_unchanged_files_and_reports_only_a_changed_file() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-incremental-batched-scan-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), b"{}").unwrap();
+    std::fs::write(root.join("data/b.json"), b"{}").unwrap();
+    let root = root.canonicalize().unwrap();
+    let definitions = vec![CollectionDefinition::folder(
+        "one",
+        "data",
+        SourceFormat::Json,
+    )];
+    let mut prior = BTreeMap::new();
+    let first = scan_sources_batched(
+        &root,
+        &definitions,
+        &SourceRegistry::builtin(),
+        |_| false,
+        |_| None,
+        || false,
+        1,
+        |batch| {
+            for change in batch {
+                let ScanChange::Add(file) = change else {
+                    panic!("expected add")
+                };
+                let id = FileId(prior.len() as u32);
+                prior.insert(file.path.clone(), (id, file));
+            }
+        },
+    );
+    assert_eq!(first.planned_changes, 2);
+    let mut changes = Vec::new();
+    let second = scan_sources_batched(
+        &root,
+        &definitions,
+        &SourceRegistry::builtin(),
+        |_| false,
+        |path| prior.get(path).cloned(),
+        || false,
+        1,
+        |batch| changes.extend(batch),
+    );
+    assert!(changes.is_empty());
+    assert_eq!(second.unchanged, 2);
+    assert_eq!(second.seen_existing.len(), 2);
+    std::fs::write(root.join("data/b.json"), b"{\"changed\":true}").unwrap();
+    let third = scan_sources_batched(
+        &root,
+        &definitions,
+        &SourceRegistry::builtin(),
+        |_| false,
+        |path| prior.get(path).cloned(),
+        || false,
+        1,
+        |batch| changes.extend(batch),
+    );
+    assert_eq!(third.unchanged, 1);
+    assert_eq!(third.planned_changes, 1);
+    assert!(
+        matches!(&changes[..], [ScanChange::Update { previous, observed }]
+        if previous.path == std::path::Path::new("data/b.json")
+            && observed.revision.size > previous.revision.size)
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn failed_overlap_scope_preserves_existing_file_without_partial_replacement() {
     let root = std::env::temp_dir().join(format!(
         "objekte-failed-overlap-scan-{}-{:?}",
