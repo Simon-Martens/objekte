@@ -10,6 +10,9 @@ use crate::query::{FilterExpr, Operand, Query};
 #[derive(Clone, Debug)]
 pub(crate) struct CachedMember {
     pub collection_index: usize,
+    /// Pinned lifecycle segment position, or the static/base generation.
+    /// This is only interpreted together with the index instance and revision.
+    pub segment_index: Option<usize>,
     pub slot: u32,
     pub matched_fields: Vec<String>,
 }
@@ -55,11 +58,13 @@ impl VerifiedCache {
         self.budget
     }
 
-    pub fn set_budget(&mut self, budget: usize) {
+    /// The caller must drop displaced results after releasing its cache lock.
+    pub fn set_budget(&mut self, budget: usize) -> Vec<Arc<CachedResult>> {
         self.budget = budget;
         self.bytes = 0;
-        self.entries.clear();
+        let displaced = self.entries.drain().map(|(_, entry)| entry.result).collect();
         self.order.clear();
+        displaced
     }
 
     pub fn get(&mut self, key: &[u8]) -> Option<Arc<CachedResult>> {
@@ -71,25 +76,29 @@ impl VerifiedCache {
         Some(result)
     }
 
-    pub fn insert(&mut self, key: Vec<u8>, members: Vec<CachedMember>) {
+    /// The caller must drop displaced results after releasing its cache lock.
+    pub fn insert(&mut self, key: Vec<u8>, members: Vec<CachedMember>) -> Vec<Arc<CachedResult>> {
         let bytes = key.len()
-            + 128
-            + members
+            .saturating_add(128)
+            .saturating_add(members
                 .iter()
                 .map(|member| {
                     std::mem::size_of::<CachedMember>()
-                        + member
+                        .saturating_add(member
                             .matched_fields
                             .iter()
-                            .map(|field| field.len() + std::mem::size_of::<String>())
-                            .sum::<usize>()
+                            .map(|field| field.len().saturating_add(std::mem::size_of::<String>()))
+                            .fold(0usize, usize::saturating_add))
                 })
-                .sum::<usize>();
+                .fold(0usize, usize::saturating_add));
+        let mut displaced = Vec::new();
         if bytes > self.budget {
-            return;
+            displaced.push(Arc::new(CachedResult { members }));
+            return displaced;
         }
         if let Some(old) = self.entries.remove(&key) {
             self.bytes -= old.bytes;
+            displaced.push(old.result);
         }
         if let Some(index) = self.order.iter().position(|old| old == &key) {
             self.order.remove(index);
@@ -98,6 +107,7 @@ impl VerifiedCache {
             if let Some(old) = self.order.pop_front() {
                 if let Some(entry) = self.entries.remove(&old) {
                     self.bytes -= entry.bytes;
+                    displaced.push(entry.result);
                 }
             } else {
                 break;
@@ -112,6 +122,7 @@ impl VerifiedCache {
                 bytes,
             },
         );
+        displaced
     }
 
     #[cfg(test)]
@@ -148,14 +159,29 @@ pub(crate) fn key(query: &Query) -> Result<Vec<u8>, String> {
     if let Some(filter) = &mut filter {
         erase_spans(filter);
     }
-    bincode::serialize(&(
+    let mut key = vec![0];
+    key.extend(bincode::serialize(&(
         &query.collections,
         &filter,
         &query.fts,
         &query.options.sort,
         query.options.evidence,
     ))
-    .map_err(|error| format!("verified query key: {error}"))
+    .map_err(|error| format!("verified query key: {error}"))?);
+    Ok(key)
+}
+
+/// Lifecycle entries are scoped to one index instance and immutable
+/// publication. The prefix keeps them disjoint from static repository keys.
+pub(crate) fn lifecycle_key(
+    query: &Query,
+    instance_id: u64,
+    revision: u64,
+) -> Result<Vec<u8>, String> {
+    let mut key = key(query)?;
+    key[0] = 1;
+    key.splice(1..1, instance_id.to_le_bytes().into_iter().chain(revision.to_le_bytes()));
+    Ok(key)
 }
 
 #[cfg(test)]
