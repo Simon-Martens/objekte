@@ -559,6 +559,34 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         |hit| hit.file_path != std::path::Path::new("data/delta.jsonl")
             || hit.byte_start != retired_segments[0][0].index.records[1].range.start
     ));
+    let hidden_path = root.join("data/hidden.jsonl");
+    std::fs::rename(&path, &hidden_path).unwrap();
+    let exact_output = Query {
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            count: false,
+            return_mode: ReturnMode::Bytes,
+            ..cached_query.options.clone()
+        },
+        ..cached_query.clone()
+    };
+    let unavailable_stream = search_stream_segmented_with_context_lifecycle(
+        &repo, &exact_output, ResultScope::All { offset: 0 },
+        StreamOptions::default(),
+        &ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(), None,
+        ), &segment_only, &segments, &catalog, revision,
+        &mut |_| Ok(StreamControl::Continue), None,
+    ).unwrap();
+    let StreamOutcome::Complete(unavailable_stream) = unavailable_stream else {
+        panic!("source-unavailable export did not complete")
+    };
+    assert_eq!(unavailable_stream.count, None);
+    assert_eq!(unavailable_stream.returned_rows, 0);
+    assert!(unavailable_stream.counters.source_unavailable_events > 0);
+    std::fs::rename(&hidden_path, &path).unwrap();
     query.options.evidence = true;
     std::fs::write(&path, b"a replaced source revision with unrelated content").unwrap();
     let changed = search_segmented_reference(

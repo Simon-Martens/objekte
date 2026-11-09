@@ -4156,11 +4156,20 @@ fn try_lifecycle_ordered_stream(
                     )?;
                     context.charge_reads(1)?;
                     context.charge_bytes(record.range.len())?;
-                    let (read, opened) = read_lifecycle_ordered_record(
+                    let read = read_lifecycle_ordered_record(
                         repo, file, record, cursor.slot, &mut reader,
                         delivery.max_buffered_bytes().saturating_sub(heap_bytes).saturating_sub(page_bytes),
                         context,
-                    )?;
+                    );
+                    let (read, opened) = match read {
+                        Ok(read) => read,
+                        Err(message) => {
+                            if record_unavailable_hit(repo, catalog, &hit, message.clone(), &mut counters)? {
+                                continue;
+                            }
+                            return Err(message);
+                        }
+                    };
                     counters.files_opened += u64::from(opened);
                     counters.bytes_read += read.len() as u64;
                     read
