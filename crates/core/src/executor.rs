@@ -287,6 +287,79 @@ fn segment_file_size_matches(
     Some(matches)
 }
 
+fn segment_file_modified_matches(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    domain: &RoaringBitmap,
+    term: &BoundTerm,
+) -> Option<RoaringBitmap> {
+    if term.path.root != PathRoot::Metadata(MetadataField::FileModified) || term.rhs.is_some() {
+        return None;
+    }
+    // Compatible moves retain the indexed revision; changed metadata takes
+    // the replacement route. The segment's immutable file revision is exact.
+    let empty = Value::Object(BTreeMap::new());
+    let mut matches = RoaringBitmap::new();
+    for file in &segment.files {
+        let Some(first) = file.records.first() else {
+            continue;
+        };
+        let record = segment.records.get(first.0 as usize)?;
+        let ctx = RecordContext {
+            value: &empty,
+            source_bytes: None,
+            record,
+            file: &file.entry,
+            collection_name: &collection.definition.name,
+            repository_root: std::path::Path::new(""),
+        };
+        if eval_term(term, &ctx).ok()? {
+            matches.extend(file.records.iter().map(|slot| slot.0));
+        }
+    }
+    matches &= domain;
+    Some(matches)
+}
+
+fn segment_sort_column_matches(
+    segment: &IndexedCollectionSegment,
+    logical_active: &RoaringBitmap,
+    term: &BoundTerm,
+) -> Option<RoaringBitmap> {
+    if term.derived != Derived::None
+        || term.period.is_some()
+        || term.multi
+        || term.transform != Transform::Identity
+        || term.operation.is_some()
+        || term.rhs.is_some()
+        || !matches!(
+            term.kind,
+            LogicalType::Number | LogicalType::Date | LogicalType::Datetime | LogicalType::Unixtime
+        )
+        || !matches!(
+            term.operator,
+            Operator::Eq | Operator::Ne | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+        )
+    {
+        return None;
+    }
+    let literal = sort_key(&term.literal)?;
+    let column = segment.sorting.column(&term.path.display()).ok()?;
+    if column.keys.len() != segment.records.len() {
+        return None;
+    }
+    let mut matches = RoaringBitmap::new();
+    for slot in logical_active.iter() {
+        let key = &column.keys[slot as usize];
+        if !matches!(key, SortKey::Missing | SortKey::Null)
+            && order_matches(key.compare(&literal, false), term.operator)
+        {
+            matches.insert(slot);
+        }
+    }
+    Some(matches)
+}
+
 fn segment_raw_covers_identity_field(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
@@ -327,6 +400,13 @@ fn segment_expr_bounds(
                 return SegmentCandidateBounds { may: matches.clone(), must: matches };
             }
             if let Some(matches) = segment_file_size_matches(segment, domain, term) {
+                return SegmentCandidateBounds {
+                    may: matches.clone(),
+                    must: matches,
+                };
+            }
+            if let Some(matches) = segment_file_modified_matches(segment, collection, domain, term)
+            {
                 return SegmentCandidateBounds {
                     may: matches.clone(),
                     must: matches,
@@ -378,6 +458,14 @@ fn segment_expr_bounds(
                         return SegmentCandidateBounds {
                             may: &matches | fallback_active,
                             must: if exact { matches } else { RoaringBitmap::new() },
+                        };
+                    }
+                    if let Some(matches) =
+                        segment_sort_column_matches(segment, logical_active, term)
+                    {
+                        return SegmentCandidateBounds {
+                            may: &matches | fallback_active,
+                            must: matches,
                         };
                     }
                     if let Some(mut grams) = segment_text_candidates(segment, term, collection) {

@@ -132,6 +132,7 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
             "kind": [if number % 3 == 0 { "Lied" } else { "Buch" }],
             "dynamic": {"type": [if number % 4 == 0 { "Person" } else { "Group" }]},
             "inferred": if number % 5 == 0 { "special" } else { "ordinary" },
+            "year": 1700 + number * 10,
             "padding": if number % 2 == 0 { "x".repeat(128) } else { String::new() },
         });
         std::fs::write(
@@ -154,6 +155,19 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
             element_nullable: vec![],
         })
         .unwrap();
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["year".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    definition.sort_fields = vec![crate::model::FieldPath::parse("year").unwrap()];
     definition
         .schema
         .register_field(FieldDefinition {
@@ -192,6 +206,8 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
         ("dynamic.type ?~ 'Person'", 6),
         ("inferred = 'special'", 5),
         ("@file.size >= 160", 12),
+        ("@file.modified >= 2000-01-01", 24),
+        ("year >= 1800", 14),
     ] {
         let query = Query {
             collections: vec!["data".into()],
