@@ -2399,6 +2399,7 @@ pub(crate) fn search_segmented_lifecycle(
     }
 }
 
+#[cfg(test)]
 pub(crate) fn search_segmented_with_context(
     repo: &Repository,
     query: &Query,
@@ -2469,6 +2470,7 @@ fn search_segmented_with_context_lifecycle_budget(
 
 /// Preserve the base fast path when no segment is present, while letting a
 /// failed source read fall back to the pinned availability scan.
+#[cfg(test)]
 pub(crate) fn search_active_available(
     repo: &Repository,
     query: &Query,
@@ -6266,6 +6268,7 @@ fn try_lifecycle_ordered_stream(
     }))))
 }
 
+#[cfg(test)]
 pub(crate) fn search_stream_segmented_with_context(
     repo: &Repository,
     query: &Query,

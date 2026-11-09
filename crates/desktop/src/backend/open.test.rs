@@ -174,3 +174,31 @@ fn configured_repository_reuses_cache_unless_build_in_memory_is_selected() {
     assert!(!memory.repository.index().status().unwrap().dirty());
     restored.repository.index().shutdown().unwrap();
 }
+
+#[test]
+fn configured_desktop_open_replaces_invalid_cache() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
+    std::fs::create_dir_all(root.path().join("data")).unwrap();
+    std::fs::write(
+        root.path().join(".objekte/collections/data.schema.json"),
+        br#"{"type":"object","x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}}"#,
+    ).unwrap();
+    std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let cache = objekte_search_core::storage::snapshot_path(
+        root.path(),
+        objekte_search_core::workload::BigramAlphabet::Ascii,
+    );
+    std::fs::write(&cache, b"invalid cache").unwrap();
+    let spec = OpenSpec {
+        args: Arguments { repo: Some(root.path().to_owned()), ..Default::default() },
+        cwd: root.path().to_owned(),
+        configured_cache_policy: None,
+    };
+    let rebuilt = open(&spec, &CancellationToken::new()).unwrap();
+    assert!(!rebuilt.diagnostics.startup.restored);
+    assert_ne!(std::fs::read(&cache).unwrap(), b"invalid cache");
+    let restored = open(&spec, &CancellationToken::new()).unwrap();
+    assert!(restored.diagnostics.startup.restored);
+    restored.repository.index().wait_for_reconciliation().unwrap();
+}

@@ -969,11 +969,6 @@ impl DesktopController {
                     self.open_record(index, false, updates);
                 }
             }
-            UiAction::CloseDetail => {
-                if let Some(id) = self.active_tab {
-                    self.close_tab(id, updates);
-                }
-            }
             UiAction::AdjacentResult(forward) => self.navigate_tab(forward, updates),
             UiAction::ToggleDetailExpansion(index) => {
                 if let Some(hit) = &self.selected_hit

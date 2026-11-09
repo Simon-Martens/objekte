@@ -514,7 +514,6 @@ pub enum UiAction {
     OpenTabQuery,
     LoadLinks,
     OpenDetail,
-    CloseDetail,
     AdjacentResult(bool),
     DetailRowSelected(usize),
     ToggleDetailExpansion(usize),

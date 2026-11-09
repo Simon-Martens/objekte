@@ -194,7 +194,6 @@ impl DesktopView {
             sidebar_visible: true,
             inspector_width: 365.,
             show_preview: true,
-            index_mode: model::SnapshotMode::Write,
             status: "Open a folder or configured repository to begin".into(),
             ..UiState::default()
         };

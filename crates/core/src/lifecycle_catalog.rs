@@ -3,7 +3,9 @@
 //! The static repository remains the base. A mutation copies only one small
 //! path shard and one file-metadata shard, never the base inventory.
 
-use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
+use std::collections::{HashMap, HashSet};
+#[cfg(test)]
+use std::collections::{BTreeMap, BTreeSet};
 use std::hash::{Hash, Hasher};
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
@@ -234,6 +236,7 @@ impl FileCatalog {
 
     /// Materialize the active metadata baseline only for a full filesystem
     /// scan. Ordinary mutations and query paths never traverse this table.
+    #[cfg(test)]
     pub(crate) fn scan_stamps(&self) -> BTreeMap<PathBuf, FileStamp> {
         let mut stamps = BTreeMap::new();
         for number in self.active.iter() {

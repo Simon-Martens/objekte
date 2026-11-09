@@ -22,7 +22,9 @@ use crate::build::{
 use crate::discovery::selects_file;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle_catalog::FileCatalog;
-use crate::model::{CollectionId, FileId, RecordSlot, Value};
+use crate::model::{CollectionId, FileId, Value};
+#[cfg(test)]
+use crate::model::RecordSlot;
 use crate::query::Query;
 use crate::repository::{Repository, SearchHit, SearchResult};
 use crate::streaming::{
@@ -1347,6 +1349,32 @@ impl Index {
         Ok(())
     }
 
+    /// Remove a rejected cache only after the rebuilt index has proved that
+    /// the destination is neither indexed source data nor configuration.
+    pub(crate) fn discard_invalid_cache(&self, path: &Path) -> Result<(), IndexError> {
+        let view = self.view()?;
+        let persistence = self
+            .0
+            .persistence
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        let guard = crate::lifecycle_cache_guard::CacheDestinationGuard::new(
+            &view.0,
+            &persistence.protected_files,
+        );
+        guard.ensure_safe(path).map_err(IndexError::InvalidCache)?;
+        let metadata = std::fs::symlink_metadata(path)
+            .map_err(|error| IndexError::Io(format!("{}: {error}", path.display())))?;
+        if !metadata.file_type().is_file() {
+            return Err(IndexError::InvalidCache(format!(
+                "refusing to delete non-file cache: {}",
+                path.display()
+            )));
+        }
+        std::fs::remove_file(path)
+            .map_err(|error| IndexError::Io(format!("{}: {error}", path.display())))
+    }
+
     /// Enable one bounded, coalescing background cache writer for the selected
     /// repository destination. Mutation commits only send a nonblocking signal.
     /// Configure the repository's selected cache writer at runtime. Enabling
@@ -1914,6 +1942,7 @@ impl Index {
     /// preparation/publication paths as explicit mutations. Callers schedule
     /// this outside query threads; an unchanged pass does not read content or
     /// publish a new data revision.
+    #[cfg(test)]
     pub(crate) fn reconcile_pass(&self, cancelled: impl Fn() -> bool) -> ReconciliationReport {
         self.reconcile_pass_with_progress(cancelled, |_| {})
     }
@@ -2377,6 +2406,7 @@ impl IndexView {
         Some(count)
     }
 
+    #[cfg(test)]
     pub(crate) fn is_active(&self, collection: CollectionId, slot: RecordSlot) -> bool {
         self.0
             .active
@@ -2384,6 +2414,7 @@ impl IndexView {
             .is_some_and(|active| active.contains(slot))
     }
 
+    #[cfg(test)]
     pub(crate) fn active_slots(&self, collection: CollectionId) -> Option<roaring::RoaringBitmap> {
         self.0
             .active

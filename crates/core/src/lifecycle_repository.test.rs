@@ -82,29 +82,52 @@ fn repository_cache_writer_can_be_enabled_after_opening() {
 }
 
 #[test]
-fn corrupt_convenience_cache_needs_explicit_rebuild_policy() {
+fn corrupt_convenience_cache_is_replaced_by_default() {
     let root = fixture("corrupt");
     let cache = snapshot_path_in(
         &root.join(".objekte"),
         RepositoryOptions::default().bigram_alphabet,
     );
     fs::write(&cache, b"corrupt cache").unwrap();
+    let rebuilt = Index::open_repository(&root, RepositoryOpenOptions::default()).unwrap();
+    assert_eq!(count(&rebuilt), 1);
+    assert!(!rebuilt.status().unwrap().dirty());
+    assert!(!rebuilt.restored_from_cache());
+    assert_ne!(fs::read(&cache).unwrap(), b"corrupt cache");
+    let restored = Index::open_repository(&root, RepositoryOpenOptions::default()).unwrap();
+    assert!(restored.restored_from_cache());
+    restored.wait_for_reconciliation().unwrap();
+    fs::write(&cache, b"corrupt cache").unwrap();
     assert!(matches!(
-        Index::open_repository(&root, RepositoryOpenOptions::default()),
+        Index::open_repository(
+            &root,
+            RepositoryOpenOptions {
+                cache_failure: CacheFailurePolicy::Report,
+                ..Default::default()
+            }
+        ),
         Err(IndexError::InvalidCache(_))
     ));
     assert_eq!(fs::read(&cache).unwrap(), b"corrupt cache");
-    let rebuilt = Index::open_repository(
-        &root,
-        RepositoryOpenOptions {
-            cache_failure: CacheFailurePolicy::Rebuild,
-            ..Default::default()
-        },
-    )
-    .unwrap();
-    assert_eq!(count(&rebuilt), 1);
-    assert!(rebuilt.status().unwrap().dirty());
-    assert_eq!(fs::read(&cache).unwrap(), b"corrupt cache");
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn invalid_cache_aliasing_a_schema_is_not_deleted() {
+    let root = fixture("protected-corrupt");
+    let schema = root.join(".objekte/collections/data.schema.json");
+    let original = fs::read(&schema).unwrap();
+    let cache = snapshot_path_in(
+        &root.join(".objekte"),
+        RepositoryOptions::default().bigram_alphabet,
+    );
+    fs::hard_link(&schema, &cache).unwrap();
+    let error = Index::open_repository(&root, RepositoryOpenOptions::default())
+        .err()
+        .unwrap();
+    assert!(matches!(error, IndexError::InvalidCache(_)), "{error}");
+    assert_eq!(fs::read(&schema).unwrap(), original);
+    assert_eq!(fs::read(&cache).unwrap(), original);
     fs::remove_dir_all(root).unwrap();
 }
 
