@@ -34,7 +34,6 @@ use crate::workload::ReturnMode;
 pub use crate::inventory::FileVersion;
 
 pub(crate) const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
-const MAX_CONSOLIDATED_RECORDS: usize = 262_144;
 const MAX_RECONCILIATION_ISSUES: usize = 128;
 
 /// Monotonic publication sequence within one index instance.
@@ -338,33 +337,34 @@ pub(crate) struct PublishedIndex {
 }
 
 fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize, usize)> {
-    let mut candidates = Vec::new();
-    for left in 0..group.len() {
-        for right in left + 1..group.len() {
-            let combined = group[left].index.records.len() + group[right].index.records.len();
-            if combined <= MAX_CONSOLIDATED_RECORDS {
-                candidates.push((combined, left, right));
+    let mut sized = group
+        .iter()
+        .enumerate()
+        .map(|(index, segment)| (segment.index.records.len(), index))
+        .collect::<Vec<_>>();
+    sized.sort_unstable();
+    for (position, &(left_size, left)) in sized.iter().enumerate() {
+        for &(right_size, right) in &sized[position + 1..] {
+            if left_size + right_size > crate::lifecycle_partition::BASE_PARTITION_RECORDS {
+                break;
             }
+            let left_index = &group[left].index;
+            let right_index = &group[right].index;
+            if left_index
+                .files
+                .iter()
+                .any(|file| right_index.file(file.entry.id).is_some())
+                || left_index
+                    .id_lookup
+                    .keys()
+                    .any(|id| right_index.id_lookup.contains_key(id))
+            {
+                continue;
+            }
+            return Some((left.min(right), left.max(right)));
         }
     }
-    candidates.sort_unstable();
-    candidates.into_iter().find_map(|(_, left, right)| {
-        let left_index = &group[left].index;
-        let right_index = &group[right].index;
-        if left_index
-            .files
-            .iter()
-            .any(|file| right_index.file(file.entry.id).is_some())
-            || left_index
-                .id_lookup
-                .keys()
-                .any(|id| right_index.id_lookup.contains_key(id))
-        {
-            None
-        } else {
-            Some((left, right))
-        }
-    })
+    None
 }
 
 impl PublishedIndex {
@@ -497,65 +497,24 @@ impl PublishedIndex {
         Ok(self)
     }
 
-    /// Keep query merge width bounded. This runs only on a private staged
-    /// root, after preparation and before publication; no source bytes or
-    /// publication lock are needed.
+    /// Coalesce small delta shards without enlarging a partition beyond the
+    /// local verified-maintenance budget. Large collections retain more base
+    /// partitions; their size must not force a collection-sized rewrite here.
     pub(crate) fn make_room_for_segment(&mut self, number: usize) -> Result<(), IndexError> {
         if self.segments[number].len() < MAX_SEGMENTS_PER_COLLECTION {
             return Ok(());
         }
-        let catalog = self.catalog.clone();
         let group = Arc::make_mut(&mut self.segments[number]);
         group.retain(|segment| segment.active.len() > 0);
         if group.len() < MAX_SEGMENTS_PER_COLLECTION {
             return Ok(());
         }
-        // Merge two small compatible shards first. Compacting every partially
-        // retired shard here would repeatedly rewrite a large dense segment
-        // after each later single-file update.
-        let mut choice = cheapest_consolidation_pair(group);
-        if choice.is_none() {
-            for segment in group.iter_mut() {
-                if segment.active.len() == segment.index.records.len() as u64
-                    || segment.index.records.len() > MAX_CONSOLIDATED_RECORDS
-                {
-                    continue;
-                }
-                let compacted = segment
-                    .index
-                    .compact_active(&segment.active, MAX_CONSOLIDATED_RECORDS, |entry| {
-                        catalog.entry(entry.id).is_some_and(|current| {
-                            current.revision == entry.revision
-                                && current.created_ns == entry.created_ns
-                                && current.collections.contains(&segment.index.collection)
-                        })
-                    })
-                    .map_err(IndexError::Build)?;
-                if compacted.active.len() == 0 {
-                    continue;
-                }
-                let ordinal = self.next_segment_ordinal;
-                self.next_segment_ordinal = ordinal
-                    .checked_add(1)
-                    .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-                *segment = Arc::new(PublishedSegment {
-                    ordinal,
-                    index: Arc::new(compacted.index),
-                    active: compacted.active,
-                });
-            }
-            group.retain(|segment| segment.active.len() > 0);
-            if group.len() < MAX_SEGMENTS_PER_COLLECTION {
-                return Ok(());
-            }
-            choice = cheapest_consolidation_pair(group);
-        }
-        let (left, right) = choice.ok_or_else(|| {
-            IndexError::ResourceLimit("no bounded segment consolidation is possible".into())
-        })?;
+        let Some((left, right)) = cheapest_consolidation_pair(group) else {
+            return Ok(());
+        };
         let merged = IndexedCollectionSegment::consolidate(
             &[&group[left].index, &group[right].index],
-            MAX_CONSOLIDATED_RECORDS,
+            crate::lifecycle_partition::BASE_PARTITION_RECORDS,
         )
         .map_err(IndexError::Build)?;
         let active = merged
