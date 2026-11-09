@@ -9,6 +9,67 @@ use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
 #[test]
+#[ignore = "large partition admission regression; run explicitly in release mode"]
+fn full_partitions_leave_a_bounded_sparse_update_allowance() {
+    use std::io::Write;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-partition-admission-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let large = root.join("data/a-large.jsonl");
+    let mut source = std::io::BufWriter::new(std::fs::File::create(&large).unwrap());
+    for number in 0..(65 * super::BASE_PARTITION_RECORDS) {
+        writeln!(source, "{{\"name\":\"item-{number}\"}}").unwrap();
+    }
+    source.flush().unwrap();
+    drop(source);
+    let small = root.join("data/z-small.jsonl");
+    std::fs::write(&small, b"{\"name\":\"small\"}\n").unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "items",
+            "data",
+            SourceFormat::JsonLines,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let before = index.view().unwrap();
+    let full = before.0.segments[0]
+        .iter()
+        .filter(|shard| shard.index.records.len() == super::BASE_PARTITION_RECORDS)
+        .cloned()
+        .collect::<Vec<_>>();
+    assert_eq!(full.len(), 65);
+    let mut handle = before.file_handle_for_path(&small).unwrap();
+    for update in 0..70 {
+        std::fs::write(&small, format!("{{\"name\":\"small-{update}\"}}\n")).unwrap();
+        handle = index.update_file(handle, &small).unwrap().file;
+        let current = index.view().unwrap();
+        assert!(
+            current.0.segments[0].len()
+                <= 65 + super::super::lifecycle::MAX_SEGMENTS_PER_COLLECTION
+        );
+        for (original, shard) in full.iter().zip(current.0.segments[0].iter()) {
+            assert!(Arc::ptr_eq(original, shard));
+        }
+    }
+    assert_eq!(
+        index.status().unwrap().live_records,
+        (65 * super::BASE_PARTITION_RECORDS + 1) as u64
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn partitions_static_base_without_changing_search_or_file_routing() {
     let root = std::env::temp_dir().join(format!(
         "objekte-partition-{}-{}",
