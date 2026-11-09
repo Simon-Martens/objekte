@@ -12,6 +12,7 @@ mod sort;
 mod state;
 mod theme;
 pub mod typography;
+mod workspace;
 
 use objekte_search_core::query::parse_structured_filter;
 use std::sync::mpsc::Sender;
@@ -26,6 +27,7 @@ use gpui_kit::{
 use model::{CompletionOrigin, SearchDraft, TabViewState, UiAction, UiUpdate};
 use query_bar::{BuilderEvent, FilterBuilderView};
 use state::UiState;
+use workspace::{Pane, TabId};
 
 /// GPUI input entities owned by one desktop window.
 struct Inputs {
@@ -193,6 +195,7 @@ impl DesktopView {
             dark: true,
             sidebar_visible: true,
             inspector_width: 365.,
+            secondary_query_width: 600.,
             show_preview: true,
             status: "Open a folder or configured repository to begin".into(),
             ..UiState::default()
@@ -412,6 +415,7 @@ impl DesktopView {
             builder.sync_from_text(&draft.structured, cx)
         });
         self.state.search = draft.clone();
+        self.state.workspace.update_current_search(draft.clone());
         self.state.filter_validation = Some(model::FilterValidationState::Pending);
         self.state.showing_last_valid_results = self.state.root.is_some();
         self.send(if explicit {
@@ -420,6 +424,98 @@ impl DesktopView {
             UiAction::SearchEdited(draft)
         });
         cx.notify();
+    }
+
+    fn restore_workspace_query(&mut self, draft: SearchDraft, window: &mut Window, cx: &mut Context<Self>) {
+        self.restoring_query = true;
+        self.suspended_filter = None;
+        self.inputs.full_text.update(cx, |input, cx| {
+            input.set_value(draft.full_text.clone(), window, cx)
+        });
+        self.inputs.structured.update(cx, |input, cx| {
+            input.set_value(draft.structured.clone(), window, cx)
+        });
+        self.builder_view.update(cx, |builder, cx| {
+            builder.sync_from_text(&draft.structured, cx)
+        });
+        self.state.search = draft.clone();
+        self.restoring_query = false;
+        self.send(UiAction::SearchNow(draft));
+        cx.notify();
+    }
+
+    fn activate_workspace_tab(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
+        if !self.state.workspace.activate(id) {
+            return;
+        }
+        self.state.prune_record_snapshots();
+        match id {
+            TabId::Search(_) => {
+                if let Some(draft) = self.state.workspace.tab(id).and_then(|tab| tab.draft.clone()) {
+                    self.restore_workspace_query(draft, window, cx);
+                }
+            }
+            TabId::Record(id) => {
+                self.save_tab_view();
+                self.send(UiAction::ActivateTab(id));
+                cx.notify();
+            }
+        }
+    }
+
+    fn open_table_tab(&mut self, collection: Option<String>, window: &mut Window, cx: &mut Context<Self>) {
+        let id = self.state.workspace.open_table(collection);
+        self.activate_workspace_tab(id, window, cx);
+    }
+
+    fn open_query_tab(&mut self, window: &mut Window, cx: &mut Context<Self>) {
+        let id = self.state.workspace.open_query(SearchDraft {
+            collection: self.state.search.collection.clone(),
+            ..SearchDraft::default()
+        });
+        self.activate_workspace_tab(id, window, cx);
+        let focus = self.inputs.full_text.read(cx).focus_handle(cx);
+        window.focus(&focus, cx);
+    }
+
+    fn close_workspace_tab(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
+        let pane = self.state.workspace.pane_of(id);
+        if !self.state.workspace.close(id) {
+            return;
+        }
+        self.state.prune_record_snapshots();
+        if let TabId::Record(id) = id {
+            self.send(UiAction::CloseTab(id));
+        }
+        if self.state.workspace.current_search.is_none() && self.state.root.is_some() {
+            self.state.workspace.open_table(if self.state.single_collection {
+                self.state.collections.first().cloned()
+            } else {
+                None
+            });
+        }
+        if let Some(next) = pane.and_then(|pane| self.state.workspace.group(pane).active) {
+            self.activate_workspace_tab(next, window, cx);
+        } else if let Some(next) = self.state.workspace.current_search {
+            self.activate_workspace_tab(next, window, cx);
+        } else {
+            cx.notify();
+        }
+    }
+
+    fn move_workspace_tab(&mut self, id: TabId, pane: Pane, at: usize, window: &mut Window, cx: &mut Context<Self>) {
+        let already_current = match id {
+            TabId::Search(_) => self.state.workspace.current_search == Some(id),
+            TabId::Record(id) => self.state.active_tab == Some(id),
+        };
+        if self.state.workspace.move_tab(id, pane, at) {
+            self.state.prune_record_snapshots();
+            if already_current {
+                cx.notify();
+            } else {
+                self.activate_workspace_tab(id, window, cx);
+            }
+        }
     }
 
     fn refresh_completion(&mut self, cx: &mut Context<Self>) {
@@ -599,6 +695,12 @@ impl DesktopView {
     }
 
     fn send(&mut self, action: UiAction) {
+        if matches!(&action, UiAction::OpenRecord(_))
+            && let Some(id) = self.state.active_tab
+        {
+            self.state.workspace.activate(TabId::Record(id));
+            self.state.prune_record_snapshots();
+        }
         if self.actions.send(action).is_err() {
             self.state.status = "Desktop controller disconnected".into();
         }
