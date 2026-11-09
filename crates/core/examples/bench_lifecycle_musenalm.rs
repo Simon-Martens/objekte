@@ -39,6 +39,7 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
         .ok()
         .map(|value| value.parse::<usize>())
         .transpose()?;
+    let retire_path = std::env::var("LIFECYCLE_RETIRE_PATH").ok();
     let core = Path::new(env!("CARGO_MANIFEST_DIR")).to_path_buf();
     let mut cases = load_extended_manifest(
         &core.join("benches/musenalm_queries.json"),
@@ -71,9 +72,17 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
             },
         )?;
         let build_ns = started.elapsed().as_nanos();
+        if let Some(path) = retire_path.as_deref() {
+            let handle = index
+                .view()?
+                .file_handle_for_path(Path::new(path))
+                .ok_or_else(|| std::io::Error::other(format!("unknown file to retire: {path}")))?;
+            index.delete_file(handle)?;
+        }
         let view = index.view()?;
         println!(
-            "profile={name} cache_bytes={cache_bytes} build_ms={:.3} files={} records={} rss_kb={} hwm_kb={}",
+            "profile={name} cache_bytes={cache_bytes} retired_file={:?} build_ms={:.3} files={} records={} rss_kb={} hwm_kb={}",
+            retire_path,
             build_ns as f64 / 1_000_000.0,
             index.status()?.indexed_files,
             index.status()?.live_records,
