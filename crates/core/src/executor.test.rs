@@ -113,6 +113,14 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
     let bounds = segment_filter_bounds(&segment, &active, &impossible, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [2]);
     assert!(bounds.must.is_empty());
+    let nonzero_start = crate::reference::bind_filter(
+        &parse_filter("@record.byte_start > 0").unwrap(),
+        &definition.schema,
+    )
+    .unwrap();
+    let bounds = segment_filter_bounds(&segment, &active, &nonzero_start, collection).unwrap();
+    assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [1, 2]);
+    assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [1, 2]);
     std::fs::remove_dir_all(root).unwrap();
 }
 
