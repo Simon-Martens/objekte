@@ -1,6 +1,7 @@
 use std::sync::Arc;
+use std::time::{Duration, Instant};
 
-use super::{DeleteStrategy, Index, IndexError, IndexRevision, PublishedIndex};
+use super::{DeleteStrategy, Index, IndexError, IndexRevision, PeriodicSignal, PublishedIndex};
 use crate::model::{FieldPath, FileId, LogicalType, RecordSlot};
 use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
@@ -369,6 +370,49 @@ fn concurrent_publication_is_either_saved_or_rejected_by_quiescence() {
     let cache = root.join("index.snapshot");
     assert_eq!(index.flush_cache(&cache).unwrap(), final_revision);
     assert_eq!(index.view().unwrap().revision(), final_revision);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn periodic_tick_detects_change_after_initial_index_build() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-periodic-tick-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let index = Index::from_repository(fixture_repository(&root)).unwrap();
+    index
+        .start_periodic_reconciliation(Duration::from_secs(3600))
+        .unwrap();
+    std::fs::write(root.join("data/b.json"), br#"{"name":"B"}"#).unwrap();
+    index
+        .0
+        .periodic
+        .lock()
+        .unwrap()
+        .as_ref()
+        .unwrap()
+        .signal
+        .send(PeriodicSignal::Tick)
+        .unwrap();
+    let deadline = Instant::now() + Duration::from_secs(5);
+    let task = loop {
+        if let Some(task) = index.current_reconciliation_task().unwrap() {
+            break task;
+        }
+        assert!(
+            Instant::now() < deadline,
+            "periodic tick did not start a pass"
+        );
+        std::thread::sleep(Duration::from_millis(1));
+    };
+    assert_eq!(task.wait().unwrap().added, 1);
+    assert_eq!(index.status().unwrap().indexed_files, 2);
+    assert!(index.periodic_reconciliation_enabled().unwrap());
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

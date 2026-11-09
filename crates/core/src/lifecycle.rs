@@ -8,7 +8,7 @@ use std::collections::HashMap;
 use std::fmt;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
-use std::sync::mpsc::{self, RecvTimeoutError, SyncSender};
+use std::sync::mpsc::{self, RecvTimeoutError, Sender, SyncSender};
 use std::sync::{Arc, Condvar, Mutex, RwLock, Weak};
 use std::thread::JoinHandle;
 use std::time::{Duration, Instant, SystemTime};
@@ -737,8 +737,14 @@ struct IndexInner {
 }
 
 struct PeriodicReconciliation {
-    stop: SyncSender<()>,
+    signal: Sender<PeriodicSignal>,
     worker: JoinHandle<()>,
+}
+
+enum PeriodicSignal {
+    #[cfg(test)]
+    Tick,
+    Stop,
 }
 
 struct SyncCacheWorker {
@@ -1550,15 +1556,18 @@ impl Index {
             return Err(IndexError::Cancelled);
         }
         self.stop_periodic_reconciliation()?;
-        let (stop, receiver) = mpsc::sync_channel(1);
+        let (signal, receiver) = mpsc::channel();
         let owner = Arc::downgrade(&self.0);
         let worker = std::thread::Builder::new()
             .name("objekte-reconcile-periodic".into())
             .spawn(move || {
-                while matches!(
-                    receiver.recv_timeout(interval),
-                    Err(RecvTimeoutError::Timeout)
-                ) {
+                loop {
+                    match receiver.recv_timeout(interval) {
+                        Ok(PeriodicSignal::Stop) | Err(RecvTimeoutError::Disconnected) => break,
+                        #[cfg(test)]
+                        Ok(PeriodicSignal::Tick) => {}
+                        Err(RecvTimeoutError::Timeout) => {}
+                    }
                     let Some(inner) = owner.upgrade() else { break };
                     let index = Index(inner);
                     let task = index.start_reconcile();
@@ -1576,14 +1585,14 @@ impl Index {
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
         if self.0.quiescing.load(Ordering::Acquire) {
-            let _ = stop.try_send(());
+            let _ = signal.send(PeriodicSignal::Stop);
             drop(periodic);
             worker.join().map_err(|_| {
                 IndexError::InvalidPublication("periodic reconciliation worker panicked".into())
             })?;
             return Err(IndexError::Cancelled);
         }
-        *periodic = Some(PeriodicReconciliation { stop, worker });
+        *periodic = Some(PeriodicReconciliation { signal, worker });
         Ok(())
     }
 
@@ -1595,7 +1604,7 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?
             .take();
         if let Some(schedule) = schedule {
-            let _ = schedule.stop.try_send(());
+            let _ = schedule.signal.send(PeriodicSignal::Stop);
             schedule.worker.join().map_err(|_| {
                 IndexError::InvalidPublication("periodic reconciliation worker panicked".into())
             })?;
