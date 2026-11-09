@@ -1,6 +1,6 @@
 use std::collections::BTreeMap;
 
-use super::{ScanChange, plan_scan, scan_sources, scan_sources_batched};
+use super::{ScanChange, scan_sources_batched};
 use crate::discovery::Discovery;
 use crate::model::{CollectionId, FileId};
 use crate::repository::CollectionDefinition;
@@ -18,42 +18,65 @@ fn metadata_diff_preserves_failed_collection_and_detects_other_changes() {
     std::fs::create_dir_all(root.join("b")).unwrap();
     std::fs::write(root.join("a/one.json"), b"{\"x\":1}").unwrap();
     std::fs::write(root.join("b/two.json"), b"{\"x\":2}").unwrap();
+    let root = root.canonicalize().unwrap();
     let definitions = vec![
         CollectionDefinition::folder("a", "a", SourceFormat::Json),
         CollectionDefinition::folder("b", "b", SourceFormat::Json),
     ];
     let sources = SourceRegistry::builtin();
-    let baseline = scan_sources(&root, &definitions, &sources, || false);
-    assert_eq!(baseline.files.len(), 2);
+    let mut current = BTreeMap::new();
+    let baseline = scan_sources_batched(
+        &root,
+        &definitions,
+        &sources,
+        |_| false,
+        |_| None,
+        || false,
+        1,
+        |batch| {
+            for change in batch {
+                let ScanChange::Add(file) = change else {
+                    panic!("expected add")
+                };
+                let id = FileId(current.len() as u32);
+                current.insert(file.path.clone(), (id, file));
+            }
+        },
+    );
+    assert_eq!(baseline.examined, 2);
     assert!(baseline.issues.is_empty());
-    let current: BTreeMap<_, _> = baseline.files;
 
     std::fs::write(root.join("a/one.json"), b"{\"x\":123}").unwrap();
     std::fs::write(root.join("a/new.json"), b"{\"x\":3}").unwrap();
     std::fs::remove_dir_all(root.join("b")).unwrap();
-    let scan = scan_sources(&root, &definitions, &sources, || false);
+    let mut changes = Vec::new();
+    let scan = scan_sources_batched(
+        &root,
+        &definitions,
+        &sources,
+        |_| false,
+        |path| current.get(path).cloned(),
+        || false,
+        1,
+        |batch| changes.extend(batch),
+    );
     assert_eq!(scan.complete_collections.len(), 1);
     assert_eq!(scan.issues.len(), 1);
-    let plan = plan_scan(&current, &scan);
-    assert_eq!(plan.skipped, 1);
-    assert_eq!(plan.changes.len(), 2);
-    assert!(plan.changes.iter().any(|change| matches!(
+    assert_eq!(changes.len(), 2);
+    assert!(changes.iter().any(|change| matches!(
         change,
         ScanChange::Update { previous, observed }
             if previous.path == std::path::Path::new("a/one.json")
                 && observed.path == previous.path
     )));
-    assert!(plan.changes.iter().any(|change| matches!(
+    assert!(changes.iter().any(|change| matches!(
         change,
         ScanChange::Add(observed)
             if observed.path == std::path::Path::new("a/new.json")
     )));
-    assert!(
-        !plan
-            .changes
-            .iter()
-            .any(|change| matches!(change, ScanChange::Remove(_)))
-    );
+    let missing = current.get(std::path::Path::new("b/two.json")).unwrap();
+    assert!(!scan.seen_existing.contains(missing.0.0));
+    assert!(!missing.1.collections.is_subset(&scan.complete_collections));
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -224,12 +247,22 @@ fn failed_overlap_scope_preserves_existing_file_without_partial_replacement() {
         CollectionDefinition::folder("first", "data", SourceFormat::Json),
         CollectionDefinition::folder("second", "data", SourceFormat::Json),
     ];
-    let original = scan_sources(&root, &definitions, &SourceRegistry::builtin(), || false);
-    let previous = original
-        .files
-        .get(std::path::Path::new("data/one.json"))
-        .unwrap()
-        .clone();
+    let mut original = Vec::new();
+    let baseline = scan_sources_batched(
+        &root,
+        &definitions,
+        &SourceRegistry::builtin(),
+        |_| false,
+        |_| None,
+        || false,
+        1,
+        |batch| original.extend(batch),
+    );
+    assert!(baseline.issues.is_empty());
+    let [ScanChange::Add(previous)] = &original[..] else {
+        panic!("expected one add")
+    };
+    let previous = previous.clone();
     std::fs::write(root.join("data/one.json"), b"{\"x\":1234}").unwrap();
     definitions[1].discovery = Discovery {
         include: vec!["[".into()],
