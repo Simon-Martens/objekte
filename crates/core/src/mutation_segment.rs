@@ -1035,6 +1035,20 @@ fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> Posting
     }
 }
 
+fn scatter_posting_key<K: Ord + Clone>(
+    target: &mut std::collections::BTreeMap<K, RoaringBitmap>,
+    key: &K,
+    slot: u32,
+) {
+    if let Some(bitmap) = target.get_mut(key) {
+        bitmap.insert(slot);
+    } else {
+        let mut bitmap = RoaringBitmap::new();
+        bitmap.insert(slot);
+        target.insert(key.clone(), bitmap);
+    }
+}
+
 fn project_bitmap(
     source: &RoaringBitmap,
     slots: &[Option<RecordSlot>],
@@ -1415,30 +1429,32 @@ impl IndexedCollectionSegment {
             for (key, bitmap) in &index.values {
                 for old in bitmap.iter() {
                     if let Some((part, slot)) = mapping[old as usize] {
-                        projected[part]
-                            .postings
-                            .fields
-                            .get_mut(path)
-                            .unwrap()
-                            .values
-                            .entry(key.clone())
-                            .or_default()
-                            .insert(slot.0);
+                        scatter_posting_key(
+                            &mut projected[part]
+                                .postings
+                                .fields
+                                .get_mut(path)
+                                .unwrap()
+                                .values,
+                            key,
+                            slot.0,
+                        );
                     }
                 }
             }
             for (key, bitmap) in &index.lengths {
                 for old in bitmap.iter() {
                     if let Some((part, slot)) = mapping[old as usize] {
-                        projected[part]
-                            .postings
-                            .fields
-                            .get_mut(path)
-                            .unwrap()
-                            .lengths
-                            .entry(key.clone())
-                            .or_default()
-                            .insert(slot.0);
+                        scatter_posting_key(
+                            &mut projected[part]
+                                .postings
+                                .fields
+                                .get_mut(path)
+                                .unwrap()
+                                .lengths,
+                            key,
+                            slot.0,
+                        );
                     }
                 }
             }
@@ -1470,30 +1486,32 @@ impl IndexedCollectionSegment {
             for (value, bitmap) in &index.values {
                 for old in bitmap.iter() {
                     if let Some((part, slot)) = mapping[old as usize] {
-                        projected[part]
-                            .custom_postings
-                            .get_mut(key)
-                            .unwrap()
-                            .index
-                            .values
-                            .entry(value.clone())
-                            .or_default()
-                            .insert(slot.0);
+                        scatter_posting_key(
+                            &mut projected[part]
+                                .custom_postings
+                                .get_mut(key)
+                                .unwrap()
+                                .index
+                                .values,
+                            value,
+                            slot.0,
+                        );
                     }
                 }
             }
             for (value, bitmap) in &index.lengths {
                 for old in bitmap.iter() {
                     if let Some((part, slot)) = mapping[old as usize] {
-                        projected[part]
-                            .custom_postings
-                            .get_mut(key)
-                            .unwrap()
-                            .index
-                            .lengths
-                            .entry(value.clone())
-                            .or_default()
-                            .insert(slot.0);
+                        scatter_posting_key(
+                            &mut projected[part]
+                                .custom_postings
+                                .get_mut(key)
+                                .unwrap()
+                                .index
+                                .lengths,
+                            value,
+                            slot.0,
+                        );
                     }
                 }
             }
