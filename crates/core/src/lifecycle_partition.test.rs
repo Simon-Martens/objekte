@@ -66,11 +66,9 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
         0
     );
     assert!(partitioned.segments[0].len() >= 4);
-    assert!(
-        partitioned.segments[0]
-            .iter()
-            .all(|part| part.index.records.len() <= 2)
-    );
+    assert!(partitioned.segments[0]
+        .iter()
+        .all(|part| part.index.records.len() <= 2));
     let converted = Index::from_published(partitioned);
     let after = converted.view().unwrap().search(&query).unwrap();
     assert_eq!(before.count, after.count);
@@ -83,13 +81,11 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
     };
     assert_eq!(paths(before), paths(after));
     for number in 0..7 {
-        assert!(
-            converted
-                .view()
-                .unwrap()
-                .file_handle_for_path(std::path::Path::new(&format!("data/{number}.jsonl")))
-                .is_some()
-        );
+        assert!(converted
+            .view()
+            .unwrap()
+            .file_handle_for_path(std::path::Path::new(&format!("data/{number}.jsonl")))
+            .is_some());
     }
     converted.shutdown().unwrap();
     original.shutdown().unwrap();
@@ -137,11 +133,9 @@ fn compacts_one_large_file_in_source_free_parts() {
     std::fs::remove_file(&path).unwrap();
     let partitioned = partition_base_with_limits((*view.0).clone(), 2, 2).unwrap();
     assert_eq!(partitioned.segments[0].len(), 5);
-    assert!(
-        partitioned.segments[0]
-            .iter()
-            .all(|part| part.index.records.len() <= 2)
-    );
+    assert!(partitioned.segments[0]
+        .iter()
+        .all(|part| part.index.records.len() <= 2));
     let parts =
         compact_source_parts_with_limits(&source, &view.0.active[0], &view.0.catalog, 2, 2, || {
             false
@@ -217,17 +211,18 @@ fn partition_and_cache_restore_keep_global_inference_diagnostics() {
             serde_json::to_value(repository.inference_index_diagnostics("items").unwrap()).unwrap(),
             diagnostics
         );
-        assert!(
-            repository.collections()[0]
-                .inference
-                .as_ref()
-                .unwrap()
-                .indexes
-                .is_empty()
-        );
+        assert!(repository.collections()[0]
+            .inference
+            .as_ref()
+            .unwrap()
+            .indexes
+            .is_empty());
     };
     check(&index);
-    assert_eq!(index.view().unwrap().repository().build_parses(), build_parses);
+    assert_eq!(
+        index.view().unwrap().repository().build_parses(),
+        build_parses
+    );
     assert_eq!(
         index.view().unwrap().repository().build_failed_parses(),
         build_failed_parses
