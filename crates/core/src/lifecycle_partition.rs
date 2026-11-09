@@ -148,7 +148,7 @@ fn compact_source_parts_with_limits(
     Ok(parts)
 }
 
-fn partition_base_with_limits(
+pub(crate) fn partition_base_with_limits(
     mut root: PublishedIndex,
     max_records: usize,
     max_files: usize,
