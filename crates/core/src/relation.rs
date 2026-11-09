@@ -333,21 +333,21 @@ impl RelationContribution {
     }
 
     /// Project a shard to retained local slots while preserving unresolved
-    /// target identities. The map must assign dense new slots in old-slot
-    /// order; old pinned contributions remain untouched.
+    /// target identities. The map must assign every slot in the dense new
+    /// domain exactly once; old pinned contributions remain untouched.
     pub(crate) fn project_slots(&self, old_to_new: &[Option<RecordSlot>]) -> Result<Self, String> {
         if old_to_new.len() != self.record_count as usize {
             return Err("relation projection coverage mismatch".into());
         }
-        let mut next_count = 0u32;
-        for mapped in old_to_new {
-            if let Some(slot) = mapped {
-                if slot.0 != next_count {
-                    return Err("relation projection slots are not dense".into());
-                }
-                next_count = next_count
-                    .checked_add(1)
-                    .ok_or("relation projection slot overflow")?;
+        let next_count = u32::try_from(old_to_new.iter().flatten().count())
+            .map_err(|_| "relation projection slot overflow")?;
+        let mut assigned = vec![false; next_count as usize];
+        for slot in old_to_new.iter().flatten() {
+            let present = assigned
+                .get_mut(slot.0 as usize)
+                .ok_or("relation projection slot outside dense domain")?;
+            if std::mem::replace(present, true) {
+                return Err("relation projection slot repeated".into());
             }
         }
         let project = |bitmap: &RoaringBitmap| -> Result<RoaringBitmap, String> {
@@ -362,7 +362,7 @@ impl RelationContribution {
             }
             Ok(projected)
         };
-        let references = self
+        let mut references = self
             .references
             .iter()
             .filter_map(|reference| {
@@ -377,6 +377,7 @@ impl RelationContribution {
                 positions: reference.positions.clone(),
             })
             .collect::<Vec<_>>();
+        references.sort_by_key(|reference| reference.source);
         if self
             .references
             .iter()
