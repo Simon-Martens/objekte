@@ -5,6 +5,7 @@ use gpui_kit::component::{
     Disableable as _, Selectable as _,
     button::{Button, ButtonVariants as _},
     input::{Input, InputEvent, InputState},
+    menu::{DropdownMenu as _, PopupMenuItem},
     scroll::ScrollableElement as _,
 };
 use gpui_kit::prelude::FluentBuilder as _;
@@ -448,6 +449,43 @@ impl Render for FilterBuilderView {
 
 
 impl DesktopView {
+    fn copy_query_text(&self, filter: bool, cx: &mut Context<Self>) {
+        let text = if filter {
+            self.inputs.structured.read(cx).value().to_string()
+        } else {
+            self.inputs.full_text.read(cx).value().to_string()
+        };
+        if std::env::var_os("WAYLAND_DISPLAY").is_some() {
+            std::thread::spawn(move || super::write_wayland_clipboard(text));
+        } else {
+            cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(text));
+        }
+    }
+
+    fn paste_query_text(
+        &mut self,
+        filter: bool,
+        text: String,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        // Updating the input may emit Change. Run one explicit edit path after
+        // both the field value and the filter-enabled flag are in place.
+        self.restoring_query = true;
+        if filter {
+            self.state.search.filter_enabled = true;
+            self.inputs.structured.update(cx, |input, cx| {
+                input.set_value(text, window, cx);
+            });
+        } else {
+            self.inputs.full_text.update(cx, |input, cx| {
+                input.set_value(text, window, cx);
+            });
+        }
+        self.restoring_query = false;
+        self.search_from_inputs(false, cx);
+    }
+
     /// Compact search row and optional filter line.
     /// The two InputState values remain authoritative across every render.
     pub(super) fn render_query_bar(&self, cx: &mut Context<Self>) -> impl IntoElement {
@@ -469,6 +507,9 @@ impl DesktopView {
         let filter_enabled = self.state.search.filter_enabled;
         let querying = self.state.busy == Busy::Querying;
         let dark = self.state.dark;
+        let search_text_available = !self.inputs.full_text.read(cx).value().is_empty();
+        let filter_text_available = !self.inputs.structured.read(cx).value().is_empty();
+        let menu_target = cx.entity();
         div()
             .id("query-bar")
             .relative()
@@ -488,6 +529,67 @@ impl DesktopView {
                             .id("full-text-input")
                             .w_full()
                             .aria_label("Full text search"),
+                    )
+                    .child(
+                        Button::new("query-text-menu")
+                            .ghost()
+                            .icon(AssetIconName::Ellipsis)
+                            .tooltip("Query text actions; right-click a field for selection editing")
+                            .accessibility_label("Query text actions")
+                            .dropdown_menu(move |menu, _, cx| {
+                                let clipboard_text = cx.read_from_clipboard().and_then(|item| item.text());
+                                let paste_search = clipboard_text.clone();
+                                let paste_filter = clipboard_text;
+                                let copy_search_target = menu_target.clone();
+                                let copy_filter_target = menu_target.clone();
+                                let paste_search_target = menu_target.clone();
+                                let paste_filter_target = menu_target.clone();
+                                menu.item(
+                                    PopupMenuItem::new("Copy entire search")
+                                        .icon(AssetIconName::Copy)
+                                        .disabled(!search_text_available)
+                                        .on_click(move |_, _, cx| {
+                                            copy_search_target.update(cx, |this, cx| {
+                                                this.copy_query_text(false, cx);
+                                            });
+                                        }),
+                                )
+                                .item(
+                                    PopupMenuItem::new("Paste as search (replace)")
+                                        .icon(AssetIconName::ClipboardPaste)
+                                        .disabled(paste_search.is_none())
+                                        .on_click(move |_, window, cx| {
+                                            if let Some(text) = paste_search.clone() {
+                                                paste_search_target.update(cx, |this, cx| {
+                                                    this.paste_query_text(false, text, window, cx);
+                                                });
+                                            }
+                                        }),
+                                )
+                                .separator()
+                                .item(
+                                    PopupMenuItem::new("Copy entire filter")
+                                        .icon(AssetIconName::Copy)
+                                        .disabled(!filter_text_available)
+                                        .on_click(move |_, _, cx| {
+                                            copy_filter_target.update(cx, |this, cx| {
+                                                this.copy_query_text(true, cx);
+                                            });
+                                        }),
+                                )
+                                .item(
+                                    PopupMenuItem::new("Paste as filter (replace)")
+                                        .icon(AssetIconName::ClipboardPaste)
+                                        .disabled(paste_filter.is_none())
+                                        .on_click(move |_, window, cx| {
+                                            if let Some(text) = paste_filter.clone() {
+                                                paste_filter_target.update(cx, |this, cx| {
+                                                    this.paste_query_text(true, text, window, cx);
+                                                });
+                                            }
+                                        }),
+                                )
+                            }),
                     )
                     .child(
                         Button::new("query-case")
