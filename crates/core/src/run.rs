@@ -3510,6 +3510,21 @@ fn try_direct_relation_page(
     let source_path = &source_relation.declaration.path;
     let mut target_ids = HashSet::new();
     let mut counters = WorkCounters::default();
+    let route_budget = retained_budget
+        .unwrap_or(64 * 1024 * 1024)
+        .min(64 * 1024 * 1024);
+    let mut route_bytes = 0usize;
+    let mut reserve_route = |additional: usize| -> bool {
+        let Some(next) = route_bytes.checked_add(additional) else {
+            return false;
+        };
+        if next > route_budget {
+            return false;
+        }
+        route_bytes = next;
+        true
+    };
+    let mut checked_target_files = HashSet::new();
     for published in segments[target_index].iter() {
         let segment = &published.index;
         let (may, must) = match &predicate {
@@ -3544,6 +3559,15 @@ fn try_direct_relation_page(
                 continue;
             }
             let matched = if must.as_ref().is_some_and(|must| must.contains(slot)) {
+                if checked_target_files.insert(resolved.file.id.0) {
+                    let path = repo.files.root.join(&resolved.file.relative_path);
+                    let current = std::fs::metadata(path)
+                        .ok()
+                        .and_then(|metadata| SourceRevision::from_metadata(&metadata).ok());
+                    if current != Some(resolved.file.revision) {
+                        return Ok(None);
+                    }
+                }
                 true
             } else {
                 let path = repo.files.root.join(&resolved.file.relative_path);
@@ -3584,7 +3608,12 @@ fn try_direct_relation_page(
             };
             if matched {
                 counters.relation_target_matches += 1;
-                target_ids.insert(resolved.record.id.0.clone());
+                if !target_ids.contains(&resolved.record.id.0) {
+                    if !reserve_route(resolved.record.id.0.len().saturating_add(64)) {
+                        return Ok(None);
+                    }
+                    target_ids.insert(resolved.record.id.0.clone());
+                }
             }
         }
     }
@@ -3606,12 +3635,19 @@ fn try_direct_relation_page(
         }
         may &= published.active.bitmap();
         may &= &published.index.logical_records;
+        if !reserve_route(may.serialized_size().saturating_add(64)) {
+            return Ok(None);
+        }
         for slot in may.iter() {
             let record = published
                 .index
                 .record(RecordSlot(slot))
                 .ok_or("direct relation source candidate missing")?;
-            if source_files.insert(record.file.0) {
+            if !source_files.contains(&record.file.0) {
+                if !reserve_route(32) {
+                    return Ok(None);
+                }
+                source_files.insert(record.file.0);
                 source_checks.push(
                     catalog
                         .entry(record.file)
