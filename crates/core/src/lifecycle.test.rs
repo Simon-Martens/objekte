@@ -191,6 +191,63 @@ fn unavailable_direct_lookup_requests_reconciliation() {
 }
 
 #[test]
+fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-static-base-move-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let original = root.join("data/original.json");
+    let destination = root.join("data/renamed.json");
+    let bytes = br#"{"id":"A","name":"alpha"}"#;
+    std::fs::write(&original, bytes).unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["id".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let repository = Repository::open_with_options(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let index = static_index(repository);
+    let old = index.view().unwrap();
+    let handle = old.file_handle_for_path(&original).unwrap();
+    std::fs::rename(&original, &destination).unwrap();
+    let moved = index.move_file(handle, &destination).unwrap();
+    assert_eq!(
+        moved.strategy,
+        crate::lifecycle_mutation::FileMutationStrategy::ContentPreservingMove
+    );
+    let live = index.view().unwrap();
+    let hit = live
+        .get_record("data", "A", ReturnMode::Bytes)
+        .unwrap()
+        .unwrap();
+    assert_eq!(hit.file_path, std::path::PathBuf::from("data/renamed.json"));
+    assert_eq!(hit.payload, Some(crate::repository::Payload::Bytes(bytes.to_vec())));
+    assert!(old.get_record("data", "A", ReturnMode::Bytes).is_err());
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn quiescence_rejects_query_requested_reconciliation() {
     let root = std::env::temp_dir().join(format!(
         "objekte-lookup-quiesce-{}-{:?}",
