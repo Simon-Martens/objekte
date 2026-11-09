@@ -68,6 +68,98 @@ fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
 }
 
 #[test]
+fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
+    use crate::lifecycle::Index;
+    use crate::query::{CaseSensitivity, FtsMode, FtsQuery, parse_structured_filter};
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-lifecycle-parallel-residual-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..48 {
+        let title = if number % 4 == 0 { "Lied" } else { "Other" };
+        let contributors = if number % 3 == 0 {
+            "[]"
+        } else if number % 2 == 0 {
+            r#"[{"type":"Autor:in"}]"#
+        } else {
+            r#"[{"type":"Herausgeber"}]"#
+        };
+        std::fs::write(
+            root.join(format!("data/{number:03}.json")),
+            format!(r#"{{"title":"{title}","contributors":{contributors}}}"#),
+        ).unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.schema.register_field(FieldDefinition {
+        path: vec!["contributors".into()],
+        kind: LogicalType::Array(Box::new(LogicalType::Object)),
+        required: false, nullable: false, indexed: false, multi: true,
+        element_nullable: vec![false],
+    }).unwrap();
+    definition.schema.register_field(FieldDefinition {
+        path: vec!["contributors".into(), "type".into()],
+        kind: LogicalType::String,
+        required: false, nullable: false, indexed: false, multi: true,
+        element_nullable: vec![false],
+    }).unwrap();
+    let build = |query_workers| Index::build(
+        &root, vec![definition.clone()],
+        RepositoryOptions {
+            query_workers,
+            snapshot_mode: SnapshotMode::Disabled,
+            ..RepositoryOptions::default()
+        },
+    ).unwrap();
+    let single = build(1);
+    let parallel = build(4);
+    let single_view = single.view().unwrap();
+    let parallel_view = parallel.view().unwrap();
+    for (filter, fts) in [
+        ("contributors:length > 0", None),
+        ("contributors[0].type = 'Autor:in'", None),
+        ("contributors[*].type = contributors[*].type", None),
+        ("contributors.type ?= 'Autor:in'", Some("Lied")),
+        ("contributors[0].type = 'Autor:in' SORT BY contributors[0].type ASC", None),
+    ] {
+        let parsed = parse_structured_filter(filter).unwrap();
+        let query = Query {
+            collections: vec!["data".into()],
+            filter: parsed.filter,
+            fts: fts.map(|literal| FtsQuery {
+                pattern_parameter: None,
+                mode: FtsMode::Literal,
+                case_sensitivity: CaseSensitivity::Sensitive,
+                literal: literal.into(), fields: Vec::new(),
+            }),
+            options: QueryOptions {
+                sort: parsed.sort.unwrap_or_default(), limit: 7, offset: 2, count: true,
+                return_mode: ReturnMode::Locator, evidence: true,
+            },
+        };
+        let one = single_view.search(&query).unwrap();
+        let many = parallel_view.search(&query).unwrap();
+        let reference = parallel_view.search_reference(&query).unwrap();
+        assert_eq!(many.count, one.count, "{filter}");
+        assert_eq!(many.hits, one.hits, "{filter}");
+        assert_eq!(many.count, reference.count, "{filter}");
+        assert_eq!(many.hits, reference.hits, "{filter}");
+        assert!(many.counters.scanned_records > 0, "{filter}");
+        assert_eq!(many.counters.scanned_records, one.counters.scanned_records, "{filter}");
+        assert_eq!(many.counters.files_opened, one.counters.files_opened, "{filter}");
+        assert_eq!(many.counters.bytes_read, one.counters.bytes_read, "{filter}");
+        assert_eq!(many.counters.residual_evaluations, one.counters.residual_evaluations, "{filter}");
+    }
+    single.shutdown().unwrap();
+    parallel.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     use crate::build::{
         FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
