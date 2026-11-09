@@ -243,7 +243,11 @@ fn segment_expr_bounds(
 ) -> SegmentCandidateBounds {
     match expr {
         BoundExpr::Term(term) => {
-            if term.related.is_some() || term.rhs.is_some() {
+            if term.related.is_some()
+                || term.rhs.is_some()
+                || term.query_path.has_explicit_array_step
+                || term.query_path.has_position
+            {
                 return SegmentCandidateBounds::unknown(domain);
             }
             if term.path.root == PathRoot::Metadata(MetadataField::RecordId)

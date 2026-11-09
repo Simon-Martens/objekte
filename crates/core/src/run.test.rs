@@ -2588,8 +2588,8 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     for (path, body) in [
         ("targets/t1.json", r#"{"id":"t1","title":"Needle"}"#),
         ("targets/t2.json", r#"{"id":"t2","title":"Other"}"#),
-        ("sources/s1.json", r#"{"id":"s1","entry":"t1"}"#),
-        ("sources/s2.json", r#"{"id":"s2","entry":"t2"}"#),
+        ("sources/s1.json", r#"{"id":"s1","entry":"t1","entries":["t2","t1"]}"#),
+        ("sources/s2.json", r#"{"id":"s2","entry":"t2","entries":["t1","t2"]}"#),
         ("sources/broken.json", "{broken"),
     ] {
         std::fs::write(root.join(path), body).unwrap();
@@ -2598,7 +2598,7 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     for name in ["sources", "targets"] {
         let mut schema = Schema::default();
         for field in if name == "sources" {
-            &["id", "entry"][..]
+            &["id", "entry", "entries"][..]
         } else {
             &["id", "title"][..]
         } {
@@ -2607,13 +2607,15 @@ fn exact_collection_handles_relation_membership_without_ranking() {
                     path: vec![(*field).into()],
                     kind: if *field == "title" {
                         LogicalType::String
+                    } else if *field == "entries" {
+                        LogicalType::Array(Box::new(LogicalType::Id))
                     } else {
                         LogicalType::Id
                     },
                     required: false,
                     nullable: true,
                     indexed: true,
-                    multi: false,
+                    multi: *field == "entries",
                     element_nullable: vec![],
                 })
                 .unwrap();
@@ -2624,6 +2626,14 @@ fn exact_collection_handles_relation_membership_without_ranking() {
                     path: vec!["entry".into()],
                     target_collection: "targets".into(),
                     cardinality: RelationCardinality::One,
+                    reverse_alias: None,
+                })
+                .unwrap();
+            schema
+                .register_relation(RelationDefinition {
+                    path: vec!["entries".into()],
+                    target_collection: "targets".into(),
+                    cardinality: RelationCardinality::Many,
                     reverse_alias: None,
                 })
                 .unwrap();
@@ -2709,6 +2719,19 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     assert_eq!(fts_result.hits, fts_reference.hits);
     assert_eq!(fts_result.count, fts_reference.count);
     assert_eq!(fts_result.counters.scanned_records, 0);
+    let mut selected_fts = related_fts.clone();
+    selected_fts.fts.as_mut().unwrap().mode = FtsMode::Literal;
+    selected_fts.fts.as_mut().unwrap().literal = "Needle".into();
+    selected_fts.fts.as_mut().unwrap().fields[0] = crate::query::FtsField {
+        path: FieldPath::parse("entries.title").unwrap(),
+        binding: None,
+        query_path: Some("entries[0].title".into()),
+    };
+    let selected_result = view.search(&selected_fts).unwrap();
+    let selected_reference = view.search_reference(&selected_fts).unwrap();
+    assert_eq!(selected_result.count, Some(1));
+    assert_eq!(selected_result.hits, selected_reference.hits);
+    assert!(selected_result.counters.scanned_records > 0);
     index.configure_verified_cache(1024 * 1024).unwrap();
     page_query.options.count = false;
     let no_count_cold = view.search(&page_query).unwrap();
@@ -2734,6 +2757,90 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     assert_eq!(unavailable.count, None);
     assert!(unavailable.counters.source_unavailable_events > 0);
     std::fs::rename(missing_source, root.join("sources/s1.json")).unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn segmented_explicit_array_index_does_not_claim_whole_field_proof() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-array-position-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, body) in [
+        (
+            "a",
+            r#"{"id":"a","contributors":[{"type":"X"},{"type":"Y"}]}"#,
+        ),
+        (
+            "b",
+            r#"{"id":"b","contributors":[{"type":"Y"},{"type":"X"}]}"#,
+        ),
+        ("c", r#"{"id":"c","contributors":[{"type":"X"}]}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    for (path, kind, multi) in [
+        (vec!["id".into()], LogicalType::Id, false),
+        (
+            vec!["contributors".into(), "type".into()],
+            LogicalType::String,
+            true,
+        ),
+    ] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path,
+                kind,
+                required: false,
+                nullable: false,
+                indexed: true,
+                multi,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    definition.sort_fields.push(FieldPath::parse("id").unwrap());
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition],
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let view = crate::lifecycle::Index::from_repository(repo)
+        .unwrap()
+        .view()
+        .unwrap();
+    for evidence in [false, true] {
+        for count in [false, true] {
+            let query = Query {
+                collections: vec!["data".into()],
+                fts: None,
+                filter: Some(parse_filter("contributors[0].type = 'X'").unwrap()),
+                options: QueryOptions {
+                    sort: vec![SortField::simple("id", false)],
+                    limit: 10,
+                    offset: 0,
+                    count,
+                    return_mode: ReturnMode::Locator,
+                    evidence,
+                },
+            };
+            let actual = view.search(&query).unwrap();
+            let reference = view.search_reference(&query).unwrap();
+            assert_eq!(actual.count, count.then_some(2));
+            assert_eq!(actual.hits, reference.hits);
+            assert!(actual.counters.scanned_records > 0);
+        }
+    }
     std::fs::remove_dir_all(root).unwrap();
 }
 
