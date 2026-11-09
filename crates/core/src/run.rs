@@ -5176,7 +5176,8 @@ fn try_lifecycle_ordered_stream(
         }
     }
     let mut count = None;
-    if request.options.count && limit.is_some() {
+    // A Locator-only count pass cannot erase a failed Bytes/Logical page read.
+    if request.options.count && limit.is_some() && counters.source_unavailable_events == 0 {
         let mut count_query = request.clone();
         count_query.options.offset = 0;
         count_query.options.limit = 0;
