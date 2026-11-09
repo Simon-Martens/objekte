@@ -11,8 +11,11 @@ use std::time::{Duration, Instant};
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle_mutation::{UpdateOptions, UpdateStrategy};
 use objekte_search_core::lifecycle_repository::{CacheOpenPolicy, RepositoryOpenOptions};
+use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions};
-use objekte_search_core::repository::RepositoryOptions;
+use objekte_search_core::reference::FieldDefinition;
+use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
+use objekte_search_core::source::SourceFormat;
 use objekte_search_core::storage::snapshot_path;
 use objekte_search_core::workload::ReturnMode;
 
@@ -218,12 +221,85 @@ fn setup_small(root: &Path) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
+/// A disposable one-record-per-file fixture lets the same original-file
+/// verified update be measured at 16k, 32k, and 148,486 unrelated files.
+/// The caller creates `data/000000.jsonl` through `data/{n-1:06}.jsonl`
+/// with stable intrinsic IDs before invoking this mode.
+fn run_locality(root: &Path) -> Result<(), Box<dyn Error>> {
+    let root = root.canonicalize()?;
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::JsonLines);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    for (name, kind) in [("id", LogicalType::Id), ("name", LogicalType::String)] {
+        definition.schema.register_field(FieldDefinition {
+            path: vec![name.into()],
+            kind,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })?;
+    }
+    println!("phase\tms\trss_kb\thwm_kb\trevision\tfiles\trecords\tdetail");
+    let started = Instant::now();
+    let index = Index::build(&root, vec![definition], RepositoryOptions::default())?;
+    emit("build", started.elapsed(), &index, "synthetic=true");
+    let target = root.join("data/000000.jsonl");
+    let mut old = fs::read(&target)?;
+    let mut handle = index
+        .view()?
+        .file_handle_for_path(&target)
+        .ok_or("synthetic target missing")?;
+    for run in 0..11 {
+        let next =
+            format!("{{\"id\":\"item-000000\",\"name\":\"changed-{run:03}\"}}\n").into_bytes();
+        fs::write(&target, &next)?;
+        let started = Instant::now();
+        let updated = index.update_file_with_options(
+            handle,
+            &target,
+            UpdateOptions {
+                old_content: Some(&old),
+                strategy: UpdateStrategy::PreferVerified,
+            },
+        )?;
+        let elapsed = started.elapsed();
+        emit(
+            "verified_original_update",
+            elapsed,
+            &index,
+            format!(
+                "sample={run};strategy={:?};fallback={:?};retired={}",
+                updated.strategy, updated.fallback_reason, updated.retired_records
+            ),
+        );
+        handle = updated.file;
+        old = next;
+    }
+    let started = Instant::now();
+    let count = count(&index, "items")?;
+    emit("count", started.elapsed(), &index, format!("count={count}"));
+    let started = Instant::now();
+    let report = index.compact()?;
+    emit(
+        "compact",
+        started.elapsed(),
+        &index,
+        format!("removed={}", report.retired_slots_removed),
+    );
+    index.shutdown()?;
+    Ok(())
+}
+
 fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
     if std::env::var("OBJEKTE_BENCH_MUTATE_COPY").as_deref() != Ok("1") {
         return Err("set OBJEKTE_BENCH_MUTATE_COPY=1 for a disposable fixture copy".into());
     }
+    if mode == "locality" {
+        return run_locality(root);
+    }
     if !matches!(mode, "small" | "large" | "stress") {
-        return Err("mode must be small, large, or stress".into());
+        return Err("mode must be small, large, stress, or locality".into());
     }
     if mode == "small" {
         setup_small(root)?;
@@ -543,7 +619,7 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
 fn main() {
     let args: Vec<_> = std::env::args().collect();
     if args.len() != 3 {
-        eprintln!("usage: lifecycle-perf small|large|stress ROOT");
+        eprintln!("usage: lifecycle-perf small|large|stress|locality ROOT");
         std::process::exit(2);
     }
     if let Err(error) = run(&args[1], Path::new(&args[2])) {
