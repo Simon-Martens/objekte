@@ -2402,7 +2402,7 @@ pub(crate) fn search_segmented_with_context_lifecycle(
                     .map_err(|message| context.recorded_error(message))?;
                 search_segmented_relations(
                     repo, query, base_active, segments, catalog, revision,
-                    &sort, &prepared.collections, Some(context),
+                    &sort, &prepared.collections, Some(context), None,
                 ).map_err(|message| context.recorded_error(message))
             } else {
                 Err(error)
@@ -2476,7 +2476,7 @@ pub(crate) fn search_active_available_with_context_lifecycle(
                 .map_err(|message| context.recorded_error(message))?;
             search_segmented_relations(
                 repo, query, base_active, &empty, catalog, revision,
-                &sort, &prepared.collections, Some(context),
+                &sort, &prepared.collections, Some(context), None,
             ).map_err(|message| context.recorded_error(message))
         }
         result => result,
@@ -2580,7 +2580,11 @@ fn search_segmented_impl(
                 .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     });
     if has_relations || related_sort {
-        return search_segmented_relations(
+        let mut relation_cache = cache_key.as_ref().and_then(|(_, _, budget)| {
+            (*budget > 0 && base_active.iter().all(|active| active.len() == 0))
+                .then(|| LifecycleCacheBuilder::new(*budget))
+        });
+        let result = search_segmented_relations(
             repo,
             query,
             base_active,
@@ -2590,13 +2594,26 @@ fn search_segmented_impl(
             &sort,
             &prepared.collections,
             context,
-        );
+            relation_cache.as_mut(),
+        )?;
+        if result.counters.match_count_complete
+            && let (Some(builder), Some((scope, key, _))) = (relation_cache, cache_key)
+            && let Some(members) = builder.finish(result.counters.total_matches)
+        {
+            if let Some(context) = context {
+                context.check_string()?;
+            }
+            let displaced = scope.store.lock().map_err(|error| error.to_string())?.insert(key, members);
+            drop(displaced);
+        }
+        return Ok(result);
     }
-    // A counted request already verifies the full domain. Retain its compact
-    // ordered addresses only if every base record has moved to lifecycle
-    // partitions; otherwise the base top-k call does not expose all members.
+    // This merged planner already verifies the full segment domain, even when
+    // the caller does not request a count. Retain compact ordered addresses
+    // only if every base record has moved to lifecycle partitions; otherwise
+    // the base top-k call does not expose all members.
     let mut cache_builder = cache_key.as_ref().and_then(|(_, _, budget)| {
-        (query.options.count && *budget > 0 && base_active.iter().all(|active| active.len() == 0))
+        (*budget > 0 && base_active.iter().all(|active| active.len() == 0))
             .then(|| LifecycleCacheBuilder::new(*budget))
     });
     let cap = query
@@ -3106,6 +3123,7 @@ fn search_segmented_relations(
     sort: &ResolvedSort<'_>,
     prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
     context: Option<&ExecutionContext>,
+    mut cache_builder: Option<&mut LifecycleCacheBuilder>,
 ) -> Result<SearchResult, String> {
     let view =
         crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
@@ -3248,6 +3266,14 @@ fn search_segmented_relations(
                     Vec::new()
                 },
             );
+            if let Some(builder) = cache_builder.as_mut() {
+                builder.push(&key, CachedMember {
+                    collection_index,
+                    segment_index: address.segment,
+                    slot: address.slot.0,
+                    matched_fields: hit.matched_fields.clone(),
+                });
+            }
             offer_merged(
                 &mut winners,
                 cap,
@@ -3540,6 +3566,7 @@ pub(crate) fn search_segmented_reference(
         &sort,
         &prepared.collections,
         None,
+        None,
     )
 }
 
@@ -3788,6 +3815,31 @@ fn push_lifecycle_order_cursor(
     Ok(())
 }
 
+/// Reuse one checked source handle while adjacent rows in a stored order
+/// belong to the same file. This avoids reopening a large JSONL file for
+/// every ordered row without retaining file bodies or an unbounded handle set.
+fn read_lifecycle_ordered_record(
+    repo: &Repository,
+    file: &FileEntry,
+    record: &RecordEntry,
+    slot: RecordSlot,
+    reader: &mut Option<(crate::model::FileId, RecordRangeReader)>,
+    max_bytes: usize,
+    context: &ExecutionContext,
+) -> Result<(Vec<u8>, bool), String> {
+    let opened = reader.as_ref().is_none_or(|(id, _)| *id != file.id);
+    if opened {
+        let path = repo.files.root.join(&file.relative_path);
+        *reader = Some((
+            file.id,
+            RecordRangeReader::open_with_execution(&path, file.revision, Some(context))?,
+        ));
+    }
+    let (_, source) = reader.as_mut().ok_or("ordered source reader missing")?;
+    let (mut rows, _) = source.read_bounded(&[(slot.0, record.range)], max_bytes)?;
+    Ok((rows.pop().ok_or("ordered source row missing")?.1, opened))
+}
+
 /// Traverse resident sort/identity orders across lifecycle partitions. The
 /// first final page can be emitted before an optional exact-count pass reaches
 /// later source records. Computed and relation-dependent ordering retain the
@@ -3851,6 +3903,7 @@ fn try_lifecycle_ordered_stream(
     }).ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered partition count overflow"))?;
     let mut heap_bytes = partition_count
         .checked_mul(std::mem::size_of::<LifecycleOrderCursor>())
+        .and_then(|bytes| bytes.checked_add(std::mem::size_of::<RecordRangeReader>()))
         .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered cursor memory overflow"))?;
     if heap_bytes > delivery.max_buffered_bytes() {
         return Err(context.fail(ExecutionErrorKind::Resource, "ordered cursors exceed stream memory budget"));
@@ -3872,6 +3925,7 @@ fn try_lifecycle_ordered_stream(
     }
     let mut page = Vec::new();
     let mut page_bytes = 0usize;
+    let mut reader = None;
     let mut counters = WorkCounters {
         match_count_complete: true,
         ..WorkCounters::default()
@@ -3922,12 +3976,24 @@ fn try_lifecycle_ordered_stream(
             if record.range.len() > context.limits.source_record_bytes {
                 return Err(context.fail(ExecutionErrorKind::Resource, "ordered source record exceeds read allowance"));
             }
-            delivery.check_record_bytes(record.range.len() as usize)?;
+            let source_len = usize::try_from(record.range.len())
+                .map_err(|_| context.fail(ExecutionErrorKind::Resource, "ordered source size overflow"))?;
+            delivery.check_record_bytes(source_len)?;
+            delivery.check_buffer(
+                page_bytes.checked_add(heap_bytes).and_then(|used| used.checked_add(source_len))
+                    .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered source memory overflow"))?,
+            )?;
             context.charge_reads(1)?;
             context.charge_bytes(record.range.len())?;
-            let path = repo.files.root.join(&file.relative_path);
-            let read = match read_record_range(&path, file.revision, record.range) {
-                Ok(read) => read,
+            let read = match read_lifecycle_ordered_record(
+                repo, file, record, cursor.slot, &mut reader,
+                delivery.max_buffered_bytes().saturating_sub(heap_bytes).saturating_sub(page_bytes),
+                context,
+            ) {
+                Ok((read, opened)) => {
+                    counters.files_opened += u64::from(opened);
+                    read
+                }
                 Err(message) => {
                     let locator = segment_locator_hit(collection, resolved, revision, Vec::new());
                     if record_unavailable_hit(repo, catalog, &locator, message.clone(), &mut counters)? {
@@ -3936,7 +4002,6 @@ fn try_lifecycle_ordered_stream(
                     return Err(message);
                 }
             };
-            counters.files_opened += 1;
             counters.bytes_read += read.len() as u64;
             counters.scanned_records += 1;
             let extracted = if record.class == RecordClass::Logical {
@@ -4018,11 +4083,23 @@ fn try_lifecycle_ordered_stream(
                     if record.range.len() > context.limits.source_record_bytes {
                         return Err(context.fail(ExecutionErrorKind::Resource, "ordered output record exceeds read allowance"));
                     }
-                    delivery.check_record_bytes(record.range.len() as usize)?;
+                    let source_len = usize::try_from(record.range.len())
+                        .map_err(|_| context.fail(ExecutionErrorKind::Resource, "ordered output size overflow"))?;
+                    delivery.check_record_bytes(source_len)?;
+                    delivery.check_buffer(
+                        page_bytes.checked_add(heap_bytes).and_then(|used| used.checked_add(source_len))
+                            .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered output memory overflow"))?,
+                    )?;
                     context.charge_reads(1)?;
                     context.charge_bytes(record.range.len())?;
-                    let path = repo.files.root.join(&file.relative_path);
-                    read_record_range(&path, file.revision, record.range)?
+                    let (read, opened) = read_lifecycle_ordered_record(
+                        repo, file, record, cursor.slot, &mut reader,
+                        delivery.max_buffered_bytes().saturating_sub(heap_bytes).saturating_sub(page_bytes),
+                        context,
+                    )?;
+                    counters.files_opened += u64::from(opened);
+                    counters.bytes_read += read.len() as u64;
+                    read
                 };
                 let (payload, parses) = payload_from_bytes_with_execution(
                     Some(collection), &output_mode, source, Some(context),
