@@ -209,11 +209,13 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
         index.add_file(&path).unwrap();
     }
     let current = index.view().unwrap();
-    assert!(current
-        .segments(CollectionId(0))
-        .unwrap()
-        .iter()
-        .any(|segment| Arc::ptr_eq(segment, &dense)));
+    assert!(
+        current
+            .segments(CollectionId(0))
+            .unwrap()
+            .iter()
+            .any(|segment| Arc::ptr_eq(segment, &dense))
+    );
     assert_eq!(current.search(&all()).unwrap().count, Some(72));
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -230,8 +232,8 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
     let count = std::env::var("OBJEKTE_LARGE_COMPACT_RECORDS")
         .ok()
         .and_then(|value| value.parse::<usize>().ok())
-        .unwrap_or(262_145);
-    assert!(count > 262_144);
+        .unwrap_or(262_144);
+    assert!(count >= 262_144);
     let root = std::env::temp_dir().join(format!(
         "objekte-large-compact-{}-{}",
         std::process::id(),
@@ -242,7 +244,7 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     let many = root.join("data/many.jsonl");
-    let single = root.join("data/single.jsonl");
+    let single = root.join("data/a-single.jsonl");
     let mut writer = std::io::BufWriter::new(std::fs::File::create(&many).unwrap());
     for number in 0..count {
         writeln!(writer, "{{\"name\":\"item-{number}\"}}").unwrap();

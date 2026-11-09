@@ -4,6 +4,111 @@ use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
 #[test]
+fn direct_json_build_matches_static_inference_overlap_and_cache_restore() {
+    use crate::inference::{InferenceConfig, InferenceMode};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-direct-json-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"alpha","n":1}"#).unwrap();
+    std::fs::write(root.join("data/b.json"), br#"{"name":"beta","n":2}"#).unwrap();
+    std::fs::write(root.join("data/c.json"), b"{broken").unwrap();
+    let definitions = ["one", "two"]
+        .into_iter()
+        .map(|name| CollectionDefinition::folder(name, "data", SourceFormat::Json))
+        .collect::<Vec<_>>();
+    let mut inference = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    inference.policy.min_nonblank_occurrences = 1;
+    inference.policy.min_nonblank_records = 1;
+    let options = RepositoryOptions {
+        inference,
+        ..Default::default()
+    };
+    let static_repo = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    let index = Index::build(&root, definitions.clone(), options).unwrap();
+    assert_eq!(index.status().unwrap().indexed_files, 3);
+    assert_eq!(index.status().unwrap().live_records, 6);
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .repository()
+            .collections()
+            .iter()
+            .all(|state| { state.generation.records.is_empty() })
+    );
+    assert_eq!(
+        index.view().unwrap().repository().build_parses(),
+        static_repo.build_parses()
+    );
+    let query = Query {
+        collections: vec!["one".into(), "two".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let expected = static_repo.search(&query).unwrap();
+    let check = |index: &Index| {
+        let view = index.view().unwrap();
+        let actual = view.search(&query).unwrap();
+        assert_eq!(actual.count, expected.count);
+        let hits = |result: crate::repository::SearchResult| {
+            let mut hits = result
+                .hits
+                .into_iter()
+                .map(|hit| {
+                    (
+                        hit.collection,
+                        hit.record_id,
+                        hit.file_path,
+                        hit.file_status,
+                    )
+                })
+                .collect::<Vec<_>>();
+            hits.sort_by(|left, right| left.0.cmp(&right.0).then(left.1.cmp(&right.1)));
+            hits
+        };
+        assert_eq!(hits(actual), hits(expected.clone()));
+        for name in ["one", "two"] {
+            assert_eq!(
+                serde_json::to_value(view.repository().inference_report(name).unwrap()).unwrap(),
+                serde_json::to_value(static_repo.inference_report(name).unwrap()).unwrap()
+            );
+            assert_eq!(
+                serde_json::to_value(view.repository().inference_index_diagnostics(name).unwrap())
+                    .unwrap(),
+                serde_json::to_value(static_repo.inference_index_diagnostics(name).unwrap())
+                    .unwrap()
+            );
+        }
+    };
+    check(&index);
+    let cache = root.join("direct.snapshot");
+    index.flush_cache(&cache).unwrap();
+    let restored = Index::load_cache(&root, definitions, options, &cache).unwrap();
+    check(&restored);
+    restored.shutdown().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn explicit_build_ignores_implicit_cache_even_when_legacy_mode_requires_it() {
     let root = std::env::temp_dir().join(format!(
         "objekte-explicit-build-{}-{:?}",
