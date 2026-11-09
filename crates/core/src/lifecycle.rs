@@ -8,7 +8,7 @@ use std::collections::HashMap;
 use std::fmt;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
-use std::sync::mpsc::{self, RecvTimeoutError, SyncSender};
+use std::sync::mpsc::{self, RecvTimeoutError, Sender, SyncSender};
 use std::sync::{Arc, Condvar, Mutex, RwLock, Weak};
 use std::thread::JoinHandle;
 use std::time::{Duration, Instant, SystemTime};
@@ -729,6 +729,7 @@ struct IndexInner {
     writer: Mutex<()>,
     maintenance: Mutex<MaintenanceState>,
     maintenance_operation: Mutex<Option<Arc<MaintenanceJob>>>,
+    periodic_transition: Mutex<()>,
     periodic: Mutex<Option<PeriodicReconciliation>>,
     persistence: Mutex<PersistenceState>,
     sync_cache: Mutex<Option<SyncCacheWorker>>,
@@ -737,8 +738,14 @@ struct IndexInner {
 }
 
 struct PeriodicReconciliation {
-    stop: SyncSender<()>,
+    signal: Sender<PeriodicSignal>,
     worker: JoinHandle<()>,
+}
+
+enum PeriodicSignal {
+    #[cfg(test)]
+    Tick,
+    Stop,
 }
 
 struct SyncCacheWorker {
@@ -930,6 +937,7 @@ impl Index {
                 current: None,
             }),
             maintenance_operation: Mutex::new(None),
+            periodic_transition: Mutex::new(()),
             periodic: Mutex::new(None),
             persistence: Mutex::new(PersistenceState {
                 selected_cache: None,
@@ -1388,6 +1396,12 @@ impl Index {
                     {
                     }
                     let Some(inner) = owner.upgrade() else { break };
+                    // Closing owns the final persistence decision. A queued
+                    // automatic write must not become an implicit save after
+                    // the publication barrier has been established.
+                    if inner.quiescing.load(Ordering::Acquire) {
+                        break;
+                    }
                     let index = Index(inner);
                     let destination = index
                         .0
@@ -1546,19 +1560,27 @@ impl Index {
                 "reconciliation interval must be nonzero".into(),
             ));
         }
+        let _transition = self
+            .0
+            .periodic_transition
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
         if self.0.quiescing.load(Ordering::Acquire) {
             return Err(IndexError::Cancelled);
         }
-        self.stop_periodic_reconciliation()?;
-        let (stop, receiver) = mpsc::sync_channel(1);
+        self.stop_periodic_reconciliation_unlocked()?;
+        let (signal, receiver) = mpsc::channel();
         let owner = Arc::downgrade(&self.0);
         let worker = std::thread::Builder::new()
             .name("objekte-reconcile-periodic".into())
             .spawn(move || {
-                while matches!(
-                    receiver.recv_timeout(interval),
-                    Err(RecvTimeoutError::Timeout)
-                ) {
+                loop {
+                    match receiver.recv_timeout(interval) {
+                        Ok(PeriodicSignal::Stop) | Err(RecvTimeoutError::Disconnected) => break,
+                        #[cfg(test)]
+                        Ok(PeriodicSignal::Tick) => {}
+                        Err(RecvTimeoutError::Timeout) => {}
+                    }
                     let Some(inner) = owner.upgrade() else { break };
                     let index = Index(inner);
                     let task = index.start_reconcile();
@@ -1576,18 +1598,27 @@ impl Index {
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
         if self.0.quiescing.load(Ordering::Acquire) {
-            let _ = stop.try_send(());
+            let _ = signal.send(PeriodicSignal::Stop);
             drop(periodic);
             worker.join().map_err(|_| {
                 IndexError::InvalidPublication("periodic reconciliation worker panicked".into())
             })?;
             return Err(IndexError::Cancelled);
         }
-        *periodic = Some(PeriodicReconciliation { stop, worker });
+        *periodic = Some(PeriodicReconciliation { signal, worker });
         Ok(())
     }
 
     pub fn stop_periodic_reconciliation(&self) -> Result<(), IndexError> {
+        let _transition = self
+            .0
+            .periodic_transition
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        self.stop_periodic_reconciliation_unlocked()
+    }
+
+    fn stop_periodic_reconciliation_unlocked(&self) -> Result<(), IndexError> {
         let schedule = self
             .0
             .periodic
@@ -1595,7 +1626,7 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?
             .take();
         if let Some(schedule) = schedule {
-            let _ = schedule.stop.try_send(());
+            let _ = schedule.signal.send(PeriodicSignal::Stop);
             schedule.worker.join().map_err(|_| {
                 IndexError::InvalidPublication("periodic reconciliation worker panicked".into())
             })?;

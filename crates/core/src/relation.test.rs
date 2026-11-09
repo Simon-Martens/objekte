@@ -401,9 +401,18 @@ fn projecting_relation_contributions_preserves_references_and_unknown_rows() {
     assert!(!projected.unavailable().contains(0));
     assert_eq!(contribution.record_count(), 3);
     assert!(contribution.unavailable().contains(0));
+    let swapped = contribution
+        .project_slots(&[None, Some(RecordSlot(1)), Some(RecordSlot(0))])
+        .unwrap();
+    assert_eq!(
+        swapped.references().collect::<Vec<_>>(),
+        [(RecordSlot(1), "A", &[][..])]
+    );
+    assert!(swapped.present().contains(1));
+    assert!(swapped.unavailable().contains(0));
     assert!(
         contribution
-            .project_slots(&[None, Some(RecordSlot(1)), Some(RecordSlot(0))])
+            .project_slots(&[None, Some(RecordSlot(0)), Some(RecordSlot(0))])
             .is_err()
     );
 }

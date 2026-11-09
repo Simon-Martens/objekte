@@ -4,6 +4,26 @@ use crate::backend::{OpenSpec, open};
 use objekte_cli::arguments::Arguments;
 
 #[test]
+fn manual_shutdown_does_not_write_an_index() {
+    let fixture = fixture();
+    let root = fixture._root.path();
+    let mut before = std::fs::read_dir(root)
+        .unwrap()
+        .map(|entry| entry.unwrap().file_name())
+        .collect::<Vec<_>>();
+    before.sort();
+    assert!(fixture.session.configuration.cache_save.is_none());
+    shutdown(&fixture.session).unwrap();
+    let mut after = std::fs::read_dir(root)
+        .unwrap()
+        .map(|entry| entry.unwrap().file_name())
+        .collect::<Vec<_>>();
+    after.sort();
+    assert_eq!(before, after);
+    assert_eq!(status(&fixture.session).unwrap().saved_revision, None);
+}
+
+#[test]
 fn commands_act_on_the_open_sessions_live_index() {
     let fixture = fixture();
     let session = &fixture.session;

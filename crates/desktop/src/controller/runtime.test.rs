@@ -337,8 +337,72 @@ fn manual_close_has_no_implicit_index_save() {
     controller.session = Some(fixture.session);
     let mut updates = Vec::new();
     controller.request_close(&mut updates);
-    assert!(matches!(updates.as_slice(), [UiUpdate::CloseReady]));
+    assert!(matches!(
+        updates.as_slice(),
+        [UiUpdate::ClosingIndex { error: None }]
+    ));
+    assert!(matches!(
+        controller
+            .workers
+            .recv_timeout(Duration::from_secs(5))
+            .unwrap(),
+        WorkerEvent::IndexShutdown { result: Ok(()), .. }
+    ));
     assert!(!fixture._root.path().join(".objekte").exists());
+}
+
+#[test]
+fn pending_automatic_save_enable_cannot_write_after_manual_close() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.index_ui.automatic_save_available = true;
+    let save_gate = Arc::clone(&controller.automatic_save_gate);
+    let held = save_gate.lock().unwrap();
+    let mut updates = Vec::new();
+    controller.set_automatic_save(true, &mut updates);
+    controller.request_close(&mut updates);
+    drop(held);
+    assert!(matches!(
+        controller
+            .workers
+            .recv_timeout(Duration::from_secs(5))
+            .unwrap(),
+        WorkerEvent::IndexShutdown { result: Ok(()), .. }
+    ));
+    assert!(!fixture._root.path().join(".objekte").exists());
+    assert_eq!(
+        backend::index_lifecycle::status(controller.session.as_ref().unwrap())
+            .unwrap()
+            .saved_revision,
+        None
+    );
+}
+
+#[test]
+fn superseded_automatic_save_enable_cannot_run_after_disable() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.index_ui.automatic_save_available = true;
+    let save_gate = Arc::clone(&controller.automatic_save_gate);
+    let held = save_gate.lock().unwrap();
+    controller.set_automatic_save(true, &mut Vec::new());
+    controller.set_automatic_save(false, &mut Vec::new());
+    drop(held);
+    assert!(matches!(
+        controller
+            .workers
+            .recv_timeout(Duration::from_secs(5))
+            .unwrap(),
+        WorkerEvent::AutomaticSaveChanged {
+            enabled: false,
+            result: Ok(()),
+            ..
+        }
+    ));
+    assert!(!fixture._root.path().join(".objekte").exists());
+    backend::index_lifecycle::shutdown(controller.session.as_ref().unwrap()).unwrap();
 }
 
 #[test]

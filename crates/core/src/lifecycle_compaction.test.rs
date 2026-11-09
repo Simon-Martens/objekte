@@ -220,3 +220,95 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+
+/// Run with `cargo test --release -p objekte-search-core --lib
+/// lifecycle_compaction::tests::large_source_free_compaction -- --ignored --nocapture`.
+/// Set `OBJEKTE_LARGE_COMPACT_RECORDS=1000001` for the million-record case.
+#[test]
+#[ignore = "manual scale and peak-memory validation"]
+fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
+    use std::io::Write;
+
+    let count = std::env::var("OBJEKTE_LARGE_COMPACT_RECORDS")
+        .ok()
+        .and_then(|value| value.parse::<usize>().ok())
+        .unwrap_or(262_145);
+    assert!(count > 262_144);
+    let root = std::env::temp_dir().join(format!(
+        "objekte-large-compact-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let many = root.join("data/many.jsonl");
+    let single = root.join("data/single.jsonl");
+    let mut writer = std::io::BufWriter::new(std::fs::File::create(&many).unwrap());
+    for number in 0..count {
+        writeln!(writer, "{{\"name\":\"item-{number}\"}}").unwrap();
+    }
+    writer.flush().unwrap();
+    drop(writer);
+    std::fs::write(&single, b"{\"name\":\"retired\"}\n").unwrap();
+    let started = Instant::now();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::JsonLines,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    eprintln!("large compaction build records={count} elapsed={:?}", started.elapsed());
+    let pinned = index.view().unwrap();
+    assert_eq!(pinned.search(&all()).unwrap().count, Some(count + 1));
+    index.delete_file(pinned.file_handle_for_path(&single).unwrap()).unwrap();
+    std::fs::remove_file(&many).unwrap();
+    std::fs::remove_file(&single).unwrap();
+    let revision = index.view().unwrap().revision();
+    let checks = std::cell::Cell::new(0);
+    assert_eq!(
+        index.compact_with_control(
+            || {
+                checks.set(checks.get() + 1);
+                checks.get() >= 5
+            },
+            |_, _| {}
+        )
+        .unwrap_err(),
+        IndexError::Cancelled
+    );
+    assert_eq!(index.view().unwrap().revision(), revision);
+    assert_eq!(index.view().unwrap().search(&all()).unwrap().count, Some(count));
+    let late = root.join("data/late.jsonl");
+    let published_late = std::cell::Cell::new(false);
+    let started = Instant::now();
+    let report = index
+        .compact_with_control(
+            || false,
+            |phase, _| {
+                if phase == MaintenancePhase::Publishing && !published_late.get() {
+                    std::fs::write(&late, b"{\"name\":\"late\"}\n").unwrap();
+                    index.add_file(&late).unwrap();
+                    published_late.set(true);
+                }
+            },
+        )
+        .unwrap();
+    eprintln!(
+        "large compaction records={count} elapsed={:?} attempts={} before={} after={} retired={}",
+        started.elapsed(), report.attempts, report.slots_before,
+        report.slots_after, report.retired_slots_removed
+    );
+    assert_eq!(report.attempts, 2);
+    assert_eq!(report.retired_slots_removed, 1);
+    assert_eq!(report.slots_after, (count + 1) as u64);
+    assert_eq!(index.view().unwrap().search(&all()).unwrap().count, Some(count + 1));
+    assert_eq!(pinned.search(&all()).unwrap().count, Some(count + 1));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}

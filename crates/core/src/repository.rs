@@ -1,6 +1,7 @@
 //! Resident repository ownership and the independent scan execution path.
 
 use roaring::RoaringBitmap;
+use serde::{Deserialize, Serialize};
 use std::collections::{HashMap, HashSet};
 use std::num::NonZeroUsize;
 use std::path::PathBuf;
@@ -130,12 +131,19 @@ impl CollectionDefinition {
 }
 
 /// Published generation and indexes for one collection.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub(crate) struct GlobalInferenceSummary {
+    pub(crate) report: InferenceReport,
+    pub(crate) diagnostics: Vec<InferencePathDiagnostic>,
+}
+
 pub struct CollectionState {
     pub definition: CollectionDefinition,
     pub(crate) source: PreparedSource,
     pub generation: CollectionGeneration,
     pub postings: PostingCollection,
     pub inference: Option<InferenceState>,
+    pub(crate) global_inference: Option<GlobalInferenceSummary>,
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub raw: BigramIndex,
     pub fallback_text: BigramIndex,
@@ -605,8 +613,13 @@ impl Repository {
         self.collections
             .iter()
             .find(|state| state.definition.name == collection)
-            .and_then(|state| state.inference.as_ref())
-            .map(|state| &state.report)
+            .and_then(|state| {
+                state
+                    .global_inference
+                    .as_ref()
+                    .map(|summary| &summary.report)
+                    .or_else(|| state.inference.as_ref().map(|inference| &inference.report))
+            })
     }
 
     /// Ordered-posting outcomes for every observed path, sorted by typed path.
@@ -618,8 +631,13 @@ impl Repository {
         self.collections
             .iter()
             .find(|state| state.definition.name == collection)
-            .and_then(|state| state.inference.as_ref())
-            .map(InferenceState::path_diagnostics)
+            .and_then(|state| {
+                state
+                    .global_inference
+                    .as_ref()
+                    .map(|summary| summary.diagnostics.clone())
+                    .or_else(|| state.inference.as_ref().map(InferenceState::path_diagnostics))
+            })
     }
 
     pub fn verified_cache_budget(&self) -> Result<usize, String> {
@@ -1049,7 +1067,7 @@ impl Repository {
     /// enumerating or opening any source file. Maintenance can then publish
     /// active-only compacted contributions as new segments.
     pub(crate) fn empty_like(&self) -> Result<Self, String> {
-        Self::build_fresh(
+        let mut empty = Self::build_fresh(
             self.files.root.clone(),
             self.collections
                 .iter()
@@ -1058,7 +1076,19 @@ impl Repository {
             self.options,
             &self.sources,
             false,
-        )
+        )?;
+        for (source, target) in self.collections.iter().zip(&mut empty.collections) {
+            target.global_inference = source.global_inference.clone().or_else(|| {
+                source.inference.as_ref().map(|state| GlobalInferenceSummary {
+                    report: state.report.clone(),
+                    diagnostics: state.path_diagnostics(),
+                })
+            });
+        }
+        empty.build_parses = self.build_parses;
+        empty.build_failed_parses = self.build_failed_parses;
+        empty.startup = self.startup.clone();
+        Ok(empty)
     }
 
     fn build_fresh(
@@ -1430,6 +1460,7 @@ impl Repository {
                 generation,
                 postings,
                 inference,
+                global_inference: None,
                 custom_postings,
                 raw,
                 fallback_text,
