@@ -2,6 +2,43 @@ use super::*;
 use crate::ui::model::{ResultRow, RowKey};
 
 #[test]
+fn visible_query_preview_survives_new_tab_and_cache_stays_bounded() {
+    let mut state = UiState::default();
+    let first = state.workspace.opened(None);
+    state.page.columns = vec!["@id".into()];
+    state.page.exact_total = Some(120);
+    for index in 0..50 {
+        state.projected_rows.insert(index, ResultRow {
+            key: RowKey {
+                token: index as u64,
+                collection: "files".into(),
+                record_id: format!("record-{index}"),
+                file: format!("{index}.json"),
+                byte_start: 0,
+            },
+            cells: vec![format!("record-{index}")],
+            matched_fields: Vec::new(),
+            match_highlights: Vec::new(),
+            preview: None,
+        });
+    }
+    state.snapshot_current_query();
+    state.workspace.open_query(SearchDraft::default());
+    state.prune_query_snapshots();
+    let super::super::workspace::TabId::Search(first_id) = first else { unreachable!() };
+    assert_eq!(state.query_snapshots.get(&first_id).and_then(|snapshot| snapshot.exact_total), Some(120));
+    assert_eq!(state.query_snapshots.get(&first_id).unwrap().rows.len(), 40);
+    for _ in 0..4 {
+        state.workspace.open_query(SearchDraft::default());
+        state.snapshot_current_query();
+        state.prune_query_snapshots();
+    }
+    assert!(state.query_snapshots.len() <= 3);
+    assert!(state.query_snapshots.values().all(|snapshot| snapshot.rows.len() <= 40));
+    assert!(state.workspace.tab(first).is_some());
+}
+
+#[test]
 fn replacement_open_retains_old_workspace_until_success() {
     let mut state = UiState {
         root: Some("old".into()),

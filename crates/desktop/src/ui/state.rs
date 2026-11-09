@@ -12,6 +12,16 @@ use super::model::{
     SearchDraft, TabViewState, UiUpdate,
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
+use super::workspace::Workspace;
+
+/// A small, read-only preview for a query visible beside the live query.
+/// Query execution and result locators remain controller-owned.
+#[derive(Clone, Debug, Default)]
+pub struct QuerySnapshot {
+    pub columns: Vec<String>,
+    pub rows: Vec<ResultRow>,
+    pub exact_total: Option<usize>,
+}
 
 /// One contextual secondary surface at a time.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -63,6 +73,9 @@ pub struct UiState {
     pub detail: Option<DetailView>,
     pub tabs: Vec<RecordTabSummary>,
     pub active_tab: Option<u64>,
+    pub workspace: Workspace,
+    pub query_snapshots: BTreeMap<u64, QuerySnapshot>,
+    pub record_detail_snapshots: BTreeMap<u64, DetailView>,
     pub(super) tab_views: BTreeMap<u64, TabViewState>,
     pub detail_cache: DetailCache,
     pub detail_source: Option<SharedString>,
@@ -106,6 +119,8 @@ pub struct UiState {
     pub history_expanded: bool,
     pub inspector_width: f32,
     pub inspector_resize_origin: Option<(f32, f32)>,
+    pub secondary_query_width: f32,
+    pub secondary_resize_origin: Option<(f32, f32)>,
     pub show_detail_metadata: bool,
     pub filter_validation_generation: u64,
     pub filter_validation: Option<FilterValidationState>,
@@ -160,6 +175,8 @@ impl UiState {
                 self.detail = None;
                 self.tabs.clear();
                 self.active_tab = None;
+                self.query_snapshots.clear();
+                self.record_detail_snapshots.clear();
                 self.tab_views.clear();
                 self.detail_cache = DetailCache::default();
                 self.detail_source = None;
@@ -182,6 +199,8 @@ impl UiState {
                 } else {
                     self.search.collection = None;
                 }
+                self.workspace.opened(self.search.collection.clone());
+                self.workspace.update_current_search(self.search.clone());
             }
             UiUpdate::QueryStarted(status) => {
                 self.busy = Busy::Querying;
@@ -327,8 +346,13 @@ impl UiState {
             UiUpdate::RevealRow(index) => self.page.selected = Some(index),
             UiUpdate::Tabs { tabs, active } => {
                 let changed = self.active_tab != active;
+                if changed && let (Some(id), Some(detail)) = (self.active_tab, self.detail.clone()) {
+                    self.record_detail_snapshots.insert(id, detail);
+                }
                 self.tabs = tabs;
                 self.active_tab = active;
+                self.workspace.sync_records(&self.tabs, active);
+                self.prune_record_snapshots();
                 self.tab_views
                     .retain(|id, _| self.tabs.iter().any(|tab| tab.id == *id));
                 if changed {
@@ -342,6 +366,10 @@ impl UiState {
             }
             UiUpdate::Detail(detail) => {
                 self.detail = detail.map(DetailView::bounded);
+                if let (Some(id), Some(detail)) = (self.active_tab, self.detail.as_ref()) {
+                    self.record_detail_snapshots.insert(id, detail.clone());
+                }
+                self.prune_record_snapshots();
                 self.detail_cache =
                     self.detail
                         .as_ref()
@@ -471,6 +499,7 @@ impl UiState {
             }
             UiUpdate::ChosenFolder { .. } | UiUpdate::ChosenSchema { .. } => {}
             UiUpdate::RestoreQuery(draft) => {
+                self.workspace.open_query(draft.clone());
                 self.search = draft;
                 self.completion_context = None;
                 self.completion_suggestions.clear();
@@ -514,6 +543,48 @@ impl UiState {
                 }
             }
             UiUpdate::Theme { dark } => self.dark = dark,
+        }
+    }
+
+    /// Keep cached details only for the record tabs currently visible in the
+    /// two pane groups; the controller remains authoritative for all tabs.
+    pub fn prune_record_snapshots(&mut self) {
+        let visible = [self.workspace.primary.active, self.workspace.secondary.active];
+        self.record_detail_snapshots.retain(|id, _| {
+            visible.contains(&Some(super::workspace::TabId::Record(*id)))
+        });
+    }
+
+    /// Preserve a bounded preview while another query uses the live editor.
+    pub fn snapshot_current_query(&mut self) {
+        let Some(super::workspace::TabId::Search(id)) = self.workspace.current_search else {
+            return;
+        };
+        if self.showing_last_valid_results || self.result_outdated {
+            return;
+        }
+        let rows = self.projected_rows.values().take(40).cloned().collect();
+        self.query_snapshots.insert(id, QuerySnapshot {
+            columns: self.page.columns.clone(),
+            rows,
+            exact_total: self.page.exact_total,
+        });
+        self.prune_query_snapshots();
+    }
+
+    pub fn prune_query_snapshots(&mut self) {
+        let visible = [self.workspace.primary.active, self.workspace.secondary.active];
+        self.query_snapshots.retain(|id, _| {
+            self.workspace.tab(super::workspace::TabId::Search(*id)).is_some()
+        });
+        while self.query_snapshots.len() > 3 {
+            let oldest_hidden = self.query_snapshots.keys().find(|id| {
+                !visible.contains(&Some(super::workspace::TabId::Search(**id)))
+            }).copied();
+            let oldest = oldest_hidden.or_else(|| self.query_snapshots.keys().next().copied());
+            if let Some(id) = oldest {
+                self.query_snapshots.remove(&id);
+            }
         }
     }
 
