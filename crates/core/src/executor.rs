@@ -363,6 +363,7 @@ fn segment_sort_column_matches(
     segment: &IndexedCollectionSegment,
     logical_active: &RoaringBitmap,
     term: &BoundTerm,
+    all_only: bool,
 ) -> Option<RoaringBitmap> {
     if term.derived != Derived::None
         || term.period.is_some()
@@ -384,6 +385,33 @@ fn segment_sort_column_matches(
     let literal = sort_key(&term.literal)?;
     let column = segment.sorting.column(&term.path.display()).ok()?;
     if column.keys.len() != segment.records.len() {
+        return None;
+    }
+    // A configured numeric/temporal order is already sorted by these keys.
+    // If both endpoints satisfy a range comparison, every key in the shard
+    // does too. Reuse its active bitmap without comparing every record.
+    if matches!(
+        term.operator,
+        Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+    ) && column.ascending.len() == column.keys.len()
+        && let (Some(first), Some(last)) = (
+            column
+                .ascending
+                .first()
+                .and_then(|slot| column.keys.get(slot.0 as usize)),
+            column
+                .ascending
+                .last()
+                .and_then(|slot| column.keys.get(slot.0 as usize)),
+        )
+        && std::mem::discriminant(first) == std::mem::discriminant(&literal)
+        && std::mem::discriminant(last) == std::mem::discriminant(&literal)
+        && order_matches(first.compare(&literal, false), term.operator)
+        && order_matches(last.compare(&literal, false), term.operator)
+    {
+        return Some(logical_active.clone());
+    }
+    if all_only {
         return None;
     }
     let mut matches = RoaringBitmap::new();
@@ -459,6 +487,14 @@ fn segment_expr_bounds(
             if term.path.root != PathRoot::Data {
                 return SegmentCandidateBounds::unknown(domain);
             }
+            if let Some(matches) =
+                segment_sort_column_matches(segment, logical_active, term, true)
+            {
+                return SegmentCandidateBounds {
+                    may: &matches | fallback_active,
+                    must: matches,
+                };
+            }
             let exact = if term.operation.is_some() {
                 segment
                     .custom_postings
@@ -505,7 +541,7 @@ fn segment_expr_bounds(
                         };
                     }
                     if let Some(matches) =
-                        segment_sort_column_matches(segment, logical_active, term)
+                        segment_sort_column_matches(segment, logical_active, term, false)
                     {
                         return SegmentCandidateBounds {
                             may: &matches | fallback_active,

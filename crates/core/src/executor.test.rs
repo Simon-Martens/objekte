@@ -234,6 +234,8 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
         ("@file.modified >= 2000-01-01", 24),
         ("@record.byte_start = 0", 24),
         ("@record.byte_length > 0", 24),
+        ("year >= 1600", 24),
+        ("year < 2000", 24),
         ("year >= 1800", 14),
     ] {
         let query = Query {
