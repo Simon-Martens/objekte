@@ -153,6 +153,44 @@ fn public_mutations_add_update_move_and_preserve_version_conflicts() {
 }
 
 #[test]
+fn compatible_move_keeps_index_contributions_and_advances_file_version() {
+    let root = test_root("compatible-move");
+    let original = root.join("data/original.jsonl");
+    std::fs::write(&original, b"{\"name\":\"one\"}\n{\"name\":\"two\"}\n").unwrap();
+    let index = index(&root);
+    let before = index.view().unwrap();
+    let handle = before.file_handle_for_path(&original).unwrap();
+    let fingerprint = before.file_fingerprint(handle.file_id);
+    let prior_segments = before.0.segments.clone();
+    let prior_repository = std::sync::Arc::clone(&before.0.repository);
+    let destination = root.join("data/renamed.jsonl");
+    std::fs::rename(&original, &destination).unwrap();
+    let moved = index.move_file(handle, &destination).unwrap();
+    assert_eq!(moved.kind, FileMutationKind::Moved);
+    assert_eq!(moved.strategy, FileMutationStrategy::ContentPreservingMove);
+    assert_eq!(moved.retired_records, 0);
+    assert_eq!(moved.indexed_records, 2);
+    assert_ne!(moved.file.version, handle.version);
+    let after = index.view().unwrap();
+    assert!(after.file_handle_for_path(&original).is_none());
+    assert_eq!(after.file_handle_for_path(&destination), Some(moved.file));
+    assert_eq!(after.file_fingerprint(handle.file_id), fingerprint);
+    assert!(std::sync::Arc::ptr_eq(
+        &prior_repository,
+        &after.0.repository
+    ));
+    for (old, new) in prior_segments.iter().zip(&after.0.segments) {
+        assert!(std::sync::Arc::ptr_eq(old, new));
+    }
+    assert!(matches!(
+        index.move_file(handle, &original),
+        Err(IndexError::FileConflict { .. })
+    ));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn supplied_bytes_update_preserves_source_and_checks_deletion_conflict() {
     let root = test_root("bytes");
     let index = index(&root);
