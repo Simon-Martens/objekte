@@ -80,7 +80,7 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
             .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos(),
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for number in 0..48 {
+    for number in 0..160 {
         let title = if number % 4 == 0 { "Lied" } else { "Other" };
         let contributors = if number % 3 == 0 {
             "[]"
@@ -119,12 +119,12 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
     let parallel = build(4);
     let single_view = single.view().unwrap();
     let parallel_view = parallel.view().unwrap();
-    for (filter, fts) in [
-        ("contributors:length > 0", None),
-        ("contributors[0].type = 'Autor:in'", None),
-        ("contributors[*].type = contributors[*].type", None),
-        ("contributors.type ?= 'Autor:in'", Some("Lied")),
-        ("contributors[0].type = 'Autor:in' SORT BY contributors[0].type ASC", None),
+    for (filter, fts, offset) in [
+        ("contributors:length > 0", None, 2),
+        ("contributors[0].type = 'Autor:in'", None, 2),
+        ("contributors[*].type = contributors[*].type", None, 2),
+        ("contributors.type ?= 'Autor:in'", Some("Lied"), 2),
+        ("contributors:length >= 0 SORT BY contributors[0].type ASC", None, 100),
     ] {
         let parsed = parse_structured_filter(filter).unwrap();
         let query = Query {
@@ -137,7 +137,7 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
                 literal: literal.into(), fields: Vec::new(),
             }),
             options: QueryOptions {
-                sort: parsed.sort.unwrap_or_default(), limit: 7, offset: 2, count: true,
+                sort: parsed.sort.unwrap_or_default(), limit: 7, offset, count: true,
                 return_mode: ReturnMode::Locator, evidence: true,
             },
         };
@@ -156,6 +156,62 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
     }
     single.shutdown().unwrap();
     parallel.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
+    use crate::lifecycle::Index;
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-lifecycle-exact-sorted-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..96 {
+        std::fs::write(
+            root.join(format!("data/{number:03}.json")),
+            format!(r#"{{"rank":{},"title":"item {number}"}}"#, (number * 37) % 96),
+        ).unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.schema.register_field(FieldDefinition {
+        path: vec!["rank".into()], kind: LogicalType::Number,
+        required: true, nullable: false, indexed: false, multi: false,
+        element_nullable: Vec::new(),
+    }).unwrap();
+    definition.sort_fields = vec![FieldPath::parse("rank").unwrap()];
+    let index = Index::build(&root, vec![definition], RepositoryOptions {
+        snapshot_mode: SnapshotMode::Disabled,
+        ..RepositoryOptions::default()
+    }).unwrap();
+    let view = index.view().unwrap();
+    for descending in [false, true] {
+        for offset in [0, 17, 79] {
+            let query = Query {
+                collections: vec!["data".into()],
+                filter: Some(parse_filter("rank >= 0").unwrap()),
+                fts: None,
+                options: QueryOptions {
+                    sort: vec![SortField::simple("rank", descending)],
+                    limit: 5, offset, count: true,
+                    return_mode: ReturnMode::Locator, evidence: true,
+                },
+            };
+            let actual = view.search(&query).unwrap();
+            let reference = view.search_reference(&query).unwrap();
+            assert_eq!(actual.count, Some(96));
+            assert_eq!(actual.count, reference.count);
+            assert_eq!(actual.hits, reference.hits);
+            assert_eq!(actual.counters.exact_posting_matches, 96);
+            assert_eq!(actual.counters.files_opened, 0);
+            assert_eq!(actual.counters.scanned_records, 0);
+        }
+    }
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
