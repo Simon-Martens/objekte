@@ -952,6 +952,7 @@ impl Index {
             IndexRevision::INITIAL,
             Arc::new(repository),
         )?;
+        let published = crate::lifecycle_partition::partition_base(published)?;
         Ok(Self::from_published(published))
     }
 
@@ -1196,13 +1197,15 @@ impl Index {
                 repository.options(),
                 repository.sources.clone(),
             )?;
-            let rebuilt_repository = Arc::clone(&fresh.view()?.0.repository);
             let next_revision = view.revision().next()?;
-            let next = PublishedIndex::from_repository(
-                self.instance_id(),
-                next_revision,
-                rebuilt_repository,
-            )?;
+            let mut next = (*fresh.view()?.0).clone();
+            next.instance_id = self.instance_id();
+            next.revision = next_revision;
+            next.file_versions = FileVersions::filled(
+                next.catalog.allocated_files(),
+                FileVersion(next_revision.0),
+            );
+            next.saved_revision = view.0.saved_revision;
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }

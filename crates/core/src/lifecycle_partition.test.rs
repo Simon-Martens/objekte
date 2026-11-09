@@ -1,7 +1,9 @@
 use super::partition_base_with_limits;
-use crate::lifecycle::Index;
+use std::sync::Arc;
+
+use crate::lifecycle::{Index, IndexRevision, PublishedIndex};
 use crate::query::{Query, QueryOptions};
-use crate::repository::{CollectionDefinition, RepositoryOptions};
+use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
@@ -23,7 +25,7 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
         )
         .unwrap();
     }
-    let original = Index::build(
+    let repository = Repository::open_with_options(
         &root,
         vec![CollectionDefinition::folder(
             "items",
@@ -33,6 +35,13 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
         RepositoryOptions::default(),
     )
     .unwrap();
+    let published = PublishedIndex::from_repository(
+        crate::repository::next_repository_instance(),
+        IndexRevision::INITIAL,
+        Arc::new(repository),
+    )
+    .unwrap();
+    let original = Index::from_published(published.clone());
     let query = Query {
         collections: vec!["items".into()],
         fts: None,
@@ -47,7 +56,6 @@ fn partitions_static_base_without_changing_search_or_file_routing() {
         },
     };
     let before = original.view().unwrap().search(&query).unwrap();
-    let published = (*original.view().unwrap().0).clone();
     let partitioned = partition_base_with_limits(published, 2, 2).unwrap();
     assert_eq!(
         partitioned.repository.collections()[0]

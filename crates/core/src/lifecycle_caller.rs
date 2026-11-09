@@ -1,7 +1,8 @@
-//! Compatibility surface for frontends that still read base repository
-//! metadata while routing live queries through pinned index publications.
+//! Compatibility surface for frontends that still read repository
+//! configuration metadata while routing live queries through index views.
 
 use std::ops::Deref;
+use std::sync::Arc;
 
 use crate::inventory::{DiagnosticRef, SourceDiagnostic};
 use crate::lifecycle::{Index, IndexError, IndexView};
@@ -14,28 +15,29 @@ use crate::streaming::{
 };
 use crate::workload::ReturnMode;
 
-/// A live index with a pinned base repository for existing frontend metadata.
+/// A live index retaining lightweight repository metadata for frontends.
 /// Search and inspection acquire a fresh view unless explicitly pinned for a
 /// multi-request desktop operation such as a finite batch export.
 #[derive(Clone)]
 pub struct IndexedRepository {
     index: Index,
-    base: IndexView,
+    metadata: Arc<Repository>,
     pinned: Option<IndexView>,
     startup: StartupStats,
 }
 
 impl IndexedRepository {
     pub fn new(index: Index) -> Result<Self, IndexError> {
-        let base = index.view()?;
-        let mut startup = base.repository().startup().clone();
+        let view = index.view()?;
+        let metadata = Arc::clone(&view.0.repository);
+        let mut startup = metadata.startup().clone();
         if index.restored_from_cache() {
             startup.restored = true;
             startup.snapshot_action = SnapshotAction::Restored;
         }
         Ok(Self {
             index,
-            base,
+            metadata,
             pinned: None,
             startup,
         })
@@ -172,7 +174,7 @@ impl Deref for IndexedRepository {
     type Target = Repository;
 
     fn deref(&self) -> &Self::Target {
-        self.base.repository()
+        &self.metadata
     }
 }
 

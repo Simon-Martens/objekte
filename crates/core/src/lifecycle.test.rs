@@ -32,6 +32,18 @@ fn fixture_repository(root: &std::path::Path) -> Repository {
     .unwrap()
 }
 
+/// Keep tests that directly manipulate base slots on the legacy static
+/// representation; normal `Index::build` now converts its base to partitions.
+fn static_index(repository: Repository) -> Index {
+    let published = PublishedIndex::from_repository(
+        crate::repository::next_repository_instance(),
+        IndexRevision::INITIAL,
+        Arc::new(repository),
+    )
+    .unwrap();
+    Index::from_published(published)
+}
+
 fn all_records() -> Query {
     Query {
         collections: vec!["data".into()],
@@ -187,7 +199,7 @@ fn pinned_view_stays_stable_when_a_new_root_is_published() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), b"{\"name\":\"A\"}").unwrap();
-    let index = Index::from_repository(fixture_repository(&root)).unwrap();
+    let index = static_index(fixture_repository(&root));
     let clone = index.clone();
     let old = index.view().unwrap();
     let first_file = old.file_handle(FileId(0)).unwrap();
@@ -414,6 +426,9 @@ fn one_file_preparation_selects_shared_collections_without_publishing() {
         RepositoryOptions::default(),
     )
     .unwrap();
+    let before_view = index.view().unwrap();
+    let prior_segments = before_view.0.segments[0].len();
+    let next_ordinal = before_view.0.next_segment_ordinal;
     let before = index.status().unwrap();
     assert!(matches!(
         index.prepare_add_file(std::path::Path::new("data/a.jsonl")),
@@ -433,10 +448,10 @@ fn one_file_preparation_selects_shared_collections_without_publishing() {
     let staged = index.stage_prepared_add(prepared).unwrap();
     assert_eq!(staged.status().indexed_files, 2);
     assert_eq!(staged.status().live_records, 6);
-    assert_eq!(staged.segments[0].len(), 1);
-    assert_eq!(staged.segments[1].len(), 1);
-    assert_eq!(staged.segments[0][0].ordinal, 1);
-    assert_eq!(staged.segments[1][0].ordinal, 2);
+    assert_eq!(staged.segments[0].len(), prior_segments + 1);
+    assert_eq!(staged.segments[1].len(), prior_segments + 1);
+    assert_eq!(staged.segments[0].last().unwrap().ordinal, next_ordinal);
+    assert_eq!(staged.segments[1].last().unwrap().ordinal, next_ordinal + 1);
     assert_eq!(
         staged.catalog.id_for(std::path::Path::new("data/b.jsonl")),
         Some(FileId(1))
@@ -465,6 +480,7 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
         RepositoryOptions::default(),
     )
     .unwrap();
+    let prior_segments = index.view().unwrap().0.segments[0].len();
     let before = index.status().unwrap();
     let handle = index.view().unwrap().file_handle(FileId(0)).unwrap();
     let new_path = root.join("data/new.jsonl");
@@ -476,8 +492,8 @@ fn replacement_stages_shared_memberships_and_retires_old_slots() {
     assert_eq!(staged.status().live_records, 2);
     assert_eq!(staged.active[0].len(), 0);
     assert_eq!(staged.active[1].len(), 0);
-    assert_eq!(staged.segments[0].len(), 1);
-    assert_eq!(staged.segments[1].len(), 1);
+    assert_eq!(staged.segments[0].len(), prior_segments + 1);
+    assert_eq!(staged.segments[1].len(), prior_segments + 1);
     assert_eq!(
         staged
             .catalog
@@ -738,7 +754,7 @@ fn retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup() {
         },
     )
     .unwrap();
-    let index = Index::from_repository(repository).unwrap();
+    let index = static_index(repository);
     let old = index.view().unwrap();
     let collection = &old.repository().collections()[0];
     let retired = [RecordSlot(1), RecordSlot(4)];
@@ -940,7 +956,7 @@ fn relation_queries_keep_retired_targets_unknown_and_skip_retired_sources() {
         },
     )
     .unwrap();
-    let index = Index::from_repository(repository).unwrap();
+    let index = static_index(repository);
     let old = index.view().unwrap();
     let target_a = old.repository().collections()[0].id_lookup["A"];
     let source_s2 = old.repository().collections()[1].id_lookup["s2"];
