@@ -6,7 +6,7 @@ use gpui_kit::component::{
     button::{Button, ButtonVariants},
     input::Input,
     menu::{ContextMenuExt as _, DropdownMenu as _, PopupMenuItem},
-    scroll::ScrollableElement as _,
+    scroll::{ScrollableElement as _, Scrollbar, ScrollbarMode},
 };
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::{
@@ -959,6 +959,7 @@ impl DesktopView {
             .flex_1()
             .min_h_0()
             .min_w_0()
+            .relative()
             .bg(rgb(colors.panel))
             .child(
                 div()
@@ -1021,6 +1022,21 @@ impl DesktopView {
                             })),
                     ),
             )
+            .when(self.state.delivered_count > 0, |this| {
+                this.child(
+                    div()
+                        .absolute()
+                        .top(px(32.))
+                        .right_0()
+                        .bottom(px(32.))
+                        .w(Scrollbar::width())
+                        .child(
+                            Scrollbar::vertical(&self.grid_list)
+                                .mode(ScrollbarMode::Always)
+                                .viewport_from_layout(),
+                        ),
+                )
+            })
             .into_any_element()
     }
 

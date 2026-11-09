@@ -15,7 +15,7 @@ use crate::storage::snapshot_path_in;
 pub enum CacheFailurePolicy {
     /// Report a corrupt or incompatible cache and preserve it for inspection.
     Report,
-    /// Build from sources when an existing cache is invalid.
+    /// Delete an invalid cache after a safe source build, then write its replacement.
     Rebuild,
 }
 
@@ -50,7 +50,7 @@ impl Default for RepositoryOpenOptions {
             index: RepositoryOptions::default(),
             cache_directory: None,
             cache_open: CacheOpenPolicy::IfPresent,
-            cache_failure: CacheFailurePolicy::Report,
+            cache_failure: CacheFailurePolicy::Rebuild,
             sync_cache: false,
         }
     }
@@ -110,14 +110,16 @@ impl Index {
             )));
         }
         let index = if exists && options.cache_open != CacheOpenPolicy::Ignore {
-            match Self::load_cache(&root, definitions.clone(), options.index, &cache) {
-                Ok(index) => index,
-                Err(IndexError::InvalidCache(_) | IndexError::IncompatibleConfiguration(_))
-                    if options.cache_failure == CacheFailurePolicy::Rebuild =>
-                {
-                    Self::build(&root, definitions, options.index)?
-                }
-                Err(error) => return Err(error),
+            if options.cache_failure == CacheFailurePolicy::Rebuild {
+                Self::load_cache_or_rebuild_invalid(
+                    &root,
+                    definitions,
+                    options.index,
+                    &cache,
+                    &protected,
+                )?
+            } else {
+                Self::load_cache(&root, definitions, options.index, &cache)?
             }
         } else {
             Self::build(&root, definitions, options.index)?

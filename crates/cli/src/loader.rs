@@ -228,11 +228,7 @@ pub fn open_repository(
                     SnapshotMode::Disabled if write_requested => CacheOpenPolicy::Ignore,
                     SnapshotMode::Disabled => CacheOpenPolicy::IfPresent,
                 },
-                cache_failure: if write_requested && policy.mode == SnapshotMode::IfValid {
-                    CacheFailurePolicy::Rebuild
-                } else {
-                    CacheFailurePolicy::Report
-                },
+                cache_failure: CacheFailurePolicy::Rebuild,
                 sync_cache: false,
             },
         )
@@ -241,20 +237,22 @@ pub fn open_repository(
         let cache =
             objekte_search_core::storage::snapshot_path_in(&directory, options.bigram_alphabet);
         let build = || Index::build(root, configured.definitions.clone(), options);
-        let load = || Index::load_cache(root, configured.definitions.clone(), options, &cache);
+        let load = || {
+            Index::load_cache_or_rebuild_invalid(
+                root,
+                configured.definitions.clone(),
+                options,
+                &cache,
+                &configured.protected_files,
+            )
+        };
         let index = match policy.mode {
             SnapshotMode::Disabled => build(),
             SnapshotMode::Required => load(),
             SnapshotMode::IfValid => match std::fs::symlink_metadata(&cache) {
                 Err(error) if error.kind() == std::io::ErrorKind::NotFound => build(),
                 Err(error) => Err(IndexError::Io(format!("{}: {error}", cache.display()))),
-                Ok(_) => match load() {
-                    Ok(index) => Ok(index),
-                    Err(IndexError::InvalidCache(_) | IndexError::IncompatibleConfiguration(_)) => {
-                        build()
-                    }
-                    Err(error) => Err(error),
-                },
+                Ok(_) => load(),
             },
         }
         .map_err(|error| error.to_string())?;

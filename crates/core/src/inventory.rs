@@ -420,6 +420,7 @@ impl ActiveRecords {
         })
     }
 
+    #[cfg(test)]
     pub(crate) fn appended(&self, count: u32) -> Result<Self, String> {
         let slot_count = self
             .slot_count

@@ -125,6 +125,7 @@ impl SegmentAdmission {
         }
     }
 
+    #[cfg(test)]
     pub fn record_count(&self) -> usize {
         self.records.len()
     }

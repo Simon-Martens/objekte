@@ -93,6 +93,33 @@ impl Index {
         Self::load_cache_with_sources(root, definitions, options, SourceRegistry::builtin(), path)
     }
 
+    /// Restore a selected cache, or replace it after a validated corrupt or
+    /// incompatible-cache failure. Access errors still fail, and a failed
+    /// source build leaves the rejected cache untouched.
+    pub fn load_cache_or_rebuild_invalid(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        path: &Path,
+        protected_files: &[PathBuf],
+    ) -> Result<Self, IndexError> {
+        let root = root.into();
+        match Self::load_cache(&root, definitions.clone(), options, path) {
+            Ok(index) => {
+                index.protect_configuration_files(protected_files)?;
+                Ok(index)
+            }
+            Err(IndexError::InvalidCache(_) | IndexError::IncompatibleConfiguration(_)) => {
+                let index = Self::build(&root, definitions, options)?;
+                index.protect_configuration_files(protected_files)?;
+                index.discard_invalid_cache(path)?;
+                index.flush_cache(path)?;
+                Ok(index)
+            }
+            Err(error) => Err(error),
+        }
+    }
+
     pub fn load_cache_with_sources(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,

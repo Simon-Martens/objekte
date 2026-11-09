@@ -47,6 +47,34 @@ fn configured_repository_uses_lifecycle_cache_for_load_and_write_flags() {
 }
 
 #[test]
+fn explicit_folder_load_replaces_invalid_cache_and_restores_next_time() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), br#"{"title":"A"}"#).unwrap();
+    std::fs::create_dir(root.path().join(".objekte")).unwrap();
+    let args = Arguments {
+        path: vec![root.path().to_owned()],
+        load_index: Some(root.path().join(".objekte").display().to_string()),
+        ..Arguments::default()
+    };
+    let paths = args.resolve_paths(root.path()).unwrap();
+    let configured = configure_definitions(&args, &paths).unwrap();
+    let options = repository_options(&args);
+    let cache = objekte_search_core::storage::snapshot_path(root.path(), options.bigram_alphabet);
+    std::fs::write(&cache, b"invalid cache").unwrap();
+    let policy = snapshot_policy(&args, &paths);
+    let (rebuilt, _, _) = open_repository(
+        &paths.root, &configured, options, policy.clone(), false, false, false,
+    ).unwrap();
+    assert!(!rebuilt.startup().restored);
+    assert_ne!(std::fs::read(&cache).unwrap(), b"invalid cache");
+    let (restored, _, _) = open_repository(
+        &paths.root, &configured, options, policy, false, false, false,
+    ).unwrap();
+    assert!(restored.startup().restored);
+    restored.index().wait_for_reconciliation().unwrap();
+}
+
+#[test]
 fn configured_open_uses_the_already_loaded_schema() {
     let root = tempfile::tempdir().unwrap();
     let schemas = root.path().join(".objekte/collections");

@@ -495,13 +495,17 @@ fn schema_bytes_and_inference_mode_own_snapshot_compatibility() {
     );
     assert_eq!(events.last().unwrap()["snapshot_action"], "restored");
     assert_eq!(events.last().unwrap()["build_parses"], 0);
-    let (mismatch, _) = invoke(
+    let cache = root.path().join(".objekte/search-core-ascii.snapshot");
+    let first_cache = std::fs::read(&cache).unwrap();
+    let (mismatch, mismatch_events) = invoke(
         root.path(),
         &["--schema", "schema.json", "--load-index", "code = \"A\""],
     );
-    assert_eq!(mismatch.status.code(), Some(2));
+    assert!(mismatch.status.success(), "{}", String::from_utf8_lossy(&mismatch.stderr));
+    assert_eq!(hits(&mismatch_events).len(), 1);
+    assert_ne!(std::fs::read(&cache).unwrap(), first_cache);
     std::fs::write(&schema_path, format!("{}\n", base)).unwrap();
-    let (changed, _) = invoke(
+    let (changed, changed_events) = invoke(
         root.path(),
         &[
             "--schema",
@@ -511,7 +515,14 @@ fn schema_bytes_and_inference_mode_own_snapshot_compatibility() {
             "code = \"A\"",
         ],
     );
-    assert_eq!(changed.status.code(), Some(2));
+    assert!(changed.status.success(), "{}", String::from_utf8_lossy(&changed.stderr));
+    assert_eq!(hits(&changed_events).len(), 1);
+    let (restored, restored_events) = invoke(
+        root.path(),
+        &["--schema", "schema.json", "--auto-index", "--load-index", "code = \"A\""],
+    );
+    assert!(restored.status.success());
+    assert_eq!(restored_events.last().unwrap()["snapshot_action"], "restored");
 }
 
 #[test]
@@ -1142,7 +1153,7 @@ fn empty_query_file_is_an_input_error_unless_index_only_was_requested() {
 }
 
 #[test]
-fn explicit_snapshot_flags_do_not_silently_rebuild_load_only() {
+fn explicit_snapshot_flags_require_a_cache_when_missing() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"title":"needle"}"#).unwrap();
     let (missing, _) = invoke(root.path(), &["--load-index", "--fts", "needle"]);

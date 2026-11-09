@@ -9,7 +9,7 @@ use super::filter_builder::FieldChoice;
 use super::model::{
     BatchRow, BatchSource, DetailView, ErrorField, ExportFormat, FilterValidationState,
     IndexUiStatus, MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry, RecordTabSummary, ResultRow,
-    SearchDraft, SnapshotMode, TabViewState, UiUpdate,
+    SearchDraft, TabViewState, UiUpdate,
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
 
@@ -92,7 +92,6 @@ pub struct UiState {
     pub show_actions: bool,
     pub action_panel: ActionPanel,
     pub export_format: ExportFormat,
-    pub index_mode: SnapshotMode,
     pub index_status: IndexUiStatus,
     pub index_load_draft: String,
     pub index_save_draft: String,

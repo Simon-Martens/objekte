@@ -25,6 +25,7 @@ fn source_changed(execution: Option<&ExecutionContext>, message: String) -> Stri
 /// Classify an error from a source reader. Call this only for open/read errors,
 /// after resource and cancellation checks have completed. The metadata probe
 /// happens solely on the error path and never accepts new bytes as old ranges.
+#[cfg(test)]
 pub(crate) fn classify_source_read_failure(
     path: &Path,
     expected: SourceRevision,
@@ -36,6 +37,7 @@ pub(crate) fn classify_source_read_failure(
 /// A metadata/open probe for distinguishing source unavailability from parse,
 /// schema, and programming failures after a composite operation returned an
 /// untyped error. It runs only on that operation's error path.
+#[cfg(test)]
 pub(crate) fn probe_source_unavailable(
     path: &Path,
     expected: SourceRevision,
@@ -971,6 +973,7 @@ pub(crate) struct BoundedJsonLines<R: BufRead = BufReader<std::fs::File>> {
 }
 
 
+#[cfg(test)]
 impl BoundedJsonLines<BufReader<std::fs::File>> {
     pub fn open(path: &Path) -> Result<Self, String> {
         let file = std::fs::File::open(path).map_err(|error| error.to_string())?;

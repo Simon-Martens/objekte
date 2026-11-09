@@ -2,7 +2,7 @@
 
 use gpui_kit::assets::IconName as AssetIconName;
 use gpui_kit::component::{
-    Disableable as _, IconName, Selectable as _,
+    Disableable as _, Icon, IconName, Selectable as _,
     button::{Button, ButtonVariants},
     checkbox::Checkbox,
     input::{Input, Textarea},
@@ -349,21 +349,11 @@ impl DesktopView {
                     .child(
                         Button::new("open-tab-query")
                             .ghost()
-                            .label("Open query")
+                            .icon(AssetIconName::Search)
+                            .tooltip("Open query")
+                            .accessibility_label("Open query")
                             .on_click(cx.listener(|this, _, _, _| {
                                 this.send(UiAction::OpenTabQuery);
-                            })),
-                    )
-                    .child(
-                        Button::new("close-detail")
-                            .ghost()
-                            .icon(IconName::Close)
-                            .tooltip("Close inspector")
-                            .accessibility_label("Close inspector")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.inspector_visible = false;
-                                this.send(UiAction::CloseDetail);
-                                cx.notify();
                             })),
                     ),
             )
@@ -438,11 +428,20 @@ impl DesktopView {
                     .child(
                         Button::new("metadata-toggle")
                             .ghost()
-                            .label(if self.state.show_detail_metadata {
-                                "▾ Metadata"
-                            } else {
-                                "▸ Metadata"
-                            })
+                            .flex_1()
+                            .child(
+                                div()
+                                    .flex()
+                                    .items_center()
+                                    .w_full()
+                                    .child("Metadata")
+                                    .child(div().flex_1())
+                                    .child(Icon::new(if self.state.show_detail_metadata {
+                                        AssetIconName::ChevronDown
+                                    } else {
+                                        AssetIconName::ChevronRight
+                                    }).size_4()),
+                            )
                             .accessibility_label(format!(
                                 "Metadata: {}",
                                 match detail.validity {
@@ -627,9 +626,10 @@ impl DesktopView {
                                     this.child(
                                         Button::new(format!("relation-new-tab-{index}"))
                                             .ghost()
-                                            .label("New tab")
+                                            .icon(AssetIconName::SquarePlus)
                                             .disabled(!navigation_current || !relation.available)
                                             .tooltip("Open relation in a new record tab")
+                                            .accessibility_label("Open relation in a new record tab")
                                             .on_click(cx.listener(move |this, _, _, _| {
                                                 this.save_tab_view();
                                                 this.send(UiAction::OpenRelationTab(index));
@@ -722,12 +722,8 @@ impl DesktopView {
             DetailValueKind::JsonNull => "null (JSON)".into(),
             DetailValueKind::LogicalUnavailable => "unavailable logical data".into(),
         };
-        let marker = if row.expandable {
-            if row.expanded { "▾" } else { "▸" }
-        } else {
-            " "
-        };
         let expandable = row.expandable;
+        let expanded = row.expanded;
         let selected = self
             .state
             .detail
@@ -779,15 +775,14 @@ impl DesktopView {
                     } else {
                         gpui_kit::FontWeight::NORMAL
                     })
-                    .child(format!(
-                        "{marker}{}",
+                    .child(
                         self.state
                             .detail_cache
                             .labels
                             .get(index)
                             .cloned()
-                            .unwrap_or_default()
-                    )),
+                            .unwrap_or_default(),
+                    ),
             )
             .child(
                 div()
@@ -796,6 +791,19 @@ impl DesktopView {
                     .text_sm()
                     .child(StyledText::new(value).with_highlights(highlights)),
             )
+            .when(expandable, |this| {
+                this.child(
+                    div()
+                        .flex_shrink_0()
+                        .pl_1()
+                        .text_color(rgb(colors.secondary))
+                        .child(Icon::new(if expanded {
+                            AssetIconName::ChevronDown
+                        } else {
+                            AssetIconName::ChevronRight
+                        }).size_4()),
+                )
+            })
             .on_click(cx.listener(move |this, _, window, cx| {
                 window.focus(&this.detail_focus, cx);
                 if let Some(detail) = this.state.detail.as_mut() {

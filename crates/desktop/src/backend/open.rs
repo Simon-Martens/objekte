@@ -188,13 +188,7 @@ pub fn open(
                     index: options,
                     cache_directory: Some(cache_directory.clone()),
                     cache_open,
-                    cache_failure: if spec.args.write_index.is_some()
-                        && policy.mode == SnapshotMode::IfValid
-                    {
-                        CacheFailurePolicy::Rebuild
-                    } else {
-                        CacheFailurePolicy::Report
-                    },
+                    cache_failure: CacheFailurePolicy::Rebuild,
                     sync_cache: false,
                 },
             )

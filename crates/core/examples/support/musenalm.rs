@@ -1,4 +1,6 @@
 //! Musenalm schema vocabulary belongs to the test integration, not the core.
+//! Each standalone example uses only part of this shared support module.
+#![allow(dead_code)]
 
 use std::collections::HashSet;
 use std::path::Path;
