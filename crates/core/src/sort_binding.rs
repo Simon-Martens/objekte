@@ -163,8 +163,9 @@ impl MergedSortTargetCache {
             execution.charge_reads(1)?;
             execution.charge_bytes(current.record.range.len())?;
         }
-        let bytes = match crate::source::read_record_range(
-            &path, current.record.revision, current.record.range,
+        let bytes = match crate::source::read_record_range_checked(
+            &path, current.file.revision, current.file.created_ns,
+            view.source_fingerprint(current.file.id), current.record.range,
         ) {
             Ok(bytes) => bytes,
             Err(message) => {

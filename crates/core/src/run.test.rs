@@ -62,14 +62,17 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         b"{\"kind\":\"a\",\"title\":\"aardvark\"}\n{\"kind\":\"b\",\"title\":\"bravo\"}\n{\"kind\":\"c\",\"title\":\"charlie\"}\n",
     )
     .unwrap();
+    let metadata = std::fs::metadata(&path).unwrap();
     let collection = &repo.collections()[0];
     let prepared = prepare_file_build(
         &root,
         SourceFileInput {
             id: FileId(1),
             relative_path: "data/delta.jsonl".into(),
-            revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
-            created_ns: None,
+            revision: SourceRevision::from_metadata(&metadata).unwrap(),
+            created_ns: metadata.created().ok()
+                .and_then(|time| time.duration_since(std::time::UNIX_EPOCH).ok())
+                .map(|duration| duration.as_nanos() as i128),
         },
         &[FilePreparationBinding {
             collection: CollectionId(0),
@@ -626,6 +629,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert!(unavailable_stream.counters.source_unavailable_events > 0);
     std::fs::rename(&hidden_path, &path).unwrap();
     query.options.evidence = true;
+    query.options.return_mode = ReturnMode::Bytes;
     std::fs::write(&path, b"a replaced source revision with unrelated content").unwrap();
     let changed = search_segmented_reference(
         &repo, &query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
@@ -757,12 +761,15 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     );
     let path = root.join("data/added.jsonl");
     std::fs::write(&path, b"{\"name\":\"added\"}\n").unwrap();
+    let metadata = std::fs::metadata(&path).unwrap();
     let collection = &repo.collections()[0];
     let input = SourceFileInput {
         id: FileId(1),
         relative_path: "data/added.jsonl".into(),
-        revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
-        created_ns: None,
+        revision: SourceRevision::from_metadata(&metadata).unwrap(),
+        created_ns: metadata.created().ok()
+            .and_then(|time| time.duration_since(std::time::UNIX_EPOCH).ok())
+            .map(|duration| duration.as_nanos() as i128),
     };
     let prepared = prepare_file_build(
         &root,

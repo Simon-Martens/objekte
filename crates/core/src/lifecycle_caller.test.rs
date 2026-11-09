@@ -181,3 +181,97 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn pinned_view_rejects_replacement_at_old_path_with_spoofed_revision() {
+    use crate::run::DirectLookupResult;
+    use crate::streaming::{
+        CancellationToken, ResultScope, StreamControl, StreamEvent, StreamOptions, StreamOutcome,
+    };
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-indexed-pin-incarnation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let original = root.join("data/original.jsonl");
+    let destination = root.join("data/moved.jsonl");
+    std::fs::write(&original, b"{\"name\":\"old\"}\n").unwrap();
+    let original_metadata = std::fs::metadata(&original).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::JsonLines,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let pinned = index.view().unwrap();
+    let mut query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let id = pinned.search(&query).unwrap().hits[0].record_id.clone();
+    let handle = pinned.file_handle_for_path(&original).unwrap();
+    std::fs::rename(&original, &destination).unwrap();
+    index.move_file(handle, &destination).unwrap();
+    std::fs::write(&original, b"{\"name\":\"new\"}\n").unwrap();
+    std::fs::File::open(&original)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(original_metadata.modified().unwrap()))
+        .unwrap();
+    assert_eq!(
+        crate::inventory::SourceRevision::from_metadata(&std::fs::metadata(&original).unwrap())
+            .unwrap(),
+        crate::inventory::SourceRevision::from_metadata(&original_metadata).unwrap(),
+    );
+
+    assert!(matches!(
+        pinned
+            .get_record_available("data", &id, ReturnMode::Bytes)
+            .unwrap(),
+        DirectLookupResult::SourceUnavailable(_),
+    ));
+    query.options.return_mode = ReturnMode::Bytes;
+    let result = pinned.search(&query).unwrap();
+    assert_eq!(result.count, None);
+    assert!(!result.counters.match_count_complete);
+    assert!(result.counters.source_unavailable_events > 0);
+    assert!(result.hits.is_empty());
+
+    let mut rows = Vec::new();
+    let outcome = pinned.search_stream_scoped(
+        &query,
+        ResultScope::All { offset: 0 },
+        StreamOptions::default(),
+        &CancellationToken::new(),
+        &mut |event| {
+            if let StreamEvent::OrderedRows { rows: batch, .. } = event {
+                rows.extend(batch.iter().cloned());
+            }
+            Ok(StreamControl::Continue)
+        },
+    );
+    assert!(rows.is_empty());
+    assert!(matches!(
+        outcome,
+        Ok(StreamOutcome::Complete(summary)) if !summary.counters.match_count_complete && summary.count.is_none()
+    ));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}

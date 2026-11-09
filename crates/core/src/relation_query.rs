@@ -22,7 +22,8 @@ use crate::relation_target_cache::TargetValueCache;
 use crate::repository::CollectionState;
 use crate::repository::Repository;
 use crate::source::{
-    ScanProjection, TextDerivation, TextSegment, classify_source_read_failure, read_record_range,
+    ScanProjection, TextDerivation, TextSegment, classify_source_read_failure_checked, read_record_range,
+    read_record_range_checked,
     read_record_range_with_execution,
 };
 
@@ -77,13 +78,20 @@ impl<'a> MergedRelationView<'a> {
         self.source_errors.borrow_mut().record(SourceDiagnostic {
             file_id: file.id.0,
             file_path: file.relative_path.clone(),
-            kind: classify_source_read_failure(&path, file.revision, Some(range)),
+            kind: classify_source_read_failure_checked(
+                &path, file.revision, file.created_ns,
+                self.catalog.fingerprint(file.id), Some(range),
+            ),
             message,
         });
     }
 
     pub(crate) fn repository_root(&self) -> &std::path::Path {
         &self.repo.files.root
+    }
+
+    pub(crate) fn source_fingerprint(&self, file: crate::model::FileId) -> Option<[u8; 32]> {
+        self.catalog.fingerprint(file)
     }
 
     pub(crate) fn segment_ordinal(&self, address: MergedRecordSlot) -> Option<u64> {
@@ -1385,7 +1393,10 @@ fn visit_merged_hop(
         if let Some(execution) = work.execution.as_ref() {
             execution.check_string()?;
         }
-        let bytes = match read_record_range(&path, current.record.revision, current.record.range) {
+        let bytes = match read_record_range_checked(
+            &path, current.file.revision, current.file.created_ns,
+            view.source_fingerprint(current.file.id), current.record.range,
+        ) {
             Ok(bytes) => bytes,
             Err(message) => {
                 view.record_source_failure(current.file, current.record.range, message);

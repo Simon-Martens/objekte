@@ -30,14 +30,16 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
     ) -> IndexedCollectionSegment {
         let collection = &repo.collections()[collection_index];
         let path = root.join(relative_path);
+        let metadata = std::fs::metadata(&path).unwrap();
         let prepared = prepare_file_build(
             root,
             SourceFileInput {
                 id: file_id,
                 relative_path: relative_path.into(),
-                revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap())
-                    .unwrap(),
-                created_ns: None,
+                revision: SourceRevision::from_metadata(&metadata).unwrap(),
+                created_ns: metadata.created().ok()
+                    .and_then(|time| time.duration_since(std::time::UNIX_EPOCH).ok())
+                    .map(|duration| duration.as_nanos() as i128),
             },
             &[FilePreparationBinding {
                 collection: CollectionId(collection_index as u32),

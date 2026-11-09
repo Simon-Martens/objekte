@@ -19,7 +19,7 @@ use crate::executor::{
     estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
     segment_fts_candidates,
 };
-use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry, SourceRevision};
+use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
@@ -37,7 +37,7 @@ use crate::sort_binding::{
     BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache, SortTargetCache,
 };
 use crate::sorting::{InferredOrderKey, SortColumn, SortKey, SortOptions, simple_composite_part};
-use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection, classify_source_read_failure, probe_source_unavailable, read_record_range};
+use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection, classify_source_read_failure_checked, probe_source_unavailable_checked, read_record_range_checked};
 use crate::source_access::SourceAccessSession;
 use crate::streaming::{
     Abort, CancellationToken, Delivery, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
@@ -1868,7 +1868,9 @@ pub(crate) fn get_segment_record_by_id(
         }
         ReturnMode::Bytes | ReturnMode::Logical => {
             let path = repo.files.root.join(&file.relative_path);
-            let bytes = read_record_range(&path, record.revision, record.range)?;
+            let bytes = read_record_range_checked(
+                &path, file.revision, file.created_ns, catalog.fingerprint(file.id), record.range,
+            )?;
             payload_from_bytes(Some(collection), &return_mode, bytes)?.0
         }
     };
@@ -1945,7 +1947,9 @@ pub(crate) fn direct_lookup_segmented(
             }
             ReturnMode::Bytes | ReturnMode::Logical => {
                 let path = repo.files.root.join(&file.relative_path);
-                read_record_range(&path, file.revision, record.range)
+                read_record_range_checked(
+                    &path, file.revision, file.created_ns, catalog.fingerprint(file.id), record.range,
+                )
                     .and_then(|bytes| payload_from_bytes(Some(collection), &return_mode, bytes))
                     .map(|(payload, _)| payload)
             }
@@ -1987,7 +1991,9 @@ pub(crate) fn direct_lookup_segmented(
         Ok(None) => Err("active direct-lookup record disappeared".into()),
         Err(message) => {
             let path = repo.files.root.join(&file.relative_path);
-            if let Some(kind) = probe_source_unavailable(&path, file.revision, Some(record.range)) {
+            if let Some(kind) = probe_source_unavailable_checked(
+                &path, file.revision, file.created_ns, catalog.fingerprint(file.id), Some(record.range),
+            ) {
                 Ok(DirectLookupResult::SourceUnavailable(SourceDiagnostic {
                     file_id: file.id.0,
                     file_path: file.relative_path.clone(),
@@ -2219,11 +2225,13 @@ fn base_rank_key_merged(
         }
         let path = repo.files.root.join(&file.relative_path);
         Some(if let Some(context) = context {
-            crate::source::read_record_range_with_execution(
-                &path, record.revision, record.range, context,
+            crate::source::read_record_range_checked_with_execution(
+                &path, file.revision, file.created_ns, catalog.fingerprint(file.id), record.range, context,
             )?
         } else {
-            read_record_range(&path, record.revision, record.range)?
+            read_record_range_checked(
+                &path, file.revision, file.created_ns, catalog.fingerprint(file.id), record.range,
+            )?
         })
     } else {
         None
@@ -2331,7 +2339,9 @@ fn record_unavailable_hit(
         .ok_or("materialized hit file missing from pinned catalog")?;
     let path = repo.files.root.join(&file.relative_path);
     let range = ByteRange { start: hit.byte_start, end: hit.byte_end };
-    let Some(kind) = probe_source_unavailable(&path, file.revision, Some(range)) else {
+    let Some(kind) = probe_source_unavailable_checked(
+        &path, file.revision, file.created_ns, catalog.fingerprint(file.id), Some(range),
+    ) else {
         return Ok(false);
     };
     counters.record_source_unavailable(SourceDiagnostic {
@@ -2525,7 +2535,9 @@ fn has_unavailable_active_source(
 ) -> bool {
     let unavailable = |file: &FileEntry| {
         let path = repo.files.root.join(&file.relative_path);
-        probe_source_unavailable(&path, file.revision, None).is_some()
+        probe_source_unavailable_checked(
+            &path, file.revision, file.created_ns, catalog.fingerprint(file.id), None,
+        ).is_some()
     };
     for (index, collection) in repo.collections.iter().enumerate() {
         for file_id in &collection.generation.files {
@@ -2803,35 +2815,6 @@ fn search_segmented_impl(
                     .as_ref()
                     .is_none_or(|bounds| bounds.may == bounds.must);
             if index_exact {
-                if query.options.evidence {
-                    // Source verification previously happened during the evidence scan.
-                    // Keep its stale-source behavior while using the index proof for
-                    // membership and matched fields. Metadata checks are cold-path
-                    // work; a complete cached result never repeats them.
-                    let mut seen = HashSet::new();
-                    let mut source_checks = Vec::new();
-                    for slot in candidates.iter() {
-                        let record = segment.record(RecordSlot(slot))
-                            .ok_or("segment proof candidate missing")?;
-                        if seen.insert(record.file.0) {
-                            source_checks.push(catalog.entry(record.file)
-                                .ok_or("segment proof file is retired")?);
-                        }
-                    }
-                    source_checks.par_iter().try_for_each(|file| {
-                        let path = repo.files.root.join(&file.relative_path);
-                        let metadata = std::fs::metadata(&path)
-                            .map_err(|error| format!("{}: {error}", path.display()))?;
-                        let actual = SourceRevision::from_metadata(&metadata)?;
-                        if actual != file.revision {
-                            return Err(format!("{}: source revision changed", path.display()));
-                        }
-                        Ok::<(), String>(())
-                    })?;
-                    if let Some(context) = context {
-                        context.check_string()?;
-                    }
-                }
                 for slot in candidates.iter() {
                     if let Some(context) = context {
                         context.check_string()?;
@@ -2901,7 +2884,10 @@ fn search_segmented_impl(
                     .entry(crate::model::FileId(file_id))
                     .ok_or("active segment candidate file is retired")?;
                 let path = repo.files.root.join(&file.relative_path);
-                let mut reader = RecordRangeReader::open(&path, file.revision)?;
+                let mut reader = RecordRangeReader::open_checked_with_execution(
+                    &path, file.revision, file.created_ns,
+                    catalog.fingerprint(file.id), context,
+                )?;
                 delta_opened.insert(file_id);
                 counters.files_opened += 1;
                 let mut cursor = 0;
@@ -3193,7 +3179,9 @@ fn materialize_lifecycle_cached(
                 Ok(None)
             } else {
                 let path = repo.files.root.join(&file.relative_path);
-                read_record_range(&path, file.revision, record.range)
+                read_record_range_checked(
+                    &path, file.revision, file.created_ns, catalog.fingerprint(file.id), record.range,
+                )
                     .and_then(|bytes| payload_from_bytes(Some(collection), &query.options.return_mode, bytes))
                     .map(|(payload, _)| payload)
             };
@@ -3561,10 +3549,10 @@ fn try_direct_relation_page(
             let matched = if must.as_ref().is_some_and(|must| must.contains(slot)) {
                 if checked_target_files.insert(resolved.file.id.0) {
                     let path = repo.files.root.join(&resolved.file.relative_path);
-                    let current = std::fs::metadata(path)
-                        .ok()
-                        .and_then(|metadata| SourceRevision::from_metadata(&metadata).ok());
-                    if current != Some(resolved.file.revision) {
+                    if RecordRangeReader::open_checked_with_execution(
+                        &path, resolved.file.revision, resolved.file.created_ns,
+                        catalog.fingerprint(resolved.file.id), context,
+                    ).is_err() {
                         return Ok(None);
                     }
                 }
@@ -3576,7 +3564,10 @@ fn try_direct_relation_page(
                     context.charge_bytes(resolved.record.range.len())?;
                 }
                 let bytes =
-                    match read_record_range(&path, resolved.file.revision, resolved.record.range) {
+                    match read_record_range_checked(
+                        &path, resolved.file.revision, resolved.file.created_ns,
+                        catalog.fingerprint(resolved.file.id), resolved.record.range,
+                    ) {
                         Ok(bytes) => bytes,
                         Err(_) => return Ok(None),
                     };
@@ -3658,13 +3649,12 @@ fn try_direct_relation_page(
         source_candidates.push((segment_index, may));
     }
     // A direct result must preserve the source-availability behavior of the
-    // scan route. Metadata checks run only while constructing this cold result.
+    // scan route. Opened-handle identity checks run only for this cold result.
     if source_checks.par_iter().any(|file| {
         let path = repo.files.root.join(&file.relative_path);
-        std::fs::metadata(path)
-            .ok()
-            .and_then(|metadata| SourceRevision::from_metadata(&metadata).ok())
-            != Some(file.revision)
+        RecordRangeReader::open_checked_with_execution(
+            &path, file.revision, file.created_ns, catalog.fingerprint(file.id), context,
+        ).is_err()
     }) {
         return Ok(None);
     }
@@ -3974,13 +3964,19 @@ fn search_segmented_relations(
                 .record(first)?
                 .ok_or("active merged base file missing")?;
             let path = repo.files.root.join(&resolved.file.relative_path);
-            let mut reader = match RecordRangeReader::open(&path, resolved.file.revision) {
+            let mut reader = match RecordRangeReader::open_checked_with_execution(
+                &path, resolved.file.revision, resolved.file.created_ns,
+                catalog.fingerprint(resolved.file.id), context,
+            ) {
                 Ok(reader) => reader,
                 Err(message) => {
                     source_errors.record(SourceDiagnostic {
                         file_id: resolved.file.id.0,
                         file_path: resolved.file.relative_path.clone(),
-                        kind: classify_source_read_failure(&path, resolved.file.revision, None),
+                        kind: classify_source_read_failure_checked(
+                            &path, resolved.file.revision, resolved.file.created_ns,
+                            catalog.fingerprint(resolved.file.id), None,
+                        ),
                         message,
                     });
                     continue;
@@ -4008,8 +4004,9 @@ fn search_segmented_relations(
                         source_errors.record(SourceDiagnostic {
                             file_id: resolved.file.id.0,
                             file_path: resolved.file.relative_path.clone(),
-                            kind: classify_source_read_failure(
-                                &path, resolved.file.revision, Some(ranges[start].1),
+                            kind: classify_source_read_failure_checked(
+                                &path, resolved.file.revision, resolved.file.created_ns,
+                                catalog.fingerprint(resolved.file.id), Some(ranges[start].1),
                             ),
                             message,
                         });
@@ -4102,13 +4099,19 @@ fn search_segmented_relations(
                     .record(first)?
                     .ok_or("active merged segment file missing")?;
                 let path = repo.files.root.join(&resolved.file.relative_path);
-                let mut reader = match RecordRangeReader::open(&path, resolved.file.revision) {
+                let mut reader = match RecordRangeReader::open_checked_with_execution(
+                    &path, resolved.file.revision, resolved.file.created_ns,
+                    catalog.fingerprint(resolved.file.id), context,
+                ) {
                     Ok(reader) => reader,
                     Err(message) => {
                         source_errors.record(SourceDiagnostic {
                             file_id: resolved.file.id.0,
                             file_path: resolved.file.relative_path.clone(),
-                            kind: classify_source_read_failure(&path, resolved.file.revision, None),
+                            kind: classify_source_read_failure_checked(
+                                &path, resolved.file.revision, resolved.file.created_ns,
+                                catalog.fingerprint(resolved.file.id), None,
+                            ),
                             message,
                         });
                         continue;
@@ -4136,8 +4139,9 @@ fn search_segmented_relations(
                             source_errors.record(SourceDiagnostic {
                                 file_id: resolved.file.id.0,
                                 file_path: resolved.file.relative_path.clone(),
-                                kind: classify_source_read_failure(
-                                    &path, resolved.file.revision, Some(ranges[start].1),
+                                kind: classify_source_read_failure_checked(
+                                    &path, resolved.file.revision, resolved.file.created_ns,
+                                    catalog.fingerprint(resolved.file.id), Some(ranges[start].1),
                                 ),
                                 message,
                             });
@@ -4510,6 +4514,7 @@ fn push_lifecycle_order_cursor(
 /// every ordered row without retaining file bodies or an unbounded handle set.
 fn read_lifecycle_ordered_record(
     repo: &Repository,
+    catalog: &FileCatalog,
     file: &FileEntry,
     record: &RecordEntry,
     slot: RecordSlot,
@@ -4522,7 +4527,10 @@ fn read_lifecycle_ordered_record(
         let path = repo.files.root.join(&file.relative_path);
         *reader = Some((
             file.id,
-            RecordRangeReader::open_with_execution(&path, file.revision, Some(context))?,
+            RecordRangeReader::open_checked_with_execution(
+                &path, file.revision, file.created_ns,
+                catalog.fingerprint(file.id), Some(context),
+            )?,
         ));
     }
     let (_, source) = reader.as_mut().ok_or("ordered source reader missing")?;
@@ -4685,7 +4693,7 @@ fn try_lifecycle_ordered_stream(
             context.charge_reads(1)?;
             context.charge_bytes(record.range.len())?;
             let read = match read_lifecycle_ordered_record(
-                repo, file, record, cursor.slot, &mut reader,
+                repo, catalog, file, record, cursor.slot, &mut reader,
                 delivery.max_buffered_bytes().saturating_sub(heap_bytes).saturating_sub(page_bytes),
                 context,
             ) {
@@ -4792,7 +4800,7 @@ fn try_lifecycle_ordered_stream(
                     context.charge_reads(1)?;
                     context.charge_bytes(record.range.len())?;
                     let read = read_lifecycle_ordered_record(
-                        repo, file, record, cursor.slot, &mut reader,
+                        repo, catalog, file, record, cursor.slot, &mut reader,
                         delivery.max_buffered_bytes().saturating_sub(heap_bytes).saturating_sub(page_bytes),
                         context,
                     );
