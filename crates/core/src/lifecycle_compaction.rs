@@ -10,9 +10,8 @@ use crate::lifecycle::{
     Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,
 };
 use crate::lifecycle_catalog::FileCatalog;
+use crate::lifecycle_partition::compact_source_parts;
 use crate::repository::CollectionState;
-
-const MAX_COMPACTION_RECORDS_PER_COLLECTION: usize = 262_144;
 
 /// Dense maintenance result. Old pinned views may keep retired memory until
 /// their readers finish; the new root contains only active contributions.
@@ -27,7 +26,7 @@ pub struct CompactionReport {
     pub duration: Duration,
 }
 
-fn base_as_segment(
+pub(crate) fn base_as_segment(
     collection: &CollectionState,
     files: &crate::inventory::FileInventory,
 ) -> Result<IndexedCollectionSegment, IndexError> {
@@ -133,47 +132,28 @@ fn compact_published_with_cancel(
         if cancelled() {
             return Err(IndexError::Cancelled);
         }
-        let scanned = collection.generation.records.len()
-            + old.segments[number]
-                .iter()
-                .map(|segment| segment.index.records.len())
-                .sum::<usize>();
-        if scanned > MAX_COMPACTION_RECORDS_PER_COLLECTION {
-            return Err(IndexError::ResourceLimit(
-                "compaction record budget exceeded".into(),
-            ));
-        }
         let mut compacted = Vec::new();
         let mut compact_source =
             |source: &IndexedCollectionSegment, active: &ActiveRecords| -> Result<(), IndexError> {
                 if cancelled() {
                     return Err(IndexError::Cancelled);
                 }
-                let dense = source
-                    .compact_active(active, MAX_COMPACTION_RECORDS_PER_COLLECTION, |entry| {
-                        next.catalog.entry(entry.id).is_some_and(|current| {
-                            current.relative_path == entry.relative_path
-                                && current.revision == entry.revision
-                                && current.created_ns == entry.created_ns
-                                && current.collections.contains(&source.collection)
-                        })
-                    })
-                    .map_err(IndexError::Build)?;
-                if cancelled() {
-                    return Err(IndexError::Cancelled);
+                for part in compact_source_parts(source, active, &next.catalog, &cancelled)? {
+                    if cancelled() {
+                        return Err(IndexError::Cancelled);
+                    }
+                    let ordinal = next.next_segment_ordinal;
+                    next.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
+                        IndexError::ResourceLimit("segment ordinal overflow".into())
+                    })?;
+                    let active = ActiveRecords::all(part.records.len())
+                        .map_err(IndexError::ResourceLimit)?;
+                    compacted.push(Arc::new(PublishedSegment {
+                        ordinal,
+                        index: Arc::new(part),
+                        active,
+                    }));
                 }
-                if dense.index.records.is_empty() {
-                    return Ok(());
-                }
-                let ordinal = next.next_segment_ordinal;
-                next.next_segment_ordinal = ordinal
-                    .checked_add(1)
-                    .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-                compacted.push(Arc::new(PublishedSegment {
-                    ordinal,
-                    index: Arc::new(dense.index),
-                    active: dense.active,
-                }));
                 Ok(())
             };
         if !collection.generation.records.is_empty() {
@@ -185,12 +165,6 @@ fn compact_published_with_cancel(
         }
         drop(compact_source);
         next.segments[number] = Arc::new(compacted);
-        while next.segments[number].len() > super::lifecycle::MAX_SEGMENTS_PER_COLLECTION {
-            if cancelled() {
-                return Err(IndexError::Cancelled);
-            }
-            next.make_room_for_segment(number)?;
-        }
     }
     Ok(next)
 }

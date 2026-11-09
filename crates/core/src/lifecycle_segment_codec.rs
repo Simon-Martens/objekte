@@ -16,11 +16,12 @@ use crate::inventory::{
     RecordClass, RecordEntry, SourceDiagnostic, SourceRevision,
 };
 use crate::lifecycle_catalog::FileCatalog;
-use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
+use crate::model::{CollectionId, FileId, MetadataField, PathRoot, RecordId, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::relation::RelationContribution;
 use crate::repository::{
-    CollectionDefinition, CollectionState, Repository, RepositoryOptions, canonical_custom_text_key,
+    CollectionDefinition, CollectionState, IdentityPolicy, Repository, RepositoryOptions,
+    canonical_custom_text_key,
 };
 use crate::sorting::{COLLATION_VERSION, SortCollection, compare_composite, simple_composite_part};
 use crate::source::DiagnosticCategory;
@@ -72,7 +73,6 @@ fn path_from_bytes(bytes: Vec<u8>) -> Result<PathBuf, String> {
     }
 }
 
-
 #[derive(Serialize, Deserialize)]
 struct EncodedFile {
     id: FileId,
@@ -84,7 +84,6 @@ struct EncodedFile {
     diagnostics: Vec<SourceDiagnostic>,
     omitted_diagnostics: u32,
 }
-
 
 impl EncodedFile {
     fn from_entry(entry: &FileEntry) -> Self {
@@ -114,13 +113,11 @@ impl EncodedFile {
     }
 }
 
-
 #[derive(Serialize, Deserialize)]
 struct EncodedSegmentFile {
     entry: EncodedFile,
     records: Vec<RecordSlot>,
 }
-
 
 #[derive(Serialize)]
 struct SegmentRef<'a> {
@@ -146,7 +143,6 @@ struct SegmentRef<'a> {
     failed_parses: u64,
 }
 
-
 #[derive(Deserialize)]
 struct OwnedSegment {
     collection: CollectionId,
@@ -170,7 +166,6 @@ struct OwnedSegment {
     record_parses: u64,
     failed_parses: u64,
 }
-
 
 /// Encode one completed segment. The outer snapshot section supplies the
 /// checksum; this codec preserves native non-UTF-8 source paths as bytes.
@@ -402,6 +397,41 @@ fn validate_segment(
         {
             return Err("segment file identity or membership mismatch".into());
         }
+        if let Some(current) = catalog.entry(file.entry.id)
+            && current.revision == file.entry.revision
+            && current.created_ns == file.entry.created_ns
+            && current.collections.contains(&segment.collection)
+            && current.relative_path != file.entry.relative_path
+        {
+            // A checked, content-preserving move may leave the original path
+            // embedded in an immutable segment. Only path-independent logical
+            // contributions can be reused in that representation.
+            if collection.source.is_extension()
+                || !matches!(
+                    definition.identity,
+                    IdentityPolicy::Generated | IdentityPolicy::Intrinsic(_)
+                )
+                || file.entry.status != FileStatus::Valid
+                || !file.entry.diagnostics.is_empty()
+                || file.records.iter().any(|slot| {
+                    segment
+                        .record(*slot)
+                        .is_some_and(|record| record.class == RecordClass::RawFallback)
+                })
+                || definition
+                    .sort_fields
+                    .iter()
+                    .any(|field| field.root == PathRoot::Metadata(MetadataField::FilePath))
+                || definition
+                    .schema
+                    .composite_sorts
+                    .iter()
+                    .flatten()
+                    .any(|field| field.field == MetadataField::FilePath.as_str())
+            {
+                return Err("segment path-derived contribution cannot be relocated".into());
+            }
+        }
     }
     if segment.file_index.len() != segment.files.len() {
         return Err("segment file lookup mismatch".into());
@@ -460,8 +490,7 @@ fn validate_segment(
             let current = catalog
                 .entry(record.file)
                 .ok_or("active segment source is retired")?;
-            if current.relative_path != file.entry.relative_path
-                || current.revision != file.entry.revision
+            if current.revision != file.entry.revision
                 || current.created_ns != file.entry.created_ns
                 || !current.collections.contains(&segment.collection)
             {

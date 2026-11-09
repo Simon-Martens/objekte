@@ -203,7 +203,13 @@ impl FileCatalog {
         self.changed[shard(&file)]
             .get(&file)
             .map(|changed| changed.fingerprint)
-            .unwrap_or_else(|| self.base.base_fingerprints.get(file.0 as usize).copied().flatten())
+            .unwrap_or_else(|| {
+                self.base
+                    .base_fingerprints
+                    .get(file.0 as usize)
+                    .copied()
+                    .flatten()
+            })
     }
 
     pub(crate) fn configuration(&self, file: FileId) -> Option<[u8; 32]> {
@@ -246,6 +252,21 @@ impl FileCatalog {
             );
         }
         stamps
+    }
+
+    pub(crate) fn scan_stamp(&self, file: FileId) -> Option<FileStamp> {
+        let entry = self.entry(file)?;
+        Some(FileStamp {
+            path: entry.relative_path.clone(),
+            revision: entry.revision,
+            created_ns: entry.created_ns,
+            collections: entry.collections.iter().copied().collect(),
+            retry_unreadable: entry.status == FileStatus::Unreadable,
+        })
+    }
+
+    pub(crate) fn active_ids(&self) -> impl Iterator<Item = FileId> + '_ {
+        self.active.iter().map(FileId)
     }
 
     pub(crate) fn retired(&self, file: FileId) -> Result<Self, String> {

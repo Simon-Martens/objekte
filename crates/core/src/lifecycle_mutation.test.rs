@@ -38,6 +38,24 @@ fn index(root: &std::path::Path) -> Index {
     .unwrap()
 }
 
+fn intrinsic_definition(name: &str) -> CollectionDefinition {
+    let mut definition = CollectionDefinition::folder(name, "data", SourceFormat::JsonLines);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["id".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    definition
+}
+
 #[test]
 fn final_mutated_view_matches_independent_fresh_build() {
     let root = test_root("fresh-oracle");
@@ -138,7 +156,8 @@ fn public_mutations_add_update_move_and_preserve_version_conflicts() {
     std::fs::rename(&path, &destination).unwrap();
     let moved = index.move_file(changed.file, &destination).unwrap();
     assert_eq!(moved.kind, FileMutationKind::Moved);
-    assert_eq!(moved.retired_records, 2);
+    assert_eq!(moved.strategy, FileMutationStrategy::ContentPreservingMove);
+    assert_eq!(moved.retired_records, 0);
     assert_eq!(moved.indexed_records, 2);
     assert_eq!(moved.file.file_id, changed.file.file_id);
     assert_ne!(moved.file.version, changed.file.version);
@@ -149,6 +168,166 @@ fn public_mutations_add_update_move_and_preserve_version_conflicts() {
     );
     assert!(!path.exists());
     assert!(destination.exists());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn compatible_move_keeps_index_contributions_and_advances_file_version() {
+    let root = test_root("compatible-move");
+    let original = root.join("data/original.jsonl");
+    std::fs::write(&original, b"{\"name\":\"one\"}\n{\"name\":\"two\"}\n").unwrap();
+    let index = index(&root);
+    let before = index.view().unwrap();
+    let handle = before.file_handle_for_path(&original).unwrap();
+    let fingerprint = before.file_fingerprint(handle.file_id);
+    let prior_segments = before.0.segments.clone();
+    let prior_repository = std::sync::Arc::clone(&before.0.repository);
+    let destination = root.join("data/renamed.jsonl");
+    std::fs::rename(&original, &destination).unwrap();
+    let moved = index.move_file(handle, &destination).unwrap();
+    assert_eq!(moved.kind, FileMutationKind::Moved);
+    assert_eq!(moved.strategy, FileMutationStrategy::ContentPreservingMove);
+    assert_eq!(moved.retired_records, 0);
+    assert_eq!(moved.indexed_records, 2);
+    assert_ne!(moved.file.version, handle.version);
+    let after = index.view().unwrap();
+    assert!(after.file_handle_for_path(&original).is_none());
+    assert_eq!(after.file_handle_for_path(&destination), Some(moved.file));
+    assert_eq!(after.file_fingerprint(handle.file_id), fingerprint);
+    assert!(std::sync::Arc::ptr_eq(
+        &prior_repository,
+        &after.0.repository
+    ));
+    for (old, new) in prior_segments.iter().zip(&after.0.segments) {
+        assert!(std::sync::Arc::ptr_eq(old, new));
+    }
+    assert!(matches!(
+        index.move_file(handle, &original),
+        Err(IndexError::FileConflict { .. })
+    ));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn restored_shared_partition_verified_update_preserves_its_record_slot() {
+    let root = test_root("partition-slot-replace");
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::JsonLines);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["id".into()],
+            kind: LogicalType::Id,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["name".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    definition.sort_fields = vec![FieldPath::parse("name").unwrap()];
+    let first = root.join("data/first.jsonl");
+    let middle = root.join("data/middle.jsonl");
+    let last = root.join("data/last.jsonl");
+    let old = b"{\"id\":\"middle\",\"name\":\"before\"}\n";
+    std::fs::write(&first, b"{\"id\":\"first\",\"name\":\"first\"}\n").unwrap();
+    std::fs::write(&middle, old).unwrap();
+    std::fs::write(&last, b"{\"id\":\"last\",\"name\":\"last\"}\n").unwrap();
+    let built = Index::build(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let cache = root.join("cache.bin");
+    built.flush_cache(&cache).unwrap();
+    built.shutdown().unwrap();
+    let restored = Index::load_cache(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        &cache,
+    )
+    .unwrap();
+    restored.wait_for_reconciliation().unwrap();
+    let pinned = restored.view().unwrap();
+    let handle = pinned.file_handle_for_path(&middle).unwrap();
+    let old_shard = pinned
+        .segments(CollectionId(0))
+        .unwrap()
+        .iter()
+        .find(|shard| shard.index.file(handle.file_id).is_some())
+        .unwrap();
+    assert_eq!(old_shard.index.records.len(), 3);
+    let old_slot = old_shard.index.file_records(handle.file_id).unwrap()[0];
+    let old_ordinal = old_shard.ordinal;
+    std::fs::write(&middle, b"{\"id\":\"middle\",\"name\":\"after!\"}\n").unwrap();
+    let result = restored
+        .update_file_with_options(
+            handle,
+            &middle,
+            UpdateOptions {
+                old_content: Some(old),
+                strategy: UpdateStrategy::PreferVerified,
+            },
+        )
+        .unwrap();
+    assert_eq!(
+        result.strategy,
+        FileMutationStrategy::VerifiedSlotPreserving
+    );
+    let current = restored.view().unwrap();
+    let new_shard = current
+        .segments(CollectionId(0))
+        .unwrap()
+        .iter()
+        .find(|shard| shard.index.file(handle.file_id).is_some())
+        .unwrap();
+    assert_eq!(new_shard.ordinal, old_ordinal);
+    assert_eq!(
+        new_shard.index.file_records(handle.file_id).unwrap(),
+        [old_slot]
+    );
+    assert_eq!(new_shard.index.records.len(), 3);
+    assert_eq!(new_shard.active.len(), 3);
+    assert_eq!(
+        old_shard.index.file_records(handle.file_id).unwrap(),
+        [old_slot]
+    );
+    let query = Query {
+        collections: vec!["items".into()],
+        fts: Some(FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "after!".into(),
+            pattern_parameter: None,
+            fields: vec![],
+        }),
+        filter: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("name", false)],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert_eq!(current.search(&query).unwrap().count, Some(1));
+    restored.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -221,15 +400,20 @@ fn move_rejects_destination_owned_by_another_file() {
 #[test]
 fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
     let root = test_root("verified");
-    let index = index(&root);
+    let index = Index::build(
+        &root,
+        vec![intrinsic_definition("items")],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
     let path = root.join("data/verified.jsonl");
-    let old = b"{\"name\":\"old\"}\n";
+    let old = b"{\"id\":\"same\",\"name\":\"old\"}\n";
     std::fs::write(&path, old).unwrap();
     let added = index.add_file(&path).unwrap();
     let pinned = index.view().unwrap();
     let old_ordinal = pinned.segments(CollectionId(0)).unwrap()[0].ordinal;
 
-    let new = b"{\"name\":\"new\"}\n";
+    let new = b"{\"id\":\"same\",\"name\":\"new\"}\n";
     std::fs::write(&path, new).unwrap();
     let verified = index
         .update_file_with_options(
@@ -267,7 +451,7 @@ fn verified_update_preserves_isolated_slot_and_bad_hint_falls_back() {
     );
     assert_eq!(pinned.segments(CollectionId(0)).unwrap()[0].active.len(), 1);
 
-    let latest = b"{\"name\":\"latest\"}\n";
+    let latest = b"{\"id\":\"same\",\"name\":\"latest\"}\n";
     std::fs::write(&path, latest).unwrap();
     let fallback = index
         .update_file_with_options(
@@ -334,10 +518,13 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
         Some(Sha256::digest(old).into())
     );
     assert_eq!(
-        pinned.repository().collections()[0]
-            .generation
-            .records
-            .len(),
+        pinned.0.active[0].len()
+            + pinned
+                .segments(CollectionId(0))
+                .unwrap()
+                .iter()
+                .map(|shard| shard.active.len())
+                .sum::<u64>(),
         1
     );
     let unchanged = index.update_file(handle, &path).unwrap();
@@ -370,13 +557,15 @@ fn fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view() {
     );
     assert_eq!(current.segments(CollectionId(0)).unwrap().len(), 1);
     assert_eq!(
-        pinned.repository().collections()[0]
-            .generation
-            .records
-            .len(),
+        pinned.0.active[0].len()
+            + pinned
+                .segments(CollectionId(0))
+                .unwrap()
+                .iter()
+                .map(|shard| shard.active.len())
+                .sum::<u64>(),
         1
     );
-    assert_eq!(pinned.segments(CollectionId(0)).unwrap().len(), 0);
     assert_eq!(index.status().unwrap().live_records, 1);
     let cache = root.join("cache.bin");
     index.flush_cache(&cache).unwrap();
@@ -425,10 +614,13 @@ fn fresh_base_verified_delete_reclaims_base_without_reading_source() {
     assert!(current.segments(CollectionId(0)).unwrap().is_empty());
     assert_eq!(index.status().unwrap().live_records, 0);
     assert_eq!(
-        pinned.repository().collections()[0]
-            .generation
-            .records
-            .len(),
+        pinned.0.active[0].len()
+            + pinned
+                .segments(CollectionId(0))
+                .unwrap()
+                .iter()
+                .map(|shard| shard.active.len())
+                .sum::<u64>(),
         1
     );
     assert!(!path.exists());
@@ -751,14 +943,14 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
         .unwrap();
     assert_eq!(
         second.strategy,
-        FileMutationStrategy::VerifiedSlotPreserving
+        FileMutationStrategy::VerifiedPhysicalRemoval
     );
     let current = index.view().unwrap();
     let changed_locator = current
         .relation_outgoing_page("sources", &relation_path, "S2", 0, 10)
         .unwrap()
         .source;
-    assert_eq!(changed_locator.segment_ordinal, Some(ordinal));
+    assert_ne!(changed_locator.segment_ordinal, Some(ordinal));
     assert_eq!(changed_locator.slot, RecordSlot(0));
     assert_ne!(changed_locator.generation, first_locator.generation);
     assert!(
@@ -795,7 +987,10 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
         .relation_outgoing_page("sources", &relation_path, "S2", 0, 10)
         .unwrap()
         .source;
-    assert_eq!(restored_locator.segment_ordinal, Some(ordinal));
+    assert_eq!(
+        restored_locator.segment_ordinal,
+        changed_locator.segment_ordinal
+    );
     assert_eq!(restored_locator.slot, RecordSlot(0));
     restored.wait_for_reconciliation().unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -840,21 +1035,18 @@ fn one_record_shared_file_preserves_every_collection_slot_atomically() {
     let root = test_root("shared-slot");
     let index = Index::build(
         &root,
-        vec![
-            CollectionDefinition::folder("left", "data", SourceFormat::JsonLines),
-            CollectionDefinition::folder("right", "data", SourceFormat::JsonLines),
-        ],
+        vec![intrinsic_definition("left"), intrinsic_definition("right")],
         RepositoryOptions::default(),
     )
     .unwrap();
     let path = root.join("data/shared.jsonl");
-    let old = b"{\"name\":\"old\"}\n";
+    let old = b"{\"id\":\"same\",\"name\":\"old\"}\n";
     std::fs::write(&path, old).unwrap();
     let added = index.add_file(&path).unwrap();
     let pinned = index.view().unwrap();
     let ordinals = [CollectionId(0), CollectionId(1)]
         .map(|collection| pinned.segments(collection).unwrap()[0].ordinal);
-    std::fs::write(&path, b"{\"name\":\"new value\"}\n").unwrap();
+    std::fs::write(&path, b"{\"id\":\"same\",\"name\":\"new value\"}\n").unwrap();
     let updated = index
         .update_file_with_options(
             added.file,

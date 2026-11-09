@@ -34,7 +34,6 @@ use crate::workload::ReturnMode;
 pub use crate::inventory::FileVersion;
 
 pub(crate) const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
-const MAX_CONSOLIDATED_RECORDS: usize = 262_144;
 const MAX_RECONCILIATION_ISSUES: usize = 128;
 
 /// Monotonic publication sequence within one index instance.
@@ -338,33 +337,34 @@ pub(crate) struct PublishedIndex {
 }
 
 fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize, usize)> {
-    let mut candidates = Vec::new();
-    for left in 0..group.len() {
-        for right in left + 1..group.len() {
-            let combined = group[left].index.records.len() + group[right].index.records.len();
-            if combined <= MAX_CONSOLIDATED_RECORDS {
-                candidates.push((combined, left, right));
+    let mut sized = group
+        .iter()
+        .enumerate()
+        .map(|(index, segment)| (segment.index.records.len(), index))
+        .collect::<Vec<_>>();
+    sized.sort_unstable();
+    for (position, &(left_size, left)) in sized.iter().enumerate() {
+        for &(right_size, right) in &sized[position + 1..] {
+            if left_size + right_size > crate::lifecycle_partition::BASE_PARTITION_RECORDS {
+                break;
             }
+            let left_index = &group[left].index;
+            let right_index = &group[right].index;
+            if left_index
+                .files
+                .iter()
+                .any(|file| right_index.file(file.entry.id).is_some())
+                || left_index
+                    .id_lookup
+                    .keys()
+                    .any(|id| right_index.id_lookup.contains_key(id))
+            {
+                continue;
+            }
+            return Some((left.min(right), left.max(right)));
         }
     }
-    candidates.sort_unstable();
-    candidates.into_iter().find_map(|(_, left, right)| {
-        let left_index = &group[left].index;
-        let right_index = &group[right].index;
-        if left_index
-            .files
-            .iter()
-            .any(|file| right_index.file(file.entry.id).is_some())
-            || left_index
-                .id_lookup
-                .keys()
-                .any(|id| right_index.id_lookup.contains_key(id))
-        {
-            None
-        } else {
-            Some((left, right))
-        }
-    })
+    None
 }
 
 impl PublishedIndex {
@@ -497,66 +497,24 @@ impl PublishedIndex {
         Ok(self)
     }
 
-    /// Keep query merge width bounded. This runs only on a private staged
-    /// root, after preparation and before publication; no source bytes or
-    /// publication lock are needed.
+    /// Coalesce small delta shards without enlarging a partition beyond the
+    /// local verified-maintenance budget. Large collections retain more base
+    /// partitions; their size must not force a collection-sized rewrite here.
     pub(crate) fn make_room_for_segment(&mut self, number: usize) -> Result<(), IndexError> {
         if self.segments[number].len() < MAX_SEGMENTS_PER_COLLECTION {
             return Ok(());
         }
-        let catalog = self.catalog.clone();
         let group = Arc::make_mut(&mut self.segments[number]);
         group.retain(|segment| segment.active.len() > 0);
         if group.len() < MAX_SEGMENTS_PER_COLLECTION {
             return Ok(());
         }
-        // Merge two small compatible shards first. Compacting every partially
-        // retired shard here would repeatedly rewrite a large dense segment
-        // after each later single-file update.
-        let mut choice = cheapest_consolidation_pair(group);
-        if choice.is_none() {
-            for segment in group.iter_mut() {
-                if segment.active.len() == segment.index.records.len() as u64
-                    || segment.index.records.len() > MAX_CONSOLIDATED_RECORDS
-                {
-                    continue;
-                }
-                let compacted = segment
-                    .index
-                    .compact_active(&segment.active, MAX_CONSOLIDATED_RECORDS, |entry| {
-                        catalog.entry(entry.id).is_some_and(|current| {
-                            current.relative_path == entry.relative_path
-                                && current.revision == entry.revision
-                                && current.created_ns == entry.created_ns
-                                && current.collections.contains(&segment.index.collection)
-                        })
-                    })
-                    .map_err(IndexError::Build)?;
-                if compacted.active.len() == 0 {
-                    continue;
-                }
-                let ordinal = self.next_segment_ordinal;
-                self.next_segment_ordinal = ordinal
-                    .checked_add(1)
-                    .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
-                *segment = Arc::new(PublishedSegment {
-                    ordinal,
-                    index: Arc::new(compacted.index),
-                    active: compacted.active,
-                });
-            }
-            group.retain(|segment| segment.active.len() > 0);
-            if group.len() < MAX_SEGMENTS_PER_COLLECTION {
-                return Ok(());
-            }
-            choice = cheapest_consolidation_pair(group);
-        }
-        let (left, right) = choice.ok_or_else(|| {
-            IndexError::ResourceLimit("no bounded segment consolidation is possible".into())
-        })?;
+        let Some((left, right)) = cheapest_consolidation_pair(group) else {
+            return Ok(());
+        };
         let merged = IndexedCollectionSegment::consolidate(
             &[&group[left].index, &group[right].index],
-            MAX_CONSOLIDATED_RECORDS,
+            crate::lifecycle_partition::BASE_PARTITION_RECORDS,
         )
         .map_err(IndexError::Build)?;
         let active = merged
@@ -762,6 +720,11 @@ fn prepare_file_at(
 struct IndexInner {
     instance_id: u64,
     restored_from_cache: AtomicBool,
+    /// Set under the publication write lock before closing waits for workers.
+    /// Every data publication checks it while holding that same lock.
+    quiescing: AtomicBool,
+    /// One aggregate budget for all pinned publications of this index.
+    verified_cache: Mutex<crate::verified::VerifiedCache>,
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
     maintenance: Mutex<MaintenanceState>,
@@ -948,14 +911,18 @@ impl Index {
             IndexRevision::INITIAL,
             Arc::new(repository),
         )?;
+        let published = crate::lifecycle_partition::partition_base(published)?;
         Ok(Self::from_published(published))
     }
 
     pub(crate) fn from_published(published: PublishedIndex) -> Self {
         let instance_id = published.instance_id;
+        let verified_cache_bytes = published.repository.options().verified_cache_bytes;
         Self(Arc::new(IndexInner {
             instance_id,
             restored_from_cache: AtomicBool::new(false),
+            quiescing: AtomicBool::new(false),
+            verified_cache: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
             published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
             maintenance: Mutex::new(MaintenanceState {
@@ -977,6 +944,28 @@ impl Index {
 
     pub fn instance_id(&self) -> u64 {
         self.0.instance_id
+    }
+
+    /// Set the aggregate in-memory verified-result cache budget for this
+    /// lifecycle instance. It is shared across all pinned revisions.
+    pub fn configure_verified_cache(&self, bytes: usize) -> Result<(), IndexError> {
+        let displaced = self
+            .0
+            .verified_cache
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .set_budget(bytes);
+        drop(displaced);
+        Ok(())
+    }
+
+    pub fn verified_cache_budget(&self) -> Result<usize, IndexError> {
+        Ok(self
+            .0
+            .verified_cache
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .budget())
     }
 
     pub fn restored_from_cache(&self) -> bool {
@@ -1030,6 +1019,9 @@ impl Index {
             .maintenance_operation
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
+        if self.0.quiescing.load(Ordering::Acquire) {
+            return Err(IndexError::Cancelled);
+        }
         if let Some(job) = current.as_ref() {
             if job
                 .result
@@ -1166,13 +1158,13 @@ impl Index {
                 repository.options(),
                 repository.sources.clone(),
             )?;
-            let rebuilt_repository = Arc::clone(&fresh.view()?.0.repository);
             let next_revision = view.revision().next()?;
-            let next = PublishedIndex::from_repository(
-                self.instance_id(),
-                next_revision,
-                rebuilt_repository,
-            )?;
+            let mut next = (*fresh.view()?.0).clone();
+            next.instance_id = self.instance_id();
+            next.revision = next_revision;
+            next.file_versions =
+                FileVersions::filled(next.catalog.allocated_files(), FileVersion(next_revision.0));
+            next.saved_revision = view.0.saved_revision;
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
@@ -1355,6 +1347,9 @@ impl Index {
     }
 
     pub(crate) fn enable_sync_cache(&self) -> Result<(), IndexError> {
+        if self.0.quiescing.load(Ordering::Acquire) {
+            return Err(IndexError::Cancelled);
+        }
         if self
             .0
             .persistence
@@ -1372,6 +1367,9 @@ impl Index {
             .sync_cache
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
+        if self.0.quiescing.load(Ordering::Acquire) {
+            return Err(IndexError::Cancelled);
+        }
         if sync.is_some() {
             return Ok(());
         }
@@ -1458,6 +1456,9 @@ impl Index {
             .maintenance
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
+        if self.0.quiescing.load(Ordering::Acquire) {
+            return Err(IndexError::Cancelled);
+        }
         if let Some(job) = &maintenance.current {
             if job
                 .result
@@ -1545,6 +1546,9 @@ impl Index {
                 "reconciliation interval must be nonzero".into(),
             ));
         }
+        if self.0.quiescing.load(Ordering::Acquire) {
+            return Err(IndexError::Cancelled);
+        }
         self.stop_periodic_reconciliation()?;
         let (stop, receiver) = mpsc::sync_channel(1);
         let owner = Arc::downgrade(&self.0);
@@ -1571,6 +1575,14 @@ impl Index {
             .periodic
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
+        if self.0.quiescing.load(Ordering::Acquire) {
+            let _ = stop.try_send(());
+            drop(periodic);
+            worker.join().map_err(|_| {
+                IndexError::InvalidPublication("periodic reconciliation worker panicked".into())
+            })?;
+            return Err(IndexError::Cancelled);
+        }
         *periodic = Some(PeriodicReconciliation { stop, worker });
         Ok(())
     }
@@ -1591,6 +1603,17 @@ impl Index {
         Ok(())
     }
 
+    /// Whether a live periodic scheduler currently belongs to this index.
+    pub fn periodic_reconciliation_enabled(&self) -> Result<bool, IndexError> {
+        Ok(self
+            .0
+            .periodic
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .as_ref()
+            .is_some_and(|schedule| !schedule.worker.is_finished()))
+    }
+
     pub fn wait_for_reconciliation(&self) -> Result<Option<ReconciliationReport>, IndexError> {
         let current = self
             .0
@@ -1604,8 +1627,18 @@ impl Index {
             .transpose()
     }
 
-    /// Cancel and join the current scan worker before releasing this handle.
-    pub fn shutdown(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+    /// Prevent new data publications, stop recurring work, and wait for every
+    /// currently owned mutation worker. The resulting view is stable for a
+    /// final cache save. This call may be retried after a save failure.
+    pub fn quiesce(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        {
+            let _published = self
+                .0
+                .published
+                .write()
+                .map_err(|_| IndexError::LockPoisoned)?;
+            self.0.quiescing.store(true, Ordering::Release);
+        }
         self.stop_periodic_reconciliation()?;
         self.stop_sync_cache()?;
         let operation = self
@@ -1642,6 +1675,23 @@ impl Index {
             return Err(error);
         }
         Ok(reconciliation)
+    }
+
+    /// Reopen publication after a cancelled close. Callers restore only the
+    /// explicit recurring policies they held before quiescing.
+    pub fn resume_after_quiesce(&self) -> Result<(), IndexError> {
+        let _published = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        self.0.quiescing.store(false, Ordering::Release);
+        Ok(())
+    }
+
+    /// Stop the lifecycle service without writing a cache.
+    pub fn shutdown(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        self.quiesce()
     }
 
     /// Prepare a selected source without holding the publication or writer
@@ -1835,7 +1885,7 @@ impl Index {
         cancelled: impl Fn() -> bool,
         mut on_progress: impl FnMut(&ReconciliationReport),
     ) -> ReconciliationReport {
-        use crate::lifecycle_scan::{ScanChange, plan_scan, scan_sources};
+        use crate::lifecycle_scan::{ScanChange, scan_sources_batched};
 
         let started = Instant::now();
         let mut report = ReconciliationReport::default();
@@ -1855,8 +1905,6 @@ impl Index {
             .iter()
             .map(|collection| collection.definition.clone())
             .collect::<Vec<_>>();
-        let prior = snapshot.0.catalog.scan_stamps();
-        let mut scan = scan_sources(root, &definitions, &repository.sources, &cancelled);
         let cache_paths = {
             let persistence = self.0.persistence.lock();
             match persistence {
@@ -1878,7 +1926,7 @@ impl Index {
                 }
             }
         };
-        scan.files.retain(|path, _| {
+        let excluded = |path: &Path| {
             !cache_paths.iter().any(|cache| {
                 path == cache
                     || (path.parent() == cache.parent()
@@ -1889,26 +1937,13 @@ impl Index {
                                 name.starts_with(".objekte-snapshot-") && name.ends_with(".tmp")
                             }))
             })
-        });
-        report.examined = scan.examined;
-        report.cancelled = scan.cancelled;
-        for issue in &scan.issues {
-            report.record_issue(format!(
-                "collection {}: {}",
-                issue.collection.0, issue.message
-            ));
-        }
-        let plan = plan_scan(&prior, &scan);
-        report.unchanged = plan.unchanged;
-        report.skipped = plan.skipped;
-        report.planned_changes = plan.changes.len();
-        report.duration = started.elapsed();
-        on_progress(&report);
-        for change in plan.changes {
+        };
+        let mut apply = |change: ScanChange| {
             if cancelled() {
                 report.cancelled = true;
-                break;
+                return;
             }
+            report.planned_changes = report.planned_changes.saturating_add(1);
             let bytes = match &change {
                 ScanChange::Add(observed) | ScanChange::Update { observed, .. } => {
                     observed.revision.size
@@ -1920,55 +1955,19 @@ impl Index {
                 ScanChange::Update { observed, .. } => &observed.path,
             }
             .clone();
-            let outcome = match change {
-                ScanChange::Add(observed) => {
-                    self.prepare_add_file(&observed.path).and_then(|prepared| {
-                        if prepared.file.source.revision != observed.revision {
-                            return Err(IndexError::SourceUnavailable(
-                                "source changed after metadata scan".into(),
-                            ));
-                        }
-                        let expected = prepared.expected_revision;
-                        let next = self.stage_prepared_add(prepared)?;
-                        self.publish_prepared(expected, next).map(|_| ())
-                    })
-                }
-                ScanChange::Update { previous, observed } => snapshot
-                    .file_handle_for_path(&previous.path)
-                    .ok_or(IndexError::UnknownFile)
-                    .and_then(|handle| {
-                        let prepared = self.prepare_replace_file(handle, &observed.path)?;
-                        if prepared.file.source.revision != observed.revision {
-                            return Err(IndexError::SourceUnavailable(
-                                "source changed after metadata scan".into(),
-                            ));
-                        }
-                        let expected = prepared.expected_revision;
-                        let next = self.stage_prepared_replace(prepared)?;
-                        self.publish_prepared(expected, next).map(|_| ())
-                    }),
-                ScanChange::Remove(observed) => snapshot
-                    .file_handle_for_path(&observed.path)
-                    .ok_or(IndexError::UnknownFile)
-                    .and_then(
-                        |handle| match std::fs::metadata(root.join(&observed.path)) {
-                            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
-                                self.delete_file(handle).map(|_| ())
-                            }
-                            Ok(_) => Err(IndexError::SourceUnavailable(
-                                "source reappeared after metadata scan".into(),
-                            )),
-                            Err(error) => Err(IndexError::Io(error.to_string())),
-                        },
-                    ),
+            let kind = match &change {
+                ScanChange::Add(_) => 0,
+                ScanChange::Update { .. } => 1,
+                ScanChange::Remove(_) => 2,
             };
+            let outcome = self.apply_reconciliation_change(&snapshot, root, change);
             match outcome {
                 Ok(()) => {
                     report.indexed_bytes = report.indexed_bytes.saturating_add(bytes);
-                    match scan.files.get(&path) {
-                        Some(_) if prior.contains_key(&path) => report.updated += 1,
-                        Some(_) => report.added += 1,
-                        None => report.removed += 1,
+                    match kind {
+                        0 => report.added += 1,
+                        1 => report.updated += 1,
+                        _ => report.removed += 1,
                     }
                 }
                 Err(error) => {
@@ -1978,10 +1977,110 @@ impl Index {
             }
             report.duration = started.elapsed();
             on_progress(&report);
+        };
+        let scan = scan_sources_batched(
+            root,
+            &definitions,
+            &repository.sources,
+            |path| !excluded(path),
+            |path| {
+                snapshot
+                    .0
+                    .catalog
+                    .id_for(path)
+                    .and_then(|id| snapshot.0.catalog.scan_stamp(id).map(|stamp| (id, stamp)))
+            },
+            &cancelled,
+            256,
+            |batch| {
+                for change in batch {
+                    apply(change);
+                }
+            },
+        );
+        if !scan.cancelled {
+            for id in snapshot.0.catalog.active_ids() {
+                if cancelled() {
+                    break;
+                }
+                if scan.seen_existing.contains(id.0) {
+                    continue;
+                }
+                let Some(stamp) = snapshot.0.catalog.scan_stamp(id) else {
+                    continue;
+                };
+                if !excluded(&stamp.path) {
+                    continue;
+                }
+                if stamp.collections.is_subset(&scan.complete_collections) {
+                    apply(ScanChange::Remove(stamp));
+                }
+            }
+        }
+        drop(apply);
+        report.examined = scan.examined;
+        report.unchanged = scan.unchanged;
+        report.skipped = report.skipped.saturating_add(scan.skipped);
+        report.cancelled |= scan.cancelled || cancelled();
+        for issue in &scan.issues {
+            report.record_issue(format!(
+                "collection {}: {}",
+                issue.collection.0, issue.message
+            ));
         }
         report.duration = started.elapsed();
         on_progress(&report);
         report
+    }
+
+    fn apply_reconciliation_change(
+        &self,
+        snapshot: &IndexView,
+        root: &Path,
+        change: crate::lifecycle_scan::ScanChange,
+    ) -> Result<(), IndexError> {
+        use crate::lifecycle_scan::ScanChange;
+        match change {
+            ScanChange::Add(observed) => {
+                let prepared = self.prepare_add_file(&observed.path)?;
+                if prepared.file.source.revision != observed.revision {
+                    return Err(IndexError::SourceUnavailable(
+                        "source changed after metadata scan".into(),
+                    ));
+                }
+                let expected = prepared.expected_revision;
+                let next = self.stage_prepared_add(prepared)?;
+                self.publish_prepared(expected, next).map(|_| ())
+            }
+            ScanChange::Update { previous, observed } => {
+                let handle = snapshot
+                    .file_handle_for_path(&previous.path)
+                    .ok_or(IndexError::UnknownFile)?;
+                let prepared = self.prepare_replace_file(handle, &observed.path)?;
+                if prepared.file.source.revision != observed.revision {
+                    return Err(IndexError::SourceUnavailable(
+                        "source changed after metadata scan".into(),
+                    ));
+                }
+                let expected = prepared.expected_revision;
+                let next = self.stage_prepared_replace(prepared)?;
+                self.publish_prepared(expected, next).map(|_| ())
+            }
+            ScanChange::Remove(observed) => {
+                let handle = snapshot
+                    .file_handle_for_path(&observed.path)
+                    .ok_or(IndexError::UnknownFile)?;
+                match std::fs::metadata(root.join(&observed.path)) {
+                    Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+                        self.delete_file(handle).map(|_| ())
+                    }
+                    Ok(_) => Err(IndexError::SourceUnavailable(
+                        "source reappeared after metadata scan".into(),
+                    )),
+                    Err(error) => Err(IndexError::Io(error.to_string())),
+                }
+            }
+        }
     }
 
     /// Retire all records owned by one file across its collections in one
@@ -2083,6 +2182,9 @@ impl Index {
                 .published
                 .write()
                 .map_err(|_| IndexError::LockPoisoned)?;
+            if self.0.quiescing.load(Ordering::Acquire) {
+                return Err(IndexError::Cancelled);
+            }
             if guard.revision != expected {
                 return Err(IndexError::RevisionConflict {
                     expected,
@@ -2264,23 +2366,30 @@ impl IndexView {
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
+        let owner = self.1.upgrade();
+        let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
+            store: &owner.verified_cache,
+            instance_id: self.instance_id(),
+        });
         let result = if !self.has_segments() {
-            crate::run::search_active_available(
+            crate::run::search_active_available_lifecycle(
                 self.repository(),
                 resolved.as_ref(),
                 &self.0.active,
                 &self.0.catalog,
                 self.revision(),
+                cache,
             )
             .map(|result| self.stamp_result(result))
         } else {
-            crate::run::search_segmented(
+            crate::run::search_segmented_lifecycle(
                 self.repository(),
                 resolved.as_ref(),
                 &self.0.active,
                 &self.0.segments,
                 &self.0.catalog,
                 self.revision(),
+                cache,
             )
         };
         if let Ok(result) = &result {
@@ -2298,18 +2407,24 @@ impl IndexView {
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
+        let owner = self.1.upgrade();
+        let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
+            store: &owner.verified_cache,
+            instance_id: self.instance_id(),
+        });
         let result = if !self.has_segments() {
-            crate::run::search_active_available_with_context(
+            crate::run::search_active_available_with_context_lifecycle(
                 self.repository(),
                 &resolved,
                 &self.0.active,
                 &self.0.catalog,
                 self.revision(),
                 context,
+                cache,
             )
             .map(|result| self.stamp_result(result))
         } else {
-            crate::run::search_segmented_with_context(
+            crate::run::search_segmented_with_context_lifecycle(
                 self.repository(),
                 &resolved,
                 &self.0.active,
@@ -2317,6 +2432,7 @@ impl IndexView {
                 &self.0.catalog,
                 self.revision(),
                 context,
+                cache,
             )
         };
         if let Ok(result) = &result {
@@ -2662,7 +2778,12 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
-        let result = crate::run::search_stream_segmented_with_context(
+        let owner = self.1.upgrade();
+        let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
+            store: &owner.verified_cache,
+            instance_id: self.instance_id(),
+        });
+        let result = crate::run::search_stream_segmented_with_context_lifecycle(
             self.repository(),
             query,
             scope,
@@ -2673,6 +2794,7 @@ impl IndexView {
             &self.0.catalog,
             self.revision(),
             sink,
+            cache,
         );
         if let Ok(StreamOutcome::Complete(summary)) = &result {
             self.request_reconciliation_for_counters(&summary.counters);

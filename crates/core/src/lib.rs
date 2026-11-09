@@ -26,6 +26,7 @@ mod lifecycle_catalog;
 mod lifecycle_compaction;
 pub mod lifecycle_mutation;
 mod lifecycle_open;
+mod lifecycle_partition;
 pub mod lifecycle_repository;
 mod lifecycle_scan;
 mod lifecycle_segment_codec;

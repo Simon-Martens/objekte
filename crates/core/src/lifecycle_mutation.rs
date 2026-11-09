@@ -2,7 +2,11 @@
 //! path. Source files remain owned by the application.
 
 use std::collections::BTreeSet;
+use std::io::Read;
 use std::path::{Component, Path, PathBuf};
+use std::time::SystemTime;
+
+use sha2::{Digest, Sha256};
 
 use crate::build::{
     BytesPreparationError, FilePreparationBinding, PreparedFileBuild, SourceFileInput,
@@ -16,9 +20,11 @@ use crate::lifecycle::{
 };
 use crate::lifecycle_compaction::compact_published;
 use crate::lifecycle_verified::{
-    preserve_single_record_slots, remove_verified_old_shards, verify_old_content,
+    preserve_partition_record_slots, preserve_single_record_slots, remove_verified_old_shards,
+    verify_old_content,
 };
-use crate::model::CollectionId;
+use crate::model::{CollectionId, MetadataField, PathRoot};
+use crate::repository::IdentityPolicy;
 
 const MAX_PUBLICATION_RETRIES: usize = 8;
 
@@ -28,7 +34,6 @@ fn compact_verified_base(next: &PublishedIndex) -> Result<PublishedIndex, Verifi
         _ => VerifiedFallbackReason::CompactionUnavailable,
     })
 }
-
 
 /// The change actually published by a file mutation. `Unchanged` keeps both
 /// the file version and index revision intact.
@@ -40,16 +45,17 @@ pub enum FileMutationKind {
     Unchanged,
 }
 
-
 /// Physical index maintenance selected for this operation.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum FileMutationStrategy {
     AppendReplacement,
+    /// The destination's raw digest and source revision matched the indexed
+    /// file; only its catalog route and file version changed.
+    ContentPreservingMove,
     VerifiedSlotPreserving,
     VerifiedPhysicalRemoval,
     Unchanged,
 }
-
 
 /// Why a requested verified operation safely used the normal tombstone and
 /// append strategy. A wrong old-content hint is never a mutation error.
@@ -67,7 +73,6 @@ pub enum VerifiedFallbackReason {
     CompactionUnavailable,
 }
 
-
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum UpdateStrategy {
     #[default]
@@ -75,20 +80,17 @@ pub enum UpdateStrategy {
     PreferVerified,
 }
 
-
 #[derive(Clone, Copy, Debug, Default)]
 pub struct UpdateOptions<'a> {
     pub old_content: Option<&'a [u8]>,
     pub strategy: UpdateStrategy,
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VerifiedDeleteResult {
     pub deletion: DeleteResult,
     pub fallback_reason: Option<VerifiedFallbackReason>,
 }
-
 
 /// One atomic file mutation, across every selected collection. The result's
 /// handle is the version callers should pass to the next update or deletion.
@@ -104,7 +106,6 @@ pub struct FileMutationResult {
     pub strategy: FileMutationStrategy,
     pub fallback_reason: Option<VerifiedFallbackReason>,
 }
-
 
 fn collection_names(
     view: &IndexView,
@@ -147,6 +148,113 @@ fn relative_path(view: &IndexView, path: &Path) -> Result<PathBuf, IndexError> {
         ));
     }
     Ok(relative.to_owned())
+}
+
+fn path_independent_memberships(
+    view: &IndexView,
+    old: &crate::inventory::FileEntry,
+    destination: &Path,
+) -> Result<bool, IndexError> {
+    if old.relative_path.extension() != destination.extension()
+        || old.status != crate::inventory::FileStatus::Valid
+        || !old.diagnostics.is_empty()
+    {
+        return Ok(false);
+    }
+    let repository = view.repository();
+    let root = &repository.files().root;
+    for collection in repository.collections() {
+        let selected = selects_file(
+            root,
+            &collection.definition.source_path,
+            &collection.definition.discovery,
+            &collection.source,
+            destination,
+        )
+        .map_err(IndexError::Build)?;
+        if selected != old.collections.contains(&collection.generation.collection) {
+            return Ok(false);
+        }
+        if selected
+            && (collection.source.is_extension()
+                || !matches!(
+                    collection.definition.identity,
+                    IdentityPolicy::Generated | IdentityPolicy::Intrinsic(_)
+                )
+                || collection
+                    .definition
+                    .sort_fields
+                    .iter()
+                    .any(|field| field.root == PathRoot::Metadata(MetadataField::FilePath))
+                || collection
+                    .definition
+                    .schema
+                    .composite_sorts
+                    .iter()
+                    .flatten()
+                    .any(|field| field.field == MetadataField::FilePath.as_str()))
+        {
+            return Ok(false);
+        }
+    }
+    Ok(true)
+}
+
+fn created_ns(metadata: &std::fs::Metadata) -> Option<i128> {
+    metadata
+        .created()
+        .ok()
+        .and_then(|time| time.duration_since(SystemTime::UNIX_EPOCH).ok())
+        .map(|duration| duration.as_nanos() as i128)
+}
+
+fn hash_destination(path: &Path) -> Result<([u8; 32], SourceRevision, Option<i128>), IndexError> {
+    let mut source =
+        std::fs::File::open(path).map_err(|error| IndexError::Io(error.to_string()))?;
+    let before = source
+        .metadata()
+        .map_err(|error| IndexError::Io(error.to_string()))?;
+    if !before.is_file() {
+        return Err(IndexError::SourceUnavailable(
+            "move destination is not a file".into(),
+        ));
+    }
+    let revision = SourceRevision::from_metadata(&before).map_err(IndexError::Io)?;
+    let creation = created_ns(&before);
+    let mut hasher = Sha256::new();
+    let mut buffer = [0u8; 64 * 1024];
+    loop {
+        let count = source
+            .read(&mut buffer)
+            .map_err(|error| IndexError::Io(error.to_string()))?;
+        if count == 0 {
+            break;
+        }
+        hasher.update(&buffer[..count]);
+    }
+    let after = source
+        .metadata()
+        .map_err(|error| IndexError::Io(error.to_string()))?;
+    let path_after = std::fs::metadata(path).map_err(|error| IndexError::Io(error.to_string()))?;
+    if SourceRevision::from_metadata(&after).map_err(IndexError::Io)? != revision
+        || SourceRevision::from_metadata(&path_after).map_err(IndexError::Io)? != revision
+        || created_ns(&after) != creation
+        || created_ns(&path_after) != creation
+    {
+        return Err(IndexError::SourceUnavailable(
+            "move destination changed during hashing".into(),
+        ));
+    }
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::MetadataExt;
+        if before.dev() != path_after.dev() || before.ino() != path_after.ino() {
+            return Err(IndexError::SourceUnavailable(
+                "move destination changed during hashing".into(),
+            ));
+        }
+    }
+    Ok((hasher.finalize().into(), revision, creation))
 }
 
 fn prepare_replacement_bytes(
@@ -240,7 +348,6 @@ fn prepare_replacement_bytes(
     })
 }
 
-
 impl Index {
     /// Index one source file already created by the application. An active
     /// destination is a collision; no source bytes are written by this call.
@@ -329,12 +436,124 @@ impl Index {
         handle: FileHandle,
         destination: &Path,
     ) -> Result<FileMutationResult, IndexError> {
+        if let Some(moved) = self.try_content_preserving_move(handle, destination)? {
+            return Ok(moved);
+        }
         self.replace_file(
             handle,
             FileMutationKind::Moved,
             UpdateOptions::default(),
             |index| index.prepare_replace_file(handle, destination),
         )
+    }
+
+    /// Reuse content-derived contributions only after checking the destination
+    /// bytes and every affected collection's path semantics. The source file
+    /// has already been moved by the caller; this operation writes no source.
+    fn try_content_preserving_move(
+        &self,
+        handle: FileHandle,
+        destination: &Path,
+    ) -> Result<Option<FileMutationResult>, IndexError> {
+        if handle.instance_id != self.instance_id() {
+            return Err(IndexError::ForeignInstance);
+        }
+        let mut conflict = None;
+        for _ in 0..MAX_PUBLICATION_RETRIES {
+            let view = self.view()?;
+            let actual = view
+                .file_version_including_inactive(handle.file_id)
+                .ok_or(IndexError::UnknownFile)?;
+            if actual != handle.version {
+                return Err(IndexError::FileConflict {
+                    file: handle.file_id,
+                    expected: handle.version,
+                    actual,
+                });
+            }
+            let old = view
+                .file_entry(handle.file_id)
+                .ok_or(IndexError::UnknownFile)?;
+            let relative = relative_path(&view, destination)?;
+            if relative == old.relative_path {
+                return Ok(None);
+            }
+            if view
+                .file_handle_for_path(&relative)
+                .is_some_and(|other| other.file_id != handle.file_id)
+            {
+                return Err(IndexError::DestinationExists);
+            }
+            if !path_independent_memberships(&view, old, &relative)? {
+                return Ok(None);
+            }
+            let Some(fingerprint) = view.file_fingerprint(handle.file_id) else {
+                return Ok(None);
+            };
+            if view.file_configuration(handle.file_id) != Some(view.configuration_identity()) {
+                return Ok(None);
+            }
+            let absolute = view.repository().files().root.join(&relative);
+            let (digest, revision, creation) = hash_destination(&absolute)?;
+            if digest != fingerprint || revision != old.revision || creation != old.created_ns {
+                return Ok(None);
+            }
+            let mut next = (*view.0).clone();
+            let mut relocated = old.clone();
+            relocated.relative_path = relative;
+            next.catalog = next
+                .catalog
+                .replaced(
+                    relocated,
+                    Some(fingerprint),
+                    Some(view.configuration_identity()),
+                )
+                .map_err(IndexError::InvalidPublication)?;
+            next.file_versions = next
+                .file_versions
+                .advanced(handle.file_id)
+                .map_err(IndexError::ResourceLimit)?
+                .0;
+            next.revision = view.revision().next()?;
+            let file = FileHandle {
+                instance_id: self.instance_id(),
+                file_id: handle.file_id,
+                version: next.file_versions.get(handle.file_id).ok_or_else(|| {
+                    IndexError::InvalidPublication("moved file version missing".into())
+                })?,
+            };
+            let indexed_records = view
+                .file_record_count(handle.file_id)
+                .ok_or(IndexError::UnknownFile)?;
+            let affected_collections = old
+                .collections
+                .iter()
+                .map(|id| {
+                    view.repository().collections()[id.0 as usize]
+                        .definition
+                        .name
+                        .clone()
+                })
+                .collect();
+            match self.publish_prepared(view.revision(), next) {
+                Ok(revision) => {
+                    return Ok(Some(FileMutationResult {
+                        revision,
+                        file,
+                        previous_records: indexed_records,
+                        retired_records: 0,
+                        indexed_records,
+                        affected_collections,
+                        kind: FileMutationKind::Moved,
+                        strategy: FileMutationStrategy::ContentPreservingMove,
+                        fallback_reason: None,
+                    }));
+                }
+                Err(error @ IndexError::RevisionConflict { .. }) => conflict = Some(error),
+                Err(error) => return Err(error),
+            }
+        }
+        Err(conflict.expect("publication retry always captures a conflict"))
     }
 
     /// Index complete caller-supplied replacement bytes with their declared
@@ -457,7 +676,9 @@ impl Index {
                             }
                         }
                     } else if let Some(preserved) =
-                        preserve_single_record_slots(&view, &next, &plan, handle.file_id)
+                        preserve_single_record_slots(&view, &next, &plan, handle.file_id).or_else(
+                            || preserve_partition_record_slots(&view, &next, &plan, handle.file_id),
+                        )
                     {
                         (
                             preserved,
@@ -576,7 +797,6 @@ impl Index {
         Err(conflict.expect("publication retry always captures a conflict"))
     }
 }
-
 
 #[cfg(test)]
 #[path = "lifecycle_mutation.test.rs"]

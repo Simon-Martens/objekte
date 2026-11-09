@@ -3,7 +3,8 @@
 use std::collections::{HashMap, HashSet, VecDeque};
 use std::io::Read;
 use std::path::{Path, PathBuf};
-use std::sync::Arc;
+use std::sync::atomic::{AtomicU64, Ordering};
+use std::sync::{Arc, Mutex};
 use std::sync::mpsc::{self, Receiver, Sender};
 use std::thread;
 use std::time::{Duration, Instant};
@@ -318,6 +319,11 @@ enum WorkerEvent {
         operation_id: u64,
         result: Result<(), String>,
     },
+    IndexCloseCancelled {
+        open_generation: u64,
+        operation_id: u64,
+        result: Result<(), String>,
+    },
     AutomaticCheckChanged {
         open_generation: u64,
         operation_id: u64,
@@ -372,6 +378,9 @@ pub struct DesktopController {
     close_operation_id: u64,
     closing: bool,
     automatic_check_operation_id: u64,
+    automatic_check_epoch: Arc<AtomicU64>,
+    automatic_check_gate: Arc<Mutex<()>>,
+    requested_check: (bool, u64),
     automatic_save_operation_id: u64,
     load_cancellation: CancellationToken,
     pending_index_overwrite: Option<PathBuf>,
@@ -465,6 +474,9 @@ impl DesktopController {
                 close_operation_id: 0,
                 closing: false,
                 automatic_check_operation_id: 0,
+                automatic_check_epoch: Arc::new(AtomicU64::new(0)),
+                automatic_check_gate: Arc::new(Mutex::new(())),
+                requested_check: (false, 30),
                 automatic_save_operation_id: 0,
                 load_cancellation: CancellationToken::new(),
                 pending_index_overwrite: None,
@@ -622,6 +634,11 @@ impl DesktopController {
         let Some(session) = &self.session else {
             return;
         };
+        self.index_ui.automatic_check = session
+            .repository
+            .index()
+            .periodic_reconciliation_enabled()
+            .unwrap_or(false);
         self.index_ui.source_location = session.paths.root.display().to_string();
         self.index_ui.opening_mode = if session.configuration.configured_repository {
             "Configured repository".into()
@@ -1122,16 +1139,8 @@ impl DesktopController {
             UiAction::SetAutomaticSaving(enabled) => self.set_automatic_save(enabled, updates),
             UiAction::CancelIndexTask(kind) => self.cancel_index_task(kind, updates),
             UiAction::RequestClose | UiAction::RetryClose => self.request_close(updates),
-            UiAction::CloseWithoutSaving => {
-                self.closing = false;
-                self.close_operation_id = self.close_operation_id.wrapping_add(1);
-                updates.push(UiUpdate::CloseReady);
-            }
-            UiAction::CancelClose => {
-                if !self.closing {
-                    updates.push(UiUpdate::CloseCancelled);
-                }
-            }
+            UiAction::CloseWithoutSaving => self.close_without_saving(updates),
+            UiAction::CancelClose => self.cancel_close(updates),
             UiAction::RefreshResults => self.refresh_results_if_ready(updates),
             UiAction::RefreshRecord(id) => self.refresh_record(id, updates),
             UiAction::ChooseIndexLoadPath {
@@ -2331,9 +2340,16 @@ impl DesktopController {
                                 ""
                             },
                         );
+                        self.automatic_check_operation_id =
+                            self.automatic_check_operation_id.wrapping_add(1);
+                        self.automatic_check_epoch
+                            .store(self.automatic_check_operation_id, Ordering::Release);
+                        self.requested_check = (false, 30);
                         let previous_session = self.session.replace(session);
                         if let Some(previous_session) = previous_session {
+                            let gate = Arc::clone(&self.automatic_check_gate);
                             thread::spawn(move || {
+                                let _gate = gate.lock();
                                 let _ =
                                     backend::index_lifecycle::stop_automation(&previous_session);
                             });
@@ -2370,6 +2386,8 @@ impl DesktopController {
                                         .lifecycle_policy(&source_key, destination.as_deref());
                                     self.index_ui.check_interval_seconds =
                                         policy.check_interval_seconds;
+                                    self.requested_check =
+                                        (policy.automatic_check, policy.check_interval_seconds);
                                     self.preferences = Some(preferences);
                                     if policy.automatic_check {
                                         self.set_automatic_check(
@@ -2922,7 +2940,13 @@ impl DesktopController {
                             .ok()
                             .as_ref()
                             .map(Publication::from);
+                        let replacement = session.clone();
                         let old = self.session.replace(session);
+                        // The replacement has no periodic scheduler yet. Its
+                        // control reflects the actual state until transfer is
+                        // confirmed by the policy worker.
+                        self.index_ui.automatic_check = false;
+                        self.transfer_check_policy(replacement, old);
                         self.invalidate_published_contexts(updates);
                         self.index_ui.load = IndexTaskState::Succeeded("Index loaded".into());
                         if let Some(session) = &self.session
@@ -2934,17 +2958,22 @@ impl DesktopController {
                         if self.check_task.is_none() {
                             self.refresh_results_if_ready(updates);
                         }
-                        if let Some(old) = old {
-                            thread::spawn(move || {
-                                let _ = backend::index_lifecycle::stop_automation(&old);
-                            });
-                        }
                     }
                     Err(message) => {
                         self.index_ui.load = IndexTaskState::Failed(message);
                         updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
                     }
                 }
+            }
+            WorkerEvent::IndexLoaded {
+                result: Ok(discarded),
+                ..
+            } => {
+                // A superseded load owns an initial reconciliation worker;
+                // ignoring the reply alone would leave that worker detached.
+                thread::spawn(move || {
+                    let _ = backend::index_lifecycle::shutdown(&discarded);
+                });
             }
             WorkerEvent::IndexShutdown {
                 open_generation,
@@ -2957,6 +2986,25 @@ impl DesktopController {
                 match result {
                     Ok(()) => updates.push(UiUpdate::CloseReady),
                     Err(error) => updates.push(UiUpdate::ClosingIndex { error: Some(error) }),
+                }
+            }
+            WorkerEvent::IndexCloseCancelled {
+                open_generation,
+                operation_id,
+                result,
+            } if open_generation == self.open_generation
+                && operation_id == self.close_operation_id =>
+            {
+                self.closing = false;
+                updates.push(UiUpdate::CloseCancelled);
+                if let Err(message) = result {
+                    self.index_ui.automatic_check = false;
+                    self.index_ui.automatic_save = false;
+                    updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                    updates.push(UiUpdate::Error {
+                        field: ErrorField::General,
+                        message,
+                    });
                 }
             }
             WorkerEvent::AutomaticCheckChanged {
@@ -2985,10 +3033,18 @@ impl DesktopController {
                         }
                         updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
                     }
-                    Err(message) => updates.push(UiUpdate::Error {
-                        field: ErrorField::General,
-                        message,
-                    }),
+                    Err(message) => {
+                        self.index_ui.automatic_check = false;
+                        self.requested_check.0 = false;
+                        self.index_ui.check = IndexTaskState::Failed(format!(
+                            "Automatic checking is unavailable: {message}"
+                        ));
+                        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                        updates.push(UiUpdate::Error {
+                            field: ErrorField::General,
+                            message,
+                        });
+                    }
                 }
             }
             WorkerEvent::AutomaticSaveChanged {
@@ -3413,13 +3469,7 @@ impl DesktopController {
             return;
         };
         if !self.index_ui.automatic_save {
-            // The index is derived data; manual mode makes no implicit write.
-            let _ = thread::Builder::new()
-                .name("objekte-index-stop".into())
-                .spawn(move || {
-                    let _ = backend::index_lifecycle::stop_automation(&session);
-                });
-            updates.push(UiUpdate::CloseReady);
+            self.close_without_saving(updates);
             return;
         }
         if matches!(self.index_ui.save, IndexTaskState::Running { .. }) {
@@ -3428,6 +3478,7 @@ impl DesktopController {
             });
             return;
         }
+        self.invalidate_policy_for_close();
         self.closing = true;
         self.close_operation_id = self.close_operation_id.wrapping_add(1);
         let operation_id = self.close_operation_id;
@@ -3438,6 +3489,74 @@ impl DesktopController {
             let result = backend::index_lifecycle::shutdown_with_final_save(&session)
                 .map_err(|error| error.to_string());
             let _ = sender.send(WorkerEvent::IndexShutdown {
+                open_generation,
+                operation_id,
+                result,
+            });
+        });
+    }
+
+    fn invalidate_policy_for_close(&mut self) {
+        self.load_cancellation.cancel();
+        self.load_operation_id = self.load_operation_id.wrapping_add(1);
+        self.automatic_check_operation_id = self.automatic_check_operation_id.wrapping_add(1);
+        self.automatic_check_epoch
+            .store(self.automatic_check_operation_id, Ordering::Release);
+    }
+
+    fn close_without_saving(&mut self, updates: &mut Vec<UiUpdate>) {
+        if self.closing {
+            return;
+        }
+        let Some(session) = self.session.clone() else {
+            updates.push(UiUpdate::CloseReady);
+            return;
+        };
+        self.invalidate_policy_for_close();
+        self.closing = true;
+        self.close_operation_id = self.close_operation_id.wrapping_add(1);
+        let operation_id = self.close_operation_id;
+        let open_generation = self.open_generation;
+        let sender = self.worker_tx.clone();
+        updates.push(UiUpdate::ClosingIndex { error: None });
+        thread::spawn(move || {
+            let result = backend::index_lifecycle::shutdown(&session)
+                .map_err(|error| error.to_string());
+            let _ = sender.send(WorkerEvent::IndexShutdown {
+                open_generation,
+                operation_id,
+                result,
+            });
+        });
+    }
+
+    fn cancel_close(&mut self, updates: &mut Vec<UiUpdate>) {
+        if self.closing {
+            return;
+        }
+        let Some(session) = self.session.clone() else {
+            updates.push(UiUpdate::CloseCancelled);
+            return;
+        };
+        self.closing = true;
+        self.close_operation_id = self.close_operation_id.wrapping_add(1);
+        let operation_id = self.close_operation_id;
+        let open_generation = self.open_generation;
+        let (check_enabled, interval_seconds) = self.requested_check;
+        let automatic_save = self.index_ui.automatic_save;
+        let sender = self.worker_tx.clone();
+        let gate = Arc::clone(&self.automatic_check_gate);
+        thread::spawn(move || {
+            let result = match gate.lock() {
+                Ok(_guard) => backend::index_lifecycle::resume_after_cancelled_close(
+                    &session,
+                    check_enabled.then(|| Duration::from_secs(interval_seconds)),
+                    automatic_save,
+                )
+                .map_err(|error| error.to_string()),
+                Err(_) => Err("automatic checking coordinator is unavailable".into()),
+            };
+            let _ = sender.send(WorkerEvent::IndexCloseCancelled {
                 open_generation,
                 operation_id,
                 result,
@@ -3628,6 +3747,55 @@ impl DesktopController {
         });
     }
 
+    /// Apply the latest requested periodic policy to a successfully loaded
+    /// replacement before retiring the previous scheduler. The gate and
+    /// epoch also prevent late toggle workers from resurrecting an old index.
+    fn transfer_check_policy(&mut self, replacement: OpenedSession, old: Option<OpenedSession>) {
+        self.automatic_check_operation_id = self.automatic_check_operation_id.wrapping_add(1);
+        let operation_id = self.automatic_check_operation_id;
+        self.automatic_check_epoch
+            .store(operation_id, Ordering::Release);
+        let epoch = Arc::clone(&self.automatic_check_epoch);
+        let gate = Arc::clone(&self.automatic_check_gate);
+        let (enabled, interval_seconds) = self.requested_check;
+        let open_generation = self.open_generation;
+        let sender = self.worker_tx.clone();
+        thread::spawn(move || {
+            let result = match gate.lock() {
+                Ok(_gate) => {
+                    let current = epoch.load(Ordering::Acquire) == operation_id;
+                    let applied = if current {
+                        backend::index_lifecycle::set_periodic_check(
+                            &replacement,
+                            enabled.then(|| Duration::from_secs(interval_seconds)),
+                        )
+                        .map_err(|error| error.to_string())
+                    } else {
+                        Ok(())
+                    };
+                    let retired = old
+                        .as_ref()
+                        .map(backend::index_lifecycle::stop_automation)
+                        .transpose()
+                        .map(|_| ())
+                        .map_err(|error| error.to_string());
+                    if !current {
+                        return;
+                    }
+                    applied.and(retired)
+                }
+                Err(_) => Err("automatic checking coordinator is unavailable".into()),
+            };
+            let _ = sender.send(WorkerEvent::AutomaticCheckChanged {
+                open_generation,
+                operation_id,
+                enabled,
+                interval_seconds,
+                result,
+            });
+        });
+    }
+
     fn cancel_index_task(&mut self, kind: IndexTaskKind, updates: &mut Vec<UiUpdate>) {
         match kind {
             IndexTaskKind::Check => {
@@ -3670,16 +3838,27 @@ impl DesktopController {
             });
             return;
         }
+        self.requested_check = (enabled, interval_seconds);
         self.automatic_check_operation_id = self.automatic_check_operation_id.wrapping_add(1);
         let operation_id = self.automatic_check_operation_id;
+        self.automatic_check_epoch
+            .store(operation_id, Ordering::Release);
+        let epoch = Arc::clone(&self.automatic_check_epoch);
+        let gate = Arc::clone(&self.automatic_check_gate);
         let open_generation = self.open_generation;
         let sender = self.worker_tx.clone();
         thread::spawn(move || {
-            let result = backend::index_lifecycle::set_periodic_check(
-                &session,
-                enabled.then(|| Duration::from_secs(interval_seconds)),
-            )
-            .map_err(|error| error.to_string());
+            let result = match gate.lock() {
+                Ok(_gate) if epoch.load(Ordering::Acquire) == operation_id => {
+                    backend::index_lifecycle::set_periodic_check(
+                        &session,
+                        enabled.then(|| Duration::from_secs(interval_seconds)),
+                    )
+                    .map_err(|error| error.to_string())
+                }
+                Ok(_) => return,
+                Err(_) => Err("automatic checking coordinator is unavailable".into()),
+            };
             let _ = sender.send(WorkerEvent::AutomaticCheckChanged {
                 open_generation,
                 operation_id,

@@ -177,6 +177,7 @@ impl Index {
         published.file_versions = file_versions;
         published.next_segment_ordinal = state.next_segment_ordinal;
         published.saved_revision = Some(revision);
+        let published = crate::lifecycle_partition::partition_base(published)?;
         let index = Index::from_published(published);
         index.mark_restored_from_cache();
         index.select_cache_destination(path, Some(revision), Vec::new())?;
