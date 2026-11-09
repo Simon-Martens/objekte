@@ -316,6 +316,20 @@ impl RelationContribution {
         })
     }
 
+    /// References are appended in source-slot order during admission and
+    /// projection, so a selective query can borrow one source's edges without
+    /// constructing a query-wide forward map.
+    pub(crate) fn references_for_source(
+        &self,
+        source: RecordSlot,
+    ) -> impl Iterator<Item = (&str, &[u32])> {
+        let start = self.references.partition_point(|reference| reference.source.0 < source.0);
+        self.references[start..]
+            .iter()
+            .take_while(move |reference| reference.source == source)
+            .map(|reference| (reference.target_id.as_str(), reference.positions.as_slice()))
+    }
+
     pub(crate) fn present(&self) -> &RoaringBitmap {
         &self.present
     }

@@ -9,6 +9,7 @@ use crate::lifecycle::PublishedSegment;
 use crate::lifecycle_catalog::FileCatalog;
 use crate::measurement::{SourceAvailabilityLog, SourceDiagnostic};
 use crate::model::{CollectionId, FieldPath, LogicalType, PathRoot, RecordSlot, Value};
+use crate::posting::ScalarKey;
 use crate::query::{FilterExpr, FtsField, FtsQuery, Literal, Operand, Quantifier, Term};
 use crate::query_path::{PathStep, QueryPath};
 use crate::reference::{
@@ -47,16 +48,13 @@ pub(crate) struct MergedRecord<'a> {
     pub collection: &'a CollectionState,
 }
 
-/// Query-local relation lookup over a single immutable publication. Segment
-/// edge lists are grouped once, so traversing many sources does not rescan a
-/// whole segment for each source record.
+/// Query-local relation lookup over a single immutable publication. Forward
+/// edges and reverse postings are borrowed from the relevant segment on demand.
 pub(crate) struct MergedRelationView<'a> {
     repo: &'a Repository,
     base_active: &'a [ActiveRecords],
     segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &'a FileCatalog,
-    forward: HashMap<(usize, usize, usize, u32), Vec<(&'a str, &'a [u32])>>,
-    backlinks: HashMap<(usize, usize, String), Vec<MergedRecordSlot>>,
     source_errors: RefCell<SourceAvailabilityLog>,
 }
 
@@ -113,10 +111,8 @@ impl<'a> MergedRelationView<'a> {
         if base_active.len() != repo.collections.len() || segments.len() != repo.collections.len() {
             return Err("merged relation collection count mismatch".into());
         }
-        let mut forward = HashMap::new();
-        let mut backlinks = HashMap::new();
         for (collection_index, shards) in segments.iter().enumerate() {
-            for (segment_index, published) in shards.iter().enumerate() {
+            for published in shards.iter() {
                 if published.index.collection.0 as usize != collection_index
                     || published.active.slot_count() as usize != published.index.records.len()
                 {
@@ -131,23 +127,6 @@ impl<'a> MergedRelationView<'a> {
                     {
                         return Err("merged relation segment declaration mismatch".into());
                     }
-                    for (source, target_id, positions) in relation.references() {
-                        if !published.active.contains(source) {
-                            continue;
-                        }
-                        forward
-                            .entry((collection_index, segment_index, relation_index, source.0))
-                            .or_insert_with(Vec::new)
-                            .push((target_id, positions));
-                        backlinks
-                            .entry((collection_index, relation_index, target_id.to_owned()))
-                            .or_insert_with(Vec::new)
-                            .push(MergedRecordSlot {
-                                collection: CollectionId(collection_index as u32),
-                                segment: Some(segment_index),
-                                slot: source,
-                            });
-                    }
                 }
             }
         }
@@ -156,8 +135,6 @@ impl<'a> MergedRelationView<'a> {
             base_active,
             segments,
             catalog,
-            forward,
-            backlinks,
             source_errors: RefCell::new(SourceAvailabilityLog::default()),
         })
     }
@@ -209,8 +186,7 @@ impl<'a> MergedRelationView<'a> {
             .catalog
             .entry(record.file)
             .ok_or("active merged record file is retired")?;
-        if file.relative_path != original_file.relative_path
-            || file.revision != original_file.revision
+        if file.revision != original_file.revision
             || !file.collections.contains(&address.collection)
         {
             return Err("active merged record file changed without retirement".into());
@@ -274,10 +250,7 @@ impl<'a> MergedRelationView<'a> {
                 .get(relation_index)
                 .ok_or("merged segment relation missing")?;
             Ok((
-                self.forward
-                    .get(&(index, segment_index, relation_index, address.slot.0))
-                    .cloned()
-                    .unwrap_or_default(),
+                contribution.references_for_source(address.slot).collect(),
                 contribution.present().contains(address.slot.0),
                 contribution.nulls().contains(address.slot.0),
                 contribution.empty_arrays().contains(address.slot.0),
@@ -327,11 +300,30 @@ impl<'a> MergedRelationView<'a> {
                 }
             }
         }
-        if let Some(extra) = self
-            .backlinks
-            .get(&(index, relation.ordinal as usize, target_id.to_owned()))
-        {
-            sources.extend(extra.iter().copied());
+        for (segment_index, published) in self.segments[index].iter().enumerate() {
+            let relation_contribution = published
+                .index
+                .relations
+                .get(relation.ordinal as usize)
+                .ok_or("backlink segment relation missing")?;
+            if let Some(posting) = published
+                .index
+                .postings
+                .fields
+                .get(&relation_contribution.declaration().path)
+                .and_then(|field| field.values.get(&ScalarKey::Id(target_id.to_owned())))
+            {
+                for slot in posting.iter() {
+                    let slot = RecordSlot(slot);
+                    if published.active.contains(slot) {
+                        sources.push(MergedRecordSlot {
+                            collection: relation.source,
+                            segment: Some(segment_index),
+                            slot,
+                        });
+                    }
+                }
+            }
         }
         sources.sort_unstable_by(|a, b| {
             let id = |address: &MergedRecordSlot| {
@@ -1429,49 +1421,11 @@ fn visit_merged_hop(
     if hop.from != address.collection {
         return Err("merged relation hop collection mismatch".into());
     }
-    let source_index = hop.relation.source.0 as usize;
     let relation_index = hop.relation.ordinal as usize;
-    let source_collection = view
-        .repo
-        .collections
-        .get(source_index)
-        .ok_or("merged relation source collection missing")?;
-    let relation = source_collection
-        .relations
-        .get(relation_index)
-        .ok_or("merged relation declaration missing")?;
     match hop.direction {
         HopDirection::Forward => {
-            let (references, present, null, unavailable) =
-                if let Some(segment_index) = address.segment {
-                    let published = &view.segments[source_index][segment_index];
-                    let contribution = published
-                        .index
-                        .relations
-                        .get(relation_index)
-                        .ok_or("merged segment relation missing")?;
-                    (
-                        view.forward
-                            .get(&(source_index, segment_index, relation_index, address.slot.0))
-                            .cloned()
-                            .unwrap_or_default(),
-                        contribution.present().contains(address.slot.0),
-                        contribution.nulls().contains(address.slot.0),
-                        contribution.unavailable().contains(address.slot.0),
-                    )
-                } else {
-                    (
-                        relation
-                            .edges(address.slot)
-                            .ok_or("merged base relation slot missing")?
-                            .iter()
-                            .map(|edge| (edge.target_id(), edge.positions.as_slice()))
-                            .collect(),
-                        relation.present().contains(address.slot.0),
-                        relation.nulls().contains(address.slot.0),
-                        relation.unavailable().contains(address.slot.0),
-                    )
-                };
+            let (references, present, null, _, unavailable) =
+                view.forward_edges(address, relation_index)?;
             if unavailable {
                 merge_truth(truth, None, quantifier);
                 return Ok(());
@@ -1513,43 +1467,7 @@ fn visit_merged_hop(
         }
         HopDirection::Backlink => {
             let target_id = current.record.id.0.as_str();
-            let mut sources = Vec::new();
-            if let Some(base) = view.repo.relation_reverse_sources(relation, target_id) {
-                for slot in base.iter() {
-                    let slot = RecordSlot(slot);
-                    if view.base_active[source_index].contains(slot) {
-                        sources.push(MergedRecordSlot {
-                            collection: hop.to,
-                            segment: None,
-                            slot,
-                        });
-                    }
-                }
-            }
-            if let Some(extra) =
-                view.backlinks
-                    .get(&(source_index, relation_index, target_id.to_owned()))
-            {
-                sources.extend(extra.iter().copied());
-            }
-            sources.sort_unstable_by(|a, b| {
-                let a_id = if let Some(segment_index) = a.segment {
-                    &view.segments[source_index][segment_index].index.records[a.slot.0 as usize]
-                        .id
-                        .0
-                } else {
-                    &source_collection.generation.records[a.slot.0 as usize].id.0
-                };
-                let b_id = if let Some(segment_index) = b.segment {
-                    &view.segments[source_index][segment_index].index.records[b.slot.0 as usize]
-                        .id
-                        .0
-                } else {
-                    &source_collection.generation.records[b.slot.0 as usize].id.0
-                };
-                a_id.cmp(b_id)
-            });
-            sources.dedup();
+            let sources = view.backlink_sources(hop.relation, target_id)?;
             let mut selected = 0usize;
             for (position, source) in sources.into_iter().enumerate() {
                 work.backlink_probe()?;
