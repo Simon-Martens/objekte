@@ -27,7 +27,7 @@ pub struct CompactionReport {
     pub duration: Duration,
 }
 
-fn base_as_segment(
+pub(crate) fn base_as_segment(
     collection: &CollectionState,
     files: &crate::inventory::FileInventory,
 ) -> Result<IndexedCollectionSegment, IndexError> {
