@@ -2586,6 +2586,26 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     assert_eq!(counted.count, repo.search_reference(&query).unwrap().count);
     assert_eq!(counted.counters.sort_key_evaluations, 0);
     assert_eq!(repo.select_exact("sources", &query).unwrap().len(), 1);
+    let index = crate::lifecycle::Index::from_repository(repo).unwrap();
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    let view = index.view().unwrap();
+    let mut page_query = query.clone();
+    page_query.options.offset = 0;
+    page_query.options.limit = 1;
+    let cold = view.search(&page_query).unwrap();
+    assert_eq!(cold.count, Some(1));
+    assert!(!cold.counters.verified_result_hit);
+    let warm = view.search(&page_query).unwrap();
+    assert!(warm.counters.verified_result_hit);
+    assert_eq!(warm.hits[0].record_id, cold.hits[0].record_id);
+    assert_eq!(warm.counters.scanned_records, 0);
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    page_query.options.count = false;
+    let no_count_cold = view.search(&page_query).unwrap();
+    assert!(!no_count_cold.counters.verified_result_hit);
+    let no_count_warm = view.search(&page_query).unwrap();
+    assert!(no_count_warm.counters.verified_result_hit);
+    assert_eq!(no_count_warm.hits[0].record_id, cold.hits[0].record_id);
     std::fs::remove_dir_all(root).unwrap();
 }
 
