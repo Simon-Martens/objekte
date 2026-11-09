@@ -166,6 +166,19 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     ).unwrap();
     assert_eq!(direct_id_result.count, Some(1));
     assert_eq!(direct_id_result.counters.scanned_records, 0);
+    let mut exact_evidence = direct_id.clone();
+    exact_evidence.filter = Some(parse_filter("kind = 'a'").unwrap());
+    exact_evidence.options.evidence = true;
+    let proven = search_segmented(
+        &repo, &exact_evidence, &segment_only, &segments, &catalog, revision,
+    ).unwrap();
+    let reference = search_segmented_reference(
+        &repo, &exact_evidence, &segment_only, &segments, &catalog, revision,
+    ).unwrap();
+    assert_eq!(proven.hits, reference.hits);
+    assert_eq!(proven.count, reference.count);
+    assert_eq!(proven.hits[0].matched_fields, ["kind"]);
+    assert_eq!(proven.counters.scanned_records, 0);
     let cold = search_segmented_lifecycle(
         &repo, &cached_query, &segment_only, &segments, &catalog,
         revision, Some(cache_scope),

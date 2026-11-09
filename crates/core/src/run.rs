@@ -19,7 +19,7 @@ use crate::executor::{
     estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
     segment_fts_candidates,
 };
-use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
+use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry, SourceRevision};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
@@ -2577,6 +2577,52 @@ fn has_unavailable_active_source(
     false
 }
 
+/// Reconstruct the same positive-term evidence as an index proof for a
+/// conjunction. Every candidate must be proven by each term; other expression
+/// shapes retain source verification because they may expose different
+/// evidence per record even when their combined membership is exact.
+fn segment_exact_evidence_fields(
+    segment: &IndexedCollectionSegment,
+    active: &ActiveRecords,
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    candidates: &RoaringBitmap,
+) -> Result<Option<Vec<String>>, String> {
+    match expr {
+        BoundExpr::Term(term) => {
+            if term.related.is_some() || term.rhs.is_some() {
+                return Ok(None);
+            }
+            let bounds = segment_filter_bounds(segment, active, expr, collection)?;
+            if !candidates.is_subset(&bounds.must) {
+                return Ok(None);
+            }
+            Ok(Some(if term.derived == Derived::None
+                && !matches!(term.operator, Operator::Ne | Operator::NotContains)
+            {
+                vec![term.query_path.display.clone()]
+            } else {
+                Vec::new()
+            }))
+        }
+        BoundExpr::And(parts) => {
+            let mut fields = Vec::new();
+            for part in parts {
+                let Some(child) = segment_exact_evidence_fields(
+                    segment, active, collection, part, candidates,
+                )? else {
+                    return Ok(None);
+                };
+                fields.extend(child);
+            }
+            fields.sort();
+            fields.dedup();
+            Ok(Some(fields))
+        }
+        _ => Ok(None),
+    }
+}
+
 fn search_segmented_impl(
     repo: &Repository,
     query: &Query,
@@ -2744,13 +2790,56 @@ fn search_segmented_impl(
                 candidates &= fts_may;
             }
             counters.candidates += candidates.len();
-            let index_exact = !query.options.evidence
+            if candidates.is_empty() {
+                continue;
+            }
+            let exact_evidence = if query.options.evidence && fts.is_none() {
+                if let Some(filter) = filter.as_ref() {
+                    segment_exact_evidence_fields(
+                        segment, &published.active, collection, filter, &candidates,
+                    )?
+                } else {
+                    Some(Vec::new())
+                }
+            } else {
+                None
+            };
+            let index_exact = (!query.options.evidence || exact_evidence.is_some())
                 && !sort.bound.has_computed
                 && fts.is_none()
                 && bounds
                     .as_ref()
                     .is_none_or(|bounds| bounds.may == bounds.must);
             if index_exact {
+                if query.options.evidence {
+                    // Source verification previously happened during the evidence scan.
+                    // Keep its stale-source behavior while using the index proof for
+                    // membership and matched fields. Metadata checks are cold-path
+                    // work; a complete cached result never repeats them.
+                    let mut seen = HashSet::new();
+                    let mut source_checks = Vec::new();
+                    for slot in candidates.iter() {
+                        let record = segment.record(RecordSlot(slot))
+                            .ok_or("segment proof candidate missing")?;
+                        if seen.insert(record.file.0) {
+                            source_checks.push(catalog.entry(record.file)
+                                .ok_or("segment proof file is retired")?);
+                        }
+                    }
+                    source_checks.par_iter().try_for_each(|file| {
+                        let path = repo.files.root.join(&file.relative_path);
+                        let metadata = std::fs::metadata(&path)
+                            .map_err(|error| format!("{}: {error}", path.display()))?;
+                        let actual = SourceRevision::from_metadata(&metadata)?;
+                        if actual != file.revision {
+                            return Err(format!("{}: source revision changed", path.display()));
+                        }
+                        Ok::<(), String>(())
+                    })?;
+                    if let Some(context) = context {
+                        context.check_string()?;
+                    }
+                }
                 for slot in candidates.iter() {
                     if let Some(context) = context {
                         context.check_string()?;
@@ -2768,13 +2857,14 @@ fn search_segmented_impl(
                         resolved.record,
                         None,
                     )?;
-                    let hit = segment_locator_hit(collection, resolved, revision, Vec::new());
+                    let matched_fields = exact_evidence.clone().unwrap_or_default();
+                    let hit = segment_locator_hit(collection, resolved, revision, matched_fields.clone());
                     if let Some(builder) = cache_builder.as_mut() {
                         builder.push(&key, CachedMember {
                             collection_index,
                             segment_index: Some(segment_index),
                             slot,
-                            matched_fields: Vec::new(),
+                            matched_fields,
                         });
                     }
                     offer_merged(
