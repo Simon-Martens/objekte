@@ -23,14 +23,14 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         std::thread::current().id()
     ));
     let _ = std::fs::remove_dir_all(&root);
-    std::fs::create_dir_all(&root).unwrap();
-    let path = root.join("data.jsonl");
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/data.jsonl");
     std::fs::write(
         &path,
         b"{\"kind\":\"a\"}\n{\"kind\":\"b\"}\n{bad}\n{\"kind\":\"a\"}\n",
     )
     .unwrap();
-    let mut definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
     definition
         .schema
         .register_field(FieldDefinition {
@@ -52,7 +52,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         &root,
         SourceFileInput {
             id: FileId(200),
-            relative_path: "data.jsonl".into(),
+            relative_path: "data/data.jsonl".into(),
             revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
             created_ns: None,
         },

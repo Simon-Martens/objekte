@@ -168,7 +168,8 @@ pub fn export_all_json_on_view(
             match result {
                 Ok(StreamOutcome::Complete(summary)) => {
                     if summary.counters.source_unavailable_events > 0
-                        || !summary.counters.match_count_complete
+                        || (matches!(scope, ResultScope::All { .. })
+                            && !summary.counters.match_count_complete)
                     {
                         return Err(BackendError::new(
                             BackendErrorKind::Query,
