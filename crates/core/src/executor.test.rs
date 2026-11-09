@@ -113,6 +113,14 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
     let bounds = segment_filter_bounds(&segment, &active, &impossible, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [2]);
     assert!(bounds.must.is_empty());
+    let nonzero_start = crate::reference::bind_filter(
+        &parse_filter("@record.byte_start > 0").unwrap(),
+        &definition.schema,
+    )
+    .unwrap();
+    let bounds = segment_filter_bounds(&segment, &active, &nonzero_start, collection).unwrap();
+    assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [1, 2]);
+    assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [1, 2]);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -224,6 +232,8 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
         ("inferred = 'special'", 5),
         ("@file.size >= 160", 12),
         ("@file.modified >= 2000-01-01", 24),
+        ("@record.byte_start = 0", 24),
+        ("@record.byte_length > 0", 24),
         ("year >= 1800", 14),
     ] {
         let query = Query {
