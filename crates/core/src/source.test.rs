@@ -2163,6 +2163,14 @@ fn checked_range_reads_reject_replaced_path_with_spoofed_revision() {
             .1,
         b"original"
     );
+    let mut pinned_reader =
+        RecordRangeReader::open_checked(&moved, revision, None, Some(fingerprint)).unwrap();
+    std::fs::write(&moved, b"modified").unwrap();
+    std::fs::File::open(&moved)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()))
+        .unwrap();
+    assert!(pinned_reader.read(&[(0, range)]).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }
 

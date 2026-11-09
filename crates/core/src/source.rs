@@ -1625,9 +1625,14 @@ impl RecordRangeReader {
 
     fn check_current(&mut self) -> Result<(), String> {
         if !self.current_matches()? {
+            let message = if self.identity.is_some() {
+                "stale source identity"
+            } else {
+                "stale source revision"
+            };
             return Err(source_changed(
                 self.execution.as_ref(),
-                "stale source identity".into(),
+                message.into(),
             ));
         }
         Ok(())
