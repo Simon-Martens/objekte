@@ -425,3 +425,86 @@ fn scans_300000_files_with_two_overlapping_150000_file_collections() {
     assert_eq!(shared, 150_000);
     assert!(max_batch <= 256);
 }
+
+#[test]
+#[ignore = "uses the disposable 300,000-file fixture from the scanner scale test"]
+fn reconciles_300000_files_and_updates_a_shared_file() {
+    use crate::lifecycle::Index;
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use std::time::Instant;
+
+    let root = std::path::PathBuf::from(
+        std::env::var_os("OBJEKTE_SCAN_SCALE_ROOT")
+            .expect("set OBJEKTE_SCAN_SCALE_ROOT to the disposable target/ scale fixture"),
+    );
+    assert!(root.to_string_lossy().contains("target/"));
+    assert_eq!(std::fs::read(root.join("ready")).unwrap(), b"300000");
+    let root = root.canonicalize().unwrap();
+    let definitions = [
+        ("first", "shared/*.json"),
+        ("second", "shared/*.json"),
+        ("third", "unique/*.json"),
+    ]
+    .into_iter()
+    .map(|(name, pattern)| {
+        let mut definition = CollectionDefinition::folder(name, "data", SourceFormat::Json);
+        definition.discovery = Discovery {
+            recursive: true,
+            include: vec![pattern.into()],
+            ..Discovery::default()
+        };
+        definition
+    })
+    .collect::<Vec<_>>();
+    let started = Instant::now();
+    let index = Index::build(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..RepositoryOptions::default()
+        },
+    )
+    .unwrap();
+    let build_ms = started.elapsed().as_millis();
+    let initial = index.status().unwrap();
+    assert_eq!(initial.indexed_files, 300_000);
+    assert_eq!(initial.live_records, 450_000);
+
+    let started = Instant::now();
+    let unchanged = index.reconcile_pass(|| false);
+    let unchanged_ms = started.elapsed().as_millis();
+    assert!(unchanged.issues.is_empty(), "{:?}", unchanged.issues);
+    assert_eq!(unchanged.examined, 300_000);
+    assert_eq!(unchanged.unchanged, 300_000);
+    assert_eq!(
+        (unchanged.added, unchanged.updated, unchanged.removed),
+        (0, 0, 0)
+    );
+    assert_eq!(index.status().unwrap().revision, initial.revision);
+
+    let changed_path = root.join("data/shared/000000.json");
+    let original = std::fs::read(&changed_path).unwrap();
+    std::fs::write(&changed_path, b"{\"changed\":true}").unwrap();
+    let started = Instant::now();
+    let updated = index.reconcile_pass(|| false);
+    let updated_ms = started.elapsed().as_millis();
+    std::fs::write(&changed_path, original).unwrap();
+    assert!(updated.issues.is_empty(), "{:?}", updated.issues);
+    assert_eq!(updated.examined, 300_000);
+    assert_eq!((updated.added, updated.updated, updated.removed), (0, 1, 0));
+    let view = index.view().unwrap();
+    let file_id = view
+        .0
+        .catalog
+        .id_for(std::path::Path::new("data/shared/000000.json"))
+        .unwrap();
+    let file = view.0.catalog.entry(file_id).unwrap();
+    assert_eq!(file.collections.len(), 2);
+    eprintln!(
+        "reconcile_scale build_ms={build_ms} unchanged_ms={unchanged_ms} updated_ms={updated_ms} files={} records={} shared_memberships={}",
+        initial.indexed_files,
+        initial.live_records,
+        file.collections.len()
+    );
+}
