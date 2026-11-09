@@ -4476,6 +4476,471 @@ fn try_direct_relation_page(
     }))
 }
 
+struct RelationFileJob {
+    segment_index: usize,
+    file_id: u32,
+    slot: RecordSlot,
+    range: ByteRange,
+}
+
+struct RelationFileScan {
+    counters: WorkCounters,
+    primary_opened: bool,
+    unavailable: SourceAvailabilityLog,
+    relation_unavailable: SourceAvailabilityLog,
+    winner: Option<MergedPageHit>,
+}
+
+fn bounded_parallel_relation_filter(expr: &BoundExpr) -> bool {
+    match expr {
+        BoundExpr::Term(term) => {
+            term.path.root != PathRoot::Backlinks
+                && term
+                    .rhs
+                    .as_ref()
+                    .is_none_or(|rhs| rhs.path.root != PathRoot::Backlinks)
+                && term.related.as_ref().is_none_or(|related| {
+                    related.hops.len() <= 2
+                        && related.hops.iter().all(|hop| {
+                            hop.direction == crate::relation_query::HopDirection::Forward
+                        })
+                })
+        }
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+            parts.iter().all(bounded_parallel_relation_filter)
+        }
+        BoundExpr::Not(inner) => bounded_parallel_relation_filter(inner),
+    }
+}
+
+#[allow(clippy::too_many_arguments)]
+fn scan_relation_file_parallel(
+    repo: &Repository,
+    query: &Query,
+    sort: &ResolvedSort<'_>,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    collection_index: usize,
+    filter: Option<&BoundExpr>,
+    fts: Option<&BoundFts>,
+    job: &RelationFileJob,
+    view: crate::relation_query::MergedRelationView<'_>,
+) -> Result<RelationFileScan, String> {
+    let mut scan = RelationFileScan {
+        counters: WorkCounters::default(),
+        primary_opened: false,
+        unavailable: SourceAvailabilityLog::default(),
+        relation_unavailable: SourceAvailabilityLog::default(),
+        winner: None,
+    };
+    let address = crate::relation_query::MergedRecordSlot {
+        collection: repo.collections[collection_index].generation.collection,
+        segment: Some(job.segment_index),
+        slot: job.slot,
+    };
+    let resolved = view
+        .record(address)?
+        .ok_or("active parallel relation source missing")?;
+    let path = repo.files.root.join(&resolved.file.relative_path);
+    let mut reader = match RecordRangeReader::open_checked(
+        &path,
+        resolved.file.revision,
+        resolved.file.created_ns,
+        catalog.fingerprint(resolved.file.id),
+    ) {
+        Ok(reader) => reader,
+        Err(message) => {
+            scan.unavailable.record(SourceDiagnostic {
+                file_id: resolved.file.id.0,
+                file_path: resolved.file.relative_path.clone(),
+                kind: classify_source_read_failure_checked(
+                    &path,
+                    resolved.file.revision,
+                    resolved.file.created_ns,
+                    catalog.fingerprint(resolved.file.id),
+                    None,
+                ),
+                message,
+            });
+            return Ok(scan);
+        }
+    };
+    scan.primary_opened = true;
+    let (read, _) = match reader.read(&[(job.slot.0, job.range)]) {
+        Ok(read) => read,
+        Err(message) => {
+            scan.unavailable.record(SourceDiagnostic {
+                file_id: resolved.file.id.0,
+                file_path: resolved.file.relative_path.clone(),
+                kind: classify_source_read_failure_checked(
+                    &path,
+                    resolved.file.revision,
+                    resolved.file.created_ns,
+                    catalog.fingerprint(resolved.file.id),
+                    Some(job.range),
+                ),
+                message,
+            });
+            return Ok(scan);
+        }
+    };
+    let bytes = read
+        .into_iter()
+        .next()
+        .ok_or("parallel relation row missing")?
+        .1;
+    scan.counters.candidates += 1;
+    let record = resolved.record;
+    let extracted = if record.class == RecordClass::Logical {
+        prepare_query_record_with_execution(
+            &resolved.collection.source,
+            &resolved.collection.definition.schema,
+            &bytes,
+            &ScanProjection::full(fts.is_some()),
+            false,
+            None,
+        )?
+    } else {
+        ExtractedRecord {
+            value: Value::Object(Default::default()),
+            text: Vec::new(),
+        }
+    };
+    let ctx = RecordContext {
+        value: &extracted.value,
+        source_bytes: Some(&bytes),
+        record,
+        file: resolved.file,
+        collection_name: &resolved.collection.definition.name,
+        repository_root: &repo.files.root,
+    };
+    let mut evidence = HashSet::new();
+    let mut relation_work = crate::relation_query::RelationWork::default();
+    let filter_matches = if let Some(filter) = filter {
+        if record.class == RecordClass::RawFallback {
+            eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
+        } else {
+            crate::relation_query::eval_filter_truth_merged(
+                &view,
+                filter,
+                address,
+                &ctx,
+                &mut evidence,
+                &mut relation_work,
+            )? == Some(true)
+        }
+    } else {
+        true
+    };
+    let fts_matches = if filter_matches {
+        if let Some(fts) = fts {
+            if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
+                let matched =
+                    crate::reference::raw_fallback_contains(fts, &String::from_utf8_lossy(&bytes));
+                if matched && query.options.evidence {
+                    evidence.insert("@record.raw_text".into());
+                }
+                matched
+            } else {
+                crate::relation_query::eval_fts_with_relations_merged(
+                    &view,
+                    fts,
+                    &extracted.text,
+                    address,
+                    &ctx,
+                    &mut evidence,
+                    &mut relation_work,
+                )?
+            }
+        } else {
+            true
+        }
+    } else {
+        false
+    };
+    scan.counters.add_scan(
+        ScanWork {
+            files_opened: 1,
+            bytes_read: bytes.len() as u64,
+            record_parses: u64::from(record.class == RecordClass::Logical),
+            raw_text_verifications: u64::from(
+                filter_matches
+                    && record.class == RecordClass::RawFallback
+                    && fts.is_some_and(|fts| fts.fields.is_empty()),
+            ),
+            scanned_records: 1,
+            residual_evaluations: u64::from(filter.is_some()),
+            ..ScanWork::default()
+        },
+        &relation_work,
+    )?;
+    if filter_matches && fts_matches {
+        let key = segment_rank_key(
+            repo,
+            sort,
+            collection_index,
+            &segments[collection_index][job.segment_index].index,
+            record,
+            Some(&ctx),
+        )?;
+        let hit = segment_locator_hit(
+            resolved.collection,
+            SegmentRecordRef {
+                record,
+                file: resolved.file,
+            },
+            revision,
+            if query.options.evidence {
+                evidence.into_iter().collect()
+            } else {
+                Vec::new()
+            },
+        );
+        scan.winner = Some(MergedPageHit {
+            key,
+            hit,
+            segment: Some((collection_index, job.segment_index)),
+            retained_bytes: 0,
+        });
+    }
+    scan.relation_unavailable = view.take_source_errors();
+    Ok(scan)
+}
+
+fn merge_parallel_relation_work(
+    total: &mut WorkCounters,
+    part: &WorkCounters,
+) -> Result<(), String> {
+    total.candidates += part.candidates;
+    total.files_opened += part.files_opened;
+    total.bytes_read += part.bytes_read;
+    total.record_parses += part.record_parses;
+    total.raw_text_verifications += part.raw_text_verifications;
+    total.scanned_records += part.scanned_records;
+    total.residual_evaluations += part.residual_evaluations;
+    total.relation_source_reads += part.relation_source_reads;
+    total.relation_target_reads += part.relation_target_reads;
+    total.relation_target_file_opens += part.relation_target_file_opens;
+    total.relation_edge_visits += part.relation_edge_visits;
+    total.relation_backlink_probe_visits += part.relation_backlink_probe_visits;
+    total.relation_bytes_read += part.relation_bytes_read;
+    total.relation_verified_targets_reused += part.relation_verified_targets_reused;
+    crate::relation_query::check_query_work_budget(total)
+}
+
+#[allow(clippy::too_many_arguments)]
+fn try_parallel_relation_page(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    sort: &ResolvedSort<'_>,
+    prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
+    prune_segments: bool,
+) -> Result<Option<SearchResult>, String> {
+    let cap = query
+        .options
+        .offset
+        .checked_add(query.options.limit)
+        .ok_or("page size overflow")?;
+    if prepared.len() != 1
+        || query.options.return_mode != ReturnMode::Locator
+        || sort.bound.has_computed
+        || cap > 64
+        || !(2..=32).contains(&repo.options.query_workers)
+        || base_active.iter().any(|active| active.len() != 0)
+    {
+        return Ok(None);
+    }
+    let (collection_index, filter, fts) = &prepared[0];
+    if repo.collections[*collection_index].definition.name.len() > 1024
+        || query
+            .filter
+            .as_ref()
+            .is_some_and(|filter| format!("{filter:?}").len() > 1024)
+        || fts.as_ref().is_some_and(|fts| {
+            fts.fields
+                .iter()
+                .try_fold(0usize, |bytes, field| {
+                    bytes.checked_add(field.evidence_path.len())
+                })
+                .is_none_or(|bytes| bytes > 1024)
+        })
+        || filter
+            .as_ref()
+            .is_some_and(|filter| !bounded_parallel_relation_filter(filter))
+        || fts.as_ref().is_some_and(|fts| {
+            fts.fields.iter().any(|field| {
+                field.related.as_ref().is_some_and(|hops| {
+                    hops.len() > 2
+                        || hops.iter().any(|hop| {
+                            hop.direction != crate::relation_query::HopDirection::Forward
+                        })
+                })
+            })
+        })
+    {
+        return Ok(None);
+    }
+    if segments
+        .iter()
+        .flat_map(|group| group.iter())
+        .any(|published| {
+            published
+                .index
+                .records
+                .iter()
+                .any(|record| record.range.len() > 64 * 1024)
+        })
+    {
+        return Ok(None);
+    }
+    let collection = &repo.collections[*collection_index];
+    let mut jobs = Vec::new();
+    let mut relation_prune: Option<Option<RelationTargetPrune>> = None;
+    for (segment_index, published) in segments[*collection_index].iter().enumerate() {
+        let mut candidates = if prune_segments {
+            let filter_may = filter
+                .as_ref()
+                .map(|filter| {
+                    segment_filter_bounds(&published.index, &published.active, filter, collection)
+                        .map(|bounds| bounds.may)
+                })
+                .transpose()?;
+            let fts_may = fts
+                .as_ref()
+                .and_then(|fts| segment_fts_candidates(&published.index, collection, fts));
+            match (filter_may, fts_may) {
+                (Some(filter), Some(fts)) => Some(filter & fts),
+                (Some(filter), None) => Some(filter),
+                (None, Some(fts)) => Some(fts),
+                (None, None) => None,
+            }
+        } else {
+            None
+        };
+        if prune_segments {
+            let local_count = candidates
+                .as_ref()
+                .map_or_else(|| published.active.len(), RoaringBitmap::len);
+            if local_count > 256 && relation_prune.is_none() {
+                relation_prune = Some(relation_target_prune(
+                    repo,
+                    base_active,
+                    segments,
+                    filter.as_ref(),
+                    fts.as_ref(),
+                )?);
+            }
+            if let Some(Some(plan)) = relation_prune.as_ref()
+                && let Some(relation_may) = relation_source_candidates(published, plan)
+            {
+                candidates =
+                    Some(candidates.map_or(relation_may.clone(), |may| may & relation_may));
+            }
+        }
+        if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
+            continue;
+        }
+        for file in &published.index.files {
+            let mut selected = file.records.iter().filter(|slot| {
+                published.active.contains(**slot)
+                    && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
+            });
+            let Some(slot) = selected.next().copied() else {
+                continue;
+            };
+            if selected.next().is_some() {
+                return Ok(None);
+            }
+            let record = published
+                .index
+                .record(slot)
+                .ok_or("parallel relation slot missing")?;
+            if record.range.len() > 64 * 1024
+                || record.id.0.len() > 1024
+                || file.entry.relative_path.to_string_lossy().len() > 4096
+            {
+                return Ok(None);
+            }
+            jobs.push(RelationFileJob {
+                segment_index,
+                file_id: file.entry.id.0,
+                slot,
+                range: record.range,
+            });
+            if jobs.len() > 50_000 {
+                return Ok(None);
+            }
+        }
+    }
+    let view =
+        crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
+    let mut counters = WorkCounters::default();
+    let mut opened = HashSet::new();
+    let mut winners = BinaryHeap::new();
+    let mut winner_bytes = 0usize;
+    let mut total = 0u64;
+    for chunk in jobs.chunks(256) {
+        let views = (0..chunk.len())
+            .map(|_| view.fork_for_worker())
+            .collect::<Vec<_>>();
+        let scans = repo.workers.install(|| {
+            views
+                .into_par_iter()
+                .zip(chunk.par_iter())
+                .map(|(worker_view, job)| {
+                    scan_relation_file_parallel(
+                        repo,
+                        query,
+                        sort,
+                        segments,
+                        catalog,
+                        revision,
+                        *collection_index,
+                        filter.as_ref(),
+                        fts.as_ref(),
+                        job,
+                        worker_view,
+                    )
+                })
+                .collect::<Vec<_>>()
+        });
+        for (job, scan) in chunk.iter().zip(scans) {
+            let mut scan = scan?;
+            if scan.primary_opened {
+                opened.insert(job.file_id);
+            }
+            merge_parallel_relation_work(&mut counters, &scan.counters)?;
+            scan.unavailable.apply(&mut counters);
+            scan.relation_unavailable.apply(&mut counters);
+            if let Some(winner) = scan.winner.take() {
+                total += 1;
+                offer_merged(&mut winners, cap, winner, None, &mut winner_bytes)?;
+            }
+        }
+    }
+    let page = winners
+        .into_sorted_vec()
+        .into_iter()
+        .skip(query.options.offset)
+        .take(query.options.limit)
+        .map(|winner| winner.hit)
+        .collect::<Vec<_>>();
+    counters.total_matches = total;
+    counters.match_count_complete = counters.source_unavailable_events == 0;
+    counters.returned_records = page.len() as u64;
+    counters.distinct_files = opened.len() as u64;
+    Ok(Some(SearchResult {
+        count: (query.options.count && counters.match_count_complete).then_some(total as usize),
+        hits: page,
+        counters,
+    }))
+}
+
 fn search_segmented_relations(
     repo: &Repository,
     query: &Query,
@@ -4492,8 +4957,35 @@ fn search_segmented_relations(
 ) -> Result<SearchResult, String> {
     if prune_segments
         && let Some(result) = try_direct_relation_page(
-            repo, query, base_active, segments, catalog, revision, sort, prepared,
-            context, cache_builder.as_deref_mut(), retained_budget,
+            repo,
+            query,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            sort,
+            prepared,
+            context,
+            cache_builder.as_deref_mut(),
+            retained_budget,
+        )?
+    {
+        return Ok(result);
+    }
+    if prune_segments
+        && context.is_none()
+        && cache_builder.is_none()
+        && retained_budget.is_none()
+        && let Some(result) = try_parallel_relation_page(
+            repo,
+            query,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            sort,
+            prepared,
+            prune_segments,
         )?
     {
         return Ok(result);

@@ -768,6 +768,101 @@ fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+#[test]
+fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnostics() {
+    use crate::lifecycle::Index;
+    use crate::streaming::{
+        CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    };
+
+    let (root, definitions) = fixture();
+    let build = |workers| {
+        Index::build(
+            &root,
+            definitions.clone(),
+            RepositoryOptions {
+                query_workers: workers,
+                snapshot_mode: SnapshotMode::Disabled,
+                ..RepositoryOptions::default()
+            },
+        )
+        .unwrap()
+    };
+    let single = build(1);
+    let parallel = build(4);
+    let one = single.view().unwrap();
+    let many = parallel.view().unwrap();
+    let queries = [
+        query(
+            "mentions",
+            Some("entry.title = 'Hymn'"),
+            Some("Festival"),
+            None,
+            false,
+        ),
+        query(
+            "mentions",
+            None,
+            Some("Hymn"),
+            Some("items[0].entry.title"),
+            false,
+        ),
+    ];
+    for request in &queries {
+        let expected = one.search(request).unwrap();
+        let actual = many.search(request).unwrap();
+        let reference = many.search_reference(request).unwrap();
+        assert_eq!(actual.count, expected.count);
+        assert_eq!(actual.hits, expected.hits);
+        assert_eq!(actual.count, reference.count);
+        assert_eq!(actual.hits, reference.hits);
+        assert_eq!(actual.counters.files_opened, expected.counters.files_opened);
+        assert_eq!(actual.counters.bytes_read, expected.counters.bytes_read);
+        assert_eq!(
+            actual.counters.relation_target_reads,
+            expected.counters.relation_target_reads
+        );
+    }
+    let cancellation = CancellationToken::new();
+    cancellation.cancel();
+    let context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(cancellation),
+    );
+    assert_eq!(
+        many.search_with_context(&queries[0], &context)
+            .unwrap_err()
+            .kind,
+        ExecutionErrorKind::Cancelled,
+    );
+    std::fs::remove_file(root.join("entries/a.json")).unwrap();
+    for request in &queries {
+        let expected = one.search(request).unwrap();
+        let actual = many.search(request).unwrap();
+        assert_eq!(actual.count, expected.count);
+        assert_eq!(actual.hits, expected.hits);
+        assert_eq!(
+            actual.counters.source_unavailable_events,
+            expected.counters.source_unavailable_events
+        );
+        assert_eq!(
+            actual.counters.match_count_complete,
+            expected.counters.match_count_complete
+        );
+        assert_eq!(
+            actual.counters.source_diagnostics,
+            expected.counters.source_diagnostics
+        );
+        assert_eq!(actual.count, None);
+        assert!(!actual.counters.match_count_complete);
+        assert!(actual.counters.source_unavailable_events > 0);
+    }
+    single.shutdown().unwrap();
+    parallel.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn fixture() -> (PathBuf, Vec<CollectionDefinition>) {
     let root = std::env::temp_dir().join(format!(
         "objekte-relation-query-{}-{:?}",

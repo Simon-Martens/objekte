@@ -60,6 +60,18 @@ pub(crate) struct MergedRelationView<'a> {
 }
 
 impl<'a> MergedRelationView<'a> {
+    /// A worker keeps its own source-availability log while borrowing the
+    /// same immutable pinned publication and catalog.
+    pub(crate) fn fork_for_worker(&self) -> Self {
+        Self {
+            repo: self.repo,
+            base_active: self.base_active,
+            segments: self.segments,
+            catalog: self.catalog,
+            source_errors: RefCell::new(SourceAvailabilityLog::default()),
+        }
+    }
+
     pub(crate) fn source_error_events(&self) -> u64 {
         self.source_errors.borrow().events()
     }
