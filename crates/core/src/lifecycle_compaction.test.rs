@@ -209,13 +209,11 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
         index.add_file(&path).unwrap();
     }
     let current = index.view().unwrap();
-    assert!(
-        current
-            .segments(CollectionId(0))
-            .unwrap()
-            .iter()
-            .any(|segment| Arc::ptr_eq(segment, &dense))
-    );
+    assert!(current
+        .segments(CollectionId(0))
+        .unwrap()
+        .iter()
+        .any(|segment| Arc::ptr_eq(segment, &dense)));
     assert_eq!(current.search(&all()).unwrap().count, Some(72));
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -263,27 +261,36 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
         RepositoryOptions::default(),
     )
     .unwrap();
-    eprintln!("large compaction build records={count} elapsed={:?}", started.elapsed());
+    eprintln!(
+        "large compaction build records={count} elapsed={:?}",
+        started.elapsed()
+    );
     let pinned = index.view().unwrap();
     assert_eq!(pinned.search(&all()).unwrap().count, Some(count + 1));
-    index.delete_file(pinned.file_handle_for_path(&single).unwrap()).unwrap();
+    index
+        .delete_file(pinned.file_handle_for_path(&single).unwrap())
+        .unwrap();
     std::fs::remove_file(&many).unwrap();
     std::fs::remove_file(&single).unwrap();
     let revision = index.view().unwrap().revision();
     let checks = std::cell::Cell::new(0);
     assert_eq!(
-        index.compact_with_control(
-            || {
-                checks.set(checks.get() + 1);
-                checks.get() >= 5
-            },
-            |_, _| {}
-        )
-        .unwrap_err(),
+        index
+            .compact_with_control(
+                || {
+                    checks.set(checks.get() + 1);
+                    checks.get() >= 5
+                },
+                |_, _| {}
+            )
+            .unwrap_err(),
         IndexError::Cancelled
     );
     assert_eq!(index.view().unwrap().revision(), revision);
-    assert_eq!(index.view().unwrap().search(&all()).unwrap().count, Some(count));
+    assert_eq!(
+        index.view().unwrap().search(&all()).unwrap().count,
+        Some(count)
+    );
     let late = root.join("data/late.jsonl");
     let published_late = std::cell::Cell::new(false);
     let started = Instant::now();
@@ -301,13 +308,19 @@ fn large_source_free_compaction_cancels_and_retries_a_concurrent_commit() {
         .unwrap();
     eprintln!(
         "large compaction records={count} elapsed={:?} attempts={} before={} after={} retired={}",
-        started.elapsed(), report.attempts, report.slots_before,
-        report.slots_after, report.retired_slots_removed
+        started.elapsed(),
+        report.attempts,
+        report.slots_before,
+        report.slots_after,
+        report.retired_slots_removed
     );
     assert_eq!(report.attempts, 2);
     assert_eq!(report.retired_slots_removed, 1);
     assert_eq!(report.slots_after, (count + 1) as u64);
-    assert_eq!(index.view().unwrap().search(&all()).unwrap().count, Some(count + 1));
+    assert_eq!(
+        index.view().unwrap().search(&all()).unwrap().count,
+        Some(count + 1)
+    );
     assert_eq!(pinned.search(&all()).unwrap().count, Some(count + 1));
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
