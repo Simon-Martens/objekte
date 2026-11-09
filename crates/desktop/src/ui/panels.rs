@@ -15,6 +15,7 @@ use gpui_kit::{
 };
 
 use super::DesktopView;
+use super::workspace::Pane;
 use super::model::{
     BatchSource, DetailOrigin, DetailRow, DetailValueKind, ErrorField, ExportFormat, IndexTaskKind,
     IndexTaskState, TabFreshness, UiAction,
@@ -175,7 +176,7 @@ impl DesktopView {
             )
     }
 
-    pub(super) fn render_detail(&self, cx: &mut Context<Self>) -> impl IntoElement {
+    pub(super) fn render_detail(&self, pane: Pane, cx: &mut Context<Self>) -> impl IntoElement {
         let colors = super::theme::palette(self.state.dark);
         let detail = self.state.detail.as_ref();
         let preview = self
@@ -214,14 +215,13 @@ impl DesktopView {
             )
             .flex()
             .flex_col()
-            .w(px(self.state.inspector_width))
+            .w_full()
             .h_full()
             .flex_shrink_0()
             .relative()
             .bg(rgb(colors.panel))
-            .border_l_1()
-            .border_color(rgb(colors.border))
-            .child(
+            .when(pane == Pane::Secondary, |this| this.border_l_1().border_color(rgb(colors.border)))
+            .when(pane == Pane::Secondary, |this| this.child(
                 div()
                     .id("inspector-resize")
                     .absolute()
@@ -238,47 +238,7 @@ impl DesktopView {
                             cx.stop_propagation();
                         }),
                     ),
-            )
-            .child(
-                div()
-                    .id("record-tabs")
-                    .flex()
-                    .items_center()
-                    .h(px(38.))
-                    .flex_shrink_0()
-                    .gap_1()
-                    .px_2()
-                    .border_b_1()
-                    .border_color(rgb(colors.border))
-                    .children(self.state.tabs.iter().map(|tab| {
-                        let id = tab.id;
-                        div()
-                            .flex()
-                            .items_center()
-                            .flex_shrink_0()
-                            .child(
-                                Button::new(format!("record-tab-{id}"))
-                                    .ghost()
-                                    .selected(self.state.active_tab == Some(id))
-                                    .label(tab.title.clone())
-                                    .tooltip(tab.identity.clone())
-                                    .on_click(cx.listener(move |this, _, _, _| {
-                                        this.send(UiAction::ActivateTab(id));
-                                    })),
-                            )
-                            .child(
-                                Button::new(format!("close-tab-{id}"))
-                                    .ghost()
-                                    .icon(IconName::Close)
-                                    .tooltip("Close record tab")
-                                    .accessibility_label("Close record tab")
-                                    .on_click(cx.listener(move |this, _, _, _| {
-                                        this.send(UiAction::CloseTab(id));
-                                    })),
-                            )
-                    }))
-                    .overflow_x_scroll(),
-            )
+            ))
             .child(
                 div()
                     .flex()
@@ -1254,7 +1214,8 @@ impl DesktopView {
             .child(div().text_sm().child("A complete quoted JSON string in Filter runs as a CLI-style text query when Search is empty. Batch accepts one CLI query per line."))
             .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Headers edit SORT BY in Filter. Drag a header edge to resize; right-click it to wrap text. Columns chooses visible fields. Count all requests an exact total."))
             .child(div().text_sm().child("Ctrl+O: Open · Ctrl+F: Search · Ctrl+L: Filter · F1: Help · Escape: close the nearest panel."))
-            .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to open a record tab."))
+            .child(div().text_sm().child("Collections and queries open in tabs. Drag a tab by its grip to reorder it or move it between panes; the tab menu has the same move commands. Click + for a new query tab."))
+            .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to open a record in the right pane."))
             .child(div().text_sm().child("Record tabs retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; the Source icon opens the original record with Copy and Export actions."))
             .child(div().text_sm().child("Source records and schemas are read-only. Export and index writes are explicit actions."))
     }
