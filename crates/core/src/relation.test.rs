@@ -356,7 +356,9 @@ fn nested_array_occurrences_retain_every_scope_position() {
     );
     assert_eq!(contribution.record_count(), 1);
     assert_eq!(
-        contribution.references_for_source(RecordSlot(0)).collect::<Vec<_>>(),
+        contribution
+            .references_for_source(RecordSlot(0))
+            .collect::<Vec<_>>(),
         [("A", &[0, 0][..]), ("A", &[0, 1][..]), ("B", &[1, 0][..])]
     );
     assert_eq!(contribution.references_for_source(RecordSlot(1)).count(), 0);
