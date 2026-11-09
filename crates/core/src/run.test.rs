@@ -2689,6 +2689,26 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     assert_eq!(selective_result.count, selective_reference.count);
     assert!(selective_result.counters.scanned_records < selective_reference.counters.scanned_records);
     assert_eq!(selective_result.counters.scanned_records, 2); // one indexed match and one raw fallback
+    let related_fts = Query {
+        filter: None,
+        fts: Some(crate::query::FtsQuery {
+            pattern_parameter: None,
+            mode: FtsMode::Regex(Default::default()),
+            case_sensitivity: CaseSensitivity::Sensitive,
+            literal: "Need.*".into(),
+            fields: vec![crate::query::FtsField {
+                path: FieldPath::parse("entry.title").unwrap(),
+                binding: None,
+                query_path: None,
+            }],
+        }),
+        ..page_query.clone()
+    };
+    let fts_result = view.search(&related_fts).unwrap();
+    let fts_reference = view.search_reference(&related_fts).unwrap();
+    assert_eq!(fts_result.hits, fts_reference.hits);
+    assert_eq!(fts_result.count, fts_reference.count);
+    assert_eq!(fts_result.counters.scanned_records, 0);
     index.configure_verified_cache(1024 * 1024).unwrap();
     page_query.options.count = false;
     let no_count_cold = view.search(&page_query).unwrap();
@@ -2696,6 +2716,19 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     let no_count_warm = view.search(&page_query).unwrap();
     assert!(no_count_warm.counters.verified_result_hit);
     assert_eq!(no_count_warm.hits[0].record_id, cold.hits[0].record_id);
+    index.configure_verified_cache(0).unwrap();
+    let missing_target = root.join("targets/t1-missing.json");
+    std::fs::rename(root.join("targets/t1.json"), &missing_target).unwrap();
+    let unavailable = view.search(&page_query).unwrap();
+    assert_eq!(unavailable.count, None);
+    assert!(unavailable.counters.source_unavailable_events > 0);
+    std::fs::rename(missing_target, root.join("targets/t1.json")).unwrap();
+    let missing_source = root.join("sources/s1-missing.json");
+    std::fs::rename(root.join("sources/s1.json"), &missing_source).unwrap();
+    let unavailable = view.search(&page_query).unwrap();
+    assert_eq!(unavailable.count, None);
+    assert!(unavailable.counters.source_unavailable_events > 0);
+    std::fs::rename(missing_source, root.join("sources/s1.json")).unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
