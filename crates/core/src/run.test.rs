@@ -2668,6 +2668,14 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     assert!(warm.counters.verified_result_hit);
     assert_eq!(warm.hits[0].record_id, cold.hits[0].record_id);
     assert_eq!(warm.counters.scanned_records, 0);
+    let mut selective = page_query.clone();
+    selective.filter = Some(parse_filter("entry = 't1' && entry.title ?~ 'Needle'").unwrap());
+    let selective_result = view.search(&selective).unwrap();
+    let selective_reference = view.search_reference(&selective).unwrap();
+    assert_eq!(selective_result.hits, selective_reference.hits);
+    assert_eq!(selective_result.count, selective_reference.count);
+    assert!(selective_result.counters.scanned_records < selective_reference.counters.scanned_records);
+    assert_eq!(selective_result.counters.scanned_records, 2); // one indexed match and one raw fallback
     index.configure_verified_cache(1024 * 1024).unwrap();
     page_query.options.count = false;
     let no_count_cold = view.search(&page_query).unwrap();
