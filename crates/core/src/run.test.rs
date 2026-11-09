@@ -277,7 +277,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         }, None,
     ).unwrap();
     let StreamOutcome::Complete(all) = all else { panic!("all export incomplete") };
-    assert_eq!(all.count, None);
+    assert_eq!(all.count, Some(3));
     assert_eq!(all.returned_rows, 3);
     assert_eq!(all.counters.files_opened, 1);
     assert!(all.progress.peak_buffered_bytes <= 2048);

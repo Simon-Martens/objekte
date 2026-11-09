@@ -2682,7 +2682,8 @@ fn search_segmented_impl(
         search_active(repo, &base_query, base_active)?
     };
     let mut total = base.count.map_or(base.counters.total_matches, |count| count as u64);
-    let base_count_complete = base.counters.match_count_complete;
+    let base_count_complete = base_active.iter().all(|active| active.len() == 0)
+        || base.counters.match_count_complete;
     let mut counters = base.counters;
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
@@ -4244,7 +4245,7 @@ fn try_lifecycle_ordered_stream(
         ).map_err(|error| error.message)?;
         count = result.count;
         counters = result.counters;
-    } else if request.options.count && counters.source_unavailable_events == 0 {
+    } else if (request.options.count || limit.is_none()) && counters.source_unavailable_events == 0 {
         count = Some(counters.total_matches as usize);
     }
     if stopped_early && count.is_none() {
@@ -4404,6 +4405,9 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         }),
     ) {
         return segmented_stream_error(&mut delivery, context, message);
+    }
+    if all && result.counters.match_count_complete {
+        result.count = usize::try_from(result.counters.total_matches).ok();
     }
     if all {
         let mut batch = Vec::new();
