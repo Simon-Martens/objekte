@@ -14,8 +14,8 @@ use crate::lifecycle_catalog::FileCatalog;
 use crate::lifecycle_compaction::base_as_segment;
 use crate::model::FileId;
 
-pub(crate) const BASE_PARTITION_RECORDS: usize = 16_384;
-const BASE_PARTITION_FILES: usize = 16_384;
+pub(crate) const BASE_PARTITION_RECORDS: usize = 1_024;
+const BASE_PARTITION_FILES: usize = 1_024;
 
 pub(crate) fn partition_base(root: PublishedIndex) -> Result<PublishedIndex, IndexError> {
     partition_base_with_limits(root, BASE_PARTITION_RECORDS, BASE_PARTITION_FILES)
