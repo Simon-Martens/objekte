@@ -321,6 +321,44 @@ fn segment_file_modified_matches(
     Some(matches)
 }
 
+fn segment_record_range_matches(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    domain: &RoaringBitmap,
+    term: &BoundTerm,
+) -> Option<RoaringBitmap> {
+    if !matches!(
+        term.path.root,
+        PathRoot::Metadata(
+            MetadataField::RecordByteStart
+                | MetadataField::RecordByteEnd
+                | MetadataField::RecordByteLength
+        )
+    ) || term.rhs.is_some()
+        || term.matcher.is_some()
+    {
+        return None;
+    }
+    let empty = Value::Object(BTreeMap::new());
+    let mut matches = RoaringBitmap::new();
+    for slot in domain.iter() {
+        let record = segment.records.get(slot as usize)?;
+        let file = &segment.files[*segment.file_index.get(&record.file)?].entry;
+        let ctx = RecordContext {
+            value: &empty,
+            source_bytes: None,
+            record,
+            file,
+            collection_name: &collection.definition.name,
+            repository_root: std::path::Path::new(""),
+        };
+        if eval_term(term, &ctx).ok()? {
+            matches.insert(slot);
+        }
+    }
+    Some(matches)
+}
+
 fn segment_sort_column_matches(
     segment: &IndexedCollectionSegment,
     logical_active: &RoaringBitmap,
@@ -406,6 +444,13 @@ fn segment_expr_bounds(
                 };
             }
             if let Some(matches) = segment_file_modified_matches(segment, collection, domain, term)
+            {
+                return SegmentCandidateBounds {
+                    may: matches.clone(),
+                    must: matches,
+                };
+            }
+            if let Some(matches) = segment_record_range_matches(segment, collection, domain, term)
             {
                 return SegmentCandidateBounds {
                     may: matches.clone(),
