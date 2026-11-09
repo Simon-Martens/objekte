@@ -337,7 +337,17 @@ fn manual_close_has_no_implicit_index_save() {
     controller.session = Some(fixture.session);
     let mut updates = Vec::new();
     controller.request_close(&mut updates);
-    assert!(matches!(updates.as_slice(), [UiUpdate::CloseReady]));
+    assert!(matches!(
+        updates.as_slice(),
+        [UiUpdate::ClosingIndex { error: None }]
+    ));
+    assert!(matches!(
+        controller
+            .workers
+            .recv_timeout(Duration::from_secs(5))
+            .unwrap(),
+        WorkerEvent::IndexShutdown { result: Ok(()), .. }
+    ));
     assert!(!fixture._root.path().join(".objekte").exists());
 }
 
