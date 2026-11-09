@@ -169,6 +169,18 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         revision, Some(LifecycleCacheScope { store: &lifecycle_cache, instance_id: 18 }),
     ).unwrap();
     assert!(!other_instance.counters.verified_result_hit);
+    let no_count_cache = Mutex::new(VerifiedCache::new(1024 * 1024));
+    let no_count_scope = LifecycleCacheScope { store: &no_count_cache, instance_id: 19 };
+    let uncached_no_count = search_segmented_lifecycle(
+        &repo, &later_page, &segment_only, &segments, &catalog,
+        revision, Some(no_count_scope),
+    ).unwrap();
+    assert!(!uncached_no_count.counters.verified_result_hit);
+    let reused_no_count = search_segmented_lifecycle(
+        &repo, &later_page, &segment_only, &segments, &catalog,
+        revision, Some(no_count_scope),
+    ).unwrap();
+    assert!(reused_no_count.counters.verified_result_hit);
     let early_context = ExecutionContext::new(
         crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
         ExecutionLimits::default(),
@@ -242,6 +254,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     let StreamOutcome::Complete(all) = all else { panic!("all export incomplete") };
     assert_eq!(all.count, None);
     assert_eq!(all.returned_rows, 3);
+    assert_eq!(all.counters.files_opened, 1);
     assert!(all.progress.peak_buffered_bytes <= 2048);
     assert_eq!(streamed_ids, expected.hits.iter().map(|hit| hit.record_id.clone()).collect::<Vec<_>>());
     let mut query = Query {
