@@ -460,6 +460,125 @@ pub(crate) fn selects_file_lexical(
     Ok(true)
 }
 
+/// Reuse compiled path predicates while a lifecycle scan evaluates many files
+/// against the same collection. The public one-file helper intentionally keeps
+/// its simple validation and construction behavior for direct mutations.
+pub(crate) struct PreparedScanSelection {
+    source_path: PathBuf,
+    source_directory: PathBuf,
+    physical_root: PathBuf,
+    rules: Discovery,
+    extension: String,
+    includes: GlobSet,
+    excludes: GlobSet,
+}
+
+impl PreparedScanSelection {
+    pub(crate) fn new(
+        root: &Path,
+        source_path: &Path,
+        rules: &Discovery,
+        source: &PreparedSource,
+    ) -> Result<Self, String> {
+        if source_path.is_absolute()
+            || source_path
+                .components()
+                .any(|part| !matches!(part, Component::Normal(_)))
+        {
+            return Err("collection source path must be a contained relative path".into());
+        }
+        let source_directory = root.join(source_path);
+        let physical_root = source_directory
+            .canonicalize()
+            .map_err(|error| format!("{}: {error}", source_directory.display()))?;
+        if !physical_root.starts_with(root) || !physical_root.is_dir() {
+            return Err(
+                "collection source directory escapes repository root or is not a directory".into(),
+            );
+        }
+        Ok(Self {
+            source_path: source_path.to_owned(),
+            source_directory,
+            physical_root,
+            rules: rules.clone(),
+            extension: source.extension().into(),
+            includes: compile(&rules.include)?,
+            excludes: compile(&rules.exclude)?,
+        })
+    }
+
+    pub(crate) fn selects_lexical(&self, relative_path: &Path) -> bool {
+        let Ok(selected) = relative_path.strip_prefix(&self.source_path) else {
+            return false;
+        };
+        if selected.as_os_str().is_empty()
+            || (!self.rules.recursive && selected.components().count() != 1)
+            || (!self.rules.hidden && hidden(selected))
+            || relative_path
+                .extension()
+                .is_none_or(|extension| extension != self.extension.as_str())
+            || self
+                .rules
+                .exclude_files
+                .iter()
+                .any(|excluded| selected == excluded)
+            || (!self.rules.include.is_empty() && !self.includes.is_match(selected))
+            || self.excludes.is_match(selected)
+        {
+            return false;
+        }
+        let mut prefix = PathBuf::new();
+        for part in selected
+            .components()
+            .take(selected.components().count() - 1)
+        {
+            prefix.push(part);
+            if self
+                .rules
+                .exclude_directories
+                .iter()
+                .any(|excluded| *excluded == prefix)
+                || self.excludes.is_match(&prefix)
+            {
+                return false;
+            }
+        }
+        true
+    }
+
+    pub(crate) fn selects_file(&self, root: &Path, relative_path: &Path) -> Result<bool, String> {
+        if !self.selects_lexical(relative_path) {
+            return Ok(false);
+        }
+        let selected = relative_path
+            .strip_prefix(&self.source_path)
+            .map_err(|error| error.to_string())?;
+        let path = root.join(relative_path);
+        if self.rules.symlinks == SymlinkPolicy::Skip {
+            let mut component_path = self.source_directory.clone();
+            for part in selected.components() {
+                component_path.push(part);
+                let metadata = match std::fs::symlink_metadata(&component_path) {
+                    Ok(metadata) => metadata,
+                    Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(false),
+                    Err(error) => return Err(format!("{}: {error}", component_path.display())),
+                };
+                if metadata.file_type().is_symlink() {
+                    return Ok(false);
+                }
+            }
+            Ok(path.is_file())
+        } else {
+            let physical = match path.canonicalize() {
+                Ok(path) => path,
+                Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(false),
+                Err(error) => return Err(format!("{}: {error}", path.display())),
+            };
+            Ok(physical.starts_with(&self.physical_root) && physical.is_file())
+        }
+    }
+}
+
 #[cfg(test)]
 #[path = "discovery.test.rs"]
 mod tests;

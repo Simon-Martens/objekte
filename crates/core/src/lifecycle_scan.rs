@@ -8,9 +8,7 @@ use std::collections::{BTreeMap, BTreeSet};
 use std::path::{Path, PathBuf};
 use std::time::SystemTime;
 
-use crate::discovery::{
-    SymlinkPolicy, discover_bounded, discover_stream, selects_file, selects_file_lexical,
-};
+use crate::discovery::{PreparedScanSelection, SymlinkPolicy, discover_bounded, discover_stream};
 use crate::inventory::SourceRevision;
 use crate::model::{CollectionId, FileId};
 use crate::repository::CollectionDefinition;
@@ -193,6 +191,8 @@ pub(crate) struct SourceScanSummary {
     pub complete_collections: BTreeSet<CollectionId>,
     pub issues: Vec<ScanIssue>,
     pub examined: usize,
+    /// Calls to `std::fs::metadata` for selected physical file observations.
+    pub metadata_observations: usize,
     pub unchanged: usize,
     pub skipped: usize,
     pub planned_changes: usize,
@@ -206,6 +206,7 @@ impl Default for SourceScanSummary {
             complete_collections: BTreeSet::new(),
             issues: Vec::new(),
             examined: 0,
+            metadata_observations: 0,
             unchanged: 0,
             skipped: 0,
             planned_changes: 0,
@@ -219,6 +220,7 @@ struct ScanScope<'a> {
     id: CollectionId,
     definition: &'a CollectionDefinition,
     source: PreparedSource,
+    selection: Option<PreparedScanSelection>,
     /// A followed-symlink collection must choose one lexical alias for each
     /// physical file before any file can be emitted. Ordinary scans keep none.
     aliases: Option<BTreeSet<PathBuf>>,
@@ -269,6 +271,29 @@ pub(crate) fn scan_sources_batched(
                 continue;
             }
         };
+        let selection = match PreparedScanSelection::new(
+            root,
+            &definition.source_path,
+            &definition.discovery,
+            &source,
+        ) {
+            Ok(selection) => Some(selection),
+            Err(message) => {
+                summary.issues.push(ScanIssue {
+                    collection: id,
+                    message,
+                });
+                scopes.push(ScanScope {
+                    id,
+                    definition,
+                    source,
+                    selection: None,
+                    aliases: None,
+                    complete: false,
+                });
+                continue;
+            }
+        };
         let mut aliases =
             (definition.discovery.symlinks == SymlinkPolicy::FollowWithinRoot).then(BTreeSet::new);
         let outcome = discover_stream(
@@ -291,6 +316,7 @@ pub(crate) fn scan_sources_batched(
                     id,
                     definition,
                     source,
+                    selection,
                     aliases,
                     complete: true,
                 });
@@ -308,6 +334,7 @@ pub(crate) fn scan_sources_batched(
                     id,
                     definition,
                     source,
+                    selection,
                     aliases: None,
                     complete: false,
                 });
@@ -340,26 +367,22 @@ pub(crate) fn scan_sources_batched(
                 .iter()
                 .any(|source_path| relative.starts_with(source_path));
             for candidate in &scopes {
-                let selected_result = if let Some(aliases) = &candidate.aliases {
-                    Ok(aliases.contains(&path))
-                } else if scope.definition.source_path == candidate.definition.source_path
-                    && scope.definition.discovery.symlinks == SymlinkPolicy::Skip
-                    && candidate.definition.discovery.symlinks == SymlinkPolicy::Skip
-                {
-                    selects_file_lexical(
-                        &candidate.definition.source_path,
-                        &candidate.definition.discovery,
-                        &candidate.source,
-                        relative,
-                    )
-                } else {
-                    selects_file(
-                        root,
-                        &candidate.definition.source_path,
-                        &candidate.definition.discovery,
-                        &candidate.source,
-                        relative,
-                    )
+                let selected_result = match (&candidate.aliases, &candidate.selection) {
+                    (Some(aliases), _) => Ok(aliases.contains(&path)),
+                    (_, None) => {
+                        if relative.starts_with(&candidate.definition.source_path) {
+                            uncertain = true;
+                        }
+                        Ok(false)
+                    }
+                    (_, Some(selection))
+                        if scope.definition.source_path == candidate.definition.source_path
+                            && scope.definition.discovery.symlinks == SymlinkPolicy::Skip
+                            && candidate.definition.discovery.symlinks == SymlinkPolicy::Skip =>
+                    {
+                        Ok(selection.selects_lexical(relative))
+                    }
+                    (_, Some(selection)) => selection.selects_file(root, relative),
                 };
                 let selected = match selected_result {
                     Ok(selected) => selected,
@@ -398,6 +421,7 @@ pub(crate) fn scan_sources_batched(
                 summary.skipped = summary.skipped.saturating_add(1);
                 return Ok(());
             }
+            summary.metadata_observations = summary.metadata_observations.saturating_add(1);
             let metadata =
                 std::fs::metadata(&path).map_err(|error| format!("{}: {error}", path.display()))?;
             let revision = SourceRevision::from_metadata(&metadata)?;

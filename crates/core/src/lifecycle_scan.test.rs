@@ -101,6 +101,115 @@ fn overlapping_collections_emit_one_physical_observation_in_small_batches() {
 }
 
 #[test]
+fn nested_source_roots_preserve_all_memberships_without_duplicate_observation() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-nested-overlap-scan-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data/nested")).unwrap();
+    std::fs::write(root.join("data/top.json"), b"{}").unwrap();
+    std::fs::write(root.join("data/nested/inner.json"), b"{}").unwrap();
+    let root = root.canonicalize().unwrap();
+    let mut outer = CollectionDefinition::folder("outer", "data", SourceFormat::Json);
+    outer.discovery.recursive = true;
+    let inner = CollectionDefinition::folder("inner", "data/nested", SourceFormat::Json);
+    let mut changes = Vec::new();
+    let scan = scan_sources_batched(
+        &root,
+        &[outer, inner],
+        &SourceRegistry::builtin(),
+        |_| false,
+        |_| None,
+        || false,
+        2,
+        |batch| changes.extend(batch),
+    );
+    assert!(scan.issues.is_empty(), "{:?}", scan.issues);
+    assert_eq!(scan.examined, 2);
+    assert_eq!(scan.metadata_observations, 2);
+    assert_eq!(changes.len(), 2);
+    assert!(changes.iter().any(|change| matches!(change,
+        ScanChange::Add(file) if file.path == std::path::Path::new("data/nested/inner.json")
+            && file.collections == [CollectionId(0), CollectionId(1)].into()
+    )));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn bounded_scan_marks_unchanged_files_and_reports_only_a_changed_file() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-incremental-batched-scan-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), b"{}").unwrap();
+    std::fs::write(root.join("data/b.json"), b"{}").unwrap();
+    let root = root.canonicalize().unwrap();
+    let definitions = vec![CollectionDefinition::folder(
+        "one",
+        "data",
+        SourceFormat::Json,
+    )];
+    let mut prior = BTreeMap::new();
+    let first = scan_sources_batched(
+        &root,
+        &definitions,
+        &SourceRegistry::builtin(),
+        |_| false,
+        |_| None,
+        || false,
+        1,
+        |batch| {
+            for change in batch {
+                let ScanChange::Add(file) = change else {
+                    panic!("expected add")
+                };
+                let id = FileId(prior.len() as u32);
+                prior.insert(file.path.clone(), (id, file));
+            }
+        },
+    );
+    assert_eq!(first.planned_changes, 2);
+    let mut changes = Vec::new();
+    let second = scan_sources_batched(
+        &root,
+        &definitions,
+        &SourceRegistry::builtin(),
+        |_| false,
+        |path| prior.get(path).cloned(),
+        || false,
+        1,
+        |batch| changes.extend(batch),
+    );
+    assert!(changes.is_empty());
+    assert_eq!(second.unchanged, 2);
+    assert_eq!(second.seen_existing.len(), 2);
+    std::fs::write(root.join("data/b.json"), b"{\"changed\":true}").unwrap();
+    let third = scan_sources_batched(
+        &root,
+        &definitions,
+        &SourceRegistry::builtin(),
+        |_| false,
+        |path| prior.get(path).cloned(),
+        || false,
+        1,
+        |batch| changes.extend(batch),
+    );
+    assert_eq!(third.unchanged, 1);
+    assert_eq!(third.planned_changes, 1);
+    assert!(
+        matches!(&changes[..], [ScanChange::Update { previous, observed }]
+        if previous.path == std::path::Path::new("data/b.json")
+            && observed.revision.size > previous.revision.size)
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn failed_overlap_scope_preserves_existing_file_without_partial_replacement() {
     let root = std::env::temp_dir().join(format!(
         "objekte-failed-overlap-scan-{}-{:?}",
@@ -200,4 +309,86 @@ fn cache_exclusion_precedes_seen_tracking_and_scan_cancels_between_batches() {
     assert_eq!(batches.len(), 1);
     assert_eq!(batches[0].len(), 1);
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+#[ignore = "creates 300,000 disposable files; run with OBJEKTE_SCAN_SCALE_ROOT under target/"]
+fn scans_300000_files_with_two_overlapping_150000_file_collections() {
+    use std::time::Instant;
+
+    let root = std::path::PathBuf::from(
+        std::env::var_os("OBJEKTE_SCAN_SCALE_ROOT")
+            .expect("set OBJEKTE_SCAN_SCALE_ROOT to a disposable target/ directory"),
+    );
+    assert!(root.to_string_lossy().contains("target/"));
+    if !root.join("ready").exists() {
+        for kind in ["shared", "unique"] {
+            std::fs::create_dir_all(root.join("data").join(kind)).unwrap();
+            for number in 0..150_000 {
+                std::fs::write(
+                    root.join("data")
+                        .join(kind)
+                        .join(format!("{number:06}.json")),
+                    b"{}",
+                )
+                .unwrap();
+            }
+        }
+        std::fs::write(root.join("ready"), b"300000").unwrap();
+    }
+    let root = root.canonicalize().unwrap();
+    let definitions = [
+        ("first", "shared/*.json"),
+        ("second", "shared/*.json"),
+        ("third", "unique/*.json"),
+    ]
+    .into_iter()
+    .map(|(name, pattern)| {
+        let mut definition = CollectionDefinition::folder(name, "data", SourceFormat::Json);
+        definition.discovery = Discovery {
+            recursive: true,
+            include: vec![pattern.into()],
+            ..Discovery::default()
+        };
+        definition
+    })
+    .collect::<Vec<_>>();
+    let started = Instant::now();
+    let mut emitted = 0;
+    let mut shared = 0;
+    let mut max_batch = 0;
+    let scan = scan_sources_batched(
+        &root,
+        &definitions,
+        &SourceRegistry::builtin(),
+        |_| false,
+        |_| None,
+        || false,
+        256,
+        |batch| {
+            max_batch = max_batch.max(batch.len());
+            emitted += batch.len();
+            shared += batch
+                .iter()
+                .filter(|change| match change {
+                    ScanChange::Add(file) => file.collections.len() == 2,
+                    _ => false,
+                })
+                .count();
+        },
+    );
+    eprintln!(
+        "scan_scale files={} metadata={} batches_max={} elapsed_ms={}",
+        scan.examined,
+        scan.metadata_observations,
+        max_batch,
+        started.elapsed().as_millis()
+    );
+    assert!(scan.issues.is_empty(), "{:?}", scan.issues);
+    assert_eq!(scan.complete_collections.len(), 3);
+    assert_eq!(scan.examined, 300_000);
+    assert_eq!(scan.metadata_observations, 300_000);
+    assert_eq!(emitted, 300_000);
+    assert_eq!(shared, 150_000);
+    assert!(max_batch <= 256);
 }
