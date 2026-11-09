@@ -195,7 +195,7 @@ impl DesktopView {
             dark: true,
             sidebar_visible: true,
             inspector_width: 365.,
-            secondary_query_width: 600.,
+            secondary_query_width: 780.,
             show_preview: true,
             status: "Open a folder or configured repository to begin".into(),
             ..UiState::default()
@@ -445,10 +445,14 @@ impl DesktopView {
     }
 
     fn activate_workspace_tab(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
+        if self.state.workspace.current_search != Some(id) {
+            self.state.snapshot_current_query();
+        }
         if !self.state.workspace.activate(id) {
             return;
         }
         self.state.prune_record_snapshots();
+        self.state.prune_query_snapshots();
         match id {
             TabId::Search(_) => {
                 if let Some(draft) = self.state.workspace.tab(id).and_then(|tab| tab.draft.clone()) {
@@ -464,11 +468,13 @@ impl DesktopView {
     }
 
     fn open_table_tab(&mut self, collection: Option<String>, window: &mut Window, cx: &mut Context<Self>) {
+        self.state.snapshot_current_query();
         let id = self.state.workspace.open_table(collection);
         self.activate_workspace_tab(id, window, cx);
     }
 
     fn open_query_tab(&mut self, window: &mut Window, cx: &mut Context<Self>) {
+        self.state.snapshot_current_query();
         let id = self.state.workspace.open_query(SearchDraft {
             collection: self.state.search.collection.clone(),
             ..SearchDraft::default()
@@ -484,6 +490,7 @@ impl DesktopView {
             return;
         }
         self.state.prune_record_snapshots();
+        self.state.prune_query_snapshots();
         if let TabId::Record(id) = id {
             self.send(UiAction::CloseTab(id));
         }
@@ -510,6 +517,7 @@ impl DesktopView {
         };
         if self.state.workspace.move_tab(id, pane, at) {
             self.state.prune_record_snapshots();
+            self.state.prune_query_snapshots();
             if already_current {
                 cx.notify();
             } else {

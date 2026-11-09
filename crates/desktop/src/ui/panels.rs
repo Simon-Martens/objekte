@@ -1215,6 +1215,7 @@ impl DesktopView {
             .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Headers edit SORT BY in Filter. Drag a header edge to resize; right-click it to wrap text. Columns chooses visible fields. Count all requests an exact total."))
             .child(div().text_sm().child("Ctrl+O: Open · Ctrl+F: Search · Ctrl+L: Filter · F1: Help · Escape: close the nearest panel."))
             .child(div().text_sm().child("Collections and queries open in tabs. Drag a tab by its grip to reorder it or move it between panes; the tab menu has the same move commands. Click + for a new query tab."))
+            .child(div().text_sm().child("When queries appear in both panes, the inactive query shows its latest result preview. Activate it to edit or refresh its results."))
             .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to open a record in the right pane."))
             .child(div().text_sm().child("Record tabs retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; the Source icon opens the original record with Copy and Export actions."))
             .child(div().text_sm().child("Source records and schemas are read-only. Export and index writes are explicit actions."))

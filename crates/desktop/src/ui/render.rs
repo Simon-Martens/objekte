@@ -257,11 +257,21 @@ impl DesktopView {
                     .accessibility_label("Application menu")
                     .dropdown_menu(move |menu, _, _| {
                         let save_target = target.clone();
+                        let new_query_target = target.clone();
                         let batch_target = target.clone();
                         let check_target = target.clone();
                         let theme_target = target.clone();
                         let help_target = target.clone();
                         menu.item(
+                            PopupMenuItem::new("New query tab")
+                                .icon(AssetIconName::SquarePlus)
+                                .on_click(move |_, window, cx| {
+                                    new_query_target.update(cx, |this, cx| {
+                                        this.open_query_tab(window, cx);
+                                    });
+                                }),
+                        )
+                        .item(
                             PopupMenuItem::new("Save current query")
                                 .icon(AssetIconName::Bookmark)
                                 .disabled(!can_save)
@@ -832,6 +842,7 @@ impl DesktopView {
                         .get(&index)
                         .map(|row| row.match_highlights.clone())
                         .unwrap_or_default();
+                    let row_key = state.projected_rows.get(&index).map(|row| row.key.clone());
                     let shade = if selected {
                         colors.selected
                     } else if index % 2 == 0 {
@@ -927,6 +938,8 @@ impl DesktopView {
                             let target = target.clone();
                             move |menu, _, _| {
                                 let target = target.clone();
+                                let record_id = row_key.as_ref().map(|key| key.record_id.clone());
+                                let file = row_key.as_ref().map(|key| key.file.clone());
                                 menu.item(PopupMenuItem::new("Open in new tab").on_click(
                                     move |_, _, cx| {
                                         target.update(cx, |this, _| {
@@ -934,6 +947,23 @@ impl DesktopView {
                                         });
                                     },
                                 ))
+                                .separator()
+                                .item(PopupMenuItem::new("Copy record ID")
+                                    .icon(AssetIconName::Copy)
+                                    .disabled(record_id.is_none())
+                                    .on_click(move |_, _, cx| {
+                                        if let Some(id) = record_id.clone() {
+                                            cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(id));
+                                        }
+                                    }))
+                                .item(PopupMenuItem::new("Copy file path")
+                                    .icon(AssetIconName::Copy)
+                                    .disabled(file.is_none())
+                                    .on_click(move |_, _, cx| {
+                                        if let Some(file) = file.clone() {
+                                            cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(file));
+                                        }
+                                    }))
                             }
                         })
                         .into_any_element()
@@ -1185,6 +1215,9 @@ impl DesktopView {
                         let move_target = target.clone();
                         let first_target = target.clone();
                         let close_target = target.clone();
+                        let label_move_target = target.clone();
+                        let label_first_target = target.clone();
+                        let label_close_target = target.clone();
                         div()
                             .id(format!("workspace-tab-{pane:?}-{index}"))
                             .flex()
@@ -1219,7 +1252,25 @@ impl DesktopView {
                                     .tooltip(title.clone())
                                     .on_click(cx.listener(move |this, _, window, cx| {
                                         this.activate_workspace_tab(id, window, cx);
-                                    })),
+                                    }))
+                                    .context_menu(move |menu, _, _| {
+                                        let move_target = label_move_target.clone();
+                                        let first_target = label_first_target.clone();
+                                        let close_target = label_close_target.clone();
+                                        menu.item(PopupMenuItem::new("Move to other pane").on_click(move |_, window, cx| {
+                                            move_target.update(cx, |this, cx| {
+                                                let other = pane.other();
+                                                let at = this.state.workspace.group(other).tabs.len();
+                                                this.move_workspace_tab(id, other, at, window, cx);
+                                            });
+                                        }))
+                                        .item(PopupMenuItem::new("Move to start").on_click(move |_, window, cx| {
+                                            first_target.update(cx, |this, cx| this.move_workspace_tab(id, pane, 0, window, cx));
+                                        }))
+                                        .item(PopupMenuItem::new("Close tab").on_click(move |_, window, cx| {
+                                            close_target.update(cx, |this, cx| this.close_workspace_tab(id, window, cx));
+                                        }))
+                                    }),
                             )
                             .child(
                                 Button::new(format!("workspace-close-{pane:?}-{index}"))
@@ -1322,16 +1373,72 @@ impl DesktopView {
             else if draft.filter_enabled { draft.structured.clone() }
             else { "All records".into() }
         }).unwrap_or_default();
-        div().flex().flex_col().flex_1().items_center().justify_center().gap_3()
-            .bg(rgb(colors.panel))
-            .child(div().text_lg().font_weight(FontWeight::SEMIBOLD).child(title))
-            .child(div().text_sm().text_color(rgb(colors.secondary)).child(scope))
-            .child(div().text_sm().child(expression))
-            .child(Button::new(format!("activate-query-{id:?}"))
-                .primary().label("Activate query")
-                .on_click(cx.listener(move |this, _, window, cx| {
-                    this.activate_workspace_tab(id, window, cx);
+        let snapshot = match id {
+            TabId::Search(id) => self.state.query_snapshots.get(&id),
+            TabId::Record(_) => None,
+        };
+        let mut columns = Vec::new();
+        if let Some(snapshot) = snapshot {
+            for preferred in ["@id", "name", "@match", "description"] {
+                if let Some(index) = snapshot.columns.iter().position(|column| column == preferred) {
+                    columns.push(index);
+                }
+                if columns.len() == 3 { break; }
+            }
+            for (index, column) in snapshot.columns.iter().enumerate() {
+                if columns.len() == 3 { break; }
+                if column != "@status" && !columns.contains(&index) {
+                    columns.push(index);
+                }
+            }
+        }
+        let headers = snapshot.map(|snapshot| columns.iter().map(|index| {
+            sort::column_label(&snapshot.columns[*index]).to_owned()
+        }).collect::<Vec<_>>()).unwrap_or_default();
+        let rows = snapshot.map(|snapshot| snapshot.rows.iter().map(|row| {
+            columns.iter().map(|index| row.cells.get(*index).cloned().unwrap_or_default())
+                .collect::<Vec<_>>()
+        }).collect::<Vec<_>>()).unwrap_or_default();
+        let count = snapshot.and_then(|snapshot| snapshot.exact_total);
+        div().flex().flex_col().flex_1().min_h_0().min_w_0().bg(rgb(colors.panel))
+            .child(div().flex().items_center().gap_3().h(px(56.)).px_3()
+                .border_b_1().border_color(rgb(colors.border))
+                .child(div().flex_1().min_w_0().flex().flex_col()
+                    .child(div().min_w_0().overflow_hidden().whitespace_nowrap().text_ellipsis()
+                        .font_weight(FontWeight::SEMIBOLD).child(title))
+                    .child(div().min_w_0().overflow_hidden().whitespace_nowrap().text_ellipsis()
+                        .text_xs().text_color(rgb(colors.secondary))
+                        .child(format!("{scope} · {expression}"))))
+                .child(Button::new(format!("activate-query-{id:?}"))
+                    .ghost().label("Activate query")
+                    .tooltip("Restore the editor and refresh results")
+                    .on_click(cx.listener(move |this, _, window, cx| {
+                        this.activate_workspace_tab(id, window, cx);
+                    }))))
+            .child(div().flex().items_center().h(px(30.)).px_3()
+                .text_xs().text_color(rgb(colors.secondary))
+                .child(if snapshot.is_some() { "Result preview" } else { "Activate to load results" }))
+            .when(!headers.is_empty(), |this| this.child(
+                div().flex().h(px(32.)).items_center().bg(rgb(colors.raised))
+                    .border_b_1().border_color(rgb(colors.border))
+                    .children(headers.into_iter().map(|header| {
+                        div().flex_1().min_w_0().px_3().text_xs()
+                            .overflow_hidden().whitespace_nowrap().text_ellipsis()
+                            .text_color(rgb(colors.secondary)).child(header)
+                    }))))
+            .child(div().flex().flex_col().flex_1().min_h_0().overflow_y_scrollbar()
+                .children(rows.into_iter().map(|cells| {
+                    div().flex().items_center().h(px(36.)).flex_shrink_0()
+                        .border_b_1().border_color(rgb(colors.border))
+                        .children(cells.into_iter().map(|cell| {
+                            div().flex_1().min_w_0().overflow_hidden().whitespace_nowrap()
+                                .text_ellipsis().px_3().text_sm().child(cell)
+                        }))
                 })))
+            .when_some(count, |this, count| this.child(
+                div().h(px(32.)).px_3().border_t_1().border_color(rgb(colors.border))
+                    .text_xs().text_color(rgb(colors.secondary))
+                    .child(format!("{count} matches"))))
     }
 
     fn render_record_snapshot(&self, id: u64, cx: &mut Context<Self>) -> impl IntoElement {

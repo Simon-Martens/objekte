@@ -14,6 +14,15 @@ use super::model::{
 use super::open_dialog::{DetectionState, OpenDialogState};
 use super::workspace::Workspace;
 
+/// A small, read-only preview for a query visible beside the live query.
+/// Query execution and result locators remain controller-owned.
+#[derive(Clone, Debug, Default)]
+pub struct QuerySnapshot {
+    pub columns: Vec<String>,
+    pub rows: Vec<ResultRow>,
+    pub exact_total: Option<usize>,
+}
+
 /// One contextual secondary surface at a time.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum ActionPanel {
@@ -65,6 +74,7 @@ pub struct UiState {
     pub tabs: Vec<RecordTabSummary>,
     pub active_tab: Option<u64>,
     pub workspace: Workspace,
+    pub query_snapshots: BTreeMap<u64, QuerySnapshot>,
     pub record_detail_snapshots: BTreeMap<u64, DetailView>,
     pub(super) tab_views: BTreeMap<u64, TabViewState>,
     pub detail_cache: DetailCache,
@@ -165,6 +175,7 @@ impl UiState {
                 self.detail = None;
                 self.tabs.clear();
                 self.active_tab = None;
+                self.query_snapshots.clear();
                 self.record_detail_snapshots.clear();
                 self.tab_views.clear();
                 self.detail_cache = DetailCache::default();
@@ -542,6 +553,39 @@ impl UiState {
         self.record_detail_snapshots.retain(|id, _| {
             visible.contains(&Some(super::workspace::TabId::Record(*id)))
         });
+    }
+
+    /// Preserve a bounded preview while another query uses the live editor.
+    pub fn snapshot_current_query(&mut self) {
+        let Some(super::workspace::TabId::Search(id)) = self.workspace.current_search else {
+            return;
+        };
+        if self.showing_last_valid_results || self.result_outdated {
+            return;
+        }
+        let rows = self.projected_rows.values().take(40).cloned().collect();
+        self.query_snapshots.insert(id, QuerySnapshot {
+            columns: self.page.columns.clone(),
+            rows,
+            exact_total: self.page.exact_total,
+        });
+        self.prune_query_snapshots();
+    }
+
+    pub fn prune_query_snapshots(&mut self) {
+        let visible = [self.workspace.primary.active, self.workspace.secondary.active];
+        self.query_snapshots.retain(|id, _| {
+            self.workspace.tab(super::workspace::TabId::Search(*id)).is_some()
+        });
+        while self.query_snapshots.len() > 3 {
+            let oldest_hidden = self.query_snapshots.keys().find(|id| {
+                !visible.contains(&Some(super::workspace::TabId::Search(**id)))
+            }).copied();
+            let oldest = oldest_hidden.or_else(|| self.query_snapshots.keys().next().copied());
+            if let Some(id) = oldest {
+                self.query_snapshots.remove(&id);
+            }
+        }
     }
 
     fn install_index_status(&mut self, status: IndexUiStatus, replacement: bool) {

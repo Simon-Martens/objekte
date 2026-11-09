@@ -527,7 +527,8 @@ impl DesktopView {
                     .child(
                         Input::new(&self.inputs.full_text)
                             .id("full-text-input")
-                            .w_full()
+                            .flex_1()
+                            .min_w_0()
                             .aria_label("Full text search"),
                     )
                     .child(
@@ -713,7 +714,8 @@ impl DesktopView {
                                                 "Structured filter".into()
                                             }),
                                     )
-                                    .w_full()
+                                    .flex_1()
+                                    .min_w_0()
                                     .when(
                                         self.state.completion_focused
                                             && !self.state.show_filter_builder
