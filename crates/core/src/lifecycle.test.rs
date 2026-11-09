@@ -312,11 +312,20 @@ fn quiescence_rejects_prepared_publications_until_close_is_cancelled() {
         Err(IndexError::Cancelled)
     );
     assert_eq!(index.view().unwrap().revision(), expected);
-    assert!(matches!(index.start_reconcile(), Err(IndexError::Cancelled)));
+    assert!(matches!(
+        index.start_reconcile(),
+        Err(IndexError::Cancelled)
+    ));
 
     index.resume_after_quiesce().unwrap();
-    assert_eq!(index.publish_prepared(expected, staged).unwrap(), expected.next().unwrap());
-    assert_eq!(index.view().unwrap().search(&all_records()).unwrap().count, Some(2));
+    assert_eq!(
+        index.publish_prepared(expected, staged).unwrap(),
+        expected.next().unwrap()
+    );
+    assert_eq!(
+        index.view().unwrap().search(&all_records()).unwrap().count,
+        Some(2)
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 

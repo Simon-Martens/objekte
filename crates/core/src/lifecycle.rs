@@ -990,11 +990,13 @@ impl Index {
     /// Set the aggregate in-memory verified-result cache budget for this
     /// lifecycle instance. It is shared across all pinned revisions.
     pub fn configure_verified_cache(&self, bytes: usize) -> Result<(), IndexError> {
-        self.0
+        let displaced = self
+            .0
             .verified_cache
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?
             .set_budget(bytes);
+        drop(displaced);
         Ok(())
     }
 
@@ -1201,10 +1203,8 @@ impl Index {
             let mut next = (*fresh.view()?.0).clone();
             next.instance_id = self.instance_id();
             next.revision = next_revision;
-            next.file_versions = FileVersions::filled(
-                next.catalog.allocated_files(),
-                FileVersion(next_revision.0),
-            );
+            next.file_versions =
+                FileVersions::filled(next.catalog.allocated_files(), FileVersion(next_revision.0));
             next.saved_revision = view.0.saved_revision;
             if cancelled() {
                 return Err(IndexError::Cancelled);
@@ -1926,7 +1926,7 @@ impl Index {
         cancelled: impl Fn() -> bool,
         mut on_progress: impl FnMut(&ReconciliationReport),
     ) -> ReconciliationReport {
-        use crate::lifecycle_scan::{ScanChange, plan_scan, scan_sources};
+        use crate::lifecycle_scan::{ScanChange, scan_sources_batched};
 
         let started = Instant::now();
         let mut report = ReconciliationReport::default();
@@ -1946,8 +1946,6 @@ impl Index {
             .iter()
             .map(|collection| collection.definition.clone())
             .collect::<Vec<_>>();
-        let prior = snapshot.0.catalog.scan_stamps();
-        let mut scan = scan_sources(root, &definitions, &repository.sources, &cancelled);
         let cache_paths = {
             let persistence = self.0.persistence.lock();
             match persistence {
@@ -1969,7 +1967,7 @@ impl Index {
                 }
             }
         };
-        scan.files.retain(|path, _| {
+        let excluded = |path: &Path| {
             !cache_paths.iter().any(|cache| {
                 path == cache
                     || (path.parent() == cache.parent()
@@ -1980,26 +1978,13 @@ impl Index {
                                 name.starts_with(".objekte-snapshot-") && name.ends_with(".tmp")
                             }))
             })
-        });
-        report.examined = scan.examined;
-        report.cancelled = scan.cancelled;
-        for issue in &scan.issues {
-            report.record_issue(format!(
-                "collection {}: {}",
-                issue.collection.0, issue.message
-            ));
-        }
-        let plan = plan_scan(&prior, &scan);
-        report.unchanged = plan.unchanged;
-        report.skipped = plan.skipped;
-        report.planned_changes = plan.changes.len();
-        report.duration = started.elapsed();
-        on_progress(&report);
-        for change in plan.changes {
+        };
+        let mut apply = |change: ScanChange| {
             if cancelled() {
                 report.cancelled = true;
-                break;
+                return;
             }
+            report.planned_changes = report.planned_changes.saturating_add(1);
             let bytes = match &change {
                 ScanChange::Add(observed) | ScanChange::Update { observed, .. } => {
                     observed.revision.size
@@ -2011,55 +1996,19 @@ impl Index {
                 ScanChange::Update { observed, .. } => &observed.path,
             }
             .clone();
-            let outcome = match change {
-                ScanChange::Add(observed) => {
-                    self.prepare_add_file(&observed.path).and_then(|prepared| {
-                        if prepared.file.source.revision != observed.revision {
-                            return Err(IndexError::SourceUnavailable(
-                                "source changed after metadata scan".into(),
-                            ));
-                        }
-                        let expected = prepared.expected_revision;
-                        let next = self.stage_prepared_add(prepared)?;
-                        self.publish_prepared(expected, next).map(|_| ())
-                    })
-                }
-                ScanChange::Update { previous, observed } => snapshot
-                    .file_handle_for_path(&previous.path)
-                    .ok_or(IndexError::UnknownFile)
-                    .and_then(|handle| {
-                        let prepared = self.prepare_replace_file(handle, &observed.path)?;
-                        if prepared.file.source.revision != observed.revision {
-                            return Err(IndexError::SourceUnavailable(
-                                "source changed after metadata scan".into(),
-                            ));
-                        }
-                        let expected = prepared.expected_revision;
-                        let next = self.stage_prepared_replace(prepared)?;
-                        self.publish_prepared(expected, next).map(|_| ())
-                    }),
-                ScanChange::Remove(observed) => snapshot
-                    .file_handle_for_path(&observed.path)
-                    .ok_or(IndexError::UnknownFile)
-                    .and_then(
-                        |handle| match std::fs::metadata(root.join(&observed.path)) {
-                            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
-                                self.delete_file(handle).map(|_| ())
-                            }
-                            Ok(_) => Err(IndexError::SourceUnavailable(
-                                "source reappeared after metadata scan".into(),
-                            )),
-                            Err(error) => Err(IndexError::Io(error.to_string())),
-                        },
-                    ),
+            let kind = match &change {
+                ScanChange::Add(_) => 0,
+                ScanChange::Update { .. } => 1,
+                ScanChange::Remove(_) => 2,
             };
+            let outcome = self.apply_reconciliation_change(&snapshot, root, change);
             match outcome {
                 Ok(()) => {
                     report.indexed_bytes = report.indexed_bytes.saturating_add(bytes);
-                    match scan.files.get(&path) {
-                        Some(_) if prior.contains_key(&path) => report.updated += 1,
-                        Some(_) => report.added += 1,
-                        None => report.removed += 1,
+                    match kind {
+                        0 => report.added += 1,
+                        1 => report.updated += 1,
+                        _ => report.removed += 1,
                     }
                 }
                 Err(error) => {
@@ -2069,10 +2018,110 @@ impl Index {
             }
             report.duration = started.elapsed();
             on_progress(&report);
+        };
+        let scan = scan_sources_batched(
+            root,
+            &definitions,
+            &repository.sources,
+            |path| !excluded(path),
+            |path| {
+                snapshot
+                    .0
+                    .catalog
+                    .id_for(path)
+                    .and_then(|id| snapshot.0.catalog.scan_stamp(id).map(|stamp| (id, stamp)))
+            },
+            &cancelled,
+            256,
+            |batch| {
+                for change in batch {
+                    apply(change);
+                }
+            },
+        );
+        if !scan.cancelled {
+            for id in snapshot.0.catalog.active_ids() {
+                if cancelled() {
+                    break;
+                }
+                if scan.seen_existing.contains(id.0) {
+                    continue;
+                }
+                let Some(stamp) = snapshot.0.catalog.scan_stamp(id) else {
+                    continue;
+                };
+                if !excluded(&stamp.path) {
+                    continue;
+                }
+                if stamp.collections.is_subset(&scan.complete_collections) {
+                    apply(ScanChange::Remove(stamp));
+                }
+            }
+        }
+        drop(apply);
+        report.examined = scan.examined;
+        report.unchanged = scan.unchanged;
+        report.skipped = report.skipped.saturating_add(scan.skipped);
+        report.cancelled |= scan.cancelled || cancelled();
+        for issue in &scan.issues {
+            report.record_issue(format!(
+                "collection {}: {}",
+                issue.collection.0, issue.message
+            ));
         }
         report.duration = started.elapsed();
         on_progress(&report);
         report
+    }
+
+    fn apply_reconciliation_change(
+        &self,
+        snapshot: &IndexView,
+        root: &Path,
+        change: crate::lifecycle_scan::ScanChange,
+    ) -> Result<(), IndexError> {
+        use crate::lifecycle_scan::ScanChange;
+        match change {
+            ScanChange::Add(observed) => {
+                let prepared = self.prepare_add_file(&observed.path)?;
+                if prepared.file.source.revision != observed.revision {
+                    return Err(IndexError::SourceUnavailable(
+                        "source changed after metadata scan".into(),
+                    ));
+                }
+                let expected = prepared.expected_revision;
+                let next = self.stage_prepared_add(prepared)?;
+                self.publish_prepared(expected, next).map(|_| ())
+            }
+            ScanChange::Update { previous, observed } => {
+                let handle = snapshot
+                    .file_handle_for_path(&previous.path)
+                    .ok_or(IndexError::UnknownFile)?;
+                let prepared = self.prepare_replace_file(handle, &observed.path)?;
+                if prepared.file.source.revision != observed.revision {
+                    return Err(IndexError::SourceUnavailable(
+                        "source changed after metadata scan".into(),
+                    ));
+                }
+                let expected = prepared.expected_revision;
+                let next = self.stage_prepared_replace(prepared)?;
+                self.publish_prepared(expected, next).map(|_| ())
+            }
+            ScanChange::Remove(observed) => {
+                let handle = snapshot
+                    .file_handle_for_path(&observed.path)
+                    .ok_or(IndexError::UnknownFile)?;
+                match std::fs::metadata(root.join(&observed.path)) {
+                    Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+                        self.delete_file(handle).map(|_| ())
+                    }
+                    Ok(_) => Err(IndexError::SourceUnavailable(
+                        "source reappeared after metadata scan".into(),
+                    )),
+                    Err(error) => Err(IndexError::Io(error.to_string())),
+                }
+            }
+        }
     }
 
     /// Retire all records owned by one file across its collections in one
@@ -2358,23 +2407,30 @@ impl IndexView {
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
+        let owner = self.1.upgrade();
+        let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
+            store: &owner.verified_cache,
+            instance_id: self.instance_id(),
+        });
         let result = if !self.has_segments() {
-            crate::run::search_active_available(
+            crate::run::search_active_available_lifecycle(
                 self.repository(),
                 resolved.as_ref(),
                 &self.0.active,
                 &self.0.catalog,
                 self.revision(),
+                cache,
             )
             .map(|result| self.stamp_result(result))
         } else {
-            crate::run::search_segmented(
+            crate::run::search_segmented_lifecycle(
                 self.repository(),
                 resolved.as_ref(),
                 &self.0.active,
                 &self.0.segments,
                 &self.0.catalog,
                 self.revision(),
+                cache,
             )
         };
         if let Ok(result) = &result {
@@ -2392,18 +2448,24 @@ impl IndexView {
         let resolved = query.with_clock(context.clock.now).map_err(|message| {
             context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
         })?;
+        let owner = self.1.upgrade();
+        let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
+            store: &owner.verified_cache,
+            instance_id: self.instance_id(),
+        });
         let result = if !self.has_segments() {
-            crate::run::search_active_available_with_context(
+            crate::run::search_active_available_with_context_lifecycle(
                 self.repository(),
                 &resolved,
                 &self.0.active,
                 &self.0.catalog,
                 self.revision(),
                 context,
+                cache,
             )
             .map(|result| self.stamp_result(result))
         } else {
-            crate::run::search_segmented_with_context(
+            crate::run::search_segmented_with_context_lifecycle(
                 self.repository(),
                 &resolved,
                 &self.0.active,
@@ -2411,6 +2473,7 @@ impl IndexView {
                 &self.0.catalog,
                 self.revision(),
                 context,
+                cache,
             )
         };
         if let Ok(result) = &result {
@@ -2756,7 +2819,12 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
-        let result = crate::run::search_stream_segmented_with_context(
+        let owner = self.1.upgrade();
+        let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
+            store: &owner.verified_cache,
+            instance_id: self.instance_id(),
+        });
+        let result = crate::run::search_stream_segmented_with_context_lifecycle(
             self.repository(),
             query,
             scope,
@@ -2767,6 +2835,7 @@ impl IndexView {
             &self.0.catalog,
             self.revision(),
             sink,
+            cache,
         );
         if let Ok(StreamOutcome::Complete(summary)) = &result {
             self.request_reconciliation_for_counters(&summary.counters);
