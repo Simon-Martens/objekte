@@ -2546,39 +2546,13 @@ impl IndexView {
         record_id: &str,
         return_mode: ReturnMode,
     ) -> Result<Option<SearchHit>, String> {
-        let mut base = self.repository().get_record_with_active(
-            collection,
-            record_id,
-            return_mode.clone(),
-            Some(&self.0.active),
-        )?;
-        if let Some(hit) = &mut base {
-            hit.generation = self.revision().0;
-        }
-        if base.is_some() {
-            return Ok(base);
-        }
-        let number = self
-            .repository()
-            .collections()
-            .iter()
-            .position(|state| state.definition.name == collection)
-            .ok_or_else(|| format!("unknown collection {collection}"))?;
-        for segment in self.0.segments[number].iter() {
-            if let Some(hit) = crate::run::get_segment_record_by_id(
-                self.repository(),
-                number,
-                &segment.index,
-                &segment.active,
-                &self.0.catalog,
-                self.revision(),
-                record_id,
-                return_mode.clone(),
-            )? {
-                return Ok(Some(hit));
+        match self.get_record_available(collection, record_id, return_mode)? {
+            crate::run::DirectLookupResult::Found(hit) => Ok(Some(hit)),
+            crate::run::DirectLookupResult::NotFound => Ok(None),
+            crate::run::DirectLookupResult::SourceUnavailable(diagnostic) => {
+                Err(diagnostic.message)
             }
         }
-        Ok(None)
     }
 
     /// Direct lookup with a distinct unavailable-source outcome. A missing
