@@ -466,8 +466,8 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
             .filter(|path| path.extension().is_some_and(|ext| ext == "json"))
             .collect::<Vec<_>>();
         paths.sort();
-        if paths.len() < 137 {
-            return Err("stress fixture needs at least 137 JSON files".into());
+        if paths.len() < 4097 {
+            return Err("stress fixture needs at least 4097 JSON files".into());
         }
         let verified_path = &paths[136];
         let verified_handle = index
@@ -494,6 +494,36 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
             format!(
                 "strategy={:?};fallback={:?}",
                 verified_base.strategy, verified_base.fallback_reason,
+            ),
+        );
+        // The historical base target above shares a partition with the first
+        // append-updated file. This second target is in a different, still
+        // dense base partition and measures eligible slot preservation.
+        let isolated_path = &paths[4096];
+        let isolated_handle = index
+            .view()?
+            .file_handle_for_path(isolated_path)
+            .ok_or("untouched base file missing")?;
+        let isolated_old = fs::read(isolated_path)?;
+        let mut isolated_new = isolated_old.clone();
+        isolated_new.extend_from_slice(b" \n");
+        fs::write(isolated_path, isolated_new)?;
+        let started = Instant::now();
+        let isolated = index.update_file_with_options(
+            isolated_handle,
+            isolated_path,
+            UpdateOptions {
+                old_content: Some(&isolated_old),
+                strategy: UpdateStrategy::PreferVerified,
+            },
+        )?;
+        emit(
+            "update_verified_untouched_base",
+            started.elapsed(),
+            &index,
+            format!(
+                "strategy={:?};fallback={:?}",
+                isolated.strategy, isolated.fallback_reason
             ),
         );
         let (elapsed, detail) = batch_update(&index, &paths[..8])?;
