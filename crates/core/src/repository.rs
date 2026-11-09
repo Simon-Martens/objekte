@@ -873,10 +873,11 @@ impl Repository {
     }
 
     pub fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
-        self.verified
+        let displaced = self.verified
             .lock()
             .map_err(|e| e.to_string())?
             .set_budget(bytes);
+        drop(displaced);
         Ok(())
     }
 

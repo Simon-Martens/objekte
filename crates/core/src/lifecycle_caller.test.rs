@@ -74,8 +74,10 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
         .unwrap();
     adapter.index().delete_file(handle).unwrap();
     assert_eq!(adapter.search(&query).unwrap().count, Some(0));
-    // The pinned base still describes the original indexed generation.
-    assert_eq!(adapter.files().files.len(), 1);
+    // The compatibility facade retains configuration without pinning the old
+    // indexed generation after a publication.
+    assert_eq!(adapter.files().root, root);
+    assert!(adapter.files().files.is_empty());
     std::fs::remove_dir_all(root).unwrap();
 }
 

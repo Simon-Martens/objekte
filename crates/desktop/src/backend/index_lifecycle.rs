@@ -253,11 +253,15 @@ pub fn shutdown(session: &OpenedSession) -> Result<(), BackendError> {
     Ok(())
 }
 
-/// Stop repository automation, flush the latest published view to the selected
-/// cache, then release lifecycle workers. A failed flush leaves the index
-/// available so the desktop can offer Retry or close without saving the cache.
+/// Quiesce every mutation producer before persisting the final accepted
+/// revision. A failed flush leaves the index quiesced for Retry or an explicit
+/// Cancel close, which resumes the prior automation policy.
 pub fn shutdown_with_final_save(session: &OpenedSession) -> Result<(), BackendError> {
-    stop_automation(session)?;
+    session
+        .repository
+        .index()
+        .quiesce()
+        .map_err(lifecycle_error)?;
     let destination = session.configuration.cache_save.as_ref().ok_or_else(|| {
         BackendError::new(
             BackendErrorKind::Options,
@@ -266,6 +270,20 @@ pub fn shutdown_with_final_save(session: &OpenedSession) -> Result<(), BackendEr
     })?;
     save_index(session, destination, true)?;
     shutdown(session)
+}
+
+pub fn resume_after_cancelled_close(
+    session: &OpenedSession,
+    check_interval: Option<Duration>,
+    automatic_save: bool,
+) -> Result<(), BackendError> {
+    session
+        .repository
+        .index()
+        .resume_after_quiesce()
+        .map_err(lifecycle_error)?;
+    set_periodic_check(session, check_interval)?;
+    set_automatic_save(session, automatic_save)
 }
 
 #[cfg(test)]

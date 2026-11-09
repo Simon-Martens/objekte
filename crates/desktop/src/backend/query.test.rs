@@ -2,6 +2,74 @@ use super::*;
 use crate::backend::test_support::fixture;
 
 #[test]
+fn desktop_page_reuses_verified_order_and_keeps_pinned_revision() {
+    let fixture = fixture();
+    let view = fixture.session.repository.index().view().unwrap();
+    let spec = QuerySpec {
+        full_text: "a".into(),
+        filter: "year >= 2022 SORT BY year DESC".into(),
+        count: true,
+        ..QuerySpec::default()
+    };
+    let token = CancellationToken::new();
+    let cold = query_page_on_view(&fixture.session, &view, &spec, 0, 1, &token).unwrap();
+    assert_eq!(cold.count, Some(3));
+    assert!(!cold.counters.verified_result_hit);
+    let warm = query_page_on_view(&fixture.session, &view, &spec, 0, 1, &token).unwrap();
+    assert!(warm.counters.verified_result_hit);
+    assert_eq!(warm.hits[0].record_id, cold.hits[0].record_id);
+    assert_eq!(warm.revision, view.revision());
+    assert!(warm.counters.scanned_records < cold.counters.scanned_records);
+    let later = query_page_on_view(
+        &fixture.session, &view,
+        &QuerySpec { count: false, ..spec }, 1, 1, &token,
+    ).unwrap();
+    assert!(later.counters.verified_result_hit);
+    assert_eq!(later.hits.len(), 1);
+}
+
+#[test]
+#[ignore = "manual desktop backend cache timing and work-counter measurement"]
+fn measure_desktop_lifecycle_query_cache() {
+    use crate::backend::{OpenSpec, open};
+    use objekte_cli::arguments::Arguments;
+
+    let root = tempfile::tempdir().unwrap();
+    for n in 0..2_000 {
+        std::fs::write(
+            root.path().join(format!("{n:05}.json")),
+            format!(r#"{{"title":"needle {n}","year":2024}}"#),
+        ).unwrap();
+    }
+    let session = open(
+        &OpenSpec {
+            args: Arguments { path: vec![root.path().to_path_buf()], ..Default::default() },
+            cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
+        },
+        &CancellationToken::new(),
+    ).unwrap();
+    let view = session.repository.index().view().unwrap();
+    let spec = QuerySpec {
+        full_text: "needle".into(),
+        filter: "year >= 2024 SORT BY title ASC".into(),
+        count: true,
+        ..QuerySpec::default()
+    };
+    let mut samples = Vec::new();
+    for _ in 0..7 {
+        let page = query_page_on_view(
+            &session, &view, &spec, 0, 100, &CancellationToken::new(),
+        ).unwrap();
+        assert_eq!(page.count, Some(2_000));
+        samples.push((page.elapsed_ns, page.counters.verified_result_hit, page.counters.scanned_records));
+    }
+    eprintln!("desktop lifecycle cache samples (elapsed ns, hit, scanned): {samples:?}");
+    assert!(!samples[0].1);
+    assert!(samples[1..].iter().all(|sample| sample.1 && sample.2 == 0));
+}
+
+#[test]
 fn hundred_row_continuations_keep_equal_sort_keys_unique_at_boundaries() {
     use crate::backend::{OpenSpec, open};
     use objekte_cli::arguments::Arguments;
