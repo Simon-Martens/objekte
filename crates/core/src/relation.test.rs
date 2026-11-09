@@ -355,6 +355,11 @@ fn nested_array_occurrences_retain_every_scope_position() {
         [("A", &[0, 0][..]), ("A", &[0, 1][..]), ("B", &[1, 0][..])]
     );
     assert_eq!(contribution.record_count(), 1);
+    assert_eq!(
+        contribution.references_for_source(RecordSlot(0)).collect::<Vec<_>>(),
+        [("A", &[0, 0][..]), ("A", &[0, 1][..]), ("B", &[1, 0][..])]
+    );
+    assert_eq!(contribution.references_for_source(RecordSlot(1)).count(), 0);
     assert_eq!(contribution.declaration().target_collection, "entries");
     assert!(contribution.present().contains(0));
     assert!(contribution.nulls().is_empty());
@@ -389,6 +394,8 @@ fn projecting_relation_contributions_preserves_references_and_unknown_rows() {
         projected.references().collect::<Vec<_>>(),
         [(RecordSlot(0), "A", &[][..])]
     );
+    assert_eq!(projected.references_for_source(RecordSlot(0)).count(), 1);
+    assert_eq!(projected.references_for_source(RecordSlot(1)).count(), 0);
     assert!(projected.present().contains(0));
     assert!(projected.unavailable().contains(1));
     assert!(!projected.unavailable().contains(0));
