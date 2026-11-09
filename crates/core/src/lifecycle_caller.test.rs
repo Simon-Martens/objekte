@@ -1,5 +1,6 @@
 use super::*;
-use crate::query::QueryOptions;
+use crate::model::Value;
+use crate::query::{QueryOptions, parse_filter};
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
 
@@ -40,6 +41,14 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
     };
     assert_eq!(adapter.collections()[0].definition.name, "data");
     assert_eq!(adapter.search(&query).unwrap().count, Some(1));
+    let record_id = adapter.search(&query).unwrap().hits[0].record_id.clone();
+    let mut bound_query = query.clone();
+    bound_query.filter = Some(parse_filter("@record.id = $id").unwrap());
+    let parameters = std::collections::HashMap::from([("id".into(), Value::Id(record_id.clone()))]);
+    let bound = adapter.search_with_parameters(&bound_query, &parameters).unwrap();
+    assert_eq!(bound.count, Some(1));
+    assert_eq!(bound.hits[0].record_id, record_id);
+    assert_eq!(adapter.index().view().unwrap().search_with_parameters(&bound_query, &parameters).unwrap().count, Some(1));
     let cache = root.join("index.snapshot");
     adapter.index().flush_cache(&cache).unwrap();
     assert!(
@@ -74,6 +83,7 @@ fn adapter_routes_search_to_latest_publication_while_retaining_metadata() {
         .unwrap();
     adapter.index().delete_file(handle).unwrap();
     assert_eq!(adapter.search(&query).unwrap().count, Some(0));
+    assert_eq!(adapter.search_with_parameters(&bound_query, &parameters).unwrap().count, Some(0));
     // The compatibility facade retains configuration without pinning the old
     // indexed generation after a publication.
     assert_eq!(adapter.files().root, root);
@@ -122,6 +132,11 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
     index.add_file(&second).unwrap();
     assert_eq!(adapter.search(&query).unwrap().count, Some(2));
     assert_eq!(pinned.search(&query).unwrap().count, Some(1));
+    let mut bound_query = query.clone();
+    bound_query.filter = Some(parse_filter("name = $name").unwrap());
+    let parameters = std::collections::HashMap::from([("name".into(), Value::String("B".into()))]);
+    assert_eq!(adapter.search_with_parameters(&bound_query, &parameters).unwrap().count, Some(1));
+    assert_eq!(pinned.search_with_parameters(&bound_query, &parameters).unwrap().count, Some(0));
     let other = Index::build(
         &root,
         vec![CollectionDefinition::folder(
