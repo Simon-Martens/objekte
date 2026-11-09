@@ -2447,7 +2447,7 @@ fn search_segmented_with_context_lifecycle_budget(
                     .map_err(|message| context.recorded_error(message))?;
                 search_segmented_relations(
                     repo, query, base_active, segments, catalog, revision,
-                    &sort, &prepared.collections, Some(context), None, None,
+                    &sort, &prepared.collections, Some(context), None, None, false,
                 ).map_err(|message| context.recorded_error(message))
             } else {
                 Err(error)
@@ -2521,7 +2521,7 @@ pub(crate) fn search_active_available_with_context_lifecycle(
                 .map_err(|message| context.recorded_error(message))?;
             search_segmented_relations(
                 repo, query, base_active, &empty, catalog, revision,
-                &sort, &prepared.collections, Some(context), None, None,
+                &sort, &prepared.collections, Some(context), None, None, false,
             ).map_err(|message| context.recorded_error(message))
         }
         result => result,
@@ -2642,6 +2642,7 @@ fn search_segmented_impl(
             context,
             relation_cache.as_mut(),
             retained_budget,
+            true,
         )?;
         if result.counters.match_count_complete
             && let (Some(builder), Some((scope, key, _))) = (relation_cache, cache_key)
@@ -3189,6 +3190,7 @@ fn search_segmented_relations(
     context: Option<&ExecutionContext>,
     mut cache_builder: Option<&mut LifecycleCacheBuilder>,
     retained_budget: Option<usize>,
+    prune_segments: bool,
 ) -> Result<SearchResult, String> {
     let view =
         crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
@@ -3451,6 +3453,26 @@ fn search_segmented_relations(
             }
         }
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
+            let candidates = if prune_segments {
+                let filter_may = filter.as_ref().map(|filter| {
+                    segment_filter_bounds(&published.index, &published.active, filter, collection)
+                        .map(|bounds| bounds.may)
+                }).transpose()?;
+                let fts_may = fts.as_ref().and_then(|fts| {
+                    segment_fts_candidates(&published.index, collection, fts)
+                });
+                match (filter_may, fts_may) {
+                    (Some(filter), Some(fts)) => Some(filter & fts),
+                    (Some(filter), None) => Some(filter),
+                    (None, Some(fts)) => Some(fts),
+                    (None, None) => None,
+                }
+            } else {
+                None
+            };
+            if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
+                continue;
+            }
             for file in &published.index.files {
                 if let Some(context) = context {
                     context.check_string()?;
@@ -3458,7 +3480,10 @@ fn search_segmented_relations(
                 let ranges = file
                     .records
                     .iter()
-                    .filter(|slot| published.active.contains(**slot))
+                    .filter(|slot| {
+                        published.active.contains(**slot)
+                            && candidates.as_ref().is_none_or(|may| may.contains(slot.0))
+                    })
                     .map(|slot| {
                         let record = &published.index.records[slot.0 as usize];
                         (slot.0, record.range)
@@ -3638,6 +3663,7 @@ pub(crate) fn search_segmented_reference(
         None,
         None,
         None,
+        false,
     )
 }
 
