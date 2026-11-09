@@ -300,6 +300,41 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
             );
         }
     }
+    for (filter, expected_count) in [("kind[0] = 'Lied'", 8), ("kind[1] = 'Lied'", 0)] {
+        let query = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 2,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        let expected = static_repo.search(&query).unwrap();
+        for candidate_view in [&view, &partitioned_view] {
+            let actual = candidate_view.search(&query).unwrap();
+            assert_eq!(actual.count, expected.count, "{filter}");
+            assert_eq!(actual.count, Some(expected_count), "{filter}");
+            assert_eq!(
+                actual
+                    .hits
+                    .iter()
+                    .map(|hit| &hit.record_id)
+                    .collect::<Vec<_>>(),
+                expected
+                    .hits
+                    .iter()
+                    .map(|hit| &hit.record_id)
+                    .collect::<Vec<_>>(),
+                "{filter}"
+            );
+            assert_eq!(actual.counters.scanned_records, 8, "{filter}");
+        }
+    }
     partitioned_index.shutdown().unwrap();
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();

@@ -363,7 +363,7 @@ fn segment_sort_column_matches(
     segment: &IndexedCollectionSegment,
     logical_active: &RoaringBitmap,
     term: &BoundTerm,
-    all_only: bool,
+    ordered_only: bool,
 ) -> Option<RoaringBitmap> {
     if term.derived != Derived::None
         || term.period.is_some()
@@ -388,8 +388,8 @@ fn segment_sort_column_matches(
         return None;
     }
     // A configured numeric/temporal order is already sorted by these keys.
-    // If both endpoints satisfy a range comparison, every key in the shard
-    // does too. Reuse its active bitmap without comparing every record.
+    // When every key has the literal's type, a range predicate is one slice
+    // of that order. Null/missing or mixed-type shards keep the slower proof.
     if matches!(
         term.operator,
         Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
@@ -406,12 +406,31 @@ fn segment_sort_column_matches(
         )
         && std::mem::discriminant(first) == std::mem::discriminant(&literal)
         && std::mem::discriminant(last) == std::mem::discriminant(&literal)
-        && order_matches(first.compare(&literal, false), term.operator)
-        && order_matches(last.compare(&literal, false), term.operator)
     {
-        return Some(logical_active.clone());
+        if order_matches(first.compare(&literal, false), term.operator)
+            && order_matches(last.compare(&literal, false), term.operator)
+        {
+            return Some(logical_active.clone());
+        }
+        let lower = column.ascending.partition_point(|slot| {
+            column.keys[slot.0 as usize].compare(&literal, false) == std::cmp::Ordering::Less
+        });
+        let upper = column.ascending.partition_point(|slot| {
+            column.keys[slot.0 as usize].compare(&literal, false) != std::cmp::Ordering::Greater
+        });
+        let selected = match term.operator {
+            Operator::Gt => &column.ascending[upper..],
+            Operator::Ge => &column.ascending[lower..],
+            Operator::Lt => &column.ascending[..lower],
+            Operator::Le => &column.ascending[..upper],
+            _ => unreachable!(),
+        };
+        let mut matches = RoaringBitmap::new();
+        matches.extend(selected.iter().map(|slot| slot.0));
+        matches &= logical_active;
+        return Some(matches);
     }
-    if all_only {
+    if ordered_only {
         return None;
     }
     let mut matches = RoaringBitmap::new();
@@ -424,6 +443,32 @@ fn segment_sort_column_matches(
         }
     }
     Some(matches)
+}
+
+fn segment_positional_eq_candidates(
+    segment: &IndexedCollectionSegment,
+    logical_active: &RoaringBitmap,
+    term: &BoundTerm,
+) -> Option<RoaringBitmap> {
+    if !term.query_path.has_position
+        || term.path.root != PathRoot::Data
+        || term.related.is_some()
+        || term.rhs.is_some()
+        || term.operation.is_some()
+        || term.derived != Derived::None
+        || term.period.is_some()
+        || term.transform != Transform::Identity
+        || term.operator != Operator::Eq
+    {
+        return None;
+    }
+    // A match at a particular array position must also occur in the
+    // unpositioned value posting. Position still requires source verification.
+    segment
+        .postings
+        .fields
+        .get(&term.path.segments)?
+        .exact_set_restricted(term, &segment.logical_records, logical_active)
 }
 
 fn segment_raw_covers_identity_field(
@@ -445,10 +490,20 @@ fn segment_expr_bounds(
 ) -> SegmentCandidateBounds {
     match expr {
         BoundExpr::Term(term) => {
+            if term.query_path.has_position {
+                if let Some(matches) =
+                    segment_positional_eq_candidates(segment, logical_active, term)
+                {
+                    return SegmentCandidateBounds {
+                        may: &matches | fallback_active,
+                        must: RoaringBitmap::new(),
+                    };
+                }
+                return SegmentCandidateBounds::unknown(domain);
+            }
             if term.related.is_some()
                 || term.rhs.is_some()
                 || term.query_path.has_explicit_array_step
-                || term.query_path.has_position
             {
                 return SegmentCandidateBounds::unknown(domain);
             }
@@ -487,8 +542,7 @@ fn segment_expr_bounds(
             if term.path.root != PathRoot::Data {
                 return SegmentCandidateBounds::unknown(domain);
             }
-            if let Some(matches) =
-                segment_sort_column_matches(segment, logical_active, term, true)
+            if let Some(matches) = segment_sort_column_matches(segment, logical_active, term, true)
             {
                 return SegmentCandidateBounds {
                     may: &matches | fallback_active,
