@@ -210,6 +210,305 @@ fn compatible_move_keeps_index_contributions_and_advances_file_version() {
 }
 
 #[test]
+fn move_hashes_equal_size_equal_mtime_content_and_rejects_missing_destination() {
+    use crate::repository::Payload;
+
+    let root = test_root("move-same-metadata");
+    let original = root.join("data/original.jsonl");
+    let old_bytes = b"{\"id\":\"same\",\"name\":\"before\"}\n";
+    let new_bytes = b"{\"id\":\"same\",\"name\":\"after!\"}\n";
+    assert_eq!(old_bytes.len(), new_bytes.len());
+    std::fs::write(&original, old_bytes).unwrap();
+    let index = Index::build(
+        &root,
+        vec![intrinsic_definition("items")],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let before = index.view().unwrap();
+    let handle = before.file_handle_for_path(&original).unwrap();
+    let original_metadata = std::fs::metadata(&original).unwrap();
+    std::fs::write(&original, new_bytes).unwrap();
+    std::fs::File::options()
+        .write(true)
+        .open(&original)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(original_metadata.modified().unwrap()))
+        .unwrap();
+    let destination = root.join("data/moved.jsonl");
+    std::fs::rename(&original, &destination).unwrap();
+    assert_eq!(
+        SourceRevision::from_metadata(&std::fs::metadata(&destination).unwrap()).unwrap(),
+        SourceRevision::from_metadata(&original_metadata).unwrap()
+    );
+    let moved = index.move_file(handle, &destination).unwrap();
+    assert_eq!(moved.strategy, FileMutationStrategy::AppendReplacement);
+    assert_eq!(moved.retired_records, 1);
+    let hit = index
+        .view()
+        .unwrap()
+        .get_record("items", "same", ReturnMode::Bytes)
+        .unwrap()
+        .unwrap();
+    assert_eq!(
+        hit.payload,
+        Some(Payload::Bytes(new_bytes[..new_bytes.len() - 1].to_vec()))
+    );
+    let revision = index.status().unwrap().revision;
+    let missing = index.move_file(moved.file, &root.join("data/missing.jsonl"));
+    assert!(
+        matches!(missing, Err(IndexError::IncompatibleConfiguration(_))),
+        "{missing:?}"
+    );
+    assert_eq!(index.status().unwrap().revision, revision);
+    assert_eq!(
+        index.view().unwrap().file_handle_for_path(&destination),
+        Some(moved.file)
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn incompatible_moves_reindex_collection_reader_and_filename_identity() {
+    let root = test_root("move-membership");
+    std::fs::create_dir_all(root.join("data/left")).unwrap();
+    std::fs::create_dir_all(root.join("data/right")).unwrap();
+    let original = root.join("data/left/item.jsonl");
+    std::fs::write(&original, b"{\"id\":\"same\"}\n").unwrap();
+    let mut left = intrinsic_definition("left");
+    left.source_path = "data/left".into();
+    let mut right = intrinsic_definition("right");
+    right.source_path = "data/right".into();
+    let index = Index::build(&root, vec![left, right], RepositoryOptions::default()).unwrap();
+    let handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&original)
+        .unwrap();
+    let destination = root.join("data/right/item.jsonl");
+    std::fs::rename(&original, &destination).unwrap();
+    let moved = index.move_file(handle, &destination).unwrap();
+    assert_eq!(moved.strategy, FileMutationStrategy::AppendReplacement);
+    let view = index.view().unwrap();
+    assert!(
+        view.get_record("left", "same", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert_eq!(
+        view.get_record("right", "same", ReturnMode::Locator)
+            .unwrap()
+            .unwrap()
+            .file_path,
+        std::path::Path::new("data/right/item.jsonl")
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+
+    let root = test_root("move-reader");
+    let original = root.join("data/item.jsonl");
+    std::fs::write(&original, b"{\"id\":\"same\"}\n").unwrap();
+    let mut json = intrinsic_definition("json");
+    json.format = SourceFormat::Json;
+    let index = Index::build(
+        &root,
+        vec![intrinsic_definition("jsonl"), json],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&original)
+        .unwrap();
+    let destination = root.join("data/item.json");
+    std::fs::rename(&original, &destination).unwrap();
+    let moved = index.move_file(handle, &destination).unwrap();
+    assert_eq!(moved.strategy, FileMutationStrategy::AppendReplacement);
+    let view = index.view().unwrap();
+    assert!(
+        view.get_record("jsonl", "same", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert!(
+        view.get_record("json", "same", ReturnMode::Bytes)
+            .unwrap()
+            .is_some()
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+
+    let root = test_root("move-filename-id");
+    let original = root.join("data/old.json");
+    std::fs::write(&original, b"{\"name\":\"same\"}\n").unwrap();
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Filename;
+    let index = Index::build(&root, vec![definition], RepositoryOptions::default()).unwrap();
+    let handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&original)
+        .unwrap();
+    let destination = root.join("data/new.json");
+    std::fs::rename(&original, &destination).unwrap();
+    let moved = index.move_file(handle, &destination).unwrap();
+    assert_eq!(moved.strategy, FileMutationStrategy::AppendReplacement);
+    let view = index.view().unwrap();
+    assert!(
+        view.get_record("items", "old", ReturnMode::Locator)
+            .unwrap()
+            .is_none()
+    );
+    assert!(
+        view.get_record("items", "new", ReturnMode::Locator)
+            .unwrap()
+            .is_some()
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
+    use crate::repository::Payload;
+
+    let root = test_root("move-persistence-routing");
+    let original = root.join("data/original.jsonl");
+    let other = root.join("data/a-other.jsonl");
+    std::fs::write(
+        &original,
+        b"{\"id\":\"A\",\"name\":\"alpha\"}\n{\"id\":\"B\",\"name\":\"beta\"}\n",
+    )
+    .unwrap();
+    std::fs::write(&other, b"{\"id\":\"C\",\"name\":\"gamma\"}\n").unwrap();
+    let definition = intrinsic_definition("items");
+    let index = Index::build(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let pinned = index.view().unwrap();
+    let handle = pinned.file_handle_for_path(&original).unwrap();
+    let original_metadata = std::fs::metadata(&original).unwrap();
+    let destination = root.join("data/z-moved.jsonl");
+    std::fs::rename(&original, &destination).unwrap();
+    let moved = index.move_file(handle, &destination).unwrap();
+    assert_eq!(moved.strategy, FileMutationStrategy::ContentPreservingMove);
+    assert_eq!(moved.retired_records, 0);
+
+    let query = |filter: Option<&str>, mode| Query {
+        collections: vec!["items".into()],
+        fts: None,
+        filter: filter.map(|text| parse_filter(text).unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("@file.path", false)],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: mode,
+            evidence: false,
+        },
+    };
+    let old_hit = pinned
+        .get_record("items", "A", ReturnMode::Locator)
+        .unwrap()
+        .unwrap();
+    assert_eq!(
+        old_hit.file_path,
+        std::path::Path::new("data/original.jsonl")
+    );
+    assert!(pinned.get_record("items", "A", ReturnMode::Bytes).is_err());
+
+    let check_current = |index: &Index| {
+        let view = index.view().unwrap();
+        let all = view.search(&query(None, ReturnMode::Locator)).unwrap();
+        assert_eq!(all.count, Some(3));
+        assert_eq!(
+            all.hits
+                .iter()
+                .map(|hit| hit.file_path.as_path())
+                .collect::<Vec<_>>(),
+            [
+                std::path::Path::new("data/a-other.jsonl"),
+                std::path::Path::new("data/z-moved.jsonl"),
+                std::path::Path::new("data/z-moved.jsonl"),
+            ]
+        );
+        let filtered = view
+            .search(&query(Some("@file.path ~ 'z-moved'"), ReturnMode::Bytes))
+            .unwrap();
+        assert_eq!(filtered.count, Some(2));
+        assert!(
+            filtered
+                .hits
+                .iter()
+                .all(|hit| hit.file_path == std::path::Path::new("data/z-moved.jsonl"))
+        );
+        let direct = view
+            .get_record("items", "A", ReturnMode::Bytes)
+            .unwrap()
+            .unwrap();
+        assert_eq!(direct.file_path, std::path::Path::new("data/z-moved.jsonl"));
+        assert_eq!(
+            direct.payload,
+            Some(Payload::Bytes(
+                b"{\"id\":\"A\",\"name\":\"alpha\"}".to_vec()
+            ))
+        );
+    };
+    check_current(&index);
+    let unrelated = b"{\"id\":\"X\",\"name\":\"xxxxx\"}\n{\"id\":\"Y\",\"name\":\"xxxx\"}\n";
+    assert_eq!(unrelated.len(), original_metadata.len() as usize);
+    std::fs::write(&original, unrelated).unwrap();
+    std::fs::File::options()
+        .write(true)
+        .open(&original)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(original_metadata.modified().unwrap()))
+        .unwrap();
+    assert_eq!(
+        SourceRevision::from_metadata(&std::fs::metadata(&original).unwrap()).unwrap(),
+        SourceRevision::from_metadata(&original_metadata).unwrap()
+    );
+    assert_ne!(
+        std::fs::metadata(&original).unwrap().created().ok(),
+        original_metadata.created().ok()
+    );
+    let old_read = pinned.get_record("items", "A", ReturnMode::Bytes);
+    assert!(old_read.is_err(), "{old_read:?}");
+    if let Ok(old_page) = pinned.search(&query(None, ReturnMode::Bytes)) {
+        assert!(old_page.hits.iter().all(|hit| {
+            hit.payload
+                != Some(Payload::Bytes(
+                    b"{\"id\":\"X\",\"name\":\"xxxxx\"}".to_vec(),
+                ))
+        }));
+    }
+    std::fs::remove_file(&original).unwrap();
+
+    let cache = root.join("cache.bin");
+    index.flush_cache(&cache).unwrap();
+    let restored = Index::load_cache(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        &cache,
+    )
+    .unwrap();
+    check_current(&restored);
+    restored.compact().unwrap();
+    check_current(&restored);
+    restored.wait_for_reconciliation().unwrap();
+    check_current(&restored);
+    restored.shutdown().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 #[ignore = "large move performance comparison; run explicitly in release mode"]
 fn large_compatible_move_skips_extraction_and_posting_rewrites() {
     use std::io::Write;
