@@ -7,6 +7,87 @@ use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::source::{SourceFormat, SourceRegistry};
 
 #[test]
+fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-segment-batch-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let mut definition = CollectionDefinition::folder("data", ".", SourceFormat::JsonLines);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["n".into()],
+            kind: LogicalType::Number,
+            required: false,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    let mut inputs = Vec::new();
+    for (number, bytes) in [b"{\"n\":1}\n".as_slice(), b"{bad}\n".as_slice()]
+        .into_iter()
+        .enumerate()
+    {
+        let name = format!("{number}.jsonl");
+        std::fs::write(root.join(&name), bytes).unwrap();
+        inputs.push(SourceFileInput {
+            id: FileId(number as u32),
+            relative_path: name.clone().into(),
+            revision: SourceRevision::from_metadata(&std::fs::metadata(root.join(name)).unwrap())
+                .unwrap(),
+            created_ns: None,
+        });
+    }
+    let batch = super::super::process_batch(
+        &root,
+        &definition,
+        CollectionId(0),
+        &source,
+        &[FileId(0), FileId(1)],
+        &inputs,
+        BigramAlphabet::Ascii,
+        InferenceConfig::default(),
+        1,
+    )
+    .unwrap();
+    assert_eq!(batch.files.len(), 2);
+    let mut admission = SegmentAdmission::new(CollectionId(0), &source);
+    admission.admit_batch(batch).unwrap();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let indexed = admission
+        .seal()
+        .into_indexed(
+            &definition,
+            BigramAlphabet::Ascii,
+            InferenceConfig::default(),
+            1,
+            &pool,
+        )
+        .unwrap();
+    assert_eq!(indexed.files.len(), 2);
+    assert_eq!(indexed.records.len(), 2);
+    assert_eq!(indexed.files[0].records, [RecordSlot(0)]);
+    assert_eq!(indexed.files[1].records, [RecordSlot(1)]);
+    assert_eq!(indexed.files[1].entry.diagnostics.len(), 1);
+    indexed.raw.validate(2).unwrap();
+    indexed.postings.validate_eligible(2, 1).unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn admits_multiple_files_and_chunks_with_sparse_file_ids() {
     let root = std::env::temp_dir().join(format!(
         "objekte-segment-admission-{}-{}",

@@ -7,6 +7,116 @@ use crate::repository::{Repository, RepositoryOptions, SnapshotMode};
 use crate::source::{SourceFormat, TextSegment};
 use crate::workload::ReturnMode;
 
+/// Diagnostic prototype for a direct batch-to-shard fresh build. This only
+/// measures the dominant `contents` collection and does not publish an index.
+#[test]
+#[ignore = "manual real-fixture direct-build feasibility measurement"]
+fn measure_direct_shard_build_from_real_worker_batches() {
+    let root = std::path::PathBuf::from(
+        std::env::var_os("OBJEKTE_DIRECT_SHARD_FIXTURE")
+            .expect("set OBJEKTE_DIRECT_SHARD_FIXTURE to a Musenalm root"),
+    );
+    let configuration = crate::repository_configuration::load_repository_configuration(&root)
+        .unwrap();
+    let definitions = configuration.definitions;
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::Disabled,
+        ..Default::default()
+    };
+    let baseline_started = std::time::Instant::now();
+    let repository = Repository::open_with_options(&root, definitions, options).unwrap();
+    eprintln!("direct shard prototype static_build={:?}", baseline_started.elapsed());
+    let collection = repository
+        .collections()
+        .iter()
+        .find(|collection| collection.definition.name == "contents")
+        .unwrap();
+    let id = collection.generation.collection;
+    let definition = Arc::new(collection.definition.clone());
+    let source = collection.source.clone();
+    let source_files = Arc::new(
+        repository
+            .files()
+            .files
+            .iter()
+            .map(SourceFileInput::from_entry)
+            .collect::<Vec<_>>(),
+    );
+    let jobs = file_batches(&collection.generation.files, repository.files())
+        .into_iter()
+        .map(|files| RepositoryFileJob {
+            collection_index: id.0 as usize,
+            collection: id,
+            definition: Arc::clone(&definition),
+            source: source.clone(),
+            files: files.to_vec(),
+        })
+        .collect::<Vec<_>>();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(repository.startup().build_workers)
+        .build()
+        .unwrap();
+    let new_admission = || {
+        SegmentAdmission::with_limits(
+            id,
+            &source,
+            mutation_segment::SegmentLimits {
+                files: 2_048,
+                records: 2_048,
+                source_bytes: 64 * 1024 * 1024,
+            },
+        )
+    };
+    let mut admission = new_admission();
+    let mut chunks = Vec::new();
+    let started = std::time::Instant::now();
+    let stats = process_repository_file_batches(
+        &pool,
+        Arc::new(root.clone()),
+        &jobs,
+        source_files,
+        options.bigram_alphabet,
+        options.inference,
+        |_, batch| {
+            if admission.record_count() > 0
+                && (admission.record_count() + batch.records.len() > 2_048
+                    || admission.file_count() + batch.files.len() > 2_048)
+            {
+                chunks.push(std::mem::replace(&mut admission, new_admission()).seal());
+            }
+            admission.admit_batch(batch)
+        },
+    )
+    .unwrap();
+    if admission.file_count() > 0 {
+        chunks.push(admission.seal());
+    }
+    let extracted = started.elapsed();
+    let started = std::time::Instant::now();
+    let shards = chunks
+        .into_iter()
+        .map(|chunk| {
+            chunk.into_indexed(
+                &definition,
+                options.bigram_alphabet,
+                options.inference,
+                repository.collections().len(),
+                &pool,
+            )
+        })
+        .collect::<Result<Vec<_>, _>>()
+        .unwrap();
+    let finalized = started.elapsed();
+    let records = shards.iter().map(|shard| shard.records.len()).sum::<usize>();
+    assert_eq!(records, collection.generation.records.len());
+    assert!(shards.iter().all(|shard| shard.records.len() <= 2_048));
+    eprintln!(
+        "direct shard prototype files={} records={} shards={} extract_admit={extracted:?} finalize={finalized:?} jobs={} peak_active={}",
+        collection.generation.files.len(), records, shards.len(), jobs.len(),
+        stats.peak_active_jobs,
+    );
+}
+
 #[test]
 fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
     let root = std::env::temp_dir().join(format!(
