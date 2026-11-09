@@ -257,6 +257,22 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(all.counters.files_opened, 1);
     assert!(all.progress.peak_buffered_bytes <= 2048);
     assert_eq!(streamed_ids, expected.hits.iter().map(|hit| hit.record_id.clone()).collect::<Vec<_>>());
+    let mut fallback_query = all_query.clone();
+    fallback_query.options.sort.push(SortField::simple("kind", false));
+    let bounded_failure = search_stream_segmented_with_context_lifecycle(
+        &repo, &fallback_query, ResultScope::All { offset: 0 },
+        StreamOptions {
+            max_event_bytes: 1024,
+            max_buffered_bytes: 1024,
+            ..StreamOptions::default()
+        },
+        &ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(), Some(CancellationToken::new()),
+        ), &segment_only, &segments, &catalog, revision,
+        &mut |_| Ok(StreamControl::Continue), None,
+    );
+    assert!(matches!(bounded_failure, Err(StreamError::Resource { .. })));
     let mut query = Query {
         collections: vec!["data".into()],
         filter: Some(parse_filter("!(kind = 'b')").unwrap()),

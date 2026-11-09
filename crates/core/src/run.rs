@@ -2004,6 +2004,7 @@ struct MergedPageHit {
     key: RankKey,
     hit: SearchHit,
     segment: Option<(usize, usize)>,
+    retained_bytes: usize,
 }
 
 /// Optional complete ordering captured during an already exhaustive lifecycle
@@ -2114,19 +2115,45 @@ impl Ord for MergedPageHit {
     }
 }
 
-fn offer_merged(winners: &mut BinaryHeap<MergedPageHit>, cap: usize, candidate: MergedPageHit) {
+fn offer_merged(
+    winners: &mut BinaryHeap<MergedPageHit>,
+    cap: usize,
+    mut candidate: MergedPageHit,
+    budget: Option<(usize, &ExecutionContext)>,
+    used_bytes: &mut usize,
+) -> Result<(), String> {
     if cap == 0 {
-        return;
+        return Ok(());
     }
-    if winners.len() < cap {
-        winners.push(candidate);
-    } else if winners
-        .peek()
-        .is_some_and(|worst| candidate.key < worst.key)
+    let replace = if winners.len() < cap {
+        None
+    } else if let Some(worst) = winners.peek()
+        && candidate.key < worst.key
     {
+        Some(worst.retained_bytes)
+    } else {
+        return Ok(());
+    };
+    if let Some((limit, context)) = budget {
+        candidate.retained_bytes = std::mem::size_of::<MergedPageHit>()
+            .saturating_add(usize::try_from(rank_key_bytes(&candidate.key)).unwrap_or(usize::MAX))
+            .saturating_add(crate::streaming::hit_bytes(&candidate.hit));
+        let next = used_bytes
+            .checked_sub(replace.unwrap_or(0))
+            .and_then(|bytes| bytes.checked_add(candidate.retained_bytes))
+            .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered result memory overflow"))?;
+        if next > limit {
+            return Err(context.fail(ExecutionErrorKind::Resource, "ordered result exceeds stream memory budget"));
+        }
+        *used_bytes = next;
+    }
+    if replace.is_none() {
+        winners.push(candidate);
+    } else {
         winners.pop();
         winners.push(candidate);
     }
+    Ok(())
 }
 
 fn segment_rank_key(
@@ -2353,7 +2380,7 @@ pub(crate) fn search_segmented_lifecycle(
     revision: IndexRevision,
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
-    match search_segmented_impl(repo, query, base_active, segments, catalog, revision, None, cache) {
+    match search_segmented_impl(repo, query, base_active, segments, catalog, revision, None, cache, None) {
         Err(_error) if has_unavailable_active_source(repo, base_active, segments, catalog) => {
             search_segmented_reference(repo, query, base_active, segments, catalog, revision)
         }
@@ -2385,9 +2412,26 @@ pub(crate) fn search_segmented_with_context_lifecycle(
     context: &ExecutionContext,
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
+    search_segmented_with_context_lifecycle_budget(
+        repo, query, base_active, segments, catalog, revision, context, cache, None,
+    )
+}
+
+#[allow(clippy::too_many_arguments)]
+fn search_segmented_with_context_lifecycle_budget(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    context: &ExecutionContext,
+    cache: Option<LifecycleCacheScope<'_>>,
+    retained_budget: Option<usize>,
+) -> Result<SearchResult, crate::streaming::ExecutionError> {
     context.check()?;
     let result = search_segmented_impl(
-        repo, query, base_active, segments, catalog, revision, Some(context), cache,
+        repo, query, base_active, segments, catalog, revision, Some(context), cache, retained_budget,
     );
     match result {
         Err(message) => {
@@ -2402,7 +2446,7 @@ pub(crate) fn search_segmented_with_context_lifecycle(
                     .map_err(|message| context.recorded_error(message))?;
                 search_segmented_relations(
                     repo, query, base_active, segments, catalog, revision,
-                    &sort, &prepared.collections, Some(context), None,
+                    &sort, &prepared.collections, Some(context), None, None,
                 ).map_err(|message| context.recorded_error(message))
             } else {
                 Err(error)
@@ -2476,7 +2520,7 @@ pub(crate) fn search_active_available_with_context_lifecycle(
                 .map_err(|message| context.recorded_error(message))?;
             search_segmented_relations(
                 repo, query, base_active, &empty, catalog, revision,
-                &sort, &prepared.collections, Some(context), None,
+                &sort, &prepared.collections, Some(context), None, None,
             ).map_err(|message| context.recorded_error(message))
         }
         result => result,
@@ -2541,6 +2585,7 @@ fn search_segmented_impl(
     revision: IndexRevision,
     context: Option<&ExecutionContext>,
     cache: Option<LifecycleCacheScope<'_>>,
+    retained_budget: Option<usize>,
 ) -> Result<SearchResult, String> {
     if let Some(context) = context {
         context.check_string()?;
@@ -2548,7 +2593,7 @@ fn search_segmented_impl(
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
     }
-    let cache_key = if let Some(scope) = cache
+    let cache_key = if retained_budget.is_none() && let Some(scope) = cache
         && context.is_none_or(|context| context.limits == ExecutionLimits::default())
     {
         let key = crate::verified::lifecycle_key(query, scope.instance_id, revision.0)?;
@@ -2595,6 +2640,7 @@ fn search_segmented_impl(
             &prepared.collections,
             context,
             relation_cache.as_mut(),
+            retained_budget,
         )?;
         if result.counters.match_count_complete
             && let (Some(builder), Some((scope, key, _))) = (relation_cache, cache_key)
@@ -2638,6 +2684,8 @@ fn search_segmented_impl(
     let base_count_complete = base.counters.match_count_complete;
     let mut counters = base.counters;
     let mut winners = BinaryHeap::new();
+    let mut winner_bytes = 0usize;
+    let winner_budget = retained_budget.zip(context);
     for mut hit in base.hits {
         let collection_index = repo
             .collections
@@ -2663,8 +2711,11 @@ fn search_segmented_impl(
                 key,
                 hit,
                 segment: None,
+                retained_bytes: 0,
             },
-        );
+            winner_budget,
+            &mut winner_bytes,
+        )?;
     }
     let mut delta_opened = HashSet::new();
     for (collection_index, filter, fts) in prepared.collections {
@@ -2725,8 +2776,11 @@ fn search_segmented_impl(
                             key,
                             hit,
                             segment: Some((collection_index, segment_index)),
+                            retained_bytes: 0,
                         },
-                    );
+                        winner_budget,
+                        &mut winner_bytes,
+                    )?;
                 }
                 continue;
             }
@@ -2895,8 +2949,11 @@ fn search_segmented_impl(
                                 key,
                                 hit,
                                 segment: Some((collection_index, segment_index)),
+                                retained_bytes: 0,
                             },
-                        );
+                            winner_budget,
+                            &mut winner_bytes,
+                        )?;
                     }
                 }
             }
@@ -3124,6 +3181,7 @@ fn search_segmented_relations(
     prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
     context: Option<&ExecutionContext>,
     mut cache_builder: Option<&mut LifecycleCacheBuilder>,
+    retained_budget: Option<usize>,
 ) -> Result<SearchResult, String> {
     let view =
         crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
@@ -3133,6 +3191,8 @@ fn search_segmented_relations(
         .checked_add(query.options.limit)
         .ok_or("page size overflow")?;
     let mut winners = BinaryHeap::new();
+    let mut winner_bytes = 0usize;
+    let winner_budget = retained_budget.zip(context);
     let mut counters = WorkCounters::default();
     let mut total = 0u64;
     let mut opened = HashSet::new();
@@ -3283,8 +3343,11 @@ fn search_segmented_relations(
                     segment: address
                         .segment
                         .map(|segment_index| (collection_index, segment_index)),
+                    retained_bytes: 0,
                 },
-            );
+                winner_budget,
+                &mut winner_bytes,
+            )?;
             Ok(())
         };
         let collection = &repo.collections[collection_index];
@@ -3565,6 +3628,7 @@ pub(crate) fn search_segmented_reference(
         revision,
         &sort,
         &prepared.collections,
+        None,
         None,
         None,
     )
@@ -4303,14 +4367,17 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         Ok(None) => {}
         Err(message) => return segmented_stream_error(&mut delivery, context, message),
     }
-    let mut result = match search_segmented_with_context_lifecycle(
+    let mut result = match search_segmented_with_context_lifecycle_budget(
         repo, &request, base_active, segments, catalog, revision, context, cache,
+        all.then(|| delivery.max_buffered_bytes() / 2),
     ) {
         Ok(result) => result,
         Err(error) => return segmented_stream_error(&mut delivery, context, error.message),
     };
     if let Err(message) = delivery.check_buffer(
-        result.hits.iter().map(crate::streaming::hit_bytes).sum(),
+        result.hits.iter().fold(0usize, |bytes, hit| {
+            bytes.saturating_add(crate::streaming::hit_bytes(hit))
+        }),
     ) {
         return segmented_stream_error(&mut delivery, context, message);
     }
