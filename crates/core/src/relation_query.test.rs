@@ -630,6 +630,91 @@ fn definition(name: &str, schema: Schema) -> CollectionDefinition {
     }
 }
 
+#[test]
+fn lifecycle_relation_and_exact_local_id_use_direct_witness() {
+    use crate::inventory::SourceRevision;
+    use crate::lifecycle::Index;
+
+    let (root, definitions) = fixture();
+    let index = Index::build(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..RepositoryOptions::default()
+        },
+    ).unwrap();
+    let view = index.view().unwrap();
+    for filter in [
+        "entry.title = 'Hymn' && @record.id = 'm1'",
+        "@record.id = 'm1' && entry.title = 'Hymn'",
+        "entry.title = 'Hymn' && @record.id = 'm2'",
+    ] {
+        let request = query("mentions", Some(filter), None, None, false);
+        let expected = view.search_reference(&request).unwrap();
+        let actual = view.search(&request).unwrap();
+        assert_eq!(actual.count, expected.count, "{filter}");
+        assert_eq!(actual.hits, expected.hits, "{filter}");
+        assert_eq!(actual.counters.scanned_records, 0, "{filter}");
+    }
+    let target = root.join("entries/a.json");
+    let metadata = std::fs::metadata(&target).unwrap();
+    std::fs::rename(&target, root.join("entries/hidden-a.json")).unwrap();
+    std::fs::write(&target, vec![b'x'; metadata.len() as usize]).unwrap();
+    std::fs::File::open(&target).unwrap().set_times(
+        std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()),
+    ).unwrap();
+    assert_eq!(
+        SourceRevision::from_metadata(&std::fs::metadata(&target).unwrap()).unwrap(),
+        SourceRevision::from_metadata(&metadata).unwrap(),
+    );
+    let mut bytes = query(
+        "mentions", Some("entry.title = 'Hymn' && @record.id = 'm1'"),
+        None, None, false,
+    );
+    bytes.options.return_mode = ReturnMode::Bytes;
+    let stale = view.search(&bytes).unwrap();
+    assert_eq!(stale.count, None);
+    assert!(!stale.counters.match_count_complete);
+    assert!(stale.counters.source_unavailable_events > 0);
+    assert!(stale.hits.is_empty());
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn lifecycle_related_sort_uses_target_stored_column() {
+    use crate::lifecycle::Index;
+    use crate::model::FieldPath;
+
+    let (root, mut definitions) = fixture();
+    definitions[0].sort_fields.push(FieldPath::parse("title").unwrap());
+    let index = Index::build(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..RepositoryOptions::default()
+        },
+    ).unwrap();
+    let view = index.view().unwrap();
+    let mut request = query("mentions", Some("entry.title != 'Missing'"), None, None, false);
+    request.options.sort = vec![crate::execution_options::SortField::computed(
+        crate::workload::SortExpression {
+            path: "entry.title".into(), binding: None, reducer: None,
+        },
+        false,
+    )];
+    let expected = view.search_reference(&request).unwrap();
+    let actual = view.search(&request).unwrap();
+    assert_eq!(actual.count, expected.count);
+    assert_eq!(actual.hits, expected.hits);
+    assert_eq!(actual.counters.scanned_records, 0);
+    assert_eq!(actual.counters.sort_target_reads, 0);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn fixture() -> (PathBuf, Vec<CollectionDefinition>) {
     let root = std::env::temp_dir().join(format!(
         "objekte-relation-query-{}-{:?}",

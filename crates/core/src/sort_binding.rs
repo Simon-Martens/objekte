@@ -478,6 +478,28 @@ impl ComputedSort {
         reduced.finish(self)
     }
 
+    /// A simple one-hop related sort can reuse the target's resident key.
+    /// The target column has the same collection collation as this computed
+    /// expression; array and transformed paths retain source evaluation.
+    pub(crate) fn direct_related_target_column(
+        &self,
+        hop: &BoundRelationHop,
+    ) -> Option<&str> {
+        let (hops, terminal) = self.related.as_ref()?;
+        if hops.as_slice() != std::slice::from_ref(hop)
+            || self.reducer.is_some()
+            || !matches!(self.transform, SortTransform::Identity)
+            || terminal.field.root != PathRoot::Data
+            || terminal.has_explicit_array_step
+            || terminal.has_position
+            || terminal.field.segments.len() != 1
+            || terminal.steps.iter().any(|step| !matches!(step, PathStep::Field(_)))
+        {
+            return None;
+        }
+        Some(&terminal.display)
+    }
+
     #[allow(clippy::too_many_arguments)]
     fn visit_related_merged(
         &self,

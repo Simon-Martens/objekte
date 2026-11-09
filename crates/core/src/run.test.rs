@@ -2767,7 +2767,7 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     assert_eq!(selective_result.hits, selective_reference.hits);
     assert_eq!(selective_result.count, selective_reference.count);
     assert!(selective_result.counters.scanned_records < selective_reference.counters.scanned_records);
-    assert_eq!(selective_result.counters.scanned_records, 2); // one indexed match and one raw fallback
+    assert_eq!(selective_result.counters.scanned_records, 0); // both terms are proven by postings
     let related_fts = Query {
         filter: None,
         fts: Some(crate::query::FtsQuery {
@@ -2809,6 +2809,7 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     assert!(no_count_warm.counters.verified_result_hit);
     assert_eq!(no_count_warm.hits[0].record_id, cold.hits[0].record_id);
     index.configure_verified_cache(0).unwrap();
+    page_query.options.return_mode = ReturnMode::Bytes;
     let missing_target = root.join("targets/t1-missing.json");
     std::fs::rename(root.join("targets/t1.json"), &missing_target).unwrap();
     let unavailable = view.search(&page_query).unwrap();
@@ -2816,6 +2817,7 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     assert!(unavailable.counters.source_unavailable_events > 0);
     let mut exact_target = page_query.clone();
     exact_target.filter = Some(parse_filter("entry.title = 'Needle'").unwrap());
+    exact_target.options.return_mode = ReturnMode::Bytes;
     let unavailable_exact = view.search(&exact_target).unwrap();
     assert_eq!(unavailable_exact.count, None);
     assert!(unavailable_exact.counters.source_unavailable_events > 0);

@@ -3626,18 +3626,36 @@ fn try_direct_relation_page(
     mut cache_builder: Option<&mut LifecycleCacheBuilder>,
     retained_budget: Option<usize>,
 ) -> Result<Option<SearchResult>, String> {
-    if query.options.return_mode != ReturnMode::Locator
-        || sort.bound.has_computed
-        || prepared.len() != 1
-    {
+    if query.options.return_mode != ReturnMode::Locator || prepared.len() != 1 {
         return Ok(None);
     }
     let (source_index, filter, fts) = &prepared[0];
-    let (hop, predicate, evidence) = if let (Some(BoundExpr::Term(term)), None) = (filter, fts) {
+    let (hop, predicate, evidence, local_filter) = if let (Some(filter), None) = (filter, fts) {
+        let (term, local_filter) = match filter {
+            BoundExpr::Term(term) => (term, None),
+            BoundExpr::And(parts) if parts.len() == 2 => {
+                let first = &parts[0];
+                let second = &parts[1];
+                if let BoundExpr::Term(term) = first
+                    && eligible_one_hop_relation_term(repo, term).is_some()
+                    && matches!(second, BoundExpr::Term(_))
+                {
+                    (term, Some(second))
+                } else if let BoundExpr::Term(term) = second
+                    && eligible_one_hop_relation_term(repo, term).is_some()
+                    && matches!(first, BoundExpr::Term(_))
+                {
+                    (term, Some(first))
+                } else {
+                    return Ok(None);
+                }
+            }
+            _ => return Ok(None),
+        };
         let Some((hop, terminal)) = eligible_one_hop_relation_term(repo, term) else {
             return Ok(None);
         };
-        let evidence = if query.options.evidence
+        let mut evidence = if query.options.evidence
             && term.derived == Derived::None
             && !matches!(term.operator, Operator::Ne | Operator::NotContains)
         {
@@ -3649,7 +3667,16 @@ fn try_direct_relation_page(
         } else {
             Vec::new()
         };
-        (hop, DirectRelationPredicate::Term(terminal), evidence)
+        if query.options.evidence
+            && let Some(BoundExpr::Term(local)) = local_filter
+            && local.derived == Derived::None
+            && !matches!(local.operator, Operator::Ne | Operator::NotContains)
+        {
+            evidence.push(local.query_path.display.clone());
+            evidence.sort();
+            evidence.dedup();
+        }
+        (hop, DirectRelationPredicate::Term(terminal), evidence, local_filter)
     } else if let (None, Some(fts)) = (filter, fts)
         && let [field] = fts.fields.as_slice()
         && let Some(hops) = field.related.as_ref()
@@ -3665,7 +3692,7 @@ fn try_direct_relation_page(
         } else {
             Vec::new()
         };
-        (hop, DirectRelationPredicate::Fts(local), evidence)
+        (hop, DirectRelationPredicate::Fts(local), evidence, None)
     } else {
         return Ok(None);
     };
@@ -3677,12 +3704,66 @@ fn try_direct_relation_page(
     }
     let target_index = hop.to.0 as usize;
     let target_collection = &repo.collections[target_index];
+    let mut local_proofs = Vec::new();
+    if let Some(local_filter) = local_filter {
+        for published in segments[*source_index].iter() {
+            let bounds = segment_filter_bounds(
+                &published.index,
+                &published.active,
+                local_filter,
+                &repo.collections[*source_index],
+            )?;
+            // Data predicates cannot match a raw fallback. Prove only the
+            // logical source domain used by the relation reverse posting.
+            let logical = &published.active.bitmap() & &published.index.logical_records;
+            let may = &bounds.may & &logical;
+            let must = &bounds.must & &logical;
+            if may != must {
+                return Ok(None);
+            }
+            local_proofs.push(must);
+        }
+    }
     let source_relation = repo.collections[*source_index]
         .relations
         .get(hop.relation.ordinal as usize)
         .ok_or("direct relation declaration missing")?;
+    let direct_sort_column = if sort.bound.has_computed {
+        let Some([term]) = sort.bound.terms[*source_index].as_deref() else {
+            return Ok(None);
+        };
+        let BoundSortSource::Computed(computed) = &term.source else {
+            return Ok(None);
+        };
+        let Some(path) = computed.direct_related_target_column(hop) else {
+            return Ok(None);
+        };
+        if source_relation.declaration.cardinality != crate::relation::RelationCardinality::One {
+            return Ok(None);
+        }
+        let field = FieldPath::parse(path)?;
+        if !target_collection.definition.schema.fields()
+            .get(&field.segments).is_some_and(|field| !field.multi)
+        {
+            return Ok(None);
+        }
+        for published in segments[target_index].iter() {
+            let Ok(column) = published.index.sorting.column(path) else {
+                return Ok(None);
+            };
+            if column.locale != target_collection.definition.sort_locale
+                || column.options != target_collection.definition.sort_options
+            {
+                return Ok(None);
+            }
+        }
+        Some(path.to_owned())
+    } else {
+        None
+    };
     let source_path = &source_relation.declaration.path;
     let mut target_ids = HashSet::new();
+    let mut target_sort_keys = HashMap::new();
     let mut counters = WorkCounters::default();
     let route_budget = retained_budget
         .unwrap_or(64 * 1024 * 1024)
@@ -3698,7 +3779,6 @@ fn try_direct_relation_page(
         route_bytes = next;
         true
     };
-    let mut checked_target_files = HashSet::new();
     for published in segments[target_index].iter() {
         let segment = &published.index;
         let (may, must) = match &predicate {
@@ -3733,15 +3813,8 @@ fn try_direct_relation_page(
                 continue;
             }
             let matched = if must.as_ref().is_some_and(|must| must.contains(slot)) {
-                if checked_target_files.insert(resolved.file.id.0) {
-                    let path = repo.files.root.join(&resolved.file.relative_path);
-                    if RecordRangeReader::open_checked_with_execution(
-                        &path, resolved.file.revision, resolved.file.created_ns,
-                        catalog.fingerprint(resolved.file.id), context,
-                    ).is_err() {
-                        return Ok(None);
-                    }
-                }
+                // This is an index-only Locator/count proof. Actual payload or
+                // residual reads use the checked pinned source identity.
                 true
             } else {
                 let path = repo.files.root.join(&resolved.file.relative_path);
@@ -3786,8 +3859,23 @@ fn try_direct_relation_page(
             if matched {
                 counters.relation_target_matches += 1;
                 if !target_ids.contains(&resolved.record.id.0) {
-                    if !reserve_route(resolved.record.id.0.len().saturating_add(64)) {
+                    let sort_key = if let Some(path) = direct_sort_column.as_deref() {
+                        Some(segment.sorting.key(path, RecordSlot(slot))?.clone())
+                    } else {
+                        None
+                    };
+                    let sort_bytes = sort_key.as_ref().map_or(0, |key| {
+                        resolved.record.id.0.len()
+                            .saturating_add(crate::sort_binding::key_bytes(key))
+                            .saturating_add(64)
+                    });
+                    if !reserve_route(
+                        resolved.record.id.0.len().saturating_add(64).saturating_add(sort_bytes),
+                    ) {
                         return Ok(None);
+                    }
+                    if let Some(key) = sort_key {
+                        target_sort_keys.insert(resolved.record.id.0.clone(), key);
                     }
                     target_ids.insert(resolved.record.id.0.clone());
                 }
@@ -3795,8 +3883,6 @@ fn try_direct_relation_page(
         }
     }
     let mut source_candidates = Vec::new();
-    let mut source_files = HashSet::new();
-    let mut source_checks = Vec::new();
     for (segment_index, published) in segments[*source_index].iter().enumerate() {
         let Some(posting) = published.index.postings.fields.get(source_path) else {
             return Ok(None);
@@ -3812,37 +3898,13 @@ fn try_direct_relation_page(
         }
         may &= published.active.bitmap();
         may &= &published.index.logical_records;
+        if local_filter.is_some() {
+            may &= &local_proofs[segment_index];
+        }
         if !reserve_route(may.serialized_size().saturating_add(64)) {
             return Ok(None);
         }
-        for slot in may.iter() {
-            let record = published
-                .index
-                .record(RecordSlot(slot))
-                .ok_or("direct relation source candidate missing")?;
-            if !source_files.contains(&record.file.0) {
-                if !reserve_route(32) {
-                    return Ok(None);
-                }
-                source_files.insert(record.file.0);
-                source_checks.push(
-                    catalog
-                        .entry(record.file)
-                        .ok_or("direct relation source file retired")?,
-                );
-            }
-        }
         source_candidates.push((segment_index, may));
-    }
-    // A direct result must preserve the source-availability behavior of the
-    // scan route. Opened-handle identity checks run only for this cold result.
-    if source_checks.par_iter().any(|file| {
-        let path = repo.files.root.join(&file.relative_path);
-        RecordRangeReader::open_checked_with_execution(
-            &path, file.revision, file.created_ns, catalog.fingerprint(file.id), context,
-        ).is_err()
-    }) {
-        return Ok(None);
     }
     let cap = query
         .options
@@ -3865,14 +3927,32 @@ fn try_direct_relation_page(
                 RecordSlot(slot),
             )?
             .ok_or("direct relation source retired")?;
-            let key = segment_rank_key(
-                repo,
-                sort,
-                *source_index,
-                &published.index,
-                resolved.record,
-                None,
-            )?;
+            let key = if direct_sort_column.is_some() {
+                let relation = published.index.relations
+                    .get(hop.relation.ordinal as usize)
+                    .ok_or("direct relation source contribution missing")?;
+                let mut references = relation.references_for_source(RecordSlot(slot));
+                let Some((target_id, _)) = references.next() else {
+                    return Ok(None);
+                };
+                if references.next().is_some() {
+                    return Ok(None);
+                }
+                let Some(target_key) = target_sort_keys.get(target_id) else {
+                    return Ok(None);
+                };
+                let term = &sort.bound.terms[*source_index].as_ref()
+                    .ok_or("direct related sort term missing")?[0];
+                RankKey {
+                    parts: vec![(target_key.clone(), term.descending, term.options)],
+                    collection: repo.collections[*source_index].definition.name.clone(),
+                    id: resolved.record.id.0.clone(),
+                }
+            } else {
+                segment_rank_key(
+                    repo, sort, *source_index, &published.index, resolved.record, None,
+                )?
+            };
             total += 1;
             counters.exact_posting_matches += 1;
             let hit = segment_locator_hit(
