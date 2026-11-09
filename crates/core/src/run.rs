@@ -2486,19 +2486,6 @@ pub(crate) fn search_active_available_lifecycle(
     }
 }
 
-pub(crate) fn search_active_available_with_context(
-    repo: &Repository,
-    query: &Query,
-    base_active: &[ActiveRecords],
-    catalog: &FileCatalog,
-    revision: IndexRevision,
-    context: &ExecutionContext,
-) -> Result<SearchResult, crate::streaming::ExecutionError> {
-    search_active_available_with_context_lifecycle(
-        repo, query, base_active, catalog, revision, context, None,
-    )
-}
-
 pub(crate) fn search_active_available_with_context_lifecycle(
     repo: &Repository,
     query: &Query,
@@ -2597,20 +2584,22 @@ fn segment_exact_evidence_fields(
             if !candidates.is_subset(&bounds.must) {
                 return Ok(None);
             }
-            Ok(Some(if term.derived == Derived::None
-                && !matches!(term.operator, Operator::Ne | Operator::NotContains)
-            {
-                vec![term.query_path.display.clone()]
-            } else {
-                Vec::new()
-            }))
+            Ok(Some(
+                if term.derived == Derived::None
+                    && !matches!(term.operator, Operator::Ne | Operator::NotContains)
+                {
+                    vec![term.query_path.display.clone()]
+                } else {
+                    Vec::new()
+                },
+            ))
         }
         BoundExpr::And(parts) => {
             let mut fields = Vec::new();
             for part in parts {
-                let Some(child) = segment_exact_evidence_fields(
-                    segment, active, collection, part, candidates,
-                )? else {
+                let Some(child) =
+                    segment_exact_evidence_fields(segment, active, collection, part, candidates)?
+                else {
                     return Ok(None);
                 };
                 fields.extend(child);
@@ -2793,7 +2782,10 @@ fn search_segmented_impl(
             if candidates.is_empty() {
                 continue;
             }
-            let exact_evidence = if query.options.evidence && fts.is_none() {
+            let exact_evidence = if query.options.evidence
+                && fts.is_none()
+                && !(matches!(filter, Some(BoundExpr::And(_))) && candidates.len() <= 4)
+            {
                 if let Some(filter) = filter.as_ref() {
                     segment_exact_evidence_fields(
                         segment, &published.active, collection, filter, &candidates,
@@ -3268,6 +3260,457 @@ fn charge_lifecycle_cached_payload(
     Ok(())
 }
 
+struct RelationTargetPrune {
+    source_path: Vec<String>,
+    target_ids: HashSet<String>,
+}
+
+fn eligible_one_hop_relation_term<'a>(
+    repo: &Repository,
+    term: &'a BoundTerm,
+) -> Option<(&'a crate::relation_query::BoundRelationHop, &'a BoundTerm)> {
+    let related = term.related.as_ref()?;
+    let [hop] = related.hops.as_slice() else {
+        return None;
+    };
+    if related.source_operand.is_some()
+        || hop.direction != crate::relation_query::HopDirection::Forward
+        || hop.selectors.iter().any(Option::is_some)
+        || !matches!(term.quantifier, Quantifier::Default | Quantifier::Any)
+    {
+        return None;
+    }
+    let source = repo.collections.get(hop.from.0 as usize)?;
+    let relation = source.relations.get(hop.relation.ordinal as usize)?;
+    if term.quantifier == Quantifier::Default {
+        if relation.declaration.cardinality != crate::relation::RelationCardinality::One {
+            return None;
+        }
+        for depth in 1..relation.declaration.path.len() {
+            let ancestor = source
+                .definition
+                .schema
+                .fields()
+                .get(&relation.declaration.path[..depth])?;
+            if matches!(ancestor.kind, crate::model::LogicalType::Array(_)) {
+                return None;
+            }
+        }
+    }
+    Some((hop, &related.terminal))
+}
+
+fn one_hop_relation_term<'a>(
+    repo: &Repository,
+    expr: &'a BoundExpr,
+) -> Option<(&'a crate::relation_query::BoundRelationHop, &'a BoundTerm)> {
+    match expr {
+        BoundExpr::Term(term) => eligible_one_hop_relation_term(repo, term),
+        BoundExpr::And(parts) => parts
+            .iter()
+            .find_map(|part| one_hop_relation_term(repo, part)),
+        BoundExpr::Or(_) | BoundExpr::Not(_) => None,
+    }
+}
+
+fn collect_relation_target_ids(
+    repo: &Repository,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    hop: &crate::relation_query::BoundRelationHop,
+    mut target_candidates: impl FnMut(
+        &IndexedCollectionSegment,
+        &ActiveRecords,
+        &CollectionState,
+    ) -> Result<Option<RoaringBitmap>, String>,
+) -> Result<Option<RelationTargetPrune>, String> {
+    let target_index = hop.to.0 as usize;
+    if base_active[target_index].len() != 0 {
+        return Ok(None);
+    }
+    let target = &repo.collections[target_index];
+    let mut selections = Vec::with_capacity(segments[target_index].len());
+    let mut candidate_count = 0u64;
+    let mut active_count = 0u64;
+    for published in segments[target_index].iter() {
+        let Some(mut may) = target_candidates(&published.index, &published.active, target)? else {
+            return Ok(None);
+        };
+        may &= published.active.bitmap();
+        candidate_count += may.len();
+        active_count += published.active.len();
+        selections.push(may);
+    }
+    // A dense target set would spend memory without eliminating enough source
+    // reads. Keep this a query-local bounded optimization.
+    if candidate_count > 100_000 || candidate_count * 4 > active_count * 3 {
+        return Ok(None);
+    }
+    let mut target_ids = HashSet::new();
+    for (published, may) in segments[target_index].iter().zip(selections) {
+        for slot in may.iter() {
+            let record = published
+                .index
+                .record(RecordSlot(slot))
+                .ok_or("relation target candidate missing")?;
+            target_ids.insert(record.id.0.clone());
+        }
+    }
+    let relation = repo
+        .collections
+        .get(hop.from.0 as usize)
+        .and_then(|collection| collection.relations.get(hop.relation.ordinal as usize))
+        .ok_or("relation source declaration missing")?;
+    Ok(Some(RelationTargetPrune {
+        source_path: relation.declaration.path.clone(),
+        target_ids,
+    }))
+}
+
+fn relation_target_prune(
+    repo: &Repository,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    filter: Option<&BoundExpr>,
+    fts: Option<&BoundFts>,
+) -> Result<Option<RelationTargetPrune>, String> {
+    if let Some((hop, terminal)) = filter.and_then(|expr| one_hop_relation_term(repo, expr)) {
+        return collect_relation_target_ids(
+            repo,
+            base_active,
+            segments,
+            hop,
+            |segment, active, collection| {
+                segment_filter_bounds(
+                    segment,
+                    active,
+                    &BoundExpr::Term(terminal.clone()),
+                    collection,
+                )
+                .map(|bounds| Some(bounds.may))
+            },
+        );
+    }
+    if let Some(fts) = fts
+        && let [field] = fts.fields.as_slice()
+        && let Some(hops) = field.related.as_ref()
+        && let [hop] = hops.as_slice()
+        && hop.direction == crate::relation_query::HopDirection::Forward
+        && !hop.selectors.iter().any(Option::is_some)
+        && field.query_path.is_none()
+    {
+        let mut local = fts.clone();
+        local.fields[0].related = None;
+        return collect_relation_target_ids(
+            repo,
+            base_active,
+            segments,
+            hop,
+            |segment, _active, collection| Ok(segment_fts_candidates(segment, collection, &local)),
+        );
+    }
+    Ok(None)
+}
+
+fn relation_source_candidates(
+    published: &PublishedSegment,
+    plan: &RelationTargetPrune,
+) -> Option<RoaringBitmap> {
+    let posting = published.index.postings.fields.get(&plan.source_path)?;
+    let mut may = &published.active.bitmap() - &published.index.logical_records;
+    for (key, slots) in &posting.values {
+        if let crate::posting::ScalarKey::Id(id) = key
+            && plan.target_ids.contains(id)
+        {
+            may |= slots;
+        }
+    }
+    may &= published.active.bitmap();
+    Some(may)
+}
+
+enum DirectRelationPredicate<'a> {
+    Term(&'a BoundTerm),
+    Fts(BoundFts),
+}
+
+/// A single positive forward hop can be answered target first. Verify only
+/// possible targets, reverse their IDs through resident source postings, and
+/// rank the resulting source locators without parsing every source record.
+/// Unsupported shapes and unavailable files use the existing merged scan.
+#[allow(clippy::too_many_arguments)]
+fn try_direct_relation_page(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    sort: &ResolvedSort<'_>,
+    prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
+    context: Option<&ExecutionContext>,
+    mut cache_builder: Option<&mut LifecycleCacheBuilder>,
+    retained_budget: Option<usize>,
+) -> Result<Option<SearchResult>, String> {
+    if query.options.return_mode != ReturnMode::Locator
+        || sort.bound.has_computed
+        || prepared.len() != 1
+    {
+        return Ok(None);
+    }
+    let (source_index, filter, fts) = &prepared[0];
+    let (hop, predicate, evidence) = if let (Some(BoundExpr::Term(term)), None) = (filter, fts) {
+        let Some((hop, terminal)) = eligible_one_hop_relation_term(repo, term) else {
+            return Ok(None);
+        };
+        let evidence = if query.options.evidence
+            && term.derived == Derived::None
+            && !matches!(term.operator, Operator::Ne | Operator::NotContains)
+        {
+            let mut fields = vec![term.query_path.display.clone()];
+            fields.push(term.related.as_ref().unwrap().evidence_path.clone());
+            fields.sort();
+            fields.dedup();
+            fields
+        } else {
+            Vec::new()
+        };
+        (hop, DirectRelationPredicate::Term(terminal), evidence)
+    } else if let (None, Some(fts)) = (filter, fts)
+        && let [field] = fts.fields.as_slice()
+        && let Some(hops) = field.related.as_ref()
+        && let [hop] = hops.as_slice()
+        && hop.direction == crate::relation_query::HopDirection::Forward
+        && !hop.selectors.iter().any(Option::is_some)
+        && field.query_path.is_none()
+    {
+        let mut local = fts.clone();
+        local.fields[0].related = None;
+        let evidence = if query.options.evidence {
+            vec![field.evidence_path.clone()]
+        } else {
+            Vec::new()
+        };
+        (hop, DirectRelationPredicate::Fts(local), evidence)
+    } else {
+        return Ok(None);
+    };
+    if hop.from.0 as usize != *source_index
+        || base_active[*source_index].len() != 0
+        || base_active[hop.to.0 as usize].len() != 0
+    {
+        return Ok(None);
+    }
+    let target_index = hop.to.0 as usize;
+    let target_collection = &repo.collections[target_index];
+    let source_relation = repo.collections[*source_index]
+        .relations
+        .get(hop.relation.ordinal as usize)
+        .ok_or("direct relation declaration missing")?;
+    let source_path = &source_relation.declaration.path;
+    let mut target_ids = HashSet::new();
+    let mut counters = WorkCounters::default();
+    for published in segments[target_index].iter() {
+        let segment = &published.index;
+        let (may, must) = match &predicate {
+            DirectRelationPredicate::Term(term) => {
+                let bounds = segment_filter_bounds(
+                    segment,
+                    &published.active,
+                    &BoundExpr::Term((*term).clone()),
+                    target_collection,
+                )?;
+                (bounds.may, Some(bounds.must))
+            }
+            DirectRelationPredicate::Fts(local) => (
+                segment_fts_candidates(segment, target_collection, local)
+                    .unwrap_or_else(|| published.active.bitmap()),
+                None,
+            ),
+        };
+        let may = &may & &published.active.bitmap();
+        counters.relation_target_candidates += may.len();
+        if counters.relation_target_candidates > 100_000 {
+            return Ok(None);
+        }
+        for slot in may.iter() {
+            if let Some(context) = context {
+                context.check_string()?;
+            }
+            let resolved =
+                segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
+                    .ok_or("direct relation target retired")?;
+            if resolved.record.class == RecordClass::RawFallback {
+                continue;
+            }
+            let matched = if must.as_ref().is_some_and(|must| must.contains(slot)) {
+                true
+            } else {
+                let path = repo.files.root.join(&resolved.file.relative_path);
+                if let Some(context) = context {
+                    context.charge_reads(1)?;
+                    context.charge_bytes(resolved.record.range.len())?;
+                }
+                let bytes =
+                    match read_record_range(&path, resolved.file.revision, resolved.record.range) {
+                        Ok(bytes) => bytes,
+                        Err(_) => return Ok(None),
+                    };
+                counters.relation_target_reads += 1;
+                counters.relation_target_file_opens += 1;
+                counters.relation_bytes_read += bytes.len() as u64;
+                let extracted = prepare_query_record_with_execution(
+                    &target_collection.source,
+                    &target_collection.definition.schema,
+                    &bytes,
+                    &ScanProjection::full(matches!(predicate, DirectRelationPredicate::Fts(_))),
+                    false,
+                    context,
+                )?;
+                let ctx = RecordContext {
+                    value: &extracted.value,
+                    source_bytes: Some(&bytes),
+                    record: resolved.record,
+                    file: resolved.file,
+                    collection_name: &target_collection.definition.name,
+                    repository_root: &repo.files.root,
+                };
+                match &predicate {
+                    DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
+                    DirectRelationPredicate::Fts(local) => {
+                        eval_bound_fts(local, &extracted.text, &ctx, &mut HashSet::new())?
+                    }
+                }
+            };
+            if matched {
+                counters.relation_target_matches += 1;
+                target_ids.insert(resolved.record.id.0.clone());
+            }
+        }
+    }
+    let mut source_candidates = Vec::new();
+    let mut source_files = HashSet::new();
+    let mut source_checks = Vec::new();
+    for (segment_index, published) in segments[*source_index].iter().enumerate() {
+        let Some(posting) = published.index.postings.fields.get(source_path) else {
+            return Ok(None);
+        };
+        let mut may = RoaringBitmap::new();
+        for (key, slots) in &posting.values {
+            if let crate::posting::ScalarKey::Id(id) = key
+                && target_ids.contains(id)
+            {
+                may |= slots;
+                counters.relation_reverse_postings_visited += slots.len();
+            }
+        }
+        may &= published.active.bitmap();
+        may &= &published.index.logical_records;
+        for slot in may.iter() {
+            let record = published
+                .index
+                .record(RecordSlot(slot))
+                .ok_or("direct relation source candidate missing")?;
+            if source_files.insert(record.file.0) {
+                source_checks.push(
+                    catalog
+                        .entry(record.file)
+                        .ok_or("direct relation source file retired")?,
+                );
+            }
+        }
+        source_candidates.push((segment_index, may));
+    }
+    // A direct result must preserve the source-availability behavior of the
+    // scan route. Metadata checks run only while constructing this cold result.
+    if source_checks.par_iter().any(|file| {
+        let path = repo.files.root.join(&file.relative_path);
+        std::fs::metadata(path)
+            .ok()
+            .and_then(|metadata| SourceRevision::from_metadata(&metadata).ok())
+            != Some(file.revision)
+    }) {
+        return Ok(None);
+    }
+    let cap = query
+        .options
+        .offset
+        .checked_add(query.options.limit)
+        .ok_or("direct relation page size overflow")?;
+    let mut winners = BinaryHeap::new();
+    let mut winner_bytes = 0usize;
+    let mut total = 0u64;
+    for (segment_index, may) in source_candidates {
+        let published = &segments[*source_index][segment_index];
+        for slot in may.iter() {
+            if let Some(context) = context {
+                context.check_string()?;
+            }
+            let resolved = segment_record_ref(
+                &published.index,
+                &published.active,
+                catalog,
+                RecordSlot(slot),
+            )?
+            .ok_or("direct relation source retired")?;
+            let key = segment_rank_key(
+                repo,
+                sort,
+                *source_index,
+                &published.index,
+                resolved.record,
+                None,
+            )?;
+            total += 1;
+            counters.exact_posting_matches += 1;
+            let hit = segment_locator_hit(
+                &repo.collections[*source_index],
+                resolved,
+                revision,
+                evidence.clone(),
+            );
+            if let Some(builder) = cache_builder.as_mut() {
+                builder.push(
+                    &key,
+                    CachedMember {
+                        collection_index: *source_index,
+                        segment_index: Some(segment_index),
+                        slot,
+                        matched_fields: hit.matched_fields.clone(),
+                    },
+                );
+            }
+            offer_merged(
+                &mut winners,
+                cap,
+                MergedPageHit {
+                    key,
+                    hit,
+                    segment: Some((*source_index, segment_index)),
+                    retained_bytes: 0,
+                },
+                retained_budget.zip(context),
+                &mut winner_bytes,
+            )?;
+        }
+    }
+    let page = winners
+        .into_sorted_vec()
+        .into_iter()
+        .skip(query.options.offset)
+        .take(query.options.limit)
+        .map(|winner| winner.hit)
+        .collect::<Vec<_>>();
+    counters.total_matches = total;
+    counters.match_count_complete = true;
+    counters.returned_records = page.len() as u64;
+    Ok(Some(SearchResult {
+        count: query.options.count.then_some(total as usize),
+        hits: page,
+        counters,
+    }))
+}
+
 fn search_segmented_relations(
     repo: &Repository,
     query: &Query,
@@ -3282,6 +3725,14 @@ fn search_segmented_relations(
     retained_budget: Option<usize>,
     prune_segments: bool,
 ) -> Result<SearchResult, String> {
+    if prune_segments
+        && let Some(result) = try_direct_relation_page(
+            repo, query, base_active, segments, catalog, revision, sort, prepared,
+            context, cache_builder.as_deref_mut(), retained_budget,
+        )?
+    {
+        return Ok(result);
+    }
     let view =
         crate::relation_query::MergedRelationView::new(repo, base_active, segments, catalog)?;
     let cap = query
@@ -3542,8 +3993,9 @@ fn search_segmented_relations(
                 }
             }
         }
+        let mut relation_prune: Option<Option<RelationTargetPrune>> = None;
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
-            let candidates = if prune_segments {
+            let mut candidates = if prune_segments {
                 let filter_may = filter.as_ref().map(|filter| {
                     segment_filter_bounds(&published.index, &published.active, filter, collection)
                         .map(|bounds| bounds.may)
@@ -3560,6 +4012,21 @@ fn search_segmented_relations(
             } else {
                 None
             };
+            if prune_segments {
+                let local_count = candidates.as_ref().map_or_else(
+                    || published.active.len(), RoaringBitmap::len,
+                );
+                if local_count > 256 && relation_prune.is_none() {
+                    relation_prune = Some(relation_target_prune(
+                        repo, base_active, segments, filter.as_ref(), fts.as_ref(),
+                    )?);
+                }
+                if let Some(Some(plan)) = relation_prune.as_ref()
+                    && let Some(relation_may) = relation_source_candidates(published, plan)
+                {
+                    candidates = Some(candidates.map_or(relation_may.clone(), |may| may & relation_may));
+                }
+            }
             if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
                 continue;
             }

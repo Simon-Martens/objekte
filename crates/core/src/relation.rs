@@ -323,7 +323,9 @@ impl RelationContribution {
         &self,
         source: RecordSlot,
     ) -> impl Iterator<Item = (&str, &[u32])> {
-        let start = self.references.partition_point(|reference| reference.source.0 < source.0);
+        let start = self
+            .references
+            .partition_point(|reference| reference.source.0 < source.0);
         self.references[start..]
             .iter()
             .take_while(move |reference| reference.source == source)

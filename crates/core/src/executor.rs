@@ -63,41 +63,113 @@ pub(crate) fn segment_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
-    if fts.fields.iter().any(|field| field.related.is_some())
-        || !matches!(fts.mode, FtsMode::Literal)
-    {
+    if fts.fields.iter().any(|field| field.related.is_some()) {
         return None;
     }
+    if matches!(fts.mode, FtsMode::Regex(_)) {
+        let condition = fts.fallback_regex.as_ref()?.condition()?;
+        if fts.fields.is_empty() {
+            if segment.raw.record_count as usize != segment.records.len()
+                || collection
+                    .definition
+                    .schema
+                    .raw
+                    .as_ref()
+                    .is_some_and(|binding| !binding.operation.complete_coverage())
+            {
+                return None;
+            }
+            let mut may = condition.candidates(&segment.raw)?;
+            if segment.logical_records.len() != segment.records.len() as u64 {
+                may |= condition.candidates(&segment.fallback_text)?;
+            }
+            return Some(may);
+        }
+        let mut may = RoaringBitmap::new();
+        for field in &fts.fields {
+            if field.path.root != PathRoot::Data {
+                return None;
+            }
+            let key = if matches!(field.binding_name.as_str(), "default" | "lower") {
+                crate::repository::built_in_field_text_key(
+                    &collection.definition.schema,
+                    &field.path.segments,
+                )?
+            } else {
+                crate::repository::canonical_custom_text_key(
+                    &collection.definition.schema,
+                    &field.path.segments,
+                    &field.binding_name,
+                )
+            };
+            let index = if collection.source.reader().logical_text_coverage()
+                == LogicalTextCoverage::AllStringFields
+            {
+                segment.custom_text.get(&key)
+            } else {
+                None
+            };
+            if let Some(index) = index {
+                may |= condition.candidates(index)?;
+            } else if matches!(field.binding_name.as_str(), "default" | "lower")
+                && field.operation.is_none()
+                && segment_raw_covers_identity_field(segment, collection)
+            {
+                may |= condition.candidates(&segment.raw)?;
+            } else {
+                return None;
+            }
+        }
+        return Some(may);
+    }
     if fts.fields.is_empty() {
-        if fts.raw_matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible())
+        if fts
+            .raw_matcher
+            .as_ref()
+            .is_some_and(|matcher| !matcher.bigram_compatible())
             || segment.raw.record_count as usize != segment.records.len()
-            || collection.definition.schema.raw.as_ref().is_some_and(|binding| {
-                !binding.operation.complete_coverage()
-            })
+            || collection
+                .definition
+                .schema
+                .raw
+                .as_ref()
+                .is_some_and(|binding| !binding.operation.complete_coverage())
         {
             return None;
         }
         let mut may = segment.raw.candidates_prepared(&fts.gram_request)?;
         if segment.logical_records.len() != segment.records.len() as u64 {
-            may |= segment.fallback_text.candidates_prepared(&fts.fallback_gram_request)?;
+            may |= segment
+                .fallback_text
+                .candidates_prepared(&fts.fallback_gram_request)?;
         }
         return Some(may);
     }
     let mut may = RoaringBitmap::new();
     for field in &fts.fields {
         if field.path.root != PathRoot::Data
-            || field.matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible())
+            || field
+                .matcher
+                .as_ref()
+                .is_some_and(|matcher| !matcher.bigram_compatible())
         {
             return None;
         }
         let key = if matches!(field.binding_name.as_str(), "default" | "lower") {
-            crate::repository::built_in_field_text_key(&collection.definition.schema, &field.path.segments)?
+            crate::repository::built_in_field_text_key(
+                &collection.definition.schema,
+                &field.path.segments,
+            )?
         } else {
             crate::repository::canonical_custom_text_key(
-                &collection.definition.schema, &field.path.segments, &field.binding_name,
+                &collection.definition.schema,
+                &field.path.segments,
+                &field.binding_name,
             )
         };
-        let index = if collection.source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields {
+        let index = if collection.source.reader().logical_text_coverage()
+            == LogicalTextCoverage::AllStringFields
+        {
             segment.custom_text.get(&key)
         } else {
             None
@@ -105,7 +177,8 @@ pub(crate) fn segment_fts_candidates(
         if let Some(index) = index {
             may |= index.candidates_prepared(&field.gram_request)?;
         } else if matches!(field.binding_name.as_str(), "default" | "lower")
-            && field.operation.is_none() && segment_raw_covers_identity_field(segment, collection)
+            && field.operation.is_none()
+            && segment_raw_covers_identity_field(segment, collection)
         {
             may |= segment.raw.candidates_prepared(&field.gram_request)?;
         } else {

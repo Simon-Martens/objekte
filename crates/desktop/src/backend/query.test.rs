@@ -21,9 +21,17 @@ fn desktop_page_reuses_verified_order_and_keeps_pinned_revision() {
     assert_eq!(warm.revision, view.revision());
     assert!(warm.counters.scanned_records < cold.counters.scanned_records);
     let later = query_page_on_view(
-        &fixture.session, &view,
-        &QuerySpec { count: false, ..spec }, 1, 1, &token,
-    ).unwrap();
+        &fixture.session,
+        &view,
+        &QuerySpec {
+            count: false,
+            ..spec
+        },
+        1,
+        1,
+        &token,
+    )
+    .unwrap();
     assert!(later.counters.verified_result_hit);
     assert_eq!(later.hits.len(), 1);
 }
@@ -39,16 +47,21 @@ fn measure_desktop_lifecycle_query_cache() {
         std::fs::write(
             root.path().join(format!("{n:05}.json")),
             format!(r#"{{"title":"needle {n}","year":2024}}"#),
-        ).unwrap();
+        )
+        .unwrap();
     }
     let session = open(
         &OpenSpec {
-            args: Arguments { path: vec![root.path().to_path_buf()], ..Default::default() },
+            args: Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
             cwd: root.path().to_path_buf(),
             configured_cache_policy: None,
         },
         &CancellationToken::new(),
-    ).unwrap();
+    )
+    .unwrap();
     let view = session.repository.index().view().unwrap();
     let spec = QuerySpec {
         full_text: "needle".into(),
@@ -58,11 +71,14 @@ fn measure_desktop_lifecycle_query_cache() {
     };
     let mut samples = Vec::new();
     for _ in 0..7 {
-        let page = query_page_on_view(
-            &session, &view, &spec, 0, 100, &CancellationToken::new(),
-        ).unwrap();
+        let page =
+            query_page_on_view(&session, &view, &spec, 0, 100, &CancellationToken::new()).unwrap();
         assert_eq!(page.count, Some(2_000));
-        samples.push((page.elapsed_ns, page.counters.verified_result_hit, page.counters.scanned_records));
+        samples.push((
+            page.elapsed_ns,
+            page.counters.verified_result_hit,
+            page.counters.scanned_records,
+        ));
     }
     eprintln!("desktop lifecycle cache samples (elapsed ns, hit, scanned): {samples:?}");
     assert!(!samples[0].1);
