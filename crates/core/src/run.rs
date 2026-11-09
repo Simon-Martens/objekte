@@ -2624,6 +2624,132 @@ fn segment_exact_evidence_fields(
     }
 }
 
+/// A single file's FTS work can run independently of other files. Only its
+/// bounded local top page crosses back to the ordered merge thread.
+struct SegmentFtsFileScan {
+    bytes_read: u64,
+    scanned_records: u64,
+    record_parses: u64,
+    raw_text_verifications: u64,
+    matches: u64,
+    winners: Vec<MergedPageHit>,
+}
+
+#[allow(clippy::too_many_arguments)]
+fn scan_segment_fts_file(
+    repo: &Repository,
+    query: &Query,
+    sort: &ResolvedSort<'_>,
+    collection_index: usize,
+    segment_index: usize,
+    published: &PublishedSegment,
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    fts: &BoundFts,
+    file_id: u32,
+    ranges: &[(u32, ByteRange)],
+    cap: usize,
+) -> Result<SegmentFtsFileScan, String> {
+    let collection = &repo.collections[collection_index];
+    let segment = &published.index;
+    let file = catalog.entry(crate::model::FileId(file_id))
+        .ok_or("active segment candidate file is retired")?;
+    let path = repo.files.root.join(&file.relative_path);
+    let mut reader = RecordRangeReader::open_checked(
+        &path, file.revision, file.created_ns, catalog.fingerprint(file.id),
+    )?;
+    let mut result = SegmentFtsFileScan {
+        bytes_read: 0,
+        scanned_records: 0,
+        record_parses: 0,
+        raw_text_verifications: 0,
+        matches: 0,
+        winners: Vec::new(),
+    };
+    let mut local_winners = BinaryHeap::new();
+    let mut local_winner_bytes = 0;
+    let mut cursor = 0;
+    while cursor < ranges.len() {
+        let start = cursor;
+        let mut batch_bytes = 0u64;
+        while cursor < ranges.len() && cursor - start < 128 {
+            let next = ranges[cursor].1.len();
+            if cursor > start && batch_bytes.saturating_add(next) > 1024 * 1024 {
+                break;
+            }
+            batch_bytes = batch_bytes.saturating_add(next);
+            cursor += 1;
+        }
+        let (read, bytes_read) = reader.read(&ranges[start..cursor])?;
+        result.bytes_read += bytes_read;
+        for (slot, bytes) in read {
+            let resolved = segment_record_ref(
+                segment, &published.active, catalog, RecordSlot(slot),
+            )?.ok_or("active segment scan slot missing")?;
+            let record = resolved.record;
+            let extracted = if record.class == RecordClass::Logical {
+                result.record_parses += 1;
+                prepare_query_record_with_execution(
+                    &collection.source,
+                    &collection.definition.schema,
+                    &bytes,
+                    &ScanProjection::full(true),
+                    false,
+                    None,
+                )?
+            } else {
+                ExtractedRecord { value: Value::Object(Default::default()), text: Vec::new() }
+            };
+            result.scanned_records += 1;
+            let ctx = RecordContext {
+                value: &extracted.value,
+                source_bytes: Some(&bytes),
+                record,
+                file: resolved.file,
+                collection_name: &collection.definition.name,
+                repository_root: &repo.files.root,
+            };
+            let mut evidence = HashSet::new();
+            let matched = if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
+                result.raw_text_verifications += 1;
+                let matched = crate::reference::raw_fallback_contains(
+                    fts, &String::from_utf8_lossy(&bytes),
+                );
+                if matched && query.options.evidence {
+                    evidence.insert("@record.raw_text".into());
+                }
+                matched
+            } else {
+                crate::reference::eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence)?
+            };
+            if !matched {
+                continue;
+            }
+            result.matches += 1;
+            let key = segment_rank_key(repo, sort, collection_index, segment, record, Some(&ctx))?;
+            let hit = segment_locator_hit(
+                collection,
+                resolved,
+                revision,
+                if query.options.evidence { evidence.into_iter().collect() } else { Vec::new() },
+            );
+            offer_merged(
+                &mut local_winners, cap,
+                MergedPageHit {
+                    key,
+                    hit,
+                    segment: Some((collection_index, segment_index)),
+                    retained_bytes: 0,
+                },
+                None,
+                &mut local_winner_bytes,
+            )?;
+        }
+    }
+    result.winners = local_winners.into_sorted_vec();
+    Ok(result)
+}
+
 fn search_segmented_impl(
     repo: &Repository,
     query: &Query,
@@ -2874,6 +3000,66 @@ fn search_segmented_impl(
                     .entry(record.file.0)
                     .or_default()
                     .push((slot, record.range));
+            }
+            // Broad FTS verification is independent by source file. Limit the
+            // parallel route to small ordered pages and bounded source rows;
+            // all other plans keep the existing serial, cache-aware path.
+            let parallel_fts = context.is_none()
+                && retained_budget.is_none()
+                && cache_builder.is_none()
+                && filter.is_none()
+                && fts.is_some()
+                && !sort.bound.has_computed
+                && repo.options.query_workers > 1
+                && files.len() > 1
+                && cap <= 64
+                && collection.definition.name.len() <= 1024
+                && fts.as_ref().is_some_and(|fts| {
+                    fts.fields.iter().try_fold(0usize, |bytes, field| {
+                        bytes.checked_add(field.evidence_path.len())
+                    }).is_some_and(|bytes| bytes <= 1024)
+                })
+                && files.iter().all(|(file_id, ranges)| {
+                    catalog.entry(crate::model::FileId(*file_id))
+                        .is_some_and(|file| file.relative_path.to_string_lossy().len() <= 4096)
+                        && ranges.iter().all(|(slot, range)| {
+                            range.len() <= 1024 * 1024
+                                && segment.record(RecordSlot(*slot))
+                                    .is_some_and(|record| record.id.0.len() <= 1024)
+                        })
+                });
+            if parallel_fts {
+                let fts = fts.as_ref().ok_or("parallel FTS binding missing")?;
+                let jobs = files.into_iter().collect::<Vec<_>>();
+                for chunk in jobs.chunks(repo.options.query_workers.clamp(1, 32)) {
+                    let scans = repo.workers.install(|| {
+                        chunk.par_iter().map(|(file_id, ranges)| {
+                            scan_segment_fts_file(
+                                repo, query, &sort, collection_index, segment_index,
+                                published, catalog, revision, fts, *file_id, ranges, cap,
+                            )
+                        }).collect::<Vec<_>>()
+                    });
+                    // Rayon preserves the order of this indexed iterator, so
+                    // errors, counters and tie handling merge in file order.
+                    for ((file_id, _), scan) in chunk.iter().zip(scans) {
+                        let scan = scan?;
+                        delta_opened.insert(*file_id);
+                        counters.files_opened += 1;
+                        counters.bytes_read += scan.bytes_read;
+                        counters.scanned_records += scan.scanned_records;
+                        counters.record_parses += scan.record_parses;
+                        counters.raw_text_verifications += scan.raw_text_verifications;
+                        total += scan.matches;
+                        for winner in scan.winners {
+                            offer_merged(
+                                &mut winners, cap, winner,
+                                winner_budget, &mut winner_bytes,
+                            )?;
+                        }
+                    }
+                }
+                continue;
             }
             for (file_id, ranges) in files {
                 if let Some(context) = context {
