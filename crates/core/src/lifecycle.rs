@@ -22,7 +22,7 @@ use crate::build::{
 use crate::discovery::selects_file;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle_catalog::FileCatalog;
-use crate::model::{CollectionId, FileId, RecordSlot};
+use crate::model::{CollectionId, FileId, RecordSlot, Value};
 use crate::query::Query;
 use crate::repository::{Repository, SearchHit, SearchResult};
 use crate::streaming::{
@@ -2396,6 +2396,15 @@ impl IndexView {
             self.request_reconciliation_for_counters(&result.counters);
         }
         result
+    }
+
+    /// Bind typed parameters before querying this pinned publication.
+    pub fn search_with_parameters(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+    ) -> Result<SearchResult, String> {
+        self.search(&query.with_parameters(parameters)?)
     }
 
     pub fn search_with_context(

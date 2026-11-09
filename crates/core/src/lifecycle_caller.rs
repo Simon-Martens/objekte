@@ -1,12 +1,13 @@
 //! Compatibility surface for frontends that still read repository
 //! configuration metadata while routing live queries through index views.
 
+use std::collections::HashMap;
 use std::ops::Deref;
 use std::sync::Arc;
 
 use crate::inventory::{DiagnosticRef, SourceDiagnostic};
 use crate::lifecycle::{Index, IndexError, IndexView};
-use crate::model::FileId;
+use crate::model::{FileId, Value};
 use crate::query::Query;
 use crate::repository::{Repository, SearchHit, SearchResult, SnapshotAction, StartupStats};
 use crate::streaming::{
@@ -78,6 +79,18 @@ impl IndexedRepository {
         self.read_view()
             .map_err(|error| error.to_string())?
             .search(query)
+    }
+
+    /// Bind typed parameters and search the same live or pinned publication
+    /// used by the ordinary adapter search path.
+    pub fn search_with_parameters(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+    ) -> Result<SearchResult, String> {
+        self.read_view()
+            .map_err(|error| error.to_string())?
+            .search_with_parameters(query, parameters)
     }
 
     pub fn get_record(
