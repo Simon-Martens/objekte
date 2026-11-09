@@ -1,7 +1,7 @@
 use std::collections::HashSet;
 use std::path::Path;
 
-use super::{Discovery, discover, discover_bounded, selects_file};
+use super::{Discovery, SymlinkPolicy, discover, discover_bounded, discover_stream, selects_file};
 use crate::source::{SourceFormat, SourceRegistry};
 
 #[test]
@@ -77,5 +77,47 @@ fn direct_selection_matches_full_discovery_without_enumerating_siblings() {
         )
         .unwrap()
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn streaming_discovery_preserves_selection_and_symlink_alias_policy() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-stream-discovery-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data/nested")).unwrap();
+    std::fs::write(root.join("data/a.json"), b"{}").unwrap();
+    std::fs::write(root.join("data/nested/b.json"), b"{}").unwrap();
+    std::os::unix::fs::symlink("a.json", root.join("data/alias.json")).unwrap();
+    let root = root.canonicalize().unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    for policy in [SymlinkPolicy::Skip, SymlinkPolicy::FollowWithinRoot] {
+        let rules = Discovery {
+            recursive: true,
+            symlinks: policy,
+            ..Discovery::default()
+        };
+        let expected = discover(&root, Path::new("data"), &rules, &source).unwrap();
+        let mut observed = Vec::new();
+        discover_stream(
+            &root,
+            Path::new("data"),
+            &rules,
+            &source,
+            || false,
+            |path| {
+                observed.push(path);
+                Ok(())
+            },
+        )
+        .unwrap();
+        observed.sort();
+        assert_eq!(observed, expected);
+    }
     std::fs::remove_dir_all(root).unwrap();
 }
