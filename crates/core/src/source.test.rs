@@ -137,7 +137,6 @@ fn bounded_jsonl_reports_read_errors_before_and_after_first_chunk() {
         limit: u64,
     }
 
-
     impl Read for FailingRead {
         fn read(&mut self, output: &mut [u8]) -> std::io::Result<usize> {
             if self.bytes.position() >= self.limit {
@@ -148,7 +147,6 @@ fn bounded_jsonl_reports_read_errors_before_and_after_first_chunk() {
             self.bytes.read(&mut output[..count])
         }
     }
-
 
     const LINES: &[u8] = b"{\"a\":1}\n{\"a\":2}\n";
     let make = |limit| {
@@ -706,12 +704,9 @@ fn build_json_borrows_logical_strings_after_temporal_conversion() {
     }
 }
 
-
 struct TinyReader(Arc<AtomicUsize>);
 
-
 struct TemporalSegmentsReader;
-
 
 impl SourceReader for TemporalSegmentsReader {
     fn name(&self) -> &'static str {
@@ -752,7 +747,6 @@ impl SourceReader for TemporalSegmentsReader {
         })
     }
 }
-
 
 #[test]
 fn temporal_registration_does_not_replace_reader_owned_text() {
@@ -896,13 +890,11 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 struct OutcomeReader {
     ranges: Vec<ByteRange>,
     parses: Arc<AtomicUsize>,
     fail_framing: bool,
 }
-
 
 impl SourceReader for OutcomeReader {
     fn name(&self) -> &'static str {
@@ -946,7 +938,6 @@ impl SourceReader for OutcomeReader {
         }
     }
 }
-
 
 #[test]
 fn registered_ranges_are_validated_before_slicing_and_outcomes_are_typed() {
@@ -1303,7 +1294,6 @@ fn file_coordinates_preserve_custom_reader_line_and_column_meaning() {
     assert_eq!((multiline.line, multiline.column), (Some(3), Some(1)));
 }
 
-
 impl SourceReader for TinyReader {
     fn name(&self) -> &'static str {
         "tiny"
@@ -1344,7 +1334,6 @@ impl SourceReader for TinyReader {
         })
     }
 }
-
 
 #[test]
 fn body_only_reader_does_not_prune_unindexed_title() {
@@ -2098,6 +2087,81 @@ fn same_size_edit_with_restored_mtime_is_outside_revision_detection() {
             .0[0]
             .1,
         b"modified"
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn checked_range_reads_reject_replaced_path_with_spoofed_revision() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-source-incarnation-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("source.txt");
+    let moved = root.join("moved.txt");
+    std::fs::write(&path, b"original").unwrap();
+    let metadata = std::fs::metadata(&path).unwrap();
+    let revision = SourceRevision::from_metadata(&metadata).unwrap();
+    let created_ns = metadata
+        .created()
+        .ok()
+        .and_then(|time| time.duration_since(std::time::UNIX_EPOCH).ok())
+        .map(|duration| duration.as_nanos() as i128);
+    let fingerprint: [u8; 32] = Sha256::digest(b"original").into();
+    let range = ByteRange { start: 0, end: 8 };
+    std::fs::rename(&path, &moved).unwrap();
+    std::fs::write(&path, b"modified").unwrap();
+    std::fs::File::open(&path)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()))
+        .unwrap();
+    assert_eq!(
+        SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        revision
+    );
+    if created_ns.is_some() {
+        assert!(
+            read_record_range_checked(&path, revision, created_ns, Some(fingerprint), range)
+                .is_err()
+        );
+        assert!(
+            RecordRangeReader::open_checked(&path, revision, created_ns, Some(fingerprint))
+                .is_err()
+        );
+        assert_eq!(
+            probe_source_unavailable_checked(
+                &path,
+                revision,
+                created_ns,
+                Some(fingerprint),
+                Some(range)
+            ),
+            Some(SourceUnavailableKind::RevisionMismatch)
+        );
+    }
+    assert!(read_record_range_checked(&path, revision, None, Some(fingerprint), range).is_err());
+    assert!(RecordRangeReader::open_checked(&path, revision, None, None).is_err());
+    assert_eq!(
+        classify_source_read_failure_checked(&path, revision, None, Some(fingerprint), Some(range)),
+        SourceUnavailableKind::RevisionMismatch
+    );
+    assert_eq!(
+        read_record_range_checked(&moved, revision, created_ns, Some(fingerprint), range).unwrap(),
+        b"original"
+    );
+    assert_eq!(
+        RecordRangeReader::open_checked(&moved, revision, None, Some(fingerprint))
+            .unwrap()
+            .read(&[(0, range)])
+            .unwrap()
+            .0[0]
+            .1,
+        b"original"
     );
     std::fs::remove_dir_all(root).unwrap();
 }

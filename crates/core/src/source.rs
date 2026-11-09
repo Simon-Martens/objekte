@@ -44,7 +44,7 @@ pub(crate) fn probe_source_unavailable(
     let file = match std::fs::File::open(path) {
         Ok(file) => file,
         Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
-            return Some(SourceUnavailableKind::Missing)
+            return Some(SourceUnavailableKind::Missing);
         }
         Err(_) => return Some(SourceUnavailableKind::Unreadable),
     };
@@ -65,6 +65,47 @@ pub(crate) fn probe_source_unavailable(
     None
 }
 
+/// Classify a lifecycle read failure using the same file-incarnation proof as
+/// the checked reader. A same-size, same-mtime replacement is a mismatch.
+pub(crate) fn classify_source_read_failure_checked(
+    path: &Path,
+    expected: SourceRevision,
+    created_ns: Option<i128>,
+    fingerprint: Option<[u8; 32]>,
+    range: Option<ByteRange>,
+) -> SourceUnavailableKind {
+    probe_source_unavailable_checked(path, expected, created_ns, fingerprint, range)
+        .unwrap_or(SourceUnavailableKind::Unreadable)
+}
+
+pub(crate) fn probe_source_unavailable_checked(
+    path: &Path,
+    expected: SourceRevision,
+    created_ns: Option<i128>,
+    fingerprint: Option<[u8; 32]>,
+    range: Option<ByteRange>,
+) -> Option<SourceUnavailableKind> {
+    let mut file = match std::fs::File::open(path) {
+        Ok(file) => file,
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+            return Some(SourceUnavailableKind::Missing);
+        }
+        Err(_) => return Some(SourceUnavailableKind::Unreadable),
+    };
+    let proof = SourceIdentityProof {
+        created_ns,
+        fingerprint,
+    };
+    match opened_identity_matches(&mut file, expected, proof) {
+        Ok(true) => {}
+        Ok(false) => return Some(SourceUnavailableKind::RevisionMismatch),
+        Err(_) => return Some(SourceUnavailableKind::Unreadable),
+    }
+    if range.is_some_and(|range| range.start > range.end || range.end > expected.size) {
+        return Some(SourceUnavailableKind::UnusableRange);
+    }
+    None
+}
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -1294,6 +1335,54 @@ fn opened_revision_matches(file: &std::fs::File, expected: SourceRevision) -> Re
     Ok(opened == expected)
 }
 
+#[derive(Clone, Copy)]
+struct SourceIdentityProof {
+    created_ns: Option<i128>,
+    fingerprint: Option<[u8; 32]>,
+}
+
+fn opened_identity_matches(
+    file: &mut std::fs::File,
+    expected: SourceRevision,
+    proof: SourceIdentityProof,
+) -> Result<bool, String> {
+    let metadata = file.metadata().map_err(|error| error.to_string())?;
+    if SourceRevision::from_metadata(&metadata)? != expected {
+        return Ok(false);
+    }
+    if let Some(created_ns) = proof.created_ns {
+        let created = metadata
+            .created()
+            .ok()
+            .and_then(|time| time.duration_since(std::time::SystemTime::UNIX_EPOCH).ok())
+            .map(|duration| duration.as_nanos() as i128);
+        return Ok(created == Some(created_ns));
+    }
+    let Some(fingerprint) = proof.fingerprint else {
+        return Ok(false);
+    };
+    // Creation time is unavailable on this filesystem. Hash the same opened
+    // handle, restoring its cursor so a subsequent range read stays correct.
+    let position = file.stream_position().map_err(|error| error.to_string())?;
+    file.seek(SeekFrom::Start(0))
+        .map_err(|error| error.to_string())?;
+    let mut hasher = Sha256::new();
+    let mut buffer = [0u8; 64 * 1024];
+    let digest = (|| -> Result<[u8; 32], String> {
+        loop {
+            let count = file.read(&mut buffer).map_err(|error| error.to_string())?;
+            if count == 0 {
+                break;
+            }
+            hasher.update(&buffer[..count]);
+        }
+        Ok(hasher.finalize().into())
+    })();
+    file.seek(SeekFrom::Start(position))
+        .map_err(|error| error.to_string())?;
+    Ok(digest? == fingerprint && opened_revision_matches(file, expected)?)
+}
+
 fn check_opened_revision(file: &std::fs::File, expected: SourceRevision) -> Result<(), String> {
     if !opened_revision_matches(file, expected)? {
         return Err("stale source revision".into());
@@ -1311,6 +1400,64 @@ pub fn read_record_range(
     check_opened_revision(&file, revision)?;
     ByteRange::checked(range.start, range.end, revision.size)?;
     read_record_range_from_opened(&mut file, range)
+}
+
+/// Lifecycle read tied to a pinned file incarnation. When birth time is not
+/// available, the raw digest proves the opened handle instead.
+pub(crate) fn read_record_range_checked(
+    path: &Path,
+    revision: SourceRevision,
+    created_ns: Option<i128>,
+    fingerprint: Option<[u8; 32]>,
+    range: ByteRange,
+) -> Result<Vec<u8>, String> {
+    read_record_range_checked_impl(path, revision, created_ns, fingerprint, range, None)
+}
+
+pub(crate) fn read_record_range_checked_with_execution(
+    path: &Path,
+    revision: SourceRevision,
+    created_ns: Option<i128>,
+    fingerprint: Option<[u8; 32]>,
+    range: ByteRange,
+    execution: &ExecutionContext,
+) -> Result<Vec<u8>, String> {
+    read_record_range_checked_impl(
+        path,
+        revision,
+        created_ns,
+        fingerprint,
+        range,
+        Some(execution),
+    )
+}
+
+fn read_record_range_checked_impl(
+    path: &Path,
+    revision: SourceRevision,
+    created_ns: Option<i128>,
+    fingerprint: Option<[u8; 32]>,
+    range: ByteRange,
+    execution: Option<&ExecutionContext>,
+) -> Result<Vec<u8>, String> {
+    if let Some(execution) = execution {
+        execution.check_string()?;
+    }
+    let mut file =
+        std::fs::File::open(path).map_err(|error| format!("{}: {error}", path.display()))?;
+    let proof = SourceIdentityProof {
+        created_ns,
+        fingerprint,
+    };
+    if !opened_identity_matches(&mut file, revision, proof)? {
+        return Err(source_changed(execution, "stale source identity".into()));
+    }
+    ByteRange::checked(range.start, range.end, revision.size)?;
+    let bytes = read_record_range_from_opened(&mut file, range)?;
+    if !opened_identity_matches(&mut file, revision, proof)? {
+        return Err(source_changed(execution, "stale source identity".into()));
+    }
+    Ok(bytes)
 }
 
 /// Query read with an explicit typed source-change channel.
@@ -1375,6 +1522,7 @@ pub struct RecordRangeReader {
     first_read: bool,
     position: Option<u64>,
     execution: Option<ExecutionContext>,
+    identity: Option<SourceIdentityProof>,
     #[cfg(test)]
     pub(crate) seeks: u64,
     #[cfg(test)]
@@ -1392,12 +1540,66 @@ impl RecordRangeReader {
         revision: SourceRevision,
         execution: Option<&ExecutionContext>,
     ) -> Result<Self, String> {
+        Self::open_with_identity(path, revision, None, execution)
+    }
+
+    pub(crate) fn open_checked(
+        path: &Path,
+        revision: SourceRevision,
+        created_ns: Option<i128>,
+        fingerprint: Option<[u8; 32]>,
+    ) -> Result<Self, String> {
+        Self::open_with_identity(
+            path,
+            revision,
+            Some(SourceIdentityProof {
+                created_ns,
+                fingerprint,
+            }),
+            None,
+        )
+    }
+
+    pub(crate) fn open_checked_with_execution(
+        path: &Path,
+        revision: SourceRevision,
+        created_ns: Option<i128>,
+        fingerprint: Option<[u8; 32]>,
+        execution: Option<&ExecutionContext>,
+    ) -> Result<Self, String> {
+        Self::open_with_identity(
+            path,
+            revision,
+            Some(SourceIdentityProof {
+                created_ns,
+                fingerprint,
+            }),
+            execution,
+        )
+    }
+
+    fn open_with_identity(
+        path: &Path,
+        revision: SourceRevision,
+        identity: Option<SourceIdentityProof>,
+        execution: Option<&ExecutionContext>,
+    ) -> Result<Self, String> {
         if let Some(execution) = execution {
             execution.check_string()?;
         }
-        let file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
-        if !opened_revision_matches(&file, revision)? {
-            return Err(source_changed(execution, "stale source revision".into()));
+        let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
+        let matched = if let Some(proof) = identity {
+            opened_identity_matches(&mut file, revision, proof)?
+        } else {
+            opened_revision_matches(&file, revision)?
+        };
+        if !matched {
+            let message = if identity.is_some() {
+                "stale source identity"
+            } else {
+                "stale source revision"
+            };
+            return Err(source_changed(execution, message.into()));
         }
         Ok(Self {
             file,
@@ -1405,11 +1607,30 @@ impl RecordRangeReader {
             first_read: true,
             position: Some(0),
             execution: execution.cloned(),
+            identity,
             #[cfg(test)]
             seeks: 0,
             #[cfg(test)]
             max_window_read: 0,
         })
+    }
+
+    fn current_matches(&mut self) -> Result<bool, String> {
+        if let Some(proof) = self.identity {
+            opened_identity_matches(&mut self.file, self.revision, proof)
+        } else {
+            opened_revision_matches(&self.file, self.revision)
+        }
+    }
+
+    fn check_current(&mut self) -> Result<(), String> {
+        if !self.current_matches()? {
+            return Err(source_changed(
+                self.execution.as_ref(),
+                "stale source identity".into(),
+            ));
+        }
+        Ok(())
     }
 
     fn read_at(&mut self, start: u64, bytes: &mut [u8]) -> Result<(), String> {
@@ -1440,12 +1661,7 @@ impl RecordRangeReader {
         if self.first_read {
             self.first_read = false;
         } else {
-            if !opened_revision_matches(&self.file, self.revision)? {
-                return Err(source_changed(
-                    self.execution.as_ref(),
-                    "stale source revision".into(),
-                ));
-            }
+            self.check_current()?;
         }
         if let [(slot, range)] = ranges {
             ByteRange::checked(range.start, range.end, self.revision.size)?;
@@ -1456,6 +1672,9 @@ impl RecordRangeReader {
             }
             let mut bytes = vec![0; len];
             self.read_at(range.start, &mut bytes)?;
+            if self.identity.is_some() {
+                self.check_current()?;
+            }
             return Ok((vec![(*slot, bytes)], len as u64));
         }
         let mut ordered = ranges.to_vec();
@@ -1495,6 +1714,9 @@ impl RecordRangeReader {
             }
             cursor = next;
         }
+        if self.identity.is_some() {
+            self.check_current()?;
+        }
         Ok((output, bytes_read))
     }
 
@@ -1508,12 +1730,7 @@ impl RecordRangeReader {
         if self.first_read {
             self.first_read = false;
         } else {
-            if !opened_revision_matches(&self.file, self.revision)? {
-                return Err(source_changed(
-                    self.execution.as_ref(),
-                    "stale source revision".into(),
-                ));
-            }
+            self.check_current()?;
         }
         let mut ordered = ranges.to_vec();
         ordered.sort_by_key(|(_, range)| range.start);
@@ -1539,6 +1756,9 @@ impl RecordRangeReader {
             let mut bytes = vec![0; len];
             self.read_at(range.start, &mut bytes)?;
             output.push((slot, bytes));
+        }
+        if self.identity.is_some() {
+            self.check_current()?;
         }
         Ok((output, total as u64))
     }
