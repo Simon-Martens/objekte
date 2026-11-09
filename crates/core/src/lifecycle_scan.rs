@@ -204,7 +204,7 @@ pub(crate) fn scan_sources_batched(
             break;
         }
         let scope = &scopes[number];
-        if !scope.complete {
+        if !scope.complete || !summary.complete_collections.contains(&scope.id) {
             continue;
         }
         let selected_paths = scope.aliases.as_ref();
@@ -241,7 +241,7 @@ pub(crate) fn scan_sources_batched(
                 };
                 let selected = match selected_result {
                     Ok(selected) => selected,
-                    Err(_) if !candidate.complete => {
+                    Err(_) if !summary.complete_collections.contains(&candidate.id) => {
                         if relative.starts_with(&candidate.definition.source_path) {
                             uncertain = true;
                         }
@@ -250,7 +250,7 @@ pub(crate) fn scan_sources_batched(
                     Err(message) => return Err(message),
                 };
                 if selected {
-                    if candidate.complete {
+                    if summary.complete_collections.contains(&candidate.id) {
                         first.get_or_insert(candidate.id);
                         memberships.insert(candidate.id);
                     } else {
