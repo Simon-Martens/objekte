@@ -165,6 +165,9 @@ fn make_definition(
 /// Translate command opening options into the core's index and inference policy.
 pub fn repository_options(args: &Arguments) -> RepositoryOptions {
     RepositoryOptions {
+        // CLI batch commands and the TUI both enter through this loader. One
+        // bounded lifecycle store is shared across their index revisions.
+        verified_cache_bytes: 64 * 1024 * 1024,
         bigram_alphabet: match args.index_alphabet {
             Alphabet::Ascii => BigramAlphabet::Ascii,
             Alphabet::Unicode => BigramAlphabet::Unicode,

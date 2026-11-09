@@ -113,6 +113,93 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     })])];
     let base_active = vec![ActiveRecords::all(collection.generation.records.len()).unwrap()];
     let revision = IndexRevision(2);
+    let segment_only = vec![ActiveRecords::from_bitmap(
+        collection.generation.records.len(),
+        RoaringBitmap::new(),
+    ).unwrap()];
+    let lifecycle_cache = Mutex::new(VerifiedCache::new(1024 * 1024));
+    let cache_scope = LifecycleCacheScope {
+        store: &lifecycle_cache,
+        instance_id: 17,
+    };
+    let cached_query = Query {
+        collections: vec!["data".into()],
+        filter: None,
+        fts: Some(FtsQuery {
+            pattern_parameter: None,
+            mode: FtsMode::Literal,
+            case_sensitivity: CaseSensitivity::Sensitive,
+            literal: "a".into(),
+            fields: Vec::new(),
+        }),
+        options: QueryOptions {
+            sort: vec![SortField::simple("title", false)],
+            limit: 1,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let cold = search_segmented_lifecycle(
+        &repo, &cached_query, &segment_only, &segments, &catalog,
+        revision, Some(cache_scope),
+    ).unwrap();
+    assert_eq!(cold.count, Some(3));
+    assert!(!cold.counters.verified_result_hit);
+    let mut later_page = cached_query.clone();
+    later_page.options.offset = 1;
+    later_page.options.count = false;
+    let warm = search_segmented_lifecycle(
+        &repo, &later_page, &segment_only, &segments, &catalog,
+        revision, Some(cache_scope),
+    ).unwrap();
+    assert!(warm.counters.verified_result_hit);
+    let uncached = search_segmented(
+        &repo, &later_page, &segment_only, &segments, &catalog, revision,
+    ).unwrap();
+    assert_eq!(warm.hits[0].record_id, uncached.hits[0].record_id);
+    let newer = search_segmented_lifecycle(
+        &repo, &later_page, &segment_only, &segments, &catalog,
+        IndexRevision(3), Some(cache_scope),
+    ).unwrap();
+    assert!(!newer.counters.verified_result_hit);
+    let other_instance = search_segmented_lifecycle(
+        &repo, &later_page, &segment_only, &segments, &catalog,
+        revision, Some(LifecycleCacheScope { store: &lifecycle_cache, instance_id: 18 }),
+    ).unwrap();
+    assert!(!other_instance.counters.verified_result_hit);
+    let early_context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(CancellationToken::new()),
+    );
+    let mut first_progress = None;
+    let early = search_stream_segmented_with_context_lifecycle(
+        &repo, &cached_query, ResultScope::Page { offset: 0, limit: 1 },
+        StreamOptions::default(), &early_context, &segment_only, &segments,
+        &catalog, revision, &mut |event| {
+            if let StreamEvent::OrderedRows { progress, .. } = event {
+                first_progress = Some(progress.processed_candidates);
+            }
+            Ok(StreamControl::Continue)
+        }, None,
+    ).unwrap();
+    let StreamOutcome::Complete(early) = early else { panic!("early page incomplete") };
+    assert_eq!(early.count, Some(3));
+    assert!(first_progress.unwrap() < early.counters.scanned_records);
+    let no_count = search_stream_segmented_with_context_lifecycle(
+        &repo, &Query { options: QueryOptions { count: false, ..cached_query.options.clone() }, ..cached_query.clone() },
+        ResultScope::Page { offset: 0, limit: 1 }, StreamOptions::default(),
+        &ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(), Some(CancellationToken::new()),
+        ), &segment_only, &segments, &catalog, revision,
+        &mut |_| Ok(StreamControl::Continue), None,
+    ).unwrap();
+    let StreamOutcome::Complete(no_count) = no_count else { panic!("page incomplete") };
+    assert_eq!(no_count.count, None);
+    assert!(no_count.counters.scanned_records < 3);
     let mut query = Query {
         collections: vec!["data".into()],
         filter: Some(parse_filter("!(kind = 'b')").unwrap()),
@@ -3651,11 +3738,13 @@ fn computed_sort_combines_payload_key_and_target_budgets() {
         members: vec![
             CachedMember {
                 collection_index: 0,
+                segment_index: None,
                 slot: 0,
                 matched_fields: vec!["title".into()],
             },
             CachedMember {
                 collection_index: 0,
+                segment_index: None,
                 slot: 1,
                 matched_fields: vec![],
             },

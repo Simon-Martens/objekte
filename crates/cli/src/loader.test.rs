@@ -1,6 +1,14 @@
 use super::*;
 
 #[test]
+fn shared_cli_and_tui_loader_enables_bounded_verified_cache() {
+    assert_eq!(
+        repository_options(&Arguments::default()).verified_cache_bytes,
+        64 * 1024 * 1024,
+    );
+}
+
+#[test]
 fn configured_repository_uses_lifecycle_cache_for_load_and_write_flags() {
     let root = tempfile::tempdir().unwrap();
     let schemas = root.path().join(".objekte/collections");
