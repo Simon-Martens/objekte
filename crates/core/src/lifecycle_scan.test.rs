@@ -477,6 +477,7 @@ fn reconciles_300000_files_and_updates_a_shared_file() {
     assert!(unchanged.issues.is_empty(), "{:?}", unchanged.issues);
     assert_eq!(unchanged.examined, 300_000);
     assert_eq!(unchanged.unchanged, 300_000);
+    assert_eq!(unchanged.indexed_bytes, 0);
     assert_eq!(
         (unchanged.added, unchanged.updated, unchanged.removed),
         (0, 0, 0)
@@ -493,6 +494,7 @@ fn reconciles_300000_files_and_updates_a_shared_file() {
     assert!(updated.issues.is_empty(), "{:?}", updated.issues);
     assert_eq!(updated.examined, 300_000);
     assert_eq!((updated.added, updated.updated, updated.removed), (0, 1, 0));
+    assert_eq!(updated.indexed_bytes, b"{\"changed\":true}".len() as u64);
     let view = index.view().unwrap();
     let file_id = view
         .0
@@ -502,9 +504,11 @@ fn reconciles_300000_files_and_updates_a_shared_file() {
     let file = view.0.catalog.entry(file_id).unwrap();
     assert_eq!(file.collections.len(), 2);
     eprintln!(
-        "reconcile_scale build_ms={build_ms} unchanged_ms={unchanged_ms} updated_ms={updated_ms} files={} records={} shared_memberships={}",
+        "reconcile_scale build_ms={build_ms} unchanged_ms={unchanged_ms} updated_ms={updated_ms} files={} records={} shared_memberships={} unchanged_indexed_bytes={} updated_indexed_bytes={}",
         initial.indexed_files,
         initial.live_records,
-        file.collections.len()
+        file.collections.len(),
+        unchanged.indexed_bytes,
+        updated.indexed_bytes,
     );
 }
