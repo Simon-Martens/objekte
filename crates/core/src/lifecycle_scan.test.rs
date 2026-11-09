@@ -101,6 +101,43 @@ fn overlapping_collections_emit_one_physical_observation_in_small_batches() {
 }
 
 #[test]
+fn nested_source_roots_preserve_all_memberships_without_duplicate_observation() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-nested-overlap-scan-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data/nested")).unwrap();
+    std::fs::write(root.join("data/top.json"), b"{}").unwrap();
+    std::fs::write(root.join("data/nested/inner.json"), b"{}").unwrap();
+    let root = root.canonicalize().unwrap();
+    let mut outer = CollectionDefinition::folder("outer", "data", SourceFormat::Json);
+    outer.discovery.recursive = true;
+    let inner = CollectionDefinition::folder("inner", "data/nested", SourceFormat::Json);
+    let mut changes = Vec::new();
+    let scan = scan_sources_batched(
+        &root,
+        &[outer, inner],
+        &SourceRegistry::builtin(),
+        |_| false,
+        |_| None,
+        || false,
+        2,
+        |batch| changes.extend(batch),
+    );
+    assert!(scan.issues.is_empty(), "{:?}", scan.issues);
+    assert_eq!(scan.examined, 2);
+    assert_eq!(scan.metadata_observations, 2);
+    assert_eq!(changes.len(), 2);
+    assert!(changes.iter().any(|change| matches!(change,
+        ScanChange::Add(file) if file.path == std::path::Path::new("data/nested/inner.json")
+            && file.collections == [CollectionId(0), CollectionId(1)].into()
+    )));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn failed_overlap_scope_preserves_existing_file_without_partial_replacement() {
     let root = std::env::temp_dir().join(format!(
         "objekte-failed-overlap-scan-{}-{:?}",
