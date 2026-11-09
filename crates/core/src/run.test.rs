@@ -756,6 +756,31 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     .unwrap()
     .unwrap();
     assert!(matches!(logical.payload, Some(Payload::Logical(_))));
+    let moved_path = root.join("data/moved.jsonl");
+    std::fs::rename(&path, &moved_path).unwrap();
+    let mut moved_entry = catalog.entry(FileId(1)).unwrap().clone();
+    moved_entry.relative_path = "data/moved.jsonl".into();
+    let moved_catalog = catalog.replaced(moved_entry, None, None).unwrap();
+    let moved = get_segment_record_by_id(
+        &repo, 0, &segment, &active, &moved_catalog,
+        IndexRevision(10), id, ReturnMode::Bytes,
+    ).unwrap().unwrap();
+    assert_eq!(moved.file_path, std::path::Path::new("data/moved.jsonl"));
+    assert_eq!(moved.payload, bytes.payload);
+    let base_path = root.join("data/base-moved.jsonl");
+    std::fs::rename(root.join("data/base.jsonl"), &base_path).unwrap();
+    let mut base_entry = moved_catalog.entry(FileId(0)).unwrap().clone();
+    base_entry.relative_path = "data/base-moved.jsonl".into();
+    let moved_catalog = moved_catalog.replaced(base_entry, None, None).unwrap();
+    let base_id = &repo.collections()[0].generation.records[0].id.0;
+    let base_hit = direct_lookup_segmented(
+        &repo, "data", base_id, ReturnMode::Bytes,
+        &[ActiveRecords::all(1).unwrap()], &[Arc::new(Vec::new())],
+        &moved_catalog, IndexRevision(10),
+    ).unwrap();
+    assert!(matches!(base_hit, DirectLookupResult::Found(hit)
+        if hit.file_path == std::path::Path::new("data/base-moved.jsonl")
+            && hit.payload == Some(Payload::Bytes(b"{\"name\":\"base\"}".to_vec()))));
     let retired = active.retired(&[RecordSlot(0)]).unwrap();
     assert!(
         get_segment_record_by_id(
@@ -785,7 +810,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
         .unwrap()
         .is_none()
     );
-    std::fs::write(&path, b"{\"name\":\"different\"}\n").unwrap();
+    std::fs::write(&moved_path, b"{\"name\":\"different\"}\n").unwrap();
     assert!(
         get_segment_record_by_id(
             &repo,
