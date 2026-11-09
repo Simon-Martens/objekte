@@ -1755,15 +1755,14 @@ fn rank_key_without_source(
 }
 
 fn rank_key_bytes(key: &RankKey) -> u64 {
-    (std::mem::size_of::<RankKey>()
-        + key.parts.capacity() * std::mem::size_of::<(SortKey, bool, SortOptions)>()
-        + key.collection.capacity()
-        + key.id.capacity()
-        + key
-            .parts
-            .iter()
-            .map(|(part, _, _)| crate::sort_binding::key_bytes(part))
-            .sum::<usize>()) as u64
+    let bytes = std::mem::size_of::<RankKey>()
+        .saturating_add(key.parts.capacity().saturating_mul(std::mem::size_of::<(SortKey, bool, SortOptions)>()))
+        .saturating_add(key.collection.capacity())
+        .saturating_add(key.id.capacity())
+        .saturating_add(key.parts.iter().fold(0usize, |total, (part, _, _)| {
+            total.saturating_add(crate::sort_binding::key_bytes(part))
+        }));
+    u64::try_from(bytes).unwrap_or(u64::MAX)
 }
 
 pub(crate) fn make_hit(
@@ -2021,6 +2020,7 @@ struct LifecycleCacheBuilder {
 /// number of partitions and the requested output batch.
 struct LifecycleOrderCursor {
     key: RankKey,
+    bytes: usize,
     collection_index: usize,
     segment_index: usize,
     position: usize,
@@ -3739,6 +3739,9 @@ fn push_lifecycle_order_cursor(
     segment_index: usize,
     mut position: usize,
     heap: &mut BinaryHeap<Reverse<LifecycleOrderCursor>>,
+    heap_bytes: &mut usize,
+    budget: usize,
+    context: &ExecutionContext,
 ) -> Result<(), String> {
     let published = &segments[collection_index][segment_index];
     let order = lifecycle_segment_order(&published.index, sort, query, collection_index)
@@ -3764,8 +3767,17 @@ fn push_lifecycle_order_cursor(
             record,
             None,
         )?;
+        let bytes = usize::try_from(rank_key_bytes(&key))
+            .map_err(|_| context.fail(ExecutionErrorKind::Resource, "ordered sort key size overflow"))?;
+        let next = heap_bytes.checked_add(bytes)
+            .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered cursor memory overflow"))?;
+        if next > budget {
+            return Err(context.fail(ExecutionErrorKind::Resource, "ordered cursors exceed stream memory budget"));
+        }
+        *heap_bytes = next;
         heap.push(Reverse(LifecycleOrderCursor {
             key,
+            bytes,
             collection_index,
             segment_index,
             position,
@@ -3837,7 +3849,7 @@ fn try_lifecycle_ordered_stream(
     let partition_count = filters.iter().enumerate().try_fold(0usize, |count, (index, selected)| {
         count.checked_add(if selected.is_some() { segments[index].len() } else { 0 })
     }).ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered partition count overflow"))?;
-    let heap_bytes = partition_count
+    let mut heap_bytes = partition_count
         .checked_mul(std::mem::size_of::<LifecycleOrderCursor>())
         .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered cursor memory overflow"))?;
     if heap_bytes > delivery.max_buffered_bytes() {
@@ -3854,10 +3866,12 @@ fn try_lifecycle_ordered_stream(
             push_lifecycle_order_cursor(
                 repo, request, &sort, segments, &candidates,
                 collection_index, segment_index, 0, &mut heap,
+                &mut heap_bytes, delivery.max_buffered_bytes(), context,
             )?;
         }
     }
     let mut page = Vec::new();
+    let mut page_bytes = 0usize;
     let mut counters = WorkCounters {
         match_count_complete: true,
         ..WorkCounters::default()
@@ -3871,9 +3885,11 @@ fn try_lifecycle_ordered_stream(
     while let Some(Reverse(cursor)) = heap.pop() {
         delivery.check()?;
         context.check_string()?;
+        heap_bytes = heap_bytes.saturating_sub(cursor.bytes);
         push_lifecycle_order_cursor(
             repo, request, &sort, segments, &candidates,
             cursor.collection_index, cursor.segment_index, cursor.position, &mut heap,
+            &mut heap_bytes, delivery.max_buffered_bytes().saturating_sub(page_bytes), context,
         )?;
         let published = &segments[cursor.collection_index][cursor.segment_index];
         let Some(resolved) = segment_record_ref(
@@ -3890,6 +3906,17 @@ fn try_lifecycle_ordered_stream(
             .ok_or("ordered collection filter missing")?;
         let mut evidence = HashSet::new();
         let must_verify = filter.is_some() || fts.is_some();
+        if limit.is_none() && !page.is_empty() {
+            let upcoming = usize::try_from(record.range.len()).unwrap_or(usize::MAX);
+            if page.len() >= delivery.options().batch_rows
+                || page_bytes.saturating_add(upcoming).saturating_add(heap_bytes)
+                    > delivery.max_buffered_bytes()
+            {
+                delivery.ordered_batch(&page, &counters)?;
+                page.clear();
+                page_bytes = 0;
+            }
+        }
         let mut bytes = None;
         let matched = if must_verify {
             if record.range.len() > context.limits.source_record_bytes {
@@ -4007,16 +4034,17 @@ fn try_lifecycle_ordered_stream(
         let bytes = crate::streaming::hit_bytes(&hit);
         if limit.is_none() && !page.is_empty()
             && (page.len() >= delivery.options().batch_rows
-                || page.iter().map(crate::streaming::hit_bytes).sum::<usize>().saturating_add(bytes)
-                    > delivery.options().max_event_bytes)
+                || page_bytes.saturating_add(bytes) > delivery.options().max_event_bytes)
         {
             delivery.ordered_batch(&page, &counters)?;
             page.clear();
+            page_bytes = 0;
         }
-        let retained = page.iter().map(crate::streaming::hit_bytes).sum::<usize>()
+        let retained = page_bytes
             .checked_add(bytes)
             .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered page byte count overflow"))?;
         delivery.check_buffer(retained.saturating_add(heap_bytes))?;
+        page_bytes = retained;
         page.push(hit);
         if let Some(limit) = limit
             && page.len() == limit
