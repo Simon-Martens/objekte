@@ -30,6 +30,15 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
         .map(|value| value.parse::<usize>())
         .transpose()?
         .unwrap_or(0);
+    let count_off = std::env::var_os("LIFECYCLE_COUNT_OFF").is_some();
+    let offset = std::env::var("LIFECYCLE_OFFSET")
+        .ok()
+        .map(|value| value.parse::<usize>())
+        .transpose()?;
+    let limit = std::env::var("LIFECYCLE_LIMIT")
+        .ok()
+        .map(|value| value.parse::<usize>())
+        .transpose()?;
     let core = Path::new(env!("CARGO_MANIFEST_DIR")).to_path_buf();
     let mut cases = load_extended_manifest(
         &core.join("benches/musenalm_queries.json"),
@@ -72,7 +81,16 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
             memory_kb("VmHWM:")
         );
         for case in &cases {
-            let query = case.query()?;
+            let mut query = case.query()?;
+            if count_off {
+                query.options.count = false;
+            }
+            if let Some(offset) = offset {
+                query.options.offset = offset;
+            }
+            if let Some(limit) = limit {
+                query.options.limit = limit;
+            }
             for repetition in 0..if cache_bytes == 0 { 5 } else { 6 } {
                 let started = Instant::now();
                 let result = view.search(&query);
@@ -84,6 +102,7 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
                             "{}",
                             serde_json::json!({
                                 "case_id":case.id,"profile":name,"cache_bytes":cache_bytes,"repetition":repetition,
+                                "requested_count":query.options.count,"requested_offset":query.options.offset,"requested_limit":query.options.limit,
                                 "status":"ok","ns":ns,"count":result.count,
                                 "returned":result.hits.len(),"counters":result.counters,
                             })
@@ -96,6 +115,7 @@ fn run(root: &Path, output: &Path) -> Result<(), Box<dyn Error>> {
                             "{}",
                             serde_json::json!({
                                 "case_id":case.id,"profile":name,"cache_bytes":cache_bytes,"repetition":repetition,
+                                "requested_count":query.options.count,"requested_offset":query.options.offset,"requested_limit":query.options.limit,
                                 "status":"failed","ns":ns,"error":error,
                             })
                         )?;
