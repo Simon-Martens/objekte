@@ -141,6 +141,31 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             evidence: false,
         },
     };
+    let mut selective_fts = cached_query.clone();
+    selective_fts.fts.as_mut().unwrap().literal = "aardvark".into();
+    let selective = search_segmented(
+        &repo, &selective_fts, &segment_only, &segments, &catalog, revision,
+    ).unwrap();
+    assert_eq!(selective.count, Some(1));
+    assert!(selective.counters.scanned_records < 3);
+    let mut substring = cached_query.clone();
+    substring.fts = None;
+    substring.filter = Some(parse_filter("title ~ 'aardvark'").unwrap());
+    let substring_result = search_segmented(
+        &repo, &substring, &segment_only, &segments, &catalog, revision,
+    ).unwrap();
+    assert_eq!(substring_result.count, Some(1));
+    assert!(substring_result.counters.scanned_records < 3);
+    let mut direct_id = cached_query.clone();
+    direct_id.fts = None;
+    direct_id.filter = Some(parse_filter(&format!(
+        "@record.id = '{}'", segments[0][0].index.records[0].id.0,
+    )).unwrap());
+    let direct_id_result = search_segmented(
+        &repo, &direct_id, &segment_only, &segments, &catalog, revision,
+    ).unwrap();
+    assert_eq!(direct_id_result.count, Some(1));
+    assert_eq!(direct_id_result.counters.scanned_records, 0);
     let cold = search_segmented_lifecycle(
         &repo, &cached_query, &segment_only, &segments, &catalog,
         revision, Some(cache_scope),

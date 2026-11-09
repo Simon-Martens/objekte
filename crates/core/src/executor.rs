@@ -6,7 +6,7 @@ use roaring::RoaringBitmap;
 
 use crate::build::IndexedCollectionSegment;
 use crate::inventory::ActiveRecords;
-use crate::model::{LogicalType, MetadataField, PathRoot, Value};
+use crate::model::{LogicalType, MetadataField, PathRoot, RecordId, Value};
 use crate::posting::ScalarKey;
 use crate::query::{FtsMode, Operator, Quantifier};
 use crate::reference::{
@@ -38,6 +38,7 @@ pub(crate) fn segment_filter_bounds(
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
     expr: &BoundExpr,
+    collection: &CollectionState,
 ) -> Result<SegmentCandidateBounds, String> {
     if active.slot_count() as usize != segment.records.len() {
         return Err("segment active domain length mismatch".into());
@@ -48,22 +49,144 @@ pub(crate) fn segment_filter_bounds(
     Ok(segment_expr_bounds(
         segment,
         expr,
+        collection,
         &domain,
         &logical_active,
         &fallback_active,
     ))
 }
 
+/// Conservative local bigram candidates for a lifecycle segment. `None`
+/// means the caller must keep the whole active domain.
+pub(crate) fn segment_fts_candidates(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    fts: &BoundFts,
+) -> Option<RoaringBitmap> {
+    if fts.fields.iter().any(|field| field.related.is_some())
+        || !matches!(fts.mode, FtsMode::Literal)
+    {
+        return None;
+    }
+    if fts.fields.is_empty() {
+        if fts.raw_matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible())
+            || segment.raw.record_count as usize != segment.records.len()
+            || collection.definition.schema.raw.as_ref().is_some_and(|binding| {
+                !binding.operation.complete_coverage()
+            })
+        {
+            return None;
+        }
+        let mut may = segment.raw.candidates_prepared(&fts.gram_request)?;
+        if segment.logical_records.len() != segment.records.len() as u64 {
+            may |= segment.fallback_text.candidates_prepared(&fts.fallback_gram_request)?;
+        }
+        return Some(may);
+    }
+    let mut may = RoaringBitmap::new();
+    for field in &fts.fields {
+        if field.path.root != PathRoot::Data
+            || field.matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible())
+        {
+            return None;
+        }
+        let key = if matches!(field.binding_name.as_str(), "default" | "lower") {
+            crate::repository::built_in_field_text_key(&collection.definition.schema, &field.path.segments)?
+        } else {
+            crate::repository::canonical_custom_text_key(
+                &collection.definition.schema, &field.path.segments, &field.binding_name,
+            )
+        };
+        let index = if collection.source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields {
+            segment.custom_text.get(&key)
+        } else {
+            None
+        };
+        if let Some(index) = index {
+            may |= index.candidates_prepared(&field.gram_request)?;
+        } else if matches!(field.binding_name.as_str(), "default" | "lower")
+            && field.operation.is_none() && segment_raw_covers_identity_field(segment, collection)
+        {
+            may |= segment.raw.candidates_prepared(&field.gram_request)?;
+        } else {
+            return None;
+        }
+    }
+    Some(may)
+}
+
+fn segment_text_candidates(
+    segment: &IndexedCollectionSegment,
+    term: &BoundTerm,
+    collection: &CollectionState,
+) -> Option<RoaringBitmap> {
+    if term.derived != Derived::None
+        || !matches!(term.operator, Operator::Contains | Operator::Eq)
+        || !custom_bigram_compatible(term)
+    {
+        return None;
+    }
+    let Value::String(literal) = &term.literal else { return None };
+    if literal.contains(['%', '\\']) {
+        return None;
+    }
+    let key = if matches!(term.binding_name.as_str(), "default" | "lower") {
+        crate::repository::built_in_field_text_key(&collection.definition.schema, &term.path.segments)
+    } else {
+        Some(crate::repository::canonical_custom_text_key(
+            &collection.definition.schema, &term.path.segments, &term.binding_name,
+        ))
+    };
+    if let Some(index) = key.as_ref().and_then(|key| segment.custom_text.get(key)) {
+        return index.candidates_prepared(term.gram_request.as_ref()?);
+    }
+    if matches!(term.binding_name.as_str(), "default" | "lower")
+        && matches!(term.transform, crate::reference::Transform::Identity | crate::reference::Transform::CaseFold)
+        && term.operation.is_none()
+        && term.matcher.is_none()
+        && segment_raw_covers_identity_field(segment, collection)
+    {
+        return segment.raw.candidates_prepared(term.gram_request.as_ref()?);
+    }
+    None
+}
+
+fn segment_raw_covers_identity_field(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+) -> bool {
+    collection.source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields
+        && collection.definition.schema.raw.is_none()
+        && segment.raw.record_count as usize == segment.records.len()
+}
+
 fn segment_expr_bounds(
     segment: &IndexedCollectionSegment,
     expr: &BoundExpr,
+    collection: &CollectionState,
     domain: &RoaringBitmap,
     logical_active: &RoaringBitmap,
     fallback_active: &RoaringBitmap,
 ) -> SegmentCandidateBounds {
     match expr {
         BoundExpr::Term(term) => {
-            if term.related.is_some() || term.rhs.is_some() || term.path.root != PathRoot::Data {
+            if term.related.is_some() || term.rhs.is_some() {
+                return SegmentCandidateBounds::unknown(domain);
+            }
+            if term.path.root == PathRoot::Metadata(MetadataField::RecordId)
+                && term.operator == Operator::Eq
+                && term.transform == crate::reference::Transform::Identity
+                && let Value::Id(id) = &term.literal
+            {
+                let mut matches = RoaringBitmap::new();
+                if let Some(slot) = segment.id_lookup.get(&RecordId(id.clone()))
+                    && domain.contains(slot.0)
+                {
+                    matches.insert(slot.0);
+                }
+                return SegmentCandidateBounds { may: matches.clone(), must: matches };
+            }
+            if term.path.root != PathRoot::Data {
                 return SegmentCandidateBounds::unknown(domain);
             }
             let exact = if term.operation.is_some() {
@@ -92,7 +215,19 @@ fn segment_expr_bounds(
                     may: &matches | fallback_active,
                     must: matches,
                 },
-                None => SegmentCandidateBounds::unknown(domain),
+                None => {
+                    if let Some(mut grams) = segment_text_candidates(segment, term, collection) {
+                        if empty_selection_preservation(term) {
+                            grams |= &segment.empty_array_records;
+                        }
+                        SegmentCandidateBounds {
+                            may: (&grams & domain) | fallback_active,
+                            must: RoaringBitmap::new(),
+                        }
+                    } else {
+                        SegmentCandidateBounds::unknown(domain)
+                    }
+                }
             }
         }
         BoundExpr::And(parts) => {
@@ -100,7 +235,7 @@ fn segment_expr_bounds(
             let mut must = domain.clone();
             for part in parts {
                 let child =
-                    segment_expr_bounds(segment, part, domain, logical_active, fallback_active);
+                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active);
                 may &= child.may;
                 must &= child.must;
             }
@@ -111,7 +246,7 @@ fn segment_expr_bounds(
             let mut must = RoaringBitmap::new();
             for part in parts {
                 let child =
-                    segment_expr_bounds(segment, part, domain, logical_active, fallback_active);
+                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active);
                 may |= child.may;
                 must |= child.must;
             }
@@ -119,7 +254,7 @@ fn segment_expr_bounds(
         }
         BoundExpr::Not(inner) => {
             let child =
-                segment_expr_bounds(segment, inner, domain, logical_active, fallback_active);
+                segment_expr_bounds(segment, inner, collection, domain, logical_active, fallback_active);
             SegmentCandidateBounds {
                 may: domain - &child.must,
                 must: domain - &child.may,

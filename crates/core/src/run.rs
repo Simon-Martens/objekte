@@ -17,6 +17,7 @@ use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
 use crate::executor::{
     Plan, PlanningCounters, Proof, TermChoice, estimate_expr, estimate_fts_candidates,
     estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
+    segment_fts_candidates,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
@@ -2730,11 +2731,16 @@ fn search_segmented_impl(
             let segment = &published.index;
             let bounds = filter
                 .as_ref()
-                .map(|filter| segment_filter_bounds(segment, &published.active, filter))
+                .map(|filter| segment_filter_bounds(segment, &published.active, filter, collection))
                 .transpose()?;
-            let candidates = bounds
+            let mut candidates = bounds
                 .as_ref()
                 .map_or_else(|| published.active.bitmap(), |bounds| bounds.may.clone());
+            if let Some(fts_may) = fts.as_ref().and_then(|fts| {
+                segment_fts_candidates(segment, collection, fts)
+            }) {
+                candidates &= fts_may;
+            }
             counters.candidates += candidates.len();
             let index_exact = !query.options.evidence
                 && !sort.bound.has_computed
@@ -3954,11 +3960,20 @@ fn try_lifecycle_ordered_stream(
         .collect::<Vec<_>>();
     for (collection_index, filter, fts) in prepared.collections {
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
-            if let Some(filter) = &filter {
-                candidates[collection_index][segment_index] = Some(
-                    segment_filter_bounds(&segment.index, &segment.active, filter)?.may,
-                );
-            }
+            let collection = &repo.collections[collection_index];
+            let filter_may = filter.as_ref().map(|filter| {
+                segment_filter_bounds(&segment.index, &segment.active, filter, collection)
+                    .map(|bounds| bounds.may)
+            }).transpose()?;
+            let fts_may = fts.as_ref().and_then(|fts| {
+                segment_fts_candidates(&segment.index, collection, fts)
+            });
+            candidates[collection_index][segment_index] = match (filter_may, fts_may) {
+                (Some(filter), Some(fts)) => Some(filter & fts),
+                (Some(filter), None) => Some(filter),
+                (None, Some(fts)) => Some(fts),
+                (None, None) => None,
+            };
         }
         filters[collection_index] = Some((filter, fts));
     }

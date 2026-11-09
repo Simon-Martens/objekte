@@ -2,7 +2,7 @@ use super::*;
 use crate::model::LogicalType;
 use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Transform};
-use crate::repository::{CollectionDefinition, IdentityPolicy};
+use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 use std::sync::Arc;
@@ -81,6 +81,13 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         .seal()
         .into_indexed(&definition, alphabet, inference, 1, &pool)
         .unwrap();
+    let repo = Repository::open_with_options(
+        &root, vec![definition.clone()], RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    ).unwrap();
+    let collection = &repo.collections()[0];
     assert_eq!(segment.records.len(), 4);
     let active = ActiveRecords::all(4)
         .unwrap()
@@ -89,13 +96,13 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
     let positive =
         crate::reference::bind_filter(&parse_filter("kind = 'a'").unwrap(), &definition.schema)
             .unwrap();
-    let bounds = segment_filter_bounds(&segment, &active, &positive).unwrap();
+    let bounds = segment_filter_bounds(&segment, &active, &positive, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [0, 2]);
     assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [0]);
     let negative =
         crate::reference::bind_filter(&parse_filter("!(kind = 'a')").unwrap(), &definition.schema)
             .unwrap();
-    let bounds = segment_filter_bounds(&segment, &active, &negative).unwrap();
+    let bounds = segment_filter_bounds(&segment, &active, &negative, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [1, 2]);
     assert_eq!(bounds.must.iter().collect::<Vec<_>>(), [1]);
     let impossible = crate::reference::bind_filter(
@@ -103,7 +110,7 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
         &definition.schema,
     )
     .unwrap();
-    let bounds = segment_filter_bounds(&segment, &active, &impossible).unwrap();
+    let bounds = segment_filter_bounds(&segment, &active, &impossible, collection).unwrap();
     assert_eq!(bounds.may.iter().collect::<Vec<_>>(), [2]);
     assert!(bounds.must.is_empty());
     std::fs::remove_dir_all(root).unwrap();
