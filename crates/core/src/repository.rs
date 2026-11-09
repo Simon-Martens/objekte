@@ -213,6 +213,10 @@ impl PendingCollection {
     }
 }
 
+#[path = "repository_direct.rs"]
+mod direct;
+pub(crate) use direct::DirectBuild;
+
 /// Built-in identity and case-fold registrations for the same logical field
 /// have identical candidate grams after mandatory index folding.
 pub(crate) fn canonical_custom_text_key(

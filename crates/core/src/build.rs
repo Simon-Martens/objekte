@@ -41,10 +41,11 @@ use crate::source::{
 use crate::workload::BigramAlphabet;
 
 
-struct BatchFile {
-    entry: FileEntry,
-    records: Range<usize>,
-    first_range: bool,
+#[derive(Clone)]
+pub(crate) struct BatchFile {
+    pub(crate) entry: FileEntry,
+    pub(crate) records: Range<usize>,
+    pub(crate) first_range: bool,
 }
 
 
@@ -138,9 +139,44 @@ pub(crate) struct BatchContribution {
     pub failed_parses: u64,
 }
 
+/// The collection-wide identity and diagnostic observations needed while
+/// local index families move directly into bounded fresh-build shards.
+pub(crate) struct BatchMetadata {
+    pub(crate) files: Vec<BatchFile>,
+    pub(crate) records: Vec<RecordEntry>,
+    pub(crate) inference: Option<InferenceBuilder>,
+    pub(crate) logical_records: RoaringBitmap,
+}
+
 impl BatchContribution {
     pub(crate) fn file_fingerprints(&self) -> &[(FileId, [u8; 32])] {
         &self.file_fingerprints
+    }
+
+    pub(crate) fn metadata_copy(&self) -> BatchMetadata {
+        BatchMetadata {
+            files: self.files.clone(),
+            records: self.records.clone(),
+            inference: self.inference.clone(),
+            logical_records: self.logical_records.clone(),
+        }
+    }
+
+    pub(crate) fn new_file_count(&self) -> usize {
+        self.files.iter().filter(|file| file.first_range).count()
+    }
+
+    pub(crate) fn new_file_bytes(&self) -> u64 {
+        self.files
+            .iter()
+            .filter(|file| file.first_range)
+            .fold(0u64, |total, file| {
+                total.saturating_add(file.entry.revision.size)
+            })
+    }
+
+    pub(crate) fn record_count(&self) -> usize {
+        self.records.len()
     }
 }
 
@@ -2107,5 +2143,5 @@ mod tests;
 mod mutation_segment;
 
 pub(crate) use mutation_segment::{
-    IndexedCollectionSegment, SegmentAdmission, SegmentFile,
+    CollectionSegment, IndexedCollectionSegment, SegmentAdmission, SegmentFile, SegmentLimits,
 };

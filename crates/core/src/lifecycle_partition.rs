@@ -97,19 +97,23 @@ fn compact_source_parts_with_limits(
             files.insert(file.entry.id);
             continue;
         }
-        for chunk in owned.chunks(max_records) {
-            if count > 0
-                && (count.saturating_add(chunk.len()) > max_records || files.len() >= max_files)
-            {
+        let mut offset = 0;
+        while offset < owned.len() {
+            if count == max_records || (files.len() >= max_files && !files.contains(&file.entry.id)) {
                 seal(&mut selections, &mut files, &mut slots, &mut count)?;
             }
+            let end = offset
+                .checked_add(max_records - count)
+                .ok_or_else(|| IndexError::ResourceLimit("compaction part offset overflow".into()))?
+                .min(owned.len());
             files.insert(file.entry.id);
-            for slot in chunk {
+            for slot in &owned[offset..end] {
                 slots.insert(slot.0);
             }
-            count = count.checked_add(chunk.len()).ok_or_else(|| {
+            count = count.checked_add(end - offset).ok_or_else(|| {
                 IndexError::ResourceLimit("compaction part count overflow".into())
             })?;
+            offset = end;
         }
     }
     seal(&mut selections, &mut files, &mut slots, &mut count)?;

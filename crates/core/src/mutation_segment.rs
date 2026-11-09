@@ -155,6 +155,25 @@ impl SegmentAdmission {
                 .is_some_and(|bytes| bytes <= self.limits.source_bytes)
     }
 
+    pub(crate) fn can_admit_batch(&self, batch: &BatchContribution) -> bool {
+        if self.files.is_empty() {
+            return true;
+        }
+        self.files
+            .len()
+            .checked_add(batch.new_file_count())
+            .is_some_and(|count| count <= self.limits.files)
+            && self
+                .records
+                .len()
+                .checked_add(batch.record_count())
+                .is_some_and(|count| count <= self.limits.records)
+            && self
+                .source_bytes
+                .checked_add(batch.new_file_bytes())
+                .is_some_and(|bytes| bytes <= self.limits.source_bytes)
+    }
+
     /// Consume one prepared collection membership. The caller retains other
     /// memberships of the same physical file for their respective segments.
     pub fn admit(

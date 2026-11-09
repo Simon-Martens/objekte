@@ -18,6 +18,7 @@ use super::{
 
 
 /// Observations retained for one path while construction batches are admitted.
+#[derive(Clone)]
 struct FieldState {
     path: Vec<String>,
     kinds: Vec<LogicalType>,
@@ -396,6 +397,7 @@ impl FieldState {
 
 
 /// One batch or coordinator's bounded construction-only observation state.
+#[derive(Clone)]
 pub(crate) struct InferenceBuilder {
     config: InferenceConfig,
     field_names: HashSet<Arc<str>>,

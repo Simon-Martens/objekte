@@ -9,7 +9,8 @@ use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex, Publish
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::CollectionId;
 use crate::repository::{
-    CollectionDefinition, Repository, RepositoryOptions, SnapshotMode, SnapshotOpenPolicy,
+    CollectionDefinition, DirectBuild, Repository, RepositoryOptions, SnapshotMode,
+    SnapshotOpenPolicy,
 };
 use crate::source::SourceRegistry;
 
@@ -34,6 +35,17 @@ impl Index {
         sources: SourceRegistry,
     ) -> Result<Self, IndexError> {
         options.snapshot_mode = SnapshotMode::Disabled;
+        let root = root.into();
+        if let Some(direct) = Repository::build_direct_json(
+            root.clone(),
+            definitions.clone(),
+            options,
+            sources.clone(),
+        )
+        .map_err(IndexError::Build)?
+        {
+            return Self::from_direct_build(direct);
+        }
         let repository = Repository::open_with_sources_and_snapshot_policy(
             root,
             definitions,
@@ -43,6 +55,30 @@ impl Index {
         )
         .map_err(IndexError::Build)?;
         Self::from_repository(repository)
+    }
+
+    fn from_direct_build(direct: DirectBuild) -> Result<Self, IndexError> {
+        let DirectBuild {
+            repository,
+            catalog_slots,
+            segments,
+        } = direct;
+        let instance_id = crate::repository::next_repository_instance();
+        let repository = Arc::new(repository);
+        let mut published = PublishedIndex::from_repository(
+            instance_id,
+            IndexRevision::INITIAL,
+            Arc::clone(&repository),
+        )?;
+        published.catalog = FileCatalog::restored(repository, catalog_slots)
+            .map_err(IndexError::InvalidPublication)?;
+        published.file_versions = FileVersions::initial(published.catalog.allocated_files());
+        for group in segments {
+            for segment in group {
+                published = published.with_segment(segment)?;
+            }
+        }
+        Ok(Self::from_published(published))
     }
 
     /// Restore a checked cache at an explicit path, then immediately start
