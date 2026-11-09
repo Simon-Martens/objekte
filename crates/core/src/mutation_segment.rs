@@ -6,7 +6,7 @@ use super::*;
 use crate::bigram::BigramIndex;
 use crate::inference::{InferenceIndexStatus, InferenceState, InferredFieldReport};
 use crate::inventory::ActiveRecords;
-use crate::sorting::{SortCollection, compare_composite};
+use crate::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
 
 /// One physical file in a delta. File IDs remain repository-global; record
 /// slots are local to this segment until the publication owner names it.
@@ -1037,22 +1037,26 @@ fn project_posting(
     slots: &[Option<RecordSlot>],
     logical_count: u32,
 ) -> Result<PostingIndex, String> {
-    let mut projected = index.clone();
-    projected.presence = project_bitmap(&index.presence, slots)?;
-    projected.nulls = project_bitmap(&index.nulls, slots)?;
+    let mut projected = PostingIndex {
+        path: index.path.clone(),
+        kind: index.kind.clone(),
+        multi: index.multi,
+        presence: project_bitmap(&index.presence, slots)?,
+        nulls: project_bitmap(&index.nulls, slots)?,
+        values: Default::default(),
+        lengths: Default::default(),
+        covered_records: logical_count,
+        stats: Default::default(),
+    };
     for (key, bitmap) in &index.values {
         let kept = project_bitmap(bitmap, slots)?;
-        if kept.is_empty() {
-            projected.values.remove(key);
-        } else {
+        if !kept.is_empty() {
             projected.values.insert(key.clone(), kept);
         }
     }
     for (key, bitmap) in &index.lengths {
         let kept = project_bitmap(bitmap, slots)?;
-        if kept.is_empty() {
-            projected.lengths.remove(key);
-        } else {
+        if !kept.is_empty() {
             projected.lengths.insert(key.clone(), kept);
         }
     }
@@ -1088,21 +1092,41 @@ fn project_sorting(
     slots: &[Option<RecordSlot>],
     records: &[RecordEntry],
 ) -> Result<SortCollection, String> {
-    let mut sorting = source.clone();
-    for column in sorting.columns.values_mut() {
-        let old_keys = std::mem::take(&mut column.keys);
+    let mut sorting = SortCollection {
+        columns: HashMap::with_capacity(source.columns.len()),
+        composites: source
+            .composites
+            .iter()
+            .map(|order| CompositeSortOrder {
+                fields: order.fields.clone(),
+                order: Vec::new(),
+            })
+            .collect(),
+    };
+    for (path, original) in &source.columns {
+        let mut column = SortColumn {
+            path: original.path.clone(),
+            kind: original.kind.clone(),
+            keys: Vec::new(),
+            ascending: Vec::new(),
+            descending: Vec::new(),
+            locale: original.locale.clone(),
+            options: original.options,
+            collation_version: original.collation_version.clone(),
+        };
+        let old_keys = &original.keys;
         if old_keys.len() != slots.len() {
             return Err("sort projection coverage mismatch".into());
         }
         let mut keys = std::iter::repeat_with(|| None)
             .take(records.len())
             .collect::<Vec<_>>();
-        for (old, key) in old_keys.into_iter().enumerate() {
+        for (old, key) in old_keys.iter().enumerate() {
             if let Some(slot) = slots[old] {
                 let target = keys
                     .get_mut(slot.0 as usize)
                     .ok_or("sort projection slot out of bounds")?;
-                if target.replace(key).is_some() {
+                if target.replace(key.clone()).is_some() {
                     return Err("duplicate sort projection slot".into());
                 }
             }
@@ -1123,6 +1147,7 @@ fn project_sorting(
                 .compare_with(&column.keys[b.0 as usize], true, column.options)
                 .then_with(|| records[a.0 as usize].id.cmp(&records[b.0 as usize].id))
         });
+        sorting.columns.insert(path.clone(), column);
     }
     for composite in &mut sorting.composites {
         let columns = composite
@@ -1154,7 +1179,12 @@ fn project_inference(
     let Some(source) = source else {
         return Ok(None);
     };
-    let mut state = source.clone();
+    let mut state = InferenceState {
+        report: source.report.clone(),
+        indexes: HashMap::new(),
+        empty_selections: HashMap::new(),
+        short_string_coverage: HashMap::new(),
+    };
     let eligible = u32::try_from(logical.len()).map_err(|_| "inference slot overflow")?;
     state.indexes = source
         .indexes
@@ -1413,14 +1443,32 @@ impl IndexedCollectionSegment {
         let empty_array_records = project_bitmap(&self.empty_array_records, &old_to_new)?;
         let logical_count =
             u32::try_from(logical_records.len()).map_err(|_| "logical slot overflow")?;
-        let mut postings = self.postings.clone();
-        for index in postings.fields.values_mut() {
-            *index = project_posting(index, &old_to_new, logical_count)?;
-        }
-        let mut custom_postings = self.custom_postings.clone();
-        for custom in custom_postings.values_mut() {
-            custom.index = project_posting(&custom.index, &old_to_new, logical_count)?;
-        }
+        let postings = PostingCollection {
+            fields: self
+                .postings
+                .fields
+                .iter()
+                .map(|(path, index)| {
+                    project_posting(index, &old_to_new, logical_count)
+                        .map(|projected| (path.clone(), projected))
+                })
+                .collect::<Result<HashMap<_, _>, _>>()?,
+        };
+        let custom_postings = self
+            .custom_postings
+            .iter()
+            .map(|(key, custom)| {
+                project_posting(&custom.index, &old_to_new, logical_count).map(|index| {
+                    (
+                        key.clone(),
+                        CustomPostingIndex {
+                            index,
+                            complete: custom.complete,
+                        },
+                    )
+                })
+            })
+            .collect::<Result<HashMap<_, _>, _>>()?;
         let raw = project_bigram(&self.raw, &old_to_new, next)?;
         let fallback_text = project_bigram(&self.fallback_text, &old_to_new, next)?;
         let custom_text = self
