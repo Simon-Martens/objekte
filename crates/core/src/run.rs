@@ -3964,7 +3964,27 @@ fn try_direct_relation_page(
     let mut total = 0u64;
     for (segment_index, may) in source_candidates {
         let published = &segments[*source_index][segment_index];
-        for slot in may.iter() {
+        let identity_top = query.options.sort.is_empty()
+            && cache_builder.is_none()
+            && context.is_none();
+        if identity_top {
+            // A global top `cap` cannot include a row ranked below its own
+            // shard's top `cap`. Count the full exact bitmap without building
+            // rank keys and hit locators for every matching source.
+            total += may.len();
+            counters.exact_posting_matches += may.len();
+        }
+        let slots: Box<dyn Iterator<Item = u32> + '_> = if identity_top {
+            Box::new(
+                published.index.identity_order.iter()
+                    .filter(|slot| may.contains(slot.0))
+                    .take(cap)
+                    .map(|slot| slot.0),
+            )
+        } else {
+            Box::new(may.iter())
+        };
+        for slot in slots {
             if let Some(context) = context {
                 context.check_string()?;
             }
@@ -4001,8 +4021,10 @@ fn try_direct_relation_page(
                     repo, sort, *source_index, &published.index, resolved.record, None,
                 )?
             };
-            total += 1;
-            counters.exact_posting_matches += 1;
+            if !identity_top {
+                total += 1;
+                counters.exact_posting_matches += 1;
+            }
             let hit = segment_locator_hit(
                 &repo.collections[*source_index],
                 resolved,
