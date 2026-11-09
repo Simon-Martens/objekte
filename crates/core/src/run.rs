@@ -2654,11 +2654,15 @@ fn scan_segment_file_parallel(
 ) -> Result<SegmentFileScan, String> {
     let collection = &repo.collections[collection_index];
     let segment = &published.index;
-    let file = catalog.entry(crate::model::FileId(file_id))
+    let file = catalog
+        .entry(crate::model::FileId(file_id))
         .ok_or("active segment candidate file is retired")?;
     let path = repo.files.root.join(&file.relative_path);
     let mut reader = RecordRangeReader::open_checked(
-        &path, file.revision, file.created_ns, catalog.fingerprint(file.id),
+        &path,
+        file.revision,
+        file.created_ns,
+        catalog.fingerprint(file.id),
     )?;
     let mut result = SegmentFileScan {
         bytes_read: 0,
@@ -2701,7 +2705,10 @@ fn scan_segment_file_parallel(
                     None,
                 )?
             } else {
-                ExtractedRecord { value: Value::Object(Default::default()), text: Vec::new() }
+                ExtractedRecord {
+                    value: Value::Object(Default::default()),
+                    text: Vec::new(),
+                }
             };
             result.scanned_records += 1;
             let ctx = RecordContext {
@@ -2720,8 +2727,12 @@ fn scan_segment_file_parallel(
                 } else {
                     let mut work = crate::relation_query::RelationWork::default();
                     crate::relation_query::eval_filter_truth(
-                        repo, filter, &ctx, &mut evidence,
-                        crate::relation_query::EvaluationMode::Indexed, &mut work,
+                        repo,
+                        filter,
+                        &ctx,
+                        &mut evidence,
+                        crate::relation_query::EvaluationMode::Indexed,
+                        &mut work,
                     )? == Some(true)
                 }
             } else {
@@ -2734,7 +2745,8 @@ fn scan_segment_file_parallel(
                 if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
                     result.raw_text_verifications += 1;
                     let matched = crate::reference::raw_fallback_contains(
-                        fts, &String::from_utf8_lossy(&bytes),
+                        fts,
+                        &String::from_utf8_lossy(&bytes),
                     );
                     if matched && query.options.evidence {
                         evidence.insert("@record.raw_text".into());
@@ -2772,6 +2784,273 @@ fn scan_segment_file_parallel(
     }
     result.winners = local_winners.into_sorted_vec();
     Ok(result)
+}
+
+/// Fully proven shard membership can be merged from resident sort orders.
+/// Keep only one cursor per shard and the requested page; fall back to the
+/// general planner if their measured retained bytes exceed this route's cap.
+#[allow(clippy::too_many_arguments)]
+fn push_exact_order_cursor(
+    repo: &Repository,
+    query: &Query,
+    sort: &ResolvedSort<'_>,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    collection_index: usize,
+    segment_index: usize,
+    selected: &[(RoaringBitmap, Vec<String>)],
+    mut position: usize,
+    heap: &mut BinaryHeap<Reverse<LifecycleOrderCursor>>,
+    retained_bytes: &mut usize,
+) -> Result<bool, String> {
+    let published = &segments[collection_index][segment_index];
+    let Some(order) = lifecycle_segment_order(&published.index, sort, query, collection_index)
+    else {
+        return Ok(false);
+    };
+    while let Some(slot) = order.get(position).copied() {
+        position += 1;
+        if !selected[segment_index].0.contains(slot.0) {
+            continue;
+        }
+        let record = published
+            .index
+            .record(slot)
+            .ok_or("exact ordered slot missing")?;
+        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
+        let Some(bytes) = usize::try_from(rank_key_bytes(&key))
+            .ok()
+            .and_then(|bytes| bytes.checked_add(std::mem::size_of::<LifecycleOrderCursor>()))
+        else {
+            return Ok(false);
+        };
+        let Some(next) = retained_bytes.checked_add(bytes) else {
+            return Ok(false);
+        };
+        if next > 64 * 1024 * 1024 {
+            return Ok(false);
+        }
+        *retained_bytes = next;
+        heap.push(Reverse(LifecycleOrderCursor {
+            key,
+            bytes,
+            collection_index,
+            segment_index,
+            position,
+            slot,
+        }));
+        break;
+    }
+    Ok(true)
+}
+
+#[allow(clippy::too_many_arguments)]
+fn exact_ordered_page(
+    repo: &Repository,
+    query: &Query,
+    sort: &ResolvedSort<'_>,
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    collection_index: usize,
+    selected: &[(RoaringBitmap, Vec<String>)],
+    mut counters: WorkCounters,
+) -> Result<Option<SearchResult>, String> {
+    let Some(cap) = query.options.offset.checked_add(query.options.limit) else {
+        return Err("page size overflow".into());
+    };
+    if selected.len() != segments[collection_index].len() {
+        return Err("exact ordered partition count mismatch".into());
+    }
+    let Some(mut retained_bytes) = selected
+        .len()
+        .checked_mul(std::mem::size_of::<(RoaringBitmap, Vec<String>)>())
+    else {
+        return Ok(None);
+    };
+    let mut total = 0u64;
+    for (bitmap, evidence) in selected {
+        total = total
+            .checked_add(bitmap.len())
+            .ok_or("exact count overflow")?;
+        let Some(evidence_bytes) = evidence.iter().try_fold(0usize, |bytes, field| {
+            bytes
+                .checked_add(field.len())?
+                .checked_add(std::mem::size_of::<String>())
+        }) else {
+            return Ok(None);
+        };
+        let Some(next) = retained_bytes
+            .checked_add(bitmap.serialized_size())
+            .and_then(|bytes| bytes.checked_add(evidence_bytes))
+        else {
+            return Ok(None);
+        };
+        retained_bytes = next;
+        if retained_bytes > 64 * 1024 * 1024 {
+            return Ok(None);
+        }
+    }
+    let mut heap = BinaryHeap::new();
+    for segment_index in 0..selected.len() {
+        if !push_exact_order_cursor(
+            repo,
+            query,
+            sort,
+            segments,
+            collection_index,
+            segment_index,
+            selected,
+            0,
+            &mut heap,
+            &mut retained_bytes,
+        )? {
+            return Ok(None);
+        }
+    }
+    let mut hits = Vec::new();
+    let mut seen = 0usize;
+    while seen < cap {
+        let Some(Reverse(cursor)) = heap.pop() else {
+            break;
+        };
+        retained_bytes -= cursor.bytes;
+        let published = &segments[collection_index][cursor.segment_index];
+        if seen >= query.options.offset {
+            let resolved =
+                segment_record_ref(&published.index, &published.active, catalog, cursor.slot)?
+                    .ok_or("exact ordered source retired")?;
+            let hit = segment_locator_hit(
+                &repo.collections[collection_index],
+                resolved,
+                revision,
+                selected[cursor.segment_index].1.clone(),
+            );
+            let Some(next) = retained_bytes.checked_add(crate::streaming::hit_bytes(&hit)) else {
+                return Ok(None);
+            };
+            if next > 64 * 1024 * 1024 {
+                return Ok(None);
+            }
+            retained_bytes = next;
+            hits.push(hit);
+        }
+        seen += 1;
+        if seen < cap
+            && !push_exact_order_cursor(
+                repo,
+                query,
+                sort,
+                segments,
+                collection_index,
+                cursor.segment_index,
+                selected,
+                cursor.position,
+                &mut heap,
+                &mut retained_bytes,
+            )?
+        {
+            return Ok(None);
+        }
+    }
+    counters.exact_posting_matches += total;
+    counters.total_matches += total;
+    counters.match_count_complete = true;
+    counters.returned_records = hits.len() as u64;
+    Ok(Some(SearchResult {
+        count: query
+            .options
+            .count
+            .then_some(counters.total_matches as usize),
+        hits,
+        counters,
+    }))
+}
+
+#[allow(clippy::too_many_arguments)]
+fn try_exact_segment_ordered_page(
+    repo: &Repository,
+    query: &Query,
+    sort: &ResolvedSort<'_>,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
+    counters: &WorkCounters,
+) -> Result<Option<SearchResult>, String> {
+    if query.options.return_mode != ReturnMode::Locator
+        || query.options.sort.is_empty()
+        || sort.bound.has_computed
+        || prepared.len() != 1
+        || base_active.iter().any(|active| active.len() != 0)
+    {
+        return Ok(None);
+    }
+    let (collection_index, filter, fts) = &prepared[0];
+    if fts.is_some() {
+        return Ok(None);
+    }
+    let collection = &repo.collections[*collection_index];
+    if segments[*collection_index].len() > 4096 {
+        return Ok(None);
+    }
+    let mut selected = Vec::with_capacity(segments[*collection_index].len());
+    let mut counters = counters.clone();
+    for published in segments[*collection_index].iter() {
+        if lifecycle_segment_order(&published.index, sort, query, *collection_index).is_none() {
+            return Ok(None);
+        }
+        let bounds = filter
+            .as_ref()
+            .map(|filter| {
+                segment_filter_bounds(&published.index, &published.active, filter, collection)
+            })
+            .transpose()?;
+        let candidates = bounds
+            .as_ref()
+            .map_or_else(|| published.active.bitmap(), |bounds| bounds.may.clone());
+        if bounds
+            .as_ref()
+            .is_some_and(|bounds| bounds.may != bounds.must)
+        {
+            return Ok(None);
+        }
+        let evidence = if query.options.evidence {
+            if matches!(filter, Some(BoundExpr::And(_))) && candidates.len() <= 4 {
+                return Ok(None);
+            }
+            if let Some(filter) = filter {
+                let Some(fields) = segment_exact_evidence_fields(
+                    &published.index,
+                    &published.active,
+                    collection,
+                    filter,
+                    &candidates,
+                )?
+                else {
+                    return Ok(None);
+                };
+                fields
+            } else {
+                Vec::new()
+            }
+        } else {
+            Vec::new()
+        };
+        counters.candidates += candidates.len();
+        selected.push((candidates, evidence));
+    }
+    exact_ordered_page(
+        repo,
+        query,
+        sort,
+        segments,
+        catalog,
+        revision,
+        *collection_index,
+        &selected,
+        counters,
+    )
 }
 
 fn search_segmented_impl(
@@ -2917,6 +3196,23 @@ fn search_segmented_impl(
             &mut winner_bytes,
         )?;
     }
+    if context.is_none()
+        && retained_budget.is_none()
+        && cache_key.is_none()
+        && let Some(ordered) = try_exact_segment_ordered_page(
+            repo,
+            query,
+            &sort,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            &prepared.collections,
+            &counters,
+        )?
+    {
+        return Ok(ordered);
+    }
     let mut delta_opened = HashSet::new();
     for (collection_index, filter, fts) in prepared.collections {
         let collection = &repo.collections[collection_index];
@@ -2969,8 +3265,11 @@ fn search_segmented_impl(
                 // top `cap` page cannot contain a shard row ranked below that
                 // shard's own top `cap`; count the complete bitmap but only
                 // materialize those possible page rows.
-                if cache_builder.is_none() && context.is_none() && cap < candidates.len() as usize
-                    && let Some(order) = lifecycle_segment_order(segment, &sort, query, collection_index)
+                if cache_builder.is_none()
+                    && context.is_none()
+                    && cap < candidates.len() as usize
+                    && let Some(order) =
+                        lifecycle_segment_order(segment, &sort, query, collection_index)
                 {
                     total += candidates.len();
                     counters.exact_posting_matches += candidates.len();
@@ -3078,9 +3377,9 @@ fn search_segmented_impl(
             // Local residual verification is independent by source file. Limit the
             // parallel route to small ordered pages and bounded source rows;
             // all other plans keep the existing serial, cache-aware path.
-            let small_single_record_files = files.values().all(|ranges| {
-                ranges.len() == 1 && ranges[0].1.len() <= 8 * 1024
-            });
+            let small_single_record_files = files
+                .values()
+                .all(|ranges| ranges.len() == 1 && ranges[0].1.len() <= 8 * 1024);
             let parallel_scan = context.is_none()
                 && retained_budget.is_none()
                 && cache_builder.is_none()
@@ -3091,18 +3390,26 @@ fn search_segmented_impl(
                 && files.len() > 1
                 && (cap <= 64 || (cap <= 256 && small_single_record_files))
                 && collection.definition.name.len() <= 1024
-                && query.filter.as_ref().is_none_or(|filter| format!("{filter:?}").len() <= 1024)
+                && query
+                    .filter
+                    .as_ref()
+                    .is_none_or(|filter| format!("{filter:?}").len() <= 1024)
                 && fts.as_ref().is_none_or(|fts| {
-                    fts.fields.iter().try_fold(0usize, |bytes, field| {
-                        bytes.checked_add(field.evidence_path.len())
-                    }).is_some_and(|bytes| bytes <= 1024)
+                    fts.fields
+                        .iter()
+                        .try_fold(0usize, |bytes, field| {
+                            bytes.checked_add(field.evidence_path.len())
+                        })
+                        .is_some_and(|bytes| bytes <= 1024)
                 })
                 && files.iter().all(|(file_id, ranges)| {
-                    catalog.entry(crate::model::FileId(*file_id))
+                    catalog
+                        .entry(crate::model::FileId(*file_id))
                         .is_some_and(|file| file.relative_path.to_string_lossy().len() <= 4096)
                         && ranges.iter().all(|(slot, range)| {
                             range.len() <= 1024 * 1024
-                                && segment.record(RecordSlot(*slot))
+                                && segment
+                                    .record(RecordSlot(*slot))
                                     .is_some_and(|record| record.id.0.len() <= 1024)
                         })
                 });
@@ -3118,13 +3425,26 @@ fn search_segmented_impl(
                 };
                 for chunk in jobs.chunks(batch_size) {
                     let scans = repo.workers.install(|| {
-                        chunk.par_iter().map(|(file_id, ranges)| {
-                            scan_segment_file_parallel(
-                                repo, query, &sort, collection_index, segment_index,
-                                published, catalog, revision, filter.as_ref(), fts.as_ref(),
-                                *file_id, ranges, cap,
-                            )
-                        }).collect::<Vec<_>>()
+                        chunk
+                            .par_iter()
+                            .map(|(file_id, ranges)| {
+                                scan_segment_file_parallel(
+                                    repo,
+                                    query,
+                                    &sort,
+                                    collection_index,
+                                    segment_index,
+                                    published,
+                                    catalog,
+                                    revision,
+                                    filter.as_ref(),
+                                    fts.as_ref(),
+                                    *file_id,
+                                    ranges,
+                                    cap,
+                                )
+                            })
+                            .collect::<Vec<_>>()
                     });
                     // Rayon preserves the order of this indexed iterator, so
                     // errors, counters and tie handling merge in file order.
@@ -3140,8 +3460,11 @@ fn search_segmented_impl(
                         total += scan.matches;
                         for winner in scan.winners {
                             offer_merged(
-                                &mut winners, cap, winner,
-                                winner_budget, &mut winner_bytes,
+                                &mut winners,
+                                cap,
+                                winner,
+                                winner_budget,
+                                &mut winner_bytes,
                             )?;
                         }
                     }
@@ -3998,12 +4321,42 @@ fn try_direct_relation_page(
         .offset
         .checked_add(query.options.limit)
         .ok_or("direct relation page size overflow")?;
+    if context.is_none()
+        && cache_builder.is_none()
+        && retained_budget.is_none()
+        && direct_sort_column.is_none()
+        && source_candidates.len() <= 4096
+    {
+        let selected = source_candidates
+            .iter()
+            .enumerate()
+            .map(|(index, (segment, may))| {
+                (index == *segment).then(|| (may.clone(), evidence.clone()))
+            })
+            .collect::<Option<Vec<_>>>();
+        if let Some(selected) = selected
+            && let Some(result) = exact_ordered_page(
+                repo,
+                query,
+                sort,
+                segments,
+                catalog,
+                revision,
+                *source_index,
+                &selected,
+                counters.clone(),
+            )?
+        {
+            return Ok(Some(result));
+        }
+    }
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
     let mut total = 0u64;
     for (segment_index, may) in source_candidates {
         let published = &segments[*source_index][segment_index];
-        let stored_order = if cache_builder.is_none() && context.is_none()
+        let stored_order = if cache_builder.is_none()
+            && context.is_none()
             && direct_sort_column.is_none()
             && cap < may.len() as usize
         {
@@ -4020,7 +4373,8 @@ fn try_direct_relation_page(
         }
         let slots: Box<dyn Iterator<Item = u32> + '_> = if let Some(order) = stored_order {
             Box::new(
-                order.iter()
+                order
+                    .iter()
                     .filter(|slot| may.contains(slot.0))
                     .take(cap)
                     .map(|slot| slot.0),
@@ -4062,7 +4416,12 @@ fn try_direct_relation_page(
                 }
             } else {
                 segment_rank_key(
-                    repo, sort, *source_index, &published.index, resolved.record, None,
+                    repo,
+                    sort,
+                    *source_index,
+                    &published.index,
+                    resolved.record,
+                    None,
                 )?
             };
             if stored_order.is_none() {

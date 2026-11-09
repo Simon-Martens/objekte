@@ -59,11 +59,20 @@ fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
     assert_eq!(single.count, Some(32));
     assert_eq!(parallel.count, single.count);
     assert_eq!(parallel.hits, single.hits);
-    assert_eq!(parallel.counters.scanned_records, single.counters.scanned_records);
+    assert_eq!(
+        parallel.counters.scanned_records,
+        single.counters.scanned_records
+    );
     assert_eq!(parallel.counters.files_opened, single.counters.files_opened);
     assert_eq!(parallel.counters.bytes_read, single.counters.bytes_read);
-    assert_eq!(parallel.counters.record_parses, single.counters.record_parses);
-    assert_eq!(parallel.counters.total_matches, single.counters.total_matches);
+    assert_eq!(
+        parallel.counters.record_parses,
+        single.counters.record_parses
+    );
+    assert_eq!(
+        parallel.counters.total_matches,
+        single.counters.total_matches
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -77,7 +86,9 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
         "objekte-lifecycle-parallel-residual-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
-            .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos(),
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..160 {
@@ -92,29 +103,46 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
         std::fs::write(
             root.join(format!("data/{number:03}.json")),
             format!(r#"{{"title":"{title}","contributors":{contributors}}}"#),
-        ).unwrap();
+        )
+        .unwrap();
     }
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
-    definition.schema.register_field(FieldDefinition {
-        path: vec!["contributors".into()],
-        kind: LogicalType::Array(Box::new(LogicalType::Object)),
-        required: false, nullable: false, indexed: false, multi: true,
-        element_nullable: vec![false],
-    }).unwrap();
-    definition.schema.register_field(FieldDefinition {
-        path: vec!["contributors".into(), "type".into()],
-        kind: LogicalType::String,
-        required: false, nullable: false, indexed: false, multi: true,
-        element_nullable: vec![false],
-    }).unwrap();
-    let build = |query_workers| Index::build(
-        &root, vec![definition.clone()],
-        RepositoryOptions {
-            query_workers,
-            snapshot_mode: SnapshotMode::Disabled,
-            ..RepositoryOptions::default()
-        },
-    ).unwrap();
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["contributors".into()],
+            kind: LogicalType::Array(Box::new(LogicalType::Object)),
+            required: false,
+            nullable: false,
+            indexed: false,
+            multi: true,
+            element_nullable: vec![false],
+        })
+        .unwrap();
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["contributors".into(), "type".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: false,
+            multi: true,
+            element_nullable: vec![false],
+        })
+        .unwrap();
+    let build = |query_workers| {
+        Index::build(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                query_workers,
+                snapshot_mode: SnapshotMode::Disabled,
+                ..RepositoryOptions::default()
+            },
+        )
+        .unwrap()
+    };
     let single = build(1);
     let parallel = build(4);
     let single_view = single.view().unwrap();
@@ -124,7 +152,11 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
         ("contributors[0].type = 'Autor:in'", None, 2),
         ("contributors[*].type = contributors[*].type", None, 2),
         ("contributors.type ?= 'Autor:in'", Some("Lied"), 2),
-        ("contributors:length >= 0 SORT BY contributors[0].type ASC", None, 100),
+        (
+            "contributors:length >= 0 SORT BY contributors[0].type ASC",
+            None,
+            100,
+        ),
     ] {
         let parsed = parse_structured_filter(filter).unwrap();
         let query = Query {
@@ -134,11 +166,16 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
                 pattern_parameter: None,
                 mode: FtsMode::Literal,
                 case_sensitivity: CaseSensitivity::Sensitive,
-                literal: literal.into(), fields: Vec::new(),
+                literal: literal.into(),
+                fields: Vec::new(),
             }),
             options: QueryOptions {
-                sort: parsed.sort.unwrap_or_default(), limit: 7, offset, count: true,
-                return_mode: ReturnMode::Locator, evidence: true,
+                sort: parsed.sort.unwrap_or_default(),
+                limit: 7,
+                offset,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
             },
         };
         let one = single_view.search(&query).unwrap();
@@ -149,10 +186,22 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
         assert_eq!(many.count, reference.count, "{filter}");
         assert_eq!(many.hits, reference.hits, "{filter}");
         assert!(many.counters.scanned_records > 0, "{filter}");
-        assert_eq!(many.counters.scanned_records, one.counters.scanned_records, "{filter}");
-        assert_eq!(many.counters.files_opened, one.counters.files_opened, "{filter}");
-        assert_eq!(many.counters.bytes_read, one.counters.bytes_read, "{filter}");
-        assert_eq!(many.counters.residual_evaluations, one.counters.residual_evaluations, "{filter}");
+        assert_eq!(
+            many.counters.scanned_records, one.counters.scanned_records,
+            "{filter}"
+        );
+        assert_eq!(
+            many.counters.files_opened, one.counters.files_opened,
+            "{filter}"
+        );
+        assert_eq!(
+            many.counters.bytes_read, one.counters.bytes_read,
+            "{filter}"
+        );
+        assert_eq!(
+            many.counters.residual_evaluations, one.counters.residual_evaluations,
+            "{filter}"
+        );
     }
     single.shutdown().unwrap();
     parallel.shutdown().unwrap();
@@ -168,47 +217,76 @@ fn lifecycle_exact_sorted_pages_use_stored_order_with_full_count() {
         "objekte-lifecycle-exact-sorted-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
-            .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos(),
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for number in 0..96 {
+    for number in 0..2064 {
         std::fs::write(
-            root.join(format!("data/{number:03}.json")),
-            format!(r#"{{"rank":{},"title":"item {number}"}}"#, (number * 37) % 96),
-        ).unwrap();
+            root.join(format!("data/{number:04}.json")),
+            format!(
+                r#"{{"rank":{},"title":"item {number}"}}"#,
+                (number * 37) % 2064
+            ),
+        )
+        .unwrap();
     }
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
-    definition.schema.register_field(FieldDefinition {
-        path: vec!["rank".into()], kind: LogicalType::Number,
-        required: true, nullable: false, indexed: false, multi: false,
-        element_nullable: Vec::new(),
-    }).unwrap();
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["rank".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
     definition.sort_fields = vec![FieldPath::parse("rank").unwrap()];
-    let index = Index::build(&root, vec![definition], RepositoryOptions {
-        snapshot_mode: SnapshotMode::Disabled,
-        ..RepositoryOptions::default()
-    }).unwrap();
-    let view = index.view().unwrap();
-    for descending in [false, true] {
-        for offset in [0, 17, 79] {
-            let query = Query {
-                collections: vec!["data".into()],
-                filter: Some(parse_filter("rank >= 0").unwrap()),
-                fts: None,
-                options: QueryOptions {
-                    sort: vec![SortField::simple("rank", descending)],
-                    limit: 5, offset, count: true,
-                    return_mode: ReturnMode::Locator, evidence: true,
-                },
-            };
-            let actual = view.search(&query).unwrap();
-            let reference = view.search_reference(&query).unwrap();
-            assert_eq!(actual.count, Some(96));
-            assert_eq!(actual.count, reference.count);
-            assert_eq!(actual.hits, reference.hits);
-            assert_eq!(actual.counters.exact_posting_matches, 96);
-            assert_eq!(actual.counters.files_opened, 0);
-            assert_eq!(actual.counters.scanned_records, 0);
+    let index = Index::build(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..RepositoryOptions::default()
+        },
+    )
+    .unwrap();
+    for (view, expected_count) in [(index.view().unwrap(), 2064), {
+        let path = root.join("data/late.json");
+        std::fs::write(&path, r#"{"rank":2064,"title":"late"}"#).unwrap();
+        index.add_file(&path).unwrap();
+        (index.view().unwrap(), 2065)
+    }] {
+        for descending in [false, true] {
+            for offset in [0, 17, 79, 2050] {
+                for count in [false, true] {
+                    let query = Query {
+                        collections: vec!["data".into()],
+                        filter: Some(parse_filter("rank >= 0").unwrap()),
+                        fts: None,
+                        options: QueryOptions {
+                            sort: vec![SortField::simple("rank", descending)],
+                            limit: 5,
+                            offset,
+                            count,
+                            return_mode: ReturnMode::Locator,
+                            evidence: true,
+                        },
+                    };
+                    let actual = view.search(&query).unwrap();
+                    let reference = view.search_reference(&query).unwrap();
+                    assert_eq!(actual.count, count.then_some(expected_count));
+                    assert_eq!(actual.count, reference.count);
+                    assert_eq!(actual.hits, reference.hits);
+                    assert_eq!(actual.counters.exact_posting_matches, expected_count as u64);
+                    assert_eq!(actual.counters.files_opened, 0);
+                    assert_eq!(actual.counters.scanned_records, 0);
+                }
+            }
         }
     }
     index.shutdown().unwrap();
