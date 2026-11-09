@@ -7,8 +7,7 @@ fn loaded_index_receives_check_policy_before_old_scheduler_retires() {
     let saved = tempfile::tempdir().unwrap();
     let path = saved.path().join("index.snapshot");
     backend::index_lifecycle::save_index(&original, &path, false).unwrap();
-    backend::index_lifecycle::set_periodic_check(&original, Some(Duration::from_secs(60)))
-        .unwrap();
+    backend::index_lifecycle::set_periodic_check(&original, Some(Duration::from_secs(60))).unwrap();
     let replacement =
         backend::index_lifecycle::load_index(&original, &path, &CancellationToken::new()).unwrap();
     let (mut controller, _) = DesktopController::new();
@@ -16,7 +15,10 @@ fn loaded_index_receives_check_policy_before_old_scheduler_retires() {
     controller.session = Some(replacement.clone());
     controller.requested_check = (true, 60);
     controller.transfer_check_policy(replacement.clone(), Some(original.clone()));
-    let event = controller.workers.recv_timeout(Duration::from_secs(5)).unwrap();
+    let event = controller
+        .workers
+        .recv_timeout(Duration::from_secs(5))
+        .unwrap();
     assert!(matches!(
         event,
         WorkerEvent::AutomaticCheckChanged {
@@ -26,9 +28,130 @@ fn loaded_index_receives_check_policy_before_old_scheduler_retires() {
             ..
         }
     ));
-    assert!(replacement.repository.index().periodic_reconciliation_enabled().unwrap());
-    assert!(!original.repository.index().periodic_reconciliation_enabled().unwrap());
+    assert!(
+        replacement
+            .repository
+            .index()
+            .periodic_reconciliation_enabled()
+            .unwrap()
+    );
+    assert!(
+        !original
+            .repository
+            .index()
+            .periodic_reconciliation_enabled()
+            .unwrap()
+    );
     backend::index_lifecycle::shutdown(&replacement).unwrap();
+    backend::index_lifecycle::shutdown(&original).unwrap();
+}
+
+#[test]
+fn disabled_check_policy_retires_old_scheduler_on_replacement() {
+    let fixture = crate::backend::test_support::fixture();
+    let original = fixture.session.clone();
+    let saved = tempfile::tempdir().unwrap();
+    let path = saved.path().join("index.snapshot");
+    backend::index_lifecycle::save_index(&original, &path, false).unwrap();
+    backend::index_lifecycle::set_periodic_check(&original, Some(Duration::from_secs(60))).unwrap();
+    let replacement =
+        backend::index_lifecycle::load_index(&original, &path, &CancellationToken::new()).unwrap();
+    let (mut controller, _) = DesktopController::new();
+    controller.open_generation = 9;
+    controller.session = Some(replacement.clone());
+    controller.requested_check = (false, 37);
+    controller.transfer_check_policy(replacement.clone(), Some(original.clone()));
+    assert!(matches!(
+        controller
+            .workers
+            .recv_timeout(Duration::from_secs(5))
+            .unwrap(),
+        WorkerEvent::AutomaticCheckChanged {
+            open_generation: 9,
+            enabled: false,
+            interval_seconds: 37,
+            result: Ok(()),
+            ..
+        }
+    ));
+    assert!(
+        !replacement
+            .repository
+            .index()
+            .periodic_reconciliation_enabled()
+            .unwrap()
+    );
+    assert!(
+        !original
+            .repository
+            .index()
+            .periodic_reconciliation_enabled()
+            .unwrap()
+    );
+    backend::index_lifecycle::shutdown(&replacement).unwrap();
+    backend::index_lifecycle::shutdown(&original).unwrap();
+}
+
+#[test]
+fn rapid_replacements_and_toggle_keep_only_latest_scheduler() {
+    let fixture = crate::backend::test_support::fixture();
+    let original = fixture.session.clone();
+    let saved = tempfile::tempdir().unwrap();
+    let path = saved.path().join("index.snapshot");
+    backend::index_lifecycle::save_index(&original, &path, false).unwrap();
+    backend::index_lifecycle::set_periodic_check(&original, Some(Duration::from_secs(60))).unwrap();
+    let first =
+        backend::index_lifecycle::load_index(&original, &path, &CancellationToken::new()).unwrap();
+    let second =
+        backend::index_lifecycle::load_index(&original, &path, &CancellationToken::new()).unwrap();
+    let (mut controller, _) = DesktopController::new();
+    controller.open_generation = 11;
+    let gate = Arc::clone(&controller.automatic_check_gate);
+    let held = gate.lock().unwrap();
+    controller.session = Some(first.clone());
+    controller.requested_check = (true, 60);
+    controller.transfer_check_policy(first.clone(), Some(original.clone()));
+    controller.set_automatic_check(true, 90, &mut Vec::new());
+    controller.session = Some(second.clone());
+    controller.open_generation += 1;
+    controller.transfer_check_policy(second.clone(), Some(first.clone()));
+    drop(held);
+    assert!(matches!(
+        controller
+            .workers
+            .recv_timeout(Duration::from_secs(5))
+            .unwrap(),
+        WorkerEvent::AutomaticCheckChanged {
+            open_generation: 12,
+            enabled: true,
+            interval_seconds: 90,
+            result: Ok(()),
+            ..
+        }
+    ));
+    assert!(
+        second
+            .repository
+            .index()
+            .periodic_reconciliation_enabled()
+            .unwrap()
+    );
+    assert!(
+        !first
+            .repository
+            .index()
+            .periodic_reconciliation_enabled()
+            .unwrap()
+    );
+    assert!(
+        !original
+            .repository
+            .index()
+            .periodic_reconciliation_enabled()
+            .unwrap()
+    );
+    backend::index_lifecycle::shutdown(&second).unwrap();
+    backend::index_lifecycle::shutdown(&first).unwrap();
     backend::index_lifecycle::shutdown(&original).unwrap();
 }
 

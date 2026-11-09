@@ -130,5 +130,35 @@ fn automatic_save_requires_configured_repository_and_selected_destination() {
     // Cancel close restores a usable index and its explicit save policy.
     resume_after_cancelled_close(&session, None, true).unwrap();
     session.repository.index().add_file(&late_file).unwrap();
-    shutdown(&session).unwrap();
+    set_automatic_save(&session, false).unwrap();
+    let pending_file = root.path().join("data/d.json");
+    std::fs::write(&pending_file, br#"{"name":"D"}"#).unwrap();
+    session.repository.index().add_file(&pending_file).unwrap();
+    let destination = session.configuration.cache_save.as_ref().unwrap();
+    std::fs::remove_file(destination).unwrap();
+    std::fs::create_dir(destination).unwrap();
+    let final_status = status(&session).unwrap();
+    let final_revision = final_status.revision;
+    assert!(shutdown_with_final_save(&session).is_err());
+    assert_eq!(
+        session.repository.index().view().unwrap().revision(),
+        final_revision
+    );
+    assert!(matches!(
+        session.repository.index().start_reconcile(),
+        Err(objekte_search_core::lifecycle::IndexError::Cancelled)
+    ));
+    std::fs::remove_dir(destination).unwrap();
+    shutdown_with_final_save(&session).unwrap();
+    assert_eq!(
+        status(&session).unwrap().saved_revision,
+        Some(final_revision)
+    );
+    let restored = load_index(&session, destination, &CancellationToken::new()).unwrap();
+    assert_eq!(status(&restored).unwrap().revision, final_revision);
+    assert_eq!(
+        status(&restored).unwrap().live_records,
+        final_status.live_records
+    );
+    shutdown(&restored).unwrap();
 }

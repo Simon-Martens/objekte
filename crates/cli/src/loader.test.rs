@@ -204,19 +204,16 @@ fn configured_cache_directory_keeps_unrelated_source_siblings() {
     )
     .unwrap();
     assert!(saved.is_some());
-    let files = repo
-        .files()
-        .files
-        .iter()
-        .map(|file| file.relative_path.clone())
-        .collect::<Vec<_>>();
-    assert_eq!(
-        files,
-        vec![
-            PathBuf::from("data/a.json"),
-            PathBuf::from("data/cache[odd]/keep.json")
-        ]
+    let view = repo.index().view().unwrap();
+    assert!(
+        view.file_handle_for_path(std::path::Path::new("data/a.json"))
+            .is_some()
     );
+    assert!(
+        view.file_handle_for_path(std::path::Path::new("data/cache[odd]/keep.json"))
+            .is_some()
+    );
+    assert_eq!(repo.index().status().unwrap().indexed_files, 2);
 }
 
 #[test]

@@ -242,8 +242,31 @@ fn run_locality(root: &Path) -> Result<(), Box<dyn Error>> {
     }
     println!("phase\tms\trss_kb\thwm_kb\trevision\tfiles\trecords\tdetail");
     let started = Instant::now();
-    let index = Index::build(&root, vec![definition], RepositoryOptions::default())?;
-    emit("build", started.elapsed(), &index, "synthetic=true");
+    let built = Index::build(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )?;
+    emit("build", started.elapsed(), &built, "synthetic=true");
+    let index = if std::env::var("OBJEKTE_BENCH_RESTORE_LOCALITY").as_deref() == Ok("1") {
+        let cache = root.join("locality-cache.bin");
+        let started = Instant::now();
+        built.flush_cache(&cache)?;
+        emit("flush", started.elapsed(), &built, "synthetic=true");
+        built.shutdown()?;
+        let started = Instant::now();
+        let restored = Index::load_cache(
+            &root,
+            vec![definition],
+            RepositoryOptions::default(),
+            &cache,
+        )?;
+        emit("restore", started.elapsed(), &restored, "synthetic=true");
+        restored.wait_for_reconciliation()?;
+        restored
+    } else {
+        built
+    };
     let target = root.join("data/000000.jsonl");
     let mut old = fs::read(&target)?;
     let mut handle = index
