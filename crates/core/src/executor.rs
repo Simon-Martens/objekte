@@ -6,7 +6,7 @@ use roaring::RoaringBitmap;
 
 use crate::build::IndexedCollectionSegment;
 use crate::inventory::ActiveRecords;
-use crate::model::{LogicalType, MetadataField, PathRoot, RecordId, Value};
+use crate::model::{LogicalType, MetadataField, Number, PathRoot, RecordId, Value};
 use crate::posting::ScalarKey;
 use crate::query::{FtsMode, Operator, Quantifier};
 use crate::reference::{
@@ -224,6 +224,69 @@ fn segment_text_candidates(
     None
 }
 
+fn segment_dictionary_contains(
+    segment: &IndexedCollectionSegment,
+    term: &BoundTerm,
+    logical_active: &RoaringBitmap,
+) -> Option<RoaringBitmap> {
+    if term.kind != LogicalType::String
+        || term.transform != Transform::Identity
+        || term.operation.is_some()
+        || term.derived != Derived::None
+        || term.period.is_some()
+        || term.operator != Operator::Contains
+        || (term.multi && term.quantifier != Quantifier::Any)
+    {
+        return None;
+    }
+    let Value::String(literal) = &term.literal else {
+        return None;
+    };
+    if literal.contains(['%', '\\']) {
+        return None;
+    }
+    let posting = segment.postings.fields.get(&term.path.segments)?;
+    if posting.covered_records as u64 != segment.logical_records.len() {
+        return None;
+    }
+    let mut matches = RoaringBitmap::new();
+    for (key, slots) in &posting.values {
+        if let ScalarKey::String(value) = key
+            && value.contains(literal)
+        {
+            matches |= slots & logical_active;
+        }
+    }
+    Some(matches)
+}
+
+fn segment_file_size_matches(
+    segment: &IndexedCollectionSegment,
+    domain: &RoaringBitmap,
+    term: &BoundTerm,
+) -> Option<RoaringBitmap> {
+    if term.path.root != PathRoot::Metadata(MetadataField::FileSize)
+        || term.transform != Transform::Identity
+        || term.derived != Derived::None
+        || term.period.is_some()
+        || term.rhs.is_some()
+    {
+        return None;
+    }
+    let Value::Number(literal) = &term.literal else {
+        return None;
+    };
+    let mut matches = RoaringBitmap::new();
+    for file in &segment.files {
+        let order = Number::integer(file.entry.revision.size as i128).cmp(literal);
+        if order_matches(order, term.operator) {
+            matches.extend(file.records.iter().map(|slot| slot.0));
+        }
+    }
+    matches &= domain;
+    Some(matches)
+}
+
 fn segment_raw_covers_identity_field(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
@@ -263,6 +326,12 @@ fn segment_expr_bounds(
                 }
                 return SegmentCandidateBounds { may: matches.clone(), must: matches };
             }
+            if let Some(matches) = segment_file_size_matches(segment, domain, term) {
+                return SegmentCandidateBounds {
+                    may: matches.clone(),
+                    must: matches,
+                };
+            }
             if term.path.root != PathRoot::Data {
                 return SegmentCandidateBounds::unknown(domain);
             }
@@ -293,6 +362,24 @@ fn segment_expr_bounds(
                     must: matches,
                 },
                 None => {
+                    if let Some(matches) =
+                        segment_dictionary_contains(segment, term, logical_active)
+                    {
+                        return SegmentCandidateBounds {
+                            may: &matches | fallback_active,
+                            must: matches,
+                        };
+                    }
+                    if let Some((matches, exact)) =
+                        segment.inference.as_ref().and_then(|inference| {
+                            inference.candidates(term, &segment.logical_records, logical_active)
+                        })
+                    {
+                        return SegmentCandidateBounds {
+                            may: &matches | fallback_active,
+                            must: if exact { matches } else { RoaringBitmap::new() },
+                        };
+                    }
                     if let Some(mut grams) = segment_text_candidates(segment, term, collection) {
                         if empty_selection_preservation(term) {
                             grams |= &segment.empty_array_records;

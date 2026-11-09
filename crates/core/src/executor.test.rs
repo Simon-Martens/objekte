@@ -117,6 +117,112 @@ fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() 
 }
 
 #[test]
+fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
+    use crate::inference::{InferenceConfig, InferenceMode};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-segment-exact-proofs-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..24 {
+        let payload = serde_json::json!({
+            "kind": [if number % 3 == 0 { "Lied" } else { "Buch" }],
+            "dynamic": {"type": [if number % 4 == 0 { "Person" } else { "Group" }]},
+            "inferred": if number % 5 == 0 { "special" } else { "ordinary" },
+            "padding": if number % 2 == 0 { "x".repeat(128) } else { String::new() },
+        });
+        std::fs::write(
+            root.join(format!("data/{number:03}.json")),
+            payload.to_string(),
+        )
+        .unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Filename;
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["kind".into()],
+            kind: LogicalType::Array(Box::new(LogicalType::String)),
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: true,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["dynamic".into(), "type".into()],
+            kind: LogicalType::Array(Box::new(LogicalType::String)),
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: true,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let mut inference = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    inference.policy.min_nonblank_occurrences = 1;
+    inference.policy.min_nonblank_records = 1;
+    let options = RepositoryOptions {
+        inference,
+        snapshot_mode: SnapshotMode::Disabled,
+        ..Default::default()
+    };
+    let static_repo =
+        Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+    let index = crate::lifecycle::Index::build(&root, vec![definition], options).unwrap();
+    let view = index.view().unwrap();
+    assert!(
+        view.repository().collections()[0]
+            .generation
+            .records
+            .is_empty()
+    );
+    for (filter, expected_count) in [
+        ("kind ?~ 'Lied'", 8),
+        ("dynamic.type ?~ 'Person'", 6),
+        ("inferred = 'special'", 5),
+        ("@file.size >= 160", 12),
+    ] {
+        let query = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 50,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        let expected = static_repo.search(&query).unwrap();
+        let actual = view.search(&query).unwrap();
+        assert_eq!(actual.count, expected.count, "{filter}");
+        assert_eq!(actual.count, Some(expected_count), "{filter}");
+        assert_eq!(actual.hits.len(), expected.hits.len(), "{filter}");
+        assert_eq!(actual.counters.scanned_records, 0, "{filter}");
+        assert_eq!(actual.counters.record_parses, 0, "{filter}");
+        assert_eq!(
+            actual.counters.exact_posting_matches, expected_count as u64,
+            "{filter}"
+        );
+    }
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
     let root = std::env::temp_dir().join(format!("objekte-folded-index-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
