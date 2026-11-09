@@ -498,15 +498,22 @@ impl PublishedIndex {
     }
 
     /// Coalesce small delta shards without enlarging a partition beyond the
-    /// local verified-maintenance budget. Large collections retain more base
-    /// partitions; their size must not force a collection-sized rewrite here.
+    /// local verified-maintenance budget. Full base partitions do not consume
+    /// the sparse-delta allowance, even when a collection has more than 64.
     pub(crate) fn make_room_for_segment(&mut self, number: usize) -> Result<(), IndexError> {
-        if self.segments[number].len() < MAX_SEGMENTS_PER_COLLECTION {
+        let full_partitions = self.segments[number]
+            .iter()
+            .filter(|segment| {
+                segment.index.records.len() >= crate::lifecycle_partition::BASE_PARTITION_RECORDS
+            })
+            .count();
+        let admission_limit = MAX_SEGMENTS_PER_COLLECTION.saturating_add(full_partitions);
+        if self.segments[number].len() < admission_limit {
             return Ok(());
         }
         let group = Arc::make_mut(&mut self.segments[number]);
         group.retain(|segment| segment.active.len() > 0);
-        if group.len() < MAX_SEGMENTS_PER_COLLECTION {
+        if group.len() < admission_limit {
             return Ok(());
         }
         let Some((left, right)) = cheapest_consolidation_pair(group) else {

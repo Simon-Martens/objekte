@@ -210,6 +210,102 @@ fn compatible_move_keeps_index_contributions_and_advances_file_version() {
 }
 
 #[test]
+#[ignore = "large move performance comparison; run explicitly in release mode"]
+fn large_compatible_move_skips_extraction_and_posting_rewrites() {
+    use std::io::Write;
+    use std::sync::Arc;
+    use std::time::Instant;
+
+    const RECORDS: usize = 50_000;
+    for compatible in [true, false] {
+        let root = test_root(if compatible {
+            "move-fast"
+        } else {
+            "move-fallback"
+        });
+        let original = root.join("data/original.jsonl");
+        let mut writer = std::io::BufWriter::new(std::fs::File::create(&original).unwrap());
+        for number in 0..RECORDS {
+            writeln!(
+                writer,
+                "{{\"id\":\"item-{number}\",\"name\":\"item-{number}\"}}"
+            )
+            .unwrap();
+        }
+        writer.flush().unwrap();
+        drop(writer);
+        let index = Index::build(
+            &root,
+            vec![intrinsic_definition("items")],
+            RepositoryOptions::default(),
+        )
+        .unwrap();
+        let before = index.view().unwrap();
+        let handle = before.file_handle_for_path(&original).unwrap();
+        let old_shards = Arc::clone(&before.0.segments[0]);
+        let destination = root.join("data/moved.jsonl");
+        if compatible {
+            std::fs::rename(&original, &destination).unwrap();
+        } else {
+            std::fs::copy(&original, &destination).unwrap();
+            let mut destination_file = std::fs::OpenOptions::new()
+                .append(true)
+                .open(&destination)
+                .unwrap();
+            destination_file.write_all(b" \n").unwrap();
+            std::fs::remove_file(&original).unwrap();
+        }
+        let digest_bytes = std::fs::metadata(&destination).unwrap().len();
+        let started = Instant::now();
+        let moved = index.move_file(handle, &destination).unwrap();
+        let elapsed = started.elapsed();
+        let after = index.view().unwrap();
+        let new_shards = after.0.segments[0]
+            .iter()
+            .filter(|candidate| !old_shards.iter().any(|old| Arc::ptr_eq(candidate, old)))
+            .collect::<Vec<_>>();
+        let newly_parsed_records = new_shards
+            .iter()
+            .map(|shard| shard.index.record_parses)
+            .sum::<u64>();
+        let rewritten_posting_keys = new_shards
+            .iter()
+            .flat_map(|shard| shard.index.postings.fields.values())
+            .map(|posting| posting.values.len())
+            .sum::<usize>();
+        let extraction_calls =
+            usize::from(moved.strategy == FileMutationStrategy::AppendReplacement);
+        println!(
+            "move_case\t{}\t{:.3}\t{}\t{}\t{}\t{}\t{}",
+            if compatible { "compatible" } else { "fallback" },
+            elapsed.as_secs_f64() * 1000.0,
+            digest_bytes,
+            extraction_calls,
+            newly_parsed_records,
+            new_shards.len(),
+            rewritten_posting_keys,
+        );
+        assert_eq!(moved.indexed_records, RECORDS as u64);
+        assert_eq!(index.status().unwrap().live_records, RECORDS as u64);
+        if compatible {
+            assert_eq!(moved.strategy, FileMutationStrategy::ContentPreservingMove);
+            assert_eq!(extraction_calls, 0);
+            assert_eq!(newly_parsed_records, 0);
+            assert_eq!(new_shards.len(), 0);
+            assert_eq!(rewritten_posting_keys, 0);
+        } else {
+            assert_eq!(moved.strategy, FileMutationStrategy::AppendReplacement);
+            assert_eq!(extraction_calls, 1);
+            assert_eq!(newly_parsed_records, RECORDS as u64);
+            assert!(new_shards.len() > 0);
+            assert!(rewritten_posting_keys >= RECORDS);
+        }
+        index.shutdown().unwrap();
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
 fn restored_shared_partition_verified_update_preserves_its_record_slot() {
     let root = test_root("partition-slot-replace");
     let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::JsonLines);
