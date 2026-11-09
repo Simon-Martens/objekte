@@ -4,8 +4,8 @@ use std::collections::{HashMap, HashSet, VecDeque};
 use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicU64, Ordering};
-use std::sync::{Arc, Mutex};
 use std::sync::mpsc::{self, Receiver, Sender};
+use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::{Duration, Instant};
 
@@ -382,6 +382,8 @@ pub struct DesktopController {
     automatic_check_gate: Arc<Mutex<()>>,
     requested_check: (bool, u64),
     automatic_save_operation_id: u64,
+    automatic_save_epoch: Arc<AtomicU64>,
+    automatic_save_gate: Arc<Mutex<()>>,
     load_cancellation: CancellationToken,
     pending_index_overwrite: Option<PathBuf>,
     pending_save_select_default: bool,
@@ -478,6 +480,8 @@ impl DesktopController {
                 automatic_check_gate: Arc::new(Mutex::new(())),
                 requested_check: (false, 30),
                 automatic_save_operation_id: 0,
+                automatic_save_epoch: Arc::new(AtomicU64::new(0)),
+                automatic_save_gate: Arc::new(Mutex::new(())),
                 load_cancellation: CancellationToken::new(),
                 pending_index_overwrite: None,
                 pending_save_select_default: false,
@@ -2344,12 +2348,15 @@ impl DesktopController {
                             self.automatic_check_operation_id.wrapping_add(1);
                         self.automatic_check_epoch
                             .store(self.automatic_check_operation_id, Ordering::Release);
+                        self.invalidate_automatic_save_policy();
                         self.requested_check = (false, 30);
                         let previous_session = self.session.replace(session);
                         if let Some(previous_session) = previous_session {
                             let gate = Arc::clone(&self.automatic_check_gate);
+                            let save_gate = Arc::clone(&self.automatic_save_gate);
                             thread::spawn(move || {
                                 let _gate = gate.lock();
+                                let _save_gate = save_gate.lock();
                                 let _ =
                                     backend::index_lifecycle::stop_automation(&previous_session);
                             });
@@ -2919,6 +2926,7 @@ impl DesktopController {
             {
                 match result {
                     Ok(session) => {
+                        self.invalidate_automatic_save_policy();
                         self.cancellation.cancel();
                         self.export_cancellation.cancel();
                         self.batch_cancellation.cancel();
@@ -3484,10 +3492,18 @@ impl DesktopController {
         let operation_id = self.close_operation_id;
         let open_generation = self.open_generation;
         let sender = self.worker_tx.clone();
+        let check_gate = Arc::clone(&self.automatic_check_gate);
+        let save_gate = Arc::clone(&self.automatic_save_gate);
         updates.push(UiUpdate::ClosingIndex { error: None });
         thread::spawn(move || {
-            let result = backend::index_lifecycle::shutdown_with_final_save(&session)
-                .map_err(|error| error.to_string());
+            let result = match check_gate.lock() {
+                Ok(_check_gate) => match save_gate.lock() {
+                    Ok(_save_gate) => backend::index_lifecycle::shutdown_with_final_save(&session)
+                        .map_err(|error| error.to_string()),
+                    Err(_) => Err("automatic saving coordinator is unavailable".into()),
+                },
+                Err(_) => Err("automatic checking coordinator is unavailable".into()),
+            };
             let _ = sender.send(WorkerEvent::IndexShutdown {
                 open_generation,
                 operation_id,
@@ -3502,6 +3518,13 @@ impl DesktopController {
         self.automatic_check_operation_id = self.automatic_check_operation_id.wrapping_add(1);
         self.automatic_check_epoch
             .store(self.automatic_check_operation_id, Ordering::Release);
+        self.invalidate_automatic_save_policy();
+    }
+
+    fn invalidate_automatic_save_policy(&mut self) {
+        self.automatic_save_operation_id = self.automatic_save_operation_id.wrapping_add(1);
+        self.automatic_save_epoch
+            .store(self.automatic_save_operation_id, Ordering::Release);
     }
 
     fn close_without_saving(&mut self, updates: &mut Vec<UiUpdate>) {
@@ -3518,10 +3541,18 @@ impl DesktopController {
         let operation_id = self.close_operation_id;
         let open_generation = self.open_generation;
         let sender = self.worker_tx.clone();
+        let check_gate = Arc::clone(&self.automatic_check_gate);
+        let save_gate = Arc::clone(&self.automatic_save_gate);
         updates.push(UiUpdate::ClosingIndex { error: None });
         thread::spawn(move || {
-            let result = backend::index_lifecycle::shutdown(&session)
-                .map_err(|error| error.to_string());
+            let result = match check_gate.lock() {
+                Ok(_check_gate) => match save_gate.lock() {
+                    Ok(_save_gate) => backend::index_lifecycle::shutdown(&session)
+                        .map_err(|error| error.to_string()),
+                    Err(_) => Err("automatic saving coordinator is unavailable".into()),
+                },
+                Err(_) => Err("automatic checking coordinator is unavailable".into()),
+            };
             let _ = sender.send(WorkerEvent::IndexShutdown {
                 open_generation,
                 operation_id,
@@ -3546,14 +3577,18 @@ impl DesktopController {
         let automatic_save = self.index_ui.automatic_save;
         let sender = self.worker_tx.clone();
         let gate = Arc::clone(&self.automatic_check_gate);
+        let save_gate = Arc::clone(&self.automatic_save_gate);
         thread::spawn(move || {
             let result = match gate.lock() {
-                Ok(_guard) => backend::index_lifecycle::resume_after_cancelled_close(
-                    &session,
-                    check_enabled.then(|| Duration::from_secs(interval_seconds)),
-                    automatic_save,
-                )
-                .map_err(|error| error.to_string()),
+                Ok(_guard) => match save_gate.lock() {
+                    Ok(_save_guard) => backend::index_lifecycle::resume_after_cancelled_close(
+                        &session,
+                        check_enabled.then(|| Duration::from_secs(interval_seconds)),
+                        automatic_save,
+                    )
+                    .map_err(|error| error.to_string()),
+                    Err(_) => Err("automatic saving coordinator is unavailable".into()),
+                },
                 Err(_) => Err("automatic checking coordinator is unavailable".into()),
             };
             let _ = sender.send(WorkerEvent::IndexCloseCancelled {
@@ -3757,6 +3792,7 @@ impl DesktopController {
             .store(operation_id, Ordering::Release);
         let epoch = Arc::clone(&self.automatic_check_epoch);
         let gate = Arc::clone(&self.automatic_check_gate);
+        let save_gate = Arc::clone(&self.automatic_save_gate);
         let (enabled, interval_seconds) = self.requested_check;
         let open_generation = self.open_generation;
         let sender = self.worker_tx.clone();
@@ -3773,12 +3809,15 @@ impl DesktopController {
                     } else {
                         Ok(())
                     };
-                    let retired = old
-                        .as_ref()
-                        .map(backend::index_lifecycle::stop_automation)
-                        .transpose()
-                        .map(|_| ())
-                        .map_err(|error| error.to_string());
+                    let retired = match save_gate.lock() {
+                        Ok(_save_gate) => old
+                            .as_ref()
+                            .map(backend::index_lifecycle::stop_automation)
+                            .transpose()
+                            .map(|_| ())
+                            .map_err(|error| error.to_string()),
+                        Err(_) => Err("automatic saving coordinator is unavailable".into()),
+                    };
                     if !current {
                         return;
                     }
@@ -3888,11 +3927,21 @@ impl DesktopController {
         }
         self.automatic_save_operation_id = self.automatic_save_operation_id.wrapping_add(1);
         let operation_id = self.automatic_save_operation_id;
+        self.automatic_save_epoch
+            .store(operation_id, Ordering::Release);
+        let epoch = Arc::clone(&self.automatic_save_epoch);
+        let gate = Arc::clone(&self.automatic_save_gate);
         let open_generation = self.open_generation;
         let sender = self.worker_tx.clone();
         thread::spawn(move || {
-            let result = backend::index_lifecycle::set_automatic_save(&session, enabled)
-                .map_err(|error| error.to_string());
+            let result = match gate.lock() {
+                Ok(_gate) if epoch.load(Ordering::Acquire) == operation_id => {
+                    backend::index_lifecycle::set_automatic_save(&session, enabled)
+                        .map_err(|error| error.to_string())
+                }
+                Ok(_) => return,
+                Err(_) => Err("automatic saving coordinator is unavailable".into()),
+            };
             let _ = sender.send(WorkerEvent::AutomaticSaveChanged {
                 open_generation,
                 operation_id,

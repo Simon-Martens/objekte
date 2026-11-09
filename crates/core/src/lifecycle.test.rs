@@ -219,6 +219,28 @@ fn quiescence_rejects_query_requested_reconciliation() {
 }
 
 #[test]
+fn quiescence_discards_queued_automatic_cache_write() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-sync-quiesce-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let index = Index::from_repository(fixture_repository(&root)).unwrap();
+    let cache = root.join("index.snapshot");
+    index
+        .select_cache_destination(&cache, None, Vec::new())
+        .unwrap();
+    index.set_sync_cache(true).unwrap();
+    index.quiesce().unwrap();
+    assert!(!cache.exists());
+    assert_eq!(index.status().unwrap().saved_revision, None);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn pinned_view_stays_stable_when_a_new_root_is_published() {
     let root = std::env::temp_dir().join(format!(
         "objekte-published-view-{}-{:?}",
