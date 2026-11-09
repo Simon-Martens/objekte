@@ -2965,15 +2965,17 @@ fn search_segmented_impl(
                     .as_ref()
                     .is_none_or(|bounds| bounds.may == bounds.must);
             if index_exact {
-                // Identity order is already stored in each shard. A global
+                // Stored order is already available in each shard. A global
                 // top `cap` page cannot contain a shard row ranked below that
                 // shard's own top `cap`; count the complete bitmap but only
                 // materialize those possible page rows.
-                if cache_builder.is_none() && context.is_none() && query.options.sort.is_empty() {
+                if cache_builder.is_none() && context.is_none() && cap < candidates.len() as usize
+                    && let Some(order) = lifecycle_segment_order(segment, &sort, query, collection_index)
+                {
                     total += candidates.len();
                     counters.exact_posting_matches += candidates.len();
                     let mut selected = 0usize;
-                    for slot in &segment.identity_order {
+                    for slot in order {
                         if selected == cap {
                             break;
                         }
@@ -3076,18 +3078,18 @@ fn search_segmented_impl(
             // Local residual verification is independent by source file. Limit the
             // parallel route to small ordered pages and bounded source rows;
             // all other plans keep the existing serial, cache-aware path.
+            let small_single_record_files = files.values().all(|ranges| {
+                ranges.len() == 1 && ranges[0].1.len() <= 8 * 1024
+            });
             let parallel_scan = context.is_none()
                 && retained_budget.is_none()
                 && cache_builder.is_none()
                 && (filter.is_some() || fts.is_some())
                 && (!sort.bound.has_computed
-                    || (query.options.sort.len() <= 4
-                        && files.values().all(|ranges| {
-                            ranges.len() == 1 && ranges[0].1.len() <= 8 * 1024
-                        })))
+                    || (query.options.sort.len() <= 4 && small_single_record_files))
                 && repo.options.query_workers > 1
                 && files.len() > 1
-                && cap <= 64
+                && (cap <= 64 || (cap <= 256 && small_single_record_files))
                 && collection.definition.name.len() <= 1024
                 && query.filter.as_ref().is_none_or(|filter| format!("{filter:?}").len() <= 1024)
                 && fts.as_ref().is_none_or(|fts| {
@@ -3109,9 +3111,11 @@ fn search_segmented_impl(
                 // Small single-record files retain at most one compact hit per
                 // job. Dispatch them in larger bounded batches to avoid one
                 // pool installation for every worker-sized group.
-                let batch_size = if jobs.iter().all(|(_, ranges)| {
-                    ranges.len() == 1 && ranges[0].1.len() <= 8 * 1024
-                }) { 256 } else { repo.options.query_workers.clamp(1, 32) };
+                let batch_size = if small_single_record_files {
+                    256
+                } else {
+                    repo.options.query_workers.clamp(1, 32)
+                };
                 for chunk in jobs.chunks(batch_size) {
                     let scans = repo.workers.install(|| {
                         chunk.par_iter().map(|(file_id, ranges)| {
@@ -3999,19 +4003,24 @@ fn try_direct_relation_page(
     let mut total = 0u64;
     for (segment_index, may) in source_candidates {
         let published = &segments[*source_index][segment_index];
-        let identity_top = query.options.sort.is_empty()
-            && cache_builder.is_none()
-            && context.is_none();
-        if identity_top {
+        let stored_order = if cache_builder.is_none() && context.is_none()
+            && direct_sort_column.is_none()
+            && cap < may.len() as usize
+        {
+            lifecycle_segment_order(&published.index, sort, query, *source_index)
+        } else {
+            None
+        };
+        if stored_order.is_some() {
             // A global top `cap` cannot include a row ranked below its own
             // shard's top `cap`. Count the full exact bitmap without building
             // rank keys and hit locators for every matching source.
             total += may.len();
             counters.exact_posting_matches += may.len();
         }
-        let slots: Box<dyn Iterator<Item = u32> + '_> = if identity_top {
+        let slots: Box<dyn Iterator<Item = u32> + '_> = if let Some(order) = stored_order {
             Box::new(
-                published.index.identity_order.iter()
+                order.iter()
                     .filter(|slot| may.contains(slot.0))
                     .take(cap)
                     .map(|slot| slot.0),
@@ -4056,7 +4065,7 @@ fn try_direct_relation_page(
                     repo, sort, *source_index, &published.index, resolved.record, None,
                 )?
             };
-            if !identity_top {
+            if stored_order.is_none() {
                 total += 1;
                 counters.exact_posting_matches += 1;
             }

@@ -715,6 +715,51 @@ fn lifecycle_related_sort_uses_target_stored_column() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+#[test]
+fn lifecycle_direct_relation_count_and_stored_sort_pages_match_reference() {
+    use crate::lifecycle::Index;
+    use crate::model::FieldPath;
+
+    let (root, mut definitions) = fixture();
+    definitions[1].sort_fields.push(FieldPath::parse("title").unwrap());
+    for number in 0..80 {
+        std::fs::write(
+            root.join(format!("mentions/extra-{number:03}.json")),
+            format!(
+                r#"{{"id":"extra-{number:03}","entry":"A","title":"{:03}"}}"#,
+                (number * 37) % 80,
+            ),
+        ).unwrap();
+    }
+    let index = Index::build(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..RepositoryOptions::default()
+        },
+    ).unwrap();
+    let view = index.view().unwrap();
+    for descending in [false, true] {
+        for offset in [0, 17, 70] {
+            let mut request = query("mentions", Some("entry.title = 'Hymn'"), None, None, false);
+            request.options.sort = vec![crate::execution_options::SortField::simple(
+                "title", descending,
+            )];
+            request.options.offset = offset;
+            request.options.limit = 5;
+            let expected = view.search_reference(&request).unwrap();
+            let actual = view.search(&request).unwrap();
+            assert_eq!(actual.count, expected.count);
+            assert_eq!(actual.hits, expected.hits);
+            assert_eq!(actual.counters.scanned_records, 0);
+            assert_eq!(actual.counters.files_opened, 0);
+        }
+    }
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn fixture() -> (PathBuf, Vec<CollectionDefinition>) {
     let root = std::env::temp_dir().join(format!(
         "objekte-relation-query-{}-{:?}",
