@@ -9,7 +9,7 @@ use std::path::{Path, PathBuf};
 use std::time::SystemTime;
 
 use crate::discovery::{PreparedScanSelection, SymlinkPolicy, discover_bounded, discover_stream};
-use crate::inventory::SourceRevision;
+use crate::inventory::{FileEntry, FileStatus, SourceRevision};
 use crate::model::{CollectionId, FileId};
 use crate::repository::CollectionDefinition;
 use crate::source::{PreparedSource, SourceRegistry};
@@ -24,6 +24,20 @@ pub(crate) struct FileStamp {
     pub created_ns: Option<i128>,
     pub collections: BTreeSet<CollectionId>,
     pub retry_unreadable: bool,
+}
+
+impl FileStamp {
+    /// Build one observed-baseline stamp directly from the pinned catalog
+    /// entry, without materializing a second collection-sized path inventory.
+    pub(crate) fn from_entry(entry: &FileEntry) -> Self {
+        Self {
+            path: entry.relative_path.clone(),
+            revision: entry.revision,
+            created_ns: entry.created_ns,
+            collections: entry.collections.iter().copied().collect(),
+            retry_unreadable: entry.status == FileStatus::Unreadable,
+        }
+    }
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
