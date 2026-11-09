@@ -136,11 +136,17 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..24 {
+        let mixed_year = if number == 0 {
+            serde_json::Value::Null
+        } else {
+            serde_json::json!(number)
+        };
         let payload = serde_json::json!({
             "kind": [if number % 3 == 0 { "Lied" } else { "Buch" }],
             "dynamic": {"type": [if number % 4 == 0 { "Person" } else { "Group" }]},
             "inferred": if number % 5 == 0 { "special" } else { "ordinary" },
             "year": 1700 + number * 10,
+            "mixed_year": mixed_year,
             "padding": if number % 2 == 0 { "x".repeat(128) } else { String::new() },
         });
         std::fs::write(
@@ -175,7 +181,22 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
             element_nullable: vec![],
         })
         .unwrap();
-    definition.sort_fields = vec![crate::model::FieldPath::parse("year").unwrap()];
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["mixed_year".into()],
+            kind: LogicalType::Number,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    definition.sort_fields = vec![
+        crate::model::FieldPath::parse("year").unwrap(),
+        crate::model::FieldPath::parse("mixed_year").unwrap(),
+    ];
     definition
         .schema
         .register_field(FieldDefinition {
@@ -237,6 +258,7 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
         ("year >= 1600", 24),
         ("year < 2000", 24),
         ("year >= 1800", 14),
+        ("mixed_year >= 0", 23),
     ] {
         let query = Query {
             collections: vec!["data".into()],
