@@ -6,6 +6,68 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
+fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
+    use crate::lifecycle::Index;
+    use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-lifecycle-parallel-fts-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..48 {
+        let title = if number % 3 == 0 { "Other" } else { "Almanach" };
+        std::fs::write(
+            root.join(format!("data/{number:03}.json")),
+            format!(r#"{{"title":"{title} {number}"}}"#),
+        ).unwrap();
+    }
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let query = Query {
+        collections: vec!["data".into()],
+        filter: None,
+        fts: Some(FtsQuery {
+            pattern_parameter: None,
+            mode: FtsMode::Literal,
+            case_sensitivity: CaseSensitivity::Sensitive,
+            literal: "Almanach".into(),
+            fields: Vec::new(),
+        }),
+        options: QueryOptions {
+            sort: Vec::new(), limit: 7, offset: 3, count: true,
+            return_mode: ReturnMode::Locator, evidence: true,
+        },
+    };
+    let run = |query_workers| {
+        let index = Index::build(
+            &root, vec![definition.clone()],
+            RepositoryOptions {
+                query_workers,
+                snapshot_mode: SnapshotMode::Disabled,
+                ..RepositoryOptions::default()
+            },
+        ).unwrap();
+        let result = index.view().unwrap().search(&query).unwrap();
+        index.shutdown().unwrap();
+        result
+    };
+    let single = run(1);
+    let parallel = run(4);
+    assert_eq!(single.count, Some(32));
+    assert_eq!(parallel.count, single.count);
+    assert_eq!(parallel.hits, single.hits);
+    assert_eq!(parallel.counters.scanned_records, single.counters.scanned_records);
+    assert_eq!(parallel.counters.files_opened, single.counters.files_opened);
+    assert_eq!(parallel.counters.bytes_read, single.counters.bytes_read);
+    assert_eq!(parallel.counters.record_parses, single.counters.record_parses);
+    assert_eq!(parallel.counters.total_matches, single.counters.total_matches);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     use crate::build::{
         FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
