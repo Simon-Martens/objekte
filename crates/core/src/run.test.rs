@@ -2722,6 +2722,11 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     let unavailable = view.search(&page_query).unwrap();
     assert_eq!(unavailable.count, None);
     assert!(unavailable.counters.source_unavailable_events > 0);
+    let mut exact_target = page_query.clone();
+    exact_target.filter = Some(parse_filter("entry.title = 'Needle'").unwrap());
+    let unavailable_exact = view.search(&exact_target).unwrap();
+    assert_eq!(unavailable_exact.count, None);
+    assert!(unavailable_exact.counters.source_unavailable_events > 0);
     std::fs::rename(missing_target, root.join("targets/t1.json")).unwrap();
     let missing_source = root.join("sources/s1-missing.json");
     std::fs::rename(root.join("sources/s1.json"), &missing_source).unwrap();
@@ -2729,6 +2734,125 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     assert_eq!(unavailable.count, None);
     assert!(unavailable.counters.source_unavailable_events > 0);
     std::fs::rename(missing_source, root.join("sources/s1.json")).unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+#[ignore = "manual 64 MiB expanded-locator lifecycle export benchmark"]
+fn measure_large_lifecycle_all_export_streams_before_expanded_locator_budget() {
+    use std::io::Write;
+    use std::time::Instant;
+
+    const ROWS: usize = 24_000;
+    const OLD_EXPANDED_BUDGET: usize = 64 * 1024 * 1024;
+    let root = std::env::temp_dir().join(format!(
+        "objekte-large-export-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id(),
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    let mut source = root.join("data");
+    for level in 0..16 {
+        source = source.join(format!("{level:02}{}", "x".repeat(190)));
+    }
+    std::fs::create_dir_all(&source).unwrap();
+    let mut writer =
+        std::io::BufWriter::new(std::fs::File::create(source.join("all.jsonl")).unwrap());
+    for n in 0..ROWS {
+        writeln!(writer, r#"{{"id":"row-{n:05}","n":{n}}}"#).unwrap();
+    }
+    writer.flush().unwrap();
+    drop(writer);
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    for (name, kind) in [("id", LogicalType::Id), ("n", LogicalType::Number)] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    definition.sort_fields.push(FieldPath::parse("n").unwrap());
+    let started = Instant::now();
+    let index = crate::lifecycle::Index::build(
+        &root,
+        vec![definition],
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let build_elapsed = started.elapsed();
+    let view = index.view().unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("n", false)],
+            limit: 50,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let mut first_batch = None;
+    let mut delivered_rows = 0usize;
+    let mut expanded_locator_bytes = 0usize;
+    let started = Instant::now();
+    let outcome = view
+        .search_stream_scoped(
+            &query,
+            ResultScope::All { offset: 0 },
+            StreamOptions {
+                batch_rows: 16,
+                max_event_bytes: 1024 * 1024,
+                max_buffered_bytes: OLD_EXPANDED_BUDGET,
+                ..StreamOptions::default()
+            },
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    first_batch.get_or_insert_with(|| started.elapsed());
+                    delivered_rows += rows.len();
+                    expanded_locator_bytes += rows
+                        .iter()
+                        .map(|hit| {
+                            std::mem::size_of::<crate::repository::SearchHit>()
+                                + hit.file_path.to_string_lossy().len()
+                        })
+                        .sum::<usize>();
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let total_elapsed = started.elapsed();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("export did not complete")
+    };
+    assert_eq!(summary.count, Some(ROWS));
+    assert_eq!(summary.returned_rows, ROWS);
+    assert_eq!(delivered_rows, ROWS);
+    assert!(expanded_locator_bytes > OLD_EXPANDED_BUDGET);
+    assert!(summary.progress.peak_buffered_bytes < OLD_EXPANDED_BUDGET);
+    assert!(first_batch.unwrap() < total_elapsed);
+    eprintln!(
+        "large lifecycle export: rows={ROWS} build_ms={:.3} first_batch_ms={:.3} total_ms={:.3} expanded_locator_bytes={expanded_locator_bytes} peak_buffered_bytes={}",
+        build_elapsed.as_secs_f64() * 1_000.0,
+        first_batch.unwrap().as_secs_f64() * 1_000.0,
+        total_elapsed.as_secs_f64() * 1_000.0,
+        summary.progress.peak_buffered_bytes,
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
