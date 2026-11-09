@@ -1085,6 +1085,9 @@ impl Repository {
                 })
             });
         }
+        empty.build_parses = self.build_parses;
+        empty.build_failed_parses = self.build_failed_parses;
+        empty.startup = self.startup.clone();
         Ok(empty)
     }
 
