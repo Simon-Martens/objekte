@@ -191,6 +191,34 @@ fn unavailable_direct_lookup_requests_reconciliation() {
 }
 
 #[test]
+fn quiescence_rejects_query_requested_reconciliation() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-lookup-quiesce-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let path = root.join("data/a.json");
+    std::fs::write(&path, br#"{"name":"A"}"#).unwrap();
+    let index = Index::from_repository(fixture_repository(&root)).unwrap();
+    let view = index.view().unwrap();
+    let id = view.search(&all_records()).unwrap().hits[0]
+        .record_id
+        .clone();
+    index.quiesce().unwrap();
+    std::fs::remove_file(&path).unwrap();
+    assert!(matches!(
+        view.get_record_available("data", &id, ReturnMode::Bytes)
+            .unwrap(),
+        crate::run::DirectLookupResult::SourceUnavailable(_)
+    ));
+    assert!(index.current_reconciliation_task().unwrap().is_none());
+    assert_eq!(index.status().unwrap().revision, view.revision());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn pinned_view_stays_stable_when_a_new_root_is_published() {
     let root = std::env::temp_dir().join(format!(
         "objekte-published-view-{}-{:?}",
