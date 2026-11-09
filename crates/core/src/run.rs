@@ -4018,6 +4018,93 @@ enum DirectRelationPredicate<'a> {
     Fts(BoundFts),
 }
 
+struct DirectTargetScan {
+    matched_id: Option<String>,
+    read_bytes: u64,
+    read: bool,
+    unavailable: bool,
+}
+
+fn scan_direct_target_parallel(
+    repo: &Repository,
+    target_collection: &CollectionState,
+    published: &PublishedSegment,
+    catalog: &FileCatalog,
+    predicate: &DirectRelationPredicate<'_>,
+    must: Option<&RoaringBitmap>,
+    slot: u32,
+) -> Result<DirectTargetScan, String> {
+    let resolved = segment_record_ref(
+        &published.index,
+        &published.active,
+        catalog,
+        RecordSlot(slot),
+    )?
+    .ok_or("direct relation target retired")?;
+    if resolved.record.class == RecordClass::RawFallback {
+        return Ok(DirectTargetScan {
+            matched_id: None,
+            read_bytes: 0,
+            read: false,
+            unavailable: false,
+        });
+    }
+    if must.is_some_and(|must| must.contains(slot)) {
+        return Ok(DirectTargetScan {
+            matched_id: Some(resolved.record.id.0.clone()),
+            read_bytes: 0,
+            read: false,
+            unavailable: false,
+        });
+    }
+    let path = repo.files.root.join(&resolved.file.relative_path);
+    let bytes = match read_record_range_checked(
+        &path,
+        resolved.file.revision,
+        resolved.file.created_ns,
+        catalog.fingerprint(resolved.file.id),
+        resolved.record.range,
+    ) {
+        Ok(bytes) => bytes,
+        Err(_) => {
+            return Ok(DirectTargetScan {
+                matched_id: None,
+                read_bytes: 0,
+                read: false,
+                unavailable: true,
+            });
+        }
+    };
+    let extracted = prepare_query_record_with_execution(
+        &target_collection.source,
+        &target_collection.definition.schema,
+        &bytes,
+        &ScanProjection::full(matches!(predicate, DirectRelationPredicate::Fts(_))),
+        false,
+        None,
+    )?;
+    let ctx = RecordContext {
+        value: &extracted.value,
+        source_bytes: Some(&bytes),
+        record: resolved.record,
+        file: resolved.file,
+        collection_name: &target_collection.definition.name,
+        repository_root: &repo.files.root,
+    };
+    let matched = match predicate {
+        DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
+        DirectRelationPredicate::Fts(local) => {
+            eval_bound_fts(local, &extracted.text, &ctx, &mut HashSet::new())?
+        }
+    };
+    Ok(DirectTargetScan {
+        matched_id: matched.then(|| resolved.record.id.0.clone()),
+        read_bytes: bytes.len() as u64,
+        read: true,
+        unavailable: false,
+    })
+}
+
 /// A single positive forward hop can be answered target first. Verify only
 /// possible targets, reverse their IDs through resident source postings, and
 /// rank the resulting source locators without parsing every source record.
@@ -4211,6 +4298,63 @@ fn try_direct_relation_page(
         counters.relation_target_candidates += may.len();
         if counters.relation_target_candidates > 100_000 {
             return Ok(None);
+        }
+        let parallel_targets = context.is_none()
+            && cache_builder.is_none()
+            && retained_budget.is_none()
+            && direct_sort_column.is_none()
+            && (2..=32).contains(&repo.options.query_workers)
+            && may.len() > 1
+            && may.iter().all(|slot| {
+                segment.record(RecordSlot(slot)).is_some_and(|record| {
+                    record.range.len() <= 64 * 1024
+                        && record.id.0.len() <= 1024
+                        && catalog
+                            .entry(record.file)
+                            .is_some_and(|file| file.relative_path.to_string_lossy().len() <= 4096)
+                })
+            });
+        if parallel_targets {
+            let slots = may.iter().collect::<Vec<_>>();
+            for chunk in slots.chunks(256) {
+                let scans = repo.workers.install(|| {
+                    chunk
+                        .par_iter()
+                        .map(|slot| {
+                            scan_direct_target_parallel(
+                                repo,
+                                target_collection,
+                                published,
+                                catalog,
+                                &predicate,
+                                must.as_ref(),
+                                *slot,
+                            )
+                        })
+                        .collect::<Vec<_>>()
+                });
+                for scan in scans {
+                    let scan = scan?;
+                    if scan.unavailable {
+                        return Ok(None);
+                    }
+                    if scan.read {
+                        counters.relation_target_reads += 1;
+                        counters.relation_target_file_opens += 1;
+                        counters.relation_bytes_read += scan.read_bytes;
+                    }
+                    if let Some(id) = scan.matched_id {
+                        counters.relation_target_matches += 1;
+                        if !target_ids.contains(&id) {
+                            if !reserve_route(id.len().saturating_add(64)) {
+                                return Ok(None);
+                            }
+                            target_ids.insert(id);
+                        }
+                    }
+                }
+            }
+            continue;
         }
         for slot in may.iter() {
             if let Some(context) = context {

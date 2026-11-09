@@ -863,6 +863,77 @@ fn lifecycle_parallel_relation_files_preserve_answers_and_missing_target_diagnos
     std::fs::remove_dir_all(root).unwrap();
 }
 
+#[test]
+fn lifecycle_parallel_direct_targets_match_serial_and_unavailable_fallback() {
+    use crate::lifecycle::Index;
+
+    let (root, definitions) = fixture();
+    for number in 0..24 {
+        std::fs::write(
+            root.join(format!("entries/extra-{number:03}.json")),
+            format!(r#"{{"id":"E{number:03}","title":"Hymn {number}"}}"#),
+        )
+        .unwrap();
+    }
+    let build = |workers| {
+        Index::build(
+            &root,
+            definitions.clone(),
+            RepositoryOptions {
+                query_workers: workers,
+                snapshot_mode: SnapshotMode::Disabled,
+                ..RepositoryOptions::default()
+            },
+        )
+        .unwrap()
+    };
+    let single = build(1);
+    let parallel = build(4);
+    let one = single.view().unwrap();
+    let many = parallel.view().unwrap();
+    let queries = [
+        query("mentions", Some("entry.title ~ 'Hymn'"), None, None, false),
+        query("mentions", None, Some("Hymn.*"), Some("entry.title"), true),
+    ];
+    for request in &queries {
+        let expected = one.search(request).unwrap();
+        let actual = many.search(request).unwrap();
+        let reference = many.search_reference(request).unwrap();
+        assert_eq!(actual.count, expected.count);
+        assert_eq!(actual.hits, expected.hits);
+        assert_eq!(actual.count, reference.count);
+        assert_eq!(actual.hits, reference.hits);
+        assert_eq!(
+            actual.counters.relation_target_reads,
+            expected.counters.relation_target_reads
+        );
+        assert!(actual.counters.relation_target_reads > 1);
+    }
+    std::fs::remove_file(root.join("entries/a.json")).unwrap();
+    for request in &queries {
+        let expected = one.search(request).unwrap();
+        let actual = many.search(request).unwrap();
+        assert_eq!(actual.count, expected.count);
+        assert_eq!(actual.hits, expected.hits);
+        assert_eq!(
+            actual.counters.source_unavailable_events,
+            expected.counters.source_unavailable_events
+        );
+        assert_eq!(
+            actual.counters.match_count_complete,
+            expected.counters.match_count_complete
+        );
+        assert_eq!(
+            actual.counters.source_diagnostics,
+            expected.counters.source_diagnostics
+        );
+        assert_eq!(actual.count, None);
+    }
+    single.shutdown().unwrap();
+    parallel.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn fixture() -> (PathBuf, Vec<CollectionDefinition>) {
     let root = std::env::temp_dir().join(format!(
         "objekte-relation-query-{}-{:?}",
