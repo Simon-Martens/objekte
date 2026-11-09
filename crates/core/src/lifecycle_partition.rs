@@ -155,96 +155,27 @@ fn partition_base_with_limits(
             continue;
         }
         let source = base_as_segment(collection, root.repository.files())?;
-        let mut selected = Vec::<FileId>::new();
-        let mut records = 0usize;
         let mut group = Arc::unwrap_or_clone(groups[number].clone());
-        let seal = |selected: &mut Vec<FileId>,
-                    records: &mut usize,
-                    group: &mut Vec<Arc<PublishedSegment>>,
-                    ordinal: &mut u64|
-         -> Result<(), IndexError> {
-            if selected.is_empty() {
-                return Ok(());
-            }
-            let files = selected.drain(..).collect::<HashSet<_>>();
-            let mut bitmap = RoaringBitmap::new();
-            for file in &files {
-                if let Some(owned) = collection.generation.file_records.records_for(*file) {
-                    for slot in owned {
-                        if root.active[number].contains(*slot) {
-                            bitmap.insert(slot.0);
-                        }
-                    }
-                }
-            }
-            let active = ActiveRecords::from_bitmap(source.records.len(), bitmap)
-                .map_err(IndexError::InvalidPublication)?;
-            let compacted = source
-                .compact_active(&active, source.records.len(), |entry| {
-                    files.contains(&entry.id)
-                })
-                .map_err(IndexError::Build)?;
-            let assigned = *ordinal;
-            *ordinal = ordinal
+        for part in compact_source_parts_with_limits(
+            &source,
+            &root.active[number],
+            &catalog,
+            max_records,
+            max_files,
+            || false,
+        )? {
+            let ordinal = root.next_segment_ordinal;
+            root.next_segment_ordinal = ordinal
                 .checked_add(1)
                 .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+            let active =
+                ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
             group.push(Arc::new(PublishedSegment {
-                ordinal: assigned,
-                index: Arc::new(compacted.index),
-                active: compacted.active,
+                ordinal,
+                index: Arc::new(part),
+                active,
             }));
-            *records = 0;
-            Ok(())
-        };
-        for file in &collection.generation.files {
-            let old = root
-                .repository
-                .files()
-                .files
-                .get(file.0 as usize)
-                .ok_or_else(|| IndexError::InvalidPublication("base file missing".into()))?;
-            let Some(current) = catalog.entry(*file) else {
-                continue;
-            };
-            if current.revision != old.revision
-                || current.created_ns != old.created_ns
-                || !current
-                    .collections
-                    .contains(&collection.generation.collection)
-            {
-                continue;
-            }
-            let count = collection
-                .generation
-                .file_records
-                .records_for(*file)
-                .ok_or_else(|| {
-                    IndexError::InvalidPublication("base file ownership missing".into())
-                })?
-                .iter()
-                .filter(|slot| root.active[number].contains(**slot))
-                .count();
-            if !selected.is_empty()
-                && (selected.len() >= max_files || records.saturating_add(count) > max_records)
-            {
-                seal(
-                    &mut selected,
-                    &mut records,
-                    &mut group,
-                    &mut root.next_segment_ordinal,
-                )?;
-            }
-            selected.push(*file);
-            records = records.checked_add(count).ok_or_else(|| {
-                IndexError::ResourceLimit("partition record count overflow".into())
-            })?;
         }
-        seal(
-            &mut selected,
-            &mut records,
-            &mut group,
-            &mut root.next_segment_ordinal,
-        )?;
         groups[number] = Arc::new(group);
     }
     root.repository = empty;

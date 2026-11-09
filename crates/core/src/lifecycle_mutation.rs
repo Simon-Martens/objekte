@@ -20,7 +20,8 @@ use crate::lifecycle::{
 };
 use crate::lifecycle_compaction::compact_published;
 use crate::lifecycle_verified::{
-    preserve_single_record_slots, remove_verified_old_shards, verify_old_content,
+    preserve_partition_record_slots, preserve_single_record_slots, remove_verified_old_shards,
+    verify_old_content,
 };
 use crate::model::{CollectionId, MetadataField, PathRoot};
 use crate::repository::IdentityPolicy;
@@ -675,7 +676,9 @@ impl Index {
                             }
                         }
                     } else if let Some(preserved) =
-                        preserve_single_record_slots(&view, &next, &plan, handle.file_id)
+                        preserve_single_record_slots(&view, &next, &plan, handle.file_id).or_else(
+                            || preserve_partition_record_slots(&view, &next, &plan, handle.file_id),
+                        )
                     {
                         (
                             preserved,
