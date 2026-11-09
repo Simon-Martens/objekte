@@ -134,6 +134,13 @@ fn compacts_one_large_file_in_source_free_parts() {
         crate::lifecycle_compaction::base_as_segment(collection, view.repository().files())
             .unwrap();
     std::fs::remove_file(&path).unwrap();
+    let partitioned = partition_base_with_limits((*view.0).clone(), 2, 2).unwrap();
+    assert_eq!(partitioned.segments[0].len(), 5);
+    assert!(
+        partitioned.segments[0]
+            .iter()
+            .all(|part| part.index.records.len() <= 2)
+    );
     let parts =
         compact_source_parts_with_limits(&source, &view.0.active[0], &view.0.catalog, 2, 2, || {
             false

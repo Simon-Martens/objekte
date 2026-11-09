@@ -8,14 +8,12 @@ use crate::inference::{InferenceIndexStatus, InferenceState, InferredFieldReport
 use crate::inventory::ActiveRecords;
 use crate::sorting::{SortCollection, compare_composite};
 
-
 /// One physical file in a delta. File IDs remain repository-global; record
 /// slots are local to this segment until the publication owner names it.
 pub(crate) struct SegmentFile {
     pub entry: FileEntry,
     pub records: Vec<RecordSlot>,
 }
-
 
 /// The preparation path can admit several files before sealing one segment.
 /// This avoids a permanent one-segment-per-file layout.
@@ -34,7 +32,6 @@ pub(crate) struct SegmentAdmission {
     failed_parses: u64,
 }
 
-
 /// Owned, locally slotted contribution set. `into_indexed` will merge and
 /// finalize every index family before this is published by the coordinator.
 pub(crate) struct CollectionSegment {
@@ -50,13 +47,11 @@ pub(crate) struct CollectionSegment {
     pub failed_parses: u64,
 }
 
-
 pub(crate) struct SegmentBatch {
     base: u32,
     count: u32,
     contribution: BatchContribution,
 }
-
 
 /// Ordinary coalescing target. One oversized physical file remains eligible
 /// as a singleton, matching fresh build's largest-file allowance.
@@ -67,7 +62,6 @@ pub(crate) struct SegmentLimits {
     pub source_bytes: u64,
 }
 
-
 impl Default for SegmentLimits {
     fn default() -> Self {
         Self {
@@ -77,7 +71,6 @@ impl Default for SegmentLimits {
         }
     }
 }
-
 
 /// Complete local search structures. The publication owner assigns a segment
 /// ID and combines it with the base and other live segments in one IndexView.
@@ -105,7 +98,6 @@ pub(crate) struct IndexedCollectionSegment {
     pub record_parses: u64,
     pub failed_parses: u64,
 }
-
 
 impl SegmentAdmission {
     pub fn new(collection: CollectionId, source: &PreparedSource) -> Self {
@@ -291,7 +283,6 @@ impl SegmentAdmission {
     }
 }
 
-
 impl CollectionSegment {
     pub fn into_indexed(
         self,
@@ -476,7 +467,6 @@ impl CollectionSegment {
     }
 }
 
-
 impl IndexedCollectionSegment {
     pub fn file(&self, id: FileId) -> Option<&SegmentFile> {
         self.files.get(*self.file_index.get(&id)?)
@@ -491,14 +481,12 @@ impl IndexedCollectionSegment {
     }
 }
 
-
 /// The offsets translate old shard-local slots to the consolidated local
 /// namespace. Publication must translate each old active mask with them.
 pub(crate) struct ConsolidatedSegment {
     pub index: IndexedCollectionSegment,
     pub offsets: Vec<u32>,
 }
-
 
 impl ConsolidatedSegment {
     /// Preserve retired local slots exactly when publishing the consolidated
@@ -531,7 +519,6 @@ impl ConsolidatedSegment {
         ActiveRecords::all(self.index.records.len())?.retired(&retired)
     }
 }
-
 
 fn merge_bigram_index(
     target: &mut BigramIndex,
@@ -787,7 +774,6 @@ fn consolidate_inference(
     }))
 }
 
-
 impl IndexedCollectionSegment {
     /// Combine already indexed shards without opening or parsing source files.
     /// Shards with overlapping FileIds or logical IDs must first be resolved
@@ -1022,7 +1008,6 @@ impl IndexedCollectionSegment {
     }
 }
 
-
 /// A dense active-only shard plus a locator translation for callers that
 /// retained an old local slot. Retired slots map to `None`.
 pub(crate) struct CompactedSegment {
@@ -1030,7 +1015,6 @@ pub(crate) struct CompactedSegment {
     pub active: ActiveRecords,
     pub old_to_new: Vec<Option<RecordSlot>>,
 }
-
 
 fn project_bitmap(
     source: &RoaringBitmap,
@@ -1110,14 +1094,23 @@ fn project_sorting(
         if old_keys.len() != slots.len() {
             return Err("sort projection coverage mismatch".into());
         }
-        column.keys = old_keys
-            .into_iter()
-            .enumerate()
-            .filter_map(|(old, key)| slots[old].map(|_| key))
-            .collect();
-        if column.keys.len() != records.len() {
-            return Err("sort projection slot mismatch".into());
+        let mut keys = std::iter::repeat_with(|| None)
+            .take(records.len())
+            .collect::<Vec<_>>();
+        for (old, key) in old_keys.into_iter().enumerate() {
+            if let Some(slot) = slots[old] {
+                let target = keys
+                    .get_mut(slot.0 as usize)
+                    .ok_or("sort projection slot out of bounds")?;
+                if target.replace(key).is_some() {
+                    return Err("duplicate sort projection slot".into());
+                }
+            }
         }
+        column.keys = keys
+            .into_iter()
+            .collect::<Option<Vec<_>>>()
+            .ok_or("sort projection slot mismatch")?;
         column.ascending = records.iter().map(|record| record.slot).collect();
         column.ascending.sort_by(|a, b| {
             column.keys[a.0 as usize]
@@ -1267,7 +1260,6 @@ fn project_inference(
     Ok(Some(state))
 }
 
-
 impl IndexedCollectionSegment {
     /// Build a dense active-only shard without opening source data. The file
     /// predicate distinguishes a current zero-record file from an obsolete
@@ -1278,11 +1270,36 @@ impl IndexedCollectionSegment {
         max_scanned_records: usize,
         retain_file: impl Fn(&FileEntry) -> bool,
     ) -> Result<CompactedSegment, String> {
+        self.compact_active_mapped(active, max_scanned_records, retain_file, None)
+    }
+
+    /// Reorder a dense bounded shard without changing its physical slot count.
+    /// Used to put a verified replacement into the old record's local slot.
+    pub(crate) fn remap_dense(&self, new_slots: &[RecordSlot]) -> Result<Self, String> {
+        if new_slots.len() != self.records.len() {
+            return Err("slot remap coverage mismatch".into());
+        }
+        let active = ActiveRecords::all(self.records.len())?;
+        Ok(self
+            .compact_active_mapped(&active, self.records.len(), |_| true, Some(new_slots))?
+            .index)
+    }
+
+    fn compact_active_mapped(
+        &self,
+        active: &ActiveRecords,
+        max_scanned_records: usize,
+        retain_file: impl Fn(&FileEntry) -> bool,
+        new_slots: Option<&[RecordSlot]>,
+    ) -> Result<CompactedSegment, String> {
         if active.slot_count() as usize != self.records.len() {
             return Err("compaction active-mask coverage mismatch".into());
         }
         if self.records.len() > max_scanned_records {
             return Err("compaction record budget exceeded".into());
+        }
+        if new_slots.is_some_and(|slots| slots.len() != self.records.len()) {
+            return Err("slot remap coverage mismatch".into());
         }
         let mut old_to_new = Vec::with_capacity(self.records.len());
         let mut next = 0u32;
@@ -1291,10 +1308,23 @@ impl IndexedCollectionSegment {
                 return Err("compaction record slots out of order".into());
             }
             if active.contains(record.slot) {
-                old_to_new.push(Some(RecordSlot(next)));
+                old_to_new.push(Some(
+                    new_slots
+                        .map(|slots| slots[record.slot.0 as usize])
+                        .unwrap_or(RecordSlot(next)),
+                ));
                 next = next.checked_add(1).ok_or("compaction slot overflow")?;
             } else {
                 old_to_new.push(None);
+            }
+        }
+        let mut seen = vec![false; next as usize];
+        for slot in old_to_new.iter().flatten() {
+            let used = seen
+                .get_mut(slot.0 as usize)
+                .ok_or("slot remap outside active domain")?;
+            if std::mem::replace(used, true) {
+                return Err("duplicate slot remap target".into());
             }
         }
         let mut files = Vec::new();
@@ -1311,6 +1341,7 @@ impl IndexedCollectionSegment {
                     owned.push(*slot);
                 }
             }
+            owned.sort_unstable();
             if !retained {
                 if !owned.is_empty() {
                     return Err("active record belongs to obsolete file".into());
@@ -1343,7 +1374,7 @@ impl IndexedCollectionSegment {
                 records: owned,
             });
         }
-        let mut records = Vec::with_capacity(next as usize);
+        let mut records = vec![None; next as usize];
         let mut id_lookup = HashMap::new();
         for record in &self.records {
             let Some(slot) = old_to_new[record.slot.0 as usize] else {
@@ -1367,8 +1398,17 @@ impl IndexedCollectionSegment {
             if id_lookup.insert(compacted.id.clone(), slot).is_some() {
                 return Err("duplicate active record ID during compaction".into());
             }
-            records.push(compacted);
+            let target = records
+                .get_mut(slot.0 as usize)
+                .ok_or("compacted record target outside active domain")?;
+            if target.replace(compacted).is_some() {
+                return Err("duplicate compacted record target".into());
+            }
         }
+        let records = records
+            .into_iter()
+            .collect::<Option<Vec<_>>>()
+            .ok_or("compacted record target missing")?;
         let logical_records = project_bitmap(&self.logical_records, &old_to_new)?;
         let empty_array_records = project_bitmap(&self.empty_array_records, &old_to_new)?;
         let logical_count =
@@ -1442,7 +1482,6 @@ impl IndexedCollectionSegment {
         })
     }
 }
-
 
 #[cfg(test)]
 #[path = "mutation_segment.test.rs"]
