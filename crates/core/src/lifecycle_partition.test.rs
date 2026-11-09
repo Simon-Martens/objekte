@@ -189,6 +189,10 @@ fn partition_and_cache_restore_keep_global_inference_diagnostics() {
         ..Default::default()
     };
     let repository = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    let build_parses = repository.build_parses();
+    let build_failed_parses = repository.build_failed_parses();
+    let startup = repository.startup().clone();
+    assert_eq!(build_parses, 7);
     let report = serde_json::to_value(repository.inference_report("items").unwrap()).unwrap();
     let diagnostics =
         serde_json::to_value(repository.inference_index_diagnostics("items").unwrap()).unwrap();
@@ -223,6 +227,15 @@ fn partition_and_cache_restore_keep_global_inference_diagnostics() {
         );
     };
     check(&index);
+    assert_eq!(index.view().unwrap().repository().build_parses(), build_parses);
+    assert_eq!(
+        index.view().unwrap().repository().build_failed_parses(),
+        build_failed_parses
+    );
+    assert_eq!(
+        index.view().unwrap().repository().startup().build_workers,
+        startup.build_workers
+    );
     let cache = root.join("partition.snapshot");
     index.flush_cache(&cache).unwrap();
     let restored = Index::load_cache(&root, definitions, options, &cache).unwrap();
