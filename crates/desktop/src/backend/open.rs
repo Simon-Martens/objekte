@@ -151,7 +151,10 @@ pub fn open(
     if cancellation.is_cancelled() {
         return Err(BackendError::cancelled());
     }
-    let options = repository_options(&spec.args);
+    let mut options = repository_options(&spec.args);
+    // One bounded cache is shared by every publication of the open index.
+    // Repeated counted searches and later result pages reuse verified work.
+    options.verified_cache_bytes = 64 * 1024 * 1024;
     let policy = snapshot_policy(&spec.args, &paths);
     let cache_directory = policy
         .directory

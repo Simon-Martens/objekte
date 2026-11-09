@@ -525,8 +525,7 @@ impl PublishedIndex {
                     .index
                     .compact_active(&segment.active, MAX_CONSOLIDATED_RECORDS, |entry| {
                         catalog.entry(entry.id).is_some_and(|current| {
-                            current.relative_path == entry.relative_path
-                                && current.revision == entry.revision
+                            current.revision == entry.revision
                                 && current.created_ns == entry.created_ns
                                 && current.collections.contains(&segment.index.collection)
                         })
@@ -762,6 +761,11 @@ fn prepare_file_at(
 struct IndexInner {
     instance_id: u64,
     restored_from_cache: AtomicBool,
+    /// Set under the publication write lock before closing waits for workers.
+    /// Every data publication checks it while holding that same lock.
+    quiescing: AtomicBool,
+    /// One aggregate budget for all pinned publications of this index.
+    verified_cache: Mutex<crate::verified::VerifiedCache>,
     published: RwLock<Arc<PublishedIndex>>,
     writer: Mutex<()>,
     maintenance: Mutex<MaintenanceState>,
@@ -953,9 +957,12 @@ impl Index {
 
     pub(crate) fn from_published(published: PublishedIndex) -> Self {
         let instance_id = published.instance_id;
+        let verified_cache_bytes = published.repository.options().verified_cache_bytes;
         Self(Arc::new(IndexInner {
             instance_id,
             restored_from_cache: AtomicBool::new(false),
+            quiescing: AtomicBool::new(false),
+            verified_cache: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
             published: RwLock::new(Arc::new(published)),
             writer: Mutex::new(()),
             maintenance: Mutex::new(MaintenanceState {
@@ -977,6 +984,26 @@ impl Index {
 
     pub fn instance_id(&self) -> u64 {
         self.0.instance_id
+    }
+
+    /// Set the aggregate in-memory verified-result cache budget for this
+    /// lifecycle instance. It is shared across all pinned revisions.
+    pub fn configure_verified_cache(&self, bytes: usize) -> Result<(), IndexError> {
+        self.0
+            .verified_cache
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .set_budget(bytes);
+        Ok(())
+    }
+
+    pub fn verified_cache_budget(&self) -> Result<usize, IndexError> {
+        Ok(self
+            .0
+            .verified_cache
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .budget())
     }
 
     pub fn restored_from_cache(&self) -> bool {
@@ -1030,6 +1057,9 @@ impl Index {
             .maintenance_operation
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
+        if self.0.quiescing.load(Ordering::Acquire) {
+            return Err(IndexError::Cancelled);
+        }
         if let Some(job) = current.as_ref() {
             if job
                 .result
@@ -1355,6 +1385,9 @@ impl Index {
     }
 
     pub(crate) fn enable_sync_cache(&self) -> Result<(), IndexError> {
+        if self.0.quiescing.load(Ordering::Acquire) {
+            return Err(IndexError::Cancelled);
+        }
         if self
             .0
             .persistence
@@ -1372,6 +1405,9 @@ impl Index {
             .sync_cache
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
+        if self.0.quiescing.load(Ordering::Acquire) {
+            return Err(IndexError::Cancelled);
+        }
         if sync.is_some() {
             return Ok(());
         }
@@ -1458,6 +1494,9 @@ impl Index {
             .maintenance
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
+        if self.0.quiescing.load(Ordering::Acquire) {
+            return Err(IndexError::Cancelled);
+        }
         if let Some(job) = &maintenance.current {
             if job
                 .result
@@ -1545,6 +1584,9 @@ impl Index {
                 "reconciliation interval must be nonzero".into(),
             ));
         }
+        if self.0.quiescing.load(Ordering::Acquire) {
+            return Err(IndexError::Cancelled);
+        }
         self.stop_periodic_reconciliation()?;
         let (stop, receiver) = mpsc::sync_channel(1);
         let owner = Arc::downgrade(&self.0);
@@ -1571,6 +1613,14 @@ impl Index {
             .periodic
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
+        if self.0.quiescing.load(Ordering::Acquire) {
+            let _ = stop.try_send(());
+            drop(periodic);
+            worker.join().map_err(|_| {
+                IndexError::InvalidPublication("periodic reconciliation worker panicked".into())
+            })?;
+            return Err(IndexError::Cancelled);
+        }
         *periodic = Some(PeriodicReconciliation { stop, worker });
         Ok(())
     }
@@ -1591,6 +1641,17 @@ impl Index {
         Ok(())
     }
 
+    /// Whether a live periodic scheduler currently belongs to this index.
+    pub fn periodic_reconciliation_enabled(&self) -> Result<bool, IndexError> {
+        Ok(self
+            .0
+            .periodic
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .as_ref()
+            .is_some_and(|schedule| !schedule.worker.is_finished()))
+    }
+
     pub fn wait_for_reconciliation(&self) -> Result<Option<ReconciliationReport>, IndexError> {
         let current = self
             .0
@@ -1604,8 +1665,18 @@ impl Index {
             .transpose()
     }
 
-    /// Cancel and join the current scan worker before releasing this handle.
-    pub fn shutdown(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+    /// Prevent new data publications, stop recurring work, and wait for every
+    /// currently owned mutation worker. The resulting view is stable for a
+    /// final cache save. This call may be retried after a save failure.
+    pub fn quiesce(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        {
+            let _published = self
+                .0
+                .published
+                .write()
+                .map_err(|_| IndexError::LockPoisoned)?;
+            self.0.quiescing.store(true, Ordering::Release);
+        }
         self.stop_periodic_reconciliation()?;
         self.stop_sync_cache()?;
         let operation = self
@@ -1642,6 +1713,23 @@ impl Index {
             return Err(error);
         }
         Ok(reconciliation)
+    }
+
+    /// Reopen publication after a cancelled close. Callers restore only the
+    /// explicit recurring policies they held before quiescing.
+    pub fn resume_after_quiesce(&self) -> Result<(), IndexError> {
+        let _published = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        self.0.quiescing.store(false, Ordering::Release);
+        Ok(())
+    }
+
+    /// Stop the lifecycle service without writing a cache.
+    pub fn shutdown(&self) -> Result<Option<ReconciliationReport>, IndexError> {
+        self.quiesce()
     }
 
     /// Prepare a selected source without holding the publication or writer
@@ -2083,6 +2171,9 @@ impl Index {
                 .published
                 .write()
                 .map_err(|_| IndexError::LockPoisoned)?;
+            if self.0.quiescing.load(Ordering::Acquire) {
+                return Err(IndexError::Cancelled);
+            }
             if guard.revision != expected {
                 return Err(IndexError::RevisionConflict {
                     expected,

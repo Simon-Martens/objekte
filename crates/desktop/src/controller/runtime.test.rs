@@ -1,6 +1,38 @@
 use super::*;
 
 #[test]
+fn loaded_index_receives_check_policy_before_old_scheduler_retires() {
+    let fixture = crate::backend::test_support::fixture();
+    let original = fixture.session.clone();
+    let saved = tempfile::tempdir().unwrap();
+    let path = saved.path().join("index.snapshot");
+    backend::index_lifecycle::save_index(&original, &path, false).unwrap();
+    backend::index_lifecycle::set_periodic_check(&original, Some(Duration::from_secs(60)))
+        .unwrap();
+    let replacement =
+        backend::index_lifecycle::load_index(&original, &path, &CancellationToken::new()).unwrap();
+    let (mut controller, _) = DesktopController::new();
+    controller.open_generation = 4;
+    controller.session = Some(replacement.clone());
+    controller.requested_check = (true, 60);
+    controller.transfer_check_policy(replacement.clone(), Some(original.clone()));
+    let event = controller.workers.recv_timeout(Duration::from_secs(5)).unwrap();
+    assert!(matches!(
+        event,
+        WorkerEvent::AutomaticCheckChanged {
+            open_generation: 4,
+            enabled: true,
+            result: Ok(()),
+            ..
+        }
+    ));
+    assert!(replacement.repository.index().periodic_reconciliation_enabled().unwrap());
+    assert!(!original.repository.index().periodic_reconciliation_enabled().unwrap());
+    backend::index_lifecycle::shutdown(&replacement).unwrap();
+    backend::index_lifecycle::shutdown(&original).unwrap();
+}
+
+#[test]
 fn completion_uses_bounded_postings_and_keeps_typed_literals() {
     use objekte_search_core::model::LogicalType;
     use objekte_search_core::reference::FieldDefinition;

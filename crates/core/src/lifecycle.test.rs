@@ -278,6 +278,37 @@ fn publication_rejects_foreign_and_skipped_revisions_without_advancing_status() 
 }
 
 #[test]
+fn quiescence_rejects_prepared_publications_until_close_is_cancelled() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-quiesce-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let index = Index::from_repository(fixture_repository(&root)).unwrap();
+    let next_path = root.join("data/b.json");
+    std::fs::write(&next_path, br#"{"name":"B"}"#).unwrap();
+    let prepared = index.prepare_add_file(&next_path).unwrap();
+    let expected = prepared.expected_revision;
+    let staged = index.stage_prepared_add(prepared).unwrap();
+
+    index.quiesce().unwrap();
+    assert_eq!(
+        index.publish_prepared(expected, staged.clone()),
+        Err(IndexError::Cancelled)
+    );
+    assert_eq!(index.view().unwrap().revision(), expected);
+    assert!(matches!(index.start_reconcile(), Err(IndexError::Cancelled)));
+
+    index.resume_after_quiesce().unwrap();
+    assert_eq!(index.publish_prepared(expected, staged).unwrap(), expected.next().unwrap());
+    assert_eq!(index.view().unwrap().search(&all_records()).unwrap().count, Some(2));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     let root = std::env::temp_dir().join(format!(
         "objekte-delete-file-{}-{:?}",

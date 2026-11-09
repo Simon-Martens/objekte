@@ -118,4 +118,17 @@ fn automatic_save_requires_configured_repository_and_selected_destination() {
     set_automatic_save(&session, true).unwrap();
     shutdown_with_final_save(&session).unwrap();
     assert!(!status(&session).unwrap().dirty());
+    let final_revision = status(&session).unwrap().revision;
+    let late_file = root.path().join("data/c.json");
+    std::fs::write(&late_file, br#"{"name":"C"}"#).unwrap();
+    assert!(matches!(
+        session.repository.index().add_file(&late_file),
+        Err(objekte_search_core::lifecycle::IndexError::Cancelled)
+    ));
+    assert_eq!(status(&session).unwrap().revision, final_revision);
+
+    // Cancel close restores a usable index and its explicit save policy.
+    resume_after_cancelled_close(&session, None, true).unwrap();
+    session.repository.index().add_file(&late_file).unwrap();
+    shutdown(&session).unwrap();
 }
