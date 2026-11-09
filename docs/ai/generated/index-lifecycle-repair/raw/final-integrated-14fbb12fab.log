@@ -1,0 +1,26 @@
+profile=ascii-off cache_bytes=0 build_ms=1313.109 files=148486 records=148486 rss_kb=854932 hwm_kb=894508
+profile=unicode-off cache_bytes=0 build_ms=1438.452 files=148486 records=148486 rss_kb=1578004 hwm_kb=1631076
+cases=194 profiles=2 repetitions=5 failures=0 peak_rss_kb=1631076
+	Command being timed: "target/release/examples/bench_lifecycle_musenalm /home/simon/source/objekte-integration-index-lifecycle-repair/target/repair-query-validation/fixture target/repair-query-validation/final-integrated-14fbb12fab.jsonl"
+	User time (seconds): 323.11
+	System time (seconds): 59.39
+	Percent of CPU this job got: 115%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 5:31.92
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1631076
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 434630
+	Voluntary context switches: 315402
+	Involuntary context switches: 186618
+	Swaps: 0
+	File system inputs: 16
+	File system outputs: 3872
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

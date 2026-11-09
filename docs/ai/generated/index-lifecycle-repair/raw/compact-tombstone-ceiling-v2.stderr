@@ -1,0 +1,37 @@
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte-task-index-lifecycle-repair-index-storage/crates/core)
+warning: function `search_active_available_with_context` is never used
+    --> crates/core/src/run.rs:2489:15
+     |
+2489 | pub(crate) fn search_active_available_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `objekte-search-core` (lib test) generated 1 warning
+    Finished `release` profile [optimized] target(s) in 16.06s
+     Running unittests src/lib.rs (target/release/deps/objekte_search_core-8ec4b01994702154)
+large compaction build records=262144 elapsed=755.304255ms
+large compaction records=262144 elapsed=227.070019ms attempts=2 before=262146 after=262145 retired=1
+	Command being timed: "cargo test --release -p objekte-search-core --lib lifecycle_compaction::tests::large_source_free_compaction -- --ignored --nocapture"
+	User time (seconds): 95.69
+	System time (seconds): 1.79
+	Percent of CPU this job got: 567%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:17.18
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2150516
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 64
+	Minor (reclaiming a frame) page faults: 1142135
+	Voluntary context switches: 3055
+	Involuntary context switches: 887
+	Swaps: 0
+	File system inputs: 54648
+	File system outputs: 94096
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,54 @@
+static groups 388 lifecycle groups 388
+mismatches 0
+PROFILE ascii-off static case median 0.808863 lifecycle case median 1.4253974999999999 median ratio 1.4826090586484924 above 1.2x 121 above 2x 49
+SLOW Q173 19.847 145.350 +125.503 7.32x files_opened_counter 0 relation_target_opens 4928 scanned 0 relation_edges 0
+SLOW Q160 68.371 167.797 +99.426 2.45x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q187 127.749 193.623 +65.873 1.52x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q116 96.327 159.616 +63.289 1.66x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q117 96.831 158.750 +61.919 1.64x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q120 96.467 157.986 +61.519 1.64x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q006 210.845 269.098 +58.254 1.28x files_opened_counter 148486 relation_target_opens 0 scanned 148486 relation_edges 0
+SLOW Q007 262.438 320.294 +57.856 1.22x files_opened_counter 148486 relation_target_opens 0 scanned 148486 relation_edges 0
+SLOW Q118 80.140 125.848 +45.708 1.57x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q078 49.433 85.837 +36.404 1.74x files_opened_counter 80994 relation_target_opens 0 scanned 80994 relation_edges 0
+SLOW Q167 5.437 39.848 +34.412 7.33x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q166 12.732 46.262 +33.530 3.63x files_opened_counter 0 relation_target_opens 2251 scanned 0 relation_edges 0
+SLOW Q025 94.160 125.854 +31.695 1.34x files_opened_counter 67748 relation_target_opens 0 scanned 67748 relation_edges 0
+SLOW Q175 4.812 35.879 +31.067 7.46x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q177 5.598 32.418 +26.820 5.79x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q134 4.279 30.690 +26.410 7.17x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q026 99.118 124.896 +25.778 1.26x files_opened_counter 80994 relation_target_opens 0 scanned 80994 relation_edges 0
+SLOW Q135 6.372 31.130 +24.758 4.89x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q145 67.515 91.637 +24.122 1.36x files_opened_counter 44373 relation_target_opens 0 scanned 44373 relation_edges 0
+SLOW Q069 4.415 27.827 +23.412 6.30x files_opened_counter 4010 relation_target_opens 0 scanned 4010 relation_edges 0
+SLOW Q068 3.113 24.274 +21.161 7.80x files_opened_counter 4010 relation_target_opens 0 scanned 4010 relation_edges 0
+SLOW Q055 3.615 24.705 +21.090 6.83x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q144 13.888 34.339 +20.450 2.47x files_opened_counter 8570 relation_target_opens 0 scanned 8570 relation_edges 0
+SLOW Q174 16.540 36.776 +20.236 2.22x files_opened_counter 25108 relation_target_opens 12554 scanned 12554 relation_edges 12554
+SLOW Q054 1.135 19.827 +18.692 17.47x files_opened_counter 66 relation_target_opens 0 scanned 66 relation_edges 0
+PROFILE unicode-off static case median 0.7629874999999999 lifecycle case median 1.322465 median ratio 1.4304850356006007 above 1.2x 117 above 2x 52
+SLOW Q173 20.028 147.297 +127.269 7.35x files_opened_counter 0 relation_target_opens 4928 scanned 0 relation_edges 0
+SLOW Q160 74.222 169.278 +95.056 2.28x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q187 123.954 193.490 +69.536 1.56x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q117 99.596 160.604 +61.009 1.61x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q007 263.234 322.235 +59.001 1.22x files_opened_counter 148486 relation_target_opens 0 scanned 148486 relation_edges 0
+SLOW Q006 212.832 271.718 +58.886 1.28x files_opened_counter 148486 relation_target_opens 0 scanned 148486 relation_edges 0
+SLOW Q120 100.664 159.449 +58.785 1.58x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q116 103.136 161.615 +58.480 1.57x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q118 84.524 124.472 +39.948 1.47x files_opened_counter 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q078 50.120 85.951 +35.831 1.71x files_opened_counter 81159 relation_target_opens 0 scanned 81159 relation_edges 0
+SLOW Q025 94.550 128.539 +33.989 1.36x files_opened_counter 67750 relation_target_opens 0 scanned 67750 relation_edges 0
+SLOW Q166 13.052 46.576 +33.524 3.57x files_opened_counter 0 relation_target_opens 2251 scanned 0 relation_edges 0
+SLOW Q167 5.776 39.293 +33.517 6.80x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q175 5.026 35.126 +30.100 6.99x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q134 4.544 31.994 +27.450 7.04x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q026 99.405 126.796 +27.391 1.28x files_opened_counter 81159 relation_target_opens 0 scanned 81159 relation_edges 0
+SLOW Q135 7.443 31.326 +23.883 4.21x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q177 5.621 29.410 +23.790 5.23x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q069 4.633 27.666 +23.033 5.97x files_opened_counter 4010 relation_target_opens 0 scanned 4010 relation_edges 0
+SLOW Q055 3.701 25.867 +22.166 6.99x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q068 2.949 24.721 +21.772 8.38x files_opened_counter 4010 relation_target_opens 0 scanned 4010 relation_edges 0
+SLOW Q174 17.291 37.443 +20.152 2.17x files_opened_counter 25108 relation_target_opens 12554 scanned 12554 relation_edges 12554
+SLOW Q052 3.879 22.678 +18.799 5.85x files_opened_counter 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q054 1.117 19.899 +18.782 17.81x files_opened_counter 66 relation_target_opens 0 scanned 66 relation_edges 0
+SLOW Q144 16.809 35.042 +18.232 2.08x files_opened_counter 8570 relation_target_opens 0 scanned 8570 relation_edges 0

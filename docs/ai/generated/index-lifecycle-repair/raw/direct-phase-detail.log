@@ -1,0 +1,23 @@
+profile=ascii-off cache_bytes=0 retired_file=None build_ms=1346.989 files=148486 records=148486 rss_kb=854764 hwm_kb=894752
+direct relation phase target_us=2561 source_us=36153 lookup_us=8932 union_us=26530 keys=76889 matched_keys=55247 page_us=93 total_targets=3821 total_sources=95153
+direct relation phase target_us=2403 source_us=36452 lookup_us=8332 union_us=27303 keys=76889 matched_keys=55247 page_us=91 total_targets=3821 total_sources=95153
+direct relation phase target_us=2581 source_us=32928 lookup_us=7218 union_us=25053 keys=76889 matched_keys=55247 page_us=88 total_targets=3821 total_sources=95153
+direct relation phase target_us=3461 source_us=33141 lookup_us=7027 union_us=25445 keys=76889 matched_keys=55247 page_us=92 total_targets=3821 total_sources=95153
+direct relation phase target_us=3229 source_us=32765 lookup_us=6879 union_us=25221 keys=76889 matched_keys=55247 page_us=92 total_targets=3821 total_sources=95153
+direct relation phase target_us=2903 source_us=32276 lookup_us=6614 union_us=25091 keys=76889 matched_keys=55247 page_us=180 total_targets=3821 total_sources=95153
+direct relation phase target_us=2309 source_us=32057 lookup_us=6543 union_us=24925 keys=76889 matched_keys=55247 page_us=169 total_targets=3821 total_sources=95153
+direct relation phase target_us=2297 source_us=34233 lookup_us=6783 union_us=26853 keys=76889 matched_keys=55247 page_us=160 total_targets=3821 total_sources=95153
+direct relation phase target_us=2096 source_us=31540 lookup_us=6373 union_us=24593 keys=76889 matched_keys=55247 page_us=151 total_targets=3821 total_sources=95153
+direct relation phase target_us=2567 source_us=31001 lookup_us=5897 union_us=24528 keys=76889 matched_keys=55247 page_us=159 total_targets=3821 total_sources=95153
+profile=unicode-off cache_bytes=0 retired_file=None build_ms=1385.737 files=148486 records=148486 rss_kb=1420520 hwm_kb=1474412
+direct relation phase target_us=3419 source_us=35491 lookup_us=8612 union_us=26186 keys=76889 matched_keys=55247 page_us=95 total_targets=3821 total_sources=95153
+direct relation phase target_us=2697 source_us=34535 lookup_us=7994 union_us=25855 keys=76889 matched_keys=55247 page_us=147 total_targets=3821 total_sources=95153
+direct relation phase target_us=2316 source_us=34786 lookup_us=7932 union_us=26176 keys=76889 matched_keys=55247 page_us=131 total_targets=3821 total_sources=95153
+direct relation phase target_us=1700 source_us=34321 lookup_us=7530 union_us=26124 keys=76889 matched_keys=55247 page_us=89 total_targets=3821 total_sources=95153
+direct relation phase target_us=2434 source_us=33609 lookup_us=7197 union_us=25728 keys=76889 matched_keys=55247 page_us=96 total_targets=3821 total_sources=95153
+direct relation phase target_us=2836 source_us=33212 lookup_us=7069 union_us=25535 keys=76889 matched_keys=55247 page_us=176 total_targets=3821 total_sources=95153
+direct relation phase target_us=2508 source_us=34167 lookup_us=7357 union_us=26230 keys=76889 matched_keys=55247 page_us=170 total_targets=3821 total_sources=95153
+direct relation phase target_us=2206 source_us=33021 lookup_us=6872 union_us=25574 keys=76889 matched_keys=55247 page_us=168 total_targets=3821 total_sources=95153
+direct relation phase target_us=2455 source_us=32534 lookup_us=6642 union_us=25307 keys=76889 matched_keys=55247 page_us=157 total_targets=3821 total_sources=95153
+direct relation phase target_us=3396 source_us=32894 lookup_us=6845 union_us=25463 keys=76889 matched_keys=55247 page_us=173 total_targets=3821 total_sources=95153
+cases=2 profiles=2 repetitions=5 failures=0 peak_rss_kb=1474412

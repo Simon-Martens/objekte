@@ -1,0 +1,120 @@
+warning: methods `record_count` and `file_count` are never used
+   --> crates/core/src/mutation_segment.rs:128:12
+    |
+102 | impl SegmentAdmission {
+    | --------------------- methods in this implementation
+...
+128 |     pub fn record_count(&self) -> usize {
+    |            ^^^^^^^^^^^^
+...
+132 |     pub fn file_count(&self) -> usize {
+    |            ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: associated function `initial` is never used
+   --> crates/core/src/inventory.rs:268:19
+    |
+250 | impl FileVersions {
+    | ----------------- associated function in this implementation
+...
+268 |     pub(crate) fn initial(len: usize) -> Self {
+    |                   ^^^^^^^
+
+warning: method `appended` is never used
+   --> crates/core/src/inventory.rs:423:19
+    |
+350 | impl ActiveRecords {
+    | ------------------ method in this implementation
+...
+423 |     pub(crate) fn appended(&self, count: u32) -> Result<Self, String> {
+    |                   ^^^^^^^^
+
+warning: method `reconcile_pass` is never used
+    --> crates/core/src/lifecycle.rs:1910:19
+     |
+ 911 | impl Index {
+     | ---------- method in this implementation
+...
+1910 |     pub(crate) fn reconcile_pass(&self, cancelled: impl Fn() -> bool) -> ReconciliationReport {
+     |                   ^^^^^^^^^^^^^^
+
+warning: methods `is_active` and `active_slots` are never used
+    --> crates/core/src/lifecycle.rs:2373:19
+     |
+2237 | impl IndexView {
+     | -------------- methods in this implementation
+...
+2373 |     pub(crate) fn is_active(&self, collection: CollectionId, slot: RecordSlot) -> bool {
+     |                   ^^^^^^^^^
+...
+2380 |     pub(crate) fn active_slots(&self, collection: CollectionId) -> Option<roaring::RoaringBitmap> {
+     |                   ^^^^^^^^^^^^
+
+warning: method `scan_stamps` is never used
+   --> crates/core/src/lifecycle_catalog.rs:237:19
+    |
+ 53 | impl FileCatalog {
+    | ---------------- method in this implementation
+...
+237 |     pub(crate) fn scan_stamps(&self) -> BTreeMap<PathBuf, FileStamp> {
+    |                   ^^^^^^^^^^^
+
+warning: function `search_segmented_with_context` is never used
+    --> crates/core/src/run.rs:2392:15
+     |
+2392 | pub(crate) fn search_segmented_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `search_active_available` is never used
+    --> crates/core/src/run.rs:2462:15
+     |
+2462 | pub(crate) fn search_active_available(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `search_active_available_with_context` is never used
+    --> crates/core/src/run.rs:2489:15
+     |
+2489 | pub(crate) fn search_active_available_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `search_stream_segmented_with_context` is never used
+    --> crates/core/src/run.rs:4292:15
+     |
+4292 | pub(crate) fn search_stream_segmented_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated function `open` is never used
+   --> crates/core/src/source.rs:934:12
+    |
+933 | impl BoundedJsonLines<BufReader<std::fs::File>> {
+    | ----------------------------------------------- associated function in this implementation
+934 |     pub fn open(path: &Path) -> Result<Self, String> {
+    |            ^^^^
+
+warning: `objekte-search-core` (lib) generated 11 warnings
+    Finished `release` profile [optimized] target(s) in 0.07s
+     Running `target/release/examples/bench_lifecycle_mutations stress target/lifecycle-repair-storage-bench/musenalm-final-3`
+	Command being timed: "cargo run --release -p objekte-search-core --example bench_lifecycle_mutations -- stress target/lifecycle-repair-storage-bench/musenalm-final-3"
+	User time (seconds): 23.35
+	System time (seconds): 3.72
+	Percent of CPU this job got: 209%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:12.93
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2182468
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 3
+	Minor (reclaiming a frame) page faults: 664024
+	Voluntary context switches: 49442
+	Involuntary context switches: 4108
+	Swaps: 0
+	File system inputs: 30168
+	File system outputs: 458120
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

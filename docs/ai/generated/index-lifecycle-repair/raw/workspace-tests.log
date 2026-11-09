@@ -1,0 +1,1166 @@
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte-integration-index-lifecycle-repair/crates/core)
+warning: methods `record_count` and `file_count` are never used
+   --> crates/core/src/mutation_segment.rs:128:12
+    |
+102 | impl SegmentAdmission {
+    | --------------------- methods in this implementation
+...
+128 |     pub fn record_count(&self) -> usize {
+    |            ^^^^^^^^^^^^
+...
+132 |     pub fn file_count(&self) -> usize {
+    |            ^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: associated function `initial` is never used
+   --> crates/core/src/inventory.rs:268:19
+    |
+250 | impl FileVersions {
+    | ----------------- associated function in this implementation
+...
+268 |     pub(crate) fn initial(len: usize) -> Self {
+    |                   ^^^^^^^
+
+warning: method `appended` is never used
+   --> crates/core/src/inventory.rs:423:19
+    |
+350 | impl ActiveRecords {
+    | ------------------ method in this implementation
+...
+423 |     pub(crate) fn appended(&self, count: u32) -> Result<Self, String> {
+    |                   ^^^^^^^^
+
+warning: method `reconcile_pass` is never used
+    --> crates/core/src/lifecycle.rs:1910:19
+     |
+ 911 | impl Index {
+     | ---------- method in this implementation
+...
+1910 |     pub(crate) fn reconcile_pass(&self, cancelled: impl Fn() -> bool) -> ReconciliationReport {
+     |                   ^^^^^^^^^^^^^^
+
+warning: methods `is_active` and `active_slots` are never used
+    --> crates/core/src/lifecycle.rs:2373:19
+     |
+2237 | impl IndexView {
+     | -------------- methods in this implementation
+...
+2373 |     pub(crate) fn is_active(&self, collection: CollectionId, slot: RecordSlot) -> bool {
+     |                   ^^^^^^^^^
+...
+2380 |     pub(crate) fn active_slots(&self, collection: CollectionId) -> Option<roaring::RoaringBitmap> {
+     |                   ^^^^^^^^^^^^
+
+warning: method `scan_stamps` is never used
+   --> crates/core/src/lifecycle_catalog.rs:237:19
+    |
+ 53 | impl FileCatalog {
+    | ---------------- method in this implementation
+...
+237 |     pub(crate) fn scan_stamps(&self) -> BTreeMap<PathBuf, FileStamp> {
+    |                   ^^^^^^^^^^^
+
+warning: function `search_segmented_with_context` is never used
+    --> crates/core/src/run.rs:2392:15
+     |
+2392 | pub(crate) fn search_segmented_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `search_active_available` is never used
+    --> crates/core/src/run.rs:2462:15
+     |
+2462 | pub(crate) fn search_active_available(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `search_active_available_with_context` is never used
+    --> crates/core/src/run.rs:2489:15
+     |
+2489 | pub(crate) fn search_active_available_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `search_stream_segmented_with_context` is never used
+    --> crates/core/src/run.rs:4292:15
+     |
+4292 | pub(crate) fn search_stream_segmented_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated function `open` is never used
+   --> crates/core/src/source.rs:934:12
+    |
+933 | impl BoundedJsonLines<BufReader<std::fs::File>> {
+    | ----------------------------------------------- associated function in this implementation
+934 |     pub fn open(path: &Path) -> Result<Self, String> {
+    |            ^^^^
+
+   Compiling objekte-tui v0.1.0 (/home/simon/source/objekte-integration-index-lifecycle-repair/crates/tui)
+   Compiling objekte-cli v0.1.0 (/home/simon/source/objekte-integration-index-lifecycle-repair/crates/cli)
+   Compiling objekte-desktop v0.1.0 (/home/simon/source/objekte-integration-index-lifecycle-repair/crates/desktop)
+warning: field `index_mode` is never read
+  --> crates/desktop/src/ui/state.rs:95:9
+   |
+47 | pub struct UiState {
+   |            ------- field in this struct
+...
+95 |     pub index_mode: SnapshotMode,
+   |         ^^^^^^^^^^
+   |
+   = note: `UiState` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `objekte-search-core` (lib) generated 11 warnings
+warning: `objekte-desktop` (lib) generated 1 warning
+warning: function `search_active_available_with_context` is never used
+    --> crates/core/src/run.rs:2489:15
+     |
+2489 | pub(crate) fn search_active_available_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `objekte-desktop` (lib test) generated 1 warning (1 duplicate)
+warning: `objekte-search-core` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 16.85s
+     Running unittests src/lib.rs (target/debug/deps/objekte_cli-9ed80063b854afa2)
+
+running 77 tests
+test loader::tests::shared_cli_and_tui_loader_enables_bounded_verified_cache ... ok
+test query_input::tests::pasted_batch_uses_file_line_numbers_and_bom_rules ... ok
+test output::tests::json_string_escaping_has_no_terminal_control_bytes ... ok
+test tui::app::tests::cli_field_labels_include_source_id_and_both_comparison_operands ... ok
+test output::tests::event_sequence_is_monotonic ... ok
+test output::tests::diagnostic_timings_are_numeric_milliseconds_with_three_decimals ... ok
+test tui::app::tests::record_find_uses_the_same_non_turkic_full_fold_policy ... ok
+test query_input::tests::quoted_inputs_are_complete_json_string_literals ... ok
+test query_input::tests::direct_fts_does_not_decode_backslash_escapes ... ok
+test loader::tests::manual_schema_still_ignores_repository_metadata ... ok
+test arguments::tests::diagnostic_aliases_are_equivalent ... ok
+test output::tests::compaction_preserves_tokens_and_string_contents ... ok
+test query_input::tests::invalid_utf8_in_query_file_is_fatal_input_error ... ok
+test loader::tests::default_index_directory_retains_legacy_duplicate_exclusion ... ok
+test arguments::tests::optional_index_paths_require_equals_and_do_not_eat_query ... ok
+test tui::clipboard::tests::osc52_encodes_unicode_and_control_characters_as_data ... ok
+test loader::tests::repository_loader_matches_core_definitions_and_protects_schema_paths ... ok
+test arguments::tests::automatic_indexing_requires_no_value_but_not_a_query ... ok
+test arguments::tests::directly_constructed_open_options_keep_cli_conflicts ... ok
+test query_input::tests::file_lines_keep_physical_numbers_and_ignore_blank_lines ... ok
+test arguments::tests::repeated_paths_reject_overlap ... ok
+test tui::export::tests::raw_fallback_export_keeps_status_and_explicit_unavailable_state ... ok
+test tui::input::tests::edits_report_changes_and_moves_do_not ... ok
+test arguments::tests::index_directory_mismatch_is_an_argument_error ... ok
+test arguments::tests::bare_command_does_not_open_repository ... ok
+test arguments::tests::input_modes_and_repeated_positionals_are_rejected ... ok
+test tui::input::tests::shifted_and_altgr_characters_are_text ... ok
+test tui::input::tests::typing_inserts_at_the_cursor_and_counts_characters ... ok
+test tui::input::tests::word_commands_delete_and_move_by_words ... ok
+test arguments::tests::repeated_paths_resolve_under_one_root_and_select_multiple_collections ... ok
+test tui::settings::tests::a_broken_file_reports_its_path ... ok
+test arguments::tests::repository_mode_uses_its_root_and_rejects_single_folder_options ... ok
+test tui::input::tests::replace_puts_the_cursor_after_the_inserted_text ... ok
+test tui::settings::tests::old_settings_keep_the_existing_sensitive_literal_default ... ok
+test tui::settings::tests::history_moves_repeats_to_the_end_and_skips_empty_queries ... ok
+test tui::settings::tests::columns_toggle_per_collection ... ok
+test tui::view::syntax::tests::error_positions_count_characters ... ok
+test tui::view::syntax::tests::tokens_get_their_colours ... ok
+test tui::view::syntax::tests::unterminated_strings_and_escapes_stay_strings ... ok
+test tui::settings::tests::settings_round_trip_and_a_missing_file_gives_defaults ... ok
+test tui::view::tests::loading_screen_shows_index_progress_before_repository_is_ready ... ok
+test execution::tests::unavailable_source_is_a_partial_query_error_not_a_success ... ok
+test tui::app::tests::result_columns_prioritize_matches_filters_and_sort ... ok
+test loader::tests::explicit_path_cache_write_cannot_replace_a_schema_hardlink ... ok
+test tui::tests::old_search_mode_shortcuts_toggle_new_core_requests ... ok
+test tui::tests::tab_cycles_available_record_sections_and_shift_tab_reverses ... ok
+test tui::tests::keys_switch_inputs_open_detail_and_choose_collection ... ok
+test tui::app::tests::sort_choices_apply_only_to_the_selected_collection ... ok
+test loader::tests::configured_repository_uses_lifecycle_cache_for_load_and_write_flags ... ok
+test tui::tests::enter_navigates_outgoing_and_backlinks_with_history_and_dangling_states ... ok
+test tui::tests::action_palette_opens_existing_controls_and_columns_scroll ... ok
+test tui::tests::mouse_click_opens_references_and_backlinks_and_inspection_needs_no_source_file ... ok
+test tui::tests::cli_mode_keeps_shortcuts_and_restricts_collection_and_links ... ok
+test loader::tests::configured_cache_directory_keeps_unrelated_source_siblings ... ok
+test loader::tests::configured_open_uses_the_already_loaded_schema ... ok
+test tui::record::tests::cli_projection_uses_decoded_paths_and_verified_text ... ok
+test tui::app::tests::selected_and_complete_exports_write_json_without_overwriting ... ok
+test tui::tests::mouse_click_on_wrapped_value_selects_its_record_field ... ok
+test tui::app::tests::invalid_filter_reports_error_and_stale_result_is_ignored ... ok
+test tui::view::tests::detail_renders_structured_fields_and_relation_states ... ok
+test tui::record::tests::nested_json_columns_and_field_folding_keep_occurrence_labels ... ok
+test tui::view::tests::draws_query_results_and_detail_on_small_terminal ... ok
+test tui::view::tests::cli_result_table_has_only_fixed_columns_until_query_adds_fields ... ok
+test tui::app::tests::history_saved_queries_and_columns_persist_in_old_settings_format ... ok
+test tui::record::tests::logical_payload_is_structured_and_non_json_bytes_have_raw_view ... ok
+test tui::app::tests::cli_columns_follow_filter_and_sort_without_schema_defaults ... ok
+test tui::tests::record_find_copy_and_adjacent_result_shortcuts_work ... ok
+test tui::app::tests::search_modes_use_core_semantics_and_saved_queries_restore_them ... ok
+test tui::app::tests::pages_load_before_selection_reaches_the_end ... ok
+test tui::view::tests::long_record_values_wrap_and_keep_screen_lines_on_the_same_field ... ok
+test tui::tests::section_keys_jump_to_outgoing_and_backlinks ... ok
+test tui::view::tests::long_search_line_keeps_the_cursor_and_tail_visible ... ok
+test tui::view::tests::match_column_stays_after_ids_when_result_fields_scroll ... ok
+test tui::view::tests::match_summary_uses_the_field_value_it_labels ... ok
+test tui::view::tests::search_options_and_action_palette_are_visible ... ok
+test tui::app::tests::full_text_filter_and_collection_scope_use_new_core ... ok
+test tui::app::tests::cli_navigation_keeps_only_three_result_pages ... ok
+
+test result: ok. 77 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.20s
+
+     Running unittests src/main.rs (target/debug/deps/obj-a59009080ceb6d1f)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/obj_process.rs (target/debug/deps/obj_process-e009814fccb9f303)
+
+running 33 tests
+test musenalm_auto_index_restricts_year_across_the_whole_folder ... ignored, full 148,488-file Musenalm acceptance; run explicitly
+test help_and_version_do_not_open_the_collection ... ok
+test repeated_paths_reject_duplicate_collection_names ... ok
+test tui_requires_terminal_and_rejects_query_file_before_building ... ok
+test repository_mode_requires_valid_collection_metadata ... ok
+test single_folder_schema_ignores_relations_to_unavailable_collections ... ok
+test protocol_timings_and_file_timestamps_are_milliseconds_with_three_decimals ... ok
+test malformed_fallback_keeps_valid_utf8_or_binary_raw_bytes ... ok
+test malformed_query_line_is_terminal_but_later_lines_execute ... ok
+test search_without_index_flags_leaves_disk_cache_absent ... ok
+test relative_file_identity_distinguishes_duplicate_basenames ... ok
+test diagnostic_flag_keeps_stdout_structured_and_reports_stderr_json ... ok
+test bare_obj_errors_before_build_but_index_only_writes ... ok
+test computed_sort_orders_all_results_before_emitting_rows ... ok
+test diagnostic_snapshot_phases_are_emitted_only_for_an_explicit_save ... ok
+test both_alphabets_keep_unicode_full_text_matches ... ok
+test nearby_json_schema_is_indexed_as_ordinary_data ... ok
+test property_names_do_not_become_full_text ... ok
+test empty_query_file_is_an_input_error_unless_index_only_was_requested ... ok
+test custom_index_directory_is_excluded_and_can_be_restored ... ok
+test manual_and_automatic_postings_restore_together ... ok
+test control_c_cancels_after_one_query_without_a_success_terminal ... ok
+test schema_bytes_and_inference_mode_own_snapshot_compatibility ... ok
+test diagnostic_lists_inferred_btree_paths_after_build_and_restore ... ok
+test auto_index_flag_preserves_answers_and_reports_short_string_capability ... ok
+test root_queries_and_scalar_text_use_original_document_tokens ... ok
+test repeated_paths_open_only_selected_collections_without_repository_configuration ... ok
+test explicit_snapshot_flags_do_not_silently_rebuild_load_only ... ok
+test default_folder_admits_root_shapes_and_hidden_json ... ok
+test explicit_schema_and_auto_index_have_independent_cli_modes ... ok
+test repository_mode_loads_collections_and_keeps_available_relations ... ok
+test all_results_are_not_cut_at_fifty_and_finite_count_is_exact ... ok
+test downstream_broken_pipe_stops_cleanly ... ok
+
+test result: ok. 32 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.22s
+
+     Running unittests src/lib.rs (target/debug/deps/objekte_desktop-7d2c401776b52e35)
+
+running 117 tests
+test backend::ndjson::tests::invalid_combination_emits_input_error_and_output_never_overwrites ... ok
+test backend::query::tests::measure_desktop_lifecycle_query_cache ... ignored, manual desktop backend cache timing and work-counter measurement
+test backend::open::tests::repeated_paths_keep_cli_collection_names ... ok
+test backend::export::tests::json_export_can_retain_the_selected_publication ... ok
+test backend::export::tests::zero_limit_exports_empty_valid_document ... ok
+test backend::index_lifecycle::tests::commands_act_on_the_open_sessions_live_index ... ok
+test controller::adapt::tests::disabled_filter_keeps_editor_text_out_of_execution ... ok
+test controller::adapt::tests::empty_path_never_defaults_to_process_working_directory ... ok
+test controller::adapt::tests::opening_modes_preserve_cli_validation ... ok
+test controller::adapt::tests::quoted_cli_literal_uses_json_string_decoding ... ok
+test controller::adapt::tests::snapshot_is_explicit_and_desktop_query_has_no_range ... ok
+test backend::export::tests::export_rejects_source_and_overwrite_and_cancellation ... ok
+test backend::batch::tests::output_rejects_source_even_when_open_paths_are_empty ... ok
+test backend::query::tests::desktop_page_reuses_verified_order_and_keeps_pinned_revision ... ok
+test backend::batch::tests::finite_batch_uses_one_pinned_publication_after_addition ... ok
+test backend::ndjson::tests::pure_queries_keep_cli_direct_modes_and_requested_range ... ok
+test backend::ndjson::tests::combined_query_exports_full_sorted_range_with_cli_event_order ... ok
+test controller::lifecycle_navigation::tests::publication_identity_rejects_replacements_with_equal_numeric_revisions ... ok
+test controller::lifecycle_navigation::tests::result_and_tab_jobs_require_their_own_generations ... ok
+test backend::batch::tests::output_rejects_source_directory_and_existing_file ... ok
+test backend::export::tests::selected_and_all_exports_match_tui_json_shape ... ok
+test controller::open_detection::tests::malformed_configuration_does_not_fall_back_to_plain_folder ... ok
+test backend::open::tests::write_then_load_uses_explicit_snapshot_policy ... ok
+test controller::open_detection::tests::plain_folder_and_missing_path_are_distinct ... ok
+test controller::projection::tests::fields_hide_empty_values_and_inline_small_scalar_arrays ... ok
+test backend::export::tests::removed_record_cannot_be_exported_from_an_old_row_identity ... ok
+test backend::open::tests::opens_folder_without_implicit_snapshot_write ... ok
+test backend::index_lifecycle::tests::save_as_copy_does_not_select_an_automatic_destination ... ok
+test controller::projection::tests::nested_projection_distinguishes_null_missing_and_unavailable ... ok
+test controller::runtime::tests::bounded_batch_status_extraction_skips_large_hits ... ok
+test backend::index_lifecycle::tests::manual_shutdown_does_not_write_an_index ... ok
+test controller::runtime::tests::cancelled_replacement_open_invalidates_late_loader_without_losing_active_draft ... ok
+test backend::query::tests::inline_sort_and_cancelled_work_are_reported ... ok
+test backend::open::tests::desktop_combined_load_and_write_returns_before_source_reconciliation ... ok
+test controller::open_detection::tests::existing_configured_repository_is_recognized_without_opening_data ... ok
+test backend::export::tests::malformed_source_keeps_raw_fallback_payload_in_export ... ok
+test backend::batch::tests::missing_query_file_emits_cli_input_error_after_run_start ... ok
+test backend::export::tests::all_export_includes_rows_beyond_loaded_viewport ... ok
+test backend::query::tests::combines_full_text_filter_and_case_options ... ok
+test backend::export::tests::unavailable_source_does_not_leave_a_shortened_successful_export ... ok
+test backend::batch::tests::partial_source_batch_keeps_the_protocol_but_reports_failure ... ok
+test backend::query::tests::pinned_pages_and_counts_do_not_mix_after_a_publication ... ok
+test backend::index_lifecycle::tests::save_revision_and_load_replacement_are_explicit ... ok
+test controller::projection::tests::detail_marks_matching_fields_from_core_evidence ... ok
+test backend::record::tests::canonical_lookup_under_new_view_never_follows_a_retired_record_slot ... ok
+test ui::completion::tests::detects_partial_field_and_value_without_valid_whole_expression ... ok
+test backend::query::tests::source_unavailability_never_supplies_a_false_exact_total ... ok
+test controller::projection::tests::nested_columns_are_available_but_hidden_until_explicitly_shown ... ok
+test ui::completion::tests::quoted_nested_path_replaces_one_complete_token ... ok
+test controller::filter_validation::tests::inline_sort_and_quoted_literal_conflicts_are_checked ... ok
+test ui::completion::tests::insertion_keeps_surrounding_expression_and_unicode_offsets ... ok
+test ui::filter_builder::tests::string_type_without_entered_value_remains_incomplete ... ok
+test ui::filter_builder::tests::incomplete_builder_row_does_not_erase_current_filter ... ok
+test controller::projection::tests::match_preview_keeps_every_nested_field_without_an_excerpt ... ok
+test ui::filter_builder::tests::supported_manual_conditions_populate_without_rewriting_text ... ok
+test ui::filter_builder::tests::text_edits_and_undo_rebuild_builder_from_authoritative_text ... ok
+test ui::filter_builder::tests::unsupported_valid_expressions_never_show_partial_rows ... ok
+test ui::filter_builder::tests::typed_serialization_escapes_strings_and_keeps_numbers_unquoted ... ok
+test controller::projection::tests::leading_columns_follow_predicate_order_and_keep_metadata_distinct ... ok
+test ui::open_dialog::tests::adding_and_removing_rows_switches_to_multiple_folder_request ... ok
+test ui::open_dialog::tests::configured_repository_uses_settings_unless_manual_policy_is_selected ... ok
+test ui::open_dialog::tests::automatic_mode_waits_for_detection_and_preserves_invalid_configuration ... ok
+test ui::model::tests::detail_bounds_raw_source_and_nested_rows ... ok
+test ui::panels::index_controls_tests::interval_is_validated_only_when_applied ... ok
+test ui::open_dialog::tests::editing_folder_invalidates_pending_schema_picker ... ok
+test ui::open_dialog::tests::picker_and_detection_reject_late_results_after_edit_or_close ... ok
+test ui::open_dialog::tests::schema_picker_is_rejected_after_dialog_closes ... ok
+test ui::preferences::tests::generated_titles_are_display_only ... ok
+test ui::panels::index_controls_tests::unknown_total_is_indeterminate ... ok
+test ui::preferences::tests::column_widths_and_wrapping_persist_per_collection ... ok
+test ui::preferences::tests::bookmarks_use_definition_identity_and_keep_disabled_filter ... ok
+test ui::preferences::tests::lifecycle_preferences_are_off_by_default_and_scoped_to_source_and_destination ... ok
+test controller::projection::tests::match_preview_marks_actual_field_and_fts_span ... ok
+test controller::runtime::tests::declared_enum_completes_without_a_posting_dictionary ... ok
+test ui::model::tests::page_bounds_rows_columns_and_multibyte_cells_without_changing_total ... ok
+test backend::query::tests::viewport_pages_respect_range_without_becoming_total_limit ... ok
+test controller::filter_validation::tests::incomplete_filter_reports_position_and_keeps_it_invalid ... ok
+test ui::preferences::tests::migration_preserves_legacy_names_order_columns_and_theme ... ok
+test ui::preferences::tests::nested_column_visibility_is_explicit_and_scoped ... ok
+test controller::filter_validation::tests::disabled_filter_is_ignored_without_changing_its_draft ... ok
+test ui::model::tests::page_budget_does_not_change_row_identity ... ok
+test ui::sort::tests::cycles_sort_and_preserves_quoted_words ... ok
+test controller::runtime::tests::invalid_filter_does_not_start_query_or_replace_visible_page ... ok
+test ui::state::tests::opening_a_repository_returns_to_the_results_workspace ... ok
+test ui::state::tests::index_progress_does_not_erase_query_validation_or_displayed_page ... ok
+test ui::state::tests::replacement_open_retains_old_workspace_until_success ... ok
+test ui::state::tests::overwrite_prompt_names_exact_path_and_clears_after_success ... ok
+test ui::state::tests::late_validation_cannot_replace_newer_invalid_state ... ok
+test ui::state::tests::projection_refresh_keeps_detail_and_cache_is_bounded ... ok
+test ui::state::tests::query_restore_does_not_activate_retained_filter ... ok
+test ui::state::tests::query_restore_keeps_exact_inputs ... ok
+test ui::state::tests::same_repository_index_replacement_keeps_tabs_and_drafts ... ok
+test ui::sort::tests::empty_and_multi_key_sort_have_one_source ... ok
+test ui::state::tests::columns_update_preserves_hidden_choices ... ok
+test ui::state::tests::exhausted_incomplete_page_never_infers_an_exact_total ... ok
+test ui::state::tests::continuation_appends_once_and_exhaustion_establishes_total ... ok
+test ui::state::tests::successful_query_start_clears_previous_input_errors ... ok
+test controller::projection::tests::inspector_uses_captured_query_for_filter_and_fts_emphasis ... ok
+test controller::runtime::tests::manual_close_has_no_implicit_index_save ... ok
+test controller::runtime::tests::main_query_change_preserves_tab_context_and_close_cancels_its_work ... ok
+test controller::runtime::tests::row_open_reuses_active_tab_and_explicit_new_tab_adds_one ... ok
+test controller::runtime::tests::invalid_current_request_cannot_export_previous_results ... ok
+test controller::filter_validation::tests::field_choices_are_bounded_to_schema_and_loaded_columns ... ok
+test controller::runtime::tests::superseded_automatic_save_enable_cannot_run_after_disable ... ok
+test controller::runtime::tests::disabled_check_policy_retires_old_scheduler_on_replacement ... ok
+test backend::batch::tests::direct_structured_and_full_text_match_cli_protocol ... ok
+test backend::batch::tests::retained_batch_matches_cli_protocol_and_continues_after_query_error ... ok
+test backend::open::tests::configured_repository_reuses_cache_unless_build_in_memory_is_selected ... ok
+test backend::index_lifecycle::tests::automatic_save_requires_configured_repository_and_selected_destination ... ok
+test controller::runtime::tests::loaded_index_receives_check_policy_before_old_scheduler_retires ... ok
+test controller::runtime::tests::unchanged_index_status_does_not_redraw_the_workspace ... ok
+test controller::runtime::tests::export_uses_current_valid_draft_before_debounce_runs ... ok
+test controller::runtime::tests::publication_changes_invalidate_results_once_but_noop_checks_do_not ... ok
+test controller::runtime::tests::pending_automatic_save_enable_cannot_write_after_manual_close ... ok
+test controller::runtime::tests::completion_uses_bounded_postings_and_keeps_typed_literals ... ok
+test controller::runtime::tests::rapid_replacements_and_toggle_keep_only_latest_scheduler ... ok
+test backend::query::tests::hundred_row_continuations_keep_equal_sort_keys_unique_at_boundaries ... ok
+
+test result: ok. 116 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.27s
+
+     Running unittests src/main.rs (target/debug/deps/objekte_desktop-57209ec30c04f89a)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/environment_validation.rs (target/debug/examples/environment_validation-59f211206b3ded94)
+
+running 1 test
+test tests::saves_unicode_fixture_through_controls ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
+     Running unittests src/lib.rs (target/debug/deps/objekte_search_core-41c849b7fa3b94bf)
+
+running 454 tests
+test bigram::tests::profile_single_worker_constructors ... ignored
+test bigram::tests::chunked_builder_checks_slot_arithmetic_before_publication ... ok
+test bigram::tests::block_admission_rejects_coverage_alphabet_and_slot_overflow ... ok
+test bigram::tests::full_non_turkic_fold_precedes_all_gram_windows ... ok
+test bigram::tests::ascii_and_unicode_candidates_are_conservative ... ok
+test build::mutation_segment::tests::measure_single_file_segment_cost ... ignored, manual small-file prepare/admit/finalize timing
+test bigram::tests::unsupported_ascii_bytes_keep_their_window_positions ... ok
+test bigram::tests::explicit_reference_fold_matches_stay_inside_candidate_supersets ... ok
+test build::tests::measure_single_file_preparation_cost ... ignored, manual small-file preparation timing
+test bigram::tests::conservative_ascii_candidates_keep_segments_and_records_separate ... ok
+test byte_size_literal::tests::invalid_sizes_do_not_round_or_wrap ... ok
+test build::tests::single_file_preparation_rejects_stale_source_and_hashes_generic_bytes ... ok
+test build::tests::supplied_bytes_match_registered_shifted_ranges_and_reject_wrong_size ... ok
+test clock_context::tests::unrelated_calendar_overflow_does_not_reject_instant_or_components ... ok
+test build::mutation_segment::tests::historical_file_versions_compact_to_current_zero_record_or_delete ... ok
+test build::tests::build_worker_policy_uses_detected_capacity_and_rejects_oversubscription ... ok
+test build::tests::single_file_preparation_handles_jsonl_cardinality_and_shared_membership ... ok
+test clock_context::tests::frozen_clock_resolves_utc_components_and_periods ... ok
+test build::mutation_segment::tests::consolidation_matches_direct_admission_without_source_files ... ok
+test build::tests::worker_allowance_is_bounded_and_keeps_one_oversized_job_live ... ok
+test byte_size_literal::tests::si_iec_and_fractional_sizes_are_exact ... ok
+test decimal::tests::decimal_comparison_stays_compact_across_large_exponents ... ok
+test decimal::tests::decimal_public_parse_and_deserialization_require_canonical_values ... ok
+test diagnostics::tests::durations_have_millisecond_units_and_three_decimals ... ok
+test execution_options::tests::workload_reexports_are_the_runtime_option_types ... ok
+test build::mutation_segment::tests::same_physical_file_can_enter_two_collection_segments ... ok
+test build::tests::file_batches_bound_count_and_source_bytes_without_losing_empty_files ... ok
+test build::mutation_segment::tests::admits_multiple_files_and_chunks_with_sparse_file_ids ... ok
+test build::mutation_segment::tests::compaction_remaps_retained_fallback_diagnostics ... ok
+test build::mutation_segment::tests::compaction_matches_active_file_oracle_across_indexes ... ok
+test build::tests::bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes ... ok
+test build::tests::file_workers_overlap_while_admission_keeps_file_order ... ok
+test decimal::tests::binary_float_comparison_uses_its_exact_value ... ok
+test discovery::tests::streaming_discovery_preserves_selection_and_symlink_alias_policy ... ok
+test discovery::tests::direct_selection_matches_full_discovery_without_enumerating_siblings ... ok
+test build::tests::supplied_bytes_match_json_and_broken_fallback_without_file ... ok
+test build::tests::supplied_bytes_match_shared_jsonl_and_never_touch_source_path ... ok
+test build::tests::single_file_preparation_preserves_broken_fallback_and_bounded_chunks ... ok
+test build::tests::fresh_build_reads_capture_whole_file_digest_without_another_read ... ok
+test fts_preview::tests::spans_cover_unicode_casefold_expansions ... ok
+test inference::build::allocation_tests::distinct_bytes_track_unique_strings_through_observation_and_merge ... ok
+test inference::build::allocation_tests::declared_and_prohibited_paths_keep_observations_without_posting_maps ... ok
+test fts_preview::tests::regex_uses_query_compiler_and_returns_exact_span ... ok
+test inference::build::allocation_tests::manual_and_opt_out_short_summaries_stop_at_existing_distinct_bounds ... ok
+test build::mutation_segment::tests::seventy_small_shards_consolidate_after_sources_are_removed ... ok
+test inference::build::allocation_tests::multibyte_distinct_boundary_and_partitioned_merge_agree ... ok
+test inference::build::allocation_tests::manual_short_summary_byte_limit_counts_unique_values_across_merge ... ok
+test inference::build::allocation_tests::repeated_string_at_distinct_byte_limit_keeps_summary ... ok
+test inference::build::allocation_tests::repeated_and_unusual_paths_reuse_names_and_traversal_storage ... ok
+test inference::build::allocation_tests::long_and_already_dropped_values_never_build_owned_keys ... ok
+test build::tests::repository_pool_runs_file_batches_from_distinct_collections_together ... ok
+test inference::tests::budget_exhaustion_never_publishes_partial_postings ... ok
+test executor::dynamic_filter_tests::broad_structural_superset_makes_scanning_cheaper ... ok
+test folder_tests::recursive_schema_free_folder_uses_relative_path_identity_and_no_typed_fields ... ok
+test inference::tests::complete_short_strings_and_booleans_prove_predicates_without_source_reads ... ok
+test inference::tests::documented_inference_defaults_match_the_exported_policy ... ok
+test bigram::tests::repository_bulk_path_matches_raw_custom_and_fallback_gram_maps ... ok
+test inference::tests::empty_ancestor_reconciles_late_descendant_and_null_statistics ... ok
+test inference::tests::high_cardinality_and_long_text_drop_only_their_own_candidates ... ok
+test executor::tests::record_id_lookup_respects_case_fold_binding ... ok
+test inference::tests::complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings ... ok
+test executor::tests::segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not ... ok
+test inference::tests::mixed_shapes_and_explicit_optouts_decline_inferred_postings ... ok
+test inference::tests::high_cardinality_short_identifiers_do_not_use_enum_threshold ... ok
+test executor::tests::indexed_restriction_precedes_written_first_scan ... ok
+test inference::tests::inferred_multivalue_candidates_preserve_universal_empty_selection ... ok
+test inference::tests::nested_array_depth_counts_arrays_below_the_terminal_path ... ok
+test bigram::tests::chunked_builder_matches_independent_complete_posting_maps ... ok
+test build::tests::shared_file_batches_reconcile_diagnostic_caps_and_healthy_siblings ... ok
+test folder_tests::jsonl_folder_uses_distinct_generated_record_ids ... ok
+test id_tests::id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separate ... ok
+test inference::tests::numeric_range_keeps_residual_for_empty_ancestor_selections ... ok
+test inference::tests::inference_batch_admission_does_not_depend_on_worker_count ... ok
+test id_tests::typed_ids_remain_distinct_from_strings_through_postings_text_and_restore ... ok
+test build::tests::duplicate_intrinsic_ids_across_batches_fail_before_publication ... ok
+test inventory::tests::construction_membership_preserves_order_empty_files_and_record_ownership ... ok
+test inventory::tests::file_record_mapping_in_both_directions ... ok
+test inference::tests::short_strings_keep_ordered_membership_and_explicit_residual_coverage ... ok
+test bigram::tests::shifted_blocks_match_incremental_bitmaps_at_chunk_and_container_boundaries ... ok
+test inference::tests::terminal_array_null_observation_is_not_exact_null ... ok
+test inventory::tests::flat_mapping_matches_grouped_reference_for_interleaved_files ... ok
+test inventory::tests::shifted_batch_bitmaps_cross_container_boundaries_and_reject_overlap ... ok
+test inventory::tests::published_file_versions_change_only_the_selected_chunk ... ok
+test inventory::tests::restored_active_records_keep_sparse_domains_and_append_boundary ... ok
+test inventory::tests::restored_file_versions_keep_tokens_across_chunks ... ok
+test inventory::tests::status_codes_and_diagnostic_bounds_are_stable ... ok
+test json_scalar_text::tests::all_text_keeps_duplicate_members_but_selected_text_uses_last_wins ... ok
+test json_scalar_text::tests::decoded_scalar_text_uses_values_not_names_or_container_syntax ... ok
+test json_scalar_text::tests::fresh_build_rejects_malformed_json_without_a_validated_first_pass ... ok
+test inference::tests::inferred_scalar_order_matches_reference_without_sort_source_reads ... ok
+test json_scalar_text::tests::fresh_build_decodes_value_and_scalar_text_in_one_walk ... ok
+test inference::tests::conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds ... ok
+test inference::tests::default_batch_budget_keeps_multi_field_short_string_index_complete ... ok
+test inventory::tests::published_active_records_keep_old_view_and_cross_chunk_boundaries ... ok
+test executor::tests::named_builtin_folded_filter_keeps_its_compatible_bigram_path ... ok
+test executor::tests::rare_text_restriction_can_precede_a_broad_posting ... ok
+test inference::tests::derived_existence_and_null_use_exact_inferred_postings ... ok
+test inference::tests::partial_short_string_posting_does_not_claim_complete_sort_order ... ok
+test executor::tests::transformed_raw_index_cannot_prune_identity_field_predicates ... ok
+test lifecycle::tests::background_reconciliation_reports_completion_and_joins ... ok
+test foundation_invariants::boolean_truth_evidence_sort_and_restore_use_independent_answers ... ok
+test executor::dynamic_filter_tests::undeclared_candidate_respects_reader_text_coverage ... ok
+test lifecycle::tests::periodic_tick_detects_change_after_initial_index_build ... ok
+test lifecycle::tests::quiescence_rejects_prepared_publications_until_close_is_cancelled ... ok
+test lifecycle::tests::deleting_shared_multi_record_file_retires_every_collection_atomically ... ok
+test inference::tests::registered_reader_observations_do_not_depend_on_raw_text_coverage ... ok
+test lifecycle::tests::concurrent_publication_is_either_saved_or_rejected_by_quiescence ... ok
+test inference::tests::multiple_collections_share_the_coordinator_budget_deterministically ... ok
+test lifecycle_cache_guard::tests::missing_parent_resolution_follows_existing_symlink_ancestor ... ok
+test lifecycle::tests::many_small_additions_and_replacements_stay_within_segment_budget ... ok
+test inference::tests::selective_short_string_queries_keep_long_and_mixed_remainders ... ok
+test inference::tests::bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches ... ok
+test lifecycle::tests::quiescence_rejects_query_requested_reconciliation ... ok
+test lifecycle_cache_guard::tests::exact_cache_exclusion_preserves_other_files_in_its_directory ... ok
+test lifecycle::tests::relation_queries_keep_retired_targets_unknown_and_skip_retired_sources ... ok
+test lifecycle_cache_guard::tests::active_source_and_protected_configuration_targets_are_refused ... ok
+test lifecycle_catalog::tests::changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory ... ok
+test lifecycle_compaction::tests::large_source_free_compaction_cancels_and_retries_a_concurrent_commit ... ignored, manual scale and peak-memory validation
+test lifecycle::tests::quiescence_discards_queued_automatic_cache_write ... ok
+test lifecycle::tests::one_file_preparation_selects_shared_collections_without_publishing ... ok
+test lifecycle::tests::replacement_stages_shared_memberships_and_retires_old_slots ... ok
+test inference::tests::mixed_short_strings_match_reference_after_snapshot_restore ... ok
+test lifecycle::tests::stopping_periodic_schedule_does_not_cancel_current_reconciliation ... ok
+test lifecycle_cache_guard::tests::source_directory_alias_is_refused_and_cache_symlink_name_is_excluded ... ok
+test lifecycle::tests::pinned_view_stays_stable_when_a_new_root_is_published ... ok
+test lifecycle_cache_guard::tests::retired_source_slot_is_not_guarded_as_active ... ok
+test lifecycle::tests::reconciliation_applies_metadata_changes_without_revising_unchanged_files ... ok
+test lifecycle_cache_guard::tests::symlink_and_hardlink_aliases_are_refused ... ok
+test lifecycle_mutation::tests::incompatible_one_record_class_uses_verified_physical_removal ... ok
+test lifecycle::tests::unavailable_direct_lookup_requests_reconciliation ... ok
+test lifecycle::tests::retired_slots_are_excluded_before_planning_count_sort_stream_and_lookup ... ok
+test bigram::tests::seeded_substrings_never_escape_declared_bigram_candidates ... ok
+test lifecycle::tests::publication_rejects_foreign_and_skipped_revisions_without_advancing_status ... ok
+test lifecycle_mutation::tests::move_rejects_destination_owned_by_another_file ... ok
+test lifecycle_mutation::tests::verified_many_to_zero_keeps_file_active_and_bad_delete_hint_tombstones ... ok
+test lifecycle_mutation::tests::public_mutations_add_update_move_and_preserve_version_conflicts ... ok
+test lifecycle_caller::tests::adapter_routes_search_to_latest_publication_while_retaining_metadata ... ok
+test lifecycle_compaction::tests::background_compaction_preserves_pinned_reader_and_reports_completion ... ok
+test lifecycle_mutation::tests::verified_removal_compacts_a_shared_shard_without_losing_siblings ... ok
+test executor::tests::registered_binding_has_identical_filter_fts_and_restore_semantics ... ok
+test lifecycle_mutation::tests::compatible_move_keeps_index_contributions_and_advances_file_version ... ok
+test lifecycle_mutation::tests::verified_update_removes_departed_collection_membership ... ok
+test lifecycle_mutation::tests::one_record_shared_file_preserves_every_collection_slot_atomically ... ok
+test lifecycle_mutation::tests::supplied_bytes_update_preserves_source_and_checks_deletion_conflict ... ok
+test lifecycle_mutation::tests::fresh_base_verified_update_compacts_staged_root_and_keeps_pinned_view ... ok
+test lifecycle_mutation::tests::verified_update_preserves_isolated_slot_and_bad_hint_falls_back ... ok
+test lifecycle_caller::tests::pinned_adapter_keeps_batch_queries_on_one_publication ... ok
+test lifecycle_scan::tests::bounded_scan_marks_unchanged_files_and_reports_only_a_changed_file ... ok
+test executor::dynamic_filter_tests::dynamic_grams_preserve_empty_universal_truth_and_exact_results ... ok
+test lifecycle::tests::background_rebuild_waits_and_cancelled_preparation_never_publishes ... ok
+test lifecycle_scan::tests::cache_exclusion_precedes_seen_tracking_and_scan_cancels_between_batches ... ok
+test lifecycle_mutation::tests::slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes ... ok
+test lifecycle_scan::tests::reconciles_300000_files_and_updates_a_shared_file ... ignored, uses the disposable 300,000-file fixture from the scanner scale test
+test lifecycle_scan::tests::scans_300000_files_with_two_overlapping_150000_file_collections ... ignored, creates 300,000 disposable files; run with OBJEKTE_SCAN_SCALE_ROOT under target/
+test lifecycle_scan::tests::failed_overlap_scope_preserves_existing_file_without_partial_replacement ... ok
+test lifecycle_scan::tests::overlapping_collections_emit_one_physical_observation_in_small_batches ... ok
+test lifecycle_scan::tests::nested_source_roots_preserve_all_memberships_without_duplicate_observation ... ok
+test lifecycle_mutation::tests::fresh_base_verified_delete_reclaims_base_without_reading_source ... ok
+test lifecycle_scan::tests::metadata_diff_preserves_failed_collection_and_detects_other_changes ... ok
+test model::tests::arrays_paths_and_id_namespace ... ok
+test model::tests::direct_float_variants_keep_total_numeric_laws ... ok
+test model::tests::exceptional_json_numbers_remain_numeric_and_ordered ... ok
+test model::tests::number_deserialization_rejects_non_finite_floats ... ok
+test model::tests::parsed_json_arrays_preserve_mixed_members_and_sticky_conflicts ... ok
+test model::tests::precise_numbers_and_temporal_distinctions ... ok
+test model::tests::schema_field_paths_reject_trailing_separators_and_render_query_syntax_safely ... ok
+test model::tests::unhinted_arrays_keep_actual_or_unresolved_element_types ... ok
+test parameters::tests::typed_json_transport_keeps_scalar_types_distinct ... ok
+test path_repr::tests::invalid_bytes_and_literal_percent_remain_distinct ... ok
+test build::tests::large_jsonl_many_chunks_keep_order_and_bounded_source_reservations ... ok
+test lifecycle_compaction::tests::compacted_base_contributions_round_trip_through_cache ... ok
+test measurement::source_diagnostics_remain_bounded_after_many_failures ... ok
+test posting::tests::ordered_posting_answers_bounds_and_array_lengths_exactly ... ok
+test posting::tests::presence_null_array_dedup_and_cardinality ... ok
+test lifecycle_open::tests::automatic_cache_writer_coalesces_mutations_and_saves_latest_revision ... ok
+test lifecycle_compaction::tests::compact_reclaims_base_and_segment_tombstones_without_source_files ... ok
+test lifecycle_segment_codec::tests::roundtrip_mixed_records_relations_and_inference_without_source_file ... ok
+test lifecycle_open::tests::explicit_schema_path_is_protected_from_cache_flush ... ok
+test lifecycle_compaction::tests::segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit ... ok
+test posting::tests::temporal_period_estimates_probe_bounded_keys_and_ranges_keep_exact_membership ... ok
+test lifecycle::tests::rebuild_retries_after_concurrent_file_commit_without_losing_it ... ok
+test prepared::tests::bounded_lru_evicts_without_exceeding_budget ... ok
+test build::tests::bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps ... ok
+test lifecycle_repository::tests::repository_cache_writer_can_be_enabled_after_opening ... ok
+test lifecycle_repository::tests::explicit_convenience_open_policy_can_require_or_ignore_cache ... ok
+test lifecycle_partition::tests::partitions_static_base_without_changing_search_or_file_routing ... ok
+test lifecycle_open::tests::explicit_build_ignores_implicit_cache_even_when_legacy_mode_requires_it ... ok
+test lifecycle_repository::tests::corrupt_convenience_cache_needs_explicit_rebuild_policy ... ok
+test lifecycle_partition::tests::compacts_one_large_file_in_source_free_parts ... ok
+test lifecycle_segment_codec::tests::file_entry_path_codec_preserves_non_utf8_bytes ... ok
+test prepared::tests::compiled_regex_charge_cannot_hide_inside_small_cache_budget ... ok
+test prepared::tests::repeated_insert_keeps_one_entry_and_one_charge ... ok
+test lifecycle_segment_codec::tests::rejects_corrupt_identity_posting_sort_and_relation_domains ... ok
+test prepared::tests::replacement_does_not_evict_a_different_recent_entry ... ok
+test prepared::tests::replacement_updates_charge_when_preparation_size_changes ... ok
+test prepared::tests::retained_charge_includes_fts_literals_and_prepared_grams ... ok
+test lifecycle_mutation::tests::restored_shared_partition_verified_update_preserves_its_record_slot ... ok
+test query::tests::inline_sort_rejects_bad_or_conflicting_clauses ... ok
+test prepared::tests::simultaneous_misses_do_not_double_charge_one_key ... ok
+test query::tests::complete_regex_pattern_parameter_binds_once_without_interpolation ... ok
+test query::tests::inline_sort_uses_only_top_level_keywords ... ok
+test lifecycle_segment_codec::tests::rejects_truncated_and_empty_segment_payloads ... ok
+test executor::tests::malformed_raw_text_uses_original_literal_beside_transformed_valid_text ... ok
+test query::tests::precedence_quantifiers_and_separate_fts ... ok
+test query::tests::every_fixed_filter_parses ... ok
+test lifecycle_mutation::tests::final_mutated_view_matches_independent_fresh_build ... ok
+test query::tests::typed_operand_shapes_preserve_source_spans ... ok
+test query::tests::workload_fts_binding_colon_stays_outside_quoted_path_properties ... ok
+test query_path::tests::backlink_root_is_reserved_and_keeps_explicit_positions ... ok
+test query::tests::sort_grammar_preserves_typed_reductions_positions_and_bindings ... ok
+test query::tests::sort_span_ignores_literals_and_nested_text ... ok
+test query_path::tests::binding_split_skips_quoted_colons_and_array_selectors ... ok
+test query::tests::seeded_bounded_filter_inputs_never_panic ... ok
+test query_path::tests::explicit_array_steps_are_distinct_from_quoted_object_keys ... ok
+test query_path::tests::explicit_root_paths_keep_zero_or_more_steps ... ok
+test executor::tests::prepared_separator_matcher_uses_index_and_borrowed_scan_paths ... ok
+test query_path::tests::malformed_or_overflowing_selectors_fail_cleanly ... ok
+test query_path::tests::query_steps_and_schema_addresses_round_trip_through_their_own_rendering ... ok
+test build::tests::one_large_framed_file_uses_parallel_ranges_with_identical_indexes ... ok
+test record_preparation::tests::build_rejects_non_finite_numbers_before_indexing_nested_values ... ok
+test record_preparation::tests::registered_reader_expansion_and_failures_keep_typed_classes ... ok
+test posting_values::tests::numeric_and_temporal_keys_keep_their_types_and_order ... ok
+test reference::tests::evidence_excludes_false_boolean_branches ... ok
+test reference::tests::declared_types_required_fields_and_array_nullability_are_enforced ... ok
+test reference::tests::explicit_temporal_hints_coerce_values_and_reject_bad_inputs ... ok
+test reference::tests::fts_membership_stops_after_first_match_but_evidence_checks_every_segment ... ok
+test reference::tests::bound_contains_reuses_prepared_pattern_across_scalar_and_array_values ... ok
+test reference::tests::incremental_conversion_tree_matches_complete_rebuild_in_any_registration_order ... ok
+test reference::tests::fts_exact_modes_preserve_original_and_folded_literals ... ok
+test posting::tests::nested_array_lengths_follow_quantifiers_with_and_without_postings ... ok
+test lifecycle_open::tests::lifecycle_cache_restores_segments_and_excludes_its_own_source_path ... ok
+test lifecycle_repository::tests::convenience_build_and_restore_use_one_resolved_cache_without_automatic_writes ... ok
+test lifecycle_partition::tests::partition_and_cache_restore_keep_global_inference_diagnostics ... ok
+test posting::tests::nullable_arrays_keep_quantifiers_when_postings_are_available ... ok
+test reference::tests::invalid_branches_rejected_before_evaluation ... ok
+test reference::tests::prepared_contains_preserves_plain_wildcard_and_escaped_percent_semantics ... ok
+test reference::tests::small_selection_preserves_scalar_and_array_path_states ... ok
+test posting::tests::narrow_ordered_ranges_visit_only_matching_dictionary_keys ... ok
+test reference::tests::membership_filter_and_unavailable_truth_match_evidence_evaluation ... ok
+test reference::tests::scalar_metadata_comparisons_preserve_null_and_timestamp_rules ... ok
+test reference::tests::truth_table_arrays_null_and_case_folding ... ok
+test regex_query::tests::custom_regex_binding_requires_explicit_representation_contract ... ok
+test reference::tests::optional_ancestor_of_required_temporal_child_stays_optional_during_query_conversion ... ok
+test reference::tests::missing_null_empty_truth_table ... ok
+test posting_values::tests::live_posting_pages_and_selections_exclude_retired_slots_and_bind_revision ... ok
+test relation::tests::profile_large_fanout_relation_publication ... ignored, manual large-fanout construction measurement
+test relation::tests::nested_array_occurrences_retain_every_scope_position ... ok
+test relation::tests::projecting_relation_contributions_preserves_references_and_unknown_rows ... ok
+test relation::tests::relation_paths_reject_scalar_ancestors_and_embedded_descendants ... ok
+test regex_query::tests::compilation_limits_and_flags ... ok
+test relation_inspection::tests::collection_graph_marks_a_single_collection_self_cycle ... ok
+test lifecycle_repository::tests::sync_cache_persists_initial_build_at_selected_destination ... ok
+test relation_query::tests::relation_work_limits_return_explicit_errors ... ok
+test posting_values::tests::bounded_prefix_ranges_and_continuations_visit_only_relevant_keys ... ok
+test query_validation::tests::validates_binding_without_reopening_source_records ... ok
+test relation::tests::publication_validation_still_rejects_broken_relation_state ... ok
+test relation_query::tests::unavailable_targets_survive_negation_and_source_records_are_counted_once ... ok
+test relation_inspection::tests::live_inspection_preserves_outgoing_occurrences_and_pages_only_active_backlinks ... ok
+test regex_query::tests::generated_regex_matches_remain_inside_conservative_gram_candidates ... ok
+test query::tests::quoted_colon_field_has_one_schema_filter_fts_and_sort_address ... ok
+test reference::tests::unhinted_paths_use_actual_types_and_collection_specific_bindings ... ok
+test relation::tests::relation_configuration_rejects_wrong_types_targets_and_alias_collisions ... ok
+test posting_values::tests::inferred_values_expose_partial_coverage_across_pages_and_selections ... ok
+test relation_inspection::tests::resident_inspection_paginates_and_restores_without_source_files ... ok
+test relation_query::tests::merged_relation_walker_matches_static_reference_semantics ... ok
+test relation_query::tests::finite_relation_paths_have_independent_reference_answers ... ok
+test relation_semijoin::tests::intermediate_limits_report_errors_instead_of_truncating_membership ... ok
+test relation_query::tests::selected_fts_rejects_disagreeing_public_field_and_query_path ... ok
+test posting_values::tests::named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage ... ok
+test relation::tests::reference_to_fallback_target_resolves_but_target_value_is_unavailable ... ok
+test prepared::tests::repeated_regex_preparation_reflects_the_chosen_cache_budget ... ok
+test relation_query::tests::relation_answers_and_evidence_survive_cache_and_snapshot_restore ... ok
+test relation_target_cache::tests::prefetch_limits_keep_stream_resource_classification ... ok
+test relation::tests::jsonl_siblings_and_shared_target_file_keep_relation_ownership ... ok
+test repository_configuration::tests::explicit_schema_reads_only_selected_file_and_reports_canonical_protection ... ok
+test repository_configuration::tests::repository_configuration_rejects_duplicate_collection_names ... ok
+test repository::tests::fresh_fingerprints_require_every_shared_binding_to_agree ... ok
+test repository_configuration::tests::repository_configuration_never_searches_parent_directories ... ok
+test repository::tests::exported_default_prepared_cache_budget_is_sixteen_mib ... ok
+test relation_semijoin::tests::estimate_only_explain_never_opens_or_parses_related_sources ... ok
+test repository_configuration::tests::repository_layout_loads_sorted_definitions_and_protected_schema_targets ... ok
+test relation_query::tests::related_sort_does_not_reuse_an_incomplete_filter_target_projection ... ok
+test run::tests::computed_sort_combines_payload_key_and_target_budgets ... ok
+test posting_values::tests::typed_posting_values_count_distinct_records_without_source_reads ... ok
+test relation_query::tests::membership_only_matches_complete_evidence_for_local_relation_and_fts_routes ... ok
+test inference::tests::default_batch_budget_keeps_dense_numeric_records_inferred ... ok
+test relation_query::tests::related_reducers_preserve_source_reference_occurrences ... ok
+test run::tests::concurrent_same_key_inferred_builds_publish_one_resident_order ... ok
+test run::tests::distinct_inferred_orders_build_without_holding_one_global_mutex ... ok
+test relation_semijoin::tests::relation_planning_limit_has_ordinary_and_stream_resource_class ... ok
+test relation_query::tests::related_all_results_stream_in_identity_order_under_small_budget ... ok
+test relation_query::tests::related_sort_stream_reports_target_budget_as_resource_error ... ok
+test relation_query::tests::merged_relations_resolve_replacement_targets_and_preserve_unknown ... ok
+test relation_semijoin::tests::second_target_in_batch_is_checked_before_source_read ... ok
+test relation_target_cache::tests::second_prefetched_target_in_batch_obeys_record_limit ... ok
+test run::tests::computed_sort_cancels_after_worker_has_parsed_source_records ... ok
+test run::tests::computed_sort_request_limit_rejects_before_source_batch_in_both_modes ... ok
+test repository::tests::direct_id_lookup_matches_search_metadata_payload_and_stale_semantics ... ok
+test run::tests::active_inspection_traces_use_live_domain_and_match_search ... ok
+test relation_target_cache::tests::high_fanout_stream_prefetch_reports_resource_limit_before_grouping ... ok
+test run::tests::exact_boolean_evidence_tracks_only_true_branches ... ok
+test run::tests::empty_and_invalid_utf8_json_have_exact_raw_ranges ... ok
+test relation_semijoin::tests::relation_edge_planning_and_target_verification_cancel_mid_work ... ok
+test run::tests::exact_posting_count_preserves_page_evidence_with_and_without_membership_cache ... ok
+test run::tests::extension_query_failure_has_ordinary_and_stream_class ... ok
+test relation_target_cache::tests::stream_prefetch_checks_remaining_allowance_before_later_file_read ... ok
+test repository::tests::exact_count_uses_index_proofs_and_resolves_parameters_and_frozen_time ... ok
+test run::tests::multi_record_scan_opens_file_once_and_parses_each_range_once ... ok
+test run::tests::exact_membership_materializes_only_page_payload ... ok
+test run::tests::physical_file_accounting_deduplicates_shared_collections_and_payload_reads ... ok
+test run::tests::selected_folded_and_metadata_fts_match_reference ... ok
+test run::tests::selective_stored_order_attempt_reuses_filter_membership_for_top_k ... ok
+test run::tests::merged_segment_search_counts_filters_fts_and_pages_in_one_order ... ok
+test run::tests::exact_collection_handles_relation_membership_without_ranking ... ok
+test schema_adapter::tests::composite_sort_is_not_flattened_into_an_unrelated_order ... ok
+test run::tests::inferred_order_construction_observes_mid_build_cancellation ... ok
+test relation::tests::declared_links_resolve_once_and_survive_snapshot_restore ... ok
+test run::tests::interleaved_stored_order_records_keep_bounded_file_handles ... ok
+test schema_adapter::tests::explicit_schema_load_uses_only_the_requested_file ... ok
+test schema_adapter::tests::local_references_nullable_arrays_and_root_values_are_explicit ... ok
+test schema_adapter::tests::plain_schema_distinguishes_manual_indexes_and_optouts ... ok
+test sort_binding::tests::explicit_positions_and_reductions_keep_occurrence_order ... ok
+test sort_binding::tests::min_max_transform_null_before_classifying_it ... ok
+test schema_adapter::tests::root_and_nested_arrays_register_item_properties ... ok
+test regex_query::tests::regex_fts_is_segment_scoped_mode_aware_and_cache_safe ... ok
+test sort_binding::tests::empty_ancestor_is_missing_but_nonempty_missing_child_is_absent ... ok
+test sorting::tests::inferred_order_cache_key_separates_generation_collation_and_direction ... ok
+test sorting::tests::inferred_order_cache_reuses_keys_and_evicts_least_recently_used ... ok
+test sorting::tests::mixed_scalar_sort_keys_obey_total_kind_order_and_comparator_laws ... ok
+test regex_query::tests::custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore ... ok
+test inference::tests::modes_preserve_answers_and_autoindex_reduces_source_parses ... ok
+test sort_binding::tests::untyped_sort_names_remain_literal_and_typed_expressions_select_bindings ... ok
+test sorting::tests::stable_icu_keys_and_fixed_null_placement ... ok
+test run::tests::inferred_order_limit_rejects_before_key_vector_in_both_modes ... ok
+test source::tests::bounded_jsonl_chunks_preserve_whole_file_ranges_and_line_origins ... ok
+test source::tests::bounded_jsonl_many_records_keep_offsets_and_chunk_limits ... ok
+test source::tests::bounded_jsonl_reports_read_errors_before_and_after_first_chunk ... ok
+test source::tests::changed_source_rejects_old_ranges_and_incomplete_extraction ... ok
+test source::tests::build_reads_use_actual_bytes_without_revision_probes ... ok
+test source::tests::build_json_borrows_logical_strings_after_temporal_conversion ... ok
+test relation_target_cache::tests::unpositioned_backlinks_visit_reverse_hits_while_positions_keep_identity_rank ... ok
+test reference::tests::numeric_string_is_rejected_before_indexed_or_scanned_inequality ... ok
+test run::tests::segment_direct_lookup_uses_local_slot_and_published_file ... ok
+test source::tests::discovery_symlink_policy_confines_sources_and_avoids_cycles ... ok
+test source::tests::decoded_scalar_build_uses_exact_json_whitespace ... ok
+test source::tests::file_coordinates_preserve_custom_reader_line_and_column_meaning ... ok
+test source::tests::fused_extraction_parses_once_and_reports_bad_record ... ok
+test sort_binding::tests::cross_collection_sort_rejects_different_binding_versions ... ok
+test source::tests::json_reader_reports_syntax_and_encoding_positions ... ok
+test source::tests::exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates ... ok
+test run::tests::quoted_data_name_does_not_shadow_metadata ... ok
+test source::tests::malformed_jsonl_coordinate_work_grows_with_file_size ... ok
+test run::tests::residual_proofs_skip_indexed_terms_and_preserve_or_evidence ... ok
+test source::tests::decoded_scalar_build_and_query_accept_the_same_json_documents ... ok
+test source::tests::nearby_multi_record_ranges_share_one_read_window ... ok
+test source::tests::positioned_reader_tracks_coalesced_windows_and_failed_reads ... ok
+test source::tests::declared_schema_keeps_scalar_root_as_diagnosed_fallback ... ok
+test source::tests::positioned_reader_seeks_only_when_the_next_range_is_not_adjacent ... ok
+test run::tests::typed_temporal_fields_survive_postings_payload_cache_and_restore ... ok
+test source::tests::query_projection_skips_unneeded_fields_and_preserves_selected_values ... ok
+test source::tests::schema_free_json_reader_admits_every_root_shape ... ok
+test source::tests::seeded_reader_ranges_obey_checked_nonoverlap_contract ... ok
+test source::tests::standalone_jsonl_ranges_preserve_bytes_and_boundaries ... ok
+test source::tests::syntactically_valid_deep_json_reports_resource_limit ... ok
+test run::tests::uncovered_posting_unindexed_or_negation_and_empty_conjunct_remain_exact ... ok
+test source::tests::typed_source_change_requires_a_confirmed_revision_mismatch ... ok
+test source::tests::registered_ranges_are_validated_before_slicing_and_outcomes_are_typed ... ok
+test source::tests::same_size_edit_with_restored_mtime_is_outside_revision_detection ... ok
+test source::tests::source_failure_classifier_keeps_missing_revision_and_range_distinct ... ok
+test sorting::tests::cross_collection_sort_rejects_different_collation ... ok
+test relation_target_cache::tests::source_dependent_comparisons_share_projected_targets_without_changing_truth ... ok
+test source::tests::valid_json_beyond_numeric_resource_limit_is_fatal_not_malformed_fallback ... ok
+test source_access::tests::bounded_stream_reads_skip_lookahead_and_cap_spaced_range_windows ... ok
+test source::tests::unavailable_source_read_is_classified_without_fabricating_records ... ok
+test source_access::tests::buffered_hits_reuse_bytes_but_a_new_read_checks_the_opened_revision ... ok
+test run::tests::malformed_jsonl_is_searchable_without_inventing_logical_values ... ok
+test source::tests::decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules ... ok
+test source_access::tests::renamed_source_keeps_opened_handle_but_new_open_checks_replacement ... ok
+test source_access::tests::range_windows_are_bounded_and_handles_evict_at_budget ... ok
+test source_access::tests::window_hits_and_misses_keep_the_reader_at_the_actual_read_end ... ok
+test run::tests::optional_temporal_parent_queries_keep_absent_null_and_present_records ... ok
+test source::tests::intrinsic_id_rejects_missing_invalid_and_generated_namespace ... ok
+test storage::tests::failed_explicit_save_preserves_previous_snapshot_and_removes_owned_temp ... ok
+test source::tests::registered_non_json_reader_reaches_build_query_payload_and_restore ... ok
+test source::tests::root_queries_match_reference_over_mixed_json_documents ... ok
+test storage::tests::one_pass_section_encoding_matches_the_existing_codec_bytes ... ok
+test sorting::tests::shared_file_status_refreshes_composite_orders_before_publication ... ok
+test sorting::tests::configured_collation_changes_order_and_restore_compatibility ... ok
+test source::tests::body_only_reader_does_not_prune_unindexed_title ... ok
+test storage::tests::checksummed_snapshot_with_invalid_diagnostic_reference_is_rejected ... ok
+test storage::tests::lifecycle_snapshot_restores_pinned_liveness_without_source_enumeration ... ok
+test storage::tests::lifecycle_snapshot_rejects_corrupt_sections_and_preserves_previous_cache ... ok
+test source::tests::registered_recoverable_error_survives_repository_query_and_restore ... ok
+test relation_semijoin::tests::both_physical_strategies_keep_independent_witnesses_and_reuse_targets ... ok
+test run::tests::fallback_negation_keeps_unavailable_truth_out_of_matched_fields ... ok
+test run::tests::stored_order_pages_stop_globally_and_count_remains_optional ... ok
+test streaming::tests::all_scope_computed_order_materializes_after_key_barrier ... ok
+test streaming::tests::all_scope_streams_more_than_fifty_rows_once_in_bounded_batches ... ok
+test storage::tests::ordinary_existing_cache_destination_does_not_scan_large_source_inventory ... ok
+test storage::tests::explicit_save_rejects_indexed_source_destination_and_path_aliases ... ok
+test storage::tests::source_alias_introduced_during_save_is_rejected_and_temp_is_removed ... ok
+test streaming::tests::changed_source_revision_has_ordinary_and_stream_class ... ok
+test streaming::tests::execution_context_shares_accounting_and_preserves_failure_kind ... ok
+test storage::tests::base_fingerprint_survives_legacy_snapshot_without_source_read ... ok
+test streaming::tests::ordered_rows_arrive_before_count_finishes_and_reconstruct_page ... ok
+test storage::tests::seeded_snapshot_mutations_and_truncations_are_rejected_without_panics ... ok
+test streaming::tests::insensitive_fts_with_offset_reconstructs_under_both_alphabets ... ok
+test streaming::tests::replacements_correct_late_better_sort_key_and_preserve_payloads ... ok
+test streaming::tests::invalid_stream_bounds_have_typed_invalid_query_class ... ok
+test storage::tests::lifecycle_snapshot_validates_active_domains_and_requires_segment_decoder ... ok
+test streaming::tests::exact_posting_payload_obeys_source_limit_across_delivery_paths ... ok
+test storage::tests::symlinked_index_source_paths_trigger_alias_scan ... ok
+test streaming::tests::scoped_page_zero_count_and_all_cancellation_are_distinct ... ok
+test streaming::tests::cancellation_on_final_page_delivery_prevents_cache_publication ... ok
+test streaming::tests::cancellation_and_sink_failure_do_not_publish_verified_membership ... ok
+test streaming::tests::invalid_sort_has_typed_invalid_query_class_in_ordinary_and_stream_search ... ok
+test structural::tests::empty_arrays_are_detected_at_any_depth_without_conflating_null_or_missing ... ok
+test temporal_query::tests::invalid_calendar_and_timestamp_forms_fail ... ok
+test temporal_query::tests::unix_seconds_round_up_fractional_and_negative_bounds ... ok
+test tests::root_fixture_is_available_without_archived_workspace_paths ... ok
+test verified::tests::bounded_entries_include_complete_empty_results ... ok
+test storage::tests::default_open_never_persists_and_stale_snapshot_is_left_untouched ... ok
+test temporal_query::tests::calendar_and_offset_periods_use_written_precision ... ok
+test streaming::tests::source_read_limit_has_ordinary_and_stream_resource_class ... ok
+test streaming::tests::all_scope_huge_batch_row_hint_keeps_byte_bounded_delivery ... ok
+test streaming::tests::computed_sort_stream_reranks_warm_membership_and_preserves_page ... ok
+test workload::tests::fixed_manifest_and_report_round_trip ... ok
+test verified::tests::structural_key_distinguishes_bound_values_sort_and_fts_mode ... ok
+test streaming::tests::unresolved_stream_parameter_has_typed_invalid_query_class ... ok
+test streaming::tests::cancellation_before_work_and_late_source_error_remain_distinct ... ok
+test streaming::tests::exact_posting_payload_reports_confirmed_source_change ... ok
+test streaming::tests::slow_sink_applies_backpressure_with_multiple_workers ... ok
+test streaming::tests::warm_membership_cache_streams_page_without_holding_cache_lock ... ok
+test workload::tests::extended_manifest_preserves_the_fixed_150_and_binds_parameters ... ok
+test streaming::tests::warm_cache_cancellation_stops_before_loading_next_page_record ... ok
+test sort_binding::tests::related_first_last_keep_occurrence_and_dangling_order_in_parallel ... ok
+test streaming::tests::zero_limit_and_event_budget_have_explicit_outcomes ... ok
+test storage::tests::round_trip_shared_multi_record_files_and_reject_corruption ... ok
+test streaming::tests::stored_order_cursor_merges_collection_ties_before_delivery ... ok
+test source::tests::discovery_and_intrinsic_ids_share_build_restore_rules ... ok
+test source::tests::temporal_registration_does_not_replace_reader_owned_text ... ok
+test run::tests::inferred_order_cache_reuses_pages_and_restores_without_persisting_orders ... ok
+test storage::tests::explicit_snapshot_policy_preserves_load_and_write_boundaries ... ok
+test storage::tests::eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains ... ok
+test storage::tests::startup_restores_unchanged_and_rebuilds_after_complete_file_changes ... ok
+test run::tests::parallel_file_scan_matches_single_worker_page_and_work ... ok
+test relation_semijoin::tests::seeded_array_semijoins_match_an_index_free_expected_enumeration ... ok
+test sort_binding::tests::related_sort_reuses_targets_across_worker_counts_and_source_layouts ... ok
+test run::tests::one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual ... ok
+test run::tests::one_fallback_does_not_disable_selective_logical_postings ... ok
+test run::tests::large_multi_record_scans_bound_payloads_and_reuse_file_handles ... ok
+test run::tests::computed_sort_pages_match_reference_across_workers_and_file_layouts ... ok
+test run::tests::computed_sort_large_record_uses_single_worker_reservation ... ok
+test build::tests::oversized_jsonl_preserves_malformed_siblings_and_fallback_grams ... ok
+
+test result: ok. 447 passed; 0 failed; 7 ignored; 0 measured; 0 filtered out; finished in 13.72s
+
+     Running tests/array_positions.rs (target/debug/deps/array_positions-c281ee45972e7e00)
+
+running 2 tests
+test field_comparisons_preserve_null_and_unavailable_fallback_truth ... ok
+test positional_paths_select_only_the_requested_array_occurrence ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/discovery_exclusions.rs (target/debug/deps/discovery_exclusions-1f6531b0f435c6ec)
+
+running 2 tests
+test exact_directory_exclusion_preserves_non_utf8_path_identity ... ok
+test excluded_directories_are_pruned_instead_of_only_filtering_files ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/g2_interactions.rs (target/debug/deps/g2_interactions-a58a1676ff4f5dce)
+
+running 1 test
+test regex_fts_id_parameter_and_inline_sort_share_exact_result_identity ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/inline_sort.rs (target/debug/deps/inline_sort-8bd9f1f2423f3adc)
+
+running 4 tests
+test inline_sort_matches_registered_options_and_reference ... ok
+test explicit_composite_order_streams_and_matches_reference ... ok
+test schema_free_sort_reductions_positions_and_late_error ... ok
+test computed_top_k_matches_an_independent_seeded_numeric_order ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/non_json_relations.rs (target/debug/deps/non_json_relations-79977c15ee4ad369)
+
+running 1 test
+test registered_non_json_reader_supports_typed_relation_temporal_and_regex_requests ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/optional_feature_interactions.rs (target/debug/deps/optional_feature_interactions-631d83a9829ca2c5)
+
+running 4 tests
+test unrelated_empty_array_does_not_fabricate_universal_hit_or_lose_fallback_or ... ok
+test library_diagnostics_list_ordered_postings_without_source_access ... ok
+test reopening_without_inference_does_not_restore_inferred_postings ... ok
+test inference_modes_preserve_parameterized_dynamic_sort_stream ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/parameters.rs (target/debug/deps/parameters-67fe57240f9350aa)
+
+running 2 tests
+test missing_conflicting_and_array_parameters_fail_during_preparation ... ok
+test typed_parameters_bind_without_interpolation_and_keep_cache_identity ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/regex_record_id.rs (target/debug/deps/regex_record_id-9695ed3d91b0709d)
+
+running 1 test
+test selected_regex_uses_record_id_text_without_changing_typed_id_equality ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/relation_occurrence_oracle.rs (target/debug/deps/relation_occurrence_oracle-fcf47e64cc6b2cbf)
+
+running 1 test
+test shared_source_occurrences_match_independent_oracle_across_routes_and_restore ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests/relation_oracle.rs (target/debug/deps/relation_oracle-ba531e950767251c)
+
+running 3 tests
+test explain_reports_bound_relation_and_temporal_semantics ... ok
+test false_and_branch_skips_expensive_relation_verification_in_reference_route ... ok
+test independent_json_relation_oracle_covers_quantifiers_negation_periods_and_restore ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+     Running tests/temporal_periods.rs (target/debug/deps/temporal_periods-2ff9fd9247b31a4c)
+
+running 1 test
+test typed_periods_preserve_half_open_scalar_and_array_answers ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/temporal_regex_integration.rs (target/debug/deps/temporal_regex_integration-7a46098fa230f49f)
+
+running 1 test
+test temporal_regex_size_id_and_sort_keep_answers_across_cache_and_restore ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running unittests examples/accept_musenalm.rs (target/debug/examples/accept_musenalm-b5e2016545faba12)
+
+running 7 tests
+test musenalm::tests::extended_schema_builds_real_forward_and_backlink ... ignored, builds the complete Musenalm corpus
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::extended_schema_accepts_explicit_alias_on_nullable_array_item ... ok
+test musenalm::tests::schema_manifest_digest_ignores_object_order_but_not_schema_changes ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+test musenalm::tests::extended_schema_declares_only_annotated_id_relations ... ok
+
+test result: ok. 6 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests examples/bench_build_musenalm.rs (target/debug/examples/bench_build_musenalm-fc38768f8e6c1e93)
+
+running 7 tests
+test musenalm::tests::extended_schema_builds_real_forward_and_backlink ... ignored, builds the complete Musenalm corpus
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::extended_schema_accepts_explicit_alias_on_nullable_array_item ... ok
+test musenalm::tests::schema_manifest_digest_ignores_object_order_but_not_schema_changes ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+test musenalm::tests::extended_schema_declares_only_annotated_id_relations ... ok
+
+test result: ok. 6 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests examples/bench_case_modes.rs (target/debug/examples/bench_case_modes-2939c91933f1a2ca)
+
+running 7 tests
+test musenalm::tests::extended_schema_builds_real_forward_and_backlink ... ignored, builds the complete Musenalm corpus
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::extended_schema_accepts_explicit_alias_on_nullable_array_item ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::schema_manifest_digest_ignores_object_order_but_not_schema_changes ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+test musenalm::tests::extended_schema_declares_only_annotated_id_relations ... ok
+
+test result: ok. 6 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests examples/bench_corrective_cases.rs (target/debug/examples/bench_corrective_cases-e2782f057bb4a8c4)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/bench_inference_fixture.rs (target/debug/examples/bench_inference_fixture-b561727aabe25a39)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/bench_inventory_membership.rs (target/debug/examples/bench_inventory_membership-d5e6163bd8dd3e2f)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/bench_lifecycle_musenalm.rs (target/debug/examples/bench_lifecycle_musenalm-c0c981e7a98d2e0e)
+
+running 7 tests
+test musenalm::tests::extended_schema_builds_real_forward_and_backlink ... ignored, builds the complete Musenalm corpus
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::extended_schema_accepts_explicit_alias_on_nullable_array_item ... ok
+test musenalm::tests::schema_manifest_digest_ignores_object_order_but_not_schema_changes ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+test musenalm::tests::extended_schema_declares_only_annotated_id_relations ... ok
+
+test result: ok. 6 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests examples/bench_lifecycle_mutations.rs (target/debug/examples/bench_lifecycle_mutations-acbd0f49fdc34e46)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/bench_mixed_planner.rs (target/debug/examples/bench_mixed_planner-8474daee49747b13)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/bench_musenalm.rs (target/debug/examples/bench_musenalm-2677b27f09e15393)
+
+running 7 tests
+test musenalm::tests::extended_schema_builds_real_forward_and_backlink ... ignored, builds the complete Musenalm corpus
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::extended_schema_accepts_explicit_alias_on_nullable_array_item ... ok
+test musenalm::tests::schema_manifest_digest_ignores_object_order_but_not_schema_changes ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+test musenalm::tests::extended_schema_declares_only_annotated_id_relations ... ok
+
+test result: ok. 6 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests examples/bench_optional_features.rs (target/debug/examples/bench_optional_features-ad0a5efa7a343c16)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/bench_query_features.rs (target/debug/examples/bench_query_features-ea7181a1cdc7ec75)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/bench_snapshot_save.rs (target/debug/examples/bench_snapshot_save-2881bbc34f2ab050)
+
+running 7 tests
+test musenalm::tests::extended_schema_builds_real_forward_and_backlink ... ignored, builds the complete Musenalm corpus
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::extended_schema_accepts_explicit_alias_on_nullable_array_item ... ok
+test musenalm::tests::schema_manifest_digest_ignores_object_order_but_not_schema_changes ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+test musenalm::tests::extended_schema_declares_only_annotated_id_relations ... ok
+
+test result: ok. 6 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests examples/dump_musenalm_ids.rs (target/debug/examples/dump_musenalm_ids-ed58e65ae97d4be2)
+
+running 7 tests
+test musenalm::tests::extended_schema_builds_real_forward_and_backlink ... ignored, builds the complete Musenalm corpus
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::extended_schema_accepts_explicit_alias_on_nullable_array_item ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::schema_manifest_digest_ignores_object_order_but_not_schema_changes ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+test musenalm::tests::extended_schema_declares_only_annotated_id_relations ... ok
+
+test result: ok. 6 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests examples/musenalm_cli.rs (target/debug/examples/musenalm_cli-9cd86a8a8331db15)
+
+running 7 tests
+test musenalm::tests::extended_schema_builds_real_forward_and_backlink ... ignored, builds the complete Musenalm corpus
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::extended_schema_accepts_explicit_alias_on_nullable_array_item ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::schema_manifest_digest_ignores_object_order_but_not_schema_changes ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+test musenalm::tests::extended_schema_declares_only_annotated_id_relations ... ok
+
+test result: ok. 6 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests examples/musenalm_without_schema.rs (target/debug/examples/musenalm_without_schema-6100de355b563e13)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/objekte_tui-00793efae090b76d)
+
+running 49 tests
+test tui::clipboard::tests::osc52_encodes_unicode_and_control_characters_as_data ... ok
+test tui::input::tests::typing_inserts_at_the_cursor_and_counts_characters ... ok
+test tui::input::tests::shifted_and_altgr_characters_are_text ... ok
+test tui::settings::tests::a_broken_file_reports_its_path ... ok
+test tui::input::tests::word_commands_delete_and_move_by_words ... ok
+test tui::input::tests::edits_report_changes_and_moves_do_not ... ok
+test tui::app::tests::record_find_uses_the_same_non_turkic_full_fold_policy ... ok
+test tui::input::tests::replace_puts_the_cursor_after_the_inserted_text ... ok
+test tui::settings::tests::history_moves_repeats_to_the_end_and_skips_empty_queries ... ok
+test tui::settings::tests::old_settings_keep_the_existing_sensitive_literal_default ... ok
+test tui::export::tests::raw_fallback_export_keeps_status_and_explicit_unavailable_state ... ok
+test tui::settings::tests::columns_toggle_per_collection ... ok
+test tui::app::tests::cli_field_labels_include_source_id_and_both_comparison_operands ... ok
+test tui::settings::tests::settings_round_trip_and_a_missing_file_gives_defaults ... ok
+test tui::view::syntax::tests::tokens_get_their_colours ... ok
+test tui::view::syntax::tests::unterminated_strings_and_escapes_stay_strings ... ok
+test tui::view::syntax::tests::error_positions_count_characters ... ok
+test tui::view::tests::loading_screen_shows_index_progress_before_repository_is_ready ... ok
+test tui::view::tests::match_summary_uses_the_field_value_it_labels ... ok
+test tui::tests::old_search_mode_shortcuts_toggle_new_core_requests ... ok
+test tui::tests::keys_switch_inputs_open_detail_and_choose_collection ... ok
+test tui::app::tests::result_columns_prioritize_matches_filters_and_sort ... ok
+test tui::tests::tab_cycles_available_record_sections_and_shift_tab_reverses ... ok
+test tui::view::tests::long_search_line_keeps_the_cursor_and_tail_visible ... ok
+test tui::tests::enter_navigates_outgoing_and_backlinks_with_history_and_dangling_states ... ok
+test tui::view::tests::search_options_and_action_palette_are_visible ... ok
+test tui::tests::mouse_click_opens_references_and_backlinks_and_inspection_needs_no_source_file ... ok
+test tui::tests::section_keys_jump_to_outgoing_and_backlinks ... ok
+test tui::app::tests::sort_choices_apply_only_to_the_selected_collection ... ok
+test tui::tests::action_palette_opens_existing_controls_and_columns_scroll ... ok
+test tui::tests::record_find_copy_and_adjacent_result_shortcuts_work ... ok
+test tui::tests::mouse_click_on_wrapped_value_selects_its_record_field ... ok
+test tui::tests::cli_mode_keeps_shortcuts_and_restricts_collection_and_links ... ok
+test tui::record::tests::logical_payload_is_structured_and_non_json_bytes_have_raw_view ... ok
+test tui::app::tests::history_saved_queries_and_columns_persist_in_old_settings_format ... ok
+test tui::view::tests::draws_query_results_and_detail_on_small_terminal ... ok
+test tui::app::tests::search_modes_use_core_semantics_and_saved_queries_restore_them ... ok
+test tui::app::tests::invalid_filter_reports_error_and_stale_result_is_ignored ... ok
+test tui::view::tests::match_column_stays_after_ids_when_result_fields_scroll ... ok
+test tui::view::tests::detail_renders_structured_fields_and_relation_states ... ok
+test tui::record::tests::cli_projection_uses_decoded_paths_and_verified_text ... ok
+test tui::app::tests::pages_load_before_selection_reaches_the_end ... ok
+test tui::view::tests::cli_result_table_has_only_fixed_columns_until_query_adds_fields ... ok
+test tui::record::tests::nested_json_columns_and_field_folding_keep_occurrence_labels ... ok
+test tui::app::tests::selected_and_complete_exports_write_json_without_overwriting ... ok
+test tui::view::tests::long_record_values_wrap_and_keep_screen_lines_on_the_same_field ... ok
+test tui::app::tests::full_text_filter_and_collection_scope_use_new_core ... ok
+test tui::app::tests::cli_columns_follow_filter_and_sort_without_schema_defaults ... ok
+test tui::app::tests::cli_navigation_keeps_only_three_result_pages ... ok
+
+test result: ok. 49 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+
+     Running unittests src/main.rs (target/debug/deps/objekte-84d9c83b94dd16ce)
+
+running 4 tests
+test schema::tests::relation_annotations_reject_invalid_types_and_accept_explicit_aliases ... ok
+test schema::tests::schema_files_remain_an_addon_to_in_memory_definitions ... ok
+test schema::tests::musenalm_schemas_load_without_core_specific_vocabulary ... ok
+test schema::tests::musenalm_relation_adapter_resolves_real_records_and_keeps_id_text_searchable ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/cli.rs (target/debug/deps/cli-825b17871c2aa0e5)
+
+running 1 test
+test diagnostics_are_pretty_json_on_stderr_for_success_and_error ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

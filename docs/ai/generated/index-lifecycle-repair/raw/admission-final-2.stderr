@@ -1,0 +1,82 @@
+warning: method `record_count` is never used
+   --> crates/core/src/mutation_segment.rs:128:12
+    |
+102 | impl SegmentAdmission {
+    | --------------------- method in this implementation
+...
+128 |     pub fn record_count(&self) -> usize {
+    |            ^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `appended` is never used
+   --> crates/core/src/inventory.rs:423:19
+    |
+350 | impl ActiveRecords {
+    | ------------------ method in this implementation
+...
+423 |     pub(crate) fn appended(&self, count: u32) -> Result<Self, String> {
+    |                   ^^^^^^^^
+
+warning: method `reconcile_pass` is never used
+    --> crates/core/src/lifecycle.rs:1917:19
+     |
+ 918 | impl Index {
+     | ---------- method in this implementation
+...
+1917 |     pub(crate) fn reconcile_pass(&self, cancelled: impl Fn() -> bool) -> ReconciliationReport {
+     |                   ^^^^^^^^^^^^^^
+
+warning: methods `is_active` and `active_slots` are never used
+    --> crates/core/src/lifecycle.rs:2380:19
+     |
+2244 | impl IndexView {
+     | -------------- methods in this implementation
+...
+2380 |     pub(crate) fn is_active(&self, collection: CollectionId, slot: RecordSlot) -> bool {
+     |                   ^^^^^^^^^
+...
+2387 |     pub(crate) fn active_slots(&self, collection: CollectionId) -> Option<roaring::RoaringBitmap> {
+     |                   ^^^^^^^^^^^^
+
+warning: method `scan_stamps` is never used
+   --> crates/core/src/lifecycle_catalog.rs:237:19
+    |
+ 53 | impl FileCatalog {
+    | ---------------- method in this implementation
+...
+237 |     pub(crate) fn scan_stamps(&self) -> BTreeMap<PathBuf, FileStamp> {
+    |                   ^^^^^^^^^^^
+
+warning: function `search_segmented_with_context` is never used
+    --> crates/core/src/run.rs:2392:15
+     |
+2392 | pub(crate) fn search_segmented_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `search_active_available` is never used
+    --> crates/core/src/run.rs:2462:15
+     |
+2462 | pub(crate) fn search_active_available(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `search_active_available_with_context` is never used
+    --> crates/core/src/run.rs:2489:15
+     |
+2489 | pub(crate) fn search_active_available_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `search_stream_segmented_with_context` is never used
+    --> crates/core/src/run.rs:4292:15
+     |
+4292 | pub(crate) fn search_stream_segmented_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated function `open` is never used
+   --> crates/core/src/source.rs:934:12
+    |
+933 | impl BoundedJsonLines<BufReader<std::fs::File>> {
+    | ----------------------------------------------- associated function in this implementation
+934 |     pub fn open(path: &Path) -> Result<Self, String> {
+    |            ^^^^
+

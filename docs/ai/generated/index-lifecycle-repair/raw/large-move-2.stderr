@@ -1,0 +1,8 @@
+warning: function `search_active_available_with_context` is never used
+    --> crates/core/src/run.rs:2489:15
+     |
+2489 | pub(crate) fn search_active_available_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+

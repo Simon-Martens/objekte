@@ -1,0 +1,54 @@
+static groups 388 lifecycle groups 388
+mismatches 0
+PROFILE ascii-off static case median 0.808863 lifecycle case median 1.7985615 median ratio 1.6048968299298 above 1.2x 125 above 2x 58
+SLOW Q174 16.540 412.417 +395.877 24.93x source_opens 25108 relation_target_opens 12554 scanned 12554 relation_edges 12554
+SLOW Q181 15.872 292.102 +276.231 18.40x source_opens 8838 relation_target_opens 3910 scanned 4928 relation_edges 3910
+SLOW Q173 19.847 146.312 +126.466 7.37x source_opens 0 relation_target_opens 4928 scanned 0 relation_edges 0
+SLOW Q160 68.371 171.729 +103.358 2.51x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q136 27.352 115.184 +87.832 4.21x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q135 6.372 89.659 +83.287 14.07x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q134 4.279 85.717 +81.438 20.03x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q179 4.821 83.942 +79.121 17.41x source_opens 8905 relation_target_opens 3977 scanned 4928 relation_edges 3977
+SLOW Q175 4.812 73.796 +68.984 15.34x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q116 96.327 164.621 +68.295 1.71x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q187 127.749 192.854 +65.105 1.51x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q117 96.831 161.569 +64.739 1.67x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q120 96.467 160.119 +63.652 1.66x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q006 210.845 270.162 +59.317 1.28x source_opens 148486 relation_target_opens 0 scanned 148486 relation_edges 0
+SLOW Q007 262.438 321.747 +59.309 1.23x source_opens 148486 relation_target_opens 0 scanned 148486 relation_edges 0
+SLOW Q118 80.140 128.524 +48.384 1.60x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q078 49.433 89.171 +39.738 1.80x source_opens 80994 relation_target_opens 0 scanned 80994 relation_edges 0
+SLOW Q166 12.732 47.920 +35.187 3.76x source_opens 0 relation_target_opens 2251 scanned 0 relation_edges 0
+SLOW Q167 5.437 40.416 +34.979 7.43x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q025 94.160 127.184 +33.024 1.35x source_opens 67748 relation_target_opens 0 scanned 67748 relation_edges 0
+SLOW Q026 99.118 128.365 +29.247 1.30x source_opens 80994 relation_target_opens 0 scanned 80994 relation_edges 0
+SLOW Q177 5.598 31.376 +25.778 5.60x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q145 67.515 92.634 +25.119 1.37x source_opens 44373 relation_target_opens 0 scanned 44373 relation_edges 0
+SLOW Q069 4.415 28.048 +23.633 6.35x source_opens 4010 relation_target_opens 0 scanned 4010 relation_edges 0
+SLOW Q168 2.121 23.893 +21.772 11.27x source_opens 2385 relation_target_opens 1183 scanned 1202 relation_edges 1183
+PROFILE unicode-off static case median 0.7629874999999999 lifecycle case median 1.454055 median ratio 1.5673613005740499 above 1.2x 126 above 2x 61
+SLOW Q174 17.291 413.185 +395.894 23.90x source_opens 25108 relation_target_opens 12554 scanned 12554 relation_edges 12554
+SLOW Q181 15.951 292.053 +276.102 18.31x source_opens 8838 relation_target_opens 3910 scanned 4928 relation_edges 3910
+SLOW Q173 20.028 148.107 +128.079 7.39x source_opens 0 relation_target_opens 4928 scanned 0 relation_edges 0
+SLOW Q160 74.222 171.715 +97.494 2.31x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q136 30.645 117.787 +87.142 3.84x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q135 7.443 92.305 +84.862 12.40x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q134 4.544 89.196 +84.652 19.63x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q179 4.624 84.881 +80.257 18.36x source_opens 8905 relation_target_opens 3977 scanned 4928 relation_edges 3977
+SLOW Q187 123.954 192.973 +69.019 1.56x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q175 5.026 73.860 +68.834 14.70x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q116 103.136 165.158 +62.023 1.60x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q117 99.596 160.983 +61.387 1.62x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q006 212.832 273.215 +60.383 1.28x source_opens 148486 relation_target_opens 0 scanned 148486 relation_edges 0
+SLOW Q120 100.664 159.952 +59.288 1.59x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q007 263.234 322.278 +59.045 1.22x source_opens 148486 relation_target_opens 0 scanned 148486 relation_edges 0
+SLOW Q118 84.524 133.394 +48.871 1.58x source_opens 133948 relation_target_opens 0 scanned 133948 relation_edges 0
+SLOW Q078 50.120 87.624 +37.504 1.75x source_opens 81159 relation_target_opens 0 scanned 81159 relation_edges 0
+SLOW Q166 13.052 48.529 +35.477 3.72x source_opens 0 relation_target_opens 2251 scanned 0 relation_edges 0
+SLOW Q167 5.776 40.866 +35.091 7.08x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q025 94.550 127.203 +32.652 1.35x source_opens 67750 relation_target_opens 0 scanned 67750 relation_edges 0
+SLOW Q026 99.405 127.698 +28.293 1.28x source_opens 81159 relation_target_opens 0 scanned 81159 relation_edges 0
+SLOW Q177 5.621 31.779 +26.159 5.65x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0
+SLOW Q069 4.633 28.302 +23.669 6.11x source_opens 4010 relation_target_opens 0 scanned 4010 relation_edges 0
+SLOW Q068 2.949 24.867 +21.918 8.43x source_opens 4010 relation_target_opens 0 scanned 4010 relation_edges 0
+SLOW Q055 3.701 25.509 +21.808 6.89x source_opens 0 relation_target_opens 0 scanned 0 relation_edges 0

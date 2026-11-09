@@ -1,0 +1,7 @@
+
+running 1 test
+move_case	compatible	1.132	1977780	0	0	0	0
+move_case	fallback	94.982	1977782	1	50000	26	100000
+.
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 458 filtered out; finished in 0.45s
+

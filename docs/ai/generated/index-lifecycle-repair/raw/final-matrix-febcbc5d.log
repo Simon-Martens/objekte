@@ -1,0 +1,131 @@
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte-integration-index-lifecycle-repair/crates/core)
+warning: method `record_count` is never used
+   --> crates/core/src/mutation_segment.rs:128:12
+    |
+102 | impl SegmentAdmission {
+    | --------------------- method in this implementation
+...
+128 |     pub fn record_count(&self) -> usize {
+    |            ^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `appended` is never used
+   --> crates/core/src/inventory.rs:423:19
+    |
+350 | impl ActiveRecords {
+    | ------------------ method in this implementation
+...
+423 |     pub(crate) fn appended(&self, count: u32) -> Result<Self, String> {
+    |                   ^^^^^^^^
+
+warning: method `reconcile_pass` is never used
+    --> crates/core/src/lifecycle.rs:1917:19
+     |
+ 918 | impl Index {
+     | ---------- method in this implementation
+...
+1917 |     pub(crate) fn reconcile_pass(&self, cancelled: impl Fn() -> bool) -> ReconciliationReport {
+     |                   ^^^^^^^^^^^^^^
+
+warning: methods `is_active` and `active_slots` are never used
+    --> crates/core/src/lifecycle.rs:2380:19
+     |
+2244 | impl IndexView {
+     | -------------- methods in this implementation
+...
+2380 |     pub(crate) fn is_active(&self, collection: CollectionId, slot: RecordSlot) -> bool {
+     |                   ^^^^^^^^^
+...
+2387 |     pub(crate) fn active_slots(&self, collection: CollectionId) -> Option<roaring::RoaringBitmap> {
+     |                   ^^^^^^^^^^^^
+
+warning: method `scan_stamps` is never used
+   --> crates/core/src/lifecycle_catalog.rs:237:19
+    |
+ 53 | impl FileCatalog {
+    | ---------------- method in this implementation
+...
+237 |     pub(crate) fn scan_stamps(&self) -> BTreeMap<PathBuf, FileStamp> {
+    |                   ^^^^^^^^^^^
+
+warning: function `search_segmented_with_context` is never used
+    --> crates/core/src/run.rs:2402:15
+     |
+2402 | pub(crate) fn search_segmented_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `search_active_available` is never used
+    --> crates/core/src/run.rs:2472:15
+     |
+2472 | pub(crate) fn search_active_available(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `search_stream_segmented_with_context` is never used
+    --> crates/core/src/run.rs:6125:15
+     |
+6125 | pub(crate) fn search_stream_segmented_with_context(
+     |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `classify_source_read_failure` is never used
+  --> crates/core/src/source.rs:28:15
+   |
+28 | pub(crate) fn classify_source_read_failure(
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `probe_source_unavailable` is never used
+  --> crates/core/src/source.rs:39:15
+   |
+39 | pub(crate) fn probe_source_unavailable(
+   |               ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated function `open` is never used
+   --> crates/core/src/source.rs:975:12
+    |
+974 | impl BoundedJsonLines<BufReader<std::fs::File>> {
+    | ----------------------------------------------- associated function in this implementation
+975 |     pub fn open(path: &Path) -> Result<Self, String> {
+    |            ^^^^
+
+warning: `objekte-search-core` (lib) generated 11 warnings
+warning: variant `Historical` is never constructed
+  --> crates/core/examples/support/musenalm.rs:27:5
+   |
+26 | enum SchemaMode {
+   |      ---------- variant in this enum
+27 |     Historical,
+   |     ^^^^^^^^^^
+   |
+   = note: `SchemaMode` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `load_definitions_with_schemas` is never used
+  --> crates/core/examples/support/musenalm.rs:44:8
+   |
+44 | pub fn load_definitions_with_schemas(
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `load_definitions` is never used
+   --> crates/core/examples/support/musenalm.rs:170:8
+    |
+170 | pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String> {
+    |        ^^^^^^^^^^^^^^^^
+
+warning: function `load_extended_definitions` is never used
+   --> crates/core/examples/support/musenalm.rs:174:8
+    |
+174 | pub fn load_extended_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String> {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `schema_manifest` is never used
+   --> crates/core/examples/support/musenalm.rs:178:8
+    |
+178 | pub fn schema_manifest(schemas: &[LoadedSchema]) -> Result<serde_json::Value, String> {
+    |        ^^^^^^^^^^^^^^^
+
+warning: `objekte-search-core` (example "bench_lifecycle_musenalm") generated 5 warnings
+    Finished `release` profile [optimized] target(s) in 10.04s
+     Running `target/release/examples/bench_lifecycle_musenalm /home/simon/source/objekte/examples/musenalm docs/ai/generated/index-lifecycle-repair/raw/final-matrix-febcbc5d.jsonl`
+profile=ascii-off cache_bytes=0 retired_file=None build_ms=1317.907 files=148486 records=148486 rss_kb=856236 hwm_kb=895788
+profile=unicode-off cache_bytes=0 retired_file=None build_ms=1380.419 files=148486 records=148486 rss_kb=1338420 hwm_kb=1391536
+cases=194 profiles=2 repetitions=5 failures=0 peak_rss_kb=1391536
