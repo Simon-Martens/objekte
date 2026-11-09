@@ -192,9 +192,26 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
         ..Default::default()
     };
     let static_repo =
-        Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        Arc::new(Repository::open_with_options(&root, vec![definition.clone()], options).unwrap());
     let index = crate::lifecycle::Index::build(&root, vec![definition], options).unwrap();
     let view = index.view().unwrap();
+    let published = crate::lifecycle::PublishedIndex::from_repository(
+        crate::repository::next_repository_instance(),
+        crate::lifecycle::IndexRevision::INITIAL,
+        Arc::clone(&static_repo),
+    )
+    .unwrap();
+    let partitioned =
+        crate::lifecycle_partition::partition_base_with_limits(published, 5, 5).unwrap();
+    let partitioned_index = crate::lifecycle::Index::from_published(partitioned);
+    let partitioned_view = partitioned_index.view().unwrap();
+    assert!(
+        partitioned_view
+            .segments(crate::model::CollectionId(0))
+            .unwrap()
+            .len()
+            > 1
+    );
     assert!(
         view.repository().collections()[0]
             .generation
@@ -215,25 +232,41 @@ fn lifecycle_segments_prove_declared_inferred_and_file_size_filters() {
             filter: Some(parse_filter(filter).unwrap()),
             options: QueryOptions {
                 sort: vec![],
-                limit: 50,
-                offset: 0,
+                limit: 2,
+                offset: 1,
                 count: true,
                 return_mode: ReturnMode::Locator,
                 evidence: true,
             },
         };
         let expected = static_repo.search(&query).unwrap();
-        let actual = view.search(&query).unwrap();
-        assert_eq!(actual.count, expected.count, "{filter}");
-        assert_eq!(actual.count, Some(expected_count), "{filter}");
-        assert_eq!(actual.hits.len(), expected.hits.len(), "{filter}");
-        assert_eq!(actual.counters.scanned_records, 0, "{filter}");
-        assert_eq!(actual.counters.record_parses, 0, "{filter}");
-        assert_eq!(
-            actual.counters.exact_posting_matches, expected_count as u64,
-            "{filter}"
-        );
+        for candidate_view in [&view, &partitioned_view] {
+            let actual = candidate_view.search(&query).unwrap();
+            assert_eq!(actual.count, expected.count, "{filter}");
+            assert_eq!(actual.count, Some(expected_count), "{filter}");
+            assert_eq!(actual.hits.len(), expected.hits.len(), "{filter}");
+            assert_eq!(
+                actual
+                    .hits
+                    .iter()
+                    .map(|hit| &hit.record_id)
+                    .collect::<Vec<_>>(),
+                expected
+                    .hits
+                    .iter()
+                    .map(|hit| &hit.record_id)
+                    .collect::<Vec<_>>(),
+                "{filter}"
+            );
+            assert_eq!(actual.counters.scanned_records, 0, "{filter}");
+            assert_eq!(actual.counters.record_parses, 0, "{filter}");
+            assert_eq!(
+                actual.counters.exact_posting_matches, expected_count as u64,
+                "{filter}"
+            );
+        }
     }
+    partitioned_index.shutdown().unwrap();
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

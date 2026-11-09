@@ -2941,6 +2941,54 @@ fn search_segmented_impl(
                     .as_ref()
                     .is_none_or(|bounds| bounds.may == bounds.must);
             if index_exact {
+                // Identity order is already stored in each shard. A global
+                // top `cap` page cannot contain a shard row ranked below that
+                // shard's own top `cap`; count the complete bitmap but only
+                // materialize those possible page rows.
+                if cache_builder.is_none() && context.is_none() && query.options.sort.is_empty() {
+                    total += candidates.len();
+                    counters.exact_posting_matches += candidates.len();
+                    let mut selected = 0usize;
+                    for slot in &segment.identity_order {
+                        if selected == cap {
+                            break;
+                        }
+                        if !candidates.contains(slot.0) {
+                            continue;
+                        }
+                        let resolved =
+                            segment_record_ref(segment, &published.active, catalog, *slot)?
+                                .ok_or("active segment ordered candidate missing")?;
+                        let key = segment_rank_key(
+                            repo,
+                            &sort,
+                            collection_index,
+                            segment,
+                            resolved.record,
+                            None,
+                        )?;
+                        let hit = segment_locator_hit(
+                            collection,
+                            resolved,
+                            revision,
+                            exact_evidence.clone().unwrap_or_default(),
+                        );
+                        offer_merged(
+                            &mut winners,
+                            cap,
+                            MergedPageHit {
+                                key,
+                                hit,
+                                segment: Some((collection_index, segment_index)),
+                                retained_bytes: 0,
+                            },
+                            winner_budget,
+                            &mut winner_bytes,
+                        )?;
+                        selected += 1;
+                    }
+                    continue;
+                }
                 for slot in candidates.iter() {
                     if let Some(context) = context {
                         context.check_string()?;
