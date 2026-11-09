@@ -201,3 +201,85 @@ fn cache_exclusion_precedes_seen_tracking_and_scan_cancels_between_batches() {
     assert_eq!(batches[0].len(), 1);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+#[ignore = "creates 300,000 disposable files; run with OBJEKTE_SCAN_SCALE_ROOT under target/"]
+fn scans_300000_files_with_two_overlapping_150000_file_collections() {
+    use std::time::Instant;
+
+    let root = std::path::PathBuf::from(
+        std::env::var_os("OBJEKTE_SCAN_SCALE_ROOT")
+            .expect("set OBJEKTE_SCAN_SCALE_ROOT to a disposable target/ directory"),
+    );
+    assert!(root.to_string_lossy().contains("target/"));
+    if !root.join("ready").exists() {
+        for kind in ["shared", "unique"] {
+            std::fs::create_dir_all(root.join("data").join(kind)).unwrap();
+            for number in 0..150_000 {
+                std::fs::write(
+                    root.join("data")
+                        .join(kind)
+                        .join(format!("{number:06}.json")),
+                    b"{}",
+                )
+                .unwrap();
+            }
+        }
+        std::fs::write(root.join("ready"), b"300000").unwrap();
+    }
+    let root = root.canonicalize().unwrap();
+    let definitions = [
+        ("first", "shared/*.json"),
+        ("second", "shared/*.json"),
+        ("third", "unique/*.json"),
+    ]
+    .into_iter()
+    .map(|(name, pattern)| {
+        let mut definition = CollectionDefinition::folder(name, "data", SourceFormat::Json);
+        definition.discovery = Discovery {
+            recursive: true,
+            include: vec![pattern.into()],
+            ..Discovery::default()
+        };
+        definition
+    })
+    .collect::<Vec<_>>();
+    let started = Instant::now();
+    let mut emitted = 0;
+    let mut shared = 0;
+    let mut max_batch = 0;
+    let scan = scan_sources_batched(
+        &root,
+        &definitions,
+        &SourceRegistry::builtin(),
+        |_| false,
+        |_| None,
+        || false,
+        256,
+        |batch| {
+            max_batch = max_batch.max(batch.len());
+            emitted += batch.len();
+            shared += batch
+                .iter()
+                .filter(|change| match change {
+                    ScanChange::Add(file) => file.collections.len() == 2,
+                    _ => false,
+                })
+                .count();
+        },
+    );
+    eprintln!(
+        "scan_scale files={} metadata={} batches_max={} elapsed_ms={}",
+        scan.examined,
+        scan.metadata_observations,
+        max_batch,
+        started.elapsed().as_millis()
+    );
+    assert!(scan.issues.is_empty(), "{:?}", scan.issues);
+    assert_eq!(scan.complete_collections.len(), 3);
+    assert_eq!(scan.examined, 300_000);
+    assert_eq!(scan.metadata_observations, 300_000);
+    assert_eq!(emitted, 300_000);
+    assert_eq!(shared, 150_000);
+    assert!(max_batch <= 256);
+}
