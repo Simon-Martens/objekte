@@ -349,9 +349,10 @@ impl LifecycleCacheState {
         }
         let mut ordinals = HashSet::new();
         for (number, group) in self.segments.iter().enumerate() {
-            if group.len() > 64 {
-                return Err("lifecycle segment budget exceeded".into());
-            }
+            // Partitioned bases need a shard count proportional to indexed
+            // records. The checked section byte budget and each segment's
+            // validated slot/file domains bound cache admission instead of a
+            // fixed collection-wide shard count.
             for segment in group {
                 if segment.collection.0 as usize != number
                     || segment.ordinal == 0
