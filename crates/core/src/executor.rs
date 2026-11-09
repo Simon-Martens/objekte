@@ -450,8 +450,7 @@ fn segment_expr_bounds(
                     must: matches,
                 };
             }
-            if let Some(matches) = segment_record_range_matches(segment, collection, domain, term)
-            {
+            if let Some(matches) = segment_record_range_matches(segment, collection, domain, term) {
                 return SegmentCandidateBounds {
                     may: matches.clone(),
                     must: matches,
