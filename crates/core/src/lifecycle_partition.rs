@@ -99,7 +99,8 @@ fn compact_source_parts_with_limits(
         }
         let mut offset = 0;
         while offset < owned.len() {
-            if count == max_records || (files.len() >= max_files && !files.contains(&file.entry.id)) {
+            if count == max_records || (files.len() >= max_files && !files.contains(&file.entry.id))
+            {
                 seal(&mut selections, &mut files, &mut slots, &mut count)?;
             }
             let end = offset
