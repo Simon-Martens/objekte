@@ -1483,7 +1483,7 @@ impl DesktopView {
                         .tooltip("Open tabs in this pane")
                         .accessibility_label("Open tabs in this pane")
                         .dropdown_menu(move |menu, _, _| {
-                            menu_tabs.iter().fold(menu, |menu, tab| {
+                            menu_tabs.iter().fold(menu.scrollable(true), |menu, tab| {
                                 let id = tab.id;
                                 let select_target = menu_target.clone();
                                 let icon = match (id, tab.search_kind) {
