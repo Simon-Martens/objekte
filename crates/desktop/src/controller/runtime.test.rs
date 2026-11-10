@@ -602,6 +602,54 @@ fn activating_record_tab_selects_matching_result_or_clears_old_selection() {
 }
 
 #[test]
+fn active_record_selection_follows_reordered_and_appended_results() {
+    let fixture = crate::backend::test_support::fixture();
+    let page = backend::query_page(
+        &fixture.session,
+        &backend::QuerySpec::default(),
+        0,
+        10,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert!(page.hits.len() >= 2);
+    let first = RecordKey {
+        collection: page.hits[0].collection.clone(),
+        id: page.hits[0].record_id.clone(),
+    };
+    let second = RecordKey {
+        collection: page.hits[1].collection.clone(),
+        id: page.hits[1].record_id.clone(),
+    };
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.executed_spec = Some(backend::QuerySpec::default());
+    controller.executed_draft = Some(SearchDraft::default());
+    controller.keys = vec![Some(first.clone()), Some(second.clone())];
+    let mut updates = Vec::new();
+    controller.open_record(1, false, &mut updates);
+
+    // A new query may load the same record at a different position.
+    controller.keys = vec![Some(second.clone()), Some(first.clone())];
+    updates.clear();
+    controller.sync_active_tab_row_selection_in(0, &mut updates);
+    assert_eq!(controller.selected_index, Some(0));
+    assert!(updates
+        .iter()
+        .any(|update| matches!(update, UiUpdate::RowSelection(Some(0)))));
+
+    // Selection stays clear until the page containing that record arrives.
+    controller.keys = vec![Some(first), None];
+    updates.clear();
+    controller.sync_active_tab_row_selection_in(0, &mut updates);
+    assert_eq!(controller.selected_index, None);
+    controller.keys[1] = Some(second);
+    updates.clear();
+    controller.sync_active_tab_row_selection_in(1, &mut updates);
+    assert_eq!(controller.selected_index, Some(1));
+}
+
+#[test]
 fn opening_record_outside_results_clears_previous_row_selection() {
     let fixture = crate::backend::test_support::fixture();
     let view = fixture.session.repository.index().view().unwrap();

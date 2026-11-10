@@ -1771,12 +1771,45 @@ impl DesktopController {
 
     fn sync_tab_row_selection(&mut self, tab_index: usize, updates: &mut Vec<UiUpdate>) {
         let tab = &self.tabs[tab_index];
-        let selected = tab
-            .in_results
-            .then_some(tab.anchor)
-            .filter(|&anchor| self.keys.get(anchor).and_then(Option::as_ref) == Some(&tab.key));
+        let selected = self
+            .keys
+            .get(tab.anchor)
+            .and_then(Option::as_ref)
+            .filter(|key| *key == &tab.key)
+            .map(|_| tab.anchor)
+            .or_else(|| {
+                self.keys
+                    .iter()
+                    .position(|key| key.as_ref() == Some(&tab.key))
+            });
         self.selected_index = selected;
         updates.push(UiUpdate::RowSelection(selected));
+    }
+
+    fn sync_active_tab_row_selection_in(&mut self, start: usize, updates: &mut Vec<UiUpdate>) {
+        let Some(index) = self
+            .active_tab
+            .and_then(|id| self.tabs.iter().position(|tab| tab.id == id))
+        else {
+            return;
+        };
+        let key = &self.tabs[index].key;
+        if let Some(selected) = self.selected_index {
+            if self.keys.get(selected).and_then(Option::as_ref) == Some(key) {
+                return;
+            }
+            self.sync_tab_row_selection(index, updates);
+            return;
+        }
+        if let Some(relative) = self
+            .keys
+            .get(start..)
+            .and_then(|keys| keys.iter().position(|candidate| candidate.as_ref() == Some(key)))
+        {
+            let selected = start + relative;
+            self.selected_index = Some(selected);
+            updates.push(UiUpdate::RowSelection(Some(selected)));
+        }
     }
 
     fn emit_tabs(&self, updates: &mut Vec<UiUpdate>) {
@@ -2463,6 +2496,9 @@ impl DesktopController {
                                 self.next_page_start = next;
                                 self.remember_projection(view.offset);
                                 updates.push(UiUpdate::Page(view));
+                                if !was_refresh {
+                                    self.sync_active_tab_row_selection_in(0, updates);
+                                }
                                 if let Some(anchor) = refreshed_anchor {
                                     if let Some(position) = self
                                         .keys
@@ -2524,6 +2560,7 @@ impl DesktopController {
                                 self.next_page_start = next;
                                 self.remember_projection(start);
                                 updates.push(UiUpdate::AppendPage(view));
+                                self.sync_active_tab_row_selection_in(start, updates);
                             }
                             GridRequestKind::Projection(start) => {
                                 if !self.pending_projections.remove(&start) {
