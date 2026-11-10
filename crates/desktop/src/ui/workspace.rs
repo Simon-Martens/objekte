@@ -310,6 +310,7 @@ impl Workspace {
                 self.close(id);
             }
         }
+        let mut active_added = false;
         for record in records {
             let id = TabId::Record(record.id);
             if let Some(pane) = self.pane_of(id) {
@@ -322,6 +323,7 @@ impl Workspace {
                     tab.title = record.title.clone();
                 }
             } else {
+                active_added |= active == Some(record.id);
                 self.secondary.tabs.push(WorkspaceTab {
                     id,
                     title: record.title.clone(),
@@ -331,7 +333,7 @@ impl Workspace {
                 });
             }
         }
-        if active != self.last_active_record {
+        if active != self.last_active_record || active_added {
             if let Some(id) = active {
                 self.activate(TabId::Record(id));
             }
@@ -569,5 +571,116 @@ mod tests {
         assert_eq!(workspace.secondary.active, Some(query));
         workspace.sync_records(&[record], Some(7));
         assert_eq!(workspace.secondary.active, Some(query));
+    }
+
+    #[test]
+    fn repeated_record_update_reactivates_a_tab_recreated_after_local_close() {
+        let mut workspace = Workspace::default();
+        workspace.opened(None);
+        let record = RecordTabSummary {
+            id: 7,
+            title: "item 7".into(),
+            identity: "items / 7".into(),
+            position: 1,
+            can_back: false,
+            can_previous: false,
+            can_next: false,
+            loading: false,
+            links_loading: false,
+            freshness: Default::default(),
+        };
+        workspace.sync_records(&[record.clone()], Some(7));
+        assert_eq!(workspace.secondary.active, Some(TabId::Record(7)));
+        workspace.close(TabId::Record(7));
+
+        // A worker update can arrive before the controller processes CloseTab.
+        workspace.sync_records(&[record], Some(7));
+        assert_eq!(workspace.secondary.active, Some(TabId::Record(7)));
+        assert_eq!(workspace.focused_pane, Pane::Secondary);
+    }
+
+    #[test]
+    fn repeated_tab_changes_keep_active_and_search_targets_valid() {
+        let mut workspace = Workspace::default();
+        workspace.opened(Some("files".into()));
+        let mut seed = 0x3d81_56a2_u64;
+        for step in 0..800 {
+            seed = seed.wrapping_mul(6_364_136_223_846_793_005).wrapping_add(1);
+            let tabs = workspace
+                .primary
+                .tabs
+                .iter()
+                .chain(&workspace.secondary.tabs)
+                .map(|tab| tab.id)
+                .collect::<Vec<_>>();
+            let chosen = tabs[(seed as usize / 7) % tabs.len()];
+            let pane = if seed & 0x100 == 0 {
+                Pane::Primary
+            } else {
+                Pane::Secondary
+            };
+            match seed % 6 {
+                0 => {
+                    workspace.open_query_in(SearchDraft::default(), pane);
+                }
+                1 => {
+                    workspace.activate(chosen);
+                }
+                2 => {
+                    workspace.move_tab(chosen, pane, (seed as usize / 13) % (tabs.len() + 1));
+                }
+                3 => {
+                    workspace.close(chosen);
+                }
+                4 => {
+                    workspace.open_table(Some(format!("collection-{}", step % 3)));
+                }
+                _ => {
+                    workspace.duplicate_query(chosen);
+                }
+            }
+            if workspace.primary.tabs.is_empty() && workspace.secondary.tabs.is_empty() {
+                workspace.open_query(SearchDraft::default());
+            }
+            let all = workspace
+                .primary
+                .tabs
+                .iter()
+                .chain(&workspace.secondary.tabs)
+                .map(|tab| tab.id)
+                .collect::<Vec<_>>();
+            for (index, id) in all.iter().enumerate() {
+                assert!(
+                    !all[index + 1..].contains(id),
+                    "duplicate tab after step {step}"
+                );
+            }
+            for pane in [Pane::Primary, Pane::Secondary] {
+                let group = workspace.group(pane);
+                assert_eq!(
+                    group.active.is_some(),
+                    !group.tabs.is_empty(),
+                    "pane {pane:?} after step {step}"
+                );
+                if let Some(active) = group.active {
+                    assert!(group.tabs.iter().any(|tab| tab.id == active));
+                }
+            }
+            assert!(
+                workspace.focused_active_tab().is_some(),
+                "no focused tab after step {step}"
+            );
+            let searches = all
+                .iter()
+                .filter(|id| matches!(id, TabId::Search(_)))
+                .collect::<Vec<_>>();
+            assert_eq!(workspace.current_search.is_some(), !searches.is_empty());
+            if let Some(current) = workspace.current_search {
+                assert!(
+                    searches.contains(&&current),
+                    "stale search after step {step}"
+                );
+            }
+        }
     }
 }
