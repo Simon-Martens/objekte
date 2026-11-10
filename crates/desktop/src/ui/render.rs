@@ -948,6 +948,7 @@ impl DesktopView {
                         .w_full()
                         .min_h(px(30.))
                         .bg(rgb(shade))
+                        .hover(|row| row.bg(rgb(if selected { colors.selected } else { colors.raised })))
                         .border_b_1()
                         .border_color(rgb(colors.border))
                         .children(row_columns.iter().map(
@@ -2199,6 +2200,9 @@ impl Render for DesktopView {
             self.state.sidebar_visible = false;
         }
         self.last_window_width = width;
+        if self.restore_missing_grid_height_hints() {
+            cx.notify();
+        }
         self.request_visible_grid_rows();
         let colors = palette(self.state.dark);
         div()

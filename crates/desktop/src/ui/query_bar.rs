@@ -839,6 +839,7 @@ impl DesktopView {
             .children(self.state.completion_suggestions.iter().enumerate().map(|(index, (_, label))| {
                 let (name, kind) = label.rsplit_once(" · ").unwrap_or((label.as_str(), "Value"));
                 let selected = index == self.state.completion_selected;
+                let selected_background = if self.state.dark { 0x244767 } else { 0xdceafe };
                 div()
                     .id(format!("filter-completion-{index}"))
                     .flex()
@@ -848,9 +849,12 @@ impl DesktopView {
                     .w_full()
                     .h(px(26.))
                     .px_2()
-                    .bg(rgb(if selected { if self.state.dark { 0x244767 } else { 0xdceafe } } else { colors.panel }))
+                    .bg(rgb(if selected { selected_background } else { colors.panel }))
                     .border_l_2()
                     .border_color(rgb(if selected { colors.accent } else { colors.panel }))
+                    .hover(|row| {
+                        row.bg(rgb(if selected { selected_background } else { colors.selected }))
+                    })
                     .child(div().flex_1().min_w_0().overflow_hidden().whitespace_nowrap().text_ellipsis()
                         .font_family(super::typography::MONO).font_weight(gpui_kit::FontWeight::BOLD)
                         .text_sm().child(name.to_owned()))

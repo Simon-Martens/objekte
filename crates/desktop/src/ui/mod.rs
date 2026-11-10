@@ -1028,6 +1028,26 @@ impl DesktopView {
             .then(|| (heights.iter().sum::<f32>() / heights.len() as f32).clamp(30., 400.))
     }
 
+    /// GPUI discards offscreen height hints when the list width changes. Seed
+    /// them again once its new layout is visible, or the scrollbar range can
+    /// shrink to only the handful of measured rows.
+    fn restore_missing_grid_height_hints(&self) -> bool {
+        let count = self.grid_list.item_count();
+        let viewport = f32::from(self.grid_list.viewport_bounds().size.height);
+        if count < 2 || viewport <= 0. {
+            return false;
+        }
+        let reported_height = f32::from(self.grid_list.max_offset_for_scrollbar().y) + viewport;
+        if reported_height + 1. >= count as f32 * 30. {
+            return false;
+        }
+        let _ = self
+            .grid_list
+            .clone()
+            .with_uniform_item_height(px(self.grid_height_hint.max(30.)));
+        true
+    }
+
     /// Scrollbar dragging bypasses ListState's wheel scroll handler. Request
     /// any uncached pages covering the viewport from the current list anchor.
     fn request_visible_grid_rows(&self) {

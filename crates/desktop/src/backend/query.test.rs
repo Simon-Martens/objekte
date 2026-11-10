@@ -2,6 +2,27 @@ use super::*;
 use crate::backend::test_support::fixture;
 
 #[test]
+fn filter_prefix_wildcard_matches_alpha() {
+    let fixture = fixture();
+    let view = fixture.session.repository.index().view().unwrap();
+    let page = query_page_on_view(
+        &fixture.session,
+        &view,
+        &QuerySpec {
+            filter: "title ~ 'A%'".into(),
+            count: true,
+            ..QuerySpec::default()
+        },
+        0,
+        100,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert_eq!(page.count, Some(1));
+    assert_eq!(page.hits[0].record_id, "path:a.json");
+}
+
+#[test]
 fn desktop_page_reuses_verified_order_and_keeps_pinned_revision() {
     let fixture = fixture();
     let view = fixture.session.repository.index().view().unwrap();

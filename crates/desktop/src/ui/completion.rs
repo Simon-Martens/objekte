@@ -30,48 +30,41 @@ pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
             escaped = false;
         } else if ch == '\\' && quoted_start.is_some() {
             escaped = true;
-        } else if ch == '"' {
-            quoted_start = quoted_start.map_or(Some(at), |_| None);
+        } else if quoted_start.is_some_and(|(_, quote)| quote == ch) {
+            quoted_start = None;
+        } else if quoted_start.is_none() && matches!(ch, '\'' | '"') {
+            quoted_start = Some((at, ch));
         }
     }
-    let quoted_path = quoted_start.is_some_and(|quote| text[..quote].ends_with('['));
-    let (start, end, prefix) = if let Some(quote) = quoted_start.filter(|_| !quoted_path) {
-        let end = text[caret..]
-            .find('"')
-            .map_or(text.len(), |offset| caret + offset + 1);
-        (quote, end, text[quote + 1..caret].to_owned())
-    } else if quoted_path {
-        // A path suggestion replaces the complete path token. Replacing only
-        // the quoted segment would leave doubled brackets for `["a.b"]`.
-        let start = text[..caret]
-            .char_indices()
-            .rev()
-            .find(|(_, ch)| token_boundary(*ch))
-            .map_or(0, |(at, ch)| at + ch.len_utf8());
-        let end = text[caret..]
-            .find("]")
-            .map_or(text.len(), |offset| caret + offset + 1);
-        (start, end, text[start..caret].to_owned())
+    let quoted_path = quoted_start.is_some_and(|(quote, _)| text[..quote].ends_with('['));
+    let start = token_start(text, caret);
+    let end = token_end(text, caret);
+    let (start, prefix) = if let Some((quote, _)) = quoted_start.filter(|_| !quoted_path) {
+        (quote, text[quote + 1..caret].to_owned())
     } else {
-        let start = text[..caret]
-            .char_indices()
-            .rev()
-            .find(|(_, ch)| token_boundary(*ch))
-            .map_or(0, |(at, ch)| at + ch.len_utf8());
-        let end = text[caret..]
-            .char_indices()
-            .find(|(_, ch)| token_boundary(*ch))
-            .map_or(text.len(), |(offset, _)| caret + offset);
-        (start, end, text[start..caret].to_owned())
+        (start, text[start..caret].to_owned())
     };
     let before = text[..start].trim_end();
-    let upper = before.to_ascii_uppercase();
-    let sort = upper.rfind("SORT BY").is_some_and(|at| {
-        // The sort expression is the final clause; preceding literal words
-        // cannot become the completion context for an earlier predicate.
-        !before[at + 7..].contains(['&', '|', '(', ')'])
-    });
-    if sort {
+    let scalar_string = !quoted_path
+        && text[start..].chars().next().is_some_and(|ch| matches!(ch, '\'' | '"'));
+    if scalar_string && quoted_start.is_none() && caret == end {
+        return None;
+    }
+    if let Some(sort_start) = sort_clause_start(before) {
+        if scalar_string {
+            return None;
+        }
+        let clause = before[sort_start..].trim_end();
+        if !(clause.is_empty()
+            || clause.ends_with(',')
+            || ["MIN(", "MAX(", "FIRST(", "LAST("].iter().any(|reducer| {
+                clause
+                    .to_ascii_uppercase()
+                    .ends_with(reducer)
+            }))
+        {
+            return None;
+        }
         return Some(CompletionContext {
             replace: start..end,
             prefix,
@@ -99,11 +92,120 @@ pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
             });
         }
     }
-    Some(CompletionContext {
-        replace: start..end,
-        prefix,
-        target: CompletionTarget::Field { sort: false },
-    })
+    if before.is_empty()
+        || before.ends_with("&&")
+        || before.ends_with("||")
+        || before.ends_with('(')
+        || before.ends_with('!')
+    {
+        if scalar_string {
+            return None;
+        }
+        return Some(CompletionContext {
+            replace: start..end,
+            prefix,
+            target: CompletionTarget::Field { sort: false },
+        });
+    }
+    None
+}
+
+fn token_start(text: &str, caret: usize) -> usize {
+    let mut start = 0;
+    let mut bracket: usize = 0;
+    let mut quote = None;
+    let mut escaped = false;
+    for (at, ch) in text[..caret].char_indices() {
+        if escaped {
+            escaped = false;
+        } else if quote.is_some_and(|current| current == ch) {
+            quote = None;
+        } else if ch == '\\' && quote.is_some() {
+            escaped = true;
+        } else if quote.is_none() {
+            match ch {
+                '\'' | '"' => quote = Some(ch),
+                '[' => bracket += 1,
+                ']' => bracket = bracket.saturating_sub(1),
+                _ if bracket == 0 && token_boundary(ch) => start = at + ch.len_utf8(),
+                _ => {}
+            }
+        }
+    }
+    start
+}
+
+fn token_end(text: &str, caret: usize) -> usize {
+    let mut bracket: usize = 0;
+    let mut quote = None;
+    let mut escaped = false;
+    for ch in text[..caret].chars() {
+        if escaped {
+            escaped = false;
+        } else if quote.is_some_and(|current| current == ch) {
+            quote = None;
+        } else if ch == '\\' && quote.is_some() {
+            escaped = true;
+        } else if quote.is_none() {
+            match ch {
+                '\'' | '"' => quote = Some(ch),
+                '[' => bracket += 1,
+                ']' => bracket = bracket.saturating_sub(1),
+                _ => {}
+            }
+        }
+    }
+    for (offset, ch) in text[caret..].char_indices() {
+        if escaped {
+            escaped = false;
+        } else if quote.is_some_and(|current| current == ch) {
+            quote = None;
+        } else if ch == '\\' && quote.is_some() {
+            escaped = true;
+        } else if quote.is_none() {
+            match ch {
+                '\'' | '"' => quote = Some(ch),
+                '[' => bracket += 1,
+                ']' => bracket = bracket.saturating_sub(1),
+                _ if bracket == 0 && token_boundary(ch) => return caret + offset,
+                _ => {}
+            }
+        }
+    }
+    text.len()
+}
+
+fn sort_clause_start(text: &str) -> Option<usize> {
+    let mut bracket: usize = 0;
+    let mut paren: usize = 0;
+    let mut quote = None;
+    let mut escaped = false;
+    let mut sort = None;
+    for (at, ch) in text.char_indices() {
+        if escaped {
+            escaped = false;
+        } else if quote.is_some_and(|current| current == ch) {
+            quote = None;
+        } else if ch == '\\' && quote.is_some() {
+            escaped = true;
+        } else if quote.is_none() {
+            if bracket == 0 && paren == 0 && text[at..].get(..7).is_some_and(|word| word.eq_ignore_ascii_case("SORT BY"))
+                && (at == 0 || text[..at].chars().last().is_some_and(char::is_whitespace))
+                && text[at + 7..].chars().next().is_none_or(char::is_whitespace)
+            {
+                sort = Some(at + 7);
+            }
+            match ch {
+                '\'' | '"' => quote = Some(ch),
+                '[' => bracket += 1,
+                ']' => bracket = bracket.saturating_sub(1),
+                '(' if bracket == 0 => paren += 1,
+                ')' if bracket == 0 => paren = paren.saturating_sub(1),
+                _ => {}
+            }
+        }
+    }
+    sort
 }
 
 fn token_boundary(ch: char) -> bool {
@@ -177,5 +279,61 @@ mod tests {
             insert(text, context.replace, "foo[\"bar\"]").unwrap().0,
             "foo[\"bar\"] = 1"
         );
+    }
+
+    #[test]
+    fn offers_fields_only_where_a_field_can_begin() {
+        for text in ["name ", "name:lower ", "name = 'Ada' ", "name = 'Ada' SORT "] {
+            assert!(context(text, text.len()).is_none(), "{text}");
+        }
+        for text in ["", "(", "!", "name = 'Ada' && ", "name = 'Ada' || ("] {
+            assert_eq!(
+                context(text, text.len()).unwrap().target,
+                CompletionTarget::Field { sort: false },
+                "{text}"
+            );
+        }
+    }
+
+    #[test]
+    fn sort_completion_stops_after_a_field_or_direction() {
+        for text in ["SORT BY ", "name = 'Ada' SORT BY title, ", "SORT BY MIN("] {
+            assert_eq!(
+                context(text, text.len()).unwrap().target,
+                CompletionTarget::Field { sort: true },
+                "{text}"
+            );
+        }
+        for text in ["SORT BY title ", "SORT BY title ASC", "SORT BY MIN(title) "] {
+            assert!(context(text, text.len()).is_none(), "{text}");
+        }
+        let quoted = "name = 'SORT BY' && title";
+        assert_eq!(
+            context(quoted, quoted.len()).unwrap().target,
+            CompletionTarget::Field { sort: false }
+        );
+    }
+
+    #[test]
+    fn single_quoted_values_and_spaced_nested_paths_keep_their_token() {
+        let value = "name ~ 'A%'";
+        let caret = value.find('%').unwrap() + 1;
+        let found = context(value, caret).unwrap();
+        assert_eq!(found.replace, 7..11);
+        assert_eq!(found.prefix, "A%");
+        assert_eq!(found.target, CompletionTarget::Value { field: "name".into() });
+
+        let field = "foo['a b'] = 1";
+        let caret = field.find('b').unwrap() + 1;
+        let found = context(field, caret).unwrap();
+        assert_eq!(found.replace, 0..10);
+        assert_eq!(found.target, CompletionTarget::Field { sort: false });
+    }
+
+    #[test]
+    fn standalone_and_finished_strings_do_not_offer_fields() {
+        assert!(context("\"Alpha\"", 1).is_none());
+        assert!(context("name = 'Ada'", "name = 'Ada'".len()).is_none());
+        assert!(context("SORT BY 'x", "SORT BY 'x".len()).is_none());
     }
 }
