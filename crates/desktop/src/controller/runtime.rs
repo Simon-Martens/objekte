@@ -2682,8 +2682,13 @@ impl DesktopController {
                     return;
                 };
                 self.tabs[index].loading = false;
+                let mut reveal_selection = false;
                 match *result {
                     Ok(Some((hit, view, actions))) => {
+                        reveal_selection = matches!(
+                            kind,
+                            TabLoadKind::Adjacent { .. } | TabLoadKind::Back { .. }
+                        );
                         let tab = &mut self.tabs[index];
                         match &kind {
                             TabLoadKind::Refresh => {
@@ -2805,6 +2810,9 @@ impl DesktopController {
                 }
                 if self.active_tab == Some(tab_id) {
                     self.sync_tab_row_selection(index, updates);
+                    if reveal_selection && let Some(selected) = self.selected_index {
+                        updates.push(UiUpdate::RevealRow(selected));
+                    }
                 }
                 self.emit_tabs(updates);
             }

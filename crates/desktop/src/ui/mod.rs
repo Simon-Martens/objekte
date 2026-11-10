@@ -467,7 +467,17 @@ impl DesktopView {
             self.restore_pending_grid_view();
         }
         if let Some(index) = reveal {
-            self.grid_list.scroll_to_reveal_item(index);
+            let top = self.grid_list.logical_scroll_top().item_ix;
+            if index.abs_diff(top) > 24 {
+                // GPUI estimates unmeasured row heights. A distant reveal can
+                // stop short of the selected row after page changes.
+                self.grid_list.scroll_to(ListOffset {
+                    item_ix: index,
+                    offset_in_item: px(0.),
+                });
+            } else {
+                self.grid_list.scroll_to_reveal_item(index);
+            }
         }
         if remeasure_grid {
             self.grid_list.remeasure();
