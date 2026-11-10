@@ -1990,6 +1990,7 @@ impl DesktopView {
 
     fn render_workspace(&self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         let right = self.state.workspace.group(Pane::Secondary);
+        let primary_empty = self.state.workspace.primary.tabs.is_empty() && !right.tabs.is_empty();
         let right_width = if matches!(right.active, Some(TabId::Record(_))) {
             self.state.inspector_width
         } else {
@@ -1997,8 +1998,12 @@ impl DesktopView {
         };
         let available = f32::from(window.bounds().size.width)
             - if self.state.sidebar_visible { 220. } else { 0. }
-            - 320.;
-        let right_width = right_width.min(available.max(300.));
+            - if primary_empty { 260. } else { 320. };
+        let right_width = if primary_empty {
+            available.max(300.)
+        } else {
+            right_width.min(available.max(300.))
+        };
         let right_is_query = matches!(right.active, Some(TabId::Search(_)));
         div()
             .flex()
@@ -2016,7 +2021,7 @@ impl DesktopView {
                         .w(px(right_width))
                         .flex_shrink_0()
                         .child(self.render_workspace_group(Pane::Secondary, cx))
-                        .when(right_is_query, |this| {
+                        .when(right_is_query && !primary_empty, |this| {
                             this.child(
                                 div()
                                     .id("secondary-query-resize")
