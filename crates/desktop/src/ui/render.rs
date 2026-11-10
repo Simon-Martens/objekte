@@ -1264,6 +1264,10 @@ impl DesktopView {
         let target = cx.entity();
         let menu_target = target.clone();
         let split_target = target.clone();
+        let tabs_scroll = match pane {
+            Pane::Primary => &self.primary_tabs_scroll,
+            Pane::Secondary => &self.secondary_tabs_scroll,
+        };
         let show_split_target =
             pane == Pane::Primary && self.state.workspace.secondary.tabs.is_empty();
 
@@ -1285,6 +1289,7 @@ impl DesktopView {
                     .h_full()
                     .min_w_0()
                     .overflow_x_scroll()
+                    .track_scroll(tabs_scroll)
                     .px_1()
                     .children(tabs.into_iter().enumerate().map(|(index, tab)| {
                         let id = tab.id;

@@ -83,6 +83,8 @@ pub struct DesktopView {
     grid_focus: FocusHandle,
     grid_list: ListState,
     grid_horizontal_scroll: ScrollHandle,
+    primary_tabs_scroll: ScrollHandle,
+    secondary_tabs_scroll: ScrollHandle,
     columns_scroll: ScrollHandle,
     detail_focus: FocusHandle,
     fields_scroll: ScrollHandle,
@@ -243,6 +245,8 @@ impl DesktopView {
             grid_focus: cx.focus_handle(),
             grid_list,
             grid_horizontal_scroll: ScrollHandle::new(),
+            primary_tabs_scroll: ScrollHandle::new(),
+            secondary_tabs_scroll: ScrollHandle::new(),
             columns_scroll: ScrollHandle::new(),
             detail_focus: cx.focus_handle(),
             fields_scroll: ScrollHandle::new(),
@@ -371,6 +375,9 @@ impl DesktopView {
         let prior_index_instance = self.state.index_status.index_instance;
         let replaced_index = matches!(&update, UiUpdate::IndexReplaced(_));
         self.state.apply(update);
+        if switching_tab && let Some(id) = self.state.active_tab {
+            self.reveal_workspace_tab(TabId::Record(id));
+        }
         if replaced_index || self.state.index_status.index_instance != prior_index_instance {
             let load = self.state.index_load_draft.clone();
             let save = self.state.index_save_draft.clone();
@@ -468,6 +475,26 @@ impl DesktopView {
         cx.notify();
     }
 
+    fn reveal_workspace_tab(&self, id: TabId) {
+        let Some(pane) = self.state.workspace.pane_of(id) else {
+            return;
+        };
+        let Some(index) = self
+            .state
+            .workspace
+            .group(pane)
+            .tabs
+            .iter()
+            .position(|tab| tab.id == id)
+        else {
+            return;
+        };
+        match pane {
+            Pane::Primary => self.primary_tabs_scroll.scroll_to_item(index),
+            Pane::Secondary => self.secondary_tabs_scroll.scroll_to_item(index),
+        }
+    }
+
     fn activate_workspace_tab(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
         if self.state.workspace.current_search != Some(id) {
             self.state.snapshot_current_query();
@@ -475,6 +502,7 @@ impl DesktopView {
         if !self.state.workspace.activate(id) {
             return;
         }
+        self.reveal_workspace_tab(id);
         self.state.prune_record_snapshots();
         self.state.prune_query_snapshots();
         match id {
@@ -576,6 +604,7 @@ impl DesktopView {
             TabId::Record(id) => self.state.active_tab == Some(id),
         };
         if self.state.workspace.move_tab(id, pane, at) {
+            self.reveal_workspace_tab(id);
             self.state.prune_record_snapshots();
             self.state.prune_query_snapshots();
             if already_current {
