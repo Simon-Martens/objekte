@@ -30,3 +30,7 @@ Validation:
 - The repository-wide `scripts/format-rust-spacing.py --check` fails on pre-existing rustfmt differences in the base `master` revision (beginning in `crates/cli/src/loader.test.rs`); this task did not reformat unrelated files.
 
 One query editor and live result list are active at a time. When query tabs are visible in both panes, the other pane shows its latest bounded, read-only result preview; activating it restores the editor and refreshes its results. The integration worktree is retained for review. Temporary task memory is removed after this report is pushed.
+
+## Reopened for implementation
+
+On 2026-11-10 the user clarified that the requested four-hour feature iteration remains to be done and rejected the tab design and testing quality. The preceding report describes the first pass and no longer marks the task complete. Continue implementation and native visual testing on the integration branch, then replace the report with final results before merging again.
