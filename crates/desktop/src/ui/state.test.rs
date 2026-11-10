@@ -78,6 +78,32 @@ fn visible_query_preview_survives_new_tab_and_cache_stays_bounded() {
 }
 
 #[test]
+fn outdated_query_drops_its_old_preview() {
+    let mut state = UiState::default();
+    let super::super::workspace::TabId::Search(id) = state.workspace.opened(None) else {
+        unreachable!()
+    };
+    state.page.exact_total = Some(3);
+    state.snapshot_current_query();
+    assert!(state.query_snapshots.contains_key(&id));
+    state.result_outdated = true;
+    state.snapshot_current_query();
+    assert!(!state.query_snapshots.contains_key(&id));
+}
+
+#[test]
+fn index_change_clears_previews_for_all_queries() {
+    let mut state = UiState::default();
+    state.workspace.opened(None);
+    state.snapshot_current_query();
+    state.workspace.open_query(SearchDraft::default());
+    state.snapshot_current_query();
+    assert_eq!(state.query_snapshots.len(), 2);
+    state.apply(UiUpdate::ResultsOutdated(true));
+    assert!(state.query_snapshots.is_empty());
+}
+
+#[test]
 fn replacement_open_retains_old_workspace_until_success() {
     let mut state = UiState {
         root: Some("old".into()),

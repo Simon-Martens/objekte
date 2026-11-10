@@ -1684,7 +1684,7 @@ impl DesktopView {
                     .child(if snapshot.is_some() {
                         "Result preview"
                     } else {
-                        "Activate to load results"
+                        "No current result preview"
                     }),
             )
             .when(!headers.is_empty(), |this| {

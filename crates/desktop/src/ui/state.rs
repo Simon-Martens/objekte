@@ -261,12 +261,18 @@ impl UiState {
             UiUpdate::IndexReplaced(status) => {
                 self.install_index_status(status, true);
                 self.result_outdated = true;
+                self.query_snapshots.clear();
             }
             UiUpdate::IndexStatus(status) => self.install_index_status(status, false),
             UiUpdate::ClosingIndex { error } => self.closing_index = Some(error),
             UiUpdate::CloseCancelled | UiUpdate::CloseReady => self.closing_index = None,
             UiUpdate::SaveIndexOverwriteRequired(path) => self.index_overwrite_pending = Some(path),
-            UiUpdate::ResultsOutdated(outdated) => self.result_outdated = outdated,
+            UiUpdate::ResultsOutdated(outdated) => {
+                self.result_outdated = outdated;
+                if outdated {
+                    self.query_snapshots.clear();
+                }
+            }
             UiUpdate::ChosenIndexLoadPath { generation, path } => {
                 if generation == self.index_picker_generation {
                     self.index_load_draft = path;
@@ -618,6 +624,7 @@ impl UiState {
             return;
         };
         if self.showing_last_valid_results || self.result_outdated {
+            self.query_snapshots.remove(&id);
             return;
         }
         let rows = self.projected_rows.values().take(40).cloned().collect();
