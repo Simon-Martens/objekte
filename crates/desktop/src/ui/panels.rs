@@ -1386,14 +1386,21 @@ impl DesktopView {
         });
     }
 
-    pub(super) fn render_help(&self, cx: &mut Context<Self>) -> impl IntoElement {
+    pub(super) fn render_help(
+        &self,
+        window_width: f32,
+        window_height: f32,
+        cx: &mut Context<Self>,
+    ) -> impl IntoElement {
         let colors = super::theme::palette(self.state.dark);
+        let panel_height = (window_height - 60.).clamp(100., 600.);
         let body = div()
             .id("help-body")
             .flex()
             .flex_col()
             .gap_2()
-            .max_h(px(530.))
+            .max_h(px((panel_height - 64.).clamp(40., 530.)))
+            .track_scroll(&self.help_scroll)
             .child(div().text_sm().child("Open a folder and search. Saved queries appear in the sidebar; expand History to revisit recent searches. Save from the application menu, then rename a saved row with F2."))
             .child(div().text_sm().child("Search words go in Search. The funnel reveals Filter; the adjacent icon opens Filter Builder. Search and Filter combine with AND, and Filter suggests fields and indexed values."))
             .child(div().text_sm().child("A complete quoted JSON string in Filter runs as a CLI-style text query when Search is empty. Batch accepts one CLI query per line."))
@@ -1401,7 +1408,7 @@ impl DesktopView {
             .child(div().text_sm().child("Ctrl+O: Open · Ctrl+F: Search · Ctrl+L: Filter · Ctrl+T: New query · Ctrl+W: Close tab · Ctrl+Tab / Ctrl+PageDown: Next tab · Ctrl+Shift+Tab / Ctrl+PageUp: Previous tab · Ctrl+1 / Ctrl+2: Focus left / right pane · F1: Help · Escape: close the nearest panel."))
             .child(div().text_sm().child("Collections and queries open in tabs. Drag a tab label to reorder it or move it between panes; right-click for move and duplicate commands. The list icon shows all open tabs. Click + for a query or middle-click a tab to close it."))
             .child(div().text_sm().child("When queries appear in both panes, the inactive query shows its latest result preview. Activate it to edit or refresh its results."))
-            .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to preview it beside the table. Use Open in tab, Shift-click, or the row menu to keep a record in its own tab."))
+            .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down move selection by a viewport. Click a row or press Enter to preview it beside the table. Use Open in tab, Shift-click, or the row menu to keep a record in its own tab."))
             .child(div().text_sm().child("Record views retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; Source shows the original record. The inspector Copy icon copies the complete record."))
             .child(div().text_sm().child("Right-click a field to copy its full path or scalar value. Aggregate and clipped previews are not complete values; expand an aggregate or copy the complete record instead."))
             .child(div().text_sm().child("Source records and schemas are read-only. Export and index writes are explicit actions."));
@@ -1410,8 +1417,8 @@ impl DesktopView {
             .absolute()
             .top(px(48.))
             .right(px(8.))
-            .w(px(470.))
-            .max_h(px(600.))
+            .w(px((window_width - 16.).clamp(300., 470.)))
+            .max_h(px(panel_height))
             .flex()
             .flex_col()
             .gap_2()

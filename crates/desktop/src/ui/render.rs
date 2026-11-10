@@ -2403,7 +2403,7 @@ impl Render for DesktopView {
                 this.child(self.render_actions(width, height, cx))
             })
             .when(self.state.show_help, |this| {
-                this.child(self.render_help(cx))
+                this.child(self.render_help(width, height, cx))
             })
             .child(self.render_status(cx))
             .when(self.state.open_dialog.visible, |this| {
