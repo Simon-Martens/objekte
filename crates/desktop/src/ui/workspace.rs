@@ -8,6 +8,12 @@ pub enum Pane {
     Secondary,
 }
 
+impl Default for Pane {
+    fn default() -> Self {
+        Self::Primary
+    }
+}
+
 impl Pane {
     pub fn other(self) -> Self {
         match self {
@@ -49,6 +55,7 @@ pub struct Workspace {
     pub secondary: TabGroup,
     next_search_id: u64,
     pub current_search: Option<TabId>,
+    pub focused_pane: Pane,
     last_active_record: Option<u64>,
 }
 
@@ -109,7 +116,21 @@ impl Workspace {
     }
 
     pub fn open_query(&mut self, draft: SearchDraft) -> TabId {
-        self.insert_search(draft, SearchKind::Query, Pane::Primary)
+        self.open_query_in(draft, Pane::Primary)
+    }
+
+    pub fn open_query_in(&mut self, draft: SearchDraft, pane: Pane) -> TabId {
+        self.insert_search(draft, SearchKind::Query, pane)
+    }
+
+    pub fn duplicate_query(&mut self, id: TabId) -> Option<TabId> {
+        let pane = self.pane_of(id)?;
+        let group = self.group(pane);
+        let index = group.tabs.iter().position(|tab| tab.id == id)?;
+        let draft = group.tabs[index].draft.clone()?;
+        let duplicate = self.open_query_in(draft, pane);
+        self.move_tab(duplicate, pane, index + 1);
+        Some(duplicate)
     }
 
     fn insert_search(&mut self, draft: SearchDraft, kind: SearchKind, pane: Pane) -> TabId {
@@ -125,6 +146,7 @@ impl Workspace {
         });
         group.active = Some(id);
         self.current_search = Some(id);
+        self.focused_pane = pane;
         id
     }
 
@@ -155,6 +177,7 @@ impl Workspace {
             return false;
         };
         self.group_mut(pane).active = Some(id);
+        self.focused_pane = pane;
         if matches!(id, TabId::Search(_)) {
             self.current_search = Some(id);
         }
@@ -188,6 +211,7 @@ impl Workspace {
             .tabs
             .insert(at.min(destination_group.tabs.len()), tab);
         destination_group.active = Some(id);
+        self.focused_pane = destination;
         true
     }
 
@@ -212,6 +236,9 @@ impl Workspace {
                 .chain(&self.secondary.tabs)
                 .find(|tab| matches!(tab.id, TabId::Search(_)))
                 .map(|tab| tab.id);
+        }
+        if self.focused_pane == pane && self.group(pane).active.is_none() {
+            self.focused_pane = pane.other();
         }
         true
     }
@@ -328,6 +355,22 @@ mod tests {
         assert!(workspace.move_tab(first, Pane::Secondary, 0));
         assert_eq!(workspace.secondary.active, Some(first));
         assert_eq!(workspace.primary.active, Some(second));
+        assert_eq!(workspace.focused_pane, Pane::Secondary);
+    }
+
+    #[test]
+    fn duplicate_query_preserves_draft_and_inserts_beside_source() {
+        let mut workspace = Workspace::default();
+        workspace.opened(None);
+        let original = workspace.open_query_in(SearchDraft {
+            full_text: "orange".into(),
+            ..Default::default()
+        }, Pane::Secondary);
+        let duplicate = workspace.duplicate_query(original).unwrap();
+        assert_eq!(workspace.secondary.tabs.iter().map(|tab| tab.id).collect::<Vec<_>>(), vec![original, duplicate]);
+        assert_eq!(workspace.tab(duplicate).unwrap().draft.as_ref().unwrap().full_text, "orange");
+        assert_eq!(workspace.secondary.active, Some(duplicate));
+        assert_eq!(workspace.focused_pane, Pane::Secondary);
     }
 
     #[test]

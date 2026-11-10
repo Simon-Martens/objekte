@@ -474,14 +474,26 @@ impl DesktopView {
     }
 
     fn open_query_tab(&mut self, window: &mut Window, cx: &mut Context<Self>) {
+        let pane = self.state.workspace.focused_pane;
+        self.open_query_tab_in(pane, window, cx);
+    }
+
+    fn open_query_tab_in(&mut self, pane: Pane, window: &mut Window, cx: &mut Context<Self>) {
         self.state.snapshot_current_query();
-        let id = self.state.workspace.open_query(SearchDraft {
+        let id = self.state.workspace.open_query_in(SearchDraft {
             collection: self.state.search.collection.clone(),
             ..SearchDraft::default()
-        });
+        }, pane);
         self.activate_workspace_tab(id, window, cx);
         let focus = self.inputs.full_text.read(cx).focus_handle(cx);
         window.focus(&focus, cx);
+    }
+
+    fn duplicate_workspace_query(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
+        self.state.snapshot_current_query();
+        if let Some(duplicate) = self.state.workspace.duplicate_query(id) {
+            self.activate_workspace_tab(duplicate, window, cx);
+        }
     }
 
     fn close_workspace_tab(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {

@@ -5,7 +5,7 @@ use gpui_kit::component::{
     Disableable as _, Icon, IconName, Selectable as _,
     button::{Button, ButtonVariants},
     input::Input,
-    menu::{ContextMenuExt as _, DropdownMenu as _, PopupMenuItem},
+    menu::{ContextMenuExt as _, DropdownMenu as _, PopupMenu, PopupMenuItem},
     scroll::{ScrollableElement as _, Scrollbar, ScrollbarMode},
 };
 use gpui_kit::prelude::FluentBuilder as _;
@@ -21,7 +21,7 @@ use super::model::{IndexTaskState, UiAction};
 use super::sort;
 use super::state::{ActionPanel, Busy};
 use super::theme::palette;
-use super::workspace::{Pane, TabId};
+use super::workspace::{Pane, SearchKind, TabId};
 
 #[derive(Clone)]
 struct WorkspaceDrag {
@@ -90,6 +90,54 @@ fn panel_menu_item(
                 cx.notify();
             });
         })
+}
+
+fn workspace_tab_menu(
+    menu: PopupMenu,
+    target: Entity<DesktopView>,
+    id: TabId,
+    pane: Pane,
+    can_duplicate: bool,
+) -> PopupMenu {
+    let destination = pane.other();
+    let move_target = target.clone();
+    let duplicate_target = target.clone();
+    let close_target = target;
+    menu.item(
+        PopupMenuItem::new(match destination {
+            Pane::Primary => "Move to left pane",
+            Pane::Secondary => "Move to right pane",
+        })
+        .icon(match destination {
+            Pane::Primary => AssetIconName::PanelLeft,
+            Pane::Secondary => AssetIconName::PanelRight,
+        })
+        .on_click(move |_, window, cx| {
+            move_target.update(cx, |this, cx| {
+                let at = this.state.workspace.group(destination).tabs.len();
+                this.move_workspace_tab(id, destination, at, window, cx);
+            });
+        }),
+    )
+    .when(can_duplicate, |menu| menu.item(
+        PopupMenuItem::new("Duplicate query")
+            .icon(AssetIconName::Copy)
+            .on_click(move |_, window, cx| {
+                duplicate_target.update(cx, |this, cx| {
+                    this.duplicate_workspace_query(id, window, cx);
+                });
+            }),
+    ))
+    .separator()
+    .item(
+        PopupMenuItem::new("Close tab")
+            .icon(AssetIconName::X)
+            .on_click(move |_, window, cx| {
+                close_target.update(cx, |this, cx| {
+                    this.close_workspace_tab(id, window, cx);
+                });
+            }),
+    )
 }
 
 impl DesktopView {
@@ -1189,6 +1237,7 @@ impl DesktopView {
         let target = cx.entity();
         let split_target = target.clone();
         let show_split_target = pane == Pane::Primary && self.state.workspace.secondary.tabs.is_empty();
+
         div()
             .id(format!("workspace-bar-{pane:?}"))
             .flex()
@@ -1203,138 +1252,156 @@ impl DesktopView {
                     .id(format!("workspace-tabs-{pane:?}"))
                     .flex()
                     .items_center()
+                    .gap_1()
                     .h_full()
                     .min_w_0()
                     .overflow_x_scroll()
+                    .px_1()
                     .children(tabs.into_iter().enumerate().map(|(index, tab)| {
                         let id = tab.id;
                         let title = tab.title.clone();
+                        let selected = active == Some(id);
+                        let icon = match (id, tab.search_kind) {
+                            (TabId::Record(_), _) => AssetIconName::FileText,
+                            (TabId::Search(_), Some(SearchKind::Table)) => AssetIconName::Table2,
+                            _ => AssetIconName::Search,
+                        };
+                        let select_target = target.clone();
+                        let close_target = target.clone();
+                        let drop_target = target.clone();
+                        let menu_target = target.clone();
                         let drag_title = title.clone();
                         let drag_dark = self.state.dark;
-                        let drop_target = target.clone();
-                        let move_target = target.clone();
-                        let first_target = target.clone();
-                        let close_target = target.clone();
-                        let label_move_target = target.clone();
-                        let label_first_target = target.clone();
-                        let label_close_target = target.clone();
+                        let can_duplicate = matches!(id, TabId::Search(_));
                         div()
                             .id(format!("workspace-tab-{pane:?}-{index}"))
+                            .relative()
                             .flex()
                             .items_center()
-                            .h_full()
+                            .gap_1()
+                            .h(px(33.))
+                            .min_w(px(142.))
+                            .max_w(px(220.))
                             .flex_shrink_0()
-                            .px_1()
-                            .border_r_1()
-                            .border_color(rgb(colors.border))
-                            .when(active == Some(id), |this| {
-                                this.bg(rgb(colors.panel)).border_b_2().border_color(rgb(colors.accent))
+                            .px_2()
+                            .rounded_sm()
+                            .border_1()
+                            .border_color(rgb(if selected { colors.border } else { colors.raised }))
+                            .bg(rgb(if selected { colors.panel } else { colors.raised }))
+                            .when(!selected, |this| {
+                                this.hover(|this| this.bg(rgb(colors.selected)))
+                            })
+                            .when(selected, |this| {
+                                this.child(
+                                    div().absolute().top_0().left_1().right_1().h(px(2.))
+                                        .bg(rgb(colors.accent)),
+                                )
                             })
                             .child(
                                 div()
-                                    .id(format!("workspace-drag-{pane:?}-{index}"))
+                                    .id(format!("workspace-select-{pane:?}-{index}"))
                                     .flex()
                                     .items_center()
+                                    .gap_2()
                                     .h_full()
-                                    .px_1()
-                                    .cursor_grab()
-                                    .text_color(rgb(colors.secondary))
-                                    .child("⋮")
+                                    .min_w_0()
+                                    .flex_1()
+                                    .cursor_pointer()
+                                    .aria_label(format!("{} tab: {}", if selected { "Active" } else { "Open" }, title))
+                                    .child(
+                                        Icon::new(icon)
+                                            .size_4()
+                                            .text_color(rgb(if selected { colors.accent } else { colors.secondary })),
+                                    )
+                                    .child(
+                                        div()
+                                            .min_w_0()
+                                            .flex_1()
+                                            .overflow_hidden()
+                                            .whitespace_nowrap()
+                                            .text_ellipsis()
+                                            .text_sm()
+                                            .text_color(rgb(if selected { colors.text } else { colors.secondary }))
+                                            .child(title.clone()),
+                                    )
+                                    .on_click(move |_, window, cx| {
+                                        select_target.update(cx, |this, cx| {
+                                            this.activate_workspace_tab(id, window, cx);
+                                        });
+                                    })
                                     .on_drag(WorkspaceDrag { id }, move |_, _, _, cx| {
-                                        cx.new(|_| WorkspaceDragPreview { title: drag_title.clone(), dark: drag_dark })
-                                    }),
-                            )
-                            .child(
-                                Button::new(format!("workspace-select-{pane:?}-{index}"))
-                                    .ghost()
-                                    .max_w(px(172.))
-                                    .label(title.clone())
-                                    .tooltip(title.clone())
-                                    .on_click(cx.listener(move |this, _, window, cx| {
-                                        this.activate_workspace_tab(id, window, cx);
-                                    }))
+                                        cx.new(|_| WorkspaceDragPreview {
+                                            title: drag_title.clone(),
+                                            dark: drag_dark,
+                                        })
+                                    })
                                     .context_menu(move |menu, _, _| {
-                                        let move_target = label_move_target.clone();
-                                        let first_target = label_first_target.clone();
-                                        let close_target = label_close_target.clone();
-                                        menu.item(PopupMenuItem::new("Move to other pane").on_click(move |_, window, cx| {
-                                            move_target.update(cx, |this, cx| {
-                                                let other = pane.other();
-                                                let at = this.state.workspace.group(other).tabs.len();
-                                                this.move_workspace_tab(id, other, at, window, cx);
-                                            });
-                                        }))
-                                        .item(PopupMenuItem::new("Move to start").on_click(move |_, window, cx| {
-                                            first_target.update(cx, |this, cx| this.move_workspace_tab(id, pane, 0, window, cx));
-                                        }))
-                                        .item(PopupMenuItem::new("Close tab").on_click(move |_, window, cx| {
-                                            close_target.update(cx, |this, cx| this.close_workspace_tab(id, window, cx));
-                                        }))
+                                        workspace_tab_menu(
+                                            menu,
+                                            menu_target.clone(),
+                                            id,
+                                            pane,
+                                            can_duplicate,
+                                        )
                                     }),
                             )
                             .child(
-                                Button::new(format!("workspace-close-{pane:?}-{index}"))
-                                    .ghost()
-                                    .icon(IconName::Close)
-                                    .tooltip("Close tab")
-                                    .accessibility_label("Close tab")
-                                    .on_click(cx.listener(move |this, _, window, cx| {
-                                        this.close_workspace_tab(id, window, cx);
-                                    })),
+                                div()
+                                    .id(format!("workspace-close-{pane:?}-{index}"))
+                                    .flex()
+                                    .items_center()
+                                    .justify_center()
+                                    .size(px(20.))
+                                    .flex_shrink_0()
+                                    .rounded_sm()
+                                    .cursor_pointer()
+                                    .text_color(rgb(colors.secondary))
+                                    .hover(|this| {
+                                        this.bg(rgb(colors.selected)).text_color(rgb(colors.text))
+                                    })
+                                    .aria_label(format!("Close {} tab", title))
+                                    .child(Icon::new(AssetIconName::X).size_3())
+                                    .on_click(move |_, window, cx| {
+                                        close_target.update(cx, |this, cx| {
+                                            this.close_workspace_tab(id, window, cx);
+                                        });
+                                    }),
                             )
-                            .drag_over::<WorkspaceDrag>(|this, _, _, _| {
-                                this.border_l_2().border_color(rgb(0x6ba5e7))
+                            .drag_over::<WorkspaceDrag>(move |this, _, _, _| {
+                                this.border_l_2().border_color(rgb(colors.accent))
                             })
                             .on_drop(move |drag: &WorkspaceDrag, window, cx| {
                                 drop_target.update(cx, |this, cx| {
-                                    this.move_workspace_tab(drag.id, pane, index, window, cx)
+                                    this.move_workspace_tab(drag.id, pane, index, window, cx);
                                 });
                             })
-                            .context_menu(move |menu, _, _| {
-                                let move_target = move_target.clone();
-                                let first_target = first_target.clone();
-                                let close_target = close_target.clone();
-                                menu.item(PopupMenuItem::new("Move to other pane").on_click(move |_, window, cx| {
-                                    move_target.update(cx, |this, cx| {
-                                        let other = pane.other();
-                                        let at = this.state.workspace.group(other).tabs.len();
-                                        this.move_workspace_tab(id, other, at, window, cx);
-                                    });
-                                }))
-                                .item(PopupMenuItem::new("Move to start").on_click(move |_, window, cx| {
-                                    first_target.update(cx, |this, cx| this.move_workspace_tab(id, pane, 0, window, cx));
-                                }))
-                                .item(PopupMenuItem::new("Close tab").on_click(move |_, window, cx| {
-                                    close_target.update(cx, |this, cx| this.close_workspace_tab(id, window, cx));
-                                }))
-                            })
+                    })),
+            )
+            .child(
+                Button::new(format!("new-query-tab-{pane:?}"))
+                    .ghost()
+                    .icon(AssetIconName::Plus)
+                    .tooltip("New query tab in this pane")
+                    .accessibility_label("New query tab in this pane")
+                    .on_click(cx.listener(move |this, _, window, cx| {
+                        this.open_query_tab_in(pane, window, cx);
                     })),
             )
             .child(
                 div()
                     .id(format!("workspace-drop-end-{pane:?}"))
                     .flex_1()
-                    .min_w(px(24.))
+                    .min_w(px(20.))
                     .h_full()
-                    .drag_over::<WorkspaceDrag>(|this, _, _, _| this.bg(rgb(0x35445a)))
+                    .drag_over::<WorkspaceDrag>(move |this, _, _, _| {
+                        this.bg(rgb(colors.selected))
+                    })
                     .on_drop(move |drag: &WorkspaceDrag, window, cx| {
                         target.update(cx, |this, cx| {
-                            this.move_workspace_tab(drag.id, pane, count, window, cx)
+                            this.move_workspace_tab(drag.id, pane, count, window, cx);
                         });
                     }),
             )
-            .when(pane == Pane::Primary, |this| {
-                this.child(
-                    Button::new("new-query-tab")
-                        .ghost()
-                        .icon(AssetIconName::SquarePlus)
-                        .tooltip("New query tab")
-                        .accessibility_label("New query tab")
-                        .on_click(cx.listener(|this, _, window, cx| {
-                            this.open_query_tab(window, cx);
-                        })),
-                )
-            })
             .when(show_split_target, |this| {
                 this.child(
                     div()
@@ -1342,22 +1409,26 @@ impl DesktopView {
                         .flex()
                         .items_center()
                         .h_full()
-                        .drag_over::<WorkspaceDrag>(|this, _, _, _| this.bg(rgb(0x35445a)))
+                        .drag_over::<WorkspaceDrag>(move |this, _, _, _| {
+                            this.bg(rgb(colors.selected))
+                        })
                         .on_drop(move |drag: &WorkspaceDrag, window, cx| {
                             split_target.update(cx, |this, cx| {
-                                this.move_workspace_tab(drag.id, Pane::Secondary, 0, window, cx)
+                                this.move_workspace_tab(drag.id, Pane::Secondary, 0, window, cx);
                             });
                         })
-                        .child(Button::new("workspace-split-active")
-                            .ghost()
-                            .icon(AssetIconName::PanelRight)
-                            .tooltip("Move active tab to a right pane; drop a tab here to split")
-                            .accessibility_label("Move active tab to right pane")
-                            .on_click(cx.listener(|this, _, window, cx| {
-                                if let Some(id) = this.state.workspace.primary.active {
-                                    this.move_workspace_tab(id, Pane::Secondary, 0, window, cx);
-                                }
-                            }))),
+                        .child(
+                            Button::new("workspace-split-active")
+                                .ghost()
+                                .icon(AssetIconName::PanelRight)
+                                .tooltip("Move active tab to a right pane")
+                                .accessibility_label("Move active tab to right pane")
+                                .on_click(cx.listener(|this, _, window, cx| {
+                                    if let Some(id) = this.state.workspace.primary.active {
+                                        this.move_workspace_tab(id, Pane::Secondary, 0, window, cx);
+                                    }
+                                })),
+                        ),
                 )
             })
     }
