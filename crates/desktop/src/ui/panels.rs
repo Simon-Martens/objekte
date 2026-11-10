@@ -16,12 +16,12 @@ use gpui_kit::{
 };
 
 use super::DesktopView;
-use super::workspace::Pane;
 use super::model::{
     BatchSource, DetailOrigin, DetailRow, DetailValueKind, ErrorField, ExportFormat, IndexTaskKind,
     IndexTaskState, TabFreshness, UiAction,
 };
 use super::state::ActionPanel;
+use super::workspace::Pane;
 
 fn copyable_field_path(row: &DetailRow, clipped: bool) -> Option<String> {
     let path = if row.origin == DetailOrigin::Structured {
@@ -33,7 +33,8 @@ fn copyable_field_path(row: &DetailRow, clipped: bool) -> Option<String> {
 }
 
 fn copyable_field_value(row: &DetailRow, clipped: bool) -> Option<String> {
-    if row.expandable || row.value_kind == DetailValueKind::LogicalUnavailable
+    if row.expandable
+        || row.value_kind == DetailValueKind::LogicalUnavailable
         || (clipped && (row.value.is_empty() || row.value.ends_with('…')))
     {
         return None;
@@ -243,25 +244,29 @@ impl DesktopView {
             .flex_shrink_0()
             .relative()
             .bg(rgb(colors.panel))
-            .when(pane == Pane::Secondary, |this| this.border_l_1().border_color(rgb(colors.border)))
-            .when(pane == Pane::Secondary, |this| this.child(
-                div()
-                    .id("inspector-resize")
-                    .absolute()
-                    .left_0()
-                    .top_0()
-                    .h_full()
-                    .w(px(5.))
-                    .cursor_col_resize()
-                    .on_mouse_down(
-                        gpui_kit::MouseButton::Left,
-                        cx.listener(|this, event: &gpui_kit::MouseDownEvent, _, cx| {
-                            this.state.inspector_resize_origin =
-                                Some((f32::from(event.position.x), this.state.inspector_width));
-                            cx.stop_propagation();
-                        }),
-                    ),
-            ))
+            .when(pane == Pane::Secondary, |this| {
+                this.border_l_1().border_color(rgb(colors.border))
+            })
+            .when(pane == Pane::Secondary, |this| {
+                this.child(
+                    div()
+                        .id("inspector-resize")
+                        .absolute()
+                        .left_0()
+                        .top_0()
+                        .h_full()
+                        .w(px(5.))
+                        .cursor_col_resize()
+                        .on_mouse_down(
+                            gpui_kit::MouseButton::Left,
+                            cx.listener(|this, event: &gpui_kit::MouseDownEvent, _, cx| {
+                                this.state.inspector_resize_origin =
+                                    Some((f32::from(event.position.x), this.state.inspector_width));
+                                cx.stop_propagation();
+                            }),
+                        ),
+                )
+            })
             .child(
                 div()
                     .flex()
@@ -419,11 +424,14 @@ impl DesktopView {
                                     .w_full()
                                     .child("Metadata")
                                     .child(div().flex_1())
-                                    .child(Icon::new(if self.state.show_detail_metadata {
-                                        AssetIconName::ChevronDown
-                                    } else {
-                                        AssetIconName::ChevronRight
-                                    }).size_4()),
+                                    .child(
+                                        Icon::new(if self.state.show_detail_metadata {
+                                            AssetIconName::ChevronDown
+                                        } else {
+                                            AssetIconName::ChevronRight
+                                        })
+                                        .size_4(),
+                                    ),
                             )
                             .accessibility_label(format!(
                                 "Metadata: {}",
@@ -610,7 +618,9 @@ impl DesktopView {
                                             .icon(AssetIconName::SquarePlus)
                                             .disabled(!navigation_current || !relation.available)
                                             .tooltip("Open relation in a new record tab")
-                                            .accessibility_label("Open relation in a new record tab")
+                                            .accessibility_label(
+                                                "Open relation in a new record tab",
+                                            )
                                             .on_click(cx.listener(move |this, _, _, _| {
                                                 this.save_tab_view();
                                                 this.send(UiAction::OpenRelationTab(index));
@@ -705,7 +715,11 @@ impl DesktopView {
         };
         let expandable = row.expandable;
         let expanded = row.expanded;
-        let detail_clipped = self.state.detail.as_ref().is_some_and(|detail| detail.clipped);
+        let detail_clipped = self
+            .state
+            .detail
+            .as_ref()
+            .is_some_and(|detail| detail.clipped);
         let copy_path = copyable_field_path(row, detail_clipped);
         let copy_value = copyable_field_value(row, detail_clipped);
         let path_label = if row.origin == DetailOrigin::Structured {
@@ -793,11 +807,14 @@ impl DesktopView {
                         .flex_shrink_0()
                         .pl_1()
                         .text_color(rgb(colors.secondary))
-                        .child(Icon::new(if expanded {
-                            AssetIconName::ChevronDown
-                        } else {
-                            AssetIconName::ChevronRight
-                        }).size_4()),
+                        .child(
+                            Icon::new(if expanded {
+                                AssetIconName::ChevronDown
+                            } else {
+                                AssetIconName::ChevronRight
+                            })
+                            .size_4(),
+                        ),
                 )
             })
             .on_click(cx.listener(move |this, _, window, cx| {
@@ -1273,8 +1290,8 @@ impl DesktopView {
             .child(div().text_sm().child("Search words go in Search. The funnel reveals Filter; the adjacent icon opens Filter Builder. Search and Filter combine with AND, and Filter suggests fields and indexed values."))
             .child(div().text_sm().child("A complete quoted JSON string in Filter runs as a CLI-style text query when Search is empty. Batch accepts one CLI query per line."))
             .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Headers edit SORT BY in Filter. Drag a header edge to resize; right-click it to wrap text. Columns chooses visible fields. Count all requests an exact total."))
-            .child(div().text_sm().child("Ctrl+O: Open · Ctrl+F: Search · Ctrl+L: Filter · F1: Help · Escape: close the nearest panel."))
-            .child(div().text_sm().child("Collections and queries open in tabs. Drag a tab by its grip to reorder it or move it between panes; the tab menu has the same move commands. Click + for a new query tab."))
+            .child(div().text_sm().child("Ctrl+O: Open · Ctrl+F: Search · Ctrl+L: Filter · Ctrl+T: New query · Ctrl+W: Close tab · Ctrl+Tab: Next tab · F1: Help · Escape: close the nearest panel."))
+            .child(div().text_sm().child("Collections and queries open in tabs. Drag the tab label to reorder it or move it between panes; the tab menu has the same move commands. Click + for a new query tab, or middle-click a tab to close it."))
             .child(div().text_sm().child("When queries appear in both panes, the inactive query shows its latest result preview. Activate it to edit or refresh its results."))
             .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to open a record in the right pane."))
             .child(div().text_sm().child("Record tabs retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; Source shows the original record. The inspector Copy icon copies the complete record."))
@@ -1359,8 +1376,14 @@ mod field_copy_tests {
     #[test]
     fn nested_field_copies_full_path_and_scalar_value() {
         let row = row();
-        assert_eq!(copyable_field_path(&row, false).as_deref(), Some("metadata.inner"));
-        assert_eq!(copyable_field_value(&row, false).as_deref(), Some("visible value"));
+        assert_eq!(
+            copyable_field_path(&row, false).as_deref(),
+            Some("metadata.inner")
+        );
+        assert_eq!(
+            copyable_field_value(&row, false).as_deref(),
+            Some("visible value")
+        );
     }
 
     #[test]

@@ -20,14 +20,37 @@ use std::sync::mpsc::Sender;
 use gpui_kit::component::input::{InputEvent, InputState, TextareaState};
 use gpui_kit::component::{Theme, ThemeMode};
 use gpui_kit::{
-    AppContext as _, Context, Entity, FocusHandle, Focusable as _, ListAlignment, ListState,
-    ScrollHandle, Subscription, Window, px,
+    AppContext as _, Context, Entity, FocusHandle, Focusable as _, KeyBinding, ListAlignment,
+    ListState, ScrollHandle, Subscription, Window, px,
 };
 
 use model::{CompletionOrigin, SearchDraft, TabViewState, UiAction, UiUpdate};
 use query_bar::{BuilderEvent, FilterBuilderView};
 use state::UiState;
 use workspace::{Pane, TabId};
+
+gpui_kit::actions!(
+    objekte_workspace,
+    [
+        NewQueryTab,
+        CloseWorkspaceTab,
+        NextWorkspaceTab,
+        PreviousWorkspaceTab
+    ]
+);
+
+pub fn init_keybindings(cx: &mut gpui_kit::App) {
+    cx.bind_keys([
+        KeyBinding::new("ctrl-t", NewQueryTab, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-w", CloseWorkspaceTab, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-tab", NextWorkspaceTab, Some("ObjekteWorkspace")),
+        KeyBinding::new(
+            "ctrl-shift-tab",
+            PreviousWorkspaceTab,
+            Some("ObjekteWorkspace"),
+        ),
+    ]);
+}
 
 /// GPUI input entities owned by one desktop window.
 struct Inputs {
@@ -426,7 +449,12 @@ impl DesktopView {
         cx.notify();
     }
 
-    fn restore_workspace_query(&mut self, draft: SearchDraft, window: &mut Window, cx: &mut Context<Self>) {
+    fn restore_workspace_query(
+        &mut self,
+        draft: SearchDraft,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
         self.restoring_query = true;
         self.suspended_filter = None;
         self.inputs.full_text.update(cx, |input, cx| {
@@ -455,8 +483,15 @@ impl DesktopView {
         self.state.prune_query_snapshots();
         match id {
             TabId::Search(_) => {
-                if let Some(draft) = self.state.workspace.tab(id).and_then(|tab| tab.draft.clone()) {
+                if let Some(draft) = self
+                    .state
+                    .workspace
+                    .tab(id)
+                    .and_then(|tab| tab.draft.clone())
+                {
                     self.restore_workspace_query(draft, window, cx);
+                    let focus = self.inputs.full_text.read(cx).focus_handle(cx);
+                    window.focus(&focus, cx);
                 }
             }
             TabId::Record(id) => {
@@ -467,7 +502,12 @@ impl DesktopView {
         }
     }
 
-    fn open_table_tab(&mut self, collection: Option<String>, window: &mut Window, cx: &mut Context<Self>) {
+    fn open_table_tab(
+        &mut self,
+        collection: Option<String>,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
         self.state.snapshot_current_query();
         let id = self.state.workspace.open_table(collection);
         self.activate_workspace_tab(id, window, cx);
@@ -480,16 +520,22 @@ impl DesktopView {
 
     fn open_query_tab_in(&mut self, pane: Pane, window: &mut Window, cx: &mut Context<Self>) {
         self.state.snapshot_current_query();
-        let id = self.state.workspace.open_query_in(SearchDraft {
-            collection: self.state.search.collection.clone(),
-            ..SearchDraft::default()
-        }, pane);
+        let id = self.state.workspace.open_query_in(
+            SearchDraft {
+                collection: self.state.search.collection.clone(),
+                ..SearchDraft::default()
+            },
+            pane,
+        );
         self.activate_workspace_tab(id, window, cx);
-        let focus = self.inputs.full_text.read(cx).focus_handle(cx);
-        window.focus(&focus, cx);
     }
 
-    fn duplicate_workspace_query(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
+    fn duplicate_workspace_query(
+        &mut self,
+        id: TabId,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
         self.state.snapshot_current_query();
         if let Some(duplicate) = self.state.workspace.duplicate_query(id) {
             self.activate_workspace_tab(duplicate, window, cx);
@@ -507,11 +553,13 @@ impl DesktopView {
             self.send(UiAction::CloseTab(id));
         }
         if self.state.workspace.current_search.is_none() && self.state.root.is_some() {
-            self.state.workspace.open_table(if self.state.single_collection {
-                self.state.collections.first().cloned()
-            } else {
-                None
-            });
+            self.state
+                .workspace
+                .open_table(if self.state.single_collection {
+                    self.state.collections.first().cloned()
+                } else {
+                    None
+                });
         }
         if let Some(next) = pane.and_then(|pane| self.state.workspace.group(pane).active) {
             self.activate_workspace_tab(next, window, cx);
@@ -522,7 +570,14 @@ impl DesktopView {
         }
     }
 
-    fn move_workspace_tab(&mut self, id: TabId, pane: Pane, at: usize, window: &mut Window, cx: &mut Context<Self>) {
+    fn move_workspace_tab(
+        &mut self,
+        id: TabId,
+        pane: Pane,
+        at: usize,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
         let already_current = match id {
             TabId::Search(_) => self.state.workspace.current_search == Some(id),
             TabId::Record(id) => self.state.active_tab == Some(id),

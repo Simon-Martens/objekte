@@ -41,6 +41,7 @@ pub struct WorkspaceTab {
     pub title: String,
     pub draft: Option<SearchDraft>,
     pub search_kind: Option<SearchKind>,
+    pub query_number: Option<u64>,
 }
 
 #[derive(Clone, Debug, Default)]
@@ -54,6 +55,7 @@ pub struct Workspace {
     pub primary: TabGroup,
     pub secondary: TabGroup,
     next_search_id: u64,
+    next_query_number: u64,
     pub current_search: Option<TabId>,
     pub focused_pane: Pane,
     last_active_record: Option<u64>,
@@ -83,6 +85,27 @@ impl Workspace {
     pub fn tab(&self, id: TabId) -> Option<&WorkspaceTab> {
         self.pane_of(id)
             .and_then(|pane| self.group(pane).tabs.iter().find(|tab| tab.id == id))
+    }
+
+    pub fn focused_active_tab(&self) -> Option<TabId> {
+        self.group(self.focused_pane).active
+    }
+
+    pub fn adjacent_tab(&self, reverse: bool) -> Option<TabId> {
+        let group = self.group(self.focused_pane);
+        if group.tabs.is_empty() {
+            return None;
+        }
+        let current = group
+            .active
+            .and_then(|active| group.tabs.iter().position(|tab| tab.id == active))
+            .unwrap_or(0);
+        let next = if reverse {
+            (current + group.tabs.len() - 1) % group.tabs.len()
+        } else {
+            (current + 1) % group.tabs.len()
+        };
+        Some(group.tabs[next].id)
     }
 
     pub fn opened(&mut self, collection: Option<String>) -> TabId {
@@ -136,13 +159,20 @@ impl Workspace {
     fn insert_search(&mut self, draft: SearchDraft, kind: SearchKind, pane: Pane) -> TabId {
         let id = TabId::Search(self.next_search_id);
         self.next_search_id = self.next_search_id.wrapping_add(1);
-        let title = search_title(&draft, kind);
+        let query_number = if kind == SearchKind::Query {
+            self.next_query_number += 1;
+            Some(self.next_query_number)
+        } else {
+            None
+        };
+        let title = search_title(&draft, kind, query_number);
         let group = self.group_mut(pane);
         group.tabs.push(WorkspaceTab {
             id,
             title,
             draft: Some(draft),
             search_kind: Some(kind),
+            query_number,
         });
         group.active = Some(id);
         self.current_search = Some(id);
@@ -168,7 +198,11 @@ impl Workspace {
         {
             tab.search_kind = Some(SearchKind::Query);
         }
-        tab.title = search_title(&draft, tab.search_kind.unwrap_or(SearchKind::Query));
+        tab.title = search_title(
+            &draft,
+            tab.search_kind.unwrap_or(SearchKind::Query),
+            tab.query_number,
+        );
         tab.draft = Some(draft);
     }
 
@@ -276,6 +310,7 @@ impl Workspace {
                     title: record.title.clone(),
                     draft: None,
                     search_kind: None,
+                    query_number: None,
                 });
             }
         }
@@ -288,13 +323,18 @@ impl Workspace {
     }
 }
 
-fn search_title(draft: &SearchDraft, kind: SearchKind) -> String {
+fn search_title(draft: &SearchDraft, kind: SearchKind, query_number: Option<u64>) -> String {
     if kind == SearchKind::Table {
         draft
             .collection
             .clone()
             .unwrap_or_else(|| "All records".into())
     } else {
+        let blank = draft.full_text.trim().is_empty()
+            && (!draft.filter_enabled || draft.structured.trim().is_empty());
+        if blank {
+            return format!("Query {}", query_number.unwrap_or(1));
+        }
         let title = super::preferences::generated_title(draft);
         if title.trim().is_empty() {
             "Query".into()
@@ -362,15 +402,69 @@ mod tests {
     fn duplicate_query_preserves_draft_and_inserts_beside_source() {
         let mut workspace = Workspace::default();
         workspace.opened(None);
-        let original = workspace.open_query_in(SearchDraft {
-            full_text: "orange".into(),
-            ..Default::default()
-        }, Pane::Secondary);
+        let original = workspace.open_query_in(
+            SearchDraft {
+                full_text: "orange".into(),
+                ..Default::default()
+            },
+            Pane::Secondary,
+        );
         let duplicate = workspace.duplicate_query(original).unwrap();
-        assert_eq!(workspace.secondary.tabs.iter().map(|tab| tab.id).collect::<Vec<_>>(), vec![original, duplicate]);
-        assert_eq!(workspace.tab(duplicate).unwrap().draft.as_ref().unwrap().full_text, "orange");
+        assert_eq!(
+            workspace
+                .secondary
+                .tabs
+                .iter()
+                .map(|tab| tab.id)
+                .collect::<Vec<_>>(),
+            vec![original, duplicate]
+        );
+        assert_eq!(
+            workspace
+                .tab(duplicate)
+                .unwrap()
+                .draft
+                .as_ref()
+                .unwrap()
+                .full_text,
+            "orange"
+        );
         assert_eq!(workspace.secondary.active, Some(duplicate));
         assert_eq!(workspace.focused_pane, Pane::Secondary);
+    }
+
+    #[test]
+    fn keyboard_cycle_wraps_within_the_focused_pane() {
+        let mut workspace = Workspace::default();
+        let first = workspace.opened(None);
+        let second = workspace.open_query(SearchDraft::default());
+        let third = workspace.open_query(SearchDraft::default());
+        workspace.activate(first);
+        assert_eq!(workspace.adjacent_tab(false), Some(second));
+        assert_eq!(workspace.adjacent_tab(true), Some(third));
+        workspace.move_tab(third, Pane::Secondary, 0);
+        assert_eq!(workspace.focused_active_tab(), Some(third));
+        assert_eq!(workspace.adjacent_tab(false), Some(third));
+        workspace.activate(second);
+        assert_eq!(workspace.adjacent_tab(false), Some(first));
+    }
+
+    #[test]
+    fn blank_queries_get_distinct_stable_titles() {
+        let mut workspace = Workspace::default();
+        workspace.opened(Some("files".into()));
+        let first = workspace.open_query(SearchDraft::default());
+        let second = workspace.open_query(SearchDraft::default());
+        assert_eq!(workspace.tab(first).unwrap().title, "Query 1");
+        assert_eq!(workspace.tab(second).unwrap().title, "Query 2");
+        workspace.activate(first);
+        workspace.update_current_search(SearchDraft {
+            full_text: "orange".into(),
+            ..Default::default()
+        });
+        assert!(workspace.tab(first).unwrap().title.contains("orange"));
+        workspace.update_current_search(SearchDraft::default());
+        assert_eq!(workspace.tab(first).unwrap().title, "Query 1");
     }
 
     #[test]

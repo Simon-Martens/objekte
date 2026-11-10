@@ -10,18 +10,18 @@ use gpui_kit::component::{
 };
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::{
-    AppContext as _, Context, Entity, Focusable as _, FontWeight, HighlightStyle, InteractiveElement as _,
-    IntoElement, ParentElement as _, Render, StatefulInteractiveElement as _, Styled as _,
-    StyledText, Window, div, list, px, rgb,
+    AppContext as _, Context, Entity, Focusable as _, FontWeight, HighlightStyle,
+    InteractiveElement as _, IntoElement, ParentElement as _, Render,
+    StatefulInteractiveElement as _, Styled as _, StyledText, Window, div, list, px, rgb,
 };
 use objekte_search_core::query::parse_structured_filter;
 
-use super::DesktopView;
 use super::model::{IndexTaskState, UiAction};
 use super::sort;
 use super::state::{ActionPanel, Busy};
 use super::theme::palette;
 use super::workspace::{Pane, SearchKind, TabId};
+use super::{CloseWorkspaceTab, DesktopView, NewQueryTab, NextWorkspaceTab, PreviousWorkspaceTab};
 
 #[derive(Clone)]
 struct WorkspaceDrag {
@@ -36,8 +36,15 @@ struct WorkspaceDragPreview {
 impl Render for WorkspaceDragPreview {
     fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
         let colors = palette(self.dark);
-        div().px_3().py_2().bg(rgb(colors.raised)).text_color(rgb(colors.text))
-            .border_1().border_color(rgb(colors.accent)).rounded_md().child(self.title.clone())
+        div()
+            .px_3()
+            .py_2()
+            .bg(rgb(colors.raised))
+            .text_color(rgb(colors.text))
+            .border_1()
+            .border_color(rgb(colors.accent))
+            .rounded_md()
+            .child(self.title.clone())
     }
 }
 
@@ -119,15 +126,17 @@ fn workspace_tab_menu(
             });
         }),
     )
-    .when(can_duplicate, |menu| menu.item(
-        PopupMenuItem::new("Duplicate query")
-            .icon(AssetIconName::Copy)
-            .on_click(move |_, window, cx| {
-                duplicate_target.update(cx, |this, cx| {
-                    this.duplicate_workspace_query(id, window, cx);
-                });
-            }),
-    ))
+    .when(can_duplicate, |menu| {
+        menu.item(
+            PopupMenuItem::new("Duplicate query")
+                .icon(AssetIconName::Copy)
+                .on_click(move |_, window, cx| {
+                    duplicate_target.update(cx, |this, cx| {
+                        this.duplicate_workspace_query(id, window, cx);
+                    });
+                }),
+        )
+    })
     .separator()
     .item(
         PopupMenuItem::new("Close tab")
@@ -996,22 +1005,30 @@ impl DesktopView {
                                     },
                                 ))
                                 .separator()
-                                .item(PopupMenuItem::new("Copy record ID")
-                                    .icon(AssetIconName::Copy)
-                                    .disabled(record_id.is_none())
-                                    .on_click(move |_, _, cx| {
-                                        if let Some(id) = record_id.clone() {
-                                            cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(id));
-                                        }
-                                    }))
-                                .item(PopupMenuItem::new("Copy file path")
-                                    .icon(AssetIconName::Copy)
-                                    .disabled(file.is_none())
-                                    .on_click(move |_, _, cx| {
-                                        if let Some(file) = file.clone() {
-                                            cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(file));
-                                        }
-                                    }))
+                                .item(
+                                    PopupMenuItem::new("Copy record ID")
+                                        .icon(AssetIconName::Copy)
+                                        .disabled(record_id.is_none())
+                                        .on_click(move |_, _, cx| {
+                                            if let Some(id) = record_id.clone() {
+                                                cx.write_to_clipboard(
+                                                    gpui_kit::ClipboardItem::new_string(id),
+                                                );
+                                            }
+                                        }),
+                                )
+                                .item(
+                                    PopupMenuItem::new("Copy file path")
+                                        .icon(AssetIconName::Copy)
+                                        .disabled(file.is_none())
+                                        .on_click(move |_, _, cx| {
+                                            if let Some(file) = file.clone() {
+                                                cx.write_to_clipboard(
+                                                    gpui_kit::ClipboardItem::new_string(file),
+                                                );
+                                            }
+                                        }),
+                                )
                             }
                         })
                         .into_any_element()
@@ -1233,10 +1250,13 @@ impl DesktopView {
         let group = self.state.workspace.group(pane);
         let active = group.active;
         let tabs = group.tabs.clone();
+        let menu_tabs = tabs.clone();
         let count = tabs.len();
         let target = cx.entity();
+        let menu_target = target.clone();
         let split_target = target.clone();
-        let show_split_target = pane == Pane::Primary && self.state.workspace.secondary.tabs.is_empty();
+        let show_split_target =
+            pane == Pane::Primary && self.state.workspace.secondary.tabs.is_empty();
 
         div()
             .id(format!("workspace-bar-{pane:?}"))
@@ -1286,14 +1306,27 @@ impl DesktopView {
                             .px_2()
                             .rounded_sm()
                             .border_1()
-                            .border_color(rgb(if selected { colors.border } else { colors.raised }))
-                            .bg(rgb(if selected { colors.panel } else { colors.raised }))
+                            .border_color(rgb(if selected {
+                                colors.border
+                            } else {
+                                colors.raised
+                            }))
+                            .bg(rgb(if selected {
+                                colors.panel
+                            } else {
+                                colors.raised
+                            }))
                             .when(!selected, |this| {
                                 this.hover(|this| this.bg(rgb(colors.selected)))
                             })
                             .when(selected, |this| {
                                 this.child(
-                                    div().absolute().top_0().left_1().right_1().h(px(2.))
+                                    div()
+                                        .absolute()
+                                        .top_0()
+                                        .left_1()
+                                        .right_1()
+                                        .h(px(2.))
                                         .bg(rgb(colors.accent)),
                                 )
                             })
@@ -1307,12 +1340,16 @@ impl DesktopView {
                                     .min_w_0()
                                     .flex_1()
                                     .cursor_pointer()
-                                    .aria_label(format!("{} tab: {}", if selected { "Active" } else { "Open" }, title))
-                                    .child(
-                                        Icon::new(icon)
-                                            .size_4()
-                                            .text_color(rgb(if selected { colors.accent } else { colors.secondary })),
-                                    )
+                                    .aria_label(format!(
+                                        "{} tab: {}",
+                                        if selected { "Active" } else { "Open" },
+                                        title
+                                    ))
+                                    .child(Icon::new(icon).size_4().text_color(rgb(if selected {
+                                        colors.accent
+                                    } else {
+                                        colors.secondary
+                                    })))
                                     .child(
                                         div()
                                             .min_w_0()
@@ -1321,7 +1358,11 @@ impl DesktopView {
                                             .whitespace_nowrap()
                                             .text_ellipsis()
                                             .text_sm()
-                                            .text_color(rgb(if selected { colors.text } else { colors.secondary }))
+                                            .text_color(rgb(if selected {
+                                                colors.text
+                                            } else {
+                                                colors.secondary
+                                            }))
                                             .child(title.clone()),
                                     )
                                     .on_click(move |_, window, cx| {
@@ -1329,6 +1370,13 @@ impl DesktopView {
                                             this.activate_workspace_tab(id, window, cx);
                                         });
                                     })
+                                    .on_mouse_down(
+                                        gpui_kit::MouseButton::Middle,
+                                        cx.listener(move |this, _, window, cx| {
+                                            this.close_workspace_tab(id, window, cx);
+                                            cx.stop_propagation();
+                                        }),
+                                    )
                                     .on_drag(WorkspaceDrag { id }, move |_, _, _, cx| {
                                         cx.new(|_| WorkspaceDragPreview {
                                             title: drag_title.clone(),
@@ -1393,15 +1441,45 @@ impl DesktopView {
                     .flex_1()
                     .min_w(px(20.))
                     .h_full()
-                    .drag_over::<WorkspaceDrag>(move |this, _, _, _| {
-                        this.bg(rgb(colors.selected))
-                    })
+                    .drag_over::<WorkspaceDrag>(move |this, _, _, _| this.bg(rgb(colors.selected)))
                     .on_drop(move |drag: &WorkspaceDrag, window, cx| {
                         target.update(cx, |this, cx| {
                             this.move_workspace_tab(drag.id, pane, count, window, cx);
                         });
                     }),
             )
+            .when(count > if pane == Pane::Primary { 4 } else { 1 }, |this| {
+                this.child(
+                    Button::new(format!("workspace-open-tabs-{pane:?}"))
+                        .ghost()
+                        .icon(AssetIconName::List)
+                        .tooltip("Open tabs in this pane")
+                        .accessibility_label("Open tabs in this pane")
+                        .dropdown_menu(move |menu, _, _| {
+                            menu_tabs.iter().fold(menu, |menu, tab| {
+                                let id = tab.id;
+                                let select_target = menu_target.clone();
+                                let icon = match (id, tab.search_kind) {
+                                    (TabId::Record(_), _) => AssetIconName::FileText,
+                                    (TabId::Search(_), Some(SearchKind::Table)) => {
+                                        AssetIconName::Table2
+                                    }
+                                    _ => AssetIconName::Search,
+                                };
+                                menu.item(
+                                    PopupMenuItem::new(tab.title.clone())
+                                        .icon(icon)
+                                        .checked(active == Some(id))
+                                        .on_click(move |_, window, cx| {
+                                            select_target.update(cx, |this, cx| {
+                                                this.activate_workspace_tab(id, window, cx);
+                                            });
+                                        }),
+                                )
+                            })
+                        }),
+                )
+            })
             .when(show_split_target, |this| {
                 this.child(
                     div()
@@ -1438,12 +1516,21 @@ impl DesktopView {
         let tab = self.state.workspace.tab(id);
         let title = tab.map_or("Query".to_string(), |tab| tab.title.clone());
         let draft = tab.and_then(|tab| tab.draft.as_ref());
-        let scope = draft.and_then(|draft| draft.collection.as_deref()).unwrap_or("All collections").to_string();
-        let expression = draft.map(|draft| {
-            if !draft.full_text.is_empty() { draft.full_text.clone() }
-            else if draft.filter_enabled { draft.structured.clone() }
-            else { "All records".into() }
-        }).unwrap_or_default();
+        let scope = draft
+            .and_then(|draft| draft.collection.as_deref())
+            .unwrap_or("All collections")
+            .to_string();
+        let expression = draft
+            .map(|draft| {
+                if !draft.full_text.is_empty() {
+                    draft.full_text.clone()
+                } else if draft.filter_enabled {
+                    draft.structured.clone()
+                } else {
+                    "All records".into()
+                }
+            })
+            .unwrap_or_default();
         let snapshot = match id {
             TabId::Search(id) => self.state.query_snapshots.get(&id),
             TabId::Record(_) => None,
@@ -1451,137 +1538,359 @@ impl DesktopView {
         let mut columns = Vec::new();
         if let Some(snapshot) = snapshot {
             for preferred in ["@id", "name", "@match", "description"] {
-                if let Some(index) = snapshot.columns.iter().position(|column| column == preferred) {
+                if let Some(index) = snapshot
+                    .columns
+                    .iter()
+                    .position(|column| column == preferred)
+                {
                     columns.push(index);
                 }
-                if columns.len() == 3 { break; }
+                if columns.len() == 3 {
+                    break;
+                }
             }
             for (index, column) in snapshot.columns.iter().enumerate() {
-                if columns.len() == 3 { break; }
+                if columns.len() == 3 {
+                    break;
+                }
                 if column != "@status" && !columns.contains(&index) {
                     columns.push(index);
                 }
             }
         }
-        let headers = snapshot.map(|snapshot| columns.iter().map(|index| {
-            sort::column_label(&snapshot.columns[*index]).to_owned()
-        }).collect::<Vec<_>>()).unwrap_or_default();
-        let rows = snapshot.map(|snapshot| snapshot.rows.iter().map(|row| {
-            columns.iter().map(|index| row.cells.get(*index).cloned().unwrap_or_default())
-                .collect::<Vec<_>>()
-        }).collect::<Vec<_>>()).unwrap_or_default();
+        let headers = snapshot
+            .map(|snapshot| {
+                columns
+                    .iter()
+                    .map(|index| sort::column_label(&snapshot.columns[*index]).to_owned())
+                    .collect::<Vec<_>>()
+            })
+            .unwrap_or_default();
+        let rows = snapshot
+            .map(|snapshot| {
+                snapshot
+                    .rows
+                    .iter()
+                    .map(|row| {
+                        columns
+                            .iter()
+                            .map(|index| row.cells.get(*index).cloned().unwrap_or_default())
+                            .collect::<Vec<_>>()
+                    })
+                    .collect::<Vec<_>>()
+            })
+            .unwrap_or_default();
         let count = snapshot.and_then(|snapshot| snapshot.exact_total);
-        div().flex().flex_col().flex_1().min_h_0().min_w_0().bg(rgb(colors.panel))
-            .child(div().flex().items_center().gap_3().h(px(56.)).px_3()
-                .border_b_1().border_color(rgb(colors.border))
-                .child(div().flex_1().min_w_0().flex().flex_col()
-                    .child(div().min_w_0().overflow_hidden().whitespace_nowrap().text_ellipsis()
-                        .font_weight(FontWeight::SEMIBOLD).child(title))
-                    .child(div().min_w_0().overflow_hidden().whitespace_nowrap().text_ellipsis()
-                        .text_xs().text_color(rgb(colors.secondary))
-                        .child(format!("{scope} · {expression}"))))
-                .child(Button::new(format!("activate-query-{id:?}"))
-                    .ghost().label("Activate query")
-                    .tooltip("Restore the editor and refresh results")
-                    .on_click(cx.listener(move |this, _, window, cx| {
-                        this.activate_workspace_tab(id, window, cx);
-                    }))))
-            .child(div().flex().items_center().h(px(30.)).px_3()
-                .text_xs().text_color(rgb(colors.secondary))
-                .child(if snapshot.is_some() { "Result preview" } else { "Activate to load results" }))
-            .when(!headers.is_empty(), |this| this.child(
-                div().flex().h(px(32.)).items_center().bg(rgb(colors.raised))
-                    .border_b_1().border_color(rgb(colors.border))
-                    .children(headers.into_iter().map(|header| {
-                        div().flex_1().min_w_0().px_3().text_xs()
-                            .overflow_hidden().whitespace_nowrap().text_ellipsis()
-                            .text_color(rgb(colors.secondary)).child(header)
-                    }))))
-            .child(div().flex().flex_col().flex_1().min_h_0().overflow_y_scrollbar()
-                .children(rows.into_iter().map(|cells| {
-                    div().flex().items_center().h(px(36.)).flex_shrink_0()
-                        .border_b_1().border_color(rgb(colors.border))
-                        .children(cells.into_iter().map(|cell| {
-                            div().flex_1().min_w_0().overflow_hidden().whitespace_nowrap()
-                                .text_ellipsis().px_3().text_sm().child(cell)
-                        }))
-                })))
-            .when_some(count, |this, count| this.child(
-                div().h(px(32.)).px_3().border_t_1().border_color(rgb(colors.border))
-                    .text_xs().text_color(rgb(colors.secondary))
-                    .child(format!("{count} matches"))))
+        div()
+            .flex()
+            .flex_col()
+            .flex_1()
+            .min_h_0()
+            .min_w_0()
+            .bg(rgb(colors.panel))
+            .child(
+                div()
+                    .flex()
+                    .items_center()
+                    .gap_3()
+                    .h(px(56.))
+                    .px_3()
+                    .border_b_1()
+                    .border_color(rgb(colors.border))
+                    .child(
+                        div()
+                            .flex_1()
+                            .min_w_0()
+                            .flex()
+                            .flex_col()
+                            .child(
+                                div()
+                                    .min_w_0()
+                                    .overflow_hidden()
+                                    .whitespace_nowrap()
+                                    .text_ellipsis()
+                                    .font_weight(FontWeight::SEMIBOLD)
+                                    .child(title),
+                            )
+                            .child(
+                                div()
+                                    .min_w_0()
+                                    .overflow_hidden()
+                                    .whitespace_nowrap()
+                                    .text_ellipsis()
+                                    .text_xs()
+                                    .text_color(rgb(colors.secondary))
+                                    .child(format!("{scope} · {expression}")),
+                            ),
+                    )
+                    .child(
+                        Button::new(format!("activate-query-{id:?}"))
+                            .ghost()
+                            .label("Activate query")
+                            .tooltip("Restore the editor and refresh results")
+                            .on_click(cx.listener(move |this, _, window, cx| {
+                                this.activate_workspace_tab(id, window, cx);
+                            })),
+                    ),
+            )
+            .child(
+                div()
+                    .flex()
+                    .items_center()
+                    .h(px(30.))
+                    .px_3()
+                    .text_xs()
+                    .text_color(rgb(colors.secondary))
+                    .child(if snapshot.is_some() {
+                        "Result preview"
+                    } else {
+                        "Activate to load results"
+                    }),
+            )
+            .when(!headers.is_empty(), |this| {
+                this.child(
+                    div()
+                        .flex()
+                        .h(px(32.))
+                        .items_center()
+                        .bg(rgb(colors.raised))
+                        .border_b_1()
+                        .border_color(rgb(colors.border))
+                        .children(headers.into_iter().map(|header| {
+                            div()
+                                .flex_1()
+                                .min_w_0()
+                                .px_3()
+                                .text_xs()
+                                .overflow_hidden()
+                                .whitespace_nowrap()
+                                .text_ellipsis()
+                                .text_color(rgb(colors.secondary))
+                                .child(header)
+                        })),
+                )
+            })
+            .child(
+                div()
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .min_h_0()
+                    .overflow_y_scrollbar()
+                    .children(rows.into_iter().map(|cells| {
+                        div()
+                            .flex()
+                            .items_center()
+                            .h(px(36.))
+                            .flex_shrink_0()
+                            .border_b_1()
+                            .border_color(rgb(colors.border))
+                            .children(cells.into_iter().map(|cell| {
+                                div()
+                                    .flex_1()
+                                    .min_w_0()
+                                    .overflow_hidden()
+                                    .whitespace_nowrap()
+                                    .text_ellipsis()
+                                    .px_3()
+                                    .text_sm()
+                                    .child(cell)
+                            }))
+                    })),
+            )
+            .when_some(count, |this, count| {
+                this.child(
+                    div()
+                        .h(px(32.))
+                        .px_3()
+                        .border_t_1()
+                        .border_color(rgb(colors.border))
+                        .text_xs()
+                        .text_color(rgb(colors.secondary))
+                        .child(format!("{count} matches")),
+                )
+            })
     }
 
     fn render_record_snapshot(&self, id: u64, cx: &mut Context<Self>) -> impl IntoElement {
         let colors = palette(self.state.dark);
         let detail = self.state.record_detail_snapshots.get(&id);
-        let title = detail.map_or_else(|| "Record loading".to_string(), |detail| detail.title.clone());
+        let title = detail.map_or_else(
+            || "Record loading".to_string(),
+            |detail| detail.title.clone(),
+        );
         let fields = detail.map_or_else(Vec::new, |detail| {
-            detail.structured.iter().map(|row| (row.label.clone(), row.value.clone())).collect::<Vec<_>>()
+            detail
+                .structured
+                .iter()
+                .map(|row| (row.label.clone(), row.value.clone()))
+                .collect::<Vec<_>>()
         });
-        div().flex().flex_col().flex_1().min_h_0().bg(rgb(colors.panel))
-            .child(div().flex().items_center().h(px(40.)).px_3().border_b_1().border_color(rgb(colors.border))
-                .child(div().flex_1().font_weight(FontWeight::SEMIBOLD).child(title))
-                .child(Button::new(format!("activate-record-{id}"))
-                    .ghost().label("Activate")
-                    .on_click(cx.listener(move |this, _, window, cx| {
-                        this.activate_workspace_tab(TabId::Record(id), window, cx);
-                    }))))
-            .child(div().flex().flex_col().min_h_0().overflow_y_scrollbar()
-                .children(fields.into_iter().map(|(label, value)| {
-                    div().flex().gap_3().px_3().py_2().border_b_1().border_color(rgb(colors.border))
-                        .child(div().w(px(130.)).flex_shrink_0().text_color(rgb(colors.secondary)).child(label))
-                        .child(div().flex_1().child(value))
-                })))
+        div()
+            .flex()
+            .flex_col()
+            .flex_1()
+            .min_h_0()
+            .bg(rgb(colors.panel))
+            .child(
+                div()
+                    .flex()
+                    .items_center()
+                    .h(px(40.))
+                    .px_3()
+                    .border_b_1()
+                    .border_color(rgb(colors.border))
+                    .child(
+                        div()
+                            .flex_1()
+                            .font_weight(FontWeight::SEMIBOLD)
+                            .child(title),
+                    )
+                    .child(
+                        Button::new(format!("activate-record-{id}"))
+                            .ghost()
+                            .label("Activate")
+                            .on_click(cx.listener(move |this, _, window, cx| {
+                                this.activate_workspace_tab(TabId::Record(id), window, cx);
+                            })),
+                    ),
+            )
+            .child(
+                div()
+                    .flex()
+                    .flex_col()
+                    .min_h_0()
+                    .overflow_y_scrollbar()
+                    .children(fields.into_iter().map(|(label, value)| {
+                        div()
+                            .flex()
+                            .gap_3()
+                            .px_3()
+                            .py_2()
+                            .border_b_1()
+                            .border_color(rgb(colors.border))
+                            .child(
+                                div()
+                                    .w(px(130.))
+                                    .flex_shrink_0()
+                                    .text_color(rgb(colors.secondary))
+                                    .child(label),
+                            )
+                            .child(div().flex_1().child(value))
+                    })),
+            )
     }
 
     fn render_workspace_content(&self, pane: Pane, cx: &mut Context<Self>) -> gpui_kit::AnyElement {
         match self.state.workspace.group(pane).active {
-            Some(id @ TabId::Search(_)) if self.state.workspace.current_search == Some(id) => {
-                div().flex().flex_col().flex_1().min_h_0().min_w_0()
-                    .child(self.render_query_bar(cx)).child(self.render_grid(cx)).into_any_element()
-            }
+            Some(id @ TabId::Search(_)) if self.state.workspace.current_search == Some(id) => div()
+                .flex()
+                .flex_col()
+                .flex_1()
+                .min_h_0()
+                .min_w_0()
+                .child(self.render_query_bar(cx))
+                .child(self.render_grid(cx))
+                .into_any_element(),
             Some(id @ TabId::Search(_)) => self.render_inactive_query(id, cx).into_any_element(),
-            Some(TabId::Record(id)) if self.state.active_tab == Some(id) => self.render_detail(pane, cx).into_any_element(),
+            Some(TabId::Record(id)) if self.state.active_tab == Some(id) => {
+                self.render_detail(pane, cx).into_any_element()
+            }
             Some(TabId::Record(id)) => self.render_record_snapshot(id, cx).into_any_element(),
-            None => div().flex().flex_1().items_center().justify_center()
-                .child("Drag a tab here").into_any_element(),
+            None => div()
+                .flex()
+                .flex_1()
+                .items_center()
+                .justify_center()
+                .child("Drag a tab here")
+                .into_any_element(),
         }
     }
 
     fn render_workspace_group(&self, pane: Pane, cx: &mut Context<Self>) -> impl IntoElement {
-        div().flex().flex_col().flex_1().min_w_0().min_h_0()
+        let target = cx.entity();
+        let end = self.state.workspace.group(pane).tabs.len();
+        let colors = palette(self.state.dark);
+        div()
+            .flex()
+            .flex_col()
+            .flex_1()
+            .min_w_0()
+            .min_h_0()
             .child(self.render_workspace_bar(pane, cx))
-            .child(self.render_workspace_content(pane, cx))
+            .child(
+                div()
+                    .id(format!("workspace-content-drop-{pane:?}"))
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .min_w_0()
+                    .min_h_0()
+                    .drag_over::<WorkspaceDrag>(move |this, _, _, _| {
+                        this.border_2().border_color(rgb(colors.accent))
+                    })
+                    .on_drop(move |drag: &WorkspaceDrag, window, cx| {
+                        target.update(cx, |this, cx| {
+                            this.move_workspace_tab(drag.id, pane, end, window, cx);
+                        });
+                    })
+                    .child(self.render_workspace_content(pane, cx)),
+            )
     }
 
     fn render_workspace(&self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         let right = self.state.workspace.group(Pane::Secondary);
         let right_width = if matches!(right.active, Some(TabId::Record(_))) {
             self.state.inspector_width
-        } else { self.state.secondary_query_width };
+        } else {
+            self.state.secondary_query_width
+        };
         let available = f32::from(window.bounds().size.width)
             - if self.state.sidebar_visible { 220. } else { 0. }
             - 320.;
         let right_width = right_width.min(available.max(300.));
         let right_is_query = matches!(right.active, Some(TabId::Search(_)));
-        div().flex().flex_1().min_h_0().min_w_0()
+        div()
+            .flex()
+            .flex_1()
+            .min_h_0()
+            .min_w_0()
             .child(self.render_workspace_group(Pane::Primary, cx))
             .when(!right.tabs.is_empty(), |this| {
-                this.child(div().flex().flex_col().relative().min_h_0().w(px(right_width)).flex_shrink_0()
-                    .child(self.render_workspace_group(Pane::Secondary, cx))
-                    .when(right_is_query, |this| this.child(
-                        div().id("secondary-query-resize").absolute().left_0().top_0()
-                            .h_full().w(px(5.)).cursor_col_resize()
-                            .on_mouse_down(gpui_kit::MouseButton::Left,
-                                cx.listener(|this, event: &gpui_kit::MouseDownEvent, _, cx| {
-                                    this.state.secondary_resize_origin = Some((
-                                        f32::from(event.position.x), this.state.secondary_query_width,
-                                    ));
-                                    cx.stop_propagation();
-                                }),
-                            ),
-                    )))
+                this.child(
+                    div()
+                        .flex()
+                        .flex_col()
+                        .relative()
+                        .min_h_0()
+                        .w(px(right_width))
+                        .flex_shrink_0()
+                        .child(self.render_workspace_group(Pane::Secondary, cx))
+                        .when(right_is_query, |this| {
+                            this.child(
+                                div()
+                                    .id("secondary-query-resize")
+                                    .absolute()
+                                    .left_0()
+                                    .top_0()
+                                    .h_full()
+                                    .w(px(5.))
+                                    .cursor_col_resize()
+                                    .on_mouse_down(
+                                        gpui_kit::MouseButton::Left,
+                                        cx.listener(
+                                            |this, event: &gpui_kit::MouseDownEvent, _, cx| {
+                                                this.state.secondary_resize_origin = Some((
+                                                    f32::from(event.position.x),
+                                                    this.state.secondary_query_width,
+                                                ));
+                                                cx.stop_propagation();
+                                            },
+                                        ),
+                                    ),
+                            )
+                        }),
+                )
             })
     }
 }
@@ -1601,7 +1910,8 @@ impl Render for DesktopView {
                     }
                     if let Some((start_x, start_width)) = this.state.secondary_resize_origin {
                         let distance = start_x - f32::from(event.position.x);
-                        this.state.secondary_query_width = (start_width + distance).clamp(420., 1000.);
+                        this.state.secondary_query_width =
+                            (start_width + distance).clamp(420., 1000.);
                         cx.notify();
                     }
                     if let Some((column, start_x, start_width)) = &this.state.column_resize_origin {
@@ -1714,6 +2024,25 @@ impl Render for DesktopView {
                     cx.notify();
                 }),
             )
+            .key_context("ObjekteWorkspace")
+            .on_action(cx.listener(|this, _: &NewQueryTab, window, cx| {
+                this.open_query_tab(window, cx);
+            }))
+            .on_action(cx.listener(|this, _: &CloseWorkspaceTab, window, cx| {
+                if let Some(id) = this.state.workspace.focused_active_tab() {
+                    this.close_workspace_tab(id, window, cx);
+                }
+            }))
+            .on_action(cx.listener(|this, _: &NextWorkspaceTab, window, cx| {
+                if let Some(id) = this.state.workspace.adjacent_tab(false) {
+                    this.activate_workspace_tab(id, window, cx);
+                }
+            }))
+            .on_action(cx.listener(|this, _: &PreviousWorkspaceTab, window, cx| {
+                if let Some(id) = this.state.workspace.adjacent_tab(true) {
+                    this.activate_workspace_tab(id, window, cx);
+                }
+            }))
             .flex()
             .flex_col()
             .size_full()
@@ -1733,8 +2062,12 @@ impl Render for DesktopView {
                         self.state.root.is_some() && self.state.sidebar_visible,
                         |this| this.child(self.render_sidebar(cx)),
                     )
-                    .when(self.state.root.is_some(), |this| this.child(self.render_workspace(window, cx)))
-                    .when(self.state.root.is_none(), |this| this.child(self.render_grid(cx))),
+                    .when(self.state.root.is_some(), |this| {
+                        this.child(self.render_workspace(window, cx))
+                    })
+                    .when(self.state.root.is_none(), |this| {
+                        this.child(self.render_grid(cx))
+                    }),
             )
             .when(self.state.show_filter_builder, |this| {
                 this.child(self.render_builder_overlay())
