@@ -70,11 +70,8 @@ pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
     .into_iter()
     .find(|operator| before.ends_with(operator));
     if let Some(operator) = operator {
-        let field = before[..before.len() - operator.len()]
-            .trim_end()
-            .rsplit(|ch: char| ch.is_whitespace() || matches!(ch, '(' | ')' | '&' | '|'))
-            .next()
-            .unwrap_or("");
+        let operand = before[..before.len() - operator.len()].trim_end();
+        let field = &operand[token_start(operand, operand.len())..];
         if !field.is_empty() {
             return Some(CompletionContext {
                 replace: start..end,
@@ -369,6 +366,15 @@ mod tests {
         let found = context(field, caret).unwrap();
         assert_eq!(found.replace, 0..10);
         assert_eq!(found.target, CompletionTarget::Field { sort: false });
+
+        let nested_value = "name = 'x' && foo['a b'] ~ 'Al";
+        let found = context(nested_value, nested_value.len()).unwrap();
+        assert_eq!(
+            found.target,
+            CompletionTarget::Value {
+                field: "foo['a b']".into()
+            }
+        );
     }
 
     #[test]
