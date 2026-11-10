@@ -555,6 +555,9 @@ impl DesktopView {
     }
 
     fn open_query_tab_in(&mut self, pane: Pane, window: &mut Window, cx: &mut Context<Self>) {
+        if self.state.root.is_none() {
+            return;
+        }
         self.state.snapshot_current_query();
         let id = self.state.workspace.open_query_in(
             SearchDraft {

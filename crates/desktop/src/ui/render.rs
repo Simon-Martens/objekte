@@ -310,6 +310,7 @@ impl DesktopView {
                     self.state.filter_validation,
                     Some(super::model::FilterValidationState::Valid)
                 );
+                let has_repository = self.state.root.is_some();
                 let dark = self.state.dark;
                 Button::new("actions-panel")
                     .icon(IconName::Menu)
@@ -325,6 +326,7 @@ impl DesktopView {
                         menu.item(
                             PopupMenuItem::new("New query tab")
                                 .icon(AssetIconName::SquarePlus)
+                                .disabled(!has_repository)
                                 .on_click(move |_, window, cx| {
                                     new_query_target.update(cx, |this, cx| {
                                         this.open_query_tab(window, cx);
