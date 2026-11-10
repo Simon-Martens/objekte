@@ -75,47 +75,24 @@ fn copyable_field_value(row: &DetailRow, clipped: bool) -> Option<String> {
 }
 
 impl DesktopView {
-    pub(super) fn render_batch(&self, cx: &mut Context<Self>) -> impl IntoElement {
+    pub(super) fn render_batch(
+        &self,
+        window_width: f32,
+        window_height: f32,
+        cx: &mut Context<Self>,
+    ) -> impl IntoElement {
         let error = self.state.errors.get(&ErrorField::Batch).cloned();
         let rows = self.state.batch.clone();
         let outcome = self.state.batch_outcome.clone();
-        div()
-            .id("batch-panel")
-            .absolute()
-            .top(px(100.))
-            .left(px(300.))
-            .w(px(640.))
-            .max_h(px(600.))
+        let panel_height = (window_height - 60.).clamp(100., 600.);
+        let content = div()
+            .id("batch-body")
             .flex()
             .flex_col()
             .gap_2()
-            .p_3()
-            .bg(rgb(super::theme::palette(self.state.dark).panel))
-            .border_1()
-            .border_color(rgb(super::theme::palette(self.state.dark).border))
-            .rounded_md()
-            .child(
-                div()
-                    .flex()
-                    .items_center()
-                    .child(
-                        div()
-                            .flex_1()
-                            .font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                            .child("Run query batch"),
-                    )
-                    .child(
-                        Button::new("batch-close")
-                            .ghost()
-                            .icon(IconName::Close)
-                            .tooltip("Close batch view")
-                            .accessibility_label("Close batch view")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.show_batch = false;
-                                cx.notify();
-                            })),
-                    ),
-            )
+            .max_h(px((panel_height - 64.).clamp(40., 530.)))
+            .track_scroll(&self.batch_scroll)
+            .overflow_y_scrollbar()
             .child(
                 div()
                     .text_sm()
@@ -225,7 +202,45 @@ impl DesktopView {
                             row.error.unwrap_or(row.status)
                         ))
                     })),
+            );
+        div()
+            .id("batch-panel")
+            .absolute()
+            .top(px(48.))
+            .right(px(8.))
+            .w(px((window_width - 16.).clamp(300., 640.)))
+            .max_h(px(panel_height))
+            .flex()
+            .flex_col()
+            .gap_2()
+            .p_3()
+            .bg(rgb(super::theme::palette(self.state.dark).panel))
+            .border_1()
+            .border_color(rgb(super::theme::palette(self.state.dark).border))
+            .rounded_md()
+            .child(
+                div()
+                    .flex()
+                    .items_center()
+                    .child(
+                        div()
+                            .flex_1()
+                            .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                            .child("Run query batch"),
+                    )
+                    .child(
+                        Button::new("batch-close")
+                            .ghost()
+                            .icon(IconName::Close)
+                            .tooltip("Close batch view")
+                            .accessibility_label("Close batch view")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_batch = false;
+                                cx.notify();
+                            })),
+                    ),
             )
+            .child(content)
     }
 
     pub(super) fn render_detail(

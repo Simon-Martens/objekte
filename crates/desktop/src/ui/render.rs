@@ -2380,9 +2380,6 @@ impl Render for DesktopView {
             .font_family(super::typography::SANS)
             .text_color(rgb(colors.text))
             .child(self.render_header(cx))
-            .when(self.state.show_batch, |this| {
-                this.child(self.render_batch(cx))
-            })
             .child(
                 div()
                     .flex()
@@ -2399,6 +2396,9 @@ impl Render for DesktopView {
                         this.child(self.render_grid(cx))
                     }),
             )
+            .when(self.state.show_batch, |this| {
+                this.child(self.render_batch(width, height, cx))
+            })
             .when(self.state.show_filter_builder, |this| {
                 this.child(self.render_builder_overlay(width, height))
             })
