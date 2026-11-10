@@ -2,6 +2,45 @@ use super::*;
 use crate::ui::model::{ResultRow, RowKey};
 
 #[test]
+fn open_record_previews_survive_tab_moves_and_prune_on_close() {
+    use crate::ui::workspace::{Pane, TabId};
+
+    let tab = |id| RecordTabSummary {
+        id,
+        title: format!("files / path:{id}.json"),
+        identity: format!("files / path:{id}.json"),
+        position: id as usize + 1,
+        can_back: false,
+        can_previous: false,
+        can_next: false,
+        loading: false,
+        links_loading: false,
+        freshness: Default::default(),
+    };
+    let mut state = UiState::default();
+    state.workspace.opened(Some("files".into()));
+    state.apply(UiUpdate::Tabs { tabs: vec![tab(0)], active: Some(0) });
+    state.apply(UiUpdate::Detail(Some(DetailView { title: "record zero".into(), ..DetailView::default() })));
+    state.apply(UiUpdate::Tabs { tabs: vec![tab(0), tab(1)], active: Some(1) });
+    state.apply(UiUpdate::Detail(Some(DetailView { title: "record one".into(), ..DetailView::default() })));
+    assert!(state.workspace.move_tab(TabId::Record(1), Pane::Primary, 1));
+    state.prune_record_snapshots();
+    assert_eq!(state.record_detail_snapshots.get(&0).unwrap().title, "record zero");
+    assert_eq!(state.record_detail_snapshots.get(&1).unwrap().title, "record one");
+    assert!(state.workspace.close(TabId::Record(0)));
+    state.prune_record_snapshots();
+    assert!(!state.record_detail_snapshots.contains_key(&0));
+}
+
+#[test]
+fn record_preview_caps_large_text() {
+    let preview = RecordPreview::from_detail(&DetailView { title: "🙂".repeat(20_000), ..DetailView::default() });
+    assert!(preview.clipped);
+    assert!(preview.title.len() <= 1024);
+    assert!(preview.title.is_char_boundary(preview.title.len()));
+}
+
+#[test]
 fn visible_query_preview_survives_new_tab_and_cache_stays_bounded() {
     let mut state = UiState::default();
     let first = state.workspace.opened(None);

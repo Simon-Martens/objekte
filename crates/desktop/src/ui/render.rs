@@ -1736,18 +1736,19 @@ impl DesktopView {
 
     fn render_record_snapshot(&self, id: u64, cx: &mut Context<Self>) -> impl IntoElement {
         let colors = palette(self.state.dark);
-        let detail = self.state.record_detail_snapshots.get(&id);
-        let title = detail.map_or_else(
-            || "Record loading".to_string(),
-            |detail| detail.title.clone(),
+        let preview = self.state.record_detail_snapshots.get(&id);
+        let title = preview.map_or_else(
+            || {
+                self.state
+                    .workspace
+                    .tab(TabId::Record(id))
+                    .map_or_else(|| "Record preview".to_string(), |tab| tab.title.clone())
+            },
+            |preview| preview.title.clone(),
         );
-        let fields = detail.map_or_else(Vec::new, |detail| {
-            detail
-                .structured
-                .iter()
-                .map(|row| (row.label.clone(), row.value.clone()))
-                .collect::<Vec<_>>()
-        });
+        let fields = preview.map_or_else(Vec::new, |preview| preview.fields.clone());
+        let clipped = preview.is_some_and(|preview| preview.clipped);
+        let missing = preview.is_none();
         div()
             .flex()
             .flex_col()
@@ -1765,6 +1766,10 @@ impl DesktopView {
                     .child(
                         div()
                             .flex_1()
+                            .min_w_0()
+                            .overflow_hidden()
+                            .whitespace_nowrap()
+                            .text_ellipsis()
                             .font_weight(FontWeight::SEMIBOLD)
                             .child(title),
                     )
@@ -1777,10 +1782,20 @@ impl DesktopView {
                             })),
                     ),
             )
+            .when(missing, |this| {
+                this.child(
+                    div()
+                        .px_3()
+                        .py_3()
+                        .text_color(rgb(colors.secondary))
+                        .child("Activate to load this record."),
+                )
+            })
             .child(
                 div()
                     .flex()
                     .flex_col()
+                    .flex_1()
                     .min_h_0()
                     .overflow_y_scrollbar()
                     .children(fields.into_iter().map(|(label, value)| {
@@ -1798,9 +1813,19 @@ impl DesktopView {
                                     .text_color(rgb(colors.secondary))
                                     .child(label),
                             )
-                            .child(div().flex_1().child(value))
+                            .child(div().flex_1().min_w_0().whitespace_normal().child(value))
                     })),
             )
+            .when(clipped, |this| {
+                this.child(
+                    div()
+                        .px_3()
+                        .py_2()
+                        .text_xs()
+                        .text_color(rgb(colors.secondary))
+                        .child("Preview is shortened. Activate for full details."),
+                )
+            })
     }
 
     fn render_workspace_content(&self, pane: Pane, cx: &mut Context<Self>) -> gpui_kit::AnyElement {

@@ -23,6 +23,54 @@ pub struct QuerySnapshot {
     pub exact_total: Option<usize>,
 }
 
+/// Lightweight content retained for open record tabs shown beside the live inspector.
+#[derive(Clone, Debug, Default)]
+pub struct RecordPreview {
+    pub title: String,
+    pub fields: Vec<(String, String)>,
+    pub clipped: bool,
+}
+
+impl RecordPreview {
+    fn from_detail(detail: &DetailView) -> Self {
+        const PREVIEW_ROWS: usize = 128;
+        const PREVIEW_BYTES: usize = 64 * 1024;
+        const PREVIEW_CELL_BYTES: usize = 1024;
+
+        fn bounded_text(text: &str, budget: &mut usize, cell_limit: usize) -> (String, bool) {
+            let limit = (*budget).min(cell_limit);
+            let end = text
+                .char_indices()
+                .map(|(offset, character)| offset + character.len_utf8())
+                .take_while(|end| *end <= limit)
+                .last()
+                .unwrap_or(0);
+            *budget -= end;
+            (text[..end].to_owned(), end < text.len())
+        }
+
+        let mut budget = PREVIEW_BYTES;
+        let (title, title_clipped) = bounded_text(&detail.title, &mut budget, PREVIEW_CELL_BYTES);
+        let mut preview = Self {
+            title,
+            fields: Vec::with_capacity(detail.structured.len().min(PREVIEW_ROWS)),
+            clipped: detail.clipped || title_clipped || detail.structured.len() > PREVIEW_ROWS,
+        };
+        for row in detail.structured.iter().take(PREVIEW_ROWS) {
+            if budget == 0 {
+                preview.clipped = true;
+                break;
+            }
+            let (label, label_clipped) = bounded_text(&row.label, &mut budget, PREVIEW_CELL_BYTES);
+            let (value, value_clipped) = bounded_text(&row.value, &mut budget, PREVIEW_CELL_BYTES);
+            preview.clipped |= label_clipped || value_clipped;
+            preview.fields.push((label, value));
+        }
+        preview.clipped |= preview.fields.len() < detail.structured.len();
+        preview
+    }
+}
+
 /// One contextual secondary surface at a time.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum ActionPanel {
@@ -75,7 +123,7 @@ pub struct UiState {
     pub active_tab: Option<u64>,
     pub workspace: Workspace,
     pub query_snapshots: BTreeMap<u64, QuerySnapshot>,
-    pub record_detail_snapshots: BTreeMap<u64, DetailView>,
+    pub record_detail_snapshots: BTreeMap<u64, RecordPreview>,
     pub(super) tab_views: BTreeMap<u64, TabViewState>,
     pub detail_cache: DetailCache,
     pub detail_source: Option<SharedString>,
@@ -346,8 +394,8 @@ impl UiState {
             UiUpdate::RevealRow(index) => self.page.selected = Some(index),
             UiUpdate::Tabs { tabs, active } => {
                 let changed = self.active_tab != active;
-                if changed && let (Some(id), Some(detail)) = (self.active_tab, self.detail.clone()) {
-                    self.record_detail_snapshots.insert(id, detail);
+                if changed && let (Some(id), Some(detail)) = (self.active_tab, self.detail.as_ref()) {
+                    self.record_detail_snapshots.insert(id, RecordPreview::from_detail(detail));
                 }
                 self.tabs = tabs;
                 self.active_tab = active;
@@ -367,7 +415,7 @@ impl UiState {
             UiUpdate::Detail(detail) => {
                 self.detail = detail.map(DetailView::bounded);
                 if let (Some(id), Some(detail)) = (self.active_tab, self.detail.as_ref()) {
-                    self.record_detail_snapshots.insert(id, detail.clone());
+                    self.record_detail_snapshots.insert(id, RecordPreview::from_detail(detail));
                 }
                 self.prune_record_snapshots();
                 self.detail_cache =
@@ -546,13 +594,22 @@ impl UiState {
         }
     }
 
-    /// Keep cached details only for the record tabs currently visible in the
-    /// two pane groups; the controller remains authoritative for all tabs.
+    /// Keep bounded previews for every open record tab so moving an active tab
+    /// does not leave the other pane blank. The controller owns full details.
     pub fn prune_record_snapshots(&mut self) {
-        let visible = [self.workspace.primary.active, self.workspace.secondary.active];
-        self.record_detail_snapshots.retain(|id, _| {
-            visible.contains(&Some(super::workspace::TabId::Record(*id)))
-        });
+        let open = self
+            .workspace
+            .primary
+            .tabs
+            .iter()
+            .chain(&self.workspace.secondary.tabs)
+            .filter_map(|tab| match tab.id {
+                super::workspace::TabId::Record(id) => Some(id),
+                super::workspace::TabId::Search(_) => None,
+            })
+            .collect::<Vec<_>>();
+        self.record_detail_snapshots
+            .retain(|id, _| open.contains(id));
     }
 
     /// Preserve a bounded preview while another query uses the live editor.
