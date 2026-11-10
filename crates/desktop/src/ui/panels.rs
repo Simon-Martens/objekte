@@ -1257,14 +1257,9 @@ impl DesktopView {
 
     pub(super) fn render_help(&self, cx: &mut Context<Self>) -> impl IntoElement {
         let colors = super::theme::palette(self.state.dark);
-        div()
+        let content = div()
             .id("help-panel")
-            .absolute()
-            .top(px(48.))
-            .right(px(8.))
-            .w(px(470.))
-            .max_h(px(600.))
-            .overflow_y_scrollbar()
+            .size_full()
             .flex()
             .flex_col()
             .gap_2()
@@ -1289,14 +1284,22 @@ impl DesktopView {
             .child(div().text_sm().child("Open a folder and search. Saved queries appear in the sidebar; expand History to revisit recent searches. Save from the application menu, then rename a saved row with F2."))
             .child(div().text_sm().child("Search words go in Search. The funnel reveals Filter; the adjacent icon opens Filter Builder. Search and Filter combine with AND, and Filter suggests fields and indexed values."))
             .child(div().text_sm().child("A complete quoted JSON string in Filter runs as a CLI-style text query when Search is empty. Batch accepts one CLI query per line."))
-            .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Headers edit SORT BY in Filter. Drag a header edge to resize; right-click it to wrap text. Columns chooses visible fields. Count all requests an exact total."))
+            .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Headers edit SORT BY in Filter. Drag a header edge to resize; right-click it to wrap text. Columns chooses visible fields. The footer shows the exact match count."))
             .child(div().text_sm().child("Ctrl+O: Open · Ctrl+F: Search · Ctrl+L: Filter · Ctrl+T: New query · Ctrl+W: Close tab · Ctrl+Tab: Next tab · F1: Help · Escape: close the nearest panel."))
-            .child(div().text_sm().child("Collections and queries open in tabs. Drag the tab label to reorder it or move it between panes; the tab menu has the same move commands. Click + for a new query tab, or middle-click a tab to close it."))
+            .child(div().text_sm().child("Collections and queries open in tabs. Drag a tab label to reorder it or move it between panes; right-click for move and duplicate commands. The list icon shows all open tabs. Click + for a query or middle-click a tab to close it."))
             .child(div().text_sm().child("When queries appear in both panes, the inactive query shows its latest result preview. Activate it to edit or refresh its results."))
-            .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to open a record in the right pane."))
+            .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to reuse the active record tab in the right pane. Shift-click or use the row menu to open another tab."))
             .child(div().text_sm().child("Record tabs retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; Source shows the original record. The inspector Copy icon copies the complete record."))
             .child(div().text_sm().child("Right-click a field to copy its full path or scalar value. Aggregate and clipped previews are not complete values; expand an aggregate or copy the complete record instead."))
-            .child(div().text_sm().child("Source records and schemas are read-only. Export and index writes are explicit actions."))
+            .child(div().text_sm().child("Source records and schemas are read-only. Export and index writes are explicit actions."));
+        div()
+            .id("help-position")
+            .absolute()
+            .top(px(48.))
+            .right(px(8.))
+            .w(px(470.))
+            .h(px(600.))
+            .child(content.overflow_y_scrollbar())
     }
 }
 
