@@ -702,19 +702,11 @@ impl DesktopView {
         window: &mut Window,
         cx: &mut Context<Self>,
     ) {
-        let already_current = match id {
-            TabId::Search(_) => self.state.workspace.current_search == Some(id),
-            TabId::Record(id) => self.state.active_tab == Some(id),
-        };
         if self.state.workspace.move_tab(id, pane, at) {
             self.reveal_workspace_tab(id);
             self.state.prune_record_snapshots();
             self.state.prune_query_snapshots();
-            if already_current {
-                cx.notify();
-            } else {
-                self.activate_workspace_tab(id, window, cx);
-            }
+            self.activate_workspace_tab(id, window, cx);
         }
     }
 
