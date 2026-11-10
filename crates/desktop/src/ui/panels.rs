@@ -983,8 +983,14 @@ impl DesktopView {
         let max_panel_height = (window_height
             - if kind == ActionPanel::Columns { 72. } else { 60. })
             .clamp(100., 600.);
+        let scroll = match kind {
+            ActionPanel::Columns => &self.columns_scroll,
+            ActionPanel::Export => &self.export_scroll,
+            ActionPanel::Index => &self.index_scroll,
+            ActionPanel::Diagnostics => &self.diagnostics_scroll,
+        };
         let panel = div()
-            .id("action-panel")
+            .id(format!("action-panel-{kind:?}"))
             .absolute()
             .when(kind == ActionPanel::Columns, |this| {
                 let query_on_left = self
@@ -1049,12 +1055,12 @@ impl DesktopView {
                     ),
             );
         let mut content = div()
-            .id("action-body")
+            .id(format!("action-body-{kind:?}"))
             .flex()
             .flex_col()
             .gap_1()
             .max_h(px((max_panel_height - 64.).clamp(40., 530.)))
-            .track_scroll(&self.columns_scroll)
+            .track_scroll(scroll)
             .overflow_y_scrollbar();
         match kind {
             ActionPanel::Columns => {
