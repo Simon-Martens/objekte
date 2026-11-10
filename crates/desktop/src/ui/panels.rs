@@ -837,7 +837,7 @@ impl DesktopView {
                         .disabled(path.is_none())
                         .on_click(move |_, _, cx| {
                             if let Some(path) = path.clone() {
-                                cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(path));
+                                super::copy_text_to_clipboard(path, cx);
                             }
                         }),
                 )
@@ -847,7 +847,7 @@ impl DesktopView {
                         .disabled(value.is_none())
                         .on_click(move |_, _, cx| {
                             if let Some(value) = value.clone() {
-                                cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(value));
+                                super::copy_text_to_clipboard(value, cx);
                             }
                         }),
                 )

@@ -272,11 +272,7 @@ impl DesktopView {
             });
         }
         if let UiUpdate::Clipboard(text) = update {
-            if std::env::var_os("WAYLAND_DISPLAY").is_some() {
-                std::thread::spawn(move || write_wayland_clipboard(text));
-            } else {
-                cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(text));
-            }
+            copy_text_to_clipboard(text, cx);
             return;
         }
         if let UiUpdate::Theme { dark } = &update {
@@ -551,15 +547,6 @@ impl DesktopView {
         self.state.prune_query_snapshots();
         if let TabId::Record(id) = id {
             self.send(UiAction::CloseTab(id));
-        }
-        if self.state.workspace.current_search.is_none() && self.state.root.is_some() {
-            self.state
-                .workspace
-                .open_table(if self.state.single_collection {
-                    self.state.collections.first().cloned()
-                } else {
-                    None
-                });
         }
         if let Some(next) = pane.and_then(|pane| self.state.workspace.group(pane).active) {
             self.activate_workspace_tab(next, window, cx);
@@ -898,6 +885,14 @@ impl DesktopView {
 
 /// GPUI's delayed clipboard writes stay internal on the tested headless Wayland
 /// seat. Mirror complete worker results to the system clipboard off the UI thread.
+fn copy_text_to_clipboard(text: String, cx: &mut gpui_kit::App) {
+    if std::env::var_os("WAYLAND_DISPLAY").is_some() {
+        std::thread::spawn(move || write_wayland_clipboard(text));
+    } else {
+        cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(text));
+    }
+}
+
 fn write_wayland_clipboard(text: String) {
     use std::io::Write as _;
     use std::process::{Command, Stdio};

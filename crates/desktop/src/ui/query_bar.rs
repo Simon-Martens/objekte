@@ -455,11 +455,7 @@ impl DesktopView {
         } else {
             self.inputs.full_text.read(cx).value().to_string()
         };
-        if std::env::var_os("WAYLAND_DISPLAY").is_some() {
-            std::thread::spawn(move || super::write_wayland_clipboard(text));
-        } else {
-            cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(text));
-        }
+        super::copy_text_to_clipboard(text, cx);
     }
 
     fn paste_query_text(

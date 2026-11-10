@@ -468,6 +468,18 @@ mod tests {
     }
 
     #[test]
+    fn closing_last_tab_leaves_an_empty_workspace() {
+        let mut workspace = Workspace::default();
+        let table = workspace.opened(Some("files".into()));
+        assert!(workspace.close(table));
+        assert!(workspace.primary.tabs.is_empty());
+        assert_eq!(workspace.primary.active, None);
+        assert_eq!(workspace.current_search, None);
+        let query = workspace.open_query_in(SearchDraft::default(), Pane::Primary);
+        assert_eq!(workspace.primary.active, Some(query));
+    }
+
+    #[test]
     fn routine_record_updates_do_not_steal_a_query_tab() {
         let mut workspace = Workspace::default();
         workspace.opened(None);

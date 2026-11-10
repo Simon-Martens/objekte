@@ -1011,9 +1011,7 @@ impl DesktopView {
                                         .disabled(record_id.is_none())
                                         .on_click(move |_, _, cx| {
                                             if let Some(id) = record_id.clone() {
-                                                cx.write_to_clipboard(
-                                                    gpui_kit::ClipboardItem::new_string(id),
-                                                );
+                                                super::copy_text_to_clipboard(id, cx);
                                             }
                                         }),
                                 )
@@ -1023,9 +1021,7 @@ impl DesktopView {
                                         .disabled(file.is_none())
                                         .on_click(move |_, _, cx| {
                                             if let Some(file) = file.clone() {
-                                                cx.write_to_clipboard(
-                                                    gpui_kit::ClipboardItem::new_string(file),
-                                                );
+                                                super::copy_text_to_clipboard(file, cx);
                                             }
                                         }),
                                 )
@@ -1140,7 +1136,7 @@ impl DesktopView {
                         .absolute()
                         .top(px(32.))
                         .right_0()
-                        .bottom(px(32.))
+                        .bottom(px(32.) + Scrollbar::width())
                         .w(Scrollbar::width())
                         .child(
                             Scrollbar::vertical(&self.grid_list)
@@ -1149,6 +1145,19 @@ impl DesktopView {
                         ),
                 )
             })
+            .child(
+                div()
+                    .absolute()
+                    .left_0()
+                    .right(Scrollbar::width())
+                    .bottom(px(32.))
+                    .h(Scrollbar::width())
+                    .child(
+                        Scrollbar::horizontal(&self.grid_horizontal_scroll)
+                            .mode(ScrollbarMode::Always)
+                            .viewport_from_layout(),
+                    ),
+            )
             .into_any_element()
     }
 
@@ -1797,13 +1806,34 @@ impl DesktopView {
                 self.render_detail(pane, cx).into_any_element()
             }
             Some(TabId::Record(id)) => self.render_record_snapshot(id, cx).into_any_element(),
-            None => div()
-                .flex()
-                .flex_1()
-                .items_center()
-                .justify_center()
-                .child("Drag a tab here")
-                .into_any_element(),
+            None => {
+                let colors = palette(self.state.dark);
+                div()
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .items_center()
+                    .justify_center()
+                    .gap_2()
+                    .text_color(rgb(colors.secondary))
+                    .child(Icon::new(AssetIconName::PanelsTopLeft).size_8())
+                    .child(
+                        div()
+                            .text_color(rgb(colors.text))
+                            .font_weight(FontWeight::SEMIBOLD)
+                            .child("No tabs open"),
+                    )
+                    .child("Open a collection or create a query.")
+                    .child(
+                        Button::new(format!("workspace-empty-new-query-{pane:?}"))
+                            .icon(AssetIconName::Plus)
+                            .label("New query")
+                            .on_click(cx.listener(move |this, _, window, cx| {
+                                this.open_query_tab_in(pane, window, cx);
+                            })),
+                    )
+                    .into_any_element()
+            }
         }
     }
 
