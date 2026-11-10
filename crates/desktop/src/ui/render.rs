@@ -1759,19 +1759,32 @@ impl DesktopView {
                 div()
                     .flex()
                     .items_center()
-                    .h(px(40.))
+                    .h(px(52.))
                     .px_3()
                     .border_b_1()
                     .border_color(rgb(colors.border))
                     .child(
                         div()
+                            .flex()
+                            .flex_col()
                             .flex_1()
                             .min_w_0()
-                            .overflow_hidden()
-                            .whitespace_nowrap()
-                            .text_ellipsis()
-                            .font_weight(FontWeight::SEMIBOLD)
-                            .child(title),
+                            .child(
+                                div()
+                                    .min_w_0()
+                                    .overflow_hidden()
+                                    .whitespace_nowrap()
+                                    .text_ellipsis()
+                                    .text_sm()
+                                    .font_weight(FontWeight::SEMIBOLD)
+                                    .child(title.replace(" / path:", " / ")),
+                            )
+                            .child(
+                                div()
+                                    .text_xs()
+                                    .text_color(rgb(colors.secondary))
+                                    .child("Record preview"),
+                            ),
                     )
                     .child(
                         Button::new(format!("activate-record-{id}"))
@@ -1799,6 +1812,11 @@ impl DesktopView {
                     .min_h_0()
                     .overflow_y_scrollbar()
                     .children(fields.into_iter().map(|(label, value)| {
+                        let label = if label == "$" {
+                            "Record".to_string()
+                        } else {
+                            label.strip_prefix("$.").unwrap_or(&label).to_string()
+                        };
                         div()
                             .flex()
                             .gap_3()
