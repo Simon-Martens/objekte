@@ -26,7 +26,7 @@ use gpui_kit::{
     ListOffset, ListState, ScrollHandle, Subscription, Window, point, px,
 };
 
-use model::{CompletionOrigin, SearchDraft, TabViewState, UiAction, UiUpdate};
+use model::{CompletionOrigin, MAX_PAGE_ROWS, SearchDraft, TabViewState, UiAction, UiUpdate};
 use query_bar::{BuilderEvent, FilterBuilderView};
 use state::UiState;
 use workspace::{Pane, TabId};
@@ -98,6 +98,7 @@ pub struct DesktopView {
     grid_focus: FocusHandle,
     grid_list: ListState,
     grid_horizontal_scroll: ScrollHandle,
+    last_grid_request: Cell<Option<(usize, usize, usize)>>,
     grid_views: BTreeMap<u64, GridViewState>,
     active_grid_tab: Option<TabId>,
     pending_grid_restore: Option<(TabId, GridViewState)>,
@@ -265,6 +266,7 @@ impl DesktopView {
             grid_focus: cx.focus_handle(),
             grid_list,
             grid_horizontal_scroll: ScrollHandle::new(),
+            last_grid_request: Cell::new(None),
             grid_views: BTreeMap::new(),
             active_grid_tab: None,
             pending_grid_restore: None,
@@ -380,6 +382,7 @@ impl DesktopView {
         }
         let reset_grid_scroll = matches!(&update, UiUpdate::QueryStarted(_) | UiUpdate::Page(_));
         let page_or_append = matches!(&update, UiUpdate::Page(_) | UiUpdate::AppendPage(_));
+        let projection_changed = matches!(&update, UiUpdate::Projection(_));
         let switching_tab =
             matches!(&update, UiUpdate::Tabs { active, .. } if *active != self.state.active_tab);
         if switching_tab && let Some(id) = self.state.active_tab {
@@ -406,6 +409,9 @@ impl DesktopView {
         let prior_index_instance = self.state.index_status.index_instance;
         let replaced_index = matches!(&update, UiUpdate::IndexReplaced(_));
         self.state.apply(update);
+        if opened || restored_query || page_or_append || projection_changed {
+            self.last_grid_request.set(None);
+        }
         if opened {
             self.grid_views.clear();
             self.active_grid_tab = self.state.workspace.current_search;
@@ -839,6 +845,39 @@ impl DesktopView {
                     horizontal: f32::from(self.grid_horizontal_scroll.offset().x),
                 },
             );
+        }
+    }
+
+    /// Scrollbar dragging bypasses ListState's wheel scroll handler. Request
+    /// any uncached pages covering the viewport from the current list anchor.
+    fn request_visible_grid_rows(&self) {
+        let loaded = self.state.loaded_count;
+        if loaded == 0 {
+            return;
+        }
+        let top = self.grid_list.logical_scroll_top().item_ix.min(loaded - 1);
+        let viewport_height = f32::from(self.grid_list.viewport_bounds().size.height);
+        let visible = ((viewport_height / 30.).ceil().max(0.) as usize)
+            .saturating_add(20)
+            .clamp(20, MAX_PAGE_ROWS);
+        let end = top.saturating_add(visible).min(loaded);
+        let first_page = top / MAX_PAGE_ROWS;
+        let last_page = (end - 1) / MAX_PAGE_ROWS;
+        let missing = (first_page..=last_page).any(|page| {
+            !self
+                .state
+                .cached_page_starts
+                .contains(&(page * MAX_PAGE_ROWS))
+        });
+        let near_end = self.state.has_more && end.saturating_add(20) >= loaded;
+        if !missing && !near_end {
+            self.last_grid_request.set(None);
+            return;
+        }
+        let request = (top / 20, last_page, loaded);
+        if self.last_grid_request.get() != Some(request) {
+            self.last_grid_request.set(Some(request));
+            let _ = self.actions.send(UiAction::VisibleRows { start: top, end });
         }
     }
 

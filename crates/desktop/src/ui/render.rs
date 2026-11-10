@@ -721,6 +721,8 @@ impl DesktopView {
                 .into_any_element();
         }
 
+        self.request_visible_grid_rows();
+
         let page = &self.state.page;
         let visible_columns = page
             .columns
@@ -912,6 +914,25 @@ impl DesktopView {
                     } else {
                         colors.row_alt
                     };
+                    if row_key.is_none() {
+                        return div()
+                            .id(("result-row", index))
+                            .flex()
+                            .items_center()
+                            .w_full()
+                            .h(px(30.))
+                            .bg(rgb(shade))
+                            .border_b_1()
+                            .border_color(rgb(colors.border))
+                            .child(
+                                div()
+                                    .px_2()
+                                    .text_sm()
+                                    .text_color(rgb(colors.secondary))
+                                    .child("Loading row…"),
+                            )
+                            .into_any_element();
+                    }
                     div()
                         .id(("result-row", index))
                         .flex()
