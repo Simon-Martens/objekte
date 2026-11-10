@@ -273,13 +273,18 @@ impl Workspace {
                 .map(|tab| tab.id);
         }
         if self.current_search == Some(id) {
-            self.current_search = self
-                .primary
-                .tabs
-                .iter()
-                .chain(&self.secondary.tabs)
-                .find(|tab| matches!(tab.id, TabId::Search(_)))
-                .map(|tab| tab.id);
+            self.current_search = [self.primary.active, self.secondary.active]
+                .into_iter()
+                .flatten()
+                .find(|id| matches!(id, TabId::Search(_)))
+                .or_else(|| {
+                    self.primary
+                        .tabs
+                        .iter()
+                        .chain(&self.secondary.tabs)
+                        .find(|tab| matches!(tab.id, TabId::Search(_)))
+                        .map(|tab| tab.id)
+                });
         }
         if self.focused_pane == pane && self.group(pane).active.is_none() {
             self.focused_pane = pane.other();
@@ -524,6 +529,19 @@ mod tests {
         assert_eq!(workspace.current_search, None);
         let query = workspace.open_query_in(SearchDraft::default(), Pane::Primary);
         assert_eq!(workspace.primary.active, Some(query));
+    }
+
+    #[test]
+    fn closing_current_query_prefers_another_visible_search() {
+        let mut workspace = Workspace::default();
+        let first = workspace.opened(Some("files".into()));
+        let visible = workspace.open_query(SearchDraft::default());
+        let current = workspace.open_query_in(SearchDraft::default(), Pane::Secondary);
+        assert_eq!(workspace.current_search, Some(current));
+        assert!(workspace.close(current));
+        assert_eq!(workspace.primary.active, Some(visible));
+        assert_eq!(workspace.current_search, Some(visible));
+        assert_ne!(workspace.current_search, Some(first));
     }
 
     #[test]

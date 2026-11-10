@@ -572,11 +572,24 @@ impl DesktopView {
         let pane = self.state.workspace.pane_of(id);
         let was_selected =
             pane.is_some_and(|pane| self.state.workspace.group(pane).active == Some(id));
+        let was_current_search = self.state.workspace.current_search == Some(id);
         if !self.state.workspace.close(id) {
             return;
         }
         self.state.prune_record_snapshots();
         self.state.prune_query_snapshots();
+        let next = pane.and_then(|pane| self.state.workspace.group(pane).active);
+        if was_current_search && (!was_selected || matches!(next, Some(TabId::Record(_)))) {
+            if let Some(draft) = self
+                .state
+                .workspace
+                .current_search
+                .and_then(|id| self.state.workspace.tab(id))
+                .and_then(|tab| tab.draft.clone())
+            {
+                self.restore_workspace_query(draft, window, cx);
+            }
+        }
         if let TabId::Record(id) = id {
             self.send(UiAction::CloseTab(id));
         }
@@ -584,7 +597,7 @@ impl DesktopView {
             cx.notify();
             return;
         }
-        if let Some(next) = pane.and_then(|pane| self.state.workspace.group(pane).active) {
+        if let Some(next) = next {
             self.activate_workspace_tab(next, window, cx);
         } else if let Some(next) = self.state.workspace.current_search {
             self.activate_workspace_tab(next, window, cx);
