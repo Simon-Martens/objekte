@@ -582,7 +582,11 @@ impl DesktopView {
 
     fn activate_workspace_tab(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
         let already_live = self.active_grid_tab == Some(id);
-        if self.state.workspace.current_search != Some(id) {
+        // Closing a query can change current_search before its grid is replaced.
+        // Only snapshot the tab that still owns the live grid.
+        if self.state.workspace.current_search != Some(id)
+            && self.active_grid_tab == self.state.workspace.current_search
+        {
             self.state.snapshot_current_query();
         }
         if !self.state.workspace.activate(id) {
