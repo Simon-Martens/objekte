@@ -1621,6 +1621,7 @@ impl DesktopView {
             })
             .unwrap_or_default();
         let count = snapshot.and_then(|snapshot| snapshot.exact_total);
+        let has_snapshot = snapshot.is_some();
         div()
             .flex()
             .flex_col()
@@ -1673,7 +1674,7 @@ impl DesktopView {
                             })),
                     ),
             )
-            .child(
+            .when(has_snapshot, |this| this.child(
                 div()
                     .flex()
                     .items_center()
@@ -1681,12 +1682,23 @@ impl DesktopView {
                     .px_3()
                     .text_xs()
                     .text_color(rgb(colors.secondary))
-                    .child(if snapshot.is_some() {
-                        "Result preview"
-                    } else {
-                        "No current result preview"
-                    }),
-            )
+                    .child("Result preview"),
+            ))
+            .when(!has_snapshot, |this| this.child(
+                div()
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .items_center()
+                    .justify_center()
+                    .gap_2()
+                    .px_4()
+                    .text_center()
+                    .text_color(rgb(colors.secondary))
+                    .child(Icon::new(AssetIconName::Search).size_8())
+                    .child(div().font_weight(FontWeight::SEMIBOLD).text_color(rgb(colors.text)).child("No current preview"))
+                    .child(div().text_sm().child("Activate this query to edit or refresh its results.")),
+            ))
             .when(!headers.is_empty(), |this| {
                 this.child(
                     div()
@@ -1710,7 +1722,7 @@ impl DesktopView {
                         })),
                 )
             })
-            .child(
+            .when(has_snapshot, |this| this.child(
                 div()
                     .flex()
                     .flex_col()
@@ -1737,7 +1749,7 @@ impl DesktopView {
                                     .child(cell)
                             }))
                     })),
-            )
+            ))
             .when_some(count, |this, count| {
                 this.child(
                     div()
