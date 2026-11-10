@@ -107,7 +107,7 @@ fn workspace_tab_menu(
     target: Entity<DesktopView>,
     id: TabId,
     pane: Pane,
-    can_duplicate: bool,
+    duplicate_label: Option<&'static str>,
 ) -> PopupMenu {
     let destination = pane.other();
     let move_target = target.clone();
@@ -129,9 +129,9 @@ fn workspace_tab_menu(
             });
         }),
     )
-    .when(can_duplicate, |menu| {
+    .when_some(duplicate_label, |menu, label| {
         menu.item(
-            PopupMenuItem::new("Duplicate query")
+            PopupMenuItem::new(label)
                 .icon(AssetIconName::Copy)
                 .on_click(move |_, window, cx| {
                     duplicate_target.update(cx, |this, cx| {
@@ -1327,7 +1327,11 @@ impl DesktopView {
                         let menu_target = target.clone();
                         let drag_title = title.clone();
                         let drag_dark = self.state.dark;
-                        let can_duplicate = matches!(id, TabId::Search(_));
+                        let duplicate_label = match tab.search_kind {
+                            Some(SearchKind::Table) => Some("Duplicate as query"),
+                            Some(SearchKind::Query) => Some("Duplicate query"),
+                            None => None,
+                        };
                         div()
                             .id(format!("workspace-tab-{pane:?}-{index}"))
                             .relative()
@@ -1433,7 +1437,7 @@ impl DesktopView {
                                             menu_target.clone(),
                                             id,
                                             pane,
-                                            can_duplicate,
+                                            duplicate_label,
                                         )
                                     }),
                             )
