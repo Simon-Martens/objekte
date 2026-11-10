@@ -2099,16 +2099,17 @@ impl DesktopView {
             self.state.secondary_query_width
         };
         let window_width = f32::from(window.bounds().size.width);
+        let room = window_width - if self.state.sidebar_visible { 220. } else { 0. };
         let primary_reserve = if primary_empty {
             0.
+        } else if matches!(self.state.workspace.primary.active, Some(TabId::Record(_))) {
+            self.state.inspector_width.min((room - 300.).max(220.))
         } else if window_width < 1100. {
             220.
         } else {
             320.
         };
-        let available = window_width
-            - if self.state.sidebar_visible { 220. } else { 0. }
-            - primary_reserve;
+        let available = room - primary_reserve;
         let right_width = if primary_empty {
             available.max(300.)
         } else if window_width < 1100.
@@ -2128,7 +2129,6 @@ impl DesktopView {
                     && self.state.preview_visible_for(id)
             });
         let right_width = if left_has_docked_preview {
-            let room = window_width - if self.state.sidebar_visible { 220. } else { 0. };
             let preview_width = self.state.inspector_width.min((room - 420.).max(300.));
             right_width.min((room - preview_width).max(300.))
         } else {
