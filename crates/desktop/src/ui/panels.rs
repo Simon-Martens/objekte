@@ -21,7 +21,7 @@ use super::model::{
     IndexTaskState, TabFreshness, UiAction,
 };
 use super::state::ActionPanel;
-use super::workspace::Pane;
+use super::workspace::{Pane, TabId};
 
 #[cfg(test)]
 mod display_title_tests {
@@ -401,10 +401,21 @@ impl DesktopView {
                                 .tooltip("Close preview")
                                 .accessibility_label("Close preview")
                                 .on_click(cx.listener(|this, _, _, cx| {
+                                    let resume = if this.preview_docked_in_secondary() {
+                                        match this.state.workspace.secondary.active {
+                                            Some(TabId::Record(id)) => Some(id),
+                                            _ => None,
+                                        }
+                                    } else {
+                                        None
+                                    };
                                     this.state.preview_search = None;
                                     this.state.inspector_visible = false;
                                     if let Some(id) = this.state.active_tab {
                                         this.send(UiAction::CloseTab(id));
+                                    }
+                                    if let Some(id) = resume {
+                                        this.send(UiAction::ActivateTab(id));
                                     }
                                     cx.notify();
                                 })),

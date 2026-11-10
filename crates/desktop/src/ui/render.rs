@@ -1291,6 +1291,21 @@ impl DesktopView {
 }
 
 impl DesktopView {
+    pub(super) fn preview_docked_in_secondary(&self) -> bool {
+        self.workspace_layout
+            .get()
+            .is_some_and(|layout| layout.0 < 1100.)
+            && self.state.workspace.primary.active.is_some_and(|id| {
+                matches!(id, TabId::Search(_))
+                    && self.state.workspace.current_search == Some(id)
+                    && self.state.preview_visible_for(id)
+            })
+            && matches!(
+                self.state.workspace.secondary.active,
+                Some(TabId::Record(_))
+            )
+    }
+
     fn render_workspace_bar(&self, pane: Pane, cx: &mut Context<Self>) -> impl IntoElement {
         let colors = palette(self.state.dark);
         let group = self.state.workspace.group(pane);
@@ -1334,7 +1349,8 @@ impl DesktopView {
                         let id = tab.id;
                         let title = tab.title.clone();
                         let display_title = title.clone();
-                        let selected = active == Some(id);
+                        let selected = active == Some(id)
+                            && !(pane == Pane::Secondary && self.preview_docked_in_secondary());
                         let icon = match (id, tab.search_kind) {
                             (TabId::Record(_), _) => AssetIconName::FileText,
                             (TabId::Search(_), Some(SearchKind::Table)) => AssetIconName::Table2,
@@ -1946,9 +1962,13 @@ impl DesktopView {
     }
 
     fn render_workspace_content(&self, pane: Pane, cx: &mut Context<Self>) -> gpui_kit::AnyElement {
+        if pane == Pane::Secondary && self.preview_docked_in_secondary() {
+            return self.render_detail(pane, true, cx).into_any_element();
+        }
         match self.state.workspace.group(pane).active {
             Some(id @ TabId::Search(_)) if self.state.workspace.current_search == Some(id) => {
-                let show_preview = self.state.preview_visible_for(id);
+                let show_preview =
+                    self.state.preview_visible_for(id) && !self.preview_docked_in_secondary();
                 let pane_width = self.workspace_layout.get().map_or(780., |layout| {
                     if pane == Pane::Secondary {
                         layout.1
