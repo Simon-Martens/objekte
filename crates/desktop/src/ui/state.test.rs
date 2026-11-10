@@ -27,7 +27,16 @@ fn split_preview_requires_its_owning_query_and_an_unpinned_record() {
     assert!(!state.preview_visible_for(TabId::Search(999)));
     assert_eq!(state.workspace.primary.tabs.len(), 1);
 
-    state.apply(UiUpdate::QueryStarted("Refreshing results".into()));
+    state.apply(UiUpdate::QueryStarted {
+        status: "Updating columns".into(),
+        retain_preview: true,
+    });
+    assert!(state.preview_visible_for(query));
+    assert!(state.inspector_visible);
+    state.apply(UiUpdate::QueryStarted {
+        status: "Refreshing results".into(),
+        retain_preview: false,
+    });
     assert!(!state.preview_visible_for(query));
     assert!(!state.inspector_visible);
     state.preview_search = Some(query);
@@ -299,7 +308,10 @@ fn projection_refresh_keeps_detail_and_cache_is_bounded() {
     }
     assert!(!state.projected_rows.contains_key(&0));
     assert_eq!(state.projected_rows.len(), 3);
-    state.apply(UiUpdate::QueryStarted("Searching".into()));
+    state.apply(UiUpdate::QueryStarted {
+        status: "Searching".into(),
+        retain_preview: false,
+    });
     assert_eq!(state.detail.as_ref().unwrap().title, "record");
 }
 
@@ -371,7 +383,10 @@ fn successful_query_start_clears_previous_input_errors() {
             message: "old error".into(),
         });
     }
-    state.apply(UiUpdate::QueryStarted("Searching".into()));
+    state.apply(UiUpdate::QueryStarted {
+        status: "Searching".into(),
+        retain_preview: false,
+    });
     assert!(state.errors.is_empty());
 }
 

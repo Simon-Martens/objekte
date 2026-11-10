@@ -649,7 +649,10 @@ pub enum UiUpdate {
         generation: u64,
         path: String,
     },
-    QueryStarted(String),
+    QueryStarted {
+        status: String,
+        retain_preview: bool,
+    },
     Page(PageView),
     AppendPage(PageView),
     Projection(PageView),

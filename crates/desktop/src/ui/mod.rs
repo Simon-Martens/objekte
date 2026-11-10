@@ -386,7 +386,14 @@ impl DesktopView {
         }
         let opened = matches!(&update, UiUpdate::Opened { .. });
         let restored_query = matches!(&update, UiUpdate::RestoreQuery(_));
-        let query_started = matches!(&update, UiUpdate::QueryStarted(_));
+        let query_started = matches!(&update, UiUpdate::QueryStarted { .. });
+        let retain_grid_view = matches!(
+            &update,
+            UiUpdate::QueryStarted {
+                retain_preview: true,
+                ..
+            }
+        );
         if query_started {
             self.pending_query_starts = self.pending_query_starts.saturating_sub(1);
         }
@@ -403,7 +410,7 @@ impl DesktopView {
             self.state.snapshot_current_query();
             self.remember_grid_view();
         }
-        let reset_grid_scroll = matches!(&update, UiUpdate::QueryStarted(_) | UiUpdate::Page(_));
+        let reset_grid_scroll = matches!(&update, UiUpdate::QueryStarted { .. } | UiUpdate::Page(_));
         let page_or_append = matches!(&update, UiUpdate::Page(_) | UiUpdate::AppendPage(_));
         let projection_changed = matches!(&update, UiUpdate::Projection(_));
         let switching_tab =
@@ -431,6 +438,17 @@ impl DesktopView {
         let inspected_record = matches!(&update, UiUpdate::Detail(Some(_)));
         let prior_index_instance = self.state.index_status.index_instance;
         let replaced_index = matches!(&update, UiUpdate::IndexReplaced(_));
+        if retain_grid_view && self.grid_view_ready {
+            self.pending_grid_restore = self.active_grid_tab.map(|id| {
+                (
+                    id,
+                    GridViewState {
+                        top: self.grid_list.logical_scroll_top(),
+                        horizontal: f32::from(self.grid_horizontal_scroll.offset().x),
+                    },
+                )
+            });
+        }
         self.state.apply(update);
         if opened || restored_query || page_or_append || projection_changed {
             self.last_grid_request.set(None);

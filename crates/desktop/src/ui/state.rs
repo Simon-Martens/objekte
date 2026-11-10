@@ -262,11 +262,13 @@ impl UiState {
                 self.workspace.opened(self.search.collection.clone());
                 self.workspace.update_current_search(self.search.clone());
             }
-            UiUpdate::QueryStarted(status) => {
+            UiUpdate::QueryStarted { status, retain_preview } => {
                 self.busy = Busy::Querying;
                 self.status = status;
-                self.preview_search = None;
-                self.inspector_visible = false;
+                if !retain_preview {
+                    self.preview_search = None;
+                    self.inspector_visible = false;
+                }
                 self.errors.remove(&ErrorField::FullText);
                 self.errors.remove(&ErrorField::Structured);
                 self.errors.remove(&ErrorField::Sort);

@@ -869,7 +869,7 @@ impl DesktopController {
         ) {
             return;
         }
-        self.start_query_impl(draft, 0, true, updates);
+        self.start_query_impl(draft, 0, true, false, updates);
     }
 
     fn handle(&mut self, action: UiAction, cx: &mut App, updates: &mut Vec<UiUpdate>) {
@@ -1215,7 +1215,7 @@ impl DesktopController {
                     preferences
                         .toggle_column_local(self.current_draft.collection.as_deref(), &column);
                     let _ = self.preference_tx.send(preferences.clone());
-                    self.start_query(self.current_draft.clone(), 0, updates);
+                    self.start_query_impl(self.current_draft.clone(), 0, false, true, updates);
                 }
             }
             UiAction::ResizeColumn { column, width } => {
@@ -1463,7 +1463,7 @@ impl DesktopController {
     }
 
     fn start_query(&mut self, draft: SearchDraft, page_start: usize, updates: &mut Vec<UiUpdate>) {
-        self.start_query_impl(draft, page_start, false, updates);
+        self.start_query_impl(draft, page_start, false, false, updates);
     }
 
     fn start_query_impl(
@@ -1471,9 +1471,13 @@ impl DesktopController {
         draft: SearchDraft,
         page_start: usize,
         refresh: bool,
+        retain_preview: bool,
         updates: &mut Vec<UiUpdate>,
     ) {
         self.poll_publication(updates);
+        let retain_preview = retain_preview
+            && !self.results_outdated
+            && self.executed_draft.as_ref() == Some(&draft);
         let Some(session) = self.session.clone() else {
             updates.push(UiUpdate::Error {
                 field: ErrorField::General,
@@ -1553,11 +1557,14 @@ impl DesktopController {
                 wrapped,
             });
         }
-        updates.push(UiUpdate::QueryStarted(if refresh {
-            "Updating results…".into()
-        } else {
-            "Searching…".into()
-        }));
+        updates.push(UiUpdate::QueryStarted {
+            status: if refresh || retain_preview {
+                "Updating results…".into()
+            } else {
+                "Searching…".into()
+            },
+            retain_preview,
+        });
         let columns = initial_columns(&session, &draft);
         spawn_grid_page(
             session,

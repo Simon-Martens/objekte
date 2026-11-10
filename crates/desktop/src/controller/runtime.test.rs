@@ -458,7 +458,7 @@ fn invalid_filter_does_not_start_query_or_replace_visible_page() {
     assert!(
         !updates
             .iter()
-            .any(|update| matches!(update, UiUpdate::QueryStarted(_)))
+            .any(|update| matches!(update, UiUpdate::QueryStarted { .. }))
     );
 }
 
