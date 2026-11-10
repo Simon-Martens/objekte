@@ -1041,7 +1041,16 @@ impl DesktopView {
         if self.state.show_preview {
             self.state.inspector_visible = self.state.active_tab.is_some();
         }
-        self.grid_list.scroll_to_reveal_item(index);
+        if last {
+            // Newly appended rows are unmeasured. Revealing the last one by
+            // estimated pixel height can stop far above the selection.
+            self.grid_list.scroll_to(ListOffset {
+                item_ix: index,
+                offset_in_item: px(0.),
+            });
+        } else {
+            self.grid_list.scroll_to_reveal_item(index);
+        }
         self.send(UiAction::VisibleRows {
             start: index,
             end: index + 1,
