@@ -1561,6 +1561,7 @@ impl DesktopView {
 
     fn render_inactive_query(&self, id: TabId, cx: &mut Context<Self>) -> impl IntoElement {
         let colors = palette(self.state.dark);
+        let activate_target = cx.entity();
         let tab = self.state.workspace.tab(id);
         let title = tab.map_or("Query".to_string(), |tab| tab.title.clone());
         let draft = tab.and_then(|tab| tab.draft.as_ref());
@@ -1759,14 +1760,23 @@ impl DesktopView {
                     .flex_1()
                     .min_h_0()
                     .overflow_y_scrollbar()
-                    .children(rows.into_iter().map(|cells| {
+                    .children(rows.into_iter().enumerate().map(|(index, cells)| {
+                        let target = activate_target.clone();
                         div()
+                            .id(format!("inactive-query-row-{id:?}-{index}"))
                             .flex()
                             .items_center()
                             .h(px(36.))
                             .flex_shrink_0()
+                            .cursor_pointer()
+                            .hover(|this| this.bg(rgb(colors.selected)))
                             .border_b_1()
                             .border_color(rgb(colors.border))
+                            .on_click(move |_, window, cx| {
+                                target.update(cx, |this, cx| {
+                                    this.activate_workspace_tab(id, window, cx);
+                                });
+                            })
                             .children(cells.into_iter().map(|cell| {
                                 div()
                                     .flex_1()
