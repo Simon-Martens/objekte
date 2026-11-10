@@ -44,6 +44,8 @@ pub fn init_keybindings(cx: &mut gpui_kit::App) {
         KeyBinding::new("ctrl-t", NewQueryTab, Some("ObjekteWorkspace")),
         KeyBinding::new("ctrl-w", CloseWorkspaceTab, Some("ObjekteWorkspace")),
         KeyBinding::new("ctrl-tab", NextWorkspaceTab, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-pagedown", NextWorkspaceTab, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-pageup", PreviousWorkspaceTab, Some("ObjekteWorkspace")),
         KeyBinding::new(
             "ctrl-shift-tab",
             PreviousWorkspaceTab,
