@@ -2,7 +2,7 @@
 
 use gpui_kit::assets::IconName as AssetIconName;
 use gpui_kit::component::{
-    Disableable as _, Selectable as _,
+    Disableable as _, IconName, Selectable as _,
     button::{Button, ButtonVariants as _},
     input::{Input, InputEvent, InputState},
     menu::{DropdownMenu as _, PopupMenuItem},
@@ -469,17 +469,37 @@ impl DesktopView {
         window: &mut Window,
         cx: &mut Context<Self>,
     ) {
-        // Updating the input may emit Change. Run one explicit edit path after
-        // both the field value and the filter-enabled flag are in place.
+        // Programmatic replacement keeps undo history but does not emit
+        // Change. Run one edit path after both the value and flag are in place.
         self.restoring_query = true;
         if filter {
             self.state.search.filter_enabled = true;
             self.inputs.structured.update(cx, |input, cx| {
-                input.set_value(text, window, cx);
+                input.replace_all(text, window, cx);
             });
         } else {
             self.inputs.full_text.update(cx, |input, cx| {
-                input.set_value(text, window, cx);
+                input.replace_all(text, window, cx);
+            });
+        }
+        self.restoring_query = false;
+        self.search_from_inputs(false, cx);
+    }
+
+    fn clear_query_text(&mut self, filter: bool, window: &mut Window, cx: &mut Context<Self>) {
+        self.restoring_query = true;
+        if filter {
+            let focus_filter = self.state.search.filter_enabled;
+            self.inputs.structured.update(cx, |input, cx| {
+                input.replace_all("", window, cx);
+                if focus_filter {
+                    input.focus(window, cx);
+                }
+            });
+        } else {
+            self.inputs.full_text.update(cx, |input, cx| {
+                input.replace_all("", window, cx);
+                input.focus(window, cx);
             });
         }
         self.restoring_query = false;
@@ -531,6 +551,16 @@ impl DesktopView {
                             .min_w_0()
                             .aria_label("Full text search"),
                     )
+                    .when(search_text_available, |this| this.child(
+                        Button::new("query-clear-search")
+                            .ghost()
+                            .icon(IconName::Close)
+                            .tooltip("Clear search")
+                            .accessibility_label("Clear search")
+                            .on_click(cx.listener(|this, _, window, cx| {
+                                this.clear_query_text(false, window, cx);
+                            })),
+                    ))
                     .child(
                         Button::new("query-text-menu")
                             .ghost()
@@ -538,13 +568,17 @@ impl DesktopView {
                             .tooltip("Query text actions; right-click a field for selection editing")
                             .accessibility_label("Query text actions")
                             .dropdown_menu(move |menu, _, cx| {
-                                let clipboard_text = cx.read_from_clipboard().and_then(|item| item.text());
+                                let clipboard_text = cx.read_from_clipboard()
+                                    .and_then(|item| item.text())
+                                    .filter(|text| !text.is_empty());
                                 let paste_search = clipboard_text.clone();
                                 let paste_filter = clipboard_text;
                                 let copy_search_target = menu_target.clone();
                                 let copy_filter_target = menu_target.clone();
                                 let paste_search_target = menu_target.clone();
                                 let paste_filter_target = menu_target.clone();
+                                let clear_search_target = menu_target.clone();
+                                let clear_filter_target = menu_target.clone();
                                 menu.item(
                                     PopupMenuItem::new("Copy entire search")
                                         .icon(AssetIconName::Copy)
@@ -565,6 +599,15 @@ impl DesktopView {
                                                     this.paste_query_text(false, text, window, cx);
                                                 });
                                             }
+                                        }),
+                                )
+                                .item(
+                                    PopupMenuItem::new("Clear search")
+                                        .disabled(!search_text_available)
+                                        .on_click(move |_, window, cx| {
+                                            clear_search_target.update(cx, |this, cx| {
+                                                this.clear_query_text(false, window, cx);
+                                            });
                                         }),
                                 )
                                 .separator()
@@ -588,6 +631,15 @@ impl DesktopView {
                                                     this.paste_query_text(true, text, window, cx);
                                                 });
                                             }
+                                        }),
+                                )
+                                .item(
+                                    PopupMenuItem::new("Clear filter")
+                                        .disabled(!filter_text_available)
+                                        .on_click(move |_, window, cx| {
+                                            clear_filter_target.update(cx, |this, cx| {
+                                                this.clear_query_text(true, window, cx);
+                                            });
                                         }),
                                 )
                             }),
@@ -691,7 +743,7 @@ impl DesktopView {
                                 .flex()
                                 .items_center()
                                 .gap_2()
-                                .child(div().text_sm().child("Filter records"))
+                                .child(div().text_sm().child("Filter"))
                                 .child(
                                     gpui_kit::base::Popup::new(
                                         "filter-completions",
@@ -740,12 +792,15 @@ impl DesktopView {
                                             cx.notify();
                                         })),
                                 )
-                                .child(Button::new("filter-clear").label("Clear").on_click(
-                                    cx.listener(|this, _, window, cx| {
-                                        this.inputs.structured.update(cx, |input, cx| {
-                                            input.replace_all("", window, cx)
-                                        });
-                                    }),
+                                .when(filter_text_available, |this| this.child(
+                                    Button::new("filter-clear")
+                                        .ghost()
+                                        .icon(IconName::Close)
+                                        .tooltip("Clear filter")
+                                        .accessibility_label("Clear filter")
+                                        .on_click(cx.listener(|this, _, window, cx| {
+                                            this.clear_query_text(true, window, cx);
+                                        })),
                                 )),
                         )
                         .when(self.suspended_filter.is_some(), |this| {
