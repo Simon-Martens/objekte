@@ -278,7 +278,12 @@ impl OpenDialogState {
 
 
 impl DesktopView {
-    pub(super) fn render_open_dialog(&self, cx: &mut Context<Self>) -> impl IntoElement {
+    pub(super) fn render_open_dialog(
+        &self,
+        window_width: f32,
+        window_height: f32,
+        cx: &mut Context<Self>,
+    ) -> impl IntoElement {
         let dark = self.state.dark;
         let (panel, raised, border, text, secondary, error) = if dark {
             (0x1c1f24, 0x24282e, 0x30353c, 0xe5e7eb, 0xa0a7b1, 0xf2a59b)
@@ -406,6 +411,8 @@ impl DesktopView {
             .to_open_draft(&self.state.open)
             .is_ok()
             && self.state.busy != super::state::Busy::Opening;
+        let surface_width = (window_width - 24.).clamp(320., 600.);
+        let surface_height = (window_height - 24.).clamp(160., 700.);
         let advanced_summary = if use_repository_settings {
             "Configured repository settings will select schemas and a compatible stored index. No automatic index write is enabled.".to_owned()
         } else if self.state.open.snapshot == super::model::SnapshotMode::None {
@@ -415,7 +422,7 @@ impl DesktopView {
         };
         let mut content = div()
             .id("open-dialog-content")
-            .max_h(px(550.))
+            .max_h(px((surface_height - 120.).clamp(40., 550.)))
             .overflow_y_scrollbar()
             .flex()
             .flex_col()
@@ -690,8 +697,8 @@ impl DesktopView {
         }
         let surface = div()
             .id("open-data-dialog")
-            .w(px(600.))
-            .max_h(px(700.))
+            .w(px(surface_width))
+            .max_h(px(surface_height))
             .flex()
             .flex_col()
             .bg(rgb(panel))

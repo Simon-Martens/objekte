@@ -2193,6 +2193,7 @@ impl DesktopView {
 impl Render for DesktopView {
     fn render(&mut self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         let width = f32::from(window.bounds().size.width);
+        let height = f32::from(window.bounds().size.height);
         if self.last_window_width >= 1100.
             && width < 1100.
             && (!self.state.workspace.secondary.tabs.is_empty()
@@ -2399,14 +2400,14 @@ impl Render for DesktopView {
                 this.child(self.render_builder_overlay(width))
             })
             .when(self.state.show_actions, |this| {
-                this.child(self.render_actions(width, cx))
+                this.child(self.render_actions(width, height, cx))
             })
             .when(self.state.show_help, |this| {
                 this.child(self.render_help(cx))
             })
             .child(self.render_status(cx))
             .when(self.state.open_dialog.visible, |this| {
-                this.child(self.render_open_dialog(cx))
+                this.child(self.render_open_dialog(width, height, cx))
             })
             .when(self.state.closing_index.is_some(), |this| {
                 this.child(self.render_close_dialog(cx))

@@ -969,6 +969,7 @@ impl DesktopView {
     pub(super) fn render_actions(
         &self,
         window_width: f32,
+        window_height: f32,
         cx: &mut Context<Self>,
     ) -> impl IntoElement {
         let colors = super::theme::palette(self.state.dark);
@@ -979,6 +980,9 @@ impl DesktopView {
             ActionPanel::Index => "Index",
             ActionPanel::Diagnostics => "Diagnostics",
         };
+        let max_panel_height = (window_height
+            - if kind == ActionPanel::Columns { 72. } else { 60. })
+            .clamp(100., 600.);
         let panel = div()
             .id("action-panel")
             .absolute()
@@ -1004,7 +1008,7 @@ impl DesktopView {
             } else {
                 370.
             }))
-            .max_h(px(600.))
+            .max_h(px(max_panel_height))
             .flex()
             .flex_col()
             .gap_2()
@@ -1049,7 +1053,7 @@ impl DesktopView {
             .flex()
             .flex_col()
             .gap_1()
-            .max_h(px(530.))
+            .max_h(px((max_panel_height - 64.).clamp(40., 530.)))
             .track_scroll(&self.columns_scroll)
             .overflow_y_scrollbar();
         match kind {
