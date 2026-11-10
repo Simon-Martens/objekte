@@ -2275,6 +2275,7 @@ impl Render for DesktopView {
                     let x = f32::from(event.position.x);
                     let y = f32::from(event.position.y);
                     let width = f32::from(window.bounds().size.width);
+                    let height = f32::from(window.bounds().size.height);
                     let sidebar = if this.state.sidebar_visible { 220. } else { 0. };
                     let right = if this.state.inspector_visible {
                         this.state.inspector_width + 8.
@@ -2283,9 +2284,11 @@ impl Render for DesktopView {
                     };
                     let in_filter_line =
                         (95.0..180.0).contains(&y) && x >= sidebar + 12. && x <= width - right;
-                    let in_builder = (150.0..470.0).contains(&y)
-                        && x >= width - right - 560.
-                        && x <= width - right;
+                    let builder_top = super::query_bar::builder_overlay_top(height);
+                    let builder_right = right.min((width - 568.).max(8.));
+                    let in_builder = (builder_top..(builder_top + 320.).min(height - 8.)).contains(&y)
+                        && x >= width - builder_right - 560.
+                        && x <= width - builder_right;
                     if !in_filter_line && !in_builder {
                         this.state.show_filter_builder = false;
                         cx.notify();
@@ -2397,7 +2400,7 @@ impl Render for DesktopView {
                     }),
             )
             .when(self.state.show_filter_builder, |this| {
-                this.child(self.render_builder_overlay(width))
+                this.child(self.render_builder_overlay(width, height))
             })
             .when(self.state.show_actions, |this| {
                 this.child(self.render_actions(width, height, cx))

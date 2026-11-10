@@ -905,7 +905,11 @@ impl DesktopView {
             )
     }
 
-    pub(super) fn render_builder_overlay(&self, window_width: f32) -> impl IntoElement {
+    pub(super) fn render_builder_overlay(
+        &self,
+        window_width: f32,
+        window_height: f32,
+    ) -> impl IntoElement {
         let query_on_left = self
             .state
             .workspace
@@ -917,10 +921,17 @@ impl DesktopView {
             8.
         };
         let right = preferred_right.min((window_width - 568.).max(8.));
+        let top = builder_overlay_top(window_height);
         div()
             .absolute()
-            .top(px(150.))
+            .top(px(top))
             .right(px(right))
+            .max_h(px((window_height - top - 8.).max(80.)))
+            .overflow_y_scrollbar()
             .child(self.builder_view.clone())
     }
+}
+
+pub(super) fn builder_overlay_top(window_height: f32) -> f32 {
+    150_f32.min((window_height - 328.).max(8.))
 }
