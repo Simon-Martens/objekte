@@ -2517,7 +2517,6 @@ impl DesktopController {
                                 self.results_outdated = false;
                                 updates.push(UiUpdate::ResultsOutdated(false));
                                 let needs_count = view.exact_total.is_none() && view.has_next;
-                                self.available_columns = available.clone();
                                 self.keys = vec![None; view.offset];
                                 self.keys.extend(keys.into_iter().map(Some));
                                 let refreshed_anchor = self.refresh_anchor.take();
