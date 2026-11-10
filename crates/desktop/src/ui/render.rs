@@ -1625,6 +1625,13 @@ impl DesktopView {
             .unwrap_or_default();
         let count = snapshot.and_then(|snapshot| snapshot.exact_total);
         let has_snapshot = snapshot.is_some();
+        let empty_snapshot = has_snapshot && rows.is_empty();
+        let empty_title = if count == Some(0) { "No matches" } else { "No preview rows" };
+        let empty_message = if count == Some(0) {
+            "This query returned no records."
+        } else {
+            "Activate this query to refresh its results."
+        };
         div()
             .flex()
             .flex_col()
@@ -1725,7 +1732,22 @@ impl DesktopView {
                         })),
                 )
             })
-            .when(has_snapshot, |this| this.child(
+            .when(empty_snapshot, |this| this.child(
+                div()
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .items_center()
+                    .justify_center()
+                    .gap_2()
+                    .px_4()
+                    .text_center()
+                    .text_color(rgb(colors.secondary))
+                    .child(Icon::new(AssetIconName::Search).size_8())
+                    .child(div().font_weight(FontWeight::SEMIBOLD).text_color(rgb(colors.text)).child(empty_title))
+                    .child(div().text_sm().child(empty_message)),
+            ))
+            .when(has_snapshot && !empty_snapshot, |this| this.child(
                 div()
                     .flex()
                     .flex_col()
