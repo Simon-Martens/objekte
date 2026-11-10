@@ -242,8 +242,15 @@ impl DesktopView {
             )
     }
 
-    pub(super) fn render_detail(&self, pane: Pane, cx: &mut Context<Self>) -> impl IntoElement {
+    pub(super) fn render_detail(
+        &self,
+        pane: Pane,
+        split_preview: bool,
+        cx: &mut Context<Self>,
+    ) -> impl IntoElement {
         let colors = super::theme::palette(self.state.dark);
+        let show_divider = split_preview
+            || pane == Pane::Secondary && !self.state.workspace.primary.tabs.is_empty();
         let detail = self.state.detail.as_ref();
         let preview = self
             .state
@@ -287,10 +294,10 @@ impl DesktopView {
             .flex_shrink_0()
             .relative()
             .bg(rgb(colors.panel))
-            .when(pane == Pane::Secondary, |this| {
+            .when(show_divider, |this| {
                 this.border_l_1().border_color(rgb(colors.border))
             })
-            .when(pane == Pane::Secondary, |this| {
+            .when(show_divider, |this| {
                 this.child(
                     div()
                         .id("inspector-resize")

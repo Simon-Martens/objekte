@@ -1984,7 +1984,7 @@ impl DesktopView {
                                         .w(px(preview_width))
                                         .flex_shrink_0()
                                         .min_h_0()
-                                        .child(self.render_detail(Pane::Secondary, cx)),
+                                        .child(self.render_detail(Pane::Secondary, true, cx)),
                                 )
                             }),
                     )
@@ -1992,7 +1992,7 @@ impl DesktopView {
             }
             Some(id @ TabId::Search(_)) => self.render_inactive_query(id, cx).into_any_element(),
             Some(TabId::Record(id)) if self.state.active_tab == Some(id) => {
-                self.render_detail(pane, cx).into_any_element()
+                self.render_detail(pane, false, cx).into_any_element()
             }
             Some(TabId::Record(id)) => self.render_record_snapshot(id, cx).into_any_element(),
             None => {
@@ -2085,7 +2085,7 @@ impl DesktopView {
         };
         let window_width = f32::from(window.bounds().size.width);
         let primary_reserve = if primary_empty {
-            260.
+            0.
         } else if window_width < 1100. {
             220.
         } else {
@@ -2124,7 +2124,9 @@ impl DesktopView {
             .flex_1()
             .min_h_0()
             .min_w_0()
-            .child(self.render_workspace_group(Pane::Primary, cx))
+            .when(!primary_empty, |this| {
+                this.child(self.render_workspace_group(Pane::Primary, cx))
+            })
             .when(!right.tabs.is_empty(), |this| {
                 this.child(
                     div()
@@ -2132,8 +2134,10 @@ impl DesktopView {
                         .flex_col()
                         .relative()
                         .min_h_0()
-                        .w(px(right_width))
-                        .flex_shrink_0()
+                        .when(primary_empty, |this| this.flex_1().min_w_0())
+                        .when(!primary_empty, |this| {
+                            this.w(px(right_width)).flex_shrink_0()
+                        })
                         .child(self.render_workspace_group(Pane::Secondary, cx))
                         .when(right_is_query && !primary_empty, |this| {
                             this.child(
