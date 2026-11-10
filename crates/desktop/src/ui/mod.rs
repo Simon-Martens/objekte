@@ -700,6 +700,15 @@ impl DesktopView {
         match id {
             TabId::Search(_) => {
                 if self.state.preview_search != Some(id) {
+                    if let Some(preview_id) = self
+                        .state
+                        .tabs
+                        .iter()
+                        .find(|tab| !tab.pinned)
+                        .map(|tab| tab.id)
+                    {
+                        self.send(UiAction::CloseTab(preview_id));
+                    }
                     self.state.preview_search = None;
                     self.state.inspector_visible = false;
                 }
