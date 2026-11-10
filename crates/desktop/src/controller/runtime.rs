@@ -1970,6 +1970,8 @@ impl DesktopController {
             });
         }
         self.active_tab = Some(id);
+        self.selected_index = None;
+        updates.push(UiUpdate::RowSelection(None));
         self.selected_hit = None;
         self.detail = None;
         self.relation_actions.clear();
@@ -2741,7 +2743,6 @@ impl DesktopController {
                             if matches!(kind, TabLoadKind::Back { .. }) {
                                 updates.push(UiUpdate::RestoreTabView(tab.view));
                             }
-                            self.sync_tab_row_selection(index, updates);
                         }
                     }
                     Ok(None) => {
@@ -2772,6 +2773,9 @@ impl DesktopController {
                             message,
                         });
                     }
+                }
+                if self.active_tab == Some(tab_id) {
+                    self.sync_tab_row_selection(index, updates);
                 }
                 self.emit_tabs(updates);
             }

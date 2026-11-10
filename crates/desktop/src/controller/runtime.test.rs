@@ -579,9 +579,42 @@ fn activating_record_tab_selects_matching_result_or_clears_old_selection() {
         .iter()
         .any(|update| matches!(update, UiUpdate::RowSelection(Some(0)))));
 
+    updates.clear();
+    controller.close_tab(first_id, &mut updates);
+    assert_eq!(controller.active_tab, Some(second_id));
+    assert_eq!(controller.selected_index, Some(1));
+    assert!(updates
+        .iter()
+        .any(|update| matches!(update, UiUpdate::RowSelection(Some(1)))));
+
     controller.keys.clear();
     updates.clear();
     controller.activate_tab(second_id, &mut updates);
+    assert_eq!(controller.selected_index, None);
+    assert!(updates
+        .iter()
+        .any(|update| matches!(update, UiUpdate::RowSelection(None))));
+}
+
+#[test]
+fn opening_record_outside_results_clears_previous_row_selection() {
+    let fixture = crate::backend::test_support::fixture();
+    let view = fixture.session.repository.index().view().unwrap();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.executed_view = Some(view);
+    controller.executed_spec = Some(backend::QuerySpec::default());
+    controller.executed_draft = Some(SearchDraft::default());
+    controller.selected_index = Some(0);
+    let mut updates = Vec::new();
+    controller.open_canonical_outside_results(
+        RecordKey {
+            collection: "files".into(),
+            id: "missing-record".into(),
+        },
+        true,
+        &mut updates,
+    );
     assert_eq!(controller.selected_index, None);
     assert!(updates
         .iter()
