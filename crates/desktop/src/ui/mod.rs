@@ -91,7 +91,7 @@ pub struct DesktopView {
     inputs: Inputs,
     builder_view: Entity<FilterBuilderView>,
     builder_completion_revision: u64,
-    completion_suppressed_at: Option<(String, usize)>,
+    completion_suppressed_at: Option<(TabId, String, usize)>,
     suspended_filter: Option<String>,
     renaming_saved: Option<u64>,
     focused_saved: Option<u64>,
@@ -858,7 +858,11 @@ impl DesktopView {
         if self
             .completion_suppressed_at
             .as_ref()
-            .is_some_and(|(suppressed, position)| suppressed == &value && *position == caret)
+            .is_some_and(|(tab, suppressed, position)| {
+                self.state.workspace.current_search == Some(*tab)
+                    && suppressed == &value
+                    && *position == caret
+            })
         {
             self.state.completion_context = None;
             cx.notify();
@@ -943,7 +947,11 @@ impl DesktopView {
         let Some(inserted) = completion::insert(&value, context.replace.clone(), &insert) else {
             return false;
         };
-        self.completion_suppressed_at = Some(inserted);
+        self.completion_suppressed_at = self
+            .state
+            .workspace
+            .current_search
+            .map(|tab| (tab, inserted.0, inserted.1));
         self.dismiss_completion(cx);
         self.inputs.structured.update(cx, |input, cx| {
             input.set_selected_range(context.replace, cx);
