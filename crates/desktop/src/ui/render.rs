@@ -1093,6 +1093,20 @@ impl DesktopView {
             .child(
                 div()
                     .flex()
+                    .h(Scrollbar::width())
+                    .flex_shrink_0()
+                    .child(
+                        div().flex_1().child(
+                            Scrollbar::horizontal(&self.grid_horizontal_scroll)
+                                .mode(ScrollbarMode::Always)
+                                .viewport_from_layout(),
+                        ),
+                    )
+                    .child(div().w(Scrollbar::width()).flex_shrink_0()),
+            )
+            .child(
+                div()
+                    .flex()
                     .items_center()
                     .h(px(32.))
                     .flex_shrink_0()
@@ -1152,19 +1166,6 @@ impl DesktopView {
                         ),
                 )
             })
-            .child(
-                div()
-                    .absolute()
-                    .left_0()
-                    .right(Scrollbar::width())
-                    .bottom(px(32.))
-                    .h(Scrollbar::width())
-                    .child(
-                        Scrollbar::horizontal(&self.grid_horizontal_scroll)
-                            .mode(ScrollbarMode::Always)
-                            .viewport_from_layout(),
-                    ),
-            )
             .into_any_element()
     }
 

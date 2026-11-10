@@ -16,13 +16,14 @@ mod workspace;
 
 use objekte_search_core::query::parse_structured_filter;
 use std::cell::Cell;
+use std::collections::BTreeMap;
 use std::sync::mpsc::Sender;
 
 use gpui_kit::component::input::{InputEvent, InputState, TextareaState};
 use gpui_kit::component::{Theme, ThemeMode};
 use gpui_kit::{
     AppContext as _, Context, Entity, FocusHandle, Focusable as _, KeyBinding, ListAlignment,
-    ListState, ScrollHandle, Subscription, Window, px,
+    ListOffset, ListState, ScrollHandle, Subscription, Window, point, px,
 };
 
 use model::{CompletionOrigin, SearchDraft, TabViewState, UiAction, UiUpdate};
@@ -77,6 +78,12 @@ struct Inputs {
     batch_output_path: Entity<InputState>,
 }
 
+#[derive(Clone, Copy, Default)]
+struct GridViewState {
+    top: ListOffset,
+    horizontal: f32,
+}
+
 /// Native read-only workspace; the controller owns repository and worker state.
 pub struct DesktopView {
     actions: Sender<UiAction>,
@@ -91,6 +98,9 @@ pub struct DesktopView {
     grid_focus: FocusHandle,
     grid_list: ListState,
     grid_horizontal_scroll: ScrollHandle,
+    grid_views: BTreeMap<u64, GridViewState>,
+    active_grid_tab: Option<TabId>,
+    pending_grid_restore: Option<(TabId, GridViewState)>,
     primary_tabs_scroll: ScrollHandle,
     secondary_tabs_scroll: ScrollHandle,
     workspace_layout: Cell<Option<(f32, f32, bool, bool)>>,
@@ -255,6 +265,9 @@ impl DesktopView {
             grid_focus: cx.focus_handle(),
             grid_list,
             grid_horizontal_scroll: ScrollHandle::new(),
+            grid_views: BTreeMap::new(),
+            active_grid_tab: None,
+            pending_grid_restore: None,
             primary_tabs_scroll: ScrollHandle::new(),
             secondary_tabs_scroll: ScrollHandle::new(),
             workspace_layout: Cell::new(None),
@@ -359,7 +372,14 @@ impl DesktopView {
             self.builder_view
                 .update(cx, |builder, cx| builder.set_fields(fields.clone(), cx));
         }
+        let opened = matches!(&update, UiUpdate::Opened { .. });
+        let restored_query = matches!(&update, UiUpdate::RestoreQuery(_));
+        if restored_query {
+            self.state.snapshot_current_query();
+            self.remember_grid_view();
+        }
         let reset_grid_scroll = matches!(&update, UiUpdate::QueryStarted(_) | UiUpdate::Page(_));
+        let page_or_append = matches!(&update, UiUpdate::Page(_) | UiUpdate::AppendPage(_));
         let switching_tab =
             matches!(&update, UiUpdate::Tabs { active, .. } if *active != self.state.active_tab);
         if switching_tab && let Some(id) = self.state.active_tab {
@@ -386,10 +406,28 @@ impl DesktopView {
         let prior_index_instance = self.state.index_status.index_instance;
         let replaced_index = matches!(&update, UiUpdate::IndexReplaced(_));
         self.state.apply(update);
+        if opened {
+            self.grid_views.clear();
+            self.active_grid_tab = self.state.workspace.current_search;
+            self.pending_grid_restore = None;
+            self.grid_list.reset_with_uniform_height(0, px(30.));
+            self.grid_horizontal_scroll
+                .set_offset(point(px(0.), px(0.)));
+        } else if restored_query {
+            self.active_grid_tab = self.state.workspace.current_search;
+            self.pending_grid_restore = self
+                .active_grid_tab
+                .map(|id| (id, GridViewState::default()));
+            self.grid_list.reset_with_uniform_height(0, px(30.));
+            self.grid_horizontal_scroll
+                .set_offset(point(px(0.), px(0.)));
+        }
         if switching_tab && let Some(id) = self.state.active_tab {
             self.reveal_workspace_tab(TabId::Record(id));
         }
         if replaced_index || self.state.index_status.index_instance != prior_index_instance {
+            self.grid_views.clear();
+            self.pending_grid_restore = None;
             let load = self.state.index_load_draft.clone();
             let save = self.state.index_save_draft.clone();
             let interval = self.state.index_interval_draft.clone();
@@ -419,6 +457,9 @@ impl DesktopView {
             self.grid_list
                 .splice(old_count..old_count, self.state.loaded_count - old_count);
         }
+        if page_or_append {
+            self.restore_pending_grid_view();
+        }
         if let Some(index) = reveal {
             self.grid_list.scroll_to_reveal_item(index);
         }
@@ -447,6 +488,7 @@ impl DesktopView {
         if self.restoring_query {
             return;
         }
+        self.pending_grid_restore = None;
         let draft = self.query_from_inputs(cx);
         self.builder_view.update(cx, |builder, cx| {
             builder.sync_from_text(&draft.structured, cx)
@@ -469,6 +511,22 @@ impl DesktopView {
         window: &mut Window,
         cx: &mut Context<Self>,
     ) {
+        let next = self.state.workspace.current_search;
+        if self.active_grid_tab != next {
+            self.remember_grid_view();
+            self.active_grid_tab = next;
+            self.pending_grid_restore = next.map(|id| {
+                let view = match id {
+                    TabId::Search(number) => {
+                        self.grid_views.get(&number).copied().unwrap_or_default()
+                    }
+                    TabId::Record(_) => GridViewState::default(),
+                };
+                (id, view)
+            });
+            self.grid_horizontal_scroll
+                .set_offset(point(px(0.), px(0.)));
+        }
         self.restoring_query = true;
         self.suspended_filter = None;
         self.inputs.full_text.update(cx, |input, cx| {
@@ -507,6 +565,7 @@ impl DesktopView {
     }
 
     fn activate_workspace_tab(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
+        let already_live = self.active_grid_tab == Some(id);
         if self.state.workspace.current_search != Some(id) {
             self.state.snapshot_current_query();
         }
@@ -524,7 +583,9 @@ impl DesktopView {
                     .tab(id)
                     .and_then(|tab| tab.draft.clone())
                 {
-                    self.restore_workspace_query(draft, window, cx);
+                    if !already_live {
+                        self.restore_workspace_query(draft, window, cx);
+                    }
                     let focus = self.inputs.full_text.read(cx).focus_handle(cx);
                     window.focus(&focus, cx);
                 }
@@ -588,6 +649,9 @@ impl DesktopView {
         let was_current_search = self.state.workspace.current_search == Some(id);
         if !self.state.workspace.close(id) {
             return;
+        }
+        if let TabId::Search(number) = id {
+            self.grid_views.remove(&number);
         }
         self.state.prune_record_snapshots();
         self.state.prune_query_snapshots();
@@ -761,6 +825,51 @@ impl DesktopView {
             fields_y: f32::from(self.fields_scroll.offset().y).round() as i32,
             links_y: f32::from(self.links_scroll.offset().y).round() as i32,
             source_y: f32::from(self.source_scroll.offset().y).round() as i32,
+        }
+    }
+
+    fn remember_grid_view(&mut self) {
+        if let Some(id @ TabId::Search(number)) = self.active_grid_tab
+            && self.state.workspace.tab(id).is_some()
+        {
+            self.grid_views.insert(
+                number,
+                GridViewState {
+                    top: self.grid_list.logical_scroll_top(),
+                    horizontal: f32::from(self.grid_horizontal_scroll.offset().x),
+                },
+            );
+        }
+    }
+
+    fn restore_pending_grid_view(&mut self) {
+        let Some((id, view)) = self.pending_grid_restore else {
+            return;
+        };
+        if self.active_grid_tab != Some(id) {
+            self.pending_grid_restore = None;
+            return;
+        }
+        let loaded = self.state.loaded_count;
+        let top = if view.top.item_ix > loaded {
+            ListOffset {
+                item_ix: loaded,
+                offset_in_item: px(0.),
+            }
+        } else {
+            view.top
+        };
+        self.grid_list.scroll_to(top);
+        self.grid_horizontal_scroll
+            .set_offset(point(px(view.horizontal), px(0.)));
+        if self.state.has_more && view.top.item_ix.saturating_add(40) >= loaded {
+            self.send(UiAction::VisibleRows {
+                start: loaded.saturating_sub(20),
+                end: loaded,
+            });
+        }
+        if view.top.item_ix <= loaded || !self.state.has_more {
+            self.pending_grid_restore = None;
         }
     }
 
