@@ -1,6 +1,29 @@
 use super::*;
 
 #[test]
+fn presentation_refresh_keeps_selection_after_preview_is_closed() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    let draft = SearchDraft::default();
+    controller.session = Some(fixture.session);
+    controller.current_draft = draft.clone();
+    controller.executed_draft = Some(draft.clone());
+    controller.selected_index = Some(798);
+
+    let mut updates = Vec::new();
+    controller.start_query_impl(draft, 0, false, true, &mut updates);
+
+    assert_eq!(controller.selected_index, Some(798));
+    assert!(updates.iter().any(|update| matches!(
+        update,
+        UiUpdate::QueryStarted {
+            retain_preview: true,
+            ..
+        }
+    )));
+}
+
+#[test]
 fn loaded_index_receives_check_policy_before_old_scheduler_retires() {
     let fixture = crate::backend::test_support::fixture();
     let original = fixture.session.clone();

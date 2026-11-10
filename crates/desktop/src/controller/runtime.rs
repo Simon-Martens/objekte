@@ -1533,8 +1533,10 @@ impl DesktopController {
         self.current_draft = draft.clone();
         self.executed_draft = Some(draft.clone());
         self.executed_spec = Some(spec.clone());
-        if !refresh {
+        if !refresh && !retain_preview {
             self.selected_index = None;
+        }
+        if !refresh {
             self.keys.clear();
         }
         self.pending_reveal = None;
@@ -2509,7 +2511,7 @@ impl DesktopController {
                     return;
                 }
                 match *result {
-                    Ok((view, keys, next, elapsed_ns, available, hidden, diagnostics)) => {
+                    Ok((mut view, keys, next, elapsed_ns, available, hidden, diagnostics)) => {
                         match kind {
                             GridRequestKind::First => {
                                 let was_refresh = self.refreshing_results;
@@ -2517,6 +2519,9 @@ impl DesktopController {
                                 self.results_outdated = false;
                                 updates.push(UiUpdate::ResultsOutdated(false));
                                 let needs_count = view.exact_total.is_none() && view.has_next;
+                                if self.selected_index.is_some() {
+                                    view.selected = self.selected_index;
+                                }
                                 self.keys = vec![None; view.offset];
                                 self.keys.extend(keys.into_iter().map(Some));
                                 let refreshed_anchor = self.refresh_anchor.take();
