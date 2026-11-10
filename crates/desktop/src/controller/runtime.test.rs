@@ -495,7 +495,6 @@ fn main_query_change_preserves_tab_context_and_close_cancels_its_work() {
         0,
         &mut updates,
     );
-    assert_eq!(controller.tabs[0].context.query_generation, 0);
     assert_eq!(controller.tabs[0].context.draft, SearchDraft::default());
     assert!(!token.is_cancelled());
     controller.close_tab(tab_id, &mut updates);
@@ -504,7 +503,7 @@ fn main_query_change_preserves_tab_context_and_close_cancels_its_work() {
 }
 
 #[test]
-fn row_open_reuses_active_tab_and_explicit_new_tab_adds_one() {
+fn row_preview_reuses_only_its_own_slot_and_explicit_tabs_stay_pinned() {
     let fixture = crate::backend::test_support::fixture();
     let page = backend::query_page(
         &fixture.session,
@@ -532,12 +531,27 @@ fn row_open_reuses_active_tab_and_explicit_new_tab_adds_one() {
     let mut updates = Vec::new();
     controller.open_record(0, false, &mut updates);
     let first_id = controller.active_tab.unwrap();
+    assert!(!controller.tabs[0].pinned);
     controller.open_record(1, false, &mut updates);
     assert_eq!(controller.active_tab, Some(first_id));
     assert_eq!(controller.tabs.len(), 1);
     controller.open_record(1, true, &mut updates);
     assert_eq!(controller.tabs.len(), 2);
-    assert_ne!(controller.active_tab, Some(first_id));
+    let pinned_id = controller.active_tab.unwrap();
+    assert_ne!(pinned_id, first_id);
+    assert!(controller.tabs.iter().find(|tab| tab.id == pinned_id).unwrap().pinned);
+
+    controller.open_record(0, false, &mut updates);
+    assert_eq!(controller.active_tab, Some(first_id));
+    assert_eq!(controller.tabs.len(), 2);
+    assert!(controller.tabs.iter().find(|tab| tab.id == pinned_id).unwrap().pinned);
+    controller.pin_preview(&mut updates);
+    assert!(controller.tabs.iter().all(|tab| tab.pinned));
+    assert!(updates.iter().any(|update| matches!(
+        update,
+        UiUpdate::Tabs { tabs, active: Some(id) }
+            if *id == first_id && tabs.iter().find(|tab| tab.id == first_id).unwrap().pinned
+    )));
 }
 
 #[test]

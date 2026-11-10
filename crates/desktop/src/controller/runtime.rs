@@ -45,7 +45,6 @@ struct RecordKey {
 
 #[derive(Clone)]
 struct TabContext {
-    query_generation: u64,
     publication: Publication,
     spec: backend::QuerySpec,
     draft: SearchDraft,
@@ -61,6 +60,7 @@ struct TabFrame {
 
 struct RecordTab {
     id: u64,
+    pinned: bool,
     context: Arc<TabContext>,
     key: RecordKey,
     anchor: usize,
@@ -955,6 +955,7 @@ impl DesktopController {
             UiAction::SelectRow(index) => self.select_row(index, updates),
             UiAction::OpenRecord(index) => self.open_record(index, false, updates),
             UiAction::OpenRecordNewTab(index) => self.open_record(index, true, updates),
+            UiAction::PinPreview => self.pin_preview(updates),
             UiAction::ActivateTab(id) => self.activate_tab(id, updates),
             UiAction::SetTabView { id, view } => {
                 if let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) {
@@ -1819,6 +1820,7 @@ impl DesktopController {
                 .iter()
                 .map(|tab| RecordTabSummary {
                     id: tab.id,
+                    pinned: tab.pinned,
                     title: tab.title.clone(),
                     identity: format!("{} / {}", tab.key.collection, tab.key.id),
                     position: tab.anchor + 1,
@@ -1871,7 +1873,6 @@ impl DesktopController {
         };
         self.select_row(index, updates);
         let context = Arc::new(TabContext {
-            query_generation: self.query_generation,
             publication: Publication {
                 instance_id: view.instance_id(),
                 revision: view.revision(),
@@ -1880,7 +1881,8 @@ impl DesktopController {
             draft,
         });
         if !new_tab {
-            if let Some(id) = self.active_tab {
+            if let Some(id) = self.tabs.iter().find(|tab| !tab.pinned).map(|tab| tab.id) {
+                self.activate_for_replacement(id, updates);
                 self.start_tab_load(
                     id,
                     TabLoadKind::Replace {
@@ -1893,21 +1895,11 @@ impl DesktopController {
                 return;
             }
         }
-        if !new_tab {
-            if let Some(id) = self
-                .tabs
-                .iter()
-                .find(|tab| tab.key == key && tab.context.query_generation == self.query_generation)
-                .map(|tab| tab.id)
-            {
-                self.activate_tab(id, updates);
-                return;
-            }
-        }
         let id = self.next_tab_id;
         self.next_tab_id += 1;
         self.tabs.push(RecordTab {
             id,
+            pinned: new_tab,
             context,
             key: key.clone(),
             anchor: index,
@@ -1929,6 +1921,33 @@ impl DesktopController {
         self.activate_tab(id, updates);
     }
 
+    fn activate_for_replacement(&mut self, id: u64, updates: &mut Vec<UiUpdate>) {
+        if let Some(old) = self
+            .active_tab
+            .and_then(|old| self.tabs.iter_mut().find(|tab| tab.id == old))
+        {
+            old.expanded = self.expanded.clone();
+        }
+        self.active_tab = Some(id);
+        self.detail_generation += 1;
+        self.selected_hit = None;
+        self.detail = None;
+        self.relation_actions.clear();
+        self.expanded.clear();
+        updates.push(UiUpdate::Detail(None));
+        self.emit_tabs(updates);
+    }
+
+    fn pin_preview(&mut self, updates: &mut Vec<UiUpdate>) {
+        if let Some(tab) = self
+            .active_tab
+            .and_then(|id| self.tabs.iter_mut().find(|tab| tab.id == id && !tab.pinned))
+        {
+            tab.pinned = true;
+            self.emit_tabs(updates);
+        }
+    }
+
     /// A stale row retains its canonical identity, but its old position is not
     /// a locator in the new index. Re-resolve the identity without scanning a
     /// deep result prefix when it is absent from the refreshed first page.
@@ -1946,7 +1965,6 @@ impl DesktopController {
             return;
         };
         let context = Arc::new(TabContext {
-            query_generation: self.query_generation,
             publication: Publication {
                 instance_id: view.instance_id(),
                 revision: view.revision(),
@@ -1955,7 +1973,7 @@ impl DesktopController {
             draft,
         });
         let id = if !new_tab {
-            if let Some(id) = self.active_tab {
+            if let Some(id) = self.tabs.iter().find(|tab| !tab.pinned).map(|tab| tab.id) {
                 if let Some(tab) = self.tabs.iter_mut().find(|tab| tab.id == id) {
                     tab.cancellation.cancel();
                     tab.context = context.clone();
@@ -1983,6 +2001,7 @@ impl DesktopController {
             self.next_tab_id = self.next_tab_id.wrapping_add(1);
             self.tabs.push(RecordTab {
                 id,
+                pinned: new_tab,
                 context,
                 key: key.clone(),
                 anchor: 0,
@@ -2118,7 +2137,9 @@ impl DesktopController {
             _ => tab.context.publication,
         };
         if !matches!(&kind, TabLoadKind::Refresh)
-            && (tab.freshness != TabFreshness::Current || expected != publication)
+            && (expected != publication
+                || (!matches!(&kind, TabLoadKind::Replace { .. })
+                    && tab.freshness != TabFreshness::Current))
         {
             tab.freshness = TabFreshness::Outdated;
             tab.navigation_outdated = true;
@@ -3349,6 +3370,7 @@ impl DesktopController {
         self.next_tab_id += 1;
         self.tabs.push(RecordTab {
             id,
+            pinned: true,
             context,
             key: key.clone(),
             anchor,

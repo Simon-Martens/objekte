@@ -301,10 +301,13 @@ pub struct QueryEntry {
     pub draft: SearchDraft,
 }
 
-/// Lightweight identity and navigation controls for one retained inspector tab.
+/// Lightweight identity and navigation controls for a record view.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RecordTabSummary {
     pub id: u64,
+    /// A selected row uses the temporary split preview; only pinned records
+    /// belong in the workspace tab strip.
+    pub pinned: bool,
     pub title: String,
     pub identity: String,
     pub position: usize,
@@ -505,6 +508,7 @@ pub enum UiAction {
     SelectRow(usize),
     OpenRecord(usize),
     OpenRecordNewTab(usize),
+    PinPreview,
     ActivateTab(u64),
     SetTabView {
         id: u64,

@@ -656,6 +656,10 @@ impl DesktopView {
         self.state.prune_query_snapshots();
         match id {
             TabId::Search(_) => {
+                if self.state.preview_search != Some(id) {
+                    self.state.preview_search = None;
+                    self.state.inspector_visible = false;
+                }
                 if let Some(draft) = self
                     .state
                     .workspace
@@ -664,12 +668,22 @@ impl DesktopView {
                 {
                     if !already_live {
                         self.restore_workspace_query(draft, window, cx);
+                    } else if self.state.preview_search == Some(id)
+                        && let Some(preview_id) = self
+                            .state
+                            .tabs
+                            .iter()
+                            .find(|tab| !tab.pinned)
+                            .map(|tab| tab.id)
+                    {
+                        self.send(UiAction::ActivateTab(preview_id));
                     }
                     let focus = self.inputs.full_text.read(cx).focus_handle(cx);
                     window.focus(&focus, cx);
                 }
             }
             TabId::Record(id) => {
+                self.state.inspector_visible = false;
                 self.save_tab_view();
                 self.send(UiAction::ActivateTab(id));
                 window.focus(&self.detail_focus, cx);
@@ -722,6 +736,10 @@ impl DesktopView {
     }
 
     fn close_workspace_tab(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
+        if self.state.preview_search == Some(id) {
+            self.state.preview_search = None;
+            self.state.inspector_visible = false;
+        }
         let pane = self.state.workspace.pane_of(id);
         let was_selected =
             pane.is_some_and(|pane| self.state.workspace.group(pane).active == Some(id));
@@ -1108,11 +1126,8 @@ impl DesktopView {
     }
 
     fn send(&mut self, action: UiAction) {
-        if matches!(&action, UiAction::OpenRecord(_))
-            && let Some(id) = self.state.active_tab
-        {
-            self.state.workspace.activate(TabId::Record(id));
-            self.state.prune_record_snapshots();
+        if matches!(&action, UiAction::OpenRecord(_) | UiAction::OpenDetail) {
+            self.state.preview_search = self.state.workspace.current_search;
         }
         if self.actions.send(action).is_err() {
             self.state.status = "Desktop controller disconnected".into();

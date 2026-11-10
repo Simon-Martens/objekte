@@ -17,11 +17,53 @@ use gpui_kit::{
 
 use super::DesktopView;
 use super::model::{
-    BatchSource, DetailOrigin, DetailRow, DetailValueKind, ErrorField, ExportFormat, IndexTaskKind,
+    BatchSource, DetailOrigin, DetailRow, DetailValueKind, DetailView, ErrorField, ExportFormat, IndexTaskKind,
     IndexTaskState, TabFreshness, UiAction,
 };
 use super::state::ActionPanel;
 use super::workspace::Pane;
+
+fn detail_heading(detail: &DetailView) -> String {
+    for field in ["$.name", "$.title"] {
+        if let Some(row) = detail.structured.iter().find(|row| {
+            row.origin == DetailOrigin::Structured
+                && row.label == field
+                && row.value_kind == DetailValueKind::Present
+                && !row.expandable
+                && !row.value.trim().is_empty()
+        }) {
+            return row.value.clone();
+        }
+    }
+    detail.title.clone()
+}
+
+#[cfg(test)]
+mod detail_heading_tests {
+    use super::*;
+
+    #[test]
+    fn uses_a_present_display_name_and_falls_back_to_record_identity() {
+        let mut detail = DetailView { title: "files / path:0001.json".into(), ..DetailView::default() };
+        assert_eq!(detail_heading(&detail), detail.title);
+        detail.structured.push(DetailRow {
+            label: "$.name".into(),
+            value: "Example title".into(),
+            depth: 0,
+            matched: false,
+            filter_participant: false,
+            fts_matched: false,
+            value_highlights: Vec::new(),
+            expandable: false,
+            expanded: false,
+            origin: DetailOrigin::Structured,
+            value_kind: DetailValueKind::Present,
+        });
+        assert_eq!(detail_heading(&detail), "Example title");
+        detail.structured[0].value_kind = DetailValueKind::LogicalUnavailable;
+        assert_eq!(detail_heading(&detail), detail.title);
+    }
+}
 
 fn copyable_field_path(row: &DetailRow, clipped: bool) -> Option<String> {
     let path = if row.origin == DetailOrigin::Structured {
@@ -214,6 +256,7 @@ impl DesktopView {
             .tabs
             .iter()
             .find(|tab| Some(tab.id) == self.state.active_tab);
+        let is_preview = active_tab.is_some_and(|tab| !tab.pinned);
         let freshness = active_tab.map_or(TabFreshness::Current, |tab| tab.freshness);
         let navigation_current = freshness == TabFreshness::Current;
         let record_current = matches!(
@@ -343,7 +386,37 @@ impl DesktopView {
                             .on_click(cx.listener(|this, _, _, _| {
                                 this.send(UiAction::OpenTabQuery);
                             })),
-                    ),
+                    )
+                    .when(is_preview, |this| {
+                        this.child(
+                            Button::new("pin-record-preview")
+                                .ghost()
+                                .icon(AssetIconName::ExternalLink)
+                                .label("Open in tab")
+                                .tooltip("Keep this record in its own tab")
+                                .on_click(cx.listener(|this, _, _, cx| {
+                                    this.state.preview_search = None;
+                                    this.state.inspector_visible = false;
+                                    this.send(UiAction::PinPreview);
+                                    cx.notify();
+                                })),
+                        )
+                        .child(
+                            Button::new("close-record-preview")
+                                .ghost()
+                                .icon(AssetIconName::X)
+                                .tooltip("Close preview")
+                                .accessibility_label("Close preview")
+                                .on_click(cx.listener(|this, _, _, cx| {
+                                    this.state.preview_search = None;
+                                    this.state.inspector_visible = false;
+                                    if let Some(id) = this.state.active_tab {
+                                        this.send(UiAction::CloseTab(id));
+                                    }
+                                    cx.notify();
+                                })),
+                        )
+                    }),
             )
             .when(freshness != TabFreshness::Current, |this| {
                 let label = match freshness {
@@ -395,7 +468,43 @@ impl DesktopView {
                 )
                 .into_any_element();
         };
+        let identity = active_tab.map_or_else(String::new, |tab| tab.identity.clone());
         panel = panel
+            .child(
+                div()
+                    .flex()
+                    .flex_col()
+                    .gap_1()
+                    .px_3()
+                    .py_2()
+                    .border_b_1()
+                    .border_color(rgb(colors.border))
+                    .child(
+                        div()
+                            .text_xs()
+                            .text_color(rgb(colors.secondary))
+                            .child(if is_preview { "PREVIEW" } else { "RECORD" }),
+                    )
+                    .child(
+                        div()
+                            .min_w_0()
+                            .overflow_hidden()
+                            .whitespace_nowrap()
+                            .text_ellipsis()
+                            .font_weight(FontWeight::SEMIBOLD)
+                            .child(detail_heading(detail)),
+                    )
+                    .child(
+                        div()
+                            .min_w_0()
+                            .overflow_hidden()
+                            .whitespace_nowrap()
+                            .text_ellipsis()
+                            .text_xs()
+                            .text_color(rgb(colors.secondary))
+                            .child(identity),
+                    ),
+            )
             .child(
                 div()
                     .flex()
@@ -1270,8 +1379,8 @@ impl DesktopView {
             .child(div().text_sm().child("Ctrl+O: Open · Ctrl+F: Search · Ctrl+L: Filter · Ctrl+T: New query · Ctrl+W: Close tab · Ctrl+Tab / Ctrl+PageDown: Next tab · Ctrl+Shift+Tab / Ctrl+PageUp: Previous tab · Ctrl+1 / Ctrl+2: Focus left / right pane · F1: Help · Escape: close the nearest panel."))
             .child(div().text_sm().child("Collections and queries open in tabs. Drag a tab label to reorder it or move it between panes; right-click for move and duplicate commands. The list icon shows all open tabs. Click + for a query or middle-click a tab to close it."))
             .child(div().text_sm().child("When queries appear in both panes, the inactive query shows its latest result preview. Activate it to edit or refresh its results."))
-            .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to reuse the active record tab in the right pane. Shift-click or use the row menu to open another tab."))
-            .child(div().text_sm().child("Record tabs retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; Source shows the original record. The inspector Copy icon copies the complete record."))
+            .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to preview it beside the table. Use Open in tab, Shift-click, or the row menu to keep a record in its own tab."))
+            .child(div().text_sm().child("Record views retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; Source shows the original record. The inspector Copy icon copies the complete record."))
             .child(div().text_sm().child("Right-click a field to copy its full path or scalar value. Aggregate and clipped previews are not complete values; expand an aggregate or copy the complete record instead."))
             .child(div().text_sm().child("Source records and schemas are read-only. Export and index writes are explicit actions."));
         div()

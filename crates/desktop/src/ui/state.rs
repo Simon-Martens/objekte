@@ -12,7 +12,7 @@ use super::model::{
     SearchDraft, TabViewState, UiUpdate,
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
-use super::workspace::Workspace;
+use super::workspace::{TabId, Workspace};
 
 /// A small, read-only preview for a query visible beside the live query.
 /// Query execution and result locators remain controller-owned.
@@ -121,6 +121,8 @@ pub struct UiState {
     pub detail: Option<DetailView>,
     pub tabs: Vec<RecordTabSummary>,
     pub active_tab: Option<u64>,
+    /// Query tab whose table owns the temporary split record preview.
+    pub preview_search: Option<TabId>,
     pub workspace: Workspace,
     pub query_snapshots: BTreeMap<u64, QuerySnapshot>,
     pub record_detail_snapshots: BTreeMap<u64, RecordPreview>,
@@ -185,6 +187,14 @@ pub struct UiState {
 }
 
 impl UiState {
+    pub fn preview_visible_for(&self, search: TabId) -> bool {
+        self.show_preview
+            && self.preview_search == Some(search)
+            && self.active_tab.is_some_and(|id| {
+                self.tabs.iter().any(|tab| tab.id == id && !tab.pinned)
+            })
+    }
+
     /// Apply one controller update without retaining unbounded result content.
     pub fn apply(&mut self, update: UiUpdate) {
         match update {
@@ -223,6 +233,7 @@ impl UiState {
                 self.detail = None;
                 self.tabs.clear();
                 self.active_tab = None;
+                self.preview_search = None;
                 self.query_snapshots.clear();
                 self.record_detail_snapshots.clear();
                 self.tab_views.clear();
@@ -416,7 +427,10 @@ impl UiState {
                     self.detail_cache = DetailCache::default();
                     self.detail_source = None;
                 }
-                self.inspector_visible = active.is_some();
+                self.inspector_visible = self
+                    .workspace
+                    .current_search
+                    .is_some_and(|id| self.preview_visible_for(id));
             }
             UiUpdate::Detail(detail) => {
                 self.detail = detail.map(DetailView::bounded);

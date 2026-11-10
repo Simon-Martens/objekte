@@ -2,11 +2,47 @@ use super::*;
 use crate::ui::model::{ResultRow, RowKey};
 
 #[test]
+fn split_preview_requires_its_owning_query_and_an_unpinned_record() {
+    use crate::ui::workspace::TabId;
+
+    let mut state = UiState { show_preview: true, ..UiState::default() };
+    let query = state.workspace.opened(Some("files".into()));
+    state.preview_search = Some(query);
+    let preview = RecordTabSummary {
+        id: 4,
+        pinned: false,
+        title: "item".into(),
+        identity: "files / item".into(),
+        position: 1,
+        can_back: false,
+        can_previous: false,
+        can_next: false,
+        loading: false,
+        links_loading: false,
+        freshness: Default::default(),
+    };
+    state.apply(UiUpdate::Tabs { tabs: vec![preview.clone()], active: Some(4) });
+    assert!(state.preview_visible_for(query));
+    assert!(state.inspector_visible);
+    assert!(!state.preview_visible_for(TabId::Search(999)));
+    assert_eq!(state.workspace.primary.tabs.len(), 1);
+
+    state.apply(UiUpdate::Tabs {
+        tabs: vec![RecordTabSummary { pinned: true, ..preview }],
+        active: Some(4),
+    });
+    assert!(!state.preview_visible_for(query));
+    assert!(!state.inspector_visible);
+    assert_eq!(state.workspace.primary.tabs.len(), 2);
+}
+
+#[test]
 fn open_record_previews_survive_tab_moves_and_prune_on_close() {
     use crate::ui::workspace::{Pane, TabId};
 
     let tab = |id| RecordTabSummary {
         id,
+        pinned: true,
         title: format!("files / path:{id}.json"),
         identity: format!("files / path:{id}.json"),
         position: id as usize + 1,
@@ -367,6 +403,7 @@ fn same_repository_index_replacement_keeps_tabs_and_drafts() {
     };
     state.tabs.push(RecordTabSummary {
         id: 3,
+        pinned: true,
         title: "record".into(),
         identity: "docs:1".into(),
         position: 0,

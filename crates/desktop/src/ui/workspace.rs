@@ -295,7 +295,11 @@ impl Workspace {
     }
 
     pub fn sync_records(&mut self, records: &[RecordTabSummary], active: Option<u64>) {
-        let ids = records.iter().map(|tab| tab.id).collect::<Vec<_>>();
+        let ids = records
+            .iter()
+            .filter(|tab| tab.pinned)
+            .map(|tab| tab.id)
+            .collect::<Vec<_>>();
         for pane in [Pane::Primary, Pane::Secondary] {
             let stale = self
                 .group(pane)
@@ -311,7 +315,7 @@ impl Workspace {
             }
         }
         let mut active_added = false;
-        for record in records {
+        for record in records.iter().filter(|record| record.pinned) {
             let id = TabId::Record(record.id);
             if let Some(pane) = self.pane_of(id) {
                 if let Some(tab) = self
@@ -324,7 +328,11 @@ impl Workspace {
                 }
             } else {
                 active_added |= active == Some(record.id);
-                self.secondary.tabs.push(WorkspaceTab {
+                let pane = self
+                    .current_search
+                    .and_then(|id| self.pane_of(id))
+                    .unwrap_or(self.focused_pane);
+                self.group_mut(pane).tabs.push(WorkspaceTab {
                     id,
                     title: record.title.clone(),
                     draft: None,
@@ -334,7 +342,7 @@ impl Workspace {
             }
         }
         if active != self.last_active_record || active_added {
-            if let Some(id) = active {
+            if let Some(id) = active.filter(|id| ids.contains(id)) {
                 self.activate(TabId::Record(id));
             }
         }
@@ -550,11 +558,42 @@ mod tests {
     }
 
     #[test]
+    fn selected_record_stays_inside_its_query_until_explicitly_pinned() {
+        let mut workspace = Workspace::default();
+        let query = workspace.opened(Some("files".into()));
+        let preview = RecordTabSummary {
+            id: 7,
+            pinned: false,
+            title: "item 7".into(),
+            identity: "files / 7".into(),
+            position: 1,
+            can_back: false,
+            can_previous: false,
+            can_next: false,
+            loading: false,
+            links_loading: false,
+            freshness: Default::default(),
+        };
+        workspace.sync_records(&[preview.clone()], Some(7));
+        assert_eq!(workspace.primary.active, Some(query));
+        assert_eq!(workspace.primary.tabs.len(), 1);
+        assert!(workspace.secondary.tabs.is_empty());
+
+        let pinned = RecordTabSummary { pinned: true, ..preview };
+        workspace.sync_records(&[pinned], Some(7));
+        assert_eq!(workspace.primary.active, Some(TabId::Record(7)));
+        assert_eq!(workspace.current_search, Some(query));
+        assert_eq!(workspace.primary.tabs.len(), 2);
+        assert!(workspace.secondary.tabs.is_empty());
+    }
+
+    #[test]
     fn routine_record_updates_do_not_steal_a_query_tab() {
         let mut workspace = Workspace::default();
         workspace.opened(None);
         let record = RecordTabSummary {
             id: 7,
+            pinned: true,
             title: "item 7".into(),
             identity: "items / 7".into(),
             position: 1,
@@ -579,6 +618,7 @@ mod tests {
         workspace.opened(None);
         let record = RecordTabSummary {
             id: 7,
+            pinned: true,
             title: "item 7".into(),
             identity: "items / 7".into(),
             position: 1,
@@ -590,13 +630,13 @@ mod tests {
             freshness: Default::default(),
         };
         workspace.sync_records(&[record.clone()], Some(7));
-        assert_eq!(workspace.secondary.active, Some(TabId::Record(7)));
+        assert_eq!(workspace.primary.active, Some(TabId::Record(7)));
         workspace.close(TabId::Record(7));
 
         // A worker update can arrive before the controller processes CloseTab.
         workspace.sync_records(&[record], Some(7));
-        assert_eq!(workspace.secondary.active, Some(TabId::Record(7)));
-        assert_eq!(workspace.focused_pane, Pane::Secondary);
+        assert_eq!(workspace.primary.active, Some(TabId::Record(7)));
+        assert_eq!(workspace.focused_pane, Pane::Primary);
     }
 
     #[test]

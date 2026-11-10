@@ -1952,15 +1952,41 @@ impl DesktopView {
 
     fn render_workspace_content(&self, pane: Pane, cx: &mut Context<Self>) -> gpui_kit::AnyElement {
         match self.state.workspace.group(pane).active {
-            Some(id @ TabId::Search(_)) if self.state.workspace.current_search == Some(id) => div()
-                .flex()
-                .flex_col()
-                .flex_1()
-                .min_h_0()
-                .min_w_0()
-                .child(self.render_query_bar(cx))
-                .child(self.render_grid(cx))
-                .into_any_element(),
+            Some(id @ TabId::Search(_)) if self.state.workspace.current_search == Some(id) => {
+                let show_preview = self.state.preview_visible_for(id);
+                let preview_width = if pane == Pane::Secondary {
+                    self.state
+                        .inspector_width
+                        .min(self.state.secondary_query_width * 0.45)
+                } else {
+                    self.state.inspector_width
+                };
+                div()
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .min_h_0()
+                    .min_w_0()
+                    .child(self.render_query_bar(cx))
+                    .child(
+                        div()
+                            .flex()
+                            .flex_1()
+                            .min_h_0()
+                            .min_w_0()
+                            .child(self.render_grid(cx))
+                            .when(show_preview, |this| {
+                                this.child(
+                                    div()
+                                        .w(px(preview_width))
+                                        .flex_shrink_0()
+                                        .min_h_0()
+                                        .child(self.render_detail(Pane::Secondary, cx)),
+                                )
+                            }),
+                    )
+                    .into_any_element()
+            }
             Some(id @ TabId::Search(_)) => self.render_inactive_query(id, cx).into_any_element(),
             Some(TabId::Record(id)) if self.state.active_tab == Some(id) => {
                 self.render_detail(pane, cx).into_any_element()
