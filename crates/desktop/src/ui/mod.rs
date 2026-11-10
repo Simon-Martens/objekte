@@ -1172,7 +1172,7 @@ impl DesktopView {
         cx.notify();
     }
 
-    fn select_relative(&mut self, delta: isize, cx: &mut Context<Self>) {
+    fn select_relative(&mut self, delta: isize, window: &mut Window, cx: &mut Context<Self>) {
         let len = self.state.loaded_count;
         if len == 0 {
             return;
@@ -1190,10 +1190,12 @@ impl DesktopView {
             end: next + 1,
         });
         self.send(UiAction::OpenRecord(next));
+        // A distant reveal can rebuild the virtual list's focused element.
+        window.focus(&self.grid_focus, cx);
         cx.notify();
     }
 
-    fn select_absolute(&mut self, last: bool, cx: &mut Context<Self>) {
+    fn select_absolute(&mut self, last: bool, window: &mut Window, cx: &mut Context<Self>) {
         let len = self.state.loaded_count;
         if len == 0 {
             return;
@@ -1218,6 +1220,8 @@ impl DesktopView {
             end: index + 1,
         });
         self.send(UiAction::OpenRecord(index));
+        // Keep keyboard navigation in the table after the virtual list jumps.
+        window.focus(&self.grid_focus, cx);
         cx.notify();
     }
 

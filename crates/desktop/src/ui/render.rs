@@ -868,12 +868,12 @@ impl DesktopView {
         let rows = div()
             .id("results-scroll")
             .track_focus(&self.grid_focus)
-            .on_key_down(cx.listener(|this, event: &gpui_kit::KeyDownEvent, _, cx| {
+            .on_key_down(cx.listener(|this, event: &gpui_kit::KeyDownEvent, window, cx| {
                 match event.keystroke.key.as_str() {
-                    "up" => this.select_relative(-1, cx),
-                    "down" => this.select_relative(1, cx),
-                    "home" => this.select_absolute(false, cx),
-                    "end" => this.select_absolute(true, cx),
+                    "up" => this.select_relative(-1, window, cx),
+                    "down" => this.select_relative(1, window, cx),
+                    "home" => this.select_absolute(false, window, cx),
+                    "end" => this.select_absolute(true, window, cx),
                     "pageup" => this.grid_list.scroll_by(px(-600.)),
                     "pagedown" => this.grid_list.scroll_by(px(600.)),
                     "enter" => {
