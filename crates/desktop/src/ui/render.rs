@@ -2094,6 +2094,7 @@ impl DesktopView {
         } else if window_width < 1100.
             && self.state.workspace.focused_pane == Pane::Primary
             && matches!(self.state.workspace.primary.active, Some(TabId::Search(_)))
+            && matches!(right.active, Some(TabId::Search(_)))
         {
             220.
         } else {
@@ -2168,11 +2169,12 @@ impl Render for DesktopView {
         let width = f32::from(window.bounds().size.width);
         if self.last_window_width >= 1100.
             && width < 1100.
-            && self
-                .state
-                .workspace
-                .current_search
-                .is_some_and(|id| self.state.preview_visible_for(id))
+            && (!self.state.workspace.secondary.tabs.is_empty()
+                || self
+                    .state
+                    .workspace
+                    .current_search
+                    .is_some_and(|id| self.state.preview_visible_for(id)))
         {
             self.state.sidebar_visible = false;
         }

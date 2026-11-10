@@ -818,6 +818,9 @@ impl DesktopView {
         cx: &mut Context<Self>,
     ) {
         if self.state.workspace.move_tab(id, pane, at) {
+            if pane == Pane::Secondary && f32::from(window.bounds().size.width) < 1100. {
+                self.state.sidebar_visible = false;
+            }
             self.reveal_workspace_tab(id);
             self.state.prune_record_snapshots();
             self.state.prune_query_snapshots();
