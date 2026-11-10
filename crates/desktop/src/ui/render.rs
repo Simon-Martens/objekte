@@ -2157,6 +2157,18 @@ impl DesktopView {
 
 impl Render for DesktopView {
     fn render(&mut self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+        let width = f32::from(window.bounds().size.width);
+        if self.last_window_width >= 1100.
+            && width < 1100.
+            && self
+                .state
+                .workspace
+                .current_search
+                .is_some_and(|id| self.state.preview_visible_for(id))
+        {
+            self.state.sidebar_visible = false;
+        }
+        self.last_window_width = width;
         self.request_visible_grid_rows();
         let colors = palette(self.state.dark);
         div()
