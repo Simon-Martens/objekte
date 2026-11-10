@@ -1985,7 +1985,7 @@ impl DesktopView {
                     .flex_1()
                     .min_h_0()
                     .min_w_0()
-                    .child(self.render_query_bar(cx))
+                    .child(self.render_query_bar(pane_width, cx))
                     .child(
                         div()
                             .flex()

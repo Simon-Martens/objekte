@@ -502,9 +502,9 @@ impl DesktopView {
         self.search_from_inputs(false, cx);
     }
 
-    /// Compact search row and optional filter line.
+    /// Search controls reflow when the active query pane is narrow.
     /// The two InputState values remain authoritative across every render.
-    pub(super) fn render_query_bar(&self, cx: &mut Context<Self>) -> impl IntoElement {
+    pub(super) fn render_query_bar(&self, pane_width: f32, cx: &mut Context<Self>) -> impl IntoElement {
         let text_error = self.state.errors.get(&ErrorField::FullText).cloned();
         let filter_error = self.state.errors.get(&ErrorField::Structured).cloned();
         let validation = self.state.filter_validation.clone();
@@ -526,6 +526,7 @@ impl DesktopView {
         let search_text_available = !self.inputs.full_text.read(cx).value().is_empty();
         let filter_text_available = !self.inputs.structured.read(cx).value().is_empty();
         let menu_target = cx.entity();
+        let compact = pane_width < 480.;
         div()
             .id("query-bar")
             .relative()
@@ -539,173 +540,189 @@ impl DesktopView {
                     .flex()
                     .items_center()
                     .gap_2()
-                    .child(div().text_sm().child("Search"))
+                    .when(compact, |this| this.flex_col().items_stretch())
                     .child(
-                        Input::new(&self.inputs.full_text)
-                            .id("full-text-input")
+                        div()
+                            .flex()
+                            .items_center()
+                            .gap_2()
                             .flex_1()
                             .min_w_0()
-                            .aria_label("Full text search"),
+                            .child(div().text_sm().child("Search"))
+                            .child(
+                                Input::new(&self.inputs.full_text)
+                                    .id("full-text-input")
+                                    .flex_1()
+                                    .min_w_0()
+                                    .aria_label("Full text search"),
+                            )
+                            .when(search_text_available, |this| this.child(
+                                Button::new("query-clear-search")
+                                    .ghost()
+                                    .icon(IconName::Close)
+                                    .tooltip("Clear search")
+                                    .accessibility_label("Clear search")
+                                    .on_click(cx.listener(|this, _, window, cx| {
+                                        this.clear_query_text(false, window, cx);
+                                    })),
+                            )),
                     )
-                    .when(search_text_available, |this| this.child(
-                        Button::new("query-clear-search")
-                            .ghost()
-                            .icon(IconName::Close)
-                            .tooltip("Clear search")
-                            .accessibility_label("Clear search")
-                            .on_click(cx.listener(|this, _, window, cx| {
-                                this.clear_query_text(false, window, cx);
-                            })),
-                    ))
                     .child(
-                        Button::new("query-text-menu")
-                            .ghost()
-                            .icon(AssetIconName::Ellipsis)
-                            .tooltip("Query text actions; right-click a field for selection editing")
-                            .accessibility_label("Query text actions")
-                            .dropdown_menu(move |menu, _, cx| {
-                                let clipboard_text = super::read_clipboard_text(cx);
-                                let paste_search = clipboard_text.clone();
-                                let paste_filter = clipboard_text;
-                                let copy_search_target = menu_target.clone();
-                                let copy_filter_target = menu_target.clone();
-                                let paste_search_target = menu_target.clone();
-                                let paste_filter_target = menu_target.clone();
-                                let clear_search_target = menu_target.clone();
-                                let clear_filter_target = menu_target.clone();
-                                menu.item(
-                                    PopupMenuItem::new("Copy entire search")
-                                        .icon(AssetIconName::Copy)
-                                        .disabled(!search_text_available)
-                                        .on_click(move |_, _, cx| {
-                                            copy_search_target.update(cx, |this, cx| {
-                                                this.copy_query_text(false, cx);
-                                            });
-                                        }),
-                                )
-                                .item(
-                                    PopupMenuItem::new("Paste as search (replace)")
-                                        .icon(AssetIconName::ClipboardPaste)
-                                        .disabled(paste_search.is_none())
-                                        .on_click(move |_, window, cx| {
-                                            if let Some(text) = paste_search.clone() {
-                                                paste_search_target.update(cx, |this, cx| {
-                                                    this.paste_query_text(false, text, window, cx);
-                                                });
-                                            }
-                                        }),
-                                )
-                                .item(
-                                    PopupMenuItem::new("Clear search")
-                                        .disabled(!search_text_available)
-                                        .on_click(move |_, window, cx| {
-                                            clear_search_target.update(cx, |this, cx| {
-                                                this.clear_query_text(false, window, cx);
-                                            });
-                                        }),
-                                )
-                                .separator()
-                                .item(
-                                    PopupMenuItem::new("Copy entire filter")
-                                        .icon(AssetIconName::Copy)
-                                        .disabled(!filter_text_available)
-                                        .on_click(move |_, _, cx| {
-                                            copy_filter_target.update(cx, |this, cx| {
-                                                this.copy_query_text(true, cx);
-                                            });
-                                        }),
-                                )
-                                .item(
-                                    PopupMenuItem::new("Paste as filter (replace)")
-                                        .icon(AssetIconName::ClipboardPaste)
-                                        .disabled(paste_filter.is_none())
-                                        .on_click(move |_, window, cx| {
-                                            if let Some(text) = paste_filter.clone() {
-                                                paste_filter_target.update(cx, |this, cx| {
-                                                    this.paste_query_text(true, text, window, cx);
-                                                });
-                                            }
-                                        }),
-                                )
-                                .item(
-                                    PopupMenuItem::new("Clear filter")
-                                        .disabled(!filter_text_available)
-                                        .on_click(move |_, window, cx| {
-                                            clear_filter_target.update(cx, |this, cx| {
-                                                this.clear_query_text(true, window, cx);
-                                            });
-                                        }),
+                        div()
+                            .flex()
+                            .items_center()
+                            .gap_2()
+                            .when(compact, |this| this.justify_end())
+                            .child(
+                                Button::new("query-text-menu")
+                                    .ghost()
+                                    .icon(AssetIconName::Ellipsis)
+                                    .tooltip("Query text actions; right-click a field for selection editing")
+                                    .accessibility_label("Query text actions")
+                                    .dropdown_menu(move |menu, _, cx| {
+                                        let clipboard_text = super::read_clipboard_text(cx);
+                                        let paste_search = clipboard_text.clone();
+                                        let paste_filter = clipboard_text;
+                                        let copy_search_target = menu_target.clone();
+                                        let copy_filter_target = menu_target.clone();
+                                        let paste_search_target = menu_target.clone();
+                                        let paste_filter_target = menu_target.clone();
+                                        let clear_search_target = menu_target.clone();
+                                        let clear_filter_target = menu_target.clone();
+                                        menu.item(
+                                            PopupMenuItem::new("Copy entire search")
+                                                .icon(AssetIconName::Copy)
+                                                .disabled(!search_text_available)
+                                                .on_click(move |_, _, cx| {
+                                                    copy_search_target.update(cx, |this, cx| {
+                                                        this.copy_query_text(false, cx);
+                                                    });
+                                                }),
+                                        )
+                                        .item(
+                                            PopupMenuItem::new("Paste as search (replace)")
+                                                .icon(AssetIconName::ClipboardPaste)
+                                                .disabled(paste_search.is_none())
+                                                .on_click(move |_, window, cx| {
+                                                    if let Some(text) = paste_search.clone() {
+                                                        paste_search_target.update(cx, |this, cx| {
+                                                            this.paste_query_text(false, text, window, cx);
+                                                        });
+                                                    }
+                                                }),
+                                        )
+                                        .item(
+                                            PopupMenuItem::new("Clear search")
+                                                .disabled(!search_text_available)
+                                                .on_click(move |_, window, cx| {
+                                                    clear_search_target.update(cx, |this, cx| {
+                                                        this.clear_query_text(false, window, cx);
+                                                    });
+                                                }),
+                                        )
+                                        .separator()
+                                        .item(
+                                            PopupMenuItem::new("Copy entire filter")
+                                                .icon(AssetIconName::Copy)
+                                                .disabled(!filter_text_available)
+                                                .on_click(move |_, _, cx| {
+                                                    copy_filter_target.update(cx, |this, cx| {
+                                                        this.copy_query_text(true, cx);
+                                                    });
+                                                }),
+                                        )
+                                        .item(
+                                            PopupMenuItem::new("Paste as filter (replace)")
+                                                .icon(AssetIconName::ClipboardPaste)
+                                                .disabled(paste_filter.is_none())
+                                                .on_click(move |_, window, cx| {
+                                                    if let Some(text) = paste_filter.clone() {
+                                                        paste_filter_target.update(cx, |this, cx| {
+                                                            this.paste_query_text(true, text, window, cx);
+                                                        });
+                                                    }
+                                                }),
+                                        )
+                                        .item(
+                                            PopupMenuItem::new("Clear filter")
+                                                .disabled(!filter_text_available)
+                                                .on_click(move |_, window, cx| {
+                                                    clear_filter_target.update(cx, |this, cx| {
+                                                        this.clear_query_text(true, window, cx);
+                                                    });
+                                                }),
+                                        )
+                                    }),
+                            )
+                            .child(
+                                Button::new("query-case")
+                                    .label("Aa")
+                                    .selected(self.state.search.case_sensitive)
+                                    .tooltip("Case sensitive")
+                                    .on_click(cx.listener(|this, _, _, cx| {
+                                        this.state.search.case_sensitive =
+                                            !this.state.search.case_sensitive;
+                                        if this.inputs.full_text.read(cx).value().trim().is_empty() {
+                                            this.sync_query_draft_without_search(cx);
+                                        } else {
+                                            this.search_from_inputs(false, cx);
+                                        }
+                                    })),
+                            )
+                            .child(
+                                Button::new("query-regex")
+                                    .label(".*")
+                                    .selected(self.state.search.regex)
+                                    .tooltip("Regular expression")
+                                    .on_click(cx.listener(|this, _, _, cx| {
+                                        this.state.search.regex = !this.state.search.regex;
+                                        if this.inputs.full_text.read(cx).value().trim().is_empty() {
+                                            this.sync_query_draft_without_search(cx);
+                                        } else {
+                                            this.search_from_inputs(false, cx);
+                                        }
+                                    })),
+                            )
+                            .child(
+                                Button::new("query-filter-toggle")
+                                    .icon(AssetIconName::Funnel)
+                                    .tooltip("Filter")
+                                    .accessibility_label("Filter")
+                                    .selected(filter_enabled)
+                                    .on_click(cx.listener(|this, _, window, cx| {
+                                        this.state.search.filter_enabled =
+                                            !this.state.search.filter_enabled;
+                                        if this.state.search.filter_enabled {
+                                            this.inputs
+                                                .structured
+                                                .update(cx, |input, cx| input.focus(window, cx));
+                                        } else {
+                                            this.state.show_filter_builder = false;
+                                        }
+                                        if this.inputs.structured.read(cx).value().trim().is_empty() {
+                                            this.sync_query_draft_without_search(cx);
+                                        } else {
+                                            this.search_from_inputs(false, cx);
+                                        }
+                                    })),
+                            )
+                            .child(
+                                Button::new("query-run")
+                                    .label("Run")
+                                    .primary()
+                                    .disabled(invalid)
+                                    .on_click(
+                                        cx.listener(|this, _, _, cx| this.search_from_inputs(true, cx)),
+                                    ),
+                            )
+                            .when(querying, |this| {
+                                this.child(
+                                    Button::new("query-stop")
+                                        .label("Stop")
+                                        .on_click(cx.listener(|this, _, _, _| this.send(UiAction::Cancel))),
                                 )
                             }),
-                    )
-                    .child(
-                        Button::new("query-case")
-                            .label("Aa")
-                            .selected(self.state.search.case_sensitive)
-                            .tooltip("Case sensitive")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.search.case_sensitive =
-                                    !this.state.search.case_sensitive;
-                                if this.inputs.full_text.read(cx).value().trim().is_empty() {
-                                    this.sync_query_draft_without_search(cx);
-                                } else {
-                                    this.search_from_inputs(false, cx);
-                                }
-                            })),
-                    )
-                    .child(
-                        Button::new("query-regex")
-                            .label(".*")
-                            .selected(self.state.search.regex)
-                            .tooltip("Regular expression")
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.search.regex = !this.state.search.regex;
-                                if this.inputs.full_text.read(cx).value().trim().is_empty() {
-                                    this.sync_query_draft_without_search(cx);
-                                } else {
-                                    this.search_from_inputs(false, cx);
-                                }
-                            })),
-                    )
-                    .child(
-                        Button::new("query-filter-toggle")
-                            .icon(AssetIconName::Funnel)
-                            .tooltip("Filter")
-                            .accessibility_label("Filter")
-                            .selected(filter_enabled)
-                            .on_click(cx.listener(|this, _, window, cx| {
-                                this.state.search.filter_enabled =
-                                    !this.state.search.filter_enabled;
-                                if this.state.search.filter_enabled {
-                                    this.inputs
-                                        .structured
-                                        .update(cx, |input, cx| input.focus(window, cx));
-                                } else {
-                                    this.state.show_filter_builder = false;
-                                }
-                                if this.inputs.structured.read(cx).value().trim().is_empty() {
-                                    this.sync_query_draft_without_search(cx);
-                                } else {
-                                    this.search_from_inputs(false, cx);
-                                }
-                            })),
-                    )
-                    .child(
-                        Button::new("query-run")
-                            .label("Run")
-                            .primary()
-                            .disabled(invalid)
-                            .on_click(
-                                cx.listener(|this, _, _, cx| this.search_from_inputs(true, cx)),
-                            ),
-                    )
-                    .when(querying, |this| {
-                        this.child(
-                            Button::new("query-stop")
-                                .label("Stop")
-                                .on_click(cx.listener(|this, _, _, _| this.send(UiAction::Cancel))),
-                        )
-                    }),
+                    ),
             )
             .when(text_error.is_some(), |this| {
                 this.child(
@@ -780,7 +797,7 @@ impl DesktopView {
                                             && self.state.completion_context.is_some()
                                             && (self.state.completion_pending
                                                 || !self.state.completion_suggestions.is_empty()),
-                                        |popup| popup.content(self.render_completion_overlay(cx)),
+                                        |popup| popup.content(self.render_completion_overlay(pane_width, cx)),
                                     ),
                                 )
                                 .child(
@@ -830,7 +847,7 @@ impl DesktopView {
             })
     }
 
-    pub(super) fn render_completion_overlay(&self, cx: &mut Context<Self>) -> impl IntoElement {
+    pub(super) fn render_completion_overlay(&self, pane_width: f32, cx: &mut Context<Self>) -> impl IntoElement {
         let colors = super::theme::palette(self.state.dark);
         div()
             .id("filter-completions")
@@ -838,7 +855,7 @@ impl DesktopView {
                 gpui_kit::MouseButton::Left,
                 cx.listener(|_, _, _, cx| cx.stop_propagation()),
             )
-            .w(px(430.))
+            .w(px((pane_width - 24.).clamp(220., 430.)))
             .max_h(px(250.))
             .p_1()
             .flex()
