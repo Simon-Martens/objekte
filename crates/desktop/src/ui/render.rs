@@ -1808,6 +1808,7 @@ impl DesktopView {
 
     fn render_record_snapshot(&self, id: u64, cx: &mut Context<Self>) -> impl IntoElement {
         let colors = palette(self.state.dark);
+        let activate_target = cx.entity();
         let preview = self.state.record_detail_snapshots.get(&id);
         let title = preview.map_or_else(
             || {
@@ -1883,19 +1884,28 @@ impl DesktopView {
                     .flex_1()
                     .min_h_0()
                     .overflow_y_scrollbar()
-                    .children(fields.into_iter().map(|(label, value)| {
+                    .children(fields.into_iter().enumerate().map(|(index, (label, value))| {
+                        let target = activate_target.clone();
                         let label = if label == "$" {
                             "Record".to_string()
                         } else {
                             label.strip_prefix("$.").unwrap_or(&label).to_string()
                         };
                         div()
+                            .id(format!("inactive-record-row-{id}-{index}"))
                             .flex()
                             .gap_3()
                             .px_3()
                             .py_2()
+                            .cursor_pointer()
+                            .hover(|this| this.bg(rgb(colors.selected)))
                             .border_b_1()
                             .border_color(rgb(colors.border))
+                            .on_click(move |_, window, cx| {
+                                target.update(cx, |this, cx| {
+                                    this.activate_workspace_tab(TabId::Record(id), window, cx);
+                                });
+                            })
                             .child(
                                 div()
                                     .w(px(130.))
