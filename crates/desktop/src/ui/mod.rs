@@ -91,6 +91,7 @@ pub struct DesktopView {
     inputs: Inputs,
     builder_view: Entity<FilterBuilderView>,
     builder_completion_revision: u64,
+    completion_suppressed_at: Option<(String, usize)>,
     suspended_filter: Option<String>,
     renaming_saved: Option<u64>,
     focused_saved: Option<u64>,
@@ -264,6 +265,7 @@ impl DesktopView {
             inputs,
             builder_view,
             builder_completion_revision: 0,
+            completion_suppressed_at: None,
             suspended_filter: None,
             renaming_saved: None,
             focused_saved: None,
@@ -853,6 +855,16 @@ impl DesktopView {
         let input = self.inputs.structured.read(cx);
         let value = input.value().to_string();
         let caret = input.cursor();
+        if self
+            .completion_suppressed_at
+            .as_ref()
+            .is_some_and(|(suppressed, position)| suppressed == &value && *position == caret)
+        {
+            self.state.completion_context = None;
+            cx.notify();
+            return;
+        }
+        self.completion_suppressed_at = None;
         let context = completion::context(&value, caret);
         if let Some(context) = &context {
             match &context.target {
@@ -928,9 +940,10 @@ impl DesktopView {
         };
         let input = self.inputs.structured.read(cx);
         let value = input.value().to_string();
-        if completion::insert(&value, context.replace.clone(), &insert).is_none() {
+        let Some(inserted) = completion::insert(&value, context.replace.clone(), &insert) else {
             return false;
-        }
+        };
+        self.completion_suppressed_at = Some(inserted);
         self.dismiss_completion(cx);
         self.inputs.structured.update(cx, |input, cx| {
             input.set_selected_range(context.replace, cx);
