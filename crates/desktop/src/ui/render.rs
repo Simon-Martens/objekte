@@ -874,8 +874,16 @@ impl DesktopView {
                     "down" => this.select_relative(1, window, cx),
                     "home" => this.select_absolute(false, window, cx),
                     "end" => this.select_absolute(true, window, cx),
-                    "pageup" => this.grid_list.scroll_by(px(-600.)),
-                    "pagedown" => this.grid_list.scroll_by(px(600.)),
+                    "pageup" => {
+                        this.grid_list.scroll_by(px(-600.));
+                        window.focus(&this.grid_focus, cx);
+                        cx.notify();
+                    }
+                    "pagedown" => {
+                        this.grid_list.scroll_by(px(600.));
+                        window.focus(&this.grid_focus, cx);
+                        cx.notify();
+                    }
                     "enter" => {
                         this.state.inspector_visible = true;
                         this.send(UiAction::OpenDetail);
