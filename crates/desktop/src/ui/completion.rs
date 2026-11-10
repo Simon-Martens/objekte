@@ -55,14 +55,7 @@ pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
             return None;
         }
         let clause = before[sort_start..].trim_end();
-        if !(clause.is_empty()
-            || clause.ends_with(',')
-            || ["MIN(", "MAX(", "FIRST(", "LAST("].iter().any(|reducer| {
-                clause
-                    .to_ascii_uppercase()
-                    .ends_with(reducer)
-            }))
-        {
+        if !sort_field_position(clause) {
             return None;
         }
         return Some(CompletionContext {
@@ -92,12 +85,7 @@ pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
             });
         }
     }
-    if before.is_empty()
-        || before.ends_with("&&")
-        || before.ends_with("||")
-        || before.ends_with('(')
-        || before.ends_with('!')
-    {
+    if filter_field_position(before) {
         if scalar_string {
             return None;
         }
@@ -108,6 +96,36 @@ pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
         });
     }
     None
+}
+
+fn filter_field_position(mut before: &str) -> bool {
+    loop {
+        if before.is_empty() || before.ends_with("&&") || before.ends_with("||") {
+            return true;
+        }
+        let Some(parent) = before.strip_suffix('(') else {
+            return false;
+        };
+        let parent = parent.trim_end();
+        before = parent.strip_suffix('!').unwrap_or(parent).trim_end();
+    }
+}
+
+fn sort_field_position(clause: &str) -> bool {
+    if clause.is_empty() || clause.ends_with(',') {
+        return true;
+    }
+    let Some(reducer) = clause.strip_suffix('(') else {
+        return false;
+    };
+    let reducer = reducer.trim_end();
+    let name = reducer
+        .rsplit_once(',')
+        .map_or(reducer, |(_, name)| name)
+        .trim_start();
+    ["MIN", "MAX", "FIRST", "LAST"]
+        .iter()
+        .any(|candidate| name.eq_ignore_ascii_case(candidate))
 }
 
 fn token_start(text: &str, caret: usize) -> usize {
@@ -189,11 +207,11 @@ fn sort_clause_start(text: &str) -> Option<usize> {
         } else if ch == '\\' && quote.is_some() {
             escaped = true;
         } else if quote.is_none() {
-            if bracket == 0 && paren == 0 && text[at..].get(..7).is_some_and(|word| word.eq_ignore_ascii_case("SORT BY"))
+            if bracket == 0 && paren == 0
                 && (at == 0 || text[..at].chars().last().is_some_and(char::is_whitespace))
-                && text[at + 7..].chars().next().is_none_or(char::is_whitespace)
+                && let Some(end) = sort_by_end(text, at)
             {
-                sort = Some(at + 7);
+                sort = Some(end);
             }
             match ch {
                 '\'' | '"' => quote = Some(ch),
@@ -206,6 +224,20 @@ fn sort_clause_start(text: &str) -> Option<usize> {
         }
     }
     sort
+}
+
+fn sort_by_end(text: &str, at: usize) -> Option<usize> {
+    let keyword = text[at..].get(..4)?;
+    if !keyword.eq_ignore_ascii_case("SORT") {
+        return None;
+    }
+    let after_sort = &text[at + 4..];
+    let spaces = after_sort.len() - after_sort.trim_start_matches(char::is_whitespace).len();
+    if spaces == 0 || !text[at + 4 + spaces..].get(..2)?.eq_ignore_ascii_case("BY") {
+        return None;
+    }
+    let end = at + 6 + spaces;
+    text[end..].chars().next().is_none_or(char::is_whitespace).then_some(end)
 }
 
 fn token_boundary(ch: char) -> bool {
@@ -283,10 +315,16 @@ mod tests {
 
     #[test]
     fn offers_fields_only_where_a_field_can_begin() {
-        for text in ["name ", "name:lower ", "name = 'Ada' ", "name = 'Ada' SORT "] {
+        for text in [
+            "name ", "name:lower ", "name = 'Ada' ", "name = 'Ada' SORT ",
+            "!", "name = 'Ada' !", "name = 'Ada' (", "name = 'Ada' && !",
+        ] {
             assert!(context(text, text.len()).is_none(), "{text}");
         }
-        for text in ["", "(", "!", "name = 'Ada' && ", "name = 'Ada' || ("] {
+        for text in [
+            "", "(", "! (", "name = 'Ada' && ", "name = 'Ada' || (",
+            "name = 'Ada' && !( ",
+        ] {
             assert_eq!(
                 context(text, text.len()).unwrap().target,
                 CompletionTarget::Field { sort: false },
@@ -297,7 +335,10 @@ mod tests {
 
     #[test]
     fn sort_completion_stops_after_a_field_or_direction() {
-        for text in ["SORT BY ", "name = 'Ada' SORT BY title, ", "SORT BY MIN("] {
+        for text in [
+            "SORT BY ", "SORT  BY ", "name = 'Ada' SORT BY title, ",
+            "SORT BY MIN(", "SORT BY MIN (", "SORT BY title, MAX (",
+        ] {
             assert_eq!(
                 context(text, text.len()).unwrap().target,
                 CompletionTarget::Field { sort: true },

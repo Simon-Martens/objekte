@@ -574,6 +574,13 @@ impl DesktopView {
         draft
     }
 
+    fn sync_query_draft_without_search(&mut self, cx: &mut Context<Self>) {
+        let draft = self.query_from_inputs(cx);
+        self.state.search = draft.clone();
+        self.state.workspace.update_current_search(draft);
+        cx.notify();
+    }
+
     fn search_from_inputs(&mut self, explicit: bool, cx: &mut Context<Self>) {
         if self.restoring_query {
             return;

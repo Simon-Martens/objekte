@@ -235,8 +235,8 @@ impl DesktopView {
         cx: &mut Context<Self>,
     ) -> impl IntoElement {
         let colors = super::theme::palette(self.state.dark);
-        let show_divider = split_preview
-            || pane == Pane::Secondary && !self.state.workspace.primary.tabs.is_empty();
+        let show_divider = pane == Pane::Secondary
+            && (split_preview || !self.state.workspace.primary.tabs.is_empty());
         let detail = self.state.detail.as_ref();
         let preview = self
             .state
@@ -401,14 +401,13 @@ impl DesktopView {
                                 .tooltip("Close preview")
                                 .accessibility_label("Close preview")
                                 .on_click(cx.listener(|this, _, _, cx| {
-                                    let resume = if this.preview_docked_in_secondary() {
-                                        match this.state.workspace.secondary.active {
+                                    let resume = [Pane::Primary, Pane::Secondary]
+                                        .into_iter()
+                                        .find(|pane| this.preview_docked_in(*pane))
+                                        .and_then(|pane| match this.state.workspace.group(pane).active {
                                             Some(TabId::Record(id)) => Some(id),
                                             _ => None,
-                                        }
-                                    } else {
-                                        None
-                                    };
+                                        });
                                     this.state.preview_search = None;
                                     this.state.inspector_visible = false;
                                     if let Some(id) = this.state.active_tab {

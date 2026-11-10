@@ -646,7 +646,11 @@ impl DesktopView {
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.search.case_sensitive =
                                     !this.state.search.case_sensitive;
-                                this.search_from_inputs(false, cx);
+                                if this.inputs.full_text.read(cx).value().trim().is_empty() {
+                                    this.sync_query_draft_without_search(cx);
+                                } else {
+                                    this.search_from_inputs(false, cx);
+                                }
                             })),
                     )
                     .child(
@@ -656,7 +660,11 @@ impl DesktopView {
                             .tooltip("Regular expression")
                             .on_click(cx.listener(|this, _, _, cx| {
                                 this.state.search.regex = !this.state.search.regex;
-                                this.search_from_inputs(false, cx);
+                                if this.inputs.full_text.read(cx).value().trim().is_empty() {
+                                    this.sync_query_draft_without_search(cx);
+                                } else {
+                                    this.search_from_inputs(false, cx);
+                                }
                             })),
                     )
                     .child(
@@ -675,7 +683,11 @@ impl DesktopView {
                                 } else {
                                     this.state.show_filter_builder = false;
                                 }
-                                this.search_from_inputs(false, cx);
+                                if this.inputs.structured.read(cx).value().trim().is_empty() {
+                                    this.sync_query_draft_without_search(cx);
+                                } else {
+                                    this.search_from_inputs(false, cx);
+                                }
                             })),
                     )
                     .child(
