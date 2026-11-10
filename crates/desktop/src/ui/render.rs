@@ -1954,13 +1954,16 @@ impl DesktopView {
         match self.state.workspace.group(pane).active {
             Some(id @ TabId::Search(_)) if self.state.workspace.current_search == Some(id) => {
                 let show_preview = self.state.preview_visible_for(id);
-                let preview_width = if pane == Pane::Secondary {
-                    self.state
-                        .inspector_width
-                        .min(self.state.secondary_query_width * 0.45)
-                } else {
-                    self.state.inspector_width
-                };
+                let pane_width = self.workspace_layout.get().map_or(780., |layout| {
+                    if pane == Pane::Secondary {
+                        layout.1
+                    } else {
+                        let sidebar = if layout.2 { 220. } else { 0. };
+                        let secondary = if layout.3 { layout.1 } else { 0. };
+                        layout.0 - sidebar - secondary
+                    }
+                });
+                let preview_width = self.state.inspector_width.min((pane_width - 280.).max(260.));
                 div()
                     .flex()
                     .flex_col()
@@ -2080,9 +2083,17 @@ impl DesktopView {
         } else {
             self.state.secondary_query_width
         };
-        let available = f32::from(window.bounds().size.width)
+        let window_width = f32::from(window.bounds().size.width);
+        let primary_reserve = if primary_empty {
+            260.
+        } else if window_width < 1100. {
+            220.
+        } else {
+            320.
+        };
+        let available = window_width
             - if self.state.sidebar_visible { 220. } else { 0. }
-            - if primary_empty { 260. } else { 320. };
+            - primary_reserve;
         let right_width = if primary_empty {
             available.max(300.)
         } else {

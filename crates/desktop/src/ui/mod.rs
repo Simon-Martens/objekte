@@ -561,6 +561,10 @@ impl DesktopView {
         self.pending_grid_restore = None;
         self.pending_query_starts = 0;
         let draft = self.query_from_inputs(cx);
+        if draft != self.state.search {
+            self.state.preview_search = None;
+            self.state.inspector_visible = false;
+        }
         self.builder_view.update(cx, |builder, cx| {
             builder.sync_from_text(&draft.structured, cx)
         });

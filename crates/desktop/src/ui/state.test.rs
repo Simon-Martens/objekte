@@ -27,6 +27,10 @@ fn split_preview_requires_its_owning_query_and_an_unpinned_record() {
     assert!(!state.preview_visible_for(TabId::Search(999)));
     assert_eq!(state.workspace.primary.tabs.len(), 1);
 
+    state.apply(UiUpdate::QueryStarted("Refreshing results".into()));
+    assert!(!state.preview_visible_for(query));
+    assert!(!state.inspector_visible);
+    state.preview_search = Some(query);
     state.apply(UiUpdate::Tabs {
         tabs: vec![RecordTabSummary { pinned: true, ..preview }],
         active: Some(4),

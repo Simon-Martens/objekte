@@ -264,6 +264,8 @@ impl UiState {
             UiUpdate::QueryStarted(status) => {
                 self.busy = Busy::Querying;
                 self.status = status;
+                self.preview_search = None;
+                self.inspector_visible = false;
                 self.errors.remove(&ErrorField::FullText);
                 self.errors.remove(&ErrorField::Structured);
                 self.errors.remove(&ErrorField::Sort);
