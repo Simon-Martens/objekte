@@ -2026,14 +2026,6 @@ impl DesktopController {
             self.detail = None;
             self.relation_actions.clear();
             self.expanded.clear();
-            if let Some(next) = self
-                .tabs
-                .get(index.min(self.tabs.len().saturating_sub(1)))
-                .map(|tab| tab.id)
-            {
-                self.activate_tab(next, updates);
-                return;
-            }
             updates.push(UiUpdate::Detail(None));
         }
         self.emit_tabs(updates);

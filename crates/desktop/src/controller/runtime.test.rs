@@ -581,6 +581,11 @@ fn activating_record_tab_selects_matching_result_or_clears_old_selection() {
 
     updates.clear();
     controller.close_tab(first_id, &mut updates);
+    assert_eq!(controller.active_tab, None);
+    assert!(updates
+        .iter()
+        .any(|update| matches!(update, UiUpdate::Tabs { active: None, .. })));
+    controller.activate_tab(second_id, &mut updates);
     assert_eq!(controller.active_tab, Some(second_id));
     assert_eq!(controller.selected_index, Some(1));
     assert!(updates
