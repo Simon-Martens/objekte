@@ -6,6 +6,7 @@ use gpui_kit::component::{
     button::{Button, ButtonVariants},
     checkbox::Checkbox,
     input::{Input, Textarea},
+    menu::{ContextMenuExt as _, PopupMenuItem},
     scroll::ScrollableElement as _,
 };
 use gpui_kit::prelude::FluentBuilder as _;
@@ -21,6 +22,28 @@ use super::model::{
     IndexTaskState, TabFreshness, UiAction,
 };
 use super::state::ActionPanel;
+
+fn copyable_field_path(row: &DetailRow, clipped: bool) -> Option<String> {
+    let path = if row.origin == DetailOrigin::Structured {
+        row.label.strip_prefix("$.").unwrap_or(&row.label)
+    } else {
+        &row.label
+    };
+    (!path.is_empty() && !(clipped && row.label.ends_with('…'))).then(|| path.to_owned())
+}
+
+fn copyable_field_value(row: &DetailRow, clipped: bool) -> Option<String> {
+    if row.expandable || row.value_kind == DetailValueKind::LogicalUnavailable
+        || (clipped && (row.value.is_empty() || row.value.ends_with('…')))
+    {
+        return None;
+    }
+    Some(if row.value_kind == DetailValueKind::JsonNull {
+        "null".into()
+    } else {
+        row.value.clone()
+    })
+}
 
 impl DesktopView {
     pub(super) fn render_batch(&self, cx: &mut Context<Self>) -> impl IntoElement {
@@ -473,19 +496,17 @@ impl DesktopView {
                             })),
                     )
                     .child(div().flex_1())
+                    .child(
+                        Button::new("copy-record")
+                            .ghost()
+                            .icon(AssetIconName::Copy)
+                            .disabled(!record_current)
+                            .tooltip("Copy complete record")
+                            .accessibility_label("Copy complete record")
+                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::CopyRecord))),
+                    )
                     .when(self.state.show_raw, |this| {
                         this.child(
-                            Button::new("copy-record")
-                                .ghost()
-                                .icon(AssetIconName::Copy)
-                                .disabled(!record_current)
-                                .tooltip("Copy record")
-                                .accessibility_label("Copy record")
-                                .on_click(
-                                    cx.listener(|this, _, _, _| this.send(UiAction::CopyRecord)),
-                                ),
-                        )
-                        .child(
                             Button::new("export-record")
                                 .ghost()
                                 .icon(AssetIconName::Download)
@@ -684,6 +705,21 @@ impl DesktopView {
         };
         let expandable = row.expandable;
         let expanded = row.expanded;
+        let detail_clipped = self.state.detail.as_ref().is_some_and(|detail| detail.clipped);
+        let copy_path = copyable_field_path(row, detail_clipped);
+        let copy_value = copyable_field_value(row, detail_clipped);
+        let path_label = if row.origin == DetailOrigin::Structured {
+            "Copy field path"
+        } else {
+            "Copy label"
+        };
+        let value_label = if expandable {
+            "Copy value (aggregate)"
+        } else if copy_value.is_none() {
+            "Copy value (unavailable)"
+        } else {
+            "Copy value"
+        };
         let selected = self
             .state
             .detail
@@ -775,6 +811,30 @@ impl DesktopView {
                 }
                 cx.notify();
             }))
+            .context_menu(move |menu, _, _| {
+                let path = copy_path.clone();
+                let value = copy_value.clone();
+                menu.item(
+                    PopupMenuItem::new(path_label)
+                        .icon(AssetIconName::Copy)
+                        .disabled(path.is_none())
+                        .on_click(move |_, _, cx| {
+                            if let Some(path) = path.clone() {
+                                cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(path));
+                            }
+                        }),
+                )
+                .item(
+                    PopupMenuItem::new(value_label)
+                        .icon(AssetIconName::Copy)
+                        .disabled(value.is_none())
+                        .on_click(move |_, _, cx| {
+                            if let Some(value) = value.clone() {
+                                cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(value));
+                            }
+                        }),
+                )
+            })
     }
 
     pub(super) fn render_actions(&self, cx: &mut Context<Self>) -> impl IntoElement {
@@ -1217,7 +1277,8 @@ impl DesktopView {
             .child(div().text_sm().child("Collections and queries open in tabs. Drag a tab by its grip to reorder it or move it between panes; the tab menu has the same move commands. Click + for a new query tab."))
             .child(div().text_sm().child("When queries appear in both panes, the inactive query shows its latest result preview. Activate it to edit or refresh its results."))
             .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down scroll a viewport. Click a row or press Enter to open a record in the right pane."))
-            .child(div().text_sm().child("Record tabs retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; the Source icon opens the original record with Copy and Export actions."))
+            .child(div().text_sm().child("Record tabs retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; Source shows the original record. The inspector Copy icon copies the complete record."))
+            .child(div().text_sm().child("Right-click a field to copy its full path or scalar value. Aggregate and clipped previews are not complete values; expand an aggregate or copy the complete record instead."))
             .child(div().text_sm().child("Source records and schemas are read-only. Export and index writes are explicit actions."))
     }
 }
@@ -1272,5 +1333,53 @@ mod index_controls_tests {
             index_task_summary("File check", &task),
             Some("File check: 7 processed".into())
         );
+    }
+}
+
+#[cfg(test)]
+mod field_copy_tests {
+    use super::*;
+
+    fn row() -> DetailRow {
+        DetailRow {
+            label: "$.metadata.inner".into(),
+            value: "visible value".into(),
+            depth: 2,
+            matched: false,
+            filter_participant: false,
+            fts_matched: false,
+            value_highlights: Vec::new(),
+            expandable: false,
+            expanded: false,
+            origin: DetailOrigin::Structured,
+            value_kind: DetailValueKind::Present,
+        }
+    }
+
+    #[test]
+    fn nested_field_copies_full_path_and_scalar_value() {
+        let row = row();
+        assert_eq!(copyable_field_path(&row, false).as_deref(), Some("metadata.inner"));
+        assert_eq!(copyable_field_value(&row, false).as_deref(), Some("visible value"));
+    }
+
+    #[test]
+    fn aggregate_and_clipped_previews_are_not_copied_as_complete_values() {
+        let mut row = row();
+        row.expandable = true;
+        row.value = "3 fields".into();
+        assert_eq!(copyable_field_value(&row, false), None);
+        row.expandable = false;
+        row.value = "incomplete…".into();
+        assert_eq!(copyable_field_value(&row, true), None);
+        row.label = "$.partial…".into();
+        assert_eq!(copyable_field_path(&row, true), None);
+    }
+
+    #[test]
+    fn json_null_copies_its_literal() {
+        let mut row = row();
+        row.value_kind = DetailValueKind::JsonNull;
+        assert_eq!(copyable_field_value(&row, false).as_deref(), Some("null"));
     }
 }
