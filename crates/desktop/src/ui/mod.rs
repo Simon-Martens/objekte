@@ -1296,6 +1296,28 @@ impl DesktopView {
         cx.notify();
     }
 
+    fn select_page(&mut self, forward: bool, window: &mut Window, cx: &mut Context<Self>) {
+        let len = self.state.loaded_count;
+        if len == 0 {
+            return;
+        }
+        let height = f32::from(self.grid_list.viewport_bounds().size.height).max(30.);
+        self.grid_list.scroll_by(px(if forward { height } else { -height }));
+        let index = self.grid_list.logical_scroll_top().item_ix.min(len - 1);
+        self.state.page.selected = Some(index);
+        if self.state.show_preview {
+            self.state.inspector_visible = self.state.active_tab.is_some();
+        }
+        self.grid_list.scroll_to_reveal_item(index);
+        self.send(UiAction::VisibleRows {
+            start: index,
+            end: index + 1,
+        });
+        self.send(UiAction::OpenRecord(index));
+        window.focus(&self.grid_focus, cx);
+        cx.notify();
+    }
+
     fn select_detail_relative(&mut self, delta: isize, cx: &mut Context<Self>) {
         let Some(detail) = self.state.detail.as_mut() else {
             return;
