@@ -2404,7 +2404,7 @@ impl Render for DesktopView {
                     }),
             )
             .when(self.state.show_filter_builder, |this| {
-                this.child(self.render_builder_overlay())
+                this.child(self.render_builder_overlay(width))
             })
             .when(self.state.show_actions, |this| {
                 this.child(self.render_actions(cx))

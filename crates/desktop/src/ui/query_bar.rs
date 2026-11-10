@@ -18,6 +18,7 @@ use super::DesktopView;
 use super::filter_builder::{BuilderState, BuilderStatus, Comparison, FieldChoice, ValueType};
 use super::model::{ErrorField, FilterValidationState, UiAction};
 use super::state::Busy;
+use super::workspace::Pane;
 
 
 /// Complete builder changes are applied to the one free-text InputState.
@@ -904,12 +905,18 @@ impl DesktopView {
             )
     }
 
-    pub(super) fn render_builder_overlay(&self) -> impl IntoElement {
-        let right = if self.state.inspector_visible {
+    pub(super) fn render_builder_overlay(&self, window_width: f32) -> impl IntoElement {
+        let query_on_left = self
+            .state
+            .workspace
+            .current_search
+            .and_then(|id| self.state.workspace.pane_of(id)) == Some(Pane::Primary);
+        let preferred_right = if self.state.inspector_visible && query_on_left {
             self.state.inspector_width + 8.
         } else {
             8.
         };
+        let right = preferred_right.min((window_width - 568.).max(8.));
         div()
             .absolute()
             .top(px(150.))
