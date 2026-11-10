@@ -1258,6 +1258,7 @@ impl DesktopView {
         let colors = palette(self.state.dark);
         let group = self.state.workspace.group(pane);
         let active = group.active;
+        let focused = self.state.workspace.focused_pane == pane;
         let tabs = group.tabs.clone();
         let menu_tabs = tabs.clone();
         let count = tabs.len();
@@ -1354,7 +1355,11 @@ impl DesktopView {
                                         .left_1()
                                         .right_1()
                                         .h(px(2.))
-                                        .bg(rgb(colors.accent)),
+                                        .bg(rgb(if focused {
+                                            colors.accent
+                                        } else {
+                                            colors.secondary
+                                        })),
                                 )
                             })
                             .child(
@@ -1369,10 +1374,16 @@ impl DesktopView {
                                     .cursor_pointer()
                                     .aria_label(format!(
                                         "{} tab: {}",
-                                        if selected { "Active" } else { "Open" },
+                                        if selected && focused {
+                                            "Focused"
+                                        } else if selected {
+                                            "Active"
+                                        } else {
+                                            "Open"
+                                        },
                                         title
                                     ))
-                                    .child(Icon::new(icon).size_4().text_color(rgb(if selected {
+                                    .child(Icon::new(icon).size_4().text_color(rgb(if selected && focused {
                                         colors.accent
                                     } else {
                                         colors.secondary
@@ -1917,6 +1928,15 @@ impl DesktopView {
                     .flex_1()
                     .min_w_0()
                     .min_h_0()
+                    .on_mouse_down(
+                        gpui_kit::MouseButton::Left,
+                        cx.listener(move |this, _, _, cx| {
+                            if this.state.workspace.focused_pane != pane {
+                                this.state.workspace.focused_pane = pane;
+                                cx.notify();
+                            }
+                        }),
+                    )
                     .drag_over::<WorkspaceDrag>(move |this, _, _, _| {
                         this.border_2().border_color(rgb(colors.accent))
                     })
