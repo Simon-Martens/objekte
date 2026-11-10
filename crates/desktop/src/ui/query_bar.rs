@@ -564,9 +564,7 @@ impl DesktopView {
                             .tooltip("Query text actions; right-click a field for selection editing")
                             .accessibility_label("Query text actions")
                             .dropdown_menu(move |menu, _, cx| {
-                                let clipboard_text = cx.read_from_clipboard()
-                                    .and_then(|item| item.text())
-                                    .filter(|text| !text.is_empty());
+                                let clipboard_text = super::read_clipboard_text(cx);
                                 let paste_search = clipboard_text.clone();
                                 let paste_filter = clipboard_text;
                                 let copy_search_target = menu_target.clone();

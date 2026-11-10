@@ -893,6 +893,37 @@ fn copy_text_to_clipboard(text: String, cx: &mut gpui_kit::App) {
     }
 }
 
+fn read_clipboard_text(cx: &mut gpui_kit::App) -> Option<String> {
+    if std::env::var_os("WAYLAND_DISPLAY").is_none() {
+        return cx
+            .read_from_clipboard()
+            .and_then(|item| item.text())
+            .filter(|text| !text.is_empty());
+    }
+
+    use std::io::Read as _;
+    use std::process::{Command, Stdio};
+
+    const MAX_PASTE_BYTES: u64 = 64 * 1024;
+    let mut child = Command::new("timeout")
+        .args(["0.3s", "wl-paste", "--no-newline"])
+        .stdout(Stdio::piped())
+        .stderr(Stdio::null())
+        .spawn()
+        .ok()?;
+    let mut bytes = Vec::new();
+    let read = child
+        .stdout
+        .take()?
+        .take(MAX_PASTE_BYTES + 1)
+        .read_to_end(&mut bytes);
+    let status = child.wait().ok()?;
+    if read.is_err() || !status.success() || bytes.len() as u64 > MAX_PASTE_BYTES {
+        return None;
+    }
+    String::from_utf8(bytes).ok().filter(|text| !text.is_empty())
+}
+
 fn write_wayland_clipboard(text: String) {
     use std::io::Write as _;
     use std::process::{Command, Stdio};

@@ -8,8 +8,8 @@ control=("$project_root/target/gui-validation/venv/bin/python" "$project_root/sc
 case "${1:-}" in
     prepare)
         cd "$project_root"
-        command -v wl-copy >/dev/null || {
-            echo 'wl-copy is required for the native Wayland clipboard' >&2
+        command -v wl-copy >/dev/null && command -v wl-paste >/dev/null || {
+            echo 'wl-copy and wl-paste are required for the native Wayland clipboard' >&2
             exit 1
         }
         cargo build --locked -p objekte-desktop --bin objekte-desktop
