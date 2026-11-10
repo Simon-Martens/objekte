@@ -540,6 +540,8 @@ impl DesktopView {
 
     fn close_workspace_tab(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
         let pane = self.state.workspace.pane_of(id);
+        let was_selected =
+            pane.is_some_and(|pane| self.state.workspace.group(pane).active == Some(id));
         if !self.state.workspace.close(id) {
             return;
         }
@@ -547,6 +549,10 @@ impl DesktopView {
         self.state.prune_query_snapshots();
         if let TabId::Record(id) = id {
             self.send(UiAction::CloseTab(id));
+        }
+        if !was_selected {
+            cx.notify();
+            return;
         }
         if let Some(next) = pane.and_then(|pane| self.state.workspace.group(pane).active) {
             self.activate_workspace_tab(next, window, cx);
