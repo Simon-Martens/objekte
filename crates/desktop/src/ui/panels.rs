@@ -966,7 +966,11 @@ impl DesktopView {
             })
     }
 
-    pub(super) fn render_actions(&self, cx: &mut Context<Self>) -> impl IntoElement {
+    pub(super) fn render_actions(
+        &self,
+        window_width: f32,
+        cx: &mut Context<Self>,
+    ) -> impl IntoElement {
         let colors = super::theme::palette(self.state.dark);
         let kind = self.state.action_panel;
         let title = match kind {
@@ -979,13 +983,18 @@ impl DesktopView {
             .id("action-panel")
             .absolute()
             .when(kind == ActionPanel::Columns, |this| {
-                this.bottom(px(60.)).right(px(
-                    if self.state.inspector_visible && self.state.active_tab.is_some() {
-                        self.state.inspector_width + 8.
-                    } else {
-                        8.
-                    },
-                ))
+                let query_on_left = self
+                    .state
+                    .workspace
+                    .current_search
+                    .and_then(|id| self.state.workspace.pane_of(id)) == Some(Pane::Primary);
+                let preferred_right = if self.state.inspector_visible && query_on_left {
+                    self.state.inspector_width + 8.
+                } else {
+                    8.
+                };
+                let right = preferred_right.min((window_width - 378.).max(8.));
+                this.bottom(px(60.)).right(px(right))
             })
             .when(kind != ActionPanel::Columns, |this| {
                 this.top(px(48.)).right(px(8.))

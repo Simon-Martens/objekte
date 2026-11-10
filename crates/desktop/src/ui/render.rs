@@ -2407,7 +2407,7 @@ impl Render for DesktopView {
                 this.child(self.render_builder_overlay(width))
             })
             .when(self.state.show_actions, |this| {
-                this.child(self.render_actions(cx))
+                this.child(self.render_actions(width, cx))
             })
             .when(self.state.show_help, |this| {
                 this.child(self.render_help(cx))
