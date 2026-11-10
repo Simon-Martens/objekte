@@ -35,7 +35,9 @@ gpui_kit::actions!(
         NewQueryTab,
         CloseWorkspaceTab,
         NextWorkspaceTab,
-        PreviousWorkspaceTab
+        PreviousWorkspaceTab,
+        FocusPrimaryPane,
+        FocusSecondaryPane
     ]
 );
 
@@ -46,6 +48,8 @@ pub fn init_keybindings(cx: &mut gpui_kit::App) {
         KeyBinding::new("ctrl-tab", NextWorkspaceTab, Some("ObjekteWorkspace")),
         KeyBinding::new("ctrl-pagedown", NextWorkspaceTab, Some("ObjekteWorkspace")),
         KeyBinding::new("ctrl-pageup", PreviousWorkspaceTab, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-1", FocusPrimaryPane, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-2", FocusSecondaryPane, Some("ObjekteWorkspace")),
         KeyBinding::new(
             "ctrl-shift-tab",
             PreviousWorkspaceTab,
@@ -523,6 +527,7 @@ impl DesktopView {
             TabId::Record(id) => {
                 self.save_tab_view();
                 self.send(UiAction::ActivateTab(id));
+                window.focus(&self.detail_focus, cx);
                 cx.notify();
             }
         }

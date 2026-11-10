@@ -21,7 +21,10 @@ use super::sort;
 use super::state::{ActionPanel, Busy};
 use super::theme::palette;
 use super::workspace::{Pane, SearchKind, TabId};
-use super::{CloseWorkspaceTab, DesktopView, NewQueryTab, NextWorkspaceTab, PreviousWorkspaceTab};
+use super::{
+    CloseWorkspaceTab, DesktopView, FocusPrimaryPane, FocusSecondaryPane, NewQueryTab,
+    NextWorkspaceTab, PreviousWorkspaceTab,
+};
 
 #[derive(Clone)]
 struct WorkspaceDrag {
@@ -2165,6 +2168,16 @@ impl Render for DesktopView {
             }))
             .on_action(cx.listener(|this, _: &PreviousWorkspaceTab, window, cx| {
                 if let Some(id) = this.state.workspace.adjacent_tab(true) {
+                    this.activate_workspace_tab(id, window, cx);
+                }
+            }))
+            .on_action(cx.listener(|this, _: &FocusPrimaryPane, window, cx| {
+                if let Some(id) = this.state.workspace.primary.active {
+                    this.activate_workspace_tab(id, window, cx);
+                }
+            }))
+            .on_action(cx.listener(|this, _: &FocusSecondaryPane, window, cx| {
+                if let Some(id) = this.state.workspace.secondary.active {
                     this.activate_workspace_tab(id, window, cx);
                 }
             }))
