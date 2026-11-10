@@ -1325,20 +1325,7 @@ impl DesktopView {
                     .children(tabs.into_iter().enumerate().map(|(index, tab)| {
                         let id = tab.id;
                         let title = tab.title.clone();
-                        let display_title = match id {
-                            TabId::Record(_) => {
-                                let record_id = title
-                                    .rsplit(" / ")
-                                    .find(|part| !part.is_empty())
-                                    .unwrap_or(&title);
-                                record_id
-                                    .rsplit(['/', ':'])
-                                    .find(|part| !part.is_empty())
-                                    .unwrap_or(record_id)
-                                    .to_owned()
-                            }
-                            TabId::Search(_) => title.clone(),
-                        };
+                        let display_title = title.clone();
                         let selected = active == Some(id);
                         let icon = match (id, tab.search_kind) {
                             (TabId::Record(_), _) => AssetIconName::FileText,

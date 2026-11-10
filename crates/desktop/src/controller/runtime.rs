@@ -2787,7 +2787,7 @@ impl DesktopController {
                             collection: hit.collection.clone(),
                             id: hit.record_id.clone(),
                         };
-                        tab.title = view.title.clone();
+                        tab.title = view.display_title().to_string();
                         tab.cached_detail = Some(view.clone());
                         if self.active_tab == Some(tab_id) {
                             self.selected_hit = Some(Arc::new(hit));

@@ -257,6 +257,23 @@ pub struct DetailView {
 }
 
 impl DetailView {
+    /// Prefer a present top-level name for the heading shown in the inspector
+    /// and retained record tabs. The canonical identity remains in `title`.
+    pub fn display_title(&self) -> &str {
+        for field in ["$.name", "$.title"] {
+            if let Some(row) = self.structured.iter().find(|row| {
+                row.origin == DetailOrigin::Structured
+                    && row.label == field
+                    && row.value_kind == DetailValueKind::Present
+                    && !row.expandable
+                    && !row.value.trim().is_empty()
+            }) {
+                return &row.value;
+            }
+        }
+        &self.title
+    }
+
     /// Keep nested records and source text from growing the render cache.
     pub fn bounded(mut self) -> Self {
         if self.structured.len() > MAX_DETAIL_ROWS {

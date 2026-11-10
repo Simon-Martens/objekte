@@ -50,7 +50,8 @@ impl RecordPreview {
         }
 
         let mut budget = PREVIEW_BYTES;
-        let (title, title_clipped) = bounded_text(&detail.title, &mut budget, PREVIEW_CELL_BYTES);
+        let (title, title_clipped) =
+            bounded_text(detail.display_title(), &mut budget, PREVIEW_CELL_BYTES);
         let mut preview = Self {
             title,
             fields: Vec::with_capacity(detail.structured.len().min(PREVIEW_ROWS)),

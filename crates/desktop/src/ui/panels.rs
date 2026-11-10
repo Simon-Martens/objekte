@@ -17,38 +17,24 @@ use gpui_kit::{
 
 use super::DesktopView;
 use super::model::{
-    BatchSource, DetailOrigin, DetailRow, DetailValueKind, DetailView, ErrorField, ExportFormat, IndexTaskKind,
+    BatchSource, DetailOrigin, DetailRow, DetailValueKind, ErrorField, ExportFormat, IndexTaskKind,
     IndexTaskState, TabFreshness, UiAction,
 };
 use super::state::ActionPanel;
 use super::workspace::Pane;
 
-fn detail_heading(detail: &DetailView) -> String {
-    for field in ["$.name", "$.title"] {
-        if let Some(row) = detail.structured.iter().find(|row| {
-            row.origin == DetailOrigin::Structured
-                && row.label == field
-                && row.value_kind == DetailValueKind::Present
-                && !row.expandable
-                && !row.value.trim().is_empty()
-        }) {
-            return row.value.clone();
-        }
-    }
-    detail.title.clone()
-}
-
 #[cfg(test)]
-mod detail_heading_tests {
+mod display_title_tests {
     use super::*;
+    use crate::ui::model::DetailView;
 
     #[test]
     fn uses_a_present_display_name_and_falls_back_to_record_identity() {
         let mut detail = DetailView { title: "files / path:0001.json".into(), ..DetailView::default() };
-        assert_eq!(detail_heading(&detail), detail.title);
+        assert_eq!(detail.display_title(), detail.title);
         detail.structured.push(DetailRow {
             label: "$.name".into(),
-            value: "Example title".into(),
+            value: "Example: part".into(),
             depth: 0,
             matched: false,
             filter_participant: false,
@@ -59,9 +45,9 @@ mod detail_heading_tests {
             origin: DetailOrigin::Structured,
             value_kind: DetailValueKind::Present,
         });
-        assert_eq!(detail_heading(&detail), "Example title");
+        assert_eq!(detail.display_title(), "Example: part");
         detail.structured[0].value_kind = DetailValueKind::LogicalUnavailable;
-        assert_eq!(detail_heading(&detail), detail.title);
+        assert_eq!(detail.display_title(), detail.title);
     }
 }
 
@@ -499,7 +485,7 @@ impl DesktopView {
                             .whitespace_nowrap()
                             .text_ellipsis()
                             .font_weight(FontWeight::SEMIBOLD)
-                            .child(detail_heading(detail)),
+                            .child(detail.display_title().to_string()),
                     )
                     .child(
                         div()
