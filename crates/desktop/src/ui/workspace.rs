@@ -347,9 +347,9 @@ fn search_title(draft: &SearchDraft, kind: SearchKind, query_number: Option<u64>
         }
         let title = super::preferences::generated_title(draft);
         if title.trim().is_empty() {
-            "Query".into()
+            format!("Query {}", query_number.unwrap_or(1))
         } else {
-            title
+            format!("Q{} · {title}", query_number.unwrap_or(1))
         }
     }
 }
@@ -475,6 +475,22 @@ mod tests {
         assert!(workspace.tab(first).unwrap().title.contains("orange"));
         workspace.update_current_search(SearchDraft::default());
         assert_eq!(workspace.tab(first).unwrap().title, "Query 1");
+    }
+
+    #[test]
+    fn duplicate_populated_queries_have_distinct_titles() {
+        let mut workspace = Workspace::default();
+        let first = workspace.open_query(SearchDraft {
+            full_text: "orange".into(),
+            ..Default::default()
+        });
+        let duplicate = workspace.duplicate_query(first).unwrap();
+        let first_title = &workspace.tab(first).unwrap().title;
+        let duplicate_title = &workspace.tab(duplicate).unwrap().title;
+        assert!(first_title.starts_with("Q1 · "));
+        assert!(duplicate_title.starts_with("Q2 · "));
+        assert!(first_title.contains("orange"));
+        assert!(duplicate_title.contains("orange"));
     }
 
     #[test]
