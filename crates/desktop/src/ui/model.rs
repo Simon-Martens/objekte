@@ -637,7 +637,7 @@ pub enum UiUpdate {
     CountStarted,
     ExactCount(usize),
     CountFailed(String),
-    RowSelected(usize),
+    RowSelection(Option<usize>),
     RevealRow(usize),
     Tabs {
         tabs: Vec<RecordTabSummary>,

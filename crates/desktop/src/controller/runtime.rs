@@ -1766,7 +1766,17 @@ impl DesktopController {
             return;
         }
         self.selected_index = Some(index);
-        updates.push(UiUpdate::RowSelected(index));
+        updates.push(UiUpdate::RowSelection(Some(index)));
+    }
+
+    fn sync_tab_row_selection(&mut self, tab_index: usize, updates: &mut Vec<UiUpdate>) {
+        let tab = &self.tabs[tab_index];
+        let selected = tab
+            .in_results
+            .then_some(tab.anchor)
+            .filter(|&anchor| self.keys.get(anchor).and_then(Option::as_ref) == Some(&tab.key));
+        self.selected_index = selected;
+        updates.push(UiUpdate::RowSelection(selected));
     }
 
     fn emit_tabs(&self, updates: &mut Vec<UiUpdate>) {
@@ -1972,6 +1982,7 @@ impl DesktopController {
         let Some(index) = self.tabs.iter().position(|tab| tab.id == id) else {
             return;
         };
+        self.sync_tab_row_selection(index, updates);
         if self.active_tab == Some(id) && self.detail.is_some() {
             self.emit_tabs(updates);
             return;
@@ -2730,6 +2741,7 @@ impl DesktopController {
                             if matches!(kind, TabLoadKind::Back { .. }) {
                                 updates.push(UiUpdate::RestoreTabView(tab.view));
                             }
+                            self.sync_tab_row_selection(index, updates);
                         }
                     }
                     Ok(None) => {

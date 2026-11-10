@@ -394,8 +394,8 @@ impl UiState {
                 self.page.count_pending = false;
                 self.status = format!("Could not count matches: {message}");
             }
-            UiUpdate::RowSelected(index) => {
-                self.page.selected = Some(index);
+            UiUpdate::RowSelection(index) => {
+                self.page.selected = index;
             }
             UiUpdate::RevealRow(index) => self.page.selected = Some(index),
             UiUpdate::Tabs { tabs, active } => {

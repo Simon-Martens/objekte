@@ -2124,6 +2124,7 @@ impl DesktopView {
 
 impl Render for DesktopView {
     fn render(&mut self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+        self.request_visible_grid_rows();
         let colors = palette(self.state.dark);
         div()
             .id("desktop-root")

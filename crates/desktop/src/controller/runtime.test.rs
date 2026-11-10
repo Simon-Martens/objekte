@@ -541,6 +541,54 @@ fn row_open_reuses_active_tab_and_explicit_new_tab_adds_one() {
 }
 
 #[test]
+fn activating_record_tab_selects_matching_result_or_clears_old_selection() {
+    let fixture = crate::backend::test_support::fixture();
+    let page = backend::query_page(
+        &fixture.session,
+        &backend::QuerySpec::default(),
+        0,
+        10,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert!(page.hits.len() >= 2);
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.executed_spec = Some(backend::QuerySpec::default());
+    controller.executed_draft = Some(SearchDraft::default());
+    controller.keys = page
+        .hits
+        .iter()
+        .map(|hit| {
+            Some(RecordKey {
+                collection: hit.collection.clone(),
+                id: hit.record_id.clone(),
+            })
+        })
+        .collect();
+    let mut updates = Vec::new();
+    controller.open_record(0, false, &mut updates);
+    let first_id = controller.active_tab.unwrap();
+    controller.open_record(1, true, &mut updates);
+    let second_id = controller.active_tab.unwrap();
+
+    updates.clear();
+    controller.activate_tab(first_id, &mut updates);
+    assert_eq!(controller.selected_index, Some(0));
+    assert!(updates
+        .iter()
+        .any(|update| matches!(update, UiUpdate::RowSelection(Some(0)))));
+
+    controller.keys.clear();
+    updates.clear();
+    controller.activate_tab(second_id, &mut updates);
+    assert_eq!(controller.selected_index, None);
+    assert!(updates
+        .iter()
+        .any(|update| matches!(update, UiUpdate::RowSelection(None))));
+}
+
+#[test]
 fn invalid_current_request_cannot_export_previous_results() {
     let fixture = crate::backend::test_support::fixture();
     let (mut controller, _) = DesktopController::new();
