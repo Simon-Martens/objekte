@@ -506,7 +506,14 @@ impl DesktopView {
             }
         }
         if remeasure_grid {
-            self.grid_list.remeasure();
+            let top = self.grid_list.logical_scroll_top();
+            self.grid_height_hint = self.estimated_grid_row_height();
+            self.grid_height_seeded = self.state.loaded_count;
+            // Remeasure keeps the old hints for offscreen rows. Rebuild them
+            // when wrapping changes, then restore the same logical row.
+            self.grid_list
+                .reset_with_uniform_height(self.state.loaded_count, px(self.grid_height_hint));
+            self.grid_list.scroll_to(top);
         }
         if inspected_record
             && self.state.inspector_visible
