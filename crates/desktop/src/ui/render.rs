@@ -1274,8 +1274,9 @@ impl DesktopView {
             Pane::Primary => &self.primary_tabs_scroll,
             Pane::Secondary => &self.secondary_tabs_scroll,
         };
-        let show_split_target =
-            pane == Pane::Primary && self.state.workspace.secondary.tabs.is_empty();
+        let show_split_target = pane == Pane::Primary
+            && group.active.is_some()
+            && self.state.workspace.secondary.tabs.is_empty();
 
         div()
             .id(format!("workspace-bar-{pane:?}"))
