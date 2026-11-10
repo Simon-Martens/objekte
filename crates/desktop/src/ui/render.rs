@@ -5,23 +5,26 @@ use gpui_kit::component::{
     Disableable as _, Icon, IconName, Selectable as _,
     button::{Button, ButtonVariants},
     input::Input,
-    menu::{ContextMenuExt as _, DropdownMenu as _, PopupMenuItem},
+    menu::{ContextMenuExt as _, DropdownMenu as _, PopupMenu, PopupMenuItem},
     scroll::{ScrollableElement as _, Scrollbar, ScrollbarMode},
 };
 use gpui_kit::prelude::FluentBuilder as _;
 use gpui_kit::{
-    AppContext as _, Context, Entity, Focusable as _, FontWeight, HighlightStyle, InteractiveElement as _,
-    IntoElement, ParentElement as _, Render, StatefulInteractiveElement as _, Styled as _,
-    StyledText, Window, div, list, px, rgb,
+    AppContext as _, Context, Entity, Focusable as _, FontWeight, HighlightStyle,
+    InteractiveElement as _, IntoElement, ParentElement as _, Render,
+    StatefulInteractiveElement as _, Styled as _, StyledText, Window, div, list, px, rgb,
 };
 use objekte_search_core::query::parse_structured_filter;
 
-use super::DesktopView;
 use super::model::{IndexTaskState, UiAction};
 use super::sort;
 use super::state::{ActionPanel, Busy};
 use super::theme::palette;
-use super::workspace::{Pane, TabId};
+use super::workspace::{Pane, SearchKind, TabId};
+use super::{
+    CloseWorkspaceTab, DesktopView, FocusPrimaryPane, FocusSecondaryPane, NewQueryTab,
+    NextWorkspaceTab, PreviousWorkspaceTab,
+};
 
 #[derive(Clone)]
 struct WorkspaceDrag {
@@ -36,8 +39,15 @@ struct WorkspaceDragPreview {
 impl Render for WorkspaceDragPreview {
     fn render(&mut self, _: &mut Window, _: &mut Context<Self>) -> impl IntoElement {
         let colors = palette(self.dark);
-        div().px_3().py_2().bg(rgb(colors.raised)).text_color(rgb(colors.text))
-            .border_1().border_color(rgb(colors.accent)).rounded_md().child(self.title.clone())
+        div()
+            .px_3()
+            .py_2()
+            .bg(rgb(colors.raised))
+            .text_color(rgb(colors.text))
+            .border_1()
+            .border_color(rgb(colors.accent))
+            .rounded_md()
+            .child(self.title.clone())
     }
 }
 
@@ -90,6 +100,56 @@ fn panel_menu_item(
                 cx.notify();
             });
         })
+}
+
+fn workspace_tab_menu(
+    menu: PopupMenu,
+    target: Entity<DesktopView>,
+    id: TabId,
+    pane: Pane,
+    duplicate_label: Option<&'static str>,
+) -> PopupMenu {
+    let destination = pane.other();
+    let move_target = target.clone();
+    let duplicate_target = target.clone();
+    let close_target = target;
+    menu.item(
+        PopupMenuItem::new(match destination {
+            Pane::Primary => "Move to left pane",
+            Pane::Secondary => "Move to right pane",
+        })
+        .icon(match destination {
+            Pane::Primary => AssetIconName::PanelLeft,
+            Pane::Secondary => AssetIconName::PanelRight,
+        })
+        .on_click(move |_, window, cx| {
+            move_target.update(cx, |this, cx| {
+                let at = this.state.workspace.group(destination).tabs.len();
+                this.move_workspace_tab(id, destination, at, window, cx);
+            });
+        }),
+    )
+    .when_some(duplicate_label, |menu, label| {
+        menu.item(
+            PopupMenuItem::new(label)
+                .icon(AssetIconName::Copy)
+                .on_click(move |_, window, cx| {
+                    duplicate_target.update(cx, |this, cx| {
+                        this.duplicate_workspace_query(id, window, cx);
+                    });
+                }),
+        )
+    })
+    .separator()
+    .item(
+        PopupMenuItem::new("Close tab")
+            .icon(AssetIconName::X)
+            .on_click(move |_, window, cx| {
+                close_target.update(cx, |this, cx| {
+                    this.close_workspace_tab(id, window, cx);
+                });
+            }),
+    )
 }
 
 impl DesktopView {
@@ -250,6 +310,7 @@ impl DesktopView {
                     self.state.filter_validation,
                     Some(super::model::FilterValidationState::Valid)
                 );
+                let has_repository = self.state.root.is_some();
                 let dark = self.state.dark;
                 Button::new("actions-panel")
                     .icon(IconName::Menu)
@@ -265,6 +326,7 @@ impl DesktopView {
                         menu.item(
                             PopupMenuItem::new("New query tab")
                                 .icon(AssetIconName::SquarePlus)
+                                .disabled(!has_repository)
                                 .on_click(move |_, window, cx| {
                                     new_query_target.update(cx, |this, cx| {
                                         this.open_query_tab(window, cx);
@@ -940,30 +1002,36 @@ impl DesktopView {
                                 let target = target.clone();
                                 let record_id = row_key.as_ref().map(|key| key.record_id.clone());
                                 let file = row_key.as_ref().map(|key| key.file.clone());
-                                menu.item(PopupMenuItem::new("Open in new tab").on_click(
-                                    move |_, _, cx| {
-                                        target.update(cx, |this, _| {
-                                            this.send(UiAction::OpenRecordNewTab(index))
-                                        });
-                                    },
-                                ))
+                                menu.item(
+                                    PopupMenuItem::new("Open in new tab")
+                                        .icon(AssetIconName::ExternalLink)
+                                        .on_click(move |_, _, cx| {
+                                            target.update(cx, |this, _| {
+                                                this.send(UiAction::OpenRecordNewTab(index))
+                                            });
+                                        }),
+                                )
                                 .separator()
-                                .item(PopupMenuItem::new("Copy record ID")
-                                    .icon(AssetIconName::Copy)
-                                    .disabled(record_id.is_none())
-                                    .on_click(move |_, _, cx| {
-                                        if let Some(id) = record_id.clone() {
-                                            cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(id));
-                                        }
-                                    }))
-                                .item(PopupMenuItem::new("Copy file path")
-                                    .icon(AssetIconName::Copy)
-                                    .disabled(file.is_none())
-                                    .on_click(move |_, _, cx| {
-                                        if let Some(file) = file.clone() {
-                                            cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(file));
-                                        }
-                                    }))
+                                .item(
+                                    PopupMenuItem::new("Copy record ID")
+                                        .icon(AssetIconName::Copy)
+                                        .disabled(record_id.is_none())
+                                        .on_click(move |_, _, cx| {
+                                            if let Some(id) = record_id.clone() {
+                                                super::copy_text_to_clipboard(id, cx);
+                                            }
+                                        }),
+                                )
+                                .item(
+                                    PopupMenuItem::new("Copy file path")
+                                        .icon(AssetIconName::Copy)
+                                        .disabled(file.is_none())
+                                        .on_click(move |_, _, cx| {
+                                            if let Some(file) = file.clone() {
+                                                super::copy_text_to_clipboard(file, cx);
+                                            }
+                                        }),
+                                )
                             }
                         })
                         .into_any_element()
@@ -1075,7 +1143,7 @@ impl DesktopView {
                         .absolute()
                         .top(px(32.))
                         .right_0()
-                        .bottom(px(32.))
+                        .bottom(px(32.) + Scrollbar::width())
                         .w(Scrollbar::width())
                         .child(
                             Scrollbar::vertical(&self.grid_list)
@@ -1084,6 +1152,19 @@ impl DesktopView {
                         ),
                 )
             })
+            .child(
+                div()
+                    .absolute()
+                    .left_0()
+                    .right(Scrollbar::width())
+                    .bottom(px(32.))
+                    .h(Scrollbar::width())
+                    .child(
+                        Scrollbar::horizontal(&self.grid_horizontal_scroll)
+                            .mode(ScrollbarMode::Always)
+                            .viewport_from_layout(),
+                    ),
+            )
             .into_any_element()
     }
 
@@ -1184,11 +1265,21 @@ impl DesktopView {
         let colors = palette(self.state.dark);
         let group = self.state.workspace.group(pane);
         let active = group.active;
+        let focused = self.state.workspace.focused_pane == pane;
         let tabs = group.tabs.clone();
+        let menu_tabs = tabs.clone();
         let count = tabs.len();
         let target = cx.entity();
+        let menu_target = target.clone();
         let split_target = target.clone();
-        let show_split_target = pane == Pane::Primary && self.state.workspace.secondary.tabs.is_empty();
+        let tabs_scroll = match pane {
+            Pane::Primary => &self.primary_tabs_scroll,
+            Pane::Secondary => &self.secondary_tabs_scroll,
+        };
+        let show_split_target = pane == Pane::Primary
+            && group.active.is_some()
+            && self.state.workspace.secondary.tabs.is_empty();
+
         div()
             .id(format!("workspace-bar-{pane:?}"))
             .flex()
@@ -1203,136 +1294,240 @@ impl DesktopView {
                     .id(format!("workspace-tabs-{pane:?}"))
                     .flex()
                     .items_center()
+                    .gap_1()
                     .h_full()
                     .min_w_0()
                     .overflow_x_scroll()
+                    .track_scroll(tabs_scroll)
+                    .px_1()
                     .children(tabs.into_iter().enumerate().map(|(index, tab)| {
                         let id = tab.id;
                         let title = tab.title.clone();
+                        let display_title = match id {
+                            TabId::Record(_) => {
+                                let record_id = title
+                                    .rsplit(" / ")
+                                    .find(|part| !part.is_empty())
+                                    .unwrap_or(&title);
+                                record_id
+                                    .rsplit(['/', ':'])
+                                    .find(|part| !part.is_empty())
+                                    .unwrap_or(record_id)
+                                    .to_owned()
+                            }
+                            TabId::Search(_) => title.clone(),
+                        };
+                        let selected = active == Some(id);
+                        let icon = match (id, tab.search_kind) {
+                            (TabId::Record(_), _) => AssetIconName::FileText,
+                            (TabId::Search(_), Some(SearchKind::Table)) => AssetIconName::Table2,
+                            _ => AssetIconName::Search,
+                        };
+                        let select_target = target.clone();
+                        let close_target = target.clone();
+                        let drop_target = target.clone();
+                        let menu_target = target.clone();
                         let drag_title = title.clone();
                         let drag_dark = self.state.dark;
-                        let drop_target = target.clone();
-                        let move_target = target.clone();
-                        let first_target = target.clone();
-                        let close_target = target.clone();
-                        let label_move_target = target.clone();
-                        let label_first_target = target.clone();
-                        let label_close_target = target.clone();
+                        let duplicate_label = match tab.search_kind {
+                            Some(SearchKind::Table) => Some("Duplicate as query"),
+                            Some(SearchKind::Query) => Some("Duplicate query"),
+                            None => None,
+                        };
                         div()
                             .id(format!("workspace-tab-{pane:?}-{index}"))
+                            .relative()
                             .flex()
                             .items_center()
-                            .h_full()
-                            .flex_shrink_0()
-                            .px_1()
-                            .border_r_1()
-                            .border_color(rgb(colors.border))
-                            .when(active == Some(id), |this| {
-                                this.bg(rgb(colors.panel)).border_b_2().border_color(rgb(colors.accent))
+                            .gap_1()
+                            .h(px(33.))
+                            .min_w(px(if pane == Pane::Secondary { 130. } else { 142. }))
+                            .max_w(px(220.))
+                            .px_2()
+                            .rounded_sm()
+                            .border_1()
+                            .border_color(rgb(if selected {
+                                colors.border
+                            } else {
+                                colors.raised
+                            }))
+                            .bg(rgb(if selected {
+                                colors.panel
+                            } else {
+                                colors.raised
+                            }))
+                            .when(!selected, |this| {
+                                this.hover(|this| this.bg(rgb(colors.selected)))
+                            })
+                            .when(selected, |this| {
+                                this.child(
+                                    div()
+                                        .absolute()
+                                        .top_0()
+                                        .left_1()
+                                        .right_1()
+                                        .h(px(2.))
+                                        .bg(rgb(if focused {
+                                            colors.accent
+                                        } else {
+                                            colors.secondary
+                                        })),
+                                )
                             })
                             .child(
                                 div()
-                                    .id(format!("workspace-drag-{pane:?}-{index}"))
+                                    .id(format!("workspace-select-{pane:?}-{index}"))
                                     .flex()
                                     .items_center()
+                                    .gap_2()
                                     .h_full()
-                                    .px_1()
-                                    .cursor_grab()
-                                    .text_color(rgb(colors.secondary))
-                                    .child("⋮")
+                                    .min_w_0()
+                                    .flex_1()
+                                    .cursor_pointer()
+                                    .aria_label(format!(
+                                        "{} tab: {}",
+                                        if selected && focused {
+                                            "Focused"
+                                        } else if selected {
+                                            "Active"
+                                        } else {
+                                            "Open"
+                                        },
+                                        title
+                                    ))
+                                    .child(Icon::new(icon).size_4().text_color(rgb(if selected && focused {
+                                        colors.accent
+                                    } else {
+                                        colors.secondary
+                                    })))
+                                    .child(
+                                        div()
+                                            .min_w_0()
+                                            .flex_1()
+                                            .overflow_hidden()
+                                            .whitespace_nowrap()
+                                            .text_ellipsis()
+                                            .text_sm()
+                                            .text_color(rgb(if selected {
+                                                colors.text
+                                            } else {
+                                                colors.secondary
+                                            }))
+                                            .child(display_title),
+                                    )
+                                    .on_click(move |_, window, cx| {
+                                        select_target.update(cx, |this, cx| {
+                                            this.activate_workspace_tab(id, window, cx);
+                                        });
+                                    })
+                                    .on_mouse_down(
+                                        gpui_kit::MouseButton::Middle,
+                                        cx.listener(move |this, _, window, cx| {
+                                            this.close_workspace_tab(id, window, cx);
+                                            cx.stop_propagation();
+                                        }),
+                                    )
                                     .on_drag(WorkspaceDrag { id }, move |_, _, _, cx| {
-                                        cx.new(|_| WorkspaceDragPreview { title: drag_title.clone(), dark: drag_dark })
-                                    }),
-                            )
-                            .child(
-                                Button::new(format!("workspace-select-{pane:?}-{index}"))
-                                    .ghost()
-                                    .max_w(px(172.))
-                                    .label(title.clone())
-                                    .tooltip(title.clone())
-                                    .on_click(cx.listener(move |this, _, window, cx| {
-                                        this.activate_workspace_tab(id, window, cx);
-                                    }))
+                                        cx.new(|_| WorkspaceDragPreview {
+                                            title: drag_title.clone(),
+                                            dark: drag_dark,
+                                        })
+                                    })
                                     .context_menu(move |menu, _, _| {
-                                        let move_target = label_move_target.clone();
-                                        let first_target = label_first_target.clone();
-                                        let close_target = label_close_target.clone();
-                                        menu.item(PopupMenuItem::new("Move to other pane").on_click(move |_, window, cx| {
-                                            move_target.update(cx, |this, cx| {
-                                                let other = pane.other();
-                                                let at = this.state.workspace.group(other).tabs.len();
-                                                this.move_workspace_tab(id, other, at, window, cx);
-                                            });
-                                        }))
-                                        .item(PopupMenuItem::new("Move to start").on_click(move |_, window, cx| {
-                                            first_target.update(cx, |this, cx| this.move_workspace_tab(id, pane, 0, window, cx));
-                                        }))
-                                        .item(PopupMenuItem::new("Close tab").on_click(move |_, window, cx| {
-                                            close_target.update(cx, |this, cx| this.close_workspace_tab(id, window, cx));
-                                        }))
+                                        workspace_tab_menu(
+                                            menu,
+                                            menu_target.clone(),
+                                            id,
+                                            pane,
+                                            duplicate_label,
+                                        )
                                     }),
                             )
                             .child(
-                                Button::new(format!("workspace-close-{pane:?}-{index}"))
-                                    .ghost()
-                                    .icon(IconName::Close)
-                                    .tooltip("Close tab")
-                                    .accessibility_label("Close tab")
-                                    .on_click(cx.listener(move |this, _, window, cx| {
-                                        this.close_workspace_tab(id, window, cx);
-                                    })),
+                                div()
+                                    .id(format!("workspace-close-{pane:?}-{index}"))
+                                    .flex()
+                                    .items_center()
+                                    .justify_center()
+                                    .size(px(20.))
+                                    .flex_shrink_0()
+                                    .rounded_sm()
+                                    .cursor_pointer()
+                                    .text_color(rgb(colors.secondary))
+                                    .hover(|this| {
+                                        this.bg(rgb(colors.selected)).text_color(rgb(colors.text))
+                                    })
+                                    .aria_label(format!("Close {} tab", title))
+                                    .child(Icon::new(AssetIconName::X).size_3())
+                                    .on_click(move |_, window, cx| {
+                                        close_target.update(cx, |this, cx| {
+                                            this.close_workspace_tab(id, window, cx);
+                                        });
+                                    }),
                             )
-                            .drag_over::<WorkspaceDrag>(|this, _, _, _| {
-                                this.border_l_2().border_color(rgb(0x6ba5e7))
+                            .drag_over::<WorkspaceDrag>(move |this, _, _, _| {
+                                this.border_l_2().border_color(rgb(colors.accent))
                             })
                             .on_drop(move |drag: &WorkspaceDrag, window, cx| {
                                 drop_target.update(cx, |this, cx| {
-                                    this.move_workspace_tab(drag.id, pane, index, window, cx)
+                                    this.move_workspace_tab(drag.id, pane, index, window, cx);
                                 });
                             })
-                            .context_menu(move |menu, _, _| {
-                                let move_target = move_target.clone();
-                                let first_target = first_target.clone();
-                                let close_target = close_target.clone();
-                                menu.item(PopupMenuItem::new("Move to other pane").on_click(move |_, window, cx| {
-                                    move_target.update(cx, |this, cx| {
-                                        let other = pane.other();
-                                        let at = this.state.workspace.group(other).tabs.len();
-                                        this.move_workspace_tab(id, other, at, window, cx);
-                                    });
-                                }))
-                                .item(PopupMenuItem::new("Move to start").on_click(move |_, window, cx| {
-                                    first_target.update(cx, |this, cx| this.move_workspace_tab(id, pane, 0, window, cx));
-                                }))
-                                .item(PopupMenuItem::new("Close tab").on_click(move |_, window, cx| {
-                                    close_target.update(cx, |this, cx| this.close_workspace_tab(id, window, cx));
-                                }))
-                            })
+                    })),
+            )
+            .child(
+                Button::new(format!("new-query-tab-{pane:?}"))
+                    .ghost()
+                    .icon(AssetIconName::Plus)
+                    .tooltip("New query tab in this pane")
+                    .accessibility_label("New query tab in this pane")
+                    .on_click(cx.listener(move |this, _, window, cx| {
+                        this.open_query_tab_in(pane, window, cx);
                     })),
             )
             .child(
                 div()
                     .id(format!("workspace-drop-end-{pane:?}"))
                     .flex_1()
-                    .min_w(px(24.))
+                    .min_w(px(20.))
                     .h_full()
-                    .drag_over::<WorkspaceDrag>(|this, _, _, _| this.bg(rgb(0x35445a)))
+                    .drag_over::<WorkspaceDrag>(move |this, _, _, _| this.bg(rgb(colors.selected)))
                     .on_drop(move |drag: &WorkspaceDrag, window, cx| {
                         target.update(cx, |this, cx| {
-                            this.move_workspace_tab(drag.id, pane, count, window, cx)
+                            this.move_workspace_tab(drag.id, pane, count, window, cx);
                         });
                     }),
             )
-            .when(pane == Pane::Primary, |this| {
+            .when(count > 1, |this| {
                 this.child(
-                    Button::new("new-query-tab")
+                    Button::new(format!("workspace-open-tabs-{pane:?}"))
                         .ghost()
-                        .icon(AssetIconName::SquarePlus)
-                        .tooltip("New query tab")
-                        .accessibility_label("New query tab")
-                        .on_click(cx.listener(|this, _, window, cx| {
-                            this.open_query_tab(window, cx);
-                        })),
+                        .icon(AssetIconName::List)
+                        .tooltip("Open tabs in this pane")
+                        .accessibility_label("Open tabs in this pane")
+                        .dropdown_menu(move |menu, _, _| {
+                            menu_tabs.iter().fold(menu.scrollable(true), |menu, tab| {
+                                let id = tab.id;
+                                let select_target = menu_target.clone();
+                                let icon = match (id, tab.search_kind) {
+                                    (TabId::Record(_), _) => AssetIconName::FileText,
+                                    (TabId::Search(_), Some(SearchKind::Table)) => {
+                                        AssetIconName::Table2
+                                    }
+                                    _ => AssetIconName::Search,
+                                };
+                                menu.item(
+                                    PopupMenuItem::new(tab.title.clone())
+                                        .icon(icon)
+                                        .checked(active == Some(id))
+                                        .on_click(move |_, window, cx| {
+                                            select_target.update(cx, |this, cx| {
+                                                this.activate_workspace_tab(id, window, cx);
+                                            });
+                                        }),
+                                )
+                            })
+                        }),
                 )
             })
             .when(show_split_target, |this| {
@@ -1342,37 +1537,51 @@ impl DesktopView {
                         .flex()
                         .items_center()
                         .h_full()
-                        .drag_over::<WorkspaceDrag>(|this, _, _, _| this.bg(rgb(0x35445a)))
+                        .drag_over::<WorkspaceDrag>(move |this, _, _, _| {
+                            this.bg(rgb(colors.selected))
+                        })
                         .on_drop(move |drag: &WorkspaceDrag, window, cx| {
                             split_target.update(cx, |this, cx| {
-                                this.move_workspace_tab(drag.id, Pane::Secondary, 0, window, cx)
+                                this.move_workspace_tab(drag.id, Pane::Secondary, 0, window, cx);
                             });
                         })
-                        .child(Button::new("workspace-split-active")
-                            .ghost()
-                            .icon(AssetIconName::PanelRight)
-                            .tooltip("Move active tab to a right pane; drop a tab here to split")
-                            .accessibility_label("Move active tab to right pane")
-                            .on_click(cx.listener(|this, _, window, cx| {
-                                if let Some(id) = this.state.workspace.primary.active {
-                                    this.move_workspace_tab(id, Pane::Secondary, 0, window, cx);
-                                }
-                            }))),
+                        .child(
+                            Button::new("workspace-split-active")
+                                .ghost()
+                                .icon(AssetIconName::PanelRight)
+                                .tooltip("Move active tab to a right pane")
+                                .accessibility_label("Move active tab to right pane")
+                                .on_click(cx.listener(|this, _, window, cx| {
+                                    if let Some(id) = this.state.workspace.primary.active {
+                                        this.move_workspace_tab(id, Pane::Secondary, 0, window, cx);
+                                    }
+                                })),
+                        ),
                 )
             })
     }
 
     fn render_inactive_query(&self, id: TabId, cx: &mut Context<Self>) -> impl IntoElement {
         let colors = palette(self.state.dark);
+        let activate_target = cx.entity();
         let tab = self.state.workspace.tab(id);
         let title = tab.map_or("Query".to_string(), |tab| tab.title.clone());
         let draft = tab.and_then(|tab| tab.draft.as_ref());
-        let scope = draft.and_then(|draft| draft.collection.as_deref()).unwrap_or("All collections").to_string();
-        let expression = draft.map(|draft| {
-            if !draft.full_text.is_empty() { draft.full_text.clone() }
-            else if draft.filter_enabled { draft.structured.clone() }
-            else { "All records".into() }
-        }).unwrap_or_default();
+        let scope = draft
+            .and_then(|draft| draft.collection.as_deref())
+            .unwrap_or("All collections")
+            .to_string();
+        let expression = draft
+            .map(|draft| {
+                if !draft.full_text.is_empty() {
+                    draft.full_text.clone()
+                } else if draft.filter_enabled {
+                    draft.structured.clone()
+                } else {
+                    "All records".into()
+                }
+            })
+            .unwrap_or_default();
         let snapshot = match id {
             TabId::Search(id) => self.state.query_snapshots.get(&id),
             TabId::Record(_) => None,
@@ -1380,137 +1589,513 @@ impl DesktopView {
         let mut columns = Vec::new();
         if let Some(snapshot) = snapshot {
             for preferred in ["@id", "name", "@match", "description"] {
-                if let Some(index) = snapshot.columns.iter().position(|column| column == preferred) {
+                if let Some(index) = snapshot
+                    .columns
+                    .iter()
+                    .position(|column| column == preferred)
+                {
                     columns.push(index);
                 }
-                if columns.len() == 3 { break; }
+                if columns.len() == 3 {
+                    break;
+                }
             }
             for (index, column) in snapshot.columns.iter().enumerate() {
-                if columns.len() == 3 { break; }
+                if columns.len() == 3 {
+                    break;
+                }
                 if column != "@status" && !columns.contains(&index) {
                     columns.push(index);
                 }
             }
         }
-        let headers = snapshot.map(|snapshot| columns.iter().map(|index| {
-            sort::column_label(&snapshot.columns[*index]).to_owned()
-        }).collect::<Vec<_>>()).unwrap_or_default();
-        let rows = snapshot.map(|snapshot| snapshot.rows.iter().map(|row| {
-            columns.iter().map(|index| row.cells.get(*index).cloned().unwrap_or_default())
-                .collect::<Vec<_>>()
-        }).collect::<Vec<_>>()).unwrap_or_default();
+        let headers = snapshot
+            .map(|snapshot| {
+                columns
+                    .iter()
+                    .map(|index| sort::column_label(&snapshot.columns[*index]).to_owned())
+                    .collect::<Vec<_>>()
+            })
+            .unwrap_or_default();
+        let rows = snapshot
+            .map(|snapshot| {
+                snapshot
+                    .rows
+                    .iter()
+                    .map(|row| {
+                        columns
+                            .iter()
+                            .map(|index| row.cells.get(*index).cloned().unwrap_or_default())
+                            .collect::<Vec<_>>()
+                    })
+                    .collect::<Vec<_>>()
+            })
+            .unwrap_or_default();
         let count = snapshot.and_then(|snapshot| snapshot.exact_total);
-        div().flex().flex_col().flex_1().min_h_0().min_w_0().bg(rgb(colors.panel))
-            .child(div().flex().items_center().gap_3().h(px(56.)).px_3()
-                .border_b_1().border_color(rgb(colors.border))
-                .child(div().flex_1().min_w_0().flex().flex_col()
-                    .child(div().min_w_0().overflow_hidden().whitespace_nowrap().text_ellipsis()
-                        .font_weight(FontWeight::SEMIBOLD).child(title))
-                    .child(div().min_w_0().overflow_hidden().whitespace_nowrap().text_ellipsis()
-                        .text_xs().text_color(rgb(colors.secondary))
-                        .child(format!("{scope} · {expression}"))))
-                .child(Button::new(format!("activate-query-{id:?}"))
-                    .ghost().label("Activate query")
-                    .tooltip("Restore the editor and refresh results")
-                    .on_click(cx.listener(move |this, _, window, cx| {
-                        this.activate_workspace_tab(id, window, cx);
-                    }))))
-            .child(div().flex().items_center().h(px(30.)).px_3()
-                .text_xs().text_color(rgb(colors.secondary))
-                .child(if snapshot.is_some() { "Result preview" } else { "Activate to load results" }))
-            .when(!headers.is_empty(), |this| this.child(
-                div().flex().h(px(32.)).items_center().bg(rgb(colors.raised))
-                    .border_b_1().border_color(rgb(colors.border))
-                    .children(headers.into_iter().map(|header| {
-                        div().flex_1().min_w_0().px_3().text_xs()
-                            .overflow_hidden().whitespace_nowrap().text_ellipsis()
-                            .text_color(rgb(colors.secondary)).child(header)
-                    }))))
-            .child(div().flex().flex_col().flex_1().min_h_0().overflow_y_scrollbar()
-                .children(rows.into_iter().map(|cells| {
-                    div().flex().items_center().h(px(36.)).flex_shrink_0()
-                        .border_b_1().border_color(rgb(colors.border))
-                        .children(cells.into_iter().map(|cell| {
-                            div().flex_1().min_w_0().overflow_hidden().whitespace_nowrap()
-                                .text_ellipsis().px_3().text_sm().child(cell)
-                        }))
-                })))
-            .when_some(count, |this, count| this.child(
-                div().h(px(32.)).px_3().border_t_1().border_color(rgb(colors.border))
-                    .text_xs().text_color(rgb(colors.secondary))
-                    .child(format!("{count} matches"))))
+        let has_snapshot = snapshot.is_some();
+        let empty_snapshot = has_snapshot && rows.is_empty();
+        let empty_title = if count == Some(0) { "No matches" } else { "No preview rows" };
+        let empty_message = if count == Some(0) {
+            "This query returned no records."
+        } else {
+            "Activate this query to refresh its results."
+        };
+        div()
+            .flex()
+            .flex_col()
+            .flex_1()
+            .min_h_0()
+            .min_w_0()
+            .bg(rgb(colors.panel))
+            .child(
+                div()
+                    .flex()
+                    .items_center()
+                    .gap_3()
+                    .h(px(56.))
+                    .px_3()
+                    .border_b_1()
+                    .border_color(rgb(colors.border))
+                    .child(
+                        div()
+                            .flex_1()
+                            .min_w_0()
+                            .flex()
+                            .flex_col()
+                            .child(
+                                div()
+                                    .min_w_0()
+                                    .overflow_hidden()
+                                    .whitespace_nowrap()
+                                    .text_ellipsis()
+                                    .font_weight(FontWeight::SEMIBOLD)
+                                    .child(title),
+                            )
+                            .child(
+                                div()
+                                    .min_w_0()
+                                    .overflow_hidden()
+                                    .whitespace_nowrap()
+                                    .text_ellipsis()
+                                    .text_xs()
+                                    .text_color(rgb(colors.secondary))
+                                    .child(format!("{scope} · {expression}")),
+                            ),
+                    )
+                    .child(
+                        Button::new(format!("activate-query-{id:?}"))
+                            .ghost()
+                            .label("Activate query")
+                            .tooltip("Restore the editor and refresh results")
+                            .on_click(cx.listener(move |this, _, window, cx| {
+                                this.activate_workspace_tab(id, window, cx);
+                            })),
+                    ),
+            )
+            .when(has_snapshot, |this| this.child(
+                div()
+                    .flex()
+                    .items_center()
+                    .h(px(30.))
+                    .px_3()
+                    .text_xs()
+                    .text_color(rgb(colors.secondary))
+                    .child("Result preview"),
+            ))
+            .when(!has_snapshot, |this| this.child(
+                div()
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .items_center()
+                    .justify_center()
+                    .gap_2()
+                    .px_4()
+                    .text_center()
+                    .text_color(rgb(colors.secondary))
+                    .child(Icon::new(AssetIconName::Search).size_8())
+                    .child(div().font_weight(FontWeight::SEMIBOLD).text_color(rgb(colors.text)).child("No current preview"))
+                    .child(div().text_sm().child("Activate this query to edit or refresh its results.")),
+            ))
+            .when(!headers.is_empty(), |this| {
+                this.child(
+                    div()
+                        .flex()
+                        .h(px(32.))
+                        .items_center()
+                        .bg(rgb(colors.raised))
+                        .border_b_1()
+                        .border_color(rgb(colors.border))
+                        .children(headers.into_iter().map(|header| {
+                            div()
+                                .flex_1()
+                                .min_w_0()
+                                .px_3()
+                                .text_xs()
+                                .overflow_hidden()
+                                .whitespace_nowrap()
+                                .text_ellipsis()
+                                .text_color(rgb(colors.secondary))
+                                .child(header)
+                        })),
+                )
+            })
+            .when(empty_snapshot, |this| this.child(
+                div()
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .items_center()
+                    .justify_center()
+                    .gap_2()
+                    .px_4()
+                    .text_center()
+                    .text_color(rgb(colors.secondary))
+                    .child(Icon::new(AssetIconName::Search).size_8())
+                    .child(div().font_weight(FontWeight::SEMIBOLD).text_color(rgb(colors.text)).child(empty_title))
+                    .child(div().text_sm().child(empty_message)),
+            ))
+            .when(has_snapshot && !empty_snapshot, |this| this.child(
+                div()
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .min_h_0()
+                    .overflow_y_scrollbar()
+                    .children(rows.into_iter().enumerate().map(|(index, cells)| {
+                        let target = activate_target.clone();
+                        div()
+                            .id(format!("inactive-query-row-{id:?}-{index}"))
+                            .flex()
+                            .items_center()
+                            .h(px(36.))
+                            .flex_shrink_0()
+                            .cursor_pointer()
+                            .hover(|this| this.bg(rgb(colors.selected)))
+                            .border_b_1()
+                            .border_color(rgb(colors.border))
+                            .on_click(move |_, window, cx| {
+                                target.update(cx, |this, cx| {
+                                    this.activate_workspace_tab(id, window, cx);
+                                });
+                            })
+                            .children(cells.into_iter().map(|cell| {
+                                div()
+                                    .flex_1()
+                                    .min_w_0()
+                                    .overflow_hidden()
+                                    .whitespace_nowrap()
+                                    .text_ellipsis()
+                                    .px_3()
+                                    .text_sm()
+                                    .child(cell)
+                            }))
+                    })),
+            ))
+            .when_some(count, |this, count| {
+                this.child(
+                    div()
+                        .h(px(32.))
+                        .px_3()
+                        .border_t_1()
+                        .border_color(rgb(colors.border))
+                        .text_xs()
+                        .text_color(rgb(colors.secondary))
+                        .child(format!("{count} matches")),
+                )
+            })
     }
 
     fn render_record_snapshot(&self, id: u64, cx: &mut Context<Self>) -> impl IntoElement {
         let colors = palette(self.state.dark);
-        let detail = self.state.record_detail_snapshots.get(&id);
-        let title = detail.map_or_else(|| "Record loading".to_string(), |detail| detail.title.clone());
-        let fields = detail.map_or_else(Vec::new, |detail| {
-            detail.structured.iter().map(|row| (row.label.clone(), row.value.clone())).collect::<Vec<_>>()
-        });
-        div().flex().flex_col().flex_1().min_h_0().bg(rgb(colors.panel))
-            .child(div().flex().items_center().h(px(40.)).px_3().border_b_1().border_color(rgb(colors.border))
-                .child(div().flex_1().font_weight(FontWeight::SEMIBOLD).child(title))
-                .child(Button::new(format!("activate-record-{id}"))
-                    .ghost().label("Activate")
-                    .on_click(cx.listener(move |this, _, window, cx| {
-                        this.activate_workspace_tab(TabId::Record(id), window, cx);
-                    }))))
-            .child(div().flex().flex_col().min_h_0().overflow_y_scrollbar()
-                .children(fields.into_iter().map(|(label, value)| {
-                    div().flex().gap_3().px_3().py_2().border_b_1().border_color(rgb(colors.border))
-                        .child(div().w(px(130.)).flex_shrink_0().text_color(rgb(colors.secondary)).child(label))
-                        .child(div().flex_1().child(value))
-                })))
+        let activate_target = cx.entity();
+        let preview = self.state.record_detail_snapshots.get(&id);
+        let title = preview.map_or_else(
+            || {
+                self.state
+                    .workspace
+                    .tab(TabId::Record(id))
+                    .map_or_else(|| "Record preview".to_string(), |tab| tab.title.clone())
+            },
+            |preview| preview.title.clone(),
+        );
+        let fields = preview.map_or_else(Vec::new, |preview| preview.fields.clone());
+        let clipped = preview.is_some_and(|preview| preview.clipped);
+        let missing = preview.is_none();
+        div()
+            .flex()
+            .flex_col()
+            .flex_1()
+            .min_h_0()
+            .bg(rgb(colors.panel))
+            .child(
+                div()
+                    .flex()
+                    .items_center()
+                    .h(px(52.))
+                    .px_3()
+                    .border_b_1()
+                    .border_color(rgb(colors.border))
+                    .child(
+                        div()
+                            .flex()
+                            .flex_col()
+                            .flex_1()
+                            .min_w_0()
+                            .child(
+                                div()
+                                    .min_w_0()
+                                    .overflow_hidden()
+                                    .whitespace_nowrap()
+                                    .text_ellipsis()
+                                    .text_sm()
+                                    .font_weight(FontWeight::SEMIBOLD)
+                                    .child(title.replace(" / path:", " / ")),
+                            )
+                            .child(
+                                div()
+                                    .text_xs()
+                                    .text_color(rgb(colors.secondary))
+                                    .child("Record preview"),
+                            ),
+                    )
+                    .child(
+                        Button::new(format!("activate-record-{id}"))
+                            .ghost()
+                            .label("Activate")
+                            .on_click(cx.listener(move |this, _, window, cx| {
+                                this.activate_workspace_tab(TabId::Record(id), window, cx);
+                            })),
+                    ),
+            )
+            .when(missing, |this| {
+                this.child(
+                    div()
+                        .px_3()
+                        .py_3()
+                        .text_color(rgb(colors.secondary))
+                        .child("Activate to load this record."),
+                )
+            })
+            .child(
+                div()
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .min_h_0()
+                    .overflow_y_scrollbar()
+                    .children(fields.into_iter().enumerate().map(|(index, (label, value))| {
+                        let target = activate_target.clone();
+                        let label = if label == "$" {
+                            "Record".to_string()
+                        } else {
+                            label.strip_prefix("$.").unwrap_or(&label).to_string()
+                        };
+                        div()
+                            .id(format!("inactive-record-row-{id}-{index}"))
+                            .flex()
+                            .gap_3()
+                            .px_3()
+                            .py_2()
+                            .cursor_pointer()
+                            .hover(|this| this.bg(rgb(colors.selected)))
+                            .border_b_1()
+                            .border_color(rgb(colors.border))
+                            .on_click(move |_, window, cx| {
+                                target.update(cx, |this, cx| {
+                                    this.activate_workspace_tab(TabId::Record(id), window, cx);
+                                });
+                            })
+                            .child(
+                                div()
+                                    .w(px(130.))
+                                    .flex_shrink_0()
+                                    .text_color(rgb(colors.secondary))
+                                    .child(label),
+                            )
+                            .child(div().flex_1().min_w_0().whitespace_normal().child(value))
+                    })),
+            )
+            .when(clipped, |this| {
+                this.child(
+                    div()
+                        .px_3()
+                        .py_2()
+                        .text_xs()
+                        .text_color(rgb(colors.secondary))
+                        .child("Preview is shortened. Activate for full details."),
+                )
+            })
     }
 
     fn render_workspace_content(&self, pane: Pane, cx: &mut Context<Self>) -> gpui_kit::AnyElement {
         match self.state.workspace.group(pane).active {
-            Some(id @ TabId::Search(_)) if self.state.workspace.current_search == Some(id) => {
-                div().flex().flex_col().flex_1().min_h_0().min_w_0()
-                    .child(self.render_query_bar(cx)).child(self.render_grid(cx)).into_any_element()
-            }
+            Some(id @ TabId::Search(_)) if self.state.workspace.current_search == Some(id) => div()
+                .flex()
+                .flex_col()
+                .flex_1()
+                .min_h_0()
+                .min_w_0()
+                .child(self.render_query_bar(cx))
+                .child(self.render_grid(cx))
+                .into_any_element(),
             Some(id @ TabId::Search(_)) => self.render_inactive_query(id, cx).into_any_element(),
-            Some(TabId::Record(id)) if self.state.active_tab == Some(id) => self.render_detail(pane, cx).into_any_element(),
+            Some(TabId::Record(id)) if self.state.active_tab == Some(id) => {
+                self.render_detail(pane, cx).into_any_element()
+            }
             Some(TabId::Record(id)) => self.render_record_snapshot(id, cx).into_any_element(),
-            None => div().flex().flex_1().items_center().justify_center()
-                .child("Drag a tab here").into_any_element(),
+            None => {
+                let colors = palette(self.state.dark);
+                let other_has_tabs = !self.state.workspace.group(pane.other()).tabs.is_empty();
+                div()
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .items_center()
+                    .justify_center()
+                    .gap_2()
+                    .text_color(rgb(colors.secondary))
+                    .child(Icon::new(AssetIconName::PanelsTopLeft).size_8())
+                    .child(
+                        div()
+                            .text_color(rgb(colors.text))
+                            .font_weight(FontWeight::SEMIBOLD)
+                            .child(if other_has_tabs {
+                                "No tabs in this pane"
+                            } else {
+                                "No tabs open"
+                            }),
+                    )
+                    .child(if other_has_tabs {
+                        "Drag a tab here or create a query."
+                    } else {
+                        "Open a collection or create a query."
+                    })
+                    .child(
+                        Button::new(format!("workspace-empty-new-query-{pane:?}"))
+                            .icon(AssetIconName::Plus)
+                            .label("New query")
+                            .on_click(cx.listener(move |this, _, window, cx| {
+                                this.open_query_tab_in(pane, window, cx);
+                            })),
+                    )
+                    .into_any_element()
+            }
         }
     }
 
     fn render_workspace_group(&self, pane: Pane, cx: &mut Context<Self>) -> impl IntoElement {
-        div().flex().flex_col().flex_1().min_w_0().min_h_0()
+        let target = cx.entity();
+        let end = self.state.workspace.group(pane).tabs.len();
+        let colors = palette(self.state.dark);
+        div()
+            .flex()
+            .flex_col()
+            .flex_1()
+            .min_w_0()
+            .min_h_0()
             .child(self.render_workspace_bar(pane, cx))
-            .child(self.render_workspace_content(pane, cx))
+            .child(
+                div()
+                    .id(format!("workspace-content-drop-{pane:?}"))
+                    .flex()
+                    .flex_col()
+                    .flex_1()
+                    .min_w_0()
+                    .min_h_0()
+                    .on_mouse_down(
+                        gpui_kit::MouseButton::Left,
+                        cx.listener(move |this, _, _, cx| {
+                            if this.state.workspace.focused_pane != pane {
+                                this.state.workspace.focused_pane = pane;
+                                cx.notify();
+                            }
+                        }),
+                    )
+                    .drag_over::<WorkspaceDrag>(move |this, _, _, _| {
+                        this.border_2().border_color(rgb(colors.accent))
+                    })
+                    .on_drop(move |drag: &WorkspaceDrag, window, cx| {
+                        target.update(cx, |this, cx| {
+                            this.move_workspace_tab(drag.id, pane, end, window, cx);
+                        });
+                    })
+                    .child(self.render_workspace_content(pane, cx)),
+            )
     }
 
     fn render_workspace(&self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
         let right = self.state.workspace.group(Pane::Secondary);
+        let primary_empty = self.state.workspace.primary.tabs.is_empty() && !right.tabs.is_empty();
         let right_width = if matches!(right.active, Some(TabId::Record(_))) {
             self.state.inspector_width
-        } else { self.state.secondary_query_width };
+        } else {
+            self.state.secondary_query_width
+        };
         let available = f32::from(window.bounds().size.width)
             - if self.state.sidebar_visible { 220. } else { 0. }
-            - 320.;
-        let right_width = right_width.min(available.max(300.));
+            - if primary_empty { 260. } else { 320. };
+        let right_width = if primary_empty {
+            available.max(300.)
+        } else {
+            right_width.min(available.max(300.))
+        };
+        let layout = (
+            f32::from(window.bounds().size.width),
+            right_width,
+            self.state.sidebar_visible,
+            !right.tabs.is_empty(),
+        );
+        if self.workspace_layout.get() != Some(layout) {
+            self.workspace_layout.set(Some(layout));
+            for pane in [Pane::Primary, Pane::Secondary] {
+                if let Some(id) = self.state.workspace.group(pane).active {
+                    self.reveal_workspace_tab(id);
+                }
+            }
+        }
         let right_is_query = matches!(right.active, Some(TabId::Search(_)));
-        div().flex().flex_1().min_h_0().min_w_0()
+        div()
+            .flex()
+            .flex_1()
+            .min_h_0()
+            .min_w_0()
             .child(self.render_workspace_group(Pane::Primary, cx))
             .when(!right.tabs.is_empty(), |this| {
-                this.child(div().flex().flex_col().relative().min_h_0().w(px(right_width)).flex_shrink_0()
-                    .child(self.render_workspace_group(Pane::Secondary, cx))
-                    .when(right_is_query, |this| this.child(
-                        div().id("secondary-query-resize").absolute().left_0().top_0()
-                            .h_full().w(px(5.)).cursor_col_resize()
-                            .on_mouse_down(gpui_kit::MouseButton::Left,
-                                cx.listener(|this, event: &gpui_kit::MouseDownEvent, _, cx| {
-                                    this.state.secondary_resize_origin = Some((
-                                        f32::from(event.position.x), this.state.secondary_query_width,
-                                    ));
-                                    cx.stop_propagation();
-                                }),
-                            ),
-                    )))
+                this.child(
+                    div()
+                        .flex()
+                        .flex_col()
+                        .relative()
+                        .min_h_0()
+                        .w(px(right_width))
+                        .flex_shrink_0()
+                        .child(self.render_workspace_group(Pane::Secondary, cx))
+                        .when(right_is_query && !primary_empty, |this| {
+                            this.child(
+                                div()
+                                    .id("secondary-query-resize")
+                                    .absolute()
+                                    .left_0()
+                                    .top_0()
+                                    .h_full()
+                                    .w(px(5.))
+                                    .cursor_col_resize()
+                                    .on_mouse_down(
+                                        gpui_kit::MouseButton::Left,
+                                        cx.listener(
+                                            |this, event: &gpui_kit::MouseDownEvent, _, cx| {
+                                                this.state.secondary_resize_origin = Some((
+                                                    f32::from(event.position.x),
+                                                    this.state.secondary_query_width,
+                                                ));
+                                                cx.stop_propagation();
+                                            },
+                                        ),
+                                    ),
+                            )
+                        }),
+                )
             })
     }
 }
@@ -1530,7 +2115,8 @@ impl Render for DesktopView {
                     }
                     if let Some((start_x, start_width)) = this.state.secondary_resize_origin {
                         let distance = start_x - f32::from(event.position.x);
-                        this.state.secondary_query_width = (start_width + distance).clamp(420., 1000.);
+                        this.state.secondary_query_width =
+                            (start_width + distance).clamp(420., 1000.);
                         cx.notify();
                     }
                     if let Some((column, start_x, start_width)) = &this.state.column_resize_origin {
@@ -1643,6 +2229,36 @@ impl Render for DesktopView {
                     cx.notify();
                 }),
             )
+            .key_context("ObjekteWorkspace")
+            .track_focus(&self.workspace_focus)
+            .on_action(cx.listener(|this, _: &NewQueryTab, window, cx| {
+                this.open_query_tab(window, cx);
+            }))
+            .on_action(cx.listener(|this, _: &CloseWorkspaceTab, window, cx| {
+                if let Some(id) = this.state.workspace.focused_active_tab() {
+                    this.close_workspace_tab(id, window, cx);
+                }
+            }))
+            .on_action(cx.listener(|this, _: &NextWorkspaceTab, window, cx| {
+                if let Some(id) = this.state.workspace.adjacent_tab(false) {
+                    this.activate_workspace_tab(id, window, cx);
+                }
+            }))
+            .on_action(cx.listener(|this, _: &PreviousWorkspaceTab, window, cx| {
+                if let Some(id) = this.state.workspace.adjacent_tab(true) {
+                    this.activate_workspace_tab(id, window, cx);
+                }
+            }))
+            .on_action(cx.listener(|this, _: &FocusPrimaryPane, window, cx| {
+                if let Some(id) = this.state.workspace.primary.active {
+                    this.activate_workspace_tab(id, window, cx);
+                }
+            }))
+            .on_action(cx.listener(|this, _: &FocusSecondaryPane, window, cx| {
+                if let Some(id) = this.state.workspace.secondary.active {
+                    this.activate_workspace_tab(id, window, cx);
+                }
+            }))
             .flex()
             .flex_col()
             .size_full()
@@ -1662,8 +2278,12 @@ impl Render for DesktopView {
                         self.state.root.is_some() && self.state.sidebar_visible,
                         |this| this.child(self.render_sidebar(cx)),
                     )
-                    .when(self.state.root.is_some(), |this| this.child(self.render_workspace(window, cx)))
-                    .when(self.state.root.is_none(), |this| this.child(self.render_grid(cx))),
+                    .when(self.state.root.is_some(), |this| {
+                        this.child(self.render_workspace(window, cx))
+                    })
+                    .when(self.state.root.is_none(), |this| {
+                        this.child(self.render_grid(cx))
+                    }),
             )
             .when(self.state.show_filter_builder, |this| {
                 this.child(self.render_builder_overlay())

@@ -15,19 +15,49 @@ pub mod typography;
 mod workspace;
 
 use objekte_search_core::query::parse_structured_filter;
+use std::cell::Cell;
 use std::sync::mpsc::Sender;
 
 use gpui_kit::component::input::{InputEvent, InputState, TextareaState};
 use gpui_kit::component::{Theme, ThemeMode};
 use gpui_kit::{
-    AppContext as _, Context, Entity, FocusHandle, Focusable as _, ListAlignment, ListState,
-    ScrollHandle, Subscription, Window, px,
+    AppContext as _, Context, Entity, FocusHandle, Focusable as _, KeyBinding, ListAlignment,
+    ListState, ScrollHandle, Subscription, Window, px,
 };
 
 use model::{CompletionOrigin, SearchDraft, TabViewState, UiAction, UiUpdate};
 use query_bar::{BuilderEvent, FilterBuilderView};
 use state::UiState;
 use workspace::{Pane, TabId};
+
+gpui_kit::actions!(
+    objekte_workspace,
+    [
+        NewQueryTab,
+        CloseWorkspaceTab,
+        NextWorkspaceTab,
+        PreviousWorkspaceTab,
+        FocusPrimaryPane,
+        FocusSecondaryPane
+    ]
+);
+
+pub fn init_keybindings(cx: &mut gpui_kit::App) {
+    cx.bind_keys([
+        KeyBinding::new("ctrl-t", NewQueryTab, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-w", CloseWorkspaceTab, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-tab", NextWorkspaceTab, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-pagedown", NextWorkspaceTab, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-pageup", PreviousWorkspaceTab, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-1", FocusPrimaryPane, Some("ObjekteWorkspace")),
+        KeyBinding::new("ctrl-2", FocusSecondaryPane, Some("ObjekteWorkspace")),
+        KeyBinding::new(
+            "ctrl-shift-tab",
+            PreviousWorkspaceTab,
+            Some("ObjekteWorkspace"),
+        ),
+    ]);
+}
 
 /// GPUI input entities owned by one desktop window.
 struct Inputs {
@@ -57,9 +87,13 @@ pub struct DesktopView {
     suspended_filter: Option<String>,
     renaming_saved: Option<u64>,
     focused_saved: Option<u64>,
+    workspace_focus: FocusHandle,
     grid_focus: FocusHandle,
     grid_list: ListState,
     grid_horizontal_scroll: ScrollHandle,
+    primary_tabs_scroll: ScrollHandle,
+    secondary_tabs_scroll: ScrollHandle,
+    workspace_layout: Cell<Option<(f32, f32, bool, bool)>>,
     columns_scroll: ScrollHandle,
     detail_focus: FocusHandle,
     fields_scroll: ScrollHandle,
@@ -217,9 +251,13 @@ impl DesktopView {
             suspended_filter: None,
             renaming_saved: None,
             focused_saved: None,
+            workspace_focus: cx.focus_handle(),
             grid_focus: cx.focus_handle(),
             grid_list,
             grid_horizontal_scroll: ScrollHandle::new(),
+            primary_tabs_scroll: ScrollHandle::new(),
+            secondary_tabs_scroll: ScrollHandle::new(),
+            workspace_layout: Cell::new(None),
             columns_scroll: ScrollHandle::new(),
             detail_focus: cx.focus_handle(),
             fields_scroll: ScrollHandle::new(),
@@ -249,11 +287,7 @@ impl DesktopView {
             });
         }
         if let UiUpdate::Clipboard(text) = update {
-            if std::env::var_os("WAYLAND_DISPLAY").is_some() {
-                std::thread::spawn(move || write_wayland_clipboard(text));
-            } else {
-                cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(text));
-            }
+            copy_text_to_clipboard(text, cx);
             return;
         }
         if let UiUpdate::Theme { dark } = &update {
@@ -352,6 +386,9 @@ impl DesktopView {
         let prior_index_instance = self.state.index_status.index_instance;
         let replaced_index = matches!(&update, UiUpdate::IndexReplaced(_));
         self.state.apply(update);
+        if switching_tab && let Some(id) = self.state.active_tab {
+            self.reveal_workspace_tab(TabId::Record(id));
+        }
         if replaced_index || self.state.index_status.index_instance != prior_index_instance {
             let load = self.state.index_load_draft.clone();
             let save = self.state.index_save_draft.clone();
@@ -426,7 +463,12 @@ impl DesktopView {
         cx.notify();
     }
 
-    fn restore_workspace_query(&mut self, draft: SearchDraft, window: &mut Window, cx: &mut Context<Self>) {
+    fn restore_workspace_query(
+        &mut self,
+        draft: SearchDraft,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
         self.restoring_query = true;
         self.suspended_filter = None;
         self.inputs.full_text.update(cx, |input, cx| {
@@ -444,6 +486,26 @@ impl DesktopView {
         cx.notify();
     }
 
+    fn reveal_workspace_tab(&self, id: TabId) {
+        let Some(pane) = self.state.workspace.pane_of(id) else {
+            return;
+        };
+        let Some(index) = self
+            .state
+            .workspace
+            .group(pane)
+            .tabs
+            .iter()
+            .position(|tab| tab.id == id)
+        else {
+            return;
+        };
+        match pane {
+            Pane::Primary => self.primary_tabs_scroll.scroll_to_item(index),
+            Pane::Secondary => self.secondary_tabs_scroll.scroll_to_item(index),
+        }
+    }
+
     fn activate_workspace_tab(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
         if self.state.workspace.current_search != Some(id) {
             self.state.snapshot_current_query();
@@ -451,71 +513,131 @@ impl DesktopView {
         if !self.state.workspace.activate(id) {
             return;
         }
+        self.reveal_workspace_tab(id);
         self.state.prune_record_snapshots();
         self.state.prune_query_snapshots();
         match id {
             TabId::Search(_) => {
-                if let Some(draft) = self.state.workspace.tab(id).and_then(|tab| tab.draft.clone()) {
+                if let Some(draft) = self
+                    .state
+                    .workspace
+                    .tab(id)
+                    .and_then(|tab| tab.draft.clone())
+                {
                     self.restore_workspace_query(draft, window, cx);
+                    let focus = self.inputs.full_text.read(cx).focus_handle(cx);
+                    window.focus(&focus, cx);
                 }
             }
             TabId::Record(id) => {
                 self.save_tab_view();
                 self.send(UiAction::ActivateTab(id));
+                window.focus(&self.detail_focus, cx);
                 cx.notify();
             }
         }
     }
 
-    fn open_table_tab(&mut self, collection: Option<String>, window: &mut Window, cx: &mut Context<Self>) {
+    fn open_table_tab(
+        &mut self,
+        collection: Option<String>,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
         self.state.snapshot_current_query();
         let id = self.state.workspace.open_table(collection);
         self.activate_workspace_tab(id, window, cx);
     }
 
     fn open_query_tab(&mut self, window: &mut Window, cx: &mut Context<Self>) {
+        let pane = self.state.workspace.focused_pane;
+        self.open_query_tab_in(pane, window, cx);
+    }
+
+    fn open_query_tab_in(&mut self, pane: Pane, window: &mut Window, cx: &mut Context<Self>) {
+        if self.state.root.is_none() {
+            return;
+        }
         self.state.snapshot_current_query();
-        let id = self.state.workspace.open_query(SearchDraft {
-            collection: self.state.search.collection.clone(),
-            ..SearchDraft::default()
-        });
+        let id = self.state.workspace.open_query_in(
+            SearchDraft {
+                collection: self.state.search.collection.clone(),
+                ..SearchDraft::default()
+            },
+            pane,
+        );
         self.activate_workspace_tab(id, window, cx);
-        let focus = self.inputs.full_text.read(cx).focus_handle(cx);
-        window.focus(&focus, cx);
+    }
+
+    fn duplicate_workspace_query(
+        &mut self,
+        id: TabId,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        self.state.snapshot_current_query();
+        if let Some(duplicate) = self.state.workspace.duplicate_query(id) {
+            self.activate_workspace_tab(duplicate, window, cx);
+        }
     }
 
     fn close_workspace_tab(&mut self, id: TabId, window: &mut Window, cx: &mut Context<Self>) {
         let pane = self.state.workspace.pane_of(id);
+        let was_selected =
+            pane.is_some_and(|pane| self.state.workspace.group(pane).active == Some(id));
+        let was_current_search = self.state.workspace.current_search == Some(id);
         if !self.state.workspace.close(id) {
             return;
         }
         self.state.prune_record_snapshots();
         self.state.prune_query_snapshots();
+        let next = pane.and_then(|pane| self.state.workspace.group(pane).active);
+        if was_current_search && (!was_selected || matches!(next, Some(TabId::Record(_)))) {
+            if let Some(draft) = self
+                .state
+                .workspace
+                .current_search
+                .and_then(|id| self.state.workspace.tab(id))
+                .and_then(|tab| tab.draft.clone())
+            {
+                self.restore_workspace_query(draft, window, cx);
+            }
+        }
         if let TabId::Record(id) = id {
             self.send(UiAction::CloseTab(id));
         }
-        if self.state.workspace.current_search.is_none() && self.state.root.is_some() {
-            self.state.workspace.open_table(if self.state.single_collection {
-                self.state.collections.first().cloned()
-            } else {
-                None
-            });
+        if !was_selected {
+            cx.notify();
+            return;
         }
-        if let Some(next) = pane.and_then(|pane| self.state.workspace.group(pane).active) {
+        if let Some(next) = next {
+            self.activate_workspace_tab(next, window, cx);
+        } else if let Some(next) =
+            pane.and_then(|pane| self.state.workspace.group(pane.other()).active)
+        {
             self.activate_workspace_tab(next, window, cx);
         } else if let Some(next) = self.state.workspace.current_search {
             self.activate_workspace_tab(next, window, cx);
         } else {
+            window.focus(&self.workspace_focus, cx);
             cx.notify();
         }
     }
 
-    fn move_workspace_tab(&mut self, id: TabId, pane: Pane, at: usize, window: &mut Window, cx: &mut Context<Self>) {
+    fn move_workspace_tab(
+        &mut self,
+        id: TabId,
+        pane: Pane,
+        at: usize,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
         let already_current = match id {
             TabId::Search(_) => self.state.workspace.current_search == Some(id),
             TabId::Record(id) => self.state.active_tab == Some(id),
         };
         if self.state.workspace.move_tab(id, pane, at) {
+            self.reveal_workspace_tab(id);
             self.state.prune_record_snapshots();
             self.state.prune_query_snapshots();
             if already_current {
@@ -831,6 +953,45 @@ impl DesktopView {
 
 /// GPUI's delayed clipboard writes stay internal on the tested headless Wayland
 /// seat. Mirror complete worker results to the system clipboard off the UI thread.
+fn copy_text_to_clipboard(text: String, cx: &mut gpui_kit::App) {
+    if std::env::var_os("WAYLAND_DISPLAY").is_some() {
+        std::thread::spawn(move || write_wayland_clipboard(text));
+    } else {
+        cx.write_to_clipboard(gpui_kit::ClipboardItem::new_string(text));
+    }
+}
+
+fn read_clipboard_text(cx: &mut gpui_kit::App) -> Option<String> {
+    if std::env::var_os("WAYLAND_DISPLAY").is_none() {
+        return cx
+            .read_from_clipboard()
+            .and_then(|item| item.text())
+            .filter(|text| !text.is_empty());
+    }
+
+    use std::io::Read as _;
+    use std::process::{Command, Stdio};
+
+    const MAX_PASTE_BYTES: u64 = 64 * 1024;
+    let mut child = Command::new("timeout")
+        .args(["0.3s", "wl-paste", "--no-newline"])
+        .stdout(Stdio::piped())
+        .stderr(Stdio::null())
+        .spawn()
+        .ok()?;
+    let mut bytes = Vec::new();
+    let read = child
+        .stdout
+        .take()?
+        .take(MAX_PASTE_BYTES + 1)
+        .read_to_end(&mut bytes);
+    let status = child.wait().ok()?;
+    if read.is_err() || !status.success() || bytes.len() as u64 > MAX_PASTE_BYTES {
+        return None;
+    }
+    String::from_utf8(bytes).ok().filter(|text| !text.is_empty())
+}
+
 fn write_wayland_clipboard(text: String) {
     use std::io::Write as _;
     use std::process::{Command, Stdio};

@@ -4,13 +4,14 @@ use std::time::Duration;
 
 use gpui_kit::{AppContext as _, WindowOptions, application, assets, init, open_window};
 use objekte_desktop::controller::runtime::DesktopController;
-use objekte_desktop::ui::DesktopView;
 use objekte_desktop::ui::model::{UiAction, UiUpdate};
 use objekte_desktop::ui::typography::register_fonts;
+use objekte_desktop::ui::{DesktopView, init_keybindings};
 
 fn main() {
     application().with_assets(assets::AllAssets).run(|cx| {
         init(cx);
+        init_keybindings(cx);
         register_fonts(cx).expect("bundled desktop fonts must load before the first window");
         let (mut controller, actions) = DesktopController::new();
         let close_actions = actions.clone();
