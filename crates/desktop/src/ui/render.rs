@@ -1919,6 +1919,7 @@ impl DesktopView {
             Some(TabId::Record(id)) => self.render_record_snapshot(id, cx).into_any_element(),
             None => {
                 let colors = palette(self.state.dark);
+                let other_has_tabs = !self.state.workspace.group(pane.other()).tabs.is_empty();
                 div()
                     .flex()
                     .flex_col()
@@ -1932,9 +1933,17 @@ impl DesktopView {
                         div()
                             .text_color(rgb(colors.text))
                             .font_weight(FontWeight::SEMIBOLD)
-                            .child("No tabs open"),
+                            .child(if other_has_tabs {
+                                "No tabs in this pane"
+                            } else {
+                                "No tabs open"
+                            }),
                     )
-                    .child("Open a collection or create a query.")
+                    .child(if other_has_tabs {
+                        "Drag a tab here or create a query."
+                    } else {
+                        "Open a collection or create a query."
+                    })
                     .child(
                         Button::new(format!("workspace-empty-new-query-{pane:?}"))
                             .icon(AssetIconName::Plus)
