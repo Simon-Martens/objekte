@@ -105,6 +105,7 @@ pub struct DesktopView {
     active_grid_tab: Option<TabId>,
     grid_view_ready: bool,
     pending_grid_restore: Option<(TabId, GridViewState)>,
+    pending_query_starts: usize,
     primary_tabs_scroll: ScrollHandle,
     secondary_tabs_scroll: ScrollHandle,
     workspace_layout: Cell<Option<(f32, f32, bool, bool)>>,
@@ -276,6 +277,7 @@ impl DesktopView {
             active_grid_tab: None,
             grid_view_ready: false,
             pending_grid_restore: None,
+            pending_query_starts: 0,
             primary_tabs_scroll: ScrollHandle::new(),
             secondary_tabs_scroll: ScrollHandle::new(),
             workspace_layout: Cell::new(None),
@@ -383,6 +385,18 @@ impl DesktopView {
         let opened = matches!(&update, UiUpdate::Opened { .. });
         let restored_query = matches!(&update, UiUpdate::RestoreQuery(_));
         let query_started = matches!(&update, UiUpdate::QueryStarted(_));
+        if query_started {
+            self.pending_query_starts = self.pending_query_starts.saturating_sub(1);
+        }
+        if matches!(
+            &update,
+            UiUpdate::FilterValidation {
+                state: model::FilterValidationState::Invalid { .. },
+                ..
+            }
+        ) {
+            self.pending_query_starts = self.pending_query_starts.saturating_sub(1);
+        }
         if restored_query {
             self.state.snapshot_current_query();
             self.remember_grid_view();
@@ -424,6 +438,7 @@ impl DesktopView {
             self.active_grid_tab = self.state.workspace.current_search;
             self.grid_view_ready = false;
             self.pending_grid_restore = None;
+            self.pending_query_starts = 0;
             self.grid_height_seeded = 0;
             self.grid_list.reset_with_uniform_height(0, px(30.));
             self.grid_horizontal_scroll
@@ -498,8 +513,12 @@ impl DesktopView {
             }
         }
         if page_or_append {
-            self.restore_pending_grid_view();
-            self.grid_view_ready = true;
+            // A page from a just-closed query can reach the window before the
+            // replacement query starts. Keep its saved scroll until then.
+            if self.pending_query_starts == 0 {
+                self.restore_pending_grid_view();
+                self.grid_view_ready = true;
+            }
         }
         if let Some(index) = reveal {
             let top = self.grid_list.logical_scroll_top().item_ix;
@@ -540,6 +559,7 @@ impl DesktopView {
             return;
         }
         self.pending_grid_restore = None;
+        self.pending_query_starts = 0;
         let draft = self.query_from_inputs(cx);
         self.builder_view.update(cx, |builder, cx| {
             builder.sync_from_text(&draft.structured, cx)
@@ -594,6 +614,7 @@ impl DesktopView {
         });
         self.state.search = draft.clone();
         self.restoring_query = false;
+        self.pending_query_starts = self.pending_query_starts.saturating_add(1);
         self.send(UiAction::SearchNow(draft));
         cx.notify();
     }
