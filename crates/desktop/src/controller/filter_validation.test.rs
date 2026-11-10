@@ -23,6 +23,20 @@ fn incomplete_filter_reports_position_and_keeps_it_invalid() {
 }
 
 #[test]
+fn unquoted_wildcard_gets_a_useful_filter_error() {
+    let fixture = fixture();
+    assert!(matches!(
+        validate_request(&fixture.session, &draft("title ~ A%")),
+        FilterValidationState::Invalid { message, .. }
+            if message == "Quote wildcard values, for example: name ~ 'A%'"
+    ));
+    assert_eq!(
+        validate_request(&fixture.session, &draft("title ~ 'A%'")),
+        FilterValidationState::Valid
+    );
+}
+
+#[test]
 fn disabled_filter_is_ignored_without_changing_its_draft() {
     let fixture = fixture();
     let mut query = draft("year >=");

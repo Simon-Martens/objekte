@@ -103,6 +103,11 @@ fn byte_offset(message: &str) -> Option<usize> {
 }
 
 fn concise_error(message: &str, filter: &str) -> String {
+    if message.starts_with("independent multivalued field operands")
+        && has_unquoted_percent(filter)
+    {
+        return "Quote wildcard values, for example: name ~ 'A%'".into();
+    }
     if message.starts_with("expected operand at byte ") {
         let ending = filter.trim_end();
         for operator in [
@@ -115,6 +120,27 @@ fn concise_error(message: &str, filter: &str) -> String {
         }
     }
     message.to_owned()
+}
+
+fn has_unquoted_percent(filter: &str) -> bool {
+    let mut quote = None;
+    let mut escaped = false;
+    for ch in filter.chars() {
+        if escaped {
+            escaped = false;
+        } else if quote.is_some() && ch == '\\' {
+            escaped = true;
+        } else if quote == Some(ch) {
+            quote = None;
+        } else if quote.is_none() {
+            match ch {
+                '\'' | '"' => quote = Some(ch),
+                '%' => return true,
+                _ => {}
+            }
+        }
+    }
+    false
 }
 
 #[cfg(test)]
