@@ -103,6 +103,7 @@ pub struct DesktopView {
     last_grid_request: Cell<Option<(usize, usize, usize)>>,
     grid_views: BTreeMap<u64, GridViewState>,
     active_grid_tab: Option<TabId>,
+    grid_view_ready: bool,
     pending_grid_restore: Option<(TabId, GridViewState)>,
     primary_tabs_scroll: ScrollHandle,
     secondary_tabs_scroll: ScrollHandle,
@@ -273,6 +274,7 @@ impl DesktopView {
             last_grid_request: Cell::new(None),
             grid_views: BTreeMap::new(),
             active_grid_tab: None,
+            grid_view_ready: false,
             pending_grid_restore: None,
             primary_tabs_scroll: ScrollHandle::new(),
             secondary_tabs_scroll: ScrollHandle::new(),
@@ -380,6 +382,7 @@ impl DesktopView {
         }
         let opened = matches!(&update, UiUpdate::Opened { .. });
         let restored_query = matches!(&update, UiUpdate::RestoreQuery(_));
+        let query_started = matches!(&update, UiUpdate::QueryStarted(_));
         if restored_query {
             self.state.snapshot_current_query();
             self.remember_grid_view();
@@ -419,6 +422,7 @@ impl DesktopView {
         if opened {
             self.grid_views.clear();
             self.active_grid_tab = self.state.workspace.current_search;
+            self.grid_view_ready = false;
             self.pending_grid_restore = None;
             self.grid_height_seeded = 0;
             self.grid_list.reset_with_uniform_height(0, px(30.));
@@ -426,6 +430,7 @@ impl DesktopView {
                 .set_offset(point(px(0.), px(0.)));
         } else if restored_query {
             self.active_grid_tab = self.state.workspace.current_search;
+            self.grid_view_ready = false;
             self.pending_grid_restore = self
                 .active_grid_tab
                 .map(|id| (id, GridViewState::default()));
@@ -463,6 +468,9 @@ impl DesktopView {
             self.send(UiAction::LoadLinks);
         }
         if reset_grid_scroll {
+            if query_started {
+                self.grid_view_ready = false;
+            }
             self.grid_height_hint = if page_or_append {
                 self.estimated_grid_row_height()
             } else {
@@ -491,6 +499,7 @@ impl DesktopView {
         }
         if page_or_append {
             self.restore_pending_grid_view();
+            self.grid_view_ready = true;
         }
         if let Some(index) = reveal {
             let top = self.grid_list.logical_scroll_top().item_ix;
@@ -557,6 +566,9 @@ impl DesktopView {
         if self.active_grid_tab != next {
             self.remember_grid_view();
             self.active_grid_tab = next;
+            // The old grid remains visible until this tab's query page arrives.
+            // Switching again before then must not save that old scroll here.
+            self.grid_view_ready = false;
             self.pending_grid_restore = next.map(|id| {
                 let view = match id {
                     TabId::Search(number) => {
@@ -867,7 +879,8 @@ impl DesktopView {
     }
 
     fn remember_grid_view(&mut self) {
-        if let Some(id @ TabId::Search(number)) = self.active_grid_tab
+        if self.grid_view_ready
+            && let Some(id @ TabId::Search(number)) = self.active_grid_tab
             && self.state.workspace.tab(id).is_some()
         {
             self.grid_views.insert(
