@@ -286,7 +286,9 @@ impl Workspace {
                         .map(|tab| tab.id)
                 });
         }
-        if self.focused_pane == pane && self.group(pane).active.is_none() {
+        if self.primary.tabs.is_empty() && self.secondary.tabs.is_empty() {
+            self.focused_pane = Pane::Primary;
+        } else if self.focused_pane == pane && self.group(pane).active.is_none() {
             self.focused_pane = pane.other();
         }
         true
@@ -527,7 +529,8 @@ mod tests {
         assert!(workspace.primary.tabs.is_empty());
         assert_eq!(workspace.primary.active, None);
         assert_eq!(workspace.current_search, None);
-        let query = workspace.open_query_in(SearchDraft::default(), Pane::Primary);
+        assert_eq!(workspace.focused_pane, Pane::Primary);
+        let query = workspace.open_query(SearchDraft::default());
         assert_eq!(workspace.primary.active, Some(query));
     }
 

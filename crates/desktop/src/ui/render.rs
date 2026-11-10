@@ -2194,6 +2194,7 @@ impl Render for DesktopView {
                 }),
             )
             .key_context("ObjekteWorkspace")
+            .track_focus(&self.workspace_focus)
             .on_action(cx.listener(|this, _: &NewQueryTab, window, cx| {
                 this.open_query_tab(window, cx);
             }))

@@ -86,6 +86,7 @@ pub struct DesktopView {
     suspended_filter: Option<String>,
     renaming_saved: Option<u64>,
     focused_saved: Option<u64>,
+    workspace_focus: FocusHandle,
     grid_focus: FocusHandle,
     grid_list: ListState,
     grid_horizontal_scroll: ScrollHandle,
@@ -248,6 +249,7 @@ impl DesktopView {
             suspended_filter: None,
             renaming_saved: None,
             focused_saved: None,
+            workspace_focus: cx.focus_handle(),
             grid_focus: cx.focus_handle(),
             grid_list,
             grid_horizontal_scroll: ScrollHandle::new(),
@@ -607,6 +609,7 @@ impl DesktopView {
         } else if let Some(next) = self.state.workspace.current_search {
             self.activate_workspace_tab(next, window, cx);
         } else {
+            window.focus(&self.workspace_focus, cx);
             cx.notify();
         }
     }
