@@ -185,6 +185,17 @@ impl Workspace {
             return;
         };
         let Some(pane) = self.pane_of(id) else { return };
+        let promoted = self.tab(id).is_some_and(|tab| {
+            tab.search_kind == Some(SearchKind::Table)
+                && (!draft.full_text.is_empty()
+                    || draft.filter_enabled && !draft.structured.is_empty())
+        });
+        let query_number = if promoted {
+            self.next_query_number += 1;
+            Some(self.next_query_number)
+        } else {
+            None
+        };
         let Some(tab) = self
             .group_mut(pane)
             .tabs
@@ -193,10 +204,9 @@ impl Workspace {
         else {
             return;
         };
-        if tab.search_kind == Some(SearchKind::Table)
-            && (!draft.full_text.is_empty() || draft.filter_enabled && !draft.structured.is_empty())
-        {
+        if promoted {
             tab.search_kind = Some(SearchKind::Query);
+            tab.query_number = query_number;
         }
         tab.title = search_title(
             &draft,
@@ -465,6 +475,27 @@ mod tests {
         assert!(workspace.tab(first).unwrap().title.contains("orange"));
         workspace.update_current_search(SearchDraft::default());
         assert_eq!(workspace.tab(first).unwrap().title, "Query 1");
+    }
+
+    #[test]
+    fn promoted_table_gets_its_own_query_number() {
+        let mut workspace = Workspace::default();
+        let table = workspace.opened(Some("files".into()));
+        workspace.update_current_search(SearchDraft {
+            full_text: "orange".into(),
+            collection: Some("files".into()),
+            ..Default::default()
+        });
+        assert_eq!(workspace.tab(table).unwrap().query_number, Some(1));
+        workspace.update_current_search(SearchDraft {
+            collection: Some("files".into()),
+            ..Default::default()
+        });
+        assert_eq!(workspace.tab(table).unwrap().title, "Query 1");
+        let next = workspace.open_query(SearchDraft::default());
+        assert_eq!(workspace.tab(next).unwrap().title, "Query 2");
+        let fresh_table = workspace.open_table(Some("files".into()));
+        assert_eq!(workspace.tab(fresh_table).unwrap().title, "files");
     }
 
     #[test]

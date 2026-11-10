@@ -1289,6 +1289,20 @@ impl DesktopView {
                     .children(tabs.into_iter().enumerate().map(|(index, tab)| {
                         let id = tab.id;
                         let title = tab.title.clone();
+                        let display_title = match id {
+                            TabId::Record(_) => {
+                                let record_id = title
+                                    .rsplit(" / ")
+                                    .find(|part| !part.is_empty())
+                                    .unwrap_or(&title);
+                                record_id
+                                    .rsplit(['/', ':'])
+                                    .find(|part| !part.is_empty())
+                                    .unwrap_or(record_id)
+                                    .to_owned()
+                            }
+                            TabId::Search(_) => title.clone(),
+                        };
                         let selected = active == Some(id);
                         let icon = match (id, tab.search_kind) {
                             (TabId::Record(_), _) => AssetIconName::FileText,
@@ -1309,9 +1323,8 @@ impl DesktopView {
                             .items_center()
                             .gap_1()
                             .h(px(33.))
-                            .min_w(px(142.))
+                            .min_w(px(if pane == Pane::Secondary { 130. } else { 142. }))
                             .max_w(px(220.))
-                            .flex_shrink_0()
                             .px_2()
                             .rounded_sm()
                             .border_1()
@@ -1372,7 +1385,7 @@ impl DesktopView {
                                             } else {
                                                 colors.secondary
                                             }))
-                                            .child(title.clone()),
+                                            .child(display_title),
                                     )
                                     .on_click(move |_, window, cx| {
                                         select_target.update(cx, |this, cx| {
@@ -1457,7 +1470,7 @@ impl DesktopView {
                         });
                     }),
             )
-            .when(count > if pane == Pane::Primary { 4 } else { 1 }, |this| {
+            .when(count > 1, |this| {
                 this.child(
                     Button::new(format!("workspace-open-tabs-{pane:?}"))
                         .ghost()
