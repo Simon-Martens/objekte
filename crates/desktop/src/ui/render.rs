@@ -2096,6 +2096,11 @@ impl DesktopView {
             - primary_reserve;
         let right_width = if primary_empty {
             available.max(300.)
+        } else if window_width < 1100.
+            && self.state.workspace.focused_pane == Pane::Primary
+            && matches!(self.state.workspace.primary.active, Some(TabId::Search(_)))
+        {
+            220.
         } else {
             right_width.min(available.max(300.))
         };
