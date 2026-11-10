@@ -97,6 +97,8 @@ pub struct DesktopView {
     workspace_focus: FocusHandle,
     grid_focus: FocusHandle,
     grid_list: ListState,
+    grid_height_hint: f32,
+    grid_height_seeded: usize,
     grid_horizontal_scroll: ScrollHandle,
     last_grid_request: Cell<Option<(usize, usize, usize)>>,
     grid_views: BTreeMap<u64, GridViewState>,
@@ -265,6 +267,8 @@ impl DesktopView {
             workspace_focus: cx.focus_handle(),
             grid_focus: cx.focus_handle(),
             grid_list,
+            grid_height_hint: 30.,
+            grid_height_seeded: 0,
             grid_horizontal_scroll: ScrollHandle::new(),
             last_grid_request: Cell::new(None),
             grid_views: BTreeMap::new(),
@@ -416,6 +420,7 @@ impl DesktopView {
             self.grid_views.clear();
             self.active_grid_tab = self.state.workspace.current_search;
             self.pending_grid_restore = None;
+            self.grid_height_seeded = 0;
             self.grid_list.reset_with_uniform_height(0, px(30.));
             self.grid_horizontal_scroll
                 .set_offset(point(px(0.), px(0.)));
@@ -424,6 +429,7 @@ impl DesktopView {
             self.pending_grid_restore = self
                 .active_grid_tab
                 .map(|id| (id, GridViewState::default()));
+            self.grid_height_seeded = 0;
             self.grid_list.reset_with_uniform_height(0, px(30.));
             self.grid_horizontal_scroll
                 .set_offset(point(px(0.), px(0.)));
@@ -457,11 +463,31 @@ impl DesktopView {
             self.send(UiAction::LoadLinks);
         }
         if reset_grid_scroll {
+            self.grid_height_hint = if page_or_append {
+                self.estimated_grid_row_height()
+            } else {
+                30.
+            };
+            self.grid_height_seeded = self.state.loaded_count;
             self.grid_list
-                .reset_with_uniform_height(self.state.loaded_count, px(30.));
+                .reset_with_uniform_height(self.state.loaded_count, px(self.grid_height_hint));
         } else if append && self.state.loaded_count > old_count {
+            if let Some(height) = self.measured_grid_row_height(old_count) {
+                self.grid_height_hint = height;
+            }
             self.grid_list
                 .splice(old_count..old_count, self.state.loaded_count - old_count);
+            // GPUI splices rows without height hints. Seed each page through
+            // 10,000 rows, then at 25% growth to keep total work linear.
+            let next_seed =
+                self.grid_height_seeded + (self.grid_height_seeded / 4).max(MAX_PAGE_ROWS);
+            if self.state.loaded_count <= 10_000 || self.state.loaded_count >= next_seed {
+                let _ = self
+                    .grid_list
+                    .clone()
+                    .with_uniform_item_height(px(self.grid_height_hint));
+                self.grid_height_seeded = self.state.loaded_count;
+            }
         }
         if page_or_append {
             self.restore_pending_grid_view();
@@ -852,6 +878,64 @@ impl DesktopView {
                 },
             );
         }
+    }
+
+    fn estimated_grid_row_height(&self) -> f32 {
+        let wrapped = self
+            .state
+            .page
+            .columns
+            .iter()
+            .enumerate()
+            .filter(|(_, column)| {
+                column.as_str() == "@match" || self.state.wrapped_columns.contains(column)
+            })
+            .map(|(index, column)| {
+                let width = *self.state.column_widths.get(column).unwrap_or(&160.);
+                (index, ((width - 16.) / 7.).floor().max(10.) as usize)
+            })
+            .collect::<Vec<_>>();
+        if wrapped.is_empty() {
+            return 30.;
+        }
+        let mut total = 0.;
+        let mut count = 0;
+        for (_, row) in self
+            .state
+            .projected_rows
+            .range(self.state.page.offset..)
+            .take(24)
+        {
+            let lines = wrapped
+                .iter()
+                .filter_map(|(index, width)| row.cells.get(*index).map(|cell| (cell, width)))
+                .map(|(cell, width)| {
+                    cell.lines()
+                        .map(|line| line.chars().count().max(1).div_ceil(*width))
+                        .sum::<usize>()
+                })
+                .max()
+                .unwrap_or(1);
+            total += (lines as f32 * 18. + 2.).max(30.);
+            count += 1;
+        }
+        if count == 0 {
+            30.
+        } else {
+            (total / count as f32).clamp(30., 400.)
+        }
+    }
+
+    fn measured_grid_row_height(&self, old_count: usize) -> Option<f32> {
+        let top = self.grid_list.logical_scroll_top().item_ix;
+        let end = top.saturating_add(32).min(old_count);
+        let heights = (top..end)
+            .filter_map(|index| self.grid_list.bounds_for_item(index))
+            .map(|bounds| f32::from(bounds.size.height))
+            .filter(|height| *height >= 30.)
+            .collect::<Vec<_>>();
+        (heights.len() >= 2)
+            .then(|| (heights.iter().sum::<f32>() / heights.len() as f32).clamp(30., 400.))
     }
 
     /// Scrollbar dragging bypasses ListState's wheel scroll handler. Request
