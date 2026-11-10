@@ -15,6 +15,7 @@ pub mod typography;
 mod workspace;
 
 use objekte_search_core::query::parse_structured_filter;
+use std::cell::Cell;
 use std::sync::mpsc::Sender;
 
 use gpui_kit::component::input::{InputEvent, InputState, TextareaState};
@@ -92,6 +93,7 @@ pub struct DesktopView {
     grid_horizontal_scroll: ScrollHandle,
     primary_tabs_scroll: ScrollHandle,
     secondary_tabs_scroll: ScrollHandle,
+    workspace_layout: Cell<Option<(f32, f32, bool, bool)>>,
     columns_scroll: ScrollHandle,
     detail_focus: FocusHandle,
     fields_scroll: ScrollHandle,
@@ -255,6 +257,7 @@ impl DesktopView {
             grid_horizontal_scroll: ScrollHandle::new(),
             primary_tabs_scroll: ScrollHandle::new(),
             secondary_tabs_scroll: ScrollHandle::new(),
+            workspace_layout: Cell::new(None),
             columns_scroll: ScrollHandle::new(),
             detail_focus: cx.focus_handle(),
             fields_scroll: ScrollHandle::new(),
@@ -605,6 +608,10 @@ impl DesktopView {
             return;
         }
         if let Some(next) = next {
+            self.activate_workspace_tab(next, window, cx);
+        } else if let Some(next) =
+            pane.and_then(|pane| self.state.workspace.group(pane.other()).active)
+        {
             self.activate_workspace_tab(next, window, cx);
         } else if let Some(next) = self.state.workspace.current_search {
             self.activate_workspace_tab(next, window, cx);

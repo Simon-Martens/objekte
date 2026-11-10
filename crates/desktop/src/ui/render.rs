@@ -2018,6 +2018,20 @@ impl DesktopView {
         } else {
             right_width.min(available.max(300.))
         };
+        let layout = (
+            f32::from(window.bounds().size.width),
+            right_width,
+            self.state.sidebar_visible,
+            !right.tabs.is_empty(),
+        );
+        if self.workspace_layout.get() != Some(layout) {
+            self.workspace_layout.set(Some(layout));
+            for pane in [Pane::Primary, Pane::Secondary] {
+                if let Some(id) = self.state.workspace.group(pane).active {
+                    self.reveal_workspace_tab(id);
+                }
+            }
+        }
         let right_is_query = matches!(right.active, Some(TabId::Search(_)));
         div()
             .flex()
