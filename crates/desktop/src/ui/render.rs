@@ -2163,7 +2163,10 @@ impl Render for DesktopView {
                     this.state.inspector_resize_origin = None;
                     this.state.secondary_resize_origin = None;
                     if let Some((column, _, _)) = this.state.column_resize_origin.take() {
-                        if let Some(width) = this.state.column_widths.get(&column) {
+                        if let Some(width) = this.state.column_widths.get(&column).copied() {
+                            if column == "@match" || this.state.wrapped_columns.contains(&column) {
+                                this.refresh_grid_height_hints();
+                            }
                             this.state.status = format!(
                                 "{} width: {} px",
                                 sort::column_label(&column),

@@ -506,14 +506,7 @@ impl DesktopView {
             }
         }
         if remeasure_grid {
-            let top = self.grid_list.logical_scroll_top();
-            self.grid_height_hint = self.estimated_grid_row_height();
-            self.grid_height_seeded = self.state.loaded_count;
-            // Remeasure keeps the old hints for offscreen rows. Rebuild them
-            // when wrapping changes, then restore the same logical row.
-            self.grid_list
-                .reset_with_uniform_height(self.state.loaded_count, px(self.grid_height_hint));
-            self.grid_list.scroll_to(top);
+            self.refresh_grid_height_hints();
         }
         if inspected_record
             && self.state.inspector_visible
@@ -931,6 +924,17 @@ impl DesktopView {
         } else {
             (total / count as f32).clamp(30., 400.)
         }
+    }
+
+    fn refresh_grid_height_hints(&mut self) {
+        let top = self.grid_list.logical_scroll_top();
+        self.grid_height_hint = self.estimated_grid_row_height();
+        self.grid_height_seeded = self.state.loaded_count;
+        // Remeasuring visible rows leaves stale hints for offscreen rows.
+        // Rebuild them after a change to wrapping or a wrapped column's width.
+        self.grid_list
+            .reset_with_uniform_height(self.state.loaded_count, px(self.grid_height_hint));
+        self.grid_list.scroll_to(top);
     }
 
     fn measured_grid_row_height(&self, old_count: usize) -> Option<f32> {
