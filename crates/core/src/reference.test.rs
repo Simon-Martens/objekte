@@ -96,6 +96,25 @@ fn folded_candidate_scratch_matches_full_unicode_fold_and_remains_bounded() {
 }
 
 #[test]
+fn folded_candidate_scratch_reuses_capacity_across_segments_and_records() {
+    with_folded_candidate(&"Straße".repeat(64), |_| {});
+    let (initial_ptr, initial_capacity) = FOLD_SCRATCH.with(|scratch| {
+        let scratch = scratch.borrow();
+        (scratch.as_ptr(), scratch.capacity())
+    });
+    assert!(initial_capacity >= 64 * 7);
+    for text in ["short", "İ", "STRAßE", "", "plain", "Σ ς"] {
+        let expected = fold(text);
+        with_folded_candidate_str(text, |actual| assert_eq!(actual, expected));
+        FOLD_SCRATCH.with(|scratch| {
+            let scratch = scratch.borrow();
+            assert_eq!(scratch.as_ptr(), initial_ptr);
+            assert_eq!(scratch.capacity(), initial_capacity);
+        });
+    }
+}
+
+#[test]
 fn bound_contains_reuses_prepared_pattern_across_scalar_and_array_values() {
     for (filter, document, expected) in [
         ("name ~ 'a%b'", serde_json::json!({"name":"axxb"}), true),

@@ -8,10 +8,9 @@ use std::cmp::Ordering;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
-use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 use crate::bigram::BigramRequest;
-use crate::bigram::fold;
+use crate::bigram::{fold, fold_into};
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::{
@@ -940,22 +939,20 @@ thread_local! {
 }
 
 /// Reuse one worker thread's UTF-8 folding buffer without retaining large records.
-fn with_folded_candidate<R>(text: &str, inspect: impl FnOnce(&[u8]) -> R) -> R {
+fn with_folded_candidate_str<R>(text: &str, inspect: impl FnOnce(&str) -> R) -> R {
     FOLD_SCRATCH.with(|scratch| {
         let mut buffer = scratch.borrow_mut();
-        buffer.clear();
-        if text.is_ascii() {
-            buffer.push_str(text);
-            buffer.make_ascii_lowercase();
-        } else {
-            buffer.extend(text.case_fold_with(Variant::Full, Locale::NonTurkic));
-        }
-        let result = inspect(buffer.as_bytes());
+        fold_into(text, &mut buffer);
+        let result = inspect(&buffer);
         if buffer.capacity() > MAX_FOLD_SCRATCH_CAPACITY {
             *buffer = String::new();
         }
         result
     })
+}
+
+fn with_folded_candidate<R>(text: &str, inspect: impl FnOnce(&[u8]) -> R) -> R {
+    with_folded_candidate_str(text, |folded| inspect(folded.as_bytes()))
 }
 
 
@@ -1022,14 +1019,15 @@ impl PreparedTextMatcher for RegexTextMatcher {
     }
 
     fn matches(&self, text: &str) -> Result<bool, String> {
-        let haystack = if let Some(operation) = &self.operation {
-            Cow::Owned(operation.map_text(text))
-        } else if self.transform == Transform::CaseFold {
-            Cow::Owned(fold(text))
-        } else {
-            Cow::Borrowed(text)
-        };
-        Ok(self.regex.is_match(&haystack))
+        if let Some(operation) = &self.operation {
+            return Ok(self.regex.is_match(&operation.map_text(text)));
+        }
+        if self.transform == Transform::CaseFold {
+            return Ok(with_folded_candidate_str(text, |folded| {
+                self.regex.is_match(folded)
+            }));
+        }
+        Ok(self.regex.is_match(text))
     }
 
     fn bigram_compatible(&self) -> bool {
@@ -1738,17 +1736,24 @@ pub(crate) fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: 
     if matches!(lhs, Value::Null) {
         return false;
     }
-    let transformed;
-    let lhs = if transform == Transform::CaseFold {
-        if let Value::String(s) = lhs {
-            transformed = Value::String(fold(s));
-            &transformed
-        } else {
+    if transform == Transform::CaseFold {
+        let (Value::String(text), Value::String(pattern)) = (lhs, rhs) else {
             return false;
-        }
-    } else {
-        lhs
-    };
+        };
+        return with_folded_candidate_str(text, |folded| {
+            let order = folded.cmp(pattern);
+            match op {
+                Operator::Eq => order.is_eq(),
+                Operator::Ne => !order.is_eq(),
+                Operator::Gt => order.is_gt(),
+                Operator::Ge => !order.is_lt(),
+                Operator::Lt => order.is_lt(),
+                Operator::Le => !order.is_gt(),
+                Operator::Contains => contains_pattern(folded, pattern),
+                Operator::NotContains => !contains_pattern(folded, pattern),
+            }
+        });
+    }
     let order = match (lhs, rhs) {
         (Value::String(a), Value::String(b)) => Some(a.cmp(b)),
         (Value::Id(a), Value::Id(b)) => Some(a.cmp(b)),
@@ -3052,11 +3057,12 @@ fn text_contains(
         } else {
             needle
         };
-        Ok(if let Some(finder) = finder {
-            with_folded_candidate(text, |folded| finder.find(folded).is_some())
-        } else {
-            fold(text).contains(needle)
-        })
+        Ok(with_folded_candidate_str(text, |folded| {
+            finder.map_or_else(
+                || folded.contains(needle),
+                |finder| finder.find(folded.as_bytes()).is_some(),
+            )
+        }))
     } else {
         Ok(finder.map_or_else(
             || text.contains(needle),
@@ -3074,10 +3080,10 @@ pub fn raw_fallback_contains(fts: &BoundFts, text: &str) -> bool {
             || text.contains(&fts.source_literal),
             |finder| finder.find(text.as_bytes()).is_some(),
         ),
-        CaseSensitivity::Insensitive => with_folded_candidate(text, |folded| {
+        CaseSensitivity::Insensitive => with_folded_candidate_str(text, |folded| {
             fts.fallback_finder.as_ref().map_or_else(
-                || fold(text).contains(&fts.folded_source_literal),
-                |finder| finder.find(folded).is_some(),
+                || folded.contains(&fts.folded_source_literal),
+                |finder| finder.find(folded.as_bytes()).is_some(),
             )
         }),
     }

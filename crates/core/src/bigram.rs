@@ -17,7 +17,20 @@ pub const BIGRAM_VERSION: u32 = 3;
 pub const FOLDED_REPRESENTATION: &str = "unicode-casefold-0.2.0/unicode-9.0.0/full/non-turkic";
 
 pub(crate) fn fold(text: &str) -> String {
-    folded_chars(text).collect()
+    let mut output = String::new();
+    fold_into(text, &mut output);
+    output
+}
+
+/// Write the built-in full Unicode fold into caller-owned reusable storage.
+pub(crate) fn fold_into(text: &str, output: &mut String) {
+    output.clear();
+    if text.is_ascii() {
+        output.push_str(text);
+        output.make_ascii_lowercase();
+    } else {
+        output.extend(folded_chars(text));
+    }
 }
 
 fn folded_chars(text: &str) -> impl Iterator<Item = char> + '_ {
