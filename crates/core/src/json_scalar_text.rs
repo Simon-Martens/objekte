@@ -871,7 +871,8 @@ impl<'a> ScalarWalker<'a> {
                     self.pos += 1;
                     let start = events.len();
                     path.push(key);
-                    let irrelevant_container = matches!(self.bytes.get(self.pos), Some(b'{' | b'['))
+                    let irrelevant_container = query.fts.is_none_or(|fts| !fts.fields.is_empty())
+                        && matches!(self.bytes.get(self.pos), Some(b'{' | b'['))
                         && !may_contain_selected_text(
                             path,
                             query,
