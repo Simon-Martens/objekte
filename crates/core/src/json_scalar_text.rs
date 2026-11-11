@@ -42,14 +42,26 @@ impl ScalarWalker<'_> {
         if self.bytes.get(self.pos) != Some(&b'"') {
             return Err("expected JSON string".into());
         }
-        self.pos += 1;
+        let search = self.pos + 1;
+        let offset = memchr::memchr2(b'"', b'\\', &self.bytes[search..])
+            .ok_or("unterminated JSON string")?;
+        let delimiter = search + offset;
+        if self.bytes[delimiter] == b'"' {
+            // Token decoding validates escapes when the string is used.
+            // A trusted skipped value intentionally avoids that work.
+            self.pos = delimiter + 1;
+            return Ok(start);
+        }
+        // Escape-heavy strings make repeated delimiter searches expensive.
+        // Resume the byte loop after the first escape.
+        self.pos = delimiter
+            .checked_add(2)
+            .ok_or("JSON string offset overflow")?;
         while let Some(byte) = self.bytes.get(self.pos).copied() {
             self.pos += 1;
             match byte {
                 b'"' => return Ok(start),
                 b'\\' => {
-                    // Token decoding validates escapes when the string is used.
-                    // A trusted skipped value intentionally avoids that work.
                     self.pos = self
                         .pos
                         .checked_add(1)
