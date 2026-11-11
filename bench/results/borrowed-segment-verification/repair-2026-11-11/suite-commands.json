@@ -1,0 +1,112 @@
+[
+  {
+    "revision": "reviewed",
+    "cache": "off",
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/examples/musenalm",
+      "--extended",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "3",
+      "--query-workers",
+      "4",
+      "--verified-cache-bytes",
+      "0",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/bench/results/borrowed-segment-verification/repair-2026-11-11/suite-reviewed-off"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/suite-reviewed-off"
+  },
+  {
+    "revision": "repaired",
+    "cache": "off",
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/examples/musenalm",
+      "--extended",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "3",
+      "--query-workers",
+      "4",
+      "--verified-cache-bytes",
+      "0",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/bench/results/borrowed-segment-verification/repair-2026-11-11/suite-repaired-off"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/suite-repaired-off"
+  },
+  {
+    "revision": "repaired",
+    "cache": "warm",
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/examples/musenalm",
+      "--extended",
+      "--profiles",
+      "ascii-warm,unicode-warm",
+      "--repetitions",
+      "3",
+      "--query-workers",
+      "4",
+      "--verified-cache-bytes",
+      "67108864",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/bench/results/borrowed-segment-verification/repair-2026-11-11/suite-repaired-warm"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/suite-repaired-warm"
+  },
+  {
+    "revision": "reviewed",
+    "cache": "warm",
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/examples/musenalm",
+      "--extended",
+      "--profiles",
+      "ascii-warm,unicode-warm",
+      "--repetitions",
+      "3",
+      "--query-workers",
+      "4",
+      "--verified-cache-bytes",
+      "67108864",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/bench/results/borrowed-segment-verification/repair-2026-11-11/suite-reviewed-warm"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/suite-reviewed-warm"
+  },
+  {
+    "revision": "predecessor",
+    "cache": "warm",
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-base",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-base/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/examples/musenalm",
+      "--extended",
+      "--profiles",
+      "ascii-warm,unicode-warm",
+      "--repetitions",
+      "3",
+      "--query-workers",
+      "4",
+      "--verified-cache-bytes",
+      "67108864",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/bench/results/borrowed-segment-verification/repair-2026-11-11/suite-predecessor-warm"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/suite-predecessor-warm"
+  }
+]

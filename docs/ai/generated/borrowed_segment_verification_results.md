@@ -1,6 +1,6 @@
 # Borrowed segment verification results
 
-> Historical report for the reviewed implementation. The user reopened this task on 11 November 2026 to repair correctness and performance findings. Repairs are on `integration/borrowed-segment-verification`; the final recheck and repair report are in progress.
+> Historical report for the reviewed implementation. The user reopened this task on 11 November 2026. The [repair measurements and remaining limits](../../../bench/results/borrowed-segment-verification/repair-2026-11-11/README.md) describe the subsequent branch work. The repair task is not marked complete because performance outliers remain unresolved.
 
 Task: `borrowed-segment-verification` · 11 November 2026
 Predecessor and task base: `5166876c7228f4fe2f8f064861cdc8a88275ad18`

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "Q006",
+    "collection": "*",
+    "fts": "ü",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q145",
+    "collection": "contents",
+    "fts": "Lied",
+    "filter": "contributors.type ?= \"Autor:in\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]
