@@ -6,6 +6,7 @@ use roaring::RoaringBitmap;
 
 use crate::build::IndexedCollectionSegment;
 use crate::inventory::ActiveRecords;
+use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{LogicalType, MetadataField, Number, PathRoot, RecordId, Value};
 use crate::posting::ScalarKey;
 use crate::query::{FtsMode, Operator, Quantifier};
@@ -40,6 +41,16 @@ pub(crate) fn segment_filter_bounds(
     expr: &BoundExpr,
     collection: &CollectionState,
 ) -> Result<SegmentCandidateBounds, String> {
+    segment_filter_bounds_with_catalog(segment, active, expr, collection, None)
+}
+
+pub(crate) fn segment_filter_bounds_with_catalog(
+    segment: &IndexedCollectionSegment,
+    active: &ActiveRecords,
+    expr: &BoundExpr,
+    collection: &CollectionState,
+    catalog: Option<&FileCatalog>,
+) -> Result<SegmentCandidateBounds, String> {
     if active.slot_count() as usize != segment.records.len() {
         return Err("segment active domain length mismatch".into());
     }
@@ -53,7 +64,30 @@ pub(crate) fn segment_filter_bounds(
         &domain,
         &logical_active,
         &fallback_active,
+        catalog,
     ))
+}
+
+fn indexed_file_path_term(term: &BoundTerm) -> Option<(Operator, &str)> {
+    if term.path.root != PathRoot::Metadata(MetadataField::FilePath)
+        || term.transform != Transform::Identity
+        || term.derived != Derived::None
+        || term.period.is_some()
+        || term.rhs.is_some()
+        || term.related.is_some()
+        || term.operation.is_some()
+        || term.matcher.is_some()
+        || term.multi
+        || term.query_path.has_position
+        || term.query_path.has_explicit_array_step
+    {
+        return None;
+    }
+    let Value::String(literal) = &term.literal else {
+        return None;
+    };
+    matches!(term.operator, Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le)
+        .then_some((term.operator, literal.as_str()))
 }
 
 /// Conservative local bigram candidates for a lifecycle segment. `None`
@@ -487,6 +521,7 @@ fn segment_expr_bounds(
     domain: &RoaringBitmap,
     logical_active: &RoaringBitmap,
     fallback_active: &RoaringBitmap,
+    catalog: Option<&FileCatalog>,
 ) -> SegmentCandidateBounds {
     match expr {
         BoundExpr::Term(term) => {
@@ -521,6 +556,22 @@ fn segment_expr_bounds(
                 return SegmentCandidateBounds { may: matches.clone(), must: matches };
             }
             if let Some(matches) = segment_file_size_matches(segment, domain, term) {
+                return SegmentCandidateBounds {
+                    may: matches.clone(),
+                    must: matches,
+                };
+            }
+            if let Some((operator, literal)) = indexed_file_path_term(term)
+                && let Some(catalog) = catalog
+                && let Some(files) = catalog.absolute_path_ids(operator, literal)
+            {
+                let mut matches = RoaringBitmap::new();
+                for file in files {
+                    if let Some(slots) = segment.file_records(file) {
+                        matches.extend(slots.iter().map(|slot| slot.0));
+                    }
+                }
+                matches &= domain;
                 return SegmentCandidateBounds {
                     may: matches.clone(),
                     must: matches,
@@ -621,7 +672,7 @@ fn segment_expr_bounds(
             let mut must = domain.clone();
             for part in parts {
                 let child =
-                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active);
+                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active, catalog);
                 may &= child.may;
                 must &= child.must;
             }
@@ -632,7 +683,7 @@ fn segment_expr_bounds(
             let mut must = RoaringBitmap::new();
             for part in parts {
                 let child =
-                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active);
+                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active, catalog);
                 may |= child.may;
                 must |= child.must;
             }
@@ -640,7 +691,7 @@ fn segment_expr_bounds(
         }
         BoundExpr::Not(inner) => {
             let child =
-                segment_expr_bounds(segment, inner, collection, domain, logical_active, fallback_active);
+                segment_expr_bounds(segment, inner, collection, domain, logical_active, fallback_active, catalog);
             SegmentCandidateBounds {
                 may: domain - &child.must,
                 must: domain - &child.may,
@@ -654,6 +705,7 @@ fn segment_expr_bounds(
 #[serde(rename_all = "snake_case")]
 pub enum AccessPathKind {
     Metadata,
+    FilePathIndex,
     Posting,
     InferredPosting,
     SortColumn,
@@ -769,7 +821,7 @@ fn rescore_paths(
                 {
                     input_len.min(1)
                 }
-                AccessPathKind::Metadata => input_len / 2,
+                AccessPathKind::Metadata | AccessPathKind::FilePathIndex => input_len / 2,
                 _ => path.estimated_output.min(input_len),
             };
             path.estimated_work = lookup + path.estimated_output as f64 * original_unit;
@@ -1083,6 +1135,17 @@ fn term_set(
                 return Ok(Some(result));
             }
         }
+        if let Some((operator, literal)) = indexed_file_path_term(term) {
+            let mut result = RoaringBitmap::new();
+            if let Some(files) = repo.files.absolute_path_ids(operator, literal) {
+                for file in files {
+                    if let Some(slots) = collection.generation.file_records.records_for(file) {
+                        result.extend(slots.iter().map(|slot| slot.0));
+                    }
+                }
+            }
+            return Ok(Some(result & domain));
+        }
         let empty = Value::Object(BTreeMap::new());
         let mut result = RoaringBitmap::new();
         let file_level = matches!(
@@ -1261,8 +1324,11 @@ fn enumerate_paths(
         let direct_id_lookup = field == MetadataField::RecordId
             && term.operator == Operator::Eq
             && term.transform == Transform::Identity;
+        let path_lookup = indexed_file_path_term(term).is_some();
         let work = if direct_id_lookup {
             1.0
+        } else if path_lookup {
+            (stats.file_count as f64 + 1.0).log2() + 1.0
         } else if matches!(
             field,
             MetadataField::CollectionName | MetadataField::RepositoryRoot
@@ -1279,7 +1345,7 @@ fn enumerate_paths(
             stats.file_count as f64
         };
         let output = if direct_id_lookup { 1 } else { input_len / 2 };
-        add(AccessPathKind::Metadata, true, work, output);
+        add(if path_lookup { AccessPathKind::FilePathIndex } else { AccessPathKind::Metadata }, true, work, output);
     } else {
         let index = if term.operation.is_some() {
             collection
@@ -1424,7 +1490,7 @@ fn execute_path(
     kind: AccessPathKind,
 ) -> Result<Option<RoaringBitmap>, String> {
     Ok(match kind {
-        AccessPathKind::Metadata => {
+        AccessPathKind::Metadata | AccessPathKind::FilePathIndex => {
             term_set(repo, collection, term, domain)?.map(|set| &set & input)
         }
         AccessPathKind::Posting => {

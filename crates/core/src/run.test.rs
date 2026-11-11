@@ -2388,6 +2388,16 @@ fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
         .search(&query("@file.path ~ 'encoding'", ReturnMode::Bytes))
         .unwrap();
     assert_eq!(encoding.count, Some(1));
+    let path_range = query(
+        "@file.path >= 'data/valid' && @file.path < 'data/valid0'",
+        ReturnMode::Locator,
+    );
+    let (indexed, trace) = repo.explain_analyze(&path_range).unwrap();
+    assert_eq!(indexed.count, Some(1));
+    assert_eq!(indexed.hits[0].file_path, std::path::Path::new("data/valid.json"));
+    assert!(trace[0].terms.iter().any(|term| {
+        term.selected.kind == crate::executor::AccessPathKind::FilePathIndex
+    }));
     assert!(
         matches!(&encoding.hits[0].payload, Some(Payload::Bytes(bytes)) if bytes == b"{\"title\":\"\xff\"}")
     );
