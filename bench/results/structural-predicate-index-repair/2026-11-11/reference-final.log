@@ -1,0 +1,8 @@
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte/crates/core)
+    Finished `release` profile [optimized] target(s) in 0.95s
+     Running `target/release/examples/verify_structural_reference /home/simon/source/objekte/examples/musenalm`
+Q115,count=244,page_sha256=941c1ac7f8fcebcf575c7f566618cab158564c8898611c72583834b2d3e2a6c0,opens=0,bytes=0,parses=0,scans=0
+Q116,count=70428,page_sha256=685b5ef8584546a358667e7d29a3d69ba387e79a809cc67344f88d37756ad800,opens=0,bytes=0,parses=0,scans=0
+Q117,count=63520,page_sha256=99fa3c497d8c069e21d4c183f2c9863a0fd2fa4add4ade421ef82ed0d2dda2cf,opens=0,bytes=0,parses=0,scans=0
+Q118,count=254,page_sha256=dc317480648c21b224ebf47d8ac16bdc41ddba43720fe1cf83ba251f50874d3d,opens=0,bytes=0,parses=0,scans=0
+Q120,count=42700,page_sha256=d524fd26bbf60d419b0378c225a1d1e35c1dec53290b8ec1123d6f9903fc50e5,opens=0,bytes=0,parses=0,scans=0

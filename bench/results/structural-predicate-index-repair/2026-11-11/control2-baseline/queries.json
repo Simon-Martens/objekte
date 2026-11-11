@@ -1,0 +1,72 @@
+[
+  {
+    "id": "Q048",
+    "collection": "entries",
+    "fts": null,
+    "filter": "edit_state = \"Edited\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q049",
+    "collection": "entries",
+    "fts": null,
+    "filter": "pseudonym = false",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q071",
+    "collection": "entries",
+    "fts": null,
+    "filter": "preferred_title ~ \"Almanach\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q076",
+    "collection": "contents",
+    "fts": null,
+    "filter": "preferred_title ~ \"Liebe\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q135",
+    "collection": "contents",
+    "fts": null,
+    "filter": "numbering >= 0",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "numbering",
+        "descending": false
+      }
+    ],
+    "limit": 100,
+    "offset": 1000,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

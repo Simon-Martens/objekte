@@ -1,0 +1,185 @@
+[
+  {
+    "id": "Q003",
+    "collection": "*",
+    "fts": "Leipzig",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q072",
+    "collection": "entries",
+    "fts": null,
+    "filter": "preferred_title:lower ~ \"TASCHENBUCH\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q073",
+    "collection": "entries",
+    "fts": null,
+    "filter": "title_statement ~ \"WIEN\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q076",
+    "collection": "contents",
+    "fts": null,
+    "filter": "preferred_title ~ \"Liebe\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q119",
+    "collection": "contents",
+    "fts": null,
+    "filter": "@file.modified >= \"2026-01-01T00:00:00Z\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q141",
+    "collection": "entries",
+    "fts": "Almanach",
+    "filter": "year >= 1800 && year < 1850",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "year",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q144",
+    "collection": "contents",
+    "fts": "Liebe",
+    "filter": "year >= 1800 && year < 1850",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q159",
+    "collection": "entries",
+    "fts": null,
+    "filter": "agents[0].agent = $agent",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "parameters": {
+      "agent": {
+        "type": "id",
+        "value": "lngx6eyfw5qrzas"
+      }
+    }
+  },
+  {
+    "id": "Q174",
+    "collection": "contents",
+    "fts": "Liebe",
+    "filter": "entry.year >= 1800",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q177",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.year >= $year",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "parameters": {
+      "year": 1803
+    }
+  },
+  {
+    "id": "Q180",
+    "collection": "series",
+    "fts": null,
+    "filter": "related_entries[0].entry.preferred_title ~ 'Taschenbuch'",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q187",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors[*].type = contributors[*].type",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q190",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= 1800 SORT BY MIN(language) ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

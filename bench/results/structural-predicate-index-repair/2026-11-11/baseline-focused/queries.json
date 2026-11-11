@@ -1,0 +1,67 @@
+[
+  {
+    "id": "Q115",
+    "collection": "entries",
+    "fts": null,
+    "filter": "items:length >= 2",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q116",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:length > 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q117",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:length = 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q118",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:length >= 3",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q120",
+    "collection": "contents",
+    "fts": null,
+    "filter": "incipit_statement = \"\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

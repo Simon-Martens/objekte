@@ -1,0 +1,8 @@
+Q115 collection=entries FTS=None FILTER=Some("items:length >= 2") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | unicode-off: 18192.013 / 19395.315 / 27478.387 µs (ok)
+Q116 collection=contents FTS=None FILTER=Some("contributors:length > 0") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | unicode-off: 442729.759 / 472949.430 / 533772.110 µs (ok)
+Q117 collection=contents FTS=None FILTER=Some("contributors:length = 0") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | unicode-off: 404834.463 / 429785.120 / 435558.691 µs (ok)
+Q118 collection=contents FTS=None FILTER=Some("contributors:length >= 3") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | unicode-off: 397678.953 / 402704.309 / 412251.404 µs (ok)
+Q120 collection=contents FTS=None FILTER=Some("incipit_statement = \"\"") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | unicode-off: 369942.291 / 403197.747 / 404715.790 µs (ok)
+build "unicode": 3.076 s; snapshot_write=0.441 s; parses=148486; resident_bytes=566947840; peak_resident_bytes=594145280; estimated_index_bytes=71872324; snapshot_bytes=129928664; restore_min/median/max=1.353/1.375/1.432 s (5 runs)
+reports: bench/results/structural-predicate-index-repair/2026-11-11/baseline-focused
+reproduce: cargo run --release --example bench_musenalm -- "--root" "examples/musenalm" "--extended" "--cases" "Q115,Q116,Q117,Q118,Q120" "--profiles" "unicode-off" "--repetitions" "7" "--query-workers" "4" "--verified-cache-bytes" "0" "--result-dir" "bench/results/structural-predicate-index-repair/2026-11-11/baseline-focused"
