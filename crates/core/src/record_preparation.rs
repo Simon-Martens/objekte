@@ -27,7 +27,8 @@ pub(crate) fn prepare_query_record(
     projection: &ScanProjection,
     _logical_output: bool,
 ) -> Result<ExtractedRecord, String> {
-    let trusted = record_class == RecordClass::Logical && !source.is_extension();
+    let trusted =
+        record_class == RecordClass::Logical && source.reader().supports_trusted_query_extraction();
     if record_class == RecordClass::RawFallback {
         return Err("raw fallback record has no logical query value".into());
     }
@@ -130,7 +131,8 @@ pub(crate) fn prepare_query_record_with_execution(
     if record_class == RecordClass::RawFallback {
         return Err("raw fallback record has no logical query value".into());
     }
-    let trusted = record_class == RecordClass::Logical && !extension;
+    let trusted =
+        record_class == RecordClass::Logical && source.reader().supports_trusted_query_extraction();
     let mut record = if trusted {
         source.reader().parse_for_query_trusted(bytes, projection)
     } else {

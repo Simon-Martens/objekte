@@ -238,6 +238,8 @@ fn recorded_validation_selects_trusted_or_validating_extraction() {
     };
     let bytes = br#"{"wanted":5,"ignored":!}"#;
 
+    assert!(builtin.reader().supports_trusted_query_extraction());
+    assert!(extension.reader().supports_trusted_query_extraction());
     assert!(
         prepare_query_record(
             RecordClass::Logical,
@@ -258,7 +260,7 @@ fn recorded_validation_selects_trusted_or_validating_extraction() {
             &projection,
             false,
         )
-        .is_err()
+        .is_ok()
     );
     assert!(
         prepare_query_record(
@@ -271,6 +273,185 @@ fn recorded_validation_selects_trusted_or_validating_extraction() {
         )
         .is_err()
     );
+}
+
+#[test]
+fn extension_trusted_hook_requires_explicit_capability_in_both_entry_points() {
+    use crate::inventory::RecordClass;
+    use crate::model::LogicalType;
+    use crate::reference::FieldDefinition;
+    use crate::source::{JsonReader, SourceFormat, SourceReader, SourceRegistry};
+    use crate::streaming::ExecutionContext;
+    use std::collections::HashSet;
+    use std::sync::{
+        Arc,
+        atomic::{AtomicUsize, Ordering},
+    };
+
+
+    struct TrackingReader {
+        opt_in: bool,
+        validating: Arc<AtomicUsize>,
+        trusted: Arc<AtomicUsize>,
+    }
+
+
+    impl SourceReader for TrackingReader {
+        fn name(&self) -> &'static str {
+            "tracking"
+        }
+
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
+            JsonReader.frame(bytes)
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            JsonReader.parse(bytes)
+        }
+
+        fn supports_trusted_query_extraction(&self) -> bool {
+            self.opt_in
+        }
+
+        fn parse_for_query(
+            &self,
+            bytes: &[u8],
+            projection: &ScanProjection,
+        ) -> Result<ExtractedRecord, String> {
+            self.validating.fetch_add(1, Ordering::Relaxed);
+            JsonReader.parse_for_query(bytes, projection)
+        }
+
+        fn parse_for_query_trusted(
+            &self,
+            bytes: &[u8],
+            projection: &ScanProjection,
+        ) -> Result<ExtractedRecord, String> {
+            self.trusted.fetch_add(1, Ordering::Relaxed);
+            JsonReader.parse_for_query_trusted(bytes, projection)
+        }
+    }
+
+
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["values".into()],
+            kind: LogicalType::Array(Box::new(LogicalType::Number)),
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: true,
+            element_nullable: vec![true],
+        })
+        .unwrap();
+    let bytes = br#"{"values":[]}"#;
+    for opt_in in [false, true] {
+        for with_execution in [false, true] {
+            let validating = Arc::new(AtomicUsize::new(0));
+            let trusted = Arc::new(AtomicUsize::new(0));
+            let mut registry = SourceRegistry::default();
+            registry
+                .register(
+                    "tracking",
+                    1,
+                    "json",
+                    Arc::new(TrackingReader {
+                        opt_in,
+                        validating: validating.clone(),
+                        trusted: trusted.clone(),
+                    }),
+                )
+                .unwrap();
+            let source = registry
+                .resolve(&SourceFormat::registered("tracking"))
+                .unwrap();
+            assert!(source.is_extension());
+            let mut built = source.reader().parse_for_build_outcome(bytes).unwrap();
+            finish_build_record(&schema, &mut built).unwrap();
+            let projection = ScanProjection {
+                top_level: Some(HashSet::from(["values".to_owned()])),
+                collect_text: false,
+                resolved_text_only: false,
+            };
+            let result = if with_execution {
+                let execution = ExecutionContext::new(
+                    crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+                    Default::default(),
+                    None,
+                );
+                prepare_query_record_with_execution(
+                    RecordClass::Logical,
+                    &source,
+                    &schema,
+                    bytes,
+                    &projection,
+                    true,
+                    Some(&execution),
+                )
+                .unwrap()
+            } else {
+                prepare_query_record(
+                    RecordClass::Logical,
+                    &source,
+                    &schema,
+                    bytes,
+                    &projection,
+                    true,
+                )
+                .unwrap()
+            };
+            assert_eq!(result.value, built.value);
+            assert_eq!(validating.load(Ordering::Relaxed), usize::from(!opt_in));
+            assert_eq!(trusted.load(Ordering::Relaxed), usize::from(opt_in));
+
+            assert!(
+                prepare_query_record(
+                    RecordClass::RawFallback,
+                    &source,
+                    &schema,
+                    bytes,
+                    &projection,
+                    false
+                )
+                .is_err()
+            );
+            assert_eq!(validating.load(Ordering::Relaxed), usize::from(!opt_in));
+            assert_eq!(trusted.load(Ordering::Relaxed), usize::from(opt_in));
+
+            // The indexed record was valid at build time; a later malformed
+            // skipped field does not change its recorded validation state.
+            let changed = br#"{"values":[],"ignored":!}"#;
+            let changed_result = if with_execution {
+                let execution = ExecutionContext::new(
+                    crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+                    Default::default(),
+                    None,
+                );
+                prepare_query_record_with_execution(
+                    RecordClass::Logical,
+                    &source,
+                    &schema,
+                    changed,
+                    &projection,
+                    true,
+                    Some(&execution),
+                )
+            } else {
+                prepare_query_record(
+                    RecordClass::Logical,
+                    &source,
+                    &schema,
+                    changed,
+                    &projection,
+                    true,
+                )
+            };
+            assert_eq!(changed_result.is_ok(), opt_in);
+            assert_eq!(validating.load(Ordering::Relaxed), 2 * usize::from(!opt_in));
+            assert_eq!(trusted.load(Ordering::Relaxed), 2 * usize::from(opt_in));
+        }
+    }
 }
 
 #[test]
@@ -287,6 +468,7 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
         calls: Arc<AtomicUsize>,
         estimate: bool,
         fail: bool,
+        trusted: bool,
     }
 
 
@@ -317,6 +499,18 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
             })
         }
 
+        fn supports_trusted_query_extraction(&self) -> bool {
+            self.trusted
+        }
+
+        fn parse_for_query_trusted(
+            &self,
+            bytes: &[u8],
+            _projection: &ScanProjection,
+        ) -> Result<ExtractedRecord, String> {
+            self.parse(bytes)
+        }
+
         fn estimate_query_value_bytes(
             &self,
             _bytes: &[u8],
@@ -337,41 +531,44 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
             None,
         )
     };
-    for (estimate, fail, expected, expected_calls) in [
-        (true, false, ExecutionErrorKind::Resource, 0),
-        (false, false, ExecutionErrorKind::Resource, 1),
-        (false, true, ExecutionErrorKind::Extension, 1),
-    ] {
-        let calls = Arc::new(AtomicUsize::new(0));
-        let mut registry = SourceRegistry::default();
-        // A custom registration may use a builtin-looking ID in an empty registry.
-        registry
-            .register(
-                "json",
-                1,
-                "tiny",
-                Arc::new(ExpandingReader {
-                    calls: calls.clone(),
-                    estimate,
-                    fail,
-                }),
+    for trusted in [false, true] {
+        for (estimate, fail, expected, expected_calls) in [
+            (true, false, ExecutionErrorKind::Resource, 0),
+            (false, false, ExecutionErrorKind::Resource, 1),
+            (false, true, ExecutionErrorKind::Extension, 1),
+        ] {
+            let calls = Arc::new(AtomicUsize::new(0));
+            let mut registry = SourceRegistry::default();
+            // A custom registration may use a builtin-looking ID in an empty registry.
+            registry
+                .register(
+                    "json",
+                    1,
+                    "tiny",
+                    Arc::new(ExpandingReader {
+                        calls: calls.clone(),
+                        estimate,
+                        fail,
+                        trusted,
+                    }),
+                )
+                .unwrap();
+            let source = registry.resolve(&SourceFormat::registered("json")).unwrap();
+            assert!(source.is_extension());
+            let execution = context();
+            let error = prepare_query_record_with_execution(
+                crate::inventory::RecordClass::Logical,
+                &source,
+                &Schema::default(),
+                b"x",
+                &ScanProjection::full(false),
+                false,
+                Some(&execution),
             )
-            .unwrap();
-        let source = registry.resolve(&SourceFormat::registered("json")).unwrap();
-        assert!(source.is_extension());
-        let execution = context();
-        let error = prepare_query_record_with_execution(
-            crate::inventory::RecordClass::Logical,
-            &source,
-            &Schema::default(),
-            b"x",
-            &ScanProjection::full(false),
-            false,
-            Some(&execution),
-        )
-        .unwrap_err();
-        assert_eq!(execution.recorded_error(error).kind, expected);
-        assert_eq!(calls.load(Ordering::Relaxed), expected_calls);
+            .unwrap_err();
+            assert_eq!(execution.recorded_error(error).kind, expected);
+            assert_eq!(calls.load(Ordering::Relaxed), expected_calls);
+        }
     }
 }
 

@@ -360,8 +360,15 @@ pub trait SourceReader: Send + Sync {
         self.parse(bytes)
     }
 
-    /// An index operation already validated this record. Extensions keep the
-    /// validating query path unless they explicitly implement trusted parsing.
+    /// Opt in only when successful build parsing validates the complete source
+    /// record and `parse_for_query_trusted` can extract it without revalidation.
+    /// Changing that validation contract requires an explicit index rebuild.
+    fn supports_trusted_query_extraction(&self) -> bool {
+        false
+    }
+
+    /// An explicit index operation already validated this record. The caller
+    /// invokes this hook only for readers that opt in above.
     fn parse_for_query_trusted(
         &self,
         bytes: &[u8],
@@ -758,6 +765,10 @@ impl SourceReader for JsonReader {
         "json"
     }
 
+    fn supports_trusted_query_extraction(&self) -> bool {
+        true
+    }
+
     fn logical_text_coverage(&self) -> LogicalTextCoverage {
         LogicalTextCoverage::AllStringFields
     }
@@ -811,6 +822,10 @@ impl SourceReader for JsonDecodedScalarsReader {
         "json_decoded_scalars"
     }
 
+    fn supports_trusted_query_extraction(&self) -> bool {
+        true
+    }
+
     fn logical_text_coverage(&self) -> LogicalTextCoverage {
         LogicalTextCoverage::AllStringFields
     }
@@ -858,6 +873,10 @@ impl SourceReader for JsonDecodedScalarsReader {
 impl SourceReader for JsonLinesReader {
     fn name(&self) -> &'static str {
         "jsonl"
+    }
+
+    fn supports_trusted_query_extraction(&self) -> bool {
+        true
     }
 
     fn logical_text_coverage(&self) -> LogicalTextCoverage {
