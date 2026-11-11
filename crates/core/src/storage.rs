@@ -3,7 +3,7 @@
 use roaring::RoaringBitmap;
 use std::collections::{HashMap, HashSet};
 use std::fs::{self, File, OpenOptions};
-use std::io::{Read, Write};
+use std::io::{BufReader, BufWriter, Read, Seek, SeekFrom, Write};
 use std::path::{Path, PathBuf};
 use std::sync::Mutex;
 use std::time::Instant;
@@ -34,7 +34,8 @@ use crate::workload::BigramAlphabet;
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
 pub const SNAPSHOT_VERSION: u32 = 17;
 pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 18;
-const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
+const MAX_SECTION_BYTES: u64 = 8 * 1024 * 1024 * 1024;
+const SECTION_HEADER_BYTES: usize = 44;
 
 
 /// Phase timings for one explicit, durable snapshot save. Opening does not
@@ -701,46 +702,109 @@ pub fn configuration_hash(
 
 #[cfg(test)]
 fn write_section(file: &mut impl Write, id: u32, value: &impl Serialize) -> Result<(), String> {
-    write_section_measured(file, id, value).map(|_| ())
+    let mut section = std::io::Cursor::new(Vec::new());
+    write_section_measured(&mut section, id, value)?;
+    file.write_all(section.get_ref()).map_err(|e| e.to_string())
 }
 
+
+struct SectionWriter<'a, W: Write> {
+    inner: &'a mut W,
+    checksum: Sha256,
+    len: u64,
+    checksum_ns: u64,
+    write_ns: u64,
+}
+
+
+impl<W: Write> Write for SectionWriter<'_, W> {
+    fn write(&mut self, bytes: &[u8]) -> std::io::Result<usize> {
+        if self
+            .len
+            .checked_add(bytes.len() as u64)
+            .is_none_or(|len| len > MAX_SECTION_BYTES)
+        {
+            return Err(std::io::Error::other("snapshot section too large"));
+        }
+        let started = Instant::now();
+        let written = self.inner.write(bytes)?;
+        self.write_ns = self
+            .write_ns
+            .saturating_add(started.elapsed().as_nanos() as u64);
+        let started = Instant::now();
+        self.checksum.update(&bytes[..written]);
+        self.checksum_ns = self
+            .checksum_ns
+            .saturating_add(started.elapsed().as_nanos() as u64);
+        self.len += written as u64;
+        Ok(written)
+    }
+
+    fn flush(&mut self) -> std::io::Result<()> {
+        let started = Instant::now();
+        self.inner.flush()?;
+        self.write_ns = self
+            .write_ns
+            .saturating_add(started.elapsed().as_nanos() as u64);
+        Ok(())
+    }
+}
+
+
 fn write_section_measured(
-    file: &mut impl Write,
+    file: &mut (impl Write + Seek),
     id: u32,
     value: &impl Serialize,
 ) -> Result<SnapshotSectionSaveStats, String> {
     let started = Instant::now();
-    // `bincode::serialize` traverses the value once to calculate its size and
-    // again to encode it. A growable buffer makes this construction pass once.
-    let mut bytes = Vec::new();
-    codec()
-        .serialize_into(&mut bytes, value)
+    let header_at = file.stream_position().map_err(|e| e.to_string())?;
+    file.write_all(&[0; SECTION_HEADER_BYTES])
         .map_err(|e| e.to_string())?;
-    let serialize_ns = started.elapsed().as_nanos() as u64;
-    if bytes.len() as u64 > MAX_SECTION_BYTES {
-        return Err("snapshot section too large".into());
+    let header_write_ns = started.elapsed().as_nanos() as u64;
+    let mut writer = SectionWriter {
+        inner: file,
+        checksum: Sha256::new(),
+        len: 0,
+        checksum_ns: 0,
+        write_ns: 0,
+    };
+    {
+        // Buffer small bincode writes while hashing and bounding the payload.
+        let mut buffered = BufWriter::with_capacity(64 * 1024, &mut writer);
+        codec()
+            .serialize_into(&mut buffered, value)
+            .map_err(|e| e.to_string())?;
+        buffered.flush().map_err(|e| e.to_string())?;
     }
+    let serialize_total_ns = started.elapsed().as_nanos() as u64;
+    let checksum_ns = writer.checksum_ns;
+    let mut write_ns = writer.write_ns.saturating_add(header_write_ns);
+    let payload_bytes = writer.len;
+    let checksum = writer.checksum.finalize();
+    let file = writer.inner;
+    let end_at = file.stream_position().map_err(|e| e.to_string())?;
     let started = Instant::now();
-    let checksum = Sha256::digest(&bytes);
-    let checksum_ns = started.elapsed().as_nanos() as u64;
-    let started = Instant::now();
+    file.seek(SeekFrom::Start(header_at))
+        .map_err(|e| e.to_string())?;
     file.write_all(&id.to_le_bytes())
         .map_err(|e| e.to_string())?;
-    file.write_all(&(bytes.len() as u64).to_le_bytes())
+    file.write_all(&payload_bytes.to_le_bytes())
         .map_err(|e| e.to_string())?;
     file.write_all(&checksum).map_err(|e| e.to_string())?;
-    file.write_all(&bytes).map_err(|e| e.to_string())?;
+    file.seek(SeekFrom::Start(end_at))
+        .map_err(|e| e.to_string())?;
+    write_ns = write_ns.saturating_add(started.elapsed().as_nanos() as u64);
     Ok(SnapshotSectionSaveStats {
         id,
-        serialize_ns,
+        serialize_ns: serialize_total_ns.saturating_sub(checksum_ns.saturating_add(write_ns)),
         checksum_ns,
-        write_ns: started.elapsed().as_nanos() as u64,
-        payload_bytes: bytes.len() as u64,
+        write_ns,
+        payload_bytes,
     })
 }
 
 fn read_section<T: for<'de> Deserialize<'de>>(
-    file: &mut impl Read,
+    file: &mut (impl Read + Seek),
     expected_id: u32,
 ) -> Result<T, SnapshotLoadError> {
     let mut id = [0; 4];
@@ -759,16 +823,33 @@ fn read_section<T: for<'de> Deserialize<'de>>(
     if len > MAX_SECTION_BYTES {
         return Err("snapshot section too large".into());
     }
-    let mut bytes = vec![0; len as usize];
-    file.read_exact(&mut bytes)
-        .map_err(|e| snapshot_read_error("snapshot section", e))?;
-    if Sha256::digest(&bytes).as_slice() != checksum {
+    let payload_at = file
+        .stream_position()
+        .map_err(|e| snapshot_read_error("snapshot section position", e))?;
+    let mut hash = Sha256::new();
+    let mut remaining = len;
+    let mut buffer = [0; 64 * 1024];
+    while remaining > 0 {
+        let chunk = remaining.min(buffer.len() as u64) as usize;
+        file.read_exact(&mut buffer[..chunk])
+            .map_err(|e| snapshot_read_error("snapshot section", e))?;
+        hash.update(&buffer[..chunk]);
+        remaining -= chunk as u64;
+    }
+    if hash.finalize().as_slice() != checksum {
         return Err("snapshot checksum mismatch".into());
     }
-    codec()
+    file.seek(SeekFrom::Start(payload_at))
+        .map_err(|e| snapshot_read_error("snapshot section position", e))?;
+    let mut payload = BufReader::with_capacity(64 * 1024, file.take(len));
+    let decoded = codec()
         .with_limit(len)
-        .deserialize(&bytes)
-        .map_err(|e| SnapshotLoadError::Invalid(format!("invalid snapshot section: {e}")))
+        .deserialize_from(&mut payload)
+        .map_err(|e| SnapshotLoadError::Invalid(format!("invalid snapshot section: {e}")))?;
+    if !payload.buffer().is_empty() || payload.get_ref().limit() != 0 {
+        return Err("snapshot section has trailing bytes".into());
+    }
+    Ok(decoded)
 }
 
 

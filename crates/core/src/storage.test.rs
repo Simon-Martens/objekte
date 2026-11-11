@@ -48,6 +48,91 @@ fn one_pass_section_encoding_matches_the_existing_codec_bytes() {
     assert_eq!(&section[44..], expected);
 }
 
+#[test]
+#[ignore = "writes a 513 MiB section to disk"]
+fn snapshot_section_can_exceed_the_old_512_mib_limit() {
+    use serde::de::{SeqAccess, Visitor};
+    use serde::ser::SerializeSeq;
+
+
+    struct ByteChunk<'a>(&'a [u8]);
+
+
+    impl Serialize for ByteChunk<'_> {
+        fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+            serializer.serialize_bytes(self.0)
+        }
+    }
+
+
+    struct RepeatedChunks;
+
+
+    impl Serialize for RepeatedChunks {
+        fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+            let chunk = vec![42; 1024 * 1024];
+            let mut sequence = serializer.serialize_seq(Some(513))?;
+            for _ in 0..513 {
+                sequence.serialize_element(&ByteChunk(&chunk))?;
+            }
+            sequence.end()
+        }
+    }
+
+    struct ChunkCount(usize);
+
+
+    impl<'de> Deserialize<'de> for ChunkCount {
+        fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+            struct ChunkVisitor;
+
+            impl<'de> Visitor<'de> for ChunkVisitor {
+                type Value = ChunkCount;
+
+                fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
+                    formatter.write_str("a sequence of byte chunks")
+                }
+
+                fn visit_seq<A: SeqAccess<'de>>(
+                    self,
+                    mut sequence: A,
+                ) -> Result<Self::Value, A::Error> {
+                    let mut count = 0;
+                    while let Some(chunk) = sequence.next_element::<Vec<u8>>()? {
+                        if chunk.len() != 1024 * 1024 || chunk[0] != 42 {
+                            return Err(serde::de::Error::custom("invalid snapshot chunk"));
+                        }
+                        count += 1;
+                    }
+                    Ok(ChunkCount(count))
+                }
+            }
+
+            deserializer.deserialize_seq(ChunkVisitor)
+        }
+    }
+
+
+    let path = std::env::temp_dir().join(format!(
+        "objekte-large-snapshot-section-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::SystemTime::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    let mut file = File::create(&path).unwrap();
+    let section = write_section_measured(&mut file, 7, &RepeatedChunks).unwrap();
+    assert!(section.payload_bytes > 512 * 1024 * 1024);
+    assert_eq!(file.metadata().unwrap().len(), section.payload_bytes + 44);
+    drop(file);
+    let mut file = File::open(&path).unwrap();
+    let chunks: ChunkCount = read_section(&mut file, 7).unwrap();
+    assert_eq!(chunks.0, 513);
+    drop(file);
+    fs::remove_file(path).unwrap();
+}
+
 fn lifecycle_fixture() -> (
     PathBuf,
     CollectionDefinition,
