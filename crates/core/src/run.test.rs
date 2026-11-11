@@ -6,6 +6,137 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
+fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
+    use crate::lifecycle::Index;
+    use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+
+    let records = [
+        r#"{"text":"before\u2139after","name":"Ada"}"#,
+        r#"{"text":"New","extra":"York","name":"Ada"}"#,
+        r#"{"text":"before\u2139after","name":null}"#,
+        r#"{"text":"old","text":"before\u2139after","name":"Ada"}"#,
+        r#"{"text":"before\u2139after","name":"Ada","name":"Bob"}"#,
+    ];
+    for format in [
+        SourceFormat::Json,
+        SourceFormat::JsonDecodedScalars,
+        SourceFormat::JsonLines,
+    ] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-borrowed-source-{}-{}-{}",
+            format.id(),
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos(),
+        ));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        if format == SourceFormat::JsonLines {
+            std::fs::write(root.join("data/all.jsonl"), records.join("\n")).unwrap();
+        } else {
+            for (index, record) in records.iter().enumerate() {
+                std::fs::write(root.join(format!("data/{index}.json")), record).unwrap();
+            }
+        }
+        let definition = CollectionDefinition::folder("data", "data", format.clone());
+        let index = Index::build(
+            &root,
+            vec![definition],
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                query_workers: 1,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        let view = index.view().unwrap();
+        let mut query = Query {
+            collections: vec!["data".into()],
+            fts: Some(FtsQuery {
+                pattern_parameter: None,
+                mode: FtsMode::Literal,
+                case_sensitivity: CaseSensitivity::Sensitive,
+                literal: "beforeℹafter".into(),
+                fields: vec![],
+            }),
+            filter: Some(parse_filter("name ~ 'A%a'").unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 2,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        for mode in [ReturnMode::Locator, ReturnMode::Bytes, ReturnMode::Logical] {
+            for evidence in [false, true] {
+                query.options.return_mode = mode.clone();
+                query.options.evidence = evidence;
+                let direct_before = crate::json_scalar_text::borrowed_scan_calls();
+                let actual = view.search(&query).unwrap();
+                if mode == ReturnMode::Locator && !evidence {
+                    assert!(crate::json_scalar_text::borrowed_scan_calls() > direct_before);
+                }
+                let expected = view.search_reference(&query).unwrap();
+                assert_eq!(
+                    actual.count,
+                    expected.count,
+                    "{} {mode:?} {evidence}",
+                    format.id()
+                );
+                assert_eq!(
+                    actual.hits,
+                    expected.hits,
+                    "{} {mode:?} {evidence}",
+                    format.id()
+                );
+                assert_eq!(actual.count, Some(2));
+            }
+        }
+        query.filter = Some(parse_filter("name = 'Ada'").unwrap());
+        query.options.return_mode = ReturnMode::Logical;
+        query.options.evidence = true;
+        let collector_bytes_before = crate::source::owned_collector_copied_bytes();
+        let value_owned = view.search(&query).unwrap();
+        if format == SourceFormat::Json || format == SourceFormat::JsonLines {
+            assert_eq!(
+                crate::source::owned_collector_copied_bytes(),
+                collector_bytes_before,
+                "query-time Value strings must not be cloned into text segments"
+            );
+        }
+        assert_eq!(value_owned.count, Some(2));
+        assert_eq!(
+            value_owned.hits,
+            view.search_reference(&query).unwrap().hits
+        );
+        query.filter = None;
+        query.fts.as_mut().unwrap().literal = "old".into();
+        query.options.return_mode = ReturnMode::Locator;
+        let unscoped = view.search(&query).unwrap();
+        assert_eq!(
+            unscoped.count,
+            Some(usize::from(format == SourceFormat::JsonDecodedScalars)),
+            "{}",
+            format.id()
+        );
+        query.fts.as_mut().unwrap().fields = vec![FtsField {
+            path: FieldPath::parse("text").unwrap(),
+            query_path: None,
+            binding: None,
+        }];
+        let scoped = view.search(&query).unwrap();
+        assert_eq!(scoped.count, Some(0), "{}", format.id());
+        assert_eq!(scoped.hits, view.search_reference(&query).unwrap().hits);
+        index.shutdown().unwrap();
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
 fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};

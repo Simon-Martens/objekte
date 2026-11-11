@@ -1,10 +1,38 @@
 //! Scalar text and projected logical values from JSON, retaining lexical number tokens.
 
+use std::borrow::Cow;
+use std::cell::RefCell;
 use std::collections::{BTreeMap, HashSet};
 use std::ops::Range;
 
+use smallvec::SmallVec;
+
 use crate::model::{ArrayValue, Number, Value};
+use crate::query::Quantifier;
+use crate::reference::{
+    BoundFts, BoundTerm, match_borrowed_source_filter, match_borrowed_source_segment,
+};
 use crate::source::{ScanProjection, TextSegment};
+
+#[cfg(test)]
+thread_local! {
+    static OWNED_VALUE_VISITS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static OWNED_SEGMENT_PUSHES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static OWNED_SEGMENT_TEXT_BYTES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn owned_query_construction_counts() -> (usize, usize) {
+    (
+        OWNED_VALUE_VISITS.with(std::cell::Cell::get),
+        OWNED_SEGMENT_PUSHES.with(std::cell::Cell::get),
+    )
+}
+
+#[cfg(test)]
+pub(crate) fn owned_segment_text_bytes() -> usize {
+    OWNED_SEGMENT_TEXT_BYTES.with(std::cell::Cell::get)
+}
 
 /// JSON permits exactly these four bytes between tokens.
 fn json_whitespace(byte: u8) -> bool {
@@ -94,6 +122,11 @@ impl ScalarWalker<'_> {
         if !self.collect_text {
             return None;
         }
+
+        #[cfg(test)]
+        OWNED_SEGMENT_PUSHES.with(|count| count.set(count.get() + 1));
+        #[cfg(test)]
+        OWNED_SEGMENT_TEXT_BYTES.with(|count| count.set(count.get() + text.len()));
         let index = self.segments.len();
         self.segments.push(Some(TextSegment {
             path: if self.paths {
@@ -168,6 +201,8 @@ impl ScalarWalker<'_> {
         retain: bool,
         selected_top: Option<&HashSet<String>>,
     ) -> Result<Option<Value>, String> {
+        #[cfg(test)]
+        OWNED_VALUE_VISITS.with(|count| count.set(count.get() + 1));
         // serde_json rejects the 128th nested container. The root is depth 0.
         if depth >= 128 {
             return Err("JSON recursion limit exceeded (resource limit)".into());
@@ -401,6 +436,516 @@ impl ScalarWalker<'_> {
     }
 }
 
+
+const MAX_SCAN_SCRATCH_CAPACITY: usize = 256 * 1024;
+
+
+/// Reusable decoded text and provisional decisions owned by one scan worker.
+#[derive(Default)]
+pub(crate) struct BorrowedScanScratch {
+    decoded_text: String,
+    events: Vec<BorrowedEvent>,
+}
+
+
+impl BorrowedScanScratch {
+    fn trim(&mut self) {
+        self.decoded_text.clear();
+        self.events.clear();
+        if self.decoded_text.capacity() > MAX_SCAN_SCRATCH_CAPACITY {
+            self.decoded_text = String::new();
+        }
+        if self
+            .events
+            .capacity()
+            .saturating_mul(std::mem::size_of::<BorrowedEvent>())
+            > MAX_SCAN_SCRATCH_CAPACITY
+        {
+            self.events = Vec::new();
+        }
+    }
+}
+
+
+/// One scalar's provisional match state before object duplicates are resolved.
+#[derive(Default)]
+struct BorrowedEvent {
+    visible: bool,
+    fts_hit: bool,
+    filter_selected: bool,
+    filter_hit: bool,
+    evidence: Vec<String>,
+}
+
+
+/// Result of matching borrowed source segments in one trusted record.
+pub(crate) struct BorrowedScanResult {
+    pub(crate) fts_match: bool,
+    pub(crate) filter_match: bool,
+    pub(crate) evidence: HashSet<String>,
+}
+
+
+/// Query bindings supported by the direct source consumer.
+pub(crate) struct BorrowedScanQuery<'a> {
+    pub(crate) fts: Option<&'a BoundFts>,
+    pub(crate) filter: Option<&'a BoundTerm>,
+    pub(crate) decoded_scalars: bool,
+    pub(crate) retain_evidence: bool,
+}
+
+
+fn decode_hex_digit(byte: u8) -> Result<u32, String> {
+    (byte as char)
+        .to_digit(16)
+        .ok_or_else(|| "invalid JSON Unicode escape".into())
+}
+
+fn decode_hex_quad(bytes: &[u8], at: usize) -> Result<u32, String> {
+    let token = bytes.get(at..at + 4).ok_or("short JSON Unicode escape")?;
+    token.iter().try_fold(0u32, |value, byte| {
+        Ok((value << 4) | decode_hex_digit(*byte)?)
+    })
+}
+
+/// Decode one quoted token into reusable storage, preserving complete scalars.
+fn with_quoted_text<R>(
+    bytes: &[u8],
+    token: Range<usize>,
+    decoded: &mut String,
+    inspect: impl FnOnce(&str) -> Result<R, String>,
+) -> Result<R, String> {
+    let (end, result) = with_next_quoted_text(bytes, token.start, decoded, inspect)?;
+    (end == token.end)
+        .then_some(result)
+        .ok_or_else(|| "invalid JSON string range".into())
+}
+
+/// Locate and decode one source string in one pass, without moving scratch.
+fn with_next_quoted_text<R>(
+    bytes: &[u8],
+    start: usize,
+    decoded: &mut String,
+    inspect: impl FnOnce(&str) -> Result<R, String>,
+) -> Result<(usize, R), String> {
+    if bytes.get(start) != Some(&b'"') {
+        return Err("expected JSON string".into());
+    }
+    let mut cursor = start + 1;
+    let first = memchr::memchr2(b'"', b'\\', &bytes[cursor..])
+        .map(|offset| cursor + offset)
+        .ok_or("unterminated JSON string")?;
+    if bytes[first] == b'"' {
+        let text = std::str::from_utf8(&bytes[cursor..first]).map_err(|error| error.to_string())?;
+        return inspect(text).map(|result| (first + 1, result));
+    }
+    decoded.clear();
+    let mut literal_start = cursor;
+    let mut delimiter = first;
+    loop {
+        decoded.push_str(
+            std::str::from_utf8(&bytes[literal_start..delimiter])
+                .map_err(|error| error.to_string())?,
+        );
+        if bytes[delimiter] == b'"' {
+            return inspect(decoded).map(|result| (delimiter + 1, result));
+        }
+        cursor = delimiter + 1;
+        let escape = *bytes.get(cursor).ok_or("short JSON escape")?;
+        match escape {
+            b'"' => decoded.push('"'),
+            b'\\' => decoded.push('\\'),
+            b'/' => decoded.push('/'),
+            b'b' => decoded.push('\u{0008}'),
+            b'f' => decoded.push('\u{000c}'),
+            b'n' => decoded.push('\n'),
+            b'r' => decoded.push('\r'),
+            b't' => decoded.push('\t'),
+            b'u' => {
+                let first = decode_hex_quad(bytes, cursor + 1)?;
+                cursor += 4;
+                let scalar = if (0xD800..=0xDBFF).contains(&first) {
+                    if bytes.get(cursor + 1..cursor + 3) != Some(&b"\\u"[..]) {
+                        return Err("missing JSON low surrogate".into());
+                    }
+                    let second = decode_hex_quad(bytes, cursor + 3)?;
+                    if !(0xDC00..=0xDFFF).contains(&second) {
+                        return Err("invalid JSON low surrogate".into());
+                    }
+                    cursor += 6;
+                    0x10000 + ((first - 0xD800) << 10) + second - 0xDC00
+                } else {
+                    first
+                };
+                decoded.push(char::from_u32(scalar).ok_or("invalid JSON Unicode scalar")?);
+            }
+            _ => return Err("invalid JSON escape".into()),
+        }
+        cursor += 1;
+        literal_start = cursor;
+        delimiter = memchr::memchr2(b'"', b'\\', &bytes[cursor..])
+            .map(|offset| cursor + offset)
+            .ok_or("unterminated JSON string")?;
+    }
+}
+
+fn path_is(path: &[Cow<'_, str>], expected: &[String]) -> bool {
+    path.len() == expected.len()
+        && path
+            .iter()
+            .zip(expected)
+            .all(|(actual, expected)| actual.as_ref() == expected)
+}
+
+fn path_prefix(path: &[Cow<'_, str>], expected: &[String]) -> bool {
+    path.len() < expected.len()
+        && path
+            .iter()
+            .zip(expected)
+            .all(|(actual, expected)| actual.as_ref() == expected)
+}
+
+
+impl<'a> ScalarWalker<'a> {
+    #[allow(clippy::too_many_arguments)]
+    fn scan_borrowed_value(
+        &mut self,
+        depth: usize,
+        path: &mut SmallVec<[Cow<'a, str>; 8]>,
+        decoded: &mut String,
+        events: &mut Vec<BorrowedEvent>,
+        query: &BorrowedScanQuery<'_>,
+        suppress_filter: bool,
+        filter_element: bool,
+    ) -> Result<(), String> {
+        if depth >= 128 {
+            return Err("JSON recursion limit exceeded (resource limit)".into());
+        }
+        self.whitespace();
+        let selected_filter = filter_element
+            || (!suppress_filter
+                && query
+                    .filter
+                    .is_some_and(|term| path_is(path, &term.path.segments)));
+        match self.bytes.get(self.pos).copied() {
+            Some(b'"') => {
+                let fts_here = query.fts.filter(|fts| {
+                    fts.fields.is_empty()
+                        || fts
+                            .fields
+                            .iter()
+                            .any(|field| path_is(path, &field.path.segments))
+                });
+                if !selected_filter && fts_here.is_none() {
+                    self.quote_end()?;
+                    return Ok(());
+                }
+                let mut event = BorrowedEvent {
+                    visible: true,
+                    filter_selected: selected_filter,
+                    ..Default::default()
+                };
+                let (end, ()) = with_next_quoted_text(self.bytes, self.pos, decoded, |text| {
+                    if let Some(fts) = fts_here {
+                        event.fts_hit = match_borrowed_source_segment(
+                            fts,
+                            path,
+                            text,
+                            &mut event.evidence,
+                            query.retain_evidence,
+                        )?;
+                    }
+                    if selected_filter {
+                        event.filter_hit = match_borrowed_source_filter(
+                            query.filter.expect("selected filter"),
+                            text,
+                        );
+                    }
+                    Ok(())
+                })?;
+                self.pos = end;
+                events.push(event);
+            }
+            Some(b'{') => {
+                if selected_filter {
+                    events.push(BorrowedEvent {
+                        visible: true,
+                        filter_selected: true,
+                        ..Default::default()
+                    });
+                }
+                self.pos += 1;
+                self.whitespace();
+                let unscoped_value_fts =
+                    !query.decoded_scalars && query.fts.is_some_and(|fts| fts.fields.is_empty());
+                let resolve_here = unscoped_value_fts
+                    || (!suppress_filter
+                        && query
+                            .filter
+                            .is_some_and(|term| path_prefix(path, &term.path.segments)))
+                    || query.fts.is_some_and(|fts| {
+                        fts.fields
+                            .iter()
+                            .any(|field| path_prefix(path, &field.path.segments))
+                    });
+                let mut previous = resolve_here.then(BTreeMap::<String, Range<usize>>::new);
+                if self.bytes.get(self.pos) == Some(&b'}') {
+                    self.pos += 1;
+                    return Ok(());
+                }
+                loop {
+                    let key_start = self.quote_end()?;
+                    let key_end = self.pos;
+                    let key = if previous.is_some()
+                        || query.retain_evidence
+                        || query.filter.is_some()
+                        || query.fts.is_some_and(|fts| !fts.fields.is_empty())
+                    {
+                        if self.bytes[key_start + 1..key_end - 1].contains(&b'\\') {
+                            with_quoted_text(self.bytes, key_start..key_end, decoded, |name| {
+                                Ok(Cow::Owned(name.to_owned()))
+                            })?
+                        } else {
+                            Cow::Borrowed(
+                                std::str::from_utf8(&self.bytes[key_start + 1..key_end - 1])
+                                    .map_err(|error| error.to_string())?,
+                            )
+                        }
+                    } else {
+                        Cow::Borrowed("")
+                    };
+                    self.whitespace();
+                    if self.bytes.get(self.pos) != Some(&b':') {
+                        return Err("expected JSON member separator".into());
+                    }
+                    self.pos += 1;
+                    let start = events.len();
+                    path.push(key);
+                    self.scan_borrowed_value(
+                        depth + 1,
+                        path,
+                        decoded,
+                        events,
+                        query,
+                        suppress_filter || selected_filter,
+                        false,
+                    )?;
+                    let key = path.pop().expect("object key");
+                    let track_key = unscoped_value_fts
+                        || (!suppress_filter
+                            && query.filter.is_some_and(|term| {
+                                path_prefix(path, &term.path.segments)
+                                    && term.path.segments[path.len()] == key.as_ref()
+                            }))
+                        || query.fts.is_some_and(|fts| {
+                            fts.fields.iter().any(|field| {
+                                path_prefix(path, &field.path.segments)
+                                    && field.path.segments[path.len()] == key.as_ref()
+                            })
+                        });
+                    if let Some(previous) = &mut previous
+                        && track_key
+                        && let Some(range) = previous.insert(key.into_owned(), start..events.len())
+                    {
+                        for event in &mut events[range] {
+                            event.visible = false;
+                        }
+                    }
+                    self.whitespace();
+                    match self.bytes.get(self.pos) {
+                        Some(b',') => self.pos += 1,
+                        Some(b'}') => {
+                            self.pos += 1;
+                            break;
+                        }
+                        _ => return Err("expected JSON object terminator".into()),
+                    }
+                    self.whitespace();
+                }
+            }
+            Some(b'[') => {
+                let selected_multi_array = selected_filter
+                    && query.filter.is_some_and(|term| term.multi)
+                    && !filter_element;
+                if selected_filter && !selected_multi_array {
+                    events.push(BorrowedEvent {
+                        visible: true,
+                        filter_selected: true,
+                        ..Default::default()
+                    });
+                }
+                self.pos += 1;
+                self.whitespace();
+                if self.bytes.get(self.pos) == Some(&b']') {
+                    if selected_multi_array
+                        || (!suppress_filter
+                            && query.filter.is_some_and(|term| {
+                                term.multi && path_prefix(path, &term.path.segments)
+                            }))
+                    {
+                        events.push(BorrowedEvent {
+                            visible: true,
+                            filter_selected: true,
+                            filter_hit: query
+                                .filter
+                                .is_some_and(|term| term.quantifier != Quantifier::Any),
+                            ..Default::default()
+                        });
+                    }
+                    self.pos += 1;
+                    return Ok(());
+                }
+                loop {
+                    self.scan_borrowed_value(
+                        depth + 1,
+                        path,
+                        decoded,
+                        events,
+                        query,
+                        suppress_filter || selected_filter,
+                        selected_multi_array,
+                    )?;
+                    self.whitespace();
+                    match self.bytes.get(self.pos) {
+                        Some(b',') => self.pos += 1,
+                        Some(b']') => {
+                            self.pos += 1;
+                            break;
+                        }
+                        _ => return Err("expected JSON array terminator".into()),
+                    }
+                    self.whitespace();
+                }
+            }
+            Some(b'-' | b'0'..=b'9' | b't' | b'f' | b'n') => {
+                let start = self.pos;
+                while self.bytes.get(self.pos).is_some_and(|byte| {
+                    !json_whitespace(*byte) && !matches!(byte, b',' | b']' | b'}')
+                }) {
+                    self.pos += 1;
+                }
+                let token = std::str::from_utf8(&self.bytes[start..self.pos])
+                    .map_err(|error| error.to_string())?;
+                if selected_filter || (query.decoded_scalars && query.fts.is_some()) {
+                    let mut event = BorrowedEvent {
+                        visible: true,
+                        filter_selected: selected_filter,
+                        ..Default::default()
+                    };
+                    if query.decoded_scalars
+                        && let Some(fts) = query.fts
+                    {
+                        event.fts_hit = match_borrowed_source_segment(
+                            fts,
+                            path,
+                            token,
+                            &mut event.evidence,
+                            query.retain_evidence,
+                        )?;
+                    }
+                    events.push(event);
+                }
+            }
+            _ => return Err("expected JSON value".into()),
+        }
+        Ok(())
+    }
+}
+
+
+/// Scan source-owned scalar slices, decoding only escaped strings into worker scratch.
+pub(crate) fn scan_borrowed_segments(
+    bytes: &[u8],
+    query: &BorrowedScanQuery<'_>,
+    scratch: &mut BorrowedScanScratch,
+) -> Result<BorrowedScanResult, String> {
+    scratch.decoded_text.clear();
+    scratch.events.clear();
+    let mut walker = ScalarWalker {
+        bytes,
+        pos: 0,
+        path: Vec::new(),
+        segments: Vec::new(),
+        resolved_only: false,
+        paths: false,
+        collect_text: false,
+        validate: false,
+    };
+    let mut path = SmallVec::new();
+    walker.scan_borrowed_value(
+        0,
+        &mut path,
+        &mut scratch.decoded_text,
+        &mut scratch.events,
+        query,
+        false,
+        false,
+    )?;
+    let unscoped_decoded =
+        query.decoded_scalars && query.fts.is_some_and(|fts| fts.fields.is_empty());
+    let mut fts_match = query.fts.is_none();
+    let mut evidence = HashSet::new();
+    for event in &scratch.events {
+        if event.fts_hit && (event.visible || unscoped_decoded) {
+            fts_match = true;
+            evidence.extend(event.evidence.iter().cloned());
+        }
+    }
+    let filter_match = if let Some(term) = query.filter {
+        let mut selected = scratch
+            .events
+            .iter()
+            .filter(|event| event.visible && event.filter_selected);
+        if term.multi {
+            let first = selected.next();
+            if term.quantifier == Quantifier::Any {
+                first.is_some_and(|event| event.filter_hit)
+                    || selected.any(|event| event.filter_hit)
+            } else {
+                first.is_some_and(|event| event.filter_hit)
+                    && selected.all(|event| event.filter_hit)
+            }
+        } else {
+            selected.next().is_some_and(|event| event.filter_hit)
+        }
+    } else {
+        true
+    };
+    scratch.events.clear();
+    Ok(BorrowedScanResult {
+        fts_match,
+        filter_match,
+        evidence,
+    })
+}
+
+thread_local! {
+    static BORROWED_SCAN_SCRATCH: RefCell<BorrowedScanScratch> =
+        RefCell::new(BorrowedScanScratch::default());
+}
+
+#[cfg(test)]
+static BORROWED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+
+#[cfg(test)]
+pub(crate) fn borrowed_scan_calls() -> usize {
+    BORROWED_SCAN_CALLS.load(std::sync::atomic::Ordering::Relaxed)
+}
+
+/// Preserve decoder and provisional-match capacities across a worker's files.
+pub(crate) fn scan_borrowed_segments_worker(
+    bytes: &[u8],
+    query: &BorrowedScanQuery<'_>,
+) -> Result<BorrowedScanResult, String> {
+    #[cfg(test)]
+    BORROWED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+    BORROWED_SCAN_SCRATCH.with(|scratch| {
+        let mut scratch = scratch.borrow_mut();
+        let result = scan_borrowed_segments(bytes, query, &mut scratch);
+        scratch.trim();
+        result
+    })
+}
 
 /// Parse one complete document once while retaining all scalar occurrences.
 /// Object fields still resolve to their last occurrence in the logical value.

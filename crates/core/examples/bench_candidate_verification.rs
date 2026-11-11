@@ -361,6 +361,24 @@ fn repository_search(
         }
     }
     let result = final_result.ok_or("no search samples")?;
+    ALLOCATION_COUNT.store(0, Ordering::Relaxed);
+    ALLOCATED_BYTES.store(0, Ordering::Relaxed);
+    COUNTING_ENABLED.store(true, Ordering::Relaxed);
+    let instrumented_result = repo.search(query);
+    COUNTING_ENABLED.store(false, Ordering::Relaxed);
+    let instrumented_result = instrumented_result?;
+    if instrumented_result.count != result.count
+        || digest(
+            instrumented_result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str()),
+        ) != digest(result.hits.iter().map(|hit| hit.record_id.as_str()))
+    {
+        return Err(format!("{}: allocation pass changed membership", case.id));
+    }
+    let allocations = ALLOCATION_COUNT.load(Ordering::Relaxed);
+    let allocated_bytes = ALLOCATED_BYTES.load(Ordering::Relaxed);
     let min = *times.iter().min().ok_or("no search samples")?;
     let max = *times.iter().max().ok_or("no search samples")?;
     let median = median(&mut times);
@@ -377,7 +395,101 @@ fn repository_search(
         "min_ns": min,
         "median_ns": median,
         "max_ns": max,
+        "allocations": allocations,
+        "allocated_bytes": allocated_bytes,
     }))
+}
+
+fn borrowed_verification_cases(limit: usize) -> Result<Vec<(Case, Query)>, String> {
+    let descriptions = [
+        (
+            "value_identity",
+            Some("good"),
+            false,
+            Some("helpful_vote > 3 && rating = 5"),
+            None,
+            ReturnMode::Locator,
+        ),
+        (
+            "value_folded",
+            Some("GOOD"),
+            true,
+            Some("helpful_vote > 3 && rating = 5"),
+            None,
+            ReturnMode::Locator,
+        ),
+        (
+            "source_identity",
+            Some("good"),
+            false,
+            None,
+            None,
+            ReturnMode::Locator,
+        ),
+        (
+            "source_folded",
+            Some("GOOD"),
+            true,
+            None,
+            None,
+            ReturnMode::Locator,
+        ),
+        (
+            "source_filter",
+            None,
+            false,
+            Some("text ~ 'good'"),
+            None,
+            ReturnMode::Locator,
+        ),
+        (
+            "source_combined",
+            Some("good"),
+            false,
+            Some("text ~ 'good'"),
+            None,
+            ReturnMode::Locator,
+        ),
+        (
+            "scoped_duplicates",
+            Some("good"),
+            false,
+            None,
+            Some("text"),
+            ReturnMode::Locator,
+        ),
+        (
+            "high_hit_logical",
+            Some("good"),
+            false,
+            None,
+            None,
+            ReturnMode::Logical,
+        ),
+    ];
+    descriptions
+        .into_iter()
+        .map(|(id, fts, insensitive, filter, field, mode)| {
+            let case = Case {
+                id,
+                fts,
+                fts_case_insensitive: insensitive,
+                filter,
+                projection: ScanProjection::full(true),
+            };
+            let mut query = case.query(limit)?;
+            if let Some(field) = field {
+                query.fts.as_mut().expect("field requires FTS").fields =
+                    vec![objekte_search_core::query::FtsField {
+                        path: objekte_search_core::model::FieldPath::parse(field)?,
+                        query_path: None,
+                        binding: None,
+                    }];
+            }
+            query.options.return_mode = mode;
+            Ok((case, query))
+        })
+        .collect()
 }
 
 fn write_oracle(
@@ -457,6 +569,8 @@ fn run() -> Result<(), String> {
     let mut repetitions = 7usize;
     let mut workers = 4usize;
     let mut oracle_output = None;
+    let mut borrowed_focused = false;
+    let mut source_format = SourceFormat::JsonDecodedScalars;
     while let Some(argument) = args.next() {
         match argument.as_str() {
             "--root" => root = Some(PathBuf::from(args.next().ok_or("--root needs path")?)),
@@ -479,6 +593,14 @@ fn run() -> Result<(), String> {
                     args.next().ok_or("--oracle-output needs path")?,
                 ))
             }
+            "--borrowed-focused" => borrowed_focused = true,
+            "--format" => {
+                source_format = match args.next().as_deref() {
+                    Some("json") => SourceFormat::Json,
+                    Some("decoded") => SourceFormat::JsonDecodedScalars,
+                    _ => return Err("--format requires json or decoded".into()),
+                }
+            }
             other => return Err(format!("unknown argument: {other}")),
         }
     }
@@ -495,7 +617,7 @@ fn run() -> Result<(), String> {
         vec![CollectionDefinition::folder(
             "records",
             "data",
-            SourceFormat::JsonDecodedScalars,
+            source_format,
         )],
         RepositoryOptions {
             snapshot_mode: SnapshotMode::Disabled,
@@ -518,6 +640,12 @@ fn run() -> Result<(), String> {
             "verified_cache_bytes": 0,
         })
     );
+    if borrowed_focused {
+        for (case, query) in borrowed_verification_cases(records.len())? {
+            println!("{}", repository_search(&repo, &case, &query, repetitions)?);
+        }
+        return Ok(());
+    }
     let cases = cases();
     for case in &cases {
         let query = case.query(records.len())?;

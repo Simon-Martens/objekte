@@ -1,4 +1,317 @@
 use super::*;
+use crate::model::FieldPath;
+use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, parse_filter};
+use crate::reference::{BoundExpr, Schema, bind_filter, bind_fts};
+
+fn borrowed_scan(
+    bytes: &[u8],
+    literal: Option<&str>,
+    field: Option<&str>,
+    filter: Option<&str>,
+    decoded_scalars: bool,
+    scratch: &mut BorrowedScanScratch,
+) -> BorrowedScanResult {
+    let schema = Schema::default();
+    let fts = literal.map(|literal| {
+        bind_fts(
+            &FtsQuery {
+                case_sensitivity: CaseSensitivity::Sensitive,
+                mode: FtsMode::Literal,
+                literal: literal.into(),
+                pattern_parameter: None,
+                fields: field
+                    .map(|field| FtsField {
+                        path: FieldPath::parse(field).unwrap(),
+                        query_path: None,
+                        binding: None,
+                    })
+                    .into_iter()
+                    .collect(),
+            },
+            &schema,
+        )
+        .unwrap()
+    });
+    let filter = filter.map(|filter| bind_filter(&parse_filter(filter).unwrap(), &schema).unwrap());
+    let filter = filter.as_ref().map(|bound| {
+        let BoundExpr::Term(term) = bound else {
+            panic!("one filter term")
+        };
+        term
+    });
+    scan_borrowed_segments(
+        bytes,
+        &BorrowedScanQuery {
+            fts: fts.as_ref(),
+            filter,
+            decoded_scalars,
+            retain_evidence: true,
+        },
+        scratch,
+    )
+    .unwrap()
+}
+
+#[test]
+fn borrowed_source_segments_preserve_boundaries_and_duplicate_visibility() {
+    let mut scratch = BorrowedScanScratch::default();
+    let cases: &[(&[u8], &str, Option<&str>, bool)] = &[
+        (
+            br#"{"text":"before\u2139after"}"#,
+            "beforeℹafter",
+            None,
+            true,
+        ),
+        (br#"{"a":"New","b":"York"}"#, "New York", None, false),
+        (
+            br#"{"a":["local history","archives"]}"#,
+            "history archives",
+            None,
+            false,
+        ),
+        (br#"{"a":"old","a":"new"}"#, "old", None, true),
+        (br#"{"a":"old","a":"new"}"#, "old", Some("a"), false),
+        (br#"{"a":"old","a":null}"#, "old", Some("a"), false),
+        (br#"{"a":{"b":"old"},"a":{}}"#, "old", Some("a.b"), false),
+        (br#"{"a":"new","a":"old"}"#, "old", Some("a"), true),
+        (br#"{"\u0061":"old","a":"new"}"#, "old", Some("a"), false),
+        (br#"{"n":1e0}"#, "1e0", None, true),
+        (
+            br#"{"a":["local history","archives"]}"#,
+            "history",
+            Some("a"),
+            true,
+        ),
+    ];
+    for (bytes, literal, field, expected) in cases {
+        let original = bytes.to_vec();
+        let result = borrowed_scan(bytes, Some(literal), *field, None, true, &mut scratch);
+        assert_eq!(result.fts_match, *expected, "{bytes:?} {literal} {field:?}");
+        assert_eq!(*bytes, original);
+    }
+    let long = format!(
+        "{{\"text\":\"{}needle{}\"}}",
+        "a".repeat(8192),
+        "b".repeat(8192)
+    );
+    assert!(
+        borrowed_scan(
+            long.as_bytes(),
+            Some("aneedleb"),
+            None,
+            None,
+            true,
+            &mut scratch
+        )
+        .fts_match
+    );
+}
+
+#[test]
+fn borrowed_source_filter_preserves_string_runtime_rules_and_wildcards() {
+    let mut scratch = BorrowedScanScratch::default();
+    for (bytes, filter, expected) in [
+        (br#"{"name":"axxb"}"#.as_slice(), "name ~ 'a%b'", true),
+        (br#"{"name":"a%b"}"#, "name ~ 'a\\%b'", true),
+        (br#"{"name":"axxb"}"#, "name ~ 'a\\%b'", false),
+        (br#"{"name":"a\u0025b"}"#, "name ~ 'a\\%b'", true),
+        (br#"{"name":"a\nb"}"#, "name ~ 'a%b'", true),
+        (br#"{"name":"old","name":"new"}"#, "name ~ 'old'", false),
+        (br#"{"name":"new","name":"old"}"#, "name ~ 'old'", true),
+        (br#"{"name":null}"#, "name !~ 'x'", false),
+        (br#"{"name":7}"#, "name !~ 'x'", false),
+        (br#"{"other":"x"}"#, "name !~ 'x'", false),
+        (br#"{"name":"ab"}"#, "name ~ ''", true),
+        (br#"{"name":["Ada","Ada"]}"#, "name ~ 'A%a'", true),
+        (br#"{"name":["Ada","Bob"]}"#, "name ~ 'A%a'", false),
+        (br#"{"name":[]}"#, "name ~ 'A%a'", true),
+        (br#"{"name":[]}"#, "name ?~ 'A%a'", false),
+        (br#"{"name":["Bob","Ada"]}"#, "name ?~ 'A%a'", true),
+    ] {
+        let result = borrowed_scan(bytes, None, None, Some(filter), true, &mut scratch);
+        assert_eq!(result.filter_match, expected, "{bytes:?} {filter}");
+    }
+}
+
+#[test]
+fn borrowed_source_evidence_excludes_overwritten_fields() {
+    let schema = Schema::default();
+    let fts = bind_fts(
+        &FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "old".into(),
+            pattern_parameter: None,
+            fields: vec![FtsField {
+                path: FieldPath::parse("name").unwrap(),
+                query_path: None,
+                binding: None,
+            }],
+        },
+        &schema,
+    )
+    .unwrap();
+    let mut scratch = BorrowedScanScratch::default();
+    let bytes = br#"{"name":"old","name":"new"}"#;
+    for retain_evidence in [false, true] {
+        let result = scan_borrowed_segments(
+            bytes,
+            &BorrowedScanQuery {
+                fts: Some(&fts),
+                filter: None,
+                decoded_scalars: true,
+                retain_evidence,
+            },
+            &mut scratch,
+        )
+        .unwrap();
+        assert!(!result.fts_match);
+        assert!(result.evidence.is_empty());
+    }
+    let result = scan_borrowed_segments(
+        br#"{"name":"new","name":"old"}"#,
+        &BorrowedScanQuery {
+            fts: Some(&fts),
+            filter: None,
+            decoded_scalars: true,
+            retain_evidence: true,
+        },
+        &mut scratch,
+    )
+    .unwrap();
+    assert!(result.fts_match);
+    assert!(result.evidence.contains("name"));
+}
+
+#[test]
+fn borrowed_decoder_uses_source_slice_or_reused_storage() {
+    let plain = "\"Straße\"".as_bytes();
+    let escaped = br#""before\u2139after\ud83d\ude80""#;
+    let mut decoded = String::new();
+    with_quoted_text(plain, 0..plain.len(), &mut decoded, |text| {
+        assert_eq!(text.as_ptr(), plain[1..].as_ptr());
+        assert_eq!(text, "Straße");
+        Ok(())
+    })
+    .unwrap();
+    assert_eq!(decoded.capacity(), 0);
+    with_quoted_text(escaped, 0..escaped.len(), &mut decoded, |text| {
+        assert_eq!(text, "beforeℹafter🚀");
+        Ok(())
+    })
+    .unwrap();
+    let capacity = decoded.capacity();
+    let pointer = decoded.as_ptr();
+    for token in [br#""\u0061""#.as_slice(), br#""\n""#, br#""\u00df""#] {
+        with_quoted_text(token, 0..token.len(), &mut decoded, |_| Ok(())).unwrap();
+        assert_eq!(decoded.as_ptr(), pointer);
+        assert_eq!(decoded.capacity(), capacity);
+    }
+}
+
+#[test]
+fn borrowed_source_matching_preserves_unicode_folded_representations() {
+    let schema = Schema::default();
+    let fts = bind_fts(
+        &FtsQuery {
+            case_sensitivity: CaseSensitivity::Insensitive,
+            mode: FtsMode::Literal,
+            literal: "STRASSE".into(),
+            pattern_parameter: None,
+            fields: vec![FtsField {
+                path: FieldPath::parse("name").unwrap(),
+                query_path: None,
+                binding: Some("lower".into()),
+            }],
+        },
+        &schema,
+    )
+    .unwrap();
+    let filter = bind_filter(&parse_filter("name:lower ~ 'str%se'").unwrap(), &schema).unwrap();
+    let BoundExpr::Term(filter) = &filter else {
+        panic!("one term")
+    };
+    let mut scratch = BorrowedScanScratch::default();
+    let result = scan_borrowed_segments(
+        "{\"name\":\"Straße\"}".as_bytes(),
+        &BorrowedScanQuery {
+            fts: Some(&fts),
+            filter: Some(filter),
+            decoded_scalars: true,
+            retain_evidence: true,
+        },
+        &mut scratch,
+    )
+    .unwrap();
+    assert!(result.fts_match);
+    assert!(result.filter_match);
+    assert!(result.evidence.contains("name"));
+}
+
+#[test]
+fn borrowed_source_worker_scratch_reuses_capacity_across_records() {
+    let schema = Schema::default();
+    let fts = bind_fts(
+        &FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "needle".into(),
+            pattern_parameter: None,
+            fields: vec![],
+        },
+        &schema,
+    )
+    .unwrap();
+    let query = BorrowedScanQuery {
+        fts: Some(&fts),
+        filter: None,
+        decoded_scalars: true,
+        retain_evidence: false,
+    };
+    let owned_before = owned_query_construction_counts();
+    let copied_before = owned_segment_text_bytes();
+    let long = format!("{{\"text\":\"{}\\u006e{}\"}}", "x".repeat(4096), "eedle");
+    assert!(
+        scan_borrowed_segments_worker(long.as_bytes(), &query)
+            .unwrap()
+            .fts_match
+    );
+    let (pointer, capacity) = BORROWED_SCAN_SCRATCH.with(|scratch| {
+        let scratch = scratch.borrow();
+        (
+            scratch.decoded_text.as_ptr(),
+            scratch.decoded_text.capacity(),
+        )
+    });
+    assert!(capacity >= 4096);
+    for bytes in [br#"{"text":"plain"}"#.as_slice(), br#"{"text":"\u006e"}"#] {
+        assert!(
+            !scan_borrowed_segments_worker(bytes, &query)
+                .unwrap()
+                .fts_match
+        );
+        BORROWED_SCAN_SCRATCH.with(|scratch| {
+            let scratch = scratch.borrow();
+            assert_eq!(scratch.decoded_text.as_ptr(), pointer);
+            assert_eq!(scratch.decoded_text.capacity(), capacity);
+        });
+    }
+    let exceptionally_long = format!(
+        "{{\"text\":\"{}\\u006e\"}}",
+        "x".repeat(MAX_SCAN_SCRATCH_CAPACITY + 1)
+    );
+    let _ = scan_borrowed_segments_worker(exceptionally_long.as_bytes(), &query).unwrap();
+    BORROWED_SCAN_SCRATCH.with(|scratch| {
+        let scratch = scratch.borrow();
+        assert!(scratch.decoded_text.capacity() <= MAX_SCAN_SCRATCH_CAPACITY);
+        assert!(
+            scratch.events.capacity() * std::mem::size_of::<BorrowedEvent>()
+                <= MAX_SCAN_SCRATCH_CAPACITY
+        );
+    });
+    assert_eq!(owned_query_construction_counts(), owned_before);
+    assert_eq!(owned_segment_text_bytes(), copied_before);
+}
 
 #[test]
 fn decoded_scalar_text_uses_values_not_names_or_container_syntax() {

@@ -20,11 +20,12 @@ use crate::executor::{
     segment_filter_bounds_with_catalog, segment_fts_candidates,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
+use crate::json_scalar_text::{BorrowedScanQuery, scan_borrowed_segments_worker};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
-use crate::model::{FieldPath, PathRoot, RecordId, RecordSlot, Value};
+use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, RecordSlot, Value};
 use crate::posting::PostingIndex;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
 use crate::record_preparation::{materialize, prepare_query_record_with_execution};
@@ -549,6 +550,106 @@ enum Residual<'a> {
 }
 
 
+/// Collection-plan eligibility for matching trusted built-in source scalars.
+#[derive(Clone, Copy)]
+struct DirectSourcePlan<'a> {
+    fts: Option<&'a BoundFts>,
+    filter: Option<(&'a BoundTerm, Option<&'a Proof>)>,
+    decoded_scalars: bool,
+}
+
+
+impl<'a> DirectSourcePlan<'a> {
+    fn prepare(
+        collection: &CollectionState,
+        sort: &ResolvedSort<'_>,
+        fts: Option<&'a BoundFts>,
+        residual: Option<&'a Residual<'a>>,
+    ) -> Option<Self> {
+        let filter = match residual {
+            None => None,
+            Some(Residual::Term(term, proof)) => Some((*term, *proof)),
+            Some(_) => return None,
+        };
+        Self::prepare_filter(collection, sort, fts, filter)
+    }
+
+    fn prepare_bound(
+        collection: &CollectionState,
+        sort: &ResolvedSort<'_>,
+        fts: Option<&'a BoundFts>,
+        filter: Option<&'a BoundExpr>,
+    ) -> Option<Self> {
+        let filter = match filter {
+            None => None,
+            Some(BoundExpr::Term(term)) => Some((term, None)),
+            Some(_) => return None,
+        };
+        Self::prepare_filter(collection, sort, fts, filter)
+    }
+
+    fn prepare_filter(
+        collection: &CollectionState,
+        sort: &ResolvedSort<'_>,
+        fts: Option<&'a BoundFts>,
+        filter: Option<(&'a BoundTerm, Option<&'a Proof>)>,
+    ) -> Option<Self> {
+        if sort.bound.has_computed || collection.source.is_extension() {
+            return None;
+        }
+        let decoded_scalars = match collection.source.id() {
+            "json_decoded_scalars" => true,
+            "json" | "jsonl" => false,
+            _ => return None,
+        };
+        if let Some(fts) = fts {
+            if !fts.mode.is_literal()
+                || fts.raw_operation.is_some()
+                || fts.raw_matcher.is_some()
+                || (!decoded_scalars && collection.definition.schema.has_converted_fields())
+                || fts.fields.iter().any(|field| {
+                    !matches!(field.path.root, PathRoot::Data)
+                        || field.related.is_some()
+                        || field.operation.is_some()
+                        || field.matcher.is_some()
+                        || field
+                            .query_path
+                            .as_ref()
+                            .is_some_and(|path| path.has_explicit_array_step)
+                })
+            {
+                return None;
+            }
+        }
+        let filter = match filter {
+            None => None,
+            Some((term, proof))
+                if matches!(term.path.root, PathRoot::Data)
+                    && term.related.is_none()
+                    && term.rhs.is_none()
+                    && !term.query_path.has_explicit_array_step
+                    && (!term.multi || term.source_kind == LogicalType::Unknown)
+                    && !term.implicit_array
+                    && matches!(term.source_kind, LogicalType::String | LogicalType::Unknown)
+                    && matches!(term.operator, Operator::Contains | Operator::NotContains)
+                    && term.derived == Derived::None
+                    && term.operation.is_none()
+                    && term.matcher.is_none()
+                    && term.prepared_contains.is_some() =>
+            {
+                Some((term, proof))
+            }
+            Some(_) => return None,
+        };
+        (fts.is_some() || filter.is_some()).then_some(Self {
+            fts,
+            filter,
+            decoded_scalars,
+        })
+    }
+}
+
+
 fn prepare_residual<'a>(
     expr: &'a BoundExpr,
     proofs: &'a [Proof],
@@ -868,6 +969,7 @@ fn scan_file(
     residual: Option<&Residual<'_>>,
     fts: Option<&BoundFts>,
     fts_proof: Option<&HashMap<u32, HashSet<String>>>,
+    direct_plan: Option<&DirectSourcePlan<'_>>,
     target_values: Option<&crate::relation_target_cache::TargetValueCache>,
     projection: &ScanProjection,
     retain_all_evidence: bool,
@@ -912,7 +1014,8 @@ fn scan_file(
     outcome.files_opened = u64::from(reader.is_some());
     // These built-in readers search the converted logical strings. Keep the
     // value, but avoid producing a second owned copy of every string and path.
-    let borrowed_value_text = matches!(collection.source.id(), "json" | "jsonl")
+    let borrowed_value_text = !collection.source.is_extension()
+        && matches!(collection.source.id(), "json" | "jsonl")
         && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()));
     let mut value_projection = projection.clone();
     if borrowed_value_text {
@@ -1016,12 +1119,17 @@ fn scan_file(
                 });
             let logical_projection =
                 query.options.return_mode == ReturnMode::Logical && may_reach_page;
+            let direct = direct_plan.filter(|_| {
+                record.class == RecordClass::Logical
+                    && query.options.return_mode != ReturnMode::Logical
+            });
             let record_projection = if logical_projection {
                 &full_projection
             } else {
                 &value_projection
             };
-            let decode = record.class == RecordClass::Logical
+            let decode = direct.is_none()
+                && record.class == RecordClass::Logical
                 && (logical_projection
                     || record_projection.collect_text
                     || record_projection
@@ -1056,7 +1164,29 @@ fn scan_file(
                 repository_root: &repo.files.root,
             };
             let mut evidence = HashSet::new();
-            let fts_match = if let Some(proof) = fts_proof {
+            let direct_result = if let Some(direct) = direct {
+                outcome.record_parses += 1;
+                let filter = direct.filter.and_then(|(term, proof)| {
+                    Residual::proven(proof, slot).is_none().then_some(term)
+                });
+                Some(scan_borrowed_segments_worker(
+                    &bytes,
+                    &BorrowedScanQuery {
+                        fts: direct.fts,
+                        filter,
+                        decoded_scalars: direct.decoded_scalars,
+                        retain_evidence: query.options.evidence,
+                    },
+                )?)
+            } else {
+                None
+            };
+            let fts_match = if let Some(result) = &direct_result {
+                if query.options.evidence {
+                    evidence.extend(result.evidence.iter().cloned());
+                }
+                result.fts_match
+            } else if let Some(proof) = fts_proof {
                 if let Some(fields) = proof.get(&slot) {
                     if query.options.evidence {
                         evidence.extend(fields.iter().cloned());
@@ -1134,7 +1264,30 @@ fn scan_file(
                 .transpose()?
                 .unwrap_or(true)
             };
-            let filter_match = if fts_match && record.class == RecordClass::RawFallback {
+            let filter_match = if fts_match && let Some(result) = &direct_result {
+                let direct = direct.expect("direct result has a plan");
+                let matched = if let Some((_, proof)) = direct.filter {
+                    if let Some(proven) = Residual::proven(proof, slot) {
+                        proven
+                    } else {
+                        outcome.residual_evaluations += 1;
+                        result.filter_match
+                    }
+                } else {
+                    true
+                };
+                if matched
+                    && query.options.evidence
+                    && ((retain_all_evidence && cache_budget.is_some_and(CacheBudget::complete))
+                        || may_reach_page
+                        || sort.bound.has_computed)
+                    && let Some((term, _)) = direct.filter
+                    && term.operator == Operator::Contains
+                {
+                    evidence.insert(term.query_path.display.clone());
+                }
+                matched
+            } else if fts_match && record.class == RecordClass::RawFallback {
                 residual
                     .map(|f| f.unavailable(&ctx, &mut evidence, &mut outcome.residual_evaluations))
                     .transpose()?
@@ -1253,7 +1406,22 @@ fn scan_file(
                             diagnostic_ref: record.diagnostic_ref,
                         })
                     } else {
-                        materialize(&query.options.return_mode, bytes, Some(extracted))?
+                        let payload_record = if direct.is_some()
+                            && query.options.return_mode == ReturnMode::Logical
+                        {
+                            prepare_query_record_with_execution(
+                                record.class,
+                                &collection.source,
+                                &collection.definition.schema,
+                                &bytes,
+                                &ScanProjection::full(false),
+                                true,
+                                execution,
+                            )?
+                        } else {
+                            extracted
+                        };
+                        materialize(&query.options.return_mode, bytes, Some(payload_record))?
                     };
                     let key = computed_key
                         .unwrap_or_else(|| rank_key(sort, repo, collection_index, record));
@@ -2797,7 +2965,129 @@ struct SegmentFileScan {
 }
 
 
+/// Verify one local segment candidate with the narrow source or value consumer.
+/// Relation and opaque binding requests stay on the established evaluator.
 #[allow(clippy::too_many_arguments)]
+fn verify_local_segment_record(
+    repo: &Repository,
+    collection: &CollectionState,
+    record: &RecordEntry,
+    file: &FileEntry,
+    bytes: &[u8],
+    filter: Option<&BoundExpr>,
+    fts: Option<&BoundFts>,
+    direct_plan: Option<&DirectSourcePlan<'_>>,
+    retain_evidence: bool,
+    execution: Option<&ExecutionContext>,
+) -> Result<(ExtractedRecord, bool, HashSet<String>, bool), String> {
+    if record.class == RecordClass::Logical
+        && let Some(direct) = direct_plan
+    {
+        let result = scan_borrowed_segments_worker(
+            bytes,
+            &BorrowedScanQuery {
+                fts: direct.fts,
+                filter: direct.filter.map(|(term, _)| term),
+                decoded_scalars: direct.decoded_scalars,
+                retain_evidence,
+            },
+        )?;
+        let matched = result.filter_match && result.fts_match;
+        let mut evidence = if matched && retain_evidence {
+            result.evidence
+        } else {
+            HashSet::new()
+        };
+        if matched
+            && retain_evidence
+            && let Some((term, _)) = direct.filter
+            && term.operator == Operator::Contains
+        {
+            evidence.insert(term.query_path.display.clone());
+        }
+        return Ok((
+            ExtractedRecord {
+                value: Value::Object(Default::default()),
+                text: Vec::new(),
+            },
+            matched,
+            evidence,
+            false,
+        ));
+    }
+    let borrowed_value_text = !collection.source.is_extension()
+        && matches!(collection.source.id(), "json" | "jsonl")
+        && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()));
+    let extracted = if record.class == RecordClass::Logical {
+        prepare_query_record_with_execution(
+            record.class,
+            &collection.source,
+            &collection.definition.schema,
+            bytes,
+            &ScanProjection::full(fts.is_some() && !borrowed_value_text),
+            false,
+            execution,
+        )?
+    } else {
+        ExtractedRecord {
+            value: Value::Object(Default::default()),
+            text: Vec::new(),
+        }
+    };
+    let ctx = RecordContext {
+        value: &extracted.value,
+        source_bytes: Some(bytes),
+        record,
+        file,
+        collection_name: &collection.definition.name,
+        repository_root: &repo.files.root,
+    };
+    let mut evidence = HashSet::new();
+    let filter_matches = if let Some(filter) = filter {
+        if record.class == RecordClass::RawFallback {
+            eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
+        } else {
+            let mut work = crate::relation_query::RelationWork::default();
+            crate::relation_query::eval_filter_truth(
+                repo,
+                filter,
+                &ctx,
+                &mut evidence,
+                crate::relation_query::EvaluationMode::Indexed,
+                &mut work,
+            )? == Some(true)
+        }
+    } else {
+        true
+    };
+    if !filter_matches {
+        return Ok((extracted, false, evidence, false));
+    }
+    let raw_checked =
+        record.class == RecordClass::RawFallback && fts.is_some_and(|fts| fts.fields.is_empty());
+    let fts_matches = if let Some(fts) = fts {
+        if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
+            let matched =
+                crate::reference::raw_fallback_contains(fts, &String::from_utf8_lossy(bytes));
+            if matched && retain_evidence {
+                evidence.insert("@record.raw_text".into());
+            }
+            matched
+        } else if borrowed_value_text && record.class == RecordClass::Logical {
+            crate::reference::eval_borrowed_value_fts(
+                fts,
+                &ctx,
+                retain_evidence.then_some(&mut evidence),
+            )?
+        } else {
+            eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence)?
+        }
+    } else {
+        true
+    };
+    Ok((extracted, fts_matches, evidence, raw_checked))
+}
+
 fn scan_segment_file_parallel(
     repo: &Repository,
     query: &Query,
@@ -2809,6 +3099,7 @@ fn scan_segment_file_parallel(
     revision: IndexRevision,
     filter: Option<&BoundExpr>,
     fts: Option<&BoundFts>,
+    direct_plan: Option<&DirectSourcePlan<'_>>,
     file_id: u32,
     ranges: &[(u32, ByteRange)],
     cap: usize,
@@ -2850,24 +3141,25 @@ fn scan_segment_file_parallel(
                 segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
                     .ok_or("active segment scan slot missing")?;
             let record = resolved.record;
-            let extracted = if record.class == RecordClass::Logical {
-                result.record_parses += 1;
-                prepare_query_record_with_execution(
-                    record.class,
-                    &collection.source,
-                    &collection.definition.schema,
-                    &bytes,
-                    &ScanProjection::full(fts.is_some()),
-                    false,
-                    None,
-                )?
-            } else {
-                ExtractedRecord {
-                    value: Value::Object(Default::default()),
-                    text: Vec::new(),
-                }
-            };
+            result.record_parses += u64::from(record.class == RecordClass::Logical);
+            result.residual_evaluations += u64::from(filter.is_some());
+            let (extracted, matched, evidence, raw_checked) = verify_local_segment_record(
+                repo,
+                collection,
+                record,
+                resolved.file,
+                &bytes,
+                filter,
+                fts,
+                direct_plan,
+                query.options.evidence,
+                None,
+            )?;
+            result.raw_text_verifications += u64::from(raw_checked);
             result.scanned_records += 1;
+            if !matched {
+                continue;
+            }
             let ctx = RecordContext {
                 value: &extracted.value,
                 source_bytes: Some(&bytes),
@@ -2876,48 +3168,6 @@ fn scan_segment_file_parallel(
                 collection_name: &collection.definition.name,
                 repository_root: &repo.files.root,
             };
-            let mut evidence = HashSet::new();
-            let filter_matches = if let Some(filter) = filter {
-                result.residual_evaluations += 1;
-                if record.class == RecordClass::RawFallback {
-                    eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
-                } else {
-                    let mut work = crate::relation_query::RelationWork::default();
-                    crate::relation_query::eval_filter_truth(
-                        repo,
-                        filter,
-                        &ctx,
-                        &mut evidence,
-                        crate::relation_query::EvaluationMode::Indexed,
-                        &mut work,
-                    )? == Some(true)
-                }
-            } else {
-                true
-            };
-            if !filter_matches {
-                continue;
-            }
-            let fts_matches = if let Some(fts) = fts {
-                if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
-                    result.raw_text_verifications += 1;
-                    let matched = crate::reference::raw_fallback_contains(
-                        fts,
-                        &String::from_utf8_lossy(&bytes),
-                    );
-                    if matched && query.options.evidence {
-                        evidence.insert("@record.raw_text".into());
-                    }
-                    matched
-                } else {
-                    crate::reference::eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence)?
-                }
-            } else {
-                true
-            };
-            if !fts_matches {
-                continue;
-            }
             result.matches += 1;
             let key = segment_rank_key(repo, sort, collection_index, segment, record, Some(&ctx))?;
             let hit = segment_locator_hit(
@@ -3399,6 +3649,8 @@ fn search_segmented_impl(
     let mut delta_opened = HashSet::new();
     for (collection_index, filter, fts) in prepared.collections {
         let collection = &repo.collections[collection_index];
+        let direct_plan =
+            DirectSourcePlan::prepare_bound(collection, &sort, fts.as_ref(), filter.as_ref());
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
             if let Some(context) = context {
                 context.check_string()?;
@@ -3640,6 +3892,7 @@ fn search_segmented_impl(
                                     revision,
                                     filter.as_ref(),
                                     fts.as_ref(),
+                                    direct_plan.as_ref(),
                                     *file_id,
                                     ranges,
                                     cap,
@@ -3713,24 +3966,26 @@ fn search_segmented_impl(
                         )?
                         .ok_or("active segment scan slot missing")?;
                         let record = resolved.record;
-                        let extracted = if record.class == RecordClass::Logical {
-                            counters.record_parses += 1;
-                            prepare_query_record_with_execution(
-                                record.class,
-                                &collection.source,
-                                &collection.definition.schema,
+                        counters.record_parses += u64::from(record.class == RecordClass::Logical);
+                        counters.residual_evaluations += u64::from(filter.is_some());
+                        let (extracted, matched, evidence, raw_checked) =
+                            verify_local_segment_record(
+                                repo,
+                                collection,
+                                record,
+                                resolved.file,
                                 &bytes,
-                                &ScanProjection::full(fts.is_some()),
-                                false,
+                                filter.as_ref(),
+                                fts.as_ref(),
+                                direct_plan.as_ref(),
+                                query.options.evidence,
                                 context,
-                            )?
-                        } else {
-                            ExtractedRecord {
-                                value: Value::Object(Default::default()),
-                                text: Vec::new(),
-                            }
-                        };
+                            )?;
+                        counters.raw_text_verifications += u64::from(raw_checked);
                         counters.scanned_records += 1;
+                        if !matched {
+                            continue;
+                        }
                         let ctx = RecordContext {
                             value: &extracted.value,
                             source_bytes: Some(&bytes),
@@ -3739,53 +3994,6 @@ fn search_segmented_impl(
                             collection_name: &collection.definition.name,
                             repository_root: &repo.files.root,
                         };
-                        let mut evidence = HashSet::new();
-                        let filter_matches = if let Some(filter) = filter.as_ref() {
-                            counters.residual_evaluations += 1;
-                            if record.class == RecordClass::RawFallback {
-                                eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
-                            } else {
-                                let mut work = crate::relation_query::RelationWork::default();
-                                crate::relation_query::eval_filter_truth(
-                                    repo,
-                                    filter,
-                                    &ctx,
-                                    &mut evidence,
-                                    crate::relation_query::EvaluationMode::Indexed,
-                                    &mut work,
-                                )? == Some(true)
-                            }
-                        } else {
-                            true
-                        };
-                        if !filter_matches {
-                            continue;
-                        }
-                        let fts_matches = if let Some(fts) = fts.as_ref() {
-                            if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
-                                counters.raw_text_verifications += 1;
-                                let matched = crate::reference::raw_fallback_contains(
-                                    fts,
-                                    &String::from_utf8_lossy(&bytes),
-                                );
-                                if matched && query.options.evidence {
-                                    evidence.insert("@record.raw_text".into());
-                                }
-                                matched
-                            } else {
-                                crate::reference::eval_bound_fts(
-                                    fts,
-                                    &extracted.text,
-                                    &ctx,
-                                    &mut evidence,
-                                )?
-                            }
-                        } else {
-                            true
-                        };
-                        if !fts_matches {
-                            continue;
-                        }
                         total += 1;
                         let key = segment_rank_key(
                             repo,
@@ -4297,12 +4505,17 @@ fn scan_direct_target_parallel(
             });
         }
     };
+    let borrow_value_text = !target_collection.source.is_extension()
+        && matches!(target_collection.source.id(), "json" | "jsonl")
+        && matches!(predicate, DirectRelationPredicate::Fts(_));
     let extracted = prepare_query_record_with_execution(
         resolved.record.class,
         &target_collection.source,
         &target_collection.definition.schema,
         &bytes,
-        &ScanProjection::full(matches!(predicate, DirectRelationPredicate::Fts(_))),
+        &ScanProjection::full(
+            matches!(predicate, DirectRelationPredicate::Fts(_)) && !borrow_value_text,
+        ),
         false,
         None,
     )?;
@@ -4317,7 +4530,11 @@ fn scan_direct_target_parallel(
     let matched = match predicate {
         DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
         DirectRelationPredicate::Fts(local) => {
-            eval_bound_fts(local, &extracted.text, &ctx, &mut HashSet::new())?
+            if borrow_value_text {
+                crate::reference::eval_borrowed_value_fts(local, &ctx, None)?
+            } else {
+                eval_bound_fts(local, &extracted.text, &ctx, &mut HashSet::new())?
+            }
         }
     };
     Ok(DirectTargetScan {
@@ -4622,12 +4839,17 @@ fn try_direct_relation_page(
                 counters.relation_target_reads += 1;
                 counters.relation_target_file_opens += 1;
                 counters.relation_bytes_read += bytes.len() as u64;
+                let borrow_value_text = !target_collection.source.is_extension()
+                    && matches!(target_collection.source.id(), "json" | "jsonl")
+                    && matches!(predicate, DirectRelationPredicate::Fts(_));
                 let extracted = prepare_query_record_with_execution(
                     resolved.record.class,
                     &target_collection.source,
                     &target_collection.definition.schema,
                     &bytes,
-                    &ScanProjection::full(matches!(predicate, DirectRelationPredicate::Fts(_))),
+                    &ScanProjection::full(
+                        matches!(predicate, DirectRelationPredicate::Fts(_)) && !borrow_value_text,
+                    ),
                     false,
                     context,
                 )?;
@@ -4642,7 +4864,11 @@ fn try_direct_relation_page(
                 match &predicate {
                     DirectRelationPredicate::Term(term) => eval_term(term, &ctx)?,
                     DirectRelationPredicate::Fts(local) => {
-                        eval_bound_fts(local, &extracted.text, &ctx, &mut HashSet::new())?
+                        if borrow_value_text {
+                            crate::reference::eval_borrowed_value_fts(local, &ctx, None)?
+                        } else {
+                            eval_bound_fts(local, &extracted.text, &ctx, &mut HashSet::new())?
+                        }
                     }
                 }
             };
@@ -4975,13 +5201,19 @@ fn scan_relation_file_parallel(
         .1;
     scan.counters.candidates += 1;
     let record = resolved.record;
+    let borrowed_value_text = !resolved.collection.source.is_extension()
+        && matches!(resolved.collection.source.id(), "json" | "jsonl")
+        && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()));
     let extracted = if record.class == RecordClass::Logical {
+        let mut projection = ScanProjection::full(fts.is_some() && !borrowed_value_text);
+        projection.resolved_text_only =
+            projection.collect_text && fts.is_some_and(|fts| !fts.fields.is_empty());
         prepare_query_record_with_execution(
             record.class,
             &resolved.collection.source,
             &resolved.collection.definition.schema,
             &bytes,
-            &ScanProjection::full(fts.is_some()),
+            &projection,
             false,
             None,
         )?
@@ -5026,6 +5258,12 @@ fn scan_relation_file_parallel(
                     evidence.insert("@record.raw_text".into());
                 }
                 matched
+            } else if borrowed_value_text && record.class == RecordClass::Logical {
+                crate::reference::eval_borrowed_value_fts(
+                    fts,
+                    &ctx,
+                    query.options.evidence.then_some(&mut evidence),
+                )?
             } else {
                 crate::relation_query::eval_fts_with_relations_merged(
                     &view,
@@ -5399,6 +5637,14 @@ fn search_segmented_relations(
     for (collection_index, filter, fts) in prepared {
         let collection_index = *collection_index;
         let collection_id = repo.collections[collection_index].generation.collection;
+        let collection_plan = &repo.collections[collection_index];
+        let direct_plan =
+            DirectSourcePlan::prepare_bound(collection_plan, sort, fts.as_ref(), filter.as_ref());
+        let borrowed_value_text = !collection_plan.source.is_extension()
+            && matches!(collection_plan.source.id(), "json" | "jsonl")
+            && fts
+                .as_ref()
+                .is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()));
         let mut process = |address: crate::relation_query::MergedRecordSlot,
                            bytes: Vec<u8>,
                            opened_source: bool|
@@ -5412,13 +5658,34 @@ fn search_segmented_relations(
             };
             counters.candidates += 1;
             let record = resolved.record;
-            let extracted = if record.class == RecordClass::Logical {
+            let direct_result = if record.class == RecordClass::Logical {
+                direct_plan
+                    .as_ref()
+                    .map(|direct| {
+                        scan_borrowed_segments_worker(
+                            &bytes,
+                            &BorrowedScanQuery {
+                                fts: direct.fts,
+                                filter: direct.filter.map(|(term, _)| term),
+                                decoded_scalars: direct.decoded_scalars,
+                                retain_evidence: query.options.evidence,
+                            },
+                        )
+                    })
+                    .transpose()?
+            } else {
+                None
+            };
+            let extracted = if record.class == RecordClass::Logical && direct_result.is_none() {
+                let mut projection = ScanProjection::full(fts.is_some() && !borrowed_value_text);
+                projection.resolved_text_only = projection.collect_text
+                    && fts.as_ref().is_some_and(|fts| !fts.fields.is_empty());
                 prepare_query_record_with_execution(
                     record.class,
                     &resolved.collection.source,
                     &resolved.collection.definition.schema,
                     &bytes,
-                    &ScanProjection::full(fts.is_some()),
+                    &projection,
                     false,
                     context,
                 )?
@@ -5439,7 +5706,9 @@ fn search_segmented_relations(
             let mut evidence = HashSet::new();
             let mut relation_work = crate::relation_query::RelationWork::default();
             relation_work.attach(context);
-            let filter_matches = if let Some(filter) = filter.as_ref() {
+            let filter_matches = if let Some(result) = &direct_result {
+                result.filter_match
+            } else if let Some(filter) = filter.as_ref() {
                 if record.class == RecordClass::RawFallback {
                     eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
                 } else {
@@ -5456,7 +5725,20 @@ fn search_segmented_relations(
                 true
             };
             let fts_matches = if filter_matches {
-                if let Some(fts) = fts.as_ref() {
+                if let Some(result) = &direct_result {
+                    if query.options.evidence {
+                        evidence.extend(result.evidence.iter().cloned());
+                        if result.filter_match
+                            && result.fts_match
+                            && let Some((term, _)) =
+                                direct_plan.as_ref().and_then(|plan| plan.filter)
+                            && term.operator == Operator::Contains
+                        {
+                            evidence.insert(term.query_path.display.clone());
+                        }
+                    }
+                    result.fts_match
+                } else if let Some(fts) = fts.as_ref() {
                     if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
                         let matched = crate::reference::raw_fallback_contains(
                             fts,
@@ -5466,6 +5748,12 @@ fn search_segmented_relations(
                             evidence.insert("@record.raw_text".into());
                         }
                         matched
+                    } else if borrowed_value_text && record.class == RecordClass::Logical {
+                        crate::reference::eval_borrowed_value_fts(
+                            fts,
+                            &ctx,
+                            query.options.evidence.then_some(&mut evidence),
+                        )?
                     } else {
                         crate::relation_query::eval_fts_with_relations_merged(
                             &view,
@@ -6283,6 +6571,20 @@ fn try_lifecycle_ordered_stream(
         }
         filters[collection_index] = Some((filter, fts));
     }
+    let direct_plans = filters
+        .iter()
+        .enumerate()
+        .map(|(index, selected)| {
+            selected.as_ref().and_then(|(filter, fts)| {
+                DirectSourcePlan::prepare_bound(
+                    &repo.collections[index],
+                    &sort,
+                    fts.as_ref(),
+                    filter.as_ref(),
+                )
+            })
+        })
+        .collect::<Vec<_>>();
     let partition_count = filters
         .iter()
         .enumerate()
@@ -6459,72 +6761,24 @@ fn try_lifecycle_ordered_stream(
             };
             counters.bytes_read += read.len() as u64;
             counters.scanned_records += 1;
-            let extracted = if record.class == RecordClass::Logical {
-                counters.record_parses += 1;
-                prepare_query_record_with_execution(
-                    record.class,
-                    &collection.source,
-                    &collection.definition.schema,
-                    &read,
-                    &ScanProjection::full(fts.is_some()),
-                    false,
-                    Some(context),
-                )?
-            } else {
-                ExtractedRecord {
-                    value: Value::Object(Default::default()),
-                    text: Vec::new(),
-                }
-            };
-            let ctx = RecordContext {
-                value: &extracted.value,
-                source_bytes: Some(&read),
+            counters.record_parses += u64::from(record.class == RecordClass::Logical);
+            counters.residual_evaluations += u64::from(filter.is_some());
+            let (_, matched, found_evidence, raw_checked) = verify_local_segment_record(
+                repo,
+                collection,
                 record,
                 file,
-                collection_name: &collection.definition.name,
-                repository_root: &repo.files.root,
-            };
-            let filter_matches = if let Some(filter) = filter {
-                counters.residual_evaluations += 1;
-                if record.class == RecordClass::RawFallback {
-                    eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
-                } else {
-                    let mut work = crate::relation_query::RelationWork::default();
-                    crate::relation_query::eval_filter_truth(
-                        repo,
-                        filter,
-                        &ctx,
-                        &mut evidence,
-                        crate::relation_query::EvaluationMode::Indexed,
-                        &mut work,
-                    )? == Some(true)
-                }
-            } else {
-                true
-            };
-            let fts_matches = if filter_matches {
-                if let Some(fts) = fts {
-                    if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
-                        counters.raw_text_verifications += 1;
-                        let matched = crate::reference::raw_fallback_contains(
-                            fts,
-                            &String::from_utf8_lossy(&read),
-                        );
-                        if matched && request.options.evidence {
-                            evidence.insert("@record.raw_text".into());
-                        }
-                        matched
-                    } else {
-                        eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence)?
-                    }
-                } else {
-                    true
-                }
-            } else {
-                false
-            };
+                &read,
+                filter.as_ref(),
+                fts.as_ref(),
+                direct_plans[cursor.collection_index].as_ref(),
+                request.options.evidence,
+                Some(context),
+            )?;
+            counters.raw_text_verifications += u64::from(raw_checked);
+            evidence = found_evidence;
             bytes = Some(read);
-            filter_matches && fts_matches
+            matched
         } else {
             counters.exact_posting_matches += 1;
             true
@@ -8294,6 +8548,18 @@ fn try_stored_order_page(
             scan_projection(query, residual.as_ref(), &entry.candidates, false)
         })
         .collect::<Vec<_>>();
+    let direct_plans = plans
+        .iter()
+        .zip(&residuals)
+        .map(|(entry, residual)| {
+            DirectSourcePlan::prepare(
+                &repo.collections[entry.collection_index],
+                sort,
+                entry.fts,
+                residual.as_ref(),
+            )
+        })
+        .collect::<Vec<_>>();
     if let Some(traces) = traces.as_deref_mut() {
         for entry in &plans {
             let collection = &repo.collections[entry.collection_index];
@@ -8497,6 +8763,7 @@ fn try_stored_order_page(
                         residuals[cursor.plan_index].as_ref(),
                         entry.fts,
                         None,
+                        direct_plans[cursor.plan_index].as_ref(),
                         None,
                         &projections[cursor.plan_index],
                         false,
@@ -10059,6 +10326,11 @@ fn search_impl_with_collector<'a>(
             }
         }
         let retain_all_evidence = cache_budget.is_some_and(CacheBudget::complete);
+        let direct_plan = if preverified_evidence.is_none() {
+            DirectSourcePlan::prepare(collection, &sort, fts.as_ref(), residual.as_ref())
+        } else {
+            None
+        };
         let parallel = repo.options.query_workers > 1 && files.len() > 1;
         let has_related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
             matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
@@ -10222,6 +10494,7 @@ fn search_impl_with_collector<'a>(
                                     fts.as_ref()
                                 },
                                 preverified_evidence.as_ref(),
+                                direct_plan.as_ref(),
                                 target_values.as_ref(),
                                 &projection,
                                 retain_all_evidence,
@@ -10256,6 +10529,7 @@ fn search_impl_with_collector<'a>(
                                 fts.as_ref()
                             },
                             preverified_evidence.as_ref(),
+                            direct_plan.as_ref(),
                             target_values.as_ref(),
                             &projection,
                             retain_all_evidence,

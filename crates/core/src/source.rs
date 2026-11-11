@@ -679,12 +679,26 @@ fn parse_json(bytes: &[u8]) -> Result<ExtractedRecord, String> {
     parse_json_for_query(bytes, &ScanProjection::full(true))
 }
 
+#[cfg(test)]
+thread_local! {
+    static OWNED_COLLECTOR_COPIED_BYTES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn owned_collector_copied_bytes() -> usize {
+    OWNED_COLLECTOR_COPIED_BYTES.with(std::cell::Cell::get)
+}
+
 fn collect_strings(value: &Value, path: &mut Vec<String>, output: &mut Vec<TextSegment>) {
     match value {
-        Value::String(s) | Value::Id(s) => output.push(TextSegment {
-            path: path.clone(),
-            text: s.clone(),
-        }),
+        Value::String(s) | Value::Id(s) => {
+            #[cfg(test)]
+            OWNED_COLLECTOR_COPIED_BYTES.with(|count| count.set(count.get() + s.len()));
+            output.push(TextSegment {
+                path: path.clone(),
+                text: s.clone(),
+            });
+        }
         Value::Object(object) => {
             for (name, value) in object {
                 path.push(name.clone());

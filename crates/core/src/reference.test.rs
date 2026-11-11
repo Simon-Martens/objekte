@@ -23,6 +23,7 @@ fn borrowed_value_visitation_uses_original_strings_and_key_storage() {
     };
     let mut path = Vec::with_capacity(4);
     let mut seen = Vec::new();
+    let copied_before = crate::source::owned_collector_copied_bytes();
     visit_borrowed_value_strings(&value, &mut path, &mut |keys, text| {
         if text == "first" {
             assert_eq!(keys, ["outer", "items"]);
@@ -35,6 +36,15 @@ fn borrowed_value_visitation_uses_original_strings_and_key_storage() {
     })
     .unwrap();
     assert_eq!(path.capacity(), 4);
+    assert_eq!(crate::source::owned_collector_copied_bytes(), copied_before);
+    let owned = crate::source::text_segments(&value);
+    assert_eq!(
+        crate::source::owned_collector_copied_bytes() - copied_before,
+        owned
+            .iter()
+            .map(|segment| segment.text.len())
+            .sum::<usize>()
+    );
     assert_eq!(
         seen,
         [

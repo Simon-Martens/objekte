@@ -3224,6 +3224,83 @@ pub(crate) fn eval_borrowed_value_fts(
     Ok(matched)
 }
 
+/// Match one source-owned scalar occurrence before duplicate resolution.
+/// The caller retains evidence only for occurrences that remain visible.
+pub(crate) fn match_borrowed_source_segment(
+    fts: &BoundFts,
+    path: &[std::borrow::Cow<'_, str>],
+    text: &str,
+    evidence: &mut Vec<String>,
+    retain_evidence: bool,
+) -> Result<bool, String> {
+    if fts.fields.is_empty() {
+        let found = text_contains(
+            text,
+            &fts.literal,
+            &fts.folded_literal,
+            Transform::Identity,
+            fts.raw_matcher.as_ref(),
+            fts.case_sensitivity,
+            fts.finder.as_ref(),
+        )?;
+        if found && retain_evidence {
+            evidence.push(if path.is_empty() {
+                "@root".into()
+            } else {
+                path.iter()
+                    .map(|part| part.as_ref())
+                    .collect::<Vec<_>>()
+                    .join(".")
+            });
+        }
+        return Ok(found);
+    }
+    let mut matched = false;
+    for field in &fts.fields {
+        if !field.path.segments.is_empty()
+            && (field.path.segments.len() != path.len()
+                || !path
+                    .iter()
+                    .zip(&field.path.segments)
+                    .all(|(actual, expected)| actual.as_ref() == expected))
+        {
+            continue;
+        }
+        if text_contains(
+            text,
+            &field.literal,
+            &field.folded_literal,
+            field.transform,
+            field.matcher.as_ref(),
+            fts.case_sensitivity,
+            field.finder.as_ref(),
+        )? {
+            matched = true;
+            if retain_evidence {
+                evidence.push(field.evidence_path.clone());
+            }
+        }
+    }
+    Ok(matched)
+}
+
+/// Match a string selected by an eligible local contains predicate.
+pub(crate) fn match_borrowed_source_filter(term: &BoundTerm, text: &str) -> bool {
+    let Some(prepared) = &term.prepared_contains else {
+        return false;
+    };
+    let found = if term.transform == Transform::CaseFold {
+        with_folded_candidate(text, |folded| prepared.matches_bytes(folded))
+    } else {
+        prepared.matches_bytes(text.as_bytes())
+    };
+    if term.operator == Operator::Contains {
+        found
+    } else {
+        !found
+    }
+}
+
 /// Evaluate one borrowed selected target, retaining every matched path when requested.
 pub(crate) fn eval_bound_fts_field(
     field: &BoundFtsField,
