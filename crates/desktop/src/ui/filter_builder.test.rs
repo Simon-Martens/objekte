@@ -109,3 +109,55 @@ fn text_edits_and_undo_rebuild_builder_from_authoritative_text() {
     assert!(matches!(state.status, BuilderStatus::Invalid(_)));
     assert!(state.rows.is_empty());
 }
+
+#[test]
+fn numeric_builder_values_accept_exact_size_units_and_round_trip() {
+    for (value, bytes) in [
+        ("23MB", "23000000"),
+        ("2KB", "2000"),
+        ("02GiB", "2147483648"),
+        ("1.5KiB", "1536"),
+        ("0B", "0"),
+        ("4096", "4096"),
+    ] {
+        let row = ConditionDraft {
+            field: "@file.size".into(),
+            comparison: Comparison::AtLeast,
+            value: Some(value.into()),
+            value_type: Some(ValueType::Number),
+        };
+        let text = serialize_conditions(&[row]).unwrap().unwrap();
+        assert_eq!(text, format!("@file.size >= {value}"));
+        let state = BuilderState::from_text(&text);
+        assert_eq!(state.status, BuilderStatus::Synchronized);
+        assert_eq!(state.rows[0].value.as_deref(), Some(bytes));
+        assert_eq!(state.rows[0].value_type, Some(ValueType::Number));
+    }
+}
+
+#[test]
+fn numeric_builder_rejects_invalid_sizes_and_nonliteral_expressions() {
+    for value in [
+        "2XB",
+        "2kb",
+        "-2KB",
+        "0.1B",
+        "170141183460469231731687303715884105728B",
+        "'23MB'",
+        "$size",
+        "@file.size",
+        "true",
+        "2KB || year = 0",
+        "2KB SORT BY @file.size",
+    ] {
+        assert!(
+            serialize_conditions(&[ConditionDraft {
+                field: "@file.size".into(),
+                comparison: Comparison::AtLeast,
+                value: Some(value.into()),
+                value_type: Some(ValueType::Number),
+            }]).is_err(),
+            "{value}"
+        );
+    }
+}

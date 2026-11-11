@@ -73,14 +73,63 @@ fn inline_sort_and_quoted_literal_conflicts_are_checked() {
 }
 
 #[test]
-fn field_choices_are_bounded_to_schema_and_loaded_columns() {
+fn field_choices_include_metadata_schema_and_loaded_columns() {
     let fixture = fixture();
     let choices = field_choices(
         &fixture.session,
         None,
         &["title".into(), "year".into(), "[\"a.b\"]".into()],
     );
-    assert_eq!(choices.len(), 3);
-    assert!(choices.iter().all(|choice| choice.value_type.is_none()));
+    assert_eq!(choices.len(), 16);
+    assert!(
+        choices.iter().filter(|choice| !choice.path.starts_with('@'))
+            .all(|choice| choice.value_type.is_none())
+    );
     assert!(choices.iter().any(|choice| choice.path == "year"));
+}
+
+#[test]
+fn metadata_choices_are_typed_and_available_in_every_scope() {
+    let fixture = fixture();
+    for scope in [None, Some("books"), Some("missing")] {
+        let choices = field_choices(&fixture.session, scope, &["@file.size".into()]);
+        for (path, kind) in [
+            ("@record.id", ValueType::String),
+            ("@record.byte_start", ValueType::Number),
+            ("@record.byte_end", ValueType::Number),
+            ("@record.byte_length", ValueType::Number),
+            ("@record.class", ValueType::Number),
+            ("@file.id", ValueType::Number),
+            ("@file.path", ValueType::String),
+            ("@file.size", ValueType::Number),
+            ("@file.created", ValueType::String),
+            ("@file.modified", ValueType::String),
+            ("@file.status", ValueType::Number),
+            ("@collection.name", ValueType::String),
+            ("@repository.root", ValueType::String),
+        ] {
+            let found: Vec<_> = choices.iter().filter(|choice| choice.path == path).collect();
+            assert_eq!(found.len(), 1, "{scope:?}: {path}");
+            assert_eq!(found[0].value_type, Some(kind), "{path}");
+            assert!(QueryPath::parse(path).is_ok(), "{path}");
+        }
+    }
+}
+
+#[test]
+fn desktop_validates_metadata_filters_with_size_units() {
+    let fixture = fixture();
+    for filter in [
+        "@file.size >= 23MB",
+        "@file.size < 2KB",
+        "@file.size <= 02GiB",
+        "@record.byte_length >= 1KiB",
+        "@collection.name = 'books' && @record.byte_start = 0",
+    ] {
+        assert_eq!(
+            validate_request(&fixture.session, &draft(filter)),
+            FilterValidationState::Valid,
+            "{filter}"
+        );
+    }
 }
