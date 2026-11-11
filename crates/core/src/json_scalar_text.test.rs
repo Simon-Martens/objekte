@@ -229,3 +229,16 @@ fn many_duplicate_members_preserve_all_text_and_erase_replaced_subtrees() {
     let (_, text) = extract_query_record(source.as_bytes(), &resolved, false).unwrap();
     assert!(text.is_empty());
 }
+
+#[test]
+fn quote_search_handles_escaped_quotes_and_backslash_parity() {
+    for slashes in 0..20 {
+        let expected = format!("prefix{}\"suffix", "\\".repeat(slashes));
+        let bytes = serde_json::to_vec(&expected).unwrap();
+        let (value, text) =
+            extract_query_record(&bytes, &ScanProjection::full(true), false).unwrap();
+        assert_eq!(value, Value::String(expected.clone()));
+        assert_eq!(text.len(), 1);
+        assert_eq!(text[0].text, expected);
+    }
+}
