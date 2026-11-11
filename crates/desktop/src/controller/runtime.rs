@@ -23,8 +23,9 @@ use objekte_search_core::streaming::CancellationToken;
 
 use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
-    BatchRow, BatchSource as UiBatchSource, CompletionOrigin, DetailView, ErrorField, ExportFormat,
-    FilterValidationState, IndexTaskKind, IndexTaskState, IndexUiStatus, OpenDraft, PageView,
+    BatchRow, BatchSource as UiBatchSource, CompletionOrigin, DetailView, DirectoryCatalog,
+    ErrorField, ExportFormat, FilterValidationState, IndexTaskKind, IndexTaskState, IndexUiStatus,
+    OpenDraft, PageView,
     RecordTabSummary, RelationRow, SearchDraft, SnapshotMode, TabFreshness, TabViewState, UiAction,
     UiUpdate,
 };
@@ -140,7 +141,7 @@ type OpenCompletion = Result<
         OpenedSession,
         Result<DesktopPreferences, String>,
         Publication,
-        Vec<String>,
+        DirectoryCatalog,
     ),
     String,
 >;
@@ -246,7 +247,7 @@ enum WorkerEvent {
     Directories {
         open_generation: u64,
         publication: Publication,
-        directories: Vec<String>,
+        directories: DirectoryCatalog,
     },
     Queried {
         open_generation: u64,
@@ -645,8 +646,9 @@ impl DesktopController {
         self.pending_directories = Some(publication);
         let sender = self.worker_tx.clone();
         let open_generation = self.open_generation;
+        let collections = session.collections.clone();
         thread::spawn(move || {
-            let directories = indexed_directories(&view);
+            let directories = indexed_directories(&view, &collections);
             let _ = sender.send(WorkerEvent::Directories {
                 open_generation,
                 publication,
@@ -4214,13 +4216,27 @@ fn open_with_preferences(
         instance_id: view.instance_id(),
         revision: view.revision(),
     };
-    let directories = indexed_directories(&view);
+    let directories = indexed_directories(&view, &session.collections);
     Ok((session, preferences, publication, directories))
 }
 
-fn indexed_directories(view: &IndexView) -> Vec<String> {
+fn indexed_directories(view: &IndexView, collections: &[String]) -> DirectoryCatalog {
+    let all = parent_directories(view.file_paths());
+    let by_collection = collections
+        .iter()
+        .map(|name| {
+            (
+                name.clone(),
+                parent_directories(view.file_paths_for_collection(name)),
+            )
+        })
+        .collect();
+    DirectoryCatalog { all, by_collection }
+}
+
+fn parent_directories<'a>(paths: impl Iterator<Item = &'a Path>) -> Vec<String> {
     let mut directories = BTreeSet::new();
-    for path in view.file_paths() {
+    for path in paths {
         let mut parent = path.parent();
         while let Some(directory) = parent.filter(|directory| !directory.as_os_str().is_empty()) {
             directories.insert(objekte_search_core::path_repr::query_path(directory));

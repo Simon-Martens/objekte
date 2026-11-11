@@ -549,6 +549,12 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     let old = index.view().unwrap();
     let handle = old.file_handle(FileId(0)).unwrap();
     assert_eq!(old.file_handle_for_path(&source), Some(handle));
+    for collection in ["left", "right"] {
+        assert_eq!(
+            old.file_paths_for_collection(collection).collect::<Vec<_>>(),
+            [std::path::Path::new("data/shared.jsonl")]
+        );
+    }
     let query = Query {
         collections: vec!["left".into(), "right".into()],
         fts: None,
@@ -572,6 +578,8 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     assert_eq!(result.strategy, DeleteStrategy::Tombstone);
     assert_eq!(old.search(&query).unwrap().count, Some(4));
     let current = index.view().unwrap();
+    assert!(current.file_paths_for_collection("left").next().is_none());
+    assert!(current.file_paths_for_collection("right").next().is_none());
     assert_eq!(current.search(&query).unwrap().count, Some(0));
     assert_eq!(current.search_reference(&query).unwrap().count, Some(0));
     assert_eq!(current.select_exact("left", &query).unwrap().len(), 0);

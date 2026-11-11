@@ -612,6 +612,13 @@ pub enum UiAction {
     ShowHelp,
 }
 
+/// Directory paths in the current index publication, including collection scopes.
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct DirectoryCatalog {
+    pub all: Vec<String>,
+    pub by_collection: std::collections::BTreeMap<String, Vec<String>>,
+}
+
 /// Backend-owned state that the UI may display after generation validation.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum UiUpdate {
@@ -633,9 +640,9 @@ pub enum UiUpdate {
         root: String,
         collections: Vec<String>,
         single_collection: bool,
-        directories: Vec<String>,
+        directories: DirectoryCatalog,
     },
-    Directories(Vec<String>),
+    Directories(DirectoryCatalog),
     /// A validated replacement for the same source configuration preserves UI drafts/tabs.
     IndexReplaced(IndexUiStatus),
     IndexStatus(IndexUiStatus),

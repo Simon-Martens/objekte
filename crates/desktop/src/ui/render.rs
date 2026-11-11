@@ -620,7 +620,7 @@ impl DesktopView {
             );
             let visible_directories = self
                 .state
-                .directories
+                .sidebar_directories()
                 .iter()
                 .enumerate()
                 .filter(|(_, directory)| {
@@ -629,7 +629,7 @@ impl DesktopView {
                 .map(|(index, directory)| (index, directory.clone()))
                 .collect::<Vec<_>>();
             let directory_count = visible_directories.len();
-            let all_directories = self.state.directories.clone();
+            let all_directories = self.state.sidebar_directories().to_vec();
             let expanded_directories = self.state.expanded_directories.clone();
             let selected_directory = self.state.search.directory.clone();
             let target = cx.entity();
@@ -781,7 +781,7 @@ impl DesktopView {
                         count => format!("{count} collections"),
                     }
                 } else {
-                    match self.state.directories.len() {
+                    match self.state.sidebar_directories().len() {
                         1 => "1 folder".to_owned(),
                         count => format!("{count} folders"),
                     }

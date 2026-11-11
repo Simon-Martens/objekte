@@ -475,7 +475,7 @@ impl DesktopView {
             let mut files_scroll = self.sidebar_files_list.0.borrow_mut();
             files_scroll.deferred_scroll_to_item = None;
             files_scroll.base_handle.set_offset(point(px(0.), px(0.)));
-        } else if directories_changed {
+        } else if directories_changed && self.state.search.directory.is_some() {
             self.reveal_selected_sidebar_directory();
         }
         if let Some(previous_scope) = previous_scope {
@@ -677,7 +677,9 @@ impl DesktopView {
                 self.sidebar_collections_scroll.scroll_to_item(1);
             }
         }
-        if self.state.search.directory != previous.directory {
+        if self.state.search.directory != previous.directory
+            || self.state.search.collection != previous.collection
+        {
             if let Some(directory) = self.state.search.directory.as_deref() {
                 let mut child = directory;
                 while let Some((parent, _)) = child.rsplit_once('/') {
@@ -692,7 +694,7 @@ impl DesktopView {
     fn reveal_selected_sidebar_directory(&self) {
         let item = self.state.search.directory.as_ref().and_then(|selected| {
             self.state
-                .directories
+                .sidebar_directories()
                 .iter()
                 .filter(|directory| {
                     render::directory_visible(directory, &self.state.expanded_directories)

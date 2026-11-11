@@ -181,7 +181,7 @@ fn replacement_open_retains_old_workspace_until_success() {
         root: "new".into(),
         collections: vec!["records".into()],
         single_collection: true,
-        directories: Vec::new(),
+        directories: DirectoryCatalog::default(),
     });
     assert_eq!(state.root.as_deref(), Some("new"));
     assert!(state.page.rows.is_empty());
@@ -231,13 +231,33 @@ fn opening_a_repository_returns_to_the_results_workspace() {
         root: "example".into(),
         collections: vec!["records".into()],
         single_collection: true,
-        directories: vec!["current".into()],
+        directories: DirectoryCatalog {
+            all: vec!["current".into()],
+            by_collection: BTreeMap::from([("records".into(), vec!["current".into()])]),
+        },
     });
     assert!(!state.open_dialog.visible);
     assert_eq!(state.search.collection.as_deref(), Some("records"));
     assert_eq!(state.search.directory, None);
     assert_eq!(state.directories, ["current"]);
     assert_eq!(state.sidebar_mode, SidebarMode::Files);
+}
+
+#[test]
+fn file_sidebar_uses_the_active_collection_directory_catalog() {
+    let mut state = UiState::default();
+    state.install_directories(DirectoryCatalog {
+        all: vec!["data/books".into(), "data/people".into()],
+        by_collection: BTreeMap::from([
+            ("books".into(), vec!["data/books".into()]),
+            ("people".into(), vec!["data/people".into()]),
+        ]),
+    });
+    assert_eq!(state.sidebar_directories(), ["data/books", "data/people"]);
+    state.search.collection = Some("books".into());
+    assert_eq!(state.sidebar_directories(), ["data/books"]);
+    state.search.collection = Some("missing".into());
+    assert!(state.sidebar_directories().is_empty());
 }
 
 #[test]

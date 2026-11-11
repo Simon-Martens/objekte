@@ -2357,6 +2357,23 @@ impl IndexView {
         })
     }
 
+    /// Paths of active files indexed for one collection in this publication.
+    pub fn file_paths_for_collection(&self, name: &str) -> impl Iterator<Item = &Path> + '_ {
+        let collection_id = self
+            .0
+            .repository
+            .collections()
+            .iter()
+            .find(|collection| collection.definition.name == name)
+            .map(|collection| collection.generation.collection);
+        (0..self.0.catalog.allocated_files()).filter_map(move |number| {
+            let entry = self.0.catalog.entry(FileId(number as u32))?;
+            collection_id
+                .filter(|id| entry.collections.contains(id))
+                .map(|_| entry.relative_path.as_path())
+        })
+    }
+
     pub fn file_version(&self, file: FileId) -> Option<FileVersion> {
         self.0
             .catalog

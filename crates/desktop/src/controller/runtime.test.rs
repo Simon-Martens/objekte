@@ -4,16 +4,30 @@ use super::*;
 fn indexed_directory_tree_follows_added_and_deleted_files() {
     let fixture = crate::backend::test_support::fixture();
     let index = fixture.session.repository.index();
-    assert!(indexed_directories(&index.view().unwrap()).is_empty());
+    assert!(
+        indexed_directories(&index.view().unwrap(), &fixture.session.collections)
+            .all
+            .is_empty()
+    );
     let file = fixture._root.path().join("docs/nested/new.json");
     std::fs::create_dir_all(file.parent().unwrap()).unwrap();
     std::fs::write(&file, r#"{"title":"New"}"#).unwrap();
     index.add_file(&file).unwrap();
     let view = index.view().unwrap();
-    assert_eq!(indexed_directories(&view), ["docs", "docs/nested"]);
+    let directories = indexed_directories(&view, &fixture.session.collections);
+    assert_eq!(directories.all, ["docs", "docs/nested"]);
+    assert_eq!(
+        directories.by_collection[&fixture.session.collections[0]],
+        ["docs", "docs/nested"]
+    );
+    assert!(view.file_paths_for_collection("missing").next().is_none());
     let handle = view.file_handle_for_path(&file).unwrap();
     index.delete_file(handle).unwrap();
-    assert!(indexed_directories(&index.view().unwrap()).is_empty());
+    assert!(
+        indexed_directories(&index.view().unwrap(), &fixture.session.collections)
+            .all
+            .is_empty()
+    );
 }
 
 #[test]

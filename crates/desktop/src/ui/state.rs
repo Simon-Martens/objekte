@@ -7,8 +7,9 @@ use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use super::completion::{CompletionContext, CompletionTarget};
 use super::filter_builder::FieldChoice;
 use super::model::{
-    BatchRow, BatchSource, DetailView, ErrorField, ExportFormat, FilterValidationState,
-    IndexUiStatus, MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry, RecordTabSummary, ResultRow,
+    BatchRow, BatchSource, DetailView, DirectoryCatalog, ErrorField, ExportFormat,
+    FilterValidationState, IndexUiStatus, MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry,
+    RecordTabSummary, ResultRow,
     SearchDraft, TabViewState, UiUpdate,
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
@@ -119,6 +120,7 @@ pub struct UiState {
     pub collections: Vec<String>,
     pub single_collection: bool,
     pub directories: Vec<String>,
+    pub directories_by_collection: BTreeMap<String, Vec<String>>,
     pub expanded_directories: BTreeSet<String>,
     pub page: PageView,
     /// Lightweight extent is separate from a bounded cache of projected text.
@@ -199,6 +201,22 @@ pub struct UiState {
 }
 
 impl UiState {
+    fn install_directories(&mut self, catalog: DirectoryCatalog) {
+        self.directories = catalog.all;
+        self.directories_by_collection = catalog.by_collection;
+    }
+
+    pub fn sidebar_directories(&self) -> &[String] {
+        self.search
+            .collection
+            .as_ref()
+            .map_or(self.directories.as_slice(), |name| {
+                self.directories_by_collection
+                    .get(name)
+                    .map_or(&[], Vec::as_slice)
+            })
+    }
+
     pub fn preview_visible_for(&self, search: TabId) -> bool {
         self.show_preview
             && self.preview_search == Some(search)
@@ -224,7 +242,7 @@ impl UiState {
                 self.root = Some(root);
                 self.collections = collections;
                 self.single_collection = single_collection;
-                self.directories = directories;
+                self.install_directories(directories);
                 self.expanded_directories.clear();
                 self.sidebar_mode = if single_collection {
                     SidebarMode::Files
@@ -282,7 +300,7 @@ impl UiState {
                 self.workspace.opened(self.search.collection.clone());
                 self.workspace.update_current_search(self.search.clone());
             }
-            UiUpdate::Directories(directories) => self.directories = directories,
+            UiUpdate::Directories(directories) => self.install_directories(directories),
             UiUpdate::QueryStarted { status, retain_preview } => {
                 self.busy = Busy::Querying;
                 self.status = status;
