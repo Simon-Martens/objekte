@@ -1,6 +1,7 @@
 //! Shared parse, conversion, extracted-text and payload boundary.
 
 use crate::inventory::RecordClass;
+use crate::reference::BoundFts;
 use crate::reference::Schema;
 use crate::repository::Payload;
 use crate::source::{ExtractedRecord, PreparedSource, ScanProjection, finalize_extracted_text};
@@ -159,6 +160,35 @@ pub(crate) fn prepare_query_record_with_execution(
         ));
     }
     Ok(record)
+}
+
+/// Trusted decoded-scalar JSON keeps its source corpus while producing only
+/// the logical projection required by residual evaluation or output.
+pub(crate) fn prepare_decoded_record_with_borrowed_fts(
+    schema: &Schema,
+    bytes: &[u8],
+    projection: &ScanProjection,
+    fts: &BoundFts,
+    evidence: bool,
+    execution: Option<&ExecutionContext>,
+) -> Result<(ExtractedRecord, crate::json_scalar_text::BorrowedScanResult), String> {
+    if let Some(execution) = execution {
+        execution.check_string()?;
+    }
+    let (mut value, matched) = crate::json_scalar_text::extract_query_record_borrowed_fts_worker(
+        bytes, projection, fts, evidence,
+    )?;
+    schema.convert_indexed_record(&mut value, projection.top_level.as_ref())?;
+    if let Some(execution) = execution {
+        execution.check_string()?;
+    }
+    Ok((
+        ExtractedRecord {
+            value,
+            text: Vec::new(),
+        },
+        matched,
+    ))
 }
 
 pub(crate) fn materialize(

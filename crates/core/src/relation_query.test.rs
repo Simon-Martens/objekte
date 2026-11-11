@@ -1783,6 +1783,7 @@ fn membership_only_matches_complete_evidence_for_local_relation_and_fts_routes()
         },
     )
     .unwrap();
+    let borrowed_targets_before = super::borrowed_relation_targets();
     for request in [
         query(
             "mentions",
@@ -1831,6 +1832,41 @@ fn membership_only_matches_complete_evidence_for_local_relation_and_fts_routes()
             hit.matched_fields.clear();
         }
         assert_eq!(actual.hits, expected);
+    }
+    assert!(super::borrowed_relation_targets() > borrowed_targets_before);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn mixed_local_and_relation_fts_borrows_source_value_text() {
+    let (root, definitions) = fixture();
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            query_workers: 1,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let request = query(
+        "mentions",
+        None,
+        Some("Hymn"),
+        Some("local_title,entry.title"),
+        false,
+    );
+    for mode in [ReturnMode::Locator, ReturnMode::Logical] {
+        for evidence in [false, true] {
+            let mut request = request.clone();
+            request.options.return_mode = mode.clone();
+            request.options.evidence = evidence;
+            let copied_before = crate::source::owned_collector_copied_bytes();
+            let actual = repo.search(&request).unwrap();
+            assert_eq!(crate::source::owned_collector_copied_bytes(), copied_before);
+            assert_eq!(actual.hits, repo.search_reference(&request).unwrap().hits);
+        }
     }
     std::fs::remove_dir_all(root).unwrap();
 }

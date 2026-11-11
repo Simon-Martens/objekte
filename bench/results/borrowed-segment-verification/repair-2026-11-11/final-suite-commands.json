@@ -1,0 +1,42 @@
+[
+  {
+    "cache": "off",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/examples/musenalm",
+      "--extended",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "3",
+      "--query-workers",
+      "4",
+      "--verified-cache-bytes",
+      "0",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/bench/results/borrowed-segment-verification/repair-2026-11-11/suite-repaired-final-off"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/suite-repaired-final-off"
+  },
+  {
+    "cache": "warm",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/examples/musenalm",
+      "--extended",
+      "--profiles",
+      "ascii-warm,unicode-warm",
+      "--repetitions",
+      "3",
+      "--query-workers",
+      "4",
+      "--verified-cache-bytes",
+      "67108864",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/bench/results/borrowed-segment-verification/repair-2026-11-11/suite-repaired-final-warm"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/suite-repaired-final-warm"
+  }
+]

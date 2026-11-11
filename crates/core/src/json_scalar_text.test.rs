@@ -108,6 +108,35 @@ fn borrowed_source_segments_preserve_boundaries_and_duplicate_visibility() {
 }
 
 #[test]
+fn borrowed_root_field_selects_visible_nested_scalars() {
+    let mut scratch = BorrowedScanScratch::default();
+    for (source, expected) in [
+        (r#"{"title":"needle"}"#, true),
+        (r#"{"nested":{"title":"needle"}}"#, true),
+        (r#"["other",{"title":"needle"}]"#, true),
+        (r#""needle""#, true),
+        (r#"{"title":"needle","title":"other"}"#, false),
+        (r#"{"title":"needle","title":null}"#, false),
+        (r#"{"title":{"name":"needle"},"title":{}}"#, false),
+    ] {
+        for decoded_scalars in [false, true] {
+            let result = borrowed_scan(
+                source.as_bytes(),
+                Some("needle"),
+                Some("@root"),
+                None,
+                decoded_scalars,
+                &mut scratch,
+            );
+            assert_eq!(
+                result.fts_match, expected,
+                "{source} decoded={decoded_scalars}"
+            );
+        }
+    }
+}
+
+#[test]
 fn borrowed_source_filter_preserves_string_runtime_rules_and_wildcards() {
     let mut scratch = BorrowedScanScratch::default();
     for (bytes, filter, expected) in [
@@ -130,6 +159,87 @@ fn borrowed_source_filter_preserves_string_runtime_rules_and_wildcards() {
     ] {
         let result = borrowed_scan(bytes, None, None, Some(filter), true, &mut scratch);
         assert_eq!(result.filter_match, expected, "{bytes:?} {filter}");
+    }
+}
+
+#[test]
+fn filter_only_scan_skips_irrelevant_nested_values() {
+    let nested = format!(
+        "[{}]",
+        (0..2000)
+            .map(|index| format!(r#"{{"nested":{{"value":"{index}"}}}}"#))
+            .collect::<Vec<_>>()
+            .join(",")
+    );
+    let source = format!(r#"{{"wanted":"needle","irrelevant":{nested}}}"#);
+    let mut scratch = BorrowedScanScratch::default();
+    let before = borrowed_node_visits();
+    let result = borrowed_scan(
+        source.as_bytes(),
+        None,
+        None,
+        Some("wanted ~ 'needle'"),
+        true,
+        &mut scratch,
+    );
+    assert!(result.filter_match);
+    assert!(borrowed_node_visits() - before < 10);
+}
+
+#[test]
+fn unscoped_fts_with_filter_still_visits_nested_text() {
+    let source = br#"{"nested":{"text":"needle"},"wanted":"yes"}"#;
+    let mut scratch = BorrowedScanScratch::default();
+    let result = borrowed_scan(
+        source,
+        Some("needle"),
+        None,
+        Some("wanted ~ 'yes'"),
+        true,
+        &mut scratch,
+    );
+    assert!(result.fts_match);
+    assert!(result.filter_match);
+}
+
+#[test]
+fn combined_value_and_source_matching_avoids_owned_segments() {
+    let source = br#"{"text":"old","text":"new","n":1e0,"other":"\u006e eedle"}"#;
+    let schema = Schema::default();
+    let projection = ScanProjection::full(true);
+    for (literal, field, expected) in [
+        ("old", None, true),
+        ("old", Some("text"), false),
+        ("new", Some("text"), true),
+        ("1e0", None, true),
+    ] {
+        let fts = bind_fts(
+            &FtsQuery {
+                case_sensitivity: CaseSensitivity::Sensitive,
+                mode: FtsMode::Literal,
+                literal: literal.into(),
+                pattern_parameter: None,
+                fields: field
+                    .map(|field| FtsField {
+                        path: FieldPath::parse(field).unwrap(),
+                        query_path: None,
+                        binding: None,
+                    })
+                    .into_iter()
+                    .collect(),
+            },
+            &schema,
+        )
+        .unwrap();
+        let before = owned_segment_text_bytes();
+        let (value, result) =
+            extract_query_record_borrowed_fts_worker(source, &projection, &fts, true).unwrap();
+        assert_eq!(result.fts_match, expected, "{literal} {field:?}");
+        assert_eq!(owned_segment_text_bytes(), before);
+        let Value::Object(fields) = value else {
+            panic!("object")
+        };
+        assert_eq!(fields.get("text"), Some(&Value::String("new".into())));
     }
 }
 
@@ -206,6 +316,228 @@ fn borrowed_decoder_uses_source_slice_or_reused_storage() {
         with_quoted_text(token, 0..token.len(), &mut decoded, |_| Ok(())).unwrap();
         assert_eq!(decoded.as_ptr(), pointer);
         assert_eq!(decoded.capacity(), capacity);
+    }
+}
+
+#[test]
+#[ignore = "release-only decoder comparison; run serially with --nocapture"]
+fn decoder_strategy_microbench() {
+    use std::hint::black_box;
+    use std::time::Instant;
+
+    let cases = [
+        ("plain-ascii", format!("\"{}\"", "a".repeat(8192))),
+        ("plain-unicode", format!("\"{}\"", "Straßeℹ".repeat(1024))),
+        (
+            "sparse-simple",
+            format!("\"{}\"", format!("{}\\n", "a".repeat(1024)).repeat(8)),
+        ),
+        ("dense-simple", format!("\"{}\"", "a\\n".repeat(2048))),
+        ("unicode-escape", format!("\"{}\"", "\\u2139".repeat(1024))),
+        (
+            "surrogate-pair",
+            format!("\"{}\"", "\\ud83d\\ude80".repeat(512)),
+        ),
+        ("alternating", format!("\"{}\"", "a\\n".repeat(2048))),
+    ];
+    let short = br#""x\n""#;
+    for (name, source) in cases {
+        let token = source.as_bytes();
+        let expected: String = serde_json::from_slice(token).unwrap();
+        for strategy in [0, 1, 2, 3] {
+            let mut decoded = String::new();
+            let (_, actual) = match strategy {
+                0 => with_next_quoted_text_strategy::<0, _>(token, 0, &mut decoded, |text| {
+                    Ok(text.to_owned())
+                }),
+                1 => with_next_quoted_text_strategy::<1, _>(token, 0, &mut decoded, |text| {
+                    Ok(text.to_owned())
+                }),
+                2 => with_next_quoted_text_strategy::<2, _>(token, 0, &mut decoded, |text| {
+                    Ok(text.to_owned())
+                }),
+                _ => with_next_quoted_text_strategy::<3, _>(token, 0, &mut decoded, |text| {
+                    Ok(text.to_owned())
+                }),
+            }
+            .unwrap();
+            assert_eq!(actual, expected);
+        }
+        let iterations = (8 * 1024 * 1024 / token.len()).max(128);
+        for (label, strategy) in [
+            ("repeated-memchr", 0),
+            ("first-memchr-byte-loop", 1),
+            ("adaptive-8", 2),
+            ("adaptive-4", 3),
+            ("predecessor-serde-owned", 4),
+        ] {
+            let mut samples = Vec::new();
+            for round in 0..6 {
+                let mut decoded = String::with_capacity(expected.len());
+                let started = Instant::now();
+                for iteration in 0..iterations {
+                    let input = if name == "alternating" && iteration % 2 == 0 {
+                        short.as_slice()
+                    } else {
+                        token
+                    };
+                    match strategy {
+                        0 => {
+                            let (_, length) = with_next_quoted_text_strategy::<0, _>(
+                                black_box(input),
+                                0,
+                                &mut decoded,
+                                |text| Ok(text.len()),
+                            )
+                            .unwrap();
+                            black_box(length);
+                        }
+                        1 => {
+                            let (_, length) = with_next_quoted_text_strategy::<1, _>(
+                                black_box(input),
+                                0,
+                                &mut decoded,
+                                |text| Ok(text.len()),
+                            )
+                            .unwrap();
+                            black_box(length);
+                        }
+                        2 => {
+                            let (_, length) = with_next_quoted_text_strategy::<2, _>(
+                                black_box(input),
+                                0,
+                                &mut decoded,
+                                |text| Ok(text.len()),
+                            )
+                            .unwrap();
+                            black_box(length);
+                        }
+                        3 => {
+                            let (_, length) = with_next_quoted_text_strategy::<3, _>(
+                                black_box(input),
+                                0,
+                                &mut decoded,
+                                |text| Ok(text.len()),
+                            )
+                            .unwrap();
+                            black_box(length);
+                        }
+                        _ => {
+                            let value = serde_json::Deserializer::from_slice(black_box(input))
+                                .into_iter::<String>()
+                                .next()
+                                .unwrap()
+                                .unwrap();
+                            black_box(value);
+                        }
+                    }
+                }
+                if round > 0 {
+                    samples.push(started.elapsed().as_nanos() / iterations as u128);
+                }
+            }
+            samples.sort_unstable();
+            println!(
+                "decoder {name} {label}: {} ns/token median of 5",
+                samples[2]
+            );
+        }
+    }
+}
+
+#[test]
+#[ignore = "release-only in-memory production consumer timing; run serially with --nocapture"]
+fn borrowed_consumer_microbench() {
+    use std::hint::black_box;
+    use std::time::Instant;
+
+    let schema = Schema::default();
+    let fts = bind_fts(
+        &FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "needle".into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        },
+        &schema,
+    )
+    .unwrap();
+    let projection = ScanProjection::full(true);
+    for (name, source) in [
+        (
+            "plain",
+            format!(r#"{{"text":"{}needle"}}"#, "a".repeat(8192)),
+        ),
+        (
+            "escaped",
+            format!(r#"{{"text":"{}needle"}}"#, "a\\n".repeat(2048)),
+        ),
+        (
+            "many-scalars",
+            format!(r#"{{"text":[{}"needle"]}}"#, "\"abc\",".repeat(512)),
+        ),
+    ] {
+        let bytes = source.as_bytes();
+        let direct = BorrowedScanQuery {
+            fts: Some(&fts),
+            filter: None,
+            decoded_scalars: true,
+            retain_evidence: false,
+        };
+        assert!(
+            scan_borrowed_segments_worker(bytes, &direct)
+                .unwrap()
+                .fts_match
+        );
+        assert!(
+            extract_query_record_borrowed_fts_worker(bytes, &projection, &fts, false)
+                .unwrap()
+                .1
+                .fts_match
+        );
+        let iterations = (2 * 1024 * 1024 / bytes.len()).max(128);
+        for (route, mut measure) in [
+            (
+                "direct",
+                Box::new(|| {
+                    black_box(scan_borrowed_segments_worker(black_box(bytes), &direct).unwrap());
+                }) as Box<dyn FnMut() + '_>,
+            ),
+            (
+                "combined-value",
+                Box::new(|| {
+                    black_box(
+                        extract_query_record_borrowed_fts_worker(
+                            black_box(bytes),
+                            &projection,
+                            &fts,
+                            false,
+                        )
+                        .unwrap(),
+                    );
+                }) as Box<dyn FnMut() + '_>,
+            ),
+        ] {
+            let mut samples = Vec::new();
+            for round in 0..6 {
+                let started = Instant::now();
+                for _ in 0..iterations {
+                    measure();
+                }
+                if round > 0 {
+                    samples.push(started.elapsed().as_nanos() / iterations as u128);
+                }
+            }
+            samples.sort_unstable();
+            println!(
+                "consumer {name} {route}: {} ns/record median of 5; min {}; max {}; bytes {}",
+                samples[2],
+                samples[0],
+                samples[4],
+                bytes.len()
+            );
+        }
     }
 }
 
@@ -311,6 +643,66 @@ fn borrowed_source_worker_scratch_reuses_capacity_across_records() {
     });
     assert_eq!(owned_query_construction_counts(), owned_before);
     assert_eq!(owned_segment_text_bytes(), copied_before);
+}
+
+#[test]
+fn oversized_folded_segments_reuse_capacity_within_record_then_release_it() {
+    let fts = bind_fts(
+        &FtsQuery {
+            case_sensitivity: CaseSensitivity::Insensitive,
+            mode: FtsMode::Literal,
+            literal: "needle".into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        },
+        &Schema::default(),
+    )
+    .unwrap();
+    let query = BorrowedScanQuery {
+        fts: Some(&fts),
+        filter: None,
+        decoded_scalars: true,
+        retain_evidence: true,
+    };
+    let segment = format!("{}NEEDLE", "x".repeat(MAX_SCAN_SCRATCH_CAPACITY + 4096));
+    let source = format!(r#"{{"a":"{segment}","b":"{segment}"}}"#);
+    let before = crate::reference::fold_scratch_stats().0;
+    let matched = scan_borrowed_segments_worker(source.as_bytes(), &query).unwrap();
+    assert!(matched.fts_match);
+    let (grows, retained) = crate::reference::fold_scratch_stats();
+    assert_eq!(
+        grows - before,
+        1,
+        "second oversized segment should reuse capacity"
+    );
+    assert!(retained <= MAX_SCAN_SCRATCH_CAPACITY);
+}
+
+#[test]
+fn oversized_folded_scratch_is_released_on_scan_error() {
+    let fts = bind_fts(
+        &FtsQuery {
+            case_sensitivity: CaseSensitivity::Insensitive,
+            mode: FtsMode::Literal,
+            literal: "needle".into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        },
+        &Schema::default(),
+    )
+    .unwrap();
+    let query = BorrowedScanQuery {
+        fts: Some(&fts),
+        filter: None,
+        decoded_scalars: true,
+        retain_evidence: false,
+    };
+    let source = format!(
+        r#"{{"text":"{}NEEDLE","broken": "#,
+        "x".repeat(MAX_SCAN_SCRATCH_CAPACITY + 4096)
+    );
+    assert!(scan_borrowed_segments_worker(source.as_bytes(), &query).is_err());
+    assert!(crate::reference::fold_scratch_stats().1 <= MAX_SCAN_SCRATCH_CAPACITY);
 }
 
 #[test]

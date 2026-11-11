@@ -1,0 +1,36 @@
+[
+  {
+    "id": "Q072",
+    "collection": "entries",
+    "fts": null,
+    "filter": "preferred_title:lower ~ \"TASCHENBUCH\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q186",
+    "collection": "entries",
+    "fts": "(?m)^Almanach",
+    "fts_mode": {
+      "regex": {
+        "multi_line": false,
+        "dot_matches_new_line": false
+      }
+    },
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

@@ -56,6 +56,52 @@ fn borrowed_value_visitation_uses_original_strings_and_key_storage() {
 }
 
 #[test]
+#[ignore = "release-only in-memory production value visitor timing; run serially with --nocapture"]
+fn borrowed_value_consumer_microbench() {
+    use std::hint::black_box;
+    use std::time::Instant;
+
+    let fts = bind_fts(
+        &FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "needle".into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        },
+        &Schema::default(),
+    )
+    .unwrap();
+    for (name, count) in [("one-string", 1), ("many-strings", 512)] {
+        let mut strings = vec![Value::String("ordinary text".into()); count];
+        strings.push(Value::String("needle".into()));
+        let value = Value::Array(crate::model::ArrayValue::from_unrestricted(strings));
+        with_record(value, |ctx| {
+            assert!(eval_borrowed_value_fts(&fts, &ctx, None).unwrap());
+            let iterations = (4096 / count).max(128);
+            let mut samples = Vec::new();
+            for round in 0..6 {
+                let started = Instant::now();
+                for _ in 0..iterations {
+                    black_box(eval_borrowed_value_fts(&fts, black_box(&ctx), None).unwrap());
+                }
+                if round > 0 {
+                    samples.push(started.elapsed().as_nanos() / iterations as u128);
+                }
+            }
+            samples.sort_unstable();
+            println!(
+                "consumer {name} existing-value: {} ns/record median of 5; min {}; max {}; strings {}",
+                samples[2],
+                samples[0],
+                samples[4],
+                count + 1
+            );
+        });
+    }
+}
+
+#[test]
 fn prepared_contains_preserves_plain_wildcard_and_escaped_percent_semantics() {
     for (pattern, cases) in [
         ("abc", vec![("zabcx", true), ("abxc", false)]),

@@ -1,0 +1,572 @@
+[
+  {
+    "revision": "predecessor",
+    "fixture": "plain",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-base",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-base/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/plain",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "json"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/predecessor-plain-round1.jsonl"
+  },
+  {
+    "revision": "reviewed",
+    "fixture": "plain",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/plain",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "json"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/reviewed-plain-round1.jsonl"
+  },
+  {
+    "revision": "repaired",
+    "fixture": "plain",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/plain",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "json"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/repaired-plain-round1.jsonl"
+  },
+  {
+    "revision": "repaired",
+    "fixture": "plain",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/plain",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "json"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/repaired-plain-round2.jsonl"
+  },
+  {
+    "revision": "reviewed",
+    "fixture": "plain",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/plain",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "json"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/reviewed-plain-round2.jsonl"
+  },
+  {
+    "revision": "predecessor",
+    "fixture": "plain",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-base",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-base/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/plain",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "json"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/predecessor-plain-round2.jsonl"
+  },
+  {
+    "revision": "predecessor",
+    "fixture": "escaped",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-base",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-base/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/predecessor-escaped-round1.jsonl"
+  },
+  {
+    "revision": "reviewed",
+    "fixture": "escaped",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/reviewed-escaped-round1.jsonl"
+  },
+  {
+    "revision": "repaired",
+    "fixture": "escaped",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/repaired-escaped-round1.jsonl"
+  },
+  {
+    "revision": "repaired",
+    "fixture": "escaped",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/repaired-escaped-round2.jsonl"
+  },
+  {
+    "revision": "reviewed",
+    "fixture": "escaped",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/reviewed-escaped-round2.jsonl"
+  },
+  {
+    "revision": "predecessor",
+    "fixture": "escaped",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-base",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-base/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/predecessor-escaped-round2.jsonl"
+  },
+  {
+    "revision": "predecessor",
+    "fixture": "duplicates",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-base",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-base/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/predecessor-duplicates-round1.jsonl"
+  },
+  {
+    "revision": "reviewed",
+    "fixture": "duplicates",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/reviewed-duplicates-round1.jsonl"
+  },
+  {
+    "revision": "repaired",
+    "fixture": "duplicates",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/repaired-duplicates-round1.jsonl"
+  },
+  {
+    "revision": "repaired",
+    "fixture": "duplicates",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/repaired-duplicates-round2.jsonl"
+  },
+  {
+    "revision": "reviewed",
+    "fixture": "duplicates",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/reviewed-duplicates-round2.jsonl"
+  },
+  {
+    "revision": "predecessor",
+    "fixture": "duplicates",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-base",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-base/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/predecessor-duplicates-round2.jsonl"
+  },
+  {
+    "revision": "predecessor",
+    "fixture": "field-duplicates",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-base",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-base/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/field-duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/predecessor-field-duplicates-round1.jsonl"
+  },
+  {
+    "revision": "reviewed",
+    "fixture": "field-duplicates",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/field-duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/reviewed-field-duplicates-round1.jsonl"
+  },
+  {
+    "revision": "repaired",
+    "fixture": "field-duplicates",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/field-duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/repaired-field-duplicates-round1.jsonl"
+  },
+  {
+    "revision": "repaired",
+    "fixture": "field-duplicates",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/field-duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/repaired-field-duplicates-round2.jsonl"
+  },
+  {
+    "revision": "reviewed",
+    "fixture": "field-duplicates",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/field-duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/reviewed-field-duplicates-round2.jsonl"
+  },
+  {
+    "revision": "predecessor",
+    "fixture": "field-duplicates",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-base",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-base/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/field-duplicates",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/predecessor-field-duplicates-round2.jsonl"
+  },
+  {
+    "revision": "predecessor",
+    "fixture": "long-escaped",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-base",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-base/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/predecessor-long-escaped-round1.jsonl"
+  },
+  {
+    "revision": "reviewed",
+    "fixture": "long-escaped",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/reviewed-long-escaped-round1.jsonl"
+  },
+  {
+    "revision": "repaired",
+    "fixture": "long-escaped",
+    "round": 1,
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/repaired-long-escaped-round1.jsonl"
+  },
+  {
+    "revision": "repaired",
+    "fixture": "long-escaped",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/repaired-long-escaped-round2.jsonl"
+  },
+  {
+    "revision": "reviewed",
+    "fixture": "long-escaped",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-reviewed",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-reviewed/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/reviewed-long-escaped-round2.jsonl"
+  },
+  {
+    "revision": "predecessor",
+    "fixture": "long-escaped",
+    "round": 2,
+    "cwd": "/home/simon/source/objekte-bench-borrowed-repair-base",
+    "command": [
+      "/home/simon/source/objekte-bench-borrowed-repair-base/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "output": "bench/results/borrowed-segment-verification/repair-2026-11-11/predecessor-long-escaped-round2.jsonl"
+  }
+]

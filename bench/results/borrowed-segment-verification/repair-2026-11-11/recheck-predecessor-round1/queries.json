@@ -1,0 +1,1479 @@
+[
+  {
+    "id": "Q002",
+    "collection": "*",
+    "fts": "Taschenbuch",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q003",
+    "collection": "*",
+    "fts": "Leipzig",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q005",
+    "collection": "*",
+    "fts": "Goethe",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q006",
+    "collection": "*",
+    "fts": "ü",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q007",
+    "collection": "*",
+    "fts": "a",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q014",
+    "collection": "agents",
+    "fts": "Text",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q015",
+    "collection": "agents",
+    "fts": "https://",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q019",
+    "collection": "entries",
+    "fts": "Almanach",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q021",
+    "collection": "entries",
+    "fts": "WIEN",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q022",
+    "collection": "entries",
+    "fts": "unbezeichnet",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q023",
+    "collection": "contents",
+    "fts": "Liebe",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q024",
+    "collection": "contents",
+    "fts": "Frühling",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q025",
+    "collection": "contents",
+    "fts": "Lied",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q026",
+    "collection": "contents",
+    "fts": "Der",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q027",
+    "collection": "contents",
+    "fts": "1808",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q028",
+    "collection": "items",
+    "fts": "Theodor Springmann Stiftung",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q030",
+    "collection": "entries",
+    "fts": "Taschenbuch",
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q043",
+    "collection": "agents",
+    "fts": null,
+    "filter": "musenalm_id >= 1000",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q046",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= 1800 && year < 1850",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q049",
+    "collection": "entries",
+    "fts": null,
+    "filter": "pseudonym = false",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q051",
+    "collection": "contents",
+    "fts": null,
+    "filter": "year = 1808",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q052",
+    "collection": "contents",
+    "fts": null,
+    "filter": "year >= 1800 && year < 1850",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q054",
+    "collection": "contents",
+    "fts": null,
+    "filter": "numbering > 1 && numbering < 2",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q055",
+    "collection": "contents",
+    "fts": null,
+    "filter": "numbering >= 10",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q056",
+    "collection": "contents",
+    "fts": null,
+    "filter": "pseudonym = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q057",
+    "collection": "items",
+    "fts": null,
+    "filter": "basis = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q068",
+    "collection": "agents",
+    "fts": null,
+    "filter": "name ~ \"%Goethe%\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q069",
+    "collection": "agents",
+    "fts": null,
+    "filter": "pseudonyms ~ \"\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q071",
+    "collection": "entries",
+    "fts": null,
+    "filter": "preferred_title ~ \"Almanach\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q072",
+    "collection": "entries",
+    "fts": null,
+    "filter": "preferred_title:lower ~ \"TASCHENBUCH\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q073",
+    "collection": "entries",
+    "fts": null,
+    "filter": "title_statement ~ \"WIEN\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q074",
+    "collection": "entries",
+    "fts": null,
+    "filter": "annotation !~ \"Beschädigung\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q075",
+    "collection": "entries",
+    "fts": null,
+    "filter": "place_statement ~ \"Wien\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q077",
+    "collection": "contents",
+    "fts": null,
+    "filter": "preferred_title:lower ~ \"FRÜHLING\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q082",
+    "collection": "entries",
+    "fts": null,
+    "filter": "places ?!= \"d7kbujq7399g22j\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q085",
+    "collection": "entries",
+    "fts": null,
+    "filter": "language:each = \"ger\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q086",
+    "collection": "entries",
+    "fts": null,
+    "filter": "carrier_type ?= \"Band\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q087",
+    "collection": "entries",
+    "fts": null,
+    "filter": "content_type ?= \"Text\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q091",
+    "collection": "entries",
+    "fts": null,
+    "filter": "items.owner ?= \"Theodor Springmann Stiftung\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q093",
+    "collection": "entries",
+    "fts": null,
+    "filter": "items.media ?= \"Original\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q094",
+    "collection": "entries",
+    "fts": null,
+    "filter": "musenalm_deprecated.status ?= \"Original vorhanden\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q095",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors.agents ?= \"lngx6eyfw5qrzas\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q096",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors.type ?= \"Autor:in\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q099",
+    "collection": "contents",
+    "fts": null,
+    "filter": "musenalm_type ?~ \"Lied\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q100",
+    "collection": "contents",
+    "fts": null,
+    "filter": "language ?= \"ger\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q103",
+    "collection": "items",
+    "fts": null,
+    "filter": "media ?= \"Original\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q106",
+    "collection": "agents",
+    "fts": null,
+    "filter": "data:null = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q107",
+    "collection": "agents",
+    "fts": null,
+    "filter": "data:exists = true && data:null = false",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q108",
+    "collection": "agents",
+    "fts": null,
+    "filter": "data.gnd.preferredName:exists = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q110",
+    "collection": "entries",
+    "fts": null,
+    "filter": "edit_fielddata:null = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q111",
+    "collection": "entries",
+    "fts": null,
+    "filter": "@record.byte_start = 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q112",
+    "collection": "entries",
+    "fts": null,
+    "filter": "musenalm_deprecated:null = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q114",
+    "collection": "entries",
+    "fts": null,
+    "filter": "places:length > 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q115",
+    "collection": "entries",
+    "fts": null,
+    "filter": "items:length >= 2",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q116",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:length > 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q117",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:length = 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q118",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:length >= 3",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q119",
+    "collection": "contents",
+    "fts": null,
+    "filter": "@file.modified >= \"2026-01-01T00:00:00Z\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q120",
+    "collection": "contents",
+    "fts": null,
+    "filter": "incipit_statement = \"\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q122",
+    "collection": "series",
+    "fts": null,
+    "filter": "related_entries:length > 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q130",
+    "collection": "agents",
+    "fts": null,
+    "filter": "corporate_body = false",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "name",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 500,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q131",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= 1800 && year < 1850",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "year",
+        "descending": false
+      },
+      {
+        "field": "preferred_title",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q134",
+    "collection": "contents",
+    "fts": null,
+    "filter": "numbering >= 0",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "numbering",
+        "descending": false
+      }
+    ],
+    "limit": 100,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q135",
+    "collection": "contents",
+    "fts": null,
+    "filter": "numbering >= 0",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "numbering",
+        "descending": false
+      }
+    ],
+    "limit": 100,
+    "offset": 1000,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q138",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry = \"00fx8ln651na0e3\"",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "numbering",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "logical",
+    "evidence": true
+  },
+  {
+    "id": "Q141",
+    "collection": "entries",
+    "fts": "Almanach",
+    "filter": "year >= 1800 && year < 1850",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "year",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q143",
+    "collection": "entries",
+    "fts": "Taschenbuch",
+    "filter": "language ?= \"ger\"",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "preferred_title",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q144",
+    "collection": "contents",
+    "fts": "Liebe",
+    "filter": "year >= 1800 && year < 1850",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q145",
+    "collection": "contents",
+    "fts": "Lied",
+    "filter": "contributors.type ?= \"Autor:in\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q146",
+    "collection": "agents",
+    "fts": "Goethe",
+    "filter": "corporate_body = false",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q148",
+    "collection": "items",
+    "fts": "Original",
+    "filter": "basis = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q149",
+    "collection": "series",
+    "fts": "Almanach",
+    "filter": "entries:length >= 3 && @file.path ~ \"data/series/\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q150",
+    "collection": "entries",
+    "fts": "Almanach",
+    "filter": "(edit_state = \"Edited\" || edit_state = \"Review\") && year >= 1800 && !(places:length = 0) && @repository.root:exists = true",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "preferred_title",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q151",
+    "collection": "entries",
+    "fts": null,
+    "filter": "SORT BY year DESC, preferred_title ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q152",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= 1800 SORT BY year ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q153",
+    "collection": "entries",
+    "fts": "Almanach",
+    "filter": "SORT BY preferred_title DESC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q155",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= $minimum_year",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "parameters": {
+      "minimum_year": 1800
+    }
+  },
+  {
+    "id": "Q158",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year <= musenalm_id",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q159",
+    "collection": "entries",
+    "fts": null,
+    "filter": "agents[0].agent = $agent",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "parameters": {
+      "agent": {
+        "type": "id",
+        "value": "lngx6eyfw5qrzas"
+      }
+    }
+  },
+  {
+    "id": "Q160",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors[0].type = 'Autor:in'",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q163",
+    "collection": "entries",
+    "fts": "Almanach.*",
+    "fts_mode": {
+      "regex": {
+        "multi_line": false,
+        "dot_matches_new_line": false
+      }
+    },
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q164",
+    "collection": "entries",
+    "fts": "Almanach|.*",
+    "fts_mode": {
+      "regex": {
+        "multi_line": false,
+        "dot_matches_new_line": false
+      }
+    },
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q166",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.preferred_title ~ 'Taschenbuch'",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q167",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.year >= 1800 && year >= 1800",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q168",
+    "collection": "series",
+    "fts": null,
+    "filter": "entries[0].preferred_title ~ 'Taschenbuch'",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q169",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry = '02gua1gg7jny30q' && entry.places[0].name ~ 'Leipzig'",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q172",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry = '02i35e3nbm7enwp' && contributors.agents.name ?~ 'Roller'",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q173",
+    "collection": "contents",
+    "fts": "Taschenbuch.*",
+    "fts_mode": {
+      "regex": {
+        "multi_line": false,
+        "dot_matches_new_line": false
+      }
+    },
+    "filter": null,
+    "fts_fields": [
+      "entry.preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q174",
+    "collection": "contents",
+    "fts": "Liebe",
+    "filter": "entry.year >= 1800",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q177",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.year >= $year",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "parameters": {
+      "year": 1803
+    }
+  },
+  {
+    "id": "Q178",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry = $target && preferred_title ~ 'Lieder' SORT BY numbering DESC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "parameters": {
+      "target": {
+        "type": "id",
+        "value": "jv829b9kekdb5d3"
+      }
+    }
+  },
+  {
+    "id": "Q179",
+    "collection": "entries",
+    "fts": null,
+    "filter": "places[0].name ~ 'Leipzig'",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q180",
+    "collection": "series",
+    "fts": null,
+    "filter": "related_entries[0].entry.preferred_title ~ 'Taschenbuch'",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q181",
+    "collection": "entries",
+    "fts": "Krause",
+    "filter": null,
+    "fts_fields": [
+      "agents[0].agent.name"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q182",
+    "collection": "entries",
+    "fts": "$pattern",
+    "fts_mode": {
+      "regex": {
+        "multi_line": false,
+        "dot_matches_new_line": false
+      }
+    },
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "parameters": {
+      "pattern": "^Taschenbuch"
+    }
+  },
+  {
+    "id": "Q184",
+    "collection": "entries",
+    "fts": null,
+    "filter": "@file.modified < @today",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "clock_unix_seconds": 1893585600
+  },
+  {
+    "id": "Q185",
+    "collection": "entries",
+    "fts": null,
+    "filter": "@file.modified < @now",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "clock_unix_seconds": 1893585600
+  },
+  {
+    "id": "Q186",
+    "collection": "entries",
+    "fts": "(?m)^Almanach",
+    "fts_mode": {
+      "regex": {
+        "multi_line": false,
+        "dot_matches_new_line": false
+      }
+    },
+    "filter": null,
+    "fts_fields": [
+      "preferred_title"
+    ],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q187",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors[*].type = contributors[*].type",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q188",
+    "collection": "agents",
+    "fts": "goethe",
+    "fts_case_sensitivity": "insensitive",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q189",
+    "collection": "entries",
+    "fts": null,
+    "filter": "preferred_title ~ 'Goethe' SORT BY edit_state ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q190",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= 1800 SORT BY MIN(language) ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q191",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.year >= 1800 SORT BY entry.preferred_title ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q192",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors[0].type = 'Autor:in' SORT BY contributors[0].type ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q193",
+    "collection": "series",
+    "fts": null,
+    "filter": "related_entries[0].entry.preferred_title ~ 'Taschenbuch' SORT BY FIRST(related_entries.entry.year) DESC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]
