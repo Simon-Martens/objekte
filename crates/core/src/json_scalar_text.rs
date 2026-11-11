@@ -10,7 +10,8 @@ use smallvec::SmallVec;
 use crate::model::{ArrayValue, Number, Value};
 use crate::query::Quantifier;
 use crate::reference::{
-    BoundFts, BoundTerm, match_borrowed_source_filter, match_borrowed_source_segment,
+    BoundFts, BoundTerm, fts_field_selects_path, match_borrowed_source_filter,
+    match_borrowed_source_segment,
 };
 use crate::source::{ScanProjection, TextSegment};
 
@@ -634,7 +635,7 @@ impl<'a> ScalarWalker<'a> {
                         || fts
                             .fields
                             .iter()
-                            .any(|field| path_is(path, &field.path.segments))
+                        .any(|field| fts_field_selects_path(&field.path.segments, path))
                 });
                 if !selected_filter && fts_here.is_none() {
                     self.quote_end()?;
@@ -678,7 +679,11 @@ impl<'a> ScalarWalker<'a> {
                 self.whitespace();
                 let unscoped_value_fts =
                     !query.decoded_scalars && query.fts.is_some_and(|fts| fts.fields.is_empty());
+                let root_field_fts = query.fts.is_some_and(|fts| {
+                    fts.fields.iter().any(|field| field.path.segments.is_empty())
+                });
                 let resolve_here = unscoped_value_fts
+                    || root_field_fts
                     || (!suppress_filter
                         && query
                             .filter
@@ -732,6 +737,7 @@ impl<'a> ScalarWalker<'a> {
                     )?;
                     let key = path.pop().expect("object key");
                     let track_key = unscoped_value_fts
+                        || root_field_fts
                         || (!suppress_filter
                             && query.filter.is_some_and(|term| {
                                 path_prefix(path, &term.path.segments)

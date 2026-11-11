@@ -108,6 +108,35 @@ fn borrowed_source_segments_preserve_boundaries_and_duplicate_visibility() {
 }
 
 #[test]
+fn borrowed_root_field_selects_visible_nested_scalars() {
+    let mut scratch = BorrowedScanScratch::default();
+    for (source, expected) in [
+        (r#"{"title":"needle"}"#, true),
+        (r#"{"nested":{"title":"needle"}}"#, true),
+        (r#"["other",{"title":"needle"}]"#, true),
+        (r#""needle""#, true),
+        (r#"{"title":"needle","title":"other"}"#, false),
+        (r#"{"title":"needle","title":null}"#, false),
+        (r#"{"title":{"name":"needle"},"title":{}}"#, false),
+    ] {
+        for decoded_scalars in [false, true] {
+            let result = borrowed_scan(
+                source.as_bytes(),
+                Some("needle"),
+                Some("@root"),
+                None,
+                decoded_scalars,
+                &mut scratch,
+            );
+            assert_eq!(
+                result.fts_match, expected,
+                "{source} decoded={decoded_scalars}"
+            );
+        }
+    }
+}
+
+#[test]
 fn borrowed_source_filter_preserves_string_runtime_rules_and_wildcards() {
     let mut scratch = BorrowedScanScratch::default();
     for (bytes, filter, expected) in [

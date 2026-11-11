@@ -3197,10 +3197,7 @@ pub(crate) fn eval_borrowed_value_fts(
             continue;
         }
         let mut inspect = |path: &[&str], text: &str| {
-            if !field.path.segments.is_empty()
-                && (path.len() != field.path.segments.len()
-                    || !path.iter().zip(&field.path.segments).all(|(a, b)| *a == b))
-            {
+            if !fts_field_selects_path(&field.path.segments, path) {
                 return Ok(false);
             }
             if !text_contains(
@@ -3222,6 +3219,19 @@ pub(crate) fn eval_borrowed_value_fts(
         matched |= visit_borrowed_value_strings(ctx.value, &mut path, &mut inspect)?;
     }
     Ok(matched)
+}
+
+/// An empty selected path covers every text segment, including nested ones.
+pub(crate) fn fts_field_selects_path<T: AsRef<str>>(
+    selected: &[String],
+    actual: &[T],
+) -> bool {
+    selected.is_empty()
+        || (selected.len() == actual.len()
+            && selected
+                .iter()
+                .zip(actual)
+                .all(|(expected, actual)| expected == actual.as_ref()))
 }
 
 /// Match one source-owned scalar occurrence before duplicate resolution.
@@ -3257,13 +3267,7 @@ pub(crate) fn match_borrowed_source_segment(
     }
     let mut matched = false;
     for field in &fts.fields {
-        if !field.path.segments.is_empty()
-            && (field.path.segments.len() != path.len()
-                || !path
-                    .iter()
-                    .zip(&field.path.segments)
-                    .all(|(actual, expected)| actual.as_ref() == expected))
-        {
+        if !fts_field_selects_path(&field.path.segments, path) {
             continue;
         }
         if text_contains(
@@ -3353,7 +3357,7 @@ pub(crate) fn eval_bound_fts_field(
     } else {
         for segment in segments
             .iter()
-            .filter(|segment| field.path.segments.is_empty() || segment.path == field.path.segments)
+            .filter(|segment| fts_field_selects_path(&field.path.segments, &segment.path))
         {
             if text_contains(
                 &segment.text,
