@@ -20,7 +20,7 @@ use crate::inventory::{
     SourceRevision,
 };
 use crate::lifecycle::PublishedIndex;
-use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
+use crate::model::{CollectionId, FileId, LogicalType, RecordId, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::relation::RelationIndex;
 use crate::repository::{
@@ -32,10 +32,8 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 19;
-pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 20;
-const LEGACY_SNAPSHOT_VERSION: u32 = 17;
-const LEGACY_LIFECYCLE_SNAPSHOT_VERSION: u32 = 18;
+pub const SNAPSHOT_VERSION: u32 = 21;
+pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 22;
 const CONFIGURATION_HASH_VERSION: u32 = 17;
 const CONFIGURATION_SECTION_ID: u32 = u32::MAX;
 const MAX_SECTION_BYTES: u64 = 8 * 1024 * 1024 * 1024;
@@ -64,7 +62,6 @@ impl SnapshotBuildConfiguration {
     }
 }
 
-
 /// Phase timings for one explicit, durable snapshot save. Opening does not
 /// modify these values or perform a save.
 #[derive(Clone, Debug, Default)]
@@ -82,7 +79,6 @@ pub struct SnapshotSaveStats {
     pub sections: Vec<SnapshotSectionSaveStats>,
 }
 
-
 #[derive(Clone, Debug)]
 pub struct SnapshotSectionSaveStats {
     pub id: u32,
@@ -92,14 +88,12 @@ pub struct SnapshotSectionSaveStats {
     pub payload_bytes: u64,
 }
 
-
 /// Restore failures distinguish unreadable storage from invalid snapshot data.
 #[derive(Debug)]
 pub(crate) enum SnapshotLoadError {
     Access(String),
     Invalid(String),
 }
-
 
 impl std::fmt::Display for SnapshotLoadError {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -109,20 +103,17 @@ impl std::fmt::Display for SnapshotLoadError {
     }
 }
 
-
 impl From<String> for SnapshotLoadError {
     fn from(message: String) -> Self {
         Self::Invalid(message)
     }
 }
 
-
 impl From<&str> for SnapshotLoadError {
     fn from(message: &str) -> Self {
         Self::Invalid(message.into())
     }
 }
-
 
 fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadError {
     if error.kind() == std::io::ErrorKind::UnexpectedEof {
@@ -131,7 +122,6 @@ fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadErro
         SnapshotLoadError::Access(format!("snapshot access while reading {context}: {error}"))
     }
 }
-
 
 /// Snapshot representation of one source-file revision.
 #[derive(Clone, Serialize, Deserialize)]
@@ -149,7 +139,6 @@ struct EncodedFile {
     fingerprint: Option<[u8; 32]>,
 }
 
-
 /// One active catalog entry. A `None` slot is retired; IDs are never reused.
 #[derive(Clone, Serialize, Deserialize)]
 pub(crate) struct LifecycleCatalogFile {
@@ -157,7 +146,6 @@ pub(crate) struct LifecycleCatalogFile {
     pub(crate) fingerprint: Option<[u8; 32]>,
     pub(crate) configuration: Option<[u8; 32]>,
 }
-
 
 impl LifecycleCatalogFile {
     pub(crate) fn decode_entry(&self) -> Result<FileEntry, String> {
@@ -174,7 +162,6 @@ impl LifecycleCatalogFile {
     }
 }
 
-
 /// Encoded indexed segment supplied by the segment owner. Storage checks
 /// envelope identity and active domain; the caller must validate the decoded
 /// index families and relation contributions before publication.
@@ -186,7 +173,6 @@ pub(crate) struct LifecycleSegmentCache {
     pub(crate) active: RoaringBitmap,
     pub(crate) index: Vec<u8>,
 }
-
 
 /// Mutation state appended after a fully validated base repository snapshot.
 /// The segment payload remains opaque until the caller's structural decoder
@@ -201,7 +187,6 @@ pub(crate) struct LifecycleCacheState {
     pub(crate) segments: Vec<Vec<LifecycleSegmentCache>>,
     pub(crate) next_segment_ordinal: u64,
 }
-
 
 impl LifecycleCacheState {
     /// Capture one coherent publication without reading the source filesystem.
@@ -401,7 +386,6 @@ impl LifecycleCacheState {
     }
 }
 
-
 /// Encode one pinned lifecycle revision with the existing atomic temp-file
 /// protocol. `before_publish` is where the caller rechecks destination safety.
 pub(crate) fn save_lifecycle_snapshot_with_stats(
@@ -416,7 +400,6 @@ pub(crate) fn save_lifecycle_snapshot_with_stats(
         .repository
         .save_snapshot_with_lifecycle_state(path, Some(&state), before_publish)
 }
-
 
 /// Owned snapshot representation of a collection generation.
 #[derive(Serialize, Deserialize)]
@@ -437,7 +420,6 @@ struct EncodedCollection {
     relations: Vec<RelationIndex>,
 }
 
-
 /// Borrowed collection state prepared for snapshot encoding.
 #[derive(Serialize)]
 struct EncodedCollectionRef<'a> {
@@ -456,7 +438,6 @@ struct EncodedCollectionRef<'a> {
     stats: CollectionStats,
     relations: &'a Vec<RelationIndex>,
 }
-
 
 fn codec() -> impl Options {
     bincode::DefaultOptions::new()
@@ -759,13 +740,7 @@ pub(crate) fn snapshot_build_configuration_with_sources(
         .map_err(|error| snapshot_read_error("snapshot header", error))?;
     let version = u32::from_le_bytes(header[8..12].try_into().unwrap());
     if &header[..8] != MAGIC
-        || ![
-            SNAPSHOT_VERSION,
-            LIFECYCLE_SNAPSHOT_VERSION,
-            LEGACY_SNAPSHOT_VERSION,
-            LEGACY_LIFECYCLE_SNAPSHOT_VERSION,
-        ]
-        .contains(&version)
+        || ![SNAPSHOT_VERSION, LIFECYCLE_SNAPSHOT_VERSION].contains(&version)
         || u32::from_le_bytes(header[12..16].try_into().unwrap()) != crate::MODEL_VERSION
     {
         return Err("incompatible snapshot version".into());
@@ -774,53 +749,13 @@ pub(crate) fn snapshot_build_configuration_with_sources(
     if u32::from_le_bytes(header[48..52].try_into().unwrap()) as usize != definitions.len() {
         return Err("snapshot collection count mismatch".into());
     }
-    if version == SNAPSHOT_VERSION || version == LIFECYCLE_SNAPSHOT_VERSION {
-        let settings: SnapshotBuildConfiguration =
-            read_section(&mut file, CONFIGURATION_SECTION_ID)?;
-        if configuration_hash(definitions, settings.apply_to(preferred), sources)?.as_slice()
-            != hash
-        {
-            return Err(
-                "selected index was created with different collection or schema definitions"
-                    .into(),
-            );
-        }
-        return Ok(settings);
+    let settings: SnapshotBuildConfiguration = read_section(&mut file, CONFIGURATION_SECTION_ID)?;
+    if configuration_hash(definitions, settings.apply_to(preferred), sources)?.as_slice() != hash {
+        return Err(
+            "selected index was created with different collection or schema definitions".into(),
+        );
     }
-    let mut candidates = Vec::new();
-    for inference in [preferred.inference, InferenceConfig::default()] {
-        for mode in [
-            inference.mode,
-            InferenceMode::Disabled,
-            InferenceMode::AutoIndex,
-            InferenceMode::ReportOnly,
-        ] {
-            for alphabet in [
-                preferred.bigram_alphabet,
-                BigramAlphabet::Ascii,
-                BigramAlphabet::Unicode,
-            ] {
-                let settings = SnapshotBuildConfiguration {
-                    bigram_alphabet: alphabet,
-                    inference: InferenceConfig { mode, policy: inference.policy },
-                };
-                if !candidates.contains(&settings) {
-                    candidates.push(settings);
-                }
-            }
-        }
-    }
-    for settings in candidates {
-        if configuration_hash(definitions, settings.apply_to(preferred), sources)?.as_slice()
-            == hash
-        {
-            return Ok(settings);
-        }
-    }
-    Err(
-        "this older index does not store its build settings, and its source configuration does not match the current repository"
-            .into(),
-    )
+    Ok(settings)
 }
 
 #[cfg(test)]
@@ -830,7 +765,6 @@ fn write_section(file: &mut impl Write, id: u32, value: &impl Serialize) -> Resu
     file.write_all(section.get_ref()).map_err(|e| e.to_string())
 }
 
-
 struct SectionWriter<'a, W: Write> {
     inner: &'a mut W,
     checksum: Sha256,
@@ -838,7 +772,6 @@ struct SectionWriter<'a, W: Write> {
     checksum_ns: u64,
     write_ns: u64,
 }
-
 
 impl<W: Write> Write for SectionWriter<'_, W> {
     fn write(&mut self, bytes: &[u8]) -> std::io::Result<usize> {
@@ -872,7 +805,6 @@ impl<W: Write> Write for SectionWriter<'_, W> {
         Ok(())
     }
 }
-
 
 fn write_section_measured(
     file: &mut (impl Write + Seek),
@@ -974,7 +906,6 @@ fn read_section<T: for<'de> Deserialize<'de>>(
     }
     Ok(decoded)
 }
-
 
 impl Repository {
     pub fn save_snapshot(&self, path: &Path) -> Result<(), String> {
@@ -1218,7 +1149,6 @@ impl Repository {
     }
 }
 
-
 #[cfg(test)]
 impl Repository {
     pub(crate) fn save_default_snapshot_for_test(&self) {
@@ -1229,7 +1159,6 @@ impl Repository {
         .unwrap();
     }
 }
-
 
 pub fn load_snapshot(
     root: PathBuf,
@@ -1303,13 +1232,8 @@ fn load_snapshot_parts(
     } else {
         SNAPSHOT_VERSION
     };
-    let legacy_version = if lifecycle {
-        LEGACY_LIFECYCLE_SNAPSHOT_VERSION
-    } else {
-        LEGACY_SNAPSHOT_VERSION
-    };
     if &magic != MAGIC
-        || (version != current_version && version != legacy_version)
+        || version != current_version
         || u32::from_le_bytes(model) != crate::MODEL_VERSION
     {
         return Err("incompatible snapshot version".into());
@@ -1320,12 +1244,9 @@ fn load_snapshot_parts(
     if u32::from_le_bytes(count) as usize != definitions.len() {
         return Err("snapshot collection count mismatch".into());
     }
-    if version == current_version {
-        let settings: SnapshotBuildConfiguration =
-            read_section(&mut file, CONFIGURATION_SECTION_ID)?;
-        if settings != SnapshotBuildConfiguration::from_options(options) {
-            return Err("snapshot build settings mismatch".into());
-        }
+    let settings: SnapshotBuildConfiguration = read_section(&mut file, CONFIGURATION_SECTION_ID)?;
+    if settings != SnapshotBuildConfiguration::from_options(options) {
+        return Err("snapshot build settings mismatch".into());
     }
     let encoded_files: Vec<EncodedFile> = read_section(&mut file, 0)?;
     let base_fingerprints = encoded_files
@@ -1482,7 +1403,12 @@ fn load_snapshot_parts(
             .schema
             .fields
             .values()
-            .filter(|f| f.indexed)
+            .filter(|f| {
+                f.indexed
+                    || (!definition.schema.is_auto_index_prohibited(&f.path)
+                        && (matches!(f.kind, LogicalType::Array(_))
+                            || (f.kind == LogicalType::String && !f.multi)))
+            })
             .map(|f| f.path.clone())
             .collect();
         if encoded

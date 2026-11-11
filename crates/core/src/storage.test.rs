@@ -26,12 +26,9 @@ fn base_fingerprint_survives_legacy_snapshot_without_source_read() {
     )
     .unwrap();
     assert_eq!(restored.base_fingerprints, vec![fingerprint]);
-    let restored = PublishedIndex::from_repository(
-        2,
-        IndexRevision::INITIAL,
-        std::sync::Arc::new(restored),
-    )
-    .unwrap();
+    let restored =
+        PublishedIndex::from_repository(2, IndexRevision::INITIAL, std::sync::Arc::new(restored))
+            .unwrap();
     assert_eq!(restored.catalog.fingerprint(FileId(0)), fingerprint);
     fs::remove_dir_all(root).unwrap();
 }
@@ -54,9 +51,7 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
     use serde::de::{SeqAccess, Visitor};
     use serde::ser::SerializeSeq;
 
-
     struct ByteChunk<'a>(&'a [u8]);
-
 
     impl Serialize for ByteChunk<'_> {
         fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
@@ -64,9 +59,7 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
         }
     }
 
-
     struct RepeatedChunks;
-
 
     impl Serialize for RepeatedChunks {
         fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
@@ -80,7 +73,6 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
     }
 
     struct ChunkCount(usize);
-
 
     impl<'de> Deserialize<'de> for ChunkCount {
         fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
@@ -111,7 +103,6 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
             deserializer.deserialize_seq(ChunkVisitor)
         }
     }
-
 
     let path = std::env::temp_dir().join(format!(
         "objekte-large-snapshot-section-{}-{}",
@@ -208,7 +199,10 @@ fn lifecycle_snapshot_restores_pinned_liveness_without_source_enumeration() {
     assert_eq!(state.revision, 7);
     assert!(state.base_active[0].is_empty());
     assert_eq!(state.catalog.len(), 2);
-    assert_eq!(state.catalog[0].as_ref().unwrap().fingerprint, base_fingerprint);
+    assert_eq!(
+        state.catalog[0].as_ref().unwrap().fingerprint,
+        base_fingerprint
+    );
     assert_eq!(
         state.catalog[0]
             .as_ref()
@@ -1075,21 +1069,23 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
     }
     let original = fs::read(&snapshot).unwrap();
     let header_size = MAGIC.len() + 4 + 4 + 32 + 4;
-    let mut previous_version = original.clone();
-    previous_version[MAGIC.len()..MAGIC.len() + 4].copy_from_slice(&12u32.to_le_bytes());
-    fs::write(&snapshot, previous_version).unwrap();
-    assert!(
-        load_snapshot(
-            root.clone(),
-            definitions.clone(),
-            options,
-            &crate::source::SourceRegistry::builtin(),
-            &snapshot,
-        )
-        .err()
-        .unwrap()
-        .contains("incompatible snapshot version")
-    );
+    for old_version in [12u32, 19, 20] {
+        let mut previous_version = original.clone();
+        previous_version[MAGIC.len()..MAGIC.len() + 4].copy_from_slice(&old_version.to_le_bytes());
+        fs::write(&snapshot, previous_version).unwrap();
+        assert!(
+            load_snapshot(
+                root.clone(),
+                definitions.clone(),
+                options,
+                &crate::source::SourceRegistry::builtin(),
+                &snapshot,
+            )
+            .err()
+            .unwrap()
+            .contains("incompatible snapshot version")
+        );
+    }
     let mut previous_model = original.clone();
     previous_model[MAGIC.len() + 4..MAGIC.len() + 8].copy_from_slice(&8u32.to_le_bytes());
     fs::write(&snapshot, previous_model).unwrap();

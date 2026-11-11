@@ -1067,6 +1067,9 @@ fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> Posting
         nulls: RoaringBitmap::new(),
         values: Default::default(),
         lengths: Default::default(),
+        value_complete: source.value_complete,
+        length_complete: source.length_complete,
+        empty_string_complete: source.empty_string_complete,
         covered_records: logical_count,
         stats: Default::default(),
     }
@@ -1135,6 +1138,9 @@ fn project_posting(
         nulls: project_bitmap_in_range(&index.nulls, slots, bounds)?,
         values: Default::default(),
         lengths: Default::default(),
+        value_complete: index.value_complete,
+        length_complete: index.length_complete,
+        empty_string_complete: index.empty_string_complete,
         covered_records: logical_count,
         stats: Default::default(),
     };

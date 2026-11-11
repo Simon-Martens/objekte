@@ -110,35 +110,30 @@ fn selected_index_uses_its_saved_build_settings() {
         .contains("different collection or schema")
     );
 
-    for legacy in [false, true] {
-        if legacy {
-            // Old lifecycle files have the same hash but no build-settings section.
-            let mut bytes = std::fs::read(&cache).unwrap();
-            let length = u64::from_le_bytes(bytes[56..64].try_into().unwrap()) as usize;
-            bytes[8..12].copy_from_slice(&18u32.to_le_bytes());
-            bytes.drain(52..52 + 44 + length);
-            std::fs::write(&cache, bytes).unwrap();
-        }
-        let loaded = load_index(session, &cache, &CancellationToken::new()).unwrap();
-        assert_eq!(
-            loaded.configuration.options.bigram_alphabet,
-            BigramAlphabet::Unicode
-        );
-        assert_eq!(
-            loaded.configuration.options.inference.mode,
-            InferenceMode::AutoIndex
-        );
-        assert_eq!(
-            loaded.args.index_alphabet,
-            objekte_cli::arguments::Alphabet::Unicode
-        );
-        assert!(loaded.args.auto_index);
-        assert_eq!(
-            status(&loaded).unwrap().live_records,
-            status(session).unwrap().live_records
-        );
-        shutdown(&loaded).unwrap();
-    }
+    let loaded = load_index(session, &cache, &CancellationToken::new()).unwrap();
+    assert_eq!(
+        loaded.configuration.options.bigram_alphabet,
+        BigramAlphabet::Unicode
+    );
+    assert_eq!(
+        loaded.configuration.options.inference.mode,
+        InferenceMode::AutoIndex
+    );
+    assert_eq!(
+        loaded.args.index_alphabet,
+        objekte_cli::arguments::Alphabet::Unicode
+    );
+    assert!(loaded.args.auto_index);
+    assert_eq!(
+        status(&loaded).unwrap().live_records,
+        status(session).unwrap().live_records
+    );
+    shutdown(&loaded).unwrap();
+    // Snapshots written before structural capability flags need a new build.
+    let mut old = std::fs::read(&cache).unwrap();
+    old[8..12].copy_from_slice(&20u32.to_le_bytes());
+    std::fs::write(&cache, old).unwrap();
+    assert!(load_index(session, &cache, &CancellationToken::new()).is_err());
     index.shutdown().unwrap();
 }
 

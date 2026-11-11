@@ -200,6 +200,9 @@ fn resolve<'a>(
         if index.covered_records as u64 != collection.logical_records.len() {
             return Err("incomplete inferred posting logical coverage".into());
         }
+        if !index.value_complete && !inference.short_string_coverage.contains_key(&path.segments) {
+            return Err("inferred field has no general value posting coverage".into());
+        }
         return Ok(ResolvedPosting {
             index,
             binding: "inferred".into(),
@@ -263,13 +266,14 @@ fn resolve_segment<'a>(
         if inference.report.policy.version != binding_version {
             return Err("segment inferred posting policy changed".into());
         }
-        (
-            inference
-                .indexes
-                .get(&path.segments)
-                .ok_or("segment inferred posting field missing")?,
-            inference.short_string_coverage.get(&path.segments),
-        )
+        let index = inference
+            .indexes
+            .get(&path.segments)
+            .ok_or("segment inferred posting field missing")?;
+        if !index.value_complete && !inference.short_string_coverage.contains_key(&path.segments) {
+            return Err("segment inferred field has no general value posting coverage".into());
+        }
+        (index, inference.short_string_coverage.get(&path.segments))
     } else if binding == "default" {
         (
             segment

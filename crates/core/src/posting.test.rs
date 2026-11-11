@@ -310,10 +310,12 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
             },
         )
         .unwrap();
-        if indexed {
+        {
             use crate::reference::{BoundExpr, bind_filter};
             let collection = &repo.collections()[0];
             let posting = &collection.postings.fields[&vec!["groups".into(), "tags".into()]];
+            assert_eq!(posting.value_complete, indexed);
+            assert!(posting.length_complete);
             let domain = RoaringBitmap::from_iter(0..collection.generation.records.len() as u32);
             let BoundExpr::Term(universal) = bind_filter(
                 &parse_filter("groups.tags:length = 3").unwrap(),
@@ -393,6 +395,7 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
                 },
             };
             let result = repo.search(&query).unwrap();
+            let reference = repo.search_reference(&query).unwrap();
             let actual = result
                 .hits
                 .iter()
@@ -400,6 +403,8 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
                 .collect::<Vec<_>>();
             assert_eq!(actual, expected, "{indexed} {filter}");
             assert_eq!(result.count, Some(expected.len()));
+            assert_eq!(result.count, reference.count, "{indexed} {filter}");
+            assert_eq!(result.hits, reference.hits, "{indexed} {filter}");
         }
     }
     std::fs::remove_dir_all(root).unwrap();
@@ -587,4 +592,162 @@ fn ordered_posting_answers_bounds_and_array_lengths_exactly() {
             "restricted {filter}"
         );
     }
+}
+
+#[test]
+fn declared_structural_facts_are_exact_without_a_value_dictionary() {
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::reference::{BoundExpr, Schema, bind_filter};
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::source::SourceFormat;
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!("objekte-structural-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, body) in [
+        ("00", r#"{"nums":[],"objects":[],"text":"","blocked":[]}"#),
+        (
+            "01",
+            r#"{"nums":[1],"objects":[{"x":1}],"text":" ","blocked":[1]}"#,
+        ),
+        ("02", r#"{"nums":[1,2],"objects":[{},{}],"text":"Ω"}"#),
+        (
+            "03",
+            r#"{"nums":[1,2,3],"objects":[{},{},{}],"text":"\t\n"}"#,
+        ),
+        ("04", r#"{"nums":null,"objects":null,"text":null}"#),
+        ("05", r#"{}"#),
+        ("06", r#"{"text":""}"#),
+        ("07", r#"{"text":"Ω","text":""}"#),
+        ("08", r#"{"text":"","text":"Ω"}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let mut schema = Schema::default();
+    for (name, kind, multi) in [
+        (
+            "nums",
+            LogicalType::Array(Box::new(LogicalType::Number)),
+            true,
+        ),
+        (
+            "objects",
+            LogicalType::Array(Box::new(LogicalType::Object)),
+            true,
+        ),
+        ("text", LogicalType::String, false),
+        (
+            "blocked",
+            LogicalType::Array(Box::new(LogicalType::Number)),
+            true,
+        ),
+    ] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: false,
+                nullable: true,
+                indexed: false,
+                multi,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    schema.prohibit_auto_index(vec!["blocked".into()]).unwrap();
+    let postings = PostingCollection::new(&schema);
+    assert_eq!(postings.fields.len(), 3);
+    assert!(!postings.fields.contains_key(&vec!["blocked".into()]));
+    assert!(!postings.fields[&vec!["nums".into()]].value_complete);
+    assert!(postings.fields[&vec!["objects".into()]].length_complete);
+    assert!(postings.fields[&vec!["text".into()]].empty_string_complete);
+    let mut wrong = postings.clone();
+    wrong
+        .add(
+            RecordSlot(0),
+            &Value::from_json(serde_json::json!({
+                "nums": "not an array", "objects": 7, "text": []
+            }))
+            .unwrap(),
+        )
+        .unwrap();
+    assert!(wrong.fields[&vec!["nums".into()]].lengths.is_empty());
+    assert!(wrong.fields[&vec!["objects".into()]].lengths.is_empty());
+    assert!(wrong.fields[&vec!["text".into()]].values.is_empty());
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let collection = &repo.collections()[0];
+    let domain = &collection.logical_records;
+    for filter in ["nums ?= 2", "text = \"Ω\"", "text != \"\""] {
+        let BoundExpr::Term(term) = bind_filter(
+            &parse_filter(filter).unwrap(),
+            &collection.definition.schema,
+        )
+        .unwrap() else {
+            panic!("term")
+        };
+        let index = &collection.postings.fields[&term.path.segments];
+        assert!(
+            index.estimate_exact(&term, domain.len()).is_none(),
+            "{filter}"
+        );
+        assert!(index.exact_set(&term, domain).is_none(), "{filter}");
+    }
+    for (filter, exact) in [
+        ("nums:length = 0", true),
+        ("nums:length >= 2", true),
+        ("objects:length > 0", true),
+        ("objects:length = 3", true),
+        ("text = \"\"", true),
+        ("text = \"Ω\"", false),
+        ("nums ?= 2", false),
+        ("blocked:length = 0", false),
+    ] {
+        let request = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 50,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        let optimized = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(optimized.count, reference.count, "{filter}");
+        assert_eq!(optimized.hits, reference.hits, "{filter}");
+        if exact {
+            assert_eq!(optimized.counters.files_opened, 0, "{filter}");
+            assert_eq!(optimized.counters.bytes_read, 0, "{filter}");
+            assert_eq!(optimized.counters.record_parses, 0, "{filter}");
+            assert_eq!(optimized.counters.scanned_records, 0, "{filter}");
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
 }

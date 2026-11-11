@@ -355,7 +355,7 @@ fn segment_dictionary_contains(
         return None;
     }
     let posting = segment.postings.fields.get(&term.path.segments)?;
-    if posting.covered_records as u64 != segment.logical_records.len() {
+    if !posting.value_complete || posting.covered_records as u64 != segment.logical_records.len() {
         return None;
     }
     let mut matches = RoaringBitmap::new();
@@ -1505,6 +1505,7 @@ fn enumerate_paths(
                 && term.operation.is_none()
                 && term.derived == Derived::None
                 && term.operator == Operator::Contains
+                && index.value_complete
                 && index.covered_records as u64 == collection.logical_records.len()
                 && (!term.multi || term.quantifier == Quantifier::Any)
                 && matches!(&term.literal,Value::String(s) if !s.contains(['%','\\']))

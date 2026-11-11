@@ -57,6 +57,98 @@ fn intrinsic_definition(name: &str) -> CollectionDefinition {
 }
 
 #[test]
+fn partial_structural_postings_survive_explicit_mutations_and_cache_roundtrip() {
+    let root = test_root("structural-postings");
+    let first = root.join("data/first.json");
+    std::fs::write(&first, r#"{"tags":[],"text":""}"#).unwrap();
+    let mut definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    for (name, kind, multi) in [
+        (
+            "tags",
+            LogicalType::Array(Box::new(LogicalType::Object)),
+            true,
+        ),
+        ("text", LogicalType::String, false),
+    ] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: false,
+                nullable: false,
+                indexed: false,
+                multi,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    let options = RepositoryOptions {
+        verified_cache_bytes: 0,
+        ..Default::default()
+    };
+    let index = Index::build(&root, vec![definition.clone()], options).unwrap();
+    let check = |index: &Index, expected: [usize; 3], compare_reference: bool| {
+        let view = index.view().unwrap();
+        for (filter, count) in ["tags:length = 0", "tags:length = 2", "text = \"\""]
+            .into_iter()
+            .zip(expected)
+        {
+            let request = Query {
+                collections: vec!["items".into()],
+                fts: None,
+                filter: Some(parse_filter(filter).unwrap()),
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 50,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
+            };
+            let actual = view.search(&request).unwrap();
+            assert_eq!(actual.count, Some(count), "{filter}");
+            if compare_reference {
+                let reference = view.search_reference(&request).unwrap();
+                assert_eq!(actual.count, reference.count, "{filter}");
+                assert_eq!(actual.hits, reference.hits, "{filter}");
+            }
+            assert_eq!(actual.counters.files_opened, 0, "{filter}");
+            assert_eq!(actual.counters.bytes_read, 0, "{filter}");
+            assert_eq!(actual.counters.record_parses, 0, "{filter}");
+        }
+    };
+    check(&index, [1, 0, 1], true);
+    let first_handle = index.view().unwrap().file_handle_for_path(&first).unwrap();
+    std::fs::write(&first, r#"{"tags":[{},{}],"text":"filled"}"#).unwrap();
+    // Search remains bound to the published facts until the explicit update.
+    check(&index, [1, 0, 1], false);
+    let updated = index.update_file(first_handle, &first).unwrap();
+    check(&index, [0, 1, 0], true);
+    let second = root.join("data/second.json");
+    std::fs::write(&second, r#"{"tags":[],"text":""}"#).unwrap();
+    let added = index.add_file(&second).unwrap();
+    check(&index, [1, 1, 1], true);
+    let moved = root.join("data/moved.json");
+    std::fs::rename(&first, &moved).unwrap();
+    index.move_file(updated.file, &moved).unwrap();
+    check(&index, [1, 1, 1], true);
+    std::fs::remove_file(&second).unwrap();
+    index.delete_file(added.file).unwrap();
+    check(&index, [0, 1, 0], true);
+    index.compact().unwrap();
+    check(&index, [0, 1, 0], true);
+    let cache = root.join("structural.snapshot");
+    index.flush_cache(&cache).unwrap();
+    let restored = Index::load_cache(&root, vec![definition], options, &cache).unwrap();
+    check(&restored, [0, 1, 0], true);
+    restored.shutdown().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn search_trusts_recorded_json_validation_until_explicit_update() {
     use crate::inventory::RecordClass;
     use std::time::{Duration, UNIX_EPOCH};

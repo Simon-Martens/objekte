@@ -16,7 +16,9 @@ use crate::inventory::{
     RecordClass, RecordEntry, SourceDiagnostic, SourceRevision,
 };
 use crate::lifecycle_catalog::FileCatalog;
-use crate::model::{CollectionId, FileId, MetadataField, PathRoot, RecordId, RecordSlot};
+use crate::model::{
+    CollectionId, FileId, LogicalType, MetadataField, PathRoot, RecordId, RecordSlot,
+};
 use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::relation::RelationContribution;
 use crate::repository::{
@@ -527,7 +529,12 @@ fn validate_segment(
         .schema
         .fields
         .values()
-        .filter(|field| field.indexed)
+        .filter(|field| {
+            field.indexed
+                || (!definition.schema.is_auto_index_prohibited(&field.path)
+                    && (matches!(field.kind, LogicalType::Array(_))
+                        || (field.kind == LogicalType::String && !field.multi)))
+        })
         .map(|field| field.path.clone())
         .collect::<HashSet<_>>();
     if segment

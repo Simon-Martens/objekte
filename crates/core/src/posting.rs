@@ -13,7 +13,6 @@ use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
 
-
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ScalarKey {
     String(String),
@@ -24,7 +23,6 @@ pub enum ScalarKey {
     Datetime(OffsetDateTime),
     Unixtime(i64),
 }
-
 
 impl ScalarKey {
     pub fn from_value(value: &Value) -> Option<Self> {
@@ -41,7 +39,6 @@ impl ScalarKey {
     }
 }
 
-
 /// Ordered typed values and their record-slot postings.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostingIndex {
@@ -52,10 +49,13 @@ pub struct PostingIndex {
     pub nulls: RoaringBitmap,
     pub values: BTreeMap<ScalarKey, RoaringBitmap>,
     pub lengths: BTreeMap<Number, RoaringBitmap>,
+    /// A partial dictionary cannot prove that an absent scalar value is absent.
+    pub value_complete: bool,
+    pub length_complete: bool,
+    pub empty_string_complete: bool,
     pub covered_records: u32,
     pub stats: PostingStats,
 }
-
 
 /// Optional named-binding posting and its exact coverage guarantee.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -63,7 +63,6 @@ pub struct CustomPostingIndex {
     pub index: PostingIndex,
     pub complete: bool,
 }
-
 
 /// Coverage and cardinality summary for one posting index.
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
@@ -74,7 +73,6 @@ pub struct PostingStats {
     pub min_key: Option<ScalarKey>,
     pub max_key: Option<ScalarKey>,
 }
-
 
 impl PostingIndex {
     /// Inferred dictionary costing without materializing or unioning postings.
@@ -129,7 +127,7 @@ impl PostingIndex {
         domain: &RoaringBitmap,
         input: &RoaringBitmap,
     ) -> Option<RoaringBitmap> {
-        if self.multi || self.covered_records as u64 != domain.len() {
+        if !self.value_complete || self.multi || self.covered_records as u64 != domain.len() {
             return None;
         }
         match operator {
@@ -155,7 +153,13 @@ impl PostingIndex {
     }
 
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
-        if self.path != batch.path || self.kind != batch.kind || self.multi != batch.multi {
+        if self.path != batch.path
+            || self.kind != batch.kind
+            || self.multi != batch.multi
+            || self.value_complete != batch.value_complete
+            || self.length_complete != batch.length_complete
+            || self.empty_string_complete != batch.empty_string_complete
+        {
             return Err("posting batch representation mismatch".into());
         }
         let covered = self
@@ -206,6 +210,9 @@ impl PostingIndex {
             return None;
         }
         if term.period.is_some() {
+            if !self.value_complete {
+                return None;
+            }
             return self.temporal_postings(term, Some(input));
         }
         let borrowed = match term.derived {
@@ -229,7 +236,9 @@ impl PostingIndex {
                     input - source
                 });
             }
-            Derived::Length if !length_posting_is_exact(term) => return None,
+            Derived::Length if !self.length_complete || !length_posting_is_exact(term) => {
+                return None;
+            }
             Derived::Length if term.operator == Operator::Eq => {
                 let Value::Number(number) = &term.literal else {
                     return None;
@@ -275,7 +284,8 @@ impl PostingIndex {
             Derived::None
                 if term.transform == Transform::Identity
                     && (!term.multi || term.quantifier == Quantifier::Any)
-                    && term.operator == Operator::Eq =>
+                    && term.operator == Operator::Eq
+                    && self.scalar_equality_complete(term) =>
             {
                 let key = ScalarKey::from_value(&term.literal)?;
                 self.values.get(&key)
@@ -283,6 +293,7 @@ impl PostingIndex {
             Derived::None
                 if term.transform == Transform::Identity
                     && !term.multi
+                    && self.value_complete
                     && is_range(term.operator) =>
             {
                 let key = ScalarKey::from_value(&term.literal)?;
@@ -308,9 +319,27 @@ impl PostingIndex {
             nulls: RoaringBitmap::new(),
             values: BTreeMap::new(),
             lengths: BTreeMap::new(),
+            value_complete: true,
+            length_complete: matches!(field.kind, LogicalType::Array(_)),
+            empty_string_complete: field.kind == LogicalType::String && !field.multi,
             covered_records: 0,
             stats: PostingStats::default(),
         }
+    }
+
+    fn structural(field: &FieldDefinition) -> Self {
+        let mut index = Self::new(field);
+        index.value_complete = field.indexed;
+        index
+    }
+
+    fn scalar_equality_complete(&self, term: &BoundTerm) -> bool {
+        self.value_complete
+            || (self.empty_string_complete
+                && !term.multi
+                && !term.query_path.has_explicit_array_step
+                && self.kind == LogicalType::String
+                && matches!(&term.literal, Value::String(value) if value.is_empty()))
     }
 
     pub fn finish_stats(&mut self) {
@@ -347,11 +376,35 @@ impl PostingIndex {
         }
         if let [value] = selected {
             if !matches!(value, Value::Array(_)) {
-                if let Some(key) = ScalarKey::from_value(value) {
+                if let Value::String(text) = value
+                    && text.is_empty()
+                    && self.empty_string_complete
+                    && !self.value_complete
+                {
+                    self.values
+                        .entry(ScalarKey::String(String::new()))
+                        .or_default()
+                        .insert(slot.0);
+                } else if self.value_complete
+                    && let Some(key) = ScalarKey::from_value(value)
+                {
                     self.values.entry(key).or_default().insert(slot.0);
                 }
                 return Ok(());
             }
+        }
+        if !self.value_complete {
+            if self.length_complete {
+                for value in selected {
+                    if let Value::Array(array) = value {
+                        self.lengths
+                            .entry(Number::integer(array.values.len() as i128))
+                            .or_default()
+                            .insert(slot.0);
+                    }
+                }
+            }
+            return Ok(());
         }
         let mut unique = HashSet::new();
         for value in selected {
@@ -405,6 +458,9 @@ impl PostingIndex {
         {
             return Err("posting statistics mismatch".into());
         }
+        if !self.length_complete && !self.lengths.is_empty() {
+            return Err("posting capability and stored facts mismatch".into());
+        }
         Ok(())
     }
 
@@ -434,6 +490,9 @@ impl PostingIndex {
             return None;
         }
         if term.period.is_some() {
+            if !self.value_complete {
+                return None;
+            }
             if term.multi || term.transform != Transform::Identity {
                 return None;
             }
@@ -464,7 +523,7 @@ impl PostingIndex {
                 return Some((1.0, if matches_true { yes } else { domain_len - yes }));
             }
             Derived::Length => {
-                if !length_posting_is_exact(term) {
+                if !self.length_complete || !length_posting_is_exact(term) {
                     return None;
                 }
                 let Value::Number(number) = &term.literal else {
@@ -518,6 +577,12 @@ impl PostingIndex {
             return None;
         }
         let key = ScalarKey::from_value(&term.literal)?;
+        if term.operator == Operator::Eq && !self.scalar_equality_complete(term) {
+            return None;
+        }
+        if term.operator != Operator::Eq && !self.value_complete {
+            return None;
+        }
         match term.operator {
             Operator::Eq => {
                 *visits += 1;
@@ -568,6 +633,9 @@ impl PostingIndex {
             return None;
         }
         if term.period.is_some() {
+            if !self.value_complete {
+                return None;
+            }
             return self.temporal_postings(term, None);
         }
         match term.derived {
@@ -592,7 +660,7 @@ impl PostingIndex {
                 });
             }
             Derived::Length => {
-                if !length_posting_is_exact(term) {
+                if !self.length_complete || !length_posting_is_exact(term) {
                     return None;
                 }
                 let Value::Number(number) = &term.literal else {
@@ -624,6 +692,12 @@ impl PostingIndex {
             return None;
         }
         let key = ScalarKey::from_value(&term.literal)?;
+        if term.operator == Operator::Eq && !self.scalar_equality_complete(term) {
+            return None;
+        }
+        if term.operator != Operator::Eq && !self.value_complete {
+            return None;
+        }
         if term.multi && term.quantifier != Quantifier::Any {
             return None;
         }
@@ -739,14 +813,14 @@ impl PostingIndex {
     }
 }
 
-
 /// A length posting is a union of records containing at least one reached
 /// array of that length. It proves existential comparisons. A one-segment
 /// field path selects at most one array from a record root, so its default
 /// universal comparison is also exact. Nested universal comparisons require
 /// a scanner because the posting does not retain every reached length.
 fn length_posting_is_exact(term: &BoundTerm) -> bool {
-    term.quantifier == Quantifier::Any || term.path.segments.len() == 1
+    !term.query_path.has_explicit_array_step
+        && (term.quantifier == Quantifier::Any || term.path.segments.len() == 1)
 }
 
 fn is_range(operator: Operator) -> bool {
@@ -889,13 +963,11 @@ fn scalar_range_postings(
     }
 }
 
-
 /// Posting indexes registered for one collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostingCollection {
     pub fields: HashMap<Vec<String>, PostingIndex>,
 }
-
 
 impl PostingCollection {
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
@@ -922,8 +994,13 @@ impl PostingCollection {
         let fields = schema
             .fields
             .values()
-            .filter(|f| f.indexed)
-            .map(|f| (f.path.clone(), PostingIndex::new(f)))
+            .filter(|f| {
+                f.indexed
+                    || (!schema.is_auto_index_prohibited(&f.path)
+                        && (matches!(f.kind, LogicalType::Array(_))
+                            || (f.kind == LogicalType::String && !f.multi)))
+            })
+            .map(|f| (f.path.clone(), PostingIndex::structural(f)))
             .collect();
         Self { fields }
     }
@@ -956,7 +1033,6 @@ impl PostingCollection {
         Ok(())
     }
 }
-
 
 #[cfg(test)]
 #[path = "posting.test.rs"]

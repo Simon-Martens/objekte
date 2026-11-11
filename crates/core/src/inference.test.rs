@@ -60,6 +60,80 @@ fn documented_inference_defaults_match_the_exported_policy() {
 }
 
 #[test]
+fn auto_index_retains_structural_facts_after_value_admission_fails() {
+    let root = temporary_root("structural-facts");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, body) in [
+        ("00", r#"{"arr":[],"text":""}"#),
+        ("01", r#"{"arr":[{}],"text":"long unique text one"}"#),
+        ("02", r#"{"arr":[{},{}],"text":"long unique text two"}"#),
+        ("03", r#"{"arr":[{},{},{}],"text":" "}"#),
+        ("04", r#"{"text":null}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let make = |max_keys| {
+        Repository::open_with_options(
+            &root,
+            vec![CollectionDefinition::folder(
+                "data",
+                "data",
+                SourceFormat::Json,
+            )],
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                verified_cache_bytes: 0,
+                inference: InferenceConfig {
+                    mode: InferenceMode::AutoIndex,
+                    policy: InferencePolicy {
+                        max_distinct_values_per_path: max_keys,
+                        max_string_bytes: 4,
+                        max_short_string_index_bytes_per_path: 1,
+                        ..Default::default()
+                    },
+                },
+                ..Default::default()
+            },
+        )
+        .unwrap()
+    };
+    let repo = make(4);
+    let inference = repo.collections()[0].inference.as_ref().unwrap();
+    let arr = &inference.indexes[&vec!["arr".into()]];
+    let text = &inference.indexes[&vec!["text".into()]];
+    assert!(arr.length_complete);
+    assert!(!arr.value_complete);
+    assert!(text.empty_string_complete);
+    assert!(!text.value_complete);
+    for filter in ["arr:length = 0", "arr:length >= 2", "text = \"\""] {
+        let mut request = query(filter);
+        request.options.return_mode = ReturnMode::Locator;
+        let optimized = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(optimized.count, reference.count, "{filter}");
+        assert_eq!(optimized.hits, reference.hits, "{filter}");
+        assert_eq!(optimized.counters.files_opened, 0, "{filter}");
+        assert_eq!(optimized.counters.record_parses, 0, "{filter}");
+    }
+    let bounded = make(1);
+    let inference = bounded.collections()[0].inference.as_ref().unwrap();
+    assert!(
+        !inference
+            .indexes
+            .get(&vec!["arr".into()])
+            .is_some_and(|index| index.length_complete)
+    );
+    let mut request = query("arr:length >= 2");
+    request.options.return_mode = ReturnMode::Locator;
+    let optimized = bounded.search(&request).unwrap();
+    let reference = bounded.search_reference(&request).unwrap();
+    assert_eq!(optimized.count, reference.count);
+    assert_eq!(optimized.hits, reference.hits);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
     let root = temporary_root("planning-conjuncts");
     let _ = std::fs::remove_dir_all(&root);
@@ -1060,10 +1134,13 @@ fn mixed_shapes_and_explicit_optouts_decline_inferred_postings() {
             .index_status
     };
     assert_eq!(status("mixed"), InferenceIndexStatus::Incompatible);
-    assert_eq!(status("shape"), InferenceIndexStatus::Incompatible);
+    assert_eq!(status("shape"), InferenceIndexStatus::Built);
     assert_eq!(status("blocked"), InferenceIndexStatus::ExplicitOptOut);
     assert_eq!(status("declared"), InferenceIndexStatus::Redundant);
-    assert!(state.indexes.is_empty());
+    assert_eq!(state.indexes.len(), 1);
+    let shape = &state.indexes[&vec!["shape".into()]];
+    assert!(shape.length_complete);
+    assert!(!shape.value_complete);
 }
 
 #[test]
@@ -1099,13 +1176,15 @@ fn high_cardinality_and_long_text_drop_only_their_own_candidates() {
     };
     assert_eq!(status("flag"), InferenceIndexStatus::Built);
     assert_eq!(status("unique"), InferenceIndexStatus::Built);
-    assert_eq!(status("long"), InferenceIndexStatus::BudgetExceeded);
-    assert_eq!(state.indexes.len(), 2);
+    assert_eq!(status("long"), InferenceIndexStatus::Built);
+    assert_eq!(state.indexes.len(), 3);
+    let long = &state.indexes[&vec!["long".into()]];
+    assert!(long.empty_string_complete);
+    assert!(!long.value_complete);
+    assert!(long.values.is_empty());
 }
 
-
 struct PipeReader;
-
 
 impl SourceReader for PipeReader {
     fn name(&self) -> &'static str {
@@ -1134,7 +1213,6 @@ impl SourceReader for PipeReader {
         })
     }
 }
-
 
 #[test]
 fn registered_reader_observations_do_not_depend_on_raw_text_coverage() {

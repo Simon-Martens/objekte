@@ -16,7 +16,6 @@ use super::{
     InferenceReport, InferenceState, InferredFieldReport, ObservedStep, typed_path,
 };
 
-
 /// Observations retained for one path while construction batches are admitted.
 #[derive(Clone)]
 struct FieldState {
@@ -42,6 +41,7 @@ struct FieldState {
     values: Option<BTreeMap<ScalarKey, RoaringBitmap>>,
     short_values: Option<BTreeMap<String, RoaringBitmap>>,
     no_provisional_postings: bool,
+    facts_enabled: bool,
     short_distinct_without_postings: Option<HashSet<String>>,
     short_distinct_without_postings_bytes: usize,
     short_summary_truncated: bool,
@@ -51,11 +51,12 @@ struct FieldState {
     short_estimated_bytes: usize,
     short_dropped: bool,
     lengths: Option<BTreeMap<Number, RoaringBitmap>>,
+    empty_string: RoaringBitmap,
+    length_dropped: bool,
     dropped: bool,
     #[cfg(test)]
     key_builds: usize,
 }
-
 
 impl FieldState {
     fn new(path: Vec<String>, mode: InferenceMode) -> Self {
@@ -82,6 +83,7 @@ impl FieldState {
             values: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
             short_values: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
             no_provisional_postings: false,
+            facts_enabled: mode == InferenceMode::AutoIndex,
             short_distinct_without_postings: None,
             short_distinct_without_postings_bytes: 0,
             short_summary_truncated: false,
@@ -91,6 +93,8 @@ impl FieldState {
             short_estimated_bytes: 0,
             short_dropped: false,
             lengths: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
+            empty_string: RoaringBitmap::new(),
+            length_dropped: false,
             dropped: false,
             #[cfg(test)]
             key_builds: 0,
@@ -100,6 +104,7 @@ impl FieldState {
     fn without_provisional_postings(path: Vec<String>) -> Self {
         let mut field = Self::new(path, InferenceMode::ReportOnly);
         field.no_provisional_postings = true;
+        field.facts_enabled = false;
         field.short_distinct_without_postings = Some(HashSet::new());
         field
     }
@@ -112,6 +117,9 @@ impl FieldState {
 
     fn drop_values(&mut self) {
         self.drop_general_values();
+        self.lengths = None;
+        self.length_dropped = true;
+        self.empty_string.clear();
         self.short_values = None;
         self.short_distinct_without_postings = None;
         self.short_dropped = true;
@@ -119,7 +127,6 @@ impl FieldState {
 
     fn drop_general_values(&mut self) {
         self.values = None;
-        self.lengths = None;
         self.dropped = true;
     }
 
@@ -153,6 +160,12 @@ impl FieldState {
         };
         self.value_occurrences = self.value_occurrences.saturating_add(1);
         self.kind(kind);
+        if self.facts_enabled
+            && matches!(value, Value::String(text) if text.is_empty())
+            && self.empty_string.insert(slot.0)
+        {
+            retained += 8;
+        }
         if let Value::String(text) = value {
             if text.len() <= policy.short_string_max_utf8_bytes {
                 self.short_observed_occurrences = self.short_observed_occurrences.saturating_add(1);
@@ -293,6 +306,7 @@ impl FieldState {
             (&mut self.direct_records, &other.direct_records),
             (&mut self.short_seen, &other.short_seen),
             (&mut self.short_uncovered, &other.short_uncovered),
+            (&mut self.empty_string, &other.empty_string),
         ] {
             append_shifted_bitmap(target, source, base)?;
         }
@@ -386,15 +400,25 @@ impl FieldState {
                 append_shifted_bitmap(existing.entry(key).or_default(), &bitmap, base)?;
             }
         }
+        let mut length_overflow = false;
         if let (Some(existing), Some(incoming)) = (&mut self.lengths, other.lengths) {
             for (key, bitmap) in incoming {
+                if existing.len() >= policy.max_distinct_values_per_path
+                    && !existing.contains_key(&key)
+                {
+                    length_overflow = true;
+                    break;
+                }
                 append_shifted_bitmap(existing.entry(key).or_default(), &bitmap, base)?;
             }
+        }
+        self.length_dropped |= other.length_dropped || length_overflow;
+        if self.length_dropped {
+            self.lengths = None;
         }
         Ok(())
     }
 }
-
 
 /// One batch or coordinator's bounded construction-only observation state.
 #[derive(Clone)]
@@ -420,14 +444,12 @@ pub(crate) struct InferenceBuilder {
     coordinator_limit: usize,
 }
 
-
 /// Reused traversal state for one already parsed logical record.
 struct VisitState {
     slot: RecordSlot,
     path: Vec<ObservedStep>,
     contributions: usize,
 }
-
 
 impl InferenceBuilder {
     pub(crate) fn new(config: InferenceConfig, batch: bool) -> Option<Self> {
@@ -566,11 +588,9 @@ impl InferenceBuilder {
         self.paths.insert(owned, index);
         let redundant_or_prohibited = self.config.mode == InferenceMode::AutoIndex
             && schema.is_some_and(|schema| {
-                schema
-                    .fields
-                    .get(&fields)
-                    .is_some_and(|field| field.indexed)
-                    || schema.is_auto_index_prohibited(&fields)
+                schema.fields.get(&fields).is_some_and(|field| {
+                    field.indexed || matches!(field.kind, LogicalType::Array(_))
+                }) || schema.is_auto_index_prohibited(&fields)
             });
         self.fields.push(if redundant_or_prohibited {
             FieldState::without_provisional_postings(fields)
@@ -635,12 +655,20 @@ impl InferenceBuilder {
                             field.empty_array.insert(state.slot.0);
                             field.empty_selection.insert(state.slot.0);
                         }
-                        if let Some(lengths) = &mut field.lengths {
-                            let key = Number::integer(array.values.len() as i128);
+                        let key = Number::integer(array.values.len() as i128);
+                        if field.lengths.as_ref().is_some_and(|lengths| {
+                            !lengths.contains_key(&key)
+                                && lengths.len() >= self.config.policy.max_distinct_values_per_path
+                        }) {
+                            field.lengths = None;
+                            field.length_dropped = true;
+                        } else if let Some(lengths) = &mut field.lengths {
                             if !lengths.contains_key(&key) {
                                 charge += 128;
                             }
-                            lengths.entry(key).or_default().insert(state.slot.0);
+                            if lengths.entry(key).or_default().insert(state.slot.0) {
+                                charge += 8;
+                            }
                         }
                     }
                     Value::Object(_) => {
@@ -856,7 +884,9 @@ impl InferenceBuilder {
                 )
             } else if self.config.mode == InferenceMode::ReportOnly {
                 (InferenceIndexStatus::NotRequested, "report-only mode")
-            } else if declared.is_some_and(|field| field.indexed) {
+            } else if declared
+                .is_some_and(|field| field.indexed || matches!(field.kind, LogicalType::Array(_)))
+            {
                 (
                     InferenceIndexStatus::Redundant,
                     "declared posting already exists",
@@ -870,6 +900,21 @@ impl InferenceBuilder {
                 (
                     InferenceIndexStatus::Built,
                     "ordered short-string postings with residual coverage",
+                )
+            } else if !field.array_records.is_empty() && field.lengths.is_some() {
+                (
+                    InferenceIndexStatus::Built,
+                    "complete array-length postings",
+                )
+            } else if scalar_kind == Some(LogicalType::String) && !mixed_shape {
+                (
+                    InferenceIndexStatus::Built,
+                    "complete exact empty-string posting",
+                )
+            } else if field.length_dropped {
+                (
+                    InferenceIndexStatus::BudgetExceeded,
+                    "array-length postings exceeded the per-path key budget",
                 )
             } else if field.short_dropped && field.short_seen.len() > 0 {
                 (
@@ -925,11 +970,26 @@ impl InferenceBuilder {
                 0
             };
             if status == InferenceIndexStatus::Built {
+                let all_short =
+                    has_short_values && short_covered == (&field.present - &field.exact_null);
+                let value_complete = !mixed_shape
+                    && scalar_kind.is_some()
+                    && ((!field.dropped
+                        && field.values.is_some()
+                        && (!has_short_values || string_admissible))
+                        || all_short);
                 let kind = if has_short_values {
                     LogicalType::String
+                } else if !field.array_records.is_empty() && !value_complete {
+                    LogicalType::Array(Box::new(LogicalType::Unknown))
                 } else {
                     scalar_kind.clone().unwrap()
                 };
+                let length_complete = !field.array_records.is_empty() && field.lengths.is_some();
+                let empty_string_complete = kind == LogicalType::String
+                    && field.array_records.is_empty()
+                    && field.through_array_records.is_empty()
+                    && !mixed_shape;
                 let mut values = if has_short_values {
                     field
                         .short_values
@@ -947,6 +1007,12 @@ impl InferenceBuilder {
                         *values.entry(key).or_default() |= slots;
                     }
                 }
+                if empty_string_complete && !values.contains_key(&ScalarKey::String(String::new()))
+                {
+                    if !field.empty_string.is_empty() {
+                        values.insert(ScalarKey::String(String::new()), field.empty_string.clone());
+                    }
+                }
                 let mut index = PostingIndex {
                     path: field.path.clone(),
                     kind,
@@ -956,6 +1022,9 @@ impl InferenceBuilder {
                     nulls: field.exact_null.clone(),
                     values,
                     lengths: field.lengths.take().unwrap_or_default(),
+                    value_complete,
+                    length_complete,
+                    empty_string_complete,
                     covered_records: self.eligible,
                     stats: PostingStats::default(),
                 };
@@ -1075,7 +1144,6 @@ impl InferenceBuilder {
         })
     }
 }
-
 
 #[cfg(test)]
 #[path = "inference_build.test.rs"]

@@ -13,7 +13,6 @@ use crate::reference::{BoundTerm, Derived, Schema, Transform};
 
 pub const INFERENCE_POLICY_VERSION: u32 = 5;
 
-
 /// Typed intern key; automatic observation visits field steps only, while
 /// positional query steps remain a separate path kind and are never inferred.
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
@@ -25,13 +24,11 @@ pub(crate) enum ObservedStep {
     ArrayIndex(u32),
 }
 
-
 fn typed_path(path: &[String]) -> Vec<ObservedStep> {
     path.iter()
         .map(|name| ObservedStep::Field(Arc::from(name.as_str())))
         .collect()
 }
-
 
 /// Explicit construction choice. Disabled is the schema-free default.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
@@ -41,7 +38,6 @@ pub enum InferenceMode {
     ReportOnly,
     AutoIndex,
 }
-
 
 /// Bounded, versioned admission thresholds for one repository opening.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -66,7 +62,6 @@ pub struct InferencePolicy {
     pub max_distinct_nonblank_strings: usize,
     pub minimum_repeated_percent: u8,
 }
-
 
 impl Default for InferencePolicy {
     fn default() -> Self {
@@ -94,14 +89,12 @@ impl Default for InferencePolicy {
     }
 }
 
-
 /// Mode and admission policy frozen for one immutable repository generation.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
 pub struct InferenceConfig {
     pub mode: InferenceMode,
     pub policy: InferencePolicy,
 }
-
 
 impl InferenceConfig {
     pub fn validate(self) -> Result<(), String> {
@@ -138,7 +131,6 @@ impl InferenceConfig {
     }
 }
 
-
 /// Why an observed field did or did not receive a typed accelerator.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub enum InferenceIndexStatus {
@@ -151,7 +143,6 @@ pub enum InferenceIndexStatus {
     BudgetExceeded,
     BelowThreshold,
 }
-
 
 /// Complete or explicitly incomplete statistics for one logical field path.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -187,7 +178,6 @@ pub struct InferredFieldReport {
     pub retained_bytes_estimate: usize,
 }
 
-
 /// Per-collection inference report for one source generation.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct InferenceReport {
@@ -206,7 +196,6 @@ pub struct InferenceReport {
     pub fields: Vec<InferredFieldReport>,
 }
 
-
 /// Construction-only inference work and retained-state estimates.
 /// Budget charges are policy estimates, not allocator measurements or RSS.
 #[derive(Clone, Copy, Debug, Default)]
@@ -220,7 +209,6 @@ pub struct InferenceBuildStats {
     pub repeated_batch_path_bytes: usize,
     pub retained_manual_summary_bytes: usize,
 }
-
 
 impl InferenceBuildStats {
     pub(crate) fn absorb(&mut self, other: Self) {
@@ -243,7 +231,6 @@ impl InferenceBuildStats {
     }
 }
 
-
 /// One observed path and its ordered posting admission outcome.
 ///
 /// A built index owns B-tree value and length dictionaries, even when either
@@ -265,7 +252,6 @@ pub struct InferencePathDiagnostic {
     pub short_string_unresolved_records: u64,
 }
 
-
 /// Published optional indexes and their descriptive report.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct InferenceState {
@@ -276,7 +262,6 @@ pub struct InferenceState {
     /// corresponding short-string posting dictionary.
     pub short_string_coverage: HashMap<Vec<String>, RoaringBitmap>,
 }
-
 
 impl InferenceState {
     pub(crate) fn path_diagnostics(&self) -> Vec<InferencePathDiagnostic> {
@@ -316,6 +301,7 @@ impl InferenceState {
         }
         let index = self.indexes.get(path)?;
         if index.covered_records as u64 != logical.len()
+            || !index.value_complete
             || index.multi
             || !matches!(
                 index.kind,
@@ -339,7 +325,8 @@ impl InferenceState {
             || term.related.is_some()
             || term.rhs.is_some()
             || term.query_path.has_position
-            || (structural && term.query_path.has_explicit_array_step)
+            || ((structural || term.derived == Derived::Length)
+                && term.query_path.has_explicit_array_step)
             || term.operation.is_some()
             || term.matcher.is_some()
             || term.transform != Transform::Identity
@@ -350,7 +337,8 @@ impl InferenceState {
         let index = self.indexes.get(&term.path.segments)?;
         if (term.kind != LogicalType::Unknown
             && term.kind != index.kind
-            && !(structural && term.kind == LogicalType::Bool))
+            && !(structural && term.kind == LogicalType::Bool)
+            && !(term.derived == Derived::Length && term.kind == LogicalType::Number))
             || index.covered_records as u64 != domain.len()
         {
             return None;
@@ -370,6 +358,25 @@ impl InferenceState {
         if matches!(term.derived, Derived::Exists | Derived::Null) {
             let (work, count) = index.estimate_exact_with_visits(term, domain_len, visits)?;
             return Some((work, count, true));
+        }
+        if term.derived == Derived::Length {
+            let (work, count) = index.estimate_exact_with_visits(term, domain_len, visits)?;
+            return Some((work, count, true));
+        }
+        if index.empty_string_complete
+            && !index.multi
+            && !term.query_path.has_explicit_array_step
+            && term.derived == Derived::None
+            && term.operator == Operator::Eq
+            && term.quantifier == Quantifier::Default
+            && matches!(&term.literal, Value::String(value) if value.is_empty())
+        {
+            *visits += 1;
+            let count = index
+                .values
+                .get(&ScalarKey::String(String::new()))
+                .map_or(0, RoaringBitmap::len);
+            return Some((1.0, count, true));
         }
         let complete_scalar = !term.query_path.has_explicit_array_step
             && self
@@ -421,7 +428,8 @@ impl InferenceState {
                 false,
             ));
         }
-        if term.derived != Derived::None
+        if !index.value_complete
+            || term.derived != Derived::None
             || matches!(term.literal, Value::Null)
             || !matches!(
                 term.operator,
@@ -455,6 +463,27 @@ impl InferenceState {
             return index
                 .exact_set_restricted(term, domain, input)
                 .map(|set| (set, true));
+        }
+        if term.derived == Derived::Length
+            || (index.empty_string_complete
+                && !index.multi
+                && !term.query_path.has_explicit_array_step
+                && term.derived == Derived::None
+                && term.operator == Operator::Eq
+                && term.quantifier == Quantifier::Default
+                && matches!(&term.literal, Value::String(value) if value.is_empty()))
+        {
+            if term.derived == Derived::Length {
+                return index
+                    .exact_set_restricted(term, domain, input)
+                    .map(|set| (set, true));
+            }
+            let set = index
+                .values
+                .get(&ScalarKey::String(String::new()))
+                .map(|slots| input & slots)
+                .unwrap_or_default();
+            return Some((set, true));
         }
         let complete_scalar = !term.query_path.has_explicit_array_step
             && self
@@ -554,7 +583,10 @@ impl InferenceState {
             candidate |= input - covered;
             return Some((candidate & input, false));
         }
-        if term.derived != Derived::None || matches!(term.literal, Value::Null) {
+        if !index.value_complete
+            || term.derived != Derived::None
+            || matches!(term.literal, Value::Null)
+        {
             return None;
         }
         if !matches!(
@@ -670,7 +702,6 @@ impl InferenceState {
             let has_index = self.indexes.contains_key(&field.path);
             if has_index != (field.index_status == InferenceIndexStatus::Built)
                 || has_index != self.empty_selections.contains_key(&field.path)
-                || has_index && !field.complete
             {
                 return Err("snapshot inferred index/report mismatch".into());
             }
@@ -727,7 +758,9 @@ impl InferenceState {
                 .ok_or("snapshot inferred field missing")?;
             if index.presence.len() != report.present_records
                 || index.nulls.len() != report.exact_null_records
-                || !report.observed_kinds.contains(&index.kind)
+                || (!report.observed_kinds.contains(&index.kind)
+                    && !(index.kind == LogicalType::Array(Box::new(LogicalType::Unknown))
+                        && report.array_records > 0))
             {
                 return Err("snapshot inferred posting statistics mismatch".into());
             }
@@ -735,7 +768,6 @@ impl InferenceState {
         Ok(())
     }
 }
-
 
 #[path = "inference_build.rs"]
 mod build;
