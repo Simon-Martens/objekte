@@ -4,7 +4,9 @@ use super::*;
 fn prepared_contains_preserves_plain_wildcard_and_escaped_percent_semantics() {
     for (pattern, cases) in [
         ("abc", vec![("zabcx", true), ("abxc", false)]),
+        ("", vec![("", true), ("anything", true)]),
         ("a%b", vec![("ab", true), ("axxxb", true), ("ba", false)]),
+        ("aba%aba", vec![("abaaba", true), ("ababa", false)]),
         ("a\\%b", vec![("a%b", true), ("axxb", false)]),
         ("%%", vec![("", true), ("anything", true)]),
         ("a\\\\%b", vec![("a\\%b", true), ("a%b", false)]),
@@ -16,11 +18,16 @@ fn prepared_contains_preserves_plain_wildcard_and_escaped_percent_semantics() {
                 expected,
                 "{pattern:?} {text:?}"
             );
+            assert_eq!(
+                contains_pattern(text, pattern),
+                expected,
+                "dynamic {pattern:?} {text:?}"
+            );
         }
     }
     assert!(matches!(
         PreparedContains::new("abc"),
-        PreparedContains::Literal
+        PreparedContains::Literal(_)
     ));
     assert!(matches!(
         PreparedContains::new("a\\%b"),
@@ -30,6 +37,17 @@ fn prepared_contains_preserves_plain_wildcard_and_escaped_percent_semantics() {
         PreparedContains::new("a%b"),
         PreparedContains::Wildcards(_)
     ));
+}
+
+#[test]
+fn folded_candidate_scratch_matches_full_unicode_fold_and_remains_bounded() {
+    for text in ["", "ASCII I", "Straße Σ ς İ I ı", "a\u{0308}😀"] {
+        let expected = fold(text);
+        with_folded_candidate(text, |actual| assert_eq!(actual, expected.as_bytes()));
+    }
+    let large = "A".repeat(MAX_FOLD_SCRATCH_CAPACITY + 1);
+    with_folded_candidate(&large, |_| {});
+    FOLD_SCRATCH.with(|scratch| assert!(scratch.borrow().capacity() <= MAX_FOLD_SCRATCH_CAPACITY));
 }
 
 #[test]
