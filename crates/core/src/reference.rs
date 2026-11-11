@@ -1,11 +1,14 @@
 //! Typed query binding and independent, index-free reference evaluation.
 
+use memchr::memmem::Finder;
 use smallvec::SmallVec;
 use std::borrow::Cow;
+use std::cell::RefCell;
 use std::cmp::Ordering;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
+use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 use crate::bigram::BigramRequest;
 use crate::bigram::fold;
@@ -648,9 +651,9 @@ pub enum Derived {
 /// Substring pattern parsed once for a bound literal.
 #[derive(Clone, Debug)]
 pub(crate) enum PreparedContains {
-    Literal,
-    Unescaped(String),
-    Wildcards(Vec<String>),
+    Literal(Finder<'static>),
+    Unescaped(Finder<'static>),
+    Wildcards(Vec<Finder<'static>>),
 }
 
 
@@ -659,19 +662,37 @@ thread_local! {
     static PREPARED_CONTAINS_BUILDS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
+fn split_contains_wildcards(pattern: &str) -> (bool, Vec<String>) {
+    let mut pieces = Vec::new();
+    let mut current = String::new();
+    let mut chars = pattern.chars().peekable();
+    let mut wildcard = false;
+    while let Some(ch) = chars.next() {
+        if ch == '\\' && chars.peek() == Some(&'%') {
+            current.push(chars.next().unwrap());
+        } else if ch == '%' {
+            pieces.push(std::mem::take(&mut current));
+            wildcard = true;
+        } else {
+            current.push(ch);
+        }
+    }
+    pieces.push(current);
+    (wildcard, pieces)
+}
+
 
 impl PreparedContains {
     fn retained_heap_bytes(&self) -> usize {
         match self {
-            Self::Literal => 0,
-            Self::Unescaped(piece) => piece.capacity(),
+            Self::Literal(finder) | Self::Unescaped(finder) => finder.needle().len(),
             Self::Wildcards(pieces) => pieces
                 .capacity()
-                .saturating_mul(std::mem::size_of::<String>())
+                .saturating_mul(std::mem::size_of::<Finder<'static>>())
                 .saturating_add(
                     pieces
                         .iter()
-                        .map(String::capacity)
+                        .map(|finder| finder.needle().len())
                         .fold(0usize, usize::saturating_add),
                 ),
         }
@@ -681,48 +702,40 @@ impl PreparedContains {
         #[cfg(test)]
         PREPARED_CONTAINS_BUILDS.with(|count| count.set(count.get() + 1));
         if !pattern.as_bytes().contains(&b'%') {
-            return Self::Literal;
+            return Self::Literal(Finder::new(pattern).into_owned());
         }
-        let mut pieces = Vec::new();
-        let mut current = String::new();
-        let mut chars = pattern.chars().peekable();
-        let mut wildcard = false;
-        while let Some(ch) = chars.next() {
-            if ch == '\\' && chars.peek() == Some(&'%') {
-                current.push(chars.next().unwrap());
-            } else if ch == '%' {
-                pieces.push(std::mem::take(&mut current));
-                wildcard = true;
-            } else {
-                current.push(ch);
-            }
-        }
-        pieces.push(current);
+        let (wildcard, mut pieces) = split_contains_wildcards(pattern);
         if wildcard {
-            Self::Wildcards(pieces)
+            Self::Wildcards(
+                pieces
+                    .into_iter()
+                    .filter(|piece| !piece.is_empty())
+                    .map(|piece| Finder::new(&piece).into_owned())
+                    .collect(),
+            )
         } else {
-            Self::Unescaped(pieces.pop().unwrap())
+            Self::Unescaped(Finder::new(&pieces.pop().unwrap()).into_owned())
         }
     }
 
-    pub(crate) fn matches(&self, text: &str, literal: &str) -> bool {
+    fn matches_bytes(&self, text: &[u8]) -> bool {
         match self {
-            Self::Literal => text.contains(literal),
-            Self::Unescaped(piece) => text.contains(piece),
+            Self::Literal(finder) | Self::Unescaped(finder) => finder.find(text).is_some(),
             Self::Wildcards(pieces) => {
                 let mut rest = text;
-                for piece in pieces {
-                    if piece.is_empty() {
-                        continue;
-                    }
-                    let Some(index) = rest.find(piece) else {
+                for finder in pieces {
+                    let Some(index) = finder.find(rest) else {
                         return false;
                     };
-                    rest = &rest[index + piece.len()..];
+                    rest = &rest[index + finder.needle().len()..];
                 }
                 true
             }
         }
+    }
+
+    pub(crate) fn matches(&self, text: &str, _literal: &str) -> bool {
+        self.matches_bytes(text.as_bytes())
     }
 }
 
@@ -862,24 +875,68 @@ impl PreparedFilterMatcher for MappedFilterMatcher {
 }
 
 
+const MAX_FOLD_SCRATCH_CAPACITY: usize = 256 * 1024;
+
+thread_local! {
+    static FOLD_SCRATCH: RefCell<String> = const { RefCell::new(String::new()) };
+}
+
+/// Reuse one worker thread's UTF-8 folding buffer without retaining large records.
+fn with_folded_candidate<R>(text: &str, inspect: impl FnOnce(&[u8]) -> R) -> R {
+    FOLD_SCRATCH.with(|scratch| {
+        let mut buffer = scratch.borrow_mut();
+        buffer.clear();
+        if text.is_ascii() {
+            buffer.push_str(text);
+            buffer.make_ascii_lowercase();
+        } else {
+            buffer.extend(text.case_fold_with(Variant::Full, Locale::NonTurkic));
+        }
+        let result = inspect(buffer.as_bytes());
+        if buffer.capacity() > MAX_FOLD_SCRATCH_CAPACITY {
+            *buffer = String::new();
+        }
+        result
+    })
+}
+
+
 #[derive(Debug)]
 struct MappedTextMatcher {
     operation: Arc<dyn BindingOperation>,
-    literal: String,
+    finder: Finder<'static>,
     case_sensitivity: CaseSensitivity,
+}
+
+
+impl MappedTextMatcher {
+    fn new(
+        operation: Arc<dyn BindingOperation>,
+        literal: String,
+        case_sensitivity: CaseSensitivity,
+    ) -> Self {
+        let finder = Finder::new(&literal).into_owned();
+        Self {
+            operation,
+            finder,
+            case_sensitivity,
+        }
+    }
 }
 
 
 impl PreparedTextMatcher for MappedTextMatcher {
     fn retained_bytes(&self) -> usize {
-        std::mem::size_of::<Self>() + self.literal.capacity()
+        std::mem::size_of::<Self>() + self.finder.needle().len()
     }
 
     fn matches(&self, text: &str) -> Result<bool, String> {
         let mapped = self.operation.map_text(text);
         Ok(match self.case_sensitivity {
-            CaseSensitivity::Sensitive => mapped.contains(&self.literal),
-            CaseSensitivity::Insensitive => fold(&mapped).contains(&self.literal),
+            CaseSensitivity::Sensitive => self.finder.find(mapped.as_bytes()).is_some(),
+            CaseSensitivity::Insensitive => {
+                with_folded_candidate(&mapped, |folded| self.finder.find(folded).is_some())
+            }
         })
     }
 
@@ -1676,14 +1733,11 @@ fn compare_bound(lhs: &Value, term: &BoundTerm) -> Result<bool, String> {
         let Value::String(text) = lhs else {
             return Ok(false);
         };
-        let folded;
-        let text = if term.transform == Transform::CaseFold {
-            folded = fold(text);
-            folded.as_str()
+        let found = if term.transform == Transform::CaseFold {
+            with_folded_candidate(text, |folded| prepared.matches_bytes(folded))
         } else {
-            text.as_str()
+            prepared.matches(text, pattern)
         };
-        let found = prepared.matches(text, pattern);
         return Ok(if term.operator == Operator::Contains {
             found
         } else {
@@ -2055,7 +2109,21 @@ pub(crate) fn eval_cross_record_field_term(
 
 /// `%` spans any sequence; `\%` means a literal percent. No other wildcard.
 pub(crate) fn contains_pattern(text: &str, pattern: &str) -> bool {
-    PreparedContains::new(pattern).matches(text, pattern)
+    if !pattern.as_bytes().contains(&b'%') {
+        return text.contains(pattern);
+    }
+    let (wildcard, pieces) = split_contains_wildcards(pattern);
+    if !wildcard {
+        return text.contains(&pieces[0]);
+    }
+    let mut rest = text;
+    for piece in pieces.iter().filter(|piece| !piece.is_empty()) {
+        let Some(index) = rest.find(piece) else {
+            return false;
+        };
+        rest = &rest[index + piece.len()..];
+    }
+    true
 }
 
 pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, String> {
@@ -2378,6 +2446,7 @@ pub struct BoundFtsField {
     pub binding_name: String,
     pub literal: String,
     pub folded_literal: String,
+    finder: Option<Finder<'static>>,
     pub(crate) gram_request: BigramRequest,
     pub transform: Transform,
     pub operation: Option<Arc<dyn BindingOperation>>,
@@ -2394,6 +2463,8 @@ pub struct BoundFts {
     pub source_literal: String,
     pub folded_literal: String,
     pub folded_source_literal: String,
+    finder: Option<Finder<'static>>,
+    fallback_finder: Option<Finder<'static>>,
     pub(crate) gram_request: BigramRequest,
     pub(crate) fallback_gram_request: BigramRequest,
     pub raw_operation: Option<Arc<dyn BindingOperation>>,
@@ -2578,6 +2649,16 @@ pub(crate) fn bound_fts_retained_heap_bytes(fts: &BoundFts) -> usize {
         .saturating_add(fts.folded_literal.capacity())
         .saturating_add(fts.folded_source_literal.capacity());
     strings
+        .saturating_add(
+            fts.finder
+                .as_ref()
+                .map_or(0, |finder| finder.needle().len()),
+        )
+        .saturating_add(
+            fts.fallback_finder
+                .as_ref()
+                .map_or(0, |finder| finder.needle().len()),
+        )
         .saturating_add(fts.gram_request.retained_heap_bytes())
         .saturating_add(fts.fallback_gram_request.retained_heap_bytes())
         .saturating_add(matcher_retained_heap_bytes(&fts.raw_matcher, |matcher| {
@@ -2615,6 +2696,12 @@ pub(crate) fn bound_fts_retained_heap_bytes(fts: &BoundFts) -> usize {
                         .saturating_add(field.binding_name.capacity())
                         .saturating_add(field.literal.capacity())
                         .saturating_add(field.folded_literal.capacity())
+                        .saturating_add(
+                            field
+                                .finder
+                                .as_ref()
+                                .map_or(0, |finder| finder.needle().len()),
+                        )
                         .saturating_add(field.gram_request.retained_heap_bytes())
                         .saturating_add(matcher_retained_heap_bytes(&field.matcher, |matcher| {
                             matcher.retained_bytes()
@@ -2659,19 +2746,33 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
                     return Err("custom raw FTS matcher does not support insensitive mode".into());
                 }
                 Ok(prepared.unwrap_or_else(|| {
-                    Arc::new(MappedTextMatcher {
-                        operation: op.clone(),
-                        literal: if fts.case_sensitivity == CaseSensitivity::Insensitive {
+                    Arc::new(MappedTextMatcher::new(
+                        op.clone(),
+                        if fts.case_sensitivity == CaseSensitivity::Insensitive {
                             folded_literal.clone()
                         } else {
                             literal.clone()
                         },
-                        case_sensitivity: fts.case_sensitivity,
-                    })
+                        fts.case_sensitivity,
+                    ))
                 }))
             })
         })
         .transpose()?;
+    let finder = raw_matcher.is_none().then(|| {
+        Finder::new(if fts.case_sensitivity == CaseSensitivity::Insensitive {
+            &folded_literal
+        } else {
+            &literal
+        })
+        .into_owned()
+    });
+    let fallback_finder = Finder::new(if fts.case_sensitivity == CaseSensitivity::Insensitive {
+        &folded_source_literal
+    } else {
+        &fts.literal
+    })
+    .into_owned();
     let mut fields = Vec::new();
     for selected in &fts.fields {
         if selected.query_path.is_some() {
@@ -2727,19 +2828,27 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
                         ));
                     }
                     Ok(prepared.unwrap_or_else(|| {
-                        Arc::new(MappedTextMatcher {
-                            operation: op.clone(),
-                            literal: if fts.case_sensitivity == CaseSensitivity::Insensitive {
+                        Arc::new(MappedTextMatcher::new(
+                            op.clone(),
+                            if fts.case_sensitivity == CaseSensitivity::Insensitive {
                                 folded_needle.clone()
                             } else {
                                 needle.clone()
                             },
-                            case_sensitivity: fts.case_sensitivity,
-                        })
+                            fts.case_sensitivity,
+                        ))
                     }))
                 })
             })
             .transpose()?;
+        let finder = matcher.is_none().then(|| {
+            Finder::new(if fts.case_sensitivity == CaseSensitivity::Insensitive {
+                &folded_needle
+            } else {
+                &needle
+            })
+            .into_owned()
+        });
         fields.push(BoundFtsField {
             path: selected.path.clone(),
             query_path: None,
@@ -2749,6 +2858,7 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
             gram_request: BigramRequest::from_folded(&folded_needle),
             folded_literal: folded_needle,
             literal: needle,
+            finder,
             transform,
             operation,
             matcher,
@@ -2761,6 +2871,8 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         fallback_gram_request: BigramRequest::from_folded(&folded_source_literal),
         folded_literal,
         folded_source_literal,
+        finder,
+        fallback_finder: Some(fallback_finder),
         literal,
         source_literal: fts.literal.clone(),
         raw_operation,
@@ -2836,6 +2948,7 @@ fn bind_regex_fts(
             binding_name: name,
             literal: fts.literal.clone(),
             folded_literal: String::new(),
+            finder: None,
             gram_request: BigramRequest::new(""),
             transform,
             operation: operation.clone(),
@@ -2853,6 +2966,8 @@ fn bind_regex_fts(
         source_literal: fts.literal.clone(),
         folded_literal: String::new(),
         folded_source_literal: String::new(),
+        finder: None,
+        fallback_finder: None,
         gram_request: BigramRequest::new(""),
         fallback_gram_request: BigramRequest::new(""),
         raw_operation,
@@ -2869,6 +2984,7 @@ fn text_contains(
     transform: Transform,
     matcher: Option<&Arc<dyn PreparedTextMatcher>>,
     case_sensitivity: CaseSensitivity,
+    finder: Option<&Finder<'static>>,
 ) -> Result<bool, String> {
     if let Some(matcher) = matcher {
         matcher.matches(text)
@@ -2878,9 +2994,16 @@ fn text_contains(
         } else {
             needle
         };
-        Ok(fold(text).contains(needle))
+        Ok(if let Some(finder) = finder {
+            with_folded_candidate(text, |folded| finder.find(folded).is_some())
+        } else {
+            fold(text).contains(needle)
+        })
     } else {
-        Ok(text.contains(needle))
+        Ok(finder.map_or_else(
+            || text.contains(needle),
+            |finder| finder.find(text.as_bytes()).is_some(),
+        ))
     }
 }
 
@@ -2889,8 +3012,16 @@ pub fn raw_fallback_contains(fts: &BoundFts, text: &str) -> bool {
         return regex.is_match(text);
     }
     match fts.case_sensitivity {
-        CaseSensitivity::Sensitive => text.contains(&fts.source_literal),
-        CaseSensitivity::Insensitive => fold(text).contains(&fts.folded_source_literal),
+        CaseSensitivity::Sensitive => fts.fallback_finder.as_ref().map_or_else(
+            || text.contains(&fts.source_literal),
+            |finder| finder.find(text.as_bytes()).is_some(),
+        ),
+        CaseSensitivity::Insensitive => with_folded_candidate(text, |folded| {
+            fts.fallback_finder.as_ref().map_or_else(
+                || fold(text).contains(&fts.folded_source_literal),
+                |finder| finder.find(folded).is_some(),
+            )
+        }),
     }
 }
 
@@ -2910,6 +3041,7 @@ pub fn eval_bound_fts(
                 Transform::Identity,
                 fts.raw_matcher.as_ref(),
                 fts.case_sensitivity,
+                fts.finder.as_ref(),
             )? {
                 matched = true;
                 evidence.insert(if segment.path.is_empty() {
@@ -2946,6 +3078,7 @@ pub(crate) fn eval_bound_fts_field(
                 field.transform,
                 field.matcher.as_ref(),
                 case_sensitivity,
+                field.finder.as_ref(),
             )?
         {
             matched = true;
@@ -2965,6 +3098,7 @@ pub(crate) fn eval_bound_fts_field(
                     field.transform,
                     field.matcher.as_ref(),
                     case_sensitivity,
+                    field.finder.as_ref(),
                 )?
             {
                 matched = true;
@@ -2987,6 +3121,7 @@ pub(crate) fn eval_bound_fts_field(
                 field.transform,
                 field.matcher.as_ref(),
                 case_sensitivity,
+                field.finder.as_ref(),
             )? {
                 matched = true;
                 if let Some(evidence) = evidence.as_deref_mut() {
@@ -3015,6 +3150,7 @@ pub(crate) fn eval_bound_fts_membership(
                 Transform::Identity,
                 fts.raw_matcher.as_ref(),
                 fts.case_sensitivity,
+                fts.finder.as_ref(),
             )? {
                 return Ok(true);
             }
