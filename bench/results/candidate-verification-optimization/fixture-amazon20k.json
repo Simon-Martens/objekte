@@ -1,0 +1,8 @@
+{
+  "kind": "existing_amazon_reviews_sample",
+  "original_path": "/home/simon/source/objekte/examples/amazon-reviews-2023/data/reviews",
+  "selection": "0000001.json through 0020000.json inclusive",
+  "records": 20000,
+  "source_bytes": 13012663,
+  "corpus_sha256": "2a5d40815d61050f4c21e72add6d0fd48434e1ab55a925c09d7e96e4cd8ba4ea"
+}

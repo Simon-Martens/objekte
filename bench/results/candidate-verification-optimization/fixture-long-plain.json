@@ -1,0 +1,9 @@
+{
+  "kind": "synthetic_candidate_verification",
+  "records": 2048,
+  "logical_text_length": 8192,
+  "escaped": false,
+  "positions": "record_number % 3: 0 early, 1 late, 2 no match",
+  "source_bytes": 16962817,
+  "corpus_sha256": "b583638f0db77d20e91b9e25629333a53851e06a353a2f1ea53c206be366e66c"
+}
