@@ -1783,6 +1783,7 @@ fn membership_only_matches_complete_evidence_for_local_relation_and_fts_routes()
         },
     )
     .unwrap();
+    let borrowed_targets_before = super::borrowed_relation_targets();
     for request in [
         query(
             "mentions",
@@ -1832,6 +1833,7 @@ fn membership_only_matches_complete_evidence_for_local_relation_and_fts_routes()
         }
         assert_eq!(actual.hits, expected);
     }
+    assert!(super::borrowed_relation_targets() > borrowed_targets_before);
     std::fs::remove_dir_all(root).unwrap();
 }
 

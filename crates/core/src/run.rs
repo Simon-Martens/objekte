@@ -28,7 +28,9 @@ use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, Work
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, RecordSlot, Value};
 use crate::posting::PostingIndex;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
-use crate::record_preparation::{materialize, prepare_query_record_with_execution};
+use crate::record_preparation::{
+    materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
+};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
     eval_unavailable_filter, same_bound_term,
@@ -571,6 +573,27 @@ struct DirectSourcePlan<'a> {
     decoded_scalars: bool,
 }
 
+fn source_fts_eligible(
+    collection: &CollectionState,
+    fts: &BoundFts,
+    decoded_scalars: bool,
+) -> bool {
+    fts.mode.is_literal()
+        && fts.raw_operation.is_none()
+        && fts.raw_matcher.is_none()
+        && (decoded_scalars || !collection.definition.schema.has_converted_fields())
+        && fts.fields.iter().all(|field| {
+            matches!(field.path.root, PathRoot::Data)
+                && field.related.is_none()
+                && field.operation.is_none()
+                && field.matcher.is_none()
+                && !field
+                    .query_path
+                    .as_ref()
+                    .is_some_and(|path| path.has_explicit_array_step)
+        })
+}
+
 
 impl<'a> DirectSourcePlan<'a> {
     fn prepare(
@@ -616,21 +639,7 @@ impl<'a> DirectSourcePlan<'a> {
             _ => return None,
         };
         if let Some(fts) = fts {
-            if !fts.mode.is_literal()
-                || fts.raw_operation.is_some()
-                || fts.raw_matcher.is_some()
-                || (!decoded_scalars && collection.definition.schema.has_converted_fields())
-                || fts.fields.iter().any(|field| {
-                    !matches!(field.path.root, PathRoot::Data)
-                        || field.related.is_some()
-                        || field.operation.is_some()
-                        || field.matcher.is_some()
-                        || field
-                            .query_path
-                            .as_ref()
-                            .is_some_and(|path| path.has_explicit_array_step)
-                })
-            {
+            if !source_fts_eligible(collection, fts, decoded_scalars) {
                 return None;
             }
         }
@@ -1143,7 +1152,22 @@ fn scan_file(
                         .top_level
                         .as_ref()
                         .is_none_or(|fields| !fields.is_empty()));
-            let extracted = if decode {
+            let combined_fts = decode
+                .then_some(())
+                .filter(|_| collection.source.id() == "json_decoded_scalars")
+                .and_then(|_| fts.filter(|fts| source_fts_eligible(collection, fts, true)));
+            let (extracted, combined_result) = if let Some(combined_fts) = combined_fts {
+                let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
+                    &collection.definition.schema,
+                    &bytes,
+                    record_projection,
+                    combined_fts,
+                    query.options.evidence,
+                    execution,
+                )?;
+                outcome.record_parses += 1;
+                (extracted, Some(result))
+            } else if decode {
                 let extracted = prepare_query_record_with_execution(
                     record.class,
                     &collection.source,
@@ -1154,12 +1178,12 @@ fn scan_file(
                     execution,
                 )?;
                 outcome.record_parses += 1;
-                extracted
+                (extracted, None)
             } else {
-                ExtractedRecord {
+                (ExtractedRecord {
                     value: Value::Object(Default::default()),
                     text: Vec::new(),
-                }
+                }, None)
             };
             outcome.scanned_records += 1;
             let ctx = RecordContext {
@@ -1189,6 +1213,11 @@ fn scan_file(
                 None
             };
             let fts_match = if let Some(result) = &direct_result {
+                if query.options.evidence {
+                    evidence.extend(result.evidence.iter().cloned());
+                }
+                result.fts_match
+            } else if let Some(result) = &combined_result {
                 if query.options.evidence {
                     evidence.extend(result.evidence.iter().cloned());
                 }
@@ -3022,24 +3051,39 @@ fn verify_local_segment_record(
             false,
         ));
     }
-    let borrowed_value_text = !collection.source.is_extension()
-        && matches!(collection.source.id(), "json" | "jsonl")
-        && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()));
-    let extracted = if record.class == RecordClass::Logical {
-        prepare_query_record_with_execution(
+    let borrowed_value_text = borrowed_value_text(collection, fts);
+    let projection = ScanProjection::full(fts.is_some() && !borrowed_value_text);
+    let combined_fts = fts.filter(|fts| {
+        collection.source.id() == "json_decoded_scalars"
+            && source_fts_eligible(collection, fts, true)
+    });
+    let (extracted, combined_result) = if record.class == RecordClass::Logical
+        && let Some(combined_fts) = combined_fts
+    {
+        let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
+            &collection.definition.schema,
+            bytes,
+            &projection,
+            combined_fts,
+            retain_evidence,
+            execution,
+        )?;
+        (extracted, Some(result))
+    } else if record.class == RecordClass::Logical {
+        (prepare_query_record_with_execution(
             record.class,
             &collection.source,
             &collection.definition.schema,
             bytes,
-            &ScanProjection::full(fts.is_some() && !borrowed_value_text),
+            &projection,
             false,
             execution,
-        )?
+        )?, None)
     } else {
-        ExtractedRecord {
+        (ExtractedRecord {
             value: Value::Object(Default::default()),
             text: Vec::new(),
-        }
+        }, None)
     };
     let ctx = RecordContext {
         value: &extracted.value,
@@ -3080,6 +3124,11 @@ fn verify_local_segment_record(
                 evidence.insert("@record.raw_text".into());
             }
             matched
+        } else if let Some(result) = &combined_result {
+            if retain_evidence {
+                evidence.extend(result.evidence.iter().cloned());
+            }
+            result.fts_match
         } else if borrowed_value_text && record.class == RecordClass::Logical {
             crate::reference::eval_borrowed_value_fts(
                 fts,
@@ -5208,14 +5257,28 @@ fn scan_relation_file_parallel(
         .1;
     scan.counters.candidates += 1;
     let record = resolved.record;
-    let borrowed_value_text = !resolved.collection.source.is_extension()
-        && matches!(resolved.collection.source.id(), "json" | "jsonl")
-        && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()));
-    let extracted = if record.class == RecordClass::Logical {
-        let mut projection = ScanProjection::full(fts.is_some() && !borrowed_value_text);
-        projection.resolved_text_only =
-            projection.collect_text && fts.is_some_and(|fts| !fts.fields.is_empty());
-        prepare_query_record_with_execution(
+    let borrowed_value_text = borrowed_value_text(resolved.collection, fts);
+    let mut projection = ScanProjection::full(fts.is_some() && !borrowed_value_text);
+    projection.resolved_text_only =
+        projection.collect_text && fts.is_some_and(|fts| !fts.fields.is_empty());
+    let combined_fts = fts.filter(|fts| {
+        resolved.collection.source.id() == "json_decoded_scalars"
+            && source_fts_eligible(resolved.collection, fts, true)
+    });
+    let (extracted, combined_result) = if record.class == RecordClass::Logical
+        && let Some(combined_fts) = combined_fts
+    {
+        let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
+            &resolved.collection.definition.schema,
+            &bytes,
+            &projection,
+            combined_fts,
+            query.options.evidence,
+            None,
+        )?;
+        (extracted, Some(result))
+    } else if record.class == RecordClass::Logical {
+        (prepare_query_record_with_execution(
             record.class,
             &resolved.collection.source,
             &resolved.collection.definition.schema,
@@ -5223,12 +5286,12 @@ fn scan_relation_file_parallel(
             &projection,
             false,
             None,
-        )?
+        )?, None)
     } else {
-        ExtractedRecord {
+        (ExtractedRecord {
             value: Value::Object(Default::default()),
             text: Vec::new(),
-        }
+        }, None)
     };
     let ctx = RecordContext {
         value: &extracted.value,
@@ -5271,6 +5334,11 @@ fn scan_relation_file_parallel(
                     &ctx,
                     query.options.evidence.then_some(&mut evidence),
                 )?
+            } else if let Some(result) = &combined_result {
+                if query.options.evidence {
+                    evidence.extend(result.evidence.iter().cloned());
+                }
+                result.fts_match
             } else {
                 crate::relation_query::eval_fts_with_relations_merged(
                     &view,
@@ -5647,11 +5715,14 @@ fn search_segmented_relations(
         let collection_plan = &repo.collections[collection_index];
         let direct_plan =
             DirectSourcePlan::prepare_bound(collection_plan, sort, fts.as_ref(), filter.as_ref());
-        let borrowed_value_text = !collection_plan.source.is_extension()
-            && matches!(collection_plan.source.id(), "json" | "jsonl")
-            && fts
-                .as_ref()
-                .is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()));
+        let borrowed_value_text = borrowed_value_text(collection_plan, fts.as_ref());
+        let combined_fts = fts.as_ref().filter(|fts| {
+            collection_plan.source.id() == "json_decoded_scalars"
+                && source_fts_eligible(collection_plan, fts, true)
+        });
+        let mut projection = ScanProjection::full(fts.is_some() && !borrowed_value_text);
+        projection.resolved_text_only =
+            projection.collect_text && fts.as_ref().is_some_and(|fts| !fts.fields.is_empty());
         let mut process = |address: crate::relation_query::MergedRecordSlot,
                            bytes: Vec<u8>,
                            opened_source: bool|
@@ -5683,11 +5754,21 @@ fn search_segmented_relations(
             } else {
                 None
             };
-            let extracted = if record.class == RecordClass::Logical && direct_result.is_none() {
-                let mut projection = ScanProjection::full(fts.is_some() && !borrowed_value_text);
-                projection.resolved_text_only = projection.collect_text
-                    && fts.as_ref().is_some_and(|fts| !fts.fields.is_empty());
-                prepare_query_record_with_execution(
+            let (extracted, combined_result) = if record.class == RecordClass::Logical
+                && direct_result.is_none()
+                && let Some(combined_fts) = combined_fts
+            {
+                let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
+                    &resolved.collection.definition.schema,
+                    &bytes,
+                    &projection,
+                    combined_fts,
+                    query.options.evidence,
+                    context,
+                )?;
+                (extracted, Some(result))
+            } else if record.class == RecordClass::Logical && direct_result.is_none() {
+                (prepare_query_record_with_execution(
                     record.class,
                     &resolved.collection.source,
                     &resolved.collection.definition.schema,
@@ -5695,12 +5776,12 @@ fn search_segmented_relations(
                     &projection,
                     false,
                     context,
-                )?
+                )?, None)
             } else {
-                ExtractedRecord {
+                (ExtractedRecord {
                     value: Value::Object(Default::default()),
                     text: Vec::new(),
-                }
+                }, None)
             };
             let ctx = RecordContext {
                 value: &extracted.value,
@@ -5743,6 +5824,11 @@ fn search_segmented_relations(
                         {
                             evidence.insert(term.query_path.display.clone());
                         }
+                    }
+                    result.fts_match
+                } else if let Some(result) = &combined_result {
+                    if query.options.evidence {
+                        evidence.extend(result.evidence.iter().cloned());
                     }
                     result.fts_match
                 } else if let Some(fts) = fts.as_ref() {

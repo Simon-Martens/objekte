@@ -14,7 +14,8 @@ use crate::query::{FilterExpr, FtsField, FtsQuery, Literal, Operand, Quantifier,
 use crate::query_path::{PathStep, QueryPath};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, RecordContext, bind_field_probe, bind_filter_with_parameters,
-    bind_fts, eval_bound_fts, eval_bound_fts_field, eval_bound_fts_membership,
+    bind_fts, eval_borrowed_value_fts_field, eval_bound_fts, eval_bound_fts_field,
+    eval_bound_fts_membership,
     eval_cross_record_field_term, eval_term,
 };
 use crate::relation::{RelationCardinality, RelationId, RelationTarget};
@@ -30,6 +31,19 @@ const MAX_QUERY_EDGE_VISITS: u64 = 32_000_000;
 const MAX_QUERY_BACKLINK_PROBES: u64 = 32_000_000;
 const MAX_QUERY_RECORD_READS: u64 = 5_000_000;
 const MAX_QUERY_RELATION_BYTES: u64 = 1024 * 1024 * 1024;
+
+fn relation_target_uses_value_text(collection: &CollectionState) -> bool {
+    !collection.source.is_extension() && matches!(collection.source.id(), "json" | "jsonl")
+}
+
+#[cfg(test)]
+static BORROWED_RELATION_TARGETS: std::sync::atomic::AtomicUsize =
+    std::sync::atomic::AtomicUsize::new(0);
+
+#[cfg(test)]
+pub(crate) fn borrowed_relation_targets() -> usize {
+    BORROWED_RELATION_TARGETS.load(std::sync::atomic::Ordering::Relaxed)
+}
 
 
 /// One record address in a pinned base-plus-delta publication. A local slot
@@ -884,6 +898,10 @@ fn eval_fts_with_relations_inner(
     let mut matched = false;
     for field in &fts.fields {
         if let Some(hops) = &field.related {
+            let target_collection = &repo.collections[
+                hops.last().ok_or("empty FTS relation path")?.to.0 as usize
+            ];
+            let borrowed_text = relation_target_uses_value_text(target_collection);
             let source_index = repo
                 .collections
                 .iter()
@@ -894,7 +912,7 @@ fn eval_fts_with_relations_inner(
                 repo,
                 hops,
                 quantifier: Quantifier::Any,
-                collect_text: true,
+                collect_text: !borrowed_text,
                 mode,
                 target_values: None,
             };
@@ -907,7 +925,20 @@ fn eval_fts_with_relations_inner(
                 work,
                 &[],
                 &mut |target, target_segments, _| {
-                    eval_bound_fts_field(field, fts.case_sensitivity, target_segments, target, None)
+                    if borrowed_text {
+                        #[cfg(test)]
+                        BORROWED_RELATION_TARGETS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+                        debug_assert!(target_segments.is_empty());
+                        eval_borrowed_value_fts_field(field, fts.case_sensitivity, target, None)
+                    } else {
+                        eval_bound_fts_field(
+                            field,
+                            fts.case_sensitivity,
+                            target_segments,
+                            target,
+                            None,
+                        )
+                    }
                 },
             )?;
             if truth == Some(true) {
@@ -1665,6 +1696,10 @@ pub(crate) fn eval_fts_with_relations_merged(
     let mut matched = false;
     for field in &fts.fields {
         if let Some(hops) = &field.related {
+            let target_collection = &view.repo.collections[
+                hops.last().ok_or("empty FTS relation path")?.to.0 as usize
+            ];
+            let borrowed_text = relation_target_uses_value_text(target_collection);
             let mut truth = Some(false);
             visit_merged_hop(
                 view,
@@ -1672,12 +1707,25 @@ pub(crate) fn eval_fts_with_relations_merged(
                 0,
                 source_slot,
                 Quantifier::Any,
-                true,
+                !borrowed_text,
                 &mut truth,
                 work,
                 &[],
                 &mut |target, target_segments, _| {
-                    eval_bound_fts_field(field, fts.case_sensitivity, target_segments, target, None)
+                    if borrowed_text {
+                        #[cfg(test)]
+                        BORROWED_RELATION_TARGETS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+                        debug_assert!(target_segments.is_empty());
+                        eval_borrowed_value_fts_field(field, fts.case_sensitivity, target, None)
+                    } else {
+                        eval_bound_fts_field(
+                            field,
+                            fts.case_sensitivity,
+                            target_segments,
+                            target,
+                            None,
+                        )
+                    }
                 },
             )?;
             if truth == Some(true) {

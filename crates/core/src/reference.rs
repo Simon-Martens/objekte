@@ -3186,39 +3186,47 @@ pub(crate) fn eval_borrowed_value_fts(
         return visit_borrowed_value_strings(ctx.value, &mut path, &mut inspect);
     }
     for field in &fts.fields {
-        if field.query_path.is_some() || !matches!(field.path.root, PathRoot::Data) {
-            matched |= eval_bound_fts_field(
-                field,
-                fts.case_sensitivity,
-                &[],
-                ctx,
-                evidence.as_deref_mut(),
-            )?;
-            continue;
-        }
-        let mut inspect = |path: &[&str], text: &str| {
-            if !fts_field_selects_path(&field.path.segments, path) {
-                return Ok(false);
-            }
-            if !text_contains(
-                text,
-                &field.literal,
-                &field.folded_literal,
-                field.transform,
-                field.matcher.as_ref(),
-                fts.case_sensitivity,
-                field.finder.as_ref(),
-            )? {
-                return Ok(false);
-            }
-            if let Some(evidence) = evidence.as_deref_mut() {
-                evidence.insert(field.evidence_path.clone());
-            }
-            Ok(true)
-        };
-        matched |= visit_borrowed_value_strings(ctx.value, &mut path, &mut inspect)?;
+        matched |= eval_borrowed_value_fts_field(
+            field,
+            fts.case_sensitivity,
+            ctx,
+            evidence.as_deref_mut(),
+        )?;
     }
     Ok(matched)
+}
+
+pub(crate) fn eval_borrowed_value_fts_field(
+    field: &BoundFtsField,
+    case_sensitivity: CaseSensitivity,
+    ctx: &RecordContext<'_>,
+    mut evidence: Option<&mut HashSet<String>>,
+) -> Result<bool, String> {
+    if field.query_path.is_some() || !matches!(field.path.root, PathRoot::Data) {
+        return eval_bound_fts_field(field, case_sensitivity, &[], ctx, evidence);
+    }
+    let mut path = Vec::new();
+    let mut inspect = |path: &[&str], text: &str| {
+        if !fts_field_selects_path(&field.path.segments, path) {
+            return Ok(false);
+        }
+        if !text_contains(
+            text,
+            &field.literal,
+            &field.folded_literal,
+            field.transform,
+            field.matcher.as_ref(),
+            case_sensitivity,
+            field.finder.as_ref(),
+        )? {
+            return Ok(false);
+        }
+        if let Some(evidence) = evidence.as_deref_mut() {
+            evidence.insert(field.evidence_path.clone());
+        }
+        Ok(true)
+    };
+    visit_borrowed_value_strings(ctx.value, &mut path, &mut inspect)
 }
 
 /// An empty selected path covers every text segment, including nested ones.
@@ -3236,9 +3244,9 @@ pub(crate) fn fts_field_selects_path<T: AsRef<str>>(
 
 /// Match one source-owned scalar occurrence before duplicate resolution.
 /// The caller retains evidence only for occurrences that remain visible.
-pub(crate) fn match_borrowed_source_segment(
+pub(crate) fn match_borrowed_source_segment<T: AsRef<str>>(
     fts: &BoundFts,
-    path: &[std::borrow::Cow<'_, str>],
+    path: &[T],
     text: &str,
     evidence: &mut Vec<String>,
     retain_evidence: bool,
@@ -3258,7 +3266,7 @@ pub(crate) fn match_borrowed_source_segment(
                 "@root".into()
             } else {
                 path.iter()
-                    .map(|part| part.as_ref())
+                    .map(AsRef::as_ref)
                     .collect::<Vec<_>>()
                     .join(".")
             });

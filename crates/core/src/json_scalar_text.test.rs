@@ -187,6 +187,45 @@ fn filter_only_scan_skips_irrelevant_nested_values() {
 }
 
 #[test]
+fn combined_value_and_source_matching_avoids_owned_segments() {
+    let source = br#"{"text":"old","text":"new","n":1e0,"other":"\u006e eedle"}"#;
+    let schema = Schema::default();
+    let projection = ScanProjection::full(true);
+    for (literal, field, expected) in [
+        ("old", None, true),
+        ("old", Some("text"), false),
+        ("new", Some("text"), true),
+        ("1e0", None, true),
+    ] {
+        let fts = bind_fts(
+            &FtsQuery {
+                case_sensitivity: CaseSensitivity::Sensitive,
+                mode: FtsMode::Literal,
+                literal: literal.into(),
+                pattern_parameter: None,
+                fields: field
+                    .map(|field| FtsField {
+                        path: FieldPath::parse(field).unwrap(),
+                        query_path: None,
+                        binding: None,
+                    })
+                    .into_iter()
+                    .collect(),
+            },
+            &schema,
+        )
+        .unwrap();
+        let before = owned_segment_text_bytes();
+        let (value, result) =
+            extract_query_record_borrowed_fts_worker(source, &projection, &fts, true).unwrap();
+        assert_eq!(result.fts_match, expected, "{literal} {field:?}");
+        assert_eq!(owned_segment_text_bytes(), before);
+        let Value::Object(fields) = value else { panic!("object") };
+        assert_eq!(fields.get("text"), Some(&Value::String("new".into())));
+    }
+}
+
+#[test]
 fn borrowed_source_evidence_excludes_overwritten_fields() {
     let schema = Schema::default();
     let fts = bind_fts(

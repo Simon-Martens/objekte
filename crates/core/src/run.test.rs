@@ -257,6 +257,76 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
 }
 
 #[test]
+fn decoded_scalar_fts_combines_source_text_with_required_values() {
+    use crate::lifecycle::Index;
+    use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-combined-source-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (index, source) in [
+        r#"{"text":"old","text":"new","n":1e0,"rating":5}"#,
+        r#"{"text":"old","text":null,"n":1e0,"rating":5}"#,
+        r#"{"text":"new","n":1e0,"rating":0}"#,
+        r#"{"text":"old","n":2,"rating":5}"#,
+    ]
+    .iter()
+    .enumerate()
+    {
+        std::fs::write(root.join(format!("data/{index:02}.json")), source).unwrap();
+    }
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::JsonDecodedScalars,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            query_workers: 1,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let view = index.view().unwrap();
+    let mut query = Query {
+        collections: vec!["data".into()],
+        filter: Some(parse_filter("rating > 0 && n > 0").unwrap()),
+        fts: Some(FtsQuery {
+            pattern_parameter: None,
+            mode: FtsMode::Literal,
+            case_sensitivity: CaseSensitivity::Sensitive,
+            literal: "old".into(),
+            fields: Vec::new(),
+        }),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 20,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: true,
+        },
+    };
+    for (literal, expected_count) in [("old", 3), ("1e0", 2)] {
+        query.fts.as_mut().unwrap().literal = literal.into();
+        let before = crate::json_scalar_text::combined_scan_calls();
+        let actual = view.search(&query).unwrap();
+        assert!(crate::json_scalar_text::combined_scan_calls() > before);
+        let expected = view.search_reference(&query).unwrap();
+        assert_eq!(actual.count, Some(expected_count));
+        assert_eq!(actual.hits, expected.hits);
+        assert_eq!(actual.counters.record_parses, actual.counters.candidates);
+    }
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};

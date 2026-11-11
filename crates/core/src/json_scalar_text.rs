@@ -53,6 +53,35 @@ struct ScalarWalker<'a> {
     validate: bool,
 }
 
+/// Match source scalars while the required logical projection is constructed.
+/// The path owns only active member names; scalar text is consumed before the
+/// required Value takes ownership or before reusable decoding storage is reset.
+struct CombinedFts<'a> {
+    fts: &'a BoundFts,
+    path: &'a mut Vec<String>,
+    decoded: &'a mut String,
+    events: &'a mut Vec<BorrowedEvent>,
+    retain_evidence: bool,
+}
+
+impl CombinedFts<'_> {
+    fn push_text(&mut self, text: &str) -> Result<(), String> {
+        let mut event = BorrowedEvent {
+            visible: true,
+            ..Default::default()
+        };
+        event.fts_hit = match_borrowed_source_segment(
+            self.fts,
+            self.path.as_slice(),
+            text,
+            &mut event.evidence,
+            self.retain_evidence,
+        )?;
+        self.events.push(event);
+        Ok(())
+    }
+}
+
 
 impl ScalarWalker<'_> {
     fn whitespace(&mut self) {
@@ -201,6 +230,7 @@ impl ScalarWalker<'_> {
         depth: usize,
         retain: bool,
         selected_top: Option<&HashSet<String>>,
+        mut combined: Option<&mut CombinedFts<'_>>,
     ) -> Result<Option<Value>, String> {
         #[cfg(test)]
         OWNED_VALUE_VISITS.with(|count| count.set(count.get() + 1));
@@ -211,7 +241,34 @@ impl ScalarWalker<'_> {
         self.whitespace();
         match self.bytes.get(self.pos).copied() {
             Some(b'"') => {
+                if !retain && let Some(combined) = combined.as_deref_mut() {
+                    let mut event = BorrowedEvent {
+                        visible: true,
+                        ..Default::default()
+                    };
+                    let (end, ()) = with_next_quoted_text(
+                        self.bytes,
+                        self.pos,
+                        combined.decoded,
+                        |text| {
+                            event.fts_hit = match_borrowed_source_segment(
+                                combined.fts,
+                                combined.path.as_slice(),
+                                text,
+                                &mut event.evidence,
+                                combined.retain_evidence,
+                            )?;
+                            Ok(())
+                        },
+                    )?;
+                    self.pos = end;
+                    combined.events.push(event);
+                    return Ok(None);
+                }
                 let text = self.quoted()?;
+                if let Some(combined) = combined.as_deref_mut() {
+                    combined.push_text(&text)?;
+                }
                 if self.collect_text {
                     let value = retain.then(|| Value::String(text.clone()));
                     self.push(text);
@@ -226,6 +283,9 @@ impl ScalarWalker<'_> {
                 let mut fields = retain.then(BTreeMap::new);
                 let mut last_ranges = (self.collect_text && self.resolved_only)
                     .then(BTreeMap::<String, Range<usize>>::new);
+                let mut match_last_ranges = combined.as_ref().and_then(|state| {
+                    (!state.fts.fields.is_empty()).then(BTreeMap::<String, Range<usize>>::new)
+                });
                 if self.bytes.get(self.pos) == Some(&b'}') {
                     self.pos += 1;
                     return Ok(fields.map(Value::Object));
@@ -242,15 +302,36 @@ impl ScalarWalker<'_> {
                     if self.paths && self.collect_text {
                         self.path.push(name.clone());
                     }
+                    if let Some(state) = combined.as_deref_mut() {
+                        state.path.push(name.clone());
+                    }
                     let start = self.segments.len();
+                    let match_start = combined.as_ref().map_or(0, |state| state.events.len());
                     let child = if !keep_child && !self.collect_text && !self.validate {
-                        self.skip_trusted_value(depth + 1)?;
-                        None
+                        if combined.is_some() {
+                            self.build_value(depth + 1, false, None, combined.as_deref_mut())?
+                        } else {
+                            self.skip_trusted_value(depth + 1)?;
+                            None
+                        }
                     } else {
-                        self.build_value(depth + 1, keep_child, None)?
+                        self.build_value(depth + 1, keep_child, None, combined.as_deref_mut())?
                     };
                     if self.paths && self.collect_text {
                         self.path.pop();
+                    }
+                    if let Some(state) = combined.as_deref_mut() {
+                        state.path.pop();
+                        if let Some(ranges) = &mut match_last_ranges
+                            && let Some(previous) = ranges.insert(
+                                name.clone(),
+                                match_start..state.events.len(),
+                            )
+                        {
+                            for event in &mut state.events[previous] {
+                                event.visible = false;
+                            }
+                        }
                     }
                     if let Some(last_ranges) = &mut last_ranges
                         && let Some(previous) =
@@ -287,7 +368,7 @@ impl ScalarWalker<'_> {
                     );
                 }
                 loop {
-                    let child = self.build_value(depth + 1, retain, None)?;
+                    let child = self.build_value(depth + 1, retain, None, combined.as_deref_mut())?;
                     if let (Some(values), Some(child)) = (&mut values, child) {
                         values.push(child);
                     }
@@ -334,6 +415,9 @@ impl ScalarWalker<'_> {
                 };
                 if self.collect_text {
                     self.push(token.to_owned());
+                }
+                if let Some(combined) = combined.as_deref_mut() {
+                    combined.push_text(token)?;
                 }
                 Ok(value)
             }
@@ -446,6 +530,7 @@ const MAX_SCAN_SCRATCH_CAPACITY: usize = 256 * 1024;
 pub(crate) struct BorrowedScanScratch {
     decoded_text: String,
     events: Vec<BorrowedEvent>,
+    combined_path: Vec<String>,
 }
 
 
@@ -453,6 +538,7 @@ impl BorrowedScanScratch {
     fn trim(&mut self) {
         self.decoded_text.clear();
         self.events.clear();
+        self.combined_path.clear();
         if self.decoded_text.capacity() > MAX_SCAN_SCRATCH_CAPACITY {
             self.decoded_text = String::new();
         }
@@ -958,6 +1044,8 @@ thread_local! {
 static BORROWED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
 #[cfg(test)]
 static BORROWED_NODE_VISITS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+#[cfg(test)]
+static COMBINED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
 
 #[cfg(test)]
 pub(crate) fn borrowed_scan_calls() -> usize {
@@ -967,6 +1055,11 @@ pub(crate) fn borrowed_scan_calls() -> usize {
 #[cfg(test)]
 pub(crate) fn borrowed_node_visits() -> usize {
     BORROWED_NODE_VISITS.load(std::sync::atomic::Ordering::Relaxed)
+}
+
+#[cfg(test)]
+pub(crate) fn combined_scan_calls() -> usize {
+    COMBINED_SCAN_CALLS.load(std::sync::atomic::Ordering::Relaxed)
 }
 
 /// Preserve decoder and provisional-match capacities across a worker's files.
@@ -998,7 +1091,7 @@ pub(crate) fn build_record(bytes: &[u8]) -> Result<(Value, Vec<TextSegment>), St
         validate: true,
     };
     let value = walker
-        .build_value(0, true, None)?
+        .build_value(0, true, None, None)?
         .ok_or("root JSON value missing")?;
     walker.whitespace();
     if walker.pos != bytes.len() {
@@ -1022,6 +1115,72 @@ pub(crate) fn extract_query_record(
         projection.resolved_text_only,
         trusted,
     )
+}
+
+/// Build required logical values and match decoded source scalars in one walk.
+/// Unscoped decoded FTS retains every occurrence; selected fields retain only
+/// events visible after duplicate member replacement.
+pub(crate) fn extract_query_record_borrowed_fts_worker(
+    bytes: &[u8],
+    projection: &ScanProjection,
+    fts: &BoundFts,
+    retain_evidence: bool,
+) -> Result<(Value, BorrowedScanResult), String> {
+    #[cfg(test)]
+    COMBINED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+    BORROWED_SCAN_SCRATCH.with(|scratch| {
+        let mut scratch = scratch.borrow_mut();
+        scratch.decoded_text.clear();
+        scratch.events.clear();
+        scratch.combined_path.clear();
+        let BorrowedScanScratch {
+            decoded_text,
+            events,
+            combined_path,
+        } = &mut *scratch;
+        let mut combined = CombinedFts {
+            fts,
+            path: combined_path,
+            decoded: decoded_text,
+            events,
+            retain_evidence,
+        };
+        let mut walker = ScalarWalker {
+            bytes,
+            pos: 0,
+            path: Vec::new(),
+            segments: Vec::new(),
+            resolved_only: false,
+            paths: false,
+            collect_text: false,
+            validate: false,
+        };
+        let result = (|| {
+            let value = walker
+                .build_value(0, true, projection.top_level.as_ref(), Some(&mut combined))?
+                .ok_or("root JSON value missing")?;
+            let mut fts_match = false;
+            let mut evidence = HashSet::new();
+            for event in combined.events.iter() {
+                if event.fts_hit && (event.visible || fts.fields.is_empty()) {
+                    fts_match = true;
+                    if retain_evidence {
+                        evidence.extend(event.evidence.iter().cloned());
+                    }
+                }
+            }
+            Ok((
+                value,
+                BorrowedScanResult {
+                    fts_match,
+                    filter_match: true,
+                    evidence,
+                },
+            ))
+        })();
+        scratch.trim();
+        result
+    })
 }
 
 /// Parse only the logical projection for readers whose text comes from the
@@ -1053,7 +1212,7 @@ fn extract_query_requirements(
         validate: !trusted,
     };
     let value = walker
-        .build_value(0, true, selected_top)?
+        .build_value(0, true, selected_top, None)?
         .ok_or("root JSON value missing")?;
     if !trusted {
         walker.whitespace();
