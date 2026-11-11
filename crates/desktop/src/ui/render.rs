@@ -2639,11 +2639,16 @@ impl Render for DesktopView {
             self.state.sidebar_visible = false;
         }
         self.last_window_width = width;
-        if self.last_window_height != height
-            && self.state.sidebar_mode == SidebarMode::Files
-            && self.state.search.directory.is_some()
-        {
-            self.reveal_selected_sidebar_directory();
+        if self.last_window_height != height {
+            match self.state.sidebar_mode {
+                SidebarMode::Collections if self.state.search.collection.is_some() => {
+                    self.reveal_selected_sidebar_collection(true);
+                }
+                SidebarMode::Files if self.state.search.directory.is_some() => {
+                    self.reveal_selected_sidebar_directory();
+                }
+                _ => {}
+            }
         }
         self.last_window_height = height;
         if self.restore_missing_grid_height_hints() {

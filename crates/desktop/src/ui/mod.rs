@@ -663,19 +663,7 @@ impl DesktopView {
 
     fn reveal_sidebar_scope(&mut self, previous: &SearchDraft) {
         if self.state.search.collection != previous.collection {
-            let has_all = !self.state.single_collection && !self.state.collections.is_empty();
-            let item = self.state.search.collection.as_ref().and_then(|selected| {
-                self.state
-                    .collections
-                    .iter()
-                    .position(|name| name == selected)
-            });
-            if let Some(item) = item {
-                self.sidebar_collections_scroll
-                    .scroll_to_item(1 + usize::from(has_all) + item);
-            } else if has_all {
-                self.sidebar_collections_scroll.scroll_to_item(1);
-            }
+            self.reveal_selected_sidebar_collection(false);
         }
         if self.state.search.directory != previous.directory
             || self.state.search.collection != previous.collection
@@ -688,6 +676,23 @@ impl DesktopView {
                 }
             }
             self.reveal_selected_sidebar_directory();
+        }
+    }
+
+    fn reveal_selected_sidebar_collection(&self, align_top: bool) {
+        let has_all = !self.state.single_collection && !self.state.collections.is_empty();
+        let item = self.state.search.collection.as_ref().and_then(|selected| {
+            self.state.collections.iter().position(|name| name == selected)
+        });
+        if let Some(item) = item {
+            let item = usize::from(has_all) + item;
+            if align_top {
+                self.sidebar_collections_scroll.scroll_to_top_of_item(item);
+            } else {
+                self.sidebar_collections_scroll.scroll_to_item(item);
+            }
+        } else if has_all {
+            self.sidebar_collections_scroll.scroll_to_item(0);
         }
     }
 
