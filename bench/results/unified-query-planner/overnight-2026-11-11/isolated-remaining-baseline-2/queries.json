@@ -1,0 +1,33 @@
+[
+  {
+    "id": "Q072",
+    "collection": "entries",
+    "fts": null,
+    "filter": "preferred_title:lower ~ \"TASCHENBUCH\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q136",
+    "collection": "contents",
+    "fts": null,
+    "filter": "numbering >= 0",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "numbering",
+        "descending": false
+      }
+    ],
+    "limit": 100,
+    "offset": 10000,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

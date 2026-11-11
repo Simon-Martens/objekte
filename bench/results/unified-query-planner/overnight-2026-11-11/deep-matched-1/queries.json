@@ -1,0 +1,277 @@
+[
+  {
+    "id": "Q004",
+    "collection": "*",
+    "fts": "Wien",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q072",
+    "collection": "entries",
+    "fts": null,
+    "filter": "preferred_title:lower ~ \"TASCHENBUCH\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q076",
+    "collection": "contents",
+    "fts": null,
+    "filter": "preferred_title ~ \"Liebe\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q111",
+    "collection": "entries",
+    "fts": null,
+    "filter": "@record.byte_start = 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q116",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:length > 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q119",
+    "collection": "contents",
+    "fts": null,
+    "filter": "@file.modified >= \"2026-01-01T00:00:00Z\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q123",
+    "collection": "items",
+    "fts": null,
+    "filter": "media:length > 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q128",
+    "collection": "agents",
+    "fts": null,
+    "filter": "corporate_body = false",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "name",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q129",
+    "collection": "agents",
+    "fts": null,
+    "filter": "corporate_body = false",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "name",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 50,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q130",
+    "collection": "agents",
+    "fts": null,
+    "filter": "corporate_body = false",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "name",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 500,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q131",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= 1800 && year < 1850",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "year",
+        "descending": false
+      },
+      {
+        "field": "preferred_title",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q132",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= 1800 && year < 1850",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "year",
+        "descending": true
+      },
+      {
+        "field": "preferred_title",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q135",
+    "collection": "contents",
+    "fts": null,
+    "filter": "numbering >= 0",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "numbering",
+        "descending": false
+      }
+    ],
+    "limit": 100,
+    "offset": 1000,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q136",
+    "collection": "contents",
+    "fts": null,
+    "filter": "numbering >= 0",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "numbering",
+        "descending": false
+      }
+    ],
+    "limit": 100,
+    "offset": 10000,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q150",
+    "collection": "entries",
+    "fts": "Almanach",
+    "filter": "(edit_state = \"Edited\" || edit_state = \"Review\") && year >= 1800 && !(places:length = 0) && @repository.root:exists = true",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "preferred_title",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q159",
+    "collection": "entries",
+    "fts": null,
+    "filter": "agents[0].agent = $agent",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "parameters": {
+      "agent": {
+        "type": "id",
+        "value": "lngx6eyfw5qrzas"
+      }
+    }
+  },
+  {
+    "id": "Q190",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= 1800 SORT BY MIN(language) ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

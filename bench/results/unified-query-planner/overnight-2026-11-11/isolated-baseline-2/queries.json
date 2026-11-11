@@ -1,0 +1,51 @@
+[
+  {
+    "id": "Q116",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:length > 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q128",
+    "collection": "agents",
+    "fts": null,
+    "filter": "corporate_body = false",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "name",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q130",
+    "collection": "agents",
+    "fts": null,
+    "filter": "corporate_body = false",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "name",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 500,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]
