@@ -248,6 +248,7 @@ impl FileCatalog {
 
     /// Exact file IDs for an ordered `@file.path` comparison in this pinned
     /// publication, including additions and content-preserving moves.
+    #[cfg(test)]
     pub(crate) fn absolute_path_ids(&self, operator: Operator, literal: &str) -> Option<Vec<FileId>> {
         let root = &self.base.files().root;
         let bounds = absolute_path_bounds(root, operator, literal)?;
@@ -255,12 +256,27 @@ impl FileCatalog {
     }
 
     pub(crate) fn absolute_path_ids_in_bounds(&self, bounds: (std::ops::Bound<String>, std::ops::Bound<String>)) -> Vec<FileId> {
+        self.absolute_path_ids_in_bounds_up_to(bounds, usize::MAX)
+            .expect("an index cannot contain usize::MAX paths")
+    }
+
+    pub(crate) fn absolute_path_ids_up_to(&self, operator: Operator, literal: &str, limit: usize) -> Option<Vec<FileId>> {
+        let bounds = absolute_path_bounds(self.root(), operator, literal)?;
+        self.absolute_path_ids_in_bounds_up_to(bounds, limit)
+    }
+
+    fn absolute_path_ids_in_bounds_up_to(&self, bounds: (std::ops::Bound<String>, std::ops::Bound<String>), limit: usize) -> Option<Vec<FileId>> {
         if empty_path_bounds(&bounds) {
-            return Vec::new();
+            return Some(Vec::new());
         }
         let root = &self.base.files().root;
         let mut ids = Vec::new();
+        let mut scanned = 0usize;
         for (_, id) in self.base.files().absolute_paths.range(bounds.clone()) {
+            if scanned == limit {
+                return None;
+            }
+            scanned += 1;
             if self.entry(*id).is_some_and(|entry| {
                 self.base.files().files.get(id.0 as usize)
                     .is_some_and(|baseline| entry.relative_path == baseline.relative_path)
@@ -269,11 +285,15 @@ impl FileCatalog {
             }
         }
         for (key, id) in self.changed_absolute_paths.range(bounds) {
+            if scanned == limit {
+                return None;
+            }
+            scanned += 1;
             if self.entry(*id).is_some_and(|entry| absolute_path_key(root, &entry.relative_path) == *key) {
                 ids.push(*id);
             }
         }
-        ids
+        Some(ids)
     }
 
     /// Materialize the active metadata baseline only for a full filesystem

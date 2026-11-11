@@ -26,6 +26,9 @@ fn file_record_mapping_in_both_directions() {
     let f1 = files
         .add("multi.jsonl".into(), revision, None, CollectionId(0))
         .unwrap();
+    assert_eq!(files.absolute_path_ids_up_to(Operator::Eq, "empty.json", 1), Some(vec![f0]));
+    assert_eq!(files.absolute_path_ids_up_to(Operator::Ge, "empty.json", 1), None);
+    assert!(files.absolute_paths.keys().all(|path| path.starts_with("/tmp/repo/")));
     assert_eq!(
         files
             .add("multi.jsonl".into(), revision, None, CollectionId(1))

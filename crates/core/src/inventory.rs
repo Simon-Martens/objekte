@@ -747,16 +747,23 @@ impl FileInventory {
         self.by_path.get(path).copied()
     }
 
-    pub(crate) fn absolute_path_ids(&self, operator: Operator, literal: &str) -> Option<Vec<FileId>> {
-        let bounds = absolute_path_bounds(&self.root, operator, literal)?;
-        Some(self.absolute_path_ids_in_bounds(bounds))
-    }
-
     pub(crate) fn absolute_path_ids_in_bounds(&self, bounds: (Bound<String>, Bound<String>)) -> Vec<FileId> {
         if empty_path_bounds(&bounds) {
             return Vec::new();
         }
         self.absolute_paths.range(bounds).map(|(_, id)| *id).collect()
+    }
+
+    pub(crate) fn absolute_path_ids_up_to(&self, operator: Operator, literal: &str, limit: usize) -> Option<Vec<FileId>> {
+        let bounds = absolute_path_bounds(&self.root, operator, literal)?;
+        let mut ids = Vec::new();
+        for (_, id) in self.absolute_paths.range(bounds) {
+            if ids.len() == limit {
+                return None;
+            }
+            ids.push(*id);
+        }
+        Some(ids)
     }
 }
 

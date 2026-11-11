@@ -71,6 +71,7 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     let mut prefix = appended.absolute_path_ids(Operator::Ge, "data/n").unwrap();
     prefix.sort_by_key(|id| id.0);
     assert_eq!(prefix, [FileId(0), FileId(2)]);
+    assert_eq!(appended.absolute_path_ids_up_to(Operator::Ge, "data/n", 1), None);
     assert_eq!(
         appended.id_for(std::path::Path::new("data/new.json")),
         Some(FileId(2))
