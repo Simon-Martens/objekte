@@ -109,6 +109,8 @@ pub struct DesktopView {
     pending_query_starts: usize,
     primary_tabs_scroll: ScrollHandle,
     secondary_tabs_scroll: ScrollHandle,
+    sidebar_collections_scroll: ScrollHandle,
+    sidebar_files_scroll: ScrollHandle,
     workspace_layout: Cell<Option<(f32, f32, bool, bool)>>,
     last_window_width: f32,
     columns_scroll: ScrollHandle,
@@ -288,6 +290,8 @@ impl DesktopView {
             pending_query_starts: 0,
             primary_tabs_scroll: ScrollHandle::new(),
             secondary_tabs_scroll: ScrollHandle::new(),
+            sidebar_collections_scroll: ScrollHandle::new(),
+            sidebar_files_scroll: ScrollHandle::new(),
             workspace_layout: Cell::new(None),
             last_window_width: f32::from(window.bounds().size.width),
             columns_scroll: ScrollHandle::new(),
@@ -398,6 +402,7 @@ impl DesktopView {
         }
         let opened = matches!(&update, UiUpdate::Opened { .. });
         let restored_query = matches!(&update, UiUpdate::RestoreQuery(_));
+        let previous_scope = restored_query.then(|| self.state.search.clone());
         let query_started = matches!(&update, UiUpdate::QueryStarted { .. });
         let retain_grid_view = matches!(
             &update,
@@ -462,10 +467,17 @@ impl DesktopView {
             });
         }
         self.state.apply(update);
+        if let Some(previous_scope) = previous_scope {
+            self.reveal_sidebar_scope(&previous_scope);
+        }
         if opened || restored_query || page_or_append || projection_changed {
             self.last_grid_request.set(None);
         }
         if opened {
+            self.sidebar_collections_scroll
+                .set_offset(point(px(0.), px(0.)));
+            self.sidebar_files_scroll
+                .set_offset(point(px(0.), px(0.)));
             self.grid_views.clear();
             self.active_grid_tab = self.state.workspace.current_search;
             self.grid_view_ready = false;
@@ -625,6 +637,7 @@ impl DesktopView {
         window: &mut Window,
         cx: &mut Context<Self>,
     ) {
+        let previous_scope = self.state.search.clone();
         if let Some(query) = self.state.workspace.current_search {
             if self.state.workspace.pane_of(query).is_some_and(|pane| {
                 self.state.workspace.group(pane).active != Some(query)
@@ -635,7 +648,46 @@ impl DesktopView {
             self.open_query_tab(window, cx);
         }
         self.state.search.directory = directory;
+        self.reveal_sidebar_scope(&previous_scope);
         self.search_from_inputs(true, cx);
+    }
+
+    fn reveal_sidebar_scope(&mut self, previous: &SearchDraft) {
+        if self.state.search.collection != previous.collection {
+            let has_all = !self.state.single_collection && !self.state.collections.is_empty();
+            let item = self.state.search.collection.as_ref().and_then(|selected| {
+                self.state
+                    .collections
+                    .iter()
+                    .position(|name| name == selected)
+            });
+            if let Some(item) = item {
+                self.sidebar_collections_scroll
+                    .scroll_to_item(1 + usize::from(has_all) + item);
+            } else if has_all {
+                self.sidebar_collections_scroll.scroll_to_item(1);
+            }
+        }
+        if self.state.search.directory != previous.directory {
+            if let Some(directory) = self.state.search.directory.as_deref() {
+                let mut child = directory;
+                while let Some((parent, _)) = child.rsplit_once('/') {
+                    self.state.expanded_directories.insert(parent.to_owned());
+                    child = parent;
+                }
+            }
+            let item = self.state.search.directory.as_ref().and_then(|selected| {
+                self.state
+                    .directories
+                    .iter()
+                    .filter(|directory| {
+                        render::directory_visible(directory, &self.state.expanded_directories)
+                    })
+                    .position(|directory| directory == selected)
+            });
+            self.sidebar_files_scroll
+                .scroll_to_item(item.map_or(1, |item| item + 2));
+        }
     }
 
     fn restore_workspace_query(
@@ -674,7 +726,9 @@ impl DesktopView {
         self.builder_view.update(cx, |builder, cx| {
             builder.sync_from_text(&draft.structured, cx)
         });
+        let previous_scope = self.state.search.clone();
         self.state.search = draft.clone();
+        self.reveal_sidebar_scope(&previous_scope);
         self.restoring_query = false;
         self.pending_query_starts = self.pending_query_starts.saturating_add(1);
         self.send(UiAction::SearchNow(draft));

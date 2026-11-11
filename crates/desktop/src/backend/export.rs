@@ -12,10 +12,10 @@ use objekte_search_core::streaming::{
     StreamOutcome,
 };
 use objekte_search_core::workload::ReturnMode;
-use objekte_tui::export::{hit_value, one};
 use serde_json::json;
 
 use super::batch::{create_output_file, validate_output_path};
+use super::record_json::{hit_value, one};
 use super::{BackendError, BackendErrorKind, OpenedSession, QuerySpec, build_query};
 
 /// Write one selected hit in the existing terminal export format.

@@ -82,6 +82,14 @@ pub enum ActionPanel {
     Diagnostics,
 }
 
+/// The navigation source shown in the left sidebar.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum SidebarMode {
+    #[default]
+    Collections,
+    Files,
+}
+
 /// Which operation currently owns the visible progress indicator.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum Busy {
@@ -112,7 +120,6 @@ pub struct UiState {
     pub single_collection: bool,
     pub directories: Vec<String>,
     pub expanded_directories: BTreeSet<String>,
-    pub directory_tree_visible: bool,
     pub page: PageView,
     /// Lightweight extent is separate from a bounded cache of projected text.
     pub loaded_count: usize,
@@ -170,6 +177,7 @@ pub struct UiState {
     pub show_raw: bool,
     pub show_links: bool,
     pub sidebar_visible: bool,
+    pub sidebar_mode: SidebarMode,
     pub history_expanded: bool,
     pub inspector_width: f32,
     pub inspector_resize_origin: Option<(f32, f32)>,
@@ -218,7 +226,11 @@ impl UiState {
                 self.single_collection = single_collection;
                 self.directories = directories;
                 self.expanded_directories.clear();
-                self.directory_tree_visible = false;
+                self.sidebar_mode = if single_collection {
+                    SidebarMode::Files
+                } else {
+                    SidebarMode::Collections
+                };
                 self.available_columns.clear();
                 self.completion_fields.clear();
                 self.completion_context = None;

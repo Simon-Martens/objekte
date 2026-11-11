@@ -5,6 +5,7 @@ pub mod filter_validation;
 mod lifecycle_navigation;
 pub mod open_detection;
 mod projection;
+mod relations;
 pub mod runtime;
 
 pub use adapt::{open_spec, query_spec};

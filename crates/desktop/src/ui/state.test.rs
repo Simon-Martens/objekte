@@ -237,6 +237,7 @@ fn opening_a_repository_returns_to_the_results_workspace() {
     assert_eq!(state.search.collection.as_deref(), Some("records"));
     assert_eq!(state.search.directory, None);
     assert_eq!(state.directories, ["current"]);
+    assert_eq!(state.sidebar_mode, SidebarMode::Files);
 }
 
 #[test]

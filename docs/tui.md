@@ -1,13 +1,13 @@
 # Terminal UI
 
-Run `cargo run --release --bin objekte -- examples/musenalm` from the workspace
+Run `cargo run --release -p objekte-cli --bin obj -- --repo examples/musenalm --tui` from the workspace
 root. The terminal window opens before repository startup and shows the elapsed
 index-building time. The first run may take longer while the index is built;
 the release build is recommended for the Musenalm corpus. After each search,
 the result status line shows its execution time.
-The binary is in `crates/tui` and uses the schema files under
+The terminal UI is an optional feature of `crates/cli`, enabled by default for the `obj` binary. It uses the schema files under
 `REPOSITORY/.objekte/collections/` to construct the core's in-memory
-`CollectionDefinition` values. Schema loading belongs to the TUI adapter;
+`CollectionDefinition` values. Schema loading belongs to the CLI adapter;
 applications can also construct definitions directly and call
 `Repository::open`.
 

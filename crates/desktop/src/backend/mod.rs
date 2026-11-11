@@ -8,6 +8,7 @@ mod ndjson;
 mod open;
 mod query;
 mod record;
+pub(crate) mod record_json;
 
 pub use error::{BackendError, BackendErrorKind};
 pub use export::{

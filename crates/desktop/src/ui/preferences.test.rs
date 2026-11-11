@@ -39,7 +39,7 @@ fn migration_preserves_legacy_names_order_columns_and_theme() {
         serde_json::from_slice::<serde_json::Value>(&fs::read(&path).unwrap()).unwrap()["version"],
         VERSION
     );
-    assert_ne!(path, LegacySettings::path(temp.path()));
+    assert_ne!(path, temp.path().join(".objekte/.cache/tui.json"));
 }
 
 #[test]

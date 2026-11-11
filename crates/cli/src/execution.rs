@@ -1,6 +1,8 @@
 //! One repository opening and sequential, ordered query execution.
 
-use std::io::{self, BufWriter, IsTerminal, Write};
+use std::io::{self, BufWriter, Write};
+#[cfg(feature = "tui")]
+use std::io::IsTerminal;
 use std::path::PathBuf;
 use std::time::Instant;
 
@@ -23,6 +25,7 @@ use crate::loader::{configure_definitions, open_repository, repository_options, 
 use crate::output::{EventWriter, counters_with_ms, milliseconds_value as ms};
 use crate::query_input::{QueryInput, QueryKind, QuerySource};
 
+#[cfg(feature = "tui")]
 pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     if let Err(error) = args.validate_input() {
         eprintln!("obj: {error}");

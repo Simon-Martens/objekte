@@ -6,7 +6,6 @@ use objekte_search_core::repository::SearchHit;
 
 const PAGE_SIZE: usize = 100;
 
-
 #[derive(Clone, Debug)]
 pub enum LinkAction {
     Target {
@@ -27,14 +26,12 @@ pub enum LinkAction {
     },
 }
 
-
 #[derive(Clone, Debug)]
 pub struct RelationRow {
     pub label: String,
     pub value: String,
     pub action: Option<LinkAction>,
 }
-
 
 impl RelationRow {
     fn plain(label: impl Into<String>, value: impl Into<String>) -> Self {
@@ -53,7 +50,6 @@ impl RelationRow {
         }
     }
 }
-
 
 fn collection_name(
     repo: &IndexedRepository,

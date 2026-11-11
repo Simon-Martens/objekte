@@ -1,5 +1,5 @@
 //! Versioned, desktop-only preferences. Legacy files are read once and written
-//! in the new shape on the next preference change; TUI settings are untouched.
+//! in the new shape on the next preference change.
 
 use std::{
     collections::BTreeMap,
@@ -7,7 +7,6 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use objekte_tui::settings::{Query as LegacyQuery, Settings as LegacySettings};
 use objekte_search_core::query_path::QueryPath;
 use serde::{Deserialize, Serialize};
 
@@ -16,6 +15,45 @@ use super::model::{QueryEntry, SearchDraft};
 const VERSION: u32 = 2;
 const HISTORY: usize = 200;
 
+/// The unversioned preferences shape used before desktop settings were versioned.
+#[derive(Deserialize)]
+struct LegacyQuery {
+    #[serde(default)]
+    search: String,
+    #[serde(default)]
+    filter: String,
+    #[serde(default)]
+    collection: Option<String>,
+    #[serde(default)]
+    case_insensitive: bool,
+    #[serde(default)]
+    regex: bool,
+}
+
+#[derive(Deserialize)]
+struct LegacySavedQuery {
+    name: String,
+    #[serde(flatten)]
+    query: LegacyQuery,
+}
+
+#[derive(Deserialize)]
+struct LegacyColumns {
+    #[serde(default)]
+    hidden: Vec<String>,
+}
+
+#[derive(Deserialize)]
+struct LegacySettings {
+    #[serde(default)]
+    theme: Option<String>,
+    #[serde(default)]
+    history: Vec<LegacyQuery>,
+    #[serde(default)]
+    saved: Vec<LegacySavedQuery>,
+    #[serde(default)]
+    columns: BTreeMap<String, LegacyColumns>,
+}
 
 /// Only the restorable definition belongs in bookmarks and history. Delivery
 /// offsets, count requests, and view selection are deliberately excluded.
@@ -57,7 +95,6 @@ impl QueryDefinition {
             directory: self.directory,
             case_sensitive: self.case_sensitive,
             regex: self.regex,
-            ..SearchDraft::default()
         }
     }
 }

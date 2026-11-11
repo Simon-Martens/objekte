@@ -20,7 +20,6 @@ use objekte_search_core::posting_values::PostingValuesRequest;
 use objekte_search_core::repository::SearchHit;
 use objekte_search_core::run::DirectLookupResult;
 use objekte_search_core::streaming::CancellationToken;
-use objekte_tui::relations::{self, LinkAction};
 
 use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
@@ -34,6 +33,7 @@ use crate::ui::preferences::DesktopPreferences;
 use super::filter_validation::{field_choices, validate_request};
 use super::open_detection::{DetectedSource, detect_source};
 use super::projection::detail_view_with_query;
+use super::relations::{self, LinkAction};
 use super::{initial_columns, open_spec, page_view_with_prior, query_spec};
 
 /// One lightweight locator retained for every delivered result.
@@ -1132,7 +1132,7 @@ impl DesktopController {
                         .and_then(|hit| hit.ok_or_else(|| "Record is no longer available".into()))
                         .map(|hit| {
                             (
-                                objekte_tui::record_raw_text(&hit),
+                                crate::backend::record_json::raw_text(&hit),
                                 "Complete record copied".into(),
                             )
                         });

@@ -18,7 +18,15 @@ fn main() {
         std::process::exit(2);
     }
     let exit = if args.tui {
-        execution::run_tui(&args, &token)
+        #[cfg(feature = "tui")]
+        {
+            execution::run_tui(&args, &token)
+        }
+        #[cfg(not(feature = "tui"))]
+        {
+            eprintln!("obj: --tui support was not built");
+            execution::Exit::Arguments
+        }
     } else {
         let stdout = io::stdout();
         execution::run(&args, stdout.lock(), &token)

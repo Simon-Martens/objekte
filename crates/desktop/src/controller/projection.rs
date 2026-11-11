@@ -591,11 +591,11 @@ fn field_display(value: &Value) -> Option<(String, bool)> {
 }
 
 fn payload_json(hit: &SearchHit) -> Option<Value> {
-    objekte_tui::record_json_value(hit)
+    crate::backend::record_json::json_value(hit)
 }
 
 fn source_text(hit: &SearchHit) -> String {
-    objekte_tui::record_raw_text(hit)
+    crate::backend::record_json::raw_text(hit)
 }
 
 fn value_label(value: &Value) -> String {

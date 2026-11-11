@@ -5212,7 +5212,6 @@ dependencies = [
  "gpui-kit",
  "objekte-cli",
  "objekte-search-core",
- "objekte-tui",
  "serde",
  "serde_json",
  "tempfile",
@@ -5236,20 +5235,6 @@ dependencies = [
  "smallvec",
  "time",
  "unicode-casefold",
-]
-
-[[package]]
-name = "objekte-tui"
-version = "0.1.0"
-dependencies = [
- "objekte-search-core",
- "ratatui",
- "regex",
- "serde",
- "serde_json",
- "tempfile",
- "unicode-casefold",
- "unicode-width",
 ]
 
 [[package]]
