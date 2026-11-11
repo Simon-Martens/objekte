@@ -734,7 +734,7 @@ impl DesktopView {
         } else {
             0
         };
-        let saved_height = (72 + 32 * (saved_rows.max(1) + history_rows)).min(180);
+        let saved_height = (88 + 32 * (saved_rows.max(1) + history_rows)).min(180);
         let mut saved_sidebar = div()
             .id("sidebar-saved-scroll")
             .flex()
