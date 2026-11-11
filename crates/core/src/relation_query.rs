@@ -35,6 +35,15 @@ fn relation_target_uses_value_text(collection: &CollectionState) -> bool {
     !collection.source.is_extension() && matches!(collection.source.id(), "json" | "jsonl")
 }
 
+fn relation_source_uses_value_text(repo: &Repository, source: &RecordContext<'_>) -> bool {
+    source.record.class == RecordClass::Logical
+        && repo
+            .collections
+            .iter()
+            .find(|collection| collection.definition.name == source.collection_name)
+            .is_some_and(relation_target_uses_value_text)
+}
+
 #[cfg(test)]
 static BORROWED_RELATION_TARGETS: std::sync::atomic::AtomicUsize =
     std::sync::atomic::AtomicUsize::new(0);
@@ -894,6 +903,8 @@ fn eval_fts_with_relations_inner(
             eval_bound_fts_membership(fts, segments, ctx)
         };
     }
+    let borrowed_local_text = fts.fields.iter().any(|field| field.related.is_none())
+        && relation_source_uses_value_text(repo, ctx);
     let mut matched = false;
     for field in &fts.fields {
         if let Some(hops) = &field.related {
@@ -948,16 +959,31 @@ fn eval_fts_with_relations_inner(
                     return Ok(true);
                 }
             }
-        } else if eval_bound_fts_field(
-            field,
-            fts.case_sensitivity,
-            segments,
-            ctx,
-            evidence.as_deref_mut(),
-        )? {
-            matched = true;
-            if evidence.is_none() {
-                return Ok(true);
+        } else {
+            let local_matched = if borrowed_local_text
+                && matches!(field.path.root, PathRoot::Data)
+                && field.query_path.is_none()
+            {
+                eval_borrowed_value_fts_field(
+                    field,
+                    fts.case_sensitivity,
+                    ctx,
+                    evidence.as_deref_mut(),
+                )?
+            } else {
+                eval_bound_fts_field(
+                    field,
+                    fts.case_sensitivity,
+                    segments,
+                    ctx,
+                    evidence.as_deref_mut(),
+                )?
+            };
+            if local_matched {
+                matched = true;
+                if evidence.is_none() {
+                    return Ok(true);
+                }
             }
         }
     }
@@ -1692,6 +1718,8 @@ pub(crate) fn eval_fts_with_relations_merged(
     if fts.fields.iter().all(|field| field.related.is_none()) {
         return eval_bound_fts(fts, segments, source, evidence);
     }
+    let borrowed_local_text = fts.fields.iter().any(|field| field.related.is_none())
+        && relation_source_uses_value_text(view.repo, source);
     let mut matched = false;
     for field in &fts.fields {
         if let Some(hops) = &field.related {
@@ -1731,14 +1759,22 @@ pub(crate) fn eval_fts_with_relations_merged(
                 matched = true;
                 evidence.insert(field.evidence_path.clone());
             }
-        } else if eval_bound_fts_field(
-            field,
-            fts.case_sensitivity,
-            segments,
-            source,
-            Some(evidence),
-        )? {
-            matched = true;
+        } else {
+            let local_matched = if borrowed_local_text
+                && matches!(field.path.root, PathRoot::Data)
+                && field.query_path.is_none()
+            {
+                eval_borrowed_value_fts_field(field, fts.case_sensitivity, source, Some(evidence))?
+            } else {
+                eval_bound_fts_field(
+                    field,
+                    fts.case_sensitivity,
+                    segments,
+                    source,
+                    Some(evidence),
+                )?
+            };
+            matched |= local_matched;
         }
     }
     Ok(matched)

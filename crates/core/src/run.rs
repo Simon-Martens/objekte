@@ -549,6 +549,24 @@ fn borrowed_value_text(collection: &CollectionState, fts: Option<&BoundFts>) -> 
         && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()))
 }
 
+fn borrowed_relation_source_text(
+    collection: &CollectionState,
+    fts: Option<&BoundFts>,
+) -> bool {
+    !collection.source.is_extension()
+        && matches!(collection.source.id(), "json" | "jsonl")
+        && fts.is_some_and(|fts| {
+            fts.fields.iter().any(|field| field.related.is_some())
+                && fts
+                    .fields
+                    .iter()
+                    .filter(|field| field.related.is_none())
+                    .all(|field| {
+                        matches!(field.path.root, PathRoot::Data) && field.query_path.is_none()
+                    })
+        })
+}
+
 fn prepare_value_text_projection(projection: &mut ScanProjection, borrow_text: bool) {
     if borrow_text {
         projection.collect_text = false;
@@ -5271,7 +5289,11 @@ fn scan_relation_file_parallel(
     scan.counters.candidates += 1;
     let record = resolved.record;
     let borrowed_value_text = borrowed_value_text(resolved.collection, fts);
-    let mut projection = ScanProjection::full(fts.is_some() && !borrowed_value_text);
+    let mut projection = ScanProjection::full(
+        fts.is_some()
+            && !borrowed_value_text
+            && !borrowed_relation_source_text(resolved.collection, fts),
+    );
     projection.resolved_text_only =
         projection.collect_text && fts.is_some_and(|fts| !fts.fields.is_empty());
     let combined_fts = fts.filter(|fts| {
@@ -5739,7 +5761,11 @@ fn search_segmented_relations(
             collection_plan.source.id() == "json_decoded_scalars"
                 && source_fts_eligible(collection_plan, fts, true)
         });
-        let mut projection = ScanProjection::full(fts.is_some() && !borrowed_value_text);
+        let mut projection = ScanProjection::full(
+            fts.is_some()
+                && !borrowed_value_text
+                && !borrowed_relation_source_text(collection_plan, fts.as_ref()),
+        );
         projection.resolved_text_only =
             projection.collect_text && fts.as_ref().is_some_and(|fts| !fts.fields.is_empty());
         let mut process = |address: crate::relation_query::MergedRecordSlot,
@@ -8668,7 +8694,11 @@ fn try_stored_order_page(
                 scan_projection(query, residual.as_ref(), &entry.candidates, false);
             prepare_value_text_projection(
                 &mut projection,
-                borrowed_value_text(&repo.collections[entry.collection_index], entry.fts),
+                borrowed_value_text(&repo.collections[entry.collection_index], entry.fts)
+                    || borrowed_relation_source_text(
+                        &repo.collections[entry.collection_index],
+                        entry.fts,
+                    ),
             );
             projection
         })
@@ -10452,7 +10482,9 @@ fn search_impl_with_collector<'a>(
         }
         prepare_value_text_projection(
             &mut projection,
-            preverified_evidence.is_none() && borrowed_value_text(collection, fts.as_ref()),
+            preverified_evidence.is_none()
+                && (borrowed_value_text(collection, fts.as_ref())
+                    || borrowed_relation_source_text(collection, fts.as_ref())),
         );
         let retain_all_evidence = cache_budget.is_some_and(CacheBudget::complete);
         let direct_plan = if preverified_evidence.is_none() {

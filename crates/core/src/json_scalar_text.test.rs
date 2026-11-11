@@ -187,6 +187,22 @@ fn filter_only_scan_skips_irrelevant_nested_values() {
 }
 
 #[test]
+fn unscoped_fts_with_filter_still_visits_nested_text() {
+    let source = br#"{"nested":{"text":"needle"},"wanted":"yes"}"#;
+    let mut scratch = BorrowedScanScratch::default();
+    let result = borrowed_scan(
+        source,
+        Some("needle"),
+        None,
+        Some("wanted ~ 'yes'"),
+        true,
+        &mut scratch,
+    );
+    assert!(result.fts_match);
+    assert!(result.filter_match);
+}
+
+#[test]
 fn combined_value_and_source_matching_avoids_owned_segments() {
     let source = br#"{"text":"old","text":"new","n":1e0,"other":"\u006e eedle"}"#;
     let schema = Schema::default();
@@ -430,6 +446,102 @@ fn decoder_strategy_microbench() {
 }
 
 #[test]
+#[ignore = "release-only in-memory production consumer timing; run serially with --nocapture"]
+fn borrowed_consumer_microbench() {
+    use std::hint::black_box;
+    use std::time::Instant;
+
+    let schema = Schema::default();
+    let fts = bind_fts(
+        &FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Literal,
+            literal: "needle".into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        },
+        &schema,
+    )
+    .unwrap();
+    let projection = ScanProjection::full(true);
+    for (name, source) in [
+        (
+            "plain",
+            format!(r#"{{"text":"{}needle"}}"#, "a".repeat(8192)),
+        ),
+        (
+            "escaped",
+            format!(r#"{{"text":"{}needle"}}"#, "a\\n".repeat(2048)),
+        ),
+        (
+            "many-scalars",
+            format!(r#"{{"text":[{}"needle"]}}"#, "\"abc\",".repeat(512)),
+        ),
+    ] {
+        let bytes = source.as_bytes();
+        let direct = BorrowedScanQuery {
+            fts: Some(&fts),
+            filter: None,
+            decoded_scalars: true,
+            retain_evidence: false,
+        };
+        assert!(
+            scan_borrowed_segments_worker(bytes, &direct)
+                .unwrap()
+                .fts_match
+        );
+        assert!(
+            extract_query_record_borrowed_fts_worker(bytes, &projection, &fts, false)
+                .unwrap()
+                .1
+                .fts_match
+        );
+        let iterations = (2 * 1024 * 1024 / bytes.len()).max(128);
+        for (route, mut measure) in [
+            (
+                "direct",
+                Box::new(|| {
+                    black_box(scan_borrowed_segments_worker(black_box(bytes), &direct).unwrap());
+                }) as Box<dyn FnMut() + '_>,
+            ),
+            (
+                "combined-value",
+                Box::new(|| {
+                    black_box(
+                        extract_query_record_borrowed_fts_worker(
+                            black_box(bytes),
+                            &projection,
+                            &fts,
+                            false,
+                        )
+                        .unwrap(),
+                    );
+                }) as Box<dyn FnMut() + '_>,
+            ),
+        ] {
+            let mut samples = Vec::new();
+            for round in 0..6 {
+                let started = Instant::now();
+                for _ in 0..iterations {
+                    measure();
+                }
+                if round > 0 {
+                    samples.push(started.elapsed().as_nanos() / iterations as u128);
+                }
+            }
+            samples.sort_unstable();
+            println!(
+                "consumer {name} {route}: {} ns/record median of 5; min {}; max {}; bytes {}",
+                samples[2],
+                samples[0],
+                samples[4],
+                bytes.len()
+            );
+        }
+    }
+}
+
+#[test]
 fn borrowed_source_matching_preserves_unicode_folded_representations() {
     let schema = Schema::default();
     let fts = bind_fts(
@@ -564,6 +676,33 @@ fn oversized_folded_segments_reuse_capacity_within_record_then_release_it() {
         "second oversized segment should reuse capacity"
     );
     assert!(retained <= MAX_SCAN_SCRATCH_CAPACITY);
+}
+
+#[test]
+fn oversized_folded_scratch_is_released_on_scan_error() {
+    let fts = bind_fts(
+        &FtsQuery {
+            case_sensitivity: CaseSensitivity::Insensitive,
+            mode: FtsMode::Literal,
+            literal: "needle".into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        },
+        &Schema::default(),
+    )
+    .unwrap();
+    let query = BorrowedScanQuery {
+        fts: Some(&fts),
+        filter: None,
+        decoded_scalars: true,
+        retain_evidence: false,
+    };
+    let source = format!(
+        r#"{{"text":"{}NEEDLE","broken": "#,
+        "x".repeat(MAX_SCAN_SCRATCH_CAPACITY + 4096)
+    );
+    assert!(scan_borrowed_segments_worker(source.as_bytes(), &query).is_err());
+    assert!(crate::reference::fold_scratch_stats().1 <= MAX_SCAN_SCRATCH_CAPACITY);
 }
 
 #[test]
