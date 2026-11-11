@@ -3,7 +3,7 @@
 use gpui_kit::assets::IconName as AssetIconName;
 use gpui_kit::component::{
     Disableable as _, Icon, IconName, Selectable as _,
-    button::{Button, ButtonVariants},
+    button::{Button, ButtonCustomVariant, ButtonVariants},
     checkbox::Checkbox,
     input::{Input, Textarea},
     menu::{ContextMenuExt as _, PopupMenuItem},
@@ -481,15 +481,135 @@ impl DesktopView {
                         }),
                 )
             });
+        let show_fields = !self.state.show_raw && !self.state.show_links;
+        let footer_tab_style = ButtonCustomVariant::new(cx)
+            .color(rgb(colors.panel).into())
+            .foreground(rgb(colors.text).into())
+            .hover(rgb(colors.raised).into())
+            .active(rgb(colors.panel).into());
+        let footer = div()
+            .id("record-detail-footer")
+            .flex()
+            .items_center()
+            .h(px(42.))
+            .flex_shrink_0()
+            .px_1()
+            .gap_1()
+            .border_t_1()
+            .border_color(rgb(colors.border))
+            .bg(rgb(colors.panel))
+            .child(
+                div()
+                    .h_full()
+                    .border_b_2()
+                    .border_color(rgb(if show_fields { colors.accent } else { colors.border }))
+                    .child(
+                        Button::new("fields-tab")
+                            .custom(footer_tab_style)
+                            .h_full()
+                            .w(px(60.))
+                            .label("Fields")
+                            .disabled(detail.is_none())
+                            .selected(show_fields)
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_raw = false;
+                                this.state.show_links = false;
+                                this.save_tab_view();
+                                cx.notify();
+                            })),
+                    ),
+            )
+            .child(
+                div()
+                    .h_full()
+                    .border_b_2()
+                    .border_color(rgb(if self.state.show_links {
+                        colors.accent
+                    } else {
+                        colors.border
+                    }))
+                    .child(
+                        Button::new("links-tab")
+                            .custom(footer_tab_style)
+                            .h_full()
+                            .w(px(60.))
+                            .label("Links")
+                            .disabled(detail.is_none() || !navigation_current)
+                            .selected(self.state.show_links)
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_raw = false;
+                                this.state.show_links = true;
+                                this.save_tab_view();
+                                this.send(UiAction::LoadLinks);
+                                cx.notify();
+                            })),
+                    ),
+            )
+            .child(div().flex_1())
+            .child(
+                Button::new("copy-record")
+                    .ghost()
+                    .icon(AssetIconName::Copy)
+                    .disabled(detail.is_none() || !record_current)
+                    .tooltip("Copy complete record")
+                    .accessibility_label("Copy complete record")
+                    .on_click(cx.listener(|this, _, _, _| this.send(UiAction::CopyRecord))),
+            )
+            .when(self.state.show_raw, |this| {
+                this.child(
+                    Button::new("export-record")
+                        .ghost()
+                        .icon(AssetIconName::Download)
+                        .disabled(detail.is_none() || !record_current)
+                        .tooltip("Export record")
+                        .accessibility_label("Export record")
+                        .on_click(cx.listener(|this, _, _, cx| {
+                            this.state.export_format = ExportFormat::SelectedJson;
+                            this.state.show_actions = true;
+                            this.state.action_panel = ActionPanel::Export;
+                            cx.notify();
+                        })),
+                )
+            })
+            .child(
+                div()
+                    .h_full()
+                    .border_b_2()
+                    .border_color(rgb(if self.state.show_raw {
+                        colors.accent
+                    } else {
+                        colors.border
+                    }))
+                    .child(
+                        Button::new("source-tab")
+                            .custom(footer_tab_style)
+                            .h_full()
+                            .icon(AssetIconName::CodeXml)
+                            .disabled(detail.is_none())
+                            .tooltip("Source")
+                            .accessibility_label("Source")
+                            .selected(self.state.show_raw)
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_raw = true;
+                                this.state.show_links = false;
+                                this.save_tab_view();
+                                this.send(UiAction::ToggleRawSource);
+                                cx.notify();
+                            })),
+                    ),
+            );
         let Some(detail) = detail else {
             return panel
                 .child(
                     div()
+                        .flex_1()
+                        .min_h_0()
                         .p_3()
                         .text_sm()
                         .text_color(rgb(colors.secondary))
                         .child(preview.cloned().unwrap_or_else(|| "Loading record…".into())),
                 )
+                .child(footer)
                 .into_any_element();
         };
         let identity = active_tab.map_or_else(String::new, |tab| tab.identity.clone());
@@ -601,85 +721,7 @@ impl DesktopView {
                                 .collect::<Vec<_>>(),
                         ),
                 )
-            })
-            .child(
-                div()
-                    .flex()
-                    .items_center()
-                    .h(px(36.))
-                    .flex_shrink_0()
-                    .px_2()
-                    .gap_1()
-                    .border_b_1()
-                    .border_color(rgb(colors.border))
-                    .child(
-                        Button::new("fields-tab")
-                            .ghost()
-                            .label("Fields")
-                            .selected(!self.state.show_raw && !self.state.show_links)
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.show_raw = false;
-                                this.state.show_links = false;
-                                this.save_tab_view();
-                                cx.notify();
-                            })),
-                    )
-                    .child(
-                        Button::new("links-tab")
-                            .ghost()
-                            .label("Links")
-                            .disabled(!navigation_current)
-                            .selected(self.state.show_links)
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.show_raw = false;
-                                this.state.show_links = true;
-                                this.save_tab_view();
-                                this.send(UiAction::LoadLinks);
-                                cx.notify();
-                            })),
-                    )
-                    .child(div().flex_1())
-                    .child(
-                        Button::new("copy-record")
-                            .ghost()
-                            .icon(AssetIconName::Copy)
-                            .disabled(!record_current)
-                            .tooltip("Copy complete record")
-                            .accessibility_label("Copy complete record")
-                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::CopyRecord))),
-                    )
-                    .when(self.state.show_raw, |this| {
-                        this.child(
-                            Button::new("export-record")
-                                .ghost()
-                                .icon(AssetIconName::Download)
-                                .disabled(!record_current)
-                                .tooltip("Export record")
-                                .accessibility_label("Export record")
-                                .on_click(cx.listener(|this, _, _, cx| {
-                                    this.state.export_format = ExportFormat::SelectedJson;
-                                    this.state.show_actions = true;
-                                    this.state.action_panel = ActionPanel::Export;
-                                    cx.notify();
-                                })),
-                        )
-                    })
-                    .child(
-                        Button::new("source-tab")
-                            .ghost()
-                            .icon(AssetIconName::CodeXml)
-                            .tooltip("Source")
-                            .accessibility_label("Source")
-                            .selected(self.state.show_raw)
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.show_raw = true;
-                                this.state.show_links = false;
-                                this.save_tab_view();
-                                this.send(UiAction::ToggleRawSource);
-                                cx.notify();
-                            })),
-                    ),
-            );
+            });
         if self.state.show_raw {
             panel = panel
                 .child(
@@ -827,6 +869,7 @@ impl DesktopView {
                         .child("Visible values clipped; Source and export remain complete."),
                 )
             })
+            .child(footer)
             .into_any_element()
     }
 

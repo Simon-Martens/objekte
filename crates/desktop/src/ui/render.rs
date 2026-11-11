@@ -1369,7 +1369,7 @@ impl DesktopView {
                     div()
                         .id(("result-row", index))
                         .flex()
-                        .items_start()
+                        .items_center()
                         .w_full()
                         .min_h(px(30.))
                         .bg(rgb(shade))
