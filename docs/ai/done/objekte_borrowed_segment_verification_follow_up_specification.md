@@ -277,4 +277,8 @@ Performance: the exact predecessor and final commits ran the same extended `benc
 
 Remaining limitation: on the synthetic 8 KiB escape-heavy fixture, direct-source combined and scoped queries showed roughly 5–14% higher median times in repeated serial runs, while substantially reducing allocations. Safe decoding into reusable scratch is the remaining cost; returning to per-segment owned decoding would lose the required B allocation reduction. High-hit logical output stays on the combined parse and has no repeatable regression.
 
+## Repair reopened on 11 November 2026
+
+The user supplied `docs/ai/tasks/objekte_borroed_segments_repair.md` and explicitly authorized its implementation. The earlier completion report above is historical; root-scoped FTS, combined value/source ownership, relation target ownership, traversal overhead, and decoder/scratch behavior have been repaired on `integration/borrowed-segment-verification` through `f20fe5c1c7a5`. The full query suite has passed result and source-work parity across predecessor, reviewed, and repaired revisions. Seven-repetition alternating rechecks of the flagged timing rows and final validation are still running. The repair task remains open until those checks and its report are complete.
+
 Cleanup: the detached benchmark baseline worktree was restored and removed after its results and harness source were preserved. The integration branch and worktree remain for the user's merge. The five generated fixture directories remain at `/home/simon/source/objekte-bench-borrowed-segment-verification` for local reproduction.

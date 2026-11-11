@@ -1,5 +1,7 @@
 # Borrowed segment verification results
 
+> Historical report for the reviewed implementation. The user reopened this task on 11 November 2026 to repair correctness and performance findings. Repairs are on `integration/borrowed-segment-verification`; the final recheck and repair report are in progress.
+
 Task: `borrowed-segment-verification` · 11 November 2026
 Predecessor and task base: `5166876c7228f4fe2f8f064861cdc8a88275ad18`
 Implementation: `1f906cb1be`, `c3b01ab22d`, `47931f0cdf`
