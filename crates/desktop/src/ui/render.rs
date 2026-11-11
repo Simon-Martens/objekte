@@ -1638,6 +1638,10 @@ impl DesktopView {
             } else {
                 "Rebuilding index…"
             }
+        } else if matches!(index.load, IndexTaskState::Running { .. }) {
+            "Opening index…"
+        } else if matches!(index.load, IndexTaskState::Failed(_)) {
+            "Index unavailable; source scan active"
         } else if matches!(index.check, IndexTaskState::Running { .. }) {
             "Checking files…"
         } else if matches!(index.save, IndexTaskState::Running { .. }) {

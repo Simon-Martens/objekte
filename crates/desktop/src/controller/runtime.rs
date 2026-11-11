@@ -20,6 +20,7 @@ use objekte_search_core::posting_values::PostingValuesRequest;
 use objekte_search_core::repository::SearchHit;
 use objekte_search_core::run::DirectLookupResult;
 use objekte_search_core::streaming::CancellationToken;
+use objekte_search_core::source_scan::SourceScan;
 
 use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
@@ -136,6 +137,10 @@ type QueryCompletion = Result<
     ),
     String,
 >;
+type ScanCompletion = Result<
+    (PageView, Vec<SearchHit>, Option<usize>, u128, Vec<String>, Vec<String>, String),
+    String,
+>;
 type OpenCompletion = Result<
     (
         OpenedSession,
@@ -232,6 +237,75 @@ fn spawn_grid_page(
     });
 }
 
+fn spawn_scan_page(
+    scan: Arc<SourceScan>,
+    spec: backend::QuerySpec,
+    page_start: usize,
+    hidden: Vec<String>,
+    shown_nested: Vec<String>,
+    prior_columns: Vec<String>,
+    token: CancellationToken,
+    sender: Sender<WorkerEvent>,
+    open_generation: u64,
+    query_generation: u64,
+    kind: GridRequestKind,
+) {
+    thread::spawn(move || {
+        let result = (|| -> ScanCompletion {
+            let requested_rows = spec.limit.map_or(100, |limit| {
+                100.min(limit.saturating_sub(page_start))
+            });
+            let mut query = backend::build_query(&spec)?;
+            query.options.offset = spec.offset.checked_add(page_start).ok_or("result offset overflow")?;
+            query.options.limit = requested_rows;
+            query.options.count = true;
+            let started = Instant::now();
+            let searched = scan.search(&query, &token)?;
+            let elapsed = started.elapsed().as_nanos();
+            let next = page_start.saturating_add(searched.hits.len());
+            let next_page_start = if searched.hits.len() < requested_rows
+                || searched.count.is_some_and(|total| next >= total.saturating_sub(spec.offset))
+            {
+                None
+            } else {
+                Some(next)
+            };
+            let page = backend::QueryPage {
+                instance_id: 0,
+                revision: IndexRevision::INITIAL,
+                hits: searched.hits,
+                page_start,
+                requested_offset: query.options.offset,
+                next_page_start,
+                count: searched.count,
+                counters: searched.counters,
+                elapsed_ns: elapsed,
+            };
+            let (view, available, hidden) = page_view_with_prior(
+                &page,
+                &spec,
+                &hidden,
+                &shown_nested,
+                &prior_columns,
+            );
+            let diagnostics = format!(
+                "Source scan: {:.1} ms; rows {}; exact total {:?}\nCounters: {:#?}",
+                elapsed as f64 / 1_000_000.0,
+                page.hits.len(),
+                page.count,
+                page.counters,
+            );
+            Ok((view, page.hits, next_page_start, elapsed, available, hidden, diagnostics))
+        })();
+        let _ = sender.send(WorkerEvent::ScanQueried {
+            open_generation,
+            query_generation,
+            kind,
+            result: Box::new(result),
+        });
+    });
+}
+
 /// Completion messages from off-thread filesystem and search operations.
 enum WorkerEvent {
     Validated {
@@ -243,6 +317,16 @@ enum WorkerEvent {
     Opened {
         generation: u64,
         result: Box<OpenCompletion>,
+    },
+    ScanReady {
+        generation: u64,
+        scan: Arc<SourceScan>,
+    },
+    ScanQueried {
+        open_generation: u64,
+        query_generation: u64,
+        kind: GridRequestKind,
+        result: Box<ScanCompletion>,
     },
     Directories {
         open_generation: u64,
@@ -374,6 +458,8 @@ pub struct DesktopController {
     workers: Receiver<WorkerEvent>,
     preference_tx: Sender<DesktopPreferences>,
     session: Option<OpenedSession>,
+    scan_session: Option<Arc<SourceScan>>,
+    scan_hits: HashMap<usize, SearchHit>,
     observed_publication: Option<Publication>,
     pending_directories: Option<Publication>,
     executed_view: Option<IndexView>,
@@ -473,6 +559,8 @@ impl DesktopController {
                 workers,
                 preference_tx,
                 session: None,
+                scan_session: None,
+                scan_hits: HashMap::new(),
                 observed_publication: None,
                 pending_directories: None,
                 executed_view: None,
@@ -1455,8 +1543,18 @@ impl DesktopController {
         let token = self.open_cancellation.clone();
         let sender = self.worker_tx.clone();
         updates.push(UiUpdate::Opening(
-            "Opening repository and building indexes…".into(),
+            "Opening repository…".into(),
         ));
+        let scan_spec = spec.clone();
+        let scan_token = token.clone();
+        let scan_sender = sender.clone();
+        thread::spawn(move || {
+            if let Ok(scan) = backend::prepare_scan(&scan_spec, &scan_token)
+                && !scan_token.is_cancelled()
+            {
+                let _ = scan_sender.send(WorkerEvent::ScanReady { generation, scan });
+            }
+        });
         thread::spawn(move || {
             let result = open_with_preferences(&spec, &token);
             let _ = sender.send(WorkerEvent::Opened {
@@ -1470,12 +1568,25 @@ impl DesktopController {
         if self.opening_draft.take().is_some() {
             self.open_cancellation.cancel();
             self.pending_open_generation = self.pending_open_generation.wrapping_add(1);
-            updates.push(UiUpdate::Status("Open cancelled".into()));
+            if self.scan_session.is_some() {
+                self.index_ui.load = IndexTaskState::Cancelled;
+                updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                updates.push(UiUpdate::Status(
+                    "Index opening cancelled; source scan remains active".into(),
+                ));
+            } else {
+                updates.push(UiUpdate::Status("Open cancelled".into()));
+            }
         }
     }
 
     fn start_validation(&mut self, draft: SearchDraft, updates: &mut Vec<UiUpdate>) {
         let Some(session) = self.session.clone() else {
+            if self.scan_session.is_some() {
+                self.start_scan_query(draft, 0, updates);
+            } else if self.opening_draft.is_some() {
+                self.current_draft = draft;
+            }
             return;
         };
         self.validation_generation += 1;
@@ -1519,11 +1630,20 @@ impl DesktopController {
         retain_preview: bool,
         updates: &mut Vec<UiUpdate>,
     ) {
+        if self.session.is_none() && self.scan_session.is_some() {
+            self.start_scan_query(draft, page_start, updates);
+            return;
+        }
         self.poll_publication(updates);
         let retain_preview = retain_preview
             && !self.results_outdated
             && self.executed_draft.as_ref() == Some(&draft);
         let Some(session) = self.session.clone() else {
+            if self.opening_draft.is_some() {
+                self.current_draft = draft;
+                updates.push(UiUpdate::Status("Query queued while source files are discovered".into()));
+                return;
+            }
             updates.push(UiUpdate::Error {
                 field: ErrorField::General,
                 message: "Open a repository first".into(),
@@ -1632,8 +1752,76 @@ impl DesktopController {
         );
     }
 
+    fn start_scan_query(
+        &mut self,
+        draft: SearchDraft,
+        page_start: usize,
+        updates: &mut Vec<UiUpdate>,
+    ) {
+        let Some(scan) = self.scan_session.clone() else { return };
+        let spec = match query_spec(&draft).and_then(|spec| {
+            backend::build_query(&spec)?;
+            Ok(spec)
+        }) {
+            Ok(spec) => spec,
+            Err(message) => {
+                updates.push(UiUpdate::Error {
+                    field: query_error_field(&message, &draft),
+                    message,
+                });
+                return;
+            }
+        };
+        self.cancellation.cancel();
+        self.cancellation = CancellationToken::new();
+        self.query_generation = self.query_generation.wrapping_add(1);
+        self.validation_generation = self.validation_generation.wrapping_add(1);
+        updates.push(UiUpdate::FilterValidation {
+            generation: self.validation_generation,
+            state: FilterValidationState::Valid,
+        });
+        self.current_draft = draft.clone();
+        self.executed_draft = Some(draft);
+        self.executed_spec = Some(spec.clone());
+        self.executed_view = None;
+        self.keys.clear();
+        self.scan_hits.clear();
+        self.next_page_start = None;
+        self.pending_continuation = None;
+        self.pending_projections.clear();
+        self.projected_pages.clear();
+        self.selected_index = None;
+        updates.push(UiUpdate::QueryStarted {
+            status: "Scanning source files while the index loads…".into(),
+            retain_preview: false,
+        });
+        spawn_scan_page(
+            scan, spec, page_start, Vec::new(), Vec::new(), Vec::new(),
+            self.cancellation.clone(), self.worker_tx.clone(),
+            self.open_generation, self.query_generation, GridRequestKind::First,
+        );
+    }
+
     fn start_continuation(&mut self, updates: &mut Vec<UiUpdate>) {
         if self.results_outdated || self.refreshing_results {
+            return;
+        }
+        if let (Some(scan), Some(spec), Some(start)) = (
+            self.scan_session.clone(),
+            self.executed_spec.clone(),
+            self.next_page_start,
+        ) && self.session.is_none()
+        {
+            if self.pending_continuation.is_some() {
+                return;
+            }
+            self.pending_continuation = Some(start);
+            updates.push(UiUpdate::ContinuationStarted);
+            spawn_scan_page(
+                scan, spec, start, Vec::new(), Vec::new(), self.available_columns.clone(),
+                self.cancellation.clone(), self.worker_tx.clone(),
+                self.open_generation, self.query_generation, GridRequestKind::Continuation(start),
+            );
             return;
         }
         let (Some(session), Some(view), Some(spec), Some(start)) = (
@@ -1684,6 +1872,26 @@ impl DesktopController {
 
     fn ensure_projection(&mut self, first: usize, end: usize) {
         if self.results_outdated || self.refreshing_results {
+            return;
+        }
+        if let (Some(scan), Some(spec)) = (self.scan_session.clone(), self.executed_spec.clone())
+            && self.session.is_none()
+        {
+            let last = end.min(self.keys.len());
+            if first >= last {
+                return;
+            }
+            for start in ((first / 100) * 100..last).step_by(100) {
+                if self.projected_pages.contains(&start) || !self.pending_projections.insert(start) {
+                    continue;
+                }
+                spawn_scan_page(
+                    scan.clone(), spec.clone(), start,
+                    Vec::new(), Vec::new(), self.available_columns.clone(),
+                    self.cancellation.clone(), self.worker_tx.clone(),
+                    self.open_generation, self.query_generation, GridRequestKind::Projection(start),
+                );
+            }
             return;
         }
         let (Some(session), Some(view), Some(spec)) = (
@@ -1904,6 +2112,44 @@ impl DesktopController {
         ) else {
             return;
         };
+        if self.session.is_none() {
+            let Some(hit) = self.scan_hits.get(&index).cloned() else { return };
+            self.select_row(index, updates);
+            let detail = detail_view_with_query(&hit, &HashSet::new(), Some(&spec));
+            let id = self.next_tab_id;
+            self.next_tab_id += 1;
+            self.tabs.push(RecordTab {
+                id,
+                pinned: new_tab,
+                context: Arc::new(TabContext {
+                    publication: Publication { instance_id: 0, revision: IndexRevision::INITIAL },
+                    spec,
+                    draft,
+                }),
+                key: key.clone(),
+                anchor: index,
+                back: Vec::new(),
+                expanded: HashSet::new(),
+                view: TabViewState::default(),
+                in_results: true,
+                operation_generation: 0,
+                cancellation: CancellationToken::new(),
+                loading: false,
+                links_pending: false,
+                links_loaded: false,
+                end_confirmed: false,
+                title: key.id,
+                freshness: TabFreshness::Current,
+                navigation_outdated: false,
+                cached_detail: Some(detail.clone()),
+            });
+            self.active_tab = Some(id);
+            self.selected_hit = Some(Arc::new(hit));
+            self.detail = Some(detail.clone());
+            self.emit_tabs(updates);
+            updates.push(UiUpdate::Detail(Some(detail)));
+            return;
+        }
         if self.results_outdated {
             if self.current_draft == self.executed_draft.clone().unwrap_or_default() {
                 self.pending_outdated_open = Some((key, new_tab));
@@ -2383,11 +2629,97 @@ impl DesktopController {
                     self.request_directories();
                 }
             }
+            WorkerEvent::ScanReady { generation, scan }
+                if generation == self.pending_open_generation && self.opening_draft.is_some() =>
+            {
+                self.cancellation.cancel();
+                self.export_cancellation.cancel();
+                self.batch_cancellation.cancel();
+                self.completion_token.cancel();
+                self.completion_token = CancellationToken::new();
+                self.cancellation = CancellationToken::new();
+                self.open_generation = self.open_generation.wrapping_add(1);
+                self.query_generation = self.query_generation.wrapping_add(1);
+                self.validation_generation = self.validation_generation.wrapping_add(1);
+                self.export_generation = self.export_generation.wrapping_add(1);
+                self.batch_generation = self.batch_generation.wrapping_add(1);
+                self.completion_generation = self.completion_generation.wrapping_add(1);
+                self.pending_edit = None;
+                self.pending_completion = None;
+                self.completion_cache.clear();
+                self.completion_cache_order.clear();
+                self.pending_directories = None;
+                self.check_task = None;
+                self.maintenance_task = None;
+                self.index_ui = IndexUiStatus::default();
+                self.index_operation_id = self.index_operation_id.wrapping_add(1);
+                self.index_ui.load = IndexTaskState::Running {
+                    operation_id: self.index_operation_id,
+                    processed: None,
+                    total: None,
+                };
+                self.last_index_status_sent = None;
+                self.results_outdated = false;
+                self.refreshing_results = false;
+                self.preferences = None;
+                self.executed_view = None;
+                self.executed_spec = None;
+                self.executed_draft = None;
+                self.next_page_start = None;
+                self.pending_continuation = None;
+                self.keys.clear();
+                self.scan_hits.clear();
+                self.selected_hit = None;
+                self.detail = None;
+                self.available_columns.clear();
+                self.observed_publication = None;
+                for tab in &self.tabs {
+                    tab.cancellation.cancel();
+                }
+                self.tabs.clear();
+                self.active_tab = None;
+                self.emit_tabs(updates);
+                if let Some(previous) = self.session.take() {
+                    thread::spawn(move || {
+                        let _ = backend::index_lifecycle::stop_automation(&previous);
+                    });
+                }
+                let root = scan.root().display().to_string();
+                let collections = scan.collections().map(str::to_owned).collect::<Vec<_>>();
+                let single_collection = collections.len() == 1;
+                let directories = scan_directories(&scan, &collections);
+                self.open_diagnostics = format!(
+                    "Root: {root}\nCollections: {}\nSource scan available while indexing",
+                    collections.join(", "),
+                );
+                self.scan_session = Some(scan);
+                updates.push(UiUpdate::Opened {
+                    root,
+                    collections: collections.clone(),
+                    single_collection,
+                    directories,
+                });
+                updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                updates.push(UiUpdate::Status(
+                    "Index loading in the background; searching source files".into(),
+                ));
+                let mut draft = self.current_draft.clone();
+                draft.collection = if single_collection { collections.first().cloned() } else { None };
+                if !draft.full_text.trim().is_empty()
+                    || (draft.filter_enabled && !draft.structured.trim().is_empty())
+                {
+                    self.start_query(draft, 0, updates);
+                } else {
+                    self.current_draft = draft;
+                }
+            }
             WorkerEvent::Opened { generation, result }
                 if generation == self.pending_open_generation && self.opening_draft.is_some() =>
             {
                 match *result {
                     Ok((session, preferences, directory_publication, directories)) => {
+                        let had_scan = self.scan_session.take().is_some();
+                        self.scan_hits.clear();
                         self.cancellation.cancel();
                         self.export_cancellation.cancel();
                         self.batch_cancellation.cancel();
@@ -2487,12 +2819,16 @@ impl DesktopController {
                         }
                         self.index_ui = IndexUiStatus::default();
                         self.push_field_choices(updates);
-                        updates.push(UiUpdate::Opened {
-                            root,
-                            collections: collections.clone(),
-                            single_collection,
-                            directories,
-                        });
+                        if had_scan {
+                            updates.push(UiUpdate::Directories(directories));
+                        } else {
+                            updates.push(UiUpdate::Opened {
+                                root,
+                                collections: collections.clone(),
+                                single_collection,
+                                directories,
+                            });
+                        }
                         if let Some(session) = &self.session
                             && let Ok(status) = backend::index_lifecycle::status(session)
                         {
@@ -2543,19 +2879,109 @@ impl DesktopController {
                         }
                         updates.push(UiUpdate::Diagnostics(self.open_diagnostics.clone()));
                         let mut draft = self.current_draft.clone();
-                        draft.collection = if single_collection {
-                            collections.first().cloned()
-                        } else {
-                            None
-                        };
+                        if !had_scan {
+                            draft.collection = if single_collection {
+                                collections.first().cloned()
+                            } else {
+                                None
+                            };
+                        }
                         self.start_query(draft, 0, updates);
                     }
                     Err(message) => {
                         self.opening_draft = None;
+                        if self.scan_session.is_some() {
+                            self.index_ui.load = IndexTaskState::Failed(message.clone());
+                            updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
+                        }
                         updates.push(UiUpdate::Error {
                             field: ErrorField::Open,
                             message,
                         });
+                        if self.scan_session.is_some() {
+                            updates.push(UiUpdate::Status(
+                                "Index unavailable; source scan remains active".into(),
+                            ));
+                        }
+                    }
+                }
+            }
+            WorkerEvent::ScanQueried {
+                open_generation,
+                query_generation,
+                kind,
+                result,
+            } if open_generation == self.open_generation
+                && query_generation == self.query_generation
+                && self.session.is_none()
+                && self.scan_session.is_some() =>
+            {
+                match *result {
+                    Ok((view, hits, next, elapsed_ns, available, hidden, diagnostics)) => {
+                        let start = view.offset;
+                        let keys = hits.iter().map(|hit| RecordKey {
+                            collection: hit.collection.clone(),
+                            id: hit.record_id.clone(),
+                        }).collect::<Vec<_>>();
+                        match kind {
+                            GridRequestKind::First => {
+                                self.keys = vec![None; start];
+                                self.keys.extend(keys.into_iter().map(Some));
+                                self.scan_hits = hits.into_iter().enumerate()
+                                    .map(|(index, hit)| (start + index, hit)).collect();
+                                self.next_page_start = next;
+                                self.remember_projection(start);
+                                updates.push(UiUpdate::Page(view));
+                            }
+                            GridRequestKind::Continuation(expected) => {
+                                if self.pending_continuation != Some(expected) { return; }
+                                self.pending_continuation = None;
+                                self.keys.extend(keys.into_iter().map(Some));
+                                self.scan_hits.extend(hits.into_iter().enumerate()
+                                    .map(|(index, hit)| (start + index, hit)));
+                                self.next_page_start = next;
+                                self.remember_projection(start);
+                                updates.push(UiUpdate::AppendPage(view));
+                            }
+                            GridRequestKind::Projection(expected) => {
+                                if !self.pending_projections.remove(&expected) { return; }
+                                for (index, key) in keys.into_iter().enumerate() {
+                                    if let Some(slot) = self.keys.get_mut(start + index) {
+                                        *slot = Some(key);
+                                    }
+                                }
+                                self.scan_hits.extend(hits.into_iter().enumerate()
+                                    .map(|(index, hit)| (start + index, hit)));
+                                self.remember_projection(start);
+                                updates.push(UiUpdate::Projection(view));
+                            }
+                        }
+                        let retained_pages = self.projected_pages.iter().copied().collect::<HashSet<_>>();
+                        let selected = self.selected_index;
+                        self.scan_hits.retain(|index, _| {
+                            retained_pages.contains(&((*index / 100) * 100)) || selected == Some(*index)
+                        });
+                        self.available_columns = available.clone();
+                        updates.push(UiUpdate::Columns { available, hidden });
+                        updates.push(UiUpdate::Diagnostics(format!(
+                            "{}\n\n{diagnostics}", self.open_diagnostics,
+                        )));
+                        updates.push(UiUpdate::Status(format!(
+                            "Source scan completed in {:.1} ms; index still loading",
+                            elapsed_ns as f64 / 1_000_000.0,
+                        )));
+                    }
+                    Err(message) => {
+                        if let GridRequestKind::Continuation(_) = kind {
+                            self.pending_continuation = None;
+                            self.continuation_failed = true;
+                            updates.push(UiUpdate::ContinuationFailed(message));
+                        } else {
+                            updates.push(UiUpdate::Error {
+                                field: ErrorField::General,
+                                message,
+                            });
+                        }
                     }
                 }
             }
@@ -4228,6 +4654,20 @@ fn indexed_directories(view: &IndexView, collections: &[String]) -> DirectoryCat
             (
                 name.clone(),
                 parent_directories(view.file_paths_for_collection(name)),
+            )
+        })
+        .collect();
+    DirectoryCatalog { all, by_collection }
+}
+
+fn scan_directories(scan: &SourceScan, collections: &[String]) -> DirectoryCatalog {
+    let all = parent_directories(scan.file_paths());
+    let by_collection = collections
+        .iter()
+        .map(|name| {
+            (
+                name.clone(),
+                parent_directories(scan.file_paths_for_collection(name)),
             )
         })
         .collect();

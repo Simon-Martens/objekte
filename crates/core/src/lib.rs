@@ -57,6 +57,7 @@ pub mod schema_adapter;
 mod sort_binding;
 pub mod sorting;
 pub mod source;
+pub mod source_scan;
 mod source_access;
 pub mod storage;
 pub mod streaming;

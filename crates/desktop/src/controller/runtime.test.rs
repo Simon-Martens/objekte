@@ -1,6 +1,31 @@
 use super::*;
 
 #[test]
+fn first_query_runs_against_sources_before_index_session_is_ready() {
+    let fixture = crate::backend::test_support::fixture();
+    let scan = SourceScan::open(
+        fixture._root.path(),
+        fixture.session.configuration.definitions.as_ref().clone(),
+    ).unwrap();
+    let (mut controller, _) = DesktopController::new();
+    controller.scan_session = Some(Arc::new(scan));
+    let draft = SearchDraft {
+        full_text: "Alpha".into(),
+        collection: Some("files".into()),
+        ..SearchDraft::default()
+    };
+    let mut updates = Vec::new();
+    controller.start_scan_query(draft, 0, &mut updates);
+    assert!(updates.iter().any(|update| matches!(update, UiUpdate::QueryStarted { .. })));
+    let event = controller.workers.recv_timeout(Duration::from_secs(5)).unwrap();
+    let WorkerEvent::ScanQueried { result, .. } = event else { panic!("expected source result") };
+    let (page, hits, _, _, _, _, _) = (*result).unwrap();
+    assert_eq!(page.exact_total, Some(1));
+    assert_eq!(hits.len(), 1);
+    assert_eq!(hits[0].record_id, "path:a.json");
+}
+
+#[test]
 fn indexed_directory_tree_follows_added_and_deleted_files() {
     let fixture = crate::backend::test_support::fixture();
     let index = fixture.session.repository.index();
