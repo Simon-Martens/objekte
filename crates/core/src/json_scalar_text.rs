@@ -871,7 +871,13 @@ impl<'a> ScalarWalker<'a> {
                     self.pos += 1;
                     let start = events.len();
                     path.push(key);
-                    if may_contain_selected_text(path, query, suppress_filter || selected_filter) {
+                    let irrelevant_container = matches!(self.bytes.get(self.pos), Some(b'{' | b'['))
+                        && !may_contain_selected_text(
+                            path,
+                            query,
+                            suppress_filter || selected_filter,
+                        );
+                    if !irrelevant_container {
                         self.scan_borrowed_value(
                             depth + 1,
                             path,
