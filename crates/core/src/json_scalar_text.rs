@@ -54,6 +54,7 @@ struct ScalarWalker<'a> {
     validate: bool,
 }
 
+
 /// Match source scalars while the required logical projection is constructed.
 /// The path owns only active member names; scalar text is consumed before the
 /// required Value takes ownership or before reusable decoding storage is reset.
@@ -64,6 +65,7 @@ struct CombinedFts<'a> {
     events: &'a mut Vec<BorrowedEvent>,
     retain_evidence: bool,
 }
+
 
 impl CombinedFts<'_> {
     fn push_text(&mut self, text: &str) -> Result<(), String> {
@@ -247,11 +249,8 @@ impl ScalarWalker<'_> {
                         visible: true,
                         ..Default::default()
                     };
-                    let (end, ()) = with_next_quoted_text(
-                        self.bytes,
-                        self.pos,
-                        combined.decoded,
-                        |text| {
+                    let (end, ()) =
+                        with_next_quoted_text(self.bytes, self.pos, combined.decoded, |text| {
                             event.fts_hit = match_borrowed_source_segment(
                                 combined.fts,
                                 combined.path.as_slice(),
@@ -260,8 +259,7 @@ impl ScalarWalker<'_> {
                                 combined.retain_evidence,
                             )?;
                             Ok(())
-                        },
-                    )?;
+                        })?;
                     self.pos = end;
                     combined.events.push(event);
                     return Ok(None);
@@ -324,10 +322,8 @@ impl ScalarWalker<'_> {
                     if let Some(state) = combined.as_deref_mut() {
                         state.path.pop();
                         if let Some(ranges) = &mut match_last_ranges
-                            && let Some(previous) = ranges.insert(
-                                name.clone(),
-                                match_start..state.events.len(),
-                            )
+                            && let Some(previous) =
+                                ranges.insert(name.clone(), match_start..state.events.len())
                         {
                             for event in &mut state.events[previous] {
                                 event.visible = false;
@@ -369,7 +365,8 @@ impl ScalarWalker<'_> {
                     );
                 }
                 loop {
-                    let child = self.build_value(depth + 1, retain, None, combined.as_deref_mut())?;
+                    let child =
+                        self.build_value(depth + 1, retain, None, combined.as_deref_mut())?;
                     if let (Some(values), Some(child)) = (&mut values, child) {
                         values.push(child);
                     }
@@ -781,7 +778,7 @@ impl<'a> ScalarWalker<'a> {
                         || fts
                             .fields
                             .iter()
-                        .any(|field| fts_field_selects_path(&field.path.segments, path))
+                            .any(|field| fts_field_selects_path(&field.path.segments, path))
                 });
                 if !selected_filter && fts_here.is_none() {
                     self.quote_end()?;
@@ -826,7 +823,9 @@ impl<'a> ScalarWalker<'a> {
                 let unscoped_value_fts =
                     !query.decoded_scalars && query.fts.is_some_and(|fts| fts.fields.is_empty());
                 let root_field_fts = query.fts.is_some_and(|fts| {
-                    fts.fields.iter().any(|field| field.path.segments.is_empty())
+                    fts.fields
+                        .iter()
+                        .any(|field| field.path.segments.is_empty())
                 });
                 let resolve_here = unscoped_value_fts
                     || root_field_fts

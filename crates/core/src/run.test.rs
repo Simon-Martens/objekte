@@ -199,12 +199,20 @@ fn root_scoped_fts_matches_reference_across_readers_and_outputs() {
             (
                 "needle",
                 Vec::new(),
-                if format == SourceFormat::JsonDecodedScalars { 8 } else { 5 },
+                if format == SourceFormat::JsonDecodedScalars {
+                    8
+                } else {
+                    5
+                },
             ),
             (
                 "123",
                 vec![root_field],
-                if format == SourceFormat::JsonDecodedScalars { 1 } else { 0 },
+                if format == SourceFormat::JsonDecodedScalars {
+                    1
+                } else {
+                    0
+                },
             ),
         ] {
             let mut query = Query {
@@ -262,10 +270,7 @@ fn decoded_scalar_fts_combines_source_text_with_required_values() {
     use crate::query::{CaseSensitivity, FtsMode, FtsQuery};
     use crate::repository::{RepositoryOptions, SnapshotMode};
 
-    let root = std::env::temp_dir().join(format!(
-        "objekte-combined-source-{}",
-        std::process::id()
-    ));
+    let root = std::env::temp_dir().join(format!("objekte-combined-source-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (index, source) in [
         r#"{"text":"old","text":"new","n":1e0,"rating":5}"#,

@@ -941,9 +941,11 @@ thread_local! {
     static FOLD_GROWS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
+
 /// Keep exceptional folding capacity until all segments of one record have
 /// consumed it. Unwrapped callers retain the previous per-segment bound.
 pub(crate) struct FoldRecordGuard;
+
 
 impl FoldRecordGuard {
     pub(crate) fn new() -> Self {
@@ -951,6 +953,7 @@ impl FoldRecordGuard {
         Self
     }
 }
+
 
 impl Drop for FoldRecordGuard {
     fn drop(&mut self) {
@@ -963,6 +966,7 @@ impl Drop for FoldRecordGuard {
         });
     }
 }
+
 
 fn trim_fold_scratch() {
     FOLD_SCRATCH.with(|scratch| {
@@ -3281,10 +3285,7 @@ pub(crate) fn eval_borrowed_value_fts_field(
 }
 
 /// An empty selected path covers every text segment, including nested ones.
-pub(crate) fn fts_field_selects_path<T: AsRef<str>>(
-    selected: &[String],
-    actual: &[T],
-) -> bool {
+pub(crate) fn fts_field_selects_path<T: AsRef<str>>(selected: &[String], actual: &[T]) -> bool {
     selected.is_empty()
         || (selected.len() == actual.len()
             && selected
@@ -3316,10 +3317,7 @@ pub(crate) fn match_borrowed_source_segment<T: AsRef<str>>(
             evidence.push(if path.is_empty() {
                 "@root".into()
             } else {
-                path.iter()
-                    .map(AsRef::as_ref)
-                    .collect::<Vec<_>>()
-                    .join(".")
+                path.iter().map(AsRef::as_ref).collect::<Vec<_>>().join(".")
             });
         }
         return Ok(found);

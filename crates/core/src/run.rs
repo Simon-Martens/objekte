@@ -32,8 +32,8 @@ use crate::record_preparation::{
     materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
 };
 use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, FoldRecordGuard, RecordContext, eval_bound_fts, eval_term,
-    eval_unavailable_filter, same_bound_term,
+    BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, FoldRecordGuard, RecordContext,
+    eval_bound_fts, eval_term, eval_unavailable_filter, same_bound_term,
 };
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
 use crate::sort_binding::{
@@ -572,6 +572,7 @@ struct DirectSourcePlan<'a> {
     filter: Option<(&'a BoundTerm, Option<&'a Proof>)>,
     decoded_scalars: bool,
 }
+
 
 fn source_fts_eligible(
     collection: &CollectionState,
@@ -1181,10 +1182,13 @@ fn scan_file(
                 outcome.record_parses += 1;
                 (extracted, None)
             } else {
-                (ExtractedRecord {
-                    value: Value::Object(Default::default()),
-                    text: Vec::new(),
-                }, None)
+                (
+                    ExtractedRecord {
+                        value: Value::Object(Default::default()),
+                        text: Vec::new(),
+                    },
+                    None,
+                )
             };
             outcome.scanned_records += 1;
             let ctx = RecordContext {
@@ -3072,20 +3076,26 @@ fn verify_local_segment_record(
         )?;
         (extracted, Some(result))
     } else if record.class == RecordClass::Logical {
-        (prepare_query_record_with_execution(
-            record.class,
-            &collection.source,
-            &collection.definition.schema,
-            bytes,
-            &projection,
-            false,
-            execution,
-        )?, None)
+        (
+            prepare_query_record_with_execution(
+                record.class,
+                &collection.source,
+                &collection.definition.schema,
+                bytes,
+                &projection,
+                false,
+                execution,
+            )?,
+            None,
+        )
     } else {
-        (ExtractedRecord {
-            value: Value::Object(Default::default()),
-            text: Vec::new(),
-        }, None)
+        (
+            ExtractedRecord {
+                value: Value::Object(Default::default()),
+                text: Vec::new(),
+            },
+            None,
+        )
     };
     let ctx = RecordContext {
         value: &extracted.value,
@@ -5281,20 +5291,26 @@ fn scan_relation_file_parallel(
         )?;
         (extracted, Some(result))
     } else if record.class == RecordClass::Logical {
-        (prepare_query_record_with_execution(
-            record.class,
-            &resolved.collection.source,
-            &resolved.collection.definition.schema,
-            &bytes,
-            &projection,
-            false,
+        (
+            prepare_query_record_with_execution(
+                record.class,
+                &resolved.collection.source,
+                &resolved.collection.definition.schema,
+                &bytes,
+                &projection,
+                false,
+                None,
+            )?,
             None,
-        )?, None)
+        )
     } else {
-        (ExtractedRecord {
-            value: Value::Object(Default::default()),
-            text: Vec::new(),
-        }, None)
+        (
+            ExtractedRecord {
+                value: Value::Object(Default::default()),
+                text: Vec::new(),
+            },
+            None,
+        )
     };
     let ctx = RecordContext {
         value: &extracted.value,
@@ -5772,20 +5788,26 @@ fn search_segmented_relations(
                 )?;
                 (extracted, Some(result))
             } else if record.class == RecordClass::Logical && direct_result.is_none() {
-                (prepare_query_record_with_execution(
-                    record.class,
-                    &resolved.collection.source,
-                    &resolved.collection.definition.schema,
-                    &bytes,
-                    &projection,
-                    false,
-                    context,
-                )?, None)
+                (
+                    prepare_query_record_with_execution(
+                        record.class,
+                        &resolved.collection.source,
+                        &resolved.collection.definition.schema,
+                        &bytes,
+                        &projection,
+                        false,
+                        context,
+                    )?,
+                    None,
+                )
             } else {
-                (ExtractedRecord {
-                    value: Value::Object(Default::default()),
-                    text: Vec::new(),
-                }, None)
+                (
+                    ExtractedRecord {
+                        value: Value::Object(Default::default()),
+                        text: Vec::new(),
+                    },
+                    None,
+                )
             };
             let ctx = RecordContext {
                 value: &extracted.value,

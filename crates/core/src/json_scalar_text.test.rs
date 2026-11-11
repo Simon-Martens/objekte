@@ -220,7 +220,9 @@ fn combined_value_and_source_matching_avoids_owned_segments() {
             extract_query_record_borrowed_fts_worker(source, &projection, &fts, true).unwrap();
         assert_eq!(result.fts_match, expected, "{literal} {field:?}");
         assert_eq!(owned_segment_text_bytes(), before);
-        let Value::Object(fields) = value else { panic!("object") };
+        let Value::Object(fields) = value else {
+            panic!("object")
+        };
         assert_eq!(fields.get("text"), Some(&Value::String("new".into())));
     }
 }
@@ -310,10 +312,16 @@ fn decoder_strategy_microbench() {
     let cases = [
         ("plain-ascii", format!("\"{}\"", "a".repeat(8192))),
         ("plain-unicode", format!("\"{}\"", "Straßeℹ".repeat(1024))),
-        ("sparse-simple", format!("\"{}\"", format!("{}\\n", "a".repeat(1024)).repeat(8))),
+        (
+            "sparse-simple",
+            format!("\"{}\"", format!("{}\\n", "a".repeat(1024)).repeat(8)),
+        ),
         ("dense-simple", format!("\"{}\"", "a\\n".repeat(2048))),
         ("unicode-escape", format!("\"{}\"", "\\u2139".repeat(1024))),
-        ("surrogate-pair", format!("\"{}\"", "\\ud83d\\ude80".repeat(512))),
+        (
+            "surrogate-pair",
+            format!("\"{}\"", "\\ud83d\\ude80".repeat(512)),
+        ),
         ("alternating", format!("\"{}\"", "a\\n".repeat(2048))),
     ];
     let short = br#""x\n""#;
@@ -323,11 +331,20 @@ fn decoder_strategy_microbench() {
         for strategy in [0, 1, 2, 3] {
             let mut decoded = String::new();
             let (_, actual) = match strategy {
-                0 => with_next_quoted_text_strategy::<0, _>(token, 0, &mut decoded, |text| Ok(text.to_owned())),
-                1 => with_next_quoted_text_strategy::<1, _>(token, 0, &mut decoded, |text| Ok(text.to_owned())),
-                2 => with_next_quoted_text_strategy::<2, _>(token, 0, &mut decoded, |text| Ok(text.to_owned())),
-                _ => with_next_quoted_text_strategy::<3, _>(token, 0, &mut decoded, |text| Ok(text.to_owned())),
-            }.unwrap();
+                0 => with_next_quoted_text_strategy::<0, _>(token, 0, &mut decoded, |text| {
+                    Ok(text.to_owned())
+                }),
+                1 => with_next_quoted_text_strategy::<1, _>(token, 0, &mut decoded, |text| {
+                    Ok(text.to_owned())
+                }),
+                2 => with_next_quoted_text_strategy::<2, _>(token, 0, &mut decoded, |text| {
+                    Ok(text.to_owned())
+                }),
+                _ => with_next_quoted_text_strategy::<3, _>(token, 0, &mut decoded, |text| {
+                    Ok(text.to_owned())
+                }),
+            }
+            .unwrap();
             assert_eq!(actual, expected);
         }
         let iterations = (8 * 1024 * 1024 / token.len()).max(128);
@@ -351,26 +368,42 @@ fn decoder_strategy_microbench() {
                     match strategy {
                         0 => {
                             let (_, length) = with_next_quoted_text_strategy::<0, _>(
-                                black_box(input), 0, &mut decoded, |text| Ok(text.len()),
-                            ).unwrap();
+                                black_box(input),
+                                0,
+                                &mut decoded,
+                                |text| Ok(text.len()),
+                            )
+                            .unwrap();
                             black_box(length);
                         }
                         1 => {
                             let (_, length) = with_next_quoted_text_strategy::<1, _>(
-                                black_box(input), 0, &mut decoded, |text| Ok(text.len()),
-                            ).unwrap();
+                                black_box(input),
+                                0,
+                                &mut decoded,
+                                |text| Ok(text.len()),
+                            )
+                            .unwrap();
                             black_box(length);
                         }
                         2 => {
                             let (_, length) = with_next_quoted_text_strategy::<2, _>(
-                                black_box(input), 0, &mut decoded, |text| Ok(text.len()),
-                            ).unwrap();
+                                black_box(input),
+                                0,
+                                &mut decoded,
+                                |text| Ok(text.len()),
+                            )
+                            .unwrap();
                             black_box(length);
                         }
                         3 => {
                             let (_, length) = with_next_quoted_text_strategy::<3, _>(
-                                black_box(input), 0, &mut decoded, |text| Ok(text.len()),
-                            ).unwrap();
+                                black_box(input),
+                                0,
+                                &mut decoded,
+                                |text| Ok(text.len()),
+                            )
+                            .unwrap();
                             black_box(length);
                         }
                         _ => {
@@ -388,7 +421,10 @@ fn decoder_strategy_microbench() {
                 }
             }
             samples.sort_unstable();
-            println!("decoder {name} {label}: {} ns/token median of 5", samples[2]);
+            println!(
+                "decoder {name} {label}: {} ns/token median of 5",
+                samples[2]
+            );
         }
     }
 }
@@ -522,7 +558,11 @@ fn oversized_folded_segments_reuse_capacity_within_record_then_release_it() {
     let matched = scan_borrowed_segments_worker(source.as_bytes(), &query).unwrap();
     assert!(matched.fts_match);
     let (grows, retained) = crate::reference::fold_scratch_stats();
-    assert_eq!(grows - before, 1, "second oversized segment should reuse capacity");
+    assert_eq!(
+        grows - before,
+        1,
+        "second oversized segment should reuse capacity"
+    );
     assert!(retained <= MAX_SCAN_SCRATCH_CAPACITY);
 }
 

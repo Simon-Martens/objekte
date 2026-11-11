@@ -15,8 +15,7 @@ use crate::query_path::{PathStep, QueryPath};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, RecordContext, bind_field_probe, bind_filter_with_parameters,
     bind_fts, eval_borrowed_value_fts_field, eval_bound_fts, eval_bound_fts_field,
-    eval_bound_fts_membership,
-    eval_cross_record_field_term, eval_term,
+    eval_bound_fts_membership, eval_cross_record_field_term, eval_term,
 };
 use crate::relation::{RelationCardinality, RelationId, RelationTarget};
 use crate::relation_target_cache::TargetValueCache;
@@ -898,9 +897,8 @@ fn eval_fts_with_relations_inner(
     let mut matched = false;
     for field in &fts.fields {
         if let Some(hops) = &field.related {
-            let target_collection = &repo.collections[
-                hops.last().ok_or("empty FTS relation path")?.to.0 as usize
-            ];
+            let target_collection =
+                &repo.collections[hops.last().ok_or("empty FTS relation path")?.to.0 as usize];
             let borrowed_text = relation_target_uses_value_text(target_collection);
             let source_index = repo
                 .collections
@@ -927,7 +925,8 @@ fn eval_fts_with_relations_inner(
                 &mut |target, target_segments, _| {
                     if borrowed_text {
                         #[cfg(test)]
-                        BORROWED_RELATION_TARGETS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+                        BORROWED_RELATION_TARGETS
+                            .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
                         debug_assert!(target_segments.is_empty());
                         eval_borrowed_value_fts_field(field, fts.case_sensitivity, target, None)
                     } else {
@@ -1696,9 +1695,8 @@ pub(crate) fn eval_fts_with_relations_merged(
     let mut matched = false;
     for field in &fts.fields {
         if let Some(hops) = &field.related {
-            let target_collection = &view.repo.collections[
-                hops.last().ok_or("empty FTS relation path")?.to.0 as usize
-            ];
+            let target_collection =
+                &view.repo.collections[hops.last().ok_or("empty FTS relation path")?.to.0 as usize];
             let borrowed_text = relation_target_uses_value_text(target_collection);
             let mut truth = Some(false);
             visit_merged_hop(
@@ -1714,7 +1712,8 @@ pub(crate) fn eval_fts_with_relations_merged(
                 &mut |target, target_segments, _| {
                     if borrowed_text {
                         #[cfg(test)]
-                        BORROWED_RELATION_TARGETS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+                        BORROWED_RELATION_TARGETS
+                            .fetch_add(1, std::sync::atomic::Ordering::Relaxed);
                         debug_assert!(target_segments.is_empty());
                         eval_borrowed_value_fts_field(field, fts.case_sensitivity, target, None)
                     } else {
