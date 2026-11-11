@@ -991,23 +991,28 @@ impl FoldRecordGuard {
 impl Drop for FoldRecordGuard {
     fn drop(&mut self) {
         if self.sharing {
-            FOLD_SHARE_DEPTH.with(|depth| depth.set(depth.get() - 1));
+            FOLD_SHARE_DEPTH.with(|depth| {
+                let remaining = depth.get() - 1;
+                depth.set(remaining);
+                if remaining == 0 {
+                    FOLD_VALUE_CACHE.with(|cache| {
+                        let mut cache = cache.borrow_mut();
+                        cache.active = 0;
+                        cache.record_token = None;
+                        let mut retained = 0usize;
+                        cache.entries.retain(|entry| {
+                            retained = retained.saturating_add(entry.folded.capacity());
+                            retained <= MAX_FOLD_SCRATCH_CAPACITY
+                        });
+                    });
+                }
+            });
         }
         FOLD_RECORD_DEPTH.with(|depth| {
             let remaining = depth.get() - 1;
             depth.set(remaining);
             if remaining == 0 {
                 trim_fold_scratch();
-                FOLD_VALUE_CACHE.with(|cache| {
-                    let mut cache = cache.borrow_mut();
-                    cache.active = 0;
-                    cache.record_token = None;
-                    let mut retained = 0usize;
-                    cache.entries.retain(|entry| {
-                        retained = retained.saturating_add(entry.folded.capacity());
-                        retained <= MAX_FOLD_SCRATCH_CAPACITY
-                    });
-                });
             }
         });
     }
@@ -1066,7 +1071,8 @@ fn with_folded_value_str<R>(
     text: &str,
     inspect: impl FnOnce(&str) -> R,
 ) -> R {
-    if !FOLD_SHARE_DEPTH.with(|depth| depth.get() > 0) || text.len() > MAX_FOLD_SCRATCH_CAPACITY / 4 {
+    if !FOLD_SHARE_DEPTH.with(|depth| depth.get() > 0) || text.len() > MAX_FOLD_SCRATCH_CAPACITY / 4
+    {
         return with_folded_candidate_str(text, inspect);
     }
     FOLD_VALUE_CACHE.with(|cache| {
@@ -3239,7 +3245,14 @@ fn text_contains(
     finder: Option<&Finder<'static>>,
 ) -> Result<bool, String> {
     text_contains_with_folded(
-        text, None, needle, folded_needle, transform, matcher, case_sensitivity, finder,
+        text,
+        None,
+        needle,
+        folded_needle,
+        transform,
+        matcher,
+        case_sensitivity,
+        finder,
     )
 }
 
@@ -3517,11 +3530,7 @@ pub(crate) fn match_borrowed_source_filter(term: &BoundTerm, text: &str) -> bool
     match_borrowed_source_filter_folded(term, text, None)
 }
 
-fn match_borrowed_source_filter_folded(
-    term: &BoundTerm,
-    text: &str,
-    folded: Option<&str>,
-) -> bool {
+fn match_borrowed_source_filter_folded(term: &BoundTerm, text: &str, folded: Option<&str>) -> bool {
     let Some(prepared) = &term.prepared_contains else {
         return false;
     };
