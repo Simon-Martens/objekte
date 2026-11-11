@@ -39,6 +39,7 @@ fn run() -> Result<(), String> {
     ];
     let mut repetitions = 5usize;
     let mut warm_cache_bytes = 64 * 1024 * 1024usize;
+    let mut prepared_cache_bytes = RepositoryOptions::default().prepared_cache_bytes;
     let mut query_workers = RepositoryOptions::default().query_workers;
     while let Some(arg) = args.next() {
         match arg.as_str() {
@@ -79,6 +80,13 @@ fn run() -> Result<(), String> {
                     .ok_or("--verified-cache-bytes needs a number")?
                     .parse()
                     .map_err(|e| format!("invalid verified cache size: {e}"))?
+            }
+            "--prepared-cache-bytes" => {
+                prepared_cache_bytes = args
+                    .next()
+                    .ok_or("--prepared-cache-bytes needs a number")?
+                    .parse()
+                    .map_err(|e| format!("invalid prepared cache size: {e}"))?
             }
             "--query-workers" => {
                 query_workers = args
@@ -214,6 +222,7 @@ fn run() -> Result<(), String> {
                 bigram_alphabet: alphabet,
                 snapshot_mode: SnapshotMode::Disabled,
                 query_workers,
+                prepared_cache_bytes,
                 ..RepositoryOptions::default()
             },
         )?;
@@ -404,7 +413,7 @@ fn run() -> Result<(), String> {
     }
     samples.flush().map_err(|e| e.to_string())?;
     plan_output.flush().map_err(|e| e.to_string())?;
-    let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"extended":extended,"schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"query_workers":query_workers});
+    let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"extended":extended,"schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers});
     fs::write(
         result_dir.join("run-manifest.json"),
         serde_json::to_vec_pretty(&run_manifest).map_err(|e| e.to_string())?,

@@ -2,6 +2,8 @@
 
 Run these commands from the repository root. Each command writes a separate result directory under `bench/results/musenalm/`; pass `--result-dir` to choose another directory.
 
+For focused planning comparisons, `bench_musenalm` accepts `--cases Q035,Q141`, `--repetitions 7`, and `--prepared-cache-bytes 0` (default: 16 MiB). The prepared-cache setting is recorded in `run-manifest.json`; keep it identical across compared binaries. `--verified-cache-bytes 0` disables verified-result reuse independently.
+
 | Check | Command | What it verifies |
 |---|---|---|
 | Independent oracle | `python3 bench/verify_jq_oracle.py --result-dir bench/results/musenalm/jq-oracle-local` | `jq` evaluates 150 explicit predicates over all 148,486 original JSON files. The core returns complete ID sets under ASCII and Unicode. All 300 sets must agree. Pass `--save-membership` to retain full gzip membership files; per-case SHA-256 digests are always saved. |
