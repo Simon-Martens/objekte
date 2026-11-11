@@ -41,7 +41,6 @@ fn json_whitespace(byte: u8) -> bool {
     matches!(byte, b' ' | b'\t' | b'\n' | b'\r')
 }
 
-
 /// Walks JSON bytes and records scalar occurrences in source order.
 struct ScalarWalker<'a> {
     bytes: &'a [u8],
@@ -54,7 +53,6 @@ struct ScalarWalker<'a> {
     validate: bool,
 }
 
-
 /// Match source scalars while the required logical projection is constructed.
 /// The path owns only active member names; scalar text is consumed before the
 /// required Value takes ownership or before reusable decoding storage is reset.
@@ -65,7 +63,6 @@ struct CombinedFts<'a> {
     events: &'a mut Vec<BorrowedEvent>,
     retain_evidence: bool,
 }
-
 
 impl CombinedFts<'_> {
     fn push_text(&mut self, text: &str) -> Result<(), String> {
@@ -84,7 +81,6 @@ impl CombinedFts<'_> {
         Ok(())
     }
 }
-
 
 impl ScalarWalker<'_> {
     fn whitespace(&mut self) {
@@ -519,9 +515,7 @@ impl ScalarWalker<'_> {
     }
 }
 
-
 const MAX_SCAN_SCRATCH_CAPACITY: usize = 256 * 1024;
-
 
 /// Reusable decoded text and provisional decisions owned by one scan worker.
 #[derive(Default)]
@@ -530,7 +524,6 @@ pub(crate) struct BorrowedScanScratch {
     events: Vec<BorrowedEvent>,
     combined_path: Vec<String>,
 }
-
 
 impl BorrowedScanScratch {
     fn trim(&mut self) {
@@ -551,7 +544,6 @@ impl BorrowedScanScratch {
     }
 }
 
-
 /// One scalar's provisional match state before object duplicates are resolved.
 #[derive(Default)]
 struct BorrowedEvent {
@@ -562,14 +554,12 @@ struct BorrowedEvent {
     evidence: Vec<String>,
 }
 
-
 /// Result of matching borrowed source segments in one trusted record.
 pub(crate) struct BorrowedScanResult {
     pub(crate) fts_match: bool,
     pub(crate) filter_match: bool,
     pub(crate) evidence: HashSet<String>,
 }
-
 
 /// Query bindings supported by the direct source consumer.
 pub(crate) struct BorrowedScanQuery<'a> {
@@ -578,7 +568,6 @@ pub(crate) struct BorrowedScanQuery<'a> {
     pub(crate) decoded_scalars: bool,
     pub(crate) retain_evidence: bool,
 }
-
 
 fn decode_hex_digit(byte: u8) -> Result<u32, String> {
     (byte as char)
@@ -747,7 +736,6 @@ fn may_contain_selected_text(
         })
 }
 
-
 impl<'a> ScalarWalker<'a> {
     #[allow(clippy::too_many_arguments)]
     fn scan_borrowed_value(
@@ -838,7 +826,17 @@ impl<'a> ScalarWalker<'a> {
                             .iter()
                             .any(|field| path_prefix(path, &field.path.segments))
                     });
-                let mut previous = resolve_here.then(BTreeMap::<String, Range<usize>>::new);
+                // With a lone FILTER term only one child key can contribute at
+                // this object depth. Retain its previous event range directly,
+                // avoiding an owned key and tree node for every source record.
+                let single_filter_child = query.fts.is_none()
+                    && !suppress_filter
+                    && query
+                        .filter
+                        .is_some_and(|term| path_prefix(path, &term.path.segments));
+                let mut previous_filter = None;
+                let mut previous = (resolve_here && !single_filter_child)
+                    .then(BTreeMap::<String, Range<usize>>::new);
                 if self.bytes.get(self.pos) == Some(&b'}') {
                     self.pos += 1;
                     return Ok(());
@@ -869,48 +867,64 @@ impl<'a> ScalarWalker<'a> {
                         return Err("expected JSON member separator".into());
                     }
                     self.pos += 1;
-                    let start = events.len();
-                    path.push(key);
-                    let irrelevant_container = query.fts.is_none_or(|fts| !fts.fields.is_empty())
-                        && matches!(self.bytes.get(self.pos), Some(b'{' | b'['))
-                        && !may_contain_selected_text(
-                            path,
-                            query,
-                            suppress_filter || selected_filter,
-                        );
-                    if !irrelevant_container {
-                        self.scan_borrowed_value(
-                            depth + 1,
-                            path,
-                            decoded,
-                            events,
-                            query,
-                            suppress_filter || selected_filter,
-                            false,
-                        )?;
-                    } else {
+                    let selected_child = single_filter_child
+                        && query
+                            .filter
+                            .is_some_and(|term| term.path.segments[path.len()] == key.as_ref());
+                    if single_filter_child && !selected_child {
                         self.skip_trusted_value(depth + 1)?;
-                    }
-                    let key = path.pop().expect("object key");
-                    let track_key = unscoped_value_fts
-                        || root_field_fts
-                        || (!suppress_filter
-                            && query.filter.is_some_and(|term| {
-                                path_prefix(path, &term.path.segments)
-                                    && term.path.segments[path.len()] == key.as_ref()
-                            }))
-                        || query.fts.is_some_and(|fts| {
-                            fts.fields.iter().any(|field| {
-                                path_prefix(path, &field.path.segments)
-                                    && field.path.segments[path.len()] == key.as_ref()
-                            })
-                        });
-                    if let Some(previous) = &mut previous
-                        && track_key
-                        && let Some(range) = previous.insert(key.into_owned(), start..events.len())
-                    {
-                        for event in &mut events[range] {
-                            event.visible = false;
+                    } else {
+                        let start = events.len();
+                        path.push(key);
+                        let irrelevant_container =
+                            query.fts.is_none_or(|fts| !fts.fields.is_empty())
+                                && matches!(self.bytes.get(self.pos), Some(b'{' | b'['))
+                                && !may_contain_selected_text(
+                                    path,
+                                    query,
+                                    suppress_filter || selected_filter,
+                                );
+                        if !irrelevant_container {
+                            self.scan_borrowed_value(
+                                depth + 1,
+                                path,
+                                decoded,
+                                events,
+                                query,
+                                suppress_filter || selected_filter,
+                                false,
+                            )?;
+                        } else {
+                            self.skip_trusted_value(depth + 1)?;
+                        }
+                        let key = path.pop().expect("object key");
+                        let track_key = selected_child
+                            || unscoped_value_fts
+                            || root_field_fts
+                            || (!suppress_filter
+                                && query.filter.is_some_and(|term| {
+                                    path_prefix(path, &term.path.segments)
+                                        && term.path.segments[path.len()] == key.as_ref()
+                                }))
+                            || query.fts.is_some_and(|fts| {
+                                fts.fields.iter().any(|field| {
+                                    path_prefix(path, &field.path.segments)
+                                        && field.path.segments[path.len()] == key.as_ref()
+                                })
+                            });
+                        if track_key {
+                            let replaced = if single_filter_child {
+                                previous_filter.replace(start..events.len())
+                            } else {
+                                previous.as_mut().and_then(|previous| {
+                                    previous.insert(key.into_owned(), start..events.len())
+                                })
+                            };
+                            if let Some(range) = replaced {
+                                for event in &mut events[range] {
+                                    event.visible = false;
+                                }
+                            }
                         }
                     }
                     self.whitespace();
@@ -1013,7 +1027,6 @@ impl<'a> ScalarWalker<'a> {
         Ok(())
     }
 }
-
 
 /// Scan source-owned scalar slices, decoding only escaped strings into worker scratch.
 pub(crate) fn scan_borrowed_segments(

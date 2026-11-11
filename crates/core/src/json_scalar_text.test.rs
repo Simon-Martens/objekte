@@ -147,10 +147,22 @@ fn borrowed_source_filter_preserves_string_runtime_rules_and_wildcards() {
         (br#"{"name":"a\nb"}"#, "name ~ 'a%b'", true),
         (br#"{"name":"old","name":"new"}"#, "name ~ 'old'", false),
         (br#"{"name":"new","name":"old"}"#, "name ~ 'old'", true),
+        (
+            br#"{"outer":{"name":"old"},"outer":{"name":"new"}}"#,
+            "outer.name ~ 'old'",
+            false,
+        ),
+        (
+            br#"{"outer":{"name":"old"},"outer":{}}"#,
+            "outer.name ~ ''",
+            false,
+        ),
         (br#"{"name":null}"#, "name !~ 'x'", false),
         (br#"{"name":7}"#, "name !~ 'x'", false),
         (br#"{"other":"x"}"#, "name !~ 'x'", false),
         (br#"{"name":"ab"}"#, "name ~ ''", true),
+        (br#"{"name":"a\u0025b"}"#, "name ~ ''", true),
+        (br#"{"name":"ab","name":null}"#, "name ~ ''", false),
         (br#"{"name":["Ada","Ada"]}"#, "name ~ 'A%a'", true),
         (br#"{"name":["Ada","Bob"]}"#, "name ~ 'A%a'", false),
         (br#"{"name":[]}"#, "name ~ 'A%a'", true),
@@ -171,7 +183,11 @@ fn filter_only_scan_skips_irrelevant_nested_values() {
             .collect::<Vec<_>>()
             .join(",")
     );
-    let source = format!(r#"{{"wanted":"needle","irrelevant":{nested}}}"#);
+    let unrelated_scalars = (0..1000)
+        .map(|index| format!(r#""other{index}":"unused""#))
+        .collect::<Vec<_>>()
+        .join(",");
+    let source = format!(r#"{{"wanted":"needle","irrelevant":{nested},{unrelated_scalars}}}"#);
     let mut scratch = BorrowedScanScratch::default();
     let before = borrowed_node_visits();
     let result = borrowed_scan(
