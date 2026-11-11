@@ -355,6 +355,16 @@ pub trait SourceReader: Send + Sync {
         let _ = projection;
         self.parse(bytes)
     }
+
+    /// An index operation already validated this record. Extensions keep the
+    /// validating query path unless they explicitly implement trusted parsing.
+    fn parse_for_query_trusted(
+        &self,
+        bytes: &[u8],
+        projection: &ScanProjection,
+    ) -> Result<ExtractedRecord, String> {
+        self.parse_for_query(bytes, projection)
+    }
 }
 
 
@@ -598,26 +608,52 @@ fn parse_json_for_query(
     parse_json_for_query_diagnosed(bytes, projection).map_err(|issue| issue.message)
 }
 
+fn parse_json_for_query_trusted(
+    bytes: &[u8],
+    projection: &ScanProjection,
+) -> Result<ExtractedRecord, String> {
+    let value = crate::json_scalar_text::extract_query_value(bytes, projection, true)?;
+    let mut text = Vec::new();
+    if projection.collect_text {
+        collect_strings(&value, &mut Vec::new(), &mut text);
+    }
+    Ok(ExtractedRecord { value, text })
+}
+
 fn parse_json_decoded_for_query_diagnosed(
     bytes: &[u8],
     projection: &ScanProjection,
 ) -> Result<ExtractedRecord, ReaderDiagnostic> {
-    let mut extracted = parse_json_for_query_diagnosed(
-        bytes,
-        &ScanProjection {
-            top_level: projection.top_level.clone(),
-            collect_text: false,
-            resolved_text_only: false,
-        },
-    )?;
-    if projection.collect_text {
-        extracted.text =
-            crate::json_scalar_text::scalar_segments(bytes, projection.resolved_text_only, true)
-                .map_err(|error| {
-                    ReaderDiagnostic::new(DiagnosticCategory::Syntax, "json.scalar_text", error)
-                })?;
+    if !projection.collect_text {
+        return parse_json_for_query_diagnosed(bytes, projection);
     }
-    Ok(extracted)
+    let (value, text) = crate::json_scalar_text::extract_query_record(bytes, projection, false)
+        .map_err(|error| {
+            if error.contains("resource limit") {
+                return ReaderDiagnostic::new(
+                    DiagnosticCategory::ResourceLimit,
+                    "json.value",
+                    error,
+                );
+            }
+            match serde_json::from_slice::<serde_json::Value>(bytes) {
+                Err(syntax) => json_issue(bytes, syntax),
+                Ok(_) => ReaderDiagnostic::new(
+                    DiagnosticCategory::LogicalValidation,
+                    "json.value",
+                    error,
+                ),
+            }
+        })?;
+    Ok(ExtractedRecord { value, text })
+}
+
+fn parse_json_decoded_for_query_trusted(
+    bytes: &[u8],
+    projection: &ScanProjection,
+) -> Result<ExtractedRecord, String> {
+    let (value, text) = crate::json_scalar_text::extract_query_record(bytes, projection, true)?;
+    Ok(ExtractedRecord { value, text })
 }
 
 fn parse_json_decoded_for_build_diagnosed(
@@ -741,6 +777,14 @@ impl SourceReader for JsonReader {
     ) -> Result<ExtractedRecord, String> {
         parse_json_for_query(bytes, projection)
     }
+
+    fn parse_for_query_trusted(
+        &self,
+        bytes: &[u8],
+        projection: &ScanProjection,
+    ) -> Result<ExtractedRecord, String> {
+        parse_json_for_query_trusted(bytes, projection)
+    }
 }
 
 
@@ -781,6 +825,14 @@ impl SourceReader for JsonDecodedScalarsReader {
         projection: &ScanProjection,
     ) -> Result<ExtractedRecord, String> {
         parse_json_decoded_for_query_diagnosed(bytes, projection).map_err(|issue| issue.message)
+    }
+
+    fn parse_for_query_trusted(
+        &self,
+        bytes: &[u8],
+        projection: &ScanProjection,
+    ) -> Result<ExtractedRecord, String> {
+        parse_json_decoded_for_query_trusted(bytes, projection)
     }
 }
 
@@ -847,6 +899,14 @@ impl SourceReader for JsonLinesReader {
         projection: &ScanProjection,
     ) -> Result<ExtractedRecord, String> {
         parse_json_for_query(bytes, projection)
+    }
+
+    fn parse_for_query_trusted(
+        &self,
+        bytes: &[u8],
+        projection: &ScanProjection,
+    ) -> Result<ExtractedRecord, String> {
+        parse_json_for_query_trusted(bytes, projection)
     }
 }
 

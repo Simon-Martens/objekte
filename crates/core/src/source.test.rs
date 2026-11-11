@@ -1,4 +1,5 @@
 use super::*;
+use crate::model::Number;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 #[test]
@@ -519,6 +520,78 @@ fn decoded_scalar_build_and_query_accept_the_same_json_documents() {
                 "{bytes:?}"
             );
         }
+    }
+}
+
+#[test]
+fn trusted_builtin_query_readers_match_validating_results_on_valid_json() {
+    let bytes = br#"{"title":"old","title":{"nested":"new"},"n":1e0,"array":["\u00df",true,null]}"#;
+    let readers: [&dyn SourceReader; 3] =
+        [&JsonReader, &JsonDecodedScalarsReader, &JsonLinesReader];
+    let projections = [
+        ScanProjection::full(true),
+        ScanProjection {
+            top_level: Some(HashSet::from(["title".into(), "n".into()])),
+            collect_text: false,
+            resolved_text_only: false,
+        },
+        ScanProjection {
+            top_level: Some(HashSet::from(["title".into()])),
+            collect_text: true,
+            resolved_text_only: true,
+        },
+    ];
+    for reader in readers {
+        for projection in &projections {
+            let validating = reader.parse_for_query(bytes, projection).unwrap();
+            let trusted = reader.parse_for_query_trusted(bytes, projection).unwrap();
+            assert_eq!(validating.value, trusted.value, "{}", reader.name());
+            assert_eq!(
+                validating
+                    .text
+                    .iter()
+                    .map(|segment| (&segment.path, &segment.text))
+                    .collect::<Vec<_>>(),
+                trusted
+                    .text
+                    .iter()
+                    .map(|segment| (&segment.path, &segment.text))
+                    .collect::<Vec<_>>(),
+                "{}",
+                reader.name(),
+            );
+        }
+    }
+}
+
+#[test]
+fn trusted_builtin_projection_omits_search_time_validation_of_skipped_content() {
+    let bytes = br#"{"wanted":5,"ignored":[1,]} trailing"#;
+    let projection = ScanProjection {
+        top_level: Some(HashSet::from(["wanted".into()])),
+        collect_text: false,
+        resolved_text_only: false,
+    };
+    for reader in [
+        &JsonReader as &dyn SourceReader,
+        &JsonDecodedScalarsReader,
+        &JsonLinesReader,
+    ] {
+        assert!(
+            reader.parse_for_query(bytes, &projection).is_err(),
+            "{}",
+            reader.name()
+        );
+        let record = reader.parse_for_query_trusted(bytes, &projection).unwrap();
+        let Value::Object(fields) = record.value else {
+            panic!("projected JSON root is not an object");
+        };
+        assert_eq!(
+            fields.get("wanted"),
+            Some(&Value::Number(Number::integer(5))),
+            "{}",
+            reader.name(),
+        );
     }
 }
 
