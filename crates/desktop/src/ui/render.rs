@@ -15,6 +15,7 @@ use gpui_kit::{
     AppContext as _, Context, Entity, Focusable as _, FontWeight, HighlightStyle,
     InteractiveElement as _, IntoElement, ParentElement as _, Render,
     StatefulInteractiveElement as _, Styled as _, StyledText, Window, div, list, px, rgb,
+    uniform_list,
 };
 use objekte_search_core::query::parse_structured_filter;
 
@@ -542,12 +543,6 @@ impl DesktopView {
             .gap_1()
             .px_2()
             .py_2()
-            .track_scroll(if mode == SidebarMode::Collections {
-                &self.sidebar_collections_scroll
-            } else {
-                &self.sidebar_files_scroll
-            })
-            .overflow_y_scroll()
             .child(
                 div()
                     .px_2()
@@ -562,6 +557,9 @@ impl DesktopView {
                     }),
             );
         if mode == SidebarMode::Collections {
+            sidebar = sidebar
+                .track_scroll(&self.sidebar_collections_scroll)
+                .overflow_y_scroll();
             if !self.state.single_collection && !self.state.collections.is_empty() {
                 sidebar = sidebar.child(
                     sidebar_item(
@@ -620,97 +618,156 @@ impl DesktopView {
                     this.select_directory(None, window, cx);
                 })),
             );
-            for (index, directory) in self.state.directories.iter().enumerate() {
-                if !directory_visible(directory, &self.state.expanded_directories) {
-                    continue;
-                }
-                let has_children = self
-                    .state
-                    .directories
-                    .get(index + 1)
-                    .is_some_and(|next| next.starts_with(&format!("{directory}/")));
-                let expanded = self.state.expanded_directories.contains(directory);
-                let selected = self.state.search.directory.as_deref() == Some(directory);
-                let contains_selected = !expanded
-                    && directory_contains_selection(
-                        directory,
-                        self.state.search.directory.as_deref(),
-                    );
-                let depth = directory.bytes().filter(|byte| *byte == b'/').count();
-                let label = directory.rsplit('/').next().unwrap_or(directory).to_owned();
-                let path = directory.clone();
-                let mut row = div()
-                    .id(("sidebar-directory-row", index))
-                    .flex()
-                    .items_center()
-                    .min_w_0()
-                    .pl(px((depth.min(6) * 12) as f32))
-                    .rounded_sm()
-                    .bg(rgb(if selected {
-                        colors.selected
-                    } else {
-                        colors.panel
-                    }));
-                row = row.child(
-                    sidebar_item(
-                        format!("sidebar-directory-{index}"),
-                        if expanded {
-                            AssetIconName::FolderOpen
-                        } else {
-                            AssetIconName::FolderClosed
-                        },
-                        label,
-                        selected,
-                        contains_selected,
-                        colors,
-                        row_style,
-                    )
+            let visible_directories = self
+                .state
+                .directories
+                .iter()
+                .enumerate()
+                .filter(|(_, directory)| {
+                    directory_visible(directory, &self.state.expanded_directories)
+                })
+                .map(|(index, directory)| (index, directory.clone()))
+                .collect::<Vec<_>>();
+            let directory_count = visible_directories.len();
+            let all_directories = self.state.directories.clone();
+            let expanded_directories = self.state.expanded_directories.clone();
+            let selected_directory = self.state.search.directory.clone();
+            let target = cx.entity();
+            sidebar = sidebar.child(
+                div()
                     .flex_1()
-                    .min_w_0()
-                    .tooltip(directory.clone())
-                    .on_click(cx.listener({
-                        let path = path.clone();
-                        move |this, _, window, cx| {
-                            this.select_directory(Some(path.clone()), window, cx);
-                        }
-                    })),
-                );
-                if has_children {
-                    row = row.child(
-                        Button::new(format!("sidebar-expand-directory-{index}"))
-                            .custom(row_style)
-                            .cursor_pointer()
-                            .selected(selected)
-                            .h(px(28.))
-                            .w(px(22.))
-                            .icon(if expanded {
-                                AssetIconName::ChevronDown
-                            } else {
-                                AssetIconName::ChevronRight
-                            })
-                            .tooltip(if expanded {
-                                "Collapse folder"
-                            } else {
-                                "Expand folder"
-                            })
-                            .accessibility_label(if expanded {
-                                "Collapse folder"
-                            } else {
-                                "Expand folder"
-                            })
-                            .on_click(cx.listener({
-                                let path = path.clone();
-                                move |this, _, _, cx| {
-                                    if !this.state.expanded_directories.insert(path.clone()) {
-                                        this.state.expanded_directories.remove(&path);
+                    .min_h_0()
+                    .child(
+                        uniform_list("sidebar-files-list", directory_count, move |range, _, _| {
+                            range
+                                .map(|item| {
+                                    let Some((index, directory)) = visible_directories.get(item)
+                                    else {
+                                        return div().into_any_element();
+                                    };
+                                    let index = *index;
+                                    let has_children =
+                                        all_directories.get(index + 1).is_some_and(|next| {
+                                            next.starts_with(&format!("{directory}/"))
+                                        });
+                                    let expanded = expanded_directories.contains(directory);
+                                    let selected = selected_directory.as_deref() == Some(directory);
+                                    let contains_selected = !expanded
+                                        && directory_contains_selection(
+                                            directory,
+                                            selected_directory.as_deref(),
+                                        );
+                                    let depth =
+                                        directory.bytes().filter(|byte| *byte == b'/').count();
+                                    let label = directory
+                                        .rsplit('/')
+                                        .next()
+                                        .unwrap_or(directory)
+                                        .to_owned();
+                                    let path = directory.clone();
+                                    let row_target = target.clone();
+                                    let mut row =
+                                        div()
+                                            .id(("sidebar-directory-row", index))
+                                            .flex()
+                                            .items_center()
+                                            .min_w_0()
+                                            .h(px(28.))
+                                            .pl(px((depth.min(6) * 12) as f32))
+                                            .pr(px(14.))
+                                            .rounded_sm()
+                                            .bg(rgb(if selected {
+                                                colors.selected
+                                            } else {
+                                                colors.panel
+                                            }))
+                                            .child(
+                                                sidebar_item(
+                                                    format!("sidebar-directory-{index}"),
+                                                    if expanded {
+                                                        AssetIconName::FolderOpen
+                                                    } else {
+                                                        AssetIconName::FolderClosed
+                                                    },
+                                                    label,
+                                                    selected,
+                                                    contains_selected,
+                                                    colors,
+                                                    row_style,
+                                                )
+                                                .flex_1()
+                                                .min_w_0()
+                                                .tooltip(directory.clone())
+                                                .on_click({
+                                                    let path = path.clone();
+                                                    move |_, window, cx| {
+                                                        row_target.update(cx, |this, cx| {
+                                                            this.select_directory(
+                                                                Some(path.clone()),
+                                                                window,
+                                                                cx,
+                                                            );
+                                                        });
+                                                    }
+                                                }),
+                                            );
+                                    if has_children {
+                                        let expand_target = target.clone();
+                                        row = row.child(
+                                            Button::new(format!(
+                                                "sidebar-expand-directory-{index}"
+                                            ))
+                                            .custom(row_style)
+                                            .cursor_pointer()
+                                            .selected(selected)
+                                            .h(px(28.))
+                                            .w(px(22.))
+                                            .icon(if expanded {
+                                                AssetIconName::ChevronDown
+                                            } else {
+                                                AssetIconName::ChevronRight
+                                            })
+                                            .tooltip(if expanded {
+                                                "Collapse folder"
+                                            } else {
+                                                "Expand folder"
+                                            })
+                                            .accessibility_label(if expanded {
+                                                "Collapse folder"
+                                            } else {
+                                                "Expand folder"
+                                            })
+                                            .on_click(move |_, _, cx| {
+                                                expand_target.update(cx, |this, cx| {
+                                                    if !this
+                                                        .state
+                                                        .expanded_directories
+                                                        .insert(path.clone())
+                                                    {
+                                                        this.state
+                                                            .expanded_directories
+                                                            .remove(&path);
+                                                    }
+                                                    cx.notify();
+                                                });
+                                            }),
+                                        );
                                     }
-                                    cx.notify();
-                                }
-                            })),
-                    );
-                }
-                sidebar = sidebar.child(row);
-            }
+                                    div().h(px(32.)).child(row).into_any_element()
+                                })
+                                .collect::<Vec<_>>()
+                        })
+                        .track_scroll(&self.sidebar_files_list)
+                        .size_full(),
+                    )
+                    .child(
+                        div().absolute().inset_0().child(
+                            Scrollbar::vertical(&self.sidebar_files_list)
+                                .mode(ScrollbarMode::Always)
+                                .viewport_from_layout(),
+                        ),
+                    ),
+            );
         }
         sidebar = sidebar.child(
             div()
@@ -730,11 +787,11 @@ impl DesktopView {
                     }
                 }),
         );
-        let sidebar = sidebar.vertical_scrollbar(if mode == SidebarMode::Collections {
-            &self.sidebar_collections_scroll
+        let sidebar = if mode == SidebarMode::Collections {
+            sidebar.vertical_scrollbar(&self.sidebar_collections_scroll)
         } else {
-            &self.sidebar_files_scroll
-        });
+            sidebar
+        };
         let saved_rows = self
             .state
             .saved
@@ -2550,6 +2607,13 @@ impl Render for DesktopView {
             self.state.sidebar_visible = false;
         }
         self.last_window_width = width;
+        if self.last_window_height != height
+            && self.state.sidebar_mode == SidebarMode::Files
+            && self.state.search.directory.is_some()
+        {
+            self.reveal_selected_sidebar_directory();
+        }
+        self.last_window_height = height;
         if self.restore_missing_grid_height_hints() {
             cx.notify();
         }

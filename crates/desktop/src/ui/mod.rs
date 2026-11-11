@@ -23,7 +23,8 @@ use gpui_kit::component::input::{InputEvent, InputState, TextareaState};
 use gpui_kit::component::{Theme, ThemeMode};
 use gpui_kit::{
     AppContext as _, Context, Entity, FocusHandle, Focusable as _, KeyBinding, ListAlignment,
-    ListOffset, ListState, ScrollHandle, Subscription, Window, point, px,
+    ListOffset, ListState, ScrollHandle, ScrollStrategy, Subscription, UniformListScrollHandle,
+    Window, point, px,
 };
 
 use model::{CompletionOrigin, MAX_PAGE_ROWS, SearchDraft, TabViewState, UiAction, UiUpdate};
@@ -110,9 +111,10 @@ pub struct DesktopView {
     primary_tabs_scroll: ScrollHandle,
     secondary_tabs_scroll: ScrollHandle,
     sidebar_collections_scroll: ScrollHandle,
-    sidebar_files_scroll: ScrollHandle,
+    sidebar_files_list: UniformListScrollHandle,
     workspace_layout: Cell<Option<(f32, f32, bool, bool)>>,
     last_window_width: f32,
+    last_window_height: f32,
     columns_scroll: ScrollHandle,
     export_scroll: ScrollHandle,
     index_scroll: ScrollHandle,
@@ -291,9 +293,10 @@ impl DesktopView {
             primary_tabs_scroll: ScrollHandle::new(),
             secondary_tabs_scroll: ScrollHandle::new(),
             sidebar_collections_scroll: ScrollHandle::new(),
-            sidebar_files_scroll: ScrollHandle::new(),
+            sidebar_files_list: UniformListScrollHandle::new(),
             workspace_layout: Cell::new(None),
             last_window_width: f32::from(window.bounds().size.width),
+            last_window_height: f32::from(window.bounds().size.height),
             columns_scroll: ScrollHandle::new(),
             export_scroll: ScrollHandle::new(),
             index_scroll: ScrollHandle::new(),
@@ -401,6 +404,7 @@ impl DesktopView {
                 .update(cx, |builder, cx| builder.set_fields(fields.clone(), cx));
         }
         let opened = matches!(&update, UiUpdate::Opened { .. });
+        let directories_changed = matches!(&update, UiUpdate::Directories(_));
         let restored_query = matches!(&update, UiUpdate::RestoreQuery(_));
         let previous_scope = restored_query.then(|| self.state.search.clone());
         let query_started = matches!(&update, UiUpdate::QueryStarted { .. });
@@ -467,6 +471,13 @@ impl DesktopView {
             });
         }
         self.state.apply(update);
+        if opened {
+            let mut files_scroll = self.sidebar_files_list.0.borrow_mut();
+            files_scroll.deferred_scroll_to_item = None;
+            files_scroll.base_handle.set_offset(point(px(0.), px(0.)));
+        } else if directories_changed {
+            self.reveal_selected_sidebar_directory();
+        }
         if let Some(previous_scope) = previous_scope {
             self.reveal_sidebar_scope(&previous_scope);
         }
@@ -475,8 +486,6 @@ impl DesktopView {
         }
         if opened {
             self.sidebar_collections_scroll
-                .set_offset(point(px(0.), px(0.)));
-            self.sidebar_files_scroll
                 .set_offset(point(px(0.), px(0.)));
             self.grid_views.clear();
             self.active_grid_tab = self.state.workspace.current_search;
@@ -676,17 +685,26 @@ impl DesktopView {
                     child = parent;
                 }
             }
-            let item = self.state.search.directory.as_ref().and_then(|selected| {
-                self.state
-                    .directories
-                    .iter()
-                    .filter(|directory| {
-                        render::directory_visible(directory, &self.state.expanded_directories)
-                    })
-                    .position(|directory| directory == selected)
-            });
-            self.sidebar_files_scroll
-                .scroll_to_item(item.map_or(1, |item| item + 2));
+            self.reveal_selected_sidebar_directory();
+        }
+    }
+
+    fn reveal_selected_sidebar_directory(&self) {
+        let item = self.state.search.directory.as_ref().and_then(|selected| {
+            self.state
+                .directories
+                .iter()
+                .filter(|directory| {
+                    render::directory_visible(directory, &self.state.expanded_directories)
+                })
+                .position(|directory| directory == selected)
+        });
+        if let Some(item) = item {
+            self.sidebar_files_list
+                .scroll_to_item(item, ScrollStrategy::Nearest);
+        } else if self.state.search.directory.is_none() {
+            self.sidebar_files_list
+                .scroll_to_item_strict(0, ScrollStrategy::Top);
         }
     }
 
