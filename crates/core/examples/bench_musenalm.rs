@@ -413,6 +413,18 @@ fn run() -> Result<(), String> {
     }
     samples.flush().map_err(|e| e.to_string())?;
     plan_output.flush().map_err(|e| e.to_string())?;
+    let result_digests = expected
+        .into_iter()
+        .map(|(case_id, identity)| {
+            let digest = Sha256::digest(format!("{identity:?}").as_bytes());
+            (case_id, format!("{digest:x}"))
+        })
+        .collect::<BTreeMap<_, _>>();
+    fs::write(
+        result_dir.join("result-digests.json"),
+        serde_json::to_vec_pretty(&result_digests).map_err(|e| e.to_string())?,
+    )
+    .map_err(|e| e.to_string())?;
     let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"extended":extended,"schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers});
     fs::write(
         result_dir.join("run-manifest.json"),
