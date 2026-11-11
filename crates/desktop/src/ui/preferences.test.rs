@@ -75,6 +75,21 @@ fn bookmarks_use_definition_identity_and_keep_disabled_filter() {
 }
 
 #[test]
+fn directory_scope_round_trips_through_saved_queries_and_history() {
+    let temp = tempfile::tempdir().unwrap();
+    let mut preferences = DesktopPreferences::load(temp.path()).unwrap();
+    let draft = SearchDraft {
+        directory: Some("docs/nested".into()),
+        ..SearchDraft::default()
+    };
+    let id = preferences.save_query(&draft).unwrap();
+    preferences.remember(&draft).unwrap();
+    let reloaded = DesktopPreferences::load(temp.path()).unwrap();
+    assert_eq!(reloaded.restore_saved(id), Some(draft.clone()));
+    assert_eq!(reloaded.restore_history(0), Some(draft));
+}
+
+#[test]
 fn generated_titles_are_display_only() {
     let draft = SearchDraft {
         full_text: "  Heidel  berg ".into(),

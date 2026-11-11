@@ -25,6 +25,8 @@ struct QueryDefinition {
     structured: String,
     filter_enabled: bool,
     collection: Option<String>,
+    #[serde(default)]
+    directory: Option<String>,
     case_sensitive: bool,
     regex: bool,
 }
@@ -37,6 +39,7 @@ impl From<&SearchDraft> for QueryDefinition {
             structured: draft.structured.clone(),
             filter_enabled: draft.filter_enabled,
             collection: draft.collection.clone(),
+            directory: draft.directory.clone(),
             case_sensitive: draft.case_sensitive,
             regex: draft.regex,
         }
@@ -51,6 +54,7 @@ impl QueryDefinition {
             structured: self.structured,
             filter_enabled: self.filter_enabled,
             collection: self.collection,
+            directory: self.directory,
             case_sensitive: self.case_sensitive,
             regex: self.regex,
             ..SearchDraft::default()
@@ -483,6 +487,9 @@ pub fn generated_title(draft: &SearchDraft) -> String {
         String::new()
     };
     let mut parts = vec![collection.to_owned()];
+    if let Some(directory) = &draft.directory {
+        parts.push(format!("/{directory}"));
+    }
     if !fts.is_empty() {
         parts.push(fts);
     }
@@ -529,6 +536,7 @@ fn from_legacy(query: &LegacyQuery) -> QueryDefinition {
         // The old format had no explicit flag, so derive the old behavior once.
         filter_enabled: !query.filter.trim().is_empty(),
         collection: query.collection.clone(),
+        directory: None,
         case_sensitive: !query.case_insensitive,
         regex: query.regex,
     }

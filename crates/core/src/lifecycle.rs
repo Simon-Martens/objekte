@@ -2347,6 +2347,16 @@ impl IndexView {
             .and_then(|id| self.file_handle(id))
     }
 
+    /// Paths of files active in this immutable publication.
+    pub fn file_paths(&self) -> impl Iterator<Item = &Path> + '_ {
+        (0..self.0.catalog.allocated_files()).filter_map(|number| {
+            self.0
+                .catalog
+                .entry(FileId(number as u32))
+                .map(|entry| entry.relative_path.as_path())
+        })
+    }
+
     pub fn file_version(&self, file: FileId) -> Option<FileVersion> {
         self.0
             .catalog

@@ -2,7 +2,7 @@
 //! checked the repository and query generations that produced it.
 
 use gpui_kit::SharedString;
-use std::collections::{BTreeMap, VecDeque};
+use std::collections::{BTreeMap, BTreeSet, VecDeque};
 
 use super::completion::{CompletionContext, CompletionTarget};
 use super::filter_builder::FieldChoice;
@@ -110,6 +110,9 @@ pub struct UiState {
     pub root: Option<String>,
     pub collections: Vec<String>,
     pub single_collection: bool,
+    pub directories: Vec<String>,
+    pub expanded_directories: BTreeSet<String>,
+    pub directory_tree_visible: bool,
     pub page: PageView,
     /// Lightweight extent is separate from a bounded cache of projected text.
     pub loaded_count: usize,
@@ -208,10 +211,14 @@ impl UiState {
                 root,
                 collections,
                 single_collection,
+                directories,
             } => {
                 self.root = Some(root);
                 self.collections = collections;
                 self.single_collection = single_collection;
+                self.directories = directories;
+                self.expanded_directories.clear();
+                self.directory_tree_visible = false;
                 self.available_columns.clear();
                 self.completion_fields.clear();
                 self.completion_context = None;
@@ -259,9 +266,11 @@ impl UiState {
                 } else {
                     self.search.collection = None;
                 }
+                self.search.directory = None;
                 self.workspace.opened(self.search.collection.clone());
                 self.workspace.update_current_search(self.search.clone());
             }
+            UiUpdate::Directories(directories) => self.directories = directories,
             UiUpdate::QueryStarted { status, retain_preview } => {
                 self.busy = Busy::Querying;
                 self.status = status;

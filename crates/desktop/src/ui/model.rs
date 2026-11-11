@@ -83,6 +83,8 @@ pub struct SearchDraft {
     pub filter_enabled: bool,
     /// None searches all collections.
     pub collection: Option<String>,
+    /// Repository-relative directory selected in the file tree.
+    pub directory: Option<String>,
     pub case_sensitive: bool,
     pub regex: bool,
 }
@@ -94,6 +96,7 @@ impl Default for SearchDraft {
             structured: String::new(),
             filter_enabled: false,
             collection: None,
+            directory: None,
             case_sensitive: true,
             regex: false,
         }
@@ -630,7 +633,9 @@ pub enum UiUpdate {
         root: String,
         collections: Vec<String>,
         single_collection: bool,
+        directories: Vec<String>,
     },
+    Directories(Vec<String>),
     /// A validated replacement for the same source configuration preserves UI drafts/tabs.
     IndexReplaced(IndexUiStatus),
     IndexStatus(IndexUiStatus),

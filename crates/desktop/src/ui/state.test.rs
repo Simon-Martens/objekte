@@ -181,6 +181,7 @@ fn replacement_open_retains_old_workspace_until_success() {
         root: "new".into(),
         collections: vec!["records".into()],
         single_collection: true,
+        directories: Vec::new(),
     });
     assert_eq!(state.root.as_deref(), Some("new"));
     assert!(state.page.rows.is_empty());
@@ -220,15 +221,22 @@ fn opening_a_repository_returns_to_the_results_workspace() {
             visible: true,
             ..super::super::open_dialog::OpenDialogState::default()
         },
+        search: SearchDraft {
+            directory: Some("previous/source".into()),
+            ..SearchDraft::default()
+        },
         ..UiState::default()
     };
     state.apply(UiUpdate::Opened {
         root: "example".into(),
         collections: vec!["records".into()],
         single_collection: true,
+        directories: vec!["current".into()],
     });
     assert!(!state.open_dialog.visible);
     assert_eq!(state.search.collection.as_deref(), Some("records"));
+    assert_eq!(state.search.directory, None);
+    assert_eq!(state.directories, ["current"]);
 }
 
 #[test]
@@ -239,6 +247,7 @@ fn query_restore_keeps_exact_inputs() {
         structured: "score >= 10 SORT BY score DESC".into(),
         filter_enabled: true,
         collection: Some("docs".into()),
+        directory: None,
         case_sensitive: false,
         regex: true,
     };

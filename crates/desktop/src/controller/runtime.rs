@@ -1,6 +1,6 @@
 //! Generation-checked operations around one native window and retained repository.
 
-use std::collections::{HashMap, HashSet, VecDeque};
+use std::collections::{BTreeSet, HashMap, HashSet, VecDeque};
 use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicU64, Ordering};
@@ -135,7 +135,15 @@ type QueryCompletion = Result<
     ),
     String,
 >;
-type OpenCompletion = Result<(OpenedSession, Result<DesktopPreferences, String>), String>;
+type OpenCompletion = Result<
+    (
+        OpenedSession,
+        Result<DesktopPreferences, String>,
+        Publication,
+        Vec<String>,
+    ),
+    String,
+>;
 type TabCompletion = Result<Option<(SearchHit, DetailView, Vec<Option<LinkAction>>)>, String>;
 
 enum IndexSaveCompletion {
@@ -234,6 +242,11 @@ enum WorkerEvent {
     Opened {
         generation: u64,
         result: Box<OpenCompletion>,
+    },
+    Directories {
+        open_generation: u64,
+        publication: Publication,
+        directories: Vec<String>,
     },
     Queried {
         open_generation: u64,
@@ -361,6 +374,7 @@ pub struct DesktopController {
     preference_tx: Sender<DesktopPreferences>,
     session: Option<OpenedSession>,
     observed_publication: Option<Publication>,
+    pending_directories: Option<Publication>,
     executed_view: Option<IndexView>,
     results_outdated: bool,
     refreshing_results: bool,
@@ -459,6 +473,7 @@ impl DesktopController {
                 preference_tx,
                 session: None,
                 observed_publication: None,
+                pending_directories: None,
                 executed_view: None,
                 results_outdated: false,
                 refreshing_results: false,
@@ -607,9 +622,37 @@ impl DesktopController {
             Some(previous) if previous != current => {
                 self.observed_publication = Some(current);
                 self.invalidate_published_contexts(updates);
+                self.request_directories();
             }
             Some(_) => {}
         }
+    }
+
+    fn request_directories(&mut self) {
+        if self.pending_directories.is_some() {
+            return;
+        }
+        let Some(session) = &self.session else {
+            return;
+        };
+        let Ok(view) = session.repository.index().view() else {
+            return;
+        };
+        let publication = Publication {
+            instance_id: view.instance_id(),
+            revision: view.revision(),
+        };
+        self.pending_directories = Some(publication);
+        let sender = self.worker_tx.clone();
+        let open_generation = self.open_generation;
+        thread::spawn(move || {
+            let directories = indexed_directories(&view);
+            let _ = sender.send(WorkerEvent::Directories {
+                open_generation,
+                publication,
+                directories,
+            });
+        });
     }
 
     fn publication_is_current(&self, publication: Publication) -> bool {
@@ -2326,15 +2369,28 @@ impl DesktopController {
                     self.start_query(draft, 0, updates);
                 }
             }
+            WorkerEvent::Directories {
+                open_generation,
+                publication,
+                directories,
+            } if open_generation == self.open_generation => {
+                self.pending_directories = None;
+                if self.session_publication_is_current(publication) {
+                    updates.push(UiUpdate::Directories(directories));
+                } else {
+                    self.request_directories();
+                }
+            }
             WorkerEvent::Opened { generation, result }
                 if generation == self.pending_open_generation && self.opening_draft.is_some() =>
             {
                 match *result {
-                    Ok((session, preferences)) => {
+                    Ok((session, preferences, directory_publication, directories)) => {
                         self.cancellation.cancel();
                         self.export_cancellation.cancel();
                         self.batch_cancellation.cancel();
                         self.open_generation = self.open_generation.wrapping_add(1);
+                        self.pending_directories = None;
                         self.query_generation = self.query_generation.wrapping_add(1);
                         self.validation_generation = self.validation_generation.wrapping_add(1);
                         self.export_generation = self.export_generation.wrapping_add(1);
@@ -2414,6 +2470,9 @@ impl DesktopController {
                         self.invalidate_automatic_save_policy();
                         self.requested_check = (false, 30);
                         let previous_session = self.session.replace(session);
+                        if self.observed_publication != Some(directory_publication) {
+                            self.request_directories();
+                        }
                         if let Some(previous_session) = previous_session {
                             let gate = Arc::clone(&self.automatic_check_gate);
                             let save_gate = Arc::clone(&self.automatic_save_gate);
@@ -2430,6 +2489,7 @@ impl DesktopController {
                             root,
                             collections: collections.clone(),
                             single_collection,
+                            directories,
                         });
                         if let Some(session) = &self.session
                             && let Ok(status) = backend::index_lifecycle::status(session)
@@ -3011,6 +3071,7 @@ impl DesktopController {
                         self.export_cancellation.cancel();
                         self.batch_cancellation.cancel();
                         self.open_generation = self.open_generation.wrapping_add(1);
+                        self.pending_directories = None;
                         self.query_generation = self.query_generation.wrapping_add(1);
                         self.export_generation = self.export_generation.wrapping_add(1);
                         self.batch_generation = self.batch_generation.wrapping_add(1);
@@ -3030,6 +3091,7 @@ impl DesktopController {
                             .map(Publication::from);
                         let replacement = session.clone();
                         let old = self.session.replace(session);
+                        self.request_directories();
                         // The replacement has no periodic scheduler yet. Its
                         // control reflects the actual state until transfer is
                         // confirmed by the policy worker.
@@ -4144,10 +4206,28 @@ impl DesktopController {
 fn open_with_preferences(
     spec: &OpenSpec,
     token: &CancellationToken,
-) -> Result<(OpenedSession, Result<DesktopPreferences, String>), String> {
+) -> OpenCompletion {
     let session = backend::open(spec, token).map_err(|error| error.to_string())?;
     let preferences = DesktopPreferences::load(&session.paths.root);
-    Ok((session, preferences))
+    let view = session.repository.index().view().map_err(|error| error.to_string())?;
+    let publication = Publication {
+        instance_id: view.instance_id(),
+        revision: view.revision(),
+    };
+    let directories = indexed_directories(&view);
+    Ok((session, preferences, publication, directories))
+}
+
+fn indexed_directories(view: &IndexView) -> Vec<String> {
+    let mut directories = BTreeSet::new();
+    for path in view.file_paths() {
+        let mut parent = path.parent();
+        while let Some(directory) = parent.filter(|directory| !directory.as_os_str().is_empty()) {
+            directories.insert(objekte_search_core::path_repr::query_path(directory));
+            parent = directory.parent();
+        }
+    }
+    directories.into_iter().collect()
 }
 
 fn lifecycle_source_key(session: &OpenedSession) -> String {

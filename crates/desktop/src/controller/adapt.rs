@@ -110,6 +110,7 @@ pub fn query_spec(draft: &SearchDraft) -> Result<QuerySpec, String> {
         full_text,
         filter,
         scope: draft.collection.clone(),
+        directory: draft.directory.clone(),
         case_sensitive: draft.case_sensitive,
         regex: draft.regex,
         offset: 0,

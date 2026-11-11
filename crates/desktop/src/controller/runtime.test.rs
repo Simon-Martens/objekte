@@ -1,6 +1,22 @@
 use super::*;
 
 #[test]
+fn indexed_directory_tree_follows_added_and_deleted_files() {
+    let fixture = crate::backend::test_support::fixture();
+    let index = fixture.session.repository.index();
+    assert!(indexed_directories(&index.view().unwrap()).is_empty());
+    let file = fixture._root.path().join("docs/nested/new.json");
+    std::fs::create_dir_all(file.parent().unwrap()).unwrap();
+    std::fs::write(&file, r#"{"title":"New"}"#).unwrap();
+    index.add_file(&file).unwrap();
+    let view = index.view().unwrap();
+    assert_eq!(indexed_directories(&view), ["docs", "docs/nested"]);
+    let handle = view.file_handle_for_path(&file).unwrap();
+    index.delete_file(handle).unwrap();
+    assert!(indexed_directories(&index.view().unwrap()).is_empty());
+}
+
+#[test]
 fn presentation_refresh_keeps_selection_after_preview_is_closed() {
     let fixture = crate::backend::test_support::fixture();
     let (mut controller, _) = DesktopController::new();

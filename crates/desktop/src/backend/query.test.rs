@@ -2,6 +2,63 @@ use super::*;
 use crate::backend::test_support::fixture;
 
 #[test]
+fn directory_scope_preserves_prefix_boundaries_and_combines_with_filter() {
+    use crate::backend::{OpenSpec, open};
+    use objekte_cli::arguments::Arguments;
+
+    let root = tempfile::tempdir().unwrap();
+    for (path, title) in [
+        ("dir/a.json", "Alpha"),
+        ("dir/nested/b.json", "Beta"),
+        ("other/dir/c.json", "Wrong parent"),
+        ("dir2/d.json", "Wrong prefix"),
+    ] {
+        let file = root.path().join(path);
+        std::fs::create_dir_all(file.parent().unwrap()).unwrap();
+        std::fs::write(file, format!(r#"{{"title":"{title}"}}"#)).unwrap();
+    }
+    let session = open(
+        &OpenSpec {
+            args: Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let view = session.repository.index().view().unwrap();
+    let paths: Vec<_> = view.file_paths().map(|path| path.to_path_buf()).collect();
+    assert_eq!(paths.len(), 4);
+    let scoped = QuerySpec {
+        directory: Some("dir".into()),
+        count: true,
+        ..QuerySpec::default()
+    };
+    let first =
+        query_page_on_view(&session, &view, &scoped, 0, 1, &CancellationToken::new()).unwrap();
+    assert_eq!(first.count, Some(2));
+    assert_eq!(first.next_page_start, Some(1));
+    let second =
+        query_page_on_view(&session, &view, &scoped, 1, 1, &CancellationToken::new()).unwrap();
+    assert_eq!(second.count, Some(2));
+    assert!(second.next_page_start.is_none());
+    for hit in first.hits.iter().chain(&second.hits) {
+        assert!(hit.file_path.starts_with("dir"));
+    }
+    let combined = QuerySpec {
+        filter: "title ~ 'A%'".into(),
+        ..scoped
+    };
+    let filtered =
+        query_page_on_view(&session, &view, &combined, 0, 100, &CancellationToken::new()).unwrap();
+    assert_eq!(filtered.count, Some(1));
+    assert_eq!(filtered.hits[0].file_path, std::path::PathBuf::from("dir/a.json"));
+}
+
+#[test]
 fn filter_prefix_wildcard_matches_alpha() {
     let fixture = fixture();
     let view = fixture.session.repository.index().view().unwrap();

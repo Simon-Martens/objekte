@@ -1,5 +1,7 @@
 //! Read-only workspace layout inspired by DBDelve's dense sidebar and grid.
 
+use std::collections::BTreeSet;
+
 use gpui_kit::assets::IconName as AssetIconName;
 use gpui_kit::component::{
     Disableable as _, Icon, IconName, Selectable as _,
@@ -61,7 +63,7 @@ fn sidebar_item(
     Button::new(id)
         .ghost()
         .w_full()
-        .h(px(30.))
+        .h(px(26.))
         .selected(selected)
         .accessibility_label(label.clone())
         .child(
@@ -83,6 +85,34 @@ fn sidebar_item(
                         .child(label),
                 ),
         )
+}
+
+fn directory_visible(path: &str, expanded: &BTreeSet<String>) -> bool {
+    let mut parent = path.rsplit_once('/').map(|(parent, _)| parent);
+    while let Some(path) = parent {
+        if !expanded.contains(path) {
+            return false;
+        }
+        parent = path.rsplit_once('/').map(|(parent, _)| parent);
+    }
+    true
+}
+
+#[cfg(test)]
+mod directory_tree_tests {
+    use super::*;
+
+    #[test]
+    fn nested_folders_require_all_ancestors_to_be_expanded() {
+        let mut expanded = BTreeSet::new();
+        assert!(directory_visible("docs", &expanded));
+        assert!(!directory_visible("docs/letters", &expanded));
+        expanded.insert("docs".into());
+        assert!(directory_visible("docs/letters", &expanded));
+        assert!(!directory_visible("docs/letters/drafts", &expanded));
+        expanded.insert("docs/letters".into());
+        assert!(directory_visible("docs/letters/drafts", &expanded));
+    }
 }
 
 fn panel_menu_item(
@@ -242,6 +272,7 @@ impl DesktopView {
                 .map(|name| name.to_string_lossy().into_owned())
         });
         let collection = self.state.search.collection.as_deref();
+        let directory = self.state.search.directory.as_deref();
         div()
             .flex()
             .items_center()
@@ -281,6 +312,10 @@ impl DesktopView {
             .when_some(collection, |this, collection| {
                 this.child(div().text_color(rgb(colors.secondary)).child("/"))
                     .child(div().min_w_0().text_sm().child(collection.to_owned()))
+            })
+            .when_some(directory, |this, directory| {
+                this.child(div().text_color(rgb(colors.secondary)).child("/"))
+                    .child(div().min_w_0().text_sm().child(directory.to_owned()))
             })
             .when(self.state.root.is_some(), |this| {
                 this.child(
@@ -444,9 +479,9 @@ impl DesktopView {
             .w(px(220.))
             .h_full()
             .flex_shrink_0()
-            .gap_1()
+            .gap_0()
             .px_2()
-            .py_3()
+            .py_2()
             .overflow_y_scrollbar()
             .bg(rgb(colors.panel))
             .border_r_1()
@@ -491,11 +526,103 @@ impl DesktopView {
             }))
         }));
         sidebar = sidebar.child(
+            sidebar_item(
+                "sidebar-files".into(),
+                if self.state.directory_tree_visible {
+                    AssetIconName::ChevronDown
+                } else {
+                    AssetIconName::ChevronRight
+                },
+                "Files".into(),
+                self.state.directory_tree_visible,
+            )
+            .on_click(cx.listener(|this, _, _, cx| {
+                this.state.directory_tree_visible = !this.state.directory_tree_visible;
+                cx.notify();
+            })),
+        );
+        if self.state.directory_tree_visible {
+            sidebar = sidebar.child(
+                sidebar_item(
+                    "sidebar-all-files".into(),
+                    AssetIconName::FolderOpen,
+                    "All files".into(),
+                    self.state.search.directory.is_none(),
+                )
+                .on_click(cx.listener(|this, _, window, cx| {
+                    this.select_directory(None, window, cx);
+                })),
+            );
+            for (index, directory) in self.state.directories.iter().enumerate() {
+                if !directory_visible(directory, &self.state.expanded_directories) {
+                    continue;
+                }
+                let has_children = self
+                    .state
+                    .directories
+                    .get(index + 1)
+                    .is_some_and(|next| next.starts_with(&format!("{directory}/")));
+                let expanded = self.state.expanded_directories.contains(directory);
+                let selected = self.state.search.directory.as_deref() == Some(directory);
+                let depth = directory.bytes().filter(|byte| *byte == b'/').count();
+                let label = directory.rsplit('/').next().unwrap_or(directory).to_owned();
+                let path = directory.clone();
+                let mut row = div()
+                    .flex()
+                    .items_center()
+                    .min_w_0()
+                    .pl(px((depth.min(8) * 10) as f32));
+                if has_children {
+                    row = row.child(
+                        Button::new(format!("sidebar-expand-directory-{index}"))
+                            .ghost()
+                            .h(px(26.))
+                            .w(px(22.))
+                            .icon(if expanded {
+                                AssetIconName::ChevronDown
+                            } else {
+                                AssetIconName::ChevronRight
+                            })
+                            .tooltip(if expanded { "Collapse folder" } else { "Expand folder" })
+                            .on_click(cx.listener({
+                                let path = path.clone();
+                                move |this, _, _, cx| {
+                                    if !this.state.expanded_directories.insert(path.clone()) {
+                                        this.state.expanded_directories.remove(&path);
+                                    }
+                                    cx.notify();
+                                }
+                            })),
+                    );
+                } else {
+                    row = row.child(div().w(px(22.)));
+                }
+                sidebar = sidebar.child(row.child(
+                    sidebar_item(
+                        format!("sidebar-directory-{index}"),
+                        if expanded {
+                            AssetIconName::FolderOpen
+                        } else {
+                            AssetIconName::FolderClosed
+                        },
+                        label,
+                        selected,
+                    )
+                    .flex_1()
+                    .min_w_0()
+                    .tooltip(directory.clone())
+                    .on_click(cx.listener(move |this, _, window, cx| {
+                        this.select_directory(Some(path.clone()), window, cx);
+                    })),
+                ));
+            }
+        }
+        sidebar = sidebar.child(
             div()
                 .border_t_1()
                 .border_color(rgb(colors.border))
-                .mt_3()
-                .pt_3()
+                .mt_2()
+                .pt_2()
                 .px_2()
                 .text_xs()
                 .text_color(rgb(colors.secondary))
@@ -538,12 +665,13 @@ impl DesktopView {
                         .ghost()
                         .flex_1()
                         .min_w_0()
-                        .h(px(30.))
+                        .h(px(26.))
                         .selected(active)
                         .tooltip(description)
                         .accessibility_label(title.clone())
                         .child(
                             div()
+                                .w_full()
                                 .min_w_0()
                                 .overflow_hidden()
                                 .whitespace_nowrap()
@@ -562,6 +690,7 @@ impl DesktopView {
             row = row.child(
                 Button::new(format!("sidebar-remove-{id}"))
                     .ghost()
+                    .h(px(26.))
                     .icon(IconName::Star)
                     .tooltip("Remove saved query")
                     .accessibility_label("Remove saved query")
@@ -619,12 +748,13 @@ impl DesktopView {
                                 .ghost()
                                 .flex_1()
                                 .min_w_0()
-                                .h(px(30.))
+                                .h(px(26.))
                                 .selected(active)
                                 .tooltip(title.clone())
                                 .accessibility_label(title.clone())
                                 .child(
                                     div()
+                                        .w_full()
                                         .min_w_0()
                                         .overflow_hidden()
                                         .whitespace_nowrap()
@@ -641,6 +771,7 @@ impl DesktopView {
                         .child(
                             Button::new(format!("sidebar-star-{index}"))
                                 .ghost()
+                                .h(px(26.))
                                 .icon(IconName::Star)
                                 .selected(bookmark.is_some())
                                 .tooltip(if bookmark.is_some() {

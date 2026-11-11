@@ -619,6 +619,25 @@ impl DesktopView {
         cx.notify();
     }
 
+    fn select_directory(
+        &mut self,
+        directory: Option<String>,
+        window: &mut Window,
+        cx: &mut Context<Self>,
+    ) {
+        if let Some(query) = self.state.workspace.current_search {
+            if self.state.workspace.pane_of(query).is_some_and(|pane| {
+                self.state.workspace.group(pane).active != Some(query)
+            }) {
+                self.activate_workspace_tab(query, window, cx);
+            }
+        } else {
+            self.open_query_tab(window, cx);
+        }
+        self.state.search.directory = directory;
+        self.search_from_inputs(true, cx);
+    }
+
     fn restore_workspace_query(
         &mut self,
         draft: SearchDraft,

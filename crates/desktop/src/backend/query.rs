@@ -4,7 +4,8 @@ use std::time::Instant;
 
 use objekte_search_core::lifecycle::{IndexRevision, IndexView};
 use objekte_search_core::query::{
-    CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, RegexOptions, parse_structured_filter,
+    CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Query, QueryOptions, RegexOptions,
+    parse_structured_filter,
 };
 use objekte_search_core::repository::SearchHit;
 use objekte_search_core::streaming::{
@@ -22,6 +23,7 @@ pub struct QuerySpec {
     pub full_text: String,
     pub filter: String,
     pub scope: Option<String>,
+    pub directory: Option<String>,
     pub case_sensitive: bool,
     pub regex: bool,
     pub offset: usize,
@@ -35,6 +37,7 @@ impl Default for QuerySpec {
             full_text: String::new(),
             filter: String::new(),
             scope: None,
+            directory: None,
             case_sensitive: true,
             regex: false,
             offset: 0,
@@ -77,6 +80,22 @@ pub fn build_query(spec: &QuerySpec) -> Result<Query, String> {
     let parsed = (!filter.is_empty())
         .then(|| parse_structured_filter(filter))
         .transpose()?;
+    let mut predicate = parsed.as_ref().and_then(|parsed| parsed.filter.clone());
+    if let Some(directory) = &spec.directory {
+        let prefix = format!("{directory}/");
+        let upper = format!("{directory}0");
+        let directory_filter = parse_structured_filter(&format!(
+            "@file.path >= {} && @file.path < {}",
+            serde_json::to_string(&prefix).map_err(|error| error.to_string())?,
+            serde_json::to_string(&upper).map_err(|error| error.to_string())?,
+        ))?
+        .filter
+        .ok_or("directory filter is empty")?;
+        predicate = Some(match predicate {
+            Some(existing) => FilterExpr::And(vec![existing, directory_filter]),
+            None => directory_filter,
+        });
+    }
     Ok(Query {
         collections: spec.scope.iter().cloned().collect(),
         fts: (!full_text.is_empty()).then(|| FtsQuery {
@@ -94,7 +113,7 @@ pub fn build_query(spec: &QuerySpec) -> Result<Query, String> {
             pattern_parameter: None,
             fields: Vec::new(),
         }),
-        filter: parsed.as_ref().and_then(|parsed| parsed.filter.clone()),
+        filter: predicate,
         options: QueryOptions {
             sort: parsed.and_then(|parsed| parsed.sort).unwrap_or_default(),
             limit: spec.limit.unwrap_or(0),

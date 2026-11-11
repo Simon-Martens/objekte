@@ -188,7 +188,8 @@ impl Workspace {
         let promoted = self.tab(id).is_some_and(|tab| {
             tab.search_kind == Some(SearchKind::Table)
                 && (!draft.full_text.is_empty()
-                    || draft.filter_enabled && !draft.structured.is_empty())
+                    || draft.filter_enabled && !draft.structured.is_empty()
+                    || draft.directory.is_some())
         });
         let query_number = if promoted {
             self.next_query_number += 1;
@@ -358,7 +359,8 @@ fn search_title(draft: &SearchDraft, kind: SearchKind, query_number: Option<u64>
             .unwrap_or_else(|| "All records".into())
     } else {
         let blank = draft.full_text.trim().is_empty()
-            && (!draft.filter_enabled || draft.structured.trim().is_empty());
+            && (!draft.filter_enabled || draft.structured.trim().is_empty())
+            && draft.directory.is_none();
         if blank {
             return format!("Query {}", query_number.unwrap_or(1));
         }

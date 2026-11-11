@@ -383,18 +383,24 @@ impl DesktopView {
                                 this.send(UiAction::AdjacentResult(true));
                             })),
                     )
-                    .child(active_tab.map_or_else(String::new, |tab| format!("#{}", tab.position)))
+                    .when(!split_preview, |this| {
+                        this.child(
+                            active_tab.map_or_else(String::new, |tab| format!("#{}", tab.position)),
+                        )
+                    })
                     .child(div().flex_1())
-                    .child(
-                        Button::new("open-tab-query")
-                            .ghost()
-                            .icon(AssetIconName::Search)
-                            .tooltip("Open query")
-                            .accessibility_label("Open query")
-                            .on_click(cx.listener(|this, _, _, _| {
-                                this.send(UiAction::OpenTabQuery);
-                            })),
-                    )
+                    .when(!split_preview, |this| {
+                        this.child(
+                            Button::new("open-tab-query")
+                                .ghost()
+                                .icon(AssetIconName::Search)
+                                .tooltip("Open query")
+                                .accessibility_label("Open query")
+                                .on_click(cx.listener(|this, _, _, _| {
+                                    this.send(UiAction::OpenTabQuery);
+                                })),
+                        )
+                    })
                     .when(is_preview, |this| {
                         this.child(
                             Button::new("pin-record-preview")
@@ -497,12 +503,14 @@ impl DesktopView {
                     .py_2()
                     .border_b_1()
                     .border_color(rgb(colors.border))
-                    .child(
-                        div()
-                            .text_xs()
-                            .text_color(rgb(colors.secondary))
-                            .child(if is_preview { "PREVIEW" } else { "RECORD" }),
-                    )
+                    .when(!split_preview, |this| {
+                        this.child(
+                            div()
+                                .text_xs()
+                                .text_color(rgb(colors.secondary))
+                                .child(if is_preview { "PREVIEW" } else { "RECORD" }),
+                        )
+                    })
                     .child(
                         div()
                             .min_w_0()
@@ -1424,7 +1432,7 @@ impl DesktopView {
             .child(div().text_sm().child("Collections and queries open in tabs. Drag a tab label to reorder it or move it between panes; right-click for move and duplicate commands. The list icon shows all open tabs. Click + for a query or middle-click a tab to close it."))
             .child(div().text_sm().child("When queries appear in both panes, the inactive query shows its latest result preview. Activate it to edit or refresh its results."))
             .child(div().text_sm().child("Scroll the table to load more results in batches of 100. Up/Down select rows; Page Up/Down move selection by a viewport. Click a row or press Enter to preview it beside the table. Use Open in tab, Shift-click, or the row menu to keep a record in its own tab."))
-            .child(div().text_sm().child("Record views retain their query. Back, Previous, Next and Open query use that context. Fields and Links are inspector views; Source shows the original record. The inspector Copy icon copies the complete record."))
+            .child(div().text_sm().child("Record tabs retain their query. Back, Previous, Next and Open query use that context. The side preview keeps navigation and Open in tab. Fields and Links are inspector views; Source shows the original record. The inspector Copy icon copies the complete record."))
             .child(div().text_sm().child("Right-click a field to copy its full path or scalar value. Aggregate and clipped previews are not complete values; expand an aggregate or copy the complete record instead."))
             .child(div().text_sm().child("Source records and schemas are read-only. Export and index writes are explicit actions."));
         div()
