@@ -1,6 +1,31 @@
 use super::*;
 
 #[test]
+fn source_scan_projects_metadata_with_its_repository_root() {
+    let fixture = crate::backend::test_support::fixture();
+    let scan = SourceScan::open(
+        fixture._root.path(),
+        fixture.session.configuration.definitions.as_ref().clone(),
+    ).unwrap();
+    let (sender, receiver) = mpsc::channel();
+    let spec = backend::QuerySpec { filter: "year = 2024".into(), ..Default::default() };
+    spawn_scan_page(
+        Arc::new(scan), spec, 0, Vec::new(), Vec::new(),
+        vec!["@file.size".into(), "@repository.root".into(), "@record.id".into()],
+        CancellationToken::new(), sender, 0, 0, GridRequestKind::First,
+    );
+    let event = receiver.recv_timeout(Duration::from_secs(5)).unwrap();
+    let WorkerEvent::ScanQueried { result, .. } = event else { panic!("expected source result") };
+    let (page, hits, _, _, _, _, _) = (*result).unwrap();
+    assert_eq!(hits.len(), 1);
+    assert_eq!(&page.rows[0].cells[..3], &[
+        std::fs::metadata(fixture._root.path().join("a.json")).unwrap().len().to_string(),
+        fixture._root.path().display().to_string(),
+        "path:a.json".into(),
+    ]);
+}
+
+#[test]
 fn first_query_runs_against_sources_before_index_session_is_ready() {
     let fixture = crate::backend::test_support::fixture();
     let scan = SourceScan::open(

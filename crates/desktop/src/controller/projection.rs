@@ -1,10 +1,13 @@
 //! Bounded display projections; source bytes stay available for complete export.
 
 use std::collections::{BTreeSet, HashSet};
+use std::path::Path;
 
+use objekte_search_core::diagnostics::signed_milliseconds_3;
 use objekte_search_core::fts_preview::PreviewMatcher;
 use objekte_search_core::inventory::{FileStatus, RecordClass};
-use objekte_search_core::model::PathRoot;
+use objekte_search_core::model::{MetadataField, PathRoot};
+use objekte_search_core::path_repr::query_path;
 use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, RegexOptions, parse_structured_filter,
 };
@@ -153,7 +156,8 @@ pub fn page_view_with_prior(
                     "@status" => status_label(hit),
                     "@match" => match_text.clone(),
                     "@file" => hit.file_path.display().to_string(),
-                    field => project_field(json.as_ref(), field),
+                    field => project_metadata(hit, &page.repository_root, field)
+                        .unwrap_or_else(|| project_field(json.as_ref(), field)),
                 })
                 .collect();
             ResultRow {
@@ -227,6 +231,30 @@ fn status_label(hit: &SearchHit) -> String {
     } else {
         hit.file_status.label().to_owned()
     }
+}
+
+/// Metadata belongs to the captured hit, not its JSON payload. In particular,
+/// do not stat the source: the file may have changed since this page was read.
+fn project_metadata(hit: &SearchHit, repository_root: &Path, path: &str) -> Option<String> {
+    let field = MetadataField::parse(path).ok()?;
+    Some(match field {
+        MetadataField::RecordId => hit.record_id.clone(),
+        MetadataField::RecordByteStart => hit.byte_start.to_string(),
+        MetadataField::RecordByteEnd => hit.byte_end.to_string(),
+        MetadataField::RecordByteLength => (hit.byte_end - hit.byte_start).to_string(),
+        MetadataField::RecordClass => hit.record_class.code().to_string(),
+        MetadataField::FileId => hit.file_id.to_string(),
+        MetadataField::FilePath => query_path(&hit.file_path),
+        MetadataField::FileSize => hit.file_size.to_string(),
+        MetadataField::FileCreated => hit.file_created_ns.map_or_else(
+            || "null".into(),
+            |timestamp| format!("{} ms", signed_milliseconds_3(timestamp)),
+        ),
+        MetadataField::FileModified => format!("{} ms", signed_milliseconds_3(hit.modified_ns)),
+        MetadataField::FileStatus => hit.file_status.code().to_string(),
+        MetadataField::CollectionName => hit.collection.clone(),
+        MetadataField::RepositoryRoot => query_path(repository_root),
+    })
 }
 
 fn project_field(json: Option<&Value>, path: &str) -> String {

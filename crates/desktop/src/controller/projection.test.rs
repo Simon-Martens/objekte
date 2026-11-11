@@ -3,6 +3,79 @@ use crate::backend::{query_page, test_support::fixture};
 use objekte_search_core::streaming::CancellationToken;
 
 #[test]
+fn metadata_columns_show_captured_values_without_a_json_payload() {
+    let fixture = fixture();
+    let spec = QuerySpec::default();
+    let mut page = query_page(&fixture.session, &spec, 0, 10, &CancellationToken::new()).unwrap();
+    let columns = initial_columns(&fixture.session, &SearchDraft::default());
+    // Render the same known values with and without a decoded source record.
+    for payload_available in [true, false] {
+        if !payload_available {
+            for hit in &mut page.hits {
+                hit.payload = None;
+            }
+        }
+        for hit in &mut page.hits {
+            hit.file_created_ns = Some(1_000_000_000);
+            hit.modified_ns = -1_234_567_890;
+        }
+        let (view, _, _) = page_view_with_prior(&page, &spec, &[], &[], &columns);
+        for (row, hit) in view.rows.iter().zip(&page.hits) {
+            let actual_size = std::fs::metadata(fixture._root.path().join(&hit.file_path)).unwrap().len();
+            for (column, expected) in [
+                ("@record.id", hit.record_id.clone()),
+                ("@record.byte_start", hit.byte_start.to_string()),
+                ("@record.byte_end", hit.byte_end.to_string()),
+                ("@record.byte_length", (hit.byte_end - hit.byte_start).to_string()),
+                ("@record.class", hit.record_class.code().to_string()),
+                ("@file.id", hit.file_id.to_string()),
+                ("@file.path", hit.file_path.display().to_string()),
+                ("@file.size", actual_size.to_string()),
+                ("@file.created", "1000.000 ms".into()),
+                ("@file.modified", "-1234.568 ms".into()),
+                ("@file.status", hit.file_status.code().to_string()),
+                ("@collection.name", hit.collection.clone()),
+                ("@repository.root", fixture._root.path().display().to_string()),
+            ] {
+                let index = view.columns.iter().position(|name| name == column).unwrap();
+                assert_eq!(row.cells[index], expected, "{column}, payload={payload_available}");
+            }
+        }
+    }
+}
+
+#[test]
+fn metadata_and_quoted_data_paths_remain_distinct_and_creation_can_be_null() {
+    let fixture = fixture();
+    let spec = QuerySpec::default();
+    let mut page = query_page(&fixture.session, &spec, 0, 10, &CancellationToken::new()).unwrap();
+    page.hits.truncate(1);
+    let hit = &mut page.hits[0];
+    hit.file_created_ns = None;
+    hit.file_path = "percent%file.json".into();
+    hit.payload = Some(Payload::Bytes(br#"{"@file":{"size":"data size"}}"#.to_vec()));
+    let columns: Vec<String> = vec!["@file.size".into(), "[\"@file\"].size".into(), "@file.created".into(), "@file.path".into()];
+    let (view, _, _) = page_view_with_prior(&page, &spec, &[], &[columns[1].clone()], &columns);
+    assert_eq!(&view.rows[0].cells[..4], &[
+        page.hits[0].file_size.to_string(), "data size".into(), "null".into(), "percent%25file.json".into(),
+    ]);
+}
+
+#[test]
+fn metadata_projection_keeps_the_page_values_after_the_source_disappears() {
+    let fixture = fixture();
+    let spec = QuerySpec { filter: "year = 2024".into(), ..Default::default() };
+    let mut page = query_page(&fixture.session, &spec, 0, 10, &CancellationToken::new()).unwrap();
+    let hit = &mut page.hits[0];
+    hit.payload = None;
+    std::fs::remove_file(fixture._root.path().join(&hit.file_path)).unwrap();
+    let expected = hit.file_size.to_string();
+    let columns = vec!["@file.size".into()];
+    let (view, _, _) = page_view_with_prior(&page, &spec, &[], &[], &columns);
+    assert_eq!(view.rows[0].cells[0], expected);
+}
+
+#[test]
 fn detail_marks_matching_fields_from_core_evidence() {
     let fixture = fixture();
     let page = query_page(

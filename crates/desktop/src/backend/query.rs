@@ -1,5 +1,6 @@
 //! Combined full-text and structured requests with bounded page delivery.
 
+use std::path::PathBuf;
 use std::time::Instant;
 
 use objekte_search_core::lifecycle::{IndexRevision, IndexView};
@@ -50,6 +51,8 @@ impl Default for QuerySpec {
 /// One verified viewport page; `count` is exact or absent, never an estimate.
 #[derive(Clone, Debug)]
 pub struct QueryPage {
+    /// Root captured with the result, for metadata projection without source IO.
+    pub repository_root: PathBuf,
     /// The immutable publication used for this page and its continuation.
     pub instance_id: u64,
     pub revision: IndexRevision,
@@ -217,6 +220,7 @@ pub fn query_page_on_view(
                 Some(next)
             };
             Ok(QueryPage {
+                repository_root: session.repository.files().root.clone(),
                 instance_id: view.instance_id(),
                 revision: view.revision(),
                 hits: page,

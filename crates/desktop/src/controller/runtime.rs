@@ -271,6 +271,7 @@ fn spawn_scan_page(
                 Some(next)
             };
             let page = backend::QueryPage {
+                repository_root: scan.root().to_path_buf(),
                 instance_id: 0,
                 revision: IndexRevision::INITIAL,
                 hits: searched.hits,
