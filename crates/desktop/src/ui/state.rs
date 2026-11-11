@@ -207,14 +207,18 @@ impl UiState {
     }
 
     pub fn sidebar_directories(&self) -> &[String] {
-        self.search
-            .collection
-            .as_ref()
-            .map_or(self.directories.as_slice(), |name| {
-                self.directories_by_collection
-                    .get(name)
-                    .map_or(&[], Vec::as_slice)
-            })
+        &self.directories
+    }
+
+    pub fn select_sidebar_directory(&mut self, directory: Option<String>) {
+        if let (Some(collection), Some(path)) = (&self.search.collection, &directory)
+            && !self.directories_by_collection
+                .get(collection)
+                .is_some_and(|paths| paths.iter().any(|candidate| candidate == path))
+        {
+            self.search.collection = None;
+        }
+        self.search.directory = directory;
     }
 
     pub fn preview_visible_for(&self, search: TabId) -> bool {

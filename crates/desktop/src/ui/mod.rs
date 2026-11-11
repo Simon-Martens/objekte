@@ -656,7 +656,7 @@ impl DesktopView {
         } else {
             self.open_query_tab(window, cx);
         }
-        self.state.search.directory = directory;
+        self.state.select_sidebar_directory(directory);
         self.reveal_sidebar_scope(&previous_scope);
         self.search_from_inputs(true, cx);
     }
