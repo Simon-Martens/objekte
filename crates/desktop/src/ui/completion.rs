@@ -383,4 +383,27 @@ mod tests {
         assert!(context("name = 'Ada'", "name = 'Ada'".len()).is_none());
         assert!(context("SORT BY 'x", "SORT BY 'x".len()).is_none());
     }
+
+    #[test]
+    fn metadata_paths_complete_in_filters_and_sorts() {
+        for prefix in ["@record.", "@file.", "@collection."] {
+            for before in ["", "year > 0 && ", "SORT BY "] {
+                let text = format!("{before}{prefix}");
+                let found = context(&text, text.len()).unwrap();
+                assert_eq!(found.prefix, prefix);
+                assert_eq!(
+                    found.target,
+                    CompletionTarget::Field { sort: before == "SORT BY " }
+                );
+                assert_eq!(found.replace, before.len()..text.len());
+            }
+        }
+        let text = "@file.size >= 02GiB";
+        let found = context(text, text.len()).unwrap();
+        assert_eq!(
+            found.target,
+            CompletionTarget::Value { field: "@file.size".into() }
+        );
+        assert_eq!(found.prefix, "02GiB");
+    }
 }
