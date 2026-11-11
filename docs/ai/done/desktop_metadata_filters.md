@@ -33,3 +33,27 @@ Validation on Linux 7.2.15-300.fc45.x86_64 with rustc/cargo 1.99.1:
 No performance benchmark was run: this is a bounded desktop suggestion/condition serialization change with no changes to source scanning, indexes, or query execution. No native GUI interaction or screenshot acceptance was performed; the completion context, shared field provider, builder serialization, and desktop query validation were verified through tests. No outstanding in-scope failures, approved deviations, or issue reports.
 
 Integration worktree retained for review: `/home/simon/source/objekte-integration-desktop-metadata-filters`. No subordinate worktrees need cleanup. Task memory is removed after this report is committed and pushed.
+
+
+## Implementation report: metadata column repair
+
+Task: `desktop-metadata-filters`, reopened after the user reported that metadata columns displayed `Unavailable`. Completion date: 11 November 2026. Repair base: master `64f3cef393e475788629ead883cb77230d1d8d5d`. Existing integration branch/worktree reused: `integration/desktop-metadata-filters`, `/home/simon/source/objekte-integration-desktop-metadata-filters`. This tracked completion document was clean before the repair; the original specification and report remain above.
+
+Repair implementation: `95008a0c5978e6b33e618cb0e9283a955787947b` (pushed).
+
+Cause: `initial_columns` also consumes the shared field-choice provider. Adding metadata suggestions made those fields available as columns, but `project_field` explicitly rejected every non-data path. The earlier validation covered suggestions and builder values without covering metadata table rendering.
+
+The table now projects all 13 canonical metadata fields directly from captured `SearchHit` values, with the repository root captured once per `QueryPage`. Both indexed and initial source-scan page constructors supply the root. Metadata remains visible and independent of the JSON payload. No per-cell filesystem reads are added; a deleted or changed source cannot silently replace the displayed page's captured metadata. Quoted JSON keys that resemble metadata remain data paths. Byte values and status/class codes retain their numeric forms; timestamps use the shared CLI formatter for Unix epoch milliseconds; absent creation times display `null`. The GUI guide documents these representations.
+
+Validation on the same Linux/rustc/cargo environment recorded above:
+
+- A new page-projection regression test reproduced the bug before the implementation: `cargo test --locked -p objekte-desktop metadata_columns_show_captured_values_without_a_json_payload` failed on `@record.id`, showing `Unavailable` instead of the captured ID.
+- `cargo test --locked -p objekte-desktop controller::projection`: passed after the fix (10 projection tests at that point).
+- Four new regression tests cover every metadata column with/without a JSON payload, null creation dates, signed timestamp formatting, escaped paths, quoted data keys, a disappeared source, and the source-scan worker's metadata/root projection.
+- `cargo test --locked --workspace`: passed once on the repaired implementation. Other parallel desktop/workspace attempts failed only the unchanged scheduler test described below; all metadata tests passed.
+- Final `cargo test --locked --workspace -- --test-threads=1`: passed (desktop 167 passed, 1 ignored; core unit tests 503 passed, 15 ignored; CLI unit tests 78 passed; CLI command tests 32 passed, 1 ignored; other integration/documentation tests passed). Desktop package artifacts were cleaned and rebuilt after baseline experiments to ensure this final run used the repaired source tree.
+- Staged diff review and `git diff --check`: passed.
+
+An unrelated intermittent scheduler retirement assertion was reproduced on unmodified master, after a clean desktop package build: 20 isolated runs passed, while the baseline full desktop suite failed on repetition 7. The separate issue [desktop_scheduler_test_retirement_race.md](../issues/bug/desktop_scheduler_test_retirement_race.md) records the evidence and distinguishes the observed test failure from the worker-order hypothesis. No scheduler behavior or existing scheduler test was changed. This remains a baseline validation limitation, outside the metadata repair.
+
+No performance benchmark applies to this bounded desktop formatting repair: it reuses result metadata and adds no query execution, source scanning, source IO, or index work. No dependencies or core interfaces changed. Native GUI interaction was not performed; the exact table page projection and both page-production paths were tested. No in-scope failures remain. One supervising agent performed the repair, with no subordinate branches/worktrees. The integration worktree is retained; temporary repair memory is removed after the report push. The user's preceding master-merge instruction remains the delivery scope for this repair.
