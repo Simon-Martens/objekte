@@ -541,21 +541,18 @@ impl DesktopView {
             .flex_1()
             .min_h_0()
             .gap_1()
-            .px_2()
-            .py_2()
-            .child(
+            .px_2();
+        if mode == SidebarMode::Files {
+            sidebar = sidebar.py_2().child(
                 div()
                     .px_2()
                     .mb_1()
                     .text_xs()
                     .text_color(rgb(colors.secondary))
                     .font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                    .child(if mode == SidebarMode::Collections {
-                        "COLLECTIONS"
-                    } else {
-                        "FILES"
-                    }),
+                    .child("FILES"),
             );
+        }
         if mode == SidebarMode::Collections {
             sidebar = sidebar
                 .track_scroll(&self.sidebar_collections_scroll)
@@ -769,28 +766,63 @@ impl DesktopView {
                     ),
             );
         }
-        sidebar = sidebar.child(
-            div()
-                .px_2()
-                .mt_2()
-                .text_xs()
-                .text_color(rgb(colors.secondary))
-                .child(if mode == SidebarMode::Collections {
-                    match self.state.collections.len() {
-                        1 => "1 collection".to_owned(),
-                        count => format!("{count} collections"),
-                    }
-                } else {
-                    match self.state.sidebar_directories().len() {
+        if mode == SidebarMode::Files {
+            sidebar = sidebar.child(
+                div()
+                    .px_2()
+                    .mt_2()
+                    .text_xs()
+                    .text_color(rgb(colors.secondary))
+                    .child(match self.state.sidebar_directories().len() {
                         1 => "1 folder".to_owned(),
                         count => format!("{count} folders"),
-                    }
-                }),
-        );
+                    }),
+            );
+        }
         let sidebar = if mode == SidebarMode::Collections {
-            sidebar.vertical_scrollbar(&self.sidebar_collections_scroll)
+            div()
+                .flex()
+                .flex_col()
+                .flex_1()
+                .min_h_0()
+                .child(
+                    div()
+                        .px_4()
+                        .pt_2()
+                        .pb_1()
+                        .text_xs()
+                        .text_color(rgb(colors.secondary))
+                        .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                        .child("COLLECTIONS"),
+                )
+                .child(
+                    div()
+                        .flex()
+                        .flex_col()
+                        .flex_1()
+                        .min_h_0()
+                        .child(sidebar)
+                        .child(
+                            div().absolute().inset_0().child(
+                                Scrollbar::vertical(&self.sidebar_collections_scroll)
+                                    .mode(ScrollbarMode::Always)
+                                    .viewport_from_layout(),
+                            ),
+                        ),
+                )
+                .child(
+                    div()
+                        .px_4()
+                        .py_2()
+                        .text_xs()
+                        .text_color(rgb(colors.secondary))
+                        .child(match self.state.collections.len() {
+                            1 => "1 collection".to_owned(),
+                            count => format!("{count} collections"),
+                        }),
+                )
         } else {
-            sidebar
+            div().flex().flex_col().flex_1().min_h_0().child(sidebar)
         };
         let saved_rows = self
             .state
