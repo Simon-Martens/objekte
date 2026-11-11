@@ -603,7 +603,14 @@ impl DesktopView {
                 sidebar_item(
                     "sidebar-all-files".into(),
                     AssetIconName::FolderOpen,
-                    "All files".into(),
+                    if self.state.single_collection {
+                        "All files".to_owned()
+                    } else {
+                        selected.as_ref().map_or_else(
+                            || "All files".to_owned(),
+                            |name| format!("All files in {name}"),
+                        )
+                    },
                     self.state.search.directory.is_none(),
                     false,
                     colors,
@@ -728,7 +735,12 @@ impl DesktopView {
         } else {
             &self.sidebar_files_scroll
         });
-        let saved_rows = self.state.saved.iter().filter(|entry| entry.id.is_some()).count();
+        let saved_rows = self
+            .state
+            .saved
+            .iter()
+            .filter(|entry| entry.id.is_some())
+            .count();
         let history_rows = if self.state.history_expanded {
             self.state.history.len()
         } else {
