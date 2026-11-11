@@ -2,6 +2,218 @@ use super::*;
 use crate::model::{ArrayValue, Number, Value};
 use std::collections::BTreeMap;
 
+fn built_and_trusted_logical(
+    schema: &Schema,
+    bytes: &[u8],
+    projection: &ScanProjection,
+) -> (Value, Value) {
+    use crate::inventory::RecordClass;
+    use crate::repository::Payload;
+    use crate::source::{SourceFormat, SourceRegistry};
+
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    let mut built = source.reader().parse_for_build_outcome(bytes).unwrap();
+    finish_build_record(schema, &mut built).unwrap();
+    let trusted = prepare_query_record(
+        RecordClass::Logical,
+        &source,
+        schema,
+        bytes,
+        projection,
+        true,
+    )
+    .unwrap();
+    let Some(Payload::Logical(logical)) =
+        materialize(&ReturnMode::Logical, Vec::new(), Some(trusted)).unwrap()
+    else {
+        panic!("logical payload");
+    };
+    (built.value, logical)
+}
+
+#[test]
+fn trusted_logical_root_arrays_keep_declared_metadata_without_conversions() {
+    use crate::model::LogicalType;
+    use crate::reference::FieldDefinition;
+
+    for (bytes, nullable) in [
+        (b"[]".as_slice(), false),
+        (b"[null,null]".as_slice(), true),
+        (b"[1,2]".as_slice(), true),
+    ] {
+        let mut schema = Schema::default();
+        schema
+            .register_field(FieldDefinition {
+                path: Vec::new(),
+                kind: LogicalType::Array(Box::new(LogicalType::Number)),
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: true,
+                element_nullable: vec![nullable],
+            })
+            .unwrap();
+        assert!(!schema.has_converted_fields());
+        let (built, trusted) =
+            built_and_trusted_logical(&schema, bytes, &ScanProjection::full(false));
+        assert_eq!(trusted, built);
+        let Value::Array(array) = trusted else {
+            panic!("root array")
+        };
+        assert_eq!(array.element_type, Some(LogicalType::Number));
+        assert_eq!(array.nullable_elements, nullable);
+    }
+
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: Vec::new(),
+            kind: LogicalType::Array(Box::new(LogicalType::Array(Box::new(LogicalType::Number)))),
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: true,
+            element_nullable: vec![false, true],
+        })
+        .unwrap();
+    let (built, trusted) =
+        built_and_trusted_logical(&schema, b"[[],[null],[1,2]]", &ScanProjection::full(false));
+    assert_eq!(trusted, built);
+    let Value::Array(outer) = trusted else {
+        panic!("outer array")
+    };
+    assert_eq!(
+        outer.element_type,
+        Some(LogicalType::Array(Box::new(LogicalType::Number)))
+    );
+    assert!(!outer.nullable_elements);
+    for item in outer.values {
+        let Value::Array(inner) = item else {
+            panic!("inner array")
+        };
+        assert_eq!(inner.element_type, Some(LogicalType::Number));
+        assert!(inner.nullable_elements);
+    }
+}
+
+#[test]
+fn trusted_logical_object_arrays_match_build_and_respect_projection() {
+    use crate::inventory::RecordClass;
+    use crate::model::LogicalType;
+    use crate::reference::FieldDefinition;
+    use crate::source::{SourceFormat, SourceRegistry};
+    use std::collections::HashSet;
+
+    let mut schema = Schema::default();
+    for (path, kind, nullable) in [
+        (
+            vec!["values"],
+            LogicalType::Array(Box::new(LogicalType::Number)),
+            vec![false],
+        ),
+        (
+            vec!["all_null"],
+            LogicalType::Array(Box::new(LogicalType::Number)),
+            vec![true],
+        ),
+        (
+            vec!["populated"],
+            LogicalType::Array(Box::new(LogicalType::Number)),
+            vec![true],
+        ),
+        (
+            vec!["nested"],
+            LogicalType::Array(Box::new(LogicalType::Array(Box::new(LogicalType::Number)))),
+            vec![false, true],
+        ),
+        (
+            vec!["objects"],
+            LogicalType::Array(Box::new(LogicalType::Object)),
+            vec![false],
+        ),
+        (
+            vec!["objects", "tags"],
+            LogicalType::Array(Box::new(LogicalType::String)),
+            vec![true],
+        ),
+    ] {
+        schema
+            .register_field(FieldDefinition {
+                path: path.into_iter().map(str::to_owned).collect(),
+                kind,
+                required: false,
+                nullable: false,
+                indexed: false,
+                multi: true,
+                element_nullable: nullable,
+            })
+            .unwrap();
+    }
+    assert!(!schema.has_converted_fields());
+    let bytes = br#"{"values":[],"all_null":[null,null],"populated":[1,2],"nested":[[],[null],[3]],"objects":[{"tags":[]}],"inferred":[1,null]}"#;
+    let (built, trusted) = built_and_trusted_logical(&schema, bytes, &ScanProjection::full(false));
+    assert_eq!(trusted, built);
+    let Value::Object(fields) = &trusted else {
+        panic!("object")
+    };
+    for name in ["values", "all_null", "populated"] {
+        let Value::Array(array) = &fields[name] else {
+            panic!("number array")
+        };
+        assert_eq!(array.element_type, Some(LogicalType::Number));
+        assert_eq!(array.nullable_elements, name != "values");
+    }
+    let Value::Array(inferred) = &fields["inferred"] else {
+        panic!("inferred array")
+    };
+    assert_eq!(inferred.element_type, Some(LogicalType::Number));
+    assert!(inferred.nullable_elements);
+
+    let selected = HashSet::from([
+        "values".to_owned(),
+        "nested".to_owned(),
+        "inferred".to_owned(),
+    ]);
+    let projection = ScanProjection {
+        top_level: Some(selected.clone()),
+        collect_text: false,
+        resolved_text_only: false,
+    };
+    let (_, projected) = built_and_trusted_logical(&schema, bytes, &projection);
+    let Value::Object(mut expected) = built else {
+        panic!("built object")
+    };
+    expected.retain(|name, _| selected.contains(name));
+    assert_eq!(projected, Value::Object(expected));
+
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    for stale in [
+        br#"{"values":["wrong"]}"#.as_slice(),
+        br#"{"values":null}"#.as_slice(),
+    ] {
+        assert!(
+            prepare_query_record(
+                RecordClass::Logical,
+                &source,
+                &schema,
+                stale,
+                &ScanProjection::full(false),
+                true
+            )
+            .is_ok()
+        );
+        let mut invalid = source
+            .reader()
+            .parse_for_query(stale, &ScanProjection::full(false))
+            .unwrap();
+        assert!(schema.coerce_record(&mut invalid.value).is_err());
+    }
+}
+
 #[test]
 fn recorded_validation_selects_trusted_or_validating_extraction() {
     use crate::inventory::RecordClass;

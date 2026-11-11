@@ -216,8 +216,9 @@ pub struct Schema {
     pub(crate) raw: Option<RegisteredBinding>,
     pub(crate) relations: BTreeMap<Vec<String>, RelationDefinition>,
     converted_fields: bool,
+    indexed_value_fields: bool,
     validation: ValidationNode,
-    conversion_validation: ValidationNode,
+    indexed_value_paths: ValidationNode,
 }
 
 
@@ -302,21 +303,20 @@ impl Schema {
         validate_children(value, &self.validation, &mut Vec::new(), selected_top_level)
     }
 
-    /// Apply conversions already approved by the published index. Search may
-    /// need converted values again after reading bytes, but does not recheck
-    /// the declared schema until an explicit index operation updates it.
+    /// Apply conversions and declared array annotations already approved by
+    /// the published index, without rechecking the declared schema.
     pub(crate) fn convert_indexed_record(
         &self,
         value: &mut Value,
         selected_top_level: Option<&HashSet<String>>,
     ) -> Result<(), String> {
-        if !self.converted_fields {
+        if !self.indexed_value_fields {
             return Ok(());
         }
         if let Some(root) = self.fields.get(&Vec::<String>::new()) {
             convert_declared_indexed(value, &root.kind, &root.element_nullable, 0)?;
         }
-        convert_children_indexed(value, &self.conversion_validation, selected_top_level)
+        convert_children_indexed(value, &self.indexed_value_paths, selected_top_level)
     }
 
     pub fn has_converted_fields(&self) -> bool {
@@ -329,28 +329,30 @@ impl Schema {
         }
         crate::relation::validate_field_against_relations(&field, &self.relations)?;
         let converted = converted_kind(&field.kind);
+        let indexed_value = converted || matches!(field.kind, LogicalType::Array(_));
         self.converted_fields |= converted;
+        self.indexed_value_fields |= indexed_value;
         let mut node = &mut self.validation;
         for part in &field.path {
             node = node.children.entry(part.clone()).or_default();
         }
         node.field = Some(field.clone());
-        if self.converted_fields {
-            self.update_conversion_validation(&field, converted);
+        if self.indexed_value_fields {
+            self.update_indexed_value_paths(&field, indexed_value);
         }
         self.fields.insert(field.path.clone(), field);
         Ok(())
     }
 
-    fn update_conversion_validation(&mut self, field: &FieldDefinition, converted: bool) {
+    fn update_indexed_value_paths(&mut self, field: &FieldDefinition, indexed_value: bool) {
         if field.path.is_empty() {
-            if converted {
-                self.conversion_validation.field = Some(field.clone());
+            if indexed_value {
+                self.indexed_value_paths.field = Some(field.clone());
             }
             return;
         }
-        if converted {
-            let mut node = &mut self.conversion_validation;
+        if indexed_value {
+            let mut node = &mut self.indexed_value_paths;
             for depth in 0..field.path.len() {
                 node = node.children.entry(field.path[depth].clone()).or_default();
                 node.field = if depth + 1 == field.path.len() {
@@ -360,7 +362,7 @@ impl Schema {
                 };
             }
         } else {
-            let mut node = &mut self.conversion_validation;
+            let mut node = &mut self.indexed_value_paths;
             for part in &field.path {
                 let Some(child) = node.children.get_mut(part) else {
                     return;

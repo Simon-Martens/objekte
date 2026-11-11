@@ -190,7 +190,7 @@ fn membership_filter_and_unavailable_truth_match_evidence_evaluation() {
 }
 
 #[test]
-fn incremental_conversion_tree_matches_complete_rebuild_in_any_registration_order() {
+fn incremental_indexed_value_paths_match_complete_rebuild_in_any_registration_order() {
     fn field(path: &[&str], kind: LogicalType, required: bool) -> FieldDefinition {
         FieldDefinition {
             path: path.iter().map(|part| (*part).into()).collect(),
@@ -205,11 +205,9 @@ fn incremental_conversion_tree_matches_complete_rebuild_in_any_registration_orde
 
     fn complete_tree(schema: &Schema) -> ValidationNode {
         let mut root = ValidationNode::default();
-        for field in schema
-            .fields
-            .values()
-            .filter(|field| converted_kind(&field.kind))
-        {
+        for field in schema.fields.values().filter(|field| {
+            converted_kind(&field.kind) || matches!(field.kind, LogicalType::Array(_))
+        }) {
             if field.path.is_empty() {
                 root.field = Some(field.clone());
             }
@@ -235,7 +233,7 @@ fn incremental_conversion_tree_matches_complete_rebuild_in_any_registration_orde
                 assert_eq!(actual.element_nullable, expected.element_nullable);
             }
             (None, None) => {}
-            _ => panic!("conversion validation field differs"),
+            _ => panic!("indexed value field differs"),
         }
         assert_eq!(actual.children.len(), expected.children.len());
         for (name, expected_child) in &expected.children {
@@ -260,16 +258,21 @@ fn incremental_conversion_tree_matches_complete_rebuild_in_any_registration_orde
             LogicalType::Array(Box::new(LogicalType::Date)),
             false,
         ),
+        field(
+            &["other", "tags"],
+            LogicalType::Array(Box::new(LogicalType::String)),
+            false,
+        ),
     ];
     for order in [
         (0..fields.len()).collect::<Vec<_>>(),
         (0..fields.len()).rev().collect(),
-        vec![2, 4, 7, 5, 3, 1, 6, 0],
+        vec![2, 4, 7, 5, 3, 1, 6, 8, 0],
     ] {
         let mut schema = Schema::default();
         for index in order {
             schema.register_field(fields[index].clone()).unwrap();
-            assert_same_nodes(&schema.conversion_validation, &complete_tree(&schema));
+            assert_same_nodes(&schema.indexed_value_paths, &complete_tree(&schema));
         }
     }
 }
