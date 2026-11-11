@@ -553,6 +553,20 @@ pub(crate) fn absolute_path_bounds(
     })
 }
 
+pub(crate) fn empty_path_bounds(bounds: &(Bound<String>, Bound<String>)) -> bool {
+    match (&bounds.0, &bounds.1) {
+        (Bound::Unbounded, _) | (_, Bound::Unbounded) => false,
+        (
+            Bound::Included(lower) | Bound::Excluded(lower),
+            Bound::Included(upper) | Bound::Excluded(upper),
+        ) => {
+            lower > upper
+                || (lower == upper
+                    && !matches!((&bounds.0, &bounds.1), (Bound::Included(_), Bound::Included(_))))
+        }
+    }
+}
+
 
 impl FileInventory {
     /// Approximate heap used by inventory and retained diagnostics, separately.
@@ -735,7 +749,14 @@ impl FileInventory {
 
     pub(crate) fn absolute_path_ids(&self, operator: Operator, literal: &str) -> Option<Vec<FileId>> {
         let bounds = absolute_path_bounds(&self.root, operator, literal)?;
-        Some(self.absolute_paths.range(bounds).map(|(_, id)| *id).collect())
+        Some(self.absolute_path_ids_in_bounds(bounds))
+    }
+
+    pub(crate) fn absolute_path_ids_in_bounds(&self, bounds: (Bound<String>, Bound<String>)) -> Vec<FileId> {
+        if empty_path_bounds(&bounds) {
+            return Vec::new();
+        }
+        self.absolute_paths.range(bounds).map(|(_, id)| *id).collect()
     }
 }
 

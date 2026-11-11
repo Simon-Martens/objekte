@@ -1,11 +1,13 @@
 //! Exact posting restrictions plus one residual scan over surviving records.
 
 use std::collections::{BTreeMap, HashMap};
+use std::ops::Bound;
+use std::path::Path;
 
 use roaring::RoaringBitmap;
 
 use crate::build::IndexedCollectionSegment;
-use crate::inventory::ActiveRecords;
+use crate::inventory::{ActiveRecords, absolute_path_bounds};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{LogicalType, MetadataField, Number, PathRoot, RecordId, Value};
 use crate::posting::ScalarKey;
@@ -88,6 +90,66 @@ fn indexed_file_path_term(term: &BoundTerm) -> Option<(Operator, &str)> {
     };
     matches!(term.operator, Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le)
         .then_some((term.operator, literal.as_str()))
+}
+
+fn stronger_lower(candidate: &Bound<String>, current: &Bound<String>) -> bool {
+    match (candidate, current) {
+        (Bound::Unbounded, _) => false,
+        (_, Bound::Unbounded) => true,
+        (
+            Bound::Included(new) | Bound::Excluded(new),
+            Bound::Included(old) | Bound::Excluded(old),
+        ) => {
+            new > old
+                || (new == old
+                    && matches!(candidate, Bound::Excluded(_))
+                    && matches!(current, Bound::Included(_)))
+        }
+    }
+}
+
+fn stronger_upper(candidate: &Bound<String>, current: &Bound<String>) -> bool {
+    match (candidate, current) {
+        (Bound::Unbounded, _) => false,
+        (_, Bound::Unbounded) => true,
+        (
+            Bound::Included(new) | Bound::Excluded(new),
+            Bound::Included(old) | Bound::Excluded(old),
+        ) => {
+            new < old
+                || (new == old
+                    && matches!(candidate, Bound::Excluded(_))
+                    && matches!(current, Bound::Included(_)))
+        }
+    }
+}
+
+/// Merge direct path comparisons before touching the ordered index. Directory
+/// filters commonly have a broad lower bound and a narrow upper bound.
+fn combined_file_path_bounds(
+    root: &Path,
+    parts: &[&BoundExpr],
+) -> Option<((Bound<String>, Bound<String>), Vec<usize>)> {
+    let mut lower = Bound::Unbounded;
+    let mut upper = Bound::Unbounded;
+    let mut path_parts = Vec::new();
+    for (index, part) in parts.iter().enumerate() {
+        let BoundExpr::Term(term) = part else {
+            continue;
+        };
+        let Some((operator, literal)) = indexed_file_path_term(term) else {
+            continue;
+        };
+        let (next_lower, next_upper) = absolute_path_bounds(root, operator, literal)?;
+        if stronger_lower(&next_lower, &lower) {
+            lower = next_lower;
+        }
+        if stronger_upper(&next_upper, &upper) {
+            upper = next_upper;
+        }
+        path_parts.push(index);
+    }
+    (path_parts.len() >= 2).then_some(((lower, upper), path_parts))
 }
 
 /// Conservative local bigram candidates for a lifecycle segment. `None`
@@ -668,9 +730,30 @@ fn segment_expr_bounds(
             }
         }
         BoundExpr::And(parts) => {
+            let mut flattened = Vec::new();
+            for part in parts {
+                flatten_and(part, &mut flattened);
+            }
+            let path_range = catalog.and_then(|catalog| {
+                combined_file_path_bounds(catalog.root(), &flattened)
+            });
             let mut may = domain.clone();
             let mut must = domain.clone();
-            for part in parts {
+            if let (Some(catalog), Some((bounds, _))) = (catalog, &path_range) {
+                let mut matches = RoaringBitmap::new();
+                for file in catalog.absolute_path_ids_in_bounds(bounds.clone()) {
+                    if let Some(slots) = segment.file_records(file) {
+                        matches.extend(slots.iter().map(|slot| slot.0));
+                    }
+                }
+                matches &= domain;
+                may &= &matches;
+                must &= matches;
+            }
+            for (index, part) in flattened.into_iter().enumerate() {
+                if path_range.as_ref().is_some_and(|(_, indices)| indices.contains(&index)) {
+                    continue;
+                }
                 let child =
                     segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active, catalog);
                 may &= child.may;
@@ -1095,6 +1178,7 @@ fn term_set(
     collection: &CollectionState,
     term: &BoundTerm,
     domain: &RoaringBitmap,
+    input: &RoaringBitmap,
 ) -> Result<Option<RoaringBitmap>, String> {
     if term.related.is_some() {
         return Ok(None);
@@ -1137,6 +1221,28 @@ fn term_set(
         }
         if let Some((operator, literal)) = indexed_file_path_term(term) {
             let mut result = RoaringBitmap::new();
+            if input.len() <= 4096 {
+                let mut matched_files = HashMap::new();
+                for slot in input.iter() {
+                    let file_id = collection.generation.records[slot as usize].file;
+                    let matches = *matched_files.entry(file_id).or_insert_with(|| {
+                        let file = &repo.files.files[file_id.0 as usize];
+                        let path = crate::path_repr::query_path(&file.relative_path);
+                        match operator {
+                            Operator::Eq => path == literal,
+                            Operator::Gt => path.as_str() > literal,
+                            Operator::Ge => path.as_str() >= literal,
+                            Operator::Lt => path.as_str() < literal,
+                            Operator::Le => path.as_str() <= literal,
+                            _ => unreachable!("indexed path comparison"),
+                        }
+                    });
+                    if matches {
+                        result.insert(slot);
+                    }
+                }
+                return Ok(Some(result));
+            }
             if let Some(files) = repo.files.absolute_path_ids(operator, literal) {
                 for file in files {
                     if let Some(slots) = collection.generation.file_records.records_for(file) {
@@ -1491,7 +1597,7 @@ fn execute_path(
 ) -> Result<Option<RoaringBitmap>, String> {
     Ok(match kind {
         AccessPathKind::Metadata | AccessPathKind::FilePathIndex => {
-            term_set(repo, collection, term, domain)?.map(|set| &set & input)
+            term_set(repo, collection, term, domain, input)?.map(|set| &set & input)
         }
         AccessPathKind::Posting => {
             // Coverage describes every indexed logical slot, including retired
@@ -2102,6 +2208,15 @@ fn plan_logical_expr(
                 flatten_and(part, &mut remaining);
             }
             let mut current = input.clone();
+            if let Some((bounds, _)) = combined_file_path_bounds(&repo.files.root, &remaining) {
+                let mut matches = RoaringBitmap::new();
+                for file in repo.files.absolute_path_ids_in_bounds(bounds) {
+                    if let Some(slots) = collection.generation.file_records.records_for(file) {
+                        matches.extend(slots.iter().map(|slot| slot.0));
+                    }
+                }
+                current &= matches;
+            }
             let mut exact = true;
             let mut proofs = Vec::new();
             let mut choices = Vec::new();

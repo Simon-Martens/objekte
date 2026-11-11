@@ -2398,6 +2398,11 @@ fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
     assert!(trace[0].terms.iter().any(|term| {
         term.selected.kind == crate::executor::AccessPathKind::FilePathIndex
     }));
+    let empty_path_range = repo.search(&query(
+        "@file.path >= 'data/valid' && @file.path < 'data/valid'",
+        ReturnMode::Locator,
+    )).unwrap();
+    assert_eq!(empty_path_range.count, Some(0));
     assert!(
         matches!(&encoding.hits[0].payload, Some(Payload::Bytes(bytes)) if bytes == b"{\"title\":\"\xff\"}")
     );

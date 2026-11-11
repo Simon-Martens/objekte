@@ -12,7 +12,7 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::inventory::{FileEntry, FileStatus, absolute_path_bounds, absolute_path_key};
+use crate::inventory::{FileEntry, FileStatus, absolute_path_bounds, absolute_path_key, empty_path_bounds};
 use crate::lifecycle_scan::FileStamp;
 use crate::model::FileId;
 use crate::query::Operator;
@@ -57,6 +57,10 @@ fn valid_relative_path(path: &Path) -> bool {
 }
 
 impl FileCatalog {
+    pub(crate) fn root(&self) -> &Path {
+        &self.base.files().root
+    }
+
     fn configuration_for(base: &Repository) -> Result<[u8; 32], String> {
         let definitions = base
             .collections()
@@ -247,6 +251,14 @@ impl FileCatalog {
     pub(crate) fn absolute_path_ids(&self, operator: Operator, literal: &str) -> Option<Vec<FileId>> {
         let root = &self.base.files().root;
         let bounds = absolute_path_bounds(root, operator, literal)?;
+        Some(self.absolute_path_ids_in_bounds(bounds))
+    }
+
+    pub(crate) fn absolute_path_ids_in_bounds(&self, bounds: (std::ops::Bound<String>, std::ops::Bound<String>)) -> Vec<FileId> {
+        if empty_path_bounds(&bounds) {
+            return Vec::new();
+        }
+        let root = &self.base.files().root;
         let mut ids = Vec::new();
         for (_, id) in self.base.files().absolute_paths.range(bounds.clone()) {
             if self.entry(*id).is_some_and(|entry| {
@@ -261,7 +273,7 @@ impl FileCatalog {
                 ids.push(*id);
             }
         }
-        Some(ids)
+        ids
     }
 
     /// Materialize the active metadata baseline only for a full filesystem

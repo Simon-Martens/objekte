@@ -449,6 +449,13 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
             .unwrap();
         assert_eq!(ranged.count, Some(2));
         assert!(ranged.hits.iter().all(|hit| hit.file_path == std::path::Path::new("data/z-moved.jsonl")));
+        let empty_range = view
+            .search(&query(
+                Some("@file.path >= 'data/z-moved' && @file.path < 'data/z-moved'"),
+                ReturnMode::Locator,
+            ))
+            .unwrap();
+        assert_eq!(empty_range.count, Some(0));
         assert!(
             filtered
                 .hits
