@@ -74,6 +74,18 @@ impl ScalarWalker<'_> {
     }
 
     fn quoted(&mut self) -> Result<String, String> {
+        if !self.validate {
+            // Decode only this required string token. The stream offset avoids
+            // rescanning escapes and never validates the rest of the record.
+            let mut values =
+                serde_json::Deserializer::from_slice(&self.bytes[self.pos..]).into_iter::<String>();
+            let value = values
+                .next()
+                .ok_or("expected JSON string")?
+                .map_err(|error| error.to_string())?;
+            self.pos += values.byte_offset();
+            return Ok(value);
+        }
         let start = self.quote_end()?;
         serde_json::from_slice(&self.bytes[start..self.pos]).map_err(|error| error.to_string())
     }

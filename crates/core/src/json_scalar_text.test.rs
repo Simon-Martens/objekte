@@ -171,6 +171,16 @@ fn trusted_projection_does_not_validate_omitted_content_or_trailing_bytes() {
         )])),
     );
     assert!(text.is_empty());
+    let escaped = br#"{"wanted":"a\n\"b","ignored":!} trailing"#;
+    assert!(extract_query_record(escaped, &projection, false).is_err());
+    let (value, _) = extract_query_record(escaped, &projection, true).unwrap();
+    assert_eq!(
+        value,
+        Value::Object(BTreeMap::from([(
+            "wanted".into(),
+            Value::String("a\n\"b".into()),
+        )])),
+    );
     assert!(extract_query_record(br#"{"wanted":5,"ignored":[1,2}"#, &projection, true).is_err());
     let full_text = ScanProjection::full(true);
     assert!(extract_query_record(br#"{"title":"found"} stale"#, &full_text, false).is_err());
