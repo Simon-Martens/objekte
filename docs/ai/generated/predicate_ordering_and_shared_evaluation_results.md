@@ -1,0 +1,50 @@
+# Predicate ordering and shared residual evaluation results
+
+Task: `predicate-ordering-and-shared-evaluation` · completed 12 November 2026. Predecessor: unified-planner master commit `a68cb0c67b68987251d35f528ccbbe3445509ea1`. The implemented code is in `5b86f4994e0c` (Boolean ordering), `1decacde5fce` (shared evaluation), and `49e82e881c5d` (nonsharing cache-cleanup correction). `ba418374641a` adds the result-digest audit to the existing Musenalm harness. All four commits were pushed to `origin/master`; independent desktop commits that arrived during this task were fast-forwarded or merged without changing the benchmarked core.
+
+## Implemented policy
+
+The common planner now chooses an eligible AND access by estimated lookup plus the remaining work on its estimated survivors, then recomputes choices after a real restriction changes the domain. It keeps exactness as a proof rather than a fixed priority. The OR choice discounts bounded definite matches, executes later branches on the domain not yet proved, and keeps approximate candidates possible until verification. Stable tie-breaking and opaque-operation barriers preserve short-circuit and extension behavior. Evidence-bearing OR still evaluates branches needed for complete evidence.
+
+The evaluator detects repeated built-in case-fold bindings in pending local residuals. A record-scoped cache keys the immutable logical string occurrence within the current record and retains at most 64 folded values and 256 KiB of scratch across records. Distinct array elements never share an entry. One direct borrowed scalar visitor can also apply compatible FTS and FILTER matchers to one decoded segment and fold it once. The existing combined source read and parse remains the shared preparation for other local residuals. The cache is disabled for nonsharing queries; no persistent document cache, query-time index, new worker, or branch-parallel execution was added.
+
+| Representative decision | Predecessor | Final | Result/work evidence |
+| --- | --- | --- | --- |
+| Broad exact `kind = hot` AND selective candidate `body ~ needle`, either textual order | `body` then `kind` | `body` then `kind` | One hit; 11 candidates, opens and parses; 984 source bytes; 11 residual checks. The predecessor already made the useful choice. |
+| Broad exact OR plus source residual, evidence off | `kind` then `body` | `kind` then `body` | 951 matches; only one unproved record opened, parsed and verified. With evidence on, all 951 contributing records remain visited. The predecessor already had proven-match exclusion. |
+| Overlapping residual OR | Two `body` branches | Same | Two deduplicated matches; 12 opens/parses and 22 residual checks in each revision. |
+| Q167 relation conjunction | `year` then `entry.year` | `entry.year` then `year` | Identical 95,153 candidates, results and source work; ASCII cache-off median 19.30 → 19.50 ms in the full suite. The relation operation remains an order barrier. |
+| Repeated `body:lower` residuals | Two folds of each matching string | One fold and one reuse | Test-only counters over two records measured two transforms and two reuses, instead of four independent folds. The direct borrowed FTS+FILTER test measured one fold for a shared Unicode scalar. |
+
+## Correctness and validation
+
+`cargo test --workspace --locked` passed after the final core fix: 506 core unit tests, 168 desktop tests, and all other workspace unit, integration and doc tests. The added cases compare reference results and work for selective AND, broad OR with evidence on/off, shared source preparation, separate array values, and one-fold borrowed FTS+FILTER. Existing nested Boolean, incomplete coverage, relation, snapshot, lifecycle, extension, Unicode, malformed-source, cancellation, output, streaming and pagination tests passed. `cargo clippy --workspace --all-targets --locked` passed with existing warnings; `git diff --check` and rustfmt checks of the modified standalone examples/tests passed. Repository-wide `cargo fmt --all -- --check` still reports pre-existing formatting differences across many files, including untouched CLI and example support files, so the workspace was not reformatted.
+
+The unchanged extended Musenalm workload passed all **194 queries × four profiles = 776 rows**, each with three timed repetitions, against the exact predecessor and final binaries. Every row has the same status, total match count, returned count, candidates, file opens, bytes, parses, exact posting matches, scanned records, residual evaluations, and prepared/verified cache hits. The same corpus, schema and parsed 194 query options were used. A separate one-repetition baseline audit built the final harness against the predecessor engine: **all 194 ordered-result digests equal the final three-repetition run**. The digests include the complete ordered hit objects, payloads and evidence. The audit's manifest-only workload fingerprint differs because that fingerprint includes the checkout path; the extended manifest bytes and parsed query JSON are identical. Q115–118 and Q120 remain at zero source opens, bytes and parses in all four profiles.
+
+The comparison ran on Linux 7.2.13, AMD Ryzen 7 5700G (16 logical CPUs), rustc 1.99.1, four query workers, the same absolute Musenalm corpus, ASCII and Unicode indexes, and verified-result cache off or 64 MiB warm. Source and decoded caches remained off; the prepared-plan cache was 16 MiB in both runs. The focused deterministic 1,000-record fixture has SHA-256 `71b9428e78bb6a5827d809a9106e828ca7b1e109263b6ab8febd87160cc3fcf5`. Its runs disable verified-result caching, use four workers, warm each query once, and take 21 timed samples in baseline/final/final/baseline order. Each sample checks complete hits and count against the reference evaluator.
+
+| Focused case | Baseline medians, ms | Final medians, ms | Baseline / final sample span, ms | Opens / parses / residuals in both |
+| --- | ---: | ---: | ---: | ---: |
+| Selective AND | 0.063 / 0.095 | 0.062 / 0.085 | 0.057–0.141 / 0.055–0.588 | 11 / 11 / 11 |
+| Reversed AND | 0.062 / 0.091 | 0.073 / 0.099 | 0.054–0.125 / 0.060–0.130 | 11 / 11 / 11 |
+| Broad exact OR | 0.488 / 1.356 | 0.608 / 0.640 | 0.481–3.381 / 0.499–3.737 | 1 / 1 / 1 |
+| Costly exact OR alternative | 1.460 / 2.004 | 2.540 / 1.881 | 1.375–2.623 / 1.779–5.409 | 1 / 1 / 1 |
+| Broad OR with evidence | 5.791 / 2.302 | 3.340 / 2.353 | 2.213–11.966 / 2.228–5.313 | 951 / 951 / 951 |
+| Overlapping residual OR | 0.077 / 0.074 | 0.077 / 0.078 | 0.068–0.090 / 0.069–0.115 | 12 / 12 / 22 |
+| Repeated case fold | 0.063 / 0.065 | 0.076 / 0.074 | 0.060–0.104 / 0.072–0.093 | 10 / 10 / 20 |
+| Index-only control | 0.467 / 0.455 | 0.503 / 0.493 | 0.435–0.635 / 0.465–0.751 | 0 / 0 / 0 |
+
+The focused JSONL also records candidate counts, source bytes and the last timed sample's planning counter. The full-suite CSV records median planning and preparation times independently. Build time changed 2.588 → 2.576 s (ASCII) and 2.567 → 2.651 s (Unicode); peak RSS changed +0.67% and +1.23%. Estimated index bytes and snapshot bytes are identical in both revisions. No repeatable planning increase exceeded 0.5 ms; the 5% retained-memory/build threshold was not crossed.
+
+## Regression investigation
+
+An initial implementation cleared the thread-local folded-value cache after **every** record, even when a query never enabled sharing. This was an implementation error on FTS-only and relation paths. Commit `49e82e881c5d` moves cleanup to the end of an active sharing scope, removing that work from nonsharing records. The old preliminary full-suite and recheck artifacts are retained as diagnostic history; their timing flags also varied under machine load, so no specific old timing delta is attributed solely to the cleanup error.
+
+The corrected three-sample full suite initially flagged 83 cache-off rows above both 5% and 0.5 ms, and zero warm-cache rows. Alternating seven-sample runs of the 58 distinct cases left 13 rows above both thresholds in both pairs. Alternating 21-sample runs of those 11 distinct cases left only Q012 ASCII cache-off, by 0.8–1.0 ms. A final isolated, reversed-order 21-sample check measured Q012 at 14.42/14.82 ms baseline and 14.60/14.68 ms final, with identical 1,317 source opens/parses; it did not reproduce the threshold. Other recheck outliers likewise reversed or fell below threshold. The shared desktop's CPU and OS-cache variation, visible in large sample spans and unchanged work, is the supported explanation for the remaining timing flags. There is no unresolved repeatable implementation-caused regression in the acceptance set.
+
+## Reproduction and remaining limits
+
+`bench/generate_predicate_fixture.py <fixture-root>` generates the focused corpus; `cargo run -p objekte-search-core --release --locked --example bench_predicate_optimization -- <fixture-root> 21` runs its reference-checked cases. The full command was `bench_musenalm --root /home/simon/source/objekte/examples/musenalm --extended --profiles ascii-off,ascii-warm,unicode-off,unicode-warm --repetitions 3 --query-workers 4 --verified-cache-bytes 67108864 --result-dir <output>`. Raw manifests, query plans, measurements, focused JSONL, audit digests and recheck CSVs are under [the benchmark results](../../../bench/results/predicate-ordering-shared-evaluation/overnight-2026-11-11/README.md).
+
+The full Musenalm suite is a full-generation workload; incremental and partial-coverage behavior is exercised by tests rather than a matched timing corpus. The direct borrowed segment pairing applies to eligible built-in FTS plus one local FILTER; other multiple local residuals share an already-required logical value and source preparation. Opaque extension matchers and relation-target preparation retain their established paths. The harness has no per-query allocation counter, so no allocation reduction is claimed. Very short strings in the focused fold case show a small sub-0.5-ms cache overhead despite halving transformations; larger transformation savings depend on the query and string length.

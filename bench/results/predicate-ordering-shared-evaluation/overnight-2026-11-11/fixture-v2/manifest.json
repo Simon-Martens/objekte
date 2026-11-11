@@ -1,0 +1,5 @@
+{
+  "records": 1000,
+  "sha256": "71b9428e78bb6a5827d809a9106e828ca7b1e109263b6ab8febd87160cc3fcf5",
+  "generator": "bench/generate_predicate_fixture.py"
+}
