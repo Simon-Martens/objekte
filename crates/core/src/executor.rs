@@ -1792,7 +1792,12 @@ fn choose_or_next(
         .enumerate()
         .map(|(index, part)| {
             let (work, definite) = estimate_definite(collection, part, input_len, context);
-            (index, work / definite.max(1) as f64)
+            // A definite-match discount is bounded by one branch's own work.
+            // Candidate residuals are verified after Boolean composition, so
+            // a costly fixed dictionary walk cannot be justified solely by
+            // its broad match count.
+            let proved_fraction = definite.min(input_len) as f64 / input_len.max(1) as f64;
+            (index, work / (1.0 + proved_fraction))
         })
         .min_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)))
         .map(|(index, _)| index)

@@ -209,6 +209,37 @@ fn bound_contains_reuses_prepared_pattern_across_scalar_and_array_values() {
 }
 
 #[test]
+fn shared_fold_reuses_one_logical_occurrence_and_resets_at_record_boundary() {
+    let bound = bind_filter(
+        &parse_filter("name:lower ~ 'stra' && name:lower ~ 'sse'").unwrap(),
+        &schema(),
+    )
+    .unwrap();
+    let before = fold_value_cache_stats();
+    for _ in 0..2 {
+        let value = Value::from_json(serde_json::json!({"name":"Straße"})).unwrap();
+        with_record(value, |ctx| {
+            let _guard = FoldRecordGuard::new_with_sharing(true);
+            assert!(eval_filter(&bound, &ctx, &mut HashSet::new()).unwrap());
+        });
+    }
+    let after = fold_value_cache_stats();
+    assert_eq!(after.0 - before.0, 2);
+    assert_eq!(after.1 - before.1, 2);
+
+    let independent = bind_filter(
+        &parse_filter("values:lower ?~ 'stra' && values:lower ?~ 'masse'").unwrap(),
+        &schema(),
+    )
+    .unwrap();
+    let value = Value::from_json(serde_json::json!({"values":["Straße","Masse"]})).unwrap();
+    with_record(value, |ctx| {
+        let _guard = FoldRecordGuard::new_with_sharing(true);
+        assert!(eval_filter(&independent, &ctx, &mut HashSet::new()).unwrap());
+    });
+}
+
+#[test]
 fn membership_filter_and_unavailable_truth_match_evidence_evaluation() {
     let value = Value::from_json(serde_json::json!({
         "name": "Ada", "values": ["x", "y"], "people": [{"name": "Bob"}]

@@ -33,7 +33,7 @@ use crate::record_preparation::{
 };
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, FoldRecordGuard, RecordContext,
-    eval_bound_fts, eval_term, eval_unavailable_filter, same_bound_term,
+    Transform, eval_bound_fts, eval_term, eval_unavailable_filter, same_bound_term,
 };
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
 use crate::sort_binding::{
@@ -735,6 +735,62 @@ fn prepare_residual<'a>(
     }
 }
 
+type FoldKey<'a> = (&'a [String], &'a str, u32);
+
+fn fold_key(term: &BoundTerm) -> Option<FoldKey<'_>> {
+    (term.path.root == PathRoot::Data
+        && term.transform == Transform::CaseFold
+        && term.rhs.is_none()
+        && term.related.is_none()
+        && term.operation.is_none()
+        && term.matcher.is_none()
+        && term.derived == Derived::None)
+        .then_some((
+            &term.path.segments,
+            term.binding_name.as_str(),
+            term.binding_version,
+        ))
+}
+
+fn repeated_fold_key<'a>(term: &'a BoundTerm, seen: &mut SmallVec<[FoldKey<'a>; 8]>) -> bool {
+    let Some(key) = fold_key(term) else {
+        return false;
+    };
+    if seen.contains(&key) {
+        return true;
+    }
+    seen.push(key);
+    false
+}
+
+fn shared_fold_residual(residual: Option<&Residual<'_>>) -> bool {
+    fn visit<'a>(node: &'a Residual<'a>, seen: &mut SmallVec<[FoldKey<'a>; 8]>) -> bool {
+        match node {
+            Residual::Term(term, _) => repeated_fold_key(term, seen),
+            Residual::And(parts) | Residual::Or(parts) => {
+                parts.iter().any(|part| visit(part, seen))
+            }
+            Residual::Not(inner) => visit(inner, seen),
+        }
+    }
+    let mut seen = SmallVec::new();
+    residual.is_some_and(|node| visit(node, &mut seen))
+}
+
+fn shared_fold_bound(filter: Option<&BoundExpr>) -> bool {
+    fn visit<'a>(node: &'a BoundExpr, seen: &mut SmallVec<[FoldKey<'a>; 8]>) -> bool {
+        match node {
+            BoundExpr::Term(term) => repeated_fold_key(term, seen),
+            BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+                parts.iter().any(|part| visit(part, seen))
+            }
+            BoundExpr::Not(inner) => visit(inner, seen),
+        }
+    }
+    let mut seen = SmallVec::new();
+    filter.is_some_and(|node| visit(node, &mut seen))
+}
+
 
 impl Residual<'_> {
     fn unavailable(
@@ -1056,6 +1112,7 @@ fn scan_file(
     // These built-in readers search the converted logical strings. Keep the
     // value, but avoid producing a second owned copy of every string and path.
     let borrowed_value_text = borrowed_value_text(collection, fts);
+    let share_fold = shared_fold_residual(residual);
     let full_projection = ScanProjection::full(projection.collect_text);
     let mut cursor = 0;
     while cursor < ranges.len() {
@@ -1123,7 +1180,7 @@ fn scan_file(
         };
         outcome.bytes_read += bytes_read;
         for (slot, bytes) in records {
-            let _fold_record = FoldRecordGuard::new();
+            let _fold_record = FoldRecordGuard::new_with_sharing(share_fold);
             if let Some(execution) = execution {
                 execution.check_string()?;
             }
@@ -3039,7 +3096,7 @@ fn verify_local_segment_record(
     retain_evidence: bool,
     execution: Option<&ExecutionContext>,
 ) -> Result<(ExtractedRecord, bool, HashSet<String>, bool), String> {
-    let _fold_record = FoldRecordGuard::new();
+    let _fold_record = FoldRecordGuard::new_with_sharing(shared_fold_bound(filter));
     if record.class == RecordClass::Logical
         && let Some(direct) = direct_plan
     {
@@ -5235,7 +5292,7 @@ fn scan_relation_file_parallel(
     job: &RelationFileJob,
     view: crate::relation_query::MergedRelationView<'_>,
 ) -> Result<RelationFileScan, String> {
-    let _fold_record = FoldRecordGuard::new();
+    let _fold_record = FoldRecordGuard::new_with_sharing(shared_fold_bound(filter));
     let mut scan = RelationFileScan {
         counters: WorkCounters::default(),
         primary_opened: false,
@@ -5772,7 +5829,7 @@ fn search_segmented_relations(
                            bytes: Vec<u8>,
                            opened_source: bool|
          -> Result<(), String> {
-            let _fold_record = FoldRecordGuard::new();
+            let _fold_record = FoldRecordGuard::new_with_sharing(shared_fold_bound(filter.as_ref()));
             if let Some(context) = context {
                 context.check_string()?;
                 context.charge_bytes(bytes.len() as u64)?;

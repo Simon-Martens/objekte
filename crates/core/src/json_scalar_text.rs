@@ -11,7 +11,7 @@ use crate::model::{ArrayValue, Number, Value};
 use crate::query::Quantifier;
 use crate::reference::{
     BoundFts, BoundTerm, fts_field_selects_path, match_borrowed_source_filter,
-    match_borrowed_source_segment,
+    match_borrowed_source_pair, match_borrowed_source_segment,
 };
 use crate::source::{ScanProjection, TextSegment};
 
@@ -778,7 +778,16 @@ impl<'a> ScalarWalker<'a> {
                     ..Default::default()
                 };
                 let (end, ()) = with_next_quoted_text(self.bytes, self.pos, decoded, |text| {
-                    if let Some(fts) = fts_here {
+                    if let (Some(fts), true) = (fts_here, selected_filter) {
+                        (event.fts_hit, event.filter_hit) = match_borrowed_source_pair(
+                            fts,
+                            path,
+                            text,
+                            query.filter.expect("selected filter"),
+                            &mut event.evidence,
+                            query.retain_evidence,
+                        )?;
+                    } else if let Some(fts) = fts_here {
                         event.fts_hit = match_borrowed_source_segment(
                             fts,
                             path,
@@ -786,8 +795,7 @@ impl<'a> ScalarWalker<'a> {
                             &mut event.evidence,
                             query.retain_evidence,
                         )?;
-                    }
-                    if selected_filter {
+                    } else if selected_filter {
                         event.filter_hit = match_borrowed_source_filter(
                             query.filter.expect("selected filter"),
                             text,

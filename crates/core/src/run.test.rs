@@ -3362,6 +3362,13 @@ fn selective_candidate_and_broad_exact_or_share_the_restricted_domain() {
         assert!(actual.counters.files_opened <= 2, "{filter}");
         assert!(actual.counters.residual_evaluations <= 2, "{filter}");
     }
+    let shared = make("body:lower ~ 'need' && body:lower ~ 'dle'", false);
+    let actual = repo.search(&shared).unwrap();
+    let reference = repo.search_reference(&shared).unwrap();
+    assert_eq!(actual.hits, reference.hits);
+    assert_eq!(actual.count, Some(2));
+    assert!(actual.counters.files_opened <= 2);
+    assert_eq!(actual.counters.record_parses, actual.counters.files_opened);
     for evidence in [false, true] {
         let request = make("body ~ 'needle' || kind = 'hot'", evidence);
         let (actual, trace) = repo.explain_analyze(&request).unwrap();

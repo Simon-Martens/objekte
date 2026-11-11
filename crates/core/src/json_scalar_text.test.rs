@@ -3,6 +3,37 @@ use crate::model::FieldPath;
 use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, parse_filter};
 use crate::reference::{BoundExpr, Schema, bind_filter, bind_fts};
 
+#[test]
+fn combined_borrowed_fts_and_filter_fold_each_segment_once() {
+    let schema = Schema::default();
+    let fts = bind_fts(
+        &FtsQuery {
+            case_sensitivity: CaseSensitivity::Insensitive,
+            mode: FtsMode::Literal,
+            literal: "STRASSE".into(),
+            pattern_parameter: None,
+            fields: Vec::new(),
+        },
+        &schema,
+    )
+    .unwrap();
+    let filter = bind_filter(&parse_filter("name:lower ~ 'stra'").unwrap(), &schema).unwrap();
+    let BoundExpr::Term(term) = &filter else {
+        panic!("one term")
+    };
+    let query = BorrowedScanQuery {
+        fts: Some(&fts),
+        filter: Some(term),
+        decoded_scalars: false,
+        retain_evidence: true,
+    };
+    let before = crate::reference::fold_candidate_transforms();
+    let result = scan_borrowed_segments_worker(r#"{"name":"Straße"}"#.as_bytes(), &query).unwrap();
+    assert!(result.fts_match);
+    assert!(result.filter_match);
+    assert_eq!(crate::reference::fold_candidate_transforms() - before, 1);
+}
+
 fn borrowed_scan(
     bytes: &[u8],
     literal: Option<&str>,

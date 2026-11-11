@@ -935,35 +935,79 @@ impl PreparedFilterMatcher for MappedFilterMatcher {
 
 
 const MAX_FOLD_SCRATCH_CAPACITY: usize = 256 * 1024;
+const MAX_SHARED_FOLDS: usize = 64;
+
+#[derive(Default)]
+struct FoldValueCache {
+    entries: Vec<FoldValueEntry>,
+    active: usize,
+    record_token: Option<(usize, usize)>,
+}
+
+struct FoldValueEntry {
+    source_ptr: usize,
+    source_len: usize,
+    folded: String,
+}
 
 thread_local! {
     static FOLD_SCRATCH: RefCell<String> = const { RefCell::new(String::new()) };
     static FOLD_RECORD_DEPTH: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static FOLD_SHARE_DEPTH: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static FOLD_VALUE_CACHE: RefCell<FoldValueCache> = RefCell::new(FoldValueCache::default());
     #[cfg(test)]
     static FOLD_GROWS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    #[cfg(test)]
+    static FOLD_CANDIDATE_TRANSFORMS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    #[cfg(test)]
+    static FOLD_VALUE_TRANSFORMS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    #[cfg(test)]
+    static FOLD_VALUE_REUSES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
 
 /// Keep exceptional folding capacity until all segments of one record have
 /// consumed it. Unwrapped callers retain the previous per-segment bound.
-pub(crate) struct FoldRecordGuard;
+pub(crate) struct FoldRecordGuard {
+    sharing: bool,
+}
 
 
 impl FoldRecordGuard {
     pub(crate) fn new() -> Self {
+        Self::new_with_sharing(false)
+    }
+
+    pub(crate) fn new_with_sharing(sharing: bool) -> Self {
         FOLD_RECORD_DEPTH.with(|depth| depth.set(depth.get() + 1));
-        Self
+        if sharing {
+            FOLD_SHARE_DEPTH.with(|depth| depth.set(depth.get() + 1));
+        }
+        Self { sharing }
     }
 }
 
 
 impl Drop for FoldRecordGuard {
     fn drop(&mut self) {
+        if self.sharing {
+            FOLD_SHARE_DEPTH.with(|depth| depth.set(depth.get() - 1));
+        }
         FOLD_RECORD_DEPTH.with(|depth| {
             let remaining = depth.get() - 1;
             depth.set(remaining);
             if remaining == 0 {
                 trim_fold_scratch();
+                FOLD_VALUE_CACHE.with(|cache| {
+                    let mut cache = cache.borrow_mut();
+                    cache.active = 0;
+                    cache.record_token = None;
+                    let mut retained = 0usize;
+                    cache.entries.retain(|entry| {
+                        retained = retained.saturating_add(entry.folded.capacity());
+                        retained <= MAX_FOLD_SCRATCH_CAPACITY
+                    });
+                });
             }
         });
     }
@@ -995,6 +1039,8 @@ fn with_folded_candidate_str<R>(text: &str, inspect: impl FnOnce(&str) -> R) -> 
         let old_capacity = buffer.capacity();
         fold_into(text, &mut buffer);
         #[cfg(test)]
+        FOLD_CANDIDATE_TRANSFORMS.with(|count| count.set(count.get() + 1));
+        #[cfg(test)]
         if buffer.capacity() > old_capacity {
             FOLD_GROWS.with(|count| count.set(count.get() + 1));
         }
@@ -1010,6 +1056,68 @@ fn with_folded_candidate_str<R>(text: &str, inspect: impl FnOnce(&str) -> R) -> 
 
 fn with_folded_candidate<R>(text: &str, inspect: impl FnOnce(&[u8]) -> R) -> R {
     with_folded_candidate_str(text, |folded| inspect(folded.as_bytes()))
+}
+
+/// Borrow one record's immutable logical string by occurrence identity. The
+/// guard clears active keys before the next revision can reuse an address;
+/// raw streaming buffers never enter this cache.
+fn with_folded_value_str<R>(
+    record_token: (usize, usize),
+    text: &str,
+    inspect: impl FnOnce(&str) -> R,
+) -> R {
+    if !FOLD_SHARE_DEPTH.with(|depth| depth.get() > 0) || text.len() > MAX_FOLD_SCRATCH_CAPACITY / 4 {
+        return with_folded_candidate_str(text, inspect);
+    }
+    FOLD_VALUE_CACHE.with(|cache| {
+        let mut cache = cache.borrow_mut();
+        if cache.record_token != Some(record_token) {
+            cache.active = 0;
+            cache.record_token = Some(record_token);
+        }
+        let source_ptr = text.as_ptr() as usize;
+        let source_len = text.len();
+        if let Some(entry) = cache.entries[..cache.active]
+            .iter()
+            .find(|entry| entry.source_ptr == source_ptr && entry.source_len == source_len)
+        {
+            #[cfg(test)]
+            FOLD_VALUE_REUSES.with(|count| count.set(count.get() + 1));
+            return inspect(&entry.folded);
+        }
+        if cache.active == MAX_SHARED_FOLDS {
+            return with_folded_candidate_str(text, inspect);
+        }
+        let index = cache.active;
+        if index == cache.entries.len() {
+            cache.entries.push(FoldValueEntry {
+                source_ptr,
+                source_len,
+                folded: String::new(),
+            });
+        }
+        let entry = &mut cache.entries[index];
+        entry.source_ptr = source_ptr;
+        entry.source_len = source_len;
+        fold_into(text, &mut entry.folded);
+        cache.active += 1;
+        #[cfg(test)]
+        FOLD_VALUE_TRANSFORMS.with(|count| count.set(count.get() + 1));
+        inspect(&cache.entries[index].folded)
+    })
+}
+
+#[cfg(test)]
+pub(crate) fn fold_value_cache_stats() -> (usize, usize) {
+    (
+        FOLD_VALUE_TRANSFORMS.with(std::cell::Cell::get),
+        FOLD_VALUE_REUSES.with(std::cell::Cell::get),
+    )
+}
+
+#[cfg(test)]
+pub(crate) fn fold_candidate_transforms() -> usize {
+    FOLD_CANDIDATE_TRANSFORMS.with(std::cell::Cell::get)
 }
 
 
@@ -1797,19 +1905,7 @@ pub(crate) fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: 
         let (Value::String(text), Value::String(pattern)) = (lhs, rhs) else {
             return false;
         };
-        return with_folded_candidate_str(text, |folded| {
-            let order = folded.cmp(pattern);
-            match op {
-                Operator::Eq => order.is_eq(),
-                Operator::Ne => !order.is_eq(),
-                Operator::Gt => order.is_gt(),
-                Operator::Ge => !order.is_lt(),
-                Operator::Lt => order.is_lt(),
-                Operator::Le => !order.is_gt(),
-                Operator::Contains => contains_pattern(folded, pattern),
-                Operator::NotContains => !contains_pattern(folded, pattern),
-            }
-        });
+        return with_folded_candidate_str(text, |folded| compare_folded_text(folded, pattern, op));
     }
     let order = match (lhs, rhs) {
         (Value::String(a), Value::String(b)) => Some(a.cmp(b)),
@@ -1842,7 +1938,25 @@ pub(crate) fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: 
     }
 }
 
-fn compare_bound(lhs: &Value, term: &BoundTerm) -> Result<bool, String> {
+fn compare_folded_text(folded: &str, pattern: &str, op: Operator) -> bool {
+    let order = folded.cmp(pattern);
+    match op {
+        Operator::Eq => order.is_eq(),
+        Operator::Ne => !order.is_eq(),
+        Operator::Gt => order.is_gt(),
+        Operator::Ge => !order.is_lt(),
+        Operator::Lt => order.is_lt(),
+        Operator::Le => !order.is_gt(),
+        Operator::Contains => contains_pattern(folded, pattern),
+        Operator::NotContains => !contains_pattern(folded, pattern),
+    }
+}
+
+fn compare_bound(
+    lhs: &Value,
+    term: &BoundTerm,
+    record_token: Option<(usize, usize)>,
+) -> Result<bool, String> {
     if let Some(period) = &term.period {
         return Ok(period.matches(lhs, term.operator));
     }
@@ -1854,7 +1968,13 @@ fn compare_bound(lhs: &Value, term: &BoundTerm) -> Result<bool, String> {
             return Ok(false);
         };
         let found = if term.transform == Transform::CaseFold {
-            with_folded_candidate(text, |folded| prepared.matches_bytes(folded))
+            if let Some(record_token) = record_token {
+                with_folded_value_str(record_token, text, |folded| {
+                    prepared.matches_bytes(folded.as_bytes())
+                })
+            } else {
+                with_folded_candidate(text, |folded| prepared.matches_bytes(folded))
+            }
         } else {
             prepared.matches(text, pattern)
         };
@@ -1863,6 +1983,14 @@ fn compare_bound(lhs: &Value, term: &BoundTerm) -> Result<bool, String> {
         } else {
             !found
         });
+    }
+    if let Some(record_token) = record_token
+        && term.transform == Transform::CaseFold
+        && let (Value::String(text), Value::String(pattern)) = (lhs, &term.literal)
+    {
+        return Ok(with_folded_value_str(record_token, text, |folded| {
+            compare_folded_text(folded, pattern, term.operator)
+        }));
     }
     Ok(compare_scalar(
         lhs,
@@ -2266,7 +2394,7 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
             if matches!(value, Value::Null) && !matches!(term.literal, Value::Null) {
                 return Ok(false);
             }
-            return compare_bound(&value, term);
+            return compare_bound(&value, term, None);
         }
     }
     let owned;
@@ -2335,17 +2463,21 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
     {
         return Ok(false);
     }
+    let record_token = (term.path.root == PathRoot::Data).then_some((
+        ctx.record as *const RecordEntry as usize,
+        ctx.value as *const Value as usize,
+    ));
     if term.multi {
         if term.quantifier == Quantifier::Any {
             for value in values {
-                if compare_bound(value, term)? {
+                if compare_bound(value, term, record_token)? {
                     return Ok(true);
                 }
             }
             Ok(false)
         } else {
             for value in values {
-                if !compare_bound(value, term)? {
+                if !compare_bound(value, term, record_token)? {
                     return Ok(false);
                 }
             }
@@ -2354,7 +2486,7 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
     } else {
         values
             .first()
-            .map_or(Ok(false), |value| compare_bound(value, term))
+            .map_or(Ok(false), |value| compare_bound(value, term, record_token))
     }
 }
 
@@ -3106,6 +3238,21 @@ fn text_contains(
     case_sensitivity: CaseSensitivity,
     finder: Option<&Finder<'static>>,
 ) -> Result<bool, String> {
+    text_contains_with_folded(
+        text, None, needle, folded_needle, transform, matcher, case_sensitivity, finder,
+    )
+}
+
+fn text_contains_with_folded(
+    text: &str,
+    folded: Option<&str>,
+    needle: &str,
+    folded_needle: &str,
+    transform: Transform,
+    matcher: Option<&Arc<dyn PreparedTextMatcher>>,
+    case_sensitivity: CaseSensitivity,
+    finder: Option<&Finder<'static>>,
+) -> Result<bool, String> {
     if let Some(matcher) = matcher {
         matcher.matches(text)
     } else if transform == Transform::CaseFold || case_sensitivity == CaseSensitivity::Insensitive {
@@ -3114,12 +3261,17 @@ fn text_contains(
         } else {
             needle
         };
-        Ok(with_folded_candidate_str(text, |folded| {
+        let matches = |folded: &str| {
             finder.map_or_else(
                 || folded.contains(needle),
                 |finder| finder.find(folded.as_bytes()).is_some(),
             )
-        }))
+        };
+        Ok(if let Some(folded) = folded {
+            matches(folded)
+        } else {
+            with_folded_candidate_str(text, matches)
+        })
     } else {
         Ok(finder.map_or_else(
             || text.contains(needle),
@@ -3305,9 +3457,21 @@ pub(crate) fn match_borrowed_source_segment<T: AsRef<str>>(
     evidence: &mut Vec<String>,
     retain_evidence: bool,
 ) -> Result<bool, String> {
+    match_borrowed_source_segment_folded(fts, path, text, None, evidence, retain_evidence)
+}
+
+fn match_borrowed_source_segment_folded<T: AsRef<str>>(
+    fts: &BoundFts,
+    path: &[T],
+    text: &str,
+    folded: Option<&str>,
+    evidence: &mut Vec<String>,
+    retain_evidence: bool,
+) -> Result<bool, String> {
     if fts.fields.is_empty() {
-        let found = text_contains(
+        let found = text_contains_with_folded(
             text,
+            folded,
             &fts.literal,
             &fts.folded_literal,
             Transform::Identity,
@@ -3329,8 +3493,9 @@ pub(crate) fn match_borrowed_source_segment<T: AsRef<str>>(
         if !fts_field_selects_path(&field.path.segments, path) {
             continue;
         }
-        if text_contains(
+        if text_contains_with_folded(
             text,
+            folded,
             &field.literal,
             &field.folded_literal,
             field.transform,
@@ -3349,11 +3514,23 @@ pub(crate) fn match_borrowed_source_segment<T: AsRef<str>>(
 
 /// Match a string selected by an eligible local contains predicate.
 pub(crate) fn match_borrowed_source_filter(term: &BoundTerm, text: &str) -> bool {
+    match_borrowed_source_filter_folded(term, text, None)
+}
+
+fn match_borrowed_source_filter_folded(
+    term: &BoundTerm,
+    text: &str,
+    folded: Option<&str>,
+) -> bool {
     let Some(prepared) = &term.prepared_contains else {
         return false;
     };
     let found = if term.transform == Transform::CaseFold {
-        with_folded_candidate(text, |folded| prepared.matches_bytes(folded))
+        if let Some(folded) = folded {
+            prepared.matches_bytes(folded.as_bytes())
+        } else {
+            with_folded_candidate(text, |folded| prepared.matches_bytes(folded))
+        }
     } else {
         prepared.matches_bytes(text.as_bytes())
     };
@@ -3361,6 +3538,46 @@ pub(crate) fn match_borrowed_source_filter(term: &BoundTerm, text: &str) -> bool
         found
     } else {
         !found
+    }
+}
+
+/// Apply built-in FTS and FILTER matchers while one decoded source segment
+/// and, when needed, one case-folded representation are alive.
+pub(crate) fn match_borrowed_source_pair<T: AsRef<str>>(
+    fts: &BoundFts,
+    path: &[T],
+    text: &str,
+    filter: &BoundTerm,
+    evidence: &mut Vec<String>,
+    retain_evidence: bool,
+) -> Result<(bool, bool), String> {
+    let fts_needs_fold = if fts.fields.is_empty() {
+        fts.raw_matcher.is_none() && fts.case_sensitivity == CaseSensitivity::Insensitive
+    } else {
+        fts.fields.iter().any(|field| {
+            fts_field_selects_path(&field.path.segments, path)
+                && field.matcher.is_none()
+                && (field.transform == Transform::CaseFold
+                    || fts.case_sensitivity == CaseSensitivity::Insensitive)
+        })
+    };
+    let need_fold = filter.transform == Transform::CaseFold || fts_needs_fold;
+    let apply = |folded: Option<&str>, evidence: &mut Vec<String>| {
+        let fts_hit = match_borrowed_source_segment_folded(
+            fts,
+            path,
+            text,
+            folded,
+            evidence,
+            retain_evidence,
+        )?;
+        let filter_hit = match_borrowed_source_filter_folded(filter, text, folded);
+        Ok((fts_hit, filter_hit))
+    };
+    if need_fold {
+        with_folded_candidate_str(text, |folded| apply(Some(folded), evidence))
+    } else {
+        apply(None, evidence)
     }
 }
 
