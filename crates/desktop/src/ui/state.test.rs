@@ -244,7 +244,7 @@ fn opening_a_repository_returns_to_the_results_workspace() {
 }
 
 #[test]
-fn file_sidebar_uses_the_active_collection_directory_catalog() {
+fn file_sidebar_shows_all_folders_and_resolves_collection_scope_on_selection() {
     let mut state = UiState::default();
     state.install_directories(DirectoryCatalog {
         all: vec!["data/books".into(), "data/people".into()],
@@ -255,9 +255,21 @@ fn file_sidebar_uses_the_active_collection_directory_catalog() {
     });
     assert_eq!(state.sidebar_directories(), ["data/books", "data/people"]);
     state.search.collection = Some("books".into());
-    assert_eq!(state.sidebar_directories(), ["data/books"]);
+    assert_eq!(state.sidebar_directories(), ["data/books", "data/people"]);
+    state.select_sidebar_directory(Some("data/books".into()));
+    assert_eq!(state.search.collection.as_deref(), Some("books"));
+    assert_eq!(state.search.directory.as_deref(), Some("data/books"));
+    state.select_sidebar_directory(Some("data/people".into()));
+    assert_eq!(state.search.collection, None);
+    assert_eq!(state.search.directory.as_deref(), Some("data/people"));
+    let spec = crate::controller::query_spec(&state.search).unwrap();
+    assert_eq!(spec.scope, None);
+    assert_eq!(spec.directory.as_deref(), Some("data/people"));
     state.search.collection = Some("missing".into());
-    assert!(state.sidebar_directories().is_empty());
+    assert_eq!(state.sidebar_directories(), ["data/books", "data/people"]);
+    state.select_sidebar_directory(None);
+    assert_eq!(state.search.collection.as_deref(), Some("missing"));
+    assert_eq!(state.search.directory, None);
 }
 
 #[test]
