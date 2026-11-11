@@ -20,6 +20,7 @@ thread_local! {
     static OWNED_VALUE_VISITS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
     static OWNED_SEGMENT_PUSHES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
     static OWNED_SEGMENT_TEXT_BYTES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    static BORROWED_NODE_VISITS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
 #[cfg(test)]
@@ -615,13 +616,83 @@ fn with_next_quoted_text<R>(
     decoded: &mut String,
     inspect: impl FnOnce(&str) -> Result<R, String>,
 ) -> Result<(usize, R), String> {
+    with_next_quoted_text_strategy::<2, _>(bytes, start, decoded, inspect)
+}
+
+fn next_quoted_delimiter<const STRATEGY: u8>(bytes: &[u8], cursor: usize) -> Result<usize, String> {
+    if STRATEGY == 1 {
+        for (offset, byte) in bytes[cursor..].iter().enumerate() {
+            if matches!(byte, b'"' | b'\\') {
+                return Ok(cursor + offset);
+            }
+        }
+        Err("unterminated JSON string".into())
+    } else {
+        let search = if STRATEGY == 2 || STRATEGY == 3 {
+            let probe = if STRATEGY == 2 { 8 } else { 4 };
+            let probe_end = cursor.saturating_add(probe).min(bytes.len());
+            for index in cursor..probe_end {
+                if matches!(bytes[index], b'"' | b'\\') {
+                    return Ok(index);
+                }
+            }
+            probe_end
+        } else {
+            cursor
+        };
+        memchr::memchr2(b'"', b'\\', &bytes[search..])
+            .map(|offset| search + offset)
+            .ok_or_else(|| "unterminated JSON string".into())
+    }
+}
+
+fn decode_quoted_escape(bytes: &[u8], cursor: &mut usize) -> Result<char, String> {
+    let escape = *bytes.get(*cursor).ok_or("short JSON escape")?;
+    match escape {
+        b'"' => Ok('"'),
+        b'\\' => Ok('\\'),
+        b'/' => Ok('/'),
+        b'b' => Ok('\u{0008}'),
+        b'f' => Ok('\u{000c}'),
+        b'n' => Ok('\n'),
+        b'r' => Ok('\r'),
+        b't' => Ok('\t'),
+        b'u' => {
+            let first = decode_hex_quad(bytes, *cursor + 1)?;
+            *cursor += 4;
+            let scalar = if (0xD800..=0xDBFF).contains(&first) {
+                if bytes.get(*cursor + 1..*cursor + 3) != Some(&b"\\u"[..]) {
+                    return Err("missing JSON low surrogate".into());
+                }
+                let second = decode_hex_quad(bytes, *cursor + 3)?;
+                if !(0xDC00..=0xDFFF).contains(&second) {
+                    return Err("invalid JSON low surrogate".into());
+                }
+                *cursor += 6;
+                0x10000 + ((first - 0xD800) << 10) + second - 0xDC00
+            } else {
+                first
+            };
+            char::from_u32(scalar).ok_or_else(|| "invalid JSON Unicode scalar".into())
+        }
+        _ => Err("invalid JSON escape".into()),
+    }
+}
+
+/// Both delimiter strategies share the same decoder. The initial memchr keeps
+/// plain tokens borrowed; the adaptive variant checks short literal runs in a
+/// byte loop before using memchr for sparse escapes.
+fn with_next_quoted_text_strategy<const STRATEGY: u8, R>(
+    bytes: &[u8],
+    start: usize,
+    decoded: &mut String,
+    inspect: impl FnOnce(&str) -> Result<R, String>,
+) -> Result<(usize, R), String> {
     if bytes.get(start) != Some(&b'"') {
         return Err("expected JSON string".into());
     }
     let mut cursor = start + 1;
-    let first = memchr::memchr2(b'"', b'\\', &bytes[cursor..])
-        .map(|offset| cursor + offset)
-        .ok_or("unterminated JSON string")?;
+    let first = next_quoted_delimiter::<0>(bytes, cursor)?;
     if bytes[first] == b'"' {
         let text = std::str::from_utf8(&bytes[cursor..first]).map_err(|error| error.to_string())?;
         return inspect(text).map(|result| (first + 1, result));
@@ -638,41 +709,10 @@ fn with_next_quoted_text<R>(
             return inspect(decoded).map(|result| (delimiter + 1, result));
         }
         cursor = delimiter + 1;
-        let escape = *bytes.get(cursor).ok_or("short JSON escape")?;
-        match escape {
-            b'"' => decoded.push('"'),
-            b'\\' => decoded.push('\\'),
-            b'/' => decoded.push('/'),
-            b'b' => decoded.push('\u{0008}'),
-            b'f' => decoded.push('\u{000c}'),
-            b'n' => decoded.push('\n'),
-            b'r' => decoded.push('\r'),
-            b't' => decoded.push('\t'),
-            b'u' => {
-                let first = decode_hex_quad(bytes, cursor + 1)?;
-                cursor += 4;
-                let scalar = if (0xD800..=0xDBFF).contains(&first) {
-                    if bytes.get(cursor + 1..cursor + 3) != Some(&b"\\u"[..]) {
-                        return Err("missing JSON low surrogate".into());
-                    }
-                    let second = decode_hex_quad(bytes, cursor + 3)?;
-                    if !(0xDC00..=0xDFFF).contains(&second) {
-                        return Err("invalid JSON low surrogate".into());
-                    }
-                    cursor += 6;
-                    0x10000 + ((first - 0xD800) << 10) + second - 0xDC00
-                } else {
-                    first
-                };
-                decoded.push(char::from_u32(scalar).ok_or("invalid JSON Unicode scalar")?);
-            }
-            _ => return Err("invalid JSON escape".into()),
-        }
+        decoded.push(decode_quoted_escape(bytes, &mut cursor)?);
         cursor += 1;
         literal_start = cursor;
-        delimiter = memchr::memchr2(b'"', b'\\', &bytes[cursor..])
-            .map(|offset| cursor + offset)
-            .ok_or("unterminated JSON string")?;
+        delimiter = next_quoted_delimiter::<STRATEGY>(bytes, cursor)?;
     }
 }
 
@@ -724,7 +764,7 @@ impl<'a> ScalarWalker<'a> {
         filter_element: bool,
     ) -> Result<(), String> {
         #[cfg(test)]
-        BORROWED_NODE_VISITS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+        BORROWED_NODE_VISITS.with(|count| count.set(count.get() + 1));
         if depth >= 128 {
             return Err("JSON recursion limit exceeded (resource limit)".into());
         }
@@ -1043,8 +1083,6 @@ thread_local! {
 #[cfg(test)]
 static BORROWED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
 #[cfg(test)]
-static BORROWED_NODE_VISITS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
-#[cfg(test)]
 static COMBINED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
 
 #[cfg(test)]
@@ -1054,7 +1092,7 @@ pub(crate) fn borrowed_scan_calls() -> usize {
 
 #[cfg(test)]
 pub(crate) fn borrowed_node_visits() -> usize {
-    BORROWED_NODE_VISITS.load(std::sync::atomic::Ordering::Relaxed)
+    BORROWED_NODE_VISITS.with(std::cell::Cell::get)
 }
 
 #[cfg(test)]
@@ -1067,6 +1105,7 @@ pub(crate) fn scan_borrowed_segments_worker(
     bytes: &[u8],
     query: &BorrowedScanQuery<'_>,
 ) -> Result<BorrowedScanResult, String> {
+    let _fold_record = crate::reference::FoldRecordGuard::new();
     #[cfg(test)]
     BORROWED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
     BORROWED_SCAN_SCRATCH.with(|scratch| {
@@ -1126,6 +1165,7 @@ pub(crate) fn extract_query_record_borrowed_fts_worker(
     fts: &BoundFts,
     retain_evidence: bool,
 ) -> Result<(Value, BorrowedScanResult), String> {
+    let _fold_record = crate::reference::FoldRecordGuard::new();
     #[cfg(test)]
     COMBINED_SCAN_CALLS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
     BORROWED_SCAN_SCRATCH.with(|scratch| {

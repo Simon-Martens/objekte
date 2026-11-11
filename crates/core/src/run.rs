@@ -32,7 +32,7 @@ use crate::record_preparation::{
     materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
 };
 use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
+    BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, FoldRecordGuard, RecordContext, eval_bound_fts, eval_term,
     eval_unavailable_filter, same_bound_term,
 };
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
@@ -1104,6 +1104,7 @@ fn scan_file(
         };
         outcome.bytes_read += bytes_read;
         for (slot, bytes) in records {
+            let _fold_record = FoldRecordGuard::new();
             if let Some(execution) = execution {
                 execution.check_string()?;
             }
@@ -3016,6 +3017,7 @@ fn verify_local_segment_record(
     retain_evidence: bool,
     execution: Option<&ExecutionContext>,
 ) -> Result<(ExtractedRecord, bool, HashSet<String>, bool), String> {
+    let _fold_record = FoldRecordGuard::new();
     if record.class == RecordClass::Logical
         && let Some(direct) = direct_plan
     {
@@ -5205,6 +5207,7 @@ fn scan_relation_file_parallel(
     job: &RelationFileJob,
     view: crate::relation_query::MergedRelationView<'_>,
 ) -> Result<RelationFileScan, String> {
+    let _fold_record = FoldRecordGuard::new();
     let mut scan = RelationFileScan {
         counters: WorkCounters::default(),
         primary_opened: false,
@@ -5727,6 +5730,7 @@ fn search_segmented_relations(
                            bytes: Vec<u8>,
                            opened_source: bool|
          -> Result<(), String> {
+            let _fold_record = FoldRecordGuard::new();
             if let Some(context) = context {
                 context.check_string()?;
                 context.charge_bytes(bytes.len() as u64)?;

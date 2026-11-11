@@ -936,15 +936,66 @@ const MAX_FOLD_SCRATCH_CAPACITY: usize = 256 * 1024;
 
 thread_local! {
     static FOLD_SCRATCH: RefCell<String> = const { RefCell::new(String::new()) };
+    static FOLD_RECORD_DEPTH: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+    #[cfg(test)]
+    static FOLD_GROWS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+/// Keep exceptional folding capacity until all segments of one record have
+/// consumed it. Unwrapped callers retain the previous per-segment bound.
+pub(crate) struct FoldRecordGuard;
+
+impl FoldRecordGuard {
+    pub(crate) fn new() -> Self {
+        FOLD_RECORD_DEPTH.with(|depth| depth.set(depth.get() + 1));
+        Self
+    }
+}
+
+impl Drop for FoldRecordGuard {
+    fn drop(&mut self) {
+        FOLD_RECORD_DEPTH.with(|depth| {
+            let remaining = depth.get() - 1;
+            depth.set(remaining);
+            if remaining == 0 {
+                trim_fold_scratch();
+            }
+        });
+    }
+}
+
+fn trim_fold_scratch() {
+    FOLD_SCRATCH.with(|scratch| {
+        let mut buffer = scratch.borrow_mut();
+        if buffer.capacity() > MAX_FOLD_SCRATCH_CAPACITY {
+            *buffer = String::new();
+        }
+    });
+}
+
+#[cfg(test)]
+pub(crate) fn fold_scratch_stats() -> (usize, usize) {
+    (
+        FOLD_GROWS.with(std::cell::Cell::get),
+        FOLD_SCRATCH.with(|scratch| scratch.borrow().capacity()),
+    )
 }
 
 /// Reuse one worker thread's UTF-8 folding buffer without retaining large records.
 fn with_folded_candidate_str<R>(text: &str, inspect: impl FnOnce(&str) -> R) -> R {
     FOLD_SCRATCH.with(|scratch| {
         let mut buffer = scratch.borrow_mut();
+        #[cfg(test)]
+        let old_capacity = buffer.capacity();
         fold_into(text, &mut buffer);
+        #[cfg(test)]
+        if buffer.capacity() > old_capacity {
+            FOLD_GROWS.with(|count| count.set(count.get() + 1));
+        }
         let result = inspect(&buffer);
-        if buffer.capacity() > MAX_FOLD_SCRATCH_CAPACITY {
+        if FOLD_RECORD_DEPTH.with(|depth| depth.get() == 0)
+            && buffer.capacity() > MAX_FOLD_SCRATCH_CAPACITY
+        {
             *buffer = String::new();
         }
         result
