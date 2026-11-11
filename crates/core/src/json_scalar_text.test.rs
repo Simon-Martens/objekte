@@ -163,6 +163,30 @@ fn borrowed_source_filter_preserves_string_runtime_rules_and_wildcards() {
 }
 
 #[test]
+fn filter_only_scan_skips_irrelevant_nested_values() {
+    let nested = format!(
+        "[{}]",
+        (0..2000)
+            .map(|index| format!(r#"{{"nested":{{"value":"{index}"}}}}"#))
+            .collect::<Vec<_>>()
+            .join(",")
+    );
+    let source = format!(r#"{{"wanted":"needle","irrelevant":{nested}}}"#);
+    let mut scratch = BorrowedScanScratch::default();
+    let before = borrowed_node_visits();
+    let result = borrowed_scan(
+        source.as_bytes(),
+        None,
+        None,
+        Some("wanted ~ 'needle'"),
+        true,
+        &mut scratch,
+    );
+    assert!(result.filter_match);
+    assert!(borrowed_node_visits() - before < 10);
+}
+
+#[test]
 fn borrowed_source_evidence_excludes_overwritten_fields() {
     let schema = Schema::default();
     let fts = bind_fts(

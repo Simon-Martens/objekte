@@ -606,6 +606,24 @@ fn path_prefix(path: &[Cow<'_, str>], expected: &[String]) -> bool {
             .all(|(actual, expected)| actual.as_ref() == expected)
 }
 
+fn may_contain_selected_text(
+    path: &[Cow<'_, str>],
+    query: &BorrowedScanQuery<'_>,
+    suppress_filter: bool,
+) -> bool {
+    (!suppress_filter
+        && query.filter.is_some_and(|term| {
+            path_is(path, &term.path.segments) || path_prefix(path, &term.path.segments)
+        }))
+        || query.fts.is_some_and(|fts| {
+            fts.fields.is_empty()
+                || fts.fields.iter().any(|field| {
+                    fts_field_selects_path(&field.path.segments, path)
+                        || path_prefix(path, &field.path.segments)
+                })
+        })
+}
+
 
 impl<'a> ScalarWalker<'a> {
     #[allow(clippy::too_many_arguments)]
@@ -619,6 +637,8 @@ impl<'a> ScalarWalker<'a> {
         suppress_filter: bool,
         filter_element: bool,
     ) -> Result<(), String> {
+        #[cfg(test)]
+        BORROWED_NODE_VISITS.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         if depth >= 128 {
             return Err("JSON recursion limit exceeded (resource limit)".into());
         }
@@ -726,15 +746,19 @@ impl<'a> ScalarWalker<'a> {
                     self.pos += 1;
                     let start = events.len();
                     path.push(key);
-                    self.scan_borrowed_value(
-                        depth + 1,
-                        path,
-                        decoded,
-                        events,
-                        query,
-                        suppress_filter || selected_filter,
-                        false,
-                    )?;
+                    if may_contain_selected_text(path, query, suppress_filter || selected_filter) {
+                        self.scan_borrowed_value(
+                            depth + 1,
+                            path,
+                            decoded,
+                            events,
+                            query,
+                            suppress_filter || selected_filter,
+                            false,
+                        )?;
+                    } else {
+                        self.skip_trusted_value(depth + 1)?;
+                    }
                     let key = path.pop().expect("object key");
                     let track_key = unscoped_value_fts
                         || root_field_fts
@@ -932,10 +956,17 @@ thread_local! {
 
 #[cfg(test)]
 static BORROWED_SCAN_CALLS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+#[cfg(test)]
+static BORROWED_NODE_VISITS: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
 
 #[cfg(test)]
 pub(crate) fn borrowed_scan_calls() -> usize {
     BORROWED_SCAN_CALLS.load(std::sync::atomic::Ordering::Relaxed)
+}
+
+#[cfg(test)]
+pub(crate) fn borrowed_node_visits() -> usize {
+    BORROWED_NODE_VISITS.load(std::sync::atomic::Ordering::Relaxed)
 }
 
 /// Preserve decoder and provisional-match capacities across a worker's files.

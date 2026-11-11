@@ -541,6 +541,19 @@ fn scan_projection(
     }
 }
 
+fn borrowed_value_text(collection: &CollectionState, fts: Option<&BoundFts>) -> bool {
+    !collection.source.is_extension()
+        && matches!(collection.source.id(), "json" | "jsonl")
+        && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()))
+}
+
+fn prepare_value_text_projection(projection: &mut ScanProjection, borrow_text: bool) {
+    if borrow_text {
+        projection.collect_text = false;
+        projection.resolved_text_only = false;
+    }
+}
+
 
 enum Residual<'a> {
     Term(&'a BoundTerm, Option<&'a Proof>),
@@ -1014,14 +1027,8 @@ fn scan_file(
     outcome.files_opened = u64::from(reader.is_some());
     // These built-in readers search the converted logical strings. Keep the
     // value, but avoid producing a second owned copy of every string and path.
-    let borrowed_value_text = !collection.source.is_extension()
-        && matches!(collection.source.id(), "json" | "jsonl")
-        && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()));
-    let mut value_projection = projection.clone();
-    if borrowed_value_text {
-        value_projection.collect_text = false;
-    }
-    let full_projection = ScanProjection::full(value_projection.collect_text);
+    let borrowed_value_text = borrowed_value_text(collection, fts);
+    let full_projection = ScanProjection::full(projection.collect_text);
     let mut cursor = 0;
     while cursor < ranges.len() {
         if let Some(execution) = execution {
@@ -1126,7 +1133,7 @@ fn scan_file(
             let record_projection = if logical_projection {
                 &full_projection
             } else {
-                &value_projection
+                projection
             };
             let decode = direct.is_none()
                 && record.class == RecordClass::Logical
@@ -8545,7 +8552,13 @@ fn try_stored_order_page(
         .iter()
         .zip(&residuals)
         .map(|(entry, residual)| {
-            scan_projection(query, residual.as_ref(), &entry.candidates, false)
+            let mut projection =
+                scan_projection(query, residual.as_ref(), &entry.candidates, false);
+            prepare_value_text_projection(
+                &mut projection,
+                borrowed_value_text(&repo.collections[entry.collection_index], entry.fts),
+            );
+            projection
         })
         .collect::<Vec<_>>();
     let direct_plans = plans
@@ -10325,6 +10338,10 @@ fn search_impl_with_collector<'a>(
                 projection.top_level = None;
             }
         }
+        prepare_value_text_projection(
+            &mut projection,
+            preverified_evidence.is_none() && borrowed_value_text(collection, fts.as_ref()),
+        );
         let retain_all_evidence = cache_budget.is_some_and(CacheBudget::complete);
         let direct_plan = if preverified_evidence.is_none() {
             DirectSourcePlan::prepare(collection, &sort, fts.as_ref(), residual.as_ref())
