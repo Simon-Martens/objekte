@@ -1767,7 +1767,7 @@ fn indexed_restriction_precedes_written_first_scan() {
     )
     .unwrap();
     let plan = plan_expr(&repo, &repo.collections[0], &bound, &domain).unwrap();
-    assert_eq!(plan.choices[0].selected.kind, AccessPathKind::Dictionary);
+    assert_eq!(plan.choices[0].selected.kind, AccessPathKind::Posting);
     assert!(plan.exact);
     let options = QueryOptions {
         sort: vec![],

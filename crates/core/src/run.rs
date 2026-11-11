@@ -7617,7 +7617,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             None,
         );
     }
-    if inferred_order_index(repo, query).is_some() {
+    if posting_order_eligible(repo, query) {
         return search_impl(repo, query, None, None, None, None, None, None);
     }
     let budget = {
@@ -7822,7 +7822,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
         execution_query.options.count = true;
     }
     let execution_query = &execution_query;
-    let inferred_order = inferred_order_index(repo, execution_query).is_some();
+    let inferred_order = posting_order_eligible(repo, execution_query);
     let bound_sort =
         BoundSort::bind(repo, execution_query).map_err(|message| StreamError::Execution {
             kind: crate::streaming::ExecutionErrorKind::InvalidQuery,
@@ -8414,11 +8414,35 @@ fn inferred_order_index<'a>(
     {
         return None;
     }
-    let index = collection
-        .inference
-        .as_ref()?
-        .complete_scalar_index(&part.path.segments, &collection.logical_records)?;
+    let index = crate::index_catalog::IndexCatalog::collection(collection)
+        .sortable_scalar(&part.path.segments)?;
     Some((collection_index, part.path, index))
+}
+
+/// A posting order is useful for an unrestricted page or a filter whose
+/// selected access already proves membership. With a residual FILTER/FTS,
+/// filtering first preserves the verified membership cache and avoids an
+/// ordered source scan across candidates that will later be rejected.
+fn posting_order_eligible(repo: &Repository, query: &Query) -> bool {
+    let Some((collection_index, _, _)) = inferred_order_index(repo, query) else {
+        return false;
+    };
+    if query.fts.is_some() {
+        return false;
+    }
+    if query.filter.is_none() {
+        return true;
+    }
+    let Ok((prepared, _)) = crate::prepared::prepare(repo, query) else {
+        return false;
+    };
+    let Some((_, Some(filter), _)) = prepared.collections.iter()
+        .find(|(index, _, _)| *index == collection_index)
+    else {
+        return false;
+    };
+    let collection = &repo.collections[collection_index];
+    estimate_plan_expr(collection, filter, collection.logical_records.len()).exact
 }
 
 fn inferred_order_column(
@@ -8508,6 +8532,9 @@ fn try_inferred_order_page(
     execution: Option<&ExecutionContext>,
     active: Option<&[ActiveRecords]>,
 ) -> Result<Option<SearchResult>, String> {
+    if !posting_order_eligible(repo, query) {
+        return Ok(None);
+    }
     if active.is_some() {
         // A static inferred column may read retired source records while it is built.
         return Ok(None);
@@ -9614,6 +9641,7 @@ pub(crate) fn explain_with_active(
         && !has_source_dependent
         && !has_related_fts
         && prepared.collections.len() == 1
+        && posting_order_eligible(repo, query)
         && inferred_order_index(repo, query)
             .is_some_and(|(index, _, _)| prepared.collections[0].0 == index);
     let mut traces = Vec::new();

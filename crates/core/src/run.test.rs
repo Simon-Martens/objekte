@@ -2213,11 +2213,8 @@ fn inferred_order_construction_observes_mid_build_cancellation() {
     )
     .unwrap();
     let collection = &repo.collections[0];
-    let index = collection
-        .inference
-        .as_ref()
-        .unwrap()
-        .complete_scalar_index(&["label".into()], &collection.logical_records)
+    let index = crate::index_catalog::IndexCatalog::collection(collection)
+        .sortable_scalar(&["label".into()])
         .unwrap();
     let token = CancellationToken::new();
     let context = ExecutionContext::new(
@@ -5675,6 +5672,76 @@ fn computed_sort_large_record_uses_single_worker_reservation() {
         repo.search(&query).unwrap().hits,
         repo.search_reference(&query).unwrap().hits
     );
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::workload::SortField;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-posting-order-residual-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for score in 0..40 {
+        let title = if score % 13 == 0 { "x" } else { "y" };
+        std::fs::write(
+            root.join(format!("data/{score:02}.json")),
+            format!(r#"{{"score":{score},"title":"{title}"}}"#),
+        )
+        .unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["score".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 1024 * 1024,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let request = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("title ~ 'x'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("score", false)],
+            limit: 2,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert!(inferred_order_index(&repo, &request).is_some());
+    assert!(!posting_order_eligible(&repo, &request));
+    let cold = repo.search(&request).unwrap();
+    assert_eq!(cold.hits, repo.search_reference(&request).unwrap().hits);
+    assert!(!cold.counters.verified_result_hit);
+    let warm = repo.search(&request).unwrap();
+    assert_eq!(warm.hits, cold.hits);
+    assert_eq!(warm.count, cold.count);
+    assert!(warm.counters.verified_result_hit);
+    assert!(warm.counters.files_opened < cold.counters.files_opened);
     drop(repo);
     std::fs::remove_dir_all(root).unwrap();
 }

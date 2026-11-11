@@ -1604,6 +1604,7 @@ fn load_snapshot_parts(
         {
             return Err("snapshot statistics mismatch".into());
         }
+        let text_bindings = crate::index_catalog::TextBindingCatalog::new(&definition.schema);
         collections.push(CollectionState {
             definition,
             source,
@@ -1617,6 +1618,7 @@ fn load_snapshot_parts(
             logical_records: encoded.logical_records,
             empty_array_records: encoded.empty_array_records,
             custom_text: encoded.custom_text,
+            text_bindings,
             sorting: encoded.sorting,
             id_lookup,
             identity_order: encoded.identity_order,

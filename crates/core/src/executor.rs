@@ -5,12 +5,13 @@ use std::ops::Bound;
 use std::path::Path;
 
 use roaring::RoaringBitmap;
+use smallvec::SmallVec;
 
 use crate::build::IndexedCollectionSegment;
 use crate::inventory::{ActiveRecords, absolute_path_bounds};
+use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{LogicalType, MetadataField, Number, PathRoot, RecordId, Value};
-use crate::posting::ScalarKey;
 use crate::query::{FtsMode, Operator, Quantifier};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
@@ -172,129 +173,17 @@ pub(crate) fn segment_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
-    if fts.fields.iter().any(|field| field.related.is_some()) {
-        return None;
-    }
-    if matches!(fts.mode, FtsMode::Regex(_)) {
-        let condition = fts.fallback_regex.as_ref()?.condition()?;
-        if fts.fields.is_empty() {
-            if segment.raw.record_count as usize != segment.records.len()
-                || collection
-                    .definition
-                    .schema
-                    .raw
-                    .as_ref()
-                    .is_some_and(|binding| !binding.operation.complete_coverage())
-            {
-                return None;
-            }
-            let mut may = condition.candidates(&segment.raw)?;
-            if segment.logical_records.len() != segment.records.len() as u64 {
-                may |= condition.candidates(&segment.fallback_text)?;
-            }
-            return Some(may);
-        }
-        let mut may = RoaringBitmap::new();
-        for field in &fts.fields {
-            if field.path.root != PathRoot::Data {
-                return None;
-            }
-            let key = if matches!(field.binding_name.as_str(), "default" | "lower") {
-                crate::repository::built_in_field_text_key(
-                    &collection.definition.schema,
-                    &field.path.segments,
-                )?
-            } else {
-                crate::repository::canonical_custom_text_key(
-                    &collection.definition.schema,
-                    &field.path.segments,
-                    &field.binding_name,
-                )
-            };
-            let index = if collection.source.reader().logical_text_coverage()
-                == LogicalTextCoverage::AllStringFields
-            {
-                segment.custom_text.get(&key)
-            } else {
-                None
-            };
-            if let Some(index) = index {
-                may |= condition.candidates(index)?;
-            } else if matches!(field.binding_name.as_str(), "default" | "lower")
-                && field.operation.is_none()
-                && segment_raw_covers_identity_field(segment, collection)
-            {
-                may |= condition.candidates(&segment.raw)?;
-            } else {
-                return None;
-            }
-        }
-        return Some(may);
-    }
-    if fts.fields.is_empty() {
-        if fts
-            .raw_matcher
-            .as_ref()
-            .is_some_and(|matcher| !matcher.bigram_compatible())
-            || segment.raw.record_count as usize != segment.records.len()
-            || collection
-                .definition
-                .schema
-                .raw
-                .as_ref()
-                .is_some_and(|binding| !binding.operation.complete_coverage())
-        {
-            return None;
-        }
-        let mut may = segment.raw.candidates_prepared(&fts.gram_request)?;
-        if segment.logical_records.len() != segment.records.len() as u64 {
-            may |= segment
-                .fallback_text
-                .candidates_prepared(&fts.fallback_gram_request)?;
-        }
-        return Some(may);
-    }
-    let mut may = RoaringBitmap::new();
-    for field in &fts.fields {
-        if field.path.root != PathRoot::Data
-            || field
-                .matcher
-                .as_ref()
-                .is_some_and(|matcher| !matcher.bigram_compatible())
-        {
-            return None;
-        }
-        let key = if matches!(field.binding_name.as_str(), "default" | "lower") {
-            crate::repository::built_in_field_text_key(
-                &collection.definition.schema,
-                &field.path.segments,
-            )?
-        } else {
-            crate::repository::canonical_custom_text_key(
-                &collection.definition.schema,
-                &field.path.segments,
-                &field.binding_name,
-            )
-        };
-        let index = if collection.source.reader().logical_text_coverage()
-            == LogicalTextCoverage::AllStringFields
-        {
-            segment.custom_text.get(&key)
-        } else {
-            None
-        };
-        if let Some(index) = index {
-            may |= index.candidates_prepared(&field.gram_request)?;
-        } else if matches!(field.binding_name.as_str(), "default" | "lower")
-            && field.operation.is_none()
-            && segment_raw_covers_identity_field(segment, collection)
-        {
-            may |= segment.raw.candidates_prepared(&field.gram_request)?;
-        } else {
-            return None;
-        }
-    }
-    Some(may)
+    let indexes = IndexCatalog::segment(segment, collection);
+    prepare_fts_accesses(
+        &indexes,
+        collection,
+        fts,
+        segment.raw.record_count as usize == segment.records.len(),
+        segment.logical_records.len() != segment.records.len() as u64,
+        segment_raw_covers_identity_field(segment, collection),
+        segment.records.len() as u64,
+    )?
+    .candidates()
 }
 
 fn segment_text_candidates(
@@ -312,61 +201,21 @@ fn segment_text_candidates(
     if literal.contains(['%', '\\']) {
         return None;
     }
-    let key = if matches!(term.binding_name.as_str(), "default" | "lower") {
-        crate::repository::built_in_field_text_key(&collection.definition.schema, &term.path.segments)
-    } else {
-        Some(crate::repository::canonical_custom_text_key(
-            &collection.definition.schema, &term.path.segments, &term.binding_name,
-        ))
-    };
-    if let Some(index) = key.as_ref().and_then(|key| segment.custom_text.get(key)) {
-        return index.candidates_prepared(term.gram_request.as_ref()?);
-    }
-    if matches!(term.binding_name.as_str(), "default" | "lower")
-        && matches!(term.transform, crate::reference::Transform::Identity | crate::reference::Transform::CaseFold)
+    let indexes = IndexCatalog::segment(segment, collection);
+    let raw_compatible = matches!(term.transform, Transform::Identity | Transform::CaseFold)
         && term.operation.is_none()
         && term.matcher.is_none()
-        && segment_raw_covers_identity_field(segment, collection)
-    {
-        return segment.raw.candidates_prepared(term.gram_request.as_ref()?);
-    }
-    None
-}
-
-fn segment_dictionary_contains(
-    segment: &IndexedCollectionSegment,
-    term: &BoundTerm,
-    logical_active: &RoaringBitmap,
-) -> Option<RoaringBitmap> {
-    if term.kind != LogicalType::String
-        || term.transform != Transform::Identity
-        || term.operation.is_some()
-        || term.derived != Derived::None
-        || term.period.is_some()
-        || term.operator != Operator::Contains
-        || (term.multi && term.quantifier != Quantifier::Any)
-    {
-        return None;
-    }
-    let Value::String(literal) = &term.literal else {
-        return None;
-    };
-    if literal.contains(['%', '\\']) {
-        return None;
-    }
-    let posting = segment.postings.fields.get(&term.path.segments)?;
-    if !posting.value_complete || posting.covered_records as u64 != segment.logical_records.len() {
-        return None;
-    }
-    let mut matches = RoaringBitmap::new();
-    for (key, slots) in &posting.values {
-        if let ScalarKey::String(value) = key
-            && value.contains(literal)
-        {
-            matches |= slots & logical_active;
-        }
-    }
-    Some(matches)
+        && segment_raw_covers_identity_field(segment, collection);
+    indexes
+        .field_text_for(
+            &collection.definition.schema,
+            &term.path.segments,
+            &term.binding_name,
+            term.operation.is_some(),
+            true,
+            raw_compatible,
+        )?
+        .candidates_prepared(term.gram_request.as_ref()?)
 }
 
 fn segment_file_size_matches(
@@ -699,51 +548,36 @@ fn segment_expr_bounds(
                     must: matches,
                 };
             }
-            let exact = if term.operation.is_some() {
-                segment
-                    .custom_postings
-                    .get(&(term.path.segments.clone(), term.binding_name.clone()))
-                    .filter(|posting| posting.complete)
-                    .and_then(|posting| {
-                        posting.index.exact_set_restricted(
-                            term,
-                            &segment.logical_records,
-                            logical_active,
-                        )
-                    })
-            } else {
-                segment
-                    .postings
-                    .fields
-                    .get(&term.path.segments)
-                    .and_then(|posting| {
-                        posting.exact_set_restricted(term, &segment.logical_records, logical_active)
-                    })
-            };
-            match exact {
-                Some(matches) => SegmentCandidateBounds {
+            let index_catalog = IndexCatalog::segment(segment, collection);
+            let selected = index_catalog
+                .field_postings(&term.path.segments, &term.binding_name, term.operation.is_some())
+                .into_iter()
+                .flatten()
+                .filter_map(|access| {
+                    access.assess(term, index_catalog.logical, &mut 0)
+                        .map(|proposal| (access, proposal))
+                })
+                .min_by(|(_, left), (_, right)| {
+                    let work = |proposal: &crate::index_catalog::PostingProposal| {
+                        proposal.lookup_work
+                            + proposal.output as f64 * if proposal.exact { 0.02 } else { 50.0 }
+                    };
+                    work(left).total_cmp(&work(right))
+                });
+            if let Some((access, proposal)) = selected
+                && let Some(matches) = access.execute(
+                    term,
+                    index_catalog.logical,
+                    logical_active,
+                    proposal.operation,
+                )
+            {
+                return SegmentCandidateBounds {
                     may: &matches | fallback_active,
-                    must: matches,
-                },
-                None => {
-                    if let Some(matches) =
-                        segment_dictionary_contains(segment, term, logical_active)
-                    {
-                        return SegmentCandidateBounds {
-                            may: &matches | fallback_active,
-                            must: matches,
-                        };
-                    }
-                    if let Some((matches, exact)) =
-                        segment.inference.as_ref().and_then(|inference| {
-                            inference.candidates(term, &segment.logical_records, logical_active)
-                        })
-                    {
-                        return SegmentCandidateBounds {
-                            may: &matches | fallback_active,
-                            must: if exact { matches } else { RoaringBitmap::new() },
-                        };
-                    }
+                    must: if proposal.exact { matches } else { RoaringBitmap::new() },
+                };
+            }
+            {
                     if let Some(matches) =
                         segment_sort_column_matches(segment, logical_active, term, false)
                     {
@@ -763,7 +597,6 @@ fn segment_expr_bounds(
                     } else {
                         SegmentCandidateBounds::unknown(domain)
                     }
-                }
             }
         }
         BoundExpr::And(parts) => {
@@ -827,9 +660,7 @@ pub enum AccessPathKind {
     Metadata,
     FilePathIndex,
     Posting,
-    InferredPosting,
     SortColumn,
-    Dictionary,
     CustomBigram,
     RawBigram,
     RelationTargetFirst,
@@ -848,6 +679,8 @@ pub struct AccessPathEstimate {
     pub estimated_work: f64,
     pub estimated_files: f64,
     pub estimated_bytes: f64,
+    #[serde(skip)]
+    pub(crate) posting: Option<(PostingId, PostingOperation, u32)>,
 }
 
 
@@ -934,7 +767,7 @@ fn rescore_paths(
             let lookup = path.estimated_work - path.estimated_output as f64 * original_unit;
             path.estimated_output = match path.kind {
                 AccessPathKind::Scanner => input_len,
-                AccessPathKind::Dictionary | AccessPathKind::SortColumn => input_len / 4,
+                AccessPathKind::SortColumn => input_len / 4,
                 AccessPathKind::Metadata
                     if term.path.root == PathRoot::Metadata(MetadataField::RecordId)
                         && term.operator == Operator::Eq =>
@@ -1075,6 +908,7 @@ fn fallback_truth(
                     estimated_work: if metadata { input.len() as f64 } else { 0.0 },
                     estimated_files: 0.0,
                     estimated_bytes: 0.0,
+                    posting: None,
                 },
                 alternatives: Vec::new(),
                 actual_input: input.len(),
@@ -1383,12 +1217,14 @@ fn custom_text_index<'a>(
     path: &[String],
     name: &str,
 ) -> Option<&'a crate::bigram::BigramIndex> {
-    let key = if matches!(name, "default" | "lower") {
-        crate::repository::built_in_field_text_key(&collection.definition.schema, path)?
-    } else {
-        crate::repository::canonical_custom_text_key(&collection.definition.schema, path, name)
-    };
-    collection.custom_text.get(&key)
+    IndexCatalog::collection(collection).field_text_for(
+        &collection.definition.schema,
+        path,
+        name,
+        !matches!(name, "default" | "lower"),
+        true,
+        false,
+    )
 }
 
 fn enumerate_paths(
@@ -1400,7 +1236,7 @@ fn enumerate_paths(
     let stats = collection.stats;
     let source_unit = 30.0 + stats.mean_record_bytes() / 128.0;
     let mut paths = Vec::new();
-    let mut add = |kind, exact, lookup: f64, output: u64| {
+    let mut add = |kind, exact, lookup: f64, output: u64, posting: Option<(PostingId, PostingOperation, u32)>| {
         let output = output.min(input_len);
         let files =
             (output as f64 / stats.mean_records_per_file().max(1.0)).min(stats.file_count as f64);
@@ -1410,13 +1246,11 @@ fn enumerate_paths(
             coverage: if matches!(
                 kind,
                 AccessPathKind::Posting
-                    | AccessPathKind::InferredPosting
-                    | AccessPathKind::Dictionary
                     | AccessPathKind::SortColumn
                     | AccessPathKind::RawBigram
                     | AccessPathKind::CustomBigram
             ) {
-                collection.logical_records.len() as u32
+                posting.map_or(collection.logical_records.len() as u32, |(_, _, coverage)| coverage)
             } else {
                 stats.record_count as u32
             },
@@ -1429,12 +1263,13 @@ fn enumerate_paths(
                 },
             estimated_files: files,
             estimated_bytes: output as f64 * stats.mean_record_bytes(),
+            posting,
         });
     };
     if term.related.is_some() {
         // Relation terms retain a three-valued residual until the dedicated
         // semijoin planner can prove target and source memberships together.
-        add(AccessPathKind::Scanner, false, 0.0, input_len);
+        add(AccessPathKind::Scanner, false, 0.0, input_len, None);
         return paths;
     }
     if term
@@ -1447,13 +1282,14 @@ fn enumerate_paths(
             true,
             stats.record_count as f64,
             input_len / 2,
+            None,
         );
         return paths;
     }
     if term.rhs.is_some() {
         // Ordinary postings have record membership, not array occurrence
         // positions. A positional predicate always keeps a residual scan.
-        add(AccessPathKind::Scanner, false, 0.0, input_len);
+        add(AccessPathKind::Scanner, false, 0.0, input_len, None);
         return paths;
     }
     if let PathRoot::Metadata(field) = term.path.root {
@@ -1481,50 +1317,22 @@ fn enumerate_paths(
             stats.file_count as f64
         };
         let output = if direct_id_lookup { 1 } else { input_len / 2 };
-        add(if path_lookup { AccessPathKind::FilePathIndex } else { AccessPathKind::Metadata }, true, work, output);
+        add(if path_lookup { AccessPathKind::FilePathIndex } else { AccessPathKind::Metadata }, true, work, output, None);
     } else {
-        let index = if term.operation.is_some() {
-            collection
-                .custom_postings
-                .get(&(term.path.segments.clone(), term.binding_name.clone()))
-                .filter(|posting| posting.complete)
-                .map(|posting| &posting.index)
-        } else {
-            collection.postings.fields.get(&term.path.segments)
-        };
-        if let Some(index) = index.filter(|_| !term.query_path.has_position) {
-            if let Some((lookup, output)) = index.estimate_exact_with_visits(
-                term,
-                collection.logical_records.len(),
-                dictionary_keys_visited,
-            ) {
-                add(AccessPathKind::Posting, true, lookup, output);
-            }
-            if term.kind == LogicalType::String
-                && term.transform == Transform::Identity
-                && term.operation.is_none()
-                && term.derived == Derived::None
-                && term.operator == Operator::Contains
-                && index.value_complete
-                && index.covered_records as u64 == collection.logical_records.len()
-                && (!term.multi || term.quantifier == Quantifier::Any)
-                && matches!(&term.literal,Value::String(s) if !s.contains(['%','\\']))
-            {
+        let catalog = IndexCatalog::collection(collection);
+        for access in catalog.field_postings(
+            &term.path.segments,
+            &term.binding_name,
+            term.operation.is_some(),
+        ).into_iter().flatten() {
+            if let Some(proposal) = access.assess(term, catalog.logical, dictionary_keys_visited) {
                 add(
-                    AccessPathKind::Dictionary,
-                    true,
-                    index.stats.distinct_count as f64 * 2.0,
-                    input_len / 4,
+                    AccessPathKind::Posting,
+                    proposal.exact,
+                    proposal.lookup_work,
+                    proposal.output,
+                    Some((proposal.id, proposal.operation, proposal.coverage)),
                 );
-            }
-        }
-        if let Some(inference) = &collection.inference {
-            if let Some((lookup, output, exact)) = inference.estimate_candidates(
-                term,
-                &collection.logical_records,
-                dictionary_keys_visited,
-            ) {
-                add(AccessPathKind::InferredPosting, exact, lookup, output);
             }
         }
         if term.derived == Derived::None
@@ -1557,6 +1365,7 @@ fn enumerate_paths(
                 true,
                 stats.record_count as f64,
                 input_len / 4,
+                None,
             );
         }
         if term.derived == Derived::None
@@ -1586,6 +1395,7 @@ fn enumerate_paths(
                                 false,
                                 literal.len() as f64,
                                 output,
+                                None,
                             );
                         }
                     }
@@ -1606,6 +1416,7 @@ fn enumerate_paths(
                                     false,
                                     literal.len() as f64,
                                     output,
+                                    None,
                                 );
                             }
                         }
@@ -1614,7 +1425,7 @@ fn enumerate_paths(
             }
         }
     }
-    add(AccessPathKind::Scanner, false, 0.0, input_len);
+    add(AccessPathKind::Scanner, false, 0.0, input_len, None);
     paths
 }
 
@@ -1624,60 +1435,21 @@ fn execute_path(
     term: &BoundTerm,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
-    kind: AccessPathKind,
+    selected: &AccessPathEstimate,
 ) -> Result<Option<RoaringBitmap>, String> {
-    Ok(match kind {
+    Ok(match selected.kind {
         AccessPathKind::Metadata | AccessPathKind::FilePathIndex => {
             term_set(repo, collection, term, domain, input)?.map(|set| &set & input)
         }
         AccessPathKind::Posting => {
-            // Coverage describes every indexed logical slot, including retired
-            // incarnations. The input already excludes retired slots.
-            let coverage_domain = &collection.logical_records;
-            if term.operation.is_some() {
-                collection
-                    .custom_postings
-                    .get(&(term.path.segments.clone(), term.binding_name.clone()))
-                    .filter(|posting| posting.complete)
-                    .and_then(|posting| {
-                        posting
-                            .index
-                            .exact_set_restricted(term, coverage_domain, input)
-                    })
-            } else {
-                collection
-                    .postings
-                    .fields
-                    .get(&term.path.segments)
-                    .and_then(|index| index.exact_set_restricted(term, coverage_domain, input))
-            }
+            let (id, operation, _) = selected.posting.ok_or("missing prepared posting access")?;
+            let catalog = IndexCatalog::collection(collection);
+            catalog
+                .posting(&term.path.segments, &term.binding_name, term.operation.is_some(), id)
+                .and_then(|access| access.execute(term, catalog.logical, input, operation))
         }
-        AccessPathKind::InferredPosting => collection
-            .inference
-            .as_ref()
-            .and_then(|inference| inference.candidates(term, &collection.logical_records, input))
-            .map(|(set, _)| set),
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
         AccessPathKind::RawBigram => raw_bigram_candidates(collection, term),
-        AccessPathKind::Dictionary => {
-            let index = collection
-                .postings
-                .fields
-                .get(&term.path.segments)
-                .ok_or("missing dictionary")?;
-            let Value::String(literal) = &term.literal else {
-                return Err("dictionary requires string".into());
-            };
-            let mut result = RoaringBitmap::new();
-            for (key, posting) in &index.values {
-                if let ScalarKey::String(value) = key {
-                    if value.contains(literal) {
-                        result |= posting;
-                    }
-                }
-            }
-            Some(result)
-        }
         AccessPathKind::SortColumn => {
             let column = collection.sorting.column(&term.path.display())?;
             let literal = sort_key(&term.literal).ok_or("sort-column predicate is not scalar")?;
@@ -2084,7 +1856,7 @@ fn plan_logical_expr(
             let selected = paths.remove(0);
             context.counters.candidate_bitmap_builds +=
                 u64::from(selected.kind != AccessPathKind::Scanner);
-            let candidates = execute_path(repo, collection, term, domain, input, selected.kind)?
+            let candidates = execute_path(repo, collection, term, domain, input, &selected)?
                 .map(|set| {
                     if matches!(
                         selected.kind,
@@ -2121,12 +1893,11 @@ fn plan_logical_expr(
                 let structural_candidates = (selected.kind == AccessPathKind::RawBigram
                     && empty_selection_preservation(term))
                 .then_some(collection.empty_array_records.len());
-                let reason = if selected.kind == AccessPathKind::InferredPosting {
+                let reason = if selected.kind == AccessPathKind::Posting {
                     if selected.exact {
-                        "complete inferred posting proves the dynamic presence/null predicate"
-                            .into()
+                        "compatible posting capability proves this bound predicate".into()
                     } else {
-                        "complete inferred posting restricts dynamic values; selector and quantifier retain residual verification".into()
+                        "posting capability restricts candidates; residual verification retains selector and quantifier semantics".into()
                     }
                 } else if selected.kind == AccessPathKind::RawBigram && dynamic_binding {
                     format!(
@@ -2139,39 +1910,18 @@ fn plan_logical_expr(
                     && term.kind == LogicalType::Unknown
                     && term.path.root == PathRoot::Data
                 {
-                    let inference_reason = if let Some(inference) = &collection.inference {
-                        if inference.report.mode == crate::inference::InferenceMode::ReportOnly {
-                            "inference is report-only; dynamic predicate uses scanner".into()
-                        } else if inference.indexes.contains_key(&term.path.segments) {
-                            "inferred posting exists; this operation or current cost favors scanner"
-                                .into()
-                        } else if let Some(field) = inference
-                            .report
-                            .fields
-                            .iter()
-                            .find(|field| field.path == term.path.segments)
-                        {
-                            format!(
-                                "inferred index unavailable ({:?}: {}); scanner selected",
-                                field.index_status, field.reason
-                            )
-                        } else {
-                            "no complete inferred index for dynamic field; scanner selected".into()
-                        }
-                    } else {
-                        "inference disabled; dynamic predicate uses scanner".into()
-                    };
+                    let posting_reason = "no lower-cost compatible posting capability; scanner selected";
                     if matches!(term.binding_name.as_str(), "default" | "lower")
                         && term.operation.is_none()
                         && matches!(term.operator, Operator::Contains | Operator::Eq)
                     {
                         if let Err(coverage) = raw_covers_identity_field(collection) {
-                            format!("raw bigram rejected: {coverage}; {inference_reason}")
+                            format!("raw bigram rejected: {coverage}; {posting_reason}")
                         } else {
-                            inference_reason
+                            posting_reason.into()
                         }
                     } else {
-                        inference_reason
+                        posting_reason.into()
                     }
                 } else if selected.kind == AccessPathKind::Scanner
                     && term.path.root == PathRoot::Data
@@ -2414,185 +2164,145 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
         .candidates_prepared(term.gram_request.as_ref()?)
 }
 
+/// A prepared text access is a set of borrowed candidate providers. The same
+/// compatibility and coverage assessment feeds estimation and execution;
+/// grams and regex conditions never claim positive field proof.
+struct TextProbe<'a, 'b> {
+    index: &'a crate::bigram::BigramIndex,
+    request: &'b crate::bigram::BigramRequest,
+}
+
+struct PreparedFtsAccess<'a, 'b> {
+    probes: SmallVec<[TextProbe<'a, 'b>; 2]>,
+    regex: Option<&'b crate::regex_query::RegexCondition>,
+    literal_work: f64,
+    max_count: u64,
+}
+
+impl PreparedFtsAccess<'_, '_> {
+    fn estimate(&self) -> Option<(u64, f64)> {
+        let mut count = 0u64;
+        let mut work = self.literal_work;
+        for probe in &self.probes {
+            if let Some(condition) = self.regex {
+                let (next_count, next_work) = condition.estimate(probe.index)?;
+                count = count.saturating_add(next_count);
+                work += next_work;
+            } else {
+                count = count.saturating_add(probe.index.estimate_prepared(probe.request)?);
+            }
+        }
+        Some((count.min(self.max_count), work))
+    }
+
+    fn candidates(&self) -> Option<RoaringBitmap> {
+        let mut may = RoaringBitmap::new();
+        for probe in &self.probes {
+            may |= if let Some(condition) = self.regex {
+                condition.candidates(probe.index)?
+            } else {
+                probe.index.candidates_prepared(probe.request)?
+            };
+        }
+        Some(may)
+    }
+}
+
+fn prepare_fts_accesses<'a, 'b>(
+    indexes: &IndexCatalog<'a>,
+    collection: &CollectionState,
+    fts: &'b BoundFts,
+    raw_complete: bool,
+    has_fallback: bool,
+    raw_field_compatible: bool,
+    max_count: u64,
+) -> Option<PreparedFtsAccess<'a, 'b>> {
+    if fts.fields.iter().any(|field| field.related.is_some()) {
+        return None;
+    }
+    let regex = if matches!(fts.mode, FtsMode::Regex(_)) {
+        Some(fts.fallback_regex.as_ref()?.condition()?)
+    } else {
+        None
+    };
+    let mut probes = SmallVec::new();
+    let literal_work = if fts.fields.is_empty() {
+        if !raw_complete
+            || (regex.is_none()
+                && fts.raw_matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible()))
+            || collection.definition.schema.raw.as_ref()
+                .is_some_and(|binding| !binding.operation.complete_coverage())
+        {
+            return None;
+        }
+        probes.push(TextProbe { index: indexes.raw_text, request: &fts.gram_request });
+        if has_fallback {
+            probes.push(TextProbe {
+                index: indexes.fallback_text,
+                request: &fts.fallback_gram_request,
+            });
+        }
+        if regex.is_none() { fts.literal.len() as f64 } else { 0.0 }
+    } else {
+        let logical_text_complete = collection.source.reader().logical_text_coverage()
+            == LogicalTextCoverage::AllStringFields;
+        for field in &fts.fields {
+            if field.path.root != PathRoot::Data
+                || field.matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible())
+            {
+                return None;
+            }
+            let index = indexes.field_text_for(
+                &collection.definition.schema,
+                &field.path.segments,
+                &field.binding_name,
+                field.operation.is_some(),
+                logical_text_complete,
+                raw_field_compatible,
+            )?;
+            probes.push(TextProbe { index, request: &field.gram_request });
+        }
+        if regex.is_none() {
+            fts.fields.iter().map(|field| field.literal.len() as f64).sum()
+        } else {
+            0.0
+        }
+    };
+    Some(PreparedFtsAccess { probes, regex, literal_work, max_count })
+}
+
 pub(crate) fn fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
-    if fts.fields.iter().any(|field| field.related.is_some()) {
-        return None;
-    }
-    if matches!(fts.mode, FtsMode::Regex(_)) {
-        return regex_fts_candidates(collection, fts);
-    }
-    if fts.fields.is_empty() {
-        let has_fallback =
-            collection.logical_records.len() != collection.generation.records.len() as u64;
-        if fts
-            .raw_matcher
-            .as_ref()
-            .is_some_and(|matcher| !matcher.bigram_compatible())
-        {
-            return None;
-        }
-        if collection
-            .definition
-            .schema
-            .raw
-            .as_ref()
-            .is_some_and(|binding| !binding.operation.complete_coverage())
-        {
-            return None;
-        }
-        let mut valid = collection.raw.candidates_prepared(&fts.gram_request)?;
-        if has_fallback {
-            valid |= collection
-                .fallback_text
-                .candidates_prepared(&fts.fallback_gram_request)?;
-        }
-        return Some(valid);
-    }
-    let mut union = RoaringBitmap::new();
-    for field in &fts.fields {
-        union |= fts_field_index(collection, field)?.candidates_prepared(&field.gram_request)?;
-    }
-    Some(union)
+    let indexes = IndexCatalog::collection(collection);
+    prepare_fts_accesses(
+        &indexes,
+        collection,
+        fts,
+        true,
+        collection.logical_records.len() != collection.generation.records.len() as u64,
+        raw_covers_identity_field(collection).is_ok(),
+        collection.stats.record_count as u64,
+    )?
+    .candidates()
 }
 
 pub(crate) fn estimate_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<(u64, f64)> {
-    if fts.fields.iter().any(|field| field.related.is_some()) {
-        return None;
-    }
-    if matches!(fts.mode, FtsMode::Regex(_)) {
-        return estimate_regex_fts_candidates(collection, fts);
-    }
-    if fts.fields.is_empty() {
-        if fts
-            .raw_matcher
-            .as_ref()
-            .is_some_and(|matcher| !matcher.bigram_compatible())
-        {
-            return None;
-        }
-        if collection
-            .definition
-            .schema
-            .raw
-            .as_ref()
-            .is_some_and(|binding| !binding.operation.complete_coverage())
-        {
-            return None;
-        }
-        let mut count = collection.raw.estimate_prepared(&fts.gram_request)?;
-        if collection.logical_records.len() != collection.generation.records.len() as u64 {
-            count = count.saturating_add(
-                collection
-                    .fallback_text
-                    .estimate_prepared(&fts.fallback_gram_request)?,
-            );
-        }
-        return Some((
-            count.min(collection.stats.record_count as u64),
-            fts.literal.len() as f64,
-        ));
-    }
-    let mut count = 0u64;
-    let mut work = 0.0;
-    for field in &fts.fields {
-        let estimate =
-            fts_field_index(collection, field)?.estimate_prepared(&field.gram_request)?;
-        work += field.literal.len() as f64;
-        count = count.saturating_add(estimate);
-    }
-    Some((count.min(collection.stats.record_count as u64), work))
-}
-
-fn regex_fts_candidates(collection: &CollectionState, fts: &BoundFts) -> Option<RoaringBitmap> {
-    let condition = fts.fallback_regex.as_ref()?.condition()?;
-    if fts.fields.is_empty() {
-        if collection
-            .definition
-            .schema
-            .raw
-            .as_ref()
-            .is_some_and(|binding| !binding.operation.complete_coverage())
-        {
-            return None;
-        }
-        let mut valid = condition.candidates(&collection.raw)?;
-        if collection.logical_records.len() != collection.generation.records.len() as u64 {
-            valid |= condition.candidates(&collection.fallback_text)?;
-        }
-        return Some(valid);
-    }
-    let mut union = RoaringBitmap::new();
-    for field in &fts.fields {
-        union |= condition.candidates(fts_field_index(collection, field)?)?;
-    }
-    Some(union)
-}
-
-fn estimate_regex_fts_candidates(
-    collection: &CollectionState,
-    fts: &BoundFts,
-) -> Option<(u64, f64)> {
-    let condition = fts.fallback_regex.as_ref()?.condition()?;
-    if fts.fields.is_empty() {
-        if collection
-            .definition
-            .schema
-            .raw
-            .as_ref()
-            .is_some_and(|binding| !binding.operation.complete_coverage())
-        {
-            return None;
-        }
-        let (mut count, mut work) = condition.estimate(&collection.raw)?;
-        if collection.logical_records.len() != collection.generation.records.len() as u64 {
-            let (fallback_count, fallback_work) = condition.estimate(&collection.fallback_text)?;
-            count = count.saturating_add(fallback_count);
-            work += fallback_work;
-        }
-        return Some((count.min(collection.stats.record_count as u64), work));
-    }
-    let mut count = 0u64;
-    let mut work = 0.0;
-    for field in &fts.fields {
-        let (field_count, field_work) = condition.estimate(fts_field_index(collection, field)?)?;
-        count = count.saturating_add(field_count);
-        work += field_work;
-    }
-    Some((count.min(collection.stats.record_count as u64), work))
-}
-
-fn fts_field_index<'a>(
-    collection: &'a CollectionState,
-    field: &crate::reference::BoundFtsField,
-) -> Option<&'a crate::bigram::BigramIndex> {
-    if field.path.root != PathRoot::Data
-        || field
-            .matcher
-            .as_ref()
-            .is_some_and(|matcher| !matcher.bigram_compatible())
-    {
-        return None;
-    }
-    if collection.source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields {
-        if let Some(index) =
-            custom_text_index(collection, &field.path.segments, &field.binding_name)
-        {
-            return Some(index);
-        }
-    }
-    if matches!(field.binding_name.as_str(), "default" | "lower")
-        && field.operation.is_none()
-        && raw_covers_identity_field(collection).is_ok()
-    {
-        return Some(&collection.raw);
-    }
-    None
+    let indexes = IndexCatalog::collection(collection);
+    prepare_fts_accesses(
+        &indexes,
+        collection,
+        fts,
+        true,
+        collection.logical_records.len() != collection.generation.records.len() as u64,
+        raw_covers_identity_field(collection).is_ok(),
+        collection.stats.record_count as u64,
+    )?
+    .estimate()
 }
 
 #[cfg(test)]

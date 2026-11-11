@@ -134,6 +134,80 @@ fn auto_index_retains_structural_facts_after_value_admission_fails() {
 }
 
 #[test]
+fn equal_declared_and_observed_postings_have_the_same_plan_and_proof() {
+    let root = temporary_root("posting-provenance-parity");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, document) in [
+        ("00", r#"{"score":1}"#),
+        ("01", r#"{"score":2}"#),
+        ("02", r#"{"score":3}"#),
+        ("03", r#"{"score":null}"#),
+        ("04", r#"{"other":true}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
+    }
+    let mut declared_definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    declared_definition.schema.register_field(FieldDefinition {
+        path: vec!["score".into()],
+        kind: LogicalType::Number,
+        required: false,
+        nullable: true,
+        indexed: true,
+        multi: false,
+        element_nullable: Vec::new(),
+    }).unwrap();
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::Disabled,
+        verified_cache_bytes: 0,
+        ..Default::default()
+    };
+    let declared = Repository::open_with_options(&root, vec![declared_definition], options.clone()).unwrap();
+    let observed = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        RepositoryOptions {
+            inference: InferenceConfig { mode: InferenceMode::AutoIndex, ..Default::default() },
+            ..options
+        },
+    ).unwrap();
+    let path = vec!["score".into()];
+    let left = &declared.collections()[0].postings.fields[&path];
+    let right = &observed.collections()[0].inference.as_ref().unwrap().indexes[&path];
+    assert_eq!(left.kind, right.kind);
+    assert_eq!(left.multi, right.multi);
+    assert_eq!(left.presence, right.presence);
+    assert_eq!(left.nulls, right.nulls);
+    assert_eq!(left.values, right.values);
+    assert_eq!(left.lengths, right.lengths);
+    assert_eq!(left.value_complete, right.value_complete);
+    assert_eq!(left.length_complete, right.length_complete);
+    assert_eq!(left.empty_string_complete, right.empty_string_complete);
+    assert_eq!(left.covered_records, right.covered_records);
+    for filter in [
+        "score = 2", "score >= 2", "score:exists = true", "score:null = true",
+    ] {
+        let mut request = query(filter);
+        request.options.return_mode = ReturnMode::Locator;
+        request.options.evidence = false;
+        let a = declared.search(&request).unwrap();
+        let b = observed.search(&request).unwrap();
+        assert_eq!(a.hits, b.hits, "{filter}");
+        assert_eq!(a.count, b.count, "{filter}");
+        assert_eq!(a.counters.files_opened, 0, "{filter}");
+        assert_eq!(b.counters.files_opened, 0, "{filter}");
+        let a_plan = declared.explain(&request).unwrap();
+        let b_plan = observed.explain(&request).unwrap();
+        let a_access = &a_plan[0].terms[0].selected;
+        let b_access = &b_plan[0].terms[0].selected;
+        assert_eq!(a_access.kind, b_access.kind, "{filter}");
+        assert_eq!(a_access.exact, b_access.exact, "{filter}");
+        assert_eq!(a_access.estimated_output, b_access.estimated_output, "{filter}");
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
     let root = temporary_root("planning-conjuncts");
     let _ = std::fs::remove_dir_all(&root);
@@ -439,7 +513,7 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
     assert!(
         plan.iter()
             .flat_map(|trace| &trace.terms)
-            .any(|term| term.selected.kind == AccessPathKind::InferredPosting),
+            .any(|term| term.selected.kind == AccessPathKind::Posting),
         "{plan:?}"
     );
     assert_eq!(
@@ -990,7 +1064,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                 assert!(
                     plan.iter()
                         .flat_map(|trace| &trace.terms)
-                        .any(|term| term.selected.kind == AccessPathKind::InferredPosting)
+                        .any(|term| term.selected.kind == AccessPathKind::Posting)
                 );
                 let fallback_or = query("flag = true || @file.status = 1");
                 let selected = repo.search(&fallback_or).unwrap();
@@ -1250,7 +1324,7 @@ fn registered_reader_observations_do_not_depend_on_raw_text_coverage() {
             .unwrap()
             .iter()
             .flat_map(|trace| &trace.terms)
-            .any(|term| term.selected.kind == AccessPathKind::InferredPosting)
+            .any(|term| term.selected.kind == AccessPathKind::Posting)
     );
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1315,7 +1389,7 @@ fn inferred_multivalue_candidates_preserve_universal_empty_selection() {
                 .unwrap()
                 .iter()
                 .flat_map(|trace| &trace.terms)
-                .any(|term| term.selected.kind == AccessPathKind::InferredPosting)
+                .any(|term| term.selected.kind == AccessPathKind::Posting)
         );
     }
     std::fs::remove_dir_all(root).unwrap();
@@ -1378,7 +1452,7 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
                 .unwrap()
                 .iter()
                 .flat_map(|trace| &trace.terms)
-                .any(|term| term.selected.kind == AccessPathKind::InferredPosting),
+                .any(|term| term.selected.kind == AccessPathKind::Posting),
             "{filter}"
         );
     }
@@ -1395,7 +1469,7 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
             .unwrap()
             .iter()
             .flat_map(|trace| &trace.terms)
-            .any(|term| term.selected.kind == AccessPathKind::InferredPosting)
+            .any(|term| term.selected.kind == AccessPathKind::Posting)
     );
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1464,7 +1538,7 @@ fn complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings() {
         assert_eq!(trace[0].candidates, expected.len() as u64, "{filter}");
         assert!(
             trace[0].terms.iter().all(|term| {
-                term.selected.kind == AccessPathKind::InferredPosting
+                term.selected.kind == AccessPathKind::Posting
                     && term.selected.exact
                     && !term.residual_verification
             }),
@@ -1594,7 +1668,7 @@ fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
             repo.explain(&request).unwrap()[0]
                 .terms
                 .iter()
-                .all(|term| term.selected.kind == AccessPathKind::InferredPosting
+                .all(|term| term.selected.kind == AccessPathKind::Posting
                     && term.selected.exact),
             "{filter}"
         );

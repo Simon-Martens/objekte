@@ -222,6 +222,7 @@ fn estimate(
         estimated_files: (estimated_targets as f64 / target.stats.mean_records_per_file().max(1.0))
             .min(target.stats.file_count as f64),
         estimated_bytes: estimated_targets as f64 * target.stats.mean_record_bytes(),
+        posting: None,
     };
     let target_first = make(AccessPathKind::RelationTargetFirst, target_work);
     let source_restricted = make(AccessPathKind::RelationSourceRestricted, source_work);

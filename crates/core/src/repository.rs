@@ -156,6 +156,7 @@ pub struct CollectionState {
     pub logical_records: RoaringBitmap,
     pub empty_array_records: RoaringBitmap,
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    pub(crate) text_bindings: crate::index_catalog::TextBindingCatalog,
     pub sorting: SortCollection,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
     pub identity_order: Vec<RecordSlot>,
@@ -250,20 +251,6 @@ pub(crate) fn canonical_custom_text_key(
     };
     (path.to_vec(), canonical.to_owned())
 }
-
-pub(crate) fn built_in_field_text_key(
-    schema: &Schema,
-    path: &[String],
-) -> Option<(Vec<String>, String)> {
-    let name = schema
-        .custom
-        .keys()
-        .filter(|(candidate_path, _)| candidate_path == path)
-        .map(|(_, name)| name.as_str())
-        .min()?;
-    Some((path.to_vec(), name.to_owned()))
-}
-
 
 /// Collection size summary used by query planning.
 #[derive(Clone, Copy, Debug, serde::Serialize, serde::Deserialize)]
@@ -1502,6 +1489,7 @@ impl Repository {
                     .map(|file| files.files[file.0 as usize].revision.size)
                     .sum(),
             };
+            let text_bindings = crate::index_catalog::TextBindingCatalog::new(&definition.schema);
             collections.push(CollectionState {
                 definition,
                 source,
@@ -1515,6 +1503,7 @@ impl Repository {
                 logical_records,
                 empty_array_records,
                 custom_text,
+                text_bindings,
                 sorting,
                 id_lookup,
                 identity_order,

@@ -17,6 +17,7 @@ pub mod execution_options;
 pub mod executor;
 pub mod fts_preview;
 pub mod inference;
+mod index_catalog;
 pub mod inventory;
 mod json_scalar_text;
 pub mod lifecycle;
