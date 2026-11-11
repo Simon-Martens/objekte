@@ -3291,6 +3291,93 @@ fn residual_proofs_skip_indexed_terms_and_preserve_or_evidence() {
 }
 
 #[test]
+fn selective_candidate_and_broad_exact_or_share_the_restricted_domain() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-predicate-order-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for slot in 0..1000 {
+        let kind = if slot < 950 { "hot" } else { "cold" };
+        let body = if slot == 949 || slot == 970 {
+            "needle"
+        } else {
+            "ordinary"
+        };
+        std::fs::write(
+            root.join(format!("data/{slot:03}.json")),
+            format!(r#"{{"kind":"{kind}","body":"{body}"}}"#),
+        )
+        .unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    for (name, indexed) in [("kind", true), ("body", false)] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition],
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let make = |filter: &str, evidence| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 1000,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence,
+        },
+    };
+    for filter in [
+        "kind = 'hot' && body ~ 'needle'",
+        "body ~ 'needle' && kind = 'hot'",
+    ] {
+        let request = make(filter, false);
+        let (actual, trace) = repo.explain_analyze(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(actual.hits, reference.hits, "{filter}");
+        assert_eq!(actual.count, Some(1), "{filter}");
+        assert_eq!(trace[0].terms[0].field, "body", "{filter}");
+        assert!(actual.counters.files_opened <= 2, "{filter}");
+        assert!(actual.counters.residual_evaluations <= 2, "{filter}");
+    }
+    for evidence in [false, true] {
+        let request = make("body ~ 'needle' || kind = 'hot'", evidence);
+        let (actual, trace) = repo.explain_analyze(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(actual.hits, reference.hits);
+        assert_eq!(actual.count, Some(951));
+        assert_eq!(trace[0].terms[0].field, "kind");
+        if !evidence {
+            assert!(actual.counters.files_opened <= 50);
+            assert!(actual.counters.residual_evaluations <= 50);
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn stored_order_pages_stop_globally_and_count_remains_optional() {
     use crate::workload::SortField;
 

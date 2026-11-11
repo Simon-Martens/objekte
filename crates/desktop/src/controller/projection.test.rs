@@ -76,6 +76,44 @@ fn metadata_projection_keeps_the_page_values_after_the_source_disappears() {
 }
 
 #[test]
+fn metadata_cells_agree_with_filters_combining_metadata_and_record_fields() {
+    let fixture = fixture();
+    let size = std::fs::metadata(fixture._root.path().join("a.json")).unwrap().len();
+    let root = serde_json::to_string(&objekte_search_core::path_repr::query_path(
+        fixture._root.path(),
+    )).unwrap();
+    for filter in [
+        "@file.size < 2KB && year = 2024".to_owned(),
+        format!("year = 2024 && (@file.size >= 02GiB || @record.byte_length = {size})"),
+        format!("(@file.path = 'a.json' || year < 0) && @collection.name = 'files' && @repository.root = {root}"),
+        format!("@record.id = 'path:a.json' && @record.byte_start = 0 && @record.byte_end = {size} SORT BY @file.size DESC"),
+        "@file.size < 23MB && (year = 2024 || year < 0)".to_owned(),
+    ] {
+        let spec = QuerySpec { filter: filter.clone(), count: true, ..Default::default() };
+        let page = query_page(&fixture.session, &spec, 0, 10, &CancellationToken::new()).unwrap();
+        assert_eq!(page.count, Some(1), "{filter}");
+        let columns = initial_columns(&fixture.session, &SearchDraft {
+            structured: filter.clone(), filter_enabled: true, ..Default::default()
+        });
+        let (view, _, _) = page_view_with_prior(&page, &spec, &[], &[], &columns);
+        assert_eq!(view.rows.len(), 1, "{filter}");
+        for (column, expected) in [
+            ("@record.id", "path:a.json".to_owned()),
+            ("@file.path", "a.json".to_owned()),
+            ("@file.size", size.to_string()),
+            ("@record.byte_length", size.to_string()),
+            ("@record.byte_start", "0".to_owned()),
+            ("@record.byte_end", size.to_string()),
+            ("@collection.name", "files".to_owned()),
+            ("@repository.root", fixture._root.path().display().to_string()),
+        ] {
+            let index = view.columns.iter().position(|name| name == column).unwrap();
+            assert_eq!(view.rows[0].cells[index], expected, "{column}: {filter}");
+        }
+    }
+}
+
+#[test]
 fn detail_marks_matching_fields_from_core_evidence() {
     let fixture = fixture();
     let page = query_page(
