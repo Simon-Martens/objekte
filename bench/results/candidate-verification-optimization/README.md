@@ -1,4 +1,4 @@
-# Candidate verification baseline
+# Candidate verification baseline and integration
 
 Task: `candidate-verification-optimization`. Actual base revision:
 `2bd4dbb15fd6bc7ddec178d056eefcad9b764362`. The task specification's
@@ -86,8 +86,8 @@ The focused runner measures FTS, case-insensitive FTS, FILTER-only field
 verification, and combined FTS/FILTER. It asserts that the in-memory and
 repository paths return identical complete membership. Baseline in-memory
 timings call the decoded-scalar reader's **validating** `parse_for_query` and
-the existing bound evaluator over a fixed candidate sequence. A later
-indexed-valid trusted extractor needs a separately labeled row. Repository
+the existing bound evaluator over a fixed candidate sequence. Final integration
+results add a separately labeled indexed-valid trusted-extraction row. Repository
 timings include index candidate selection, source reads, verification, and
 result collection. Its JSONL rows
 include exact membership SHA-256, counts, work counters, min/median/max, and
@@ -118,3 +118,40 @@ be smaller there than in memory.
 `base-discovery/` is a single-repetition exploratory run used to select
 focused Musenalm cases; use `base-suite/` and `base-suite-warm/` for the
 five-repetition baseline.
+
+## Final integration result
+
+Final implementation revision: `97f3d75d1189ae025fa30289424a40d4af0e20e3`.
+The eight `integration-*.jsonl` files and corresponding `compare-*.tsv`
+contain the seven-repetition focused results and complete membership checks.
+The committed revision's two 194-case, five-repetition Musenalm runs are
+`integration-suite/` and `integration-suite-warm/`. Both suites have zero
+failures and zero differences from baseline in the CSV result/count/source-work
+columns. The full short-plain oracle was compared byte-for-byte with
+`base-short-plain-oracle.jsonl` and had the same SHA-256; the redundant final
+copy is not stored.
+
+Representative median warm repository search times (base → final): Amazon20k
+decoded-scalar FTS `good` 13.526 → 9.444 ms, votes/rating FILTER 17.802 →
+15.857 ms, combined FTS/FILTER 9.877 → 7.430 ms; synthetic long-escaped
+FTS 28.737 → 13.841 ms, votes/rating FILTER 12.023 → 5.171 ms, combined
+27.904 → 12.956 ms. Full analysis, independent variant decisions, correctness,
+and limitations are in
+[`docs/ai/generated/candidate_verification_optimization_results.md`](../../../docs/ai/generated/candidate_verification_optimization_results.md).
+
+Intermediate JSON parser and delimiter experiments, including rejected
+variants, are retained under `experiments/` with their original names. That
+directory also contains the matcher microbenchmark log. `pre-policy-*.jsonl`
+and `policy-only-*.jsonl` isolate the required validation dispatch on the
+same fixtures at revisions `b4595ea083` and `525ef56135`. The four
+`regression-repeat/*.jsonl` files and `regression-repeat.tsv` record alternating
+base/final reruns for five Musenalm cases with nine repetitions each. The
+`fastpath-*`, `key-fastpath-*`, and `bracket-*` files record rejected string
+decoding experiments.
+
+Reproduce the final suites with the baseline commands above, replacing the
+result directories with `integration-suite` and `integration-suite-warm`.
+For the focused run, replace the output path `base-<fixture>.jsonl` with
+`integration-<fixture>.jsonl`, then use the comparator command above. The
+latest final executable was rebuilt from the committed revision with the same
+locked release command.

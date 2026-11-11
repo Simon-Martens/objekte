@@ -54,8 +54,8 @@ def main() -> None:
         variant_ms = variant["median_ns"] / 1_000_000
         print(
             f"{key[0]}\t{key[1]}\t{base_ms:.3f}\t{variant_ms:.3f}\t"
-            f"{variant_ms / base_ms:.3f}\t{base.get('allocated_bytes', '')}\t"
-            f"{variant.get('allocated_bytes', '')}"
+            f"{variant_ms / base_ms:.3f}\t{base.get('allocated_bytes', '-')}\t"
+            f"{variant.get('allocated_bytes', '-')}"
         )
     for case, level in sorted(extra):
         base = base_cases.get((case, "in_memory_validating_parse_extract_evaluate"))
@@ -66,8 +66,8 @@ def main() -> None:
         variant_ms = variant["median_ns"] / 1_000_000
         print(
             f"{case}\ttrusted_vs_base_validating\t{base_ms:.3f}\t{variant_ms:.3f}\t"
-            f"{variant_ms / base_ms:.3f}\t{base.get('allocated_bytes', '')}\t"
-            f"{variant.get('allocated_bytes', '')}"
+            f"{variant_ms / base_ms:.3f}\t{base.get('allocated_bytes', '-')}\t"
+            f"{variant.get('allocated_bytes', '-')}"
         )
 
 

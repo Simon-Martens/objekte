@@ -1,0 +1,28 @@
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte-task-candidate-verification-optimization-text-matching/crates/core)
+    Finished `release` profile [optimized] target(s) in 17.91s
+     Running unittests src/lib.rs (target/release/deps/objekte_search_core-5e2f67942b23c6fa)
+
+running 1 test
+literal len=96 needle=3 pos=early std=10ns finder=3ns
+literal len=96 needle=3 pos=late std=5ns finder=5ns
+literal len=96 needle=3 pos=miss std=4ns finder=4ns
+literal len=96 needle=29 pos=early std=6ns finder=5ns
+literal len=96 needle=29 pos=late std=6ns finder=6ns
+literal len=96 needle=29 pos=miss std=3ns finder=4ns
+literal len=8192 needle=3 pos=early std=5ns finder=3ns
+literal len=8192 needle=3 pos=late std=149ns finder=121ns
+literal len=8192 needle=3 pos=miss std=148ns finder=117ns
+literal len=8192 needle=29 pos=early std=6ns finder=5ns
+literal len=8192 needle=29 pos=late std=152ns finder=151ns
+literal len=8192 needle=29 pos=miss std=147ns finder=148ns
+prepare literal needle=3 finder=16ns
+prepare literal needle=29 finder=53ns
+prepare wildcard pattern=5 finder=102ns
+prepare wildcard pattern=29 finder=204ns
+wildcard len=7 std=19ns finder=7ns
+wildcard len=8192 std=1135ns finder=117ns
+fold len=96 std=931ns scratch_finder=22ns
+fold len=1500 std=14550ns scratch_finder=14482ns
+test reference::tests::candidate_matcher_microbenchmark ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 480 filtered out; finished in 5.01s
