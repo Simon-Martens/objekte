@@ -3118,6 +3118,106 @@ pub fn eval_bound_fts(
     Ok(matched)
 }
 
+/// Visit value-owned strings using only borrowed text and borrowed key names.
+pub(crate) fn visit_borrowed_value_strings<'a>(
+    value: &'a Value,
+    path: &mut Vec<&'a str>,
+    inspect: &mut impl FnMut(&[&str], &'a str) -> Result<bool, String>,
+) -> Result<bool, String> {
+    match value {
+        Value::String(text) | Value::Id(text) => inspect(path, text),
+        Value::Object(fields) => {
+            let mut matched = false;
+            for (name, child) in fields {
+                path.push(name);
+                matched |= visit_borrowed_value_strings(child, path, inspect)?;
+                path.pop();
+            }
+            Ok(matched)
+        }
+        Value::Array(array) => {
+            let mut matched = false;
+            for child in &array.values {
+                matched |= visit_borrowed_value_strings(child, path, inspect)?;
+            }
+            Ok(matched)
+        }
+        _ => Ok(false),
+    }
+}
+
+/// Search strings in a logical value without constructing owned segments or paths.
+/// This is valid for readers whose searchable corpus is the converted value.
+pub(crate) fn eval_borrowed_value_fts(
+    fts: &BoundFts,
+    ctx: &RecordContext<'_>,
+    mut evidence: Option<&mut HashSet<String>>,
+) -> Result<bool, String> {
+    let mut path = Vec::new();
+    let mut matched = false;
+    if fts.fields.is_empty() {
+        let mut inspect = |path: &[&str], text: &str| {
+            if !text_contains(
+                text,
+                &fts.literal,
+                &fts.folded_literal,
+                Transform::Identity,
+                fts.raw_matcher.as_ref(),
+                fts.case_sensitivity,
+                fts.finder.as_ref(),
+            )? {
+                return Ok(false);
+            }
+            if let Some(evidence) = evidence.as_deref_mut() {
+                evidence.insert(if path.is_empty() {
+                    "@root".into()
+                } else {
+                    path.join(".")
+                });
+            }
+            Ok(true)
+        };
+        return visit_borrowed_value_strings(ctx.value, &mut path, &mut inspect);
+    }
+    for field in &fts.fields {
+        if field.query_path.is_some() || !matches!(field.path.root, PathRoot::Data) {
+            matched |= eval_bound_fts_field(
+                field,
+                fts.case_sensitivity,
+                &[],
+                ctx,
+                evidence.as_deref_mut(),
+            )?;
+            continue;
+        }
+        let mut inspect = |path: &[&str], text: &str| {
+            if !field.path.segments.is_empty()
+                && (path.len() != field.path.segments.len()
+                    || !path.iter().zip(&field.path.segments).all(|(a, b)| *a == b))
+            {
+                return Ok(false);
+            }
+            if !text_contains(
+                text,
+                &field.literal,
+                &field.folded_literal,
+                field.transform,
+                field.matcher.as_ref(),
+                fts.case_sensitivity,
+                field.finder.as_ref(),
+            )? {
+                return Ok(false);
+            }
+            if let Some(evidence) = evidence.as_deref_mut() {
+                evidence.insert(field.evidence_path.clone());
+            }
+            Ok(true)
+        };
+        matched |= visit_borrowed_value_strings(ctx.value, &mut path, &mut inspect)?;
+    }
+    Ok(matched)
+}
+
 /// Evaluate one borrowed selected target, retaining every matched path when requested.
 pub(crate) fn eval_bound_fts_field(
     field: &BoundFtsField,

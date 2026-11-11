@@ -1,6 +1,51 @@
 use super::*;
 
 #[test]
+fn borrowed_value_visitation_uses_original_strings_and_key_storage() {
+    let value = Value::from_json(serde_json::json!({
+        "outer": {"items": ["first", "second"]},
+        "other": "last"
+    }))
+    .unwrap();
+    let Value::Object(root) = &value else {
+        panic!("object")
+    };
+    let (outer_key, outer) = root.get_key_value("outer").unwrap();
+    let Value::Object(outer) = outer else {
+        panic!("nested object")
+    };
+    let (items_key, items) = outer.get_key_value("items").unwrap();
+    let Value::Array(items) = items else {
+        panic!("array")
+    };
+    let Value::String(first) = &items.values[0] else {
+        panic!("string")
+    };
+    let mut path = Vec::with_capacity(4);
+    let mut seen = Vec::new();
+    visit_borrowed_value_strings(&value, &mut path, &mut |keys, text| {
+        if text == "first" {
+            assert_eq!(keys, ["outer", "items"]);
+            assert_eq!(keys[0].as_ptr(), outer_key.as_ptr());
+            assert_eq!(keys[1].as_ptr(), items_key.as_ptr());
+            assert_eq!(text.as_ptr(), first.as_ptr());
+        }
+        seen.push((keys.join("."), text.to_owned()));
+        Ok(false)
+    })
+    .unwrap();
+    assert_eq!(path.capacity(), 4);
+    assert_eq!(
+        seen,
+        [
+            ("other".into(), "last".into()),
+            ("outer.items".into(), "first".into()),
+            ("outer.items".into(), "second".into()),
+        ]
+    );
+}
+
+#[test]
 fn prepared_contains_preserves_plain_wildcard_and_escaped_percent_semantics() {
     for (pattern, cases) in [
         ("abc", vec![("zabcx", true), ("abxc", false)]),

@@ -910,7 +910,15 @@ fn scan_file(
         )?)
     };
     outcome.files_opened = u64::from(reader.is_some());
-    let full_projection = ScanProjection::full(projection.collect_text);
+    // These built-in readers search the converted logical strings. Keep the
+    // value, but avoid producing a second owned copy of every string and path.
+    let borrowed_value_text = matches!(collection.source.id(), "json" | "jsonl")
+        && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()));
+    let mut value_projection = projection.clone();
+    if borrowed_value_text {
+        value_projection.collect_text = false;
+    }
+    let full_projection = ScanProjection::full(value_projection.collect_text);
     let mut cursor = 0;
     while cursor < ranges.len() {
         if let Some(execution) = execution {
@@ -1011,7 +1019,7 @@ fn scan_file(
             let record_projection = if logical_projection {
                 &full_projection
             } else {
-                projection
+                &value_projection
             };
             let decode = record.class == RecordClass::Logical
                 && (logical_projection
@@ -1094,6 +1102,12 @@ fn scan_file(
                 } else {
                     true
                 }
+            } else if borrowed_value_text && fts.is_some() {
+                crate::reference::eval_borrowed_value_fts(
+                    fts.expect("checked above"),
+                    &ctx,
+                    query.options.evidence.then_some(&mut evidence),
+                )?
             } else {
                 fts.map(|fts| {
                     if query.options.evidence {
