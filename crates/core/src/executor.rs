@@ -20,6 +20,8 @@ use crate::sorting::SortKey;
 use crate::source::LogicalTextCoverage;
 use serde::Serialize;
 
+const MAX_INDEXED_PATH_SCAN: usize = 8192;
+
 /// Conservative predicate bounds for one locally slotted delta. `may` is a
 /// superset of true records; `must` is a subset. Carrying both through NOT
 /// prevents an unavailable or unindexed value from becoming a false proof.
@@ -90,6 +92,17 @@ fn indexed_file_path_term(term: &BoundTerm) -> Option<(Operator, &str)> {
     };
     matches!(term.operator, Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le)
         .then_some((term.operator, literal.as_str()))
+}
+
+fn file_path_matches(value: &str, operator: Operator, literal: &str) -> bool {
+    match operator {
+        Operator::Eq => value == literal,
+        Operator::Gt => value > literal,
+        Operator::Ge => value >= literal,
+        Operator::Lt => value < literal,
+        Operator::Le => value <= literal,
+        _ => unreachable!("indexed path comparison"),
+    }
 }
 
 fn stronger_lower(candidate: &Bound<String>, current: &Bound<String>) -> bool {
@@ -383,6 +396,26 @@ fn segment_file_size_matches(
     Some(matches)
 }
 
+fn segment_file_path_matches(
+    segment: &IndexedCollectionSegment,
+    domain: &RoaringBitmap,
+    catalog: &FileCatalog,
+    operator: Operator,
+    literal: &str,
+) -> RoaringBitmap {
+    let mut matches = RoaringBitmap::new();
+    for file in &segment.files {
+        let Some(entry) = catalog.entry(file.entry.id) else {
+            continue;
+        };
+        let path = crate::path_repr::query_path(&entry.relative_path);
+        if file_path_matches(&path, operator, literal) {
+            matches.extend(file.records.iter().map(|slot| slot.0));
+        }
+    }
+    matches & domain
+}
+
 fn segment_file_modified_matches(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
@@ -625,14 +658,18 @@ fn segment_expr_bounds(
             }
             if let Some((operator, literal)) = indexed_file_path_term(term)
                 && let Some(catalog) = catalog
-                && let Some(files) = catalog.absolute_path_ids(operator, literal)
             {
-                let mut matches = RoaringBitmap::new();
-                for file in files {
-                    if let Some(slots) = segment.file_records(file) {
-                        matches.extend(slots.iter().map(|slot| slot.0));
+                let mut matches = if let Some(files) = catalog.absolute_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN) {
+                    let mut matches = RoaringBitmap::new();
+                    for file in files {
+                        if let Some(slots) = segment.file_records(file) {
+                            matches.extend(slots.iter().map(|slot| slot.0));
+                        }
                     }
-                }
+                    matches
+                } else {
+                    segment_file_path_matches(segment, domain, catalog, operator, literal)
+                };
                 matches &= domain;
                 return SegmentCandidateBounds {
                     may: matches.clone(),
@@ -1228,14 +1265,7 @@ fn term_set(
                     let matches = *matched_files.entry(file_id).or_insert_with(|| {
                         let file = &repo.files.files[file_id.0 as usize];
                         let path = crate::path_repr::query_path(&file.relative_path);
-                        match operator {
-                            Operator::Eq => path == literal,
-                            Operator::Gt => path.as_str() > literal,
-                            Operator::Ge => path.as_str() >= literal,
-                            Operator::Lt => path.as_str() < literal,
-                            Operator::Le => path.as_str() <= literal,
-                            _ => unreachable!("indexed path comparison"),
-                        }
+                        file_path_matches(&path, operator, literal)
                     });
                     if matches {
                         result.insert(slot);
@@ -1243,14 +1273,14 @@ fn term_set(
                 }
                 return Ok(Some(result));
             }
-            if let Some(files) = repo.files.absolute_path_ids(operator, literal) {
+            if let Some(files) = repo.files.absolute_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN) {
                 for file in files {
                     if let Some(slots) = collection.generation.file_records.records_for(file) {
                         result.extend(slots.iter().map(|slot| slot.0));
                     }
                 }
+                return Ok(Some(result & domain));
             }
-            return Ok(Some(result & domain));
         }
         let empty = Value::Object(BTreeMap::new());
         let mut result = RoaringBitmap::new();
