@@ -98,6 +98,7 @@ pub(crate) struct SortTargetCache {
     pub bytes_read: u64,
 }
 
+
 #[derive(Default)]
 pub(crate) struct MergedSortTargetCache {
     values: HashMap<MergedRecordSlot, Arc<Value>>,
@@ -108,6 +109,7 @@ pub(crate) struct MergedSortTargetCache {
     pub reuse: u64,
     pub bytes_read: u64,
 }
+
 
 impl MergedSortTargetCache {
     pub(crate) fn configure_execution(
@@ -121,7 +123,10 @@ impl MergedSortTargetCache {
         if let Some(execution) = &self.execution {
             execution.charge_edges(1)?;
         }
-        self.edge_visits = self.edge_visits.checked_add(1).ok_or("sort edge overflow")?;
+        self.edge_visits = self
+            .edge_visits
+            .checked_add(1)
+            .ok_or("sort edge overflow")?;
         if self.edge_visits > MAX_SORT_EDGE_VISITS {
             return Err("sort relation edge budget exceeded".into());
         }
@@ -163,9 +168,11 @@ impl MergedSortTargetCache {
             execution.charge_reads(1)?;
             execution.charge_bytes(current.record.range.len())?;
         }
-        let bytes = match crate::source::read_record_range_checked(
-            &path, current.file.revision, current.file.created_ns,
-            view.source_fingerprint(current.file.id), current.record.range,
+        let bytes = match crate::source::read_record_range_for_search(
+            &path,
+            current.file.revision,
+            current.record.range,
+            self.execution.as_ref(),
         ) {
             Ok(bytes) => bytes,
             Err(message) => {
@@ -174,6 +181,7 @@ impl MergedSortTargetCache {
             }
         };
         let extracted = crate::record_preparation::prepare_query_record_with_execution(
+            current.record.class,
             &current.collection.source,
             &current.collection.definition.schema,
             &bytes,
@@ -481,10 +489,7 @@ impl ComputedSort {
     /// A simple one-hop related sort can reuse the target's resident key.
     /// The target column has the same collection collation as this computed
     /// expression; array and transformed paths retain source evaluation.
-    pub(crate) fn direct_related_target_column(
-        &self,
-        hop: &BoundRelationHop,
-    ) -> Option<&str> {
+    pub(crate) fn direct_related_target_column(&self, hop: &BoundRelationHop) -> Option<&str> {
         let (hops, terminal) = self.related.as_ref()?;
         if hops.as_slice() != std::slice::from_ref(hop)
             || self.reducer.is_some()
@@ -493,7 +498,10 @@ impl ComputedSort {
             || terminal.has_explicit_array_step
             || terminal.has_position
             || terminal.field.segments.len() != 1
-            || terminal.steps.iter().any(|step| !matches!(step, PathStep::Field(_)))
+            || terminal
+                .steps
+                .iter()
+                .any(|step| !matches!(step, PathStep::Field(_)))
         {
             return None;
         }
@@ -598,7 +606,13 @@ impl ComputedSort {
                             if let Some(id) = id {
                                 if let Some(target) = view.resolve_id(hop.to, id)? {
                                     self.visit_related_merged(
-                                        view, hops, terminal, depth + 1, target, None, cache,
+                                        view,
+                                        hops,
+                                        terminal,
+                                        depth + 1,
+                                        target,
+                                        None,
+                                        cache,
                                         reduced,
                                     )
                                 } else {
@@ -617,7 +631,14 @@ impl ComputedSort {
                         cache.edge()?;
                         if let Some(target) = view.resolve_id(hop.to, id)? {
                             self.visit_related_merged(
-                                view, hops, terminal, depth + 1, target, None, cache, reduced,
+                                view,
+                                hops,
+                                terminal,
+                                depth + 1,
+                                target,
+                                None,
+                                cache,
+                                reduced,
                             )?;
                         } else {
                             reduced.observe_unavailable()?;
@@ -641,7 +662,14 @@ impl ComputedSort {
                         continue;
                     }
                     self.visit_related_merged(
-                        view, hops, terminal, depth + 1, source, None, cache, reduced,
+                        view,
+                        hops,
+                        terminal,
+                        depth + 1,
+                        source,
+                        None,
+                        cache,
+                        reduced,
                     )?;
                 }
             }
@@ -944,16 +972,12 @@ impl SortTargetCache {
                 .files
                 .native_path(record.file)
                 .ok_or("sort target path is missing")?;
-            let bytes = if let Some(execution) = execution.as_ref() {
-                crate::source::read_record_range_with_execution(
-                    &path,
-                    record.revision,
-                    record.range,
-                    execution,
-                )?
-            } else {
-                crate::source::read_record_range(&path, record.revision, record.range)?
-            };
+            let bytes = crate::source::read_record_range_for_search(
+                &path,
+                record.revision,
+                record.range,
+                execution.as_ref(),
+            )?;
             if cancellation
                 .as_ref()
                 .is_some_and(crate::streaming::CancellationToken::is_cancelled)
@@ -961,6 +985,7 @@ impl SortTargetCache {
                 return Err("stream cancelled".into());
             }
             let extracted = crate::record_preparation::prepare_query_record_with_execution(
+                record.class,
                 &collection.source,
                 &collection.definition.schema,
                 &bytes,

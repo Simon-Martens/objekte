@@ -131,15 +131,22 @@ fn exact_posting_payload_obeys_source_limit_across_delivery_paths() {
 }
 
 #[test]
-fn exact_posting_payload_reports_confirmed_source_change() {
+fn exact_posting_payload_uses_published_range_after_external_edit() {
     let fixture = fixture();
-    std::fs::write(fixture.root.join("data/000.json"), b"changed length").unwrap();
+    let path = fixture.root.join("data/000.json");
+    let edited = std::fs::read_to_string(&path)
+        .unwrap()
+        .replace("needle", "absent");
+    std::fs::write(&path, edited.as_bytes()).unwrap();
     let request = query("kind = 'yes'", false, false, ReturnMode::Bytes);
-    let error = fixture
+    let result = fixture
         .repo
         .search_with_context(&request, &limited_context(ExecutionLimits::default(), None))
-        .unwrap_err();
-    assert_eq!(error.kind, ExecutionErrorKind::SourceChanged);
+        .unwrap();
+    assert!(result.hits.iter().any(|hit| {
+        hit.record_id == "000"
+            && matches!(&hit.payload, Some(crate::repository::Payload::Bytes(bytes)) if bytes == edited.as_bytes())
+    }));
 }
 
 #[test]
@@ -202,23 +209,19 @@ fn invalid_sort_has_typed_invalid_query_class_in_ordinary_and_stream_search() {
 }
 
 #[test]
-fn changed_source_revision_has_ordinary_and_stream_class() {
+fn externally_changed_candidate_is_verified_without_revision_probe() {
     let fixture = fixture();
-    std::fs::write(
-        fixture.root.join("data/000.json"),
-        b"changed source content with a new length",
-    )
-    .unwrap();
+    let path = fixture.root.join("data/000.json");
+    let edited = std::fs::read_to_string(&path)
+        .unwrap()
+        .replace("needle", "absent");
+    std::fs::write(&path, edited).unwrap();
     let request = query("body ~ 'needle'", true, false, ReturnMode::Locator);
     let ordinary = fixture
         .repo
         .search_with_context(&request, &limited_context(ExecutionLimits::default(), None))
-        .unwrap_err();
-    assert_eq!(
-        ordinary.kind,
-        ExecutionErrorKind::SourceChanged,
-        "{ordinary:?}"
-    );
+        .unwrap();
+    assert!(ordinary.hits.iter().all(|hit| hit.record_id != "000"));
     let stream = fixture
         .repo
         .search_stream_scoped_with_context(
@@ -231,12 +234,8 @@ fn changed_source_revision_has_ordinary_and_stream_class() {
             &limited_context(ExecutionLimits::default(), Some(CancellationToken::new())),
             &mut |_| Ok(StreamControl::Continue),
         )
-        .unwrap_err();
-    assert_eq!(
-        stream.kind(),
-        ExecutionErrorKind::SourceChanged,
-        "{stream:?}"
-    );
+        .unwrap();
+    assert!(matches!(stream, StreamOutcome::Complete(_)), "{stream:?}");
 }
 
 

@@ -147,7 +147,7 @@ fn bounded_stream_reads_skip_lookahead_and_cap_spaced_range_windows() {
 }
 
 #[test]
-fn buffered_hits_reuse_bytes_but_a_new_read_checks_the_opened_revision() {
+fn buffered_hits_reuse_bytes_and_new_reads_trust_the_indexed_revision() {
     use std::io::{Seek, SeekFrom, Write};
     use std::time::{Duration, UNIX_EPOCH};
 
@@ -180,8 +180,8 @@ fn buffered_hits_reuse_bytes_but_a_new_read_checks_the_opened_revision() {
         WINDOW_BYTES
     );
 
-    // Same-size content replacement with a changed mtime is detectable at the
-    // next actual source read, while an already-buffered window is reused.
+    // Search keeps the published range and does not compare source revisions.
+    // An already-buffered window remains available after an external edit.
     let mut file = std::fs::OpenOptions::new().write(true).open(&path).unwrap();
     file.seek(SeekFrom::Start(10)).unwrap();
     file.write_all(b"b").unwrap();
@@ -194,13 +194,9 @@ fn buffered_hits_reuse_bytes_but_a_new_read_checks_the_opened_revision() {
     let cached = session.read(FileId(0), &[(0, range(10))]).unwrap();
     assert_eq!(cached.bytes_read, 0);
     assert_eq!(cached.records[0].1, b"a");
-    assert!(
-        session
-            .read(FileId(0), &[(0, range(70_000))])
-            .err()
-            .unwrap()
-            .contains("stale source revision")
-    );
+    let uncached = session.read(FileId(0), &[(0, range(70_000))]).unwrap();
+    assert!(uncached.bytes_read > 0);
+    assert_eq!(uncached.records[0].1, b"a");
     std::fs::remove_dir_all(root).unwrap();
 }
 

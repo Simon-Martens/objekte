@@ -1,5 +1,6 @@
 //! Shared parse, conversion, extracted-text and payload boundary.
 
+use crate::inventory::RecordClass;
 use crate::reference::Schema;
 use crate::repository::Payload;
 use crate::source::{ExtractedRecord, PreparedSource, ScanProjection, finalize_extracted_text};
@@ -19,17 +20,26 @@ pub(crate) fn finish_build_record(
 /// Query projections retain the build-validated logical contract; a winner
 /// requesting logical data uses the complete projected record instead.
 pub(crate) fn prepare_query_record(
+    record_class: RecordClass,
     source: &PreparedSource,
     schema: &Schema,
     bytes: &[u8],
     projection: &ScanProjection,
-    logical_output: bool,
+    _logical_output: bool,
 ) -> Result<ExtractedRecord, String> {
-    let mut record = source.reader().parse_for_query(bytes, projection)?;
-    if logical_output {
-        schema.coerce_projected_record(&mut record.value, projection.top_level.as_ref())?;
+    let trusted = record_class == RecordClass::Logical && !source.is_extension();
+    if record_class == RecordClass::RawFallback {
+        return Err("raw fallback record has no logical query value".into());
+    }
+    let mut record = if trusted {
+        source.reader().parse_for_query_trusted(bytes, projection)?
     } else {
-        schema.coerce_query_record(&mut record.value, projection.top_level.as_ref())?;
+        source.reader().parse_for_query(bytes, projection)?
+    };
+    if trusted {
+        schema.convert_indexed_record(&mut record.value, projection.top_level.as_ref())?;
+    } else {
+        schema.coerce_projected_record(&mut record.value, projection.top_level.as_ref())?;
     }
     if projection.collect_text {
         finalize_extracted_text(source.reader(), &mut record, schema.has_converted_fields());
@@ -79,15 +89,23 @@ fn estimated_logical_bytes(record: &ExtractedRecord) -> u64 {
 }
 
 pub(crate) fn prepare_query_record_with_execution(
+    record_class: RecordClass,
     source: &PreparedSource,
     schema: &Schema,
     bytes: &[u8],
     projection: &ScanProjection,
-    logical_output: bool,
+    _logical_output: bool,
     execution: Option<&ExecutionContext>,
 ) -> Result<ExtractedRecord, String> {
     let Some(execution) = execution else {
-        return prepare_query_record(source, schema, bytes, projection, logical_output);
+        return prepare_query_record(
+            record_class,
+            source,
+            schema,
+            bytes,
+            projection,
+            _logical_output,
+        );
     };
     let extension = source.is_extension();
     execution.check_string()?;
@@ -109,17 +127,23 @@ pub(crate) fn prepare_query_record_with_execution(
             message
         }
     };
-    let mut record = source
-        .reader()
-        .parse_for_query(bytes, projection)
-        .map_err(tag_extension)?;
-    if logical_output {
+    if record_class == RecordClass::RawFallback {
+        return Err("raw fallback record has no logical query value".into());
+    }
+    let trusted = record_class == RecordClass::Logical && !extension;
+    let mut record = if trusted {
+        source.reader().parse_for_query_trusted(bytes, projection)
+    } else {
+        source.reader().parse_for_query(bytes, projection)
+    }
+    .map_err(tag_extension)?;
+    if trusted {
         schema
-            .coerce_projected_record(&mut record.value, projection.top_level.as_ref())
+            .convert_indexed_record(&mut record.value, projection.top_level.as_ref())
             .map_err(tag_extension)?;
     } else {
         schema
-            .coerce_query_record(&mut record.value, projection.top_level.as_ref())
+            .coerce_projected_record(&mut record.value, projection.top_level.as_ref())
             .map_err(tag_extension)?;
     }
     if projection.collect_text {

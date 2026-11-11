@@ -6,12 +6,12 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
-use crate::lifecycle::PublishedSegment;
-use crate::lifecycle_catalog::FileCatalog;
-use crate::inference::InferenceMode;
 use crate::build::IndexedCollectionSegment;
+use crate::inference::InferenceMode;
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
+use crate::lifecycle::PublishedSegment;
+use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, Value};
 use crate::posting::{PostingIndex, ScalarKey};
 use crate::query::Query;
@@ -51,9 +51,12 @@ struct SelectionData {
 
 impl ExactSelection {
     pub fn len(&self) -> u64 {
-        self.0.segment_members.iter().fold(self.0.members.len(), |total, members| {
-            total.saturating_add(members.len())
-        })
+        self.0
+            .segment_members
+            .iter()
+            .fold(self.0.members.len(), |total, members| {
+                total.saturating_add(members.len())
+            })
     }
 
     pub fn is_empty(&self) -> bool {
@@ -252,31 +255,44 @@ fn resolve_segment<'a>(
     binding_version: u32,
 ) -> Result<ResolvedPosting<'a>, String> {
     let (index, indexed_records) = if binding == "inferred" {
-        let inference = segment.inference.as_ref()
+        let inference = segment
+            .inference
+            .as_ref()
             .filter(|state| state.report.mode == InferenceMode::AutoIndex && state.report.complete)
             .ok_or("segment has no complete inferred posting index")?;
         if inference.report.policy.version != binding_version {
             return Err("segment inferred posting policy changed".into());
         }
         (
-            inference.indexes.get(&path.segments)
+            inference
+                .indexes
+                .get(&path.segments)
                 .ok_or("segment inferred posting field missing")?,
             inference.short_string_coverage.get(&path.segments),
         )
     } else if binding == "default" {
         (
-            segment.postings.fields.get(&path.segments)
+            segment
+                .postings
+                .fields
+                .get(&path.segments)
                 .ok_or("segment posting field missing")?,
             None,
         )
     } else {
         let key = (path.segments.clone(), binding.to_owned());
-        let registration = collection.definition.schema.operations.get(&key)
+        let registration = collection
+            .definition
+            .schema
+            .operations
+            .get(&key)
             .ok_or("segment posting binding missing")?;
         if registration.version != binding_version {
             return Err("segment posting binding version changed".into());
         }
-        let custom = segment.custom_postings.get(&key)
+        let custom = segment
+            .custom_postings
+            .get(&key)
             .ok_or("segment custom posting missing")?;
         if !custom.complete {
             return Err("incomplete segment custom posting coverage".into());
@@ -295,10 +311,12 @@ fn resolve_segment<'a>(
     })
 }
 
+
 struct ScannedSegmentPosting {
     index: PostingIndex,
     complete_values: RoaringBitmap,
 }
+
 
 fn fully_represented(value: &Value, max_short_string: Option<usize>) -> bool {
     match value {
@@ -357,13 +375,15 @@ fn scan_inferred_segment(
         {
             return Err("active inferred segment file changed without retirement".into());
         }
-        let mut reader = RecordRangeReader::open(
+        let mut reader = RecordRangeReader::open_for_search(
             &repo.files.root.join(&current.relative_path),
             current.revision,
+            None,
         )?;
         for batch in ranges.chunks(128) {
             for (slot, bytes) in reader.read(batch)?.0 {
                 let value = prepare_query_record_with_execution(
+                    collection.generation.records[slot as usize].class,
                     &collection.source,
                     &collection.definition.schema,
                     &bytes,
@@ -498,7 +518,10 @@ pub(crate) fn select_exact_segmented(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
 ) -> Result<ExactSelection, String> {
-    let (collection_index, state) = repo.collections.iter().enumerate()
+    let (collection_index, state) = repo
+        .collections
+        .iter()
+        .enumerate()
         .find(|(_, state)| state.definition.name == collection)
         .ok_or("unknown collection")?;
     if !query.collections.is_empty() && !query.collections.iter().any(|name| name == collection) {
@@ -511,13 +534,15 @@ pub(crate) fn select_exact_segmented(
     request.options.sort.clear();
     request.options.evidence = false;
     request.options.return_mode = crate::execution_options::ReturnMode::Locator;
-    request.options.limit = segments[collection_index].iter()
-        .try_fold(base_active[collection_index].len() as usize, |total, segment| {
-            total.checked_add(segment.active.len() as usize)
-        }).ok_or("selection domain too large")?;
-    let result = crate::run::search_segmented(
-        repo, &request, base_active, segments, catalog, revision,
-    )?;
+    request.options.limit = segments[collection_index]
+        .iter()
+        .try_fold(
+            base_active[collection_index].len() as usize,
+            |total, segment| total.checked_add(segment.active.len() as usize),
+        )
+        .ok_or("selection domain too large")?;
+    let result =
+        crate::run::search_segmented(repo, &request, base_active, segments, catalog, revision)?;
     if result.count != Some(result.hits.len()) {
         return Err("exact selection result incomplete".into());
     }
@@ -566,7 +591,10 @@ pub(crate) fn posting_values_segmented(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
 ) -> Result<PostingValuesPage, String> {
-    let (collection_index, collection) = repo.collections.iter().enumerate()
+    let (collection_index, collection) = repo
+        .collections
+        .iter()
+        .enumerate()
         .find(|(_, collection)| collection.definition.name == request.collection)
         .ok_or("unknown collection")?;
     if base_active.len() != repo.collections.len() || segments.len() != repo.collections.len() {
@@ -682,9 +710,12 @@ pub(crate) fn posting_values_segmented(
             Some(prefix.clone())
         } else {
             let key = (path.segments.clone(), binding.clone());
-            Some(collection.definition.schema.operations[&key].operation
-                .prepare_posting_prefix(prefix)?
-                .ok_or("binding does not preserve prefix semantics")?)
+            Some(
+                collection.definition.schema.operations[&key]
+                    .operation
+                    .prepare_posting_prefix(prefix)?
+                    .ok_or("binding does not preserve prefix semantics")?,
+            )
         }
     } else {
         None
@@ -754,12 +785,17 @@ pub(crate) fn posting_values_segmented(
     };
     if request.limit == 0 {
         return Ok(PostingValuesPage {
-            values: Vec::new(), continuation: None, coverage, visited_keys: 0,
+            values: Vec::new(),
+            continuation: None,
+            coverage,
+            visited_keys: 0,
         });
     }
     let mut lower = request_bound(&request.lower);
     let mut upper = request_bound(&request.upper);
-    if let Some(prefix) = &prepared_prefix && !prefix.is_empty() {
+    if let Some(prefix) = &prepared_prefix
+        && !prefix.is_empty()
+    {
         lower = tighten_lower(lower, Included(ScalarKey::String(prefix.clone())));
         if let Some(end) = prefix_successor(prefix) {
             upper = tighten_upper(upper, Excluded(ScalarKey::String(end)));
@@ -774,44 +810,65 @@ pub(crate) fn posting_values_segmented(
     }
     if empty_range(&lower, &upper) {
         return Ok(PostingValuesPage {
-            values: Vec::new(), continuation: None, coverage, visited_keys: 0,
+            values: Vec::new(),
+            continuation: None,
+            coverage,
+            visited_keys: 0,
         });
     }
-    let mut iterators = resolved.iter().map(|shard| {
-        let range = shard.index.values.range((lower.clone(), upper.clone()));
-        if request.descending {
-            Box::new(range.rev()) as Box<dyn Iterator<Item = (&ScalarKey, &RoaringBitmap)> + '_>
-        } else {
-            Box::new(range) as Box<dyn Iterator<Item = (&ScalarKey, &RoaringBitmap)> + '_>
-        }
-    }).collect::<Vec<_>>();
-    let mut heads = iterators.iter_mut().map(|iterator| iterator.next()).collect::<Vec<_>>();
+    let mut iterators = resolved
+        .iter()
+        .map(|shard| {
+            let range = shard.index.values.range((lower.clone(), upper.clone()));
+            if request.descending {
+                Box::new(range.rev()) as Box<dyn Iterator<Item = (&ScalarKey, &RoaringBitmap)> + '_>
+            } else {
+                Box::new(range) as Box<dyn Iterator<Item = (&ScalarKey, &RoaringBitmap)> + '_>
+            }
+        })
+        .collect::<Vec<_>>();
+    let mut heads = iterators
+        .iter_mut()
+        .map(|iterator| iterator.next())
+        .collect::<Vec<_>>();
     let mut values = Vec::new();
     let mut visited_keys = 0;
     let mut has_more = false;
     loop {
-        let key = heads.iter().filter_map(|head| head.as_ref().map(|(key, _)| *key))
+        let key = heads
+            .iter()
+            .filter_map(|head| head.as_ref().map(|(key, _)| *key))
             .reduce(|current, next| {
-                if (request.descending && next > current)
-                    || (!request.descending && next < current) {
+                if (request.descending && next > current) || (!request.descending && next < current)
+                {
                     next
-                } else { current }
+                } else {
+                    current
+                }
             });
         let Some(key) = key else { break };
         visited_keys += 1;
         let mut count = 0u64;
         for (index, head) in heads.iter_mut().enumerate() {
-            if head.as_ref().is_some_and(|(candidate, _)| *candidate == key) {
+            if head
+                .as_ref()
+                .is_some_and(|(candidate, _)| *candidate == key)
+            {
                 count += head.as_ref().unwrap().1.intersection_len(&domains[index]);
                 *head = iterators[index].next();
             }
         }
-        if count == 0 { continue; }
+        if count == 0 {
+            continue;
+        }
         if values.len() == request.limit {
             has_more = true;
             break;
         }
-        values.push(PostingValueCount { value: key.clone(), count });
+        values.push(PostingValueCount {
+            value: key.clone(),
+            count,
+        });
     }
     let continuation = if has_more {
         values.last().map(|entry| PostingValuesCursor {
@@ -829,8 +886,15 @@ pub(crate) fn posting_values_segmented(
             selection_id: selection.map(|selection| selection.id),
             last_key: entry.value.clone(),
         })
-    } else { None };
-    Ok(PostingValuesPage { values, continuation, coverage, visited_keys })
+    } else {
+        None
+    };
+    Ok(PostingValuesPage {
+        values,
+        continuation,
+        coverage,
+        visited_keys,
+    })
 }
 
 

@@ -33,8 +33,11 @@ def main() -> None:
             raise ValueError(f"setup is missing {field}")
         if base_setup[field] != variant_setup[field]:
             raise ValueError(f"setup differs for {field}: {base_setup[field]} vs {variant_setup[field]}")
-    if base_cases.keys() != variant_cases.keys():
-        raise ValueError("case/level sets differ")
+    if not base_cases.keys() <= variant_cases.keys():
+        raise ValueError("variant is missing a baseline case/level")
+    extra = variant_cases.keys() - base_cases.keys()
+    if any(level != "in_memory_trusted_parse_extract_evaluate" for _, level in extra):
+        raise ValueError("variant has unexpected case/level rows")
 
     print("case\tlevel\tbase_ms\tvariant_ms\tratio\tbase_alloc_bytes\tvariant_alloc_bytes")
     for key in sorted(base_cases):
@@ -51,6 +54,18 @@ def main() -> None:
         variant_ms = variant["median_ns"] / 1_000_000
         print(
             f"{key[0]}\t{key[1]}\t{base_ms:.3f}\t{variant_ms:.3f}\t"
+            f"{variant_ms / base_ms:.3f}\t{base.get('allocated_bytes', '')}\t"
+            f"{variant.get('allocated_bytes', '')}"
+        )
+    for case, level in sorted(extra):
+        base = base_cases.get((case, "in_memory_validating_parse_extract_evaluate"))
+        variant = variant_cases[(case, level)]
+        if base is None or any(base[field] != variant[field] for field in ("matches", "member_sha256")):
+            raise ValueError(f"{case}: trusted membership differs from validating baseline")
+        base_ms = base["median_ns"] / 1_000_000
+        variant_ms = variant["median_ns"] / 1_000_000
+        print(
+            f"{case}\ttrusted_vs_base_validating\t{base_ms:.3f}\t{variant_ms:.3f}\t"
             f"{variant_ms / base_ms:.3f}\t{base.get('allocated_bytes', '')}\t"
             f"{variant.get('allocated_bytes', '')}"
         )

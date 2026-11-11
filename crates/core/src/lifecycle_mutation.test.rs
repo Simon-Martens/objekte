@@ -57,6 +57,84 @@ fn intrinsic_definition(name: &str) -> CollectionDefinition {
 }
 
 #[test]
+fn search_trusts_recorded_json_validation_until_explicit_update() {
+    use crate::inventory::RecordClass;
+    use std::time::{Duration, UNIX_EPOCH};
+
+    let root = test_root("recorded-validation");
+    let path = root.join("data/item.json");
+    std::fs::write(&path, b"{\"x\":2,\"junk\":0}").unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder(
+            "items",
+            "data",
+            SourceFormat::JsonDecodedScalars,
+        )],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let mut handle = index.view().unwrap().file_handle_for_path(&path).unwrap();
+    let mut query = Query {
+        collections: vec!["items".into()],
+        fts: None,
+        filter: Some(parse_filter("x = 2").unwrap()),
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let initial = index.view().unwrap().search(&query).unwrap();
+    assert_eq!(initial.count, Some(1));
+    let record_id = initial.hits[0].record_id.clone();
+
+    // The indexed field remains readable while an unrelated source value is
+    // malformed. Search neither reparses that field nor updates classification.
+    std::fs::write(&path, b"{\"x\":2,\"junk\":!}").unwrap();
+    std::fs::File::open(&path)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(10)))
+        .unwrap();
+    // The stored classification remains valid even if the trusted extractor
+    // encounters malformed bytes while walking the requested value.
+    assert!(index.view().unwrap().search(&query).is_err());
+    query.filter = None;
+    assert_eq!(
+        index
+            .view()
+            .unwrap()
+            .get_record("items", &record_id, ReturnMode::Bytes)
+            .unwrap()
+            .unwrap()
+            .record_class,
+        RecordClass::Logical,
+    );
+
+    let changed = index.update_file(handle, &path).unwrap();
+    handle = changed.file;
+    assert_eq!(
+        index.view().unwrap().search(&query).unwrap().hits[0].record_class,
+        RecordClass::RawFallback
+    );
+    query.filter = Some(parse_filter("x = 2").unwrap());
+    assert_eq!(index.view().unwrap().search(&query).unwrap().count, Some(0));
+
+    std::fs::write(&path, b"{\"x\":2,\"junk\":0}").unwrap();
+    std::fs::File::open(&path)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(11)))
+        .unwrap();
+    assert_eq!(index.view().unwrap().search(&query).unwrap().count, Some(0));
+    index.update_file(handle, &path).unwrap();
+    assert_eq!(index.view().unwrap().search(&query).unwrap().count, Some(1));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn final_mutated_view_matches_independent_fresh_build() {
     let root = test_root("fresh-oracle");
     let first = root.join("data/first.jsonl");
@@ -448,7 +526,12 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
             ))
             .unwrap();
         assert_eq!(ranged.count, Some(2));
-        assert!(ranged.hits.iter().all(|hit| hit.file_path == std::path::Path::new("data/z-moved.jsonl")));
+        assert!(
+            ranged
+                .hits
+                .iter()
+                .all(|hit| hit.file_path == std::path::Path::new("data/z-moved.jsonl"))
+        );
         let empty_range = view
             .search(&query(
                 Some("@file.path >= 'data/z-moved' && @file.path < 'data/z-moved'"),
@@ -492,16 +575,23 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
         std::fs::metadata(&original).unwrap().created().ok(),
         original_metadata.created().ok()
     );
-    let old_read = pinned.get_record("items", "A", ReturnMode::Bytes);
-    assert!(old_read.is_err(), "{old_read:?}");
-    if let Ok(old_page) = pinned.search(&query(None, ReturnMode::Bytes)) {
-        assert!(old_page.hits.iter().all(|hit| {
-            hit.payload
-                != Some(Payload::Bytes(
-                    b"{\"id\":\"X\",\"name\":\"xxxxx\"}".to_vec(),
-                ))
-        }));
-    }
+    let old_read = pinned
+        .get_record("items", "A", ReturnMode::Bytes)
+        .unwrap()
+        .unwrap();
+    assert_eq!(
+        old_read.payload,
+        Some(Payload::Bytes(
+            b"{\"id\":\"X\",\"name\":\"xxxxx\"}".to_vec()
+        ))
+    );
+    let old_page = pinned.search(&query(None, ReturnMode::Bytes)).unwrap();
+    assert!(
+        old_page
+            .hits
+            .iter()
+            .any(|hit| hit.payload == old_read.payload)
+    );
     std::fs::remove_file(&original).unwrap();
 
     let cache = root.join("cache.bin");

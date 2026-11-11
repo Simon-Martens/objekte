@@ -19,10 +19,11 @@ use crate::reference::{
 use crate::repository::{CollectionDefinition, IdentityPolicy, Payload, SearchHit, SearchResult};
 use crate::source::{
     ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceFormat, SourceOutcome, SourceRegistry,
-    extract_file_outcomes, finalize_extracted_text, read_record_range,
+    extract_file_outcomes_for_search, finalize_extracted_text, read_record_range_for_search,
 };
 use crate::streaming::CancellationToken;
 use crate::workload::{ReturnMode, WorkCounters};
+
 
 struct ScanCollection {
     definition: CollectionDefinition,
@@ -30,12 +31,14 @@ struct ScanCollection {
     files: Vec<FileId>,
 }
 
+
 /// A file inventory and schema prepared without parsing records or constructing
 /// postings. Each request scans the selected source files directly.
 pub struct SourceScan {
     files: FileInventory,
     collections: Vec<ScanCollection>,
 }
+
 
 impl SourceScan {
     pub fn open(root: &Path, definitions: Vec<CollectionDefinition>) -> Result<Self, String> {
@@ -148,7 +151,7 @@ impl SourceScan {
                 let path = self.files.root.join(&file.relative_path);
                 counters.files_opened += 1;
                 counters.distinct_files += 1;
-                extract_file_outcomes(
+                extract_file_outcomes_for_search(
                     &path,
                     collection.source.reader(),
                     file.revision,
@@ -173,7 +176,12 @@ impl SourceScan {
                                     Err(message) => (
                                         range,
                                         None,
-                                        Some(read_record_range(&path, file.revision, range)?),
+                                        Some(read_record_range_for_search(
+                                            &path,
+                                            file.revision,
+                                            range,
+                                            None,
+                                        )?),
                                         Some(ReaderDiagnostic::new(
                                             crate::source::DiagnosticCategory::LogicalValidation,
                                             "logical.validation",
@@ -257,7 +265,12 @@ impl SourceScan {
                             counters.record_parses += 1;
                         }
                         if filter.is_some() && bytes.is_none() {
-                            bytes = Some(read_record_range(&path, file.revision, range)?);
+                            bytes = Some(read_record_range_for_search(
+                                &path,
+                                file.revision,
+                                range,
+                                None,
+                            )?);
                             counters.files_opened += 1;
                         }
                         let empty = Value::Object(Default::default());
@@ -319,7 +332,7 @@ impl SourceScan {
                             }
                             ReturnMode::Bytes => {
                                 let raw = bytes.take().map(Ok).unwrap_or_else(|| {
-                                    read_record_range(&path, file.revision, range)
+                                    read_record_range_for_search(&path, file.revision, range, None)
                                 })?;
                                 Some(Payload::Bytes(raw))
                             }
@@ -378,6 +391,7 @@ impl SourceScan {
     }
 }
 
+
 fn record_id(
     root: &Path,
     definition: &CollectionDefinition,
@@ -418,6 +432,7 @@ fn record_id(
         ),
     }
 }
+
 
 #[cfg(test)]
 mod tests {

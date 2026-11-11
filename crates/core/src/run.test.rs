@@ -15,7 +15,9 @@ fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
         "objekte-lifecycle-parallel-fts-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
-            .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos(),
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for number in 0..48 {
@@ -23,7 +25,8 @@ fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
         std::fs::write(
             root.join(format!("data/{number:03}.json")),
             format!(r#"{{"title":"{title} {number}"}}"#),
-        ).unwrap();
+        )
+        .unwrap();
     }
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
     let query = Query {
@@ -37,19 +40,25 @@ fn lifecycle_fts_parallel_files_match_single_worker_page_and_counters() {
             fields: Vec::new(),
         }),
         options: QueryOptions {
-            sort: Vec::new(), limit: 7, offset: 3, count: true,
-            return_mode: ReturnMode::Locator, evidence: true,
+            sort: Vec::new(),
+            limit: 7,
+            offset: 3,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
         },
     };
     let run = |query_workers| {
         let index = Index::build(
-            &root, vec![definition.clone()],
+            &root,
+            vec![definition.clone()],
             RepositoryOptions {
                 query_workers,
                 snapshot_mode: SnapshotMode::Disabled,
                 ..RepositoryOptions::default()
             },
-        ).unwrap();
+        )
+        .unwrap();
         let result = index.view().unwrap().search(&query).unwrap();
         index.shutdown().unwrap();
         result
@@ -358,7 +367,9 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             id: FileId(1),
             relative_path: "data/delta.jsonl".into(),
             revision: SourceRevision::from_metadata(&metadata).unwrap(),
-            created_ns: metadata.created().ok()
+            created_ns: metadata
+                .created()
+                .ok()
                 .and_then(|time| time.duration_since(std::time::UNIX_EPOCH).ok())
                 .map(|duration| duration.as_nanos() as i128),
         },
@@ -404,10 +415,10 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     })])];
     let base_active = vec![ActiveRecords::all(collection.generation.records.len()).unwrap()];
     let revision = IndexRevision(2);
-    let segment_only = vec![ActiveRecords::from_bitmap(
-        collection.generation.records.len(),
-        RoaringBitmap::new(),
-    ).unwrap()];
+    let segment_only = vec![
+        ActiveRecords::from_bitmap(collection.generation.records.len(), RoaringBitmap::new())
+            .unwrap(),
+    ];
     let lifecycle_cache = Mutex::new(VerifiedCache::new(1024 * 1024));
     let cache_scope = LifecycleCacheScope {
         store: &lifecycle_cache,
@@ -435,80 +446,162 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     let mut selective_fts = cached_query.clone();
     selective_fts.fts.as_mut().unwrap().literal = "aardvark".into();
     let selective = search_segmented(
-        &repo, &selective_fts, &segment_only, &segments, &catalog, revision,
-    ).unwrap();
+        &repo,
+        &selective_fts,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+    )
+    .unwrap();
     assert_eq!(selective.count, Some(1));
     assert!(selective.counters.scanned_records < 3);
     let mut substring = cached_query.clone();
     substring.fts = None;
     substring.filter = Some(parse_filter("title ~ 'aardvark'").unwrap());
     let substring_result = search_segmented(
-        &repo, &substring, &segment_only, &segments, &catalog, revision,
-    ).unwrap();
+        &repo,
+        &substring,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+    )
+    .unwrap();
     assert_eq!(substring_result.count, Some(1));
     assert!(substring_result.counters.scanned_records < 3);
     let mut direct_id = cached_query.clone();
     direct_id.fts = None;
-    direct_id.filter = Some(parse_filter(&format!(
-        "@record.id = '{}'", segments[0][0].index.records[0].id.0,
-    )).unwrap());
+    direct_id.filter = Some(
+        parse_filter(&format!(
+            "@record.id = '{}'",
+            segments[0][0].index.records[0].id.0,
+        ))
+        .unwrap(),
+    );
     let direct_id_result = search_segmented(
-        &repo, &direct_id, &segment_only, &segments, &catalog, revision,
-    ).unwrap();
+        &repo,
+        &direct_id,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+    )
+    .unwrap();
     assert_eq!(direct_id_result.count, Some(1));
     assert_eq!(direct_id_result.counters.scanned_records, 0);
     let mut exact_evidence = direct_id.clone();
     exact_evidence.filter = Some(parse_filter("kind = 'a'").unwrap());
     exact_evidence.options.evidence = true;
     let proven = search_segmented(
-        &repo, &exact_evidence, &segment_only, &segments, &catalog, revision,
-    ).unwrap();
+        &repo,
+        &exact_evidence,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+    )
+    .unwrap();
     let reference = search_segmented_reference(
-        &repo, &exact_evidence, &segment_only, &segments, &catalog, revision,
-    ).unwrap();
+        &repo,
+        &exact_evidence,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+    )
+    .unwrap();
     assert_eq!(proven.hits, reference.hits);
     assert_eq!(proven.count, reference.count);
     assert_eq!(proven.hits[0].matched_fields, ["kind"]);
     assert_eq!(proven.counters.scanned_records, 0);
     let cold = search_segmented_lifecycle(
-        &repo, &cached_query, &segment_only, &segments, &catalog,
-        revision, Some(cache_scope),
-    ).unwrap();
+        &repo,
+        &cached_query,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+        Some(cache_scope),
+    )
+    .unwrap();
     assert_eq!(cold.count, Some(3));
     assert!(!cold.counters.verified_result_hit);
     let mut later_page = cached_query.clone();
     later_page.options.offset = 1;
     later_page.options.count = false;
     let warm = search_segmented_lifecycle(
-        &repo, &later_page, &segment_only, &segments, &catalog,
-        revision, Some(cache_scope),
-    ).unwrap();
+        &repo,
+        &later_page,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+        Some(cache_scope),
+    )
+    .unwrap();
     assert!(warm.counters.verified_result_hit);
     let uncached = search_segmented(
-        &repo, &later_page, &segment_only, &segments, &catalog, revision,
-    ).unwrap();
+        &repo,
+        &later_page,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+    )
+    .unwrap();
     assert_eq!(warm.hits[0].record_id, uncached.hits[0].record_id);
     let newer = search_segmented_lifecycle(
-        &repo, &later_page, &segment_only, &segments, &catalog,
-        IndexRevision(3), Some(cache_scope),
-    ).unwrap();
+        &repo,
+        &later_page,
+        &segment_only,
+        &segments,
+        &catalog,
+        IndexRevision(3),
+        Some(cache_scope),
+    )
+    .unwrap();
     assert!(!newer.counters.verified_result_hit);
     let other_instance = search_segmented_lifecycle(
-        &repo, &later_page, &segment_only, &segments, &catalog,
-        revision, Some(LifecycleCacheScope { store: &lifecycle_cache, instance_id: 18 }),
-    ).unwrap();
+        &repo,
+        &later_page,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+        Some(LifecycleCacheScope {
+            store: &lifecycle_cache,
+            instance_id: 18,
+        }),
+    )
+    .unwrap();
     assert!(!other_instance.counters.verified_result_hit);
     let no_count_cache = Mutex::new(VerifiedCache::new(1024 * 1024));
-    let no_count_scope = LifecycleCacheScope { store: &no_count_cache, instance_id: 19 };
+    let no_count_scope = LifecycleCacheScope {
+        store: &no_count_cache,
+        instance_id: 19,
+    };
     let uncached_no_count = search_segmented_lifecycle(
-        &repo, &later_page, &segment_only, &segments, &catalog,
-        revision, Some(no_count_scope),
-    ).unwrap();
+        &repo,
+        &later_page,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+        Some(no_count_scope),
+    )
+    .unwrap();
     assert!(!uncached_no_count.counters.verified_result_hit);
     let reused_no_count = search_segmented_lifecycle(
-        &repo, &later_page, &segment_only, &segments, &catalog,
-        revision, Some(no_count_scope),
-    ).unwrap();
+        &repo,
+        &later_page,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+        Some(no_count_scope),
+    )
+    .unwrap();
     assert!(reused_no_count.counters.verified_result_hit);
     let early_context = ExecutionContext::new(
         crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
@@ -517,28 +610,62 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     );
     let mut first_progress = None;
     let early = search_stream_segmented_with_context_lifecycle(
-        &repo, &cached_query, ResultScope::Page { offset: 0, limit: 1 },
-        StreamOptions::default(), &early_context, &segment_only, &segments,
-        &catalog, revision, &mut |event| {
+        &repo,
+        &cached_query,
+        ResultScope::Page {
+            offset: 0,
+            limit: 1,
+        },
+        StreamOptions::default(),
+        &early_context,
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+        &mut |event| {
             if let StreamEvent::OrderedRows { progress, .. } = event {
                 first_progress = Some(progress.processed_candidates);
             }
             Ok(StreamControl::Continue)
-        }, None,
-    ).unwrap();
-    let StreamOutcome::Complete(early) = early else { panic!("early page incomplete") };
+        },
+        None,
+    )
+    .unwrap();
+    let StreamOutcome::Complete(early) = early else {
+        panic!("early page incomplete")
+    };
     assert_eq!(early.count, Some(3));
     assert!(first_progress.unwrap() < early.counters.scanned_records);
     let no_count = search_stream_segmented_with_context_lifecycle(
-        &repo, &Query { options: QueryOptions { count: false, ..cached_query.options.clone() }, ..cached_query.clone() },
-        ResultScope::Page { offset: 0, limit: 1 }, StreamOptions::default(),
+        &repo,
+        &Query {
+            options: QueryOptions {
+                count: false,
+                ..cached_query.options.clone()
+            },
+            ..cached_query.clone()
+        },
+        ResultScope::Page {
+            offset: 0,
+            limit: 1,
+        },
+        StreamOptions::default(),
         &ExecutionContext::new(
             crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
-            ExecutionLimits::default(), Some(CancellationToken::new()),
-        ), &segment_only, &segments, &catalog, revision,
-        &mut |_| Ok(StreamControl::Continue), None,
-    ).unwrap();
-    let StreamOutcome::Complete(no_count) = no_count else { panic!("page incomplete") };
+            ExecutionLimits::default(),
+            Some(CancellationToken::new()),
+        ),
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+        &mut |_| Ok(StreamControl::Continue),
+        None,
+    )
+    .unwrap();
+    let StreamOutcome::Complete(no_count) = no_count else {
+        panic!("page incomplete")
+    };
     assert_eq!(no_count.count, None);
     assert!(no_count.counters.scanned_records < 3);
     let all_query = Query {
@@ -558,11 +685,17 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             },
             ..all_query.clone()
         },
-        &segment_only, &segments, &catalog, revision,
-    ).unwrap();
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+    )
+    .unwrap();
     let mut streamed_ids = Vec::new();
     let all = search_stream_segmented_with_context_lifecycle(
-        &repo, &all_query, ResultScope::All { offset: 0 },
+        &repo,
+        &all_query,
+        ResultScope::All { offset: 0 },
         StreamOptions {
             batch_rows: 1,
             max_event_bytes: 1024,
@@ -571,25 +704,46 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         },
         &ExecutionContext::new(
             crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
-            ExecutionLimits::default(), Some(CancellationToken::new()),
-        ), &segment_only, &segments, &catalog, revision,
+            ExecutionLimits::default(),
+            Some(CancellationToken::new()),
+        ),
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
         &mut |event| {
             if let StreamEvent::OrderedRows { rows, .. } = event {
                 streamed_ids.extend(rows.iter().map(|hit| hit.record_id.clone()));
             }
             Ok(StreamControl::Continue)
-        }, None,
-    ).unwrap();
-    let StreamOutcome::Complete(all) = all else { panic!("all export incomplete") };
+        },
+        None,
+    )
+    .unwrap();
+    let StreamOutcome::Complete(all) = all else {
+        panic!("all export incomplete")
+    };
     assert_eq!(all.count, Some(3));
     assert_eq!(all.returned_rows, 3);
     assert_eq!(all.counters.files_opened, 1);
     assert!(all.progress.peak_buffered_bytes <= 2048);
-    assert_eq!(streamed_ids, expected.hits.iter().map(|hit| hit.record_id.clone()).collect::<Vec<_>>());
+    assert_eq!(
+        streamed_ids,
+        expected
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.clone())
+            .collect::<Vec<_>>()
+    );
     let mut fallback_query = all_query.clone();
-    fallback_query.options.sort.push(SortField::simple("kind", false));
+    fallback_query
+        .options
+        .sort
+        .push(SortField::simple("kind", false));
     let bounded_failure = search_stream_segmented_with_context_lifecycle(
-        &repo, &fallback_query, ResultScope::All { offset: 0 },
+        &repo,
+        &fallback_query,
+        ResultScope::All { offset: 0 },
         StreamOptions {
             max_event_bytes: 1024,
             max_buffered_bytes: 1024,
@@ -597,9 +751,15 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         },
         &ExecutionContext::new(
             crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
-            ExecutionLimits::default(), Some(CancellationToken::new()),
-        ), &segment_only, &segments, &catalog, revision,
-        &mut |_| Ok(StreamControl::Continue), None,
+            ExecutionLimits::default(),
+            Some(CancellationToken::new()),
+        ),
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+        &mut |_| Ok(StreamControl::Continue),
+        None,
     );
     assert!(matches!(bounded_failure, Err(StreamError::Resource { .. })));
     let mut query = Query {
@@ -618,43 +778,92 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     let result =
         search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
     let selection = crate::posting_values::select_exact_segmented(
-        &repo, "data", &query, revision, &base_active, &segments, &catalog,
-    ).unwrap();
+        &repo,
+        "data",
+        &query,
+        revision,
+        &base_active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
     assert_eq!(selection.len(), 3);
     let mut values_request = crate::posting_values::PostingValuesRequest::new("data", "kind", 1);
     let first_values = crate::posting_values::posting_values_segmented(
-        &repo, &values_request, revision, &base_active, &segments, &catalog,
-    ).unwrap();
-    assert_eq!(first_values.values[0].value, crate::posting::ScalarKey::String("a".into()));
+        &repo,
+        &values_request,
+        revision,
+        &base_active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
+    assert_eq!(
+        first_values.values[0].value,
+        crate::posting::ScalarKey::String("a".into())
+    );
     assert_eq!(first_values.values[0].count, 2);
     assert_eq!(first_values.coverage.eligible_records, 5);
     let old_cursor = first_values.continuation.clone();
     values_request.continuation = first_values.continuation;
     let second_values = crate::posting_values::posting_values_segmented(
-        &repo, &values_request, revision, &base_active, &segments, &catalog,
-    ).unwrap();
-    assert_eq!(second_values.values[0].value, crate::posting::ScalarKey::String("b".into()));
+        &repo,
+        &values_request,
+        revision,
+        &base_active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
+    assert_eq!(
+        second_values.values[0].value,
+        crate::posting::ScalarKey::String("b".into())
+    );
     assert_eq!(second_values.values[0].count, 2);
     values_request.continuation = second_values.continuation;
     let third_values = crate::posting_values::posting_values_segmented(
-        &repo, &values_request, revision, &base_active, &segments, &catalog,
-    ).unwrap();
-    assert_eq!(third_values.values[0].value, crate::posting::ScalarKey::String("c".into()));
+        &repo,
+        &values_request,
+        revision,
+        &base_active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
+    assert_eq!(
+        third_values.values[0].value,
+        crate::posting::ScalarKey::String("c".into())
+    );
     assert_eq!(third_values.values[0].count, 1);
     assert!(third_values.continuation.is_none());
     values_request.continuation = None;
     values_request.selection = Some(selection);
     let selected_values = crate::posting_values::posting_values_segmented(
-        &repo, &values_request, revision, &base_active, &segments, &catalog,
-    ).unwrap();
+        &repo,
+        &values_request,
+        revision,
+        &base_active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
     assert_eq!(selected_values.coverage.selected_records, Some(3));
     assert_eq!(selected_values.values[0].count, 2);
     values_request.selection = None;
     values_request.descending = true;
     let descending = crate::posting_values::posting_values_segmented(
-        &repo, &values_request, revision, &base_active, &segments, &catalog,
-    ).unwrap();
-    assert_eq!(descending.values[0].value, crate::posting::ScalarKey::String("c".into()));
+        &repo,
+        &values_request,
+        revision,
+        &base_active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
+    assert_eq!(
+        descending.values[0].value,
+        crate::posting::ScalarKey::String("c".into())
+    );
     values_request.descending = false;
     assert_eq!(result.count, Some(3));
     assert_eq!(
@@ -665,15 +874,14 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     query.options.offset = 0;
     query.options.limit = 3;
     let all = search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
-    let reference = search_segmented_reference(
-        &repo, &query, &base_active, &segments, &catalog, revision,
-    )
-    .unwrap();
+    let reference =
+        search_segmented_reference(&repo, &query, &base_active, &segments, &catalog, revision)
+            .unwrap();
     assert_eq!(all.count, reference.count);
     assert_eq!(all.hits, reference.hits);
-    let (analyzed, traces) = search_analyze_segmented(
-        &repo, &query, &base_active, &segments, &catalog, revision,
-    ).unwrap();
+    let (analyzed, traces) =
+        search_analyze_segmented(&repo, &query, &base_active, &segments, &catalog, revision)
+            .unwrap();
     assert_eq!(analyzed.hits, all.hits);
     assert_eq!(traces.len(), 1);
     assert_eq!(traces[0].generation, revision.0);
@@ -718,10 +926,9 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     query.options.limit = 10;
     let text =
         search_segmented(&repo, &query, &base_active, &segments, &catalog, revision).unwrap();
-    let reference_text = search_segmented_reference(
-        &repo, &query, &base_active, &segments, &catalog, revision,
-    )
-    .unwrap();
+    let reference_text =
+        search_segmented_reference(&repo, &query, &base_active, &segments, &catalog, revision)
+            .unwrap();
     assert_eq!(text.count, reference_text.count);
     assert_eq!(text.hits, reference_text.hits);
     assert_eq!(text.count, Some(1));
@@ -766,7 +973,10 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &repo,
         &query,
         ResultScope::All { offset: 0 },
-        StreamOptions { batch_rows: 2, ..Default::default() },
+        StreamOptions {
+            batch_rows: 2,
+            ..Default::default()
+        },
         &stream_context,
         &base_active,
         &segments,
@@ -780,7 +990,9 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         },
     )
     .unwrap();
-    let StreamOutcome::Complete(summary) = outcome else { panic!("stream incomplete") };
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("stream incomplete")
+    };
     assert_eq!(summary.count, Some(5));
     assert_eq!(summary.returned_rows, 5);
     assert_eq!(streamed, computed.hits);
@@ -791,17 +1003,32 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     );
     let mut replacement = Vec::new();
     let page = search_stream_segmented_with_context(
-        &repo, &query, ResultScope::Page { offset: 1, limit: 2 },
-        StreamOptions { mode: crate::streaming::StreamMode::PageReplacements, ..Default::default() },
-        &page_context, &base_active, &segments, &catalog, revision,
+        &repo,
+        &query,
+        ResultScope::Page {
+            offset: 1,
+            limit: 2,
+        },
+        StreamOptions {
+            mode: crate::streaming::StreamMode::PageReplacements,
+            ..Default::default()
+        },
+        &page_context,
+        &base_active,
+        &segments,
+        &catalog,
+        revision,
         &mut |event| {
             if let StreamEvent::PageReplacement { rows, .. } = event {
                 replacement.extend_from_slice(rows);
             }
             Ok(StreamControl::Continue)
         },
-    ).unwrap();
-    let StreamOutcome::Complete(page) = page else { panic!("page stream incomplete") };
+    )
+    .unwrap();
+    let StreamOutcome::Complete(page) = page else {
+        panic!("page stream incomplete")
+    };
     assert_eq!(page.count, Some(5));
     assert_eq!(replacement, computed.hits[1..3]);
     let cancelled = CancellationToken::new();
@@ -813,10 +1040,21 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     );
     assert!(matches!(
         search_stream_segmented_with_context(
-            &repo, &query, ResultScope::Page { offset: 0, limit: 1 },
-            StreamOptions::default(), &cancelled_context, &base_active, &segments,
-            &catalog, revision, &mut |_| Ok(StreamControl::Continue),
-        ).unwrap(),
+            &repo,
+            &query,
+            ResultScope::Page {
+                offset: 0,
+                limit: 1
+            },
+            StreamOptions::default(),
+            &cancelled_context,
+            &base_active,
+            &segments,
+            &catalog,
+            revision,
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap(),
         StreamOutcome::Cancelled(_)
     ));
     let during_context = ExecutionContext::new(
@@ -827,22 +1065,43 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     during_context.cancel_on_check_for_test(8);
     assert!(matches!(
         search_stream_segmented_with_context(
-            &repo, &query, ResultScope::All { offset: 0 },
-            StreamOptions::default(), &during_context, &base_active, &segments,
-            &catalog, revision, &mut |_| Ok(StreamControl::Continue),
-        ).unwrap(),
+            &repo,
+            &query,
+            ResultScope::All { offset: 0 },
+            StreamOptions::default(),
+            &during_context,
+            &base_active,
+            &segments,
+            &catalog,
+            revision,
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap(),
         StreamOutcome::Cancelled(_)
     ));
     let limited_context = ExecutionContext::new(
         crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
-        ExecutionLimits { source_record_bytes: 8, ..Default::default() },
+        ExecutionLimits {
+            source_record_bytes: 8,
+            ..Default::default()
+        },
         Some(CancellationToken::new()),
     );
     assert!(matches!(
         search_stream_segmented_with_context(
-            &repo, &query, ResultScope::Page { offset: 0, limit: 1 },
-            StreamOptions::default(), &limited_context, &base_active, &segments,
-            &catalog, revision, &mut |_| Ok(StreamControl::Continue),
+            &repo,
+            &query,
+            ResultScope::Page {
+                offset: 0,
+                limit: 1
+            },
+            StreamOptions::default(),
+            &limited_context,
+            &base_active,
+            &segments,
+            &catalog,
+            revision,
+            &mut |_| Ok(StreamControl::Continue),
         ),
         Err(StreamError::Resource { .. })
     ));
@@ -870,16 +1129,28 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(live.count, Some(3));
     values_request.selection = None;
     let live_values = crate::posting_values::posting_values_segmented(
-        &repo, &values_request, IndexRevision(3), &retired_base,
-        &retired_segments, &catalog,
-    ).unwrap();
+        &repo,
+        &values_request,
+        IndexRevision(3),
+        &retired_base,
+        &retired_segments,
+        &catalog,
+    )
+    .unwrap();
     assert_eq!(live_values.coverage.eligible_records, 3);
     assert_eq!(live_values.values[0].count, 2);
     values_request.continuation = old_cursor;
-    assert!(crate::posting_values::posting_values_segmented(
-        &repo, &values_request, IndexRevision(3), &retired_base,
-        &retired_segments, &catalog,
-    ).is_err());
+    assert!(
+        crate::posting_values::posting_values_segmented(
+            &repo,
+            &values_request,
+            IndexRevision(3),
+            &retired_base,
+            &retired_segments,
+            &catalog,
+        )
+        .is_err()
+    );
     values_request.continuation = None;
     assert!(live.hits.iter().all(
         |hit| hit.file_path != std::path::Path::new("data/base.jsonl") || hit.byte_start != 0
@@ -901,14 +1172,23 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         ..cached_query.clone()
     };
     let unavailable_stream = search_stream_segmented_with_context_lifecycle(
-        &repo, &exact_output, ResultScope::All { offset: 0 },
+        &repo,
+        &exact_output,
+        ResultScope::All { offset: 0 },
         StreamOptions::default(),
         &ExecutionContext::new(
             crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
-            ExecutionLimits::default(), None,
-        ), &segment_only, &segments, &catalog, revision,
-        &mut |_| Ok(StreamControl::Continue), None,
-    ).unwrap();
+            ExecutionLimits::default(),
+            None,
+        ),
+        &segment_only,
+        &segments,
+        &catalog,
+        revision,
+        &mut |_| Ok(StreamControl::Continue),
+        None,
+    )
+    .unwrap();
     let StreamOutcome::Complete(unavailable_stream) = unavailable_stream else {
         panic!("source-unavailable export did not complete")
     };
@@ -918,43 +1198,78 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     std::fs::rename(&hidden_path, &path).unwrap();
     query.options.evidence = true;
     query.options.return_mode = ReturnMode::Bytes;
-    std::fs::write(&path, b"a replaced source revision with unrelated content").unwrap();
+    let edited = std::fs::read_to_string(&path)
+        .unwrap()
+        .replace("charlie", "changed");
+    std::fs::write(&path, edited).unwrap();
     let changed = search_segmented_reference(
-        &repo, &query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
-    ).unwrap();
-    assert_eq!(changed.count, None);
-    assert!(!changed.counters.match_count_complete);
-    assert_eq!(changed.counters.source_unavailable_events, 1);
-    assert_eq!(changed.counters.source_diagnostics[0].kind,
-        crate::measurement::SourceUnavailableKind::RevisionMismatch);
-    assert!(changed.hits.iter().all(|hit| hit.file_path != std::path::Path::new("data/delta.jsonl")));
+        &repo,
+        &query,
+        &retired_base,
+        &retired_segments,
+        &catalog,
+        IndexRevision(3),
+    )
+    .unwrap();
+    assert_eq!(changed.count, Some(3));
+    assert!(changed.counters.match_count_complete);
+    assert_eq!(changed.counters.source_unavailable_events, 0);
+    assert!(changed.hits.iter().any(|hit| {
+        matches!(&hit.payload, Some(Payload::Bytes(bytes)) if bytes.windows(7).any(|part| part == b"changed"))
+    }));
     let optimized = search_segmented(
-        &repo, &query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
-    ).unwrap();
-    assert_eq!(optimized.count, None);
+        &repo,
+        &query,
+        &retired_base,
+        &retired_segments,
+        &catalog,
+        IndexRevision(3),
+    )
+    .unwrap();
+    assert_eq!(optimized.count, Some(3));
     assert_eq!(optimized.hits, changed.hits);
-    assert_eq!(optimized.counters.source_diagnostics[0].kind,
-        crate::measurement::SourceUnavailableKind::RevisionMismatch);
+    assert_eq!(optimized.counters.source_unavailable_events, 0);
     std::fs::remove_file(&path).unwrap();
     let missing = search_segmented_reference(
-        &repo, &query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
-    ).unwrap();
+        &repo,
+        &query,
+        &retired_base,
+        &retired_segments,
+        &catalog,
+        IndexRevision(3),
+    )
+    .unwrap();
     assert_eq!(missing.count, None);
-    assert_eq!(missing.counters.source_diagnostics[0].kind,
-        crate::measurement::SourceUnavailableKind::Missing);
+    assert_eq!(
+        missing.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::Missing
+    );
     let optimized = search_segmented(
-        &repo, &query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
-    ).unwrap();
+        &repo,
+        &query,
+        &retired_base,
+        &retired_segments,
+        &catalog,
+        IndexRevision(3),
+    )
+    .unwrap();
     assert_eq!(optimized.count, None);
     assert_eq!(optimized.hits, missing.hits);
     let context = ExecutionContext::new(
         crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
-        ExecutionLimits::default(), None,
+        ExecutionLimits::default(),
+        None,
     );
     let with_context = search_segmented_with_context(
-        &repo, &query, &retired_base, &retired_segments, &catalog,
-        IndexRevision(3), &context,
-    ).unwrap();
+        &repo,
+        &query,
+        &retired_base,
+        &retired_segments,
+        &catalog,
+        IndexRevision(3),
+        &context,
+    )
+    .unwrap();
     assert_eq!(with_context.count, None);
     assert_eq!(with_context.hits, missing.hits);
     let mut payload_query = query.clone();
@@ -962,26 +1277,47 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     payload_query.options.evidence = false;
     payload_query.options.return_mode = ReturnMode::Bytes;
     let payload = search_segmented(
-        &repo, &payload_query, &retired_base, &retired_segments, &catalog, IndexRevision(3),
-    ).unwrap();
+        &repo,
+        &payload_query,
+        &retired_base,
+        &retired_segments,
+        &catalog,
+        IndexRevision(3),
+    )
+    .unwrap();
     assert_eq!(payload.count, None);
     assert!(payload.hits.is_empty());
-    assert_eq!(payload.counters.source_diagnostics[0].kind,
-        crate::measurement::SourceUnavailableKind::Missing);
+    assert_eq!(
+        payload.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::Missing
+    );
     let stream_context = ExecutionContext::new(
         crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
-        ExecutionLimits::default(), None,
+        ExecutionLimits::default(),
+        None,
     );
     let streamed = search_stream_segmented_with_context(
-        &repo, &payload_query, ResultScope::All { offset: 0 },
-        StreamOptions::default(), &stream_context, &retired_base, &retired_segments,
-        &catalog, IndexRevision(3), &mut |_| Ok(StreamControl::Continue),
-    ).unwrap();
-    let StreamOutcome::Complete(summary) = streamed else { panic!("stream did not complete") };
+        &repo,
+        &payload_query,
+        ResultScope::All { offset: 0 },
+        StreamOptions::default(),
+        &stream_context,
+        &retired_base,
+        &retired_segments,
+        &catalog,
+        IndexRevision(3),
+        &mut |_| Ok(StreamControl::Continue),
+    )
+    .unwrap();
+    let StreamOutcome::Complete(summary) = streamed else {
+        panic!("stream did not complete")
+    };
     assert_eq!(summary.count, None);
     assert_eq!(summary.returned_rows, 0);
-    assert_eq!(summary.counters.source_diagnostics[0].kind,
-        crate::measurement::SourceUnavailableKind::Missing);
+    assert_eq!(
+        summary.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::Missing
+    );
     let delta_id = &retired_segments[0][0].index.records[2].id.0;
     assert!(matches!(
         direct_lookup_segmented(
@@ -1003,18 +1339,26 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     ));
     assert!(matches!(
         direct_lookup_segmented(
-            &repo, "data", "does-not-exist", ReturnMode::Locator, &retired_base,
-            &retired_segments, &catalog, IndexRevision(3),
-        ).unwrap(),
+            &repo,
+            "data",
+            "does-not-exist",
+            ReturnMode::Locator,
+            &retired_base,
+            &retired_segments,
+            &catalog,
+            IndexRevision(3),
+        )
+        .unwrap(),
         DirectLookupResult::NotFound
     ));
     query.options.return_mode = ReturnMode::Bytes;
-    let base_only = search_active_available(
-        &repo, &query, &retired_base, &catalog, IndexRevision(3),
-    ).unwrap();
+    let base_only =
+        search_active_available(&repo, &query, &retired_base, &catalog, IndexRevision(3)).unwrap();
     assert_eq!(base_only.count, None);
-    assert_eq!(base_only.counters.source_diagnostics[0].kind,
-        crate::measurement::SourceUnavailableKind::Missing);
+    assert_eq!(
+        base_only.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::Missing
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -1055,7 +1399,9 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
         id: FileId(1),
         relative_path: "data/added.jsonl".into(),
         revision: SourceRevision::from_metadata(&metadata).unwrap(),
-        created_ns: metadata.created().ok()
+        created_ns: metadata
+            .created()
+            .ok()
             .and_then(|time| time.duration_since(std::time::UNIX_EPOCH).ok())
             .map(|duration| duration.as_nanos() as i128),
     };
@@ -1152,9 +1498,17 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     moved_entry.relative_path = "data/moved.jsonl".into();
     let moved_catalog = catalog.replaced(moved_entry, None, None).unwrap();
     let moved = get_segment_record_by_id(
-        &repo, 0, &segment, &active, &moved_catalog,
-        IndexRevision(10), id, ReturnMode::Bytes,
-    ).unwrap().unwrap();
+        &repo,
+        0,
+        &segment,
+        &active,
+        &moved_catalog,
+        IndexRevision(10),
+        id,
+        ReturnMode::Bytes,
+    )
+    .unwrap()
+    .unwrap();
     assert_eq!(moved.file_path, std::path::Path::new("data/moved.jsonl"));
     assert_eq!(moved.payload, bytes.payload);
     let base_path = root.join("data/base-moved.jsonl");
@@ -1164,10 +1518,16 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
     let moved_catalog = moved_catalog.replaced(base_entry, None, None).unwrap();
     let base_id = &repo.collections()[0].generation.records[0].id.0;
     let base_hit = direct_lookup_segmented(
-        &repo, "data", base_id, ReturnMode::Bytes,
-        &[ActiveRecords::all(1).unwrap()], &[Arc::new(Vec::new())],
-        &moved_catalog, IndexRevision(10),
-    ).unwrap();
+        &repo,
+        "data",
+        base_id,
+        ReturnMode::Bytes,
+        &[ActiveRecords::all(1).unwrap()],
+        &[Arc::new(Vec::new())],
+        &moved_catalog,
+        IndexRevision(10),
+    )
+    .unwrap();
     assert!(matches!(base_hit, DirectLookupResult::Found(hit)
         if hit.file_path == std::path::Path::new("data/base-moved.jsonl")
             && hit.payload == Some(Payload::Bytes(b"{\"name\":\"base\"}".to_vec()))));
@@ -2394,14 +2754,22 @@ fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
     );
     let (indexed, trace) = repo.explain_analyze(&path_range).unwrap();
     assert_eq!(indexed.count, Some(1));
-    assert_eq!(indexed.hits[0].file_path, std::path::Path::new("data/valid.json"));
-    assert!(trace[0].terms.iter().any(|term| {
-        term.selected.kind == crate::executor::AccessPathKind::FilePathIndex
-    }));
-    let empty_path_range = repo.search(&query(
-        "@file.path >= 'data/valid' && @file.path < 'data/valid'",
-        ReturnMode::Locator,
-    )).unwrap();
+    assert_eq!(
+        indexed.hits[0].file_path,
+        std::path::Path::new("data/valid.json")
+    );
+    assert!(
+        trace[0]
+            .terms
+            .iter()
+            .any(|term| { term.selected.kind == crate::executor::AccessPathKind::FilePathIndex })
+    );
+    let empty_path_range = repo
+        .search(&query(
+            "@file.path >= 'data/valid' && @file.path < 'data/valid'",
+            ReturnMode::Locator,
+        ))
+        .unwrap();
     assert_eq!(empty_path_range.count, Some(0));
     assert!(
         matches!(&encoding.hits[0].payload, Some(Payload::Bytes(bytes)) if bytes == b"{\"title\":\"\xff\"}")
@@ -2898,8 +3266,14 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     for (path, body) in [
         ("targets/t1.json", r#"{"id":"t1","title":"Needle"}"#),
         ("targets/t2.json", r#"{"id":"t2","title":"Other"}"#),
-        ("sources/s1.json", r#"{"id":"s1","entry":"t1","entries":["t2","t1"]}"#),
-        ("sources/s2.json", r#"{"id":"s2","entry":"t2","entries":["t1","t2"]}"#),
+        (
+            "sources/s1.json",
+            r#"{"id":"s1","entry":"t1","entries":["t2","t1"]}"#,
+        ),
+        (
+            "sources/s2.json",
+            r#"{"id":"s2","entry":"t2","entries":["t1","t2"]}"#,
+        ),
         ("sources/broken.json", "{broken"),
     ] {
         std::fs::write(root.join(path), body).unwrap();
@@ -3007,7 +3381,9 @@ fn exact_collection_handles_relation_membership_without_ranking() {
     let selective_reference = view.search_reference(&selective).unwrap();
     assert_eq!(selective_result.hits, selective_reference.hits);
     assert_eq!(selective_result.count, selective_reference.count);
-    assert!(selective_result.counters.scanned_records < selective_reference.counters.scanned_records);
+    assert!(
+        selective_result.counters.scanned_records < selective_reference.counters.scanned_records
+    );
     assert_eq!(selective_result.counters.scanned_records, 0); // both terms are proven by postings
     let related_fts = Query {
         filter: None,
@@ -3884,11 +4260,9 @@ fn exact_membership_materializes_only_page_payload() {
         b"{\"kind\":\"no\",\"id\":\"b\",\"extra\":true}",
     )
     .unwrap();
-    assert!(
-        repo.search(&query)
-            .unwrap_err()
-            .contains("stale source revision")
-    );
+    let stale = repo.search(&query).unwrap();
+    assert_eq!(stale.count, Some(3));
+    assert!(stale.counters.verified_result_hit);
     std::fs::remove_dir_all(root).unwrap();
 }
 

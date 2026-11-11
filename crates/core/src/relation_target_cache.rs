@@ -497,6 +497,7 @@ fn prepare_with_limits(
                         return Err("stream cancelled".into());
                     }
                     let projected = crate::record_preparation::prepare_query_record_with_execution(
+                        collection.generation.records[slot as usize].class,
                         &collection.source,
                         &collection.definition.schema,
                         &bytes,

@@ -138,6 +138,7 @@ fn bounded_jsonl_reports_read_errors_before_and_after_first_chunk() {
         limit: u64,
     }
 
+
     impl Read for FailingRead {
         fn read(&mut self, output: &mut [u8]) -> std::io::Result<usize> {
             if self.bytes.position() >= self.limit {
@@ -148,6 +149,7 @@ fn bounded_jsonl_reports_read_errors_before_and_after_first_chunk() {
             self.bytes.read(&mut output[..count])
         }
     }
+
 
     const LINES: &[u8] = b"{\"a\":1}\n{\"a\":2}\n";
     let make = |limit| {
@@ -777,9 +779,12 @@ fn build_json_borrows_logical_strings_after_temporal_conversion() {
     }
 }
 
+
 struct TinyReader(Arc<AtomicUsize>);
 
+
 struct TemporalSegmentsReader;
+
 
 impl SourceReader for TemporalSegmentsReader {
     fn name(&self) -> &'static str {
@@ -820,6 +825,7 @@ impl SourceReader for TemporalSegmentsReader {
         })
     }
 }
+
 
 #[test]
 fn temporal_registration_does_not_replace_reader_owned_text() {
@@ -963,11 +969,13 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+
 struct OutcomeReader {
     ranges: Vec<ByteRange>,
     parses: Arc<AtomicUsize>,
     fail_framing: bool,
 }
+
 
 impl SourceReader for OutcomeReader {
     fn name(&self) -> &'static str {
@@ -1011,6 +1019,7 @@ impl SourceReader for OutcomeReader {
         }
     }
 }
+
 
 #[test]
 fn registered_ranges_are_validated_before_slicing_and_outcomes_are_typed() {
@@ -1367,6 +1376,7 @@ fn file_coordinates_preserve_custom_reader_line_and_column_meaning() {
     assert_eq!((multiline.line, multiline.column), (Some(3), Some(1)));
 }
 
+
 impl SourceReader for TinyReader {
     fn name(&self) -> &'static str {
         "tiny"
@@ -1407,6 +1417,7 @@ impl SourceReader for TinyReader {
         })
     }
 }
+
 
 #[test]
 fn body_only_reader_does_not_prune_unindexed_title() {

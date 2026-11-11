@@ -161,7 +161,7 @@ fn background_rebuild_waits_and_cancelled_preparation_never_publishes() {
 }
 
 #[test]
-fn unavailable_direct_lookup_requests_reconciliation() {
+fn unavailable_direct_lookup_does_not_request_reconciliation() {
     let root = std::env::temp_dir().join(format!(
         "objekte-lookup-reconcile-{}-{:?}",
         std::process::id(),
@@ -182,7 +182,7 @@ fn unavailable_direct_lookup_requests_reconciliation() {
             .unwrap(),
         crate::run::DirectLookupResult::SourceUnavailable(_)
     ));
-    assert_ne!(
+    assert_eq!(
         index.status().unwrap().reconciliation,
         super::ReconciliationState::NotStarted
     );
@@ -251,7 +251,7 @@ fn static_base_direct_lookup_uses_pinned_catalog_after_compatible_move() {
 }
 
 #[test]
-fn quiescence_rejects_query_requested_reconciliation() {
+fn quiescence_keeps_unavailable_lookup_without_reconciliation() {
     let root = std::env::temp_dir().join(format!(
         "objekte-lookup-quiesce-{}-{:?}",
         std::process::id(),
@@ -551,7 +551,8 @@ fn deleting_shared_multi_record_file_retires_every_collection_atomically() {
     assert_eq!(old.file_handle_for_path(&source), Some(handle));
     for collection in ["left", "right"] {
         assert_eq!(
-            old.file_paths_for_collection(collection).collect::<Vec<_>>(),
+            old.file_paths_for_collection(collection)
+                .collect::<Vec<_>>(),
             [std::path::Path::new("data/shared.jsonl")]
         );
     }

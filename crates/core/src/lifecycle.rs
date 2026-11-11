@@ -7,7 +7,7 @@
 use std::collections::HashMap;
 use std::fmt;
 use std::path::{Path, PathBuf};
-use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
+use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::mpsc::{self, RecvTimeoutError, Sender, SyncSender};
 use std::sync::{Arc, Condvar, Mutex, RwLock, Weak};
 use std::thread::JoinHandle;
@@ -22,9 +22,9 @@ use crate::build::{
 use crate::discovery::selects_file;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle_catalog::FileCatalog;
-use crate::model::{CollectionId, FileId, Value};
 #[cfg(test)]
 use crate::model::RecordSlot;
+use crate::model::{CollectionId, FileId, Value};
 use crate::query::Query;
 use crate::repository::{Repository, SearchHit, SearchResult};
 use crate::streaming::{
@@ -38,9 +38,11 @@ pub use crate::inventory::FileVersion;
 pub(crate) const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
 const MAX_RECONCILIATION_ISSUES: usize = 128;
 
+
 /// Monotonic publication sequence within one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub struct IndexRevision(pub u64);
+
 
 impl IndexRevision {
     pub const INITIAL: Self = Self(1);
@@ -53,6 +55,7 @@ impl IndexRevision {
     }
 }
 
+
 /// A physical file incarnation in one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct FileHandle {
@@ -60,6 +63,7 @@ pub struct FileHandle {
     pub file_id: FileId,
     pub version: FileVersion,
 }
+
 
 /// Errors at the lifecycle boundary. Query failures retain the existing
 /// repository result type until the lifecycle query-completeness phase.
@@ -94,6 +98,7 @@ pub enum IndexError {
     RevisionOverflow,
     LockPoisoned,
 }
+
 
 impl fmt::Display for IndexError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -146,7 +151,9 @@ impl fmt::Display for IndexError {
     }
 }
 
+
 impl std::error::Error for IndexError {}
+
 
 /// Initial status vocabulary; background task state is supplied by the
 /// reconciliation phase, separately from publication revisions.
@@ -160,6 +167,7 @@ pub enum ReconciliationState {
     Cancelled,
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexStatus {
     pub instance_id: u64,
@@ -169,6 +177,7 @@ pub struct IndexStatus {
     pub indexed_files: usize,
     pub live_records: u64,
 }
+
 
 /// Outcome of explicit full reconstruction from the configured source files.
 #[derive(Clone, Debug)]
@@ -180,12 +189,14 @@ pub struct RebuildReport {
     pub duration: Duration,
 }
 
+
 /// The kind of a long-running index maintenance task.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum MaintenanceOperation {
     Compact,
     Rebuild,
 }
+
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum MaintenancePhase {
@@ -197,6 +208,7 @@ pub enum MaintenancePhase {
     Failed,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MaintenanceProgress {
     pub operation: MaintenanceOperation,
@@ -205,11 +217,13 @@ pub struct MaintenanceProgress {
     pub elapsed: Duration,
 }
 
+
 #[derive(Clone, Debug)]
 pub enum MaintenanceReport {
     Compact(crate::lifecycle_compaction::CompactionReport),
     Rebuild(RebuildReport),
 }
+
 
 /// Result of removing one physical source entry from the published index.
 /// The source file itself is never changed.
@@ -219,6 +233,7 @@ pub enum DeleteStrategy {
     VerifiedPhysicalRemoval,
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeleteResult {
     pub revision: IndexRevision,
@@ -227,6 +242,7 @@ pub struct DeleteResult {
     pub affected_collections: Vec<String>,
     pub strategy: DeleteStrategy,
 }
+
 
 /// One metadata scan and its applied index changes. Errors affecting only a
 /// source remain visible here while other independent files can proceed.
@@ -246,6 +262,7 @@ pub struct ReconciliationReport {
     pub omitted_issues: usize,
 }
 
+
 impl ReconciliationReport {
     fn record_issue(&mut self, issue: String) {
         if self.issues.len() < MAX_RECONCILIATION_ISSUES {
@@ -255,6 +272,7 @@ impl ReconciliationReport {
         }
     }
 }
+
 
 /// Small, copyable observation while a reconciliation pass is running.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -271,6 +289,7 @@ pub struct ReconciliationProgress {
     pub cancelled: bool,
     pub issue_count: usize,
 }
+
 
 impl From<&ReconciliationReport> for ReconciliationProgress {
     fn from(report: &ReconciliationReport) -> Self {
@@ -290,6 +309,7 @@ impl From<&ReconciliationReport> for ReconciliationProgress {
     }
 }
 
+
 /// Private work captured before the mutation writer validates and publishes
 /// one file across all eligible collections.
 pub(crate) struct PreparedAdd {
@@ -297,6 +317,7 @@ pub(crate) struct PreparedAdd {
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) file: PreparedFileBuild,
 }
+
 
 /// A complete replacement captured against one file incarnation. The writer
 /// checks both the view revision and file token before replacing its slots.
@@ -307,11 +328,13 @@ pub(crate) struct PreparedReplacement {
     pub(crate) file: PreparedFileBuild,
 }
 
+
 impl IndexStatus {
     pub fn dirty(&self) -> bool {
         self.saved_revision != Some(self.revision)
     }
 }
+
 
 /// One indexed delta shard and its independently retired local slots.
 #[derive(Clone)]
@@ -320,6 +343,7 @@ pub(crate) struct PublishedSegment {
     pub(crate) index: Arc<IndexedCollectionSegment>,
     pub(crate) active: ActiveRecords,
 }
+
 
 /// One immutable root: shared base, bounded indexed segments, liveness, file
 /// catalog and configuration all belong to the same publication revision.
@@ -337,6 +361,7 @@ pub(crate) struct PublishedIndex {
     pub(crate) saved_revision: Option<IndexRevision>,
     pub(crate) reconciliation: ReconciliationState,
 }
+
 
 fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize, usize)> {
     let mut sized = group
@@ -368,6 +393,7 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize
     }
     None
 }
+
 
 impl PublishedIndex {
     pub(crate) fn from_repository(
@@ -589,6 +615,7 @@ impl PublishedIndex {
     }
 }
 
+
 fn index_prepared_file(
     repository: &Repository,
     source: &SourceFileInput,
@@ -726,6 +753,7 @@ fn prepare_file_at(
     .map_err(IndexError::Build)
 }
 
+
 struct IndexInner {
     instance_id: u64,
     restored_from_cache: AtomicBool,
@@ -743,13 +771,14 @@ struct IndexInner {
     persistence: Mutex<PersistenceState>,
     sync_cache: Mutex<Option<SyncCacheWorker>>,
     sync_cache_error: Mutex<Option<String>>,
-    source_reconcile_requested_revision: AtomicU64,
 }
+
 
 struct PeriodicReconciliation {
     signal: Sender<PeriodicSignal>,
     worker: JoinHandle<()>,
 }
+
 
 enum PeriodicSignal {
     #[cfg(test)]
@@ -757,10 +786,12 @@ enum PeriodicSignal {
     Stop,
 }
 
+
 struct SyncCacheWorker {
     signal: SyncSender<()>,
     worker: JoinHandle<()>,
 }
+
 
 struct PersistenceState {
     selected_cache: Option<PathBuf>,
@@ -768,10 +799,12 @@ struct PersistenceState {
     protected_files: Vec<PathBuf>,
 }
 
+
 struct MaintenanceState {
     reconciliation: ReconciliationState,
     current: Option<Arc<ReconciliationJob>>,
 }
+
 
 struct ReconciliationJob {
     cancelled: AtomicBool,
@@ -780,6 +813,7 @@ struct ReconciliationJob {
     complete: Condvar,
     worker: Mutex<Option<JoinHandle<()>>>,
 }
+
 
 struct MaintenanceJob {
     operation: MaintenanceOperation,
@@ -791,10 +825,12 @@ struct MaintenanceJob {
     worker: Mutex<Option<JoinHandle<()>>>,
 }
 
+
 /// One observable compaction or rebuild. Cancellation prevents publication
 /// and leaves the current view available.
 #[derive(Clone)]
 pub struct MaintenanceTask(Arc<MaintenanceJob>);
+
 
 impl MaintenanceTask {
     pub fn cancel(&self) {
@@ -851,6 +887,7 @@ impl MaintenanceTask {
     }
 }
 
+
 impl MaintenanceJob {
     fn set_progress(&self, phase: MaintenancePhase, attempt: usize, elapsed: Duration) {
         if let Ok(mut progress) = self.progress.lock() {
@@ -861,9 +898,11 @@ impl MaintenanceJob {
     }
 }
 
+
 /// Observable, cancellable handle for one metadata reconciliation pass.
 #[derive(Clone)]
 pub struct ReconciliationTask(Arc<ReconciliationJob>);
+
 
 impl ReconciliationTask {
     pub fn cancel(&self) {
@@ -913,9 +952,11 @@ impl ReconciliationTask {
     }
 }
 
+
 /// Shared lifecycle owner. Cloning this handle does not copy indexed data.
 #[derive(Clone)]
 pub struct Index(Arc<IndexInner>);
+
 
 impl Index {
     /// Adopt a completed static repository as the first published view.
@@ -955,7 +996,6 @@ impl Index {
             }),
             sync_cache: Mutex::new(None),
             sync_cache_error: Mutex::new(None),
-            source_reconcile_requested_revision: AtomicU64::new(0),
         }))
     }
 
@@ -2266,38 +2306,13 @@ impl Index {
     }
 }
 
+
 /// Pinned immutable read context for a single publication revision.
 #[derive(Clone)]
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
 
+
 impl IndexView {
-    fn request_source_reconciliation(&self) {
-        let Some(owner) = self.1.upgrade() else {
-            return;
-        };
-        let revision = self.revision().0;
-        let previous = owner
-            .source_reconcile_requested_revision
-            .fetch_max(revision, Ordering::AcqRel);
-        if previous >= revision {
-            return;
-        }
-        if Index(Arc::clone(&owner)).start_reconcile().is_err() {
-            let _ = owner.source_reconcile_requested_revision.compare_exchange(
-                revision,
-                previous,
-                Ordering::AcqRel,
-                Ordering::Acquire,
-            );
-        }
-    }
-
-    fn request_reconciliation_for_counters(&self, counters: &crate::measurement::WorkCounters) {
-        if counters.source_unavailable_events > 0 {
-            self.request_source_reconciliation();
-        }
-    }
-
     fn has_segments(&self) -> bool {
         self.0.segments.iter().any(|group| !group.is_empty())
     }
@@ -2488,9 +2503,6 @@ impl IndexView {
                 cache,
             )
         };
-        if let Ok(result) = &result {
-            self.request_reconciliation_for_counters(&result.counters);
-        }
         result
     }
 
@@ -2540,9 +2552,6 @@ impl IndexView {
                 cache,
             )
         };
-        if let Ok(result) = &result {
-            self.request_reconciliation_for_counters(&result.counters);
-        }
         result
     }
 
@@ -2613,8 +2622,8 @@ impl IndexView {
         }
     }
 
-    /// Direct lookup with a distinct unavailable-source outcome. A missing
-    /// source requests a coalesced reconciliation of the current index.
+    /// Direct lookup with a distinct unavailable-source outcome. Explicit
+    /// lifecycle operations own source reconciliation.
     pub fn get_record_available(
         &self,
         collection: &str,
@@ -2631,9 +2640,6 @@ impl IndexView {
             &self.0.catalog,
             self.revision(),
         )?;
-        if matches!(result, crate::run::DirectLookupResult::SourceUnavailable(_)) {
-            self.request_source_reconciliation();
-        }
         Ok(result)
     }
 
@@ -2875,12 +2881,10 @@ impl IndexView {
             sink,
             cache,
         );
-        if let Ok(StreamOutcome::Complete(summary)) = &result {
-            self.request_reconciliation_for_counters(&summary.counters);
-        }
         result
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle.test.rs"]

@@ -10,6 +10,7 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
 use crate::inventory::{ByteRange, SourceRevision};
+#[cfg(test)]
 use crate::measurement::SourceUnavailableKind;
 use crate::model::Value;
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
@@ -69,6 +70,7 @@ pub(crate) fn probe_source_unavailable(
 
 /// Classify a lifecycle read failure using the same file-incarnation proof as
 /// the checked reader. A same-size, same-mtime replacement is a mismatch.
+#[cfg(test)]
 pub(crate) fn classify_source_read_failure_checked(
     path: &Path,
     expected: SourceRevision,
@@ -80,6 +82,7 @@ pub(crate) fn classify_source_read_failure_checked(
         .unwrap_or(SourceUnavailableKind::Unreadable)
 }
 
+#[cfg(test)]
 pub(crate) fn probe_source_unavailable_checked(
     path: &Path,
     expected: SourceRevision,
@@ -108,6 +111,7 @@ pub(crate) fn probe_source_unavailable_checked(
     }
     None
 }
+
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -1253,7 +1257,21 @@ pub fn extract_file_outcomes<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, false, None, consume)
+    extract_file_outcomes_impl(path, source, expected, false, true, None, consume)
+}
+
+/// Search a source without testing whether the saved discovery metadata is
+/// still current. An index lifecycle operation owns that synchronization.
+pub(crate) fn extract_file_outcomes_for_search<F>(
+    path: &Path,
+    source: &dyn SourceReader,
+    expected: SourceRevision,
+    consume: F,
+) -> Result<ExtractionCounters, String>
+where
+    F: FnMut(SourceOutcome) -> Result<(), String>,
+{
+    extract_file_outcomes_impl(path, source, expected, false, false, None, consume)
 }
 
 pub(crate) fn extract_file_build_outcomes<F>(
@@ -1265,7 +1283,7 @@ pub(crate) fn extract_file_build_outcomes<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, true, None, consume)
+    extract_file_outcomes_impl(path, source, expected, true, false, None, consume)
 }
 
 /// Capture the exact whole-file digest while the fresh builder's normal
@@ -1285,6 +1303,7 @@ where
         source,
         expected,
         true,
+        false,
         Some(&mut fingerprint),
         consume,
     )?;
@@ -1296,6 +1315,7 @@ fn extract_file_outcomes_impl<F>(
     source: &dyn SourceReader,
     expected: SourceRevision,
     for_build: bool,
+    check_freshness: bool,
     fingerprint: Option<&mut Option<[u8; 32]>>,
     mut consume: F,
 ) -> Result<ExtractionCounters, String>
@@ -1315,7 +1335,7 @@ where
             return Ok(ExtractionCounters::default());
         }
     };
-    if !for_build {
+    if check_freshness {
         check_revision(path, &file, expected)?;
     }
     let mut bytes = Vec::new();
@@ -1334,7 +1354,7 @@ where
             *fingerprint = Some(Sha256::digest(&bytes).into());
         }
     }
-    if !for_build {
+    if check_freshness {
         check_revision(path, &file, expected)?;
         if bytes.len() as u64 != expected.size {
             return Err("stale source revision during extraction".into());
@@ -1356,7 +1376,7 @@ where
                 diagnostic,
                 bytes,
             })?;
-            if !for_build {
+            if check_freshness {
                 check_revision(path, &file, expected)?;
             }
             return Ok(ExtractionCounters {
@@ -1372,7 +1392,7 @@ where
     validate_reader_ranges(&ranges, bytes.len())?;
     let counters =
         extract_framed_outcomes_impl(path, source, &bytes, &ranges, for_build, &mut consume)?;
-    if !for_build {
+    if check_freshness {
         check_revision(path, &file, expected)?;
     }
     Ok(counters)
@@ -1398,11 +1418,13 @@ fn opened_revision_matches(file: &std::fs::File, expected: SourceRevision) -> Re
     Ok(opened == expected)
 }
 
+
 #[derive(Clone, Copy)]
 struct SourceIdentityProof {
     created_ns: Option<i128>,
     fingerprint: Option<[u8; 32]>,
 }
+
 
 fn opened_identity_matches(
     file: &mut std::fs::File,
@@ -1465,8 +1487,26 @@ pub fn read_record_range(
     read_record_range_from_opened(&mut file, range)
 }
 
+/// Query read of a range published by an index. The index lifecycle owns
+/// source validation; search only checks the stored range and performs I/O.
+pub(crate) fn read_record_range_for_search(
+    path: &Path,
+    revision: SourceRevision,
+    range: ByteRange,
+    execution: Option<&ExecutionContext>,
+) -> Result<Vec<u8>, String> {
+    if let Some(execution) = execution {
+        execution.check_string()?;
+    }
+    ByteRange::checked(range.start, range.end, revision.size)?;
+    let mut file =
+        std::fs::File::open(path).map_err(|error| format!("{}: {error}", path.display()))?;
+    read_record_range_from_opened(&mut file, range)
+}
+
 /// Lifecycle read tied to a pinned file incarnation. When birth time is not
 /// available, the raw digest proves the opened handle instead.
+#[cfg(test)]
 pub(crate) fn read_record_range_checked(
     path: &Path,
     revision: SourceRevision,
@@ -1477,24 +1517,7 @@ pub(crate) fn read_record_range_checked(
     read_record_range_checked_impl(path, revision, created_ns, fingerprint, range, None)
 }
 
-pub(crate) fn read_record_range_checked_with_execution(
-    path: &Path,
-    revision: SourceRevision,
-    created_ns: Option<i128>,
-    fingerprint: Option<[u8; 32]>,
-    range: ByteRange,
-    execution: &ExecutionContext,
-) -> Result<Vec<u8>, String> {
-    read_record_range_checked_impl(
-        path,
-        revision,
-        created_ns,
-        fingerprint,
-        range,
-        Some(execution),
-    )
-}
-
+#[cfg(test)]
 fn read_record_range_checked_impl(
     path: &Path,
     revision: SourceRevision,
@@ -1524,6 +1547,7 @@ fn read_record_range_checked_impl(
 }
 
 /// Query read with an explicit typed source-change channel.
+#[cfg(test)]
 pub(crate) fn read_record_range_with_execution(
     path: &Path,
     revision: SourceRevision,
@@ -1582,6 +1606,7 @@ pub fn read_record_ranges(
 pub struct RecordRangeReader {
     file: std::fs::File,
     revision: SourceRevision,
+    check_freshness: bool,
     first_read: bool,
     position: Option<u64>,
     execution: Option<ExecutionContext>,
@@ -1606,6 +1631,34 @@ impl RecordRangeReader {
         Self::open_with_identity(path, revision, None, execution)
     }
 
+    /// Open a published source for search without checking its current
+    /// metadata or content against the index's recorded revision.
+    pub(crate) fn open_for_search(
+        path: &Path,
+        revision: SourceRevision,
+        execution: Option<&ExecutionContext>,
+    ) -> Result<Self, String> {
+        if let Some(execution) = execution {
+            execution.check_string()?;
+        }
+        let file =
+            std::fs::File::open(path).map_err(|error| format!("{}: {error}", path.display()))?;
+        Ok(Self {
+            file,
+            revision,
+            check_freshness: false,
+            first_read: true,
+            position: Some(0),
+            execution: execution.cloned(),
+            identity: None,
+            #[cfg(test)]
+            seeks: 0,
+            #[cfg(test)]
+            max_window_read: 0,
+        })
+    }
+
+    #[cfg(test)]
     pub(crate) fn open_checked(
         path: &Path,
         revision: SourceRevision,
@@ -1620,24 +1673,6 @@ impl RecordRangeReader {
                 fingerprint,
             }),
             None,
-        )
-    }
-
-    pub(crate) fn open_checked_with_execution(
-        path: &Path,
-        revision: SourceRevision,
-        created_ns: Option<i128>,
-        fingerprint: Option<[u8; 32]>,
-        execution: Option<&ExecutionContext>,
-    ) -> Result<Self, String> {
-        Self::open_with_identity(
-            path,
-            revision,
-            Some(SourceIdentityProof {
-                created_ns,
-                fingerprint,
-            }),
-            execution,
         )
     }
 
@@ -1667,6 +1702,7 @@ impl RecordRangeReader {
         Ok(Self {
             file,
             revision,
+            check_freshness: true,
             first_read: true,
             position: Some(0),
             execution: execution.cloned(),
@@ -1693,10 +1729,7 @@ impl RecordRangeReader {
             } else {
                 "stale source revision"
             };
-            return Err(source_changed(
-                self.execution.as_ref(),
-                message.into(),
-            ));
+            return Err(source_changed(self.execution.as_ref(), message.into()));
         }
         Ok(())
     }
@@ -1728,7 +1761,7 @@ impl RecordRangeReader {
     ) -> Result<(Vec<(u32, Vec<u8>)>, u64), String> {
         if self.first_read {
             self.first_read = false;
-        } else {
+        } else if self.check_freshness {
             self.check_current()?;
         }
         if let [(slot, range)] = ranges {
@@ -1740,7 +1773,7 @@ impl RecordRangeReader {
             }
             let mut bytes = vec![0; len];
             self.read_at(range.start, &mut bytes)?;
-            if self.identity.is_some() {
+            if self.check_freshness && self.identity.is_some() {
                 self.check_current()?;
             }
             return Ok((vec![(*slot, bytes)], len as u64));
@@ -1782,7 +1815,7 @@ impl RecordRangeReader {
             }
             cursor = next;
         }
-        if self.identity.is_some() {
+        if self.check_freshness && self.identity.is_some() {
             self.check_current()?;
         }
         Ok((output, bytes_read))
@@ -1797,7 +1830,7 @@ impl RecordRangeReader {
     ) -> Result<(Vec<(u32, Vec<u8>)>, u64), String> {
         if self.first_read {
             self.first_read = false;
-        } else {
+        } else if self.check_freshness {
             self.check_current()?;
         }
         let mut ordered = ranges.to_vec();
@@ -1825,7 +1858,7 @@ impl RecordRangeReader {
             self.read_at(range.start, &mut bytes)?;
             output.push((slot, bytes));
         }
-        if self.identity.is_some() {
+        if self.check_freshness && self.identity.is_some() {
             self.check_current()?;
         }
         Ok((output, total as u64))

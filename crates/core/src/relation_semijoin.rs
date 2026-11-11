@@ -427,6 +427,7 @@ fn verify_target_records(
                 let record = &collection.generation.records[slot as usize];
                 let file = &repo.files.files[file_id.0 as usize];
                 let prepared = crate::record_preparation::prepare_query_record_with_execution(
+                    record.class,
                     &collection.source,
                     &collection.definition.schema,
                     &bytes,

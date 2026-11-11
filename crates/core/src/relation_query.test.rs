@@ -37,7 +37,9 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
                 id: file_id,
                 relative_path: relative_path.into(),
                 revision: SourceRevision::from_metadata(&metadata).unwrap(),
-                created_ns: metadata.created().ok()
+                created_ns: metadata
+                    .created()
+                    .ok()
                     .and_then(|time| time.duration_since(std::time::UNIX_EPOCH).ok())
                     .map(|duration| duration.as_nanos() as i128),
             },
@@ -210,67 +212,161 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         ["A"]
     );
     let outgoing = crate::relation_inspection::relation_outgoing_page_segmented(
-        &repo, "mentions", &["entry".into()], "m8", 0, 1,
-        IndexRevision(3), &active, &segments, &catalog,
-    ).unwrap();
+        &repo,
+        "mentions",
+        &["entry".into()],
+        "m8",
+        0,
+        1,
+        IndexRevision(3),
+        &active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
     assert_eq!(outgoing.source.segment_ordinal, Some(2));
     assert_eq!(outgoing.total_occurrences, 1);
     assert_eq!(outgoing.references[0].resolved.as_ref().unwrap().id, "A");
-    assert_eq!(outgoing.references[0].resolved.as_ref().unwrap().segment_ordinal, Some(1));
+    assert_eq!(
+        outgoing.references[0]
+            .resolved
+            .as_ref()
+            .unwrap()
+            .segment_ordinal,
+        Some(1)
+    );
     let nested = crate::relation_inspection::relation_outgoing_page_segmented(
-        &repo, "mentions", &["items".into(), "entry".into()], "m1", 0, 1,
-        IndexRevision(3), &active, &segments, &catalog,
-    ).unwrap();
+        &repo,
+        "mentions",
+        &["items".into(), "entry".into()],
+        "m1",
+        0,
+        1,
+        IndexRevision(3),
+        &active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
     assert_eq!(nested.total_occurrences, 2);
     assert_eq!(nested.next_offset, Some(1));
     assert_eq!(nested.references[0].positions, [0]);
-    assert_eq!(nested.references[0].resolved.as_ref().unwrap().segment_ordinal, Some(1));
+    assert_eq!(
+        nested.references[0]
+            .resolved
+            .as_ref()
+            .unwrap()
+            .segment_ordinal,
+        Some(1)
+    );
     let null = crate::relation_inspection::relation_outgoing_page_segmented(
-        &repo, "mentions", &["entry".into()], "m4", 0, 1,
-        IndexRevision(3), &active, &segments, &catalog,
-    ).unwrap();
-    assert_eq!(null.presence, crate::relation_inspection::RelationPresence::Present);
+        &repo,
+        "mentions",
+        &["entry".into()],
+        "m4",
+        0,
+        1,
+        IndexRevision(3),
+        &active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
+    assert_eq!(
+        null.presence,
+        crate::relation_inspection::RelationPresence::Present
+    );
     assert!(null.contains_null);
     assert_eq!(null.total_occurrences, 0);
     let backlinks = crate::relation_inspection::relation_backlink_page_segmented(
-        &repo, "entries", "mentions", "A", 0, 1,
-        IndexRevision(3), &active, &segments, &catalog,
-    ).unwrap();
+        &repo,
+        "entries",
+        "mentions",
+        "A",
+        0,
+        1,
+        IndexRevision(3),
+        &active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
     assert_eq!(backlinks.total_sources, 2);
     assert_eq!(backlinks.next_offset, Some(1));
     assert_eq!(backlinks.sources[0].id, "m1");
     let backlink_tail = crate::relation_inspection::relation_backlink_page_segmented(
-        &repo, "entries", "mentions", "A", 1, 1,
-        IndexRevision(3), &active, &segments, &catalog,
-    ).unwrap();
+        &repo,
+        "entries",
+        "mentions",
+        "A",
+        1,
+        1,
+        IndexRevision(3),
+        &active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
     assert_eq!(backlink_tail.sources[0].id, "m8");
     assert_eq!(backlink_tail.sources[0].segment_ordinal, Some(2));
     let graph = crate::relation_inspection::collection_graph_segmented(
-        &repo, IndexRevision(3), &active, &segments, &catalog,
-    ).unwrap();
+        &repo,
+        IndexRevision(3),
+        &active,
+        &segments,
+        &catalog,
+    )
+    .unwrap();
     assert_eq!(graph.nodes[0].record_count, 2);
     assert_eq!(graph.nodes[1].generation, 3);
-    let mentions_edge = graph.edges.iter().find(|edge| {
-        edge.reverse_alias.as_deref() == Some("mentions")
-    }).unwrap();
+    let mentions_edge = graph
+        .edges
+        .iter()
+        .find(|edge| edge.reverse_alias.as_deref() == Some("mentions"))
+        .unwrap();
     assert_eq!(mentions_edge.occurrence_count, 4);
     assert_eq!(mentions_edge.unresolved_occurrence_count, 1);
     let mut retired_source = (*segments[1][0]).clone();
-    retired_source.active = retired_source.active
-        .retired(&[crate::model::RecordSlot(0)]).unwrap();
-    let without_source = vec![Arc::clone(&segments[0]), Arc::new(vec![Arc::new(retired_source)])];
+    retired_source.active = retired_source
+        .active
+        .retired(&[crate::model::RecordSlot(0)])
+        .unwrap();
+    let without_source = vec![
+        Arc::clone(&segments[0]),
+        Arc::new(vec![Arc::new(retired_source)]),
+    ];
     let source_retired_backlinks = crate::relation_inspection::relation_backlink_page_segmented(
-        &repo, "entries", "mentions", "A", 0, 10,
-        IndexRevision(4), &active, &without_source, &catalog,
-    ).unwrap();
+        &repo,
+        "entries",
+        "mentions",
+        "A",
+        0,
+        10,
+        IndexRevision(4),
+        &active,
+        &without_source,
+        &catalog,
+    )
+    .unwrap();
     assert_eq!(source_retired_backlinks.total_sources, 1);
     assert_eq!(source_retired_backlinks.sources[0].id, "m1");
     let source_retired_graph = crate::relation_inspection::collection_graph_segmented(
-        &repo, IndexRevision(4), &active, &without_source, &catalog,
-    ).unwrap();
-    assert_eq!(source_retired_graph.edges.iter().find(|edge| {
-        edge.reverse_alias.as_deref() == Some("mentions")
-    }).unwrap().occurrence_count, 3);
+        &repo,
+        IndexRevision(4),
+        &active,
+        &without_source,
+        &catalog,
+    )
+    .unwrap();
+    assert_eq!(
+        source_retired_graph
+            .edges
+            .iter()
+            .find(|edge| { edge.reverse_alias.as_deref() == Some("mentions") })
+            .unwrap()
+            .occurrence_count,
+        3
+    );
     assert_eq!(
         find(query(
             "entries",
@@ -372,44 +468,101 @@ fn merged_relations_resolve_replacement_targets_and_preserve_unknown() {
         .is_empty()
     );
     let unresolved = crate::relation_inspection::relation_outgoing_page_segmented(
-        &repo, "mentions", &["entry".into()], "m8", 0, 1,
-        IndexRevision(4), &active, &retired_segments, &catalog,
-    ).unwrap();
+        &repo,
+        "mentions",
+        &["entry".into()],
+        "m8",
+        0,
+        1,
+        IndexRevision(4),
+        &active,
+        &retired_segments,
+        &catalog,
+    )
+    .unwrap();
     assert!(unresolved.references[0].resolved.is_none());
-    assert!(crate::relation_inspection::relation_backlink_page_segmented(
-        &repo, "entries", "mentions", "A", 0, 1,
-        IndexRevision(4), &active, &retired_segments, &catalog,
-    ).is_err());
+    assert!(
+        crate::relation_inspection::relation_backlink_page_segmented(
+            &repo,
+            "entries",
+            "mentions",
+            "A",
+            0,
+            1,
+            IndexRevision(4),
+            &active,
+            &retired_segments,
+            &catalog,
+        )
+        .is_err()
+    );
     let retired_graph = crate::relation_inspection::collection_graph_segmented(
-        &repo, IndexRevision(4), &active, &retired_segments, &catalog,
-    ).unwrap();
-    let retired_edge = retired_graph.edges.iter().find(|edge| {
-        edge.reverse_alias.as_deref() == Some("mentions")
-    }).unwrap();
+        &repo,
+        IndexRevision(4),
+        &active,
+        &retired_segments,
+        &catalog,
+    )
+    .unwrap();
+    let retired_edge = retired_graph
+        .edges
+        .iter()
+        .find(|edge| edge.reverse_alias.as_deref() == Some("mentions"))
+        .unwrap();
     assert_eq!(retired_edge.unresolved_occurrence_count, 3);
     std::fs::remove_file(root.join("entries/new-a.json")).unwrap();
     let unavailable_target = crate::run::search_segmented(
         &repo,
-        &query("mentions", Some("!(entry.title = 'New Hymn')"), None, None, false),
-        &active, &segments, &catalog, IndexRevision(3),
-    ).unwrap();
+        &query(
+            "mentions",
+            Some("!(entry.title = 'New Hymn')"),
+            None,
+            None,
+            false,
+        ),
+        &active,
+        &segments,
+        &catalog,
+        IndexRevision(3),
+    )
+    .unwrap();
     assert_eq!(unavailable_target.count, None);
     assert!(!unavailable_target.counters.match_count_complete);
-    assert_eq!(unavailable_target.counters.source_diagnostics[0].kind,
-        crate::measurement::SourceUnavailableKind::Missing);
-    assert!(!unavailable_target.hits.iter().any(|hit| hit.record_id == "m1" || hit.record_id == "m8"));
+    assert_eq!(
+        unavailable_target.counters.source_diagnostics[0].kind,
+        crate::measurement::SourceUnavailableKind::Missing
+    );
+    assert!(
+        !unavailable_target
+            .hits
+            .iter()
+            .any(|hit| hit.record_id == "m1" || hit.record_id == "m8")
+    );
     let mut unavailable_sort = query("mentions", None, None, None, false);
     unavailable_sort.options.sort = vec![crate::execution_options::SortField::computed(
         crate::workload::SortExpression {
-            path: "entry.title".into(), binding: Some("lower".into()), reducer: None,
+            path: "entry.title".into(),
+            binding: Some("lower".into()),
+            reducer: None,
         },
         false,
     )];
     let unavailable_sort = crate::run::search_segmented(
-        &repo, &unavailable_sort, &active, &segments, &catalog, IndexRevision(3),
-    ).unwrap();
+        &repo,
+        &unavailable_sort,
+        &active,
+        &segments,
+        &catalog,
+        IndexRevision(3),
+    )
+    .unwrap();
     assert_eq!(unavailable_sort.count, None);
-    assert!(!unavailable_sort.hits.iter().any(|hit| hit.record_id == "m1" || hit.record_id == "m8"));
+    assert!(
+        !unavailable_sort
+            .hits
+            .iter()
+            .any(|hit| hit.record_id == "m1" || hit.record_id == "m8")
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -511,10 +664,26 @@ fn merged_relation_walker_matches_static_reference_semantics() {
     }
     for (collection, path, reducer) in [
         ("mentions", "entry.title", None),
-        ("mentions", "items.entry.title", Some(crate::workload::SortReducer::First)),
-        ("mentions", "items.entry.title", Some(crate::workload::SortReducer::Last)),
-        ("mentions", "contributors.title", Some(crate::workload::SortReducer::Min)),
-        ("entries", "@backlinks.mentions.title", Some(crate::workload::SortReducer::Min)),
+        (
+            "mentions",
+            "items.entry.title",
+            Some(crate::workload::SortReducer::First),
+        ),
+        (
+            "mentions",
+            "items.entry.title",
+            Some(crate::workload::SortReducer::Last),
+        ),
+        (
+            "mentions",
+            "contributors.title",
+            Some(crate::workload::SortReducer::Min),
+        ),
+        (
+            "entries",
+            "@backlinks.mentions.title",
+            Some(crate::workload::SortReducer::Min),
+        ),
     ] {
         let mut request = query(collection, None, None, None, false);
         request.options.sort = vec![crate::execution_options::SortField::computed(
@@ -537,8 +706,16 @@ fn merged_relation_walker_matches_static_reference_semantics() {
         .unwrap();
         assert_eq!(actual.count, expected.count, "{path}");
         assert_eq!(
-            actual.hits.iter().map(|hit| &hit.record_id).collect::<Vec<_>>(),
-            expected.hits.iter().map(|hit| &hit.record_id).collect::<Vec<_>>(),
+            actual
+                .hits
+                .iter()
+                .map(|hit| &hit.record_id)
+                .collect::<Vec<_>>(),
+            expected
+                .hits
+                .iter()
+                .map(|hit| &hit.record_id)
+                .collect::<Vec<_>>(),
             "{path}"
         );
     }
@@ -643,7 +820,8 @@ fn lifecycle_relation_and_exact_local_id_use_direct_witness() {
             snapshot_mode: SnapshotMode::Disabled,
             ..RepositoryOptions::default()
         },
-    ).unwrap();
+    )
+    .unwrap();
     let view = index.view().unwrap();
     for filter in [
         "entry.title = 'Hymn' && @record.id = 'm1'",
@@ -661,23 +839,26 @@ fn lifecycle_relation_and_exact_local_id_use_direct_witness() {
     let metadata = std::fs::metadata(&target).unwrap();
     std::fs::rename(&target, root.join("entries/hidden-a.json")).unwrap();
     std::fs::write(&target, vec![b'x'; metadata.len() as usize]).unwrap();
-    std::fs::File::open(&target).unwrap().set_times(
-        std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()),
-    ).unwrap();
+    std::fs::File::open(&target)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(metadata.modified().unwrap()))
+        .unwrap();
     assert_eq!(
         SourceRevision::from_metadata(&std::fs::metadata(&target).unwrap()).unwrap(),
         SourceRevision::from_metadata(&metadata).unwrap(),
     );
     let mut bytes = query(
-        "mentions", Some("entry.title = 'Hymn' && @record.id = 'm1'"),
-        None, None, false,
+        "mentions",
+        Some("entry.title = 'Hymn' && @record.id = 'm1'"),
+        None,
+        None,
+        false,
     );
     bytes.options.return_mode = ReturnMode::Bytes;
-    let stale = view.search(&bytes).unwrap();
-    assert_eq!(stale.count, None);
-    assert!(!stale.counters.match_count_complete);
-    assert!(stale.counters.source_unavailable_events > 0);
-    assert!(stale.hits.is_empty());
+    // Trusted search may fail while extracting externally corrupted bytes;
+    // it must not turn that edit into an implicit index refresh.
+    let stale = view.search(&bytes).unwrap_err();
+    assert!(!stale.contains("stale source"));
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -688,7 +869,9 @@ fn lifecycle_related_sort_uses_target_stored_column() {
     use crate::model::FieldPath;
 
     let (root, mut definitions) = fixture();
-    definitions[0].sort_fields.push(FieldPath::parse("title").unwrap());
+    definitions[0]
+        .sort_fields
+        .push(FieldPath::parse("title").unwrap());
     let index = Index::build(
         &root,
         definitions,
@@ -696,12 +879,21 @@ fn lifecycle_related_sort_uses_target_stored_column() {
             snapshot_mode: SnapshotMode::Disabled,
             ..RepositoryOptions::default()
         },
-    ).unwrap();
+    )
+    .unwrap();
     let view = index.view().unwrap();
-    let mut request = query("mentions", Some("entry.title != 'Missing'"), None, None, false);
+    let mut request = query(
+        "mentions",
+        Some("entry.title != 'Missing'"),
+        None,
+        None,
+        false,
+    );
     request.options.sort = vec![crate::execution_options::SortField::computed(
         crate::workload::SortExpression {
-            path: "entry.title".into(), binding: None, reducer: None,
+            path: "entry.title".into(),
+            binding: None,
+            reducer: None,
         },
         false,
     )];

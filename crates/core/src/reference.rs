@@ -303,9 +303,10 @@ impl Schema {
         validate_children(value, &self.validation, &mut Vec::new(), selected_top_level)
     }
 
-    /// Query records already passed the declared-type contract during build.
-    /// Only temporal values need conversion again after a source read.
-    pub(crate) fn coerce_query_record(
+    /// Apply conversions already approved by the published index. Search may
+    /// need converted values again after reading bytes, but does not recheck
+    /// the declared schema until an explicit index operation updates it.
+    pub(crate) fn convert_indexed_record(
         &self,
         value: &mut Value,
         selected_top_level: Option<&HashSet<String>>,
@@ -313,24 +314,10 @@ impl Schema {
         if !self.converted_fields {
             return Ok(());
         }
-        if let Some(root) = self.fields.get(&Vec::<String>::new())
-            && converted_kind(&root.kind)
-        {
-            validate_declared(
-                value,
-                &root.kind,
-                root.nullable,
-                &root.element_nullable,
-                0,
-                &["@root"],
-            )?;
+        if let Some(root) = self.fields.get(&Vec::<String>::new()) {
+            convert_declared_indexed(value, &root.kind, &root.element_nullable, 0)?;
         }
-        validate_children(
-            value,
-            &self.conversion_validation,
-            &mut Vec::new(),
-            selected_top_level,
-        )
+        convert_children_indexed(value, &self.conversion_validation, selected_top_level)
     }
 
     pub fn has_converted_fields(&self) -> bool {
@@ -560,6 +547,77 @@ fn validate_children<'a>(
             }
         }
         _ => {}
+    }
+    Ok(())
+}
+
+fn convert_children_indexed(
+    value: &mut Value,
+    node: &ValidationNode,
+    selected: Option<&HashSet<String>>,
+) -> Result<(), String> {
+    match value {
+        Value::Object(fields) => {
+            for (name, child) in &node.children {
+                if selected.is_some_and(|selection| !selection.contains(name)) {
+                    continue;
+                }
+                if let Some(value) = fields.get_mut(name) {
+                    if let Some(field) = &child.field {
+                        convert_declared_indexed(value, &field.kind, &field.element_nullable, 0)?;
+                    }
+                    if !matches!(value, Value::Null) {
+                        convert_children_indexed(value, child, None)?;
+                    }
+                }
+            }
+        }
+        Value::Array(array) => {
+            for value in &mut array.values {
+                if !matches!(value, Value::Null) {
+                    convert_children_indexed(value, node, None)?;
+                }
+            }
+        }
+        _ => {}
+    }
+    Ok(())
+}
+
+fn convert_declared_indexed(
+    value: &mut Value,
+    kind: &LogicalType,
+    elements: &[bool],
+    depth: usize,
+) -> Result<(), String> {
+    if matches!(value, Value::Null) {
+        return Ok(());
+    }
+    match kind {
+        LogicalType::Id => {
+            if let Value::String(text) = value {
+                *value = Value::Id(text.clone());
+            }
+        }
+        LogicalType::Date | LogicalType::Datetime => {
+            if let Value::String(text) = value {
+                *value = Value::parse_typed_string(text, kind)?;
+            }
+        }
+        LogicalType::Unixtime => {
+            if let Value::Number(Number::Integer(seconds)) = value {
+                *value =
+                    Value::Unixtime(i64::try_from(*seconds).map_err(|_| "unixtime out of range")?);
+            }
+        }
+        _ => {}
+    }
+    if let (Value::Array(array), LogicalType::Array(inner)) = (&mut *value, kind) {
+        for item in &mut array.values {
+            convert_declared_indexed(item, inner, elements, depth + 1)?;
+        }
+        array.element_type = Some((**inner).clone());
+        array.nullable_elements = elements.get(depth).copied().unwrap_or(true);
     }
     Ok(())
 }

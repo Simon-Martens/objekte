@@ -21,11 +21,8 @@ use crate::relation::{RelationCardinality, RelationId, RelationTarget};
 use crate::relation_target_cache::TargetValueCache;
 use crate::repository::CollectionState;
 use crate::repository::Repository;
-use crate::source::{
-    ScanProjection, TextDerivation, TextSegment, classify_source_read_failure_checked, read_record_range,
-    read_record_range_checked,
-    read_record_range_with_execution,
-};
+use crate::source::{ScanProjection, TextDerivation, TextSegment, read_record_range_for_search};
+use crate::source_access::classify_source_read_failure_for_search;
 
 const MAX_RELATION_HOPS: usize = 8;
 const MAX_PATH_STEPS: usize = 64;
@@ -33,6 +30,7 @@ const MAX_QUERY_EDGE_VISITS: u64 = 32_000_000;
 const MAX_QUERY_BACKLINK_PROBES: u64 = 32_000_000;
 const MAX_QUERY_RECORD_READS: u64 = 5_000_000;
 const MAX_QUERY_RELATION_BYTES: u64 = 1024 * 1024 * 1024;
+
 
 /// One record address in a pinned base-plus-delta publication. A local slot
 /// alone cannot identify a record after multiple segments have been added.
@@ -43,11 +41,13 @@ pub(crate) struct MergedRecordSlot {
     pub slot: RecordSlot,
 }
 
+
 pub(crate) struct MergedRecord<'a> {
     pub record: &'a crate::inventory::RecordEntry,
     pub file: &'a crate::inventory::FileEntry,
     pub collection: &'a CollectionState,
 }
+
 
 /// Query-local relation lookup over a single immutable publication. Forward
 /// edges and reverse postings are borrowed from the relevant segment on demand.
@@ -58,6 +58,7 @@ pub(crate) struct MergedRelationView<'a> {
     catalog: &'a FileCatalog,
     source_errors: RefCell<SourceAvailabilityLog>,
 }
+
 
 impl<'a> MergedRelationView<'a> {
     /// A worker keeps its own source-availability log while borrowing the
@@ -90,10 +91,7 @@ impl<'a> MergedRelationView<'a> {
         self.source_errors.borrow_mut().record(SourceDiagnostic {
             file_id: file.id.0,
             file_path: file.relative_path.clone(),
-            kind: classify_source_read_failure_checked(
-                &path, file.revision, file.created_ns,
-                self.catalog.fingerprint(file.id), Some(range),
-            ),
+            kind: classify_source_read_failure_for_search(&path, file.revision, Some(range)),
             message,
         });
     }
@@ -102,12 +100,10 @@ impl<'a> MergedRelationView<'a> {
         &self.repo.files.root
     }
 
-    pub(crate) fn source_fingerprint(&self, file: crate::model::FileId) -> Option<[u8; 32]> {
-        self.catalog.fingerprint(file)
-    }
-
     pub(crate) fn segment_ordinal(&self, address: MergedRecordSlot) -> Option<u64> {
-        address.segment.map(|index| self.segments[address.collection.0 as usize][index].ordinal)
+        address
+            .segment
+            .map(|index| self.segments[address.collection.0 as usize][index].ordinal)
     }
 
     pub(crate) fn relation_cardinality(
@@ -302,7 +298,11 @@ impl<'a> MergedRelationView<'a> {
         target_id: &str,
     ) -> Result<Vec<MergedRecordSlot>, String> {
         let index = relation.source.0 as usize;
-        let collection = self.repo.collections.get(index).ok_or("backlink source missing")?;
+        let collection = self
+            .repo
+            .collections
+            .get(index)
+            .ok_or("backlink source missing")?;
         let base = collection
             .relations
             .get(relation.ordinal as usize)
@@ -1405,9 +1405,11 @@ fn visit_merged_hop(
         if let Some(execution) = work.execution.as_ref() {
             execution.check_string()?;
         }
-        let bytes = match read_record_range_checked(
-            &path, current.file.revision, current.file.created_ns,
-            view.source_fingerprint(current.file.id), current.record.range,
+        let bytes = match read_record_range_for_search(
+            &path,
+            current.file.revision,
+            current.record.range,
+            work.execution.as_ref(),
         ) {
             Ok(bytes) => bytes,
             Err(message) => {
@@ -1418,6 +1420,7 @@ fn visit_merged_hop(
         };
         work.target_read(bytes.len() as u64)?;
         let extracted = crate::record_preparation::prepare_query_record_with_execution(
+            current.record.class,
             &current.collection.source,
             &current.collection.definition.schema,
             &bytes,
@@ -1760,13 +1763,15 @@ fn visit_hop(
             ));
         }
         work.before_read(record.range.len(), true)?;
-        let bytes = if let Some(execution) = work.execution.as_ref() {
-            read_record_range_with_execution(&path, record.revision, record.range, execution)?
-        } else {
-            read_record_range(&path, record.revision, record.range)?
-        };
+        let bytes = read_record_range_for_search(
+            &path,
+            record.revision,
+            record.range,
+            work.execution.as_ref(),
+        )?;
         work.target_read(bytes.len() as u64)?;
         let extracted = crate::record_preparation::prepare_query_record_with_execution(
+            record.class,
             &collection.source,
             &collection.definition.schema,
             &bytes,
@@ -2063,13 +2068,15 @@ fn read_reference_value(
         ));
     }
     work.before_read(record.range.len(), false)?;
-    let bytes = if let Some(execution) = work.execution.as_ref() {
-        read_record_range_with_execution(&path, record.revision, record.range, execution)?
-    } else {
-        read_record_range(&path, record.revision, record.range)?
-    };
+    let bytes = read_record_range_for_search(
+        &path,
+        record.revision,
+        record.range,
+        work.execution.as_ref(),
+    )?;
     work.source_read(bytes.len() as u64)?;
     let extracted = crate::record_preparation::prepare_query_record_with_execution(
+        record.class,
         &collection.source,
         &collection.definition.schema,
         &bytes,

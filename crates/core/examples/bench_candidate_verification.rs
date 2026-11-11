@@ -28,8 +28,10 @@ use objekte_search_core::workload::{ReturnMode, WorkloadCase};
 use serde_json::json;
 use sha2::{Digest, Sha256};
 
+
 /// Counts gross allocation work only during the separate instrumented pass.
 struct CountingAllocator;
+
 
 static COUNTING_ENABLED: AtomicBool = AtomicBool::new(false);
 static ALLOCATION_COUNT: AtomicU64 = AtomicU64::new(0);
@@ -37,6 +39,7 @@ static ALLOCATED_BYTES: AtomicU64 = AtomicU64::new(0);
 
 #[global_allocator]
 static ALLOCATOR: CountingAllocator = CountingAllocator;
+
 
 unsafe impl GlobalAlloc for CountingAllocator {
     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
@@ -71,6 +74,7 @@ unsafe impl GlobalAlloc for CountingAllocator {
     }
 }
 
+
 /// A fixed predicate and extraction shape shared by both benchmark levels.
 struct Case {
     id: &'static str,
@@ -79,6 +83,7 @@ struct Case {
     filter: Option<&'static str>,
     projection: ScanProjection,
 }
+
 
 impl Case {
     fn query(&self, limit: usize) -> Result<Query, String> {
@@ -103,6 +108,7 @@ impl Case {
         })
     }
 }
+
 
 fn cases() -> Vec<Case> {
     let fields = |names: &[&str]| Some(names.iter().map(|name| (*name).into()).collect());
@@ -221,6 +227,7 @@ fn in_memory(
     query: &Query,
     records: &[(String, Vec<u8>)],
     repetitions: usize,
+    trusted: bool,
 ) -> Result<serde_json::Value, String> {
     let schema = Schema::default();
     let filter = query
@@ -259,7 +266,11 @@ fn in_memory(
     let scan = || -> Result<Vec<&str>, String> {
         let mut members = Vec::new();
         for (name, bytes) in records {
-            let extracted = reader.parse_for_query(bytes, &case.projection)?;
+            let extracted = if trusted {
+                reader.parse_for_query_trusted(bytes, &case.projection)?
+            } else {
+                reader.parse_for_query(bytes, &case.projection)?
+            };
             let context = RecordContext {
                 value: &extracted.value,
                 source_bytes: Some(bytes),
@@ -313,7 +324,11 @@ fn in_memory(
     let median = median(&mut times);
     Ok(json!({
         "case": case.id,
-        "level": "in_memory_validating_parse_extract_evaluate",
+        "level": if trusted {
+            "in_memory_trusted_parse_extract_evaluate"
+        } else {
+            "in_memory_validating_parse_extract_evaluate"
+        },
         "records": records.len(),
         "matches": final_members.len(),
         "member_sha256": digest(final_members.into_iter()),
@@ -506,10 +521,13 @@ fn run() -> Result<(), String> {
     let cases = cases();
     for case in &cases {
         let query = case.query(records.len())?;
-        let memory = in_memory(case, &query, &records, repetitions)?;
+        let memory = in_memory(case, &query, &records, repetitions, false)?;
+        let trusted = in_memory(case, &query, &records, repetitions, true)?;
         let complete = repository_search(&repo, case, &query, repetitions)?;
         if memory["matches"] != complete["matches"]
             || memory["member_sha256"] != complete["member_sha256"]
+            || trusted["matches"] != complete["matches"]
+            || trusted["member_sha256"] != complete["member_sha256"]
         {
             return Err(format!(
                 "{}: in-memory and repository results differ",
@@ -517,6 +535,7 @@ fn run() -> Result<(), String> {
             ));
         }
         println!("{memory}");
+        println!("{trusted}");
         println!("{complete}");
     }
     if let Some(path) = oracle_output {

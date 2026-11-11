@@ -440,12 +440,12 @@ fn optional_ancestor_of_required_temporal_child_stays_optional_during_query_conv
         let mut built = Value::from_json(json.clone()).unwrap();
         schema.coerce_record(&mut built).unwrap();
         let mut scanned = Value::from_json(json).unwrap();
-        schema.coerce_query_record(&mut scanned, None).unwrap();
+        schema.convert_indexed_record(&mut scanned, None).unwrap();
         assert_eq!(scanned, built);
     }
     let mut projected = Value::from_json(serde_json::json!({"note":"keep"})).unwrap();
     schema
-        .coerce_query_record(&mut projected, Some(&HashSet::from(["note".into()])))
+        .convert_indexed_record(&mut projected, Some(&HashSet::from(["note".into()])))
         .unwrap();
     let mut invalid = Value::from_json(serde_json::json!({"details":{}})).unwrap();
     assert!(
@@ -774,7 +774,7 @@ fn declared_types_required_fields_and_array_nullability_are_enforced() {
     }))
     .unwrap();
     schema
-        .coerce_query_record(&mut query_record, Some(&HashSet::from(["days".into()])))
+        .convert_indexed_record(&mut query_record, Some(&HashSet::from(["days".into()])))
         .unwrap();
     let Value::Object(query_fields) = query_record else {
         panic!("object");

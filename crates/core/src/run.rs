@@ -17,8 +17,7 @@ use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
 use crate::executor::{
     Plan, PlanningCounters, Proof, TermChoice, estimate_expr, estimate_fts_candidates,
     estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
-    segment_filter_bounds_with_catalog,
-    segment_fts_candidates,
+    segment_filter_bounds_with_catalog, segment_fts_candidates,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
 use crate::lifecycle::{IndexRevision, PublishedSegment};
@@ -38,8 +37,13 @@ use crate::sort_binding::{
     BoundSort, BoundSortSource, BoundSortTerm, MergedSortTargetCache, SortTargetCache,
 };
 use crate::sorting::{InferredOrderKey, SortColumn, SortKey, SortOptions, simple_composite_part};
-use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection, classify_source_read_failure_checked, probe_source_unavailable_checked, read_record_range_checked};
-use crate::source_access::SourceAccessSession;
+use crate::source::{
+    ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range_for_search,
+};
+use crate::source_access::{
+    SourceAccessSession, classify_source_read_failure_for_search,
+    probe_source_unavailable_for_search,
+};
 use crate::streaming::{
     Abort, CancellationToken, Delivery, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
     ResultScope, StreamControl, StreamError, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
@@ -50,6 +54,7 @@ use crate::verified::{CachedMember, CachedResult, VerifiedCache};
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
 
+
 /// One lifecycle query's cache namespace. The store is shared by all pinned
 /// publications of an index, so retention is bounded across revisions.
 #[derive(Clone, Copy)]
@@ -57,6 +62,7 @@ pub(crate) struct LifecycleCacheScope<'a> {
     pub(crate) store: &'a Mutex<VerifiedCache>,
     pub(crate) instance_id: u64,
 }
+
 
 fn check_computed_sort_budget(payload: u64, keys: u64, targets: u64) -> Result<(), String> {
     check_computed_sort_budget_with_limit(MAX_COMPUTED_SORT_BYTES, payload, keys, targets)
@@ -899,7 +905,7 @@ fn scan_file(
     let mut reader = if source_access.is_some() {
         None
     } else {
-        Some(RecordRangeReader::open_with_execution(
+        Some(RecordRangeReader::open_for_search(
             &path, revision, execution,
         )?)
     };
@@ -1016,6 +1022,7 @@ fn scan_file(
                         .is_none_or(|fields| !fields.is_empty()));
             let extracted = if decode {
                 let extracted = prepare_query_record_with_execution(
+                    record.class,
                     &collection.source,
                     &collection.definition.schema,
                     &bytes,
@@ -1758,7 +1765,11 @@ fn rank_key_without_source(
 
 fn rank_key_bytes(key: &RankKey) -> u64 {
     let bytes = std::mem::size_of::<RankKey>()
-        .saturating_add(key.parts.capacity().saturating_mul(std::mem::size_of::<(SortKey, bool, SortOptions)>()))
+        .saturating_add(key.parts.capacity().saturating_mul(std::mem::size_of::<(
+            SortKey,
+            bool,
+            SortOptions,
+        )>()))
         .saturating_add(key.collection.capacity())
         .saturating_add(key.id.capacity())
         .saturating_add(key.parts.iter().fold(0usize, |total, (part, _, _)| {
@@ -1795,6 +1806,7 @@ pub(crate) fn make_hit(
     }
 }
 
+
 /// A segment record has a local slot but retains a repository-global file ID.
 /// Resolve both through the same pinned segment; the base inventory cannot
 /// address a file added after the base generation was built.
@@ -1802,6 +1814,7 @@ pub(crate) struct SegmentRecordRef<'a> {
     pub record: &'a RecordEntry,
     pub file: &'a FileEntry,
 }
+
 
 pub(crate) fn segment_record_ref<'a>(
     segment: &'a IndexedCollectionSegment,
@@ -1825,9 +1838,7 @@ pub(crate) fn segment_record_ref<'a>(
         .ok_or("active segment record file is retired")?;
     // The catalog owns the path in this publication. A compatible move may
     // route an unchanged segment to a new path without rebuilding postings.
-    if file.revision != segment_file.revision
-        || !file.collections.contains(&segment.collection)
-    {
+    if file.revision != segment_file.revision || !file.collections.contains(&segment.collection) {
         return Err("active segment record file changed without retirement".into());
     }
     Ok(Some(SegmentRecordRef { record, file }))
@@ -1869,10 +1880,8 @@ pub(crate) fn get_segment_record_by_id(
         }
         ReturnMode::Bytes | ReturnMode::Logical => {
             let path = repo.files.root.join(&file.relative_path);
-            let bytes = read_record_range_checked(
-                &path, file.revision, file.created_ns, catalog.fingerprint(file.id), record.range,
-            )?;
-            payload_from_bytes(Some(collection), &return_mode, bytes)?.0
+            let bytes = read_record_range_for_search(&path, file.revision, record.range, None)?;
+            payload_from_bytes(record.class, Some(collection), &return_mode, bytes)?.0
         }
     };
     Ok(Some(SearchHit {
@@ -1894,6 +1903,7 @@ pub(crate) fn get_segment_record_by_id(
     }))
 }
 
+
 /// One current-view direct lookup. A missing source is distinct from an ID
 /// that is absent from the pinned active domain.
 #[derive(Clone, Debug)]
@@ -1902,6 +1912,7 @@ pub enum DirectLookupResult {
     NotFound,
     SourceUnavailable(SourceDiagnostic),
 }
+
 
 pub(crate) fn direct_lookup_segmented(
     repo: &Repository,
@@ -1913,12 +1924,17 @@ pub(crate) fn direct_lookup_segmented(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<DirectLookupResult, String> {
-    let collection_index = repo.collections.iter()
+    let collection_index = repo
+        .collections
+        .iter()
         .position(|collection| collection.definition.name == collection_name)
         .ok_or("unknown collection")?;
     let collection = &repo.collections[collection_index];
     let id = RecordId(record_id.to_owned());
-    let base = collection.id_lookup.get(&id).copied()
+    let base = collection
+        .id_lookup
+        .get(&id)
+        .copied()
         .filter(|slot| base_active[collection_index].contains(*slot));
     let mut selected_segment = None;
     for (index, segment) in segments[collection_index].iter().enumerate() {
@@ -1932,9 +1948,13 @@ pub(crate) fn direct_lookup_segmented(
         }
     }
     let (record, file, result) = if let Some(slot) = base {
-        let record = collection.generation.records.get(slot.0 as usize)
+        let record = collection
+            .generation
+            .records
+            .get(slot.0 as usize)
             .ok_or("base direct-lookup slot missing")?;
-        let file = catalog.entry(record.file)
+        let file = catalog
+            .entry(record.file)
             .ok_or("active base direct-lookup file retired")?;
         if !file.collections.contains(&collection.generation.collection) {
             return Err("active base direct-lookup file lost collection membership".into());
@@ -1948,39 +1968,51 @@ pub(crate) fn direct_lookup_segmented(
             }
             ReturnMode::Bytes | ReturnMode::Logical => {
                 let path = repo.files.root.join(&file.relative_path);
-                read_record_range_checked(
-                    &path, file.revision, file.created_ns, catalog.fingerprint(file.id), record.range,
-                )
-                    .and_then(|bytes| payload_from_bytes(Some(collection), &return_mode, bytes))
+                read_record_range_for_search(&path, file.revision, record.range, None)
+                    .and_then(|bytes| {
+                        payload_from_bytes(record.class, Some(collection), &return_mode, bytes)
+                    })
                     .map(|(payload, _)| payload)
             }
         };
-        let result = payload.map(|payload| Some(SearchHit {
-            collection: collection.definition.name.clone(),
-            record_id: record.id.0.clone(),
-            generation: revision.0,
-            file_id: file.id.0,
-            file_path: file.relative_path.clone(),
-            file_size: file.revision.size,
-            file_created_ns: file.created_ns,
-            byte_start: record.range.start,
-            byte_end: record.range.end,
-            modified_ns: file.revision.modified_ns,
-            matched_fields: Vec::new(),
-            file_status: file.status,
-            record_class: record.class,
-            diagnostic_ref: record.diagnostic_ref,
-            payload,
-        }));
+        let result = payload.map(|payload| {
+            Some(SearchHit {
+                collection: collection.definition.name.clone(),
+                record_id: record.id.0.clone(),
+                generation: revision.0,
+                file_id: file.id.0,
+                file_path: file.relative_path.clone(),
+                file_size: file.revision.size,
+                file_created_ns: file.created_ns,
+                byte_start: record.range.start,
+                byte_end: record.range.end,
+                modified_ns: file.revision.modified_ns,
+                matched_fields: Vec::new(),
+                file_status: file.status,
+                record_class: record.class,
+                diagnostic_ref: record.diagnostic_ref,
+                payload,
+            })
+        });
         (record, file, result)
     } else if let Some((index, slot)) = selected_segment {
         let segment = &segments[collection_index][index];
         let resolved = segment_record_ref(&segment.index, &segment.active, catalog, slot)?
             .ok_or("active segment direct-lookup slot retired")?;
-        (resolved.record, resolved.file, get_segment_record_by_id(
-            repo, collection_index, &segment.index, &segment.active, catalog,
-            revision, record_id, return_mode,
-        ))
+        (
+            resolved.record,
+            resolved.file,
+            get_segment_record_by_id(
+                repo,
+                collection_index,
+                &segment.index,
+                &segment.active,
+                catalog,
+                revision,
+                record_id,
+                return_mode,
+            ),
+        )
     } else {
         return Ok(DirectLookupResult::NotFound);
     };
@@ -1992,9 +2024,9 @@ pub(crate) fn direct_lookup_segmented(
         Ok(None) => Err("active direct-lookup record disappeared".into()),
         Err(message) => {
             let path = repo.files.root.join(&file.relative_path);
-            if let Some(kind) = probe_source_unavailable_checked(
-                &path, file.revision, file.created_ns, catalog.fingerprint(file.id), Some(record.range),
-            ) {
+            if let Some(kind) =
+                probe_source_unavailable_for_search(&path, file.revision, Some(record.range))
+            {
                 Ok(DirectLookupResult::SourceUnavailable(SourceDiagnostic {
                     file_id: file.id.0,
                     file_path: file.relative_path.clone(),
@@ -2008,12 +2040,14 @@ pub(crate) fn direct_lookup_segmented(
     }
 }
 
+
 struct MergedPageHit {
     key: RankKey,
     hit: SearchHit,
     segment: Option<(usize, usize)>,
     retained_bytes: usize,
 }
+
 
 /// Optional complete ordering captured during an already exhaustive lifecycle
 /// query. Once its budget is exhausted, query execution continues without a
@@ -2023,6 +2057,7 @@ struct LifecycleCacheBuilder {
     bytes: usize,
     budget: usize,
 }
+
 
 /// One position in a stored ordering. Only the leading entry of each
 /// partition is retained in the heap, so traversal memory scales with the
@@ -2036,13 +2071,16 @@ struct LifecycleOrderCursor {
     slot: RecordSlot,
 }
 
+
 impl PartialEq for LifecycleOrderCursor {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
+
 impl Eq for LifecycleOrderCursor {}
+
 
 impl PartialOrd for LifecycleOrderCursor {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -2050,11 +2088,13 @@ impl PartialOrd for LifecycleOrderCursor {
     }
 }
 
+
 impl Ord for LifecycleOrderCursor {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
+
 
 impl LifecycleCacheBuilder {
     fn new(budget: usize) -> Self {
@@ -2069,13 +2109,20 @@ impl LifecycleCacheBuilder {
         let Some(ranked) = self.ranked.as_mut() else {
             return;
         };
-        let fields = member.matched_fields.iter().try_fold(0usize, |bytes, field| {
-            bytes.checked_add(field.len().saturating_add(std::mem::size_of::<String>()))
-        });
+        let fields = member
+            .matched_fields
+            .iter()
+            .try_fold(0usize, |bytes, field| {
+                bytes.checked_add(field.len().saturating_add(std::mem::size_of::<String>()))
+            });
         let cost = fields.and_then(|fields| {
             fields
                 .checked_add(std::mem::size_of::<CachedMember>())
-                .and_then(|bytes| usize::try_from(rank_key_bytes(key)).ok().and_then(|rank| bytes.checked_add(rank)))
+                .and_then(|bytes| {
+                    usize::try_from(rank_key_bytes(key))
+                        .ok()
+                        .and_then(|rank| bytes.checked_add(rank))
+                })
         });
         let next = cost.and_then(|cost| self.bytes.checked_add(cost));
         if next.is_none_or(|next| next > self.budget) || ranked.try_reserve(1).is_err() {
@@ -2103,13 +2150,16 @@ impl LifecycleCacheBuilder {
     }
 }
 
+
 impl PartialEq for MergedPageHit {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
+
 impl Eq for MergedPageHit {}
+
 
 impl PartialOrd for MergedPageHit {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -2117,11 +2167,13 @@ impl PartialOrd for MergedPageHit {
     }
 }
 
+
 impl Ord for MergedPageHit {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
+
 
 fn offer_merged(
     winners: &mut BinaryHeap<MergedPageHit>,
@@ -2149,9 +2201,17 @@ fn offer_merged(
         let next = used_bytes
             .checked_sub(replace.unwrap_or(0))
             .and_then(|bytes| bytes.checked_add(candidate.retained_bytes))
-            .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered result memory overflow"))?;
+            .ok_or_else(|| {
+                context.fail(
+                    ExecutionErrorKind::Resource,
+                    "ordered result memory overflow",
+                )
+            })?;
         if next > limit {
-            return Err(context.fail(ExecutionErrorKind::Resource, "ordered result exceeds stream memory budget"));
+            return Err(context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered result exceeds stream memory budget",
+            ));
         }
         *used_bytes = next;
     }
@@ -2226,19 +2286,16 @@ fn base_rank_key_merged(
         }
         let path = repo.files.root.join(&file.relative_path);
         Some(if let Some(context) = context {
-            crate::source::read_record_range_checked_with_execution(
-                &path, file.revision, file.created_ns, catalog.fingerprint(file.id), record.range, context,
-            )?
+            read_record_range_for_search(&path, file.revision, record.range, Some(context))?
         } else {
-            read_record_range_checked(
-                &path, file.revision, file.created_ns, catalog.fingerprint(file.id), record.range,
-            )?
+            read_record_range_for_search(&path, file.revision, record.range, None)?
         })
     } else {
         None
     };
     let extracted = if let Some(bytes) = bytes.as_ref() {
         prepare_query_record_with_execution(
+            record.class,
             &collection.source,
             &collection.definition.schema,
             bytes,
@@ -2282,15 +2339,24 @@ fn relation_rank_key_merged(
             BoundSortSource::Stored(column) => {
                 if let Some(segment_index) = address.segment {
                     let segment = &segments[collection_index][segment_index].index;
-                    segment.sorting.column(&column.path.display())?
-                        .keys.get(address.slot.0 as usize)
-                        .ok_or("merged segment sort slot missing")?.clone()
+                    segment
+                        .sorting
+                        .column(&column.path.display())?
+                        .keys
+                        .get(address.slot.0 as usize)
+                        .ok_or("merged segment sort slot missing")?
+                        .clone()
                 } else {
-                    column.keys.get(address.slot.0 as usize)
-                        .ok_or("merged base sort slot missing")?.clone()
+                    column
+                        .keys
+                        .get(address.slot.0 as usize)
+                        .ok_or("merged base sort slot missing")?
+                        .clone()
                 }
             }
-            BoundSortSource::Computed(computed) => computed.key_merged(view, address, ctx, cache)?,
+            BoundSortSource::Computed(computed) => {
+                computed.key_merged(view, address, ctx, cache)?
+            }
         };
         parts.push((key, term.descending, term.options));
     }
@@ -2336,13 +2402,15 @@ fn record_unavailable_hit(
     message: String,
     counters: &mut WorkCounters,
 ) -> Result<bool, String> {
-    let file = catalog.entry(crate::model::FileId(hit.file_id))
+    let file = catalog
+        .entry(crate::model::FileId(hit.file_id))
         .ok_or("materialized hit file missing from pinned catalog")?;
     let path = repo.files.root.join(&file.relative_path);
-    let range = ByteRange { start: hit.byte_start, end: hit.byte_end };
-    let Some(kind) = probe_source_unavailable_checked(
-        &path, file.revision, file.created_ns, catalog.fingerprint(file.id), Some(range),
-    ) else {
+    let range = ByteRange {
+        start: hit.byte_start,
+        end: hit.byte_end,
+    };
+    let Some(kind) = probe_source_unavailable_for_search(&path, file.revision, Some(range)) else {
         return Ok(false);
     };
     counters.record_source_unavailable(SourceDiagnostic {
@@ -2392,7 +2460,17 @@ pub(crate) fn search_segmented_lifecycle(
     revision: IndexRevision,
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
-    match search_segmented_impl(repo, query, base_active, segments, catalog, revision, None, cache, None) {
+    match search_segmented_impl(
+        repo,
+        query,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        None,
+        cache,
+        None,
+    ) {
         Err(_error) if has_unavailable_active_source(repo, base_active, segments, catalog) => {
             search_segmented_reference(repo, query, base_active, segments, catalog, revision)
         }
@@ -2411,7 +2489,14 @@ pub(crate) fn search_segmented_with_context(
     context: &ExecutionContext,
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     search_segmented_with_context_lifecycle(
-        repo, query, base_active, segments, catalog, revision, context, None,
+        repo,
+        query,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        context,
+        None,
     )
 }
 
@@ -2426,7 +2511,15 @@ pub(crate) fn search_segmented_with_context_lifecycle(
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     search_segmented_with_context_lifecycle_budget(
-        repo, query, base_active, segments, catalog, revision, context, cache, None,
+        repo,
+        query,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        context,
+        cache,
+        None,
     )
 }
 
@@ -2444,13 +2537,23 @@ fn search_segmented_with_context_lifecycle_budget(
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     context.check()?;
     let result = search_segmented_impl(
-        repo, query, base_active, segments, catalog, revision, Some(context), cache, retained_budget,
+        repo,
+        query,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        Some(context),
+        cache,
+        retained_budget,
     );
     match result {
         Err(message) => {
             let error = context.recorded_error(message);
-            if matches!(error.kind, ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution)
-                && has_unavailable_active_source(repo, base_active, segments, catalog)
+            if matches!(
+                error.kind,
+                ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution
+            ) && has_unavailable_active_source(repo, base_active, segments, catalog)
             {
                 context.clear_recovered_source_changed();
                 let sort = ResolvedSort::new(repo, query)
@@ -2458,9 +2561,20 @@ fn search_segmented_with_context_lifecycle_budget(
                 let (prepared, _) = crate::prepared::prepare(repo, query)
                     .map_err(|message| context.recorded_error(message))?;
                 search_segmented_relations(
-                    repo, query, base_active, segments, catalog, revision,
-                    &sort, &prepared.collections, Some(context), None, None, false,
-                ).map_err(|message| context.recorded_error(message))
+                    repo,
+                    query,
+                    base_active,
+                    segments,
+                    catalog,
+                    revision,
+                    &sort,
+                    &prepared.collections,
+                    Some(context),
+                    None,
+                    None,
+                    false,
+                )
+                .map_err(|message| context.recorded_error(message))
             } else {
                 Err(error)
             }
@@ -2511,8 +2625,10 @@ pub(crate) fn search_active_available_with_context_lifecycle(
     let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
     match search_with_context_active(repo, query, context, base_active) {
         Err(error)
-            if matches!(error.kind, ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution)
-                && has_unavailable_active_source(repo, base_active, &empty, catalog) =>
+            if matches!(
+                error.kind,
+                ExecutionErrorKind::SourceChanged | ExecutionErrorKind::Execution
+            ) && has_unavailable_active_source(repo, base_active, &empty, catalog) =>
         {
             context.clear_recovered_source_changed();
             let sort = ResolvedSort::new(repo, query)
@@ -2520,9 +2636,20 @@ pub(crate) fn search_active_available_with_context_lifecycle(
             let (prepared, _) = crate::prepared::prepare(repo, query)
                 .map_err(|message| context.recorded_error(message))?;
             search_segmented_relations(
-                repo, query, base_active, &empty, catalog, revision,
-                &sort, &prepared.collections, Some(context), None, None, false,
-            ).map_err(|message| context.recorded_error(message))
+                repo,
+                query,
+                base_active,
+                &empty,
+                catalog,
+                revision,
+                &sort,
+                &prepared.collections,
+                Some(context),
+                None,
+                None,
+                false,
+            )
+            .map_err(|message| context.recorded_error(message))
         }
         result => result,
     }
@@ -2538,9 +2665,7 @@ fn has_unavailable_active_source(
 ) -> bool {
     let unavailable = |file: &FileEntry| {
         let path = repo.files.root.join(&file.relative_path);
-        probe_source_unavailable_checked(
-            &path, file.revision, file.created_ns, catalog.fingerprint(file.id), None,
-        ).is_some()
+        probe_source_unavailable_for_search(&path, file.revision, None).is_some()
     };
     for (index, collection) in repo.collections.iter().enumerate() {
         for file_id in &collection.generation.files {
@@ -2548,11 +2673,14 @@ fn has_unavailable_active_source(
                 && slots.iter().any(|slot| base_active[index].contains(*slot))
                 && let Some(file) = catalog.entry(*file_id)
             {
-                if unavailable(file) || slots.iter().filter(|slot| base_active[index].contains(**slot))
-                    .any(|slot| {
-                        let range = collection.generation.records[slot.0 as usize].range;
-                        range.start > range.end || range.end > file.revision.size
-                    })
+                if unavailable(file)
+                    || slots
+                        .iter()
+                        .filter(|slot| base_active[index].contains(**slot))
+                        .any(|slot| {
+                            let range = collection.generation.records[slot.0 as usize].range;
+                            range.start > range.end || range.end > file.revision.size
+                        })
                 {
                     return true;
                 }
@@ -2560,15 +2688,21 @@ fn has_unavailable_active_source(
         }
         for segment in segments[index].iter() {
             for file in &segment.index.files {
-                if file.records.iter().any(|slot| segment.active.contains(*slot))
+                if file
+                    .records
+                    .iter()
+                    .any(|slot| segment.active.contains(*slot))
                     && let Some(current) = catalog.entry(file.entry.id)
                 {
-                    if unavailable(current) || file.records.iter()
-                        .filter(|slot| segment.active.contains(**slot))
-                        .any(|slot| {
-                            let range = segment.index.records[slot.0 as usize].range;
-                            range.start > range.end || range.end > current.revision.size
-                        })
+                    if unavailable(current)
+                        || file
+                            .records
+                            .iter()
+                            .filter(|slot| segment.active.contains(**slot))
+                            .any(|slot| {
+                                let range = segment.index.records[slot.0 as usize].range;
+                                range.start > range.end || range.end > current.revision.size
+                            })
                     {
                         return true;
                     }
@@ -2596,7 +2730,13 @@ fn segment_exact_evidence_fields(
             if term.related.is_some() || term.rhs.is_some() {
                 return Ok(None);
             }
-            let bounds = segment_filter_bounds_with_catalog(segment, active, expr, collection, Some(catalog))?;
+            let bounds = segment_filter_bounds_with_catalog(
+                segment,
+                active,
+                expr,
+                collection,
+                Some(catalog),
+            )?;
             if !candidates.is_subset(&bounds.must) {
                 return Ok(None);
             }
@@ -2613,8 +2753,9 @@ fn segment_exact_evidence_fields(
         BoundExpr::And(parts) => {
             let mut fields = Vec::new();
             for part in parts {
-                let Some(child) =
-                    segment_exact_evidence_fields(segment, active, collection, part, candidates, catalog)?
+                let Some(child) = segment_exact_evidence_fields(
+                    segment, active, collection, part, candidates, catalog,
+                )?
                 else {
                     return Ok(None);
                 };
@@ -2628,6 +2769,7 @@ fn segment_exact_evidence_fields(
     }
 }
 
+
 /// A single file's local residual work can run independently of other files. Only its
 /// bounded local top page crosses back to the ordered merge thread.
 struct SegmentFileScan {
@@ -2639,6 +2781,7 @@ struct SegmentFileScan {
     matches: u64,
     winners: Vec<MergedPageHit>,
 }
+
 
 #[allow(clippy::too_many_arguments)]
 fn scan_segment_file_parallel(
@@ -2662,12 +2805,7 @@ fn scan_segment_file_parallel(
         .entry(crate::model::FileId(file_id))
         .ok_or("active segment candidate file is retired")?;
     let path = repo.files.root.join(&file.relative_path);
-    let mut reader = RecordRangeReader::open_checked(
-        &path,
-        file.revision,
-        file.created_ns,
-        catalog.fingerprint(file.id),
-    )?;
+    let mut reader = RecordRangeReader::open_for_search(&path, file.revision, None)?;
     let mut result = SegmentFileScan {
         bytes_read: 0,
         scanned_records: 0,
@@ -2694,13 +2832,14 @@ fn scan_segment_file_parallel(
         let (read, bytes_read) = reader.read(&ranges[start..cursor])?;
         result.bytes_read += bytes_read;
         for (slot, bytes) in read {
-            let resolved = segment_record_ref(
-                segment, &published.active, catalog, RecordSlot(slot),
-            )?.ok_or("active segment scan slot missing")?;
+            let resolved =
+                segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
+                    .ok_or("active segment scan slot missing")?;
             let record = resolved.record;
             let extracted = if record.class == RecordClass::Logical {
                 result.record_parses += 1;
                 prepare_query_record_with_execution(
+                    record.class,
                     &collection.source,
                     &collection.definition.schema,
                     &bytes,
@@ -2771,10 +2910,15 @@ fn scan_segment_file_parallel(
                 collection,
                 resolved,
                 revision,
-                if query.options.evidence { evidence.into_iter().collect() } else { Vec::new() },
+                if query.options.evidence {
+                    evidence.into_iter().collect()
+                } else {
+                    Vec::new()
+                },
             );
             offer_merged(
-                &mut local_winners, cap,
+                &mut local_winners,
+                cap,
                 MergedPageHit {
                     key,
                     hit,
@@ -3007,7 +3151,13 @@ fn try_exact_segment_ordered_page(
         let bounds = filter
             .as_ref()
             .map(|filter| {
-                segment_filter_bounds_with_catalog(&published.index, &published.active, filter, collection, Some(catalog))
+                segment_filter_bounds_with_catalog(
+                    &published.index,
+                    &published.active,
+                    filter,
+                    collection,
+                    Some(catalog),
+                )
             })
             .transpose()?;
         let candidates = bounds
@@ -3075,7 +3225,8 @@ fn search_segmented_impl(
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment query collection count mismatch".into());
     }
-    let cache_key = if retained_budget.is_none() && let Some(scope) = cache
+    let cache_key = if retained_budget.is_none()
+        && let Some(scope) = cache
         && context.is_none_or(|context| context.limits == ExecutionLimits::default())
     {
         let key = crate::verified::lifecycle_key(query, scope.instance_id, revision.0)?;
@@ -3084,7 +3235,14 @@ fn search_segmented_impl(
             if let Some(cached) = store.get(&key) {
                 drop(store);
                 return materialize_lifecycle_cached(
-                    repo, query, &cached, base_active, segments, catalog, revision, context,
+                    repo,
+                    query,
+                    &cached,
+                    base_active,
+                    segments,
+                    catalog,
+                    revision,
+                    context,
                 );
             }
             let budget = store.budget().saturating_sub(key.len().saturating_add(128));
@@ -3132,7 +3290,11 @@ fn search_segmented_impl(
             if let Some(context) = context {
                 context.check_string()?;
             }
-            let displaced = scope.store.lock().map_err(|error| error.to_string())?.insert(key, members);
+            let displaced = scope
+                .store
+                .lock()
+                .map_err(|error| error.to_string())?
+                .insert(key, members);
             drop(displaced);
         }
         return Ok(result);
@@ -3163,9 +3325,11 @@ fn search_segmented_impl(
     } else {
         search_active(repo, &base_query, base_active)?
     };
-    let mut total = base.count.map_or(base.counters.total_matches, |count| count as u64);
-    let base_count_complete = base_active.iter().all(|active| active.len() == 0)
-        || base.counters.match_count_complete;
+    let mut total = base
+        .count
+        .map_or(base.counters.total_matches, |count| count as u64);
+    let base_count_complete =
+        base_active.iter().all(|active| active.len() == 0) || base.counters.match_count_complete;
     let mut counters = base.counters;
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
@@ -3231,14 +3395,23 @@ fn search_segmented_impl(
             let segment = &published.index;
             let bounds = filter
                 .as_ref()
-                .map(|filter| segment_filter_bounds_with_catalog(segment, &published.active, filter, collection, Some(catalog)))
+                .map(|filter| {
+                    segment_filter_bounds_with_catalog(
+                        segment,
+                        &published.active,
+                        filter,
+                        collection,
+                        Some(catalog),
+                    )
+                })
                 .transpose()?;
             let mut candidates = bounds
                 .as_ref()
                 .map_or_else(|| published.active.bitmap(), |bounds| bounds.may.clone());
-            if let Some(fts_may) = fts.as_ref().and_then(|fts| {
-                segment_fts_candidates(segment, collection, fts)
-            }) {
+            if let Some(fts_may) = fts
+                .as_ref()
+                .and_then(|fts| segment_fts_candidates(segment, collection, fts))
+            {
                 candidates &= fts_may;
             }
             counters.candidates += candidates.len();
@@ -3251,7 +3424,12 @@ fn search_segmented_impl(
             {
                 if let Some(filter) = filter.as_ref() {
                     segment_exact_evidence_fields(
-                        segment, &published.active, collection, filter, &candidates, catalog,
+                        segment,
+                        &published.active,
+                        collection,
+                        filter,
+                        &candidates,
+                        catalog,
                     )?
                 } else {
                     Some(Vec::new())
@@ -3337,14 +3515,18 @@ fn search_segmented_impl(
                         None,
                     )?;
                     let matched_fields = exact_evidence.clone().unwrap_or_default();
-                    let hit = segment_locator_hit(collection, resolved, revision, matched_fields.clone());
+                    let hit =
+                        segment_locator_hit(collection, resolved, revision, matched_fields.clone());
                     if let Some(builder) = cache_builder.as_mut() {
-                        builder.push(&key, CachedMember {
-                            collection_index,
-                            segment_index: Some(segment_index),
-                            slot,
-                            matched_fields,
-                        });
+                        builder.push(
+                            &key,
+                            CachedMember {
+                                collection_index,
+                                segment_index: Some(segment_index),
+                                slot,
+                                matched_fields,
+                            },
+                        );
                     }
                     offer_merged(
                         &mut winners,
@@ -3485,10 +3667,7 @@ fn search_segmented_impl(
                     .entry(crate::model::FileId(file_id))
                     .ok_or("active segment candidate file is retired")?;
                 let path = repo.files.root.join(&file.relative_path);
-                let mut reader = RecordRangeReader::open_checked_with_execution(
-                    &path, file.revision, file.created_ns,
-                    catalog.fingerprint(file.id), context,
-                )?;
+                let mut reader = RecordRangeReader::open_for_search(&path, file.revision, context)?;
                 delta_opened.insert(file_id);
                 counters.files_opened += 1;
                 let mut cursor = 0;
@@ -3523,6 +3702,7 @@ fn search_segmented_impl(
                         let extracted = if record.class == RecordClass::Logical {
                             counters.record_parses += 1;
                             prepare_query_record_with_execution(
+                                record.class,
                                 &collection.source,
                                 &collection.definition.schema,
                                 &bytes,
@@ -3612,12 +3792,15 @@ fn search_segmented_impl(
                             },
                         );
                         if let Some(builder) = cache_builder.as_mut() {
-                            builder.push(&key, CachedMember {
-                                collection_index,
-                                segment_index: Some(segment_index),
-                                slot,
-                                matched_fields: hit.matched_fields.clone(),
-                            });
+                            builder.push(
+                                &key,
+                                CachedMember {
+                                    collection_index,
+                                    segment_index: Some(segment_index),
+                                    slot,
+                                    matched_fields: hit.matched_fields.clone(),
+                                },
+                            );
                         }
                         offer_merged(
                             &mut winners,
@@ -3649,7 +3832,8 @@ fn search_segmented_impl(
                 if let Some(context) = context {
                     context.check_string()?;
                     context.charge_reads(1)?;
-                    context.charge_bytes(winner.hit.byte_end.saturating_sub(winner.hit.byte_start))?;
+                    context
+                        .charge_bytes(winner.hit.byte_end.saturating_sub(winner.hit.byte_start))?;
                 }
                 let published = &segments[collection_index][segment_index];
                 let materialized = get_segment_record_by_id(
@@ -3666,7 +3850,13 @@ fn search_segmented_impl(
                     Ok(Some(materialized)) => materialized,
                     Ok(None) => return Err("selected segment record retired".into()),
                     Err(message) => {
-                        if record_unavailable_hit(repo, catalog, &winner.hit, message.clone(), &mut counters)? {
+                        if record_unavailable_hit(
+                            repo,
+                            catalog,
+                            &winner.hit,
+                            message.clone(),
+                            &mut counters,
+                        )? {
                             continue;
                         }
                         return Err(message);
@@ -3690,7 +3880,11 @@ fn search_segmented_impl(
         if let Some(context) = context {
             context.check_string()?;
         }
-        let displaced = scope.store.lock().map_err(|error| error.to_string())?.insert(key, members);
+        let displaced = scope
+            .store
+            .lock()
+            .map_err(|error| error.to_string())?
+            .insert(key, members);
         drop(displaced);
     }
     Ok(SearchResult {
@@ -3780,10 +3974,15 @@ fn materialize_lifecycle_cached(
                 Ok(None)
             } else {
                 let path = repo.files.root.join(&file.relative_path);
-                read_record_range_checked(
-                    &path, file.revision, file.created_ns, catalog.fingerprint(file.id), record.range,
-                )
-                    .and_then(|bytes| payload_from_bytes(Some(collection), &query.options.return_mode, bytes))
+                read_record_range_for_search(&path, file.revision, record.range, None)
+                    .and_then(|bytes| {
+                        payload_from_bytes(
+                            record.class,
+                            Some(collection),
+                            &query.options.return_mode,
+                            bytes,
+                        )
+                    })
                     .map(|(payload, _)| payload)
             };
             (record, file, payload)
@@ -3849,10 +4048,12 @@ fn charge_lifecycle_cached_payload(
     Ok(())
 }
 
+
 struct RelationTargetPrune {
     source_path: Vec<String>,
     target_ids: HashSet<String>,
 }
+
 
 fn eligible_one_hop_relation_term<'a>(
     repo: &Repository,
@@ -4018,10 +4219,12 @@ fn relation_source_candidates(
     Some(may)
 }
 
+
 enum DirectRelationPredicate<'a> {
     Term(&'a BoundTerm),
     Fts(BoundFts),
 }
+
 
 struct DirectTargetScan {
     matched_id: Option<String>,
@@ -4029,6 +4232,7 @@ struct DirectTargetScan {
     read: bool,
     unavailable: bool,
 }
+
 
 fn scan_direct_target_parallel(
     repo: &Repository,
@@ -4063,12 +4267,11 @@ fn scan_direct_target_parallel(
         });
     }
     let path = repo.files.root.join(&resolved.file.relative_path);
-    let bytes = match read_record_range_checked(
+    let bytes = match read_record_range_for_search(
         &path,
         resolved.file.revision,
-        resolved.file.created_ns,
-        catalog.fingerprint(resolved.file.id),
         resolved.record.range,
+        None,
     ) {
         Ok(bytes) => bytes,
         Err(_) => {
@@ -4081,6 +4284,7 @@ fn scan_direct_target_parallel(
         }
     };
     let extracted = prepare_query_record_with_execution(
+        resolved.record.class,
         &target_collection.source,
         &target_collection.definition.schema,
         &bytes,
@@ -4178,7 +4382,12 @@ fn try_direct_relation_page(
             evidence.sort();
             evidence.dedup();
         }
-        (hop, DirectRelationPredicate::Term(terminal), evidence, local_filter)
+        (
+            hop,
+            DirectRelationPredicate::Term(terminal),
+            evidence,
+            local_filter,
+        )
     } else if let (None, Some(fts)) = (filter, fts)
         && let [field] = fts.fields.as_slice()
         && let Some(hops) = field.related.as_ref()
@@ -4245,8 +4454,12 @@ fn try_direct_relation_page(
             return Ok(None);
         }
         let field = FieldPath::parse(path)?;
-        if !target_collection.definition.schema.fields()
-            .get(&field.segments).is_some_and(|field| !field.multi)
+        if !target_collection
+            .definition
+            .schema
+            .fields()
+            .get(&field.segments)
+            .is_some_and(|field| !field.multi)
         {
             return Ok(None);
         }
@@ -4383,18 +4596,20 @@ fn try_direct_relation_page(
                     context.charge_reads(1)?;
                     context.charge_bytes(resolved.record.range.len())?;
                 }
-                let bytes =
-                    match read_record_range_checked(
-                        &path, resolved.file.revision, resolved.file.created_ns,
-                        catalog.fingerprint(resolved.file.id), resolved.record.range,
-                    ) {
-                        Ok(bytes) => bytes,
-                        Err(_) => return Ok(None),
-                    };
+                let bytes = match read_record_range_for_search(
+                    &path,
+                    resolved.file.revision,
+                    resolved.record.range,
+                    None,
+                ) {
+                    Ok(bytes) => bytes,
+                    Err(_) => return Ok(None),
+                };
                 counters.relation_target_reads += 1;
                 counters.relation_target_file_opens += 1;
                 counters.relation_bytes_read += bytes.len() as u64;
                 let extracted = prepare_query_record_with_execution(
+                    resolved.record.class,
                     &target_collection.source,
                     &target_collection.definition.schema,
                     &bytes,
@@ -4426,12 +4641,22 @@ fn try_direct_relation_page(
                         None
                     };
                     let sort_bytes = sort_key.as_ref().map_or(0, |key| {
-                        resolved.record.id.0.len()
+                        resolved
+                            .record
+                            .id
+                            .0
+                            .len()
                             .saturating_add(crate::sort_binding::key_bytes(key))
                             .saturating_add(64)
                     });
                     if !reserve_route(
-                        resolved.record.id.0.len().saturating_add(64).saturating_add(sort_bytes),
+                        resolved
+                            .record
+                            .id
+                            .0
+                            .len()
+                            .saturating_add(64)
+                            .saturating_add(sort_bytes),
                     ) {
                         return Ok(None);
                     }
@@ -4545,7 +4770,9 @@ fn try_direct_relation_page(
             )?
             .ok_or("direct relation source retired")?;
             let key = if direct_sort_column.is_some() {
-                let relation = published.index.relations
+                let relation = published
+                    .index
+                    .relations
                     .get(hop.relation.ordinal as usize)
                     .ok_or("direct relation source contribution missing")?;
                 let mut references = relation.references_for_source(RecordSlot(slot));
@@ -4558,7 +4785,8 @@ fn try_direct_relation_page(
                 let Some(target_key) = target_sort_keys.get(target_id) else {
                     return Ok(None);
                 };
-                let term = &sort.bound.terms[*source_index].as_ref()
+                let term = &sort.bound.terms[*source_index]
+                    .as_ref()
                     .ok_or("direct related sort term missing")?[0];
                 RankKey {
                     parts: vec![(target_key.clone(), term.descending, term.options)],
@@ -4627,12 +4855,14 @@ fn try_direct_relation_page(
     }))
 }
 
+
 struct RelationFileJob {
     segment_index: usize,
     file_id: u32,
     slot: RecordSlot,
     range: ByteRange,
 }
+
 
 struct RelationFileScan {
     counters: WorkCounters,
@@ -4641,6 +4871,7 @@ struct RelationFileScan {
     relation_unavailable: SourceAvailabilityLog,
     winner: Option<MergedPageHit>,
 }
+
 
 fn bounded_parallel_relation_filter(expr: &BoundExpr) -> bool {
     match expr {
@@ -4670,7 +4901,7 @@ fn scan_relation_file_parallel(
     query: &Query,
     sort: &ResolvedSort<'_>,
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
-    catalog: &FileCatalog,
+    _catalog: &FileCatalog,
     revision: IndexRevision,
     collection_index: usize,
     filter: Option<&BoundExpr>,
@@ -4694,24 +4925,13 @@ fn scan_relation_file_parallel(
         .record(address)?
         .ok_or("active parallel relation source missing")?;
     let path = repo.files.root.join(&resolved.file.relative_path);
-    let mut reader = match RecordRangeReader::open_checked(
-        &path,
-        resolved.file.revision,
-        resolved.file.created_ns,
-        catalog.fingerprint(resolved.file.id),
-    ) {
+    let mut reader = match RecordRangeReader::open_for_search(&path, resolved.file.revision, None) {
         Ok(reader) => reader,
         Err(message) => {
             scan.unavailable.record(SourceDiagnostic {
                 file_id: resolved.file.id.0,
                 file_path: resolved.file.relative_path.clone(),
-                kind: classify_source_read_failure_checked(
-                    &path,
-                    resolved.file.revision,
-                    resolved.file.created_ns,
-                    catalog.fingerprint(resolved.file.id),
-                    None,
-                ),
+                kind: classify_source_read_failure_for_search(&path, resolved.file.revision, None),
                 message,
             });
             return Ok(scan);
@@ -4724,11 +4944,9 @@ fn scan_relation_file_parallel(
             scan.unavailable.record(SourceDiagnostic {
                 file_id: resolved.file.id.0,
                 file_path: resolved.file.relative_path.clone(),
-                kind: classify_source_read_failure_checked(
+                kind: classify_source_read_failure_for_search(
                     &path,
                     resolved.file.revision,
-                    resolved.file.created_ns,
-                    catalog.fingerprint(resolved.file.id),
                     Some(job.range),
                 ),
                 message,
@@ -4745,6 +4963,7 @@ fn scan_relation_file_parallel(
     let record = resolved.record;
     let extracted = if record.class == RecordClass::Logical {
         prepare_query_record_with_execution(
+            record.class,
             &resolved.collection.source,
             &resolved.collection.definition.schema,
             &bytes,
@@ -4957,8 +5176,14 @@ fn try_parallel_relation_page(
             let filter_may = filter
                 .as_ref()
                 .map(|filter| {
-                    segment_filter_bounds_with_catalog(&published.index, &published.active, filter, collection, Some(catalog))
-                        .map(|bounds| bounds.may)
+                    segment_filter_bounds_with_catalog(
+                        &published.index,
+                        &published.active,
+                        filter,
+                        collection,
+                        Some(catalog),
+                    )
+                    .map(|bounds| bounds.may)
                 })
                 .transpose()?;
             let fts_may = fts
@@ -5175,6 +5400,7 @@ fn search_segmented_relations(
             let record = resolved.record;
             let extracted = if record.class == RecordClass::Logical {
                 prepare_query_record_with_execution(
+                    record.class,
                     &resolved.collection.source,
                     &resolved.collection.definition.schema,
                     &bytes,
@@ -5264,7 +5490,13 @@ fn search_segmented_relations(
             }
             let source_errors_before_sort = view.source_error_events();
             let key = relation_rank_key_merged(
-                repo, sort, &view, segments, address, &ctx, &mut sort_cache,
+                repo,
+                sort,
+                &view,
+                segments,
+                address,
+                &ctx,
+                &mut sort_cache,
             )?;
             if view.source_error_events() > source_errors_before_sort {
                 return Ok(());
@@ -5285,12 +5517,15 @@ fn search_segmented_relations(
                 },
             );
             if let Some(builder) = cache_builder.as_mut() {
-                builder.push(&key, CachedMember {
-                    collection_index,
-                    segment_index: address.segment,
-                    slot: address.slot.0,
-                    matched_fields: hit.matched_fields.clone(),
-                });
+                builder.push(
+                    &key,
+                    CachedMember {
+                        collection_index,
+                        segment_index: address.segment,
+                        slot: address.slot.0,
+                        matched_fields: hit.matched_fields.clone(),
+                    },
+                );
             }
             offer_merged(
                 &mut winners,
@@ -5327,7 +5562,9 @@ fn search_segmented_relations(
                 })
                 .collect::<Vec<_>>();
             if let Some(context) = context
-                && ranges.iter().any(|(_, range)| range.len() > context.limits.source_record_bytes)
+                && ranges
+                    .iter()
+                    .any(|(_, range)| range.len() > context.limits.source_record_bytes)
             {
                 return Err(context.fail(
                     ExecutionErrorKind::Resource,
@@ -5346,24 +5583,23 @@ fn search_segmented_relations(
                 .record(first)?
                 .ok_or("active merged base file missing")?;
             let path = repo.files.root.join(&resolved.file.relative_path);
-            let mut reader = match RecordRangeReader::open_checked_with_execution(
-                &path, resolved.file.revision, resolved.file.created_ns,
-                catalog.fingerprint(resolved.file.id), context,
-            ) {
-                Ok(reader) => reader,
-                Err(message) => {
-                    source_errors.record(SourceDiagnostic {
-                        file_id: resolved.file.id.0,
-                        file_path: resolved.file.relative_path.clone(),
-                        kind: classify_source_read_failure_checked(
-                            &path, resolved.file.revision, resolved.file.created_ns,
-                            catalog.fingerprint(resolved.file.id), None,
-                        ),
-                        message,
-                    });
-                    continue;
-                }
-            };
+            let mut reader =
+                match RecordRangeReader::open_for_search(&path, resolved.file.revision, context) {
+                    Ok(reader) => reader,
+                    Err(message) => {
+                        source_errors.record(SourceDiagnostic {
+                            file_id: resolved.file.id.0,
+                            file_path: resolved.file.relative_path.clone(),
+                            kind: classify_source_read_failure_for_search(
+                                &path,
+                                resolved.file.revision,
+                                None,
+                            ),
+                            message,
+                        });
+                        continue;
+                    }
+                };
             if let Some(context) = context {
                 context.charge_reads(1)?;
             }
@@ -5386,9 +5622,10 @@ fn search_segmented_relations(
                         source_errors.record(SourceDiagnostic {
                             file_id: resolved.file.id.0,
                             file_path: resolved.file.relative_path.clone(),
-                            kind: classify_source_read_failure_checked(
-                                &path, resolved.file.revision, resolved.file.created_ns,
-                                catalog.fingerprint(resolved.file.id), Some(ranges[start].1),
+                            kind: classify_source_read_failure_for_search(
+                                &path,
+                                resolved.file.revision,
+                                Some(ranges[start].1),
                             ),
                             message,
                         });
@@ -5411,13 +5648,22 @@ fn search_segmented_relations(
         let mut relation_prune: Option<Option<RelationTargetPrune>> = None;
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
             let mut candidates = if prune_segments {
-                let filter_may = filter.as_ref().map(|filter| {
-                    segment_filter_bounds_with_catalog(&published.index, &published.active, filter, collection, Some(catalog))
+                let filter_may = filter
+                    .as_ref()
+                    .map(|filter| {
+                        segment_filter_bounds_with_catalog(
+                            &published.index,
+                            &published.active,
+                            filter,
+                            collection,
+                            Some(catalog),
+                        )
                         .map(|bounds| bounds.may)
-                }).transpose()?;
-                let fts_may = fts.as_ref().and_then(|fts| {
-                    segment_fts_candidates(&published.index, collection, fts)
-                });
+                    })
+                    .transpose()?;
+                let fts_may = fts
+                    .as_ref()
+                    .and_then(|fts| segment_fts_candidates(&published.index, collection, fts));
                 match (filter_may, fts_may) {
                     (Some(filter), Some(fts)) => Some(filter & fts),
                     (Some(filter), None) => Some(filter),
@@ -5428,18 +5674,23 @@ fn search_segmented_relations(
                 None
             };
             if prune_segments {
-                let local_count = candidates.as_ref().map_or_else(
-                    || published.active.len(), RoaringBitmap::len,
-                );
+                let local_count = candidates
+                    .as_ref()
+                    .map_or_else(|| published.active.len(), RoaringBitmap::len);
                 if local_count > 256 && relation_prune.is_none() {
                     relation_prune = Some(relation_target_prune(
-                        repo, base_active, segments, filter.as_ref(), fts.as_ref(),
+                        repo,
+                        base_active,
+                        segments,
+                        filter.as_ref(),
+                        fts.as_ref(),
                     )?);
                 }
                 if let Some(Some(plan)) = relation_prune.as_ref()
                     && let Some(relation_may) = relation_source_candidates(published, plan)
                 {
-                    candidates = Some(candidates.map_or(relation_may.clone(), |may| may & relation_may));
+                    candidates =
+                        Some(candidates.map_or(relation_may.clone(), |may| may & relation_may));
                 }
             }
             if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
@@ -5462,7 +5713,9 @@ fn search_segmented_relations(
                     })
                     .collect::<Vec<_>>();
                 if let Some(context) = context
-                    && ranges.iter().any(|(_, range)| range.len() > context.limits.source_record_bytes)
+                    && ranges
+                        .iter()
+                        .any(|(_, range)| range.len() > context.limits.source_record_bytes)
                 {
                     return Err(context.fail(
                         ExecutionErrorKind::Resource,
@@ -5481,18 +5734,20 @@ fn search_segmented_relations(
                     .record(first)?
                     .ok_or("active merged segment file missing")?;
                 let path = repo.files.root.join(&resolved.file.relative_path);
-                let mut reader = match RecordRangeReader::open_checked_with_execution(
-                    &path, resolved.file.revision, resolved.file.created_ns,
-                    catalog.fingerprint(resolved.file.id), context,
+                let mut reader = match RecordRangeReader::open_for_search(
+                    &path,
+                    resolved.file.revision,
+                    context,
                 ) {
                     Ok(reader) => reader,
                     Err(message) => {
                         source_errors.record(SourceDiagnostic {
                             file_id: resolved.file.id.0,
                             file_path: resolved.file.relative_path.clone(),
-                            kind: classify_source_read_failure_checked(
-                                &path, resolved.file.revision, resolved.file.created_ns,
-                                catalog.fingerprint(resolved.file.id), None,
+                            kind: classify_source_read_failure_for_search(
+                                &path,
+                                resolved.file.revision,
+                                None,
                             ),
                             message,
                         });
@@ -5521,9 +5776,10 @@ fn search_segmented_relations(
                             source_errors.record(SourceDiagnostic {
                                 file_id: resolved.file.id.0,
                                 file_path: resolved.file.relative_path.clone(),
-                                kind: classify_source_read_failure_checked(
-                                    &path, resolved.file.revision, resolved.file.created_ns,
-                                    catalog.fingerprint(resolved.file.id), Some(ranges[start].1),
+                                kind: classify_source_read_failure_for_search(
+                                    &path,
+                                    resolved.file.revision,
+                                    Some(ranges[start].1),
                                 ),
                                 message,
                             });
@@ -5583,7 +5839,13 @@ fn search_segmented_relations(
                 Ok(Some(payload_hit)) => payload_hit,
                 Ok(None) => return Err("selected record retired in pinned view".into()),
                 Err(message) => {
-                    if record_unavailable_hit(repo, catalog, &winner.hit, message.clone(), &mut counters)? {
+                    if record_unavailable_hit(
+                        repo,
+                        catalog,
+                        &winner.hit,
+                        message.clone(),
+                        &mut counters,
+                    )? {
                         continue;
                     }
                     return Err(message);
@@ -5658,16 +5920,20 @@ pub(crate) fn explain_segmented(
     }
     let mut traces = explain_with_active(repo, query, Some(base_active))?;
     for trace in &mut traces {
-        let collection_index = repo.collections.iter()
+        let collection_index = repo
+            .collections
+            .iter()
             .position(|collection| collection.definition.name == trace.collection)
             .ok_or("explained collection missing")?;
-        let delta = segments[collection_index].iter()
+        let delta = segments[collection_index]
+            .iter()
             .map(|segment| segment.active.len())
             .fold(0u64, u64::saturating_add);
         trace.generation = revision.0;
         trace.input_records = trace.input_records.saturating_add(delta);
         trace.candidates = trace.candidates.saturating_add(delta);
-        trace.fts_estimated_candidates = trace.fts_estimated_candidates
+        trace.fts_estimated_candidates = trace
+            .fts_estimated_candidates
             .map(|estimate| estimate.saturating_add(delta));
         trace.candidates_estimated = true;
         if delta > 0 {
@@ -5777,7 +6043,10 @@ fn materialize_segmented_stream_hit(
         .position(|collection| collection.definition.name == hit.collection)
         .ok_or("stream hit collection missing")?;
     let materialized = repo.get_record_with_active(
-        &hit.collection, &hit.record_id, mode.clone(), Some(base_active),
+        &hit.collection,
+        &hit.record_id,
+        mode.clone(),
+        Some(base_active),
     )?;
     let mut materialized = if let Some(materialized) = materialized {
         materialized
@@ -5862,20 +6131,24 @@ fn push_lifecycle_order_cursor(
             .index
             .record(slot)
             .ok_or("lifecycle ordered slot missing")?;
-        let key = segment_rank_key(
-            repo,
-            sort,
-            collection_index,
-            &published.index,
-            record,
-            None,
-        )?;
-        let bytes = usize::try_from(rank_key_bytes(&key))
-            .map_err(|_| context.fail(ExecutionErrorKind::Resource, "ordered sort key size overflow"))?;
-        let next = heap_bytes.checked_add(bytes)
-            .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered cursor memory overflow"))?;
+        let key = segment_rank_key(repo, sort, collection_index, &published.index, record, None)?;
+        let bytes = usize::try_from(rank_key_bytes(&key)).map_err(|_| {
+            context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered sort key size overflow",
+            )
+        })?;
+        let next = heap_bytes.checked_add(bytes).ok_or_else(|| {
+            context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered cursor memory overflow",
+            )
+        })?;
         if next > budget {
-            return Err(context.fail(ExecutionErrorKind::Resource, "ordered cursors exceed stream memory budget"));
+            return Err(context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered cursors exceed stream memory budget",
+            ));
         }
         *heap_bytes = next;
         heap.push(Reverse(LifecycleOrderCursor {
@@ -5896,7 +6169,7 @@ fn push_lifecycle_order_cursor(
 /// every ordered row without retaining file bodies or an unbounded handle set.
 fn read_lifecycle_ordered_record(
     repo: &Repository,
-    catalog: &FileCatalog,
+    _catalog: &FileCatalog,
     file: &FileEntry,
     record: &RecordEntry,
     slot: RecordSlot,
@@ -5909,10 +6182,7 @@ fn read_lifecycle_ordered_record(
         let path = repo.files.root.join(&file.relative_path);
         *reader = Some((
             file.id,
-            RecordRangeReader::open_checked_with_execution(
-                &path, file.revision, file.created_ns,
-                catalog.fingerprint(file.id), Some(context),
-            )?,
+            RecordRangeReader::open_for_search(&path, file.revision, Some(context))?,
         ));
     }
     let (_, source) = reader.as_mut().ok_or("ordered source reader missing")?;
@@ -5950,20 +6220,23 @@ fn try_lifecycle_ordered_stream(
     let (prepared, _) = crate::prepared::prepare(repo, request)?;
     if prepared.collections.iter().any(|(_, filter, fts)| {
         filter.as_ref().is_some_and(bound_expr_has_relations)
-            || fts.as_ref().is_some_and(|fts| {
-                fts.fields.iter().any(|field| field.related.is_some())
-            })
+            || fts
+                .as_ref()
+                .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
     }) {
         return Ok(None);
     }
     for (collection_index, _, _) in &prepared.collections {
         for segment in segments[*collection_index].iter() {
-            if lifecycle_segment_order(&segment.index, &sort, request, *collection_index).is_none() {
+            if lifecycle_segment_order(&segment.index, &sort, request, *collection_index).is_none()
+            {
                 return Ok(None);
             }
         }
     }
-    let mut filters = (0..repo.collections.len()).map(|_| None).collect::<Vec<_>>();
+    let mut filters = (0..repo.collections.len())
+        .map(|_| None)
+        .collect::<Vec<_>>();
     let mut candidates = segments
         .iter()
         .map(|group| (0..group.len()).map(|_| None).collect::<Vec<_>>())
@@ -5971,13 +6244,22 @@ fn try_lifecycle_ordered_stream(
     for (collection_index, filter, fts) in prepared.collections {
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let collection = &repo.collections[collection_index];
-            let filter_may = filter.as_ref().map(|filter| {
-                segment_filter_bounds_with_catalog(&segment.index, &segment.active, filter, collection, Some(catalog))
+            let filter_may = filter
+                .as_ref()
+                .map(|filter| {
+                    segment_filter_bounds_with_catalog(
+                        &segment.index,
+                        &segment.active,
+                        filter,
+                        collection,
+                        Some(catalog),
+                    )
                     .map(|bounds| bounds.may)
-            }).transpose()?;
-            let fts_may = fts.as_ref().and_then(|fts| {
-                segment_fts_candidates(&segment.index, collection, fts)
-            });
+                })
+                .transpose()?;
+            let fts_may = fts
+                .as_ref()
+                .and_then(|fts| segment_fts_candidates(&segment.index, collection, fts));
             candidates[collection_index][segment_index] = match (filter_may, fts_may) {
                 (Some(filter), Some(fts)) => Some(filter & fts),
                 (Some(filter), None) => Some(filter),
@@ -5987,28 +6269,62 @@ fn try_lifecycle_ordered_stream(
         }
         filters[collection_index] = Some((filter, fts));
     }
-    let partition_count = filters.iter().enumerate().try_fold(0usize, |count, (index, selected)| {
-        count.checked_add(if selected.is_some() { segments[index].len() } else { 0 })
-    }).ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered partition count overflow"))?;
+    let partition_count = filters
+        .iter()
+        .enumerate()
+        .try_fold(0usize, |count, (index, selected)| {
+            count.checked_add(if selected.is_some() {
+                segments[index].len()
+            } else {
+                0
+            })
+        })
+        .ok_or_else(|| {
+            context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered partition count overflow",
+            )
+        })?;
     let mut heap_bytes = partition_count
         .checked_mul(std::mem::size_of::<LifecycleOrderCursor>())
         .and_then(|bytes| bytes.checked_add(std::mem::size_of::<RecordRangeReader>()))
-        .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered cursor memory overflow"))?;
+        .ok_or_else(|| {
+            context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered cursor memory overflow",
+            )
+        })?;
     if heap_bytes > delivery.max_buffered_bytes() {
-        return Err(context.fail(ExecutionErrorKind::Resource, "ordered cursors exceed stream memory budget"));
+        return Err(context.fail(
+            ExecutionErrorKind::Resource,
+            "ordered cursors exceed stream memory budget",
+        ));
     }
     let mut heap = BinaryHeap::new();
-    heap.try_reserve(partition_count)
-        .map_err(|_| context.fail(ExecutionErrorKind::Resource, "ordered cursor allocation failed"))?;
+    heap.try_reserve(partition_count).map_err(|_| {
+        context.fail(
+            ExecutionErrorKind::Resource,
+            "ordered cursor allocation failed",
+        )
+    })?;
     for (collection_index, selected) in filters.iter().enumerate() {
         if selected.is_none() {
             continue;
         }
         for segment_index in 0..segments[collection_index].len() {
             push_lifecycle_order_cursor(
-                repo, request, &sort, segments, &candidates,
-                collection_index, segment_index, 0, &mut heap,
-                &mut heap_bytes, delivery.max_buffered_bytes(), context,
+                repo,
+                request,
+                &sort,
+                segments,
+                &candidates,
+                collection_index,
+                segment_index,
+                0,
+                &mut heap,
+                &mut heap_bytes,
+                delivery.max_buffered_bytes(),
+                context,
             )?;
         }
     }
@@ -6030,14 +6346,23 @@ fn try_lifecycle_ordered_stream(
         context.check_string()?;
         heap_bytes = heap_bytes.saturating_sub(cursor.bytes);
         push_lifecycle_order_cursor(
-            repo, request, &sort, segments, &candidates,
-            cursor.collection_index, cursor.segment_index, cursor.position, &mut heap,
-            &mut heap_bytes, delivery.max_buffered_bytes().saturating_sub(page_bytes), context,
+            repo,
+            request,
+            &sort,
+            segments,
+            &candidates,
+            cursor.collection_index,
+            cursor.segment_index,
+            cursor.position,
+            &mut heap,
+            &mut heap_bytes,
+            delivery.max_buffered_bytes().saturating_sub(page_bytes),
+            context,
         )?;
         let published = &segments[cursor.collection_index][cursor.segment_index];
-        let Some(resolved) = segment_record_ref(
-            &published.index, &published.active, catalog, cursor.slot,
-        )? else {
+        let Some(resolved) =
+            segment_record_ref(&published.index, &published.active, catalog, cursor.slot)?
+        else {
             continue;
         };
         let record = resolved.record;
@@ -6052,7 +6377,9 @@ fn try_lifecycle_ordered_stream(
         if limit.is_none() && !page.is_empty() {
             let upcoming = usize::try_from(record.range.len()).unwrap_or(usize::MAX);
             if page.len() >= delivery.options().batch_rows
-                || page_bytes.saturating_add(upcoming).saturating_add(heap_bytes)
+                || page_bytes
+                    .saturating_add(upcoming)
+                    .saturating_add(heap_bytes)
                     > delivery.max_buffered_bytes()
             {
                 delivery.ordered_batch(&page, &counters)?;
@@ -6063,20 +6390,39 @@ fn try_lifecycle_ordered_stream(
         let mut bytes = None;
         let matched = if must_verify {
             if record.range.len() > context.limits.source_record_bytes {
-                return Err(context.fail(ExecutionErrorKind::Resource, "ordered source record exceeds read allowance"));
+                return Err(context.fail(
+                    ExecutionErrorKind::Resource,
+                    "ordered source record exceeds read allowance",
+                ));
             }
-            let source_len = usize::try_from(record.range.len())
-                .map_err(|_| context.fail(ExecutionErrorKind::Resource, "ordered source size overflow"))?;
+            let source_len = usize::try_from(record.range.len()).map_err(|_| {
+                context.fail(ExecutionErrorKind::Resource, "ordered source size overflow")
+            })?;
             delivery.check_record_bytes(source_len)?;
             delivery.check_buffer(
-                page_bytes.checked_add(heap_bytes).and_then(|used| used.checked_add(source_len))
-                    .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered source memory overflow"))?,
+                page_bytes
+                    .checked_add(heap_bytes)
+                    .and_then(|used| used.checked_add(source_len))
+                    .ok_or_else(|| {
+                        context.fail(
+                            ExecutionErrorKind::Resource,
+                            "ordered source memory overflow",
+                        )
+                    })?,
             )?;
             context.charge_reads(1)?;
             context.charge_bytes(record.range.len())?;
             let read = match read_lifecycle_ordered_record(
-                repo, catalog, file, record, cursor.slot, &mut reader,
-                delivery.max_buffered_bytes().saturating_sub(heap_bytes).saturating_sub(page_bytes),
+                repo,
+                catalog,
+                file,
+                record,
+                cursor.slot,
+                &mut reader,
+                delivery
+                    .max_buffered_bytes()
+                    .saturating_sub(heap_bytes)
+                    .saturating_sub(page_bytes),
                 context,
             ) {
                 Ok((read, opened)) => {
@@ -6085,7 +6431,13 @@ fn try_lifecycle_ordered_stream(
                 }
                 Err(message) => {
                     let locator = segment_locator_hit(collection, resolved, revision, Vec::new());
-                    if record_unavailable_hit(repo, catalog, &locator, message.clone(), &mut counters)? {
+                    if record_unavailable_hit(
+                        repo,
+                        catalog,
+                        &locator,
+                        message.clone(),
+                        &mut counters,
+                    )? {
                         continue;
                     }
                     return Err(message);
@@ -6096,11 +6448,19 @@ fn try_lifecycle_ordered_stream(
             let extracted = if record.class == RecordClass::Logical {
                 counters.record_parses += 1;
                 prepare_query_record_with_execution(
-                    &collection.source, &collection.definition.schema, &read,
-                    &ScanProjection::full(fts.is_some()), false, Some(context),
+                    record.class,
+                    &collection.source,
+                    &collection.definition.schema,
+                    &read,
+                    &ScanProjection::full(fts.is_some()),
+                    false,
+                    Some(context),
                 )?
             } else {
-                ExtractedRecord { value: Value::Object(Default::default()), text: Vec::new() }
+                ExtractedRecord {
+                    value: Value::Object(Default::default()),
+                    text: Vec::new(),
+                }
             };
             let ctx = RecordContext {
                 value: &extracted.value,
@@ -6117,8 +6477,12 @@ fn try_lifecycle_ordered_stream(
                 } else {
                     let mut work = crate::relation_query::RelationWork::default();
                     crate::relation_query::eval_filter_truth(
-                        repo, filter, &ctx, &mut evidence,
-                        crate::relation_query::EvaluationMode::Indexed, &mut work,
+                        repo,
+                        filter,
+                        &ctx,
+                        &mut evidence,
+                        crate::relation_query::EvaluationMode::Indexed,
+                        &mut work,
                     )? == Some(true)
                 }
             } else {
@@ -6129,7 +6493,8 @@ fn try_lifecycle_ordered_stream(
                     if record.class == RecordClass::RawFallback && fts.fields.is_empty() {
                         counters.raw_text_verifications += 1;
                         let matched = crate::reference::raw_fallback_contains(
-                            fts, &String::from_utf8_lossy(&read),
+                            fts,
+                            &String::from_utf8_lossy(&read),
                         );
                         if matched && request.options.evidence {
                             evidence.insert("@record.raw_text".into());
@@ -6159,37 +6524,70 @@ fn try_lifecycle_ordered_stream(
             continue;
         }
         let mut hit = segment_locator_hit(
-            collection, resolved, revision,
-            if request.options.evidence { evidence.into_iter().collect() } else { Vec::new() },
+            collection,
+            resolved,
+            revision,
+            if request.options.evidence {
+                evidence.into_iter().collect()
+            } else {
+                Vec::new()
+            },
         );
         if output_mode != ReturnMode::Locator {
             if output_mode == ReturnMode::Logical && record.class == RecordClass::RawFallback {
-                hit.payload = Some(Payload::LogicalUnavailable { diagnostic_ref: record.diagnostic_ref });
+                hit.payload = Some(Payload::LogicalUnavailable {
+                    diagnostic_ref: record.diagnostic_ref,
+                });
             } else {
                 let source = if let Some(bytes) = bytes.take() {
                     bytes
                 } else {
                     if record.range.len() > context.limits.source_record_bytes {
-                        return Err(context.fail(ExecutionErrorKind::Resource, "ordered output record exceeds read allowance"));
+                        return Err(context.fail(
+                            ExecutionErrorKind::Resource,
+                            "ordered output record exceeds read allowance",
+                        ));
                     }
-                    let source_len = usize::try_from(record.range.len())
-                        .map_err(|_| context.fail(ExecutionErrorKind::Resource, "ordered output size overflow"))?;
+                    let source_len = usize::try_from(record.range.len()).map_err(|_| {
+                        context.fail(ExecutionErrorKind::Resource, "ordered output size overflow")
+                    })?;
                     delivery.check_record_bytes(source_len)?;
                     delivery.check_buffer(
-                        page_bytes.checked_add(heap_bytes).and_then(|used| used.checked_add(source_len))
-                            .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered output memory overflow"))?,
+                        page_bytes
+                            .checked_add(heap_bytes)
+                            .and_then(|used| used.checked_add(source_len))
+                            .ok_or_else(|| {
+                                context.fail(
+                                    ExecutionErrorKind::Resource,
+                                    "ordered output memory overflow",
+                                )
+                            })?,
                     )?;
                     context.charge_reads(1)?;
                     context.charge_bytes(record.range.len())?;
                     let read = read_lifecycle_ordered_record(
-                        repo, catalog, file, record, cursor.slot, &mut reader,
-                        delivery.max_buffered_bytes().saturating_sub(heap_bytes).saturating_sub(page_bytes),
+                        repo,
+                        catalog,
+                        file,
+                        record,
+                        cursor.slot,
+                        &mut reader,
+                        delivery
+                            .max_buffered_bytes()
+                            .saturating_sub(heap_bytes)
+                            .saturating_sub(page_bytes),
                         context,
                     );
                     let (read, opened) = match read {
                         Ok(read) => read,
                         Err(message) => {
-                            if record_unavailable_hit(repo, catalog, &hit, message.clone(), &mut counters)? {
+                            if record_unavailable_hit(
+                                repo,
+                                catalog,
+                                &hit,
+                                message.clone(),
+                                &mut counters,
+                            )? {
                                 continue;
                             }
                             return Err(message);
@@ -6200,14 +6598,19 @@ fn try_lifecycle_ordered_stream(
                     read
                 };
                 let (payload, parses) = payload_from_bytes_with_execution(
-                    Some(collection), &output_mode, source, Some(context),
+                    record.class,
+                    Some(collection),
+                    &output_mode,
+                    source,
+                    Some(context),
                 )?;
                 hit.payload = payload;
                 counters.record_parses += parses;
             }
         }
         let bytes = crate::streaming::hit_bytes(&hit);
-        if limit.is_none() && !page.is_empty()
+        if limit.is_none()
+            && !page.is_empty()
             && (page.len() >= delivery.options().batch_rows
                 || page_bytes.saturating_add(bytes) > delivery.options().max_event_bytes)
         {
@@ -6215,9 +6618,12 @@ fn try_lifecycle_ordered_stream(
             page.clear();
             page_bytes = 0;
         }
-        let retained = page_bytes
-            .checked_add(bytes)
-            .ok_or_else(|| context.fail(ExecutionErrorKind::Resource, "ordered page byte count overflow"))?;
+        let retained = page_bytes.checked_add(bytes).ok_or_else(|| {
+            context.fail(
+                ExecutionErrorKind::Resource,
+                "ordered page byte count overflow",
+            )
+        })?;
         delivery.check_buffer(retained.saturating_add(heap_bytes))?;
         page_bytes = retained;
         page.push(hit);
@@ -6226,7 +6632,9 @@ fn try_lifecycle_ordered_stream(
         {
             match delivery.options().mode {
                 StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, true)?,
-                StreamMode::PageReplacements => delivery.replacement(&page, &counters, heap_bytes)?,
+                StreamMode::PageReplacements => {
+                    delivery.replacement(&page, &counters, heap_bytes)?
+                }
             }
             stopped_early = true;
             break;
@@ -6239,7 +6647,9 @@ fn try_lifecycle_ordered_stream(
         } else {
             match delivery.options().mode {
                 StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, true)?,
-                StreamMode::PageReplacements => delivery.replacement(&page, &counters, heap_bytes)?,
+                StreamMode::PageReplacements => {
+                    delivery.replacement(&page, &counters, heap_bytes)?
+                }
             }
         }
     }
@@ -6251,11 +6661,20 @@ fn try_lifecycle_ordered_stream(
         count_query.options.limit = 0;
         count_query.options.return_mode = ReturnMode::Locator;
         let result = search_segmented_with_context_lifecycle(
-            repo, &count_query, base_active, segments, catalog, revision, context, cache,
-        ).map_err(|error| error.message)?;
+            repo,
+            &count_query,
+            base_active,
+            segments,
+            catalog,
+            revision,
+            context,
+            cache,
+        )
+        .map_err(|error| error.message)?;
         count = result.count;
         counters = result.counters;
-    } else if (request.options.count || limit.is_none()) && counters.source_unavailable_events == 0 {
+    } else if (request.options.count || limit.is_none()) && counters.source_unavailable_events == 0
+    {
         count = Some(counters.total_matches as usize);
     }
     if stopped_early && count.is_none() {
@@ -6287,7 +6706,17 @@ pub(crate) fn search_stream_segmented_with_context(
     sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
 ) -> Result<StreamOutcome, StreamError> {
     search_stream_segmented_with_context_lifecycle(
-        repo, query, scope, options, context, base_active, segments, catalog, revision, sink, None,
+        repo,
+        query,
+        scope,
+        options,
+        context,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        sink,
+        None,
     )
 }
 
@@ -6304,12 +6733,16 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<StreamOutcome, StreamError> {
-    options.validate().map_err(|message| StreamError::Execution {
-        kind: ExecutionErrorKind::InvalidQuery,
-        message,
-        progress: Default::default(),
-    })?;
-    if matches!(scope, ResultScope::All { .. }) && options.mode != crate::streaming::StreamMode::OrderedRows {
+    options
+        .validate()
+        .map_err(|message| StreamError::Execution {
+            kind: ExecutionErrorKind::InvalidQuery,
+            message,
+            progress: Default::default(),
+        })?;
+    if matches!(scope, ResultScope::All { .. })
+        && options.mode != crate::streaming::StreamMode::OrderedRows
+    {
         return Err(StreamError::Execution {
             kind: ExecutionErrorKind::InvalidQuery,
             message: "all-results scope requires ordered rows".into(),
@@ -6324,11 +6757,14 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     if let Err(error) = context.enter() {
         return segmented_stream_error(&mut delivery, context, error.message);
     }
-    let mut request = query.with_clock(context.clock.now).map_err(|message| StreamError::Execution {
-        kind: ExecutionErrorKind::InvalidQuery,
-        message,
-        progress: delivery.progress,
-    })?;
+    let mut request =
+        query
+            .with_clock(context.clock.now)
+            .map_err(|message| StreamError::Execution {
+                kind: ExecutionErrorKind::InvalidQuery,
+                message,
+                progress: delivery.progress,
+            })?;
     let all = matches!(scope, ResultScope::All { .. });
     match scope {
         ResultScope::Page { offset, limit } => {
@@ -6339,16 +6775,20 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
             let slots = base_active.iter().try_fold(0usize, |count, active| {
                 count.checked_add(active.len() as usize)
             });
-            let slots = segments.iter().flat_map(|group| group.iter()).try_fold(
-                slots.ok_or_else(|| StreamError::Resource {
+            let slots = segments
+                .iter()
+                .flat_map(|group| group.iter())
+                .try_fold(
+                    slots.ok_or_else(|| StreamError::Resource {
+                        message: "all-results record count overflow".into(),
+                        progress: delivery.progress,
+                    })?,
+                    |count, segment| count.checked_add(segment.active.len() as usize),
+                )
+                .ok_or_else(|| StreamError::Resource {
                     message: "all-results record count overflow".into(),
                     progress: delivery.progress,
-                })?,
-                |count, segment| count.checked_add(segment.active.len() as usize),
-            ).ok_or_else(|| StreamError::Resource {
-                message: "all-results record count overflow".into(),
-                progress: delivery.progress,
-            })?;
+                })?;
             request.options.offset = 0;
             request.options.limit = slots;
             request.options.count = query.options.count;
@@ -6359,31 +6799,48 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         && let Some(cache) = cache
         && context.limits == ExecutionLimits::default()
     {
-        let key = crate::verified::lifecycle_key(&request, cache.instance_id, revision.0)
-            .map_err(|message| StreamError::Execution {
+        let key = crate::verified::lifecycle_key(&request, cache.instance_id, revision.0).map_err(
+            |message| StreamError::Execution {
                 kind: ExecutionErrorKind::Execution,
                 message,
                 progress: delivery.progress,
-            })?;
-        let cached = cache.store.lock().map_err(|error| StreamError::Execution {
-            kind: ExecutionErrorKind::Execution,
-            message: error.to_string(),
-            progress: delivery.progress,
-        })?.get(&key);
+            },
+        )?;
+        let cached = cache
+            .store
+            .lock()
+            .map_err(|error| StreamError::Execution {
+                kind: ExecutionErrorKind::Execution,
+                message: error.to_string(),
+                progress: delivery.progress,
+            })?
+            .get(&key);
         if let Some(cached) = cached {
             let result = materialize_lifecycle_cached(
-                repo, &request, &cached, base_active, segments, catalog, revision, Some(context),
+                repo,
+                &request,
+                &cached,
+                base_active,
+                segments,
+                catalog,
+                revision,
+                Some(context),
             );
             let result = match result {
                 Ok(result) => result,
                 Err(message) => return segmented_stream_error(&mut delivery, context, message),
             };
-            if let Err(message) = delivery.check_buffer(
-                result.hits.iter().map(crate::streaming::hit_bytes).sum(),
-            ).and_then(|_| match options.mode {
-                StreamMode::OrderedRows => delivery.ordered_rows(&result.hits, &result.counters, true),
-                StreamMode::PageReplacements => delivery.replacement(&result.hits, &result.counters, 0),
-            }) {
+            if let Err(message) = delivery
+                .check_buffer(result.hits.iter().map(crate::streaming::hit_bytes).sum())
+                .and_then(|_| match options.mode {
+                    StreamMode::OrderedRows => {
+                        delivery.ordered_rows(&result.hits, &result.counters, true)
+                    }
+                    StreamMode::PageReplacements => {
+                        delivery.replacement(&result.hits, &result.counters, 0)
+                    }
+                })
+            {
                 return segmented_stream_error(&mut delivery, context, message);
             }
             return Ok(StreamOutcome::Complete(Box::new(StreamSummary {
@@ -6396,25 +6853,39 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         }
     }
     match try_lifecycle_ordered_stream(
-        repo, &request, query.options.return_mode.clone(), scope,
-        base_active, segments, catalog, revision, context, cache, &mut delivery,
+        repo,
+        &request,
+        query.options.return_mode.clone(),
+        scope,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        context,
+        cache,
+        &mut delivery,
     ) {
         Ok(Some(outcome)) => return Ok(outcome),
         Ok(None) => {}
         Err(message) => return segmented_stream_error(&mut delivery, context, message),
     }
     let mut result = match search_segmented_with_context_lifecycle_budget(
-        repo, &request, base_active, segments, catalog, revision, context, cache,
+        repo,
+        &request,
+        base_active,
+        segments,
+        catalog,
+        revision,
+        context,
+        cache,
         all.then(|| delivery.max_buffered_bytes() / 2),
     ) {
         Ok(result) => result,
         Err(error) => return segmented_stream_error(&mut delivery, context, error.message),
     };
-    if let Err(message) = delivery.check_buffer(
-        result.hits.iter().fold(0usize, |bytes, hit| {
-            bytes.saturating_add(crate::streaming::hit_bytes(hit))
-        }),
-    ) {
+    if let Err(message) = delivery.check_buffer(result.hits.iter().fold(0usize, |bytes, hit| {
+        bytes.saturating_add(crate::streaming::hit_bytes(hit))
+    })) {
         return segmented_stream_error(&mut delivery, context, message);
     }
     if all && result.counters.match_count_complete {
@@ -6423,14 +6894,23 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     if all {
         let mut batch = Vec::new();
         let mut batch_bytes = 0usize;
-        for hit in std::mem::take(&mut result.hits).into_iter().skip(scope.offset()) {
+        for hit in std::mem::take(&mut result.hits)
+            .into_iter()
+            .skip(scope.offset())
+        {
             if let Err(message) = delivery.check() {
                 return segmented_stream_error(&mut delivery, context, message);
             }
             let locator = hit.clone();
             let hit = match materialize_segmented_stream_hit(
-                repo, hit, query.options.return_mode.clone(), base_active, segments,
-                catalog, revision, context,
+                repo,
+                hit,
+                query.options.return_mode.clone(),
+                base_active,
+                segments,
+                catalog,
+                revision,
+                context,
             ) {
                 Ok(hit) => hit,
                 Err(message) => {
@@ -6441,7 +6921,11 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                         return segmented_stream_error(&mut delivery, context, message);
                     }
                     match record_unavailable_hit(
-                        repo, catalog, &locator, message.clone(), &mut result.counters,
+                        repo,
+                        catalog,
+                        &locator,
+                        message.clone(),
+                        &mut result.counters,
                     ) {
                         Ok(true) => {
                             result.count = None;
@@ -6449,7 +6933,9 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                                 result.counters.total_matches.saturating_sub(1);
                             continue;
                         }
-                        Ok(false) => return segmented_stream_error(&mut delivery, context, message),
+                        Ok(false) => {
+                            return segmented_stream_error(&mut delivery, context, message);
+                        }
                         Err(error) => return segmented_stream_error(&mut delivery, context, error),
                     }
                 }
@@ -6463,8 +6949,9 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
                 );
             }
             let size = crate::streaming::hit_bytes(&hit);
-            if !batch.is_empty() && (batch.len() >= options.batch_rows
-                || batch_bytes.saturating_add(size) > options.max_event_bytes)
+            if !batch.is_empty()
+                && (batch.len() >= options.batch_rows
+                    || batch_bytes.saturating_add(size) > options.max_event_bytes)
             {
                 if let Err(message) = delivery.ordered_batch(&batch, &result.counters) {
                     return segmented_stream_error(&mut delivery, context, message);
@@ -6484,10 +6971,12 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         result.counters.returned_records = delivery.progress.emitted_rows;
     } else {
         let delivered = match options.mode {
-            crate::streaming::StreamMode::OrderedRows =>
-                delivery.ordered_rows(&result.hits, &result.counters, true),
-            crate::streaming::StreamMode::PageReplacements =>
-                delivery.replacement(&result.hits, &result.counters, 0),
+            crate::streaming::StreamMode::OrderedRows => {
+                delivery.ordered_rows(&result.hits, &result.counters, true)
+            }
+            crate::streaming::StreamMode::PageReplacements => {
+                delivery.replacement(&result.hits, &result.counters, 0)
+            }
         };
         if let Err(message) = delivered {
             return segmented_stream_error(&mut delivery, context, message);
@@ -6499,7 +6988,11 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     delivery.observe(&result.counters);
     Ok(StreamOutcome::Complete(Box::new(StreamSummary {
         count: result.count,
-        returned_rows: if all { delivery.progress.emitted_rows as usize } else { result.hits.len() },
+        returned_rows: if all {
+            delivery.progress.emitted_rows as usize
+        } else {
+            result.hits.len()
+        },
         final_sequence: delivery.last_page_sequence(),
         counters: result.counters,
         progress: delivery.progress,
@@ -6753,7 +7246,8 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     )?;
     if tracker.complete() && Some(members.len()) == result.count {
         sort_cached_members(repo, &membership_query, &mut members);
-        let displaced = repo.verified
+        let displaced = repo
+            .verified
             .lock()
             .map_err(|e| e.to_string())?
             .insert(key, members);
@@ -7088,7 +7582,8 @@ pub(crate) fn search_stream_scoped_with_context_active(
     }
     if publish_cache {
         if let Some(key) = cache_key {
-            let displaced = repo.verified
+            let displaced = repo
+                .verified
                 .lock()
                 .map_err(|error| StreamError::Execution {
                     kind: crate::streaming::ExecutionErrorKind::Execution,
@@ -7171,6 +7666,7 @@ fn deliver_ranked_all(
                     None
                 };
                 let (payload, parses) = payload_from_bytes_with_execution(
+                    hit.record_class,
                     collection,
                     &query.options.return_mode,
                     bytes,
@@ -7402,6 +7898,7 @@ fn direct_payload(
     actual.files_opened += read.opened;
     actual.bytes_read += read.bytes_read;
     let (payload, parses) = payload_from_bytes_with_execution(
+        record.class,
         Some(collection),
         &query.options.return_mode,
         bytes,
@@ -8328,6 +8825,7 @@ fn materialize_computed_cached<'a>(
                 let member = &cached.members[index as usize];
                 let record = &collection.generation.records[member.slot as usize];
                 let extracted = prepare_query_record_with_execution(
+                    record.class,
                     &collection.source,
                     &collection.definition.schema,
                     &bytes,
@@ -8599,8 +9097,12 @@ fn materialize_cached(
             counters.files_opened += read.opened;
             counters.bytes_read += read.bytes_read;
             for (index, bytes) in read.records {
-                let (payload, parses) =
-                    payload_from_bytes(Some(collection), &query.options.return_mode, bytes)?;
+                let (payload, parses) = payload_from_bytes(
+                    hits[index as usize].record_class,
+                    Some(collection),
+                    &query.options.return_mode,
+                    bytes,
+                )?;
                 counters.record_parses += parses;
                 hits[index as usize].payload = payload;
             }
@@ -8871,6 +9373,7 @@ fn materialize_winner_page(
                         return Err("stream cancelled".into());
                     }
                     let (payload, parses) = payload_from_bytes_with_execution(
+                        page[index as usize].hit.record_class,
                         Some(collection),
                         &query.options.return_mode,
                         bytes,

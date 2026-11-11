@@ -3,6 +3,65 @@ use crate::model::{ArrayValue, Number, Value};
 use std::collections::BTreeMap;
 
 #[test]
+fn recorded_validation_selects_trusted_or_validating_extraction() {
+    use crate::inventory::RecordClass;
+    use crate::source::{JsonDecodedScalarsReader, SourceFormat, SourceRegistry};
+    use std::collections::HashSet;
+    use std::sync::Arc;
+
+    let builtin = SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonDecodedScalars)
+        .unwrap();
+    let mut registry = SourceRegistry::default();
+    registry
+        .register("custom", 1, "json", Arc::new(JsonDecodedScalarsReader))
+        .unwrap();
+    let extension = registry
+        .resolve(&SourceFormat::registered("custom"))
+        .unwrap();
+    let projection = ScanProjection {
+        top_level: Some(HashSet::from(["wanted".into()])),
+        collect_text: false,
+        resolved_text_only: false,
+    };
+    let bytes = br#"{"wanted":5,"ignored":!}"#;
+
+    assert!(
+        prepare_query_record(
+            RecordClass::Logical,
+            &builtin,
+            &Schema::default(),
+            bytes,
+            &projection,
+            false,
+        )
+        .is_ok()
+    );
+    assert!(
+        prepare_query_record(
+            RecordClass::Logical,
+            &extension,
+            &Schema::default(),
+            bytes,
+            &projection,
+            false,
+        )
+        .is_err()
+    );
+    assert!(
+        prepare_query_record(
+            RecordClass::RawFallback,
+            &builtin,
+            &Schema::default(),
+            bytes,
+            &projection,
+            false,
+        )
+        .is_err()
+    );
+}
+
+#[test]
 fn registered_reader_expansion_and_failures_keep_typed_classes() {
     use crate::source::{SourceFormat, SourceReader, SourceRegistry};
     use crate::streaming::{ExecutionContext, ExecutionErrorKind, ExecutionLimits};
@@ -90,6 +149,7 @@ fn registered_reader_expansion_and_failures_keep_typed_classes() {
         assert!(source.is_extension());
         let execution = context();
         let error = prepare_query_record_with_execution(
+            crate::inventory::RecordClass::Logical,
             &source,
             &Schema::default(),
             b"x",

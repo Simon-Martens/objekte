@@ -1,6 +1,7 @@
 //! Conversion of source bytes into a requested page payload.
 
 use crate::execution_options::ReturnMode;
+use crate::inventory::RecordClass;
 use crate::record_preparation::{materialize, prepare_query_record_with_execution};
 use crate::repository::{CollectionState, Payload};
 use crate::source::ScanProjection;
@@ -11,14 +12,16 @@ use crate::streaming::ExecutionContext;
 /// their distinct access patterns. The collection is only needed for logical
 /// payloads; bytes results avoid an otherwise unnecessary collection lookup.
 pub(crate) fn payload_from_bytes(
+    record_class: RecordClass,
     collection: Option<&CollectionState>,
     return_mode: &ReturnMode,
     bytes: Vec<u8>,
 ) -> Result<(Option<Payload>, u64), String> {
-    payload_from_bytes_with_execution(collection, return_mode, bytes, None)
+    payload_from_bytes_with_execution(record_class, collection, return_mode, bytes, None)
 }
 
 pub(crate) fn payload_from_bytes_with_execution(
+    record_class: RecordClass,
     collection: Option<&CollectionState>,
     return_mode: &ReturnMode,
     bytes: Vec<u8>,
@@ -27,6 +30,7 @@ pub(crate) fn payload_from_bytes_with_execution(
     let logical = if *return_mode == ReturnMode::Logical {
         let collection = collection.ok_or("result collection missing")?;
         Some(prepare_query_record_with_execution(
+            record_class,
             &collection.source,
             &collection.definition.schema,
             &bytes,

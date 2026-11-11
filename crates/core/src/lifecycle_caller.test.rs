@@ -183,7 +183,8 @@ fn pinned_adapter_keeps_batch_queries_on_one_publication() {
 }
 
 #[test]
-fn pinned_view_rejects_replacement_at_old_path_with_spoofed_revision() {
+fn pinned_view_uses_published_range_after_old_path_is_replaced() {
+    use crate::repository::Payload;
     use crate::run::DirectLookupResult;
     use crate::streaming::{
         CancellationToken, ResultScope, StreamControl, StreamEvent, StreamOptions, StreamOutcome,
@@ -242,17 +243,18 @@ fn pinned_view_rejects_replacement_at_old_path_with_spoofed_revision() {
     );
 
     assert!(matches!(
-        pinned
-            .get_record_available("data", &id, ReturnMode::Bytes)
-            .unwrap(),
-        DirectLookupResult::SourceUnavailable(_),
+        pinned.get_record_available("data", &id, ReturnMode::Bytes).unwrap(),
+        DirectLookupResult::Found(hit)
+            if hit.payload == Some(Payload::Bytes(b"{\"name\":\"new\"}".to_vec())),
     ));
     query.options.return_mode = ReturnMode::Bytes;
     let result = pinned.search(&query).unwrap();
-    assert_eq!(result.count, None);
-    assert!(!result.counters.match_count_complete);
-    assert!(result.counters.source_unavailable_events > 0);
-    assert!(result.hits.is_empty());
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.counters.source_unavailable_events, 0);
+    assert_eq!(
+        result.hits[0].payload,
+        Some(Payload::Bytes(b"{\"name\":\"new\"}".to_vec()))
+    );
 
     let mut rows = Vec::new();
     let outcome = pinned.search_stream_scoped(
@@ -267,10 +269,14 @@ fn pinned_view_rejects_replacement_at_old_path_with_spoofed_revision() {
             Ok(StreamControl::Continue)
         },
     );
-    assert!(rows.is_empty());
+    assert_eq!(rows.len(), 1);
+    assert_eq!(
+        rows[0].payload,
+        Some(Payload::Bytes(b"{\"name\":\"new\"}".to_vec()))
+    );
     assert!(matches!(
         outcome,
-        Ok(StreamOutcome::Complete(summary)) if !summary.counters.match_count_complete && summary.count.is_none()
+        Ok(StreamOutcome::Complete(summary)) if summary.counters.match_count_complete && summary.count == Some(1)
     ));
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();

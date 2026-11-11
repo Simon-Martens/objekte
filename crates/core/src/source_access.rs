@@ -1,13 +1,45 @@
 //! Query-scoped, bounded source handles and range windows.
 
 use roaring::RoaringBitmap;
+use std::path::Path;
 
 use crate::inventory::{ByteRange, FileInventory, SourceRevision};
+use crate::measurement::SourceUnavailableKind;
 use crate::model::FileId;
 use crate::source::RecordRangeReader;
 
 const MAX_OPEN_HANDLES: usize = 8;
 const WINDOW_BYTES: u64 = 64 * 1024;
+
+
+/// Diagnose an unavailable search source without comparing it with the
+/// index's saved file metadata or content.
+pub(crate) fn probe_source_unavailable_for_search(
+    path: &Path,
+    revision: SourceRevision,
+    range: Option<ByteRange>,
+) -> Option<SourceUnavailableKind> {
+    match std::fs::File::open(path) {
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+            return Some(SourceUnavailableKind::Missing);
+        }
+        Err(_) => return Some(SourceUnavailableKind::Unreadable),
+        Ok(_) => {}
+    }
+    if range.is_some_and(|range| range.start > range.end || range.end > revision.size) {
+        return Some(SourceUnavailableKind::UnusableRange);
+    }
+    None
+}
+
+pub(crate) fn classify_source_read_failure_for_search(
+    path: &Path,
+    revision: SourceRevision,
+    range: Option<ByteRange>,
+) -> SourceUnavailableKind {
+    probe_source_unavailable_for_search(path, revision, range)
+        .unwrap_or(SourceUnavailableKind::Unreadable)
+}
 
 
 struct OpenSource {
@@ -102,7 +134,7 @@ impl<'a> SourceAccessSession<'a> {
             .native_path(file_id)
             .ok_or("missing source path")?;
         let reader =
-            RecordRangeReader::open_with_execution(&path, file.revision, self.execution.as_ref())?;
+            RecordRangeReader::open_for_search(&path, file.revision, self.execution.as_ref())?;
         self.distinct.insert(file_id.0);
         if self.open.len() == MAX_OPEN_HANDLES {
             let oldest = self

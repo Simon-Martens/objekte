@@ -28,7 +28,7 @@ use crate::reference::{BindingOperation, RecordContext, Schema, eval_unavailable
 use crate::relation::{RelationContribution, RelationIndex};
 use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
 use crate::source::{
-    PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range,
+    PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range_for_search,
 };
 use crate::source_access::SourceAccessSession;
 use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
@@ -39,6 +39,7 @@ pub(crate) fn next_repository_instance() -> u64 {
     NEXT_REPOSITORY_INSTANCE.fetch_add(1, Ordering::Relaxed)
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum IdentityPolicy {
     Filename,
@@ -47,6 +48,7 @@ pub enum IdentityPolicy {
     Generated,
     Intrinsic(Vec<String>),
 }
+
 
 pub(crate) fn map_binding_value(operation: &dyn BindingOperation, value: &Value) -> Option<Value> {
     if let Value::Array(array) = value {
@@ -80,6 +82,7 @@ pub(crate) fn string_values(value: &Value) -> impl Iterator<Item = &str> {
     )
 }
 
+
 /// Caller-supplied source, schema, identity, and sort configuration.
 #[derive(Clone, Debug)]
 pub struct CollectionDefinition {
@@ -94,6 +97,7 @@ pub struct CollectionDefinition {
     pub sort_options: SortOptions,
     pub sort_overrides: HashMap<FieldPath, SortConfig>,
 }
+
 
 impl CollectionDefinition {
     /// Define a recursive folder collection with no declared fields or typed indexes.
@@ -130,12 +134,14 @@ impl CollectionDefinition {
     }
 }
 
+
 /// Published generation and indexes for one collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub(crate) struct GlobalInferenceSummary {
     pub(crate) report: InferenceReport,
     pub(crate) diagnostics: Vec<InferencePathDiagnostic>,
 }
+
 
 pub struct CollectionState {
     pub definition: CollectionDefinition,
@@ -156,6 +162,7 @@ pub struct CollectionState {
     pub stats: CollectionStats,
     pub relations: Vec<RelationIndex>,
 }
+
 
 /// Coordinator-owned mutable output for one collection. Construction jobs
 /// only receive immutable definitions and discovered source metadata.
@@ -178,6 +185,7 @@ struct PendingCollection {
     relations: Vec<RelationContribution>,
 }
 
+
 enum ScheduledBuildJob {
     Files(crate::build::RepositoryFileJob),
     Large {
@@ -188,6 +196,7 @@ enum ScheduledBuildJob {
         file: crate::model::FileId,
     },
 }
+
 
 impl PendingCollection {
     fn admit(
@@ -212,6 +221,7 @@ impl PendingCollection {
         .admit(batch)
     }
 }
+
 
 #[path = "repository_direct.rs"]
 mod direct;
@@ -254,6 +264,7 @@ pub(crate) fn built_in_field_text_key(
     Some((path.to_vec(), name.to_owned()))
 }
 
+
 /// Collection size summary used by query planning.
 #[derive(Clone, Copy, Debug, serde::Serialize, serde::Deserialize)]
 pub struct CollectionStats {
@@ -261,6 +272,7 @@ pub struct CollectionStats {
     pub record_count: usize,
     pub total_file_bytes: u64,
 }
+
 
 impl CollectionStats {
     pub fn mean_record_bytes(self) -> f64 {
@@ -279,6 +291,7 @@ impl CollectionStats {
         }
     }
 }
+
 
 /// Resident owner of file inventory, collections, workers, and caches.
 ///
@@ -310,6 +323,7 @@ pub struct Repository {
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
     pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
 }
+
 
 fn finish_fresh_fingerprints(
     files: &FileInventory,
@@ -349,6 +363,7 @@ fn finish_fresh_fingerprints(
         .collect()
 }
 
+
 /// Time spent restoring, reconciling, building, and writing state.
 #[derive(Clone, Debug, Default)]
 pub struct StartupStats {
@@ -376,6 +391,7 @@ pub struct StartupStats {
     pub inference_build: InferenceBuildStats,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum SnapshotMode {
     /// Build from source without inspecting a snapshot.
@@ -386,6 +402,7 @@ pub enum SnapshotMode {
     Required,
 }
 
+
 /// Actual result of the requested snapshot policy.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum SnapshotAction {
@@ -393,6 +410,7 @@ pub enum SnapshotAction {
     BuiltInMemory,
     Restored,
 }
+
 
 /// Snapshot load policy and directory for one repository opening.
 #[derive(Clone, Debug)]
@@ -402,11 +420,13 @@ pub struct SnapshotOpenPolicy {
     pub directory: Option<PathBuf>,
 }
 
+
 impl SnapshotOpenPolicy {
     pub fn new(mode: SnapshotMode, directory: Option<PathBuf>) -> Self {
         Self { mode, directory }
     }
 }
+
 
 /// Index alphabet, snapshot, cache, and worker settings.
 #[derive(Clone, Copy, Debug)]
@@ -423,6 +443,7 @@ pub struct RepositoryOptions {
     pub inference: InferenceConfig,
 }
 
+
 impl Default for RepositoryOptions {
     fn default() -> Self {
         Self {
@@ -437,6 +458,7 @@ impl Default for RepositoryOptions {
         }
     }
 }
+
 
 /// One page result with locator, evidence, and optional payload.
 #[derive(Clone, Debug, PartialEq)]
@@ -458,12 +480,14 @@ pub struct SearchHit {
     pub payload: Option<Payload>,
 }
 
+
 #[derive(Clone, Debug, PartialEq)]
 pub enum Payload {
     Bytes(Vec<u8>),
     Logical(crate::model::Value),
     LogicalUnavailable { diagnostic_ref: DiagnosticRef },
 }
+
 
 /// Requested exact match count, returned page, and measured work.
 #[derive(Clone, Debug)]
@@ -472,6 +496,7 @@ pub struct SearchResult {
     pub hits: Vec<SearchHit>,
     pub counters: WorkCounters,
 }
+
 
 impl Repository {
     /// Retrieve one record by its collection-local ID. Locator access uses the
@@ -521,7 +546,13 @@ impl Repository {
                 let mut access = SourceAccessSession::new(&self.files);
                 let mut read = access.read(record.file, &[(slot.0, record.range)])?;
                 let bytes = read.records.pop().ok_or("source record missing")?.1;
-                crate::materialization::payload_from_bytes(Some(collection), &return_mode, bytes)?.0
+                crate::materialization::payload_from_bytes(
+                    record.class,
+                    Some(collection),
+                    &return_mode,
+                    bytes,
+                )?
+                .0
             }
         };
         Ok(Some(crate::run::make_hit(
@@ -640,7 +671,12 @@ impl Repository {
                     .global_inference
                     .as_ref()
                     .map(|summary| summary.diagnostics.clone())
-                    .or_else(|| state.inference.as_ref().map(InferenceState::path_diagnostics))
+                    .or_else(|| {
+                        state
+                            .inference
+                            .as_ref()
+                            .map(InferenceState::path_diagnostics)
+                    })
             })
     }
 
@@ -895,7 +931,8 @@ impl Repository {
     }
 
     pub fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
-        let displaced = self.verified
+        let displaced = self
+            .verified
             .lock()
             .map_err(|e| e.to_string())?
             .set_budget(bytes);
@@ -1083,10 +1120,13 @@ impl Repository {
         )?;
         for (source, target) in self.collections.iter().zip(&mut empty.collections) {
             target.global_inference = source.global_inference.clone().or_else(|| {
-                source.inference.as_ref().map(|state| GlobalInferenceSummary {
-                    report: state.report.clone(),
-                    diagnostics: state.path_diagnostics(),
-                })
+                source
+                    .inference
+                    .as_ref()
+                    .map(|state| GlobalInferenceSummary {
+                        report: state.report.clone(),
+                        diagnostics: state.path_diagnostics(),
+                    })
             });
         }
         empty.build_parses = self.build_parses;
@@ -1318,7 +1358,11 @@ impl Repository {
                         |batch| admit(collection_index, batch),
                     )?;
                     if let Some((file_id, digest)) = stats.file_fingerprint {
-                        large_digests.push((file_id, CollectionId(collection_index as u32), digest));
+                        large_digests.push((
+                            file_id,
+                            CollectionId(collection_index as u32),
+                            digest,
+                        ));
                     }
                     schedule_stats.absorb(stats);
                 }
@@ -1641,7 +1685,8 @@ impl Repository {
                     .files
                     .native_path(record.file)
                     .ok_or("missing source path")?;
-                let bytes = read_record_range(&path, record.revision, record.range)?;
+                let bytes =
+                    read_record_range_for_search(&path, record.revision, record.range, None)?;
                 counters.files_opened += 1;
                 counters.bytes_read += bytes.len() as u64;
                 counters.record_parses += u64::from(record.class == RecordClass::Logical);
@@ -1653,6 +1698,7 @@ impl Repository {
                         ScanProjection::full(true)
                     };
                     prepare_query_record(
+                        record.class,
                         &collection.source,
                         &collection.definition.schema,
                         &bytes,
@@ -1862,6 +1908,7 @@ impl Repository {
     }
 }
 
+
 pub(crate) fn validate_sort(repo: &Repository, query: &Query) -> Result<(), String> {
     crate::sort_binding::BoundSort::bind(repo, query).map(|_| ())
 }
@@ -1897,6 +1944,7 @@ pub(crate) fn sort_rows(
                     Some(Payload::Logical(value)) => value,
                     Some(Payload::Bytes(bytes)) => {
                         projected = prepare_query_record(
+                            record.class,
                             &collection.source,
                             &collection.definition.schema,
                             bytes,
@@ -1911,10 +1959,16 @@ pub(crate) fn sort_rows(
                             .files
                             .native_path(record.file)
                             .ok_or("sort source path missing")?;
-                        let bytes = read_record_range(&path, record.revision, record.range)?;
+                        let bytes = read_record_range_for_search(
+                            &path,
+                            record.revision,
+                            record.range,
+                            None,
+                        )?;
                         counters.files_opened += 1;
                         counters.bytes_read += bytes.len() as u64;
                         projected = prepare_query_record(
+                            record.class,
                             &collection.source,
                             &collection.definition.schema,
                             &bytes,
