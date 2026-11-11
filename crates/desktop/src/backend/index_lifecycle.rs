@@ -5,12 +5,15 @@ use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 
+use objekte_cli::arguments::Alphabet;
+use objekte_search_core::inference::InferenceMode;
 use objekte_search_core::lifecycle::{
     Index, IndexRevision, IndexStatus, MaintenanceOperation, MaintenanceTask, ReconciliationTask,
 };
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::CancellationToken;
+use objekte_search_core::workload::BigramAlphabet;
 
 use super::open::OpenedSession;
 use super::{BackendError, BackendErrorKind};
@@ -150,10 +153,17 @@ pub fn load_index(
         return Err(BackendError::cancelled());
     }
     let started = Instant::now();
+    let settings = objekte_search_core::storage::snapshot_build_configuration(
+        cache,
+        &session.configuration.definitions,
+        session.configuration.options,
+    )
+    .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?;
+    let options = settings.apply_to(session.configuration.options);
     let index = Index::load_cache(
         &session.paths.root,
         session.configuration.definitions.as_ref().clone(),
-        session.configuration.options,
+        options,
         cache,
     )
     .map_err(lifecycle_error)?;
@@ -170,16 +180,17 @@ pub fn load_index(
         .view()
         .map_err(lifecycle_error)?
         .configuration_identity();
-    if identity != session.configuration.configuration_identity {
-        repository.index().shutdown().map_err(lifecycle_error)?;
-        return Err(BackendError::new(
-            BackendErrorKind::Open,
-            "selected index has a different source configuration",
-        ));
-    }
     let mut configuration = (*session.configuration).clone();
+    configuration.options = options;
+    configuration.configuration_identity = identity;
     configuration.cache_load = Some(cache.to_path_buf());
     configuration.cache_save = Some(cache.to_path_buf());
+    let mut args = session.args.clone();
+    args.index_alphabet = match options.bigram_alphabet {
+        BigramAlphabet::Ascii => Alphabet::Ascii,
+        BigramAlphabet::Unicode => Alphabet::Unicode,
+    };
+    args.auto_index = options.inference.mode == InferenceMode::AutoIndex;
     let mut diagnostics = session.diagnostics.clone();
     diagnostics.open_ns = started.elapsed().as_nanos();
     diagnostics.startup = repository.startup().clone();
@@ -187,7 +198,7 @@ pub fn load_index(
     Ok(OpenedSession {
         repository: Arc::new(repository),
         configuration: Arc::new(configuration),
-        args: session.args.clone(),
+        args,
         paths: session.paths.clone(),
         collections: session.collections.clone(),
         single_collection: session.single_collection,

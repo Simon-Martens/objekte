@@ -2,6 +2,8 @@ use super::*;
 use crate::backend::test_support::fixture;
 use crate::backend::{OpenSpec, open};
 use objekte_cli::arguments::Arguments;
+use objekte_search_core::inference::InferenceMode;
+use objekte_search_core::workload::BigramAlphabet;
 
 #[test]
 fn manual_shutdown_does_not_write_an_index() {
@@ -78,6 +80,66 @@ fn save_revision_and_load_replacement_are_explicit() {
     );
     assert!(current_reconciliation(&restored).unwrap().is_some());
     shutdown(&restored).unwrap();
+}
+
+#[test]
+fn selected_index_uses_its_saved_build_settings() {
+    let fixture = fixture();
+    let session = &fixture.session;
+    let mut options = session.configuration.options;
+    options.bigram_alphabet = BigramAlphabet::Unicode;
+    options.inference.mode = InferenceMode::AutoIndex;
+    let index = Index::build(
+        session.paths.root.clone(),
+        session.configuration.definitions.as_ref().clone(),
+        options,
+    )
+    .unwrap();
+    let output = tempfile::tempdir().unwrap();
+    let cache = output.path().join("unicode.snapshot");
+    index.flush_cache(&cache).unwrap();
+    let mut unrelated = session.configuration.definitions.as_ref().clone();
+    unrelated[0].name.push_str("-different");
+    assert!(
+        objekte_search_core::storage::snapshot_build_configuration(
+            &cache,
+            &unrelated,
+            session.configuration.options,
+        )
+        .unwrap_err()
+        .contains("different collection or schema")
+    );
+
+    for legacy in [false, true] {
+        if legacy {
+            // Old lifecycle files have the same hash but no build-settings section.
+            let mut bytes = std::fs::read(&cache).unwrap();
+            let length = u64::from_le_bytes(bytes[56..64].try_into().unwrap()) as usize;
+            bytes[8..12].copy_from_slice(&18u32.to_le_bytes());
+            bytes.drain(52..52 + 44 + length);
+            std::fs::write(&cache, bytes).unwrap();
+        }
+        let loaded = load_index(session, &cache, &CancellationToken::new()).unwrap();
+        assert_eq!(
+            loaded.configuration.options.bigram_alphabet,
+            BigramAlphabet::Unicode
+        );
+        assert_eq!(
+            loaded.configuration.options.inference.mode,
+            InferenceMode::AutoIndex
+        );
+        assert_eq!(
+            loaded.args.index_alphabet,
+            objekte_cli::arguments::Alphabet::Unicode
+        );
+        assert!(loaded.args.auto_index);
+        assert_eq!(
+            status(&loaded).unwrap().live_records,
+            status(session).unwrap().live_records
+        );
+        shutdown(&loaded).unwrap();
+    }
+    index.shutdown().unwrap();
 }
 
 #[test]

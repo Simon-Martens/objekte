@@ -622,11 +622,12 @@ fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
     assert_eq!(written.build_parses(), 1);
     assert!(!snapshot.exists());
     let save = written.save_snapshot_with_stats(&snapshot).unwrap();
-    assert_eq!(save.sections.len(), 2);
+    assert_eq!(save.sections.len(), 3);
     assert_eq!(save.bytes_written, fs::metadata(&snapshot).unwrap().len());
     assert!(save.total_ns >= save.sync_ns);
-    assert_eq!(save.sections[0].id, 0);
-    assert_eq!(save.sections[1].id, 1);
+    assert_eq!(save.sections[0].id, CONFIGURATION_SECTION_ID);
+    assert_eq!(save.sections[1].id, 0);
+    assert_eq!(save.sections[2].id, 1);
     let original = fs::read(&snapshot).unwrap();
     let restored = open(SnapshotMode::Required).unwrap();
     assert_eq!(restored.startup().snapshot_action, SnapshotAction::Restored);
@@ -947,11 +948,14 @@ fn checksummed_snapshot_with_invalid_diagnostic_reference_is_rejected() {
     let header_size = MAGIC.len() + 4 + 4 + 32 + 4;
     let mut reader = Cursor::new(&bytes);
     reader.set_position(header_size as u64);
+    let settings: SnapshotBuildConfiguration =
+        read_section(&mut reader, CONFIGURATION_SECTION_ID).unwrap();
     let files: Vec<EncodedFile> = read_section(&mut reader, 0).unwrap();
     let mut collection: EncodedCollection = read_section(&mut reader, 1).unwrap();
     assert_eq!(collection.generation.records.len(), 1);
     collection.generation.records[0].diagnostic_ref = crate::inventory::DiagnosticRef(42);
     let mut rewritten = bytes[..header_size].to_vec();
+    write_section(&mut rewritten, CONFIGURATION_SECTION_ID, &settings).unwrap();
     write_section(&mut rewritten, 0, &files).unwrap();
     write_section(&mut rewritten, 1, &collection).unwrap();
     fs::write(&snapshot, rewritten).unwrap();
@@ -1117,6 +1121,8 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
     ] {
         let mut reader = Cursor::new(&original);
         reader.set_position(header_size as u64);
+        let settings: SnapshotBuildConfiguration =
+            read_section(&mut reader, CONFIGURATION_SECTION_ID).unwrap();
         let mut files: Vec<EncodedFile> = read_section(&mut reader, 0).unwrap();
         let mut collection: EncodedCollection = read_section(&mut reader, 1).unwrap();
         let posting = collection
@@ -1177,6 +1183,7 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
             _ => unreachable!(),
         }
         let mut rewritten = original[..header_size].to_vec();
+        write_section(&mut rewritten, CONFIGURATION_SECTION_ID, &settings).unwrap();
         write_section(&mut rewritten, 0, &files).unwrap();
         write_section(&mut rewritten, 1, &collection).unwrap();
         fs::write(&snapshot, rewritten).unwrap();

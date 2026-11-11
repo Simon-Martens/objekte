@@ -14,7 +14,7 @@ use sha2::{Digest, Sha256};
 
 use crate::bigram::{BIGRAM_VERSION, BigramIndex, FOLDED_REPRESENTATION};
 use crate::discovery::SymlinkPolicy;
-use crate::inference::{InferenceMode, InferenceState};
+use crate::inference::{InferenceConfig, InferenceMode, InferenceState};
 use crate::inventory::{
     CollectionGeneration, FileEntry, FileInventory, FileStatus, FileVersion, SourceDiagnostic,
     SourceRevision,
@@ -32,10 +32,37 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 17;
-pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 18;
+pub const SNAPSHOT_VERSION: u32 = 19;
+pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 20;
+const LEGACY_SNAPSHOT_VERSION: u32 = 17;
+const LEGACY_LIFECYCLE_SNAPSHOT_VERSION: u32 = 18;
+const CONFIGURATION_HASH_VERSION: u32 = 17;
+const CONFIGURATION_SECTION_ID: u32 = u32::MAX;
 const MAX_SECTION_BYTES: u64 = 8 * 1024 * 1024 * 1024;
 const SECTION_HEADER_BYTES: usize = 44;
+
+/// Settings that affect index contents. Runtime cache sizes and worker counts
+/// remain caller choices when a snapshot is restored.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct SnapshotBuildConfiguration {
+    pub bigram_alphabet: BigramAlphabet,
+    pub inference: InferenceConfig,
+}
+
+impl SnapshotBuildConfiguration {
+    pub(crate) fn from_options(options: RepositoryOptions) -> Self {
+        Self {
+            bigram_alphabet: options.bigram_alphabet,
+            inference: options.inference,
+        }
+    }
+
+    pub fn apply_to(self, mut options: RepositoryOptions) -> RepositoryOptions {
+        options.bigram_alphabet = self.bigram_alphabet;
+        options.inference = self.inference;
+        options
+    }
+}
 
 
 /// Phase timings for one explicit, durable snapshot save. Opening does not
@@ -579,7 +606,9 @@ pub fn configuration_hash(
 ) -> Result<[u8; 32], String> {
     let mut hash = Sha256::new();
     hash.update(crate::MODEL_VERSION.to_le_bytes());
-    hash.update(SNAPSHOT_VERSION.to_le_bytes());
+    // Keep the identity stable for snapshots written before the build-settings
+    // section was introduced. Their compatibility hash covers the same inputs.
+    hash.update(CONFIGURATION_HASH_VERSION.to_le_bytes());
     hash.update(BIGRAM_VERSION.to_le_bytes());
     feed(&mut hash, FOLDED_REPRESENTATION.as_bytes());
     feed(&mut hash, std::env::consts::OS.as_bytes());
@@ -698,6 +727,100 @@ pub fn configuration_hash(
         }
     }
     Ok(hash.finalize().into())
+}
+
+/// Read the build settings of a selected snapshot before restoring it. Older
+/// snapshots contain only a hash, so known alphabet and inference choices are
+/// tried against the caller's collection definitions without trusting a guess.
+pub fn snapshot_build_configuration(
+    path: &Path,
+    definitions: &[CollectionDefinition],
+    preferred: RepositoryOptions,
+) -> Result<SnapshotBuildConfiguration, String> {
+    snapshot_build_configuration_with_sources(
+        path,
+        definitions,
+        preferred,
+        &SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())
+}
+
+pub(crate) fn snapshot_build_configuration_with_sources(
+    path: &Path,
+    definitions: &[CollectionDefinition],
+    preferred: RepositoryOptions,
+    sources: &SourceRegistry,
+) -> Result<SnapshotBuildConfiguration, SnapshotLoadError> {
+    let mut file = File::open(path)
+        .map_err(|error| SnapshotLoadError::Access(format!("{}: {error}", path.display())))?;
+    let mut header = [0u8; 52];
+    file.read_exact(&mut header)
+        .map_err(|error| snapshot_read_error("snapshot header", error))?;
+    let version = u32::from_le_bytes(header[8..12].try_into().unwrap());
+    if &header[..8] != MAGIC
+        || ![
+            SNAPSHOT_VERSION,
+            LIFECYCLE_SNAPSHOT_VERSION,
+            LEGACY_SNAPSHOT_VERSION,
+            LEGACY_LIFECYCLE_SNAPSHOT_VERSION,
+        ]
+        .contains(&version)
+        || u32::from_le_bytes(header[12..16].try_into().unwrap()) != crate::MODEL_VERSION
+    {
+        return Err("incompatible snapshot version".into());
+    }
+    let hash = &header[16..48];
+    if u32::from_le_bytes(header[48..52].try_into().unwrap()) as usize != definitions.len() {
+        return Err("snapshot collection count mismatch".into());
+    }
+    if version == SNAPSHOT_VERSION || version == LIFECYCLE_SNAPSHOT_VERSION {
+        let settings: SnapshotBuildConfiguration =
+            read_section(&mut file, CONFIGURATION_SECTION_ID)?;
+        if configuration_hash(definitions, settings.apply_to(preferred), sources)?.as_slice()
+            != hash
+        {
+            return Err(
+                "selected index was created with different collection or schema definitions"
+                    .into(),
+            );
+        }
+        return Ok(settings);
+    }
+    let mut candidates = Vec::new();
+    for inference in [preferred.inference, InferenceConfig::default()] {
+        for mode in [
+            inference.mode,
+            InferenceMode::Disabled,
+            InferenceMode::AutoIndex,
+            InferenceMode::ReportOnly,
+        ] {
+            for alphabet in [
+                preferred.bigram_alphabet,
+                BigramAlphabet::Ascii,
+                BigramAlphabet::Unicode,
+            ] {
+                let settings = SnapshotBuildConfiguration {
+                    bigram_alphabet: alphabet,
+                    inference: InferenceConfig { mode, policy: inference.policy },
+                };
+                if !candidates.contains(&settings) {
+                    candidates.push(settings);
+                }
+            }
+        }
+    }
+    for settings in candidates {
+        if configuration_hash(definitions, settings.apply_to(preferred), sources)?.as_slice()
+            == hash
+        {
+            return Ok(settings);
+        }
+    }
+    Err(
+        "this older index does not store its build settings, and its source configuration does not match the current repository"
+            .into(),
+    )
 }
 
 #[cfg(test)]
@@ -921,6 +1044,13 @@ impl Repository {
                 .map_err(|e| e.to_string())?;
             stats.write_ns = started.elapsed().as_nanos() as u64;
             stats.bytes_written = 52;
+            let settings = SnapshotBuildConfiguration::from_options(self.options);
+            let section = write_section_measured(&mut file, CONFIGURATION_SECTION_ID, &settings)?;
+            stats.write_ns = stats.write_ns.saturating_add(section.write_ns);
+            stats.bytes_written = stats
+                .bytes_written
+                .saturating_add(section.payload_bytes + SECTION_HEADER_BYTES as u64);
+            stats.sections.push(section);
             let started = Instant::now();
             let files: Vec<_> = self
                 .files
@@ -1167,13 +1297,19 @@ fn load_snapshot_parts(
         .map_err(|e| snapshot_read_error("snapshot configuration", e))?;
     file.read_exact(&mut count)
         .map_err(|e| snapshot_read_error("snapshot collection count", e))?;
+    let version = u32::from_le_bytes(version);
+    let current_version = if lifecycle {
+        LIFECYCLE_SNAPSHOT_VERSION
+    } else {
+        SNAPSHOT_VERSION
+    };
+    let legacy_version = if lifecycle {
+        LEGACY_LIFECYCLE_SNAPSHOT_VERSION
+    } else {
+        LEGACY_SNAPSHOT_VERSION
+    };
     if &magic != MAGIC
-        || u32::from_le_bytes(version)
-            != if lifecycle {
-                LIFECYCLE_SNAPSHOT_VERSION
-            } else {
-                SNAPSHOT_VERSION
-            }
+        || (version != current_version && version != legacy_version)
         || u32::from_le_bytes(model) != crate::MODEL_VERSION
     {
         return Err("incompatible snapshot version".into());
@@ -1183,6 +1319,13 @@ fn load_snapshot_parts(
     }
     if u32::from_le_bytes(count) as usize != definitions.len() {
         return Err("snapshot collection count mismatch".into());
+    }
+    if version == current_version {
+        let settings: SnapshotBuildConfiguration =
+            read_section(&mut file, CONFIGURATION_SECTION_ID)?;
+        if settings != SnapshotBuildConfiguration::from_options(options) {
+            return Err("snapshot build settings mismatch".into());
+        }
     }
     let encoded_files: Vec<EncodedFile> = read_section(&mut file, 0)?;
     let base_fingerprints = encoded_files
