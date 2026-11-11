@@ -1610,18 +1610,7 @@ fn estimate_plan_node(
             let mut work = 0.0;
             let mut choices = Vec::new();
             while !remaining.is_empty() {
-                let source_unit = 30.0 + collection.stats.mean_record_bytes() / 128.0;
-                let next = remaining
-                    .iter()
-                    .enumerate()
-                    .map(|(index, part)| {
-                        let (estimated_work, output) =
-                            estimate_expr_cached(collection, part, current, context);
-                        (index, estimated_work + output as f64 * source_unit * 0.1)
-                    })
-                    .min_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)))
-                    .unwrap()
-                    .0;
+                let next = choose_and_next(collection, &remaining, current, context);
                 let child =
                     estimate_plan_node(collection, remaining.remove(next), current, context);
                 current = current.min(child.candidates);
@@ -1637,24 +1626,17 @@ fn estimate_plan_node(
             }
         }
         BoundExpr::Or(parts) => {
-            let mut ordered = parts
-                .iter()
-                .enumerate()
-                .map(|(position, part)| {
-                    (
-                        position,
-                        estimate_expr_cached(collection, part, input_len, context).0,
-                        part,
-                    )
-                })
-                .collect::<Vec<_>>();
-            ordered.sort_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)));
+            let mut remaining = parts.iter().collect::<Vec<_>>();
             let mut candidates = 0u64;
             let mut exact = true;
             let mut work = 0.0;
             let mut choices = Vec::new();
-            for (_, _, part) in ordered {
-                let child = estimate_plan_node(collection, part, input_len, context);
+            while !remaining.is_empty() {
+                // Estimate-only has no overlap proof. Do not subtract summed
+                // counts or skip a branch as though estimates were matches.
+                let next = choose_or_next(collection, &remaining, input_len, context);
+                let child =
+                    estimate_plan_node(collection, remaining.remove(next), input_len, context);
                 candidates = candidates.saturating_add(child.candidates).min(input_len);
                 exact &= child.exact;
                 work += child.work;
@@ -1712,6 +1694,109 @@ fn estimate_expr_cached(
             (work, input_len / 2)
         }
     }
+}
+
+/// Keep opaque operations and correlated/positional comparisons in their
+/// existing short-circuit order. Built-in local predicates are pure and can
+/// be moved within the contiguous prefix before such a barrier.
+fn reorderable(expr: &BoundExpr) -> bool {
+    match expr {
+        BoundExpr::Term(term) => {
+            term.operation.is_none()
+                && term.matcher.is_none()
+                && term.related.is_none()
+                && term.rhs.is_none()
+                && !term.query_path.has_position
+        }
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => parts.iter().all(reorderable),
+        BoundExpr::Not(inner) => reorderable(inner),
+    }
+}
+
+fn reorderable_prefix(parts: &[&BoundExpr]) -> usize {
+    parts
+        .iter()
+        .position(|part| !reorderable(part))
+        .unwrap_or(parts.len())
+}
+
+/// Compare a restriction with the cost of carrying its survivors through the
+/// other pending predicates. Correlation is unknown, so survivor count is a
+/// conservative upper estimate and is reassessed after each real restriction.
+fn choose_and_next(
+    collection: &CollectionState,
+    remaining: &[&BoundExpr],
+    input_len: u64,
+    context: &mut PlanContext,
+) -> usize {
+    let prefix = reorderable_prefix(remaining);
+    if prefix == 0 {
+        return 0;
+    }
+    let estimates = remaining[..prefix]
+        .iter()
+        .map(|part| estimate_expr_cached(collection, part, input_len, context))
+        .collect::<Vec<_>>();
+    let total = estimates.iter().map(|(work, _)| *work).sum::<f64>();
+    estimates
+        .iter()
+        .enumerate()
+        .map(|(index, &(work, output))| {
+            let survivors = output.min(input_len) as f64 / input_len.max(1) as f64;
+            (index, work + survivors * (total - work).max(0.0))
+        })
+        .min_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)))
+        .map(|(index, _)| index)
+        .unwrap_or(0)
+}
+
+/// Only exact bounds can be counted as definite OR matches. Candidate-only
+/// branches keep their residual and cannot exclude later membership work.
+fn estimate_definite(
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    input_len: u64,
+    context: &mut PlanContext,
+) -> (f64, u64) {
+    match expr {
+        BoundExpr::Term(term) => context
+            .paths(collection, term, input_len)
+            .into_iter()
+            .min_by(|a, b| a.estimated_work.total_cmp(&b.estimated_work))
+            .map(|path| {
+                (
+                    path.estimated_work,
+                    if path.exact { path.estimated_output } else { 0 },
+                )
+            })
+            .unwrap_or((input_len as f64, 0)),
+        _ => {
+            let (work, _) = estimate_expr_cached(collection, expr, input_len, context);
+            (work, 0)
+        }
+    }
+}
+
+fn choose_or_next(
+    collection: &CollectionState,
+    remaining: &[&BoundExpr],
+    input_len: u64,
+    context: &mut PlanContext,
+) -> usize {
+    let prefix = reorderable_prefix(remaining);
+    if prefix == 0 {
+        return 0;
+    }
+    remaining[..prefix]
+        .iter()
+        .enumerate()
+        .map(|(index, part)| {
+            let (work, definite) = estimate_definite(collection, part, input_len, context);
+            (index, work / definite.max(1) as f64)
+        })
+        .min_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)))
+        .map(|(index, _)| index)
+        .unwrap_or(0)
 }
 
 fn flatten_and<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundExpr>) {
@@ -2002,19 +2087,7 @@ fn plan_logical_expr(
             let mut proofs = Vec::new();
             let mut choices = Vec::new();
             while !remaining.is_empty() {
-                let source_unit = 30.0 + collection.stats.mean_record_bytes() / 128.0;
-                let next = remaining
-                    .iter()
-                    .enumerate()
-                    .map(|(index, part)| {
-                        let (work, output) =
-                            estimate_expr_cached(collection, part, current.len(), context);
-                        let score = work + output as f64 * source_unit * 0.1;
-                        (index, score)
-                    })
-                    .min_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)))
-                    .unwrap()
-                    .0;
+                let next = choose_and_next(collection, &remaining, current.len(), context);
                 let child = plan_logical_expr(
                     repo,
                     collection,
@@ -2055,40 +2128,30 @@ fn plan_logical_expr(
             }
         }
         BoundExpr::Or(parts) => {
-            let mut ordered: Vec<_> = parts
-                .iter()
-                .enumerate()
-                .map(|(position, part)| {
-                    (
-                        position,
-                        estimate_expr_cached(collection, part, input.len(), context).0,
-                        part,
-                    )
-                })
-                .collect();
-            ordered.sort_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)));
+            let mut remaining = parts.iter().collect::<Vec<_>>();
             let mut candidates = Some(RoaringBitmap::new());
             let mut proven_hits = RoaringBitmap::new();
             let mut proofs = Vec::new();
             let mut choices = Vec::new();
             let mut all_exact = true;
-            for (position, (_, _, part)) in ordered.iter().enumerate() {
-                let remaining = if evidence {
+            while !remaining.is_empty() {
+                let active = if evidence {
                     input.clone()
                 } else {
                     input - &proven_hits
                 };
-                if remaining.is_empty() {
+                if active.is_empty() {
                     if context.diagnostics {
-                        for (_, _, skipped) in &ordered[position..] {
+                        for skipped in &remaining {
                             skipped_choices(collection, skipped, &mut choices);
                         }
                     }
                     break;
                 }
-                let child = plan_logical_expr(
-                    repo, collection, part, domain, &remaining, evidence, context,
-                )?;
+                let next = choose_or_next(collection, &remaining, active.len(), context);
+                let part = remaining.remove(next);
+                let child =
+                    plan_logical_expr(repo, collection, part, domain, &active, evidence, context)?;
                 all_exact &= child.exact;
                 proven_hits |= &child.proven_hits;
                 candidates = match (candidates, child.candidates) {
