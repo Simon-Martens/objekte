@@ -1,0 +1,28 @@
+[
+  {
+    "id": "Q022",
+    "collection": "entries",
+    "fts": "unbezeichnet",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q110",
+    "collection": "entries",
+    "fts": null,
+    "filter": "edit_fielddata:null = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

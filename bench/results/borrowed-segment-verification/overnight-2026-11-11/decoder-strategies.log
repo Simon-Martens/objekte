@@ -1,0 +1,43 @@
+    Finished `release` profile [optimized] target(s) in 0.13s
+     Running unittests src/lib.rs (target/release/deps/objekte_search_core-5e2f67942b23c6fa)
+
+running 1 test
+test json_scalar_text::tests::decoder_strategy_microbench ... decoder plain-ascii repeated-memchr: 373 ns/token median of 5
+decoder plain-ascii first-memchr-byte-loop: 313 ns/token median of 5
+decoder plain-ascii adaptive-8: 362 ns/token median of 5
+decoder plain-ascii adaptive-4: 287 ns/token median of 5
+decoder plain-ascii predecessor-serde-owned: 1080 ns/token median of 5
+decoder plain-unicode repeated-memchr: 4945 ns/token median of 5
+decoder plain-unicode first-memchr-byte-loop: 4944 ns/token median of 5
+decoder plain-unicode adaptive-8: 5090 ns/token median of 5
+decoder plain-unicode adaptive-4: 4778 ns/token median of 5
+decoder plain-unicode predecessor-serde-owned: 6119 ns/token median of 5
+decoder sparse-simple repeated-memchr: 453 ns/token median of 5
+decoder sparse-simple first-memchr-byte-loop: 3871 ns/token median of 5
+decoder sparse-simple adaptive-8: 470 ns/token median of 5
+decoder sparse-simple adaptive-4: 469 ns/token median of 5
+decoder sparse-simple predecessor-serde-owned: 1751 ns/token median of 5
+decoder dense-simple repeated-memchr: 19476 ns/token median of 5
+decoder dense-simple first-memchr-byte-loop: 17136 ns/token median of 5
+decoder dense-simple adaptive-8: 17627 ns/token median of 5
+decoder dense-simple adaptive-4: 17791 ns/token median of 5
+decoder dense-simple predecessor-serde-owned: 17469 ns/token median of 5
+decoder unicode-escape repeated-memchr: 11478 ns/token median of 5
+decoder unicode-escape first-memchr-byte-loop: 9782 ns/token median of 5
+decoder unicode-escape adaptive-8: 10172 ns/token median of 5
+decoder unicode-escape adaptive-4: 10285 ns/token median of 5
+decoder unicode-escape predecessor-serde-owned: 9956 ns/token median of 5
+decoder surrogate-pair repeated-memchr: 7330 ns/token median of 5
+decoder surrogate-pair first-memchr-byte-loop: 6593 ns/token median of 5
+decoder surrogate-pair adaptive-8: 6665 ns/token median of 5
+decoder surrogate-pair adaptive-4: 6785 ns/token median of 5
+decoder surrogate-pair predecessor-serde-owned: 6328 ns/token median of 5
+decoder alternating repeated-memchr: 10372 ns/token median of 5
+decoder alternating first-memchr-byte-loop: 8879 ns/token median of 5
+decoder alternating adaptive-8: 8851 ns/token median of 5
+decoder alternating adaptive-4: 9051 ns/token median of 5
+decoder alternating predecessor-serde-owned: 8527 ns/token median of 5
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 515 filtered out; finished in 2.03s
+

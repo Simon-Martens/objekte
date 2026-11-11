@@ -1,0 +1,5 @@
+Q069 collection=agents FTS=None FILTER=Some("pseudonyms ~ \"\"") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 16134.588 / 16424.422 / 16876.952 µs (ok) | unicode-off: 15698.298 / 16458.557 / 16895.347 µs (ok)
+build "ascii": 2.538 s; snapshot_write=0.437 s; parses=148486; resident_bytes=466837504; peak_resident_bytes=554311680; estimated_index_bytes=69662968; snapshot_bytes=129139458; restore_min/median/max=1.342/1.349/1.389 s (5 runs)
+build "unicode": 2.619 s; snapshot_write=0.441 s; parses=148486; resident_bytes=683085824; peak_resident_bytes=683085824; estimated_index_bytes=72571368; snapshot_bytes=131650034; restore_min/median/max=1.331/1.367/1.381 s (5 runs)
+reports: bench/results/borrowed-segment-verification/overnight-2026-11-11/new2
+reproduce: cargo run --release --example bench_musenalm -- "--root" "examples/musenalm" "--extended" "--cases" "Q069" "--profiles" "ascii-off,unicode-off" "--repetitions" "7" "--query-workers" "4" "--verified-cache-bytes" "0" "--result-dir" "bench/results/borrowed-segment-verification/overnight-2026-11-11/new2"

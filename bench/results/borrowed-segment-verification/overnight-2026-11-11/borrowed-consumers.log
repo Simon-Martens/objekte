@@ -1,0 +1,15 @@
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte-integration-borrowed-segment-verification/crates/core)
+    Finished `release` profile [optimized] target(s) in 30.65s
+     Running unittests src/lib.rs (target/release/deps/objekte_search_core-5e2f67942b23c6fa)
+
+running 1 test
+test json_scalar_text::tests::borrowed_consumer_microbench ... consumer plain direct: 592 ns/record median of 5; min 532; max 644; bytes 8209
+consumer plain combined-value: 1363 ns/record median of 5; min 1330; max 1403; bytes 8209
+consumer escaped direct: 18392 ns/record median of 5; min 17874; max 21660; bytes 6161
+consumer escaped combined-value: 16516 ns/record median of 5; min 15715; max 17159; bytes 6161
+consumer many-scalars direct: 11862 ns/record median of 5; min 11632; max 12897; bytes 3091
+consumer many-scalars combined-value: 50157 ns/record median of 5; min 49079; max 51233; bytes 3091
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 515 filtered out; finished in 0.33s
+

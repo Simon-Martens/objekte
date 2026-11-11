@@ -1,0 +1,28 @@
+[
+  {
+    "id": "Q049",
+    "collection": "entries",
+    "fts": null,
+    "filter": "pseudonym = false",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q158",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year <= musenalm_id",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "Q022",
+    "collection": "entries",
+    "fts": "unbezeichnet",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q110",
+    "collection": "entries",
+    "fts": null,
+    "filter": "edit_fielddata:null = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q190",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= 1800 SORT BY MIN(language) ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

@@ -1,0 +1,3 @@
+case_id,profile,status,min_ns,median_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses,exact_posting_matches,scanned_records,residual_evaluations,prepared_plan_hits,verified_result_hits,preparation_median_ns,planning_median_ns
+Q069,ascii-off,ok,13182613,13527169,14129781,7,4010,50,4010,4010,29483280,4010,0,4010,4010,6,0,21411,71374
+Q069,unicode-off,ok,13319740,14339735,15243934,7,4010,50,4010,4010,29483280,4010,0,4010,4010,6,0,21350,76433

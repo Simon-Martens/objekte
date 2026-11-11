@@ -1,0 +1,10 @@
+    Finished `release` profile [optimized] target(s) in 0.14s
+     Running unittests src/lib.rs (target/release/deps/objekte_search_core-5e2f67942b23c6fa)
+
+running 1 test
+test reference::tests::borrowed_value_consumer_microbench ... consumer one-string existing-value: 28 ns/record median of 5; min 28; max 41; strings 2
+consumer many-strings existing-value: 6003 ns/record median of 5; min 5897; max 6202; strings 513
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 515 filtered out; finished in 0.01s
+

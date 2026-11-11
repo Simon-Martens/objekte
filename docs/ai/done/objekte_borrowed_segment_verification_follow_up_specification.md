@@ -284,3 +284,7 @@ The user supplied `docs/ai/tasks/objekte_borroed_segments_repair.md` and explici
 Update: the [repair measurements](../../../bench/results/borrowed-segment-verification/repair-2026-11-11/README.md) cover the final 109-ID recheck at `49ac3f50` and identify five unresolved FILTER-only timing rows. A later mixed local/relation FTS ownership change has targeted test coverage; its full benchmark comparison was not run before the user requested immediate delivery. This reopened repair remains in `tasks/`, not `done/`, pending those performance findings.
 
 Cleanup: the detached benchmark baseline worktree was restored and removed after its results and harness source were preserved. The integration branch and worktree remain for the user's merge. The five generated fixture directories remain at `/home/simon/source/objekte-bench-borrowed-segment-verification` for local reproduction.
+
+## Repair completed on 11 November 2026
+
+The separate repair specification is preserved in [its completed task document](objekte_borroed_segments_repair.md). Commit `a1bb0990` fixed the repeatable Q069 FILTER-only direct-scanner regression, and the [final repair report](../generated/borrowed_segment_verification_repair_results.md) records the A/B/C production paths, allocation and scratch probes, complete 776-row query-suite parity, and paired regression rechecks. The earlier limitation and open status above remain as historical records of the reviewed revision and intermediate repair state; they are superseded by the final repair results.

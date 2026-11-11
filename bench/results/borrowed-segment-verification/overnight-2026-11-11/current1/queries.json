@@ -1,0 +1,54 @@
+[
+  {
+    "id": "Q056",
+    "collection": "contents",
+    "fts": null,
+    "filter": "pseudonym = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q069",
+    "collection": "agents",
+    "fts": null,
+    "filter": "pseudonyms ~ \"\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q086",
+    "collection": "entries",
+    "fts": null,
+    "filter": "carrier_type ?= \"Band\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q160",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors[0].type = 'Autor:in'",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]
