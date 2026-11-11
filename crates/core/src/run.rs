@@ -17,6 +17,7 @@ use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
 use crate::executor::{
     Plan, PlanningCounters, Proof, TermChoice, estimate_expr, estimate_fts_candidates,
     estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
+    segment_filter_bounds_with_catalog,
     segment_fts_candidates,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
@@ -2588,13 +2589,14 @@ fn segment_exact_evidence_fields(
     collection: &CollectionState,
     expr: &BoundExpr,
     candidates: &RoaringBitmap,
+    catalog: &FileCatalog,
 ) -> Result<Option<Vec<String>>, String> {
     match expr {
         BoundExpr::Term(term) => {
             if term.related.is_some() || term.rhs.is_some() {
                 return Ok(None);
             }
-            let bounds = segment_filter_bounds(segment, active, expr, collection)?;
+            let bounds = segment_filter_bounds_with_catalog(segment, active, expr, collection, Some(catalog))?;
             if !candidates.is_subset(&bounds.must) {
                 return Ok(None);
             }
@@ -2612,7 +2614,7 @@ fn segment_exact_evidence_fields(
             let mut fields = Vec::new();
             for part in parts {
                 let Some(child) =
-                    segment_exact_evidence_fields(segment, active, collection, part, candidates)?
+                    segment_exact_evidence_fields(segment, active, collection, part, candidates, catalog)?
                 else {
                     return Ok(None);
                 };
@@ -3005,7 +3007,7 @@ fn try_exact_segment_ordered_page(
         let bounds = filter
             .as_ref()
             .map(|filter| {
-                segment_filter_bounds(&published.index, &published.active, filter, collection)
+                segment_filter_bounds_with_catalog(&published.index, &published.active, filter, collection, Some(catalog))
             })
             .transpose()?;
         let candidates = bounds
@@ -3028,6 +3030,7 @@ fn try_exact_segment_ordered_page(
                     collection,
                     filter,
                     &candidates,
+                    catalog,
                 )?
                 else {
                     return Ok(None);
@@ -3228,7 +3231,7 @@ fn search_segmented_impl(
             let segment = &published.index;
             let bounds = filter
                 .as_ref()
-                .map(|filter| segment_filter_bounds(segment, &published.active, filter, collection))
+                .map(|filter| segment_filter_bounds_with_catalog(segment, &published.active, filter, collection, Some(catalog)))
                 .transpose()?;
             let mut candidates = bounds
                 .as_ref()
@@ -3248,7 +3251,7 @@ fn search_segmented_impl(
             {
                 if let Some(filter) = filter.as_ref() {
                     segment_exact_evidence_fields(
-                        segment, &published.active, collection, filter, &candidates,
+                        segment, &published.active, collection, filter, &candidates, catalog,
                     )?
                 } else {
                     Some(Vec::new())
@@ -4206,11 +4209,12 @@ fn try_direct_relation_page(
     let mut local_proofs = Vec::new();
     if let Some(local_filter) = local_filter {
         for published in segments[*source_index].iter() {
-            let bounds = segment_filter_bounds(
+            let bounds = segment_filter_bounds_with_catalog(
                 &published.index,
                 &published.active,
                 local_filter,
                 &repo.collections[*source_index],
+                Some(catalog),
             )?;
             // Data predicates cannot match a raw fallback. Prove only the
             // logical source domain used by the relation reverse posting.
@@ -4282,11 +4286,12 @@ fn try_direct_relation_page(
         let segment = &published.index;
         let (may, must) = match &predicate {
             DirectRelationPredicate::Term(term) => {
-                let bounds = segment_filter_bounds(
+                let bounds = segment_filter_bounds_with_catalog(
                     segment,
                     &published.active,
                     &BoundExpr::Term((*term).clone()),
                     target_collection,
+                    Some(catalog),
                 )?;
                 (bounds.may, Some(bounds.must))
             }
@@ -4952,7 +4957,7 @@ fn try_parallel_relation_page(
             let filter_may = filter
                 .as_ref()
                 .map(|filter| {
-                    segment_filter_bounds(&published.index, &published.active, filter, collection)
+                    segment_filter_bounds_with_catalog(&published.index, &published.active, filter, collection, Some(catalog))
                         .map(|bounds| bounds.may)
                 })
                 .transpose()?;
@@ -5407,7 +5412,7 @@ fn search_segmented_relations(
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
             let mut candidates = if prune_segments {
                 let filter_may = filter.as_ref().map(|filter| {
-                    segment_filter_bounds(&published.index, &published.active, filter, collection)
+                    segment_filter_bounds_with_catalog(&published.index, &published.active, filter, collection, Some(catalog))
                         .map(|bounds| bounds.may)
                 }).transpose()?;
                 let fts_may = fts.as_ref().and_then(|fts| {
@@ -5967,7 +5972,7 @@ fn try_lifecycle_ordered_stream(
         for (segment_index, segment) in segments[collection_index].iter().enumerate() {
             let collection = &repo.collections[collection_index];
             let filter_may = filter.as_ref().map(|filter| {
-                segment_filter_bounds(&segment.index, &segment.active, filter, collection)
+                segment_filter_bounds_with_catalog(&segment.index, &segment.active, filter, collection, Some(catalog))
                     .map(|bounds| bounds.may)
             }).transpose()?;
             let fts_may = fts.as_ref().and_then(|fts| {

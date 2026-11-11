@@ -1,6 +1,7 @@
 //! Repository-wide files and collection-generation record ownership.
 
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
+use std::ops::Bound;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::time::SystemTime;
@@ -9,6 +10,7 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 
 use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
+use crate::query::Operator;
 use crate::source::{DiagnosticCategory, ReaderDiagnostic};
 
 /// Append a batch-local bitmap after its final slot base is known. Batch
@@ -520,6 +522,49 @@ pub struct FileInventory {
     pub files: Vec<FileEntry>,
     #[serde(skip)]
     by_path: HashMap<PathBuf, FileId>,
+    /// Ordered absolute query paths, rebuilt with every restored index.
+    #[serde(skip)]
+    pub(crate) absolute_paths: BTreeMap<String, FileId>,
+}
+
+/// Use the same representation as `@file.path` after prepending the source root.
+pub(crate) fn absolute_path_key(root: &Path, relative: &Path) -> String {
+    crate::path_repr::query_path(&root.join(relative))
+}
+
+/// Lexical comparisons keep their order when both operands share this root.
+pub(crate) fn absolute_path_bounds(
+    root: &Path,
+    operator: Operator,
+    literal: &str,
+) -> Option<(Bound<String>, Bound<String>)> {
+    let mut key = crate::path_repr::query_path(root);
+    if !key.ends_with('/') {
+        key.push('/');
+    }
+    key.push_str(literal);
+    Some(match operator {
+        Operator::Eq => (Bound::Included(key.clone()), Bound::Included(key)),
+        Operator::Gt => (Bound::Excluded(key), Bound::Unbounded),
+        Operator::Ge => (Bound::Included(key), Bound::Unbounded),
+        Operator::Lt => (Bound::Unbounded, Bound::Excluded(key)),
+        Operator::Le => (Bound::Unbounded, Bound::Included(key)),
+        _ => return None,
+    })
+}
+
+pub(crate) fn empty_path_bounds(bounds: &(Bound<String>, Bound<String>)) -> bool {
+    match (&bounds.0, &bounds.1) {
+        (Bound::Unbounded, _) | (_, Bound::Unbounded) => false,
+        (
+            Bound::Included(lower) | Bound::Excluded(lower),
+            Bound::Included(upper) | Bound::Excluded(upper),
+        ) => {
+            lower > upper
+                || (lower == upper
+                    && !matches!((&bounds.0, &bounds.1), (Bound::Included(_), Bound::Included(_))))
+        }
+    }
 }
 
 
@@ -546,6 +591,9 @@ impl FileInventory {
             }
         }
         inventory += self.by_path.keys().map(PathBuf::capacity).sum::<usize>();
+        inventory += self.absolute_paths.len()
+            * std::mem::size_of::<(String, FileId)>();
+        inventory += self.absolute_paths.keys().map(String::capacity).sum::<usize>();
         (inventory, diagnostics)
     }
 
@@ -554,6 +602,7 @@ impl FileInventory {
             root,
             files: Vec::new(),
             by_path: HashMap::new(),
+            absolute_paths: BTreeMap::new(),
         }
     }
 
@@ -579,6 +628,8 @@ impl FileInventory {
         }
         let id = FileId(u32::try_from(self.files.len()).map_err(|_| "too many files")?);
         self.by_path.insert(relative_path.clone(), id);
+        self.absolute_paths
+            .insert(absolute_path_key(&self.root, &relative_path), id);
         self.files.push(FileEntry {
             id,
             relative_path,
@@ -663,6 +714,7 @@ impl FileInventory {
 
     pub fn rebuild_lookup(&mut self) -> Result<(), String> {
         self.by_path.clear();
+        self.absolute_paths.clear();
         for (slot, file) in self.files.iter().enumerate() {
             if !valid_relative_path(&file.relative_path)
                 || file.id.0 as usize != slot
@@ -672,6 +724,13 @@ impl FileInventory {
                     .is_some()
             {
                 return Err("invalid restored file inventory".into());
+            }
+            if self
+                .absolute_paths
+                .insert(absolute_path_key(&self.root, &file.relative_path), file.id)
+                .is_some()
+            {
+                return Err("invalid restored absolute file path index".into());
             }
         }
         self.validate_diagnostics()?;
@@ -686,6 +745,18 @@ impl FileInventory {
 
     pub fn id_for(&self, path: &Path) -> Option<FileId> {
         self.by_path.get(path).copied()
+    }
+
+    pub(crate) fn absolute_path_ids(&self, operator: Operator, literal: &str) -> Option<Vec<FileId>> {
+        let bounds = absolute_path_bounds(&self.root, operator, literal)?;
+        Some(self.absolute_path_ids_in_bounds(bounds))
+    }
+
+    pub(crate) fn absolute_path_ids_in_bounds(&self, bounds: (Bound<String>, Bound<String>)) -> Vec<FileId> {
+        if empty_path_bounds(&bounds) {
+            return Vec::new();
+        }
+        self.absolute_paths.range(bounds).map(|(_, id)| *id).collect()
     }
 }
 
