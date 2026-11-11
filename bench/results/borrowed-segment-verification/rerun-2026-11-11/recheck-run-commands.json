@@ -1,0 +1,104 @@
+[
+  {
+    "file": "base-long-escaped-recheck-round1.jsonl",
+    "command": [
+      "/home/simon/source/objekte-bench-baseline-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "21",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "cwd": "/home/simon/source/objekte-bench-baseline-borrowed-segment-verification",
+    "wall_seconds": 3.712
+  },
+  {
+    "file": "final-long-escaped-recheck-round1.jsonl",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "21",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "wall_seconds": 3.896
+  },
+  {
+    "file": "final-long-escaped-recheck-round2.jsonl",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "21",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "wall_seconds": 3.743
+  },
+  {
+    "file": "base-long-escaped-recheck-round2.jsonl",
+    "command": [
+      "/home/simon/source/objekte-bench-baseline-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "21",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "cwd": "/home/simon/source/objekte-bench-baseline-borrowed-segment-verification",
+    "wall_seconds": 3.768
+  },
+  {
+    "file": "base-long-escaped-recheck-round3.jsonl",
+    "command": [
+      "/home/simon/source/objekte-bench-baseline-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "21",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "cwd": "/home/simon/source/objekte-bench-baseline-borrowed-segment-verification",
+    "wall_seconds": 3.819
+  },
+  {
+    "file": "final-long-escaped-recheck-round3.jsonl",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/long-escaped",
+      "--repetitions",
+      "21",
+      "--workers",
+      "4",
+      "--borrowed-focused",
+      "--format",
+      "decoded"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "wall_seconds": 3.724
+  }
+]

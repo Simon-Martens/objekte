@@ -5,6 +5,7 @@ Predecessor and task base: `5166876c7228f4fe2f8f064861cdc8a88275ad18`
 Implementation: `1f906cb1be`, `c3b01ab22d`, `47931f0cdf`
 Branch: `integration/borrowed-segment-verification`
 Detailed measurements: [benchmark results](../../../bench/results/borrowed-segment-verification/README.md) and [40-row focused comparison](../../../bench/results/borrowed-segment-verification/focused-comparison.md).
+A later [same-computer benchmark rerun](borrowed_segment_verification_rerun_2026-11-11.md) records new paired measurements and timing variability.
 
 ## Disposition
 

@@ -1,0 +1,66 @@
+[
+  {
+    "file": "base-plain-in-memory.jsonl",
+    "command": [
+      "/home/simon/source/objekte-bench-baseline-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/plain",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--format",
+      "json"
+    ],
+    "cwd": "/home/simon/source/objekte-bench-baseline-borrowed-segment-verification",
+    "wall_seconds": 0.598
+  },
+  {
+    "file": "final-plain-in-memory.jsonl",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/plain",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--format",
+      "json"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "wall_seconds": 0.593
+  },
+  {
+    "file": "base-escaped-in-memory.jsonl",
+    "command": [
+      "/home/simon/source/objekte-bench-baseline-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--format",
+      "decoded"
+    ],
+    "cwd": "/home/simon/source/objekte-bench-baseline-borrowed-segment-verification",
+    "wall_seconds": 0.807
+  },
+  {
+    "file": "final-escaped-in-memory.jsonl",
+    "command": [
+      "/home/simon/source/objekte-integration-borrowed-segment-verification/target/release/examples/bench_candidate_verification",
+      "--root",
+      "/home/simon/source/objekte-bench-borrowed-segment-verification/escaped",
+      "--repetitions",
+      "7",
+      "--workers",
+      "4",
+      "--format",
+      "decoded"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-borrowed-segment-verification",
+    "wall_seconds": 0.751
+  }
+]
