@@ -283,7 +283,21 @@ pub fn serialize_conditions(rows: &[ConditionDraft]) -> Result<Option<String>, S
                 else {
                     return Ok(None);
                 };
-                Number::parse_json_literal(value)?;
+                // Use the query grammar for both plain numbers and exact byte
+                // sizes (e.g. 23MB or 02GiB). Require exactly one numeric literal
+                // so the value control cannot introduce another condition.
+                let parsed = parse_structured_filter(&format!("value = {value}"))?;
+                if parsed.sort.is_some()
+                    || !matches!(
+                        parsed.filter,
+                        Some(FilterExpr::Term(Term {
+                            operand: Operand::Literal(Literal::Number(_)),
+                            ..
+                        }))
+                    )
+                {
+                    return Err("Expected a number or byte size such as 23MB or 2GiB".into());
+                }
                 value.to_owned()
             }
             ValueType::Boolean => match row.value.as_deref() {

@@ -2,7 +2,7 @@
 
 use std::collections::BTreeMap;
 
-use objekte_search_core::model::{FieldPath, LogicalType, PathRoot};
+use objekte_search_core::model::{FieldPath, LogicalType, MetadataField, PathRoot};
 use objekte_search_core::query_path::QueryPath;
 
 use crate::backend::{OpenedSession, build_query};
@@ -31,7 +31,7 @@ pub fn validate_request(session: &OpenedSession, draft: &SearchDraft) -> FilterV
     }
 }
 
-/// Suggestions come from loaded schemas and the already available columns;
+/// Suggestions include built-in metadata, loaded schemas, and available columns;
 /// this function never discovers fields by walking records.
 pub fn field_choices(
     session: &OpenedSession,
@@ -79,6 +79,35 @@ pub fn field_choices(
         if QueryPath::parse(column).is_ok() {
             fields.entry(column.clone()).or_insert(None);
         }
+    }
+    // Reserved metadata is available in every scope, even without a schema or
+    // visible metadata column. Use the core names so insertion matches FILTER.
+    for field in [
+        MetadataField::RecordId,
+        MetadataField::RecordByteStart,
+        MetadataField::RecordByteEnd,
+        MetadataField::RecordByteLength,
+        MetadataField::RecordClass,
+        MetadataField::FileId,
+        MetadataField::FilePath,
+        MetadataField::FileSize,
+        MetadataField::FileCreated,
+        MetadataField::FileModified,
+        MetadataField::FileStatus,
+        MetadataField::CollectionName,
+        MetadataField::RepositoryRoot,
+    ] {
+        let kind = match field {
+            MetadataField::RecordByteStart
+            | MetadataField::RecordByteEnd
+            | MetadataField::RecordByteLength
+            | MetadataField::FileSize
+            | MetadataField::FileId
+            | MetadataField::FileStatus
+            | MetadataField::RecordClass => ValueType::Number,
+            _ => ValueType::String,
+        };
+        fields.insert(field.as_str().into(), Some(kind));
     }
     fields
         .into_iter()
