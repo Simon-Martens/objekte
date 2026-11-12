@@ -1,0 +1,60 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-integration-index-construction-data-path",
+    "candidate_repo": "/home/simon/source/objekte-task-index-construction-experiment-revision-field-admission",
+    "control_bin": "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/bench_index_construction",
+    "candidate_bin": "/home/simon/source/objekte-task-index-construction-experiment-revision-field-admission/target/release/examples/bench_index_construction",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "unicode",
+    "workers": "auto",
+    "profile": false,
+    "control_revision": "54dcac5c3b3e1ca499180061ebcee7ad60c27101",
+    "candidate_revision": "b38d6696e4b2f681f9c0245d18b706b02bfa0051",
+    "control_sha256": "42449be3ded342ff6228c88a52a4dddd200f6501314eff3da739803cb4be3c0b",
+    "candidate_sha256": "14a7a39ea9479178fc0781df99582e689c0453ba9f5730391a1b1e622e7e8769",
+    "pairs": 5
+  },
+  "control_build_ns": {
+    "median": 1236929815,
+    "min": 1200731898,
+    "max": 1273213662,
+    "iqr": 38961042.0
+  },
+  "candidate_build_ns": {
+    "median": 1246443877,
+    "min": 1180561507,
+    "max": 1283312347,
+    "iqr": 72710637.0
+  },
+  "paired_delta_ns": {
+    "median": 9514062,
+    "min": -92652155,
+    "max": 59820007,
+    "iqr": 51271907.0
+  },
+  "paired_delta_percent": {
+    "median": 0.769167489102851,
+    "min": -7.27703116650974,
+    "max": 4.971118887117232,
+    "iqr": 4.1557676728889215
+  },
+  "paired_deltas_ns": [
+    41000342,
+    59820007,
+    9514062,
+    -92652155,
+    -10271565
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 37909,
+    "estimated_index_bytes": 72571368
+  },
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 32
+}
