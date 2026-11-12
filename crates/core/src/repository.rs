@@ -1257,9 +1257,9 @@ impl Repository {
         let discovery_started = Instant::now();
         let mut files = FileInventory::new(root.clone());
         let mut selected = Vec::new();
-        // At most 32 paths per worker are prepared before ordered insertion.
+        // At most 64 paths per worker are prepared before ordered insertion.
         // The discovered collection remains the only corpus-sized path list.
-        let metadata_window = build_workers.saturating_mul(32);
+        let metadata_window = build_workers.saturating_mul(64);
         let metadata_peak_active = AtomicUsize::new(0);
         for (collection_index, definition) in definitions.into_iter().enumerate() {
             let source = sources.resolve(&definition.format)?;
