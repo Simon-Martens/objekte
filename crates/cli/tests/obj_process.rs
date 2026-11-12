@@ -26,6 +26,112 @@ fn hits(events: &[Value]) -> Vec<&Value> {
 }
 
 #[test]
+fn explicit_inference_index_only_waits_and_keeps_stdout_ndjson() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("one.json"), br#"{"title":"Alpha","score":0}"#)
+        .unwrap();
+    let (output, events) = invoke(
+        root.path(),
+        &["--auto-index", "--index-wait=complete", "--diagnostic"],
+    );
+    assert!(output.status.success(), "{}", String::from_utf8_lossy(&output.stderr));
+    assert_eq!(events.len(), 2);
+    assert_eq!(events[0]["type"], "run_start");
+    assert_eq!(events[1]["type"], "run_complete");
+    assert_eq!(events[1]["records"], 1);
+    assert_eq!(events[1]["query_successes"], 0);
+    assert_eq!(events[1]["inference"], "auto_index");
+    assert_eq!(events[1]["extended_index"]["phase"], "complete");
+    assert!(events[1]["capability_revision"].is_number());
+    assert!(!root.path().join(".objekte").exists());
+}
+
+#[test]
+fn search_wait_field_query_preserves_result_protocol() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("one.json"), br#"{"title":"Alpha","score":0}"#)
+        .unwrap();
+    std::fs::write(root.path().join("two.json"), br#"{"title":"","score":1}"#)
+        .unwrap();
+    let (output, events) = invoke(root.path(), &["--index-wait=search", "title:? = true"]);
+    assert!(output.status.success(), "{}", String::from_utf8_lossy(&output.stderr));
+    assert_eq!(hits(&events).len(), 1);
+    assert_eq!(events[0]["type"], "run_start");
+    assert_eq!(events.last().unwrap()["type"], "run_complete");
+    assert_eq!(events.last().unwrap()["query_successes"], 1);
+    assert_eq!(events.last().unwrap()["build_parses"], 2);
+}
+
+#[test]
+fn search_wait_save_can_be_loaded_for_complete_inference() {
+    let root = tempfile::tempdir().unwrap();
+    for number in 0..40 {
+        std::fs::write(
+            root.path().join(format!("{number:03}.json")),
+            serde_json::json!({"title": format!("Title {number}"), "score": number}).to_string(),
+        )
+        .unwrap();
+    }
+    let (saved, events) = invoke(
+        root.path(),
+        &["--auto-index", "--index-wait=search", "--write-index"],
+    );
+    assert!(saved.status.success(), "{}", String::from_utf8_lossy(&saved.stderr));
+    assert_eq!(events[0]["type"], "run_start");
+    assert_eq!(events.last().unwrap()["type"], "run_complete");
+    assert!(root.path().join(".objekte/search-core-ascii.snapshot").exists());
+
+    let (loaded, events) = invoke(
+        root.path(),
+        &["--auto-index", "--load-index", "--index-wait=complete", "title:? = true"],
+    );
+    assert!(loaded.status.success(), "{}", String::from_utf8_lossy(&loaded.stderr));
+    assert_eq!(events.last().unwrap()["snapshot_action"], "restored");
+    assert_eq!(events.last().unwrap()["query_successes"], 1);
+    assert_eq!(hits(&events).len(), 40);
+}
+
+#[test]
+fn search_wait_writes_snapshot_after_query_stream_finishes() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("one.json"), br#"{"title":"Alpha"}"#).unwrap();
+    let snapshot = root.path().join(".objekte/search-core-ascii.snapshot");
+    let mut child = Command::new(env!("CARGO_BIN_EXE_obj"))
+        .current_dir(root.path())
+        .args(["--auto-index", "--write-index", "--index-wait=search", "--query-file", "-"])
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()
+        .unwrap();
+    let mut stdin = child.stdin.take().unwrap();
+    stdin.write_all(b"title:? = true\n").unwrap();
+    stdin.flush().unwrap();
+    let mut reader = BufReader::new(child.stdout.take().unwrap());
+    let mut observed = Vec::new();
+    loop {
+        let mut line = String::new();
+        assert_ne!(reader.read_line(&mut line).unwrap(), 0);
+        let event: Value = serde_json::from_str(&line).unwrap();
+        let complete = event["type"] == "query_complete";
+        observed.push(event);
+        if complete {
+            break;
+        }
+    }
+    assert!(!snapshot.exists(), "save must follow the final query");
+    drop(stdin);
+    for line in reader.lines() {
+        observed.push(serde_json::from_str(&line.unwrap()).unwrap());
+    }
+    let status = child.wait().unwrap();
+    assert!(status.success());
+    assert_eq!(observed.last().unwrap()["type"], "run_complete");
+    assert_eq!(observed.last().unwrap()["snapshot_action"], "built_and_written");
+    assert!(snapshot.is_file());
+}
+
+#[test]
 fn tui_requires_terminal_and_rejects_query_file_before_building() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("one.json"), br#"{"title":"one"}"#).unwrap();
@@ -337,6 +443,7 @@ fn auto_index_flag_preserves_answers_and_reports_short_string_capability() {
         root.path(),
         &[
             "--auto-index",
+            "--index-wait=complete",
             "code = \"550e8400-e29b-41d4-a716-000000000036\"",
         ],
     );
@@ -360,7 +467,8 @@ fn auto_index_flag_preserves_answers_and_reports_short_string_capability() {
         auto.last().unwrap()["automatic_index_summary"]["short_string_complete_fields"],
         1
     );
-    assert_eq!(auto.last().unwrap()["build_parses"], 80);
+    assert_eq!(plain.last().unwrap()["build_parses"], 80);
+    assert_eq!(auto.last().unwrap()["build_parses"], 160);
     assert!(!root.path().join(".objekte").exists());
 }
 
