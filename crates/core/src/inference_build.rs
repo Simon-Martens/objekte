@@ -490,22 +490,33 @@ impl InferenceBuilder {
     }
 
     pub(crate) fn for_collection(config: InferenceConfig, collections: usize) -> Option<Self> {
-        Self::for_collection_weighted(config, 1, collections.max(1))
+        Self::for_collection_weighted(config, 1, collections.max(1), collections.max(1))
     }
 
     pub(crate) fn for_collection_weighted(
         config: InferenceConfig,
-        discovered_files: usize,
-        total_discovered_files: usize,
+        estimated_records: usize,
+        total_estimated_records: usize,
+        collections: usize,
     ) -> Option<Self> {
         let mut builder = Self::new(config, false)?;
-        // Builders coexist until finalization. Discovery provides a stable
-        // workload measure before any observation starts. Proportional shares
-        // keep the sum bounded while avoiding an unused equal share for a
-        // tiny collection that would stop observation in a large collection.
-        builder.coordinator_limit = ((config.policy.max_total_bytes as u128)
-            .saturating_mul(discovered_files as u128)
-            / total_discovered_files.max(1) as u128) as usize;
+        if estimated_records == 0 {
+            builder.coordinator_limit = 0;
+            return Some(builder);
+        }
+        // Builders coexist until finalization. The base pass supplies stable
+        // record counts before observation starts. Reserve a small equal
+        // allowance for collections with many paths, then distribute the rest
+        // by record count. The shares still sum to at most max_total_bytes.
+        let collections = collections.max(1);
+        let floor = (32 * 1024 * 1024).min(config.policy.max_total_bytes / collections);
+        let remainder = config
+            .policy
+            .max_total_bytes
+            .saturating_sub(floor.saturating_mul(collections));
+        builder.coordinator_limit = floor + ((remainder as u128)
+            .saturating_mul(estimated_records as u128)
+            / total_estimated_records.max(1) as u128) as usize;
         Some(builder)
     }
 
