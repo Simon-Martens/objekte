@@ -36,6 +36,20 @@ fn latest_query_waits_for_search_ready() {
 }
 
 #[test]
+fn replacement_open_queues_query_instead_of_using_previous_session() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.opening_draft = Some(OpenDraft::default());
+    let draft = SearchDraft { full_text: "Beta".into(), ..SearchDraft::default() };
+    let mut updates = Vec::new();
+    controller.start_query(draft.clone(), 0, &mut updates);
+    assert_eq!(controller.current_draft, draft);
+    assert!(!updates.iter().any(|update| matches!(update, UiUpdate::QueryStarted { .. })));
+    assert!(controller.executed_view.is_none());
+}
+
+#[test]
 fn capability_revision_does_not_change_desktop_data_publication() {
     let fixture = crate::backend::test_support::fixture();
     let status = fixture.session.repository.index().status().unwrap();

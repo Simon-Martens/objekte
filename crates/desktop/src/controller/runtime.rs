@@ -1667,6 +1667,10 @@ impl DesktopController {
     }
 
     fn start_validation(&mut self, draft: SearchDraft, updates: &mut Vec<UiUpdate>) {
+        if self.opening_draft.is_some() {
+            self.current_draft = draft;
+            return;
+        }
         let Some(session) = self.session.clone() else {
             if self.scan_session.is_some() {
                 self.start_scan_query(draft, 0, updates);
@@ -1716,6 +1720,11 @@ impl DesktopController {
         retain_preview: bool,
         updates: &mut Vec<UiUpdate>,
     ) {
+        if self.opening_draft.is_some() {
+            self.current_draft = draft;
+            updates.push(UiUpdate::Status("Query queued until search is ready".into()));
+            return;
+        }
         if self.session.is_none() && self.scan_session.is_some() {
             self.start_scan_query(draft, page_start, updates);
             return;
@@ -3001,6 +3010,7 @@ impl DesktopController {
                     Err(message) => {
                         self.opening_draft = None;
                         self.opening_task = None;
+                        self.catalogue_opened = true;
                         if self.catalogue_opened {
                             self.index_ui.load = IndexTaskState::Failed(message.clone());
                             updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
