@@ -14,3 +14,22 @@ Both roles report 6,807,376 final gram blocks and 25,477 distinct final keys in 
 The candidate packs/copies 108,918,016 ASCII and 115,969,584 Unicode block bytes across batch contributions. It then moves owned packed payload allocations into the global accumulator and stores each batch base once; it does not rebase every block on admission. Final conversion and destruction remain inside full-build timing. The candidate's observed maximum single-contribution scratch capacity was 177,168 B ASCII / 114,688 B Unicode, with 786,432 B peak pending capacity in both. These are maxima across contributions, not a simultaneous worker total.
 
 Capacity totals omit hash control bytes, allocator rounding, active workers and completed channel results not yet read. Ready and global peaks were sampled separately; summing them would not give process peak memory. RSS and DHAT measure different boundaries. The final persistent index size is unchanged (69,662,968 B ASCII; 72,571,368 B Unicode) in the paired full builds.
+
+## Detailed work accounting
+
+`candidate-detailed/` is a later, separate opt-in profile of the retained integration code with `OBJEKTE_BIGRAM_STORAGE_STATS=1`, `--profile`, and 16 workers. It was written outside the measured worktree and moved here afterward; run-manifest commands preserve the executed path. The revision in these manifests includes a documentation-only evidence commit after the final timing binary was built; construction code is unchanged. The diagnostic box adds 1,080 B to the measured final global capacity lower bound, yielding 129,253,784 B ASCII and 145,300,168 B Unicode. It is absent from ordinary builds.
+
+| Operation or stage | ASCII | Unicode |
+| --- | ---: | ---: |
+| Gram set lookups | 119,279,482 | 121,734,194 |
+| Duplicate record-bit ORs | 63,003,574 | 63,676,107 |
+| Entries sorted/grouped | 6,807,376 | 7,248,099 |
+| Segment traversal, folding, gram emission and insertion | 754.914 ms | 2,015.117 ms |
+| Scratch drain/clear/shrink | 93.760 ms | 99.186 ms |
+| Sorting | 149.165 ms | 168.300 ms |
+| Directory construction and block packing | 17.776 ms | 21.731 ms |
+| Local and admission descriptor validation | 21.017 ms | 24.546 ms |
+| Admitted payload move/ownership merge | 0.094 ms | 0.097 ms |
+| Final bigram validation, header split, conversion and destruction wall interval | 151.676 ms | 154.697 ms |
+
+The first eight timing rows are sums of opt-in service intervals across contributions and workers; they may overlap one another and other build work, and their sum is not wall or CPU time. The segment interval includes folding and key generation, so it is not an isolated hash-lookup duration. The finalization row is the existing wall boundary, not a sum of those service intervals. Baseline B did not expose this fine-grained stage breakdown; its separate profile exposes broader admission and finalization intervals. Ordinary paired full-build timing includes every stage, conversion and destruction.
