@@ -2210,15 +2210,11 @@ pub(crate) fn process_repository_file_batches_profiled(
     if profile_build {
         stats.admission_schedule.prefetched_later_collection_jobs = prefetched.len() as u64;
     }
-    let dispatch_available = |next: usize,
-                              dispatched: &mut usize,
-                              admitted_bytes: &mut u64,
-                              peak_bytes: &mut u64,
-                              stats: &mut BuildScheduleStats| {
-        while *dispatched < jobs.len() && *dispatched - next < max_jobs {
-            let index = order[*dispatched];
+    while next < jobs.len() && failure.is_none() {
+        while dispatched < jobs.len() && dispatched - next < max_jobs {
+            let index = order[dispatched];
             let weight = weights[index];
-            if !fits_allowance(*admitted_bytes, weight, allowance) {
+            if !fits_allowance(admitted_bytes, weight, allowance) {
                 if profile_build {
                     stats.admission_schedule.byte_limit_blocks += 1;
                 }
@@ -2252,19 +2248,10 @@ pub(crate) fn process_repository_file_batches_profiled(
                 let completed_at = profile_build.then(Instant::now);
                 let _ = sender.send((index, result, dispatched_at, started_at, completed_at));
             });
-            *admitted_bytes = admitted_bytes.saturating_add(weight);
-            *peak_bytes = (*peak_bytes).max(*admitted_bytes);
-            *dispatched += 1;
+            admitted_bytes = admitted_bytes.saturating_add(weight);
+            peak_bytes = peak_bytes.max(admitted_bytes);
+            dispatched += 1;
         }
-    };
-    while next < jobs.len() && failure.is_none() {
-        dispatch_available(
-            next,
-            &mut dispatched,
-            &mut admitted_bytes,
-            &mut peak_bytes,
-            &mut stats,
-        );
         if profile_build && dispatched < jobs.len() && dispatched - next >= max_jobs {
             stats.admission_schedule.job_limit_blocks += 1;
         }
@@ -2320,16 +2307,6 @@ pub(crate) fn process_repository_file_batches_profiled(
                 Ok(()) => {
                     counters.admitted.fetch_add(1, Ordering::Relaxed);
                     next += 1;
-                    // Ordered admission releases a job/byte slot. Refill it
-                    // before draining the next ready result so workers can
-                    // overlap later extraction with coordinator merging.
-                    dispatch_available(
-                        next,
-                        &mut dispatched,
-                        &mut admitted_bytes,
-                        &mut peak_bytes,
-                        &mut stats,
-                    );
                 }
                 Err(error) => {
                     failure = Some(error);
