@@ -490,10 +490,22 @@ impl InferenceBuilder {
     }
 
     pub(crate) fn for_collection(config: InferenceConfig, collections: usize) -> Option<Self> {
+        Self::for_collection_weighted(config, 1, collections.max(1))
+    }
+
+    pub(crate) fn for_collection_weighted(
+        config: InferenceConfig,
+        discovered_files: usize,
+        total_discovered_files: usize,
+    ) -> Option<Self> {
         let mut builder = Self::new(config, false)?;
-        // All collection builders coexist until finalization. Give each the
-        // same deterministic share of the coordinator's retained allowance.
-        builder.coordinator_limit = config.policy.max_total_bytes / collections.max(1);
+        // Builders coexist until finalization. Discovery provides a stable
+        // workload measure before any observation starts. Proportional shares
+        // keep the sum bounded while avoiding an unused equal share for a
+        // tiny collection that would stop observation in a large collection.
+        builder.coordinator_limit = ((config.policy.max_total_bytes as u128)
+            .saturating_mul(discovered_files as u128)
+            / total_discovered_files.max(1) as u128) as usize;
         Some(builder)
     }
 

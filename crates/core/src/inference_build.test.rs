@@ -2,6 +2,22 @@ use super::*;
 use crate::reference::FieldDefinition;
 
 #[test]
+fn collection_observation_shares_follow_discovered_files_and_stay_bounded() {
+    let mut config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    config.policy.max_total_bytes = 1000;
+    let empty = InferenceBuilder::for_collection_weighted(config, 0, 10).unwrap();
+    let small = InferenceBuilder::for_collection_weighted(config, 1, 10).unwrap();
+    let large = InferenceBuilder::for_collection_weighted(config, 9, 10).unwrap();
+    assert_eq!(empty.coordinator_limit, 0);
+    assert_eq!(small.coordinator_limit, 100);
+    assert_eq!(large.coordinator_limit, 900);
+    assert_eq!(empty.coordinator_limit + small.coordinator_limit + large.coordinator_limit, 1000);
+}
+
+#[test]
 fn declared_and_prohibited_paths_keep_observations_without_posting_maps() {
     let mut schema = Schema::default();
     schema
