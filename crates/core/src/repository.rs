@@ -1419,11 +1419,19 @@ impl Repository {
         let mut schedule_stats = crate::build::BuildScheduleStats::default();
         let mut digest_bindings = vec![Vec::new(); files.files.len()];
         let mut large_digests = Vec::new();
-        let total_discovered_files = selected
+        let inference_work = selected
             .iter()
-            .map(|(_, _, _, member_files)| member_files.len())
-            .sum::<usize>();
-        for (definition, id, source, member_files) in selected {
+            .map(|(_, id, _, member_files)| {
+                existing
+                    .and_then(|base| base.collections.get(id.0 as usize))
+                    .map_or(member_files.len(), |collection| collection.generation.records.len())
+            })
+            .collect::<Vec<_>>();
+        let total_inference_work = inference_work.iter().sum::<usize>();
+        let active_inference_collections = inference_work.iter().filter(|work| **work != 0).count();
+        for ((definition, id, source, member_files), work) in
+            selected.into_iter().zip(inference_work)
+        {
             let builder = CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let mut postings = PostingCollection::new(&definition.schema);
             if phase == crate::build::ConstructionPhase::Base {
@@ -1441,8 +1449,9 @@ impl Repository {
             } else {
                 InferenceBuilder::for_collection_weighted(
                     options.inference,
-                    member_files.len(),
-                    total_discovered_files,
+                    work,
+                    total_inference_work,
+                    active_inference_collections,
                 )
             };
             let custom_postings: HashMap<_, _> = definition

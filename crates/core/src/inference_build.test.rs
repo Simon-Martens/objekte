@@ -2,19 +2,21 @@ use super::*;
 use crate::reference::FieldDefinition;
 
 #[test]
-fn collection_observation_shares_follow_discovered_files_and_stay_bounded() {
+fn collection_observation_shares_follow_record_counts_and_stay_bounded() {
     let mut config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
         ..Default::default()
     };
-    config.policy.max_total_bytes = 1000;
-    let empty = InferenceBuilder::for_collection_weighted(config, 0, 10).unwrap();
-    let small = InferenceBuilder::for_collection_weighted(config, 1, 10).unwrap();
-    let large = InferenceBuilder::for_collection_weighted(config, 9, 10).unwrap();
+    config.policy.max_total_bytes = 132 * 1024 * 1024;
+    let empty = InferenceBuilder::for_collection_weighted(config, 0, 10, 2).unwrap();
+    let small = InferenceBuilder::for_collection_weighted(config, 1, 10, 2).unwrap();
+    let large = InferenceBuilder::for_collection_weighted(config, 9, 10, 2).unwrap();
+    let mib = 1024 * 1024;
     assert_eq!(empty.coordinator_limit, 0);
-    assert_eq!(small.coordinator_limit, 100);
-    assert_eq!(large.coordinator_limit, 900);
-    assert_eq!(empty.coordinator_limit + small.coordinator_limit + large.coordinator_limit, 1000);
+    assert_eq!(small.coordinator_limit, 32 * mib + 68 * mib / 10);
+    assert_eq!(large.coordinator_limit, 32 * mib + 68 * mib * 9 / 10);
+    assert!(empty.coordinator_limit + small.coordinator_limit + large.coordinator_limit
+        <= config.policy.max_total_bytes);
 }
 
 #[test]
