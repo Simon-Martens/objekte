@@ -1,6 +1,6 @@
 use clap::Parser;
 
-use super::Arguments;
+use super::{Arguments, IndexWait};
 
 #[test]
 fn optional_index_paths_require_equals_and_do_not_eat_query() {
@@ -55,13 +55,30 @@ fn bare_command_does_not_open_repository() {
 }
 
 #[test]
-fn automatic_indexing_requires_no_value_but_not_a_query() {
+fn automatic_indexing_accepts_an_index_only_command() {
     let args = Arguments::try_parse_from(["obj", "--auto-index", "code = \"A\""]).unwrap();
     assert!(args.auto_index);
     assert!(args.validate_input().is_ok());
     let args = Arguments::try_parse_from(["obj", "--auto-index"]).unwrap();
-    assert!(args.validate_input().is_err());
+    assert!(args.validate_input().is_ok());
+    assert_eq!(args.effective_index_wait(), IndexWait::Complete);
     assert!(Arguments::try_parse_from(["obj", "--auto-index=true", "code = \"A\""]).is_err());
+}
+
+#[test]
+fn index_wait_defaults_follow_command_intent() {
+    let query = Arguments::try_parse_from(["obj", "--fts", "x"]).unwrap();
+    assert_eq!(query.effective_index_wait(), IndexWait::Search);
+    let tui = Arguments::try_parse_from(["obj", "--tui"]).unwrap();
+    assert_eq!(tui.effective_index_wait(), IndexWait::Search);
+    let save = Arguments::try_parse_from(["obj", "--write-index"]).unwrap();
+    assert_eq!(save.effective_index_wait(), IndexWait::Complete);
+    let override_wait = Arguments::try_parse_from([
+        "obj", "--index-wait=complete", "--fts", "x",
+    ])
+    .unwrap();
+    assert_eq!(override_wait.effective_index_wait(), IndexWait::Complete);
+    assert!(Arguments::try_parse_from(["obj", "--index-wait=other", "--fts", "x"]).is_err());
 }
 
 #[test]
