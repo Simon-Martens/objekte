@@ -1,19 +1,19 @@
 //! Source framing is format-specific; indexing consumes one extracted record at a time.
 
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeMap, HashMap, HashSet};
 use std::io::{BufRead, BufReader, Read, Seek, SeekFrom};
 use std::path::Path;
 use std::sync::Arc;
 use std::time::Instant;
 
-use serde::de::{DeserializeSeed, IgnoredAny, MapAccess, Visitor};
+use serde::de::{DeserializeSeed, IgnoredAny, MapAccess, SeqAccess, Visitor};
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
 use crate::inventory::{ByteRange, SourceRevision};
 #[cfg(test)]
 use crate::measurement::SourceUnavailableKind;
-use crate::model::Value;
+use crate::model::{ArrayValue, Number, Value};
 use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
 fn source_changed(execution: Option<&ExecutionContext>, message: String) -> String {
@@ -579,6 +579,117 @@ fn json_reader_failure(issue: ReaderDiagnostic) -> ReaderFailure {
     }
 }
 
+
+/// Construction-only visitor. The normal query reader still supports its
+/// projection path; decoded-scalar JSON keeps its lexical extraction path.
+struct LogicalBuildValue(Value);
+
+
+impl<'de> Deserialize<'de> for LogicalBuildValue {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        struct LogicalVisitor;
+
+
+        impl<'de> Visitor<'de> for LogicalVisitor {
+            type Value = LogicalBuildValue;
+
+            fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
+                formatter.write_str("a JSON value")
+            }
+
+            fn visit_unit<E: serde::de::Error>(self) -> Result<Self::Value, E> {
+                Ok(LogicalBuildValue(Value::Null))
+            }
+
+            fn visit_bool<E: serde::de::Error>(self, value: bool) -> Result<Self::Value, E> {
+                Ok(LogicalBuildValue(Value::Bool(value)))
+            }
+
+            fn visit_i64<E: serde::de::Error>(self, value: i64) -> Result<Self::Value, E> {
+                Ok(LogicalBuildValue(Value::Number(Number::integer(
+                    value as i128,
+                ))))
+            }
+
+            fn visit_u64<E: serde::de::Error>(self, value: u64) -> Result<Self::Value, E> {
+                Ok(LogicalBuildValue(Value::Number(Number::integer(
+                    value as i128,
+                ))))
+            }
+
+            fn visit_f64<E: serde::de::Error>(self, value: f64) -> Result<Self::Value, E> {
+                let number = serde_json::Number::from_f64(value)
+                    .ok_or_else(|| E::custom("non-finite number"))?;
+                Ok(LogicalBuildValue(Value::Number(
+                    Number::from_json(&number).map_err(E::custom)?,
+                )))
+            }
+
+            fn visit_str<E: serde::de::Error>(self, value: &str) -> Result<Self::Value, E> {
+                Ok(LogicalBuildValue(Value::String(value.to_owned())))
+            }
+
+            fn visit_string<E: serde::de::Error>(self, value: String) -> Result<Self::Value, E> {
+                Ok(LogicalBuildValue(Value::String(value)))
+            }
+
+            fn visit_seq<A: SeqAccess<'de>>(
+                self,
+                mut sequence: A,
+            ) -> Result<Self::Value, A::Error> {
+                let mut values = Vec::new();
+                while let Some(LogicalBuildValue(value)) = sequence.next_element()? {
+                    values.push(value);
+                }
+                Ok(LogicalBuildValue(Value::Array(
+                    ArrayValue::from_unrestricted(values),
+                )))
+            }
+
+            fn visit_map<A: MapAccess<'de>>(self, mut map: A) -> Result<Self::Value, A::Error> {
+                let Some(first_key) = map.next_key::<String>()? else {
+                    return Ok(LogicalBuildValue(Value::Object(BTreeMap::new())));
+                };
+                // serde_json/arbitrary_precision represents a number outside
+                // i64/u64 as a single-entry map with this private key. Match
+                // serde_json::Value's handling, including an object whose
+                // first key is the same reserved spelling.
+                if first_key == "$serde_json::private::Number" {
+                    let token = map.next_value::<String>()?;
+                    let number = serde_json::from_str::<serde_json::Number>(&token)
+                        .map_err(serde::de::Error::custom)?;
+                    return Ok(LogicalBuildValue(Value::Number(
+                        Number::from_json(&number).map_err(serde::de::Error::custom)?,
+                    )));
+                }
+                let mut values = BTreeMap::new();
+                values.insert(first_key, map.next_value::<LogicalBuildValue>()?.0);
+                while let Some((key, LogicalBuildValue(value))) = map.next_entry()? {
+                    values.insert(key, value);
+                }
+                Ok(LogicalBuildValue(Value::Object(values)))
+            }
+        }
+
+
+
+        deserializer.deserialize_any(LogicalVisitor)
+    }
+}
+
+fn parse_json_for_build_diagnosed(bytes: &[u8]) -> Result<ExtractedRecord, ReaderDiagnostic> {
+    match serde_json::from_slice::<LogicalBuildValue>(bytes) {
+        Ok(LogicalBuildValue(value)) => Ok(ExtractedRecord {
+            value,
+            text: Vec::new(),
+        }),
+        Err(_) => parse_json_for_query_diagnosed(bytes, &ScanProjection::full(false)),
+    }
+}
+
 fn parse_json_for_query_diagnosed(
     bytes: &[u8],
     projection: &ScanProjection,
@@ -796,8 +907,7 @@ impl SourceReader for JsonReader {
     }
 
     fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
-        parse_json_for_query_diagnosed(bytes, &ScanProjection::full(false))
-            .map_err(json_reader_failure)
+        parse_json_for_build_diagnosed(bytes).map_err(json_reader_failure)
     }
 
     fn parse_for_query(
