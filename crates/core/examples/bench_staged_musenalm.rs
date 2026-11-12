@@ -168,6 +168,7 @@ fn run() -> Result<(), String> {
         .map_err(|error| error.to_string())?;
     let mut expected: HashMap<String, (usize, Vec<SearchHit>)> = HashMap::new();
     let mut build_results = Vec::new();
+    let mut inference_diagnostics = BTreeMap::new();
     let mut failures = 0usize;
     let mut corpus_fingerprint = String::new();
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
@@ -229,6 +230,17 @@ fn run() -> Result<(), String> {
         }
         let view = index.view().map_err(|error| error.to_string())?;
         let status = index.extended_status().map_err(|error| error.to_string())?;
+        if inference {
+            for definition in &definitions {
+                if let Some(paths) = index
+                    .inference_index_diagnostics(&definition.name)
+                    .map_err(|error| error.to_string())?
+                {
+                    inference_diagnostics
+                        .insert(format!("{:?}/{}", alphabet, definition.name), paths);
+                }
+            }
+        }
         build_results.push(serde_json::json!({
             "alphabet": alphabet,
             "mode": mode,
@@ -389,6 +401,12 @@ fn run() -> Result<(), String> {
     samples.flush().map_err(|error| error.to_string())?;
     csv.flush().map_err(|error| error.to_string())?;
     plans.flush().map_err(|error| error.to_string())?;
+    if inference {
+        write_json(
+            &result_dir.join("inference-diagnostics.json"),
+            &inference_diagnostics,
+        )?;
+    }
     if let Some(writer) = foreground_status.as_mut() {
         writer.flush().map_err(|error| error.to_string())?;
     }
