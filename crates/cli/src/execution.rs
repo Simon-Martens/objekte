@@ -3,12 +3,12 @@
 use std::io::{self, BufWriter, Write};
 #[cfg(feature = "tui")]
 use std::io::IsTerminal;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::time::Instant;
 
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
-use objekte_search_core::lifecycle::IndexRevision;
+use objekte_search_core::lifecycle::{ExtendedPhase, IndexRevision};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::path_repr;
 use objekte_search_core::query::Query;
@@ -21,7 +21,7 @@ use objekte_search_core::streaming::{
 use serde_json::{Value, json};
 
 use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
-use crate::loader::{configure_definitions, open_repository, repository_options, snapshot_policy};
+use crate::loader::{configure_definitions, open_repository_wait, repository_options, snapshot_policy};
 use crate::output::{EventWriter, counters_with_ms, milliseconds_value as ms};
 use crate::query_input::{QueryInput, QueryKind, QuerySource};
 
@@ -68,6 +68,13 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             return Exit::Arguments;
         }
     };
+    let snapshot_directory = policy
+        .directory
+        .clone()
+        .unwrap_or_else(|| root.join(".objekte"));
+    let snapshot_path = args.write_index.is_some().then(|| {
+        objekte_search_core::storage::snapshot_path_in(&snapshot_directory, options.bigram_alphabet)
+    });
     let ui = crate::tui::TuiOptions {
         single_collection: !args.multiple_collections(),
         initial_search,
@@ -76,6 +83,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         limit: args.limit,
         interruption: Some(token.clone()),
         snapshot_requested: args.write_index.is_some(),
+        snapshot_path,
         loading_label: Some(
             match (args.load_index.is_some(), args.write_index.is_some()) {
                 (true, false) => "Loading search index",
@@ -87,9 +95,10 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     };
     let write = args.write_index.is_some();
     let configured_repository = args.repo.is_some();
+    let wait = args.effective_index_wait();
     let result = crate::tui::run_with_loader(
-        move || {
-            open_repository(
+        move |loading_cancel| {
+            open_repository_wait(
                 &root,
                 &configured,
                 options,
@@ -97,8 +106,11 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                 write,
                 configured_repository,
                 false,
+                wait,
+                &loading_cancel,
             )
-            .map(|(repo, _, _)| repo)
+            .map(|(repo, _)| repo)
+            .map_err(|error| error.to_string())
         },
         ui,
     );
@@ -195,6 +207,7 @@ pub fn run_on_repository<W: Write>(
             started: &started,
             startup_ns: run.startup_ns,
             snapshot_save: run.snapshot_save.as_ref(),
+            final_snapshot_path: None,
         },
         source,
         &mut output,
@@ -229,6 +242,7 @@ pub fn run_prepared_on_repository<W: Write>(
         started: &started,
         startup_ns: run.startup_ns,
         snapshot_save: run.snapshot_save.as_ref(),
+        final_snapshot_path: None,
     };
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
@@ -300,7 +314,14 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     }
     let options = repository_options(args);
     let policy = snapshot_policy(args, &paths);
-    let (repo, startup_ns, snapshot_save) = match open_repository(
+    let snapshot_directory = policy
+        .directory
+        .clone()
+        .unwrap_or_else(|| paths.root.join(".objekte"));
+    let final_snapshot_path = args.write_index.is_some().then(|| {
+        objekte_search_core::storage::snapshot_path_in(&snapshot_directory, options.bigram_alphabet)
+    });
+    let (repo, startup_ns) = match open_repository_wait(
         &paths.root,
         &configured,
         options,
@@ -308,9 +329,20 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         args.write_index.is_some(),
         args.repo.is_some(),
         args.load_index.is_some(),
+        args.effective_index_wait(),
+        token,
     ) {
         Ok(result) => result,
-        Err(message) => {
+        Err(error) => {
+            if token.is_cancelled() {
+                return cancel_run(&mut output, 0, 0, &started);
+            }
+            let failure = if error.is_build_failure() {
+                Exit::Operation
+            } else {
+                Exit::Arguments
+            };
+            let message = error.to_string();
             eprintln!("obj: {message}");
             if let Err(error) = output
                 .emit(
@@ -321,37 +353,56 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             {
                 return output_failure(error);
             }
-            return Exit::Arguments;
+            return failure;
         }
     };
-    let source = match QuerySource::open(args) {
-        Ok(source) => source,
-        Err(message) => {
-            eprintln!("obj: {message}");
-            if let Err(error) = output
-                .emit(
-                    json!({"type":"run_error", "stage":"query_input", "error":message,
-                "elapsed_ms":ms(started.elapsed().as_nanos())}),
-                )
-                .and_then(|_| output.flush())
-            {
-                return output_failure(error);
+    let result = (|| {
+        let source = match QuerySource::open(args) {
+            Ok(source) => source,
+            Err(message) => {
+                eprintln!("obj: {message}");
+                if let Err(error) = output
+                    .emit(
+                        json!({"type":"run_error", "stage":"query_input", "error":message,
+                    "elapsed_ms":ms(started.elapsed().as_nanos())}),
+                    )
+                    .and_then(|_| output.flush())
+                {
+                    return output_failure(error);
+                }
+                return Exit::Operation;
             }
-            return Exit::Operation;
-        }
-    };
-    run_queries(
-        RunTail {
-            repo: &repo,
-            args,
-            started: &started,
-            startup_ns,
-            snapshot_save: snapshot_save.as_ref(),
-        },
-        source,
-        &mut output,
-        token,
-    )
+        };
+        run_queries(
+            RunTail {
+                repo: &repo,
+                args,
+                started: &started,
+                startup_ns,
+                snapshot_save: None,
+                final_snapshot_path: final_snapshot_path.as_deref(),
+            },
+            source,
+            &mut output,
+            token,
+        )
+    })();
+    if !args.diagnostic
+        && let Ok(status) = repo.index().extended_status()
+        && status.phase == ExtendedPhase::Failed
+    {
+        eprintln!(
+            "obj: optional field indexing failed: {}",
+            status.error.as_deref().unwrap_or("unknown error")
+        );
+    }
+    if let Err(error) = repo.index().cancel_extended() {
+        eprintln!("obj: could not cancel optional field indexing: {error}");
+    }
+    if let Err(error) = repo.index().shutdown() {
+        eprintln!("obj: index shutdown: {error}");
+    }
+    result
 }
 
 fn run_start_event(
@@ -403,6 +454,7 @@ struct RunTail<'a> {
     started: &'a Instant,
     startup_ns: u128,
     snapshot_save: Option<&'a SnapshotSaveStats>,
+    final_snapshot_path: Option<&'a Path>,
 }
 
 
@@ -485,7 +537,36 @@ fn complete_run<W: Write>(
     let args = run.args;
     let started = run.started;
     let startup_ns = run.startup_ns;
-    let snapshot_save = run.snapshot_save;
+    let final_snapshot_save = (|| -> Result<Option<SnapshotSaveStats>, String> {
+        let Some(path) = run.final_snapshot_path else {
+            return Ok(None);
+        };
+        repo.index().quiesce().map_err(|error| error.to_string())?;
+        let status = repo.index().status().map_err(|error| error.to_string())?;
+        if repo.startup().restored && !status.dirty() {
+            return Ok(None);
+        }
+        let (_, saved) = repo
+            .index()
+            .flush_cache_with_stats(path)
+            .map_err(|error| error.to_string())?;
+        Ok(Some(saved))
+    })();
+    let final_snapshot_save = match final_snapshot_save {
+        Ok(saved) => saved,
+        Err(message) => {
+            eprintln!("obj: snapshot save: {message}");
+            if let Err(error) = output
+                .emit(json!({"type":"run_error", "stage":"snapshot_save", "error":message,
+                    "elapsed_ms":ms(started.elapsed().as_nanos())}))
+                .and_then(|_| output.flush())
+            {
+                return output_failure(error);
+            }
+            return Exit::Operation;
+        }
+    };
+    let snapshot_save = final_snapshot_save.as_ref().or(run.snapshot_save);
     let terminal = if failures == 0 {
         "run_complete"
     } else {
@@ -515,7 +596,10 @@ fn complete_run<W: Write>(
         .filter(|record| record.class == RecordClass::RawFallback)
         .count();
     let automatic_index_paths = if args.diagnostic {
-        repo.inference_index_diagnostics("files")
+        repo.index()
+            .inference_index_diagnostics("files")
+            .ok()
+            .flatten()
     } else {
         None
     };
@@ -528,8 +612,8 @@ fn complete_run<W: Write>(
         "index_revision": live.revision.0,
         "fallback_records": (live.revision == IndexRevision::INITIAL).then_some(base_fallback),
         "base_fallback_records": base_fallback,
-        "build_parses": repo.build_parses(),
-        "build_failed_parses": repo.build_failed_parses(),
+        "build_parses": repo.index().build_parses().unwrap_or_else(|_| repo.build_parses()),
+        "build_failed_parses": repo.index().build_failed_parses().unwrap_or_else(|_| repo.build_failed_parses()),
         "startup_ms": ms(startup_ns),
         "build_ms": ms(stats.build_ns as u128),
         "discovery_ms": ms(stats.build_discovery_ns as u128),
@@ -541,7 +625,7 @@ fn complete_run<W: Write>(
         "snapshot_action": snapshot_action(stats.snapshot_action, snapshot_save.is_some(), stats.snapshot_restore_error.is_some()),
         "snapshot_restore_error": stats.snapshot_restore_error,
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
-        "automatic_index_summary": repo.inference_report("files").map(|report| json!({
+        "automatic_index_summary": repo.index().inference_report("files").ok().flatten().map(|report| json!({
             "complete": report.complete,
             "observed_paths": report.observed_paths,
             "omitted_paths": report.omitted_paths,
@@ -563,20 +647,31 @@ fn complete_run<W: Write>(
     if let Some(paths) = automatic_index_paths {
         event["automatic_index_paths"] = json!(paths);
     }
+    if args.diagnostic
+        && let Ok(status) = repo.index().extended_status()
+    {
+        event["capability_revision"] = json!(live.capability_revision.0);
+        event["extended_index"] = json!({
+            "phase": format!("{:?}", status.phase).to_ascii_lowercase(),
+            "completed_files": status.completed_files,
+            "total_files": status.total_files,
+            "error": status.error,
+        });
+    }
     if args.multiple_collections() && args.diagnostic {
         let collections = repo
             .collections()
             .iter()
             .filter_map(|collection| {
                 let name = &collection.definition.name;
-                let report = repo.inference_report(name)?;
+                let report = repo.index().inference_report(name).ok().flatten()?;
                 Some((
                     name.clone(),
                     json!({
                         "complete": report.complete,
                         "observed_paths": report.observed_paths,
                         "admitted_paths": report.admitted_paths,
-                        "paths": repo.inference_index_diagnostics(name),
+                        "paths": repo.index().inference_index_diagnostics(name).ok().flatten(),
                     }),
                 ))
             })

@@ -6,6 +6,7 @@ use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
 use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::lifecycle::ExtendedPhase;
 use objekte_search_core::model::{FieldPath, LogicalType, PathRoot, Value};
 use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Modifier, Operand, Query, QueryOptions,
@@ -78,6 +79,11 @@ fn field_label(path: &str, modifiers: &[Modifier]) -> String {
             Modifier::Each => "each",
             Modifier::Null => "null",
             Modifier::Exists => "exists",
+            Modifier::NonEmpty => "?",
+            Modifier::StringType => "string",
+            Modifier::NumberType => "number",
+            Modifier::ArrayType => "array",
+            Modifier::ObjectType => "object",
             Modifier::Custom(name) => name,
         };
         label.push(':');
@@ -131,12 +137,14 @@ pub(super) enum Action {
     Regex,
     Preview,
     Theme,
+    CancelIndexing,
+    ResumeIndexing,
     Help,
 }
 
 
 impl Action {
-    pub(super) const ALL: [Self; 13] = [
+    pub(super) const ALL: [Self; 15] = [
         Self::Collections,
         Self::Sort,
         Self::Columns,
@@ -149,6 +157,8 @@ impl Action {
         Self::Regex,
         Self::Preview,
         Self::Theme,
+        Self::CancelIndexing,
+        Self::ResumeIndexing,
         Self::Help,
     ];
 
@@ -166,6 +176,8 @@ impl Action {
             Self::Regex => "Toggle regex search              Alt+R",
             Self::Preview => "Toggle preview                   Ctrl+P",
             Self::Theme => "Switch light/dark theme          Alt+T",
+            Self::CancelIndexing => "Cancel field indexing",
+            Self::ResumeIndexing => "Resume field indexing",
             Self::Help => "Keyboard help                    F1",
         }
     }
@@ -226,6 +238,7 @@ pub(super) struct App {
     pub(super) results_area: Rect,
     pub(super) viewport_rows: usize,
     pub(super) status: Option<String>,
+    pub(super) index_status: Option<String>,
     pub(super) clipboard: Option<String>,
     pub(super) error: Option<String>,
     pub(super) searching: bool,
@@ -309,6 +322,7 @@ impl App {
             results_area: Rect::default(),
             viewport_rows: 1,
             status,
+            index_status: None,
             clipboard: None,
             error: None,
             searching: false,
@@ -932,6 +946,7 @@ impl App {
     }
 
     pub(super) fn tick(&mut self, now: Instant) {
+        self.refresh_index_status();
         while let Ok(update) = self.receiver.try_recv() {
             self.inflight = self.inflight.saturating_sub(1);
             if update.generation != self.generation {
@@ -1034,6 +1049,72 @@ impl App {
             && self.selected.saturating_add(30) >= self.hits.len()
         {
             self.launch(self.next_offset);
+        }
+    }
+
+    fn refresh_index_status(&mut self) {
+        let Ok(status) = self.repo.index().extended_status() else {
+            return;
+        };
+        self.index_status = match status.phase {
+            ExtendedPhase::Unnecessary => None,
+            ExtendedPhase::Pending | ExtendedPhase::Building if status.total_files > 0 => {
+                Some(format!(
+                    "Search ready · Indexing files {}/{}",
+                    status.completed_files, status.total_files
+                ))
+            }
+            ExtendedPhase::Pending | ExtendedPhase::Building => {
+                Some("Search ready · Building field indexes".into())
+            }
+            ExtendedPhase::Complete => Some("Indexing complete".into()),
+            ExtendedPhase::Paused => Some("Search ready · Field indexing paused".into()),
+            ExtendedPhase::Cancelled => Some("Search ready · Field indexing stopped".into()),
+            ExtendedPhase::Failed => Some("Search ready · Field indexing failed".into()),
+        };
+    }
+
+    pub(super) fn cancel_indexing(&mut self) {
+        match self.repo.index().extended_status() {
+            Ok(status) if matches!(status.phase, ExtendedPhase::Unnecessary | ExtendedPhase::Complete) => {
+                self.status = Some("Field indexing is already complete".into());
+            }
+            Ok(status) if status.phase == ExtendedPhase::Cancelled => {
+                self.status = Some("Field indexing is already stopped".into());
+            }
+            Ok(_) => match self.repo.index().cancel_extended() {
+                Ok(()) => {
+                    self.refresh_index_status();
+                    self.status = Some("Field indexing stopped; search remains available".into());
+                }
+                Err(error) => self.status = Some(format!("Could not stop field indexing: {error}")),
+            },
+            Err(error) => self.status = Some(format!("Could not read field indexing: {error}")),
+        }
+    }
+
+    pub(super) fn resume_indexing(&mut self) {
+        match self.repo.index().extended_status() {
+            Ok(status) if matches!(status.phase, ExtendedPhase::Unnecessary | ExtendedPhase::Complete) => {
+                self.status = Some("Field indexing is already complete".into());
+                return;
+            }
+            Ok(status) if matches!(status.phase, ExtendedPhase::Pending | ExtendedPhase::Building) => {
+                self.status = Some("Field indexing is already running".into());
+                return;
+            }
+            Err(error) => {
+                self.status = Some(format!("Could not read field indexing: {error}"));
+                return;
+            }
+            Ok(_) => {}
+        }
+        match self.repo.index().resume_extended() {
+            Ok(()) => {
+                self.refresh_index_status();
+                self.status = Some("Field indexing resumed".into());
+            }
+            Err(error) => self.status = Some(format!("Could not resume field indexing: {error}")),
         }
     }
 
