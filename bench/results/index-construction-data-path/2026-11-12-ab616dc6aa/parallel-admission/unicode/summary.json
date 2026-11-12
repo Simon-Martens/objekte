@@ -1,0 +1,58 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-bench-index-construction-data-path-baseline",
+    "candidate_repo": "/home/simon/source/objekte-task-index-construction-data-path-parallel-admission",
+    "control_bin": "/home/simon/source/objekte-bench-index-construction-data-path-baseline/target/release/examples/bench_index_construction",
+    "candidate_bin": "/home/simon/source/objekte-task-index-construction-data-path-parallel-admission/target/release/examples/bench_index_construction",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "unicode",
+    "workers": "auto",
+    "pairs": 3,
+    "profile": false,
+    "control_revision": "ab616dc6aabb9b9fee4657deb6752a6512bec9e5",
+    "candidate_revision": "f4e9c0013bca0c6aac3b091e6b6d20dfec9cb36b",
+    "control_sha256": "d9f29ad155893c6e6d22c0c88a21ec114f44953e01c4b7551a769da9e34daeef",
+    "candidate_sha256": "bbf195cd2d2fddc26b1095b9e9fa1fdfa19520086643523d433c32b323738e71"
+  },
+  "control_build_ns": {
+    "median": 1291147665,
+    "min": 1251841791,
+    "max": 1301335647,
+    "iqr": 24746928.0
+  },
+  "candidate_build_ns": {
+    "median": 1247148795,
+    "min": 1232003989,
+    "max": 1302289689,
+    "iqr": 35142850.0
+  },
+  "paired_delta_ns": {
+    "median": -19837802,
+    "min": -43998870,
+    "max": 954042,
+    "iqr": 22476456.0
+  },
+  "paired_delta_percent": {
+    "median": -1.584689226915259,
+    "min": -3.407733382687872,
+    "max": 0.07331252334472627,
+    "iqr": 1.7405229530162991
+  },
+  "paired_deltas_ns": [
+    954042,
+    -19837802,
+    -43998870
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 37909,
+    "estimated_index_bytes": 72571368
+  },
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 32
+}

@@ -1,0 +1,15 @@
+{
+  "control_repo": "/home/simon/source/objekte-bench-index-construction-data-path-baseline",
+  "candidate_repo": "/home/simon/source/objekte-task-index-construction-data-path-ascii-folding",
+  "control_bin": "/home/simon/source/objekte-bench-index-construction-data-path-baseline/target/release/examples/bench_index_construction",
+  "candidate_bin": "/home/simon/source/objekte-task-index-construction-data-path-ascii-folding/target/release/examples/bench_index_construction",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "alphabet": "ascii",
+  "workers": "auto",
+  "pairs": 3,
+  "profile": false,
+  "control_revision": "ab616dc6aabb9b9fee4657deb6752a6512bec9e5",
+  "candidate_revision": "66c40c0edb83764886416d36cd634114a2da06a6",
+  "control_sha256": "d9f29ad155893c6e6d22c0c88a21ec114f44953e01c4b7551a769da9e34daeef",
+  "candidate_sha256": "c1b4b326284ac7f8f60ecf37f2b3b30789985856b9743898f150cd7bdb65da65"
+}

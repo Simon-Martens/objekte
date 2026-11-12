@@ -1,0 +1,15 @@
+{
+  "control_repo": "/home/simon/source/objekte-bench-index-construction-data-path-baseline",
+  "candidate_repo": "/home/simon/source/objekte-task-index-construction-data-path-parallel-admission",
+  "control_bin": "/home/simon/source/objekte-bench-index-construction-data-path-baseline/target/release/examples/bench_index_construction",
+  "candidate_bin": "/home/simon/source/objekte-task-index-construction-data-path-parallel-admission/target/release/examples/bench_index_construction",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "alphabet": "ascii",
+  "workers": "4",
+  "pairs": 1,
+  "profile": false,
+  "control_revision": "ab616dc6aabb9b9fee4657deb6752a6512bec9e5",
+  "candidate_revision": "3cecb5884016a837afa01546a2d049a616434bee",
+  "control_sha256": "d9f29ad155893c6e6d22c0c88a21ec114f44953e01c4b7551a769da9e34daeef",
+  "candidate_sha256": "534b485431af7223f5d7d572d09ac5fb1110896fa8c8a49785c2c9742ee79b19"
+}
