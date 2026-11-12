@@ -32,8 +32,8 @@ use crate::record_preparation::{
     materialize, prepare_decoded_record_with_borrowed_fts, prepare_query_record_with_execution,
 };
 use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, FoldRecordGuard, RecordContext,
-    Transform, eval_bound_fts, eval_term, eval_unavailable_filter, same_bound_term,
+    BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, FoldRecordGuard, RecordContext, Transform,
+    eval_bound_fts, eval_term, eval_unavailable_filter, same_bound_term,
 };
 use crate::repository::{CollectionState, Payload, Repository, SearchHit, SearchResult};
 use crate::sort_binding::{
@@ -549,10 +549,7 @@ fn borrowed_value_text(collection: &CollectionState, fts: Option<&BoundFts>) -> 
         && fts.is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_none()))
 }
 
-fn borrowed_relation_source_text(
-    collection: &CollectionState,
-    fts: Option<&BoundFts>,
-) -> bool {
+fn borrowed_relation_source_text(collection: &CollectionState, fts: Option<&BoundFts>) -> bool {
     !collection.source.is_extension()
         && matches!(collection.source.id(), "json" | "jsonl")
         && fts.is_some_and(|fts| {
@@ -2090,7 +2087,7 @@ pub(crate) fn make_hit(
         record_id: record.id.0.clone(),
         generation: repo.collections[collection_index].generation.generation,
         file_id: file.id.0,
-        file_path: file.relative_path.clone(),
+        file_path: file.relative_path.to_path_buf(),
         file_size: file.revision.size,
         file_created_ns: file.created_ns,
         byte_start: record.range.start,
@@ -2187,7 +2184,7 @@ pub(crate) fn get_segment_record_by_id(
         record_id: record.id.0.clone(),
         generation: revision.0,
         file_id: file.id.0,
-        file_path: file.relative_path.clone(),
+        file_path: file.relative_path.to_path_buf(),
         file_size: file.revision.size,
         file_created_ns: file.created_ns,
         byte_start: record.range.start,
@@ -2279,7 +2276,7 @@ pub(crate) fn direct_lookup_segmented(
                 record_id: record.id.0.clone(),
                 generation: revision.0,
                 file_id: file.id.0,
-                file_path: file.relative_path.clone(),
+                file_path: file.relative_path.to_path_buf(),
                 file_size: file.revision.size,
                 file_created_ns: file.created_ns,
                 byte_start: record.range.start,
@@ -2327,7 +2324,7 @@ pub(crate) fn direct_lookup_segmented(
             {
                 Ok(DirectLookupResult::SourceUnavailable(SourceDiagnostic {
                     file_id: file.id.0,
-                    file_path: file.relative_path.clone(),
+                    file_path: file.relative_path.to_path_buf(),
                     kind,
                     message,
                 }))
@@ -2679,7 +2676,7 @@ fn segment_locator_hit(
         record_id: record.id.0.clone(),
         generation: revision.0,
         file_id: file.id.0,
-        file_path: file.relative_path.clone(),
+        file_path: file.relative_path.to_path_buf(),
         file_size: file.revision.size,
         file_created_ns: file.created_ns,
         byte_start: record.range.start,
@@ -2713,7 +2710,7 @@ fn record_unavailable_hit(
     };
     counters.record_source_unavailable(SourceDiagnostic {
         file_id: file.id.0,
-        file_path: file.relative_path.clone(),
+        file_path: file.relative_path.to_path_buf(),
         kind,
         message,
     });
@@ -5314,7 +5311,7 @@ fn scan_relation_file_parallel(
         Err(message) => {
             scan.unavailable.record(SourceDiagnostic {
                 file_id: resolved.file.id.0,
-                file_path: resolved.file.relative_path.clone(),
+                file_path: resolved.file.relative_path.to_path_buf(),
                 kind: classify_source_read_failure_for_search(&path, resolved.file.revision, None),
                 message,
             });
@@ -5327,7 +5324,7 @@ fn scan_relation_file_parallel(
         Err(message) => {
             scan.unavailable.record(SourceDiagnostic {
                 file_id: resolved.file.id.0,
-                file_path: resolved.file.relative_path.clone(),
+                file_path: resolved.file.relative_path.to_path_buf(),
                 kind: classify_source_read_failure_for_search(
                     &path,
                     resolved.file.revision,
@@ -5829,7 +5826,8 @@ fn search_segmented_relations(
                            bytes: Vec<u8>,
                            opened_source: bool|
          -> Result<(), String> {
-            let _fold_record = FoldRecordGuard::new_with_sharing(shared_fold_bound(filter.as_ref()));
+            let _fold_record =
+                FoldRecordGuard::new_with_sharing(shared_fold_bound(filter.as_ref()));
             if let Some(context) = context {
                 context.check_string()?;
                 context.charge_bytes(bytes.len() as u64)?;
@@ -6093,7 +6091,7 @@ fn search_segmented_relations(
                     Err(message) => {
                         source_errors.record(SourceDiagnostic {
                             file_id: resolved.file.id.0,
-                            file_path: resolved.file.relative_path.clone(),
+                            file_path: resolved.file.relative_path.to_path_buf(),
                             kind: classify_source_read_failure_for_search(
                                 &path,
                                 resolved.file.revision,
@@ -6125,7 +6123,7 @@ fn search_segmented_relations(
                     Err(message) => {
                         source_errors.record(SourceDiagnostic {
                             file_id: resolved.file.id.0,
-                            file_path: resolved.file.relative_path.clone(),
+                            file_path: resolved.file.relative_path.to_path_buf(),
                             kind: classify_source_read_failure_for_search(
                                 &path,
                                 resolved.file.revision,
@@ -6247,7 +6245,7 @@ fn search_segmented_relations(
                     Err(message) => {
                         source_errors.record(SourceDiagnostic {
                             file_id: resolved.file.id.0,
-                            file_path: resolved.file.relative_path.clone(),
+                            file_path: resolved.file.relative_path.to_path_buf(),
                             kind: classify_source_read_failure_for_search(
                                 &path,
                                 resolved.file.revision,
@@ -6279,7 +6277,7 @@ fn search_segmented_relations(
                         Err(message) => {
                             source_errors.record(SourceDiagnostic {
                                 file_id: resolved.file.id.0,
-                                file_path: resolved.file.relative_path.clone(),
+                                file_path: resolved.file.relative_path.to_path_buf(),
                                 kind: classify_source_read_failure_for_search(
                                     &path,
                                     resolved.file.revision,
@@ -8493,7 +8491,9 @@ fn posting_order_eligible(repo: &Repository, query: &Query) -> bool {
     let Ok((prepared, _)) = crate::prepared::prepare(repo, query) else {
         return false;
     };
-    let Some((_, Some(filter), _)) = prepared.collections.iter()
+    let Some((_, Some(filter), _)) = prepared
+        .collections
+        .iter()
         .find(|(index, _, _)| *index == collection_index)
     else {
         return false;
@@ -9596,7 +9596,7 @@ fn materialize_cached(
             record_id: record.id.0.clone(),
             generation: collection.generation.generation,
             file_id: file.id.0,
-            file_path: file.relative_path.clone(),
+            file_path: file.relative_path.to_path_buf(),
             file_size: file.revision.size,
             file_created_ns: file.created_ns,
             byte_start: record.range.start,

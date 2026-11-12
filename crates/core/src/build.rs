@@ -65,7 +65,7 @@ impl SourceFileInput {
     pub(crate) fn from_entry(entry: &FileEntry) -> Self {
         Self {
             id: entry.id,
-            relative_path: entry.relative_path.clone(),
+            relative_path: entry.relative_path.to_path_buf(),
             revision: entry.revision,
             created_ns: entry.created_ns,
         }
@@ -74,7 +74,7 @@ impl SourceFileInput {
     fn for_collection(&self, collection: CollectionId) -> FileEntry {
         FileEntry {
             id: self.id,
-            relative_path: self.relative_path.clone(),
+            relative_path: self.relative_path.clone().into(),
             revision: self.revision,
             created_ns: self.created_ns,
             collections: vec![collection],

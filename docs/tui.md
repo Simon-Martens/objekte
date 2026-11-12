@@ -21,6 +21,10 @@ columns. Alt+E exports the selected record; Alt+A exports all matches to a
 new JSON file. The UI fetches result pages of 100 records as you approach
 the end. Settings live in `.objekte/.cache/tui.json`.
 
+Displayed and exported source-file paths are relative to the opened repository
+root. The `@file.path` filter uses that same value; `@repository.root` exposes
+the root separately.
+
 The adapted TUI supports core search, filters, collection scope, paging,
 sorting, record inspection, saved queries, display settings, and export.
 The earlier TUI's inference, backlinks, editing, regex and case modes,

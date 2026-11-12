@@ -3091,6 +3091,21 @@ fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
             .iter()
             .any(|term| { term.selected.kind == crate::executor::AccessPathKind::FilePathIndex })
     );
+    for (filter, count) in [
+        ("@file.path = 'data/valid.json'".to_owned(), 1),
+        (
+            format!("@file.path = '{}'", root.join("data/valid.json").display()),
+            0,
+        ),
+        ("@file.path > 'data/valid.json'".to_owned(), 0),
+        ("@file.path ~ 'valid'".to_owned(), 1),
+    ] {
+        let request = query(&filter, ReturnMode::Locator);
+        let indexed = repo.search(&request).unwrap();
+        let scanned = repo.search_reference(&request).unwrap();
+        assert_eq!(indexed.count, Some(count), "{filter}");
+        assert_eq!(indexed.hits, scanned.hits, "{filter}");
+    }
     let empty_path_range = repo
         .search(&query(
             "@file.path >= 'data/valid' && @file.path < 'data/valid'",
@@ -5418,10 +5433,12 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
     };
     use std::sync::atomic::{AtomicUsize, Ordering};
 
+
     struct CancellingReader {
         token: CancellationToken,
         query_reads: Arc<AtomicUsize>,
     }
+
 
     impl SourceReader for CancellingReader {
         fn name(&self) -> &'static str {
@@ -5448,6 +5465,7 @@ fn computed_sort_cancels_after_worker_has_parsed_source_records() {
             Ok(record)
         }
     }
+
 
     let root = std::env::temp_dir().join(format!(
         "objekte-computed-context-cancel-{}",
@@ -5533,7 +5551,9 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
         StreamOptions,
     };
 
+
     struct FailingReader;
+
 
     impl SourceReader for FailingReader {
         fn name(&self) -> &'static str {
@@ -5556,6 +5576,7 @@ fn extension_query_failure_has_ordinary_and_stream_class() {
             Err("query extension failed".into())
         }
     }
+
 
     let root = std::env::temp_dir().join(format!(
         "objekte-extension-query-error-{}",

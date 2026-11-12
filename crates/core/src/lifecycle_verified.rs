@@ -12,6 +12,7 @@ use crate::model::{CollectionId, FileId, RecordSlot};
 
 const MAX_VERIFIED_SCANNED_RECORDS: usize = 16_384;
 
+
 /// Old segment ordinals are captured before staging. Staging may consolidate
 /// them, so removal scans the affected collections again in the private root.
 pub(crate) struct VerifiedPlan {
@@ -19,11 +20,13 @@ pub(crate) struct VerifiedPlan {
     has_active_base: bool,
 }
 
+
 impl VerifiedPlan {
     pub(crate) fn requires_base_compaction(&self) -> bool {
         self.has_active_base
     }
 }
+
 
 pub(crate) fn verify_old_content(
     view: &IndexView,
@@ -61,7 +64,7 @@ pub(crate) fn verify_old_content(
     }
     let input = SourceFileInput {
         id: handle.file_id,
-        relative_path: old.relative_path.clone(),
+        relative_path: old.relative_path.to_path_buf(),
         revision: old.revision,
         created_ns: old.created_ns,
     };

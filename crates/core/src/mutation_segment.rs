@@ -8,12 +8,14 @@ use crate::inference::{InferenceIndexStatus, InferenceState, InferredFieldReport
 use crate::inventory::ActiveRecords;
 use crate::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
 
+
 /// One physical file in a delta. File IDs remain repository-global; record
 /// slots are local to this segment until the publication owner names it.
 pub(crate) struct SegmentFile {
     pub entry: FileEntry,
     pub records: Vec<RecordSlot>,
 }
+
 
 /// The preparation path can admit several files before sealing one segment.
 /// This avoids a permanent one-segment-per-file layout.
@@ -32,6 +34,7 @@ pub(crate) struct SegmentAdmission {
     failed_parses: u64,
 }
 
+
 /// Owned, locally slotted contribution set. `into_indexed` will merge and
 /// finalize every index family before this is published by the coordinator.
 pub(crate) struct CollectionSegment {
@@ -47,11 +50,13 @@ pub(crate) struct CollectionSegment {
     pub failed_parses: u64,
 }
 
+
 pub(crate) struct SegmentBatch {
     base: u32,
     count: u32,
     contribution: BatchContribution,
 }
+
 
 /// Ordinary coalescing target. One oversized physical file remains eligible
 /// as a singleton, matching fresh build's largest-file allowance.
@@ -62,6 +67,7 @@ pub(crate) struct SegmentLimits {
     pub source_bytes: u64,
 }
 
+
 impl Default for SegmentLimits {
     fn default() -> Self {
         Self {
@@ -71,6 +77,7 @@ impl Default for SegmentLimits {
         }
     }
 }
+
 
 /// Complete local search structures. The publication owner assigns a segment
 /// ID and combines it with the base and other live segments in one IndexView.
@@ -98,6 +105,7 @@ pub(crate) struct IndexedCollectionSegment {
     pub record_parses: u64,
     pub failed_parses: u64,
 }
+
 
 impl SegmentAdmission {
     pub fn new(collection: CollectionId, source: &PreparedSource) -> Self {
@@ -197,7 +205,7 @@ impl SegmentAdmission {
         for batch in prepared.contributions {
             if batch.files.iter().any(|file| {
                 file.entry.id != source.id
-                    || file.entry.relative_path != source.relative_path
+                    || file.entry.relative_path.as_path() != source.relative_path.as_path()
                     || file.entry.revision != source.revision
                     || file.entry.created_ns != source.created_ns
                     || file.entry.collections != [self.collection]
@@ -319,6 +327,7 @@ impl SegmentAdmission {
         }
     }
 }
+
 
 impl CollectionSegment {
     pub fn into_indexed(
@@ -504,6 +513,7 @@ impl CollectionSegment {
     }
 }
 
+
 impl IndexedCollectionSegment {
     pub fn file(&self, id: FileId) -> Option<&SegmentFile> {
         self.files.get(*self.file_index.get(&id)?)
@@ -518,12 +528,14 @@ impl IndexedCollectionSegment {
     }
 }
 
+
 /// The offsets translate old shard-local slots to the consolidated local
 /// namespace. Publication must translate each old active mask with them.
 pub(crate) struct ConsolidatedSegment {
     pub index: IndexedCollectionSegment,
     pub offsets: Vec<u32>,
 }
+
 
 impl ConsolidatedSegment {
     /// Preserve retired local slots exactly when publishing the consolidated
@@ -556,6 +568,7 @@ impl ConsolidatedSegment {
         ActiveRecords::all(self.index.records.len())?.retired(&retired)
     }
 }
+
 
 fn merge_bigram_index(
     target: &mut BigramIndex,
@@ -811,6 +824,7 @@ fn consolidate_inference(
     }))
 }
 
+
 impl IndexedCollectionSegment {
     /// Combine already indexed shards without opening or parsing source files.
     /// Shards with overlapping FileIds or logical IDs must first be resolved
@@ -1045,6 +1059,7 @@ impl IndexedCollectionSegment {
     }
 }
 
+
 /// A dense active-only shard plus a locator translation for callers that
 /// retained an old local slot. Retired slots map to `None`.
 pub(crate) struct CompactedSegment {
@@ -1053,10 +1068,12 @@ pub(crate) struct CompactedSegment {
     pub old_to_new: Vec<Option<RecordSlot>>,
 }
 
+
 pub(crate) struct PostingProjection {
     postings: PostingCollection,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
 }
+
 
 fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> PostingIndex {
     PostingIndex {
@@ -1392,6 +1409,7 @@ fn project_inference(
     Ok(Some(state))
 }
 
+
 impl IndexedCollectionSegment {
     /// Scatter typed posting dictionaries through the partition map once.
     /// Repeatedly projecting the complete source dictionary for each output
@@ -1585,6 +1603,7 @@ impl IndexedCollectionSegment {
             Some(projection),
         )
     }
+
     /// Build a dense active-only shard without opening source data. The file
     /// predicate distinguishes a current zero-record file from an obsolete
     /// historical incarnation with no live records.
@@ -1838,6 +1857,7 @@ impl IndexedCollectionSegment {
         })
     }
 }
+
 
 #[cfg(test)]
 #[path = "mutation_segment.test.rs"]

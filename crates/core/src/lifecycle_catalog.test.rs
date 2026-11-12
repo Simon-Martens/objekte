@@ -50,8 +50,14 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
         Some(FileId(0))
     );
     assert_eq!(changed.fingerprint(FileId(0)), Some([7; 32]));
-    assert_eq!(changed.absolute_path_ids(Operator::Eq, "data/renamed.json"), Some(vec![FileId(0)]));
-    assert_eq!(changed.absolute_path_ids(Operator::Eq, "data/a.json"), Some(vec![]));
+    assert_eq!(
+        changed.relative_path_ids(Operator::Eq, "data/renamed.json"),
+        Some(vec![FileId(0)])
+    );
+    assert_eq!(
+        changed.relative_path_ids(Operator::Eq, "data/a.json"),
+        Some(vec![])
+    );
     assert_eq!(changed.configuration(FileId(0)), Some([8; 32]));
     assert_eq!(
         original.id_for(std::path::Path::new("data/a.json")),
@@ -68,10 +74,13 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
     let appended = retired.appended(added, None, None).unwrap();
     assert_eq!(appended.allocated_files(), 3);
     assert_eq!(appended.active_files(), 2);
-    let mut prefix = appended.absolute_path_ids(Operator::Ge, "data/n").unwrap();
+    let mut prefix = appended.relative_path_ids(Operator::Ge, "data/n").unwrap();
     prefix.sort_by_key(|id| id.0);
     assert_eq!(prefix, [FileId(0), FileId(2)]);
-    assert_eq!(appended.absolute_path_ids_up_to(Operator::Ge, "data/n", 1), None);
+    assert_eq!(
+        appended.relative_path_ids_up_to(Operator::Ge, "data/n", 1),
+        None
+    );
     assert_eq!(
         appended.id_for(std::path::Path::new("data/new.json")),
         Some(FileId(2))
@@ -107,7 +116,10 @@ fn changed_paths_and_tombstones_do_not_copy_or_rewrite_base_inventory() {
         Some(FileId(2))
     );
     assert_eq!(restored.fingerprint(FileId(0)), Some([7; 32]));
-    assert_eq!(restored.absolute_path_ids(Operator::Eq, "data/new.json"), Some(vec![FileId(2)]));
+    assert_eq!(
+        restored.relative_path_ids(Operator::Eq, "data/new.json"),
+        Some(vec![FileId(2)])
+    );
     assert_eq!(restored.configuration(FileId(0)), Some([8; 32]));
     assert!(restored.entry(FileId(1)).is_none());
 

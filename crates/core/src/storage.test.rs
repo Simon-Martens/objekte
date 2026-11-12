@@ -51,7 +51,9 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
     use serde::de::{SeqAccess, Visitor};
     use serde::ser::SerializeSeq;
 
+
     struct ByteChunk<'a>(&'a [u8]);
+
 
     impl Serialize for ByteChunk<'_> {
         fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
@@ -59,7 +61,9 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
         }
     }
 
+
     struct RepeatedChunks;
+
 
     impl Serialize for RepeatedChunks {
         fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
@@ -72,11 +76,14 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
         }
     }
 
+
     struct ChunkCount(usize);
+
 
     impl<'de> Deserialize<'de> for ChunkCount {
         fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
             struct ChunkVisitor;
+
 
             impl<'de> Visitor<'de> for ChunkVisitor {
                 type Value = ChunkCount;
@@ -100,7 +107,10 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
                 }
             }
 
+
             deserializer.deserialize_seq(ChunkVisitor)
+
+
         }
     }
 
@@ -161,7 +171,7 @@ fn lifecycle_snapshot_restores_pinned_liveness_without_source_enumeration() {
     publication.active[0] = publication.active[0].retired(&[RecordSlot(0)]).unwrap();
     let mut appended = publication.repository.files().files[0].clone();
     appended.id = FileId(1);
-    appended.relative_path = PathBuf::from("data/b.json");
+    appended.relative_path = PathBuf::from("data/b.json").into();
     publication.catalog = publication
         .catalog
         .appended(
@@ -623,9 +633,35 @@ fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
     assert_eq!(save.sections[1].id, 0);
     assert_eq!(save.sections[2].id, 1);
     let original = fs::read(&snapshot).unwrap();
+    let mut previous_path_contract = original.clone();
+    previous_path_contract[MAGIC.len()..MAGIC.len() + 4].copy_from_slice(&21u32.to_le_bytes());
+    fs::write(&snapshot, &previous_path_contract).unwrap();
+    assert!(
+        open(SnapshotMode::Required)
+            .err()
+            .unwrap()
+            .contains("incompatible snapshot version")
+    );
+    let migrated = open(SnapshotMode::IfValid).unwrap();
+    assert_eq!(
+        migrated.startup().snapshot_action,
+        SnapshotAction::BuiltInMemory
+    );
+    assert_eq!(migrated.build_parses(), 1);
+    fs::write(&snapshot, &original).unwrap();
     let restored = open(SnapshotMode::Required).unwrap();
     assert_eq!(restored.startup().snapshot_action, SnapshotAction::Restored);
     assert_eq!(restored.build_parses(), 0);
+    let record_id = restored.collections[0].generation.records[0].id.0.as_str();
+    let hit = restored
+        .get_record("files", record_id, ReturnMode::Locator)
+        .unwrap()
+        .unwrap();
+    assert_eq!(hit.file_path, Path::new("data/a.json"));
+    assert_eq!(
+        restored.files.id_for(Path::new("data/a.json")),
+        Some(FileId(0))
+    );
     assert_eq!(fs::read(&snapshot).unwrap(), original);
     let load_and_write = open(SnapshotMode::IfValid).unwrap();
     assert_eq!(
@@ -1069,7 +1105,7 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
     }
     let original = fs::read(&snapshot).unwrap();
     let header_size = MAGIC.len() + 4 + 4 + 32 + 4;
-    for old_version in [12u32, 19, 20] {
+    for old_version in [12u32, 19, 20, 21, 22] {
         let mut previous_version = original.clone();
         previous_version[MAGIC.len()..MAGIC.len() + 4].copy_from_slice(&old_version.to_le_bytes());
         fs::write(&snapshot, previous_version).unwrap();

@@ -1,7 +1,9 @@
 //! Repository-wide files and collection-generation record ownership.
 
 use std::collections::{BTreeMap, HashMap};
+use std::hash::{Hash, Hasher};
 use std::ops::Bound;
+use std::ops::Deref;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::time::SystemTime;
@@ -465,11 +467,142 @@ impl ActiveRecords {
 }
 
 
+/// Immutable native path shared with lookup keys and, for ordinary paths,
+/// with the ordered query-path index.
+#[derive(Clone, Debug)]
+pub enum SharedPath {
+    /// Ordinary paths have the same native and query spelling, so the ordered
+    /// query index can share this allocation with the file table.
+    Plain(Arc<str>),
+    /// Escaped or non-UTF-8 paths retain their reversible native spelling.
+    Native(Arc<Path>),
+}
+
+
+impl SharedPath {
+    pub fn as_path(&self) -> &Path {
+        match self {
+            Self::Plain(text) => Path::new(text.as_ref()),
+            Self::Native(path) => path,
+        }
+    }
+
+    pub(crate) fn query_key(&self) -> Arc<str> {
+        match self {
+            Self::Plain(text) => Arc::clone(text),
+            Self::Native(path) => crate::path_repr::query_path(path).into(),
+        }
+    }
+
+    fn payload_bytes(&self) -> usize {
+        self.as_path().as_os_str().len()
+    }
+
+    fn query_key_has_separate_payload(&self) -> bool {
+        matches!(self, Self::Native(_))
+    }
+}
+
+
+impl From<PathBuf> for SharedPath {
+    fn from(path: PathBuf) -> Self {
+        if let Some(text) = path.to_str() {
+            if crate::path_repr::query_path(&path) == text {
+                return Self::Plain(Arc::from(text));
+            }
+        }
+        Self::Native(Arc::from(path))
+    }
+}
+
+
+impl From<&str> for SharedPath {
+    fn from(path: &str) -> Self {
+        PathBuf::from(path).into()
+    }
+}
+
+
+impl From<std::ffi::OsString> for SharedPath {
+    fn from(path: std::ffi::OsString) -> Self {
+        PathBuf::from(path).into()
+    }
+}
+
+
+impl Deref for SharedPath {
+    type Target = Path;
+
+    fn deref(&self) -> &Self::Target {
+        self.as_path()
+    }
+}
+
+
+impl AsRef<Path> for SharedPath {
+    fn as_ref(&self) -> &Path {
+        self.as_path()
+    }
+}
+
+
+impl std::borrow::Borrow<Path> for SharedPath {
+    fn borrow(&self) -> &Path {
+        self.as_path()
+    }
+}
+
+
+impl PartialEq for SharedPath {
+    fn eq(&self, other: &Self) -> bool {
+        self.as_path() == other.as_path()
+    }
+}
+
+
+impl Eq for SharedPath {}
+
+
+impl PartialEq<PathBuf> for SharedPath {
+    fn eq(&self, other: &PathBuf) -> bool {
+        self.as_path() == other.as_path()
+    }
+}
+
+
+impl PartialEq<&Path> for SharedPath {
+    fn eq(&self, other: &&Path) -> bool {
+        self.as_path() == *other
+    }
+}
+
+
+impl Hash for SharedPath {
+    fn hash<H: Hasher>(&self, state: &mut H) {
+        self.as_path().hash(state);
+    }
+}
+
+
+impl Serialize for SharedPath {
+    fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        self.as_path().to_path_buf().serialize(serializer)
+    }
+}
+
+
+impl<'de> Deserialize<'de> for SharedPath {
+    fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        PathBuf::deserialize(deserializer).map(Self::from)
+    }
+}
+
+
 /// Repository-wide identity and metadata for one source file.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FileEntry {
     pub id: FileId,
-    pub relative_path: PathBuf,
+    pub relative_path: SharedPath,
     pub revision: SourceRevision,
     pub created_ns: Option<i128>,
     pub collections: Vec<CollectionId>,
@@ -521,28 +654,19 @@ pub struct FileInventory {
     pub root: PathBuf,
     pub files: Vec<FileEntry>,
     #[serde(skip)]
-    by_path: HashMap<PathBuf, FileId>,
-    /// Ordered absolute query paths, rebuilt with every restored index.
+    by_path: HashMap<SharedPath, FileId>,
+    /// Ordered root-relative query keys, rebuilt with every restored index.
     #[serde(skip)]
-    pub(crate) absolute_paths: BTreeMap<String, FileId>,
+    pub(crate) relative_paths: BTreeMap<Arc<str>, FileId>,
 }
 
-/// Use the same representation as `@file.path` after prepending the source root.
-pub(crate) fn absolute_path_key(root: &Path, relative: &Path) -> String {
-    crate::path_repr::query_path(&root.join(relative))
-}
 
-/// Lexical comparisons keep their order when both operands share this root.
-pub(crate) fn absolute_path_bounds(
-    root: &Path,
+/// Lexical bounds over the same root-relative representation as `@file.path`.
+pub(crate) fn relative_path_bounds(
     operator: Operator,
     literal: &str,
-) -> Option<(Bound<String>, Bound<String>)> {
-    let mut key = crate::path_repr::query_path(root);
-    if !key.ends_with('/') {
-        key.push('/');
-    }
-    key.push_str(literal);
+) -> Option<(Bound<Arc<str>>, Bound<Arc<str>>)> {
+    let key: Arc<str> = literal.into();
     Some(match operator {
         Operator::Eq => (Bound::Included(key.clone()), Bound::Included(key)),
         Operator::Gt => (Bound::Excluded(key), Bound::Unbounded),
@@ -553,7 +677,7 @@ pub(crate) fn absolute_path_bounds(
     })
 }
 
-pub(crate) fn empty_path_bounds(bounds: &(Bound<String>, Bound<String>)) -> bool {
+pub(crate) fn empty_path_bounds(bounds: &(Bound<Arc<str>>, Bound<Arc<str>>)) -> bool {
     match (&bounds.0, &bounds.1) {
         (Bound::Unbounded, _) | (_, Bound::Unbounded) => false,
         (
@@ -562,7 +686,10 @@ pub(crate) fn empty_path_bounds(bounds: &(Bound<String>, Bound<String>)) -> bool
         ) => {
             lower > upper
                 || (lower == upper
-                    && !matches!((&bounds.0, &bounds.1), (Bound::Included(_), Bound::Included(_))))
+                    && !matches!(
+                        (&bounds.0, &bounds.1),
+                        (Bound::Included(_), Bound::Included(_))
+                    ))
         }
     }
 }
@@ -574,10 +701,10 @@ impl FileInventory {
     pub fn estimated_heap_bytes(&self) -> (usize, usize) {
         let mut inventory = self.root.capacity()
             + self.files.capacity() * std::mem::size_of::<FileEntry>()
-            + self.by_path.capacity() * std::mem::size_of::<(PathBuf, FileId)>();
+            + self.by_path.capacity() * std::mem::size_of::<(SharedPath, FileId)>();
         let mut diagnostics = 0;
         for file in &self.files {
-            inventory += file.relative_path.capacity()
+            inventory += file.relative_path.payload_bytes()
                 + file.collections.capacity() * std::mem::size_of::<CollectionId>();
             diagnostics += file.diagnostics.capacity() * std::mem::size_of::<SourceDiagnostic>();
             for diagnostic in &file.diagnostics {
@@ -590,10 +717,13 @@ impl FileInventory {
                 }
             }
         }
-        inventory += self.by_path.keys().map(PathBuf::capacity).sum::<usize>();
-        inventory += self.absolute_paths.len()
-            * std::mem::size_of::<(String, FileId)>();
-        inventory += self.absolute_paths.keys().map(String::capacity).sum::<usize>();
+        inventory += self.relative_paths.len() * std::mem::size_of::<(Arc<str>, FileId)>();
+        inventory += self
+            .files
+            .iter()
+            .filter(|file| file.relative_path.query_key_has_separate_payload())
+            .map(|file| crate::path_repr::query_path(&file.relative_path).len())
+            .sum::<usize>();
         (inventory, diagnostics)
     }
 
@@ -602,7 +732,7 @@ impl FileInventory {
             root,
             files: Vec::new(),
             by_path: HashMap::new(),
-            absolute_paths: BTreeMap::new(),
+            relative_paths: BTreeMap::new(),
         }
     }
 
@@ -616,7 +746,7 @@ impl FileInventory {
         if !valid_relative_path(&relative_path) {
             return Err("file path must be repository-relative and contained".into());
         }
-        if let Some(&id) = self.by_path.get(&relative_path) {
+        if let Some(&id) = self.by_path.get(relative_path.as_path()) {
             let file = &mut self.files[id.0 as usize];
             if file.revision != revision {
                 return Err("one file has inconsistent revisions".into());
@@ -627,9 +757,9 @@ impl FileInventory {
             return Ok(id);
         }
         let id = FileId(u32::try_from(self.files.len()).map_err(|_| "too many files")?);
+        let relative_path = SharedPath::from(relative_path);
         self.by_path.insert(relative_path.clone(), id);
-        self.absolute_paths
-            .insert(absolute_path_key(&self.root, &relative_path), id);
+        self.relative_paths.insert(relative_path.query_key(), id);
         self.files.push(FileEntry {
             id,
             relative_path,
@@ -714,7 +844,7 @@ impl FileInventory {
 
     pub fn rebuild_lookup(&mut self) -> Result<(), String> {
         self.by_path.clear();
-        self.absolute_paths.clear();
+        self.relative_paths.clear();
         for (slot, file) in self.files.iter().enumerate() {
             if !valid_relative_path(&file.relative_path)
                 || file.id.0 as usize != slot
@@ -726,11 +856,11 @@ impl FileInventory {
                 return Err("invalid restored file inventory".into());
             }
             if self
-                .absolute_paths
-                .insert(absolute_path_key(&self.root, &file.relative_path), file.id)
+                .relative_paths
+                .insert(file.relative_path.query_key(), file.id)
                 .is_some()
             {
-                return Err("invalid restored absolute file path index".into());
+                return Err("invalid restored relative file path index".into());
             }
         }
         self.validate_diagnostics()?;
@@ -747,17 +877,28 @@ impl FileInventory {
         self.by_path.get(path).copied()
     }
 
-    pub(crate) fn absolute_path_ids_in_bounds(&self, bounds: (Bound<String>, Bound<String>)) -> Vec<FileId> {
+    pub(crate) fn relative_path_ids_in_bounds(
+        &self,
+        bounds: (Bound<Arc<str>>, Bound<Arc<str>>),
+    ) -> Vec<FileId> {
         if empty_path_bounds(&bounds) {
             return Vec::new();
         }
-        self.absolute_paths.range(bounds).map(|(_, id)| *id).collect()
+        self.relative_paths
+            .range(bounds)
+            .map(|(_, id)| *id)
+            .collect()
     }
 
-    pub(crate) fn absolute_path_ids_up_to(&self, operator: Operator, literal: &str, limit: usize) -> Option<Vec<FileId>> {
-        let bounds = absolute_path_bounds(&self.root, operator, literal)?;
+    pub(crate) fn relative_path_ids_up_to(
+        &self,
+        operator: Operator,
+        literal: &str,
+        limit: usize,
+    ) -> Option<Vec<FileId>> {
+        let bounds = relative_path_bounds(operator, literal)?;
         let mut ids = Vec::new();
-        for (_, id) in self.absolute_paths.range(bounds) {
+        for (_, id) in self.relative_paths.range(bounds) {
             if ids.len() == limit {
                 return None;
             }

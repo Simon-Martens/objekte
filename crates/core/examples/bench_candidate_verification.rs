@@ -242,7 +242,7 @@ fn in_memory(
         .transpose()?;
     let file = FileEntry {
         id: FileId(0),
-        relative_path: PathBuf::from("data/record.json"),
+        relative_path: PathBuf::from("data/record.json").into(),
         revision: SourceRevision {
             modified_ns: 0,
             size: 0,

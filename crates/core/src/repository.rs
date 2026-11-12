@@ -2119,7 +2119,7 @@ impl Repository {
                             record_id: record.id.0.clone(),
                             generation: collection.generation.generation,
                             file_id: file.id.0,
-                            file_path: file.relative_path.clone(),
+                            file_path: file.relative_path.to_path_buf(),
                             file_size: file.revision.size,
                             file_created_ns: file.created_ns,
                             byte_start: record.range.start,

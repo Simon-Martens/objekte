@@ -205,7 +205,13 @@ Reserved metadata paths are `@record.id`, `@record.byte_start`,
 `@file.size`, `@file.created`, `@file.modified`, `@file.status`,
 `@record.class`, `@collection.name`, and
 `@repository.root`. File paths use a reversible percent-escaped query
-representation for native non-UTF-8 names. Dates and datetimes require
+representation for native non-UTF-8 names. `@file.path`, `SearchHit.file_path`
+and other returned source paths are relative to the opened repository root,
+including in indexed comparisons, scans, sorting and snapshot-restored results.
+For a root `/data/archive`, a file under `contents/123.json` is returned as
+`contents/123.json`; an absolute-looking query literal is compared literally.
+Resolve a returned path against that repository's root when accessing the
+source file. Dates and datetimes require
 explicitly typed fields and quoted typed literals; Unix-second fields take
 integer literals.
 

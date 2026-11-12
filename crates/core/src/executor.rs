@@ -2,13 +2,13 @@
 
 use std::collections::{BTreeMap, HashMap};
 use std::ops::Bound;
-use std::path::Path;
+use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
 use crate::build::IndexedCollectionSegment;
-use crate::inventory::{ActiveRecords, absolute_path_bounds};
+use crate::inventory::{ActiveRecords, relative_path_bounds};
 use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{LogicalType, MetadataField, Number, PathRoot, RecordId, Value};
@@ -106,7 +106,7 @@ fn file_path_matches(value: &str, operator: Operator, literal: &str) -> bool {
     }
 }
 
-fn stronger_lower(candidate: &Bound<String>, current: &Bound<String>) -> bool {
+fn stronger_lower(candidate: &Bound<Arc<str>>, current: &Bound<Arc<str>>) -> bool {
     match (candidate, current) {
         (Bound::Unbounded, _) => false,
         (_, Bound::Unbounded) => true,
@@ -122,7 +122,7 @@ fn stronger_lower(candidate: &Bound<String>, current: &Bound<String>) -> bool {
     }
 }
 
-fn stronger_upper(candidate: &Bound<String>, current: &Bound<String>) -> bool {
+fn stronger_upper(candidate: &Bound<Arc<str>>, current: &Bound<Arc<str>>) -> bool {
     match (candidate, current) {
         (Bound::Unbounded, _) => false,
         (_, Bound::Unbounded) => true,
@@ -141,9 +141,8 @@ fn stronger_upper(candidate: &Bound<String>, current: &Bound<String>) -> bool {
 /// Merge direct path comparisons before touching the ordered index. Directory
 /// filters commonly have a broad lower bound and a narrow upper bound.
 fn combined_file_path_bounds(
-    root: &Path,
     parts: &[&BoundExpr],
-) -> Option<((Bound<String>, Bound<String>), Vec<usize>)> {
+) -> Option<((Bound<Arc<str>>, Bound<Arc<str>>), Vec<usize>)> {
     let mut lower = Bound::Unbounded;
     let mut upper = Bound::Unbounded;
     let mut path_parts = Vec::new();
@@ -154,7 +153,7 @@ fn combined_file_path_bounds(
         let Some((operator, literal)) = indexed_file_path_term(term) else {
             continue;
         };
-        let (next_lower, next_upper) = absolute_path_bounds(root, operator, literal)?;
+        let (next_lower, next_upper) = relative_path_bounds(operator, literal)?;
         if stronger_lower(&next_lower, &lower) {
             lower = next_lower;
         }
@@ -508,7 +507,7 @@ fn segment_expr_bounds(
             if let Some((operator, literal)) = indexed_file_path_term(term)
                 && let Some(catalog) = catalog
             {
-                let mut matches = if let Some(files) = catalog.absolute_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN) {
+                let mut matches = if let Some(files) = catalog.relative_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN) {
                     let mut matches = RoaringBitmap::new();
                     for file in files {
                         if let Some(slots) = segment.file_records(file) {
@@ -604,14 +603,12 @@ fn segment_expr_bounds(
             for part in parts {
                 flatten_and(part, &mut flattened);
             }
-            let path_range = catalog.and_then(|catalog| {
-                combined_file_path_bounds(catalog.root(), &flattened)
-            });
+            let path_range = catalog.and_then(|_| combined_file_path_bounds(&flattened));
             let mut may = domain.clone();
             let mut must = domain.clone();
             if let (Some(catalog), Some((bounds, _))) = (catalog, &path_range) {
                 let mut matches = RoaringBitmap::new();
-                for file in catalog.absolute_path_ids_in_bounds(bounds.clone()) {
+                for file in catalog.relative_path_ids_in_bounds(bounds.clone()) {
                     if let Some(slots) = segment.file_records(file) {
                         matches.extend(slots.iter().map(|slot| slot.0));
                     }
@@ -1107,7 +1104,7 @@ fn term_set(
                 }
                 return Ok(Some(result));
             }
-            if let Some(files) = repo.files.absolute_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN) {
+            if let Some(files) = repo.files.relative_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN) {
                 for file in files {
                     if let Some(slots) = collection.generation.file_records.records_for(file) {
                         result.extend(slots.iter().map(|slot| slot.0));
@@ -2079,9 +2076,9 @@ fn plan_logical_expr(
                 flatten_and(part, &mut remaining);
             }
             let mut current = input.clone();
-            if let Some((bounds, _)) = combined_file_path_bounds(&repo.files.root, &remaining) {
+            if let Some((bounds, _)) = combined_file_path_bounds(&remaining) {
                 let mut matches = RoaringBitmap::new();
-                for file in repo.files.absolute_path_ids_in_bounds(bounds) {
+                for file in repo.files.relative_path_ids_in_bounds(bounds) {
                     if let Some(slots) = collection.generation.file_records.records_for(file) {
                         matches.extend(slots.iter().map(|slot| slot.0));
                     }

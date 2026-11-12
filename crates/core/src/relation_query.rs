@@ -112,7 +112,7 @@ impl<'a> MergedRelationView<'a> {
         let path = self.repo.files.root.join(&file.relative_path);
         self.source_errors.borrow_mut().record(SourceDiagnostic {
             file_id: file.id.0,
-            file_path: file.relative_path.clone(),
+            file_path: file.relative_path.to_path_buf(),
             kind: classify_source_read_failure_for_search(&path, file.revision, Some(range)),
             message,
         });

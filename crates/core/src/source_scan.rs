@@ -200,7 +200,7 @@ impl SourceScan {
                                 if counters.source_diagnostics.len() < 32 {
                                     counters.source_diagnostics.push(QuerySourceDiagnostic {
                                         file_id: file.id.0,
-                                        file_path: file.relative_path.clone(),
+                                        file_path: file.relative_path.to_path_buf(),
                                         kind: SourceUnavailableKind::Unreadable,
                                         message: diagnostic.message,
                                     });
@@ -342,7 +342,7 @@ impl SourceScan {
                             record_id: entry.id.0.clone(),
                             generation: 1,
                             file_id: file.id.0,
-                            file_path: file.relative_path.clone(),
+                            file_path: file.relative_path.to_path_buf(),
                             file_size: file.revision.size,
                             file_created_ns: file.created_ns,
                             byte_start: range.start,

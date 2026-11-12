@@ -648,7 +648,7 @@ fn index_prepared_file(
     let memberships = indexed.iter().map(|segment| segment.collection).collect();
     let mut entry = FileEntry {
         id: source.id,
-        relative_path: source.relative_path.clone(),
+        relative_path: source.relative_path.clone().into(),
         revision: source.revision,
         created_ns: source.created_ns,
         collections: memberships,

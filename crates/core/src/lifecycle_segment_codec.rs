@@ -75,6 +75,7 @@ fn path_from_bytes(bytes: Vec<u8>) -> Result<PathBuf, String> {
     }
 }
 
+
 #[derive(Serialize, Deserialize)]
 struct EncodedFile {
     id: FileId,
@@ -86,6 +87,7 @@ struct EncodedFile {
     diagnostics: Vec<SourceDiagnostic>,
     omitted_diagnostics: u32,
 }
+
 
 impl EncodedFile {
     fn from_entry(entry: &FileEntry) -> Self {
@@ -104,7 +106,7 @@ impl EncodedFile {
     fn into_entry(self) -> Result<FileEntry, String> {
         Ok(FileEntry {
             id: self.id,
-            relative_path: path_from_bytes(self.path)?,
+            relative_path: path_from_bytes(self.path)?.into(),
             revision: self.revision,
             created_ns: self.created_ns,
             collections: self.collections,
@@ -115,11 +117,13 @@ impl EncodedFile {
     }
 }
 
+
 #[derive(Serialize, Deserialize)]
 struct EncodedSegmentFile {
     entry: EncodedFile,
     records: Vec<RecordSlot>,
 }
+
 
 #[derive(Serialize)]
 struct SegmentRef<'a> {
@@ -145,6 +149,7 @@ struct SegmentRef<'a> {
     failed_parses: u64,
 }
 
+
 #[derive(Deserialize)]
 struct OwnedSegment {
     collection: CollectionId,
@@ -168,6 +173,7 @@ struct OwnedSegment {
     record_parses: u64,
     failed_parses: u64,
 }
+
 
 /// Encode one completed segment. The outer snapshot section supplies the
 /// checksum; this codec preserves native non-UTF-8 source paths as bytes.

@@ -14,6 +14,14 @@ cargo build --release -p objekte-cli
 
 The positional query is a structured expression unless it is exactly one double-quoted JSON string literal. Thus `obj '"Goethe"'` and `obj --fts Goethe` are equivalent literal full-text searches. A leading `-` in a positional query requires `--` before the query. `obj --help` lists the options without opening a repository.
 
+Source-file paths in NDJSON hits, printed results, TUI rows and exports are
+relative to the opened repository root. `@file.path` compares this same value,
+so `@file.path = 'contents/123.json'` matches that file in a repository rooted
+at `/data/archive`; the absolute string `/data/archive/contents/123.json` does
+not. `@repository.root` remains the separate absolute root value. When using
+`--path`, resolve a returned source path against the root selected by that
+invocation, independently of the process working directory.
+
 ## Inputs and result scope
 
 | Option | Behavior |

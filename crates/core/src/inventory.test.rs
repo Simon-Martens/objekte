@@ -26,9 +26,36 @@ fn file_record_mapping_in_both_directions() {
     let f1 = files
         .add("multi.jsonl".into(), revision, None, CollectionId(0))
         .unwrap();
-    assert_eq!(files.absolute_path_ids_up_to(Operator::Eq, "empty.json", 1), Some(vec![f0]));
-    assert_eq!(files.absolute_path_ids_up_to(Operator::Ge, "empty.json", 1), None);
-    assert!(files.absolute_paths.keys().all(|path| path.starts_with("/tmp/repo/")));
+    assert_eq!(
+        files.relative_path_ids_up_to(Operator::Eq, "empty.json", 1),
+        Some(vec![f0])
+    );
+    assert_eq!(
+        files.relative_path_ids_up_to(Operator::Ge, "empty.json", 1),
+        None
+    );
+    assert!(
+        files
+            .relative_paths
+            .keys()
+            .all(|path| !path.starts_with("/tmp/repo/"))
+    );
+    let SharedPath::Plain(entry_path) = &files.files[f0.0 as usize].relative_path else {
+        panic!("ordinary path should share its query key");
+    };
+    assert!(Arc::ptr_eq(
+        entry_path,
+        files.relative_paths.get_key_value("empty.json").unwrap().0
+    ));
+    let lookup_path = files
+        .by_path
+        .get_key_value(Path::new("empty.json"))
+        .unwrap()
+        .0;
+    let SharedPath::Plain(lookup_path) = lookup_path else {
+        panic!("ordinary lookup path should share its entry payload");
+    };
+    assert!(Arc::ptr_eq(entry_path, lookup_path));
     assert_eq!(
         files
             .add("multi.jsonl".into(), revision, None, CollectionId(1))
@@ -68,6 +95,62 @@ fn file_record_mapping_in_both_directions() {
     );
     assert!(ByteRange::checked(9, 11, 10).is_err());
     assert!(ByteRange::checked(5, 4, 10).is_err());
+}
+
+#[test]
+fn relative_path_index_preserves_native_escaping_and_rejects_absolute_literals() {
+    let mut files = FileInventory::new(PathBuf::from("/tmp/repo"));
+    let revision = SourceRevision {
+        modified_ns: 1,
+        size: 2,
+    };
+    for (name, id) in [("data/a.json", FileId(0)), ("other/a.json", FileId(1))] {
+        assert_eq!(
+            files
+                .add(name.into(), revision, None, CollectionId(0))
+                .unwrap(),
+            id
+        );
+        assert_eq!(files.id_for(Path::new(name)), Some(id));
+        assert_eq!(
+            files.relative_path_ids_up_to(Operator::Eq, name, 2),
+            Some(vec![id])
+        );
+    }
+    assert_eq!(
+        files.relative_path_ids_up_to(Operator::Eq, "/tmp/repo/data/a.json", 2),
+        Some(vec![])
+    );
+    let escaped = PathBuf::from("data/percent%and\\backslash.json");
+    let key = crate::path_repr::query_path(&escaped);
+    let id = files
+        .add(escaped.clone(), revision, None, CollectionId(0))
+        .unwrap();
+    assert!(matches!(
+        files.files[id.0 as usize].relative_path,
+        SharedPath::Native(_)
+    ));
+    assert_eq!(files.id_for(&escaped), Some(id));
+    assert_eq!(
+        files.relative_path_ids_up_to(Operator::Eq, &key, 2),
+        Some(vec![id])
+    );
+    #[cfg(unix)]
+    {
+        use std::os::unix::ffi::OsStringExt;
+        let native = PathBuf::from(std::ffi::OsString::from_vec(
+            b"data/invalid-\xff.json".to_vec(),
+        ));
+        let key = crate::path_repr::query_path(&native);
+        let id = files
+            .add(native.clone(), revision, None, CollectionId(0))
+            .unwrap();
+        assert_eq!(files.id_for(&native), Some(id));
+        assert_eq!(
+            files.relative_path_ids_up_to(Operator::Eq, &key, 2),
+            Some(vec![id])
+        );
+    }
 }
 
 #[test]

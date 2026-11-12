@@ -32,12 +32,15 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 21;
-pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 22;
+// Path predicates and persisted sort projections now use root-relative keys.
+// Older snapshots can carry absolute derived values and must be rebuilt.
+pub const SNAPSHOT_VERSION: u32 = 23;
+pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 24;
 const CONFIGURATION_HASH_VERSION: u32 = 17;
 const CONFIGURATION_SECTION_ID: u32 = u32::MAX;
 const MAX_SECTION_BYTES: u64 = 8 * 1024 * 1024 * 1024;
 const SECTION_HEADER_BYTES: usize = 44;
+
 
 /// Settings that affect index contents. Runtime cache sizes and worker counts
 /// remain caller choices when a snapshot is restored.
@@ -46,6 +49,7 @@ pub struct SnapshotBuildConfiguration {
     pub bigram_alphabet: BigramAlphabet,
     pub inference: InferenceConfig,
 }
+
 
 impl SnapshotBuildConfiguration {
     pub(crate) fn from_options(options: RepositoryOptions) -> Self {
@@ -61,6 +65,7 @@ impl SnapshotBuildConfiguration {
         options
     }
 }
+
 
 /// Phase timings for one explicit, durable snapshot save. Opening does not
 /// modify these values or perform a save.
@@ -79,6 +84,7 @@ pub struct SnapshotSaveStats {
     pub sections: Vec<SnapshotSectionSaveStats>,
 }
 
+
 #[derive(Clone, Debug)]
 pub struct SnapshotSectionSaveStats {
     pub id: u32,
@@ -88,12 +94,14 @@ pub struct SnapshotSectionSaveStats {
     pub payload_bytes: u64,
 }
 
+
 /// Restore failures distinguish unreadable storage from invalid snapshot data.
 #[derive(Debug)]
 pub(crate) enum SnapshotLoadError {
     Access(String),
     Invalid(String),
 }
+
 
 impl std::fmt::Display for SnapshotLoadError {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -103,17 +111,20 @@ impl std::fmt::Display for SnapshotLoadError {
     }
 }
 
+
 impl From<String> for SnapshotLoadError {
     fn from(message: String) -> Self {
         Self::Invalid(message)
     }
 }
 
+
 impl From<&str> for SnapshotLoadError {
     fn from(message: &str) -> Self {
         Self::Invalid(message.into())
     }
 }
+
 
 fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadError {
     if error.kind() == std::io::ErrorKind::UnexpectedEof {
@@ -122,6 +133,7 @@ fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadErro
         SnapshotLoadError::Access(format!("snapshot access while reading {context}: {error}"))
     }
 }
+
 
 /// Snapshot representation of one source-file revision.
 #[derive(Clone, Serialize, Deserialize)]
@@ -139,6 +151,7 @@ struct EncodedFile {
     fingerprint: Option<[u8; 32]>,
 }
 
+
 /// One active catalog entry. A `None` slot is retired; IDs are never reused.
 #[derive(Clone, Serialize, Deserialize)]
 pub(crate) struct LifecycleCatalogFile {
@@ -147,11 +160,12 @@ pub(crate) struct LifecycleCatalogFile {
     pub(crate) configuration: Option<[u8; 32]>,
 }
 
+
 impl LifecycleCatalogFile {
     pub(crate) fn decode_entry(&self) -> Result<FileEntry, String> {
         Ok(FileEntry {
             id: self.file.id,
-            relative_path: path_from_bytes(self.file.relative_path.clone())?,
+            relative_path: path_from_bytes(self.file.relative_path.clone())?.into(),
             revision: self.file.revision,
             created_ns: self.file.created_ns,
             collections: self.file.collections.clone(),
@@ -161,6 +175,7 @@ impl LifecycleCatalogFile {
         })
     }
 }
+
 
 /// Encoded indexed segment supplied by the segment owner. Storage checks
 /// envelope identity and active domain; the caller must validate the decoded
@@ -173,6 +188,7 @@ pub(crate) struct LifecycleSegmentCache {
     pub(crate) active: RoaringBitmap,
     pub(crate) index: Vec<u8>,
 }
+
 
 /// Mutation state appended after a fully validated base repository snapshot.
 /// The segment payload remains opaque until the caller's structural decoder
@@ -187,6 +203,7 @@ pub(crate) struct LifecycleCacheState {
     pub(crate) segments: Vec<Vec<LifecycleSegmentCache>>,
     pub(crate) next_segment_ordinal: u64,
 }
+
 
 impl LifecycleCacheState {
     /// Capture one coherent publication without reading the source filesystem.
@@ -386,6 +403,7 @@ impl LifecycleCacheState {
     }
 }
 
+
 /// Encode one pinned lifecycle revision with the existing atomic temp-file
 /// protocol. `before_publish` is where the caller rechecks destination safety.
 pub(crate) fn save_lifecycle_snapshot_with_stats(
@@ -400,6 +418,7 @@ pub(crate) fn save_lifecycle_snapshot_with_stats(
         .repository
         .save_snapshot_with_lifecycle_state(path, Some(&state), before_publish)
 }
+
 
 /// Owned snapshot representation of a collection generation.
 #[derive(Serialize, Deserialize)]
@@ -420,6 +439,7 @@ struct EncodedCollection {
     relations: Vec<RelationIndex>,
 }
 
+
 /// Borrowed collection state prepared for snapshot encoding.
 #[derive(Serialize)]
 struct EncodedCollectionRef<'a> {
@@ -438,6 +458,7 @@ struct EncodedCollectionRef<'a> {
     stats: CollectionStats,
     relations: &'a Vec<RelationIndex>,
 }
+
 
 fn codec() -> impl Options {
     bincode::DefaultOptions::new()
@@ -564,7 +585,7 @@ pub fn sources_match(repo: &Repository) -> Result<bool, String> {
             .iter()
             .map(|id| {
                 let file = &repo.files.files[id.0 as usize];
-                (file.relative_path.clone(), file.revision)
+                (file.relative_path.to_path_buf(), file.revision)
             })
             .collect();
         recorded.sort_by(|a, b| a.0.cmp(&b.0));
@@ -765,6 +786,7 @@ fn write_section(file: &mut impl Write, id: u32, value: &impl Serialize) -> Resu
     file.write_all(section.get_ref()).map_err(|e| e.to_string())
 }
 
+
 struct SectionWriter<'a, W: Write> {
     inner: &'a mut W,
     checksum: Sha256,
@@ -772,6 +794,7 @@ struct SectionWriter<'a, W: Write> {
     checksum_ns: u64,
     write_ns: u64,
 }
+
 
 impl<W: Write> Write for SectionWriter<'_, W> {
     fn write(&mut self, bytes: &[u8]) -> std::io::Result<usize> {
@@ -805,6 +828,7 @@ impl<W: Write> Write for SectionWriter<'_, W> {
         Ok(())
     }
 }
+
 
 fn write_section_measured(
     file: &mut (impl Write + Seek),
@@ -906,6 +930,7 @@ fn read_section<T: for<'de> Deserialize<'de>>(
     }
     Ok(decoded)
 }
+
 
 impl Repository {
     pub fn save_snapshot(&self, path: &Path) -> Result<(), String> {
@@ -1149,6 +1174,7 @@ impl Repository {
     }
 }
 
+
 #[cfg(test)]
 impl Repository {
     pub(crate) fn save_default_snapshot_for_test(&self) {
@@ -1159,6 +1185,7 @@ impl Repository {
         .unwrap();
     }
 }
+
 
 pub fn load_snapshot(
     root: PathBuf,

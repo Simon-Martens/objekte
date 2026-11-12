@@ -3,22 +3,27 @@
 //! The static repository remains the base. A mutation copies only one small
 //! path shard and one file-metadata shard, never the base inventory.
 
-use std::collections::{BTreeMap, HashMap, HashSet};
 #[cfg(test)]
 use std::collections::BTreeSet;
+use std::collections::{BTreeMap, HashMap, HashSet};
 use std::hash::{Hash, Hasher};
-use std::path::{Path, PathBuf};
+use std::path::Path;
+#[cfg(test)]
+use std::path::PathBuf;
 use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::inventory::{FileEntry, FileStatus, absolute_path_bounds, absolute_path_key, empty_path_bounds};
+use crate::inventory::{
+    FileEntry, FileStatus, SharedPath, empty_path_bounds, relative_path_bounds,
+};
 use crate::lifecycle_scan::FileStamp;
 use crate::model::FileId;
 use crate::query::Operator;
 use crate::repository::Repository;
 
 const SHARDS: usize = 1024;
+
 
 #[derive(Clone)]
 struct ChangedFile {
@@ -27,6 +32,7 @@ struct ChangedFile {
     configuration: Option<[u8; 32]>,
 }
 
+
 /// One published view's active file table. Previous views retain their own
 /// path map, metadata and liveness after a new root is published.
 #[derive(Clone)]
@@ -34,13 +40,14 @@ pub(crate) struct FileCatalog {
     base: Arc<Repository>,
     base_configuration: [u8; 32],
     changed: Arc<Vec<Arc<HashMap<FileId, ChangedFile>>>>,
-    changed_paths: Arc<Vec<Arc<HashMap<PathBuf, FileId>>>>,
+    changed_paths: Arc<Vec<Arc<HashMap<SharedPath, FileId>>>>,
     /// Ordered paths that differ from the immutable base; ordinary moves copy
     /// only this delta, while base lookups use the repository's path index.
-    changed_absolute_paths: Arc<BTreeMap<String, FileId>>,
+    changed_relative_paths: Arc<BTreeMap<Arc<str>, FileId>>,
     active: Arc<RoaringBitmap>,
     len: u32,
 }
+
 
 fn shard<T: Hash>(value: &T) -> usize {
     let mut hasher = std::collections::hash_map::DefaultHasher::new();
@@ -56,11 +63,8 @@ fn valid_relative_path(path: &Path) -> bool {
             .all(|part| matches!(part, std::path::Component::Normal(_)))
 }
 
-impl FileCatalog {
-    pub(crate) fn root(&self) -> &Path {
-        &self.base.files().root
-    }
 
+impl FileCatalog {
     fn configuration_for(base: &Repository) -> Result<[u8; 32], String> {
         let definitions = base
             .collections()
@@ -98,7 +102,7 @@ impl FileCatalog {
         }
         let mut changed = (0..SHARDS).map(|_| HashMap::new()).collect::<Vec<_>>();
         let mut changed_paths = (0..SHARDS).map(|_| HashMap::new()).collect::<Vec<_>>();
-        let mut changed_absolute_paths = BTreeMap::new();
+        let mut changed_relative_paths = BTreeMap::new();
         let mut active = RoaringBitmap::new();
         let mut paths = HashSet::new();
         for (number, slot) in slots.into_iter().enumerate() {
@@ -140,7 +144,7 @@ impl FileCatalog {
             });
             if new_path {
                 let path = entry.relative_path.clone();
-                changed_absolute_paths.insert(absolute_path_key(&base.files().root, &path), id);
+                changed_relative_paths.insert(entry.relative_path.query_key(), id);
                 changed_paths[shard(&path)].insert(path, id);
             }
             let base_fingerprint = base.base_fingerprints.get(number).copied().flatten();
@@ -166,7 +170,7 @@ impl FileCatalog {
             base_configuration,
             changed: Arc::new(changed.into_iter().map(Arc::new).collect()),
             changed_paths: Arc::new(changed_paths.into_iter().map(Arc::new).collect()),
-            changed_absolute_paths: Arc::new(changed_absolute_paths),
+            changed_relative_paths: Arc::new(changed_relative_paths),
             active: Arc::new(active),
             len,
         })
@@ -182,7 +186,7 @@ impl FileCatalog {
             base_configuration,
             changed: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
             changed_paths: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
-            changed_absolute_paths: Arc::new(BTreeMap::new()),
+            changed_relative_paths: Arc::new(BTreeMap::new()),
             active: Arc::new(active),
             len,
         })
@@ -242,54 +246,74 @@ impl FileCatalog {
             .copied()
             .or_else(|| self.base.files().id_for(path))?;
         self.entry(id)
-            .filter(|entry| entry.relative_path == path)
+            .filter(|entry| entry.relative_path.as_path() == path)
             .map(|_| id)
     }
 
     /// Exact file IDs for an ordered `@file.path` comparison in this pinned
     /// publication, including additions and content-preserving moves.
     #[cfg(test)]
-    pub(crate) fn absolute_path_ids(&self, operator: Operator, literal: &str) -> Option<Vec<FileId>> {
-        let root = &self.base.files().root;
-        let bounds = absolute_path_bounds(root, operator, literal)?;
-        Some(self.absolute_path_ids_in_bounds(bounds))
+    pub(crate) fn relative_path_ids(
+        &self,
+        operator: Operator,
+        literal: &str,
+    ) -> Option<Vec<FileId>> {
+        let bounds = relative_path_bounds(operator, literal)?;
+        Some(self.relative_path_ids_in_bounds(bounds))
     }
 
-    pub(crate) fn absolute_path_ids_in_bounds(&self, bounds: (std::ops::Bound<String>, std::ops::Bound<String>)) -> Vec<FileId> {
-        self.absolute_path_ids_in_bounds_up_to(bounds, usize::MAX)
+    pub(crate) fn relative_path_ids_in_bounds(
+        &self,
+        bounds: (std::ops::Bound<Arc<str>>, std::ops::Bound<Arc<str>>),
+    ) -> Vec<FileId> {
+        self.relative_path_ids_in_bounds_up_to(bounds, usize::MAX)
             .expect("an index cannot contain usize::MAX paths")
     }
 
-    pub(crate) fn absolute_path_ids_up_to(&self, operator: Operator, literal: &str, limit: usize) -> Option<Vec<FileId>> {
-        let bounds = absolute_path_bounds(self.root(), operator, literal)?;
-        self.absolute_path_ids_in_bounds_up_to(bounds, limit)
+    pub(crate) fn relative_path_ids_up_to(
+        &self,
+        operator: Operator,
+        literal: &str,
+        limit: usize,
+    ) -> Option<Vec<FileId>> {
+        let bounds = relative_path_bounds(operator, literal)?;
+        self.relative_path_ids_in_bounds_up_to(bounds, limit)
     }
 
-    fn absolute_path_ids_in_bounds_up_to(&self, bounds: (std::ops::Bound<String>, std::ops::Bound<String>), limit: usize) -> Option<Vec<FileId>> {
+    fn relative_path_ids_in_bounds_up_to(
+        &self,
+        bounds: (std::ops::Bound<Arc<str>>, std::ops::Bound<Arc<str>>),
+        limit: usize,
+    ) -> Option<Vec<FileId>> {
         if empty_path_bounds(&bounds) {
             return Some(Vec::new());
         }
-        let root = &self.base.files().root;
         let mut ids = Vec::new();
         let mut scanned = 0usize;
-        for (_, id) in self.base.files().absolute_paths.range(bounds.clone()) {
+        for (_, id) in self.base.files().relative_paths.range(bounds.clone()) {
             if scanned == limit {
                 return None;
             }
             scanned += 1;
             if self.entry(*id).is_some_and(|entry| {
-                self.base.files().files.get(id.0 as usize)
+                self.base
+                    .files()
+                    .files
+                    .get(id.0 as usize)
                     .is_some_and(|baseline| entry.relative_path == baseline.relative_path)
             }) {
                 ids.push(*id);
             }
         }
-        for (key, id) in self.changed_absolute_paths.range(bounds) {
+        for (key, id) in self.changed_relative_paths.range(bounds) {
             if scanned == limit {
                 return None;
             }
             scanned += 1;
-            if self.entry(*id).is_some_and(|entry| absolute_path_key(root, &entry.relative_path) == *key) {
+            if self
+                .entry(*id)
+                .is_some_and(|entry| entry.relative_path.query_key() == *key)
+            {
                 ids.push(*id);
             }
         }
@@ -306,9 +330,9 @@ impl FileCatalog {
                 continue;
             };
             stamps.insert(
-                entry.relative_path.clone(),
+                entry.relative_path.to_path_buf(),
                 FileStamp {
-                    path: entry.relative_path.clone(),
+                    path: entry.relative_path.to_path_buf(),
                     revision: entry.revision,
                     created_ns: entry.created_ns,
                     collections: entry.collections.iter().copied().collect::<BTreeSet<_>>(),
@@ -322,7 +346,7 @@ impl FileCatalog {
     pub(crate) fn scan_stamp(&self, file: FileId) -> Option<FileStamp> {
         let entry = self.entry(file)?;
         Some(FileStamp {
-            path: entry.relative_path.clone(),
+            path: entry.relative_path.to_path_buf(),
             revision: entry.revision,
             created_ns: entry.created_ns,
             collections: entry.collections.iter().copied().collect(),
@@ -341,8 +365,7 @@ impl FileCatalog {
         let bucket = shard(&entry.relative_path);
         let paths = Arc::make_mut(&mut next.changed_paths);
         Arc::make_mut(&mut paths[bucket]).remove(&entry.relative_path);
-        Arc::make_mut(&mut next.changed_absolute_paths)
-            .remove(&absolute_path_key(&next.base.files().root, &entry.relative_path));
+        Arc::make_mut(&mut next.changed_relative_paths).remove(&entry.relative_path.query_key());
         Ok(next)
     }
 
@@ -361,7 +384,7 @@ impl FileCatalog {
         let mut next = self.clone();
         let id = entry.id;
         let path = entry.relative_path.clone();
-        let absolute_path = absolute_path_key(&next.base.files().root, &path);
+        let query_key = path.query_key();
         let changed = Arc::make_mut(&mut next.changed);
         Arc::make_mut(&mut changed[shard(&id)]).insert(
             id,
@@ -373,7 +396,7 @@ impl FileCatalog {
         );
         let paths = Arc::make_mut(&mut next.changed_paths);
         Arc::make_mut(&mut paths[shard(&path)]).insert(path, id);
-        Arc::make_mut(&mut next.changed_absolute_paths).insert(absolute_path, id);
+        Arc::make_mut(&mut next.changed_relative_paths).insert(query_key, id);
         Arc::make_mut(&mut next.active).insert(id.0);
         next.len = next.len.checked_add(1).ok_or("too many indexed files")?;
         Ok(next)
@@ -414,16 +437,21 @@ impl FileCatalog {
         let paths = Arc::make_mut(&mut next.changed_paths);
         Arc::make_mut(&mut paths[shard(&old_path)]).remove(&old_path);
         Arc::make_mut(&mut paths[shard(&new_path)]).insert(new_path.clone(), id);
-        let ordered = Arc::make_mut(&mut next.changed_absolute_paths);
-        ordered.remove(&absolute_path_key(&next.base.files().root, &old_path));
-        if next.base.files().files.get(id.0 as usize)
+        let ordered = Arc::make_mut(&mut next.changed_relative_paths);
+        ordered.remove(&old_path.query_key());
+        if next
+            .base
+            .files()
+            .files
+            .get(id.0 as usize)
             .is_none_or(|baseline| baseline.relative_path != new_path)
         {
-            ordered.insert(absolute_path_key(&next.base.files().root, &new_path), id);
+            ordered.insert(new_path.query_key(), id);
         }
         Ok(next)
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle_catalog.test.rs"]

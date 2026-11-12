@@ -501,7 +501,11 @@ fn schema_bytes_and_inference_mode_own_snapshot_compatibility() {
         root.path(),
         &["--schema", "schema.json", "--load-index", "code = \"A\""],
     );
-    assert!(mismatch.status.success(), "{}", String::from_utf8_lossy(&mismatch.stderr));
+    assert!(
+        mismatch.status.success(),
+        "{}",
+        String::from_utf8_lossy(&mismatch.stderr)
+    );
     assert_eq!(hits(&mismatch_events).len(), 1);
     assert_ne!(std::fs::read(&cache).unwrap(), first_cache);
     std::fs::write(&schema_path, format!("{}\n", base)).unwrap();
@@ -515,14 +519,27 @@ fn schema_bytes_and_inference_mode_own_snapshot_compatibility() {
             "code = \"A\"",
         ],
     );
-    assert!(changed.status.success(), "{}", String::from_utf8_lossy(&changed.stderr));
+    assert!(
+        changed.status.success(),
+        "{}",
+        String::from_utf8_lossy(&changed.stderr)
+    );
     assert_eq!(hits(&changed_events).len(), 1);
     let (restored, restored_events) = invoke(
         root.path(),
-        &["--schema", "schema.json", "--auto-index", "--load-index", "code = \"A\""],
+        &[
+            "--schema",
+            "schema.json",
+            "--auto-index",
+            "--load-index",
+            "code = \"A\"",
+        ],
     );
     assert!(restored.status.success());
-    assert_eq!(restored_events.last().unwrap()["snapshot_action"], "restored");
+    assert_eq!(
+        restored_events.last().unwrap()["snapshot_action"],
+        "restored"
+    );
 }
 
 #[test]
@@ -709,6 +726,35 @@ fn relative_file_identity_distinguishes_duplicate_basenames() {
         ids,
         vec!["path:a/001.json".to_string(), "path:b/001.json".to_string()]
     );
+}
+
+#[test]
+fn relative_source_paths_do_not_depend_on_process_directory() {
+    let root = tempfile::tempdir().unwrap();
+    let outside = tempfile::tempdir().unwrap();
+    std::fs::create_dir_all(root.path().join("nested")).unwrap();
+    std::fs::write(root.path().join("nested/one.json"), br#"{"title":"one"}"#).unwrap();
+    let output = Command::new(env!("CARGO_BIN_EXE_obj"))
+        .current_dir(outside.path())
+        .args([
+            "-p",
+            root.path().to_str().unwrap(),
+            "@file.path = 'nested/one.json'",
+        ])
+        .output()
+        .unwrap();
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    let events: Vec<Value> = String::from_utf8(output.stdout)
+        .unwrap()
+        .lines()
+        .map(|line| serde_json::from_str(line).unwrap())
+        .collect();
+    assert_eq!(hits(&events).len(), 1);
+    assert_eq!(hits(&events)[0]["file"]["path"], "nested/one.json");
 }
 
 #[test]
