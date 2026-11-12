@@ -9,7 +9,7 @@ use objekte_cli::arguments::{Arguments, ResolvedPaths};
 use objekte_cli::loader::{
     configure_definitions, open_repository, repository_options, snapshot_policy,
 };
-use objekte_search_core::lifecycle::Index;
+use objekte_search_core::lifecycle::{Index, StagedBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::lifecycle_repository::{
     CacheFailurePolicy, CacheOpenPolicy, RepositoryOpenOptions,
@@ -342,6 +342,146 @@ pub fn open(
             open_ns,
             startup,
             snapshot_save,
+            schema_files: configured.schema_files,
+            schema_fields: configured.schema_fields,
+            ignored_repository_metadata: configured.ignored_repository_metadata,
+        },
+    })
+}
+
+/// Start one staged opening and hand its catalogue handle to the controller
+/// before waiting for the searchable base. The callback runs on the opening
+/// worker; it must only forward the handle to the UI event queue.
+pub fn open_staged(
+    spec: &OpenSpec,
+    cancellation: &CancellationToken,
+    on_task: impl FnOnce(StagedBuildTask, PathBuf, Vec<String>),
+) -> Result<OpenedSession, BackendError> {
+    if cancellation.is_cancelled() {
+        return Err(BackendError::cancelled());
+    }
+    spec.args
+        .validate_open_options()
+        .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
+    if spec.args.load_index.as_ref().is_some_and(|path| path.trim().is_empty())
+        || spec.args.write_index.as_ref().is_some_and(|path| path.trim().is_empty())
+    {
+        return Err(BackendError::new(BackendErrorKind::Options, "Choose an explicit index location"));
+    }
+    let paths = spec.args.resolve_paths(&spec.cwd)
+        .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
+    let configured = configure_definitions(&spec.args, &paths)
+        .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
+    if cancellation.is_cancelled() {
+        return Err(BackendError::cancelled());
+    }
+    let mut options = repository_options(&spec.args);
+    options.verified_cache_bytes = 64 * 1024 * 1024;
+    let policy = snapshot_policy(&spec.args, &paths);
+    let cache_directory = policy.directory.clone().unwrap_or_else(|| paths.root.join(".objekte"));
+    let cache_open = if spec.args.repo.is_some() {
+        spec.configured_cache_policy.unwrap_or(match policy.mode {
+            SnapshotMode::Required => CacheOpenPolicy::Required,
+            SnapshotMode::IfValid => CacheOpenPolicy::IfPresent,
+            SnapshotMode::Disabled if spec.args.write_index.is_some() => CacheOpenPolicy::Ignore,
+            SnapshotMode::Disabled => CacheOpenPolicy::IfPresent,
+        })
+    } else if spec.args.load_index.is_some() {
+        CacheOpenPolicy::Required
+    } else {
+        CacheOpenPolicy::Ignore
+    };
+    let started = Instant::now();
+    let task = Index::start_staged_open_configured_repository(
+        RepositoryConfiguration {
+            root: paths.root.clone(),
+            definitions: configured.definitions.clone(),
+            schema_files: configured.schema_files.clone(),
+            protected_files: configured.protected_files.clone(),
+            schema_fields: configured.schema_fields,
+        },
+        RepositoryOpenOptions {
+            index: options,
+            cache_directory: Some(cache_directory.clone()),
+            cache_open,
+            cache_failure: CacheFailurePolicy::Rebuild,
+            sync_cache: false,
+        },
+    )
+    .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    on_task(
+        task.clone(),
+        paths.root.clone(),
+        configured.definitions.iter().map(|definition| definition.name.clone()).collect(),
+    );
+    if cancellation.is_cancelled() {
+        task.cancel();
+        return Err(BackendError::cancelled());
+    }
+    let index = task.wait_search_ready()
+        .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    if cancellation.is_cancelled() {
+        task.cancel();
+        return Err(BackendError::cancelled());
+    }
+    let repository = IndexedRepository::new(index)
+        .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    let startup = repository.startup().clone();
+    let open_ns = started.elapsed().as_nanos();
+    let background_snapshot_save = if spec.args.write_index.is_some() {
+        let result = Arc::new(Mutex::new(None));
+        let result_for_worker = Arc::clone(&result);
+        let index = repository.index().clone();
+        let cache = objekte_search_core::storage::snapshot_path_in(&cache_directory, options.bigram_alphabet);
+        std::thread::Builder::new()
+            .name("objekte-desktop-staged-cache-save".into())
+            .spawn(move || {
+                let outcome = (|| -> Result<Option<SnapshotSaveStats>, String> {
+                    index.wait_extended().map_err(|error| error.to_string())?;
+                    let (_, stats) = index.flush_cache_with_stats(&cache)
+                        .map_err(|error| error.to_string())?;
+                    Ok(Some(stats))
+                })();
+                if let Ok(mut slot) = result_for_worker.lock() {
+                    *slot = Some(outcome);
+                }
+            })
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+        Some(result)
+    } else {
+        None
+    };
+    let collections: Vec<String> = repository.collections().iter()
+        .map(|collection| collection.definition.name.clone()).collect();
+    let declared_values = Arc::new(read_declared_values(&configured.schema_files, &collections));
+    let selected_cache = objekte_search_core::storage::snapshot_path_in(&cache_directory, options.bigram_alphabet);
+    let cache_load = (cache_open != CacheOpenPolicy::Ignore).then(|| selected_cache.clone());
+    let cache_save = (spec.args.write_index.is_some() || cache_open != CacheOpenPolicy::Ignore)
+        .then_some(selected_cache);
+    let configuration = Arc::new(SessionConfiguration {
+        definitions: Arc::new(configured.definitions),
+        options,
+        configured_repository: spec.args.repo.is_some(),
+        cache_load,
+        cache_save,
+        configuration_identity: repository.index().view()
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
+            .configuration_identity(),
+        protected_files: Arc::new(configured.protected_files),
+    });
+    Ok(OpenedSession {
+        repository: Arc::new(repository),
+        configuration,
+        args: spec.args.clone(),
+        paths,
+        collections,
+        single_collection: !spec.args.multiple_collections(),
+        declared_values,
+        background_snapshot_save,
+        diagnostics: OpenDiagnostics {
+            open_ns,
+            startup,
+            snapshot_save: None,
             schema_files: configured.schema_files,
             schema_fields: configured.schema_fields,
             ignored_repository_metadata: configured.ignored_repository_metadata,

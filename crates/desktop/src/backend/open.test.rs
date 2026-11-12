@@ -2,6 +2,34 @@ use super::*;
 use crate::backend::test_support::write_records;
 
 #[test]
+fn staged_plain_open_exposes_catalogue_before_returning_searchable_session() {
+    let root = tempfile::tempdir().unwrap();
+    write_records(root.path());
+    let spec = OpenSpec {
+        args: Arguments {
+            path: vec![root.path().to_path_buf()],
+            ..Default::default()
+        },
+        cwd: root.path().to_path_buf(),
+        configured_cache_policy: None,
+    };
+    let catalogue = Arc::new(Mutex::new(None));
+    let observed = Arc::clone(&catalogue);
+    let session = open_staged(&spec, &CancellationToken::new(), move |task, root, collections| {
+        assert!(root.is_absolute());
+        assert_eq!(collections, ["files"]);
+        *observed.lock().unwrap() = Some(task);
+    }).unwrap();
+    let task = catalogue.lock().unwrap().take().unwrap();
+    let files = task.catalogue().unwrap();
+    assert_eq!(files.len(), 3);
+    assert_eq!(files[0].relative_path, PathBuf::from("a.json"));
+    assert_eq!(session.repository.index().status().unwrap().live_records, 3);
+    assert!(!session.diagnostics.startup.restored);
+    assert!(!root.path().join(".objekte").exists());
+}
+
+#[test]
 fn opens_folder_without_implicit_snapshot_write() {
     let root = tempfile::tempdir().unwrap();
     write_records(root.path());

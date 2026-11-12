@@ -12,8 +12,9 @@ use std::time::{Duration, Instant};
 use gpui_kit::{App, PathPromptOptions};
 use objekte_cli::execution::Exit;
 use objekte_search_core::lifecycle::{
-    IndexRevision, IndexStatus, IndexView, MaintenanceOperation, MaintenanceTask,
-    ReconciliationState, ReconciliationTask,
+    ExtendedPhase, IndexRevision, IndexStatus, IndexView, MaintenanceOperation, MaintenanceTask,
+    ReconciliationState, ReconciliationTask, StagedBuildPhase, StagedBuildStatus,
+    StagedBuildTask, StagedFile,
 };
 use objekte_search_core::posting::ScalarKey;
 use objekte_search_core::posting_values::PostingValuesRequest;
@@ -24,7 +25,7 @@ use objekte_search_core::source_scan::SourceScan;
 
 use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
-    BatchRow, BatchSource as UiBatchSource, CompletionOrigin, DetailView, DirectoryCatalog,
+    BatchRow, BatchSource as UiBatchSource, CatalogueFile, CompletionOrigin, DetailView, DirectoryCatalog,
     ErrorField, ExportFormat, FilterValidationState, IndexTaskKind, IndexTaskState, IndexUiStatus,
     OpenDraft, PageView,
     RecordTabSummary, RelationRow, SearchDraft, SnapshotMode, TabFreshness, TabViewState, UiAction,
@@ -319,9 +320,19 @@ enum WorkerEvent {
         generation: u64,
         result: Box<OpenCompletion>,
     },
-    ScanReady {
+    StagedStarted {
         generation: u64,
-        scan: Arc<SourceScan>,
+        task: StagedBuildTask,
+    },
+    StagedProgress {
+        generation: u64,
+        status: StagedBuildStatus,
+    },
+    CatalogueReady {
+        generation: u64,
+        root: PathBuf,
+        collections: Vec<String>,
+        files: Vec<StagedFile>,
     },
     ScanQueried {
         open_generation: u64,
@@ -493,6 +504,8 @@ pub struct DesktopController {
     open_diagnostics: String,
     open_draft: Option<OpenDraft>,
     opening_draft: Option<OpenDraft>,
+    opening_task: Option<StagedBuildTask>,
+    catalogue_opened: bool,
     detection_generation: u64,
     picker_generation: u64,
     index_picker_generation: u64,
@@ -594,6 +607,8 @@ impl DesktopController {
                 open_diagnostics: String::new(),
                 open_draft: None,
                 opening_draft: None,
+                opening_task: None,
+                catalogue_opened: false,
                 detection_generation: 0,
                 picker_generation: 0,
                 index_picker_generation: 0,
@@ -807,8 +822,33 @@ impl DesktopController {
         self.index_ui.live_records = usize::try_from(status.live_records).ok();
         self.index_ui.index_instance = status.instance_id;
         self.index_ui.revision = status.revision.0;
+        self.index_ui.capability_revision = status.capability_revision.0;
         self.index_ui.saved_revision = status.saved_revision.map(|revision| revision.0);
+        self.index_ui.saved_capability_revision = status.saved_capability_revision.map(|revision| revision.0);
         self.index_ui.dirty = status.dirty();
+        if let Ok(extended) = session.repository.index().extended_status() {
+            self.index_ui.extended_phase = match extended.phase {
+                ExtendedPhase::Unnecessary => "Not requested",
+                ExtendedPhase::Pending => "Pending",
+                ExtendedPhase::Building => "Building",
+                ExtendedPhase::Complete => "Complete",
+                ExtendedPhase::Cancelled => "Cancelled",
+                ExtendedPhase::Failed => "Failed",
+            }.into();
+            self.index_ui.extended = match extended.phase {
+                ExtendedPhase::Pending | ExtendedPhase::Building => IndexTaskState::Running {
+                    operation_id: status.instance_id,
+                    processed: Some(extended.completed_files as u64),
+                    total: Some(extended.total_files as u64),
+                },
+                ExtendedPhase::Complete => IndexTaskState::Succeeded("Field indexes complete".into()),
+                ExtendedPhase::Cancelled => IndexTaskState::Cancelled,
+                ExtendedPhase::Failed => IndexTaskState::Failed(
+                    extended.error.unwrap_or_else(|| "Field indexing failed".into()),
+                ),
+                ExtendedPhase::Unnecessary => IndexTaskState::Idle,
+            };
+        }
         self.index_ui.check_complete = match status.reconciliation {
             ReconciliationState::Complete => Some(true),
             ReconciliationState::Partial | ReconciliationState::Cancelled => Some(false),
@@ -1540,24 +1580,54 @@ impl DesktopController {
         self.detection_generation = self.detection_generation.wrapping_add(1);
         self.picker_generation = self.picker_generation.wrapping_add(1);
         self.opening_draft = Some(draft);
+        if let Some(task) = self.opening_task.take() {
+            task.cancel();
+        }
+        self.catalogue_opened = false;
         let generation = self.pending_open_generation;
         let token = self.open_cancellation.clone();
         let sender = self.worker_tx.clone();
         updates.push(UiUpdate::Opening(
             "Opening repository…".into(),
         ));
-        let scan_spec = spec.clone();
-        let scan_token = token.clone();
-        let scan_sender = sender.clone();
         thread::spawn(move || {
-            if let Ok(scan) = backend::prepare_scan(&scan_spec, &scan_token)
-                && !scan_token.is_cancelled()
-            {
-                let _ = scan_sender.send(WorkerEvent::ScanReady { generation, scan });
-            }
-        });
-        thread::spawn(move || {
-            let result = open_with_preferences(&spec, &token);
+            let progress_sender = sender.clone();
+            let progress_token = token.clone();
+            let result = open_with_preferences_staged(&spec, &token, move |task, root, collections| {
+                let _ = progress_sender.send(WorkerEvent::StagedStarted {
+                    generation,
+                    task: task.clone(),
+                });
+                let watcher_sender = progress_sender.clone();
+                thread::spawn(move || {
+                    let mut last_status = None;
+                    loop {
+                        if progress_token.is_cancelled() {
+                            return;
+                        }
+                        let Ok(status) = task.status() else { return };
+                        if last_status.as_ref() != Some(&status) {
+                            let _ = watcher_sender.send(WorkerEvent::StagedProgress {
+                                generation,
+                                status: status.clone(),
+                            });
+                            last_status = Some(status.clone());
+                        }
+                        if status.phase != StagedBuildPhase::Discovering {
+                            if let Ok(files) = task.catalogue() {
+                                let _ = watcher_sender.send(WorkerEvent::CatalogueReady {
+                                    generation,
+                                    root,
+                                    collections,
+                                    files,
+                                });
+                            }
+                            return;
+                        }
+                        thread::sleep(Duration::from_millis(50));
+                    }
+                });
+            });
             let _ = sender.send(WorkerEvent::Opened {
                 generation,
                 result: Box::new(result),
@@ -1568,16 +1638,15 @@ impl DesktopController {
     fn cancel_open(&mut self, updates: &mut Vec<UiUpdate>) {
         if self.opening_draft.take().is_some() {
             self.open_cancellation.cancel();
+            if let Some(task) = self.opening_task.take() {
+                task.cancel();
+            }
             self.pending_open_generation = self.pending_open_generation.wrapping_add(1);
-            if self.scan_session.is_some() {
+            if self.catalogue_opened {
                 self.index_ui.load = IndexTaskState::Cancelled;
                 updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
-                updates.push(UiUpdate::Status(
-                    "Index opening cancelled; source scan remains active".into(),
-                ));
-            } else {
-                updates.push(UiUpdate::Status("Open cancelled".into()));
             }
+            updates.push(UiUpdate::Status("Open cancelled".into()));
         }
     }
 
@@ -2630,9 +2699,34 @@ impl DesktopController {
                     self.request_directories();
                 }
             }
-            WorkerEvent::ScanReady { generation, scan }
+            WorkerEvent::StagedStarted { generation, task }
                 if generation == self.pending_open_generation && self.opening_draft.is_some() =>
             {
+                self.opening_task = Some(task);
+            }
+            WorkerEvent::StagedProgress { generation, status }
+                if generation == self.pending_open_generation && self.opening_draft.is_some() =>
+            {
+                let message = match status.phase {
+                    StagedBuildPhase::Discovering => "Discovering source files…".to_owned(),
+                    StagedBuildPhase::BuildingBase => format!(
+                        "Building search base from {} files…", status.discovered_files,
+                    ),
+                    StagedBuildPhase::SearchReady | StagedBuildPhase::BuildingExtended =>
+                        "Search ready; building extended indexes…".to_owned(),
+                    StagedBuildPhase::Complete => "Index complete".to_owned(),
+                    StagedBuildPhase::Cancelled => "Opening cancelled".to_owned(),
+                    StagedBuildPhase::Failed => status.error.unwrap_or_else(|| "Opening failed".into()),
+                };
+                updates.push(UiUpdate::Status(message));
+            }
+            WorkerEvent::CatalogueReady { generation, root, collections, files }
+                if generation == self.pending_open_generation && self.opening_draft.is_some() =>
+            {
+                if self.catalogue_opened {
+                    return;
+                }
+                self.catalogue_opened = true;
                 self.cancellation.cancel();
                 self.export_cancellation.cancel();
                 self.batch_cancellation.cancel();
@@ -2685,41 +2779,37 @@ impl DesktopController {
                         let _ = backend::index_lifecycle::stop_automation(&previous);
                     });
                 }
-                let root = scan.root().display().to_string();
-                let collections = scan.collections().map(str::to_owned).collect::<Vec<_>>();
+                let root = root.display().to_string();
                 let single_collection = collections.len() == 1;
-                let directories = scan_directories(&scan, &collections);
+                let directories = staged_directories(&files, &collections);
                 self.open_diagnostics = format!(
-                    "Root: {root}\nCollections: {}\nSource scan available while indexing",
+                    "Root: {root}\nCollections: {}\nDiscovered files: {}\nBuilding search base",
                     collections.join(", "),
+                    files.len(),
                 );
-                self.scan_session = Some(scan);
                 updates.push(UiUpdate::Opened {
                     root,
                     collections: collections.clone(),
                     single_collection,
                     directories,
                 });
+                updates.push(UiUpdate::FileCatalogue(staged_files_for_ui(files)));
                 updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
                 updates.push(UiUpdate::Status(
-                    "Index loading in the background; searching source files".into(),
+                    "File catalogue ready; building search base".into(),
                 ));
                 let mut draft = self.current_draft.clone();
                 draft.collection = if single_collection { collections.first().cloned() } else { None };
-                if !draft.full_text.trim().is_empty()
-                    || (draft.filter_enabled && !draft.structured.trim().is_empty())
-                {
-                    self.start_query(draft, 0, updates);
-                } else {
-                    self.current_draft = draft;
-                }
+                self.current_draft = draft;
             }
             WorkerEvent::Opened { generation, result }
                 if generation == self.pending_open_generation && self.opening_draft.is_some() =>
             {
                 match *result {
                     Ok((session, preferences, directory_publication, directories)) => {
-                        let had_scan = self.scan_session.take().is_some();
+                        let had_catalogue = std::mem::take(&mut self.catalogue_opened);
+                        let ready_files = self.opening_task.take()
+                            .and_then(|task| task.catalogue().ok());
                         self.scan_hits.clear();
                         self.cancellation.cancel();
                         self.export_cancellation.cancel();
@@ -2820,7 +2910,7 @@ impl DesktopController {
                         }
                         self.index_ui = IndexUiStatus::default();
                         self.push_field_choices(updates);
-                        if had_scan {
+                        if had_catalogue {
                             updates.push(UiUpdate::Directories(directories));
                         } else {
                             updates.push(UiUpdate::Opened {
@@ -2829,6 +2919,9 @@ impl DesktopController {
                                 single_collection,
                                 directories,
                             });
+                            if let Some(files) = ready_files {
+                                updates.push(UiUpdate::FileCatalogue(staged_files_for_ui(files)));
+                            }
                         }
                         if let Some(session) = &self.session
                             && let Ok(status) = backend::index_lifecycle::status(session)
@@ -2880,7 +2973,7 @@ impl DesktopController {
                         }
                         updates.push(UiUpdate::Diagnostics(self.open_diagnostics.clone()));
                         let mut draft = self.current_draft.clone();
-                        if !had_scan {
+                        if !had_catalogue {
                             draft.collection = if single_collection {
                                 collections.first().cloned()
                             } else {
@@ -2891,7 +2984,8 @@ impl DesktopController {
                     }
                     Err(message) => {
                         self.opening_draft = None;
-                        if self.scan_session.is_some() {
+                        self.opening_task = None;
+                        if self.catalogue_opened {
                             self.index_ui.load = IndexTaskState::Failed(message.clone());
                             updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
                         }
@@ -2899,11 +2993,7 @@ impl DesktopController {
                             field: ErrorField::Open,
                             message,
                         });
-                        if self.scan_session.is_some() {
-                            updates.push(UiUpdate::Status(
-                                "Index unavailable; source scan remains active".into(),
-                            ));
-                        }
+                        updates.push(UiUpdate::Status("Index unavailable".into()));
                     }
                 }
             }
@@ -4429,6 +4519,16 @@ impl DesktopController {
                     "An index save already in progress finishes atomically".into(),
                 ));
             }
+            IndexTaskKind::Extended => {
+                if let Some(session) = &self.session {
+                    if let Err(error) = session.repository.index().cancel_extended() {
+                        updates.push(UiUpdate::Error {
+                            field: ErrorField::General,
+                            message: error.to_string(),
+                        });
+                    }
+                }
+            }
         }
         updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
     }
@@ -4637,6 +4737,20 @@ fn open_with_preferences(
     token: &CancellationToken,
 ) -> OpenCompletion {
     let session = backend::open(spec, token).map_err(|error| error.to_string())?;
+    finish_open_session(session)
+}
+
+fn open_with_preferences_staged(
+    spec: &OpenSpec,
+    token: &CancellationToken,
+    on_task: impl FnOnce(StagedBuildTask, PathBuf, Vec<String>),
+) -> OpenCompletion {
+    let session = backend::open_staged(spec, token, on_task)
+        .map_err(|error| error.to_string())?;
+    finish_open_session(session)
+}
+
+fn finish_open_session(session: OpenedSession) -> OpenCompletion {
     let preferences = DesktopPreferences::load(&session.paths.root);
     let view = session.repository.index().view().map_err(|error| error.to_string())?;
     let publication = Publication {
@@ -4659,6 +4773,26 @@ fn indexed_directories(view: &IndexView, collections: &[String]) -> DirectoryCat
         })
         .collect();
     DirectoryCatalog { all, by_collection }
+}
+
+fn staged_directories(files: &[StagedFile], collections: &[String]) -> DirectoryCatalog {
+    let all = parent_directories(files.iter().map(|file| file.relative_path.as_path()));
+    let by_collection = collections.iter().enumerate().map(|(index, name)| {
+        let paths = files.iter()
+            .filter(move |file| file.collections.iter().any(|id| id.0 as usize == index))
+            .map(|file| file.relative_path.as_path());
+        (name.clone(), parent_directories(paths))
+    }).collect();
+    DirectoryCatalog { all, by_collection }
+}
+
+fn staged_files_for_ui(files: Vec<StagedFile>) -> Arc<Vec<CatalogueFile>> {
+    Arc::new(files.into_iter().map(|file| CatalogueFile {
+        id: file.id.0,
+        relative_path: objekte_search_core::path_repr::query_path(&file.relative_path),
+        collections: file.collections.into_iter().map(|id| id.0).collect(),
+        size: file.size,
+    }).collect())
 }
 
 fn scan_directories(scan: &SourceScan, collections: &[String]) -> DirectoryCatalog {

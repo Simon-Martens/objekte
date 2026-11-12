@@ -1388,6 +1388,10 @@ impl DesktopView {
                     .child(div().text_xs().child(format!("{} files · {} records",
                         index.indexed_files.map_or_else(|| "—".to_owned(), |n| n.to_string()),
                         index.live_records.map_or_else(|| "—".to_owned(), |n| n.to_string()))))
+                    .child(div().text_xs().child(format!(
+                        "Field indexes: {}",
+                        index.extended_phase,
+                    )))
                     .child(div().flex().gap_2()
                         .child(Button::new("index-rebuild").label("Rebuild index")
                             .disabled(self.state.root.is_none())
@@ -1406,6 +1410,7 @@ impl DesktopView {
                     ("File check", IndexTaskKind::Check, &index.check),
                     ("Saving", IndexTaskKind::Save, &index.save),
                     ("Loading", IndexTaskKind::Load, &index.load),
+                    ("Field indexes", IndexTaskKind::Extended, &index.extended),
                     (
                         "Maintenance",
                         index.maintenance_kind.unwrap_or(IndexTaskKind::Rebuild),
@@ -1434,6 +1439,12 @@ impl DesktopView {
                 }
             }
             ActionPanel::Diagnostics => {
+                let index = &self.state.index_status;
+                content = content
+                    .child(div().text_sm().child(format!("Data revision: {}", index.revision)))
+                    .child(div().text_sm().child(format!("Capability revision: {}", index.capability_revision)))
+                    .child(div().text_sm().child(format!("Saved data revision: {:?}", index.saved_revision)))
+                    .child(div().text_sm().child(format!("Saved capability revision: {:?}", index.saved_capability_revision)));
                 content = content.children(
                     self.state
                         .diagnostics

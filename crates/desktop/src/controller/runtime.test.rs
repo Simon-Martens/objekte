@@ -1,53 +1,46 @@
 use super::*;
 
 #[test]
-fn source_scan_projects_metadata_with_its_repository_root() {
+fn staged_catalogue_exposes_stable_file_identity_and_path() {
     let fixture = crate::backend::test_support::fixture();
-    let scan = SourceScan::open(
+    let task = objekte_search_core::lifecycle::Index::start_staged_build(
         fixture._root.path(),
         fixture.session.configuration.definitions.as_ref().clone(),
+        fixture.session.configuration.options,
     ).unwrap();
-    let (sender, receiver) = mpsc::channel();
-    let spec = backend::QuerySpec { filter: "year = 2024".into(), ..Default::default() };
-    spawn_scan_page(
-        Arc::new(scan), spec, 0, Vec::new(), Vec::new(),
-        vec!["@file.size".into(), "@repository.root".into(), "@record.id".into()],
-        CancellationToken::new(), sender, 0, 0, GridRequestKind::First,
-    );
-    let event = receiver.recv_timeout(Duration::from_secs(5)).unwrap();
-    let WorkerEvent::ScanQueried { result, .. } = event else { panic!("expected source result") };
-    let (page, hits, _, _, _, _, _) = (*result).unwrap();
-    assert_eq!(hits.len(), 1);
-    assert_eq!(&page.rows[0].cells[..3], &[
-        std::fs::metadata(fixture._root.path().join("a.json")).unwrap().len().to_string(),
-        fixture._root.path().display().to_string(),
-        "path:a.json".into(),
-    ]);
+    task.wait_search_ready().unwrap();
+    let files = task.catalogue().unwrap();
+    assert_eq!(files.len(), 3);
+    assert_eq!(files[0].id.0, 0);
+    assert_eq!(files[0].relative_path, PathBuf::from("a.json"));
+    assert_eq!(files[0].size, std::fs::metadata(fixture._root.path().join("a.json")).unwrap().len());
+    assert_eq!(staged_files_for_ui(files.clone())[0].id, files[0].id.0);
+    assert!(staged_directories(&files, &fixture.session.collections).all.is_empty());
 }
 
 #[test]
-fn first_query_runs_against_sources_before_index_session_is_ready() {
-    let fixture = crate::backend::test_support::fixture();
-    let scan = SourceScan::open(
-        fixture._root.path(),
-        fixture.session.configuration.definitions.as_ref().clone(),
-    ).unwrap();
+fn latest_query_waits_for_search_ready() {
     let (mut controller, _) = DesktopController::new();
-    controller.scan_session = Some(Arc::new(scan));
+    controller.opening_draft = Some(OpenDraft::default());
     let draft = SearchDraft {
         full_text: "Alpha".into(),
-        collection: Some("files".into()),
         ..SearchDraft::default()
     };
     let mut updates = Vec::new();
-    controller.start_scan_query(draft, 0, &mut updates);
-    assert!(updates.iter().any(|update| matches!(update, UiUpdate::QueryStarted { .. })));
-    let event = controller.workers.recv_timeout(Duration::from_secs(5)).unwrap();
-    let WorkerEvent::ScanQueried { result, .. } = event else { panic!("expected source result") };
-    let (page, hits, _, _, _, _, _) = (*result).unwrap();
-    assert_eq!(page.exact_total, Some(1));
-    assert_eq!(hits.len(), 1);
-    assert_eq!(hits[0].record_id, "path:a.json");
+    controller.start_query(draft.clone(), 0, &mut updates);
+    assert_eq!(controller.current_draft, draft);
+    assert!(!updates.iter().any(|update| matches!(update, UiUpdate::QueryStarted { .. })));
+    assert!(controller.workers.try_recv().is_err());
+}
+
+#[test]
+fn capability_revision_does_not_change_desktop_data_publication() {
+    let fixture = crate::backend::test_support::fixture();
+    let status = fixture.session.repository.index().status().unwrap();
+    let publication = Publication::from(&status);
+    let mut more_capabilities = status.clone();
+    more_capabilities.capability_revision = more_capabilities.capability_revision.next().unwrap();
+    assert_eq!(Publication::from(&more_capabilities), publication);
 }
 
 #[test]
