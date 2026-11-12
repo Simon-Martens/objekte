@@ -629,15 +629,50 @@ impl DesktopView {
             let all_directories = self.state.sidebar_directories().to_vec();
             let expanded_directories = self.state.expanded_directories.clone();
             let selected_directory = self.state.search.directory.clone();
+            let catalogue_files = self.state.catalogue_files.clone();
+            let file_indices = selected.as_ref().and_then(|name| {
+                self.state.catalogue_indices_by_collection.get(name).cloned()
+            });
+            let file_count = file_indices.as_ref().map_or(catalogue_files.len(), |indices| indices.len());
             let target = cx.entity();
             sidebar = sidebar.child(
                 div()
                     .flex_1()
                     .min_h_0()
                     .child(
-                        uniform_list("sidebar-files-list", directory_count, move |range, _, _| {
+                        uniform_list("sidebar-files-list", directory_count + file_count, move |range, _, _| {
                             range
                                 .map(|item| {
+                                    if item >= directory_count {
+                                        let offset = item - directory_count;
+                                        let file_index = file_indices.as_ref()
+                                            .map_or(offset, |indices| indices[offset]);
+                                        let file = &catalogue_files[file_index];
+                                        let label = format!(
+                                            "{} · #{}",
+                                            file.relative_path.rsplit('/').next()
+                                                .unwrap_or(&file.relative_path),
+                                            file.id,
+                                        );
+                                        return div().h(px(32.)).child(
+                                            sidebar_item(
+                                                format!("sidebar-file-{}", file.id),
+                                                AssetIconName::FileText,
+                                                label,
+                                                false,
+                                                false,
+                                                colors,
+                                                row_style,
+                                            ).tooltip(format!(
+                                                "{} · file ID {} · {} bytes · created {}",
+                                                file.relative_path, file.id, file.size,
+                                                file.created_ns.map_or_else(
+                                                    || "unavailable".to_owned(),
+                                                    |value| format!("{value} ns"),
+                                                ),
+                                            )),
+                                        ).into_any_element();
+                                    }
                                     let Some((index, directory)) = visible_directories.get(item)
                                     else {
                                         return div().into_any_element();
@@ -773,10 +808,7 @@ impl DesktopView {
                     .mt_2()
                     .text_xs()
                     .text_color(rgb(colors.secondary))
-                    .child(match self.state.sidebar_directories().len() {
-                        1 => "1 folder".to_owned(),
-                        count => format!("{count} folders"),
-                    }),
+                    .child(format!("{} folders · {} files", self.state.sidebar_directories().len(), self.state.catalogue_files.len())),
             );
         }
         let sidebar = if mode == SidebarMode::Collections {
@@ -1634,28 +1666,40 @@ impl DesktopView {
         let index = &self.state.index_status;
         let index_status = if matches!(index.maintenance, IndexTaskState::Running { .. }) {
             if index.maintenance_kind == Some(super::model::IndexTaskKind::Compact) {
-                "Compacting index…"
+                "Compacting index…".to_owned()
             } else {
-                "Rebuilding index…"
+                "Rebuilding index…".to_owned()
             }
         } else if matches!(index.load, IndexTaskState::Running { .. }) {
-            "Opening index…"
+            "Preparing search…".to_owned()
         } else if matches!(index.load, IndexTaskState::Failed(_)) {
-            "Index unavailable; source scan active"
+            "Index unavailable".to_owned()
+        } else if let IndexTaskState::Running { processed, total, .. } = &index.extended {
+            match (processed, total) {
+                (Some(processed), Some(total)) if *total > 0 => format!(
+                    "Search ready · Field indexes {}%",
+                    processed.saturating_mul(100) / *total,
+                ),
+                _ => "Search ready · Building field indexes…".to_owned(),
+            }
+        } else if matches!(index.extended, IndexTaskState::Cancelled) {
+            "Search ready · Field indexing paused".to_owned()
+        } else if matches!(index.extended, IndexTaskState::Failed(_)) {
+            "Search ready · Some field indexes could not be built".to_owned()
         } else if matches!(index.check, IndexTaskState::Running { .. }) {
-            "Checking files…"
+            "Checking files…".to_owned()
         } else if matches!(index.save, IndexTaskState::Running { .. }) {
-            "Saving index…"
+            "Saving index…".to_owned()
         } else if matches!(index.check, IndexTaskState::Failed(_)) {
-            "Some files could not be checked"
+            "Some files could not be checked".to_owned()
         } else if matches!(index.save, IndexTaskState::Failed(_)) {
-            "Index could not be saved"
+            "Index could not be saved".to_owned()
         } else if index.dirty {
-            "Index changes not saved"
+            "Index changes not saved".to_owned()
         } else if index.check_complete == Some(true) {
-            "Files checked"
+            "Files checked".to_owned()
         } else {
-            "Index ready"
+            "Index ready".to_owned()
         };
         div()
             .flex()

@@ -2,6 +2,110 @@ use super::*;
 use crate::backend::test_support::write_records;
 
 #[test]
+fn staged_plain_open_exposes_catalogue_before_returning_searchable_session() {
+    let root = tempfile::tempdir().unwrap();
+    write_records(root.path());
+    let spec = OpenSpec {
+        args: Arguments {
+            path: vec![root.path().to_path_buf()],
+            ..Default::default()
+        },
+        cwd: root.path().to_path_buf(),
+        configured_cache_policy: None,
+    };
+    let catalogue = Arc::new(Mutex::new(None));
+    let observed = Arc::clone(&catalogue);
+    let session = open_staged(&spec, &CancellationToken::new(), move |task, root, collections| {
+        assert!(root.is_absolute());
+        assert_eq!(collections, ["files"]);
+        *observed.lock().unwrap() = Some(task);
+    }).unwrap();
+    let task = catalogue.lock().unwrap().take().unwrap();
+    let files = task.catalogue().unwrap();
+    assert_eq!(files.len(), 3);
+    assert_eq!(files[0].relative_path, PathBuf::from("a.json"));
+    assert_eq!(session.repository.index().status().unwrap().live_records, 3);
+    assert!(!session.diagnostics.startup.restored);
+    assert!(!root.path().join(".objekte").exists());
+}
+
+#[test]
+fn staged_explicit_write_then_cached_open_preserves_search_ready_path() {
+    let root = tempfile::tempdir().unwrap();
+    write_records(root.path());
+    let cache_dir = root.path().join(".objekte");
+    let mut args = Arguments {
+        path: vec![root.path().to_path_buf()],
+        write_index: Some(cache_dir.display().to_string()),
+        ..Default::default()
+    };
+    let spec = |args: Arguments| OpenSpec {
+        args,
+        cwd: root.path().to_path_buf(),
+        configured_cache_policy: None,
+    };
+    let first = open_staged(&spec(args.clone()), &CancellationToken::new(), |_, _, _| {})
+        .unwrap();
+    assert!(!first.diagnostics.startup.restored);
+    let deadline = Instant::now() + std::time::Duration::from_secs(5);
+    loop {
+        if let Some(result) = first.take_background_snapshot_save() {
+            assert!(result.unwrap().is_some());
+            break;
+        }
+        assert!(Instant::now() < deadline, "background snapshot did not finish");
+        std::thread::sleep(std::time::Duration::from_millis(10));
+    }
+    args.write_index = None;
+    args.load_index = Some(cache_dir.display().to_string());
+    let second = open_staged(&spec(args), &CancellationToken::new(), |task, _, _| {
+        assert_eq!(task.status().unwrap().phase, objekte_search_core::lifecycle::StagedBuildPhase::Complete);
+    }).unwrap();
+    assert!(second.diagnostics.startup.restored);
+    assert_eq!(second.repository.index().status().unwrap().live_records, 3);
+    let before = second.repository.index().status().unwrap().revision;
+    second.repository.index().start_inference(objekte_search_core::inference::InferenceConfig {
+        mode: objekte_search_core::inference::InferenceMode::AutoIndex,
+        ..Default::default()
+    }).unwrap();
+    second.repository.index().wait_extended().unwrap();
+    assert_eq!(second.repository.index().status().unwrap().revision, before);
+    assert!(second.repository.index().inference_report("files").unwrap().is_some());
+}
+
+#[test]
+fn staged_configured_open_restores_cache_unless_memory_build_is_selected() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
+    std::fs::create_dir_all(root.path().join("data")).unwrap();
+    std::fs::write(
+        root.path().join(".objekte/collections/data.schema.json"),
+        br#"{"type":"object","x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}}"#,
+    ).unwrap();
+    std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let spec = |configured_cache_policy| OpenSpec {
+        args: Arguments { repo: Some(root.path().to_path_buf()), ..Default::default() },
+        cwd: root.path().to_path_buf(),
+        configured_cache_policy,
+    };
+    let first = open_staged(&spec(None), &CancellationToken::new(), |task, _, collections| {
+        assert_eq!(collections, ["data"]);
+        assert!(matches!(task.status().unwrap().phase, objekte_search_core::lifecycle::StagedBuildPhase::Discovering
+            | objekte_search_core::lifecycle::StagedBuildPhase::BuildingBase
+            | objekte_search_core::lifecycle::StagedBuildPhase::SearchReady
+            | objekte_search_core::lifecycle::StagedBuildPhase::Complete));
+    }).unwrap();
+    assert!(!first.diagnostics.startup.restored);
+    let cache = first.configuration.cache_save.clone().unwrap();
+    first.repository.index().flush_cache(&cache).unwrap();
+    let restored = open_staged(&spec(None), &CancellationToken::new(), |_, _, _| {}).unwrap();
+    assert!(restored.diagnostics.startup.restored);
+    let memory = open_staged(&spec(Some(CacheOpenPolicy::Ignore)), &CancellationToken::new(), |_, _, _| {}).unwrap();
+    assert!(!memory.diagnostics.startup.restored);
+    assert!(memory.configuration.cache_load.is_none());
+}
+
+#[test]
 fn opens_folder_without_implicit_snapshot_write() {
     let root = tempfile::tempdir().unwrap();
     write_records(root.path());

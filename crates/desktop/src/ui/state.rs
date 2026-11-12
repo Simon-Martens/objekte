@@ -8,7 +8,7 @@ use super::completion::{CompletionContext, CompletionTarget};
 use super::filter_builder::FieldChoice;
 use super::model::{
     BatchRow, BatchSource, DetailView, DirectoryCatalog, ErrorField, ExportFormat,
-    FilterValidationState, IndexUiStatus, MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry,
+    CatalogueFile, FilterValidationState, IndexUiStatus, MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry,
     RecordTabSummary, ResultRow,
     SearchDraft, TabViewState, UiUpdate,
 };
@@ -121,6 +121,8 @@ pub struct UiState {
     pub single_collection: bool,
     pub directories: Vec<String>,
     pub directories_by_collection: BTreeMap<String, Vec<String>>,
+    pub catalogue_files: std::sync::Arc<Vec<CatalogueFile>>,
+    pub catalogue_indices_by_collection: BTreeMap<String, std::sync::Arc<Vec<usize>>>,
     pub expanded_directories: BTreeSet<String>,
     pub page: PageView,
     /// Lightweight extent is separate from a bounded cache of projected text.
@@ -247,6 +249,8 @@ impl UiState {
                 self.collections = collections;
                 self.single_collection = single_collection;
                 self.install_directories(directories);
+                self.catalogue_files = Default::default();
+                self.catalogue_indices_by_collection.clear();
                 self.expanded_directories.clear();
                 self.sidebar_mode = if single_collection {
                     SidebarMode::Files
@@ -305,6 +309,10 @@ impl UiState {
                 self.workspace.update_current_search(self.search.clone());
             }
             UiUpdate::Directories(directories) => self.install_directories(directories),
+            UiUpdate::FileCatalogue(catalogue) => {
+                self.catalogue_indices_by_collection = catalogue.by_collection;
+                self.catalogue_files = catalogue.files;
+            }
             UiUpdate::QueryStarted { status, retain_preview } => {
                 self.busy = Busy::Querying;
                 self.status = status;

@@ -1,53 +1,131 @@
 use super::*;
 
 #[test]
-fn source_scan_projects_metadata_with_its_repository_root() {
+fn staged_catalogue_exposes_stable_file_identity_and_path() {
     let fixture = crate::backend::test_support::fixture();
-    let scan = SourceScan::open(
+    let task = objekte_search_core::lifecycle::Index::start_staged_build(
         fixture._root.path(),
         fixture.session.configuration.definitions.as_ref().clone(),
+        fixture.session.configuration.options,
     ).unwrap();
-    let (sender, receiver) = mpsc::channel();
-    let spec = backend::QuerySpec { filter: "year = 2024".into(), ..Default::default() };
-    spawn_scan_page(
-        Arc::new(scan), spec, 0, Vec::new(), Vec::new(),
-        vec!["@file.size".into(), "@repository.root".into(), "@record.id".into()],
-        CancellationToken::new(), sender, 0, 0, GridRequestKind::First,
-    );
-    let event = receiver.recv_timeout(Duration::from_secs(5)).unwrap();
-    let WorkerEvent::ScanQueried { result, .. } = event else { panic!("expected source result") };
-    let (page, hits, _, _, _, _, _) = (*result).unwrap();
-    assert_eq!(hits.len(), 1);
-    assert_eq!(&page.rows[0].cells[..3], &[
-        std::fs::metadata(fixture._root.path().join("a.json")).unwrap().len().to_string(),
-        fixture._root.path().display().to_string(),
-        "path:a.json".into(),
-    ]);
+    task.wait_search_ready().unwrap();
+    let files = task.catalogue().unwrap();
+    assert_eq!(files.len(), 3);
+    assert_eq!(files[0].id.0, 0);
+    assert_eq!(files[0].relative_path, PathBuf::from("a.json"));
+    assert_eq!(files[0].size, std::fs::metadata(fixture._root.path().join("a.json")).unwrap().len());
+    let (directories, catalogue) = prepare_staged_catalogue(files.clone(), &fixture.session.collections);
+    assert_eq!(catalogue.files[0].id, files[0].id.0);
+    assert_eq!(catalogue.by_collection["files"].len(), 3);
+    assert!(directories.all.is_empty());
 }
 
 #[test]
-fn first_query_runs_against_sources_before_index_session_is_ready() {
-    let fixture = crate::backend::test_support::fixture();
-    let scan = SourceScan::open(
-        fixture._root.path(),
-        fixture.session.configuration.definitions.as_ref().clone(),
-    ).unwrap();
+fn staged_catalogue_groups_shared_files_without_duplicate_rows() {
+    use objekte_search_core::model::{CollectionId, FileId};
+    let files = vec![
+        StagedFile {
+            id: FileId(8), relative_path: PathBuf::from("docs/a.json"),
+            collections: vec![CollectionId(0), CollectionId(1)], size: 21, created_ns: Some(123),
+        },
+        StagedFile {
+            id: FileId(9), relative_path: PathBuf::from("other/b.json"),
+            collections: vec![CollectionId(1)], size: 34, created_ns: None,
+        },
+    ];
+    let (directories, catalogue) = prepare_staged_catalogue(files, &["first".into(), "second".into()]);
+    assert_eq!(directories.all, ["docs", "other"]);
+    assert_eq!(directories.by_collection["first"], ["docs"]);
+    assert_eq!(directories.by_collection["second"], ["docs", "other"]);
+    assert_eq!(&*catalogue.by_collection["first"], &[0]);
+    assert_eq!(&*catalogue.by_collection["second"], &[0, 1]);
+    assert_eq!(catalogue.files.iter().map(|file| file.id).collect::<Vec<_>>(), [8, 9]);
+    assert_eq!(catalogue.files[0].created_ns, Some(123));
+}
+
+#[test]
+fn latest_query_waits_for_search_ready() {
     let (mut controller, _) = DesktopController::new();
-    controller.scan_session = Some(Arc::new(scan));
+    controller.opening_draft = Some(OpenDraft::default());
     let draft = SearchDraft {
         full_text: "Alpha".into(),
-        collection: Some("files".into()),
         ..SearchDraft::default()
     };
     let mut updates = Vec::new();
-    controller.start_scan_query(draft, 0, &mut updates);
-    assert!(updates.iter().any(|update| matches!(update, UiUpdate::QueryStarted { .. })));
-    let event = controller.workers.recv_timeout(Duration::from_secs(5)).unwrap();
-    let WorkerEvent::ScanQueried { result, .. } = event else { panic!("expected source result") };
-    let (page, hits, _, _, _, _, _) = (*result).unwrap();
-    assert_eq!(page.exact_total, Some(1));
-    assert_eq!(hits.len(), 1);
-    assert_eq!(hits[0].record_id, "path:a.json");
+    controller.start_query(draft.clone(), 0, &mut updates);
+    assert_eq!(controller.current_draft, draft);
+    assert!(!updates.iter().any(|update| matches!(update, UiUpdate::QueryStarted { .. })));
+    assert!(controller.workers.try_recv().is_err());
+}
+
+#[test]
+fn replacement_open_queues_query_instead_of_using_previous_session() {
+    let fixture = crate::backend::test_support::fixture();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(fixture.session);
+    controller.opening_draft = Some(OpenDraft::default());
+    let draft = SearchDraft { full_text: "Beta".into(), ..SearchDraft::default() };
+    let mut updates = Vec::new();
+    controller.start_query(draft.clone(), 0, &mut updates);
+    assert_eq!(controller.current_draft, draft);
+    assert!(!updates.iter().any(|update| matches!(update, UiUpdate::QueryStarted { .. })));
+    assert!(controller.executed_view.is_none());
+}
+
+#[test]
+fn capability_revision_does_not_change_desktop_data_publication() {
+    let fixture = crate::backend::test_support::fixture();
+    let status = fixture.session.repository.index().status().unwrap();
+    let publication = Publication::from(&status);
+    let mut more_capabilities = status.clone();
+    more_capabilities.capability_revision = more_capabilities.capability_revision.next().unwrap();
+    assert_eq!(Publication::from(&more_capabilities), publication);
+}
+
+#[test]
+fn index_details_report_revisions_and_inference_state_on_demand() {
+    let fixture = crate::backend::test_support::fixture();
+    let details = index_capability_details(&fixture.session).unwrap();
+    assert!(details.contains("Data revision: 1"));
+    assert!(details.contains("Capability revision: 1"));
+    assert!(details.contains("files: inference not requested"));
+}
+
+#[test]
+fn explicit_inference_keeps_data_publication_and_refreshes_session_identity() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), br#"{"name":"alpha","nested":{"kind":"x"}}"#).unwrap();
+    let session = backend::open_staged(
+        &OpenSpec {
+            args: objekte_cli::arguments::Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
+        },
+        &CancellationToken::new(),
+        |_, _, _| {},
+    ).unwrap();
+    let index = session.repository.index().clone();
+    let publication = Publication::from(&index.status().unwrap());
+    let mut controller = DesktopController::new().0;
+    controller.session = Some(session);
+    let mut updates = Vec::new();
+    controller.start_inference(&mut updates);
+    assert!(controller.session.as_ref().unwrap().configuration.options.inference.mode
+        == InferenceMode::AutoIndex);
+    index.wait_extended().unwrap();
+    controller.update_index_ui(&index.status().unwrap(), &mut updates);
+    controller.refresh_session_configuration_identity();
+    assert_eq!(controller.session.as_ref().unwrap().configuration.configuration_identity,
+        index.view().unwrap().configuration_identity());
+    assert_eq!(Publication::from(&index.status().unwrap()), publication);
+    assert!(!updates.iter().any(|update| matches!(update, UiUpdate::ResultsOutdated(_))));
+    assert!(updates.iter().rev().find_map(|update| match update {
+        UiUpdate::Status(message) => Some(message.as_str()),
+        _ => None,
+    }).is_some_and(|message| message.contains("Field indexes complete")));
 }
 
 #[test]
@@ -71,8 +149,12 @@ fn indexed_directory_tree_follows_added_and_deleted_files() {
         ["docs", "docs/nested"]
     );
     assert!(view.file_paths_for_collection("missing").next().is_none());
+    let (_, catalogue) = prepare_staged_catalogue(view.catalogue(), &fixture.session.collections);
+    assert!(catalogue.files.iter().any(|file| file.relative_path == "docs/nested/new.json"));
     let handle = view.file_handle_for_path(&file).unwrap();
     index.delete_file(handle).unwrap();
+    let (_, catalogue) = prepare_staged_catalogue(index.view().unwrap().catalogue(), &fixture.session.collections);
+    assert!(!catalogue.files.iter().any(|file| file.relative_path == "docs/nested/new.json"));
     assert!(
         indexed_directories(&index.view().unwrap(), &fixture.session.collections)
             .all

@@ -1388,6 +1388,17 @@ impl DesktopView {
                     .child(div().text_xs().child(format!("{} files · {} records",
                         index.indexed_files.map_or_else(|| "—".to_owned(), |n| n.to_string()),
                         index.live_records.map_or_else(|| "—".to_owned(), |n| n.to_string()))))
+                    .child(div().text_xs().child(format!(
+                        "Field indexes: {}",
+                        index.extended_phase,
+                    )))
+                    .child(Button::new("index-infer-fields")
+                        .label("Infer field indexes")
+                        .disabled(self.state.root.is_none()
+                            || index.inference_requested
+                            || matches!(index.extended, IndexTaskState::Running { .. }))
+                        .tooltip("Discover eligible fields and build optional indexes")
+                        .on_click(cx.listener(|this, _, _, _| this.send(UiAction::InferFieldIndexes))))
                     .child(div().flex().gap_2()
                         .child(Button::new("index-rebuild").label("Rebuild index")
                             .disabled(self.state.root.is_none())
@@ -1397,15 +1408,22 @@ impl DesktopView {
                             .disabled(self.state.root.is_none())
                             .tooltip("Remove obsolete index entries without deleting source files")
                             .on_click(cx.listener(|this, _, _, _| this.send(UiAction::CompactIndex)))))
+                    .when(matches!(index.extended_phase.as_str(), "Paused" | "Cancelled" | "Failed"), |this| {
+                        this.child(Button::new("index-resume-extended")
+                            .label(if index.extended_phase == "Paused" { "Resume field indexes" } else { "Retry field indexes" })
+                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::ResumeExtendedIndex))))
+                    })
                     .child(Button::new("index-details").ghost().label("Details…")
                         .on_click(cx.listener(|this, _, _, cx| {
                             this.state.action_panel = ActionPanel::Diagnostics;
+                            this.send(UiAction::InspectIndexCapabilities);
                             cx.notify();
                         })));
                 for (label, kind, task) in [
                     ("File check", IndexTaskKind::Check, &index.check),
                     ("Saving", IndexTaskKind::Save, &index.save),
                     ("Loading", IndexTaskKind::Load, &index.load),
+                    ("Field indexes", IndexTaskKind::Extended, &index.extended),
                     (
                         "Maintenance",
                         index.maintenance_kind.unwrap_or(IndexTaskKind::Rebuild),
@@ -1469,6 +1487,7 @@ impl DesktopView {
             .track_scroll(&self.help_scroll)
             .child(div().text_sm().child("Open a folder and search. Saved queries appear in the sidebar; expand History to revisit recent searches. Save from the application menu, then rename a saved row with F2."))
             .child(div().text_sm().child("Search words go in Search. The funnel reveals Filter; the adjacent icon opens Filter Builder. Search and Filter combine with AND, and Filter suggests fields and indexed values."))
+            .child(div().text_sm().child("Filter tests include field:? = true for nonempty values and field:string, :number, :array, :null, or :object = true for types. Use false to negate a test. The builder's Value control switches between ordinary comparisons and these Boolean tests."))
             .child(div().text_sm().child("A complete quoted JSON string in Filter runs as a CLI-style text query when Search is empty. Batch accepts one CLI query per line."))
             .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Headers edit SORT BY in Filter. Drag a header edge to resize; right-click it to wrap text. Columns chooses visible fields. The footer shows the exact match count."))
             .child(div().text_sm().child("Ctrl+O: Open · Ctrl+F: Search · Ctrl+L: Filter · Ctrl+T: New query · Ctrl+W: Close tab · Ctrl+Tab / Ctrl+PageDown: Next tab · Ctrl+Shift+Tab / Ctrl+PageUp: Previous tab · Ctrl+1 / Ctrl+2: Focus left / right pane · F1: Help · Escape: close the nearest panel."))

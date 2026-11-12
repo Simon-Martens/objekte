@@ -434,15 +434,22 @@ fn successful_query_start_clears_previous_input_errors() {
 
 #[test]
 fn index_progress_does_not_erase_query_validation_or_displayed_page() {
-    let mut state = UiState { root: Some("repo".into()), ..UiState::default() };
+    let mut state = UiState {
+        root: Some("repo".into()),
+        search: SearchDraft { full_text: "retained".into(), ..SearchDraft::default() },
+        ..UiState::default()
+    };
     state.apply(UiUpdate::Error {
         field: ErrorField::Structured,
         message: "invalid draft".into(),
     });
     state.loaded_count = 100;
+    state.page.selected = Some(7);
     let mut status = IndexUiStatus::default();
     status.index_instance = 1;
     status.source_location = "repo".into();
+    status.capability_revision = 2;
+    status.extended_phase = "Building".into();
     status.check = super::super::model::IndexTaskState::Running {
         operation_id: 7,
         processed: Some(3),
@@ -451,8 +458,38 @@ fn index_progress_does_not_erase_query_validation_or_displayed_page() {
     state.apply(UiUpdate::IndexStatus(status));
     assert_eq!(state.errors.get(&ErrorField::Structured).map(String::as_str), Some("invalid draft"));
     assert_eq!(state.loaded_count, 100);
+    assert_eq!(state.page.selected, Some(7));
+    assert_eq!(state.search.full_text, "retained");
+    assert_eq!(state.index_status.capability_revision, 2);
     assert_eq!(state.status, "invalid draft");
     assert!(matches!(state.index_status.check, super::super::model::IndexTaskState::Running { operation_id: 7, .. }));
+}
+
+#[test]
+fn late_file_catalogue_keeps_search_results_and_selection() {
+    let mut state = UiState {
+        root: Some("repo".into()),
+        collections: vec!["files".into()],
+        search: SearchDraft { full_text: "Alpha".into(), ..SearchDraft::default() },
+        ..UiState::default()
+    };
+    state.loaded_count = 10;
+    state.page.selected = Some(2);
+    let catalogue = super::super::model::FileCatalogue {
+        files: std::sync::Arc::new(vec![super::super::model::CatalogueFile {
+            id: 7,
+            relative_path: "nested/a.json".into(),
+            collections: vec![0],
+            size: 42,
+            created_ns: None,
+        }]),
+        by_collection: [("files".into(), std::sync::Arc::new(vec![0]))].into(),
+    };
+    state.apply(UiUpdate::FileCatalogue(catalogue));
+    assert_eq!(state.loaded_count, 10);
+    assert_eq!(state.page.selected, Some(2));
+    assert_eq!(state.search.full_text, "Alpha");
+    assert_eq!(state.catalogue_files[0].id, 7);
 }
 
 #[test]

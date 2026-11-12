@@ -359,6 +359,7 @@ pub enum IndexTaskKind {
     Load,
     Rebuild,
     Compact,
+    Extended,
 }
 
 /// Terminal outcomes and bounded progress for one index operation.
@@ -388,7 +389,9 @@ pub struct IndexUiStatus {
     pub live_records: Option<usize>,
     pub index_instance: u64,
     pub revision: u64,
+    pub capability_revision: u64,
     pub saved_revision: Option<u64>,
+    pub saved_capability_revision: Option<u64>,
     pub dirty: bool,
     pub last_check: Option<String>,
     pub check_complete: Option<bool>,
@@ -402,6 +405,9 @@ pub struct IndexUiStatus {
     pub load: IndexTaskState,
     pub maintenance: IndexTaskState,
     pub maintenance_kind: Option<IndexTaskKind>,
+    pub extended: IndexTaskState,
+    pub extended_phase: String,
+    pub inference_requested: bool,
 }
 
 impl Default for IndexUiStatus {
@@ -416,7 +422,9 @@ impl Default for IndexUiStatus {
             live_records: None,
             index_instance: 0,
             revision: 0,
+            capability_revision: 0,
             saved_revision: None,
+            saved_capability_revision: None,
             dirty: false,
             last_check: None,
             check_complete: None,
@@ -430,6 +438,9 @@ impl Default for IndexUiStatus {
             load: IndexTaskState::Idle,
             maintenance: IndexTaskState::Idle,
             maintenance_kind: None,
+            extended: IndexTaskState::Idle,
+            extended_phase: String::new(),
+            inference_requested: false,
         }
     }
 }
@@ -586,6 +597,9 @@ pub enum UiAction {
     LoadIndex(String),
     RebuildIndex,
     CompactIndex,
+    InferFieldIndexes,
+    ResumeExtendedIndex,
+    InspectIndexCapabilities,
     SetAutomaticChecking {
         enabled: bool,
         interval_seconds: u64,
@@ -619,6 +633,22 @@ pub struct DirectoryCatalog {
     pub by_collection: std::collections::BTreeMap<String, Vec<String>>,
 }
 
+/// Stable physical file identity exposed by staged discovery.
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct CatalogueFile {
+    pub id: u32,
+    pub relative_path: String,
+    pub collections: Vec<u32>,
+    pub size: u64,
+    pub created_ns: Option<i128>,
+}
+
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct FileCatalogue {
+    pub files: std::sync::Arc<Vec<CatalogueFile>>,
+    pub by_collection: std::collections::BTreeMap<String, std::sync::Arc<Vec<usize>>>,
+}
+
 /// Backend-owned state that the UI may display after generation validation.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum UiUpdate {
@@ -643,6 +673,7 @@ pub enum UiUpdate {
         directories: DirectoryCatalog,
     },
     Directories(DirectoryCatalog),
+    FileCatalogue(FileCatalogue),
     /// A validated replacement for the same source configuration preserves UI drafts/tabs.
     IndexReplaced(IndexUiStatus),
     IndexStatus(IndexUiStatus),
