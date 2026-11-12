@@ -494,14 +494,12 @@ fn fts_membership_stops_after_first_match_but_evidence_checks_every_segment() {
     #[derive(Debug)]
     struct CountingMatcher(std::sync::Arc<std::sync::atomic::AtomicUsize>);
 
-
     impl PreparedTextMatcher for CountingMatcher {
         fn matches(&self, text: &str) -> Result<bool, String> {
             self.0.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
             Ok(text.contains("hit"))
         }
     }
-
 
     let mut bound = bind_fts(
         &FtsQuery {
@@ -801,6 +799,162 @@ fn missing_null_empty_truth_table() {
             );
         }
     });
+}
+
+#[test]
+fn boolean_state_predicates_match_source_selection_and_composition() {
+    let schema = Schema::default();
+    for (value, checks) in [
+        (
+            serde_json::json!({}),
+            vec![
+                ("x:? = false", true),
+                ("x:exists = false", true),
+                ("x:null = false", true),
+                ("x:string != true", true),
+            ],
+        ),
+        (
+            serde_json::json!({"x":null}),
+            vec![
+                ("x:? = false", true),
+                ("x:null = true", true),
+                ("x:exists = true", true),
+            ],
+        ),
+        (
+            serde_json::json!({"x":""}),
+            vec![
+                ("x:? = false", true),
+                ("x:string = true", true),
+                ("x:null = false", true),
+            ],
+        ),
+        (
+            serde_json::json!({"x":" "}),
+            vec![("x:? = true", true), ("x:string = true", true)],
+        ),
+        (
+            serde_json::json!({"x":0}),
+            vec![("x:? = true", true), ("x:number = true", true)],
+        ),
+        (
+            serde_json::json!({"x":false}),
+            vec![("x:? = true", true), ("x:number = false", true)],
+        ),
+        (
+            serde_json::json!({"x":[]}),
+            vec![
+                ("x:? = false", true),
+                ("x:array = true", true),
+                ("x:exists = true", true),
+            ],
+        ),
+        (
+            serde_json::json!({"x":[null]}),
+            vec![
+                ("x:? = true", true),
+                ("x:array = true", true),
+                ("x:null = false", true),
+            ],
+        ),
+        (
+            serde_json::json!({"x":{}}),
+            vec![("x:? = false", true), ("x:object = true", true)],
+        ),
+        (
+            serde_json::json!({"x":{"a":null}}),
+            vec![("x:? = true", true), ("x:object = true", true)],
+        ),
+    ] {
+        with_record(Value::from_json(value).unwrap(), |ctx| {
+            for (source, expected) in checks {
+                let bound = bind_filter(&parse_filter(source).unwrap(), &schema).unwrap();
+                assert_eq!(
+                    eval_filter(&bound, &ctx, &mut HashSet::new()).unwrap(),
+                    expected,
+                    "{source}"
+                );
+            }
+        });
+    }
+    let value = Value::from_json(serde_json::json!({"items":[null,"", "hello",0,{}]})).unwrap();
+    with_record(value, |ctx| {
+        for (source, expected) in [
+            ("items:array = true", true),
+            ("items:string = false", true),
+            ("items[*]:array = false", true),
+            ("items[*]:null = true", true),
+            ("items[*]:string = true", true),
+            ("items[*]:number = true", true),
+            ("items[*]:object = true", true),
+            ("items[*]:? = true", true),
+            ("items[*]:? = false", false),
+            ("items[*]:null = true && items[*]:string = true", true),
+            ("!(items[*]:number = true) || items[*]:object = true", true),
+        ] {
+            let bound = bind_filter(&parse_filter(source).unwrap(), &schema).unwrap();
+            assert_eq!(
+                eval_filter(&bound, &ctx, &mut HashSet::new()).unwrap(),
+                expected,
+                "{source}"
+            );
+        }
+    });
+}
+
+#[test]
+fn boolean_state_binding_rejects_invalid_forms_and_preserves_named_conversion() {
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["x".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema
+        .register_custom(
+            vec!["x".into()],
+            CustomBinding {
+                name: "string".into(),
+                version: 1,
+                transform: Transform::CaseFold,
+            },
+        )
+        .unwrap();
+    let converted = bind_filter(&parse_filter("x:string = 'HELLO'").unwrap(), &schema).unwrap();
+    let BoundExpr::Term(converted) = converted else {
+        panic!("term")
+    };
+    assert_eq!(converted.derived, Derived::None);
+    assert_eq!(converted.binding_name, "string");
+    let predicate = bind_filter(&parse_filter("x:string = true").unwrap(), &schema).unwrap();
+    let BoundExpr::Term(predicate) = predicate else {
+        panic!("term")
+    };
+    assert_eq!(predicate.derived, Derived::IsString);
+    for source in [
+        "x:? > true",
+        "x:string ~ true",
+        "x:number = 1",
+        "x:array = null",
+        "x:? = 'true'",
+        "x:object:lower = true",
+        "x:null:object = true",
+        "x:exists:array = true",
+        "x:array ?= true",
+        "x:each:string = true",
+        "x:string = $missing",
+    ] {
+        let result =
+            parse_filter(source).and_then(|parsed| bind_filter(&parsed, &schema).map(|_| ()));
+        assert!(result.is_err(), "{source}");
+    }
 }
 
 #[test]
