@@ -481,6 +481,7 @@ fn late_file_catalogue_keeps_search_results_and_selection() {
             relative_path: "nested/a.json".into(),
             collections: vec![0],
             size: 42,
+            created_ns: None,
         }]),
         by_collection: [("files".into(), std::sync::Arc::new(vec![0]))].into(),
     };

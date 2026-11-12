@@ -4538,6 +4538,7 @@ fn prepare_staged_catalogue(
             relative_path: objekte_search_core::path_repr::query_path(&file.relative_path),
             collections: collection_ids,
             size: file.size,
+            created_ns: file.created_ns,
         });
     }
     let directories = DirectoryCatalog {

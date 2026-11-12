@@ -648,8 +648,12 @@ impl DesktopView {
                                         let file_index = file_indices.as_ref()
                                             .map_or(offset, |indices| indices[offset]);
                                         let file = &catalogue_files[file_index];
-                                        let label = file.relative_path.rsplit('/').next()
-                                            .unwrap_or(&file.relative_path).to_owned();
+                                        let label = format!(
+                                            "{} · #{}",
+                                            file.relative_path.rsplit('/').next()
+                                                .unwrap_or(&file.relative_path),
+                                            file.id,
+                                        );
                                         return div().h(px(32.)).child(
                                             sidebar_item(
                                                 format!("sidebar-file-{}", file.id),
@@ -660,8 +664,12 @@ impl DesktopView {
                                                 colors,
                                                 row_style,
                                             ).tooltip(format!(
-                                                "{} · file ID {} · {} bytes",
+                                                "{} · file ID {} · {} bytes · created {}",
                                                 file.relative_path, file.id, file.size,
+                                                file.created_ns.map_or_else(
+                                                    || "unavailable".to_owned(),
+                                                    |value| format!("{value} ns"),
+                                                ),
                                             )),
                                         ).into_any_element();
                                     }

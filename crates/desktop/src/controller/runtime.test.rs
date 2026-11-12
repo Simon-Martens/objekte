@@ -26,7 +26,7 @@ fn staged_catalogue_groups_shared_files_without_duplicate_rows() {
     let files = vec![
         StagedFile {
             id: FileId(8), relative_path: PathBuf::from("docs/a.json"),
-            collections: vec![CollectionId(0), CollectionId(1)], size: 21, created_ns: None,
+            collections: vec![CollectionId(0), CollectionId(1)], size: 21, created_ns: Some(123),
         },
         StagedFile {
             id: FileId(9), relative_path: PathBuf::from("other/b.json"),
@@ -40,6 +40,7 @@ fn staged_catalogue_groups_shared_files_without_duplicate_rows() {
     assert_eq!(&*catalogue.by_collection["first"], &[0]);
     assert_eq!(&*catalogue.by_collection["second"], &[0, 1]);
     assert_eq!(catalogue.files.iter().map(|file| file.id).collect::<Vec<_>>(), [8, 9]);
+    assert_eq!(catalogue.files[0].created_ns, Some(123));
 }
 
 #[test]

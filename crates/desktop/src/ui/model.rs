@@ -636,6 +636,7 @@ pub struct CatalogueFile {
     pub relative_path: String,
     pub collections: Vec<u32>,
     pub size: u64,
+    pub created_ns: Option<i128>,
 }
 
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
