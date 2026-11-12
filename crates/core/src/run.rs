@@ -3130,10 +3130,15 @@ fn search_active_cached(
     let tracker = cache_key.as_ref().and_then(|(_, _, budget)| {
         (*budget > 0).then(|| CacheBudget::new(*budget))
     });
+    let initial_full_base = revision == IndexRevision::INITIAL
+        && base_active.len() == repo.collections.len()
+        && base_active.iter().enumerate().all(|(index, active)| {
+            active.len() == repo.collections[index].generation.records.len() as u64
+        });
     let result = search_active_inner(
         repo,
         query,
-        base_active,
+        (!initial_full_base).then_some(base_active),
         context,
         Some(batches),
         tracker.as_ref().map(|_| &mut members),
@@ -7804,7 +7809,7 @@ pub(crate) fn search_active(
     query: &Query,
     active: &[ActiveRecords],
 ) -> Result<SearchResult, String> {
-    search_active_inner(repo, query, active, None, None, None, None)
+    search_active_inner(repo, query, Some(active), None, None, None, None)
 }
 
 pub(crate) fn search_active_extended(
@@ -7814,13 +7819,13 @@ pub(crate) fn search_active_extended(
     batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
     context: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
-    search_active_inner(repo, query, active, context, Some(batches), None, None)
+    search_active_inner(repo, query, Some(active), context, Some(batches), None, None)
 }
 
 fn search_active_inner(
     repo: &Repository,
     query: &Query,
-    active: &[ActiveRecords],
+    active: Option<&[ActiveRecords]>,
     context: Option<&ExecutionContext>,
     extended_batches: Option<&[Arc<Vec<Arc<ExtendedBatch>>>]>,
     cache_members: Option<&mut Vec<CachedMember>>,
@@ -7834,8 +7839,15 @@ fn search_active_inner(
                 ExecutionLimits::default(),
                 None,
             )
-        })
-        .with_active(active);
+        });
+    // A freshly published or restored initial generation has no retired base
+    // slots. Avoid per-record active bitmap probes until a data revision
+    // introduces a sparse domain.
+    let scoped_context = if let Some(active) = active {
+        scoped_context.with_active(active)
+    } else {
+        scoped_context
+    };
     let mut count_query;
     let query = if query.options.count && query.options.limit == 0 {
         BoundSort::bind(repo, query)?;
@@ -7859,7 +7871,7 @@ fn search_active_inner(
         (query.options.count && query.options.limit == 0)
             .then_some(ExactCollector { members: None }),
         Some(&scoped_context),
-        Some(active),
+        active,
         extended_batches,
     )
 }
@@ -7871,7 +7883,7 @@ pub(crate) fn search_with_context_active(
     active: &[ActiveRecords],
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     context.check()?;
-    search_active_inner(repo, query, active, Some(context), None, None, None)
+    search_active_inner(repo, query, Some(active), Some(context), None, None, None)
         .map_err(|message| context.recorded_error(message))
 }
 
