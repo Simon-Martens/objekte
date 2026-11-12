@@ -10476,8 +10476,10 @@ fn search_impl_with_collector<'a>(
             ) {
                 // A complete original proof already fixes the candidate set.
                 // Replaying every pass-2 batch only duplicates posting work.
-                let bounds = extended_filter_bounds(batches, filter, &input);
                 let original = plan.candidates.take().unwrap_or_else(|| input.clone());
+                // The original planner's candidates are already a safe
+                // superset. Restrict batch proofs to those survivors.
+                let bounds = extended_filter_bounds(batches, filter, &original);
                 plan.candidates = Some(original & &bounds.may);
                 // Source evidence still needs the original proof machinery.
                 // Without evidence the exact batch hits may skip source reads.
