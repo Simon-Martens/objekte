@@ -243,6 +243,52 @@ fn schema_free_json_reader_admits_every_root_shape() {
 }
 
 #[test]
+fn direct_build_json_matches_existing_logical_reader_and_diagnostics() {
+    let deep = format!("{}0{}", "[".repeat(130), "]".repeat(130));
+    let cases: Vec<&[u8]> = vec![
+        br#"null"#,
+        br#"[]"#,
+        br#"{}"#,
+        br#"[null,true,0,-0,1.0,1e2,"x",{"a":[]}]"#,
+        br#"{"a":"escaped\n\"quote","a":"last","emoji":"\uD83D\uDE03"}"#,
+        br#"{"n":170141183460469231731687303715884105727}"#,
+        br#"{"n":170141183460469231731687303715884105728}"#,
+        br#"{"n":0.123456789012345678901234567890123456789}"#,
+        br#"{"n":1e400}"#,
+        br#"{"nested":[[null],[1,"x"],[]]}"#,
+        br#"{"broken":,}"#,
+        br#"{"broken":"\uD800"}"#,
+        br#"{"broken":"#,
+        b"{\"broken\":\"\xff\"}",
+        deep.as_bytes(),
+    ];
+    for bytes in cases {
+        let expected = parse_json_for_query_diagnosed(bytes, &ScanProjection::full(false));
+        let actual = parse_json_for_build_diagnosed(bytes);
+        match (actual, expected) {
+            (Ok(actual), Ok(expected)) => {
+                assert_eq!(
+                    actual.value,
+                    expected.value,
+                    "{}",
+                    String::from_utf8_lossy(bytes)
+                );
+                assert!(actual.text.is_empty());
+            }
+            (Err(actual), Err(expected)) => assert_eq!(actual, expected),
+            (actual, expected) => panic!("direct/legacy mismatch: {actual:?} vs {expected:?}"),
+        }
+    }
+    let decoded = JsonDecodedScalarsReader
+        .parse_for_build_outcome(br#"{"a":1,"a":2}"#)
+        .unwrap();
+    let ordinary = JsonReader
+        .parse_for_build_outcome(br#"{"a":1,"a":2}"#)
+        .unwrap();
+    assert_ne!(decoded.text.len(), ordinary.text.len());
+}
+
+#[test]
 fn root_queries_match_reference_over_mixed_json_documents() {
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
