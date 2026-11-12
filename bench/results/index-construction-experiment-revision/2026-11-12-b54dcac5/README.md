@@ -1,5 +1,20 @@
 # Index construction experiment revision: fixed protocol
 
+## Outcome and evidence map
+
+The [complete result report](../../../../docs/ai/generated/index_construction_experiment_revision_results.md) retains contiguous contributions and rejects the revised field-admission and SIMD gram-generation candidates. Final retained code at `ceebc48811` versus B won 5/5 pairs in both alphabets: paired median −162.775 ms (−15.036%) ASCII and −139.141 ms (−11.944%) Unicode. The final ordinary release binary SHA-256 is `1830329d4fbdbddb81b70bae7d6f032a883f0a9eec627d0c83ded555789ec58f` versus B's hash below. The integration branch contains no rejected candidate code.
+
+| Evidence | Location |
+| --- | --- |
+| All independent/final paired full-build trials and manifests | `contiguous-contributions/`, `field-admission/`, `field-admission-revised/`, `vector-gram-generation/`, `final/` |
+| Storage allocation and capacity accounting | [allocations](allocations/README.md), [storage profiles](storage-profile/README.md) |
+| Admission overlap, queue and worker profiles | [admission profiles](admission-profile/README.md) |
+| SIMD checksum and real-builder timings | [SIMD focused runs](simd/README.md) |
+| Workspace checks and baseline formatting evidence | [validation](validation/README.md) |
+| 194-case fresh query equivalence and required-load results | [queries](query/README.md), [snapshots](snapshot/README.md) |
+
+The large snapshot payloads are retained locally under the integration worktree's ignored `target/index-construction-experiment-revision/snapshot-payloads/`; hashes, sizes and run manifests are committed here. All other published raw comparisons and logs are in this archive.
+
 Task `index-construction-experiment-revision`, fixed control B `54dcac5c3b3e1ca499180061ebcee7ad60c27101`. Current remote `master` at task start was `ab616dc6aabb9b9fee4657deb6752a6512bec9e5` and did not contain the accepted scalar folding path. B is the completed scalar-only integration result; its `bigram.rs`, `build.rs`, and `repository.rs` match measured revision `4f51c45e22ff4329c690fbbb3bad90f18b17a658`. The rejected linked arena and two-group admission implementations are absent. Every experiment branch starts at B, and earlier experimental branches remain unchanged.
 
 The control uses the configured `/home/simon/source/objekte/examples/musenalm` corpus and locked release build of `bench_index_construction`. Record exact host/compiler/CPU affinity/governor, source and schema fingerprints, file/record/byte counts, binary hashes, code revisions and commands in each run manifest. Verify the control checkout remains clean for ordinary timing. Do not compare previous Ryzen measurements with current Intel measurements as one speedup.
