@@ -1178,7 +1178,16 @@ impl Repository {
         self.collections.iter().all(|collection| {
             let schema = &collection.definition.schema;
             (self.options.inference.mode == crate::inference::InferenceMode::Disabled
-                || collection.inference.is_some())
+                || collection.inference.as_ref().is_some_and(|inference| {
+                    inference.report.complete
+                        && inference.report.fields.iter().all(|field| {
+                            !matches!(
+                                field.index_status,
+                                crate::inference::InferenceIndexStatus::BudgetExceeded
+                                    | crate::inference::InferenceIndexStatus::Incomplete
+                            )
+                        })
+                }))
                 && schema.fields.values().all(|field| {
                     !field.indexed
                         || schema.relations().contains_key(&field.path)

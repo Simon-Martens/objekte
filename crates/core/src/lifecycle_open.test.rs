@@ -394,6 +394,58 @@ fn inferred_unselected_array_length_and_empty_string_are_source_free_when_comple
 }
 
 #[test]
+fn inference_resource_limit_keeps_search_ready_and_fails_extended_task() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-inference-limit-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"a":true,"b":1}"#).unwrap();
+    let mut inference = crate::inference::InferenceConfig {
+        mode: crate::inference::InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    inference.policy.max_paths = 1;
+    let task = Index::start_staged_build(
+        &root,
+        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        RepositoryOptions {
+            inference,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let index = task.wait_search_ready().unwrap();
+    let error = index.wait_extended().unwrap_err();
+    assert!(error.to_string().contains("inference resource limit"));
+    assert_eq!(
+        index.extended_status().unwrap().phase,
+        crate::lifecycle::ExtendedPhase::Failed
+    );
+    assert!(!index.view().unwrap().repository().extended_complete());
+    let request = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(crate::query::parse_filter("b = 1").unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let view = index.view().unwrap();
+    assert_eq!(view.search(&request).unwrap().count, Some(1));
+    assert_eq!(view.search(&request).unwrap().count, view.search_reference(&request).unwrap().count);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn partial_extended_snapshot_retains_exact_coverage_and_resumes() {
     let root = std::env::temp_dir().join(format!(
         "objekte-partial-extended-{}-{:?}",
@@ -483,7 +535,9 @@ fn partial_extended_snapshot_retains_exact_coverage_and_resumes() {
     assert_eq!(saved.extended_batches[0].len(), 1);
     assert!(saved.extended_batches[1].is_empty());
     let restored = Index::load_cache(&root, definitions, options, &cache).unwrap();
+    assert_eq!(restored.build_parses().unwrap(), 0);
     restored.wait_extended().unwrap();
+    assert_eq!(restored.build_parses().unwrap(), 2);
     restored.wait_for_reconciliation().unwrap();
     assert_eq!(restored.status().unwrap().live_records, 2);
     assert_eq!(restored.view().unwrap().revision(), partial.revision());
