@@ -6,6 +6,67 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
+fn search_ready_base_reuses_complete_verified_membership() {
+    use crate::lifecycle::Index;
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-staged-base-cache-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/one.json"), br#"{"kind":"a"}"#).unwrap();
+    std::fs::write(root.join("data/two.json"), br#"{"kind":"b"}"#).unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.schema.register_field(FieldDefinition {
+        path: vec!["kind".into()],
+        kind: LogicalType::String,
+        required: false,
+        nullable: false,
+        indexed: true,
+        multi: false,
+        element_nullable: vec![],
+    }).unwrap();
+    let task = Index::start_staged_build(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    ).unwrap();
+    task.pause_extended().unwrap();
+    let index = task.wait_search_ready().unwrap();
+    index.configure_verified_cache(1024 * 1024).unwrap();
+    let view = index.view().unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        filter: Some(parse_filter("kind = 'a'").unwrap()),
+        fts: None,
+        options: QueryOptions {
+            sort: vec![],
+            limit: 1,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let cold = view.search(&query).unwrap();
+    let warm = view.search(&query).unwrap();
+    assert_eq!(cold.count, Some(1));
+    assert!(!cold.counters.verified_result_hit);
+    assert_eq!(warm.count, cold.count);
+    assert_eq!(warm.hits, cold.hits);
+    assert!(warm.counters.verified_result_hit);
+    task.cancel_extended();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};
