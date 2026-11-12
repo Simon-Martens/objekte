@@ -86,9 +86,8 @@ fn grouped_admission_joins_independent_errors_in_component_order() {
                     0,
                     0,
                     &pool,
-                    4_096,
-                    4_096,
-                    2,
+                    1,
+                    1,
                     Some(Instant::now()),
                     Some(&mut profile),
                 )
@@ -194,10 +193,11 @@ fn grouped_admission_matches_single_worker_for_mixed_text_and_custom_data() {
             },
         )
         .unwrap();
-        let grouped_profile = &grouped.startup().build_profile.as_ref().unwrap().admission_by_collection["data"];
+        let grouped_profile =
+            &grouped.startup().build_profile.as_ref().unwrap().admission_by_collection["data"];
         assert!(grouped_profile.parallel_batches > 0, "{alphabet:?}: {grouped_profile:?}");
-        assert!(grouped_profile.posting_groups > 0);
-        assert!(grouped_profile.text_groups > 0);
+        assert_eq!(grouped_profile.posting_groups, 0);
+        assert!(grouped_profile.text_groups >= 2);
         assert_eq!(single.collections()[0].generation.records.len(), 33);
         assert_eq!(grouped.collections()[0].generation.records.len(), 33);
         assert_eq!(grouped.collections()[0].empty_array_records.len(), 32);
@@ -218,6 +218,115 @@ fn grouped_admission_matches_single_worker_for_mixed_text_and_custom_data() {
             };
             assert_eq!(single.search(&query).unwrap().hits, grouped.search(&query).unwrap().hits);
         }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn grouped_admission_splits_many_moderate_posting_fields_with_raw_text() {
+    use std::io::Write;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-field-admission-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut file = std::fs::File::create(root.join("data/records.jsonl")).unwrap();
+    let mut schema = Schema::default();
+    for field in 0..37 {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![format!("f{field:02}")],
+                kind: LogicalType::String,
+                required: false,
+                nullable: true,
+                indexed: field < 4,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    let alphabet = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for record in 0..512u64 {
+        let mut row = serde_json::Map::new();
+        row.insert("f00".into(), format!("id-{record:03}").into());
+        row.insert("f01".into(), format!("entry-{}", record % 400).into());
+        row.insert("f02".into(), format!("number-{}", record % 150).into());
+        row.insert("f03".into(), format!("year-{}", record % 100).into());
+        let mut state = record + 1;
+        let text = (0..256)
+            .map(|_| {
+                state ^= state << 13;
+                state ^= state >> 7;
+                state ^= state << 17;
+                alphabet[(state as usize) % alphabet.len()] as char
+            })
+            .collect::<String>();
+        row.insert("f04".into(), text.into());
+        for field in 5..37 {
+            row.insert(format!("f{field:02}"), "fixed".into());
+        }
+        writeln!(file, "{}", serde_json::Value::Object(row)).unwrap();
+    }
+    drop(file);
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: Vec::new(),
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let options = RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode: SnapshotMode::Disabled,
+            profile_build: true,
+            build_workers: NonZeroUsize::new(4),
+            ..Default::default()
+        };
+        let grouped = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        let breakdown = &grouped.startup().build_profile.as_ref().unwrap().admission_by_collection["data"];
+        assert_eq!(breakdown.parallel_batches, 1, "{alphabet:?}: {breakdown:?}");
+        assert!(breakdown.posting_groups >= 2, "{alphabet:?}: {breakdown:?}");
+        assert!(breakdown.text_groups >= 1, "{alphabet:?}: {breakdown:?}");
+        assert!(breakdown.posting_groups + breakdown.text_groups <= 4);
+        let single = Repository::open_with_options(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                build_workers: NonZeroUsize::new(1),
+                ..options
+            },
+        )
+        .unwrap();
+        assert_eq!(
+            single.startup().build_profile.as_ref().unwrap().admission_by_collection["data"]
+                .parallel_batches,
+            0
+        );
+        let query = Query {
+            collections: vec!["data".into()],
+            filter: Some(parse_filter("f00 = 'id-007'").unwrap()),
+            fts: None,
+            options: QueryOptions {
+                sort: vec![],
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        assert_eq!(single.search(&query).unwrap().hits, grouped.search(&query).unwrap().hits);
     }
     std::fs::remove_dir_all(root).unwrap();
 }

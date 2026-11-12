@@ -2543,6 +2543,38 @@ fn posting_merge_work(index: &PostingIndex) -> usize {
         .saturating_add(usize::try_from(index.nulls.len() / 64).unwrap_or(usize::MAX))
 }
 
+/// A class gets another task only when greedy balancing can leave every
+/// group above its own minimum. Posting and gram units are intentionally not
+/// compared with each other: one dictionary entry has a different merge cost
+/// from one packed gram word.
+fn useful_merge_groups(weights: &[usize], minimum: usize, limit: usize) -> usize {
+    let mut sorted = weights
+        .iter()
+        .copied()
+        .filter(|&weight| weight > 0)
+        .collect::<Vec<_>>();
+    sorted.sort_unstable_by(|left, right| right.cmp(left));
+    let total = sorted
+        .iter()
+        .fold(0usize, |sum, weight| sum.saturating_add(*weight));
+    let mut count = sorted.len().min(total / minimum).min(limit);
+    while count > 0 {
+        let mut loads = vec![0usize; count];
+        for weight in &sorted {
+            let lightest = loads
+                .iter_mut()
+                .min_by_key(|load| **load)
+                .expect("nonempty group list");
+            *lightest = lightest.saturating_add(*weight);
+        }
+        if loads.iter().all(|&load| load >= minimum) {
+            return count;
+        }
+        count -= 1;
+    }
+    0
+}
+
 /// Greedy balancing keeps the number of tasks bounded by the existing pool,
 /// while each task owns whole field/store values and preserves local order.
 fn weighted_merge_groups<'a>(
@@ -2694,43 +2726,40 @@ impl CollectionAdmission<'_> {
         // The single-worker path does no group-estimation scan at all.
         if pool.current_num_threads() > 1 {
             let preparation_started = profile.is_some().then(Instant::now);
-            let mut substantial_items = 0usize;
-            let mut small_work = 0usize;
-            let mut consider = |work: usize| {
-                if work >= 2_048 {
-                    substantial_items += 1;
-                } else {
-                    small_work = small_work.saturating_add(work);
-                }
-            };
-            let posting_work = batch.postings.fields.values().fold(0usize, |sum, index| {
-                let work = posting_merge_work(index);
-                consider(work);
-                sum.saturating_add(work)
-            });
+            let posting_weights = batch
+                .postings
+                .fields
+                .values()
+                .map(posting_merge_work)
+                .collect::<Vec<_>>();
             let raw_work = batch.raw.estimated_merge_work();
             let fallback_work = batch.fallback_text.estimated_merge_work();
-            consider(raw_work);
-            consider(fallback_work);
-            let custom_text_work = batch.custom_text.values().fold(0usize, |sum, index| {
-                let work = index.estimated_merge_work();
-                consider(work);
-                sum.saturating_add(work)
-            });
-            let text_work = raw_work
-                .saturating_add(fallback_work)
-                .saturating_add(custom_text_work);
-            let useful_groups = substantial_items.saturating_add(small_work / 4_096);
-            // The threshold uses actual dictionary/word work, not records.
-            if posting_work.saturating_add(text_work) >= 4_096 && useful_groups >= 2 {
+            let mut text_weights = Vec::with_capacity(batch.custom_text.len() + 2);
+            text_weights.push(raw_work);
+            text_weights.push(fallback_work);
+            text_weights.extend(
+                batch
+                    .custom_text
+                    .values()
+                    .map(BigramContribution::estimated_merge_work),
+            );
+            const MAX_GROUPS: usize = 4;
+            let max_groups = pool.current_num_threads().min(MAX_GROUPS);
+            let posting_capacity = useful_merge_groups(&posting_weights, 512, max_groups);
+            let text_capacity = useful_merge_groups(&text_weights, 4_096, max_groups);
+            let posting_groups = posting_capacity.min(max_groups - usize::from(text_capacity > 0));
+            let text_groups = text_capacity.min(max_groups - posting_groups);
+            // At least two independently useful groups are needed to offset
+            // submission and join overhead. Empty stores follow a live store
+            // in its group to maintain complete record coverage.
+            if posting_groups + text_groups >= 2 {
                 return self.merge_grouped(
                     batch,
                     base,
                     count,
                     pool,
-                    posting_work,
-                    text_work,
-                    useful_groups,
+                    posting_groups,
+                    text_groups,
                     preparation_started,
                     profile,
                 );
@@ -2811,9 +2840,8 @@ impl CollectionAdmission<'_> {
         base: u32,
         count: u32,
         pool: &ThreadPool,
-        posting_work: usize,
-        text_work: usize,
-        useful_groups: usize,
+        posting_groups: usize,
+        text_groups: usize,
         preparation_started: Option<Instant>,
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<(), String> {
@@ -2899,38 +2927,35 @@ impl CollectionAdmission<'_> {
             }
         }
 
-        let total_work = posting_work.saturating_add(text_work);
-        let max_groups = pool
-            .current_num_threads()
-            .min(posting_items.len() + text_items.len())
-            .min(useful_groups);
-        let mut posting_groups = if posting_items.is_empty() {
-            0
-        } else if text_items.is_empty() {
-            max_groups
-        } else {
-            ((max_groups as u128 * posting_work as u128 / total_work.max(1) as u128) as usize)
-                .clamp(1, max_groups - 1)
-        }
-        .min(posting_items.len());
-        let mut text_groups = (max_groups - posting_groups).min(text_items.len());
-        while posting_groups + text_groups < max_groups {
-            if posting_groups < posting_items.len() {
-                posting_groups += 1;
-            } else if text_groups < text_items.len() {
-                text_groups += 1;
-            } else {
-                break;
-            }
-        }
-        let mut groups =
-            weighted_merge_groups(posting_items, posting_groups, MergeGroupKind::Postings);
-        groups.extend(weighted_merge_groups(
-            text_items,
-            text_groups,
-            MergeGroupKind::Text,
-        ));
         let profile_enabled = profile.is_some();
+        let (mut groups, inline_postings) = if posting_groups == 0 {
+            (Vec::new(), Some(posting_items))
+        } else {
+            (
+                weighted_merge_groups(posting_items, posting_groups, MergeGroupKind::Postings),
+                None,
+            )
+        };
+        let inline_text = if text_groups == 0 {
+            Some(text_items)
+        } else {
+            groups.extend(weighted_merge_groups(
+                text_items,
+                text_groups,
+                MergeGroupKind::Text,
+            ));
+            None
+        };
+        // A class with no useful task group still has coverage to admit.
+        // Structured postings precede all other merge components.
+        if let Some(items) = inline_postings {
+            let started = profile_enabled.then(Instant::now);
+            let outcome = items.into_iter().try_for_each(|item| item.merge(base));
+            if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+                profile.postings_ns += started.elapsed().as_nanos() as u64;
+            }
+            outcome?;
+        }
         let mut results = (0..groups.len())
             .map(|_| None)
             .collect::<Vec<Option<MergeGroupResult>>>();
@@ -3046,10 +3071,24 @@ impl CollectionAdmission<'_> {
             if let Some(error) = sequential_error {
                 return Err(error);
             }
+            let inline_text_error = if let Some(items) = inline_text {
+                let started = profile.is_some().then(Instant::now);
+                let error = items.into_iter().find_map(|item| {
+                    let order = item.order();
+                    item.merge(base).err().map(|message| (order, message))
+                });
+                if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+                    profile.bigrams_ns += started.elapsed().as_nanos() as u64;
+                }
+                error
+            } else {
+                None
+            };
             let text_error = results
                 .iter()
                 .filter(|result| matches!(result.kind, MergeGroupKind::Text))
                 .filter_map(|result| result.error.as_ref())
+                .chain(inline_text_error.as_ref())
                 .chain(text_preparation_error.as_ref())
                 .min_by_key(|(order, _)| order);
             if let Some((_, error)) = text_error {
