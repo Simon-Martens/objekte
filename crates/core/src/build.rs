@@ -35,8 +35,7 @@ use crate::source::{
     BoundedBuildChunk, BoundedJsonLines, DiagnosticCategory, ExtractedRecord, PreparedSource,
     ReaderDiagnostic, ReaderFailure, SourceOutcome, TextDerivation, extract_file_build_outcomes,
     extract_file_build_outcomes_hashed, extract_framed_build_outcomes, frame_file_for_build,
-    read_record_range_for_build,
-    visit_logical_strings_and_empty,
+    read_record_range_for_build, visit_logical_strings_and_empty,
 };
 use crate::workload::BigramAlphabet;
 
@@ -60,14 +59,12 @@ impl ConstructionPhase {
     }
 }
 
-
 #[derive(Clone)]
 pub(crate) struct BatchFile {
     pub(crate) entry: FileEntry,
     pub(crate) records: Range<usize>,
     pub(crate) first_range: bool,
 }
-
 
 /// Immutable discovery metadata shared by all construction workers. Mutable
 /// statuses and diagnostics stay in the coordinator-owned inventory.
@@ -78,7 +75,6 @@ pub(crate) struct SourceFileInput {
     pub(crate) revision: SourceRevision,
     pub(crate) created_ns: Option<i128>,
 }
-
 
 impl SourceFileInput {
     pub(crate) fn from_entry(entry: &FileEntry) -> Self {
@@ -103,7 +99,6 @@ impl SourceFileInput {
         }
     }
 }
-
 
 /// Bound each job by both file count and discovered source bytes. A single
 /// oversized source is admitted alone; its framing contract may need that
@@ -135,7 +130,6 @@ pub(crate) fn file_batches<'a>(
     }
     batches
 }
-
 
 /// All expensive per-record projection is complete before this crosses the
 /// worker/coordinator boundary. Slots remain local until ordered admission.
@@ -191,6 +185,12 @@ impl BatchContribution {
         collection: CollectionId,
         base_slot: u32,
     ) -> Result<ExtendedBatch, String> {
+        let mut postings = self.postings.clone();
+        postings.finish_stats();
+        let mut custom_postings = self.custom_postings.clone();
+        for posting in custom_postings.values_mut() {
+            posting.index.finish_stats();
+        }
         Ok(ExtendedBatch {
             collection,
             base_slot,
@@ -198,8 +198,8 @@ impl BatchContribution {
                 .map_err(|_| "extended batch record overflow")?,
             records: self.records.clone(),
             logical_covered: self.logical_records.clone(),
-            postings: self.postings.clone(),
-            custom_postings: self.custom_postings.clone(),
+            postings,
+            custom_postings,
             field_states: self.field_states.clone(),
             source_files: self
                 .files
@@ -239,7 +239,6 @@ impl BatchContribution {
     }
 }
 
-
 struct BatchBuilder<'a> {
     root: &'a Path,
     definition: &'a CollectionDefinition,
@@ -260,7 +259,6 @@ struct BatchBuilder<'a> {
     relations: Vec<RelationContribution>,
     phase: ConstructionPhase,
 }
-
 
 impl<'a> BatchBuilder<'a> {
     fn new(
@@ -317,7 +315,9 @@ impl<'a> BatchBuilder<'a> {
             postings: {
                 let mut selected = PostingCollection::new(schema);
                 if phase == ConstructionPhase::Base {
-                    selected.fields.retain(|path, _| schema.relations().contains_key(path));
+                    selected
+                        .fields
+                        .retain(|path, _| schema.relations().contains_key(path));
                 } else if phase == ConstructionPhase::Extended {
                     selected.fields.retain(|path, _| {
                         schema.fields.get(path).is_some_and(|field| field.indexed)
@@ -326,9 +326,10 @@ impl<'a> BatchBuilder<'a> {
                 }
                 selected
             },
-            inference: phase.extended().then(|| {
-                InferenceBuilder::with_job_count(inference, true, inference_jobs)
-            }).flatten(),
+            inference: phase
+                .extended()
+                .then(|| InferenceBuilder::with_job_count(inference, true, inference_jobs))
+                .flatten(),
             custom_postings,
             field_states: if phase.extended() {
                 schema
@@ -336,7 +337,10 @@ impl<'a> BatchBuilder<'a> {
                     .values()
                     .filter(|field| field.indexed)
                     .map(|field| {
-                        (field.path.clone(), crate::field_state::FieldStateColumnBuilder::new())
+                        (
+                            field.path.clone(),
+                            crate::field_state::FieldStateColumnBuilder::new(),
+                        )
                     })
                     .collect()
             } else {
@@ -358,7 +362,11 @@ impl<'a> BatchBuilder<'a> {
             logical_records: RoaringBitmap::new(),
             empty_array_records: RoaringBitmap::new(),
             sorting: SortBuilder::new(
-                if phase.extended() { &definition.sort_fields } else { &[] },
+                if phase.extended() {
+                    &definition.sort_fields
+                } else {
+                    &[]
+                },
                 schema,
                 &definition.sort_locale,
                 definition.sort_options,
@@ -585,7 +593,9 @@ impl<'a> BatchBuilder<'a> {
         if !self.phase.base() {
             self.raw.add_empty(slot)?;
             has_empty_array = false;
-        } else if self.source.reader().text_derivation() == TextDerivation::LogicalStringsAfterConversion {
+        } else if self.source.reader().text_derivation()
+            == TextDerivation::LogicalStringsAfterConversion
+        {
             if let Some(binding) = &self.definition.schema.raw {
                 let mut observed_empty = false;
                 self.raw.add_record_with(slot, |emit| {
@@ -728,7 +738,6 @@ impl<'a> BatchBuilder<'a> {
     }
 }
 
-
 pub(crate) fn process_batch(
     root: &Path,
     definition: &CollectionDefinition,
@@ -741,8 +750,16 @@ pub(crate) fn process_batch(
     inference_jobs: usize,
 ) -> Result<BatchContribution, String> {
     process_batch_phase(
-        root, definition, collection, source, file_ids, source_files, alphabet,
-        inference, inference_jobs, ConstructionPhase::Complete,
+        root,
+        definition,
+        collection,
+        source,
+        file_ids,
+        source_files,
+        alphabet,
+        inference,
+        inference_jobs,
+        ConstructionPhase::Complete,
     )
 }
 
@@ -796,7 +813,6 @@ pub(crate) fn process_batch_phase(
     Ok(batch)
 }
 
-
 /// A file's eligible collection bindings, resolved by discovery before I/O.
 /// Preparation performs no publication and never changes source files.
 #[derive(Clone, Copy)]
@@ -806,14 +822,12 @@ pub(crate) struct FilePreparationBinding<'a> {
     pub source: &'a PreparedSource,
 }
 
-
 pub(crate) struct PreparedCollectionBuild {
     pub collection: CollectionId,
     pub source_id: String,
     pub source_version: u32,
     pub contributions: Vec<BatchContribution>,
 }
-
 
 /// Private, complete per-file work. The coordinator must still validate the
 /// file version, identities, and configuration before publishing any part.
@@ -823,7 +837,6 @@ pub(crate) struct PreparedFileBuild {
     pub fingerprint: Option<[u8; 32]>,
     pub collections: Vec<PreparedCollectionBuild>,
 }
-
 
 impl PreparedFileBuild {
     pub(crate) fn record_count(&self) -> u64 {
@@ -856,7 +869,6 @@ impl PreparedFileBuild {
     }
 }
 
-
 /// Failure while preparing a complete replacement supplied by the caller.
 /// A registered reader that cannot frame supplied bytes must be handled by
 /// the path-based preparation route before publication.
@@ -867,20 +879,17 @@ pub(crate) enum BytesPreparationError {
     Build(String),
 }
 
-
 impl From<String> for BytesPreparationError {
     fn from(error: String) -> Self {
         Self::Build(error)
     }
 }
 
-
 struct HashingReader<'a, R> {
     inner: R,
     digest: Option<&'a mut Sha256>,
     bytes_read: &'a mut u64,
 }
-
 
 impl<R: Read> Read for HashingReader<'_, R> {
     fn read(&mut self, bytes: &mut [u8]) -> std::io::Result<usize> {
@@ -892,7 +901,6 @@ impl<R: Read> Read for HashingReader<'_, R> {
         Ok(count)
     }
 }
-
 
 fn source_revision_at(path: &Path) -> Result<SourceRevision, String> {
     SourceRevision::from_metadata(
@@ -1330,8 +1338,18 @@ fn process_framed_batch(
     inference_jobs: usize,
 ) -> Result<BatchContribution, String> {
     process_framed_batch_phase(
-        root, original, binding, bytes, ranges, file_offset, preceding_lines,
-        first_range, alphabet, inference, inference_jobs, ConstructionPhase::Complete,
+        root,
+        original,
+        binding,
+        bytes,
+        ranges,
+        file_offset,
+        preceding_lines,
+        first_range,
+        alphabet,
+        inference,
+        inference_jobs,
+        ConstructionPhase::Complete,
     )
 }
 
@@ -1480,8 +1498,17 @@ pub(crate) fn process_framed_file(
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     process_framed_file_phase(
-        pool, root, definition, collection, source, file_id, source_files,
-        alphabet, inference, ConstructionPhase::Complete, admit,
+        pool,
+        root,
+        definition,
+        collection,
+        source,
+        file_id,
+        source_files,
+        alphabet,
+        inference,
+        ConstructionPhase::Complete,
+        admit,
     )
 }
 
@@ -1721,14 +1748,12 @@ fn process_bounded_json_lines_file(
     Ok(stats)
 }
 
-
 #[derive(Clone, Copy)]
 struct BoundedBuildLimits {
     chunk_bytes: usize,
     ranges: usize,
     admitted_bytes: u64,
 }
-
 
 impl Default for BoundedBuildLimits {
     fn default() -> Self {
@@ -1739,7 +1764,6 @@ impl Default for BoundedBuildLimits {
         }
     }
 }
-
 
 fn process_bounded_json_lines_reader<R: BufRead + Send>(
     pool: &ThreadPool,
@@ -1756,8 +1780,19 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
     admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     process_bounded_json_lines_reader_phase(
-        pool, root, definition, collection, source, file_id, source_files,
-        alphabet, inference, ConstructionPhase::Complete, reader, limits, admit,
+        pool,
+        root,
+        definition,
+        collection,
+        source,
+        file_id,
+        source_files,
+        alphabet,
+        inference,
+        ConstructionPhase::Complete,
+        reader,
+        limits,
+        admit,
     )
 }
 
@@ -1974,7 +2009,6 @@ fn fits_allowance(current: u64, weight: u64, limit: u64) -> bool {
     current == 0 || (weight <= limit && current.saturating_add(weight) <= limit)
 }
 
-
 #[derive(Clone, Copy, Debug, Default)]
 pub(crate) struct BuildScheduleStats {
     /// Digest of the one large file scheduled by this call, if readable.
@@ -1989,7 +2023,6 @@ pub(crate) struct BuildScheduleStats {
     pub admission_ns: u64,
 }
 
-
 impl BuildScheduleStats {
     pub fn absorb(&mut self, other: Self) {
         self.weight_limit_bytes = self.weight_limit_bytes.max(other.weight_limit_bytes);
@@ -2002,7 +2035,6 @@ impl BuildScheduleStats {
     }
 }
 
-
 #[derive(Default)]
 struct JobCounters {
     active: AtomicUsize,
@@ -2012,7 +2044,6 @@ struct JobCounters {
     peak_ready: AtomicUsize,
     execution_ns: AtomicU64,
 }
-
 
 impl JobCounters {
     fn run<T>(&self, job: impl FnOnce() -> T) -> T {
@@ -2038,7 +2069,6 @@ impl JobCounters {
     }
 }
 
-
 /// Ordered admission keeps the established slot and diagnostic order even if
 /// later file batches finish first. The window includes completed batches
 /// awaiting admission, so an early slow job cannot queue the whole corpus.
@@ -2050,7 +2080,6 @@ pub(crate) struct RepositoryFileJob {
     pub files: Vec<FileId>,
 }
 
-
 pub(crate) fn process_repository_file_batches(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
@@ -2061,8 +2090,14 @@ pub(crate) fn process_repository_file_batches(
     mut admit: impl FnMut(usize, BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     process_repository_file_batches_phase(
-        pool, root, jobs, source_files, alphabet, inference,
-        ConstructionPhase::Complete, admit,
+        pool,
+        root,
+        jobs,
+        source_files,
+        alphabet,
+        inference,
+        ConstructionPhase::Complete,
+        admit,
     )
 }
 
@@ -2251,7 +2286,6 @@ pub(crate) fn process_file_batches(
     )
 }
 
-
 pub(crate) struct CollectionAdmission<'a> {
     pub inventory: &'a mut FileInventory,
     pub builder: &'a mut CollectionBuilder,
@@ -2266,7 +2300,6 @@ pub(crate) struct CollectionAdmission<'a> {
     pub sorting: &'a mut SortBuilder,
     pub relations: &'a mut Vec<RelationContribution>,
 }
-
 
 impl CollectionAdmission<'_> {
     pub fn admit(&mut self, batch: BatchContribution) -> Result<(), String> {
@@ -2378,7 +2411,6 @@ impl CollectionAdmission<'_> {
         Ok(())
     }
 }
-
 
 #[cfg(test)]
 #[path = "build.test.rs"]

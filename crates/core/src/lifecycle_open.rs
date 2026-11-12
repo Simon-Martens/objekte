@@ -8,12 +8,10 @@ use crate::inventory::{ActiveRecords, FileVersions};
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::CollectionId;
-use crate::repository::{
-    CollectionDefinition, DirectBuild, RepositoryOptions, SnapshotMode,
-};
-use crate::source::SourceRegistry;
 #[cfg(test)]
 use crate::repository::Repository;
+use crate::repository::{CollectionDefinition, DirectBuild, RepositoryOptions, SnapshotMode};
+use crate::source::SourceRegistry;
 
 impl Index {
     /// Build from exactly the supplied definitions and source root. A relative
@@ -224,15 +222,23 @@ impl Index {
             }
         }
         let revision = IndexRevision(state.revision);
+        let capability_revision = IndexRevision(state.capability_revision);
+        let extended_batches = state
+            .extended_batches
+            .into_iter()
+            .map(|group| Arc::new(group.into_iter().map(Arc::new).collect()))
+            .collect();
         let instance_id = crate::repository::next_repository_instance();
         let mut published = PublishedIndex::from_repository(instance_id, revision, repository)?;
+        published.capability_revision = capability_revision;
+        published.extended_batches = extended_batches;
         published.active = active;
         published.segments = segments;
         published.catalog = catalog;
         published.file_versions = file_versions;
         published.next_segment_ordinal = state.next_segment_ordinal;
         published.saved_revision = Some(revision);
-        published.saved_capability_revision = Some(published.capability_revision);
+        published.saved_capability_revision = Some(capability_revision);
         let published = if extended_pending {
             published
         } else {

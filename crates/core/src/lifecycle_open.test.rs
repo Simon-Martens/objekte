@@ -4,6 +4,186 @@ use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
 #[test]
+fn extended_paused_before_search_ready_resumes() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-pre-ready-pause-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":"Ada"}"#).unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(crate::reference::FieldDefinition {
+            path: vec!["name".into()],
+            kind: crate::model::LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let task = Index::start_staged_build_with_sources_and_cache(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+        None,
+        true,
+    )
+    .unwrap();
+    let index = task.wait_search_ready().unwrap();
+    assert_eq!(
+        index.extended_status().unwrap().phase,
+        crate::lifecycle::ExtendedPhase::Paused
+    );
+    task.resume_extended().unwrap();
+    index.wait_extended().unwrap();
+    assert_eq!(
+        index.extended_status().unwrap().phase,
+        crate::lifecycle::ExtendedPhase::Complete
+    );
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn partial_extended_snapshot_retains_exact_coverage_and_resumes() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-partial-extended-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    for name in ["one", "two"] {
+        std::fs::create_dir_all(root.join(name)).unwrap();
+        std::fs::write(root.join(name).join("a.json"), br#"{"name":"Ada"}"#).unwrap();
+    }
+    let definitions = ["one", "two"]
+        .into_iter()
+        .map(|name| {
+            let mut definition = CollectionDefinition::folder(name, name, SourceFormat::Json);
+            definition
+                .schema
+                .register_field(crate::reference::FieldDefinition {
+                    path: vec!["name".into()],
+                    kind: crate::model::LogicalType::String,
+                    required: false,
+                    nullable: false,
+                    indexed: true,
+                    multi: false,
+                    element_nullable: vec![],
+                })
+                .unwrap();
+            definition
+        })
+        .collect::<Vec<_>>();
+    let options = RepositoryOptions::default();
+    let base = Arc::new(
+        Repository::build_search_base(
+            root.canonicalize().unwrap(),
+            definitions.clone(),
+            options,
+            SourceRegistry::builtin(),
+            &|_| {},
+            &|| false,
+        )
+        .unwrap(),
+    );
+    let published = PublishedIndex::from_repository(
+        crate::repository::next_repository_instance(),
+        IndexRevision::INITIAL,
+        Arc::clone(&base),
+    )
+    .unwrap();
+    let index = Index::from_published(published);
+    let versions = index.view().unwrap().0.file_versions.clone();
+    let admitted = std::sync::atomic::AtomicUsize::new(0);
+    let result = Repository::build_extended_from_base(&base, &|_, _| {}, &|| false, &|batch| {
+        index
+            .publish_extended_batch(&base, &versions, batch)
+            .map_err(|error| error.to_string())?;
+        admitted.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+        Err("test barrier after first extended batch".into())
+    });
+    assert!(result.is_err());
+    assert_eq!(admitted.load(std::sync::atomic::Ordering::Relaxed), 1);
+    let partial = index.view().unwrap();
+    assert_eq!(partial.capability_revision().0, 2);
+    assert_eq!(
+        partial
+            .extended_batches(crate::model::CollectionId(0))
+            .unwrap()
+            .len(),
+        1
+    );
+    assert!(
+        partial
+            .extended_batches(crate::model::CollectionId(1))
+            .unwrap()
+            .is_empty()
+    );
+    let cache = root.join("partial.snapshot");
+    index.flush_cache(&cache).unwrap();
+    let (_, saved) = crate::storage::load_lifecycle_snapshot_checked(
+        root.canonicalize().unwrap(),
+        definitions.clone(),
+        options,
+        &SourceRegistry::builtin(),
+        &cache,
+        |_| Ok(()),
+    )
+    .unwrap();
+    assert_eq!(saved.capability_revision, 2);
+    assert_eq!(saved.extended_batches[0].len(), 1);
+    assert!(saved.extended_batches[1].is_empty());
+    let restored = Index::load_cache(&root, definitions, options, &cache).unwrap();
+    restored.wait_extended().unwrap();
+    restored.wait_for_reconciliation().unwrap();
+    assert_eq!(restored.status().unwrap().live_records, 2);
+    assert_eq!(restored.view().unwrap().revision(), partial.revision());
+    let changed = root.join("one/a.json");
+    let handle = restored
+        .view()
+        .unwrap()
+        .file_handle_for_path(&changed)
+        .unwrap();
+    std::fs::write(&changed, br#"{"name":"Grace"}"#).unwrap();
+    restored.update_file(handle, &changed).unwrap();
+    let updated = restored.view().unwrap();
+    assert!(
+        updated
+            .extended_batches(crate::model::CollectionId(0))
+            .unwrap()
+            .is_empty()
+    );
+    let request = Query {
+        collections: vec!["one".into(), "two".into()],
+        fts: None,
+        filter: Some(crate::query::parse_filter("!(name = \"Ada\")").unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert_eq!(updated.search(&request).unwrap().count, Some(1));
+    assert_eq!(
+        updated.search(&request).unwrap().count,
+        updated.search_reference(&request).unwrap().count
+    );
+    restored.shutdown().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn staged_build_matches_static_inference_overlap_and_cache_restore() {
     use crate::inference::{InferenceConfig, InferenceMode};
 

@@ -20,8 +20,8 @@ use crate::build::{
     SegmentAdmission, SourceFileInput, prepare_file_build,
 };
 use crate::discovery::selects_file;
-use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::inference::{InferencePathDiagnostic, InferenceReport};
+use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
 use crate::lifecycle_catalog::FileCatalog;
 #[cfg(test)]
 use crate::model::RecordSlot;
@@ -39,11 +39,9 @@ pub use crate::inventory::FileVersion;
 pub(crate) const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
 const MAX_RECONCILIATION_ISSUES: usize = 128;
 
-
 /// Monotonic publication sequence within one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub struct IndexRevision(pub u64);
-
 
 impl IndexRevision {
     pub const INITIAL: Self = Self(1);
@@ -56,7 +54,6 @@ impl IndexRevision {
     }
 }
 
-
 /// A physical file incarnation in one index instance.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub struct FileHandle {
@@ -64,7 +61,6 @@ pub struct FileHandle {
     pub file_id: FileId,
     pub version: FileVersion,
 }
-
 
 /// Errors at the lifecycle boundary. Query failures retain the existing
 /// repository result type until the lifecycle query-completeness phase.
@@ -99,7 +95,6 @@ pub enum IndexError {
     RevisionOverflow,
     LockPoisoned,
 }
-
 
 impl fmt::Display for IndexError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -152,9 +147,7 @@ impl fmt::Display for IndexError {
     }
 }
 
-
 impl std::error::Error for IndexError {}
-
 
 /// Initial status vocabulary; background task state is supplied by the
 /// reconciliation phase, separately from publication revisions.
@@ -167,7 +160,6 @@ pub enum ReconciliationState {
     Partial,
     Cancelled,
 }
-
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexStatus {
@@ -264,7 +256,6 @@ pub(crate) struct StagedReadyConfiguration {
 #[derive(Clone)]
 pub struct StagedBuildTask(Arc<StagedOpening>);
 
-
 /// Outcome of explicit full reconstruction from the configured source files.
 #[derive(Clone, Debug)]
 pub struct RebuildReport {
@@ -275,14 +266,12 @@ pub struct RebuildReport {
     pub duration: Duration,
 }
 
-
 /// The kind of a long-running index maintenance task.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum MaintenanceOperation {
     Compact,
     Rebuild,
 }
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum MaintenancePhase {
@@ -294,7 +283,6 @@ pub enum MaintenancePhase {
     Failed,
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MaintenanceProgress {
     pub operation: MaintenanceOperation,
@@ -303,13 +291,11 @@ pub struct MaintenanceProgress {
     pub elapsed: Duration,
 }
 
-
 #[derive(Clone, Debug)]
 pub enum MaintenanceReport {
     Compact(crate::lifecycle_compaction::CompactionReport),
     Rebuild(RebuildReport),
 }
-
 
 /// Result of removing one physical source entry from the published index.
 /// The source file itself is never changed.
@@ -319,7 +305,6 @@ pub enum DeleteStrategy {
     VerifiedPhysicalRemoval,
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DeleteResult {
     pub revision: IndexRevision,
@@ -328,7 +313,6 @@ pub struct DeleteResult {
     pub affected_collections: Vec<String>,
     pub strategy: DeleteStrategy,
 }
-
 
 /// One metadata scan and its applied index changes. Errors affecting only a
 /// source remain visible here while other independent files can proceed.
@@ -348,7 +332,6 @@ pub struct ReconciliationReport {
     pub omitted_issues: usize,
 }
 
-
 impl ReconciliationReport {
     fn record_issue(&mut self, issue: String) {
         if self.issues.len() < MAX_RECONCILIATION_ISSUES {
@@ -358,7 +341,6 @@ impl ReconciliationReport {
         }
     }
 }
-
 
 /// Small, copyable observation while a reconciliation pass is running.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -375,7 +357,6 @@ pub struct ReconciliationProgress {
     pub cancelled: bool,
     pub issue_count: usize,
 }
-
 
 impl From<&ReconciliationReport> for ReconciliationProgress {
     fn from(report: &ReconciliationReport) -> Self {
@@ -395,7 +376,6 @@ impl From<&ReconciliationReport> for ReconciliationProgress {
     }
 }
 
-
 /// Private work captured before the mutation writer validates and publishes
 /// one file across all eligible collections.
 pub(crate) struct PreparedAdd {
@@ -403,7 +383,6 @@ pub(crate) struct PreparedAdd {
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) file: PreparedFileBuild,
 }
-
 
 /// A complete replacement captured against one file incarnation. The writer
 /// checks both the view revision and file token before replacing its slots.
@@ -414,14 +393,12 @@ pub(crate) struct PreparedReplacement {
     pub(crate) file: PreparedFileBuild,
 }
 
-
 impl IndexStatus {
     pub fn dirty(&self) -> bool {
         self.saved_revision != Some(self.revision)
             || self.saved_capability_revision != Some(self.capability_revision)
     }
 }
-
 
 /// One indexed delta shard and its independently retired local slots.
 #[derive(Clone)]
@@ -430,7 +407,6 @@ pub(crate) struct PublishedSegment {
     pub(crate) index: Arc<IndexedCollectionSegment>,
     pub(crate) active: ActiveRecords,
 }
-
 
 /// One immutable root: shared base, bounded indexed segments, liveness, file
 /// catalog and configuration all belong to the same publication revision.
@@ -451,7 +427,6 @@ pub(crate) struct PublishedIndex {
     pub(crate) saved_capability_revision: Option<IndexRevision>,
     pub(crate) reconciliation: ReconciliationState,
 }
-
 
 fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize, usize)> {
     let mut sized = group
@@ -483,7 +458,6 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize
     }
     None
 }
-
 
 impl PublishedIndex {
     pub(crate) fn from_repository(
@@ -711,7 +685,6 @@ impl PublishedIndex {
     }
 }
 
-
 fn index_prepared_file(
     repository: &Repository,
     source: &SourceFileInput,
@@ -849,7 +822,6 @@ fn prepare_file_at(
     .map_err(IndexError::Build)
 }
 
-
 struct IndexInner {
     instance_id: u64,
     restored_from_cache: AtomicBool,
@@ -870,12 +842,10 @@ struct IndexInner {
     extended: Mutex<Option<Arc<ExtendedJob>>>,
 }
 
-
 struct PeriodicReconciliation {
     signal: Sender<PeriodicSignal>,
     worker: JoinHandle<()>,
 }
-
 
 enum PeriodicSignal {
     #[cfg(test)]
@@ -883,12 +853,10 @@ enum PeriodicSignal {
     Stop,
 }
 
-
 struct SyncCacheWorker {
     signal: SyncSender<()>,
     worker: JoinHandle<()>,
 }
-
 
 struct PersistenceState {
     selected_cache: Option<PathBuf>,
@@ -896,12 +864,10 @@ struct PersistenceState {
     protected_files: Vec<PathBuf>,
 }
 
-
 struct MaintenanceState {
     reconciliation: ReconciliationState,
     current: Option<Arc<ReconciliationJob>>,
 }
-
 
 struct ReconciliationJob {
     cancelled: AtomicBool,
@@ -910,7 +876,6 @@ struct ReconciliationJob {
     complete: Condvar,
     worker: Mutex<Option<JoinHandle<()>>>,
 }
-
 
 struct MaintenanceJob {
     operation: MaintenanceOperation,
@@ -922,12 +887,10 @@ struct MaintenanceJob {
     worker: Mutex<Option<JoinHandle<()>>>,
 }
 
-
 /// One observable compaction or rebuild. Cancellation prevents publication
 /// and leaves the current view available.
 #[derive(Clone)]
 pub struct MaintenanceTask(Arc<MaintenanceJob>);
-
 
 impl MaintenanceTask {
     pub fn cancel(&self) {
@@ -983,7 +946,6 @@ impl MaintenanceTask {
         outcome
     }
 }
-
 
 impl MaintenanceJob {
     fn set_progress(&self, phase: MaintenancePhase, attempt: usize, elapsed: Duration) {
@@ -1067,7 +1029,10 @@ impl ExtendedJob {
     fn wait(&self) -> Result<(), IndexError> {
         let mut result = self.result.lock().map_err(|_| IndexError::LockPoisoned)?;
         while result.is_none() {
-            result = self.complete.wait(result).map_err(|_| IndexError::LockPoisoned)?;
+            result = self
+                .complete
+                .wait(result)
+                .map_err(|_| IndexError::LockPoisoned)?;
         }
         result.as_ref().cloned().ok_or(IndexError::LockPoisoned)?
     }
@@ -1154,7 +1119,11 @@ impl StagedBuildTask {
                 created_ns: entry.created_ns,
             })
             .collect::<Vec<_>>();
-        *task.0.catalogue.lock().map_err(|_| IndexError::LockPoisoned)? = catalogue;
+        *task
+            .0
+            .catalogue
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)? = catalogue;
         *task.0.status.lock().map_err(|_| IndexError::LockPoisoned)? = StagedBuildStatus {
             phase: StagedBuildPhase::Complete,
             discovered_files: status.indexed_files,
@@ -1170,12 +1139,28 @@ impl StagedBuildTask {
     }
 
     pub fn catalogue(&self) -> Result<Vec<StagedFile>, IndexError> {
-        Ok(self.0.catalogue.lock().map_err(|_| IndexError::LockPoisoned)?.clone())
+        Ok(self
+            .0
+            .catalogue
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .clone())
     }
 
     pub fn status(&self) -> Result<StagedBuildStatus, IndexError> {
-        let mut status = self.0.status.lock().map_err(|_| IndexError::LockPoisoned)?.clone();
-        if let Some(index) = self.0.index.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
+        let mut status = self
+            .0
+            .status
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .clone();
+        if let Some(index) = self
+            .0
+            .index
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .as_ref()
+        {
             let current = index.status()?;
             let extended = index.extended_status()?;
             status.data_revision = Some(current.revision);
@@ -1184,7 +1169,9 @@ impl StagedBuildTask {
             status.phase = match extended.phase {
                 ExtendedPhase::Unnecessary | ExtendedPhase::Complete => StagedBuildPhase::Complete,
                 ExtendedPhase::Pending => StagedBuildPhase::SearchReady,
-                ExtendedPhase::Building | ExtendedPhase::Paused => StagedBuildPhase::BuildingExtended,
+                ExtendedPhase::Building | ExtendedPhase::Paused => {
+                    StagedBuildPhase::BuildingExtended
+                }
                 ExtendedPhase::Cancelled => StagedBuildPhase::Cancelled,
                 ExtendedPhase::Failed => StagedBuildPhase::Failed,
             };
@@ -1199,10 +1186,20 @@ impl StagedBuildTask {
             if let Some(index) = index.as_ref() {
                 return Ok(index.clone());
             }
-            if let Some(error) = self.0.error.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
+            if let Some(error) = self
+                .0
+                .error
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?
+                .as_ref()
+            {
                 return Err(error.clone());
             }
-            index = self.0.ready.wait(index).map_err(|_| IndexError::LockPoisoned)?;
+            index = self
+                .0
+                .ready
+                .wait(index)
+                .map_err(|_| IndexError::LockPoisoned)?;
         }
     }
 
@@ -1223,7 +1220,13 @@ impl StagedBuildTask {
     }
 
     pub fn pause_extended(&self) -> Result<(), IndexError> {
-        if let Some(index) = self.0.index.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
+        if let Some(index) = self
+            .0
+            .index
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .as_ref()
+        {
             index.pause_extended()
         } else {
             self.0.extended.pause()
@@ -1231,7 +1234,13 @@ impl StagedBuildTask {
     }
 
     pub fn resume_extended(&self) -> Result<(), IndexError> {
-        if let Some(index) = self.0.index.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
+        if let Some(index) = self
+            .0
+            .index
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .as_ref()
+        {
             index.resume_extended()
         } else {
             self.0.extended.resume()
@@ -1245,11 +1254,9 @@ impl StagedBuildTask {
     }
 }
 
-
 /// Observable, cancellable handle for one metadata reconciliation pass.
 #[derive(Clone)]
 pub struct ReconciliationTask(Arc<ReconciliationJob>);
-
 
 impl ReconciliationTask {
     pub fn cancel(&self) {
@@ -1299,11 +1306,9 @@ impl ReconciliationTask {
     }
 }
 
-
 /// Shared lifecycle owner. Cloning this handle does not copy indexed data.
 #[derive(Clone)]
 pub struct Index(Arc<IndexInner>);
-
 
 impl Index {
     /// Begin discovery and base search construction on a worker. The returned
@@ -1315,7 +1320,10 @@ impl Index {
         options: crate::repository::RepositoryOptions,
     ) -> Result<StagedBuildTask, IndexError> {
         Self::start_staged_build_with_sources(
-            root, definitions, options, crate::source::SourceRegistry::builtin(),
+            root,
+            definitions,
+            options,
+            crate::source::SourceRegistry::builtin(),
         )
     }
 
@@ -1326,7 +1334,12 @@ impl Index {
         sources: crate::source::SourceRegistry,
     ) -> Result<StagedBuildTask, IndexError> {
         Self::start_staged_build_with_sources_and_cache(
-            root, definitions, options, sources, None,
+            root,
+            definitions,
+            options,
+            sources,
+            None,
+            false,
         )
     }
 
@@ -1336,12 +1349,16 @@ impl Index {
         mut options: crate::repository::RepositoryOptions,
         sources: crate::source::SourceRegistry,
         ready_configuration: Option<StagedReadyConfiguration>,
+        start_paused: bool,
     ) -> Result<StagedBuildTask, IndexError> {
         options.snapshot_mode = crate::repository::SnapshotMode::Disabled;
         options.inference.validate().map_err(IndexError::Build)?;
         crate::relation::validate_definitions(&definitions).map_err(IndexError::Build)?;
         let root = root.into();
         let task = StagedBuildTask::new();
+        if start_paused {
+            task.pause_extended()?;
+        }
         let opening = Arc::clone(&task.0);
         std::thread::Builder::new()
             .name("objekte-staged-build".into())
@@ -1392,7 +1409,11 @@ impl Index {
                         Arc::clone(&base),
                     )?;
                     let index = Index::from_published(published);
-                    *index.0.extended.lock().map_err(|_| IndexError::LockPoisoned)? =
+                    *index
+                        .0
+                        .extended
+                        .lock()
+                        .map_err(|_| IndexError::LockPoisoned)? =
                         Some(Arc::clone(&opening.extended));
                     if let Some(configuration) = &ready_configuration {
                         index.select_cache_destination(
@@ -1410,7 +1431,16 @@ impl Index {
                     if let Ok(mut progress) = opening.extended.status.lock() {
                         progress.total_files = base.files().files.len();
                         progress.phase = if requested {
-                            ExtendedPhase::Pending
+                            if *opening
+                                .extended
+                                .paused
+                                .lock()
+                                .map_err(|_| IndexError::LockPoisoned)?
+                            {
+                                ExtendedPhase::Paused
+                            } else {
+                                ExtendedPhase::Pending
+                            }
                         } else {
                             ExtendedPhase::Unnecessary
                         };
@@ -1524,7 +1554,11 @@ impl Index {
         let captured = self.view()?;
         let mut partitioned = crate::lifecycle_partition::partition_base((*captured.0).clone())?;
         partitioned.extended_batches = vec![Arc::new(Vec::new()); partitioned.active.len()];
-        let mut published = self.0.published.write().map_err(|_| IndexError::LockPoisoned)?;
+        let mut published = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
         if !Arc::ptr_eq(&published, &captured.0) {
             return Err(IndexError::RevisionConflict {
                 expected: captured.revision(),
@@ -1540,8 +1574,18 @@ impl Index {
     }
 
     pub fn extended_status(&self) -> Result<ExtendedStatus, IndexError> {
-        if let Some(job) = self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
-            return Ok(job.status.lock().map_err(|_| IndexError::LockPoisoned)?.clone());
+        if let Some(job) = self
+            .0
+            .extended
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .as_ref()
+        {
+            return Ok(job
+                .status
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?
+                .clone());
         }
         let view = self.view()?;
         let phase = if !view.repository().requests_extended() {
@@ -1560,8 +1604,15 @@ impl Index {
     }
 
     /// Inference observations from the latest published capability view.
-    pub fn inference_report(&self, collection: &str) -> Result<Option<InferenceReport>, IndexError> {
-        Ok(self.view()?.repository().inference_report(collection).cloned())
+    pub fn inference_report(
+        &self,
+        collection: &str,
+    ) -> Result<Option<InferenceReport>, IndexError> {
+        Ok(self
+            .view()?
+            .repository()
+            .inference_report(collection)
+            .cloned())
     }
 
     /// Ordered posting diagnostics from the latest published capability view.
@@ -1569,7 +1620,10 @@ impl Index {
         &self,
         collection: &str,
     ) -> Result<Option<Vec<InferencePathDiagnostic>>, IndexError> {
-        Ok(self.view()?.repository().inference_index_diagnostics(collection))
+        Ok(self
+            .view()?
+            .repository()
+            .inference_index_diagnostics(collection))
     }
 
     /// Source parses recorded by the latest published construction phase.
@@ -1583,12 +1637,23 @@ impl Index {
     }
 
     pub fn wait_extended(&self) -> Result<(), IndexError> {
-        let job = self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)?.clone();
+        let job = self
+            .0
+            .extended
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .clone();
         job.map_or(Ok(()), |job| job.wait())
     }
 
     pub fn cancel_extended(&self) -> Result<(), IndexError> {
-        if let Some(job) = self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
+        if let Some(job) = self
+            .0
+            .extended
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .as_ref()
+        {
             job.cancelled.store(true, Ordering::Release);
             job.resume.notify_all();
         }
@@ -1596,18 +1661,38 @@ impl Index {
     }
 
     pub fn pause_extended(&self) -> Result<(), IndexError> {
-        if let Some(job) = self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
+        if let Some(job) = self
+            .0
+            .extended
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .as_ref()
+        {
             job.pause()?;
         }
         Ok(())
     }
 
     pub fn resume_extended(&self) -> Result<(), IndexError> {
-        let current = self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)?.clone();
+        let current = self
+            .0
+            .extended
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .clone();
         if let Some(job) = current {
-            let phase = job.status.lock().map_err(|_| IndexError::LockPoisoned)?.phase;
+            let phase = job
+                .status
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?
+                .phase;
             match phase {
-                ExtendedPhase::Building | ExtendedPhase::Pending => return Ok(()),
+                ExtendedPhase::Building | ExtendedPhase::Pending => {
+                    if *job.paused.lock().map_err(|_| IndexError::LockPoisoned)? {
+                        return job.resume();
+                    }
+                    return Ok(());
+                }
                 ExtendedPhase::Paused => return job.resume(),
                 ExtendedPhase::Complete | ExtendedPhase::Unnecessary => return Ok(()),
                 ExtendedPhase::Cancelled | ExtendedPhase::Failed => {}
@@ -1624,7 +1709,11 @@ impl Index {
             .map(|collection| collection.generation.files.len())
             .sum();
         let job = Arc::new(ExtendedJob::new(ExtendedPhase::Pending, total_files));
-        *self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)? = Some(Arc::clone(&job));
+        *self
+            .0
+            .extended
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)? = Some(Arc::clone(&job));
         let index = self.clone();
         std::thread::Builder::new()
             .name("objekte-extended-resume".into())
@@ -1952,9 +2041,10 @@ impl Index {
             || guard.ensure_safe(&destination),
         )
         .map_err(IndexError::Io)?;
-        persistence
-            .saved
-            .insert(destination.clone(), (view.revision(), view.capability_revision()));
+        persistence.saved.insert(
+            destination.clone(),
+            (view.revision(), view.capability_revision()),
+        );
         let selected = match &persistence.selected_cache {
             Some(selected) => selected == &destination,
             None if select_if_none => {
@@ -1970,7 +2060,9 @@ impl Index {
                 .published
                 .write()
                 .map_err(|_| IndexError::LockPoisoned)?;
-            if published.saved_revision.is_none_or(|saved| saved < view.revision())
+            if published
+                .saved_revision
+                .is_none_or(|saved| saved < view.revision())
                 || published
                     .saved_capability_revision
                     .is_none_or(|saved| saved < view.capability_revision())
@@ -2000,7 +2092,9 @@ impl Index {
         persistence.selected_cache = Some(destination.clone());
         persistence.protected_files = protected_files;
         if let Some(revision) = saved {
-            persistence.saved.insert(destination, (revision, IndexRevision::INITIAL));
+            persistence
+                .saved
+                .insert(destination, (revision, IndexRevision::INITIAL));
         }
         Ok(())
     }
@@ -2925,6 +3019,21 @@ impl Index {
                 "prepared root must carry the next revision".into(),
             ));
         }
+        let prior = self.view()?;
+        if !Arc::ptr_eq(&next.repository, &prior.0.repository) {
+            next.extended_batches = vec![Arc::new(Vec::new()); next.active.len()];
+        } else {
+            for group in &mut next.extended_batches {
+                Arc::make_mut(group).retain(|batch| {
+                    batch.source_files.iter().all(|(file, revision)| {
+                        next.catalog
+                            .entry(*file)
+                            .is_some_and(|entry| entry.revision == *revision)
+                            && next.file_versions.get(*file) == prior.0.file_versions.get(*file)
+                    })
+                });
+            }
+        }
         let retired = {
             let mut guard = self
                 .0
@@ -2964,11 +3073,9 @@ impl Index {
                 actual: current.revision(),
             });
         }
-        let catalog = FileCatalog::restored(
-            Arc::clone(&repository),
-            current.0.catalog.snapshot_slots(),
-        )
-        .map_err(IndexError::InvalidPublication)?;
+        let catalog =
+            FileCatalog::restored(Arc::clone(&repository), current.0.catalog.snapshot_slots())
+                .map_err(IndexError::InvalidPublication)?;
         let configuration_identity = crate::storage::configuration_hash(
             &repository
                 .collections()
@@ -2985,7 +3092,11 @@ impl Index {
             ));
         }
         let retired = {
-            let mut guard = self.0.published.write().map_err(|_| IndexError::LockPoisoned)?;
+            let mut guard = self
+                .0
+                .published
+                .write()
+                .map_err(|_| IndexError::LockPoisoned)?;
             if self.0.quiescing.load(Ordering::Acquire) {
                 return Err(IndexError::Cancelled);
             }
@@ -3066,7 +3177,11 @@ impl Index {
                 return Ok(false);
             }
             if batch.source_files.iter().any(|(file, revision)| {
-                current.0.catalog.entry(*file).is_none_or(|entry| entry.revision != *revision)
+                current
+                    .0
+                    .catalog
+                    .entry(*file)
+                    .is_none_or(|entry| entry.revision != *revision)
                     || current.0.file_versions.get(*file) != expected_versions.get(*file)
             }) {
                 return Ok(false);
@@ -3077,11 +3192,39 @@ impl Index {
                 .get_mut(collection)
                 .ok_or_else(|| IndexError::InvalidPublication("extended group missing".into()))?;
             let mut batches = group.as_ref().clone();
+            if batches.iter().any(|existing| {
+                existing.base_slot == batch.base_slot
+                    && existing.record_count == batch.record_count
+                    && existing.source_files == batch.source_files
+                    && existing.logical_covered == batch.logical_covered
+                    && existing
+                        .postings
+                        .fields
+                        .keys()
+                        .collect::<std::collections::HashSet<_>>()
+                        == batch.postings.fields.keys().collect()
+                    && existing
+                        .custom_postings
+                        .keys()
+                        .collect::<std::collections::HashSet<_>>()
+                        == batch.custom_postings.keys().collect()
+                    && existing
+                        .field_states
+                        .keys()
+                        .collect::<std::collections::HashSet<_>>()
+                        == batch.field_states.keys().collect()
+            }) {
+                return Ok(false);
+            }
             batches.push(Arc::clone(&batch));
             *group = Arc::new(batches);
             next.capability_revision = next.capability_revision.next()?;
             let retired = {
-                let mut guard = self.0.published.write().map_err(|_| IndexError::LockPoisoned)?;
+                let mut guard = self
+                    .0
+                    .published
+                    .write()
+                    .map_err(|_| IndexError::LockPoisoned)?;
                 if self.0.quiescing.load(Ordering::Acquire) {
                     return Err(IndexError::Cancelled);
                 }
@@ -3101,11 +3244,9 @@ impl Index {
     }
 }
 
-
 /// Pinned immutable read context for a single publication revision.
 #[derive(Clone)]
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
-
 
 impl IndexView {
     fn has_segments(&self) -> bool {
@@ -3700,7 +3841,6 @@ impl IndexView {
         result
     }
 }
-
 
 #[cfg(test)]
 #[path = "lifecycle.test.rs"]
