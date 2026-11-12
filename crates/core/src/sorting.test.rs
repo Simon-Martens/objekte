@@ -299,12 +299,12 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     let records = &rebuilt.collections()[0].generation.records;
     let g = records
         .iter()
-        .find(|record| record.id.0 == "g")
+        .find(|record| record.id.0.as_ref() == "g")
         .unwrap()
         .slot;
     let h = records
         .iter()
-        .find(|record| record.id.0 == "h")
+        .find(|record| record.id.0.as_ref() == "h")
         .unwrap()
         .slot;
     assert_eq!(column.keys[g.0 as usize], column.keys[h.0 as usize]);

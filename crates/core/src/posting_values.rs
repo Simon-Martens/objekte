@@ -553,7 +553,7 @@ pub(crate) fn select_exact_segmented(
     let mut members = RoaringBitmap::new();
     let mut segment_members = vec![RoaringBitmap::new(); segments[collection_index].len()];
     for hit in result.hits {
-        let id = RecordId(hit.record_id);
+        let id = RecordId(hit.record_id.into());
         if let Some(slot) = state.id_lookup.get(&id)
             && base_active[collection_index].contains(*slot)
         {

@@ -171,6 +171,12 @@ fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
         },
     };
     let verify = |repo: &Repository| {
+        let collection = &repo.collections()[0];
+        for record in &collection.generation.records {
+            let (lookup_id, slot) = collection.id_lookup.get_key_value(record.id.0.as_ref()).unwrap();
+            assert_eq!(*slot, record.slot);
+            assert!(std::sync::Arc::ptr_eq(&lookup_id.0, &record.id.0));
+        }
         let locator_hits = repo.search(&query(ReturnMode::Locator)).unwrap().hits;
         assert_eq!(locator_hits.len(), 2);
         assert!(

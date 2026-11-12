@@ -121,6 +121,11 @@ fn roundtrip_mixed_records_relations_and_inference_without_source_file() {
     std::fs::remove_file(root.join("data/sample.jsonl")).unwrap();
     let active = RoaringBitmap::from_iter([0, 1, 2]);
     let restored = decode_segment(&bytes, &repository, CollectionId(0), &catalog, &active).unwrap();
+    for record in &restored.records {
+        let (lookup_id, slot) = restored.id_lookup.get_key_value(record.id.0.as_ref()).unwrap();
+        assert_eq!(*slot, record.slot);
+        assert!(Arc::ptr_eq(&lookup_id.0, &record.id.0));
+    }
     let envelope = LifecycleSegmentCache {
         ordinal: 1,
         collection: CollectionId(0),

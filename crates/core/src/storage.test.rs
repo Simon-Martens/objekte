@@ -652,7 +652,7 @@ fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
     let restored = open(SnapshotMode::Required).unwrap();
     assert_eq!(restored.startup().snapshot_action, SnapshotAction::Restored);
     assert_eq!(restored.build_parses(), 0);
-    let record_id = restored.collections[0].generation.records[0].id.0.as_str();
+    let record_id = restored.collections[0].generation.records[0].id.0.as_ref();
     let hit = restored
         .get_record("files", record_id, ReturnMode::Locator)
         .unwrap()

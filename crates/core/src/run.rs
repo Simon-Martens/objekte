@@ -25,7 +25,7 @@ use crate::lifecycle::{IndexRevision, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::materialization::{payload_from_bytes, payload_from_bytes_with_execution};
 use crate::measurement::{ScanWork, SourceAvailabilityLog, SourceDiagnostic, WorkCounters};
-use crate::model::{FieldPath, LogicalType, PathRoot, RecordId, RecordSlot, Value};
+use crate::model::{FieldPath, LogicalType, PathRoot, RecordSlot, Value};
 use crate::posting::PostingIndex;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
 use crate::record_preparation::{
@@ -256,7 +256,7 @@ impl<'a> ResolvedSort<'a> {
                 return order;
             }
         }
-        (collection_name, record.id.0.as_str()).cmp(&(worst.collection.as_str(), worst.id.as_str()))
+        (collection_name, record.id.0.as_ref()).cmp(&(worst.collection.as_str(), worst.id.as_str()))
     }
 }
 
@@ -2015,7 +2015,7 @@ fn rank_key(
     RankKey {
         parts,
         collection: collection.definition.name.clone(),
-        id: record.id.0.clone(),
+        id: record.id.0.to_string(),
     }
 }
 
@@ -2035,7 +2035,7 @@ fn rank_key_from_context(
             target_values,
         )?,
         collection: repo.collections[collection_index].definition.name.clone(),
-        id: ctx.record.id.0.clone(),
+        id: ctx.record.id.0.to_string(),
     })
 }
 
@@ -2084,7 +2084,7 @@ pub(crate) fn make_hit(
     let file = &repo.files.files[record.file.0 as usize];
     SearchHit {
         collection: repo.collections[collection_index].definition.name.clone(),
-        record_id: record.id.0.clone(),
+        record_id: record.id.0.to_string(),
         generation: repo.collections[collection_index].generation.generation,
         file_id: file.id.0,
         file_path: file.relative_path.to_path_buf(),
@@ -2158,7 +2158,7 @@ pub(crate) fn get_segment_record_by_id(
     if segment.collection != collection.generation.collection {
         return Err("segment collection mismatch".into());
     }
-    let Some(slot) = segment.id_lookup.get(&RecordId(record_id.to_owned())) else {
+    let Some(slot) = segment.id_lookup.get(record_id) else {
         return Ok(None);
     };
     let Some(resolved) = segment_record_ref(segment, active, catalog, *slot)? else {
@@ -2181,7 +2181,7 @@ pub(crate) fn get_segment_record_by_id(
     };
     Ok(Some(SearchHit {
         collection: collection.definition.name.clone(),
-        record_id: record.id.0.clone(),
+        record_id: record.id.0.to_string(),
         generation: revision.0,
         file_id: file.id.0,
         file_path: file.relative_path.to_path_buf(),
@@ -2225,15 +2225,14 @@ pub(crate) fn direct_lookup_segmented(
         .position(|collection| collection.definition.name == collection_name)
         .ok_or("unknown collection")?;
     let collection = &repo.collections[collection_index];
-    let id = RecordId(record_id.to_owned());
     let base = collection
         .id_lookup
-        .get(&id)
+        .get(record_id)
         .copied()
         .filter(|slot| base_active[collection_index].contains(*slot));
     let mut selected_segment = None;
     for (index, segment) in segments[collection_index].iter().enumerate() {
-        if let Some(slot) = segment.index.id_lookup.get(&id)
+        if let Some(slot) = segment.index.id_lookup.get(record_id)
             && segment.active.contains(*slot)
         {
             if base.is_some() || selected_segment.is_some() {
@@ -2273,7 +2272,7 @@ pub(crate) fn direct_lookup_segmented(
         let result = payload.map(|payload| {
             Some(SearchHit {
                 collection: collection.definition.name.clone(),
-                record_id: record.id.0.clone(),
+                record_id: record.id.0.to_string(),
                 generation: revision.0,
                 file_id: file.id.0,
                 file_path: file.relative_path.to_path_buf(),
@@ -2550,7 +2549,7 @@ fn segment_rank_key(
     Ok(RankKey {
         parts,
         collection: repo.collections[collection_index].definition.name.clone(),
-        id: record.id.0.clone(),
+        id: record.id.0.to_string(),
     })
 }
 
@@ -2658,7 +2657,7 @@ fn relation_rank_key_merged(
     Ok(RankKey {
         parts,
         collection: repo.collections[collection_index].definition.name.clone(),
-        id: ctx.record.id.0.clone(),
+        id: ctx.record.id.0.to_string(),
     })
 }
 
@@ -2673,7 +2672,7 @@ fn segment_locator_hit(
     let file = resolved.file;
     SearchHit {
         collection: collection.definition.name.clone(),
-        record_id: record.id.0.clone(),
+        record_id: record.id.0.to_string(),
         generation: revision.0,
         file_id: file.id.0,
         file_path: file.relative_path.to_path_buf(),
@@ -3747,7 +3746,7 @@ fn search_segmented_impl(
         let collection = &repo.collections[collection_index];
         let slot = collection
             .id_lookup
-            .get(&RecordId(hit.record_id.clone()))
+            .get(hit.record_id.as_str())
             .ok_or("base hit ID missing")?;
         let record = collection
             .generation
@@ -4505,7 +4504,7 @@ fn collect_relation_target_ids(
                 .index
                 .record(RecordSlot(slot))
                 .ok_or("relation target candidate missing")?;
-            target_ids.insert(record.id.0.clone());
+            target_ids.insert(record.id.0.to_string());
         }
     }
     let relation = repo
@@ -4622,7 +4621,7 @@ fn scan_direct_target_parallel(
     }
     if must.is_some_and(|must| must.contains(slot)) {
         return Ok(DirectTargetScan {
-            matched_id: Some(resolved.record.id.0.clone()),
+            matched_id: Some(resolved.record.id.0.to_string()),
             read_bytes: 0,
             read: false,
             unavailable: false,
@@ -4678,7 +4677,7 @@ fn scan_direct_target_parallel(
         }
     };
     Ok(DirectTargetScan {
-        matched_id: matched.then(|| resolved.record.id.0.clone()),
+        matched_id: matched.then(|| resolved.record.id.0.to_string()),
         read_bytes: bytes.len() as u64,
         read: true,
         unavailable: false,
@@ -5014,7 +5013,7 @@ fn try_direct_relation_page(
             };
             if matched {
                 counters.relation_target_matches += 1;
-                if !target_ids.contains(&resolved.record.id.0) {
+                if !target_ids.contains(resolved.record.id.0.as_ref()) {
                     let sort_key = if let Some(path) = direct_sort_column.as_deref() {
                         Some(segment.sorting.key(path, RecordSlot(slot))?.clone())
                     } else {
@@ -5043,7 +5042,7 @@ fn try_direct_relation_page(
                     if let Some(key) = sort_key {
                         target_sort_keys.insert(resolved.record.id.0.clone(), key);
                     }
-                    target_ids.insert(resolved.record.id.0.clone());
+                    target_ids.insert(resolved.record.id.0.to_string());
                 }
             }
         }
@@ -5171,7 +5170,7 @@ fn try_direct_relation_page(
                 RankKey {
                     parts: vec![(target_key.clone(), term.descending, term.options)],
                     collection: repo.collections[*source_index].definition.name.clone(),
-                    id: resolved.record.id.0.clone(),
+                    id: resolved.record.id.0.to_string(),
                 }
             } else {
                 segment_rank_key(
@@ -9593,7 +9592,7 @@ fn materialize_cached(
         }
         hits.push(SearchHit {
             collection: collection.definition.name.clone(),
-            record_id: record.id.0.clone(),
+            record_id: record.id.0.to_string(),
             generation: collection.generation.generation,
             file_id: file.id.0,
             file_path: file.relative_path.to_path_buf(),

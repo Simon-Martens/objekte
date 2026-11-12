@@ -424,7 +424,7 @@ pub struct RecordSlot(pub u32);
 
 /// Stable logical identifier within a collection.
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
-pub struct RecordId(pub String);
+pub struct RecordId(pub std::sync::Arc<str>);
 
 
 /// Collection-scoped identity used outside slot storage.
@@ -441,11 +441,11 @@ impl RecordId {
         if text.is_empty() || text.starts_with("~generated:") || text.starts_with("~fallback:") {
             return Err("invalid intrinsic record ID".into());
         }
-        Ok(Self(text))
+        Ok(Self(text.into()))
     }
 
     pub fn generated(file: FileId, modified_ns: i128, start: u64) -> Self {
-        Self(format!("~generated:{}:{modified_ns}:{start}", file.0))
+        Self(format!("~generated:{}:{modified_ns}:{start}", file.0).into())
     }
 
     pub fn fallback(
@@ -459,16 +459,19 @@ impl RecordId {
         end: u64,
     ) -> Self {
         let path = crate::path_repr::query_path(relative_path);
-        Self(format!(
-            "~fallback:{}:{}:{}:{}:{}:{}:{}:{modified_ns}:{start}:{end}",
-            collection.0,
-            file.0,
-            source_version,
-            source.len(),
-            source,
-            path.len(),
-            path
-        ))
+        Self(
+            format!(
+                "~fallback:{}:{}:{}:{}:{}:{}:{}:{modified_ns}:{start}:{end}",
+                collection.0,
+                file.0,
+                source_version,
+                source.len(),
+                source,
+                path.len(),
+                path
+            )
+            .into(),
+        )
     }
 }
 

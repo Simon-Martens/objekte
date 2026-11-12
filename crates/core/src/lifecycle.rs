@@ -507,7 +507,7 @@ impl PublishedIndex {
             {
                 return Err(IndexError::DuplicateRecordId {
                     collection: collection.definition.name.clone(),
-                    record_id: id.0.clone(),
+                    record_id: id.0.to_string(),
                 });
             }
         }

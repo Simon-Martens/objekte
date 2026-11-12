@@ -1765,7 +1765,7 @@ pub(crate) fn metadata_value(
 ) -> Result<Value, String> {
     let number = |n: u64| Value::Number(Number::integer(n as i128));
     Ok(match field {
-        MetadataField::RecordId => Value::Id(ctx.record.id.0.clone()),
+        MetadataField::RecordId => Value::Id(ctx.record.id.0.to_string()),
         MetadataField::RecordByteStart => number(ctx.record.range.start),
         MetadataField::RecordByteEnd => number(ctx.record.range.end),
         MetadataField::RecordByteLength => number(ctx.record.range.len()),
@@ -2071,7 +2071,7 @@ fn scoped_values<'a>(
         PathRoot::Data => walk_scoped(ctx.value, &query_path.steps, &mut Vec::new(), &mut values),
         PathRoot::Metadata(field) => {
             let value = if field == MetadataField::RecordId && transform == Transform::CaseFold {
-                Value::String(ctx.record.id.0.clone())
+                Value::String(ctx.record.id.0.to_string())
             } else {
                 metadata_value(field, ctx)?
             };
@@ -2393,7 +2393,7 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
         if term.derived == Derived::None && !term.multi {
             let value = if field == MetadataField::RecordId && term.transform == Transform::CaseFold
             {
-                Value::String(ctx.record.id.0.clone())
+                Value::String(ctx.record.id.0.to_string())
             } else {
                 metadata_value(field, ctx)?
             };
@@ -2406,7 +2406,7 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
     let owned;
     let mut selected = if let PathRoot::Metadata(field) = term.path.root {
         owned = if field == MetadataField::RecordId && term.transform == Transform::CaseFold {
-            Value::String(ctx.record.id.0.clone())
+            Value::String(ctx.record.id.0.to_string())
         } else {
             metadata_value(field, ctx)?
         };

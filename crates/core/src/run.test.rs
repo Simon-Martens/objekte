@@ -1773,7 +1773,7 @@ fn segment_direct_lookup_uses_local_slot_and_published_file() {
         .unwrap()
         .appended(segment.files[0].entry.clone(), None, None)
         .unwrap();
-    let id = segment.records[0].id.0.as_str();
+    let id = segment.records[0].id.0.as_ref();
     let active = ActiveRecords::all(segment.records.len()).unwrap();
     let revision = IndexRevision(9);
     let locator = get_segment_record_by_id(

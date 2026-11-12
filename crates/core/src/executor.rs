@@ -11,7 +11,7 @@ use crate::build::IndexedCollectionSegment;
 use crate::inventory::{ActiveRecords, relative_path_bounds};
 use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation};
 use crate::lifecycle_catalog::FileCatalog;
-use crate::model::{LogicalType, MetadataField, Number, PathRoot, RecordId, Value};
+use crate::model::{LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::{FtsMode, Operator, Quantifier};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
@@ -491,7 +491,7 @@ fn segment_expr_bounds(
                 && let Value::Id(id) = &term.literal
             {
                 let mut matches = RoaringBitmap::new();
-                if let Some(slot) = segment.id_lookup.get(&RecordId(id.clone()))
+                if let Some(slot) = segment.id_lookup.get(id.as_str())
                     && domain.contains(slot.0)
                 {
                     matches.insert(slot.0);
@@ -1080,7 +1080,7 @@ fn term_set(
                 let mut result = RoaringBitmap::new();
                 if let Some(slot) = collection
                     .id_lookup
-                    .get(&crate::model::RecordId(id.clone()))
+                    .get(id.as_str())
                 {
                     result.insert(slot.0);
                 }

@@ -850,7 +850,7 @@ fn seeded_array_semijoins_match_an_index_free_expected_enumeration() {
                     .generation
                     .records
                     .iter()
-                    .filter(|record| expected.contains(&record.id.0))
+                    .filter(|record| expected.iter().any(|id| id.as_str() == record.id.0.as_ref()))
                     .map(|record| record.slot.0)
                     .collect::<roaring::RoaringBitmap>();
                 for strategy in [Strategy::TargetFirst, Strategy::SourceRestricted] {

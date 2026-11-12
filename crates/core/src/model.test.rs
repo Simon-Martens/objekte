@@ -216,6 +216,17 @@ fn arrays_paths_and_id_namespace() {
 }
 
 #[test]
+fn record_ids_keep_textual_identity_and_serialize_as_strings() {
+    let padded = RecordId::intrinsic("001").unwrap();
+    let plain = RecordId::intrinsic("1").unwrap();
+    assert_ne!(padded, plain);
+    assert!(padded < plain);
+    assert!(std::sync::Arc::ptr_eq(&padded.0, &padded.clone().0));
+    assert_eq!(serde_json::to_string(&padded).unwrap(), "\"001\"");
+    assert_eq!(serde_json::from_str::<RecordId>("\"001\"").unwrap(), padded);
+}
+
+#[test]
 fn schema_field_paths_reject_trailing_separators_and_render_query_syntax_safely() {
     for input in [
         "title.",

@@ -339,7 +339,7 @@ impl SourceScan {
                         };
                         let hit = SearchHit {
                             collection: collection.definition.name.clone(),
-                            record_id: entry.id.0.clone(),
+                            record_id: entry.id.0.to_string(),
                             generation: 1,
                             file_id: file.id.0,
                             file_path: file.relative_path.to_path_buf(),

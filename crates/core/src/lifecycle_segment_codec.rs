@@ -244,7 +244,7 @@ pub(crate) fn decode_segment(
             })
         })
         .collect::<Result<Vec<_>, String>>()?;
-    let segment = IndexedCollectionSegment {
+    let mut segment = IndexedCollectionSegment {
         collection: encoded.collection,
         source_id: encoded.source_id,
         source_version: encoded.source_version,
@@ -278,6 +278,13 @@ pub(crate) fn decode_segment(
         active,
         repository.collections().len(),
     )?;
+    // Validation compares the decoded lookup with the records. Rebuild it so
+    // each lookup key shares its payload with the corresponding record.
+    segment.id_lookup = segment
+        .records
+        .iter()
+        .map(|record| (record.id.clone(), record.slot))
+        .collect();
     Ok(segment)
 }
 

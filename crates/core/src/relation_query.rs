@@ -1548,7 +1548,7 @@ fn visit_merged_hop(
             }
         }
         HopDirection::Backlink => {
-            let target_id = current.record.id.0.as_str();
+            let target_id = current.record.id.0.as_ref();
             let sources = view.backlink_sources(hop.relation, target_id)?;
             let mut selected = 0usize;
             for (position, source) in sources.into_iter().enumerate() {
@@ -1915,7 +1915,7 @@ fn visit_hop(
                     } else {
                         targets
                             .iter()
-                            .find(|record| record.id.0 == id)
+                            .find(|record| record.id.0.as_ref() == id.as_str())
                             .map(|record| record.slot)
                     };
                     if let Some(target_slot) = target_slot {
@@ -1961,7 +1961,7 @@ fn visit_hop(
                         continue;
                     };
                     let references = logical_references(&value, &relation.declaration.path)?;
-                    if !references.values.iter().any(|(id, _)| id == &target.id.0) {
+                    if !references.values.iter().any(|(id, _)| id.as_str() == target.id.0.as_ref()) {
                         continue;
                     }
                     work.edge()?;
