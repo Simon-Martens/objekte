@@ -39,6 +39,8 @@ fn run() -> Result<(), String> {
     let mut warm_cache_bytes = 64 * 1024 * 1024usize;
     let mut inference = false;
     let mut diagnostic_plans = false;
+    let mut snapshot = false;
+    let mut snapshot_resume = false;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
@@ -94,6 +96,11 @@ fn run() -> Result<(), String> {
             }
             "--inference" => inference = true,
             "--diagnostic-plans" => diagnostic_plans = true,
+            "--snapshot" => snapshot = true,
+            "--snapshot-resume" => {
+                snapshot = true;
+                snapshot_resume = true;
+            }
             _ => return Err(format!("unknown argument {arg}")),
         }
     }
@@ -106,6 +113,9 @@ fn run() -> Result<(), String> {
             "mode must be base, partial, complete, or foreground; repetitions must be positive"
                 .into(),
         );
+    }
+    if snapshot_resume && mode != "partial" {
+        return Err("--snapshot-resume requires --mode partial".into());
     }
     root = root.canonicalize().map_err(|error| error.to_string())?;
     let profiles = profile_names
@@ -169,6 +179,7 @@ fn run() -> Result<(), String> {
     let mut expected: HashMap<String, (usize, Vec<SearchHit>)> = HashMap::new();
     let mut build_results = Vec::new();
     let mut inference_diagnostics = BTreeMap::new();
+    let mut snapshot_results = Vec::new();
     let mut failures = 0usize;
     let mut corpus_fingerprint = String::new();
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
@@ -396,6 +407,51 @@ fn run() -> Result<(), String> {
                 ));
             }
         }
+        if snapshot {
+            let path = result_dir.join(format!("staged-{alphabet:?}.snapshot"));
+            let (_, saved) = index
+                .flush_cache_copy_with_stats(&path)
+                .map_err(|error| error.to_string())?;
+            let mut measurement = serde_json::json!({
+                "alphabet": alphabet,
+                "mode": mode,
+                "snapshot_bytes": fs::metadata(&path).map_err(|error| error.to_string())?.len(),
+                "save_total_ns": saved.total_ns,
+                "save_bytes_written": saved.bytes_written,
+                "save_write_ns": saved.write_ns,
+                "save_sync_ns": saved.sync_ns,
+                "save_rename_ns": saved.rename_ns,
+            });
+            if snapshot_resume {
+                let restore_started = Instant::now();
+                let restored = Index::load_cache(&root, definitions.clone(), options, &path)
+                    .map_err(|error| error.to_string())?;
+                measurement["restore_ns"] =
+                    serde_json::json!(restore_started.elapsed().as_nanos() as u64);
+                measurement["restored_from_cache"] =
+                    serde_json::json!(restored.restored_from_cache());
+                let before = restored.view().map_err(|error| error.to_string())?;
+                measurement["restored_capability_revision"] =
+                    serde_json::json!(before.capability_revision().0);
+                let resume_started = Instant::now();
+                restored
+                    .wait_extended()
+                    .map_err(|error| error.to_string())?;
+                measurement["resume_to_complete_ns"] =
+                    serde_json::json!(resume_started.elapsed().as_nanos() as u64);
+                measurement["resumed_build_parses"] =
+                    serde_json::json!(restored.build_parses().map_err(|error| error.to_string())?);
+                measurement["resumed_phase"] = serde_json::json!(format!(
+                    "{:?}",
+                    restored
+                        .extended_status()
+                        .map_err(|error| error.to_string())?
+                        .phase
+                ));
+                restored.shutdown().map_err(|error| error.to_string())?;
+            }
+            snapshot_results.push(measurement);
+        }
         index.shutdown().map_err(|error| error.to_string())?;
     }
     samples.flush().map_err(|error| error.to_string())?;
@@ -421,6 +477,9 @@ fn run() -> Result<(), String> {
         .collect::<BTreeMap<_, _>>();
     write_json(&result_dir.join("result-digests.json"), &digests)?;
     write_json(&result_dir.join("index-results.json"), &build_results)?;
+    if snapshot {
+        write_json(&result_dir.join("snapshot-results.json"), &snapshot_results)?;
+    }
     write_json(
         &result_dir.join("run-manifest.json"),
         &serde_json::json!({
