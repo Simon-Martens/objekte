@@ -233,7 +233,7 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
     assert!(
         repo.search(&query("items[*].price:null = items[*].maximum_price:null"))
             .unwrap_err()
-            .contains("exists/null modifiers cannot compare")
+            .contains("Boolean state modifiers cannot compare")
     );
     let field_query = query("items[*].price ?<= items[*].maximum_price");
     assert_eq!(
