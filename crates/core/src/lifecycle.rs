@@ -1721,8 +1721,8 @@ impl Index {
         Ok(())
     }
 
-    /// Request inference for a searchable, unpartitioned session. The second
-    /// pass reuses the published file catalogue and base text index; its
+    /// Request inference for a searchable session. The second pass reuses
+    /// the published file catalogue and existing text index; its
     /// progress, cancellation, and completion use the ordinary extended job.
     pub fn start_inference(
         &self,
@@ -1754,14 +1754,31 @@ impl Index {
                 let _ = job.wait();
             }
         }
-        let view = self.view()?;
+        let mut view = self.view()?;
         if view.repository().options().inference == inference && view.repository().extended_complete() {
             return Ok(());
         }
         if view.has_segments() {
-            return Err(IndexError::IncompatibleConfiguration(
-                "later inference requires a retained searchable base; reopen with explicit inference".into(),
-            ));
+            let next = crate::lifecycle_partition::unpartition_for_inference(&view.0)?;
+            let (retired, displaced) = {
+                let mut published = self.0.published.write().map_err(|_| IndexError::LockPoisoned)?;
+                if !Arc::ptr_eq(&published, &view.0) {
+                    return Err(IndexError::RevisionConflict {
+                        expected: view.revision(), actual: published.revision,
+                    });
+                }
+                // Cached members address segment-local slots. The source-free
+                // representation change remaps those slots even though data
+                // identity stays stable, so discard their physical locators.
+                let mut cache = self.0.verified_cache.lock().map_err(|_| IndexError::LockPoisoned)?;
+                let budget = cache.budget();
+                let displaced = cache.set_budget(budget);
+                (std::mem::replace(&mut *published, Arc::new(next)), displaced)
+            };
+            drop(retired);
+            drop(displaced);
+            self.notify_sync_cache();
+            view = self.view()?;
         }
         if view.0.pending_inference != Some(inference) {
             let mut next = (*view.0).clone();
@@ -3236,6 +3253,36 @@ impl Index {
                 "extended configuration changed".into(),
             ));
         }
+        let compacted_batches = repository.extended_complete().then(|| {
+            current
+                .0
+                .extended_batches
+                .iter()
+                .map(|group| {
+                    Arc::new(
+                        group
+                            .iter()
+                            .filter(|batch| !batch.field_states.is_empty())
+                            .map(|batch| {
+                                Arc::new(crate::build::ExtendedBatch {
+                                    collection: batch.collection,
+                                    base_slot: batch.base_slot,
+                                    record_count: batch.record_count,
+                                    records: Vec::new(),
+                                    logical_covered: batch.logical_covered.clone(),
+                                    postings: crate::posting::PostingCollection {
+                                        fields: Default::default(),
+                                    },
+                                    custom_postings: Default::default(),
+                                    field_states: batch.field_states.clone(),
+                                    source_files: batch.source_files.clone(),
+                                })
+                            })
+                            .collect::<Vec<_>>(),
+                    )
+                })
+                .collect::<Vec<_>>()
+        });
         let mut slots = current.0.catalog.snapshot_slots();
         if allow_inference_change {
             for slot in slots.iter_mut().flatten() {
@@ -3268,6 +3315,9 @@ impl Index {
             let mut next = (**guard).clone();
             next.repository = repository;
             next.catalog = catalog;
+            if let Some(batches) = compacted_batches {
+                next.extended_batches = batches;
+            }
             next.configuration_identity = configuration_identity;
             next.pending_inference = None;
             next.capability_revision = next.capability_revision.next()?;
@@ -3347,31 +3397,18 @@ impl Index {
                 .get_mut(collection)
                 .ok_or_else(|| IndexError::InvalidPublication("extended group missing".into()))?;
             let mut batches = group.as_ref().clone();
-            if batches.iter().any(|existing| {
+            if let Some(position) = batches.iter().position(|existing| {
                 existing.base_slot == batch.base_slot
                     && existing.record_count == batch.record_count
                     && existing.source_files == batch.source_files
-                    && existing.logical_covered == batch.logical_covered
-                    && existing
-                        .postings
-                        .fields
-                        .keys()
-                        .collect::<std::collections::HashSet<_>>()
-                        == batch.postings.fields.keys().collect()
-                    && existing
-                        .custom_postings
-                        .keys()
-                        .collect::<std::collections::HashSet<_>>()
-                        == batch.custom_postings.keys().collect()
-                    && existing
-                        .field_states
-                        .keys()
-                        .collect::<std::collections::HashSet<_>>()
-                        == batch.field_states.keys().collect()
             }) {
-                return Ok(false);
+                // A retry or a new inference policy replaces one exact
+                // range atomically. Its previous proofs remain visible to
+                // pinned views until this complete replacement is ready.
+                batches[position] = Arc::clone(&batch);
+            } else {
+                batches.push(Arc::clone(&batch));
             }
-            batches.push(Arc::clone(&batch));
             *group = Arc::new(batches);
             next.capability_revision = next.capability_revision.next()?;
             let retired = {

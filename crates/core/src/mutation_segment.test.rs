@@ -619,7 +619,7 @@ fn consolidation_matches_direct_admission_without_source_files() {
         IndexedCollectionSegment::consolidate(&[&shards[0], &shards[0]], 100)
             .err()
             .unwrap()
-            .contains("overlapping physical file")
+            .contains("overlapping record ID")
     );
 }
 

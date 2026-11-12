@@ -458,16 +458,23 @@ impl LifecycleCacheState {
                 validate_segment(segment)?;
             }
         }
+        let complete_repository = repository.extended_complete();
         for (number, group) in self.extended_batches.iter().enumerate() {
             let collection = &repository.collections()[number];
             for batch in group {
+                let compact = batch.records.is_empty() && batch.record_count != 0;
                 let end = batch
                     .base_slot
                     .checked_add(batch.record_count)
                     .ok_or("extended cache slot overflow")? as usize;
                 if batch.collection.0 as usize != number
                     || end > collection.generation.records.len()
-                    || batch.records.len() != batch.record_count as usize
+                    || (!compact && batch.records.len() != batch.record_count as usize)
+                    || (compact
+                        && (!complete_repository
+                            || batch.field_states.is_empty()
+                            || !batch.postings.fields.is_empty()
+                            || !batch.custom_postings.is_empty()))
                     || batch
                         .logical_covered
                         .max()
@@ -475,6 +482,8 @@ impl LifecycleCacheState {
                 {
                     return Err("extended cache batch domain mismatch".into());
                 }
+                let base_records =
+                    &collection.generation.records[batch.base_slot as usize..end];
                 for (offset, record) in batch.records.iter().enumerate() {
                     let base = &collection.generation.records[batch.base_slot as usize + offset];
                     if record.id != base.id
@@ -492,8 +501,7 @@ impl LifecycleCacheState {
                     .map(|(file, _)| *file)
                     .collect::<HashSet<_>>();
                 if sources.len() != batch.source_files.len()
-                    || batch
-                        .records
+                    || base_records
                         .iter()
                         .any(|record| !sources.contains(&record.file))
                     || batch.source_files.iter().any(|(file, revision)| {

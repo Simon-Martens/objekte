@@ -233,13 +233,17 @@ fn later_inference_reuses_searchable_base_and_updates_cache_policy() {
     assert_eq!(after.revision(), before.revision());
     assert!(after.capability_revision() > before.capability_revision());
     assert_eq!(after.repository().options().inference, inference);
-    assert!(after
+    let compacted = after
         .extended_batches(crate::model::CollectionId(0))
-        .unwrap()
-        .iter()
-        .any(|batch| batch
-            .field_states
-            .contains_key(&vec!["nested".into(), "title".into()])));
+        .unwrap();
+    assert!(compacted.iter().any(|batch| batch
+        .field_states
+        .contains_key(&vec!["nested".into(), "title".into()])));
+    assert!(compacted.iter().all(|batch| {
+        batch.records.is_empty()
+            && batch.postings.fields.is_empty()
+            && batch.custom_postings.is_empty()
+    }));
     let cache = root.join("inferred.snapshot");
     active.flush_cache(&cache).unwrap();
     let restored = Index::load_cache(
@@ -253,6 +257,29 @@ fn later_inference_reuses_searchable_base_and_updates_cache_policy() {
     )
     .unwrap();
     assert!(restored.inference_report("data").unwrap().is_some());
+    assert!(restored
+        .view()
+        .unwrap()
+        .extended_batches(crate::model::CollectionId(0))
+        .unwrap()
+        .iter()
+        .all(|batch| batch.records.is_empty()));
+    let predicate = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(crate::query::parse_filter("nested.title:string = true").unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let result = restored.view().unwrap().search(&predicate).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.counters.record_parses, 0);
     restored.shutdown().unwrap();
     active.shutdown().unwrap();
     index.shutdown().unwrap();
@@ -410,7 +437,11 @@ fn inference_resource_limit_keeps_search_ready_and_fails_extended_task() {
     inference.policy.max_paths = 1;
     let task = Index::start_staged_build(
         &root,
-        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
         RepositoryOptions {
             inference,
             ..Default::default()
@@ -440,8 +471,299 @@ fn inference_resource_limit_keeps_search_ready_and_fails_extended_task() {
     };
     let view = index.view().unwrap();
     assert_eq!(view.search(&request).unwrap().count, Some(1));
-    assert_eq!(view.search(&request).unwrap().count, view.search_reference(&request).unwrap().count);
+    assert_eq!(
+        view.search(&request).unwrap().count,
+        view.search_reference(&request).unwrap().count
+    );
     index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn later_inference_reuses_segmented_cache_without_rebuilding_base_text() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-later-segmented-inference-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"name":""}"#).unwrap();
+    std::fs::write(root.join("data/b.json"), br#"{"name":"Ada"}"#).unwrap();
+    let definitions = vec![CollectionDefinition::folder(
+        "data",
+        "data",
+        SourceFormat::Json,
+    )];
+    let options = RepositoryOptions {
+        verified_cache_bytes: 1024 * 1024,
+        ..Default::default()
+    };
+    let initial = Index::build(&root, definitions.clone(), options).unwrap();
+    let cache = root.join("segmented.snapshot");
+    initial.flush_cache(&cache).unwrap();
+    initial.shutdown().unwrap();
+    let index = Index::load_cache(&root, definitions.clone(), options, &cache).unwrap();
+    index.wait_for_reconciliation().unwrap();
+    assert!(index.view().unwrap().0.segments[0].len() > 0);
+    assert_eq!(index.build_parses().unwrap(), 0);
+    let revision = index.view().unwrap().revision();
+    let fts = Query {
+        collections: vec!["data".into()],
+        fts: Some(crate::query::FtsQuery {
+            case_sensitivity: crate::query::CaseSensitivity::Sensitive,
+            mode: crate::query::FtsMode::Literal,
+            literal: "Ada".into(),
+            pattern_parameter: None,
+            fields: vec![],
+        }),
+        filter: None,
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let expected = index.view().unwrap().search(&fts).unwrap().count;
+    assert!(
+        index
+            .view()
+            .unwrap()
+            .search(&fts)
+            .unwrap()
+            .counters
+            .verified_result_hit
+    );
+    let mut inference = crate::inference::InferenceConfig {
+        mode: crate::inference::InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    inference.policy.min_nonblank_occurrences = 1;
+    inference.policy.min_nonblank_records = 1;
+    index.start_inference_with_pause(inference, true).unwrap();
+    let converted = index.view().unwrap();
+    assert!(converted.0.segments[0].is_empty());
+    assert_eq!(converted.revision(), revision);
+    assert_eq!(index.build_parses().unwrap(), 0);
+    let rebuilt_fts = converted.search(&fts).unwrap();
+    assert_eq!(rebuilt_fts.count, expected);
+    assert!(!rebuilt_fts.counters.verified_result_hit);
+    index.resume_extended().unwrap();
+    index.wait_extended().unwrap();
+    assert_eq!(index.build_parses().unwrap(), 2);
+    let request = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(crate::query::parse_filter("name = \"\"").unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let result = index.view().unwrap().search(&request).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.counters.record_parses, 0);
+    index.flush_cache(&cache).unwrap();
+    index.shutdown().unwrap();
+    let reopened = Index::load_cache(
+        &root,
+        definitions,
+        RepositoryOptions {
+            inference,
+            ..options
+        },
+        &cache,
+    )
+    .unwrap();
+    assert_eq!(
+        reopened.view().unwrap().search(&request).unwrap().count,
+        Some(1)
+    );
+    reopened.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn later_inference_reconstitutes_one_jsonl_file_split_across_segments() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-later-split-inference-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut contents = String::new();
+    for _ in 0..2050 {
+        contents.push_str("{\"name\":\"Ada\"}\n");
+    }
+    contents.push_str("{\"name\":\"\"}\n");
+    std::fs::write(root.join("data/records.jsonl"), contents).unwrap();
+    let definitions = vec![CollectionDefinition::folder(
+        "data",
+        "data",
+        SourceFormat::JsonLines,
+    )];
+    let options = RepositoryOptions::default();
+    let initial = Index::build(&root, definitions.clone(), options).unwrap();
+    let cache = root.join("split.snapshot");
+    initial.flush_cache(&cache).unwrap();
+    initial.shutdown().unwrap();
+    let index = Index::load_cache(&root, definitions, options, &cache).unwrap();
+    index.wait_for_reconciliation().unwrap();
+    let view = index.view().unwrap();
+    assert!(view.0.segments[0].len() > 1);
+    assert!(view.0.segments[0]
+        .iter()
+        .all(|segment| { segment.index.files.iter().any(|file| file.entry.id.0 == 0) }));
+    let revision = view.revision();
+    let mut inference = crate::inference::InferenceConfig {
+        mode: crate::inference::InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    inference.policy.min_nonblank_occurrences = 1;
+    inference.policy.min_nonblank_records = 1;
+    index.start_inference_with_pause(inference, true).unwrap();
+    let converted = index.view().unwrap();
+    assert_eq!(converted.revision(), revision);
+    assert_eq!(
+        converted.repository().collections()[0]
+            .generation
+            .records
+            .len(),
+        2051
+    );
+    assert_eq!(index.build_parses().unwrap(), 0);
+    index.resume_extended().unwrap();
+    index.wait_extended().unwrap();
+    assert_eq!(index.build_parses().unwrap(), 2051);
+    let request = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(crate::query::parse_filter("name = \"\"").unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let result = index.view().unwrap().search(&request).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert_eq!(result.counters.record_parses, 0);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn later_inference_preserves_retired_file_ids_across_cache_restore() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-later-retired-inference-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for name in ["a", "b", "c"] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            format!(r#"{{"name":"{name}"}}"#),
+        )
+        .unwrap();
+    }
+    let definitions = vec![CollectionDefinition::folder(
+        "data",
+        "data",
+        SourceFormat::Json,
+    )];
+    let options = RepositoryOptions::default();
+    let index = Index::build(&root, definitions.clone(), options).unwrap();
+    let removed = root.join("data/b.json");
+    let handle = index
+        .view()
+        .unwrap()
+        .file_handle_for_path(&removed)
+        .unwrap();
+    std::fs::remove_file(&removed).unwrap();
+    index.delete_file(handle).unwrap();
+    let cache = root.join("retired.snapshot");
+    index.flush_cache(&cache).unwrap();
+    index.shutdown().unwrap();
+    let restored = Index::load_cache(&root, definitions.clone(), options, &cache).unwrap();
+    restored.wait_for_reconciliation().unwrap();
+    assert!(restored
+        .view()
+        .unwrap()
+        .0
+        .catalog
+        .entry(handle.file_id)
+        .is_none());
+    let inference = crate::inference::InferenceConfig {
+        mode: crate::inference::InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    restored
+        .start_inference_with_pause(inference, true)
+        .unwrap();
+    assert!(restored
+        .view()
+        .unwrap()
+        .0
+        .catalog
+        .entry(handle.file_id)
+        .is_none());
+    restored.resume_extended().unwrap();
+    restored.wait_extended().unwrap();
+    let request = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert_eq!(
+        restored.view().unwrap().search(&request).unwrap().count,
+        Some(2)
+    );
+    restored.flush_cache(&cache).unwrap();
+    restored.shutdown().unwrap();
+    let reopened = Index::load_cache(
+        &root,
+        definitions,
+        RepositoryOptions {
+            inference,
+            ..options
+        },
+        &cache,
+    )
+    .unwrap();
+    reopened.wait_for_reconciliation().unwrap();
+    assert_eq!(
+        reopened.view().unwrap().search(&request).unwrap().count,
+        Some(2)
+    );
+    assert!(reopened
+        .view()
+        .unwrap()
+        .0
+        .catalog
+        .entry(handle.file_id)
+        .is_none());
+    reopened.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 
