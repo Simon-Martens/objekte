@@ -1,0 +1,56 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-task-index-construction-optimization-batch-admission-analysis",
+    "candidate_repo": "/home/simon/source/objekte-task-index-construction-optimization-batch-admission-optimization",
+    "control_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/a0-82f7c1a8",
+    "candidate_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/a1-ce3bd850",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "ascii",
+    "workers": "auto",
+    "pairs": 1,
+    "profile": true,
+    "control_revision": "82f7c1a8074a45eca170bd2be0da97d38d512aaa",
+    "candidate_revision": "ce3bd8508056cea3b9d412b1e1928ee3cde7e3a4",
+    "control_sha256": "19250370a571ec3f7d22ae11199867fdaf2978e1a002dd9a9b30dd29ba0c4cdb",
+    "candidate_sha256": "8cb90bd8f70db46654bf03f3e0d1d7e91c4c24d1cf0aed392eabf580ff0eff78"
+  },
+  "control_build_ns": {
+    "median": 2521168064,
+    "min": 2521168064,
+    "max": 2521168064,
+    "iqr": 0
+  },
+  "candidate_build_ns": {
+    "median": 2519630205,
+    "min": 2519630205,
+    "max": 2519630205,
+    "iqr": 0
+  },
+  "paired_delta_ns": {
+    "median": -1537859,
+    "min": -1537859,
+    "max": -1537859,
+    "iqr": 0
+  },
+  "paired_delta_percent": {
+    "median": -0.06099787721252081,
+    "min": -0.06099787721252081,
+    "max": -0.06099787721252081,
+    "iqr": 0.0
+  },
+  "paired_deltas_ns": [
+    -1537859
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 25477,
+    "estimated_index_bytes": 69662968
+  },
+  "corpus_fingerprint": "db869a76f26e1a3275a5162e5a207f47fb50fa8be02c4bdcfe3f1db50cfb747c",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 16
+}

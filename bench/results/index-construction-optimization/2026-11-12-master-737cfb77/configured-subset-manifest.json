@@ -1,0 +1,14 @@
+{
+  "source": "/home/simon/source/objekte/examples/musenalm",
+  "per_collection_limit": 128,
+  "copied_records": {
+    "agents": 128,
+    "contents": 128,
+    "entries": 128,
+    "items": 128,
+    "pages": 8,
+    "places": 128,
+    "series": 128
+  },
+  "source_digest": "1f3282facb9c38b454300ba840662343b867c85922251336ab175c762f1e64e7"
+}

@@ -1,0 +1,15 @@
+{
+  "control_repo": "/home/simon/source/objekte-integration-index-construction-optimization",
+  "candidate_repo": "/home/simon/source/objekte-task-index-construction-optimization-metadata-parallelism",
+  "control_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/baseline-B",
+  "candidate_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/metadata-1b0d4676",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "alphabet": "ascii",
+  "workers": "auto",
+  "pairs": 5,
+  "profile": false,
+  "control_revision": "737cfb7745ff15915804553ab583af260ac0f2e4",
+  "candidate_revision": "1b0d46768aed7cea0fec667da9056508adb2d190",
+  "control_sha256": "3cdb0e44734d084d47b602a21a4646ae524827e81622b5823dde2084bc5428e8",
+  "candidate_sha256": "4cd9c284ddf66bf7d4c1ff3f0ae535a809292d736aab8a92d4c04f3627a86b4c"
+}

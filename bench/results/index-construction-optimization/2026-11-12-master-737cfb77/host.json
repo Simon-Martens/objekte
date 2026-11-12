@@ -1,0 +1,15 @@
+{
+  "uname": {
+    "system": "Linux",
+    "node": "base.home.arpa",
+    "release": "7.2.13-200.fc44.x86_64",
+    "version": "#1 SMP PREEMPT_DYNAMIC Mon Oct 26 18:54:52 UTC 2026",
+    "machine": "x86_64",
+    "processor": ""
+  },
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "valgrind": "valgrind-3.27.1",
+  "cpu_model": "AMD Ryzen 7 5700G with Radeon Graphics",
+  "governor": "powersave"
+}

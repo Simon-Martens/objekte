@@ -1,0 +1,15 @@
+{
+  "control_repo": "/home/simon/source/objekte-task-index-construction-optimization-metadata-window32",
+  "candidate_repo": "/home/simon/source/objekte-task-index-construction-optimization-metadata-parallelism",
+  "control_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/metadata-1b0d4676",
+  "candidate_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/metadata-d5965bd1",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "alphabet": "ascii",
+  "workers": "auto",
+  "pairs": 3,
+  "profile": false,
+  "control_revision": "1b0d46768aed7cea0fec667da9056508adb2d190",
+  "candidate_revision": "d5965bd1da892d330cb2ca5e0b3010ef3929afae",
+  "control_sha256": "4cd9c284ddf66bf7d4c1ff3f0ae535a809292d736aab8a92d4c04f3627a86b4c",
+  "candidate_sha256": "62f5c6efbbefab0c06b14eed8b3da1f1313dc219129f426423ff51456b194a08"
+}

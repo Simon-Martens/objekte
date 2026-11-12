@@ -1,0 +1,15 @@
+{
+  "control_repo": "/home/simon/source/objekte-task-index-construction-optimization-batch-admission-analysis",
+  "candidate_repo": "/home/simon/source/objekte-task-index-construction-optimization-batch-admission-optimization",
+  "control_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/a0-82f7c1a8",
+  "candidate_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/a1-ce3bd850",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "alphabet": "ascii",
+  "workers": "auto",
+  "pairs": 5,
+  "profile": false,
+  "control_revision": "82f7c1a8074a45eca170bd2be0da97d38d512aaa",
+  "candidate_revision": "ce3bd8508056cea3b9d412b1e1928ee3cde7e3a4",
+  "control_sha256": "19250370a571ec3f7d22ae11199867fdaf2978e1a002dd9a9b30dd29ba0c4cdb",
+  "candidate_sha256": "8cb90bd8f70db46654bf03f3e0d1d7e91c4c24d1cf0aed392eabf580ff0eff78"
+}

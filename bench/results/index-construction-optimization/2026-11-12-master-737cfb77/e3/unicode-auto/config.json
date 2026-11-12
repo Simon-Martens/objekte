@@ -1,0 +1,15 @@
+{
+  "control_repo": "/home/simon/source/objekte-integration-index-construction-optimization",
+  "candidate_repo": "/home/simon/source/objekte-task-index-construction-optimization-field-selection-allocation",
+  "control_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/baseline-B",
+  "candidate_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/e3-e41b7f21",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "alphabet": "unicode",
+  "workers": "auto",
+  "pairs": 3,
+  "profile": false,
+  "control_revision": "737cfb7745ff15915804553ab583af260ac0f2e4",
+  "candidate_revision": "e41b7f21ab988cc9fce024b48dddf930dacf11de",
+  "control_sha256": "3cdb0e44734d084d47b602a21a4646ae524827e81622b5823dde2084bc5428e8",
+  "candidate_sha256": "1fa49c53031657a524e1d1647961dacf9a011707f91d4f7dac7be7a354d29df5"
+}

@@ -1,0 +1,15 @@
+{
+  "control_repo": "/home/simon/source/objekte-integration-index-construction-optimization",
+  "candidate_repo": "/home/simon/source/objekte-task-index-construction-optimization-file-buffer-reuse",
+  "control_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/baseline-B",
+  "candidate_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/e1-90057337",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "alphabet": "unicode",
+  "workers": "auto",
+  "pairs": 3,
+  "profile": false,
+  "control_revision": "737cfb7745ff15915804553ab583af260ac0f2e4",
+  "candidate_revision": "900573377eca2f4b770f22cef5d78ed3e67f7a78",
+  "control_sha256": "3cdb0e44734d084d47b602a21a4646ae524827e81622b5823dde2084bc5428e8",
+  "candidate_sha256": "8b8cb9377d0cbd6346778fad158adcc6319456d8ff0d6709bc10a6b9807b0c00"
+}

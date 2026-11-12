@@ -1,0 +1,60 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-task-index-construction-optimization-baseline-measurement",
+    "candidate_repo": "/home/simon/source/objekte-task-index-construction-optimization-final-measurement",
+    "control_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/baseline-B",
+    "candidate_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/integration-609474ee",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "ascii",
+    "workers": "auto",
+    "pairs": 5,
+    "profile": false,
+    "control_revision": "737cfb7745ff15915804553ab583af260ac0f2e4",
+    "candidate_revision": "609474ee42e26c568cd43f89893482e0a0886bbe",
+    "control_sha256": "3cdb0e44734d084d47b602a21a4646ae524827e81622b5823dde2084bc5428e8",
+    "candidate_sha256": "758732a5359bf6678756a0791c303cf55b6102af74f04abba8193a7daa0a5249"
+  },
+  "control_build_ns": {
+    "median": 2529697592,
+    "min": 2523546510,
+    "max": 2560463060,
+    "iqr": 23502287.0
+  },
+  "candidate_build_ns": {
+    "median": 2107468952,
+    "min": 2098816884,
+    "max": 2149145912,
+    "iqr": 19188416.0
+  },
+  "paired_delta_ns": {
+    "median": -422228640,
+    "min": -461646176,
+    "max": -403493495,
+    "iqr": 24779026.0
+  },
+  "paired_delta_percent": {
+    "median": -16.69087409243184,
+    "min": -18.02979247042916,
+    "max": -15.806913185368687,
+    "iqr": 0.9443291083013428
+  },
+  "paired_deltas_ns": [
+    -404286715,
+    -429065741,
+    -403493495,
+    -422228640,
+    -461646176
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 25477,
+    "estimated_index_bytes": 69662968
+  },
+  "corpus_fingerprint": "db869a76f26e1a3275a5162e5a207f47fb50fa8be02c4bdcfe3f1db50cfb747c",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 16
+}

@@ -1,0 +1,60 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-task-index-construction-optimization-batch-admission-analysis",
+    "candidate_repo": "/home/simon/source/objekte-task-index-construction-optimization-batch-admission-optimization",
+    "control_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/a0-82f7c1a8",
+    "candidate_bin": "/home/simon/source/objekte/target/index-construction-optimization/bin/a1-ce3bd850",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "ascii",
+    "workers": "auto",
+    "pairs": 5,
+    "profile": false,
+    "control_revision": "82f7c1a8074a45eca170bd2be0da97d38d512aaa",
+    "candidate_revision": "ce3bd8508056cea3b9d412b1e1928ee3cde7e3a4",
+    "control_sha256": "19250370a571ec3f7d22ae11199867fdaf2978e1a002dd9a9b30dd29ba0c4cdb",
+    "candidate_sha256": "8cb90bd8f70db46654bf03f3e0d1d7e91c4c24d1cf0aed392eabf580ff0eff78"
+  },
+  "control_build_ns": {
+    "median": 2529656175,
+    "min": 2514918468,
+    "max": 2548553504,
+    "iqr": 26856907.0
+  },
+  "candidate_build_ns": {
+    "median": 2514377050,
+    "min": 2507561281,
+    "max": 2534743538,
+    "iqr": 7665937.0
+  },
+  "paired_delta_ns": {
+    "median": -22094894,
+    "min": -34176454,
+    "max": 19702310,
+    "iqr": 34645604.0
+  },
+  "paired_delta_percent": {
+    "median": -0.8734346674602933,
+    "min": -1.3410137925831012,
+    "max": 0.7833792059014355,
+    "iqr": 1.365386622410969
+  },
+  "paired_deltas_ns": [
+    -28947063,
+    5698541,
+    -34176454,
+    19702310,
+    -22094894
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 25477,
+    "estimated_index_bytes": 69662968
+  },
+  "corpus_fingerprint": "db869a76f26e1a3275a5162e5a207f47fb50fa8be02c4bdcfe3f1db50cfb747c",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 16
+}
