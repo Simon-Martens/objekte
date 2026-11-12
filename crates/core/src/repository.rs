@@ -11,7 +11,7 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
 use crate::bigram::{BigramContribution, BigramIndex};
-use crate::discovery::{Discovery, discover};
+use crate::discovery::{Discovery, discover, discover_stream};
 use crate::inference::{
     InferenceBuildStats, InferenceBuilder, InferenceConfig, InferencePathDiagnostic,
     InferenceReport, InferenceState,
@@ -1130,7 +1130,7 @@ impl Repository {
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
         sources: SourceRegistry,
-        on_catalogue: &dyn Fn(&FileInventory),
+        on_catalogue: &dyn Fn(&FileInventory, bool),
         cancelled: &dyn Fn() -> bool,
     ) -> Result<Self, String> {
         options.inference.validate()?;
@@ -1309,11 +1309,28 @@ impl Repository {
         discover_sources: bool,
         phase: crate::build::ConstructionPhase,
         existing: Option<&Repository>,
-        on_catalogue: Option<&dyn Fn(&FileInventory)>,
+        on_catalogue: Option<&dyn Fn(&FileInventory, bool)>,
         on_batch: Option<&dyn Fn(usize, usize)>,
         cancelled: Option<&dyn Fn() -> bool>,
         on_extended_batch: Option<&dyn Fn(crate::build::ExtendedBatch) -> Result<(), String>>,
     ) -> Result<Self, String> {
+        fn admit_discovered_path(
+            root: &std::path::Path,
+            files: &mut FileInventory,
+            member_files: &mut Vec<crate::model::FileId>,
+            collection: CollectionId,
+            path: PathBuf,
+        ) -> Result<(), String> {
+            let relative = path.strip_prefix(root).map_err(|e| e.to_string())?.to_owned();
+            let metadata = std::fs::metadata(&path).map_err(|e| e.to_string())?;
+            let revision = SourceRevision::from_metadata(&metadata)?;
+            let created_ns = metadata.created().ok()
+                .and_then(|t| t.duration_since(std::time::SystemTime::UNIX_EPOCH).ok())
+                .map(|d| d.as_nanos() as i128);
+            let file = files.add(relative, revision, created_ns, collection)?;
+            member_files.push(file);
+            Ok(())
+        }
         let discovery_started = Instant::now();
         let mut files = existing
             .map(|repository| repository.files.clone())
@@ -1336,16 +1353,6 @@ impl Repository {
             ) {
                 return Err(format!("duplicate collection: {}", definition.name));
             }
-            let paths = if discover_sources {
-                discover(
-                    &root,
-                    &definition.source_path,
-                    &definition.discovery,
-                    &source,
-                )?
-            } else {
-                Vec::new()
-            };
             let mut member_files = existing
                 .and_then(|repository| repository.collections.get(collection_index))
                 .map(|collection| {
@@ -1357,25 +1364,33 @@ impl Repository {
                 })
                 .transpose()?
                 .unwrap_or_default();
-            for path in paths {
-                let relative = path
-                    .strip_prefix(&root)
-                    .map_err(|e| e.to_string())?
-                    .to_owned();
-                let metadata = std::fs::metadata(&path).map_err(|e| e.to_string())?;
-                let revision = SourceRevision::from_metadata(&metadata)?;
-                let created_ns = metadata
-                    .created()
-                    .ok()
-                    .and_then(|t| t.duration_since(std::time::SystemTime::UNIX_EPOCH).ok())
-                    .map(|d| d.as_nanos() as i128);
-                let file = files.add(relative, revision, created_ns, id)?;
-                member_files.push(file);
+            if discover_sources {
+                if let Some(on_catalogue) = on_catalogue {
+                    let mut accepted = 0usize;
+                    discover_stream(
+                        &root, &definition.source_path, &definition.discovery, &source,
+                        || cancelled.is_some_and(|cancelled| cancelled()),
+                        |path| {
+                            admit_discovered_path(&root, &mut files, &mut member_files, id, path)?;
+                            accepted += 1;
+                            if accepted == 1 || accepted % 4096 == 0 {
+                                on_catalogue(&files, false);
+                            }
+                            Ok(())
+                        },
+                    )?;
+                } else {
+                    for path in discover(
+                        &root, &definition.source_path, &definition.discovery, &source,
+                    )? {
+                        admit_discovered_path(&root, &mut files, &mut member_files, id, path)?;
+                    }
+                }
             }
             selected.push((definition, id, source, member_files));
         }
         if let Some(on_catalogue) = on_catalogue {
-            on_catalogue(&files);
+            on_catalogue(&files, true);
         }
         let discovery_ns = discovery_started.elapsed().as_nanos() as u64;
         let build_workers = crate::build::resolve_build_workers(

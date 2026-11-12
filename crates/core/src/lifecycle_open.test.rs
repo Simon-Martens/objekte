@@ -4,6 +4,42 @@ use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
 #[test]
+fn discovery_publishes_stable_file_ids_before_catalogue_completion() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-progressive-catalogue-{}-{:?}",
+        std::process::id(), std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for name in ["c", "a", "b"] {
+        std::fs::write(root.join(format!("data/{name}.json")), br#"{}"#).unwrap();
+    }
+    let updates = std::sync::Mutex::new(Vec::new());
+    let base = Repository::build_search_base(
+        root.canonicalize().unwrap(),
+        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        RepositoryOptions::default(), SourceRegistry::builtin(),
+        &|files, complete| {
+            updates.lock().unwrap().push((
+                files.files.iter().map(|file| (file.id, file.relative_path.clone()))
+                    .collect::<Vec<_>>(), complete,
+            ));
+        },
+        &|| false,
+    ).unwrap();
+    let updates = updates.into_inner().unwrap();
+    assert_eq!(updates.first().unwrap().0.len(), 1);
+    assert!(!updates.first().unwrap().1);
+    assert_eq!(updates.last().unwrap().0.len(), 3);
+    assert!(updates.last().unwrap().1);
+    assert_eq!(updates.last().unwrap().0,
+        base.files().files.iter().map(|file| (file.id, file.relative_path.clone())).collect::<Vec<_>>());
+    assert_eq!(base.files().files.iter().map(|file| file.relative_path.to_string_lossy().to_string())
+        .collect::<Vec<_>>(), ["data/a.json", "data/b.json", "data/c.json"]);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn extended_paused_before_search_ready_resumes() {
     let root = std::env::temp_dir().join(format!(
         "objekte-pre-ready-pause-{}-{:?}",
@@ -179,7 +215,7 @@ fn partial_extended_snapshot_retains_exact_coverage_and_resumes() {
             definitions.clone(),
             options,
             SourceRegistry::builtin(),
-            &|_| {},
+            &|_, _| {},
             &|| false,
         )
         .unwrap(),

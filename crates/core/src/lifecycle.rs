@@ -1369,7 +1369,7 @@ impl Index {
         std::thread::Builder::new()
             .name("objekte-staged-build".into())
             .spawn(move || {
-                let on_catalogue = |files: &crate::inventory::FileInventory| {
+                let on_catalogue = |files: &crate::inventory::FileInventory, complete: bool| {
                     let catalogue = files
                         .files
                         .iter()
@@ -1382,7 +1382,11 @@ impl Index {
                         })
                         .collect::<Vec<_>>();
                     if let Ok(mut status) = opening.status.lock() {
-                        status.phase = StagedBuildPhase::BuildingBase;
+                        status.phase = if complete {
+                            StagedBuildPhase::BuildingBase
+                        } else {
+                            StagedBuildPhase::Discovering
+                        };
                         status.discovered_files = catalogue.len();
                     }
                     if let Ok(mut files) = opening.catalogue.lock() {
