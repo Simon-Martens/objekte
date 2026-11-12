@@ -1,6 +1,37 @@
 use super::*;
 
 #[test]
+fn parses_boolean_state_modifiers_without_changing_question_operators_or_literals() {
+    for (source, modifier) in [
+        ("a:? = true", Modifier::NonEmpty),
+        ("a:string = true", Modifier::StringType),
+        ("a:number = false", Modifier::NumberType),
+        ("a:array != true", Modifier::ArrayType),
+        ("a:null = true", Modifier::Null),
+        ("a:object = true", Modifier::ObjectType),
+        ("a:exists = true", Modifier::Exists),
+    ] {
+        let FilterExpr::Term(term) = parse_filter(source).unwrap() else {
+            panic!("term")
+        };
+        assert_eq!(term.modifiers, vec![modifier], "{source}");
+        assert!(matches!(term.operand, Operand::Literal(Literal::Bool(_))));
+    }
+    let FilterExpr::Term(term) = parse_filter("a ?= 'what?'").unwrap() else {
+        panic!("term")
+    };
+    assert_eq!(term.quantifier, Quantifier::Any);
+    assert_eq!(
+        term.operand,
+        Operand::Literal(Literal::String("what?".into()))
+    );
+    let FilterExpr::Term(term) = parse_filter("data[\"a?b\"]:? = true").unwrap() else {
+        panic!("term")
+    };
+    assert_eq!(term.modifiers, vec![Modifier::NonEmpty]);
+}
+
+#[test]
 fn sort_span_ignores_literals_and_nested_text() {
     let text = r#"title = 'SORT BY year' && note = 'x' SORT BY year DESC"#;
     let start = structured_sort_start(text).unwrap().unwrap();

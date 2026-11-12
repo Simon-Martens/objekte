@@ -15,6 +15,7 @@ pub mod diagnostics;
 pub mod discovery;
 pub mod execution_options;
 pub mod executor;
+pub(crate) mod field_state;
 pub mod fts_preview;
 pub mod inference;
 mod index_catalog;
