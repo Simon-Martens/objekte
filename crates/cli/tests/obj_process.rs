@@ -26,6 +26,40 @@ fn hits(events: &[Value]) -> Vec<&Value> {
 }
 
 #[test]
+fn explicit_inference_index_only_waits_and_keeps_stdout_ndjson() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("one.json"), br#"{"title":"Alpha","score":0}"#)
+        .unwrap();
+    let (output, events) = invoke(
+        root.path(),
+        &["--auto-index", "--index-wait=complete", "--diagnostic"],
+    );
+    assert!(output.status.success(), "{}", String::from_utf8_lossy(&output.stderr));
+    assert_eq!(events.len(), 2);
+    assert_eq!(events[0]["type"], "run_start");
+    assert_eq!(events[1]["type"], "run_complete");
+    assert_eq!(events[1]["records"], 1);
+    assert_eq!(events[1]["query_successes"], 0);
+    assert_eq!(events[1]["inference"], "auto_index");
+    assert!(!root.path().join(".objekte").exists());
+}
+
+#[test]
+fn search_wait_field_query_preserves_result_protocol() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("one.json"), br#"{"title":"Alpha","score":0}"#)
+        .unwrap();
+    std::fs::write(root.path().join("two.json"), br#"{"title":"","score":1}"#)
+        .unwrap();
+    let (output, events) = invoke(root.path(), &["--index-wait=search", "title:? = true"]);
+    assert!(output.status.success(), "{}", String::from_utf8_lossy(&output.stderr));
+    assert_eq!(hits(&events).len(), 1);
+    assert_eq!(events[0]["type"], "run_start");
+    assert_eq!(events.last().unwrap()["type"], "run_complete");
+    assert_eq!(events.last().unwrap()["query_successes"], 1);
+}
+
+#[test]
 fn tui_requires_terminal_and_rejects_query_file_before_building() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("one.json"), br#"{"title":"one"}"#).unwrap();
