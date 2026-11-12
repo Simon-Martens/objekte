@@ -1,0 +1,15 @@
+{
+  "control_repo": "/home/simon/source/objekte-integration-index-construction-data-path",
+  "candidate_repo": "/home/simon/source/objekte-task-index-construction-experiment-revision-field-admission",
+  "control_bin": "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/bench_index_construction",
+  "candidate_bin": "/home/simon/source/objekte-task-index-construction-experiment-revision-field-admission/target/release/examples/bench_index_construction",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "alphabet": "ascii",
+  "workers": "1",
+  "profile": false,
+  "control_revision": "54dcac5c3b3e1ca499180061ebcee7ad60c27101",
+  "candidate_revision": "b38d6696e4b2f681f9c0245d18b706b02bfa0051",
+  "control_sha256": "42449be3ded342ff6228c88a52a4dddd200f6501314eff3da739803cb4be3c0b",
+  "candidate_sha256": "14a7a39ea9479178fc0781df99582e689c0453ba9f5730391a1b1e622e7e8769",
+  "pairs": 3
+}
