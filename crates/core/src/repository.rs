@@ -1,13 +1,14 @@
 //! Resident repository ownership and the independent scan execution path.
 
+use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use std::collections::{HashMap, HashSet};
 use std::num::NonZeroUsize;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::sync::Arc;
 use std::sync::Mutex;
-use std::sync::atomic::{AtomicU64, Ordering};
+use std::sync::atomic::{AtomicU64, AtomicUsize, Ordering};
 use std::time::Instant;
 
 use crate::bigram::{BigramContribution, BigramIndex};
@@ -392,6 +393,9 @@ pub struct StartupStats {
 pub struct BuildProfileStats {
     pub discovery_enumeration_ns: u64,
     pub discovery_catalogue_ns: u64,
+    pub discovery_metadata_prepare_ns: u64,
+    pub discovery_ordered_insert_ns: u64,
+    pub discovery_metadata_peak_active: usize,
     pub pool_init_ns: u64,
     pub builder_setup_ns: u64,
     pub source_work_ns: u64,
@@ -414,6 +418,60 @@ pub struct BuildProfileStats {
     pub work: crate::build::BuildWorkProfile,
 }
 
+
+struct PreparedDiscoveredFile {
+    relative: PathBuf,
+    revision: SourceRevision,
+    created_ns: Option<i128>,
+}
+
+
+fn prepare_discovered_file(root: &Path, path: PathBuf) -> Result<PreparedDiscoveredFile, String> {
+    let relative = path
+        .strip_prefix(root)
+        .map_err(|error| error.to_string())?
+        .to_owned();
+    let metadata = std::fs::metadata(&path).map_err(|error| error.to_string())?;
+    let revision = SourceRevision::from_metadata(&metadata)?;
+    let created_ns = metadata
+        .created()
+        .ok()
+        .and_then(|time| time.duration_since(std::time::SystemTime::UNIX_EPOCH).ok())
+        .map(|duration| duration.as_nanos() as i128);
+    Ok(PreparedDiscoveredFile {
+        relative,
+        revision,
+        created_ns,
+    })
+}
+
+/// Indexed Rayon collection keeps every result at its source ordinal. Errors
+/// are examined by the caller in that order, independent of completion order.
+fn prepare_discovered_window(
+    pool: &rayon::ThreadPool,
+    root: &Path,
+    window: Vec<PathBuf>,
+    profile: bool,
+    peak_active: &AtomicUsize,
+) -> Vec<Result<PreparedDiscoveredFile, String>> {
+    let active = AtomicUsize::new(0);
+    pool.install(|| {
+        window
+            .into_par_iter()
+            .map(|path| {
+                if profile {
+                    let count = active.fetch_add(1, Ordering::Relaxed) + 1;
+                    peak_active.fetch_max(count, Ordering::Relaxed);
+                }
+                let result = prepare_discovered_file(root, path);
+                if profile {
+                    active.fetch_sub(1, Ordering::Relaxed);
+                }
+                result
+            })
+            .collect()
+    })
+}
 
 fn build_profile_rss_bytes() -> u64 {
     std::fs::read_to_string("/proc/self/status")
@@ -1182,10 +1240,27 @@ impl Repository {
         sources: &SourceRegistry,
         discover_sources: bool,
     ) -> Result<Self, String> {
-        let discovery_started = Instant::now();
         let mut profile = options.profile_build.then(BuildProfileStats::default);
+        let pool_started = profile.as_ref().map(|_| Instant::now());
+        let build_workers = crate::build::resolve_build_workers(
+            options.build_workers,
+            std::thread::available_parallelism().ok(),
+        )?;
+        let build_pool = rayon::ThreadPoolBuilder::new()
+            .num_threads(build_workers)
+            .thread_name(|index| format!("objekte-build-{index}"))
+            .build()
+            .map_err(|error| error.to_string())?;
+        if let (Some(started), Some(profile)) = (pool_started, profile.as_mut()) {
+            profile.pool_init_ns = started.elapsed().as_nanos() as u64;
+        }
+        let discovery_started = Instant::now();
         let mut files = FileInventory::new(root.clone());
         let mut selected = Vec::new();
+        // At most 32 paths per worker are prepared before ordered insertion.
+        // The discovered collection remains the only corpus-sized path list.
+        let metadata_window = build_workers.saturating_mul(32);
+        let metadata_peak_active = AtomicUsize::new(0);
         for (collection_index, definition) in definitions.into_iter().enumerate() {
             let source = sources.resolve(&definition.format)?;
             let id =
@@ -1216,20 +1291,42 @@ impl Repository {
             }
             let catalogue_started = profile.as_ref().map(|_| Instant::now());
             let mut member_files = Vec::new();
-            for path in paths {
-                let relative = path
-                    .strip_prefix(&root)
-                    .map_err(|e| e.to_string())?
-                    .to_owned();
-                let metadata = std::fs::metadata(&path).map_err(|e| e.to_string())?;
-                let revision = SourceRevision::from_metadata(&metadata)?;
-                let created_ns = metadata
-                    .created()
-                    .ok()
-                    .and_then(|t| t.duration_since(std::time::SystemTime::UNIX_EPOCH).ok())
-                    .map(|d| d.as_nanos() as i128);
-                let file = files.add(relative, revision, created_ns, id)?;
-                member_files.push(file);
+            let mut paths = paths.into_iter();
+            loop {
+                let window = paths.by_ref().take(metadata_window).collect::<Vec<_>>();
+                if window.is_empty() {
+                    break;
+                }
+                let prepare_started = profile.as_ref().map(|_| Instant::now());
+                let prepared = if build_workers == 1 {
+                    if profile.is_some() {
+                        metadata_peak_active.fetch_max(1, Ordering::Relaxed);
+                    }
+                    window
+                        .into_iter()
+                        .map(|path| prepare_discovered_file(&root, path))
+                        .collect::<Vec<_>>()
+                } else {
+                    prepare_discovered_window(
+                        &build_pool,
+                        &root,
+                        window,
+                        profile.is_some(),
+                        &metadata_peak_active,
+                    )
+                };
+                if let (Some(started), Some(profile)) = (prepare_started, profile.as_mut()) {
+                    profile.discovery_metadata_prepare_ns += started.elapsed().as_nanos() as u64;
+                }
+                let insert_started = profile.as_ref().map(|_| Instant::now());
+                for entry in prepared {
+                    let entry = entry?;
+                    let file = files.add(entry.relative, entry.revision, entry.created_ns, id)?;
+                    member_files.push(file);
+                }
+                if let (Some(started), Some(profile)) = (insert_started, profile.as_mut()) {
+                    profile.discovery_ordered_insert_ns += started.elapsed().as_nanos() as u64;
+                }
             }
             if let (Some(started), Some(profile)) = (catalogue_started, profile.as_mut()) {
                 profile.discovery_catalogue_ns += started.elapsed().as_nanos() as u64;
@@ -1239,19 +1336,7 @@ impl Repository {
         let discovery_ns = discovery_started.elapsed().as_nanos() as u64;
         if let Some(profile) = profile.as_mut() {
             profile.discovery_rss_bytes = build_profile_rss_bytes();
-        }
-        let pool_started = profile.as_ref().map(|_| Instant::now());
-        let build_workers = crate::build::resolve_build_workers(
-            options.build_workers,
-            std::thread::available_parallelism().ok(),
-        )?;
-        let build_pool = rayon::ThreadPoolBuilder::new()
-            .num_threads(build_workers)
-            .thread_name(|index| format!("objekte-build-{index}"))
-            .build()
-            .map_err(|error| error.to_string())?;
-        if let (Some(started), Some(profile)) = (pool_started, profile.as_mut()) {
-            profile.pool_init_ns = started.elapsed().as_nanos() as u64;
+            profile.discovery_metadata_peak_active = metadata_peak_active.load(Ordering::Relaxed);
         }
         let source_files = Arc::new(
             files
