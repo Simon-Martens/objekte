@@ -141,7 +141,13 @@ fn run() -> Result<(), String> {
     let manifest_path =
         Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json");
     let baseline_path = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
-    let cases = load_extended_manifest(&baseline_path, &manifest_path)?
+    let all_cases = load_extended_manifest(&baseline_path, &manifest_path)?;
+    let startup_query = all_cases
+        .iter()
+        .find(|case| case.id == "Q001")
+        .ok_or("startup text query Q001 is missing")?
+        .query()?;
+    let cases = all_cases
         .into_iter()
         .filter(|case| case_ids.as_ref().is_none_or(|ids| ids.contains(&case.id)))
         .collect::<Vec<_>>();
@@ -205,10 +211,35 @@ fn run() -> Result<(), String> {
         if mode == "base" || mode == "partial" {
             task.pause_extended().map_err(|error| error.to_string())?;
         }
+        let first_listing_ns = loop {
+            if task
+                .status()
+                .map_err(|error| error.to_string())?
+                .discovered_files
+                > 0
+            {
+                let files = task.catalogue().map_err(|error| error.to_string())?;
+                if !files.is_empty() {
+                    break Some(started.elapsed().as_nanos() as u64);
+                }
+            }
+            if started.elapsed() >= Duration::from_secs(30) {
+                break None;
+            }
+            std::thread::sleep(Duration::from_millis(1));
+        };
         let index = task
             .wait_search_ready()
             .map_err(|error| error.to_string())?;
         let search_ready_ns = started.elapsed().as_nanos() as u64;
+        let first_query_started = Instant::now();
+        let first_query_result = index
+            .view()
+            .map_err(|error| error.to_string())?
+            .search(&startup_query)?;
+        let first_text_query_ns = first_query_started.elapsed().as_nanos() as u64;
+        let first_text_page_rows = first_query_result.hits.len();
+        let first_text_page_ready_ns = started.elapsed().as_nanos() as u64;
         if corpus_fingerprint.is_empty() {
             corpus_fingerprint = fingerprint_catalogue(
                 &root,
@@ -257,6 +288,10 @@ fn run() -> Result<(), String> {
             "mode": mode,
             "inference": inference,
             "search_ready_ns": search_ready_ns,
+            "first_listing_ns": first_listing_ns,
+            "first_text_query_ns": first_text_query_ns,
+            "first_text_page_rows": first_text_page_rows,
+            "first_text_page_ready_ns": first_text_page_ready_ns,
             "measurement_start_ns": started.elapsed().as_nanos() as u64,
             "quiesced_ns": if mode == "foreground" { None } else { Some(started.elapsed().as_nanos() as u64) },
             "data_revision": view.revision().0,
