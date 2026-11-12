@@ -203,11 +203,13 @@ enum ScheduledBuildJob {
 impl PendingCollection {
     fn admit(
         &mut self,
+        pool: &rayon::ThreadPool,
         inventory: &mut FileInventory,
         batch: crate::build::BatchContribution,
         profile: Option<&mut crate::build::AdmissionBreakdown>,
     ) -> Result<(), String> {
         crate::build::CollectionAdmission {
+            pool,
             inventory,
             builder: &mut self.builder,
             postings: &mut self.postings,
@@ -1479,7 +1481,12 @@ impl Repository {
             let mut breakdown = options
                 .profile_build
                 .then(crate::build::AdmissionBreakdown::default);
-            let result = pending[collection_index].admit(&mut files, batch, breakdown.as_mut());
+            let result = pending[collection_index].admit(
+                &build_pool,
+                &mut files,
+                batch,
+                breakdown.as_mut(),
+            );
             if let (Some(started), Some(mut breakdown), Some(profile)) =
                 (admission_started, breakdown, profile.as_mut())
             {
@@ -1488,11 +1495,7 @@ impl Repository {
                 breakdown.total_ns = callback_ns.saturating_add(admission_ns);
                 let components = breakdown
                     .record_inventory_ns
-                    .saturating_add(breakdown.postings_ns)
-                    .saturating_add(breakdown.inference_ns)
-                    .saturating_add(breakdown.relations_ns)
-                    .saturating_add(breakdown.custom_postings_ns)
-                    .saturating_add(breakdown.bigrams_ns)
+                    .saturating_add(breakdown.merge_join_ns)
                     .saturating_add(breakdown.structural_facts_ns)
                     .saturating_add(breakdown.sorting_ns);
                 breakdown.remainder_ns = admission_ns.saturating_sub(components);

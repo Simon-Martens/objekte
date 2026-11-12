@@ -2005,16 +2005,21 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             vec![definition.clone()],
             RepositoryOptions {
                 snapshot_mode: SnapshotMode::Disabled,
-                build_workers: NonZeroUsize::new(
-                    std::thread::available_parallelism()
-                        .map_or(1, NonZeroUsize::get)
-                        .min(4),
-                ),
+                build_workers: NonZeroUsize::new(4),
+                profile_build: true,
                 ..options
             },
         )
         .unwrap();
         assert!(!parallel.startup().restored);
+        let breakdown = &parallel
+            .startup()
+            .build_profile
+            .as_ref()
+            .unwrap()
+            .admission_by_collection["data"];
+        assert!(breakdown.parallel_batches > 0);
+        assert!(breakdown.merge_join_ns >= breakdown.parallel_group_overlap_ns);
         for repo in [&built, &restored, &parallel] {
             let collection = &repo.collections()[0];
             assert_eq!(collection.generation.files.len(), 515);
