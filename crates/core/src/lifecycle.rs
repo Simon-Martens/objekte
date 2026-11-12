@@ -3273,6 +3273,7 @@ impl IndexView {
                 &self.0.active,
                 &self.0.catalog,
                 self.revision(),
+                &self.0.extended_batches,
                 cache,
             )
             .map(|result| self.stamp_result(result))
@@ -3321,6 +3322,7 @@ impl IndexView {
                 &self.0.catalog,
                 self.revision(),
                 context,
+                &self.0.extended_batches,
                 cache,
             )
             .map(|result| self.stamp_result(result))
