@@ -1,0 +1,58 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-integration-index-construction-data-path",
+    "candidate_repo": "/home/simon/source/objekte-task-index-construction-experiment-revision-field-admission",
+    "control_bin": "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/bench_index_construction",
+    "candidate_bin": "/home/simon/source/objekte-task-index-construction-experiment-revision-field-admission/target/release/examples/bench_index_construction",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "unicode",
+    "workers": "1",
+    "profile": false,
+    "control_revision": "54dcac5c3b3e1ca499180061ebcee7ad60c27101",
+    "candidate_revision": "b01aea540c92e2c7840f22848c17d8a9d70f13fc",
+    "control_sha256": "42449be3ded342ff6228c88a52a4dddd200f6501314eff3da739803cb4be3c0b",
+    "candidate_sha256": "b4d08091f6635608c9e0f1901dd8ae35bf79661a9f9d31cc20dd54d27b829358",
+    "pairs": 3
+  },
+  "control_build_ns": {
+    "median": 4381436114,
+    "min": 4361037017,
+    "max": 4407540368,
+    "iqr": 23251675.5
+  },
+  "candidate_build_ns": {
+    "median": 4397801406,
+    "min": 4378648067,
+    "max": 4418034163,
+    "iqr": 19693048.0
+  },
+  "paired_delta_ns": {
+    "median": 36598049,
+    "min": -28892301,
+    "max": 36764389,
+    "iqr": 32828345.0
+  },
+  "paired_delta_percent": {
+    "median": 0.8352980175394542,
+    "min": -0.6555198271073426,
+    "max": 0.8430194207636132,
+    "iqr": 0.7492696239354779
+  },
+  "paired_deltas_ns": [
+    36764389,
+    -28892301,
+    36598049
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 37909,
+    "estimated_index_bytes": 72571368
+  },
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 1
+}

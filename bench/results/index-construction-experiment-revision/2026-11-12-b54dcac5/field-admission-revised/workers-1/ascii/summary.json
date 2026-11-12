@@ -1,0 +1,58 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-integration-index-construction-data-path",
+    "candidate_repo": "/home/simon/source/objekte-task-index-construction-experiment-revision-field-admission",
+    "control_bin": "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/bench_index_construction",
+    "candidate_bin": "/home/simon/source/objekte-task-index-construction-experiment-revision-field-admission/target/release/examples/bench_index_construction",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "ascii",
+    "workers": "1",
+    "profile": false,
+    "control_revision": "54dcac5c3b3e1ca499180061ebcee7ad60c27101",
+    "candidate_revision": "b01aea540c92e2c7840f22848c17d8a9d70f13fc",
+    "control_sha256": "42449be3ded342ff6228c88a52a4dddd200f6501314eff3da739803cb4be3c0b",
+    "candidate_sha256": "b4d08091f6635608c9e0f1901dd8ae35bf79661a9f9d31cc20dd54d27b829358",
+    "pairs": 3
+  },
+  "control_build_ns": {
+    "median": 3643228628,
+    "min": 3623419852,
+    "max": 3660089515,
+    "iqr": 18334831.5
+  },
+  "candidate_build_ns": {
+    "median": 3653803032,
+    "min": 3646996103,
+    "max": 3656595855,
+    "iqr": 4799876.0
+  },
+  "paired_delta_ns": {
+    "median": 10574404,
+    "min": -13093412,
+    "max": 33176003,
+    "iqr": 23134707.5
+  },
+  "paired_delta_percent": {
+    "median": 0.2902481584254879,
+    "min": -0.357734747916405,
+    "max": 0.9155991950998477,
+    "iqr": 0.6366669715081263
+  },
+  "paired_deltas_ns": [
+    -13093412,
+    33176003,
+    10574404
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 25477,
+    "estimated_index_bytes": 69662968
+  },
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 1
+}
