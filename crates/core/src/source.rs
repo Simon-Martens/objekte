@@ -972,6 +972,30 @@ pub(crate) struct SourceBuildSample {
 }
 
 
+/// Opt-in, batch-local observations for reusable normal-file input storage.
+/// A growth file is one whose final capacity exceeds its entry capacity;
+/// multiple allocator calls within that file are not separately counted.
+#[derive(Clone, Copy, Debug, Default)]
+pub(crate) struct SourceBufferProfile {
+    pub files_read: u64,
+    pub growth_files: u64,
+    pub peak_capacity_bytes: u64,
+}
+
+
+/// Large ordinary files are still processed, but their buffer is not retained
+/// for the many small files that may follow in the same batch.
+pub(crate) const MAX_RETAINED_BUILD_BUFFER_BYTES: usize = 1024 * 1024;
+
+pub(crate) fn trim_oversized_build_buffer(buffer: &mut Vec<u8>) -> bool {
+    if buffer.capacity() <= MAX_RETAINED_BUILD_BUFFER_BYTES {
+        return false;
+    }
+    *buffer = Vec::new();
+    true
+}
+
+
 struct TimedBuildReader<'a> {
     inner: &'a mut std::fs::File,
     sample: &'a mut SourceBuildSample,
@@ -1323,7 +1347,9 @@ pub fn extract_file_outcomes<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, false, true, None, None, consume)
+    extract_file_outcomes_impl(
+        path, source, expected, false, true, None, None, None, None, consume,
+    )
 }
 
 /// Search a source without testing whether the saved discovery metadata is
@@ -1337,7 +1363,9 @@ pub(crate) fn extract_file_outcomes_for_search<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, false, false, None, None, consume)
+    extract_file_outcomes_impl(
+        path, source, expected, false, false, None, None, None, None, consume,
+    )
 }
 
 pub(crate) fn extract_file_build_outcomes<F>(
@@ -1349,16 +1377,20 @@ pub(crate) fn extract_file_build_outcomes<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, true, false, None, None, consume)
+    extract_file_outcomes_impl(
+        path, source, expected, true, false, None, None, None, None, consume,
+    )
 }
 
 /// Capture the exact whole-file digest while the fresh builder's normal
 /// extraction read is still resident. An unreadable file has no fingerprint.
-pub(crate) fn extract_file_build_outcomes_hashed<F>(
+pub(crate) fn extract_file_build_outcomes_hashed_with_buffer<F>(
     path: &Path,
     source: &dyn SourceReader,
     expected: SourceRevision,
+    buffer: &mut Vec<u8>,
     profile: Option<&mut SourceBuildSample>,
+    buffer_profile: Option<&mut SourceBufferProfile>,
     consume: F,
 ) -> Result<(ExtractionCounters, Option<[u8; 32]>), String>
 where
@@ -1373,6 +1405,8 @@ where
         false,
         Some(&mut fingerprint),
         profile,
+        Some(buffer),
+        buffer_profile,
         consume,
     )?;
     Ok((counters, fingerprint))
@@ -1386,6 +1420,8 @@ fn extract_file_outcomes_impl<F>(
     check_freshness: bool,
     fingerprint: Option<&mut Option<[u8; 32]>>,
     mut profile: Option<&mut SourceBuildSample>,
+    buffer: Option<&mut Vec<u8>>,
+    mut buffer_profile: Option<&mut SourceBufferProfile>,
     mut consume: F,
 ) -> Result<ExtractionCounters, String>
 where
@@ -1411,16 +1447,33 @@ where
     if check_freshness {
         check_revision(path, &file, expected)?;
     }
-    let mut bytes = Vec::new();
+    let reusable = buffer.is_some();
+    let mut owned_bytes = Vec::new();
+    let bytes = buffer.unwrap_or(&mut owned_bytes);
+    bytes.clear();
+    let previous_capacity = bytes.capacity();
+    if reusable {
+        let hint = usize::try_from(expected.size)
+            .unwrap_or(usize::MAX)
+            .min(MAX_RETAINED_BUILD_BUFFER_BYTES);
+        if bytes.capacity() < hint {
+            bytes.reserve(hint);
+        }
+    }
     let read_result = if let Some(sample) = profile.as_deref_mut() {
         TimedBuildReader {
             inner: &mut file,
             sample,
         }
-        .read_to_end(&mut bytes)
+        .read_to_end(&mut *bytes)
     } else {
-        file.read_to_end(&mut bytes)
+        file.read_to_end(&mut *bytes)
     };
+    if let Some(stats) = buffer_profile.as_deref_mut() {
+        stats.files_read += 1;
+        stats.growth_files += u64::from(bytes.capacity() > previous_capacity);
+        stats.peak_capacity_bytes = stats.peak_capacity_bytes.max(bytes.capacity() as u64);
+    }
     if let Err(error) = read_result {
         consume(SourceOutcome::Unreadable {
             diagnostic: ReaderDiagnostic::new(
@@ -1434,7 +1487,7 @@ where
     let hash_started = profile.as_ref().map(|_| Instant::now());
     if let Some(fingerprint) = fingerprint {
         if bytes.len() as u64 == expected.size {
-            *fingerprint = Some(Sha256::digest(&bytes).into());
+            *fingerprint = Some(Sha256::digest(bytes.as_slice()).into());
         }
     }
     if let (Some(started), Some(sample)) = (hash_started, profile.as_deref_mut()) {
@@ -1461,7 +1514,7 @@ where
             consume(SourceOutcome::Malformed {
                 range,
                 diagnostic,
-                bytes,
+                bytes: std::mem::take(bytes),
             })?;
             if check_freshness {
                 check_revision(path, &file, expected)?;

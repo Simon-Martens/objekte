@@ -34,9 +34,10 @@ use crate::repository::{
 use crate::sorting::{SortBuilder, SortKey};
 use crate::source::{
     BoundedBuildChunk, BoundedJsonLines, DiagnosticCategory, ExtractedRecord, PreparedSource,
-    ReaderDiagnostic, ReaderFailure, SourceBuildSample, SourceOutcome, TextDerivation,
-    extract_file_build_outcomes, extract_file_build_outcomes_hashed, extract_framed_build_outcomes,
-    frame_file_for_build, read_record_range_for_build, visit_logical_strings_and_empty,
+    ReaderDiagnostic, ReaderFailure, SourceBufferProfile, SourceBuildSample, SourceOutcome,
+    TextDerivation, extract_file_build_outcomes, extract_file_build_outcomes_hashed_with_buffer,
+    extract_framed_build_outcomes, frame_file_for_build, read_record_range_for_build,
+    trim_oversized_build_buffer, visit_logical_strings_and_empty,
 };
 use crate::workload::BigramAlphabet;
 
@@ -167,6 +168,11 @@ pub struct BuildWorkProfile {
     pub custom_text_ns: u64,
     pub batch_finish_ns: u64,
     pub batches: u64,
+    pub input_buffer_files_read: u64,
+    pub input_buffer_growth_files: u64,
+    pub input_buffer_peak_capacity_bytes: u64,
+    pub input_buffer_oversized_drops: u64,
+    pub input_buffer_batch_end_capacity_bytes: u64,
 }
 
 
@@ -193,6 +199,13 @@ impl BuildWorkProfile {
         self.custom_text_ns += other.custom_text_ns;
         self.batch_finish_ns += other.batch_finish_ns;
         self.batches += other.batches;
+        self.input_buffer_files_read += other.input_buffer_files_read;
+        self.input_buffer_growth_files += other.input_buffer_growth_files;
+        self.input_buffer_peak_capacity_bytes = self
+            .input_buffer_peak_capacity_bytes
+            .max(other.input_buffer_peak_capacity_bytes);
+        self.input_buffer_oversized_drops += other.input_buffer_oversized_drops;
+        self.input_buffer_batch_end_capacity_bytes += other.input_buffer_batch_end_capacity_bytes;
     }
 }
 
@@ -746,6 +759,8 @@ fn process_batch_profiled(
     let mut files = Vec::with_capacity(file_ids.len());
     let (mut record_parses, mut failed_parses) = (0, 0);
     let mut file_fingerprints = Vec::with_capacity(file_ids.len());
+    let mut input_buffer = Vec::new();
+    let mut input_buffer_profile = SourceBufferProfile::default();
     for &file_id in file_ids {
         let original = &source_files[file_id.0 as usize];
         let path = root.join(&original.relative_path);
@@ -756,11 +771,13 @@ fn process_batch_profiled(
         builder.profile_record_index = 0;
         let mut source_sample = SourceBuildSample::default();
         let mut callback_ns = 0u64;
-        let (stats, fingerprint) = extract_file_build_outcomes_hashed(
+        let (stats, fingerprint) = extract_file_build_outcomes_hashed_with_buffer(
             &path,
             source.reader(),
             file.revision,
+            &mut input_buffer,
             sampled.then_some(&mut source_sample),
+            profile_build.then_some(&mut input_buffer_profile),
             |outcome| {
                 let started = sampled.then(Instant::now);
                 let result = builder.outcome(&mut file, &path, outcome, None);
@@ -770,6 +787,11 @@ fn process_batch_profiled(
                 result
             },
         )?;
+        if trim_oversized_build_buffer(&mut input_buffer) {
+            if profile_build {
+                builder.profile.input_buffer_oversized_drops += 1;
+            }
+        }
         if sampled {
             builder.profile.sampled_files += 1;
             builder.profile.sampled_file_bytes += source_sample.bytes_read;
@@ -792,6 +814,12 @@ fn process_batch_profiled(
             records: start..builder.records.len(),
             first_range: true,
         });
+    }
+    if profile_build {
+        builder.profile.input_buffer_files_read += input_buffer_profile.files_read;
+        builder.profile.input_buffer_growth_files += input_buffer_profile.growth_files;
+        builder.profile.input_buffer_peak_capacity_bytes = input_buffer_profile.peak_capacity_bytes;
+        builder.profile.input_buffer_batch_end_capacity_bytes += input_buffer.capacity() as u64;
     }
     let finish_started = profile_build.then(Instant::now);
     let mut batch = builder.finish(files, record_parses, failed_parses)?;
