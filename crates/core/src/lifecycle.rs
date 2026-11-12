@@ -1097,7 +1097,29 @@ fn execute_extended_pass(
     if job.cancelled.load(Ordering::Acquire) {
         return Err(IndexError::Cancelled);
     }
+    let limited_collections = extended
+        .collections()
+        .iter()
+        .filter_map(|collection| {
+            let inference = collection.inference.as_ref()?;
+            let limited = !inference.report.complete
+                || inference.report.fields.iter().any(|field| {
+                    matches!(
+                        field.index_status,
+                        crate::inference::InferenceIndexStatus::BudgetExceeded
+                            | crate::inference::InferenceIndexStatus::Incomplete
+                    )
+                });
+            limited.then(|| collection.definition.name.clone())
+        })
+        .collect::<Vec<_>>();
     index.publish_extended_repository(expected, extended, options.inference != base.options().inference)?;
+    if !limited_collections.is_empty() {
+        return Err(IndexError::Build(format!(
+            "inference resource limit left partial coverage in: {}",
+            limited_collections.join(", ")
+        )));
+    }
     Ok(())
 }
 
@@ -1651,12 +1673,13 @@ impl Index {
             .inference_index_diagnostics(collection))
     }
 
-    /// Source parses recorded by the latest published construction phase.
+    /// Source parses in this opening's published construction work. Loading a
+    /// snapshot starts at zero; a resumed extended pass counts its own parses.
     pub fn build_parses(&self) -> Result<u64, IndexError> {
         Ok(self.view()?.repository().build_parses())
     }
 
-    /// Failed source parses recorded by the latest published construction phase.
+    /// Failed source parses in this opening's published construction work.
     pub fn build_failed_parses(&self) -> Result<u64, IndexError> {
         Ok(self.view()?.repository().build_failed_parses())
     }
