@@ -590,9 +590,8 @@ impl InferenceBuilder {
         self.paths.insert(owned, index);
         let redundant_or_prohibited = self.config.mode == InferenceMode::AutoIndex
             && schema.is_some_and(|schema| {
-                schema.fields.get(&fields).is_some_and(|field| {
-                    field.indexed || matches!(field.kind, LogicalType::Array(_))
-                }) || schema.is_auto_index_prohibited(&fields)
+                schema.fields.get(&fields).is_some_and(|field| field.indexed)
+                    || schema.is_auto_index_prohibited(&fields)
             });
         self.fields.push(if redundant_or_prohibited {
             FieldState::without_provisional_postings(fields)
@@ -899,7 +898,7 @@ impl InferenceBuilder {
             } else if self.config.mode == InferenceMode::ReportOnly {
                 (InferenceIndexStatus::NotRequested, "report-only mode")
             } else if declared
-                .is_some_and(|field| field.indexed || matches!(field.kind, LogicalType::Array(_)))
+                .is_some_and(|field| field.indexed)
             {
                 (
                     InferenceIndexStatus::Redundant,
