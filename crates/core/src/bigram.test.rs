@@ -1,5 +1,206 @@
 use super::*;
 
+#[derive(Default)]
+struct StreamCollector(String);
+
+impl FoldedSink for StreamCollector {
+    fn ascii(&mut self, byte: u8) {
+        self.0.push(char::from(byte));
+    }
+
+    fn scalar(&mut self, scalar: char) {
+        self.0.push(scalar);
+    }
+}
+
+fn available_fold_backends() -> Vec<FoldBackend> {
+    let native = FoldBackend::native();
+    if native == FoldBackend::Scalar {
+        vec![FoldBackend::Scalar]
+    } else {
+        vec![FoldBackend::Scalar, native]
+    }
+}
+
+#[test]
+fn direct_folded_stream_and_gram_windows_match_full_fold_oracle() {
+    let mut samples = vec![
+        String::new(),
+        "a".into(),
+        "ABC".into(),
+        "a\nb".into(),
+        "aéb".into(),
+        "AßB".into(),
+        "KİΣςσ".into(),
+        "🙂aßb中İ\0Z".into(),
+        (0..=127u8).map(char::from).collect::<String>(),
+        "@ABC[\\]^_`Z{|}~".into(),
+    ];
+    for length in [15, 16, 17, 31, 32, 33, 63, 64, 65] {
+        samples.push("A".repeat(length));
+        for at in [0, length / 2, length.saturating_sub(1)] {
+            let mut mixed = "A".repeat(length);
+            mixed.insert_str(at, "éßİ🙂");
+            samples.push(mixed);
+        }
+    }
+    let alphabet = ['A', 'z', '\n', 'ß', 'é', 'İ', 'K', 'Σ', 'ς', '中', '🙂'];
+    let mut state = 0x2026_1112_5eed_u64;
+    for length in [0, 1, 2, 3, 15, 16, 17, 31, 32, 33, 63, 64, 65, 127] {
+        let sample = (0..length)
+            .map(|_| {
+                state ^= state << 13;
+                state ^= state >> 7;
+                state ^= state << 17;
+                alphabet[state as usize % alphabet.len()]
+            })
+            .collect();
+        samples.push(sample);
+    }
+    for sample in &samples {
+        let oracle = folded_chars(sample).collect::<String>();
+        for backend in available_fold_backends() {
+            let mut collected = StreamCollector::default();
+            walk_folded(sample, backend, &mut collected);
+            assert_eq!(collected.0, oracle, "backend={backend:?} sample={sample:?}");
+            for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+                let mut expected = Vec::new();
+                for_each_gram(oracle.chars(), alphabet, |skip, key| {
+                    expected.push((skip, key));
+                });
+                let mut actual = Vec::new();
+                for_each_segment_gram(sample, alphabet, backend, |skip, key| {
+                    actual.push((skip, key));
+                });
+                assert_eq!(
+                    actual, expected,
+                    "backend={backend:?} alphabet={alphabet:?} sample={sample:?}"
+                );
+            }
+        }
+    }
+}
+
+#[test]
+fn direct_folded_grams_keep_byte_scalar_and_segment_boundaries() {
+    for backend in available_fold_backends() {
+        let collect = |segments: &[&str], alphabet| {
+            let mut normal = HashSet::new();
+            let mut skip = HashSet::new();
+            for &segment in segments {
+                for_each_segment_gram(segment, alphabet, backend, |is_skip, key| {
+                    if is_skip {
+                        skip.insert(key);
+                    } else {
+                        normal.insert(key);
+                    }
+                });
+            }
+            (normal, skip)
+        };
+        let (normal, skip) = collect(&["ABC"], BigramAlphabet::Ascii);
+        assert_eq!(
+            normal,
+            [
+                ascii_pair(b'a', b'b').unwrap(),
+                ascii_pair(b'b', b'c').unwrap()
+            ]
+            .into()
+        );
+        assert_eq!(skip, [ascii_pair(b'a', b'c').unwrap()].into());
+
+        let (normal, skip) = collect(&["a\nb"], BigramAlphabet::Ascii);
+        assert!(normal.is_empty());
+        assert!(skip.contains(&ascii_pair(b'a', b'b').unwrap()));
+        let (normal, _) = collect(&["a\nb"], BigramAlphabet::Unicode);
+        assert!(normal.contains(&unicode_pair('a', '\n')));
+        assert!(normal.contains(&unicode_pair('\n', 'b')));
+
+        let (normal, skip) = collect(&["ab", "cd"], BigramAlphabet::Ascii);
+        assert!(!normal.contains(&ascii_pair(b'b', b'c').unwrap()));
+        assert!(!skip.contains(&ascii_pair(b'a', b'c').unwrap()));
+
+        let (_, skip) = collect(&["aéb"], BigramAlphabet::Ascii);
+        assert!(!skip.contains(&ascii_pair(b'a', b'b').unwrap()));
+        let (_, skip) = collect(&["aéb"], BigramAlphabet::Unicode);
+        assert!(skip.contains(&unicode_pair('a', 'b')));
+
+        let (normal, skip) = collect(&["AßB"], BigramAlphabet::Ascii);
+        assert!(normal.contains(&ascii_pair(b'a', b's').unwrap()));
+        assert!(normal.contains(&ascii_pair(b's', b's').unwrap()));
+        assert!(normal.contains(&ascii_pair(b's', b'b').unwrap()));
+        assert!(skip.contains(&ascii_pair(b'a', b's').unwrap()));
+    }
+}
+
+/// Manual kernel comparison including full gram emission, not merely byte
+/// conversion. Run with `cargo test -p objekte-core --release --locked
+/// benchmark_folded_gram_emission -- --ignored --nocapture`.
+#[test]
+#[ignore]
+fn benchmark_folded_gram_emission() {
+    use std::hint::black_box;
+    use std::time::Instant;
+
+    let cases = [
+        ("short-ascii", "The quick Brown FOX".to_owned()),
+        ("ascii-31", "A".repeat(31)),
+        ("ascii-32", "A".repeat(32)),
+        ("ascii-64", "A".repeat(64)),
+        ("ascii-128", "A".repeat(128)),
+        (
+            "long-ascii",
+            "The quick Brown FOX jumps over lazy dogs. ".repeat(64),
+        ),
+        (
+            "mixed",
+            "The Straße near Müller and İpek has Σςσ records. ".repeat(32),
+        ),
+        ("unicode", "中文🙂Σςσİßé 中🙂界 ".repeat(64)),
+    ];
+    let backends = available_fold_backends();
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        for (name, text) in &cases {
+            let iterations = (2_000_000 / text.len()).max(2_000);
+            for role in ["reference", "scalar", "native"] {
+                if role == "native" && backends.len() == 1 {
+                    continue;
+                }
+                let start = Instant::now();
+                let mut checksum = 0u64;
+                for _ in 0..iterations {
+                    let mut tally = |skip: bool, key: u64| {
+                        checksum = checksum.wrapping_add(key ^ (skip as u64));
+                    };
+                    match role {
+                        "reference" => {
+                            for_each_gram(folded_chars(black_box(text)), alphabet, &mut tally)
+                        }
+                        "scalar" => for_each_segment_gram(
+                            black_box(text),
+                            alphabet,
+                            FoldBackend::Scalar,
+                            &mut tally,
+                        ),
+                        "native" => for_each_segment_gram(
+                            black_box(text),
+                            alphabet,
+                            backends[1],
+                            &mut tally,
+                        ),
+                        _ => unreachable!(),
+                    }
+                }
+                println!(
+                    "alphabet={alphabet:?} case={name} role={role} bytes={} iterations={iterations} elapsed_ns={} checksum={checksum}",
+                    text.len(),
+                    start.elapsed().as_nanos()
+                );
+            }
+        }
+    }
+}
+
 fn independent_index(records: &[Vec<String>], alphabet: BigramAlphabet, base: u32) -> BigramIndex {
     let mut index = BigramIndex::new(alphabet);
     index.record_count = base + records.len() as u32;
