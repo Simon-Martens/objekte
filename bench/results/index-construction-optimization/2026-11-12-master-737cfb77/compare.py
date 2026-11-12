@@ -65,45 +65,72 @@ def main():
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--alphabet', choices=['ascii', 'unicode'], required=True)
     parser.add_argument('--workers', default='auto')
-    parser.add_argument('--pairs', type=int, required=True)
+    pair_mode = parser.add_mutually_exclusive_group(required=True)
+    pair_mode.add_argument('--pairs', type=int, help='pairs in a new comparison')
+    pair_mode.add_argument('--append-pairs', type=int, help='additional pairs in an existing comparison')
     parser.add_argument('--profile', action='store_true')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
     for name in ['control_repo', 'candidate_repo', 'control_bin', 'candidate_bin', 'root', 'out']:
         setattr(args, name, getattr(args, name).resolve())
-    args.out.mkdir(parents=True, exist_ok=False)
+    appending = args.append_pairs is not None
+    if (args.append_pairs if appending else args.pairs) < 1:
+        parser.error('pair count must be positive')
+    if not appending:
+        args.out.mkdir(parents=True, exist_ok=False)
     config = {name: str(getattr(args, name)) for name in
               ['control_repo', 'candidate_repo', 'control_bin', 'candidate_bin', 'root']}
-    config.update(alphabet=args.alphabet, workers=args.workers, pairs=args.pairs,
+    config.update(alphabet=args.alphabet, workers=args.workers,
                   profile=args.profile, control_revision=revision(args.control_repo),
                   candidate_revision=revision(args.candidate_repo),
                   control_sha256=hashlib.file_digest(args.control_bin.open('rb'), 'sha256').hexdigest(),
                   candidate_sha256=hashlib.file_digest(args.candidate_bin.open('rb'), 'sha256').hexdigest())
-    (args.out / 'config.json').write_text(json.dumps(config, indent=2) + '\n')
-    rows = []
-    with (args.out / 'runs.jsonl').open('w') as output:
-        for role in ['control', 'candidate']:
-            row = run(role, -1, True, args, args.out)
-            rows.append(row)
-            output.write(json.dumps(row) + '\n'); output.flush()
-            print(f'warmup {role}: {row["build_ns"]/1e6:.3f} ms', flush=True)
-        for pair in range(args.pairs):
+    if appending:
+        previous = json.loads((args.out / 'config.json').read_text())
+        if {key: value for key, value in previous.items() if key != 'pairs'} != config:
+            raise RuntimeError('append parameters, revisions, or binary hashes changed')
+        start_pair = previous['pairs']
+        total_pairs = start_pair + args.append_pairs
+        rows = [json.loads(line) for line in (args.out / 'runs.jsonl').read_text().splitlines()]
+        expected = {(-1, role, True) for role in ('control', 'candidate')}
+        expected.update((pair, role, False) for pair in range(start_pair)
+                        for role in ('control', 'candidate'))
+        actual = [(row['pair'], row['role'], row['warmup']) for row in rows]
+        if len(actual) != len(expected) or set(actual) != expected:
+            raise RuntimeError('existing runs are incomplete or duplicated; refusing append')
+        if not (args.out / 'summary.json').exists():
+            raise RuntimeError('existing comparison has no completed summary')
+    else:
+        start_pair = 0
+        total_pairs = args.pairs
+        rows = []
+    with (args.out / 'runs.jsonl').open('a' if appending else 'w') as output:
+        if not appending:
+            config['pairs'] = total_pairs
+            (args.out / 'config.json').write_text(json.dumps(config, indent=2) + '\n')
+            for role in ['control', 'candidate']:
+                row = run(role, -1, True, args, args.out)
+                rows.append(row)
+                output.write(json.dumps(row) + '\n'); output.flush()
+                print(f'warmup {role}: {row["build_ns"]/1e6:.3f} ms', flush=True)
+        for pair in range(start_pair, total_pairs):
             order = ['control', 'candidate'] if pair % 2 == 0 else ['candidate', 'control']
             for role in order:
                 row = run(role, pair, False, args, args.out)
                 row['order'] = order
                 rows.append(row)
                 output.write(json.dumps(row) + '\n'); output.flush()
-                print(f'pair {pair+1}/{args.pairs} {role}: {row["build_ns"]/1e6:.3f} ms', flush=True)
+                print(f'pair {pair+1}/{total_pairs} {role}: {row["build_ns"]/1e6:.3f} ms', flush=True)
+    config['pairs'] = total_pairs
     measured = [row for row in rows if not row['warmup']]
     identity = [(row['identity'], row['corpus_fingerprint'], row['schema_fingerprint'],
                  row['resolved_workers']) for row in measured]
     if any(value != identity[0] for value in identity):
         raise RuntimeError('build corpus/index counters differ between measurements')
     controls = [next(row for row in measured if row['pair'] == pair and row['role'] == 'control')
-                for pair in range(args.pairs)]
+                for pair in range(total_pairs)]
     candidates = [next(row for row in measured if row['pair'] == pair and row['role'] == 'candidate')
-                  for pair in range(args.pairs)]
+                  for pair in range(total_pairs)]
     deltas = [b['build_ns'] - a['build_ns'] for a,b in zip(controls,candidates)]
     def summarize(seq):
         vals = list(seq)
@@ -121,6 +148,7 @@ def main():
                'schema_fingerprint': measured[0]['schema_fingerprint'],
                'resolved_workers': measured[0]['resolved_workers']}
     (args.out / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+    (args.out / 'config.json').write_text(json.dumps(config, indent=2) + '\n')
     print('paired median candidate-control:', f'{summary["paired_delta_ns"]["median"]/1e6:+.3f} ms',
           f'({summary["paired_delta_percent"]["median"]:+.3f}%)', flush=True)
 
