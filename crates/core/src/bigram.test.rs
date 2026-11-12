@@ -395,13 +395,6 @@ fn packed_columns_are_contiguous_and_reject_malformed_descriptors() {
         assert_eq!(contribution.chunks.len(), 1);
         assert_eq!(contribution.chunks[0].base, 0);
         assert_eq!(contribution.chunks[0].count, 65);
-        assert_eq!(
-            contribution.estimated_merge_work(),
-            contribution.chunks[0].normal.spans.len()
-                + contribution.chunks[0].normal.blocks.len()
-                + contribution.chunks[0].skip.spans.len()
-                + contribution.chunks[0].skip.blocks.len()
-        );
         for columns in [&contribution.chunks[0].normal, &contribution.chunks[0].skip] {
             let mut at = 0;
             for span in &columns.spans {

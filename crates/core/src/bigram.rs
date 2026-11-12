@@ -701,17 +701,6 @@ impl BigramContribution {
         stats
     }
 
-    /// Relative merge weight for the admission scheduler. These lengths are
-    /// already known; sizing work groups never rescans records or gram data.
-    pub(crate) fn estimated_merge_work(&self) -> usize {
-        self.chunks.iter().fold(0usize, |work, chunk| {
-            work.saturating_add(chunk.normal.spans.len())
-                .saturating_add(chunk.normal.blocks.len())
-                .saturating_add(chunk.skip.spans.len())
-                .saturating_add(chunk.skip.blocks.len())
-        })
-    }
-
     pub fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
         let validation_started = storage_diagnostic_enabled().then(Instant::now);
         if self.alphabet != batch.alphabet || self.record_count != base {
