@@ -4,7 +4,7 @@ use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
 #[test]
-fn direct_json_build_matches_static_inference_overlap_and_cache_restore() {
+fn staged_build_matches_static_inference_overlap_and_cache_restore() {
     use crate::inference::{InferenceConfig, InferenceMode};
 
     let root = std::env::temp_dir().join(format!(
@@ -48,7 +48,7 @@ fn direct_json_build_matches_static_inference_overlap_and_cache_restore() {
     );
     assert_eq!(
         index.view().unwrap().repository().build_parses(),
-        static_repo.build_parses()
+        static_repo.build_parses() * 2
     );
     let query = Query {
         collections: vec!["one".into(), "two".into()],

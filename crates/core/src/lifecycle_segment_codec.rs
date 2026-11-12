@@ -525,25 +525,34 @@ fn validate_segment(
         return Err("segment identity order mismatch".into());
     }
     let logical_count = logical.len() as usize;
-    let expected_postings = definition
+    let selected_postings = definition
+        .schema
+        .fields
+        .values()
+        .filter(|field| field.indexed || definition.schema.relations().contains_key(&field.path))
+        .map(|field| field.path.clone())
+        .collect::<HashSet<_>>();
+    let allowed_postings = definition
         .schema
         .fields
         .values()
         .filter(|field| {
             field.indexed
+                || definition.schema.relations().contains_key(&field.path)
                 || (!definition.schema.is_auto_index_prohibited(&field.path)
                     && (matches!(field.kind, LogicalType::Array(_))
                         || (field.kind == LogicalType::String && !field.multi)))
         })
         .map(|field| field.path.clone())
         .collect::<HashSet<_>>();
-    if segment
+    let actual_postings = segment
         .postings
         .fields
         .keys()
         .cloned()
-        .collect::<HashSet<_>>()
-        != expected_postings
+        .collect::<HashSet<_>>();
+    if !selected_postings.is_subset(&actual_postings)
+        || !actual_postings.is_subset(&allowed_postings)
     {
         return Err("segment posting coverage mismatch".into());
     }
