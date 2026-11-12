@@ -2000,81 +2000,22 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
         assert!(restored.startup().restored);
-        let available = std::thread::available_parallelism().map_or(1, NonZeroUsize::get);
-        let four_workers = Repository::open_with_options(
+        let parallel = Repository::open_with_options(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
                 snapshot_mode: SnapshotMode::Disabled,
-                build_workers: NonZeroUsize::new(available.min(4)),
-                profile_build: true,
+                build_workers: NonZeroUsize::new(
+                    std::thread::available_parallelism()
+                        .map_or(1, NonZeroUsize::get)
+                        .min(4),
+                ),
                 ..options
             },
         )
         .unwrap();
-        assert!(!four_workers.startup().restored);
-        let breakdown = &four_workers
-            .startup()
-            .build_profile
-            .as_ref()
-            .unwrap()
-            .admission_by_collection["data"];
-        assert_eq!(breakdown.parallel_batches, 0);
-        assert!(breakdown.merge_join_ns >= breakdown.parallel_group_overlap_ns);
-        let eight_workers = (available >= 8)
-            .then(|| {
-                Repository::open_with_options(
-                    &root,
-                    vec![definition.clone()],
-                    RepositoryOptions {
-                        snapshot_mode: SnapshotMode::Disabled,
-                        build_workers: NonZeroUsize::new(8),
-                        profile_build: true,
-                        ..options
-                    },
-                )
-            })
-            .transpose()
-            .unwrap();
-        if let Some(eight_workers) = eight_workers.as_ref() {
-            let breakdown = &eight_workers
-                .startup()
-                .build_profile
-                .as_ref()
-                .unwrap()
-                .admission_by_collection["data"];
-            assert_eq!(breakdown.parallel_batches, 0);
-        }
-        let parallel = (available >= 16)
-            .then(|| {
-                Repository::open_with_options(
-                    &root,
-                    vec![definition.clone()],
-                    RepositoryOptions {
-                        snapshot_mode: SnapshotMode::Disabled,
-                        build_workers: NonZeroUsize::new(16),
-                        profile_build: true,
-                        ..options
-                    },
-                )
-            })
-            .transpose()
-            .unwrap();
-        if let Some(parallel) = parallel.as_ref() {
-            let breakdown = &parallel
-                .startup()
-                .build_profile
-                .as_ref()
-                .unwrap()
-                .admission_by_collection["data"];
-            assert!(breakdown.parallel_batches > 0);
-            assert!(breakdown.merge_join_ns >= breakdown.parallel_group_overlap_ns);
-        }
-        for repo in [&built, &restored, &four_workers]
-            .into_iter()
-            .chain(eight_workers.iter())
-            .chain(parallel.iter())
-        {
+        assert!(!parallel.startup().restored);
+        for repo in [&built, &restored, &parallel] {
             let collection = &repo.collections()[0];
             assert_eq!(collection.generation.files.len(), 515);
             assert_eq!(collection.generation.records.len(), 514);
@@ -2153,18 +2094,14 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             assert_eq!(custom.skip, direct.skip);
         }
         let a = &built.collections()[0];
-        let comparison = parallel
-            .as_ref()
-            .or(eight_workers.as_ref())
-            .unwrap_or(&four_workers);
-        let b = &comparison.collections()[0];
+        let b = &parallel.collections()[0];
         assert_eq!(
             serde_json::to_value(&a.generation).unwrap(),
             serde_json::to_value(&b.generation).unwrap()
         );
         assert_eq!(
             serde_json::to_value(&built.files().files).unwrap(),
-            serde_json::to_value(&comparison.files().files).unwrap()
+            serde_json::to_value(&parallel.files().files).unwrap()
         );
         assert_eq!(a.logical_records, b.logical_records);
         assert_eq!(a.empty_array_records, b.empty_array_records);

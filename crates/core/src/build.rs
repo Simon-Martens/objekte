@@ -2364,7 +2364,6 @@ pub(crate) fn process_file_batches(
 
 
 pub(crate) struct CollectionAdmission<'a> {
-    pub pool: &'a ThreadPool,
     pub inventory: &'a mut FileInventory,
     pub builder: &'a mut CollectionBuilder,
     pub postings: &'a mut PostingCollection,
@@ -2380,8 +2379,8 @@ pub(crate) struct CollectionAdmission<'a> {
 }
 
 
-/// Optional aggregate timing of ordered admission. Component durations are
-/// service times and may overlap; only elapsed intervals add to wall time.
+/// Optional aggregate timing of the ordered merge. Values from separate
+/// batches are summed; `remainder_ns` includes timer and drop boundaries.
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct AdmissionBreakdown {
     pub batches: u64,
@@ -2390,9 +2389,6 @@ pub struct AdmissionBreakdown {
     pub callback_ns: u64,
     pub total_ns: u64,
     pub record_inventory_ns: u64,
-    pub merge_join_ns: u64,
-    pub parallel_batches: u64,
-    pub parallel_group_overlap_ns: u64,
     pub postings_ns: u64,
     pub inference_ns: u64,
     pub relations_ns: u64,
@@ -2400,7 +2396,6 @@ pub struct AdmissionBreakdown {
     pub bigrams_ns: u64,
     pub structural_facts_ns: u64,
     pub sorting_ns: u64,
-    /// Admission wall time outside the non-overlapping elapsed intervals.
     pub remainder_ns: u64,
 }
 
@@ -2413,9 +2408,6 @@ impl AdmissionBreakdown {
         self.callback_ns += other.callback_ns;
         self.total_ns += other.total_ns;
         self.record_inventory_ns += other.record_inventory_ns;
-        self.merge_join_ns += other.merge_join_ns;
-        self.parallel_batches += other.parallel_batches;
-        self.parallel_group_overlap_ns += other.parallel_group_overlap_ns;
         self.postings_ns += other.postings_ns;
         self.inference_ns += other.inference_ns;
         self.relations_ns += other.relations_ns;
@@ -2424,31 +2416,6 @@ impl AdmissionBreakdown {
         self.structural_facts_ns += other.structural_facts_ns;
         self.sorting_ns += other.sorting_ns;
         self.remainder_ns += other.remainder_ns;
-    }
-}
-
-
-#[derive(Default)]
-struct MergeGroupTiming {
-    started: Option<Instant>,
-    finished: Option<Instant>,
-    postings_ns: u64,
-    inference_ns: u64,
-    relations_ns: u64,
-    custom_postings_ns: u64,
-    bigrams_ns: u64,
-}
-
-
-fn overlapping_ns(a: &MergeGroupTiming, b: &MergeGroupTiming) -> u64 {
-    match (a.started, a.finished, b.started, b.finished) {
-        (Some(a_start), Some(a_end), Some(b_start), Some(b_end)) => {
-            let start = a_start.max(b_start);
-            let end = a_end.min(b_end);
-            end.checked_duration_since(start)
-                .map_or(0, |duration| duration.as_nanos() as u64)
-        }
-        _ => 0,
     }
 }
 
@@ -2535,120 +2502,61 @@ impl CollectionAdmission<'_> {
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.record_inventory_ns += started.elapsed().as_nanos() as u64;
         }
-        // These groups own disjoint destination indexes. The first group keeps
-        // the established component order, while the second can run alongside
-        // it on the existing extraction pool. Join before the next batch.
-        let profile_enabled = profile.is_some();
-        // At four and eight workers, the merge task competed with extraction
-        // and regressed full ASCII builds. Sixteen workers absorbed it.
-        let parallel = self.pool.current_num_threads() >= 16 && count >= 64;
-        let postings = &mut *self.postings;
-        let inference = &mut *self.inference;
-        let relations = &mut *self.relations;
-        let custom_postings = &mut *self.custom_postings;
-        let raw = &mut *self.raw;
-        let fallback_text = &mut *self.fallback_text;
-        let custom_text = &mut *self.custom_text;
-        let posting_merge = move || {
-            let mut timing = MergeGroupTiming {
-                started: profile_enabled.then(Instant::now),
-                ..Default::default()
-            };
-            let result = (|| -> Result<(), String> {
-                let started = profile_enabled.then(Instant::now);
-                postings.merge_shifted(batch.postings, base)?;
-                if let Some(started) = started {
-                    timing.postings_ns = started.elapsed().as_nanos() as u64;
-                }
-                let started = profile_enabled.then(Instant::now);
-                match (inference.as_mut(), batch.inference) {
-                    (Some(global), Some(local)) => global.merge_shifted(local, base)?,
-                    (None, None) => {}
-                    _ => return Err("inference batch mode mismatch".into()),
-                }
-                if let Some(started) = started {
-                    timing.inference_ns = started.elapsed().as_nanos() as u64;
-                }
-                let started = profile_enabled.then(Instant::now);
-                if relations.len() != batch.relations.len() {
-                    return Err("relation batch coverage mismatch".into());
-                }
-                for (global, local) in relations.iter_mut().zip(batch.relations) {
-                    global.merge_shifted(local, base, count)?;
-                }
-                if let Some(started) = started {
-                    timing.relations_ns = started.elapsed().as_nanos() as u64;
-                }
-                let started = profile_enabled.then(Instant::now);
-                if custom_postings.len() != batch.custom_postings.len() {
-                    return Err("custom posting batch coverage mismatch".into());
-                }
-                for (key, local) in batch.custom_postings {
-                    let global = custom_postings
-                        .get_mut(&key)
-                        .ok_or("custom posting batch missing")?;
-                    global.index.merge_shifted(local.index, base)?;
-                    global.complete &= local.complete;
-                }
-                if let Some(started) = started {
-                    timing.custom_postings_ns = started.elapsed().as_nanos() as u64;
-                }
-                Ok(())
-            })();
-            timing.finished = profile_enabled.then(Instant::now);
-            (result, timing)
-        };
-        let bigram_merge = move || {
-            let mut timing = MergeGroupTiming {
-                started: profile_enabled.then(Instant::now),
-                ..Default::default()
-            };
-            let result = (|| -> Result<(), String> {
-                let started = profile_enabled.then(Instant::now);
-                raw.merge_shifted(batch.raw, base)?;
-                fallback_text.merge_shifted(batch.fallback_text, base)?;
-                if custom_text.len() != batch.custom_text.len() {
-                    return Err("custom bigram batch coverage mismatch".into());
-                }
-                for (key, index) in batch.custom_text {
-                    custom_text
-                        .get_mut(&key)
-                        .ok_or("custom bigram batch missing")?
-                        .merge_shifted(index, base)?;
-                }
-                if let Some(started) = started {
-                    timing.bigrams_ns = started.elapsed().as_nanos() as u64;
-                }
-                Ok(())
-            })();
-            timing.finished = profile_enabled.then(Instant::now);
-            (result, timing)
-        };
-        let merge_started = profile_enabled.then(Instant::now);
-        let ((posting_result, posting_timing), (bigram_result, bigram_timing)) = if parallel {
-            self.pool.install(|| rayon::join(posting_merge, bigram_merge))
-        } else {
-            let posting = posting_merge();
-            let bigram = if posting.0.is_ok() {
-                bigram_merge()
-            } else {
-                (Ok(()), MergeGroupTiming::default())
-            };
-            (posting, bigram)
-        };
-        if let (Some(started), Some(profile)) = (merge_started, profile.as_deref_mut()) {
-            profile.merge_join_ns += started.elapsed().as_nanos() as u64;
-            profile.parallel_batches += u64::from(parallel);
-            profile.parallel_group_overlap_ns += overlapping_ns(&posting_timing, &bigram_timing);
-            profile.postings_ns += posting_timing.postings_ns;
-            profile.inference_ns += posting_timing.inference_ns;
-            profile.relations_ns += posting_timing.relations_ns;
-            profile.custom_postings_ns += posting_timing.custom_postings_ns;
-            profile.bigrams_ns += bigram_timing.bigrams_ns;
+        let started = profile.is_some().then(Instant::now);
+        self.postings.merge_shifted(batch.postings, base)?;
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.postings_ns += started.elapsed().as_nanos() as u64;
         }
-        // Selection is by the old component order, never by completion order.
-        posting_result?;
-        bigram_result?;
+        let started = profile.is_some().then(Instant::now);
+        match (self.inference.as_mut(), batch.inference) {
+            (Some(global), Some(local)) => global.merge_shifted(local, base)?,
+            (None, None) => {}
+            _ => return Err("inference batch mode mismatch".into()),
+        }
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.inference_ns += started.elapsed().as_nanos() as u64;
+        }
+        let started = profile.is_some().then(Instant::now);
+        if self.relations.len() != batch.relations.len() {
+            return Err("relation batch coverage mismatch".into());
+        }
+        for (global, local) in self.relations.iter_mut().zip(batch.relations) {
+            global.merge_shifted(local, base, count)?;
+        }
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.relations_ns += started.elapsed().as_nanos() as u64;
+        }
+        let started = profile.is_some().then(Instant::now);
+        if self.custom_postings.len() != batch.custom_postings.len() {
+            return Err("custom posting batch coverage mismatch".into());
+        }
+        for (key, local) in batch.custom_postings {
+            let global = self
+                .custom_postings
+                .get_mut(&key)
+                .ok_or("custom posting batch missing")?;
+            global.index.merge_shifted(local.index, base)?;
+            global.complete &= local.complete;
+        }
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
+        }
+        let started = profile.is_some().then(Instant::now);
+        self.raw.merge_shifted(batch.raw, base)?;
+        self.fallback_text
+            .merge_shifted(batch.fallback_text, base)?;
+        if self.custom_text.len() != batch.custom_text.len() {
+            return Err("custom bigram batch coverage mismatch".into());
+        }
+        for (key, index) in batch.custom_text {
+            self.custom_text
+                .get_mut(&key)
+                .ok_or("custom bigram batch missing")?
+                .merge_shifted(index, base)?;
+        }
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.bigrams_ns += started.elapsed().as_nanos() as u64;
+        }
         let started = profile.is_some().then(Instant::now);
         append_shifted_bitmap(self.logical_records, &batch.logical_records, base)?;
         append_shifted_bitmap(self.empty_array_records, &batch.empty_array_records, base)?;
