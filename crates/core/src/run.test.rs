@@ -55,13 +55,29 @@ fn search_ready_base_reuses_complete_verified_membership() {
         },
     };
     let cold = view.search(&query).unwrap();
+    let base_plan = view.explain(&query).unwrap();
+    let base_coverage = base_plan[0].extended.as_ref().unwrap();
+    assert_eq!(base_coverage.covered_records, 0);
+    assert_eq!(base_coverage.uncovered_records, 2);
     let warm = view.search(&query).unwrap();
     assert_eq!(cold.count, Some(1));
     assert!(!cold.counters.verified_result_hit);
     assert_eq!(warm.count, cold.count);
     assert_eq!(warm.hits, cold.hits);
     assert!(warm.counters.verified_result_hit);
-    task.cancel_extended();
+    task.resume_extended().unwrap();
+    index.wait_extended().unwrap();
+    let completed = index.view().unwrap();
+    assert_eq!(completed.revision(), view.revision());
+    assert!(completed.capability_revision() >= view.capability_revision());
+    let after_publication = completed.search(&query).unwrap();
+    let complete_plan = completed.explain(&query).unwrap();
+    let complete_coverage = complete_plan[0].extended.as_ref().unwrap();
+    assert_eq!(complete_coverage.covered_records, 2);
+    assert_eq!(complete_coverage.uncovered_records, 0);
+    assert_eq!(complete_coverage.accesses, ["configured_posting:kind"]);
+    assert_eq!(after_publication.hits, cold.hits);
+    assert!(after_publication.counters.verified_result_hit);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -1281,7 +1297,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
     assert_eq!(all.count, reference.count);
     assert_eq!(all.hits, reference.hits);
     let (analyzed, traces) =
-        search_analyze_segmented(&repo, &query, &base_active, &segments, &catalog, revision)
+        search_analyze_segmented(&repo, &query, &base_active, &segments, &catalog, revision, &[], revision)
             .unwrap();
     assert_eq!(analyzed.hits, all.hits);
     assert_eq!(traces.len(), 1);

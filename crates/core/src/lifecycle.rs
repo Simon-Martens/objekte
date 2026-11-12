@@ -1369,7 +1369,7 @@ impl Index {
         std::thread::Builder::new()
             .name("objekte-staged-build".into())
             .spawn(move || {
-                let on_catalogue = |files: &crate::inventory::FileInventory| {
+                let on_catalogue = |files: &crate::inventory::FileInventory, complete: bool| {
                     let catalogue = files
                         .files
                         .iter()
@@ -1382,7 +1382,11 @@ impl Index {
                         })
                         .collect::<Vec<_>>();
                     if let Ok(mut status) = opening.status.lock() {
-                        status.phase = StagedBuildPhase::BuildingBase;
+                        status.phase = if complete {
+                            StagedBuildPhase::BuildingBase
+                        } else {
+                            StagedBuildPhase::Discovering
+                        };
                         status.discovered_files = catalogue.len();
                     }
                     if let Ok(mut files) = opening.catalogue.lock() {
@@ -3862,12 +3866,16 @@ impl IndexView {
                 &self.0.segments,
                 &self.0.catalog,
                 self.revision(),
+                &self.0.extended_batches,
+                self.capability_revision(),
             );
         }
-        crate::run::search_analyze_with_active(
+        crate::run::search_analyze_with_extended(
             self.repository(),
             resolved.as_ref(),
             Some(&self.0.active),
+            Some(&self.0.extended_batches),
+            Some(self.capability_revision()),
         )
         .map(|(result, trace)| (self.stamp_result(result), trace))
     }
@@ -3881,9 +3889,17 @@ impl IndexView {
                 &self.0.active,
                 &self.0.segments,
                 self.revision(),
+                &self.0.extended_batches,
+                self.capability_revision(),
             );
         }
-        crate::run::explain_with_active(self.repository(), resolved.as_ref(), Some(&self.0.active))
+        crate::run::explain_with_extended(
+            self.repository(),
+            resolved.as_ref(),
+            Some(&self.0.active),
+            &self.0.extended_batches,
+            self.capability_revision(),
+        )
     }
 
     pub fn search_stream<F>(

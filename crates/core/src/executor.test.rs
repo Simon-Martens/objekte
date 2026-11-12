@@ -56,6 +56,108 @@ fn extended_bounds_compose_exact_field_states_with_uncovered_slots() {
 }
 
 #[test]
+fn randomized_partial_state_publications_bound_source_truth() {
+    use crate::build::ExtendedBatch;
+    use crate::field_state::{FieldStateColumnBuilder, classify_selected};
+    use crate::inventory::{ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry, SourceRevision};
+    use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
+    use crate::reference::{RecordContext, Schema, eval_filter};
+    use std::collections::HashSet;
+
+    let variants = [
+        serde_json::json!({}),
+        serde_json::json!({"x":null}),
+        serde_json::json!({"x":""}),
+        serde_json::json!({"x":"text"}),
+        serde_json::json!({"x":0}),
+        serde_json::json!({"x":-3}),
+        serde_json::json!({"x":false}),
+        serde_json::json!({"x":true}),
+        serde_json::json!({"x":[]}),
+        serde_json::json!({"x":[null,"text"]}),
+        serde_json::json!({"x":{}}),
+        serde_json::json!({"x":{"nested":1}}),
+    ];
+    let mut seed = 0x9e37_79b9u32;
+    let records = (0..64).map(|_| {
+        seed ^= seed << 13;
+        seed ^= seed >> 17;
+        seed ^= seed << 5;
+        Value::from_json(variants[(seed as usize) % variants.len()].clone()).unwrap()
+    }).collect::<Vec<_>>();
+    let schema = Schema::default();
+    let filters = [
+        "x:? = true", "x:string = true", "x:number = true", "x:array = true",
+        "x:object = true", "x:null = true", "x:exists = false",
+        "!(x:string = true)", "x:string = true || x:number = true",
+        "x:? = true && !(x:array = true)",
+        "!(x:null = true || x:string = true)",
+    ].map(|source| {
+        (source, crate::reference::bind_filter(&parse_filter(source).unwrap(), &schema).unwrap())
+    });
+    let revision = SourceRevision { modified_ns: 0, size: 1 };
+    let file = FileEntry {
+        id: FileId(0), relative_path: "data.json".into(), revision,
+        created_ns: None, collections: vec![CollectionId(0)],
+        status: FileStatus::Valid, diagnostics: vec![], omitted_diagnostics: 0,
+    };
+    let mut truths = Vec::new();
+    for (source, bound) in &filters {
+        let mut truth = RoaringBitmap::new();
+        for (slot, value) in records.iter().enumerate() {
+            let record = RecordEntry {
+                slot: RecordSlot(slot as u32), id: RecordId(format!("r{slot}")),
+                file: FileId(0), range: ByteRange { start: 0, end: 1 }, revision,
+                class: RecordClass::Logical, diagnostic_ref: DiagnosticRef(0),
+            };
+            let context = RecordContext {
+                value, source_bytes: None, record: &record, file: &file,
+                collection_name: "data", repository_root: std::path::Path::new("/tmp"),
+            };
+            if eval_filter(bound, &context, &mut HashSet::new()).unwrap() {
+                truth.insert(slot as u32);
+            }
+        }
+        truths.push((source, truth));
+    }
+    let domain: RoaringBitmap = (0..64).collect();
+    let order = [7, 1, 5, 0, 3, 6, 2, 4];
+    let mut batches = Vec::new();
+    for published in 0..=order.len() {
+        for ((source, bound), (_, truth)) in filters.iter().zip(&truths) {
+            let bounds = extended_filter_bounds(&batches, bound, &domain);
+            assert!(bounds.must.is_subset(truth), "false positive proof: {source}, {published}");
+            assert!(truth.is_subset(&bounds.may), "false negative candidate: {source}, {published}");
+            if published == order.len() {
+                assert_eq!(bounds.may, *truth, "full may: {source}");
+                assert_eq!(bounds.must, *truth, "full must: {source}");
+            }
+        }
+        if published == order.len() { break; }
+        let batch_index = order[published];
+        let mut column = FieldStateColumnBuilder::new();
+        column.cover_slots(&(0..8).collect());
+        for local in 0..8 {
+            let value = &records[batch_index * 8 + local];
+            let Value::Object(map) = value else { unreachable!() };
+            let selected = map.get("x").map(|value| vec![value]);
+            let mask = classify_selected(selected.as_deref()).unwrap();
+            if mask != 0 { column.insert_mask(local as u32, mask); }
+        }
+        let batch = ExtendedBatch {
+            collection: CollectionId(0), base_slot: (batch_index * 8) as u32,
+            record_count: 8, records: Vec::new(),
+            logical_covered: (0..8).collect(),
+            postings: crate::posting::PostingCollection { fields: Default::default() },
+            custom_postings: Default::default(),
+            field_states: [(vec!["x".into()], column.finish())].into(),
+            source_files: Vec::new(),
+        };
+        batches.push(Arc::new(batch));
+    }
+}
+
+#[test]
 fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() {
     use crate::build::{
         FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,
