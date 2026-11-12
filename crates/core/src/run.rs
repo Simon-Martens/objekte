@@ -1795,6 +1795,14 @@ pub(crate) fn annotate_extended_traces(
         let bounds = extended_filter_bounds(group, filter, &domain);
         let mut accesses = BTreeSet::new();
         collect_extended_accesses(group, filter, &domain, &mut accesses);
+        for term in &trace.terms {
+            if term.selected.exact
+                && term.selected.kind == crate::executor::AccessPathKind::Posting
+                && accesses.remove(&format!("source_fallback:{}", term.field))
+            {
+                accesses.insert(format!("resident_posting:{}", term.field));
+            }
+        }
         if accesses.is_empty() {
             continue;
         }
@@ -10460,12 +10468,14 @@ fn search_impl_with_collector<'a>(
                     semijoin_work: Default::default(),
                     planning: PlanningCounters::default(),
                 });
-            if let (Some(filter), Some(batches)) = (
+            if !plan.exact && let (Some(filter), Some(batches)) = (
                 filter.as_ref(),
                 extended_batches
                     .and_then(|groups| groups.get(collection_index))
                     .filter(|batches| !batches.is_empty()),
             ) {
+                // A complete original proof already fixes the candidate set.
+                // Replaying every pass-2 batch only duplicates posting work.
                 let bounds = extended_filter_bounds(batches, filter, &input);
                 let original = plan.candidates.take().unwrap_or_else(|| input.clone());
                 plan.candidates = Some(original & &bounds.may);
