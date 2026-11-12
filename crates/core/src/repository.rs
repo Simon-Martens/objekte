@@ -11,7 +11,7 @@ use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, AtomicUsize, Ordering};
 use std::time::Instant;
 
-use crate::bigram::{BigramContribution, BigramIndex};
+use crate::bigram::{BigramConstructionStats, BigramContribution, BigramIndex, storage_diagnostic_enabled};
 use crate::discovery::{Discovery, discover};
 use crate::inference::{
     InferenceBuildStats, InferenceBuilder, InferenceConfig, InferencePathDiagnostic,
@@ -201,6 +201,15 @@ enum ScheduledBuildJob {
 
 
 impl PendingCollection {
+    fn bigram_storage_stats(&self) -> BigramConstructionStats {
+        let mut stats = self.raw.storage_stats();
+        stats.absorb(self.fallback_text.storage_stats());
+        for contribution in self.custom_text.values() {
+            stats.absorb(contribution.storage_stats());
+        }
+        stats
+    }
+
     fn admit(
         &mut self,
         inventory: &mut FileInventory,
@@ -223,6 +232,14 @@ impl PendingCollection {
         }
         .admit_profiled(batch, profile)
     }
+}
+
+fn pending_bigram_storage_stats(pending: &[PendingCollection]) -> BigramConstructionStats {
+    let mut stats = BigramConstructionStats::default();
+    for collection in pending {
+        stats.absorb(collection.bigram_storage_stats());
+    }
+    stats
 }
 
 
@@ -394,6 +411,7 @@ pub struct StartupStats {
 pub struct BuildProfileStats {
     pub admission_by_collection: BTreeMap<String, crate::build::AdmissionBreakdown>,
     pub admission_schedule: crate::build::AdmissionScheduleProfile,
+    pub contribution_storage: BuildContributionStorageProfile,
     pub discovery_enumeration_ns: u64,
     pub discovery_catalogue_ns: u64,
     pub discovery_metadata_prepare_ns: u64,
@@ -419,6 +437,72 @@ pub struct BuildProfileStats {
     pub extraction_rss_bytes: u64,
     pub finalization_rss_bytes: u64,
     pub work: crate::build::BuildWorkProfile,
+}
+
+/// Opt-in construction capacity samples. Capacity bytes are lower bounds:
+/// hash control bytes, allocator rounding, active workers and channel-held
+/// results are excluded. The ready and admitted peaks need not coincide.
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct BuildContributionStorageProfile {
+    pub peak_global_capacity_bytes: usize,
+    pub peak_admitted_batch_capacity_bytes: usize,
+    pub peak_global_plus_admitted_batch_capacity_bytes: usize,
+    pub peak_ready_capacity_bytes: usize,
+    pub final_global_capacity_bytes: usize,
+    pub final_global_live_payload_bytes: usize,
+    pub final_global_chunks: usize,
+    pub final_global_chunk_capacity: usize,
+    pub final_global_spans: usize,
+    pub final_global_span_capacity: usize,
+    pub final_global_blocks: usize,
+    pub final_global_block_capacity: usize,
+    pub final_global_chunk_capacity_bytes: usize,
+    pub final_global_span_capacity_bytes: usize,
+    pub final_global_block_capacity_bytes: usize,
+    pub chunk_element_size: usize,
+    pub span_element_size: usize,
+    pub block_element_size: usize,
+    pub pending_element_size: usize,
+    pub final_copied_block_bytes: u64,
+    pub final_admitted_chunks: u64,
+    pub max_worker_scratch_peak_capacity_bytes: usize,
+    pub max_worker_scratch_after_flush_capacity_bytes: usize,
+    pub max_pending_peak_capacity_bytes: usize,
+}
+
+impl BuildContributionStorageProfile {
+    fn observe(&mut self, global: BigramConstructionStats, batch: BigramConstructionStats) {
+        self.chunk_element_size = self.chunk_element_size.max(global.chunk_element_size).max(batch.chunk_element_size);
+        self.span_element_size = self.span_element_size.max(global.span_element_size).max(batch.span_element_size);
+        self.block_element_size = self.block_element_size.max(global.block_element_size).max(batch.block_element_size);
+        self.pending_element_size = self.pending_element_size.max(global.pending_element_size).max(batch.pending_element_size);
+        self.peak_global_capacity_bytes = self.peak_global_capacity_bytes
+            .max(global.retained_capacity_bytes);
+        self.peak_admitted_batch_capacity_bytes = self.peak_admitted_batch_capacity_bytes
+            .max(batch.retained_capacity_bytes);
+        self.peak_global_plus_admitted_batch_capacity_bytes = self
+            .peak_global_plus_admitted_batch_capacity_bytes
+            .max(global.retained_capacity_bytes.saturating_add(batch.retained_capacity_bytes));
+        self.final_global_capacity_bytes = global.retained_capacity_bytes;
+        self.final_global_live_payload_bytes = global.live_payload_bytes;
+        self.final_global_chunks = global.chunk_len;
+        self.final_global_chunk_capacity = global.chunk_capacity;
+        self.final_global_spans = global.normal_span_len + global.skip_span_len;
+        self.final_global_span_capacity = global.normal_span_capacity + global.skip_span_capacity;
+        self.final_global_blocks = global.normal_block_len + global.skip_block_len;
+        self.final_global_block_capacity = global.normal_block_capacity + global.skip_block_capacity;
+        self.final_global_chunk_capacity_bytes = global.chunk_capacity * global.chunk_element_size;
+        self.final_global_span_capacity_bytes = self.final_global_span_capacity * global.span_element_size;
+        self.final_global_block_capacity_bytes = self.final_global_block_capacity * global.block_element_size;
+        self.final_copied_block_bytes = global.copied_block_bytes;
+        self.final_admitted_chunks = global.admitted_chunks;
+        self.max_worker_scratch_peak_capacity_bytes = self.max_worker_scratch_peak_capacity_bytes
+            .max(batch.worker_scratch_peak_capacity_bytes);
+        self.max_worker_scratch_after_flush_capacity_bytes = self.max_worker_scratch_after_flush_capacity_bytes
+            .max(batch.worker_scratch_after_flush_capacity_bytes);
+        self.max_pending_peak_capacity_bytes = self.max_pending_peak_capacity_bytes
+            .max(batch.pending_peak_capacity_bytes);
+    }
 }
 
 
@@ -1462,6 +1546,12 @@ impl Repository {
         let mut admit = |collection_index: usize, batch: crate::build::BatchContribution| {
             let callback_started = options.profile_build.then(Instant::now);
             if let Some(profile) = profile.as_mut() {
+                if storage_diagnostic_enabled() {
+                    profile.contribution_storage.observe(
+                        pending_bigram_storage_stats(&pending),
+                        batch.bigram_storage_stats(),
+                    );
+                }
                 profile.work.absorb(&batch.profile);
             }
             for &(file_id, digest) in batch.file_fingerprints() {
@@ -1480,6 +1570,14 @@ impl Repository {
                 .profile_build
                 .then(crate::build::AdmissionBreakdown::default);
             let result = pending[collection_index].admit(&mut files, batch, breakdown.as_mut());
+            if let Some(profile) = profile.as_mut() {
+                if storage_diagnostic_enabled() {
+                    profile.contribution_storage.observe(
+                        pending_bigram_storage_stats(&pending),
+                        BigramConstructionStats::default(),
+                    );
+                }
+            }
             if let (Some(started), Some(mut breakdown), Some(profile)) =
                 (admission_started, breakdown, profile.as_mut())
             {
@@ -1579,6 +1677,8 @@ impl Repository {
             profile.large_file_total_ns = large_file_total_ns;
             profile.large_files = large_files;
             profile.admission_schedule = schedule_stats.admission_schedule;
+            profile.contribution_storage.peak_ready_capacity_bytes =
+                schedule_stats.peak_ready_bigram_capacity_bytes;
         }
         let fingerprints_started = profile.as_ref().map(|_| Instant::now());
         for (file_id, collection, digest) in large_digests {
