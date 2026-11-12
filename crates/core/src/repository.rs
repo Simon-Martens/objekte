@@ -1131,6 +1131,7 @@ impl Repository {
         options: RepositoryOptions,
         sources: SourceRegistry,
         on_catalogue: &dyn Fn(&FileInventory),
+        cancelled: &dyn Fn() -> bool,
     ) -> Result<Self, String> {
         options.inference.validate()?;
         crate::relation::validate_definitions(&definitions)?;
@@ -1145,6 +1146,8 @@ impl Repository {
             crate::build::ConstructionPhase::Base,
             None,
             Some(on_catalogue),
+            None,
+            Some(cancelled),
         )?;
         repository.startup.build_ns = started.elapsed().as_nanos() as u64;
         Ok(repository)
@@ -1167,7 +1170,11 @@ impl Repository {
     /// Reread only the already published file membership. The extended pass
     /// retains the base generation's IDs, locators, text, and relation indexes;
     /// a changed source layout is rejected rather than attaching stale facts.
-    pub(crate) fn build_extended_from_base(base: &Repository) -> Result<Self, String> {
+    pub(crate) fn build_extended_from_base(
+        base: &Repository,
+        on_batch: &dyn Fn(usize, usize),
+        cancelled: &dyn Fn() -> bool,
+    ) -> Result<Self, String> {
         let definitions = base
             .collections
             .iter()
@@ -1184,6 +1191,8 @@ impl Repository {
             crate::build::ConstructionPhase::Extended,
             Some(base),
             None,
+            Some(on_batch),
+            Some(cancelled),
         )?;
         if extended.collections.len() != base.collections.len() {
             return Err("extended collection count changed".into());
@@ -1244,6 +1253,7 @@ impl Repository {
         Self::build_fresh_phase(
             root, definitions, options, sources, discover_sources,
             crate::build::ConstructionPhase::Complete, None, None,
+            None, None,
         )
     }
 
@@ -1256,6 +1266,8 @@ impl Repository {
         phase: crate::build::ConstructionPhase,
         existing: Option<&Repository>,
         on_catalogue: Option<&dyn Fn(&FileInventory)>,
+        on_batch: Option<&dyn Fn(usize, usize)>,
+        cancelled: Option<&dyn Fn() -> bool>,
     ) -> Result<Self, String> {
         let discovery_started = Instant::now();
         let mut files = existing
@@ -1263,6 +1275,9 @@ impl Repository {
             .unwrap_or_else(|| FileInventory::new(root.clone()));
         let mut selected = Vec::new();
         for (collection_index, definition) in definitions.into_iter().enumerate() {
+            if cancelled.is_some_and(|cancelled| cancelled()) {
+                return Err("construction cancelled".into());
+            }
             let source = sources.resolve(&definition.format)?;
             let id =
                 CollectionId(u32::try_from(collection_index).map_err(|_| "too many collections")?);
@@ -1461,6 +1476,11 @@ impl Repository {
         }
         let mut normal = Vec::new();
         let mut admit = |collection_index: usize, batch: crate::build::BatchContribution| {
+            if cancelled.is_some_and(|cancelled| cancelled()) {
+                return Err("construction cancelled".into());
+            }
+            let admitted_files = batch.new_file_count();
+            let admitted_records = batch.record_count();
             for &(file_id, digest) in batch.file_fingerprints() {
                 digest_bindings
                     .get_mut(file_id.0 as usize)
@@ -1469,7 +1489,11 @@ impl Repository {
             }
             build_parses += batch.record_parses;
             build_failed_parses += batch.failed_parses;
-            pending[collection_index].admit(&mut files, batch)
+            pending[collection_index].admit(&mut files, batch)?;
+            if let Some(on_batch) = on_batch {
+                on_batch(admitted_files, admitted_records);
+            }
+            Ok(())
         };
         for job in scheduled {
             match job {
