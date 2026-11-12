@@ -1469,6 +1469,7 @@ impl DesktopView {
             .track_scroll(&self.help_scroll)
             .child(div().text_sm().child("Open a folder and search. Saved queries appear in the sidebar; expand History to revisit recent searches. Save from the application menu, then rename a saved row with F2."))
             .child(div().text_sm().child("Search words go in Search. The funnel reveals Filter; the adjacent icon opens Filter Builder. Search and Filter combine with AND, and Filter suggests fields and indexed values."))
+            .child(div().text_sm().child("Filter tests include field:? = true for nonempty values and field:string, :number, :array, :null, or :object = true for types. Use false to negate a test. The builder's Value control switches between ordinary comparisons and these Boolean tests."))
             .child(div().text_sm().child("A complete quoted JSON string in Filter runs as a CLI-style text query when Search is empty. Batch accepts one CLI query per line."))
             .child(div().text_sm().child("Click a column header to cycle ascending, descending, and unsorted. Headers edit SORT BY in Filter. Drag a header edge to resize; right-click it to wrap text. Columns chooses visible fields. The footer shows the exact match count."))
             .child(div().text_sm().child("Ctrl+O: Open · Ctrl+F: Search · Ctrl+L: Filter · Ctrl+T: New query · Ctrl+W: Close tab · Ctrl+Tab / Ctrl+PageDown: Next tab · Ctrl+Shift+Tab / Ctrl+PageUp: Previous tab · Ctrl+1 / Ctrl+2: Focus left / right pane · F1: Help · Escape: close the nearest panel."))
