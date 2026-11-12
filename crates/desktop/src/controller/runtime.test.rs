@@ -21,6 +21,28 @@ fn staged_catalogue_exposes_stable_file_identity_and_path() {
 }
 
 #[test]
+fn staged_catalogue_groups_shared_files_without_duplicate_rows() {
+    use objekte_search_core::model::{CollectionId, FileId};
+    let files = vec![
+        StagedFile {
+            id: FileId(8), relative_path: PathBuf::from("docs/a.json"),
+            collections: vec![CollectionId(0), CollectionId(1)], size: 21, created_ns: None,
+        },
+        StagedFile {
+            id: FileId(9), relative_path: PathBuf::from("other/b.json"),
+            collections: vec![CollectionId(1)], size: 34, created_ns: None,
+        },
+    ];
+    let (directories, catalogue) = prepare_staged_catalogue(files, &["first".into(), "second".into()]);
+    assert_eq!(directories.all, ["docs", "other"]);
+    assert_eq!(directories.by_collection["first"], ["docs"]);
+    assert_eq!(directories.by_collection["second"], ["docs", "other"]);
+    assert_eq!(&*catalogue.by_collection["first"], &[0]);
+    assert_eq!(&*catalogue.by_collection["second"], &[0, 1]);
+    assert_eq!(catalogue.files.iter().map(|file| file.id).collect::<Vec<_>>(), [8, 9]);
+}
+
+#[test]
 fn latest_query_waits_for_search_ready() {
     let (mut controller, _) = DesktopController::new();
     controller.opening_draft = Some(OpenDraft::default());

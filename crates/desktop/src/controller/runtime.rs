@@ -1530,6 +1530,7 @@ impl DesktopController {
                 let watcher_sender = progress_sender.clone();
                 thread::spawn(move || {
                     let mut last_status = None;
+                    let mut catalogue_sent = false;
                     loop {
                         if progress_token.is_cancelled() {
                             return;
@@ -1542,17 +1543,31 @@ impl DesktopController {
                             });
                             last_status = Some(status.clone());
                         }
-                        if status.phase != StagedBuildPhase::Discovering {
+                        if !catalogue_sent && matches!(
+                            status.phase,
+                            StagedBuildPhase::BuildingBase
+                                | StagedBuildPhase::SearchReady
+                                | StagedBuildPhase::BuildingExtended
+                                | StagedBuildPhase::Complete
+                        ) {
                             if let Ok(files) = task.catalogue() {
                                 let (directories, file_catalogue) = prepare_staged_catalogue(files, &collections);
                                 let _ = watcher_sender.send(WorkerEvent::CatalogueReady {
                                     generation,
-                                    root,
-                                    collections,
+                                    root: root.clone(),
+                                    collections: collections.clone(),
                                     directories,
                                     file_catalogue,
                                 });
+                                catalogue_sent = true;
                             }
+                        }
+                        if matches!(status.phase, StagedBuildPhase::SearchReady
+                            | StagedBuildPhase::BuildingExtended
+                            | StagedBuildPhase::Complete
+                            | StagedBuildPhase::Cancelled
+                            | StagedBuildPhase::Failed)
+                        {
                             return;
                         }
                         thread::sleep(Duration::from_millis(50));
