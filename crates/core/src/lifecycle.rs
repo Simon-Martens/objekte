@@ -1412,27 +1412,23 @@ impl Index {
             .name("objekte-staged-build".into())
             .spawn(move || {
                 let on_catalogue = |files: &crate::inventory::FileInventory, complete: bool| {
-                    let catalogue = files
-                        .files
-                        .iter()
-                        .map(|entry| StagedFile {
+                    if let Ok(mut catalogue) = opening.catalogue.lock() {
+                        let published = catalogue.len();
+                        catalogue.extend(files.files[published..].iter().map(|entry| StagedFile {
                             id: entry.id,
                             relative_path: entry.relative_path.clone(),
                             collections: entry.collections.clone(),
                             size: entry.revision.size,
                             created_ns: entry.created_ns,
-                        })
-                        .collect::<Vec<_>>();
+                        }));
+                    }
                     if let Ok(mut status) = opening.status.lock() {
                         status.phase = if complete {
                             StagedBuildPhase::BuildingBase
                         } else {
                             StagedBuildPhase::Discovering
                         };
-                        status.discovered_files = catalogue.len();
-                    }
-                    if let Ok(mut files) = opening.catalogue.lock() {
-                        *files = catalogue;
+                        status.discovered_files = files.files.len();
                     }
                     opening.ready.notify_all();
                 };

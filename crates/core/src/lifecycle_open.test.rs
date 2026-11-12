@@ -59,6 +59,27 @@ fn discovery_publishes_stable_file_ids_before_catalogue_completion() {
             .collect::<Vec<_>>(),
         ["data/a.json", "data/b.json", "data/c.json"]
     );
+    let task = Index::start_staged_build(
+        &root,
+        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let index = task.wait_search_ready().unwrap();
+    assert_eq!(
+        task.catalogue()
+            .unwrap()
+            .iter()
+            .map(|file| (file.id, file.relative_path.clone()))
+            .collect::<Vec<_>>(),
+        base.files()
+            .files
+            .iter()
+            .map(|file| (file.id, file.relative_path.clone()))
+            .collect::<Vec<_>>()
+    );
+    assert_eq!(task.status().unwrap().discovered_files, 3);
+    index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
 

@@ -1486,6 +1486,7 @@ impl DesktopView {
             .max_h(px((panel_height - 64.).clamp(40., 530.)))
             .track_scroll(&self.help_scroll)
             .child(div().text_sm().child("Open a folder and search. Saved queries appear in the sidebar; expand History to revisit recent searches. Save from the application menu, then rename a saved row with F2."))
+            .child(div().text_sm().child("Files appear as they are discovered. Search becomes available after the base index is ready; selected field indexes may continue building. Open Index for progress, details, pause or resume, and Infer field indexes. Queries remain complete by reading source records when an optional field index is unavailable."))
             .child(div().text_sm().child("Search words go in Search. The funnel reveals Filter; the adjacent icon opens Filter Builder. Search and Filter combine with AND, and Filter suggests fields and indexed values."))
             .child(div().text_sm().child("Filter tests include field:? = true for nonempty values and field:string, :number, :array, :null, or :object = true for types. Use false to negate a test. The builder's Value control switches between ordinary comparisons and these Boolean tests."))
             .child(div().text_sm().child("A complete quoted JSON string in Filter runs as a CLI-style text query when Search is empty. Batch accepts one CLI query per line."))
