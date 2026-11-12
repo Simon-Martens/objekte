@@ -4732,14 +4732,6 @@ impl DesktopController {
     }
 }
 
-fn open_with_preferences(
-    spec: &OpenSpec,
-    token: &CancellationToken,
-) -> OpenCompletion {
-    let session = backend::open(spec, token).map_err(|error| error.to_string())?;
-    finish_open_session(session)
-}
-
 fn open_with_preferences_staged(
     spec: &OpenSpec,
     token: &CancellationToken,
@@ -4793,20 +4785,6 @@ fn staged_files_for_ui(files: Vec<StagedFile>) -> Arc<Vec<CatalogueFile>> {
         collections: file.collections.into_iter().map(|id| id.0).collect(),
         size: file.size,
     }).collect())
-}
-
-fn scan_directories(scan: &SourceScan, collections: &[String]) -> DirectoryCatalog {
-    let all = parent_directories(scan.file_paths());
-    let by_collection = collections
-        .iter()
-        .map(|name| {
-            (
-                name.clone(),
-                parent_directories(scan.file_paths_for_collection(name)),
-            )
-        })
-        .collect();
-    DirectoryCatalog { all, by_collection }
 }
 
 fn parent_directories<'a>(paths: impl Iterator<Item = &'a Path>) -> Vec<String> {

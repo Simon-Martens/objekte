@@ -15,7 +15,7 @@ pub use export::{
     export_all_json, export_all_json_on_view, export_selected_json, export_selected_json_on_view,
 };
 pub use ndjson::{export_query_ndjson, export_query_ndjson_on_view};
-pub use open::{OpenDiagnostics, OpenSpec, OpenedSession, SessionConfiguration, open, open_staged, prepare_scan};
+pub use open::{OpenDiagnostics, OpenSpec, OpenedSession, SessionConfiguration, open, open_staged};
 pub use query::{
     MAX_PAGE_ROWS, QueryPage, QuerySpec, build_query, count_exact, count_exact_on_view, query_page,
     query_page_on_view,

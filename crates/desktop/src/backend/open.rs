@@ -18,7 +18,6 @@ use objekte_search_core::model::{FieldPath, PathRoot};
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions, SnapshotMode, StartupStats};
 use objekte_search_core::repository_configuration::RepositoryConfiguration;
 use objekte_search_core::storage::SnapshotSaveStats;
-use objekte_search_core::source_scan::SourceScan;
 use objekte_search_core::streaming::CancellationToken;
 
 use super::{BackendError, BackendErrorKind};
@@ -115,36 +114,6 @@ impl OpenedSession {
     }
 }
 
-
-/// Perform filesystem discovery, indexing, and optional snapshot writing off the UI thread.
-pub fn prepare_scan(
-    spec: &OpenSpec,
-    cancellation: &CancellationToken,
-) -> Result<Arc<SourceScan>, BackendError> {
-    spec.args
-        .validate_open_options()
-        .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
-    if spec.args.load_index.as_ref().is_some_and(|path| path.trim().is_empty())
-        || spec.args.write_index.as_ref().is_some_and(|path| path.trim().is_empty())
-    {
-        return Err(BackendError::new(
-            BackendErrorKind::Options,
-            "Choose an explicit index location",
-        ));
-    }
-    let paths = spec
-        .args
-        .resolve_paths(&spec.cwd)
-        .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
-    let configured = configure_definitions(&spec.args, &paths)
-        .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
-    if cancellation.is_cancelled() {
-        return Err(BackendError::cancelled());
-    }
-    SourceScan::open(&paths.root, configured.definitions)
-        .map(Arc::new)
-        .map_err(|message| BackendError::new(BackendErrorKind::Open, message))
-}
 
 pub fn open(
     spec: &OpenSpec,
