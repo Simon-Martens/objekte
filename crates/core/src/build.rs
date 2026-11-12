@@ -40,6 +40,26 @@ use crate::source::{
 };
 use crate::workload::BigramAlphabet;
 
+/// Selects the work performed while a source record is resident in a bounded
+/// construction batch. Base work is sufficient for exact source-backed
+/// searches; optional field acceleration is prepared only after publication.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) enum ConstructionPhase {
+    Base,
+    Extended,
+    Complete,
+}
+
+impl ConstructionPhase {
+    fn base(self) -> bool {
+        self != Self::Extended
+    }
+
+    fn extended(self) -> bool {
+        self != Self::Base
+    }
+}
+
 
 #[derive(Clone)]
 pub(crate) struct BatchFile {
@@ -128,6 +148,7 @@ pub(crate) struct BatchContribution {
     postings: PostingCollection,
     inference: Option<InferenceBuilder>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    field_states: HashMap<Vec<String>, crate::field_state::FieldStateColumn>,
     raw: BigramContribution,
     fallback_text: BigramContribution,
     custom_text: HashMap<(Vec<String>, String), BigramContribution>,
@@ -137,6 +158,22 @@ pub(crate) struct BatchContribution {
     relations: Vec<RelationContribution>,
     pub record_parses: u64,
     pub failed_parses: u64,
+}
+
+/// One immutable pass-2 publication unit. Every bitmap and compact column
+/// uses local slots; `base_slot + local_slot` addresses the corresponding
+/// record in the original searchable base generation.
+#[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
+pub(crate) struct ExtendedBatch {
+    pub(crate) collection: CollectionId,
+    pub(crate) base_slot: u32,
+    pub(crate) record_count: u32,
+    pub(crate) records: Vec<RecordEntry>,
+    pub(crate) logical_covered: RoaringBitmap,
+    pub(crate) postings: PostingCollection,
+    pub(crate) custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    pub(crate) field_states: HashMap<Vec<String>, crate::field_state::FieldStateColumn>,
+    pub(crate) source_files: Vec<(FileId, SourceRevision)>,
 }
 
 /// The collection-wide identity and diagnostic observations needed while
@@ -149,6 +186,28 @@ pub(crate) struct BatchMetadata {
 }
 
 impl BatchContribution {
+    pub(crate) fn extended_snapshot(
+        &self,
+        collection: CollectionId,
+        base_slot: u32,
+    ) -> Result<ExtendedBatch, String> {
+        Ok(ExtendedBatch {
+            collection,
+            base_slot,
+            record_count: u32::try_from(self.records.len())
+                .map_err(|_| "extended batch record overflow")?,
+            records: self.records.clone(),
+            logical_covered: self.logical_records.clone(),
+            postings: self.postings.clone(),
+            custom_postings: self.custom_postings.clone(),
+            field_states: self.field_states.clone(),
+            source_files: self
+                .files
+                .iter()
+                .map(|file| (file.entry.id, file.entry.revision))
+                .collect(),
+        })
+    }
     pub(crate) fn file_fingerprints(&self) -> &[(FileId, [u8; 32])] {
         &self.file_fingerprints
     }
@@ -190,6 +249,8 @@ struct BatchBuilder<'a> {
     postings: PostingCollection,
     inference: Option<InferenceBuilder>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    field_states: HashMap<Vec<String>, crate::field_state::FieldStateColumnBuilder>,
+    field_state_absent_covered: HashMap<Vec<String>, RoaringBitmap>,
     raw: BigramBuilder,
     fallback_text: BigramBuilder,
     custom_text: HashMap<(Vec<String>, String), BigramBuilder>,
@@ -197,6 +258,7 @@ struct BatchBuilder<'a> {
     empty_array_records: RoaringBitmap,
     sorting: SortBuilder,
     relations: Vec<RelationContribution>,
+    phase: ConstructionPhase,
 }
 
 
@@ -209,12 +271,13 @@ impl<'a> BatchBuilder<'a> {
         alphabet: BigramAlphabet,
         inference: InferenceConfig,
         inference_jobs: usize,
+        phase: ConstructionPhase,
     ) -> Result<Self, String> {
         let schema = &definition.schema;
         let custom_postings = schema
             .operations
             .iter()
-            .filter(|(_, binding)| binding.operation.posting())
+            .filter(|(_, binding)| phase.extended() && binding.operation.posting())
             .map(|(key, binding)| {
                 (
                     key.clone(),
@@ -237,6 +300,7 @@ impl<'a> BatchBuilder<'a> {
                     })
                     .map(|(key, _)| key),
             )
+            .filter(|_| phase.base())
             .map(|key| {
                 (
                     canonical_custom_text_key(schema, &key.0, &key.1),
@@ -250,22 +314,62 @@ impl<'a> BatchBuilder<'a> {
             collection,
             source,
             records: Vec::new(),
-            postings: PostingCollection::new(schema),
-            inference: InferenceBuilder::with_job_count(inference, true, inference_jobs),
+            postings: {
+                let mut selected = PostingCollection::new(schema);
+                if phase == ConstructionPhase::Base {
+                    selected.fields.retain(|path, _| schema.relations().contains_key(path));
+                } else if phase == ConstructionPhase::Extended {
+                    selected.fields.retain(|path, _| {
+                        schema.fields.get(path).is_some_and(|field| field.indexed)
+                            && !schema.relations().contains_key(path)
+                    });
+                }
+                selected
+            },
+            inference: phase.extended().then(|| {
+                InferenceBuilder::with_job_count(inference, true, inference_jobs)
+            }).flatten(),
             custom_postings,
+            field_states: if phase.extended() {
+                schema
+                    .fields
+                    .values()
+                    .filter(|field| field.indexed)
+                    .map(|field| {
+                        (field.path.clone(), crate::field_state::FieldStateColumnBuilder::new())
+                    })
+                    .collect()
+            } else {
+                HashMap::new()
+            },
+            field_state_absent_covered: if phase.extended() {
+                schema
+                    .fields
+                    .values()
+                    .filter(|field| field.indexed)
+                    .map(|field| (field.path.clone(), RoaringBitmap::new()))
+                    .collect()
+            } else {
+                HashMap::new()
+            },
             raw: BigramBuilder::new(alphabet),
             fallback_text: BigramBuilder::new(alphabet),
             custom_text,
             logical_records: RoaringBitmap::new(),
             empty_array_records: RoaringBitmap::new(),
             sorting: SortBuilder::new(
-                &definition.sort_fields,
+                if phase.extended() { &definition.sort_fields } else { &[] },
                 schema,
                 &definition.sort_locale,
                 definition.sort_options,
                 &definition.sort_overrides,
             )?,
-            relations: RelationContribution::for_schema(schema),
+            relations: if phase.base() {
+                RelationContribution::for_schema(schema)
+            } else {
+                Vec::new()
+            },
+            phase,
         })
     }
 
@@ -319,9 +423,13 @@ impl<'a> BatchBuilder<'a> {
         for relation in &mut self.relations {
             relation.add_unavailable(slot)?;
         }
-        let text = String::from_utf8_lossy(bytes);
-        self.fallback_text
-            .add_record(slot, std::iter::once(text.as_ref()))?;
+        if self.phase.base() {
+            let text = String::from_utf8_lossy(bytes);
+            self.fallback_text
+                .add_record(slot, std::iter::once(text.as_ref()))?;
+        } else {
+            self.fallback_text.add_empty(slot)?;
+        }
         for index in self.custom_text.values_mut() {
             index.add_empty(slot)?;
         }
@@ -428,6 +536,19 @@ impl<'a> BatchBuilder<'a> {
             diagnostic_ref: DiagnosticRef(0),
         });
         self.postings.add(slot, &extracted.value)?;
+        for (path, builder) in &mut self.field_states {
+            let selected = data_values(&extracted.value, path);
+            if let Some(mask) = crate::field_state::classify_selected(selected.as_deref()) {
+                if mask == 0 {
+                    self.field_state_absent_covered
+                        .get_mut(path)
+                        .expect("selected state path is registered")
+                        .insert(slot.0);
+                } else {
+                    builder.insert_mask(slot.0, mask);
+                }
+            }
+        }
         if let Some(inference) = &mut self.inference {
             inference.observe_record_with_schema(
                 slot,
@@ -461,7 +582,10 @@ impl<'a> BatchBuilder<'a> {
             custom.index.add_values(slot, refs.as_deref())?;
         }
         let has_empty_array;
-        if self.source.reader().text_derivation() == TextDerivation::LogicalStringsAfterConversion {
+        if !self.phase.base() {
+            self.raw.add_empty(slot)?;
+            has_empty_array = false;
+        } else if self.source.reader().text_derivation() == TextDerivation::LogicalStringsAfterConversion {
             if let Some(binding) = &self.definition.schema.raw {
                 let mut observed_empty = false;
                 self.raw.add_record_with(slot, |emit| {
@@ -563,7 +687,7 @@ impl<'a> BatchBuilder<'a> {
     }
 
     fn finish(
-        self,
+        mut self,
         files: Vec<BatchFile>,
         record_parses: u64,
         failed_parses: u64,
@@ -573,6 +697,16 @@ impl<'a> BatchBuilder<'a> {
             .into_iter()
             .map(|(key, index)| index.finish_blocks().map(|index| (key, index)))
             .collect::<Result<HashMap<_, _>, _>>()?;
+        let field_states = self
+            .field_states
+            .drain()
+            .map(|(path, mut builder)| {
+                if let Some(absent) = self.field_state_absent_covered.remove(&path) {
+                    builder.cover_slots(&absent);
+                }
+                (path, builder.finish())
+            })
+            .collect();
         Ok(BatchContribution {
             files,
             file_fingerprints: Vec::new(),
@@ -580,6 +714,7 @@ impl<'a> BatchBuilder<'a> {
             postings: self.postings,
             inference: self.inference,
             custom_postings: self.custom_postings,
+            field_states,
             raw: self.raw.finish_blocks()?,
             fallback_text: self.fallback_text.finish_blocks()?,
             custom_text,
@@ -605,6 +740,24 @@ pub(crate) fn process_batch(
     inference: InferenceConfig,
     inference_jobs: usize,
 ) -> Result<BatchContribution, String> {
+    process_batch_phase(
+        root, definition, collection, source, file_ids, source_files, alphabet,
+        inference, inference_jobs, ConstructionPhase::Complete,
+    )
+}
+
+pub(crate) fn process_batch_phase(
+    root: &Path,
+    definition: &CollectionDefinition,
+    collection: CollectionId,
+    source: &PreparedSource,
+    file_ids: &[FileId],
+    source_files: &[SourceFileInput],
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+    phase: ConstructionPhase,
+) -> Result<BatchContribution, String> {
     let mut builder = BatchBuilder::new(
         root,
         definition,
@@ -613,6 +766,7 @@ pub(crate) fn process_batch(
         alphabet,
         inference,
         inference_jobs,
+        phase,
     )?;
     let mut files = Vec::with_capacity(file_ids.len());
     let (mut record_parses, mut failed_parses) = (0, 0);
@@ -762,6 +916,7 @@ fn prepare_unframed_file(
         alphabet,
         inference,
         inference_jobs,
+        ConstructionPhase::Complete,
     )?;
     let path = root.join(&input.relative_path);
     let mut file = input.for_collection(binding.collection);
@@ -1137,6 +1292,7 @@ fn prepare_malformed_supplied_file(
         alphabet,
         inference,
         inference_jobs,
+        ConstructionPhase::Complete,
     )?;
     builder.outcome(
         &mut file,
@@ -1173,6 +1329,26 @@ fn process_framed_batch(
     inference: InferenceConfig,
     inference_jobs: usize,
 ) -> Result<BatchContribution, String> {
+    process_framed_batch_phase(
+        root, original, binding, bytes, ranges, file_offset, preceding_lines,
+        first_range, alphabet, inference, inference_jobs, ConstructionPhase::Complete,
+    )
+}
+
+fn process_framed_batch_phase(
+    root: &Path,
+    original: &SourceFileInput,
+    binding: &FilePreparationBinding<'_>,
+    bytes: &[u8],
+    ranges: &[ByteRange],
+    file_offset: u64,
+    preceding_lines: u64,
+    first_range: bool,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+    phase: ConstructionPhase,
+) -> Result<BatchContribution, String> {
     let path = root.join(&original.relative_path);
     let mut file = original.for_collection(binding.collection);
     let mut builder = BatchBuilder::new(
@@ -1183,6 +1359,7 @@ fn process_framed_batch(
         alphabet,
         inference,
         inference_jobs,
+        phase,
     )?;
     let stats =
         extract_framed_build_outcomes(&path, binding.source.reader(), bytes, ranges, |outcome| {
@@ -1257,9 +1434,10 @@ fn process_unframed_large_file(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     inference_jobs: usize,
+    phase: ConstructionPhase,
     admit: &mut impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
-    let batch = process_batch(
+    let batch = process_batch_phase(
         root,
         definition,
         collection,
@@ -1269,6 +1447,7 @@ fn process_unframed_large_file(
         alphabet,
         inference,
         inference_jobs,
+        phase,
     )?;
     let file_fingerprint = batch
         .file_fingerprints()
@@ -1300,6 +1479,25 @@ pub(crate) fn process_framed_file(
     inference: InferenceConfig,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
+    process_framed_file_phase(
+        pool, root, definition, collection, source, file_id, source_files,
+        alphabet, inference, ConstructionPhase::Complete, admit,
+    )
+}
+
+pub(crate) fn process_framed_file_phase(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    collection: CollectionId,
+    source: PreparedSource,
+    file_id: FileId,
+    source_files: Arc<Vec<SourceFileInput>>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    phase: ConstructionPhase,
+    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<BuildScheduleStats, String> {
     if source.reader().supports_bounded_json_lines_build() {
         return process_bounded_json_lines_file(
             pool,
@@ -1311,6 +1509,7 @@ pub(crate) fn process_framed_file(
             source_files,
             alphabet,
             inference,
+            phase,
             admit,
         );
     }
@@ -1335,6 +1534,7 @@ pub(crate) fn process_framed_file(
             alphabet,
             inference,
             max_jobs,
+            phase,
             &mut admit,
         );
     };
@@ -1388,7 +1588,7 @@ pub(crate) fn process_framed_file(
             let counters = Arc::clone(&counters);
             pool.spawn(move || {
                 let result = counters.run(|| {
-                    process_framed_batch(
+                    process_framed_batch_phase(
                         &root,
                         &source_files[file_id.0 as usize],
                         &FilePreparationBinding {
@@ -1404,6 +1604,7 @@ pub(crate) fn process_framed_file(
                         alphabet,
                         inference,
                         max_jobs,
+                        phase,
                     )
                 });
                 let _ = sender.send((index, result));
@@ -1466,6 +1667,7 @@ fn process_bounded_json_lines_file(
     source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
+    phase: ConstructionPhase,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
@@ -1483,6 +1685,7 @@ fn process_bounded_json_lines_file(
                 alphabet,
                 inference,
                 max_jobs,
+                phase,
                 &mut admit,
             );
         }
@@ -1495,7 +1698,7 @@ fn process_bounded_json_lines_file(
         digest: Some(&mut digest),
         bytes_read: &mut bytes_read,
     }));
-    let mut stats = process_bounded_json_lines_reader(
+    let mut stats = process_bounded_json_lines_reader_phase(
         pool,
         root,
         definition,
@@ -1505,6 +1708,7 @@ fn process_bounded_json_lines_file(
         source_files,
         alphabet,
         inference,
+        phase,
         reader,
         BoundedBuildLimits::default(),
         admit,
@@ -1547,6 +1751,27 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
     source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
+    reader: BoundedJsonLines<R>,
+    limits: BoundedBuildLimits,
+    admit: impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<BuildScheduleStats, String> {
+    process_bounded_json_lines_reader_phase(
+        pool, root, definition, collection, source, file_id, source_files,
+        alphabet, inference, ConstructionPhase::Complete, reader, limits, admit,
+    )
+}
+
+fn process_bounded_json_lines_reader_phase<R: BufRead + Send>(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    collection: CollectionId,
+    source: PreparedSource,
+    file_id: FileId,
+    source_files: Arc<Vec<SourceFileInput>>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    phase: ConstructionPhase,
     mut reader: BoundedJsonLines<R>,
     limits: BoundedBuildLimits,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
@@ -1575,6 +1800,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
                 alphabet,
                 inference,
                 max_jobs,
+                phase,
                 &mut admit,
             );
         }
@@ -1624,7 +1850,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
             let counters = Arc::clone(&counters);
             pool.spawn(move || {
                 let result = counters.run(|| {
-                    process_framed_batch(
+                    process_framed_batch_phase(
                         &root,
                         &source_files[file_id.0 as usize],
                         &FilePreparationBinding {
@@ -1640,6 +1866,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
                         alphabet,
                         inference,
                         max_jobs,
+                        phase,
                     )
                 });
                 let _ = sender.send((index, result));
@@ -1704,6 +1931,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
             alphabet,
             inference,
             max_jobs,
+            phase,
             &mut admit,
         );
     }
@@ -1832,6 +2060,22 @@ pub(crate) fn process_repository_file_batches(
     inference: InferenceConfig,
     mut admit: impl FnMut(usize, BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
+    process_repository_file_batches_phase(
+        pool, root, jobs, source_files, alphabet, inference,
+        ConstructionPhase::Complete, admit,
+    )
+}
+
+pub(crate) fn process_repository_file_batches_phase(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    jobs: &[RepositoryFileJob],
+    source_files: Arc<Vec<SourceFileInput>>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    phase: ConstructionPhase,
+    mut admit: impl FnMut(usize, BatchContribution) -> Result<(), String>,
+) -> Result<BuildScheduleStats, String> {
     const MIN_FILE_BYTES: u64 = 16 * 1024;
     let allowance = normal_batch_allowance(pool.current_num_threads());
     let weights = jobs
@@ -1914,7 +2158,7 @@ pub(crate) fn process_repository_file_batches(
             let counters = Arc::clone(&counters);
             pool.spawn(move || {
                 let result = counters.run(|| {
-                    process_batch(
+                    process_batch_phase(
                         &root,
                         &definition,
                         collection,
@@ -1924,6 +2168,7 @@ pub(crate) fn process_repository_file_batches(
                         alphabet,
                         inference,
                         max_jobs,
+                        phase,
                     )
                 });
                 let _ = sender.send((index, result));

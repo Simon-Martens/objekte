@@ -4,7 +4,7 @@
 use std::fs;
 use std::path::{Path, PathBuf};
 
-use crate::lifecycle::{Index, IndexError};
+use crate::lifecycle::{Index, IndexError, StagedBuildTask, StagedReadyConfiguration};
 use crate::repository::RepositoryOptions;
 use crate::repository_configuration::{RepositoryConfiguration, load_repository_configuration};
 use crate::storage::snapshot_path_in;
@@ -58,6 +58,73 @@ impl Default for RepositoryOpenOptions {
 
 
 impl Index {
+    /// Open the configured layout with a nonblocking fresh construction path.
+    /// A compatible cache produces an already searchable task; source builds
+    /// expose their discovered catalogue before the base becomes searchable.
+    pub fn start_staged_open_configured_repository(
+        configuration: RepositoryConfiguration,
+        options: RepositoryOpenOptions,
+    ) -> Result<StagedBuildTask, IndexError> {
+        let root = configuration
+            .root
+            .canonicalize()
+            .map_err(|error| IndexError::Io(error.to_string()))?;
+        let cache_directory = match &options.cache_directory {
+            Some(directory) if directory.is_absolute() => directory.clone(),
+            Some(directory) => root.join(directory),
+            None => root.join(".objekte"),
+        };
+        let cache = snapshot_path_in(&cache_directory, options.index.bigram_alphabet);
+        let mut definitions = configuration.definitions;
+        crate::lifecycle_cache_guard::exclude_cache_artifacts(&root, &mut definitions, &cache)
+            .map_err(IndexError::IncompatibleConfiguration)?;
+        let mut protected = configuration.schema_files;
+        protected.extend(configuration.protected_files);
+        protected.sort();
+        protected.dedup();
+        let exists = match fs::symlink_metadata(&cache) {
+            Ok(_) => true,
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => false,
+            Err(error) => return Err(IndexError::Io(format!("{}: {error}", cache.display()))),
+        };
+        if !exists && options.cache_open == CacheOpenPolicy::Required {
+            return Err(IndexError::InvalidCache(format!(
+                "required cache is missing: {}",
+                cache.display()
+            )));
+        }
+        let mut replace_invalid_cache = false;
+        if exists && options.cache_open != CacheOpenPolicy::Ignore {
+            match Index::load_cache(&root, definitions.clone(), options.index, &cache) {
+                Ok(index) => {
+                    index.protect_configuration_files(&protected)?;
+                    if options.sync_cache {
+                        index.enable_sync_cache()?;
+                    }
+                    return StagedBuildTask::from_ready(index);
+                }
+                Err(IndexError::InvalidCache(_) | IndexError::IncompatibleConfiguration(_))
+                    if options.cache_failure == CacheFailurePolicy::Rebuild =>
+                {
+                    replace_invalid_cache = true;
+                }
+                Err(error) => return Err(error),
+            }
+        }
+        Index::start_staged_build_with_sources_and_cache(
+            root,
+            definitions,
+            options.index,
+            crate::source::SourceRegistry::builtin(),
+            Some(StagedReadyConfiguration {
+                cache,
+                protected_files: protected,
+                sync_cache: options.sync_cache,
+                replace_invalid_cache,
+            }),
+        )
+    }
+
     /// Open the configured repository at `root`. This is the library entry
     /// point that discovers schemas and an alphabet-specific cache. It returns
     /// a searchable restored view before background source reconciliation;

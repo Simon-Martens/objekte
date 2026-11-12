@@ -31,30 +31,10 @@ impl Index {
     pub fn build_with_sources(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
-        mut options: RepositoryOptions,
+        options: RepositoryOptions,
         sources: SourceRegistry,
     ) -> Result<Self, IndexError> {
-        options.snapshot_mode = SnapshotMode::Disabled;
-        let root = root.into();
-        if let Some(direct) = Repository::build_direct_json(
-            root.clone(),
-            definitions.clone(),
-            options,
-            sources.clone(),
-        )
-        .map_err(IndexError::Build)?
-        {
-            return Self::from_direct_build(direct);
-        }
-        let repository = Repository::open_with_sources_and_snapshot_policy(
-            root,
-            definitions,
-            options,
-            sources,
-            SnapshotOpenPolicy::new(SnapshotMode::Disabled, None),
-        )
-        .map_err(IndexError::Build)?;
-        Self::from_repository(repository)
+        Self::start_staged_build_with_sources(root, definitions, options, sources)?.wait_complete()
     }
 
     fn from_direct_build(direct: DirectBuild) -> Result<Self, IndexError> {
@@ -240,6 +220,7 @@ impl Index {
         published.file_versions = file_versions;
         published.next_segment_ordinal = state.next_segment_ordinal;
         published.saved_revision = Some(revision);
+        published.saved_capability_revision = Some(published.capability_revision);
         let published = crate::lifecycle_partition::partition_base(published)?;
         let index = Index::from_published(published);
         index.mark_restored_from_cache();
