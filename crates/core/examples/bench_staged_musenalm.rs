@@ -38,6 +38,7 @@ fn run() -> Result<(), String> {
     let mut prepared_cache_bytes = RepositoryOptions::default().prepared_cache_bytes;
     let mut warm_cache_bytes = 64 * 1024 * 1024usize;
     let mut inference = false;
+    let mut diagnostic_plans = false;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
@@ -92,6 +93,7 @@ fn run() -> Result<(), String> {
                     .map_err(|error| format!("invalid verified cache size: {error}"))?
             }
             "--inference" => inference = true,
+            "--diagnostic-plans" => diagnostic_plans = true,
             _ => return Err(format!("unknown argument {arg}")),
         }
     }
@@ -153,6 +155,9 @@ fn run() -> Result<(), String> {
     );
     let mut csv = BufWriter::new(
         File::create(result_dir.join("query-results.csv")).map_err(|error| error.to_string())?,
+    );
+    let mut plans = BufWriter::new(
+        File::create(result_dir.join("query-plans.jsonl")).map_err(|error| error.to_string())?,
     );
     let mut foreground_status = (mode == "foreground")
         .then(|| File::create(result_dir.join("foreground-status.jsonl")))
@@ -348,6 +353,22 @@ fn run() -> Result<(), String> {
                     median(&counters, |c| c.planning_ns),
                 )
                 .map_err(|error| error.to_string())?;
+                if diagnostic_plans {
+                    let diagnostic_started = Instant::now();
+                    let (diagnostic_result, traces) = view.search_analyze(&query)?;
+                    serde_json::to_writer(
+                        &mut plans,
+                        &serde_json::json!({
+                            "case_id": case.id, "profile": profile_name,
+                            "diagnostic_timing": "outside_primary_samples",
+                            "diagnostic_ns": diagnostic_started.elapsed().as_nanos() as u64,
+                            "diagnostic_counters": diagnostic_result.counters,
+                            "plans": traces,
+                        }),
+                    )
+                    .map_err(|error| error.to_string())?;
+                    plans.write_all(b"\n").map_err(|error| error.to_string())?;
+                }
             }
         }
         if mode == "foreground" {
@@ -367,6 +388,7 @@ fn run() -> Result<(), String> {
     }
     samples.flush().map_err(|error| error.to_string())?;
     csv.flush().map_err(|error| error.to_string())?;
+    plans.flush().map_err(|error| error.to_string())?;
     if let Some(writer) = foreground_status.as_mut() {
         writer.flush().map_err(|error| error.to_string())?;
     }
