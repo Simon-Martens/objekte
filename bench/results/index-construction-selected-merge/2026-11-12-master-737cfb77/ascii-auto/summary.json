@@ -1,0 +1,58 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-task-index-construction-selected-merge-control",
+    "candidate_repo": "/home/simon/source/objekte-integration-index-construction-selected-merge",
+    "control_bin": "/home/simon/source/objekte/target/index-construction-selected-merge/control/release/examples/bench_index_construction",
+    "candidate_bin": "/home/simon/source/objekte/target/index-construction-selected-merge/candidate/release/examples/bench_index_construction",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "ascii",
+    "workers": "auto",
+    "pairs": 3,
+    "profile": false,
+    "control_revision": "737cfb7745ff15915804553ab583af260ac0f2e4",
+    "candidate_revision": "e212e4ad5f2a691507540395d11947398b45ef36",
+    "control_sha256": "791485dbc791c548950708c14271c7cbe21195d986332baba7b4f9a7d8096b0e",
+    "candidate_sha256": "367dc93efe248b70bc57286fc1ed185162a43894fb6402ef457d627e81c404d1"
+  },
+  "control_build_ns": {
+    "median": 2674581613,
+    "min": 2658211751,
+    "max": 2715154368,
+    "iqr": 28471308.5
+  },
+  "candidate_build_ns": {
+    "median": 2293362086,
+    "min": 2276380916,
+    "max": 2354920170,
+    "iqr": 39269627.0
+  },
+  "paired_delta_ns": {
+    "median": -398200697,
+    "min": -421792282,
+    "max": -303291581,
+    "iqr": 59250350.5
+  },
+  "paired_delta_percent": {
+    "median": -14.88833599485304,
+    "min": -15.534744063583206,
+    "max": -11.40960951985499,
+    "iqr": 2.0625672718641077
+  },
+  "paired_deltas_ns": [
+    -421792282,
+    -398200697,
+    -303291581
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 25477,
+    "estimated_index_bytes": 69662968
+  },
+  "corpus_fingerprint": "db869a76f26e1a3275a5162e5a207f47fb50fa8be02c4bdcfe3f1db50cfb747c",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 16
+}

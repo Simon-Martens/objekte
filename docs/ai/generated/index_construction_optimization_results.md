@@ -2,6 +2,10 @@
 
 Task: `index-construction-optimization` · 12 November 2026 · baseline B `737cfb7745ff15915804553ab583af260ac0f2e4` · measured combined code `609474ee42e26c568cd43f89893482e0a0886bbe` on `integration/index-construction-optimization`.
 
+Historical status: the [selected merge results](index_construction_selected_merge_results.md)
+supersede this report's decision to retain A1. The original A1-inclusive
+measurements and reasoning below remain as experiment evidence.
+
 ## Result and decisions
 
 The selected combination builds the configured 148,486-record Musenalm corpus in a median **2,107.469 ms ASCII** and **2,255.591 ms Unicode** at 16 workers. Five alternating, warm-cache pairs per alphabet give paired median changes of **−422.229 ms (−16.691%) ASCII** and **−417.635 ms (−15.655%) Unicode** against B. All ten final pairs improved. The same corpus and schema fingerprints, 148,486 parses, zero failed parses, 300 posting fields, eight sort fields, 228,503 relation edges, gram-key counts, and estimated index sizes were observed. These are combined measurements; individual savings are not added together.
