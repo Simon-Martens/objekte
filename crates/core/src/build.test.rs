@@ -24,85 +24,92 @@ fn grouped_admission_joins_independent_errors_in_component_order() {
             .unwrap();
     }
     let pool = rayon::ThreadPoolBuilder::new().num_threads(4).build().unwrap();
-    for posting_error in [true, false] {
-        for _ in 0..16 {
-            let mut inventory = FileInventory::new(PathBuf::new());
-            let mut builder = CollectionBuilder::new(CollectionId(0), "test".into(), 1, 0);
-            let mut postings = PostingCollection::new(&schema);
-            let mut inference = None;
-            let mut custom_postings = HashMap::new();
-            let mut raw = BigramContribution::new(BigramAlphabet::Ascii);
-            let mut fallback_text = BigramContribution::new(BigramAlphabet::Ascii);
-            let mut custom_text = HashMap::new();
-            let mut logical_records = RoaringBitmap::new();
-            let mut empty_array_records = RoaringBitmap::new();
-            let mut sorting = SortBuilder::new(&[], &schema, "de", Default::default(), &HashMap::new())
-                .unwrap();
-            let mut relations = Vec::new();
-            let mut local_postings = PostingCollection::new(&schema);
-            if posting_error {
-                local_postings
-                    .fields
-                    .get_mut(&vec!["alpha".into()])
-                    .unwrap()
-                    .kind = LogicalType::Bool;
-            }
-            let batch = BatchContribution {
-                files: Vec::new(),
-                file_fingerprints: Vec::new(),
-                records: Vec::new(),
-                postings: local_postings,
-                inference: None,
-                custom_postings: HashMap::new(),
-                raw: BigramContribution::new(BigramAlphabet::Unicode),
-                fallback_text: BigramContribution::new(BigramAlphabet::Ascii),
-                custom_text: HashMap::new(),
-                logical_records: RoaringBitmap::new(),
-                empty_array_records: RoaringBitmap::new(),
-                sort_keys: HashMap::new(),
-                relations: Vec::new(),
-                record_parses: 0,
-                failed_parses: 0,
-                profile: BuildWorkProfile::default(),
-            };
-            let mut admission = CollectionAdmission {
-                inventory: &mut inventory,
-                builder: &mut builder,
-                postings: &mut postings,
-                inference: &mut inference,
-                custom_postings: &mut custom_postings,
-                raw: &mut raw,
-                fallback_text: &mut fallback_text,
-                custom_text: &mut custom_text,
-                logical_records: &mut logical_records,
-                empty_array_records: &mut empty_array_records,
-                sorting: &mut sorting,
-                relations: &mut relations,
-            };
-            let mut profile = AdmissionBreakdown::default();
-            let error = admission
-                .merge_grouped(
-                    batch,
-                    0,
-                    0,
-                    &pool,
-                    1,
-                    1,
-                    Some(Instant::now()),
-                    Some(&mut profile),
-                )
-                .unwrap_err();
-            assert_eq!(
-                error,
+    // The second layout schedules posting fields while text has no group and
+    // must merge inline after the join. Both paths preserve error precedence.
+    for (posting_groups, text_groups) in [(1, 1), (2, 0)] {
+        for posting_error in [true, false] {
+            for _ in 0..16 {
+                let mut inventory = FileInventory::new(PathBuf::new());
+                let mut builder = CollectionBuilder::new(CollectionId(0), "test".into(), 1, 0);
+                let mut postings = PostingCollection::new(&schema);
+                let mut inference = None;
+                let mut custom_postings = HashMap::new();
+                let mut raw = BigramContribution::new(BigramAlphabet::Ascii);
+                let mut fallback_text = BigramContribution::new(BigramAlphabet::Ascii);
+                let mut custom_text = HashMap::new();
+                let mut logical_records = RoaringBitmap::new();
+                let mut empty_array_records = RoaringBitmap::new();
+                let mut sorting = SortBuilder::new(&[], &schema, "de", Default::default(), &HashMap::new())
+                    .unwrap();
+                let mut relations = Vec::new();
+                let mut local_postings = PostingCollection::new(&schema);
                 if posting_error {
-                    "posting batch representation mismatch"
-                } else {
-                    "bigram batch coverage or alphabet mismatch"
+                    local_postings
+                        .fields
+                        .get_mut(&vec!["alpha".into()])
+                        .unwrap()
+                        .kind = LogicalType::Bool;
                 }
-            );
-            assert_eq!(profile.parallel_batches, 1);
-            assert_eq!((profile.posting_groups, profile.text_groups), (1, 1));
-            assert_eq!(profile.group_estimated_work, 0);
+                let batch = BatchContribution {
+                    files: Vec::new(),
+                    file_fingerprints: Vec::new(),
+                    records: Vec::new(),
+                    postings: local_postings,
+                    inference: None,
+                    custom_postings: HashMap::new(),
+                    raw: BigramContribution::new(BigramAlphabet::Unicode),
+                    fallback_text: BigramContribution::new(BigramAlphabet::Ascii),
+                    custom_text: HashMap::new(),
+                    logical_records: RoaringBitmap::new(),
+                    empty_array_records: RoaringBitmap::new(),
+                    sort_keys: HashMap::new(),
+                    relations: Vec::new(),
+                    record_parses: 0,
+                    failed_parses: 0,
+                    profile: BuildWorkProfile::default(),
+                };
+                let mut admission = CollectionAdmission {
+                    inventory: &mut inventory,
+                    builder: &mut builder,
+                    postings: &mut postings,
+                    inference: &mut inference,
+                    custom_postings: &mut custom_postings,
+                    raw: &mut raw,
+                    fallback_text: &mut fallback_text,
+                    custom_text: &mut custom_text,
+                    logical_records: &mut logical_records,
+                    empty_array_records: &mut empty_array_records,
+                    sorting: &mut sorting,
+                    relations: &mut relations,
+                };
+                let mut profile = AdmissionBreakdown::default();
+                let error = admission
+                    .merge_grouped(
+                        batch,
+                        0,
+                        0,
+                        &pool,
+                        posting_groups,
+                        text_groups,
+                        Some(Instant::now()),
+                        Some(&mut profile),
+                    )
+                    .unwrap_err();
+                assert_eq!(
+                    error,
+                    if posting_error {
+                        "posting batch representation mismatch"
+                    } else {
+                        "bigram batch coverage or alphabet mismatch"
+                    }
+                );
+                assert_eq!(profile.parallel_batches, 1);
+                assert_eq!(
+                    (profile.posting_groups, profile.text_groups),
+                    (posting_groups as u64, text_groups as u64)
+                );
+                assert_eq!(profile.group_estimated_work, 0);
+            }
         }
     }
 }
