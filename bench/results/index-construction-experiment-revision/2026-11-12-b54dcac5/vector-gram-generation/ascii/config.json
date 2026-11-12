@@ -1,0 +1,15 @@
+{
+  "control_repo": "/home/simon/source/objekte-integration-index-construction-data-path",
+  "candidate_repo": "/home/simon/source/objekte-task-index-construction-experiment-revision-vector-gram-generation",
+  "control_bin": "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/bench_index_construction",
+  "candidate_bin": "/home/simon/source/objekte-task-index-construction-experiment-revision-vector-gram-generation/target/release/examples/bench_index_construction",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "alphabet": "ascii",
+  "workers": "auto",
+  "profile": false,
+  "control_revision": "54dcac5c3b3e1ca499180061ebcee7ad60c27101",
+  "candidate_revision": "6a4ad830934184b60ea5f8763b7886bc36ebfa64",
+  "control_sha256": "42449be3ded342ff6228c88a52a4dddd200f6501314eff3da739803cb4be3c0b",
+  "candidate_sha256": "fe8d4a931599eaa25684a0e7ebc2fe059eade2d113546ac3d28b06019d6e5e81",
+  "pairs": 9
+}

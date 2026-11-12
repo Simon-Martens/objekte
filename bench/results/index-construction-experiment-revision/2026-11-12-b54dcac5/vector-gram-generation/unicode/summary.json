@@ -1,0 +1,64 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-integration-index-construction-data-path",
+    "candidate_repo": "/home/simon/source/objekte-task-index-construction-experiment-revision-vector-gram-generation",
+    "control_bin": "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/bench_index_construction",
+    "candidate_bin": "/home/simon/source/objekte-task-index-construction-experiment-revision-vector-gram-generation/target/release/examples/bench_index_construction",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "unicode",
+    "workers": "auto",
+    "profile": false,
+    "control_revision": "54dcac5c3b3e1ca499180061ebcee7ad60c27101",
+    "candidate_revision": "6a4ad830934184b60ea5f8763b7886bc36ebfa64",
+    "control_sha256": "42449be3ded342ff6228c88a52a4dddd200f6501314eff3da739803cb4be3c0b",
+    "candidate_sha256": "fe8d4a931599eaa25684a0e7ebc2fe059eade2d113546ac3d28b06019d6e5e81",
+    "pairs": 9
+  },
+  "control_build_ns": {
+    "median": 1196796678,
+    "min": 1160011729,
+    "max": 1266880668,
+    "iqr": 43003915.0
+  },
+  "candidate_build_ns": {
+    "median": 1192998690,
+    "min": 1182445774,
+    "max": 1267861681,
+    "iqr": 47795014.0
+  },
+  "paired_delta_ns": {
+    "median": 16403624,
+    "min": -44162680,
+    "max": 66368562,
+    "iqr": 34807803.0
+  },
+  "paired_delta_percent": {
+    "median": 1.40677796252906,
+    "min": -3.575179023167241,
+    "max": 5.6603272825750395,
+    "iqr": 2.9905790190618897
+  },
+  "paired_deltas_ns": [
+    -3797988,
+    -13446654,
+    981013,
+    21682898,
+    66368562,
+    16403624,
+    31009815,
+    -44162680,
+    57540097
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 37909,
+    "estimated_index_bytes": 72571368
+  },
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 32
+}
