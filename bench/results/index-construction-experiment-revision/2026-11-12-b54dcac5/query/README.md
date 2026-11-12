@@ -1,0 +1,5 @@
+# Extended Musenalm query equivalence
+
+The archived `../verify_index_construction_revision.rs` was temporarily copied to `crates/core/examples/` and built with `cargo build --release --locked -p objekte-search-core --example verify_index_construction_revision` against clean B and the retained integration source. Verifier binary SHA-256 values are `c6a86b56817bbe0cde2524a26da92a66f14f1ea60460020ba4e265bfca7a7af4` (B) and `f21a1035aa3ec25fe7b2c249cae171d54805eb8cf0a6aa079dd08be0e779cba3` (candidate).
+
+For each role and alphabet, run `BINARY /home/simon/source/objekte/examples/musenalm ascii|unicode fresh`. The verifier loads the existing extended manifest (194 cases), builds the repository, and SHA-256 hashes the Debug representation of each `(count, ordered SearchHit list)`. Those hits include identity, source path/range, status, diagnostics, matched fields and payload. `fresh/` records all individual case digests. B and candidate matched **194/194** in ASCII and **194/194** in Unicode; each fresh build parsed 148,486 records. The verifier source and binaries are separate from ordinary timing binaries.
