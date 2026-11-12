@@ -2444,10 +2444,6 @@ impl AdmissionBreakdown {
 
 
 impl CollectionAdmission<'_> {
-    pub fn admit(&mut self, batch: BatchContribution) -> Result<(), String> {
-        self.admit_profiled(batch, None)
-    }
-
     pub(crate) fn admit_profiled(
         &mut self,
         batch: BatchContribution,
