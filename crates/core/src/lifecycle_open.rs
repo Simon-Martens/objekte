@@ -9,10 +9,11 @@ use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex, Publish
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::CollectionId;
 use crate::repository::{
-    CollectionDefinition, DirectBuild, Repository, RepositoryOptions, SnapshotMode,
-    SnapshotOpenPolicy,
+    CollectionDefinition, DirectBuild, RepositoryOptions, SnapshotMode,
 };
 use crate::source::SourceRegistry;
+#[cfg(test)]
+use crate::repository::Repository;
 
 impl Index {
     /// Build from exactly the supplied definitions and source root. A relative
@@ -126,6 +127,7 @@ impl Index {
                 IndexError::InvalidCache(message)
             }
         })?;
+        let extended_pending = !repository.extended_complete();
         let repository = Arc::new(repository);
         let slots = state
             .catalog
@@ -221,11 +223,18 @@ impl Index {
         published.next_segment_ordinal = state.next_segment_ordinal;
         published.saved_revision = Some(revision);
         published.saved_capability_revision = Some(published.capability_revision);
-        let published = crate::lifecycle_partition::partition_base(published)?;
+        let published = if extended_pending {
+            published
+        } else {
+            crate::lifecycle_partition::partition_base(published)?
+        };
         let index = Index::from_published(published);
         index.mark_restored_from_cache();
         index.select_cache_destination(path, Some(revision), Vec::new())?;
         index.start_reconcile()?;
+        if extended_pending {
+            index.resume_extended()?;
+        }
         Ok(index)
     }
 }

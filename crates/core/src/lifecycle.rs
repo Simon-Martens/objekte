@@ -21,6 +21,7 @@ use crate::build::{
 };
 use crate::discovery::selects_file;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
+use crate::inference::{InferencePathDiagnostic, InferenceReport};
 use crate::lifecycle_catalog::FileCatalog;
 #[cfg(test)]
 use crate::model::RecordSlot;
@@ -1072,6 +1073,48 @@ impl ExtendedJob {
     }
 }
 
+fn execute_extended_pass(
+    index: &Index,
+    base: &Arc<Repository>,
+    job: &Arc<ExtendedJob>,
+) -> Result<(), IndexError> {
+    if job.wait_if_paused() {
+        return Err(IndexError::Cancelled);
+    }
+    job.set_phase(ExtendedPhase::Building);
+    let captured = index.view()?;
+    let expected = captured.revision();
+    let expected_versions = captured.0.file_versions.clone();
+    drop(captured);
+    let extended = Repository::build_extended_from_base(
+        base,
+        &|files, _records| {
+            if let Ok(mut status) = job.status.lock() {
+                status.completed_files = status.completed_files.saturating_add(files);
+            }
+        },
+        &|| job.wait_if_paused(),
+        &|batch| {
+            index
+                .publish_extended_batch(base, &expected_versions, batch)
+                .map(|_| ())
+                .map_err(|error| error.to_string())
+        },
+    )
+    .map_err(|error| {
+        if job.cancelled.load(Ordering::Acquire) {
+            IndexError::Cancelled
+        } else {
+            IndexError::Build(error)
+        }
+    })?;
+    if job.cancelled.load(Ordering::Acquire) {
+        return Err(IndexError::Cancelled);
+    }
+    index.publish_extended_repository(expected, extended)?;
+    Ok(())
+}
+
 impl StagedBuildTask {
     fn new() -> Self {
         Self(Arc::new(StagedOpening {
@@ -1134,9 +1177,18 @@ impl StagedBuildTask {
         let mut status = self.0.status.lock().map_err(|_| IndexError::LockPoisoned)?.clone();
         if let Some(index) = self.0.index.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
             let current = index.status()?;
+            let extended = index.extended_status()?;
             status.data_revision = Some(current.revision);
             status.capability_revision = Some(current.capability_revision);
             status.located_records = current.live_records;
+            status.phase = match extended.phase {
+                ExtendedPhase::Unnecessary | ExtendedPhase::Complete => StagedBuildPhase::Complete,
+                ExtendedPhase::Pending => StagedBuildPhase::SearchReady,
+                ExtendedPhase::Building | ExtendedPhase::Paused => StagedBuildPhase::BuildingExtended,
+                ExtendedPhase::Cancelled => StagedBuildPhase::Cancelled,
+                ExtendedPhase::Failed => StagedBuildPhase::Failed,
+            };
+            status.error = extended.error;
         }
         Ok(status)
     }
@@ -1163,14 +1215,27 @@ impl StagedBuildTask {
     pub fn cancel_extended(&self) {
         self.0.extended.cancelled.store(true, Ordering::Release);
         self.0.extended.resume.notify_all();
+        if let Ok(index) = self.0.index.lock()
+            && let Some(index) = index.as_ref()
+        {
+            let _ = index.cancel_extended();
+        }
     }
 
     pub fn pause_extended(&self) -> Result<(), IndexError> {
-        self.0.extended.pause()
+        if let Some(index) = self.0.index.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
+            index.pause_extended()
+        } else {
+            self.0.extended.pause()
+        }
     }
 
     pub fn resume_extended(&self) -> Result<(), IndexError> {
-        self.0.extended.resume()
+        if let Some(index) = self.0.index.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
+            index.resume_extended()
+        } else {
+            self.0.extended.resume()
+        }
     }
 
     /// Cancel base construction before SearchReady, or optional work after it.
@@ -1381,53 +1446,10 @@ impl Index {
                         }
                         return Ok((index, false));
                     }
-                    if opening.extended.wait_if_paused() {
-                        opening.extended.finish(Err(IndexError::Cancelled));
-                        if let Ok(mut status) = opening.status.lock() {
-                            status.phase = StagedBuildPhase::Cancelled;
-                        }
-                        return Ok((index, false));
-                    }
-                    opening.extended.set_phase(ExtendedPhase::Building);
                     if let Ok(mut status) = opening.status.lock() {
                         status.phase = StagedBuildPhase::BuildingExtended;
                     }
-                    let captured = index.view()?;
-                    let expected = captured.revision();
-                    let expected_versions = captured.0.file_versions.clone();
-                    drop(captured);
-                    let extended = Repository::build_extended_from_base(
-                        &base,
-                        &|files, _records| {
-                            if let Ok(mut status) = opening.extended.status.lock() {
-                                status.completed_files = status.completed_files.saturating_add(files);
-                            }
-                        },
-                        &|| opening.extended.wait_if_paused(),
-                        &|batch| {
-                            index
-                                .publish_extended_batch(&base, &expected_versions, batch)
-                                .map(|_| ())
-                                .map_err(|error| error.to_string())
-                        },
-                    )
-                    .map_err(|error| {
-                        if opening.extended.cancelled.load(Ordering::Acquire) {
-                            IndexError::Cancelled
-                        } else {
-                            IndexError::Build(error)
-                        }
-                    });
-                    let result = match extended {
-                        Ok(repository) if opening.extended.cancelled.load(Ordering::Acquire) => {
-                            drop(repository);
-                            Err(IndexError::Cancelled)
-                        }
-                        Ok(repository) => index
-                            .publish_extended_repository(expected, repository)
-                            .map(|_| ()),
-                        Err(error) => Err(error),
-                    };
+                    let result = execute_extended_pass(&index, &base, &opening.extended);
                     if let Ok(mut status) = opening.status.lock() {
                         status.phase = match &result {
                             Ok(()) => StagedBuildPhase::Complete,
@@ -1505,10 +1527,12 @@ impl Index {
             return Ok(job.status.lock().map_err(|_| IndexError::LockPoisoned)?.clone());
         }
         let view = self.view()?;
-        let phase = if view.repository().requests_extended() {
+        let phase = if !view.repository().requests_extended() {
+            ExtendedPhase::Unnecessary
+        } else if view.repository().extended_complete() {
             ExtendedPhase::Complete
         } else {
-            ExtendedPhase::Unnecessary
+            ExtendedPhase::Pending
         };
         Ok(ExtendedStatus {
             phase,
@@ -1516,6 +1540,19 @@ impl Index {
             total_files: view.0.catalog.active_files() as usize,
             error: None,
         })
+    }
+
+    /// Inference observations from the latest published capability view.
+    pub fn inference_report(&self, collection: &str) -> Result<Option<InferenceReport>, IndexError> {
+        Ok(self.view()?.repository().inference_report(collection).cloned())
+    }
+
+    /// Ordered posting diagnostics from the latest published capability view.
+    pub fn inference_index_diagnostics(
+        &self,
+        collection: &str,
+    ) -> Result<Option<Vec<InferencePathDiagnostic>>, IndexError> {
+        Ok(self.view()?.repository().inference_index_diagnostics(collection))
     }
 
     pub fn wait_extended(&self) -> Result<(), IndexError> {
@@ -1539,9 +1576,36 @@ impl Index {
     }
 
     pub fn resume_extended(&self) -> Result<(), IndexError> {
-        if let Some(job) = self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
-            job.resume()?;
+        let current = self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)?.clone();
+        if let Some(job) = current {
+            let phase = job.status.lock().map_err(|_| IndexError::LockPoisoned)?.phase;
+            match phase {
+                ExtendedPhase::Building | ExtendedPhase::Pending => return Ok(()),
+                ExtendedPhase::Paused => return job.resume(),
+                ExtendedPhase::Complete | ExtendedPhase::Unnecessary => return Ok(()),
+                ExtendedPhase::Cancelled | ExtendedPhase::Failed => {}
+            }
         }
+        let view = self.view()?;
+        if view.repository().extended_complete() {
+            return Ok(());
+        }
+        let base = Arc::clone(&view.0.repository);
+        let total_files = base
+            .collections()
+            .iter()
+            .map(|collection| collection.generation.files.len())
+            .sum();
+        let job = Arc::new(ExtendedJob::new(ExtendedPhase::Pending, total_files));
+        *self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)? = Some(Arc::clone(&job));
+        let index = self.clone();
+        std::thread::Builder::new()
+            .name("objekte-extended-resume".into())
+            .spawn(move || {
+                let result = execute_extended_pass(&index, &base, &job);
+                job.finish(result);
+            })
+            .map_err(|error| IndexError::Build(error.to_string()))?;
         Ok(())
     }
 
@@ -2913,7 +2977,6 @@ impl Index {
             let mut next = (**guard).clone();
             next.repository = repository;
             next.catalog = catalog;
-            next.extended_batches = vec![Arc::new(Vec::new()); next.active.len()];
             next.capability_revision = next.capability_revision.next()?;
             std::mem::replace(&mut *guard, Arc::new(next))
         };
