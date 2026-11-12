@@ -21,6 +21,7 @@ use crate::build::{
 };
 use crate::discovery::selects_file;
 use crate::inventory::{ActiveRecords, FileEntry, FileStatus, FileVersions};
+use crate::inference::{InferencePathDiagnostic, InferenceReport};
 use crate::lifecycle_catalog::FileCatalog;
 #[cfg(test)]
 use crate::model::RecordSlot;
@@ -218,6 +219,7 @@ pub enum ExtendedPhase {
     Unnecessary,
     Pending,
     Building,
+    Paused,
     Complete,
     Cancelled,
     Failed,
@@ -233,6 +235,8 @@ pub struct ExtendedStatus {
 
 struct ExtendedJob {
     cancelled: AtomicBool,
+    paused: Mutex<bool>,
+    resume: Condvar,
     status: Mutex<ExtendedStatus>,
     result: Mutex<Option<Result<(), IndexError>>>,
     complete: Condvar,
@@ -439,6 +443,7 @@ pub(crate) struct PublishedIndex {
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) active: Vec<ActiveRecords>,
     pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
+    pub(crate) extended_batches: Vec<Arc<Vec<Arc<crate::build::ExtendedBatch>>>>,
     pub(crate) next_segment_ordinal: u64,
     pub(crate) catalog: FileCatalog,
     pub(crate) file_versions: FileVersions,
@@ -508,6 +513,7 @@ impl PublishedIndex {
         let catalog = FileCatalog::from_repository(Arc::clone(&repository))
             .map_err(IndexError::ResourceLimit)?;
         let segments = vec![Arc::new(Vec::new()); active.len()];
+        let extended_batches = vec![Arc::new(Vec::new()); active.len()];
         Ok(Self {
             instance_id,
             revision,
@@ -516,6 +522,7 @@ impl PublishedIndex {
             configuration_identity,
             active,
             segments,
+            extended_batches,
             next_segment_ordinal: 1,
             catalog,
             file_versions,
@@ -993,6 +1000,8 @@ impl ExtendedJob {
         let terminal = matches!(phase, ExtendedPhase::Unnecessary | ExtendedPhase::Complete);
         Self {
             cancelled: AtomicBool::new(false),
+            paused: Mutex::new(false),
+            resume: Condvar::new(),
             status: Mutex::new(ExtendedStatus {
                 phase,
                 completed_files: if terminal { total_files } else { 0 },
@@ -1008,6 +1017,31 @@ impl ExtendedJob {
         if let Ok(mut status) = self.status.lock() {
             status.phase = phase;
         }
+    }
+
+    fn pause(&self) -> Result<(), IndexError> {
+        *self.paused.lock().map_err(|_| IndexError::LockPoisoned)? = true;
+        self.set_phase(ExtendedPhase::Paused);
+        Ok(())
+    }
+
+    fn resume(&self) -> Result<(), IndexError> {
+        *self.paused.lock().map_err(|_| IndexError::LockPoisoned)? = false;
+        self.resume.notify_all();
+        self.set_phase(ExtendedPhase::Building);
+        Ok(())
+    }
+
+    fn wait_if_paused(&self) -> bool {
+        if let Ok(mut paused) = self.paused.lock() {
+            while *paused && !self.cancelled.load(Ordering::Acquire) {
+                match self.resume.wait(paused) {
+                    Ok(guard) => paused = guard,
+                    Err(_) => return true,
+                }
+            }
+        }
+        self.cancelled.load(Ordering::Acquire)
     }
 
     fn finish(&self, result: Result<(), IndexError>) {
@@ -1039,6 +1073,48 @@ impl ExtendedJob {
     }
 }
 
+fn execute_extended_pass(
+    index: &Index,
+    base: &Arc<Repository>,
+    job: &Arc<ExtendedJob>,
+) -> Result<(), IndexError> {
+    if job.wait_if_paused() {
+        return Err(IndexError::Cancelled);
+    }
+    job.set_phase(ExtendedPhase::Building);
+    let captured = index.view()?;
+    let expected = captured.revision();
+    let expected_versions = captured.0.file_versions.clone();
+    drop(captured);
+    let extended = Repository::build_extended_from_base(
+        base,
+        &|files, _records| {
+            if let Ok(mut status) = job.status.lock() {
+                status.completed_files = status.completed_files.saturating_add(files);
+            }
+        },
+        &|| job.wait_if_paused(),
+        &|batch| {
+            index
+                .publish_extended_batch(base, &expected_versions, batch)
+                .map(|_| ())
+                .map_err(|error| error.to_string())
+        },
+    )
+    .map_err(|error| {
+        if job.cancelled.load(Ordering::Acquire) {
+            IndexError::Cancelled
+        } else {
+            IndexError::Build(error)
+        }
+    })?;
+    if job.cancelled.load(Ordering::Acquire) {
+        return Err(IndexError::Cancelled);
+    }
+    index.publish_extended_repository(expected, extended)?;
+    Ok(())
+}
+
 impl StagedBuildTask {
     fn new() -> Self {
         Self(Arc::new(StagedOpening {
@@ -1059,7 +1135,8 @@ impl StagedBuildTask {
         }))
     }
 
-    pub(crate) fn from_ready(index: Index) -> Result<Self, IndexError> {
+    /// Wrap an already loaded, searchable index in the same task vocabulary.
+    pub fn from_ready(index: Index) -> Result<Self, IndexError> {
         let task = Self::new();
         let view = index.view()?;
         let status = index.status()?;
@@ -1100,9 +1177,18 @@ impl StagedBuildTask {
         let mut status = self.0.status.lock().map_err(|_| IndexError::LockPoisoned)?.clone();
         if let Some(index) = self.0.index.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
             let current = index.status()?;
+            let extended = index.extended_status()?;
             status.data_revision = Some(current.revision);
             status.capability_revision = Some(current.capability_revision);
             status.located_records = current.live_records;
+            status.phase = match extended.phase {
+                ExtendedPhase::Unnecessary | ExtendedPhase::Complete => StagedBuildPhase::Complete,
+                ExtendedPhase::Pending => StagedBuildPhase::SearchReady,
+                ExtendedPhase::Building | ExtendedPhase::Paused => StagedBuildPhase::BuildingExtended,
+                ExtendedPhase::Cancelled => StagedBuildPhase::Cancelled,
+                ExtendedPhase::Failed => StagedBuildPhase::Failed,
+            };
+            status.error = extended.error;
         }
         Ok(status)
     }
@@ -1128,6 +1214,28 @@ impl StagedBuildTask {
 
     pub fn cancel_extended(&self) {
         self.0.extended.cancelled.store(true, Ordering::Release);
+        self.0.extended.resume.notify_all();
+        if let Ok(index) = self.0.index.lock()
+            && let Some(index) = index.as_ref()
+        {
+            let _ = index.cancel_extended();
+        }
+    }
+
+    pub fn pause_extended(&self) -> Result<(), IndexError> {
+        if let Some(index) = self.0.index.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
+            index.pause_extended()
+        } else {
+            self.0.extended.pause()
+        }
+    }
+
+    pub fn resume_extended(&self) -> Result<(), IndexError> {
+        if let Some(index) = self.0.index.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
+            index.resume_extended()
+        } else {
+            self.0.extended.resume()
+        }
     }
 
     /// Cancel base construction before SearchReady, or optional work after it.
@@ -1338,44 +1446,10 @@ impl Index {
                         }
                         return Ok((index, false));
                     }
-                    if opening.extended.cancelled.load(Ordering::Acquire) {
-                        opening.extended.finish(Err(IndexError::Cancelled));
-                        if let Ok(mut status) = opening.status.lock() {
-                            status.phase = StagedBuildPhase::Cancelled;
-                        }
-                        return Ok((index, false));
-                    }
-                    opening.extended.set_phase(ExtendedPhase::Building);
                     if let Ok(mut status) = opening.status.lock() {
                         status.phase = StagedBuildPhase::BuildingExtended;
                     }
-                    let expected = index.view()?.revision();
-                    let extended = Repository::build_extended_from_base(
-                        &base,
-                        &|files, _records| {
-                            if let Ok(mut status) = opening.extended.status.lock() {
-                                status.completed_files = status.completed_files.saturating_add(files);
-                            }
-                        },
-                        &|| opening.extended.cancelled.load(Ordering::Acquire),
-                    )
-                    .map_err(|error| {
-                        if opening.extended.cancelled.load(Ordering::Acquire) {
-                            IndexError::Cancelled
-                        } else {
-                            IndexError::Build(error)
-                        }
-                    });
-                    let result = match extended {
-                        Ok(repository) if opening.extended.cancelled.load(Ordering::Acquire) => {
-                            drop(repository);
-                            Err(IndexError::Cancelled)
-                        }
-                        Ok(repository) => index
-                            .publish_extended_repository(expected, repository)
-                            .map(|_| ()),
-                        Err(error) => Err(error),
-                    };
+                    let result = execute_extended_pass(&index, &base, &opening.extended);
                     if let Ok(mut status) = opening.status.lock() {
                         status.phase = match &result {
                             Ok(()) => StagedBuildPhase::Complete,
@@ -1453,10 +1527,12 @@ impl Index {
             return Ok(job.status.lock().map_err(|_| IndexError::LockPoisoned)?.clone());
         }
         let view = self.view()?;
-        let phase = if view.repository().requests_extended() {
+        let phase = if !view.repository().requests_extended() {
+            ExtendedPhase::Unnecessary
+        } else if view.repository().extended_complete() {
             ExtendedPhase::Complete
         } else {
-            ExtendedPhase::Unnecessary
+            ExtendedPhase::Pending
         };
         Ok(ExtendedStatus {
             phase,
@@ -1464,6 +1540,19 @@ impl Index {
             total_files: view.0.catalog.active_files() as usize,
             error: None,
         })
+    }
+
+    /// Inference observations from the latest published capability view.
+    pub fn inference_report(&self, collection: &str) -> Result<Option<InferenceReport>, IndexError> {
+        Ok(self.view()?.repository().inference_report(collection).cloned())
+    }
+
+    /// Ordered posting diagnostics from the latest published capability view.
+    pub fn inference_index_diagnostics(
+        &self,
+        collection: &str,
+    ) -> Result<Option<Vec<InferencePathDiagnostic>>, IndexError> {
+        Ok(self.view()?.repository().inference_index_diagnostics(collection))
     }
 
     pub fn wait_extended(&self) -> Result<(), IndexError> {
@@ -1474,7 +1563,49 @@ impl Index {
     pub fn cancel_extended(&self) -> Result<(), IndexError> {
         if let Some(job) = self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
             job.cancelled.store(true, Ordering::Release);
+            job.resume.notify_all();
         }
+        Ok(())
+    }
+
+    pub fn pause_extended(&self) -> Result<(), IndexError> {
+        if let Some(job) = self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)?.as_ref() {
+            job.pause()?;
+        }
+        Ok(())
+    }
+
+    pub fn resume_extended(&self) -> Result<(), IndexError> {
+        let current = self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)?.clone();
+        if let Some(job) = current {
+            let phase = job.status.lock().map_err(|_| IndexError::LockPoisoned)?.phase;
+            match phase {
+                ExtendedPhase::Building | ExtendedPhase::Pending => return Ok(()),
+                ExtendedPhase::Paused => return job.resume(),
+                ExtendedPhase::Complete | ExtendedPhase::Unnecessary => return Ok(()),
+                ExtendedPhase::Cancelled | ExtendedPhase::Failed => {}
+            }
+        }
+        let view = self.view()?;
+        if view.repository().extended_complete() {
+            return Ok(());
+        }
+        let base = Arc::clone(&view.0.repository);
+        let total_files = base
+            .collections()
+            .iter()
+            .map(|collection| collection.generation.files.len())
+            .sum();
+        let job = Arc::new(ExtendedJob::new(ExtendedPhase::Pending, total_files));
+        *self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)? = Some(Arc::clone(&job));
+        let index = self.clone();
+        std::thread::Builder::new()
+            .name("objekte-extended-resume".into())
+            .spawn(move || {
+                let result = execute_extended_pass(&index, &base, &job);
+                job.finish(result);
+            })
+            .map_err(|error| IndexError::Build(error.to_string()))?;
         Ok(())
     }
 
@@ -2225,6 +2356,11 @@ impl Index {
                 .map_err(|_| IndexError::LockPoisoned)?;
             self.0.quiescing.store(true, Ordering::Release);
         }
+        self.cancel_extended()?;
+        // Optional construction has no publication rights after quiescing.
+        // Its terminal failure is reported in extended_status, not as a
+        // retroactive failure of a completed foreground query.
+        let _ = self.wait_extended();
         self.stop_periodic_reconciliation()?;
         self.stop_sync_cache()?;
         let operation = self
@@ -2806,6 +2942,21 @@ impl Index {
             current.0.catalog.snapshot_slots(),
         )
         .map_err(IndexError::InvalidPublication)?;
+        let configuration_identity = crate::storage::configuration_hash(
+            &repository
+                .collections()
+                .iter()
+                .map(|collection| collection.definition.clone())
+                .collect::<Vec<_>>(),
+            repository.options(),
+            &repository.sources,
+        )
+        .map_err(IndexError::IncompatibleConfiguration)?;
+        if current.0.configuration_identity != configuration_identity {
+            return Err(IndexError::IncompatibleConfiguration(
+                "extended configuration changed".into(),
+            ));
+        }
         let retired = {
             let mut guard = self.0.published.write().map_err(|_| IndexError::LockPoisoned)?;
             if self.0.quiescing.load(Ordering::Acquire) {
@@ -2824,22 +2975,6 @@ impl Index {
                 });
             }
             let mut next = (**guard).clone();
-            if next.configuration_identity
-                != crate::storage::configuration_hash(
-                    &repository
-                        .collections()
-                        .iter()
-                        .map(|collection| collection.definition.clone())
-                        .collect::<Vec<_>>(),
-                    repository.options(),
-                    &repository.sources,
-                )
-                .map_err(IndexError::IncompatibleConfiguration)?
-            {
-                return Err(IndexError::IncompatibleConfiguration(
-                    "extended configuration changed".into(),
-                ));
-            }
             next.repository = repository;
             next.catalog = catalog;
             next.capability_revision = next.capability_revision.next()?;
@@ -2848,6 +2983,94 @@ impl Index {
         drop(retired);
         self.notify_sync_cache();
         Ok(self.view()?.capability_revision())
+    }
+
+    /// Attach one complete, bounded pass-2 batch without copying any
+    /// collection-wide index. A stale file incarnation is skipped; the base
+    /// and previously published batches remain searchable.
+    pub(crate) fn publish_extended_batch(
+        &self,
+        base: &Arc<Repository>,
+        expected_versions: &FileVersions,
+        batch: crate::build::ExtendedBatch,
+    ) -> Result<bool, IndexError> {
+        let collection = batch.collection.0 as usize;
+        let base_collection = base
+            .collections()
+            .get(collection)
+            .ok_or_else(|| IndexError::InvalidPublication("extended collection missing".into()))?;
+        let end = batch
+            .base_slot
+            .checked_add(batch.record_count)
+            .ok_or_else(|| IndexError::ResourceLimit("extended batch slot overflow".into()))?;
+        if end as usize > base_collection.generation.records.len()
+            || batch.records.len() != batch.record_count as usize
+        {
+            return Err(IndexError::InvalidPublication(
+                "extended batch exceeds base records".into(),
+            ));
+        }
+        for (local, record) in batch.records.iter().enumerate() {
+            let original = &base_collection.generation.records[batch.base_slot as usize + local];
+            if record.id != original.id
+                || record.file != original.file
+                || record.range != original.range
+                || record.revision != original.revision
+                || record.class != original.class
+            {
+                return Err(IndexError::InvalidPublication(
+                    "extended batch record layout changed".into(),
+                ));
+            }
+        }
+        if batch
+            .field_states
+            .values()
+            .any(|column| !column.covered_slots().is_subset(&batch.logical_covered))
+        {
+            return Err(IndexError::InvalidPublication(
+                "field-state coverage exceeds logical batch".into(),
+            ));
+        }
+        let batch = Arc::new(batch);
+        for _ in 0..4 {
+            let current = self.view()?;
+            if !Arc::ptr_eq(&current.0.repository, base) {
+                return Ok(false);
+            }
+            if batch.source_files.iter().any(|(file, revision)| {
+                current.0.catalog.entry(*file).is_none_or(|entry| entry.revision != *revision)
+                    || current.0.file_versions.get(*file) != expected_versions.get(*file)
+            }) {
+                return Ok(false);
+            }
+            let mut next = (*current.0).clone();
+            let group = next
+                .extended_batches
+                .get_mut(collection)
+                .ok_or_else(|| IndexError::InvalidPublication("extended group missing".into()))?;
+            let mut batches = group.as_ref().clone();
+            batches.push(Arc::clone(&batch));
+            *group = Arc::new(batches);
+            next.capability_revision = next.capability_revision.next()?;
+            let retired = {
+                let mut guard = self.0.published.write().map_err(|_| IndexError::LockPoisoned)?;
+                if self.0.quiescing.load(Ordering::Acquire) {
+                    return Err(IndexError::Cancelled);
+                }
+                if guard.capability_revision != current.capability_revision()
+                    || guard.revision != current.revision()
+                {
+                    continue;
+                }
+                std::mem::replace(&mut *guard, Arc::new(next))
+            };
+            drop(retired);
+            return Ok(true);
+        }
+        Err(IndexError::InvalidPublication(
+            "extended publication contention exceeded retry budget".into(),
+        ))
     }
 }
 
@@ -3018,6 +3241,18 @@ impl IndexView {
             .segments
             .get(collection.0 as usize)
             .map(|segments| segments.as_slice())
+    }
+
+    /// Immutable pass-2 capabilities pinned together with this data view.
+    /// All batch memberships use local slots plus `base_slot`.
+    pub(crate) fn extended_batches(
+        &self,
+        collection: CollectionId,
+    ) -> Option<&[Arc<crate::build::ExtendedBatch>]> {
+        self.0
+            .extended_batches
+            .get(collection.0 as usize)
+            .map(|batches| batches.as_slice())
     }
 
     pub(crate) fn repository(&self) -> &Repository {

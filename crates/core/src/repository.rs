@@ -1148,6 +1148,7 @@ impl Repository {
             Some(on_catalogue),
             None,
             Some(cancelled),
+            None,
         )?;
         repository.startup.build_ns = started.elapsed().as_nanos() as u64;
         Ok(repository)
@@ -1156,7 +1157,10 @@ impl Repository {
     pub(crate) fn requests_extended(&self) -> bool {
         self.options.inference.mode != crate::inference::InferenceMode::Disabled
             || self.collections.iter().any(|collection| {
-                collection.definition.schema.fields.values().any(|field| field.indexed)
+                collection.definition.schema.fields.values().any(|field| {
+                    field.indexed
+                        && !collection.definition.schema.relations().contains_key(&field.path)
+                })
                     || collection
                         .definition
                         .schema
@@ -1167,6 +1171,31 @@ impl Repository {
             })
     }
 
+    pub(crate) fn extended_complete(&self) -> bool {
+        if !self.requests_extended() {
+            return true;
+        }
+        self.collections.iter().all(|collection| {
+            let schema = &collection.definition.schema;
+            (self.options.inference.mode == crate::inference::InferenceMode::Disabled
+                || collection.inference.is_some())
+                && schema.fields.values().all(|field| {
+                    !field.indexed
+                        || schema.relations().contains_key(&field.path)
+                        || collection.postings.fields.contains_key(&field.path)
+                })
+                && schema.operations.iter().all(|(key, binding)| {
+                    !binding.operation.posting()
+                        || collection.custom_postings.contains_key(key)
+                })
+                && collection
+                    .definition
+                    .sort_fields
+                    .iter()
+                    .all(|path| collection.sorting.columns.contains_key(path))
+        })
+    }
+
     /// Reread only the already published file membership. The extended pass
     /// retains the base generation's IDs, locators, text, and relation indexes;
     /// a changed source layout is rejected rather than attaching stale facts.
@@ -1174,6 +1203,7 @@ impl Repository {
         base: &Repository,
         on_batch: &dyn Fn(usize, usize),
         cancelled: &dyn Fn() -> bool,
+        on_extended_batch: &dyn Fn(crate::build::ExtendedBatch) -> Result<(), String>,
     ) -> Result<Self, String> {
         let definitions = base
             .collections
@@ -1193,6 +1223,7 @@ impl Repository {
             None,
             Some(on_batch),
             Some(cancelled),
+            Some(on_extended_batch),
         )?;
         if extended.collections.len() != base.collections.len() {
             return Err("extended collection count changed".into());
@@ -1219,6 +1250,17 @@ impl Repository {
                 ));
             }
             target.generation = original.generation.clone();
+            for path in original.definition.schema.relations().keys() {
+                let relation_posting = original
+                    .postings
+                    .fields
+                    .get(path)
+                    .ok_or("base relation posting missing")?;
+                target
+                    .postings
+                    .fields
+                    .insert(path.clone(), relation_posting.clone());
+            }
             target.raw = original.raw.clone();
             target.fallback_text = original.fallback_text.clone();
             target.logical_records = original.logical_records.clone();
@@ -1254,6 +1296,7 @@ impl Repository {
             root, definitions, options, sources, discover_sources,
             crate::build::ConstructionPhase::Complete, None, None,
             None, None,
+            None,
         )
     }
 
@@ -1268,6 +1311,7 @@ impl Repository {
         on_catalogue: Option<&dyn Fn(&FileInventory)>,
         on_batch: Option<&dyn Fn(usize, usize)>,
         cancelled: Option<&dyn Fn() -> bool>,
+        on_extended_batch: Option<&dyn Fn(crate::build::ExtendedBatch) -> Result<(), String>>,
     ) -> Result<Self, String> {
         let discovery_started = Instant::now();
         let mut files = existing
@@ -1362,11 +1406,17 @@ impl Repository {
         let collection_count = selected.len();
         for (definition, id, source, member_files) in selected {
             let builder = CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
-            let postings = if phase == crate::build::ConstructionPhase::Base {
-                PostingCollection { fields: HashMap::new() }
-            } else {
-                PostingCollection::new(&definition.schema)
-            };
+            let mut postings = PostingCollection::new(&definition.schema);
+            if phase == crate::build::ConstructionPhase::Base {
+                postings
+                    .fields
+                    .retain(|path, _| definition.schema.relations().contains_key(path));
+            } else if phase == crate::build::ConstructionPhase::Extended {
+                postings.fields.retain(|path, _| {
+                    definition.schema.fields.get(path).is_some_and(|field| field.indexed)
+                        && !definition.schema.relations().contains_key(path)
+                });
+            }
             let inference = if phase == crate::build::ConstructionPhase::Base {
                 None
             } else {
@@ -1481,6 +1531,12 @@ impl Repository {
             }
             let admitted_files = batch.new_file_count();
             let admitted_records = batch.record_count();
+            let extended = on_extended_batch
+                .map(|_| {
+                    let base_slot = pending[collection_index].builder.next_slot()?.0;
+                    batch.extended_snapshot(CollectionId(collection_index as u32), base_slot)
+                })
+                .transpose()?;
             for &(file_id, digest) in batch.file_fingerprints() {
                 digest_bindings
                     .get_mut(file_id.0 as usize)
@@ -1490,6 +1546,11 @@ impl Repository {
             build_parses += batch.record_parses;
             build_failed_parses += batch.failed_parses;
             pending[collection_index].admit(&mut files, batch)?;
+            if let (Some(on_extended_batch), Some(extended)) =
+                (on_extended_batch, extended)
+            {
+                on_extended_batch(extended)?;
+            }
             if let Some(on_batch) = on_batch {
                 on_batch(admitted_files, admitted_records);
             }
