@@ -1518,6 +1518,23 @@ impl Index {
         }))
     }
 
+    /// Preserve the established segmented representation for blocking openers
+    /// after the staged engine completes every requested capability.
+    pub(crate) fn partition_completed_base(&self) -> Result<(), IndexError> {
+        let captured = self.view()?;
+        let mut partitioned = crate::lifecycle_partition::partition_base((*captured.0).clone())?;
+        partitioned.extended_batches = vec![Arc::new(Vec::new()); partitioned.active.len()];
+        let mut published = self.0.published.write().map_err(|_| IndexError::LockPoisoned)?;
+        if !Arc::ptr_eq(&published, &captured.0) {
+            return Err(IndexError::RevisionConflict {
+                expected: captured.revision(),
+                actual: published.revision,
+            });
+        }
+        *published = Arc::new(partitioned);
+        Ok(())
+    }
+
     pub fn instance_id(&self) -> u64 {
         self.0.instance_id
     }
@@ -1553,6 +1570,16 @@ impl Index {
         collection: &str,
     ) -> Result<Option<Vec<InferencePathDiagnostic>>, IndexError> {
         Ok(self.view()?.repository().inference_index_diagnostics(collection))
+    }
+
+    /// Source parses recorded by the latest published construction phase.
+    pub fn build_parses(&self) -> Result<u64, IndexError> {
+        Ok(self.view()?.repository().build_parses())
+    }
+
+    /// Failed source parses recorded by the latest published construction phase.
+    pub fn build_failed_parses(&self) -> Result<u64, IndexError> {
+        Ok(self.view()?.repository().build_failed_parses())
     }
 
     pub fn wait_extended(&self) -> Result<(), IndexError> {
@@ -3273,6 +3300,7 @@ impl IndexView {
                 &self.0.active,
                 &self.0.catalog,
                 self.revision(),
+                &self.0.extended_batches,
                 cache,
             )
             .map(|result| self.stamp_result(result))
@@ -3321,6 +3349,7 @@ impl IndexView {
                 &self.0.catalog,
                 self.revision(),
                 context,
+                &self.0.extended_batches,
                 cache,
             )
             .map(|result| self.stamp_result(result))

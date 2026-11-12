@@ -35,7 +35,10 @@ impl Index {
         options: RepositoryOptions,
         sources: SourceRegistry,
     ) -> Result<Self, IndexError> {
-        Self::start_staged_build_with_sources(root, definitions, options, sources)?.wait_complete()
+        let index = Self::start_staged_build_with_sources(root, definitions, options, sources)?
+            .wait_complete()?;
+        index.partition_completed_base()?;
+        Ok(index)
     }
 
     fn from_direct_build(direct: DirectBuild) -> Result<Self, IndexError> {
@@ -127,7 +130,14 @@ impl Index {
                 IndexError::InvalidCache(message)
             }
         })?;
-        let extended_pending = !repository.extended_complete();
+        // Completed blocking builds are partitioned into segments and retain
+        // only an empty metadata repository. A fresh partial snapshot keeps
+        // its searchable base generation in the repository itself.
+        let extended_pending = !repository.extended_complete()
+            && repository
+                .collections()
+                .iter()
+                .any(|collection| !collection.generation.records.is_empty());
         let repository = Arc::new(repository);
         let slots = state
             .catalog

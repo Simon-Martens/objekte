@@ -9,6 +9,53 @@ use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
 #[test]
+fn extended_bounds_compose_exact_field_states_with_uncovered_slots() {
+    use crate::build::ExtendedBatch;
+    use crate::field_state::{FieldStateColumnBuilder, classify_value};
+    use crate::model::CollectionId;
+
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    definition.schema.register_field(FieldDefinition {
+        path: vec!["x".into()],
+        kind: LogicalType::String,
+        required: false,
+        nullable: true,
+        indexed: true,
+        multi: false,
+        element_nullable: vec![],
+    }).unwrap();
+    let mut column = FieldStateColumnBuilder::new();
+    column.cover_slots(&[0, 1, 2].into_iter().collect());
+    column.insert_mask(0, classify_value(&Value::String("value".into())).unwrap());
+    column.insert_mask(1, classify_value(&Value::Null).unwrap());
+    let batch = Arc::new(ExtendedBatch {
+        collection: CollectionId(0),
+        base_slot: 10,
+        record_count: 3,
+        records: Vec::new(),
+        logical_covered: [0, 1, 2].into_iter().collect(),
+        postings: crate::posting::PostingCollection { fields: Default::default() },
+        custom_postings: Default::default(),
+        field_states: [(vec!["x".into()], column.finish())].into(),
+        source_files: Vec::new(),
+    });
+    let batches = [batch];
+    let input: RoaringBitmap = [10, 11, 12, 13].into_iter().collect();
+    let check = |filter: &str, may: &[u32], must: &[u32]| {
+        let bound = crate::reference::bind_filter(
+            &parse_filter(filter).unwrap(), &definition.schema,
+        ).unwrap();
+        let bounds = extended_filter_bounds(&batches, &bound, &input);
+        assert_eq!(bounds.may.iter().collect::<Vec<_>>(), may, "{filter} may");
+        assert_eq!(bounds.must.iter().collect::<Vec<_>>(), must, "{filter} must");
+    };
+    check("x:string = true", &[10, 13], &[10]);
+    check("!(x:string = true)", &[11, 12, 13], &[11, 12]);
+    check("x:string = true || x:null = true", &[10, 11, 13], &[10, 11]);
+    check("x:string = true && x:null = true", &[13], &[]);
+}
+
+#[test]
 fn segment_filter_bounds_keep_unknown_fallback_and_exclude_retired_before_not() {
     use crate::build::{
         FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build,

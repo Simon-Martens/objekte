@@ -12,11 +12,11 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 use smallvec::SmallVec;
 
-use crate::build::IndexedCollectionSegment;
+use crate::build::{ExtendedBatch, IndexedCollectionSegment};
 use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
 use crate::executor::{
     Plan, PlanningCounters, Proof, TermChoice, estimate_expr, estimate_fts_candidates,
-    estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
+    estimate_plan_expr, extended_filter_bounds, fts_candidates, plan_expr_restricted_with_execution, segment_filter_bounds,
     segment_filter_bounds_with_catalog, segment_fts_candidates,
 };
 use crate::inventory::{ActiveRecords, ByteRange, FileEntry, RecordClass, RecordEntry};
@@ -2891,7 +2891,7 @@ pub(crate) fn search_active_available(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
-    search_active_available_lifecycle(repo, query, base_active, catalog, revision, None)
+    search_active_available_lifecycle(repo, query, base_active, catalog, revision, &[], None)
 }
 
 pub(crate) fn search_active_available_lifecycle(
@@ -2900,10 +2900,11 @@ pub(crate) fn search_active_available_lifecycle(
     base_active: &[ActiveRecords],
     catalog: &FileCatalog,
     revision: IndexRevision,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
     _cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
     let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
-    match search_active(repo, query, base_active) {
+    match search_active_extended(repo, query, base_active, batches, None) {
         Err(_error) if has_unavailable_active_source(repo, base_active, &empty, catalog) => {
             search_segmented_reference(repo, query, base_active, &empty, catalog, revision)
         }
@@ -2918,10 +2919,15 @@ pub(crate) fn search_active_available_with_context_lifecycle(
     catalog: &FileCatalog,
     revision: IndexRevision,
     context: &ExecutionContext,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
     _cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
-    match search_with_context_active(repo, query, context, base_active) {
+    let optimized = context.check().and_then(|()| {
+        search_active_extended(repo, query, base_active, batches, Some(context))
+            .map_err(|message| context.recorded_error(message))
+    });
+    match optimized {
         Err(error)
             if matches!(
                 error.kind,
@@ -7594,7 +7600,17 @@ pub(crate) fn search_active(
     query: &Query,
     active: &[ActiveRecords],
 ) -> Result<SearchResult, String> {
-    search_active_inner(repo, query, active, None)
+    search_active_inner(repo, query, active, None, None)
+}
+
+pub(crate) fn search_active_extended(
+    repo: &Repository,
+    query: &Query,
+    active: &[ActiveRecords],
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
+    context: Option<&ExecutionContext>,
+) -> Result<SearchResult, String> {
+    search_active_inner(repo, query, active, context, Some(batches))
 }
 
 fn search_active_inner(
@@ -7602,6 +7618,7 @@ fn search_active_inner(
     query: &Query,
     active: &[ActiveRecords],
     context: Option<&ExecutionContext>,
+    extended_batches: Option<&[Arc<Vec<Arc<ExtendedBatch>>>]>,
 ) -> Result<SearchResult, String> {
     let scoped_context = context
         .cloned()
@@ -7637,6 +7654,7 @@ fn search_active_inner(
             .then_some(ExactCollector { members: None }),
         Some(&scoped_context),
         Some(active),
+        extended_batches,
     )
 }
 
@@ -7647,7 +7665,7 @@ pub(crate) fn search_with_context_active(
     active: &[ActiveRecords],
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     context.check()?;
-    search_active_inner(repo, query, active, Some(context))
+    search_active_inner(repo, query, active, Some(context), None)
         .map_err(|message| context.recorded_error(message))
 }
 
@@ -7670,6 +7688,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             None,
             None,
             Some(ExactCollector { members: None }),
+            None,
             None,
             None,
         );
@@ -7753,6 +7772,7 @@ pub(crate) fn search_with_context(
             Some(ExactCollector { members: None }),
             Some(context),
             None,
+            None,
         )
     } else {
         search_impl_with_collector(
@@ -7766,6 +7786,7 @@ pub(crate) fn search_with_context(
             None,
             None,
             Some(context),
+            None,
             None,
         )
     };
@@ -7971,6 +7992,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
             None,
             Some(context),
             active,
+            None,
         )
     };
     let result = result.and_then(|mut result| {
@@ -8199,6 +8221,7 @@ pub(crate) fn exact_members_with_active(
         }),
         active_context.as_ref(),
         active,
+        None,
     )?;
     if result.count != Some(members.len() as usize) {
         return Err("exact selection is incomplete".into());
@@ -9670,6 +9693,7 @@ pub(crate) fn search_analyze_with_active(
         None,
         active_context.as_ref(),
         active,
+        None,
     )?;
     Ok((result, traces))
 }
@@ -10061,6 +10085,7 @@ fn search_impl<'a>(
         None,
         None,
         None,
+        None,
     )
 }
 
@@ -10076,6 +10101,7 @@ fn search_impl_with_collector<'a>(
     mut exact_collector: Option<ExactCollector<'_>>,
     execution: Option<&ExecutionContext>,
     active: Option<&[ActiveRecords]>,
+    extended_batches: Option<&[Arc<Vec<Arc<ExtendedBatch>>>]>,
 ) -> Result<SearchResult, String> {
     if let Some(execution) = execution {
         execution.check_string()?;
@@ -10232,6 +10258,22 @@ fn search_impl_with_collector<'a>(
                     semijoin_work: Default::default(),
                     planning: PlanningCounters::default(),
                 });
+            if let (Some(filter), Some(batches)) = (
+                filter.as_ref(),
+                extended_batches
+                    .and_then(|groups| groups.get(collection_index))
+                    .filter(|batches| !batches.is_empty()),
+            ) {
+                let bounds = extended_filter_bounds(batches, filter, &input);
+                let original = plan.candidates.take().unwrap_or_else(|| input.clone());
+                plan.candidates = Some(original & &bounds.may);
+                // Source evidence still needs the original proof machinery.
+                // Without evidence the exact batch hits may skip source reads.
+                if !query.options.evidence {
+                    plan.proven_hits |= &bounds.must;
+                    plan.exact |= bounds.may == bounds.must;
+                }
+            }
             let mut candidates = plan.candidates.take().unwrap_or(input);
             if !text_first {
                 if let (Some(fts), Some((estimated, lookup))) = (&fts, text_estimate) {
