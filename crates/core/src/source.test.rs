@@ -1022,6 +1022,84 @@ impl SourceReader for OutcomeReader {
 
 
 #[test]
+fn reusable_build_buffer_preserves_outcomes_and_releases_large_storage() {
+    use sha2::{Digest, Sha256};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-reused-build-buffer-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir(&root).unwrap();
+    let mut buffer = Vec::new();
+    let mut profile = SourceBufferProfile::default();
+    let parses = Arc::new(AtomicUsize::new(0));
+    let large = vec![b'x'; MAX_RETAINED_BUILD_BUFFER_BYTES + 1];
+    for (name, bytes, malformed) in [
+        ("large.outcome", large.as_slice(), false),
+        ("small.outcome", b"ok".as_slice(), false),
+        ("broken.outcome", b"bad".as_slice(), true),
+        ("last.outcome", b"next".as_slice(), false),
+    ] {
+        let path = root.join(name);
+        std::fs::write(&path, bytes).unwrap();
+        let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+        let reader = OutcomeReader {
+            ranges: vec![ByteRange {
+                start: 0,
+                end: bytes.len() as u64,
+            }],
+            parses: parses.clone(),
+            fail_framing: malformed,
+        };
+        let mut outcome_kind = None;
+        let (_, digest) = extract_file_build_outcomes_hashed_with_buffer(
+            &path,
+            &reader,
+            revision,
+            &mut buffer,
+            None,
+            Some(&mut profile),
+            |outcome| {
+                outcome_kind = Some(match outcome {
+                    SourceOutcome::Logical { .. } => "logical",
+                    SourceOutcome::Malformed { bytes: raw, .. } => {
+                        assert_eq!(raw, bytes);
+                        "malformed"
+                    }
+                    SourceOutcome::Unreadable { .. } => "unreadable",
+                });
+                Ok(())
+            },
+        )
+        .unwrap();
+        assert_eq!(digest, Some(Sha256::digest(bytes).into()));
+        assert_eq!(
+            outcome_kind,
+            Some(if malformed { "malformed" } else { "logical" })
+        );
+        if name == "large.outcome" {
+            assert!(buffer.capacity() > MAX_RETAINED_BUILD_BUFFER_BYTES);
+            assert!(trim_oversized_build_buffer(&mut buffer));
+            assert_eq!(buffer.capacity(), 0);
+        } else if name == "small.outcome" {
+            assert!(buffer.capacity() >= bytes.len());
+            assert!(!trim_oversized_build_buffer(&mut buffer));
+        } else if malformed {
+            assert_eq!(buffer.capacity(), 0);
+        }
+    }
+    assert_eq!(profile.files_read, 4);
+    assert!(profile.growth_files >= 3);
+    assert!(profile.peak_capacity_bytes > MAX_RETAINED_BUILD_BUFFER_BYTES as u64);
+    assert_eq!(parses.load(Ordering::Relaxed), 3);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn registered_ranges_are_validated_before_slicing_and_outcomes_are_typed() {
     let root = std::env::temp_dir().join(format!("objekte-reader-ranges-{}", std::process::id()));
     std::fs::create_dir_all(&root).unwrap();
