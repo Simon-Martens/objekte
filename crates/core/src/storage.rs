@@ -1373,12 +1373,10 @@ fn load_snapshot_parts(
             .filter(|(_, binding)| binding.operation.posting())
             .map(|(key, _)| key.clone())
             .collect();
-        if encoded
+        if !encoded
             .custom_postings
             .keys()
-            .cloned()
-            .collect::<HashSet<_>>()
-            != expected_custom
+            .all(|key| expected_custom.contains(key))
         {
             return Err("snapshot custom posting coverage mismatch".into());
         }
@@ -1411,13 +1409,16 @@ fn load_snapshot_parts(
             })
             .map(|f| f.path.clone())
             .collect();
-        if encoded
+        if !encoded
             .postings
             .fields
             .keys()
-            .cloned()
-            .collect::<HashSet<_>>()
-            != expected_postings
+            .all(|path| expected_postings.contains(path))
+            || !definition
+                .schema
+                .relations()
+                .keys()
+                .all(|path| encoded.postings.fields.contains_key(path))
         {
             return Err("snapshot posting coverage mismatch".into());
         }
@@ -1428,7 +1429,7 @@ fn load_snapshot_parts(
             }
         }
         match (&encoded.inference, options.inference.mode) {
-            (None, InferenceMode::Disabled) => {}
+            (None, _) => {}
             (Some(inference), InferenceMode::ReportOnly | InferenceMode::AutoIndex) => {
                 inference.validate(
                     options.inference,
@@ -1470,10 +1471,15 @@ fn load_snapshot_parts(
                 return Err("snapshot custom alphabet mismatch".into());
             }
         }
-        if encoded.sorting.columns.len() != definition.sort_fields.len() {
+        if !encoded
+            .sorting
+            .columns
+            .keys()
+            .all(|path| definition.sort_fields.contains(path))
+        {
             return Err("snapshot sort coverage mismatch".into());
         }
-        for path in &definition.sort_fields {
+        for path in encoded.sorting.columns.keys() {
             let column = encoded
                 .sorting
                 .columns
@@ -1521,10 +1527,18 @@ fn load_snapshot_parts(
                 }
             }
         }
-        if encoded.sorting.composites.len() != definition.schema.composite_sorts.len() {
+        if !encoded.sorting.composites.is_empty()
+            && encoded.sorting.composites.len() != definition.schema.composite_sorts.len()
+        {
             return Err("snapshot composite sort coverage mismatch".into());
         }
-        for (index, expected) in definition.schema.composite_sorts.iter().enumerate() {
+        for (index, expected) in definition
+            .schema
+            .composite_sorts
+            .iter()
+            .take(encoded.sorting.composites.len())
+            .enumerate()
+        {
             let composite = &encoded.sorting.composites[index];
             let normalized = expected
                 .iter()
