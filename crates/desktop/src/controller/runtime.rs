@@ -613,12 +613,12 @@ impl DesktopController {
             match result {
                 Ok(Some(stats)) => {
                     self.open_diagnostics
-                        .push_str(&format!("\nReconciled cache save: {stats:#?}"));
+                        .push_str(&format!("\nBackground index save: {stats:#?}"));
                     updates.push(UiUpdate::Diagnostics(self.open_diagnostics.clone()));
                 }
                 Ok(None) => {
                     self.open_diagnostics
-                        .push_str("\nReconciled cache: already current");
+                        .push_str("\nBackground index save: already current");
                     updates.push(UiUpdate::Diagnostics(self.open_diagnostics.clone()));
                 }
                 Err(message) => updates.push(UiUpdate::Error {
@@ -2699,10 +2699,8 @@ impl DesktopController {
                             session.diagnostics.schema_files,
                             session.diagnostics.snapshot_save,
                             session.diagnostics.startup,
-                            if session.diagnostics.startup.restored
-                                && session.args.write_index.is_some()
-                            {
-                                "\nReconciled cache write: pending"
+                            if session.args.write_index.is_some() {
+                                "\nIndex write: pending"
                             } else {
                                 ""
                             },
