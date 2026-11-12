@@ -1,0 +1,436 @@
+{
+  "fixture": "64 JSONL files x 16 records, 128 rotating dynamic fields",
+  "measurements": [
+    {
+      "build_parses": 1024,
+      "complete_ns": 5493284,
+      "field_state_memory": [
+        {
+          "batches": 0,
+          "collection": "shapes",
+          "columns": 0,
+          "coverage_cells": 0,
+          "encoded_column_bytes": 0,
+          "estimated_retained_bytes": 0,
+          "mixed_entries": 0
+        }
+      ],
+      "mode": "base",
+      "query_record_parses": {
+        "dyn_7:string = true": 1024,
+        "mixed:? = true": 1024,
+        "mixed:array = true": 1024,
+        "mixed:null = true": 1024,
+        "nested.value:exists = false": 1024,
+        "nested.value:string = true": 1024,
+        "repeated.value:null = true": 1024,
+        "repeated.value:string = true": 1024
+      },
+      "repetition": 0,
+      "search_ready_ns": 5492843,
+      "snapshot_bytes": 133465,
+      "snapshot_save_ns": 17332986
+    },
+    {
+      "build_parses": 2048,
+      "complete_ns": 24455231,
+      "field_state_memory": [
+        {
+          "batches": 1,
+          "collection": "shapes",
+          "columns": 136,
+          "coverage_cells": 139264,
+          "encoded_column_bytes": 367072,
+          "estimated_retained_bytes": 438923,
+          "mixed_entries": 1024
+        }
+      ],
+      "mode": "inferred",
+      "query_record_parses": {
+        "dyn_7:string = true": 0,
+        "mixed:? = true": 0,
+        "mixed:array = true": 0,
+        "mixed:null = true": 0,
+        "nested.value:exists = false": 0,
+        "nested.value:string = true": 0,
+        "repeated.value:null = true": 0,
+        "repeated.value:string = true": 0
+      },
+      "repetition": 0,
+      "search_ready_ns": 5471823,
+      "snapshot_bytes": 684599,
+      "snapshot_save_ns": 14889834
+    },
+    {
+      "build_parses": 1024,
+      "complete_ns": 5049079,
+      "field_state_memory": [
+        {
+          "batches": 0,
+          "collection": "shapes",
+          "columns": 0,
+          "coverage_cells": 0,
+          "encoded_column_bytes": 0,
+          "estimated_retained_bytes": 0,
+          "mixed_entries": 0
+        }
+      ],
+      "mode": "base",
+      "query_record_parses": {
+        "dyn_7:string = true": 1024,
+        "mixed:? = true": 1024,
+        "mixed:array = true": 1024,
+        "mixed:null = true": 1024,
+        "nested.value:exists = false": 1024,
+        "nested.value:string = true": 1024,
+        "repeated.value:null = true": 1024,
+        "repeated.value:string = true": 1024
+      },
+      "repetition": 1,
+      "search_ready_ns": 5048739,
+      "snapshot_bytes": 133465,
+      "snapshot_save_ns": 13525810
+    },
+    {
+      "build_parses": 2048,
+      "complete_ns": 23646361,
+      "field_state_memory": [
+        {
+          "batches": 1,
+          "collection": "shapes",
+          "columns": 136,
+          "coverage_cells": 139264,
+          "encoded_column_bytes": 367072,
+          "estimated_retained_bytes": 438923,
+          "mixed_entries": 1024
+        }
+      ],
+      "mode": "inferred",
+      "query_record_parses": {
+        "dyn_7:string = true": 0,
+        "mixed:? = true": 0,
+        "mixed:array = true": 0,
+        "mixed:null = true": 0,
+        "nested.value:exists = false": 0,
+        "nested.value:string = true": 0,
+        "repeated.value:null = true": 0,
+        "repeated.value:string = true": 0
+      },
+      "repetition": 1,
+      "search_ready_ns": 5834315,
+      "snapshot_bytes": 684599,
+      "snapshot_save_ns": 15107252
+    },
+    {
+      "build_parses": 1024,
+      "complete_ns": 5310511,
+      "field_state_memory": [
+        {
+          "batches": 0,
+          "collection": "shapes",
+          "columns": 0,
+          "coverage_cells": 0,
+          "encoded_column_bytes": 0,
+          "estimated_retained_bytes": 0,
+          "mixed_entries": 0
+        }
+      ],
+      "mode": "base",
+      "query_record_parses": {
+        "dyn_7:string = true": 1024,
+        "mixed:? = true": 1024,
+        "mixed:array = true": 1024,
+        "mixed:null = true": 1024,
+        "nested.value:exists = false": 1024,
+        "nested.value:string = true": 1024,
+        "repeated.value:null = true": 1024,
+        "repeated.value:string = true": 1024
+      },
+      "repetition": 2,
+      "search_ready_ns": 5310080,
+      "snapshot_bytes": 133465,
+      "snapshot_save_ns": 13222460
+    },
+    {
+      "build_parses": 2048,
+      "complete_ns": 23544349,
+      "field_state_memory": [
+        {
+          "batches": 1,
+          "collection": "shapes",
+          "columns": 136,
+          "coverage_cells": 139264,
+          "encoded_column_bytes": 367072,
+          "estimated_retained_bytes": 438923,
+          "mixed_entries": 1024
+        }
+      ],
+      "mode": "inferred",
+      "query_record_parses": {
+        "dyn_7:string = true": 0,
+        "mixed:? = true": 0,
+        "mixed:array = true": 0,
+        "mixed:null = true": 0,
+        "nested.value:exists = false": 0,
+        "nested.value:string = true": 0,
+        "repeated.value:null = true": 0,
+        "repeated.value:string = true": 0
+      },
+      "repetition": 2,
+      "search_ready_ns": 5310200,
+      "snapshot_bytes": 684599,
+      "snapshot_save_ns": 14929057
+    },
+    {
+      "build_parses": 1024,
+      "complete_ns": 5446526,
+      "field_state_memory": [
+        {
+          "batches": 0,
+          "collection": "shapes",
+          "columns": 0,
+          "coverage_cells": 0,
+          "encoded_column_bytes": 0,
+          "estimated_retained_bytes": 0,
+          "mixed_entries": 0
+        }
+      ],
+      "mode": "base",
+      "query_record_parses": {
+        "dyn_7:string = true": 1024,
+        "mixed:? = true": 1024,
+        "mixed:array = true": 1024,
+        "mixed:null = true": 1024,
+        "nested.value:exists = false": 1024,
+        "nested.value:string = true": 1024,
+        "repeated.value:null = true": 1024,
+        "repeated.value:string = true": 1024
+      },
+      "repetition": 3,
+      "search_ready_ns": 5446166,
+      "snapshot_bytes": 133465,
+      "snapshot_save_ns": 13340382
+    },
+    {
+      "build_parses": 2048,
+      "complete_ns": 24358590,
+      "field_state_memory": [
+        {
+          "batches": 1,
+          "collection": "shapes",
+          "columns": 136,
+          "coverage_cells": 139264,
+          "encoded_column_bytes": 367072,
+          "estimated_retained_bytes": 438923,
+          "mixed_entries": 1024
+        }
+      ],
+      "mode": "inferred",
+      "query_record_parses": {
+        "dyn_7:string = true": 0,
+        "mixed:? = true": 0,
+        "mixed:array = true": 0,
+        "mixed:null = true": 0,
+        "nested.value:exists = false": 0,
+        "nested.value:string = true": 0,
+        "repeated.value:null = true": 0,
+        "repeated.value:string = true": 0
+      },
+      "repetition": 3,
+      "search_ready_ns": 5432791,
+      "snapshot_bytes": 684599,
+      "snapshot_save_ns": 14699867
+    },
+    {
+      "build_parses": 1024,
+      "complete_ns": 5617999,
+      "field_state_memory": [
+        {
+          "batches": 0,
+          "collection": "shapes",
+          "columns": 0,
+          "coverage_cells": 0,
+          "encoded_column_bytes": 0,
+          "estimated_retained_bytes": 0,
+          "mixed_entries": 0
+        }
+      ],
+      "mode": "base",
+      "query_record_parses": {
+        "dyn_7:string = true": 1024,
+        "mixed:? = true": 1024,
+        "mixed:array = true": 1024,
+        "mixed:null = true": 1024,
+        "nested.value:exists = false": 1024,
+        "nested.value:string = true": 1024,
+        "repeated.value:null = true": 1024,
+        "repeated.value:string = true": 1024
+      },
+      "repetition": 4,
+      "search_ready_ns": 5617548,
+      "snapshot_bytes": 133465,
+      "snapshot_save_ns": 13602644
+    },
+    {
+      "build_parses": 2048,
+      "complete_ns": 23701034,
+      "field_state_memory": [
+        {
+          "batches": 1,
+          "collection": "shapes",
+          "columns": 136,
+          "coverage_cells": 139264,
+          "encoded_column_bytes": 367072,
+          "estimated_retained_bytes": 438923,
+          "mixed_entries": 1024
+        }
+      ],
+      "mode": "inferred",
+      "query_record_parses": {
+        "dyn_7:string = true": 0,
+        "mixed:? = true": 0,
+        "mixed:array = true": 0,
+        "mixed:null = true": 0,
+        "nested.value:exists = false": 0,
+        "nested.value:string = true": 0,
+        "repeated.value:null = true": 0,
+        "repeated.value:string = true": 0
+      },
+      "repetition": 4,
+      "search_ready_ns": 5502451,
+      "snapshot_bytes": 684599,
+      "snapshot_save_ns": 14944246
+    },
+    {
+      "build_parses": 1024,
+      "complete_ns": 5329206,
+      "field_state_memory": [
+        {
+          "batches": 0,
+          "collection": "shapes",
+          "columns": 0,
+          "coverage_cells": 0,
+          "encoded_column_bytes": 0,
+          "estimated_retained_bytes": 0,
+          "mixed_entries": 0
+        }
+      ],
+      "mode": "base",
+      "query_record_parses": {
+        "dyn_7:string = true": 1024,
+        "mixed:? = true": 1024,
+        "mixed:array = true": 1024,
+        "mixed:null = true": 1024,
+        "nested.value:exists = false": 1024,
+        "nested.value:string = true": 1024,
+        "repeated.value:null = true": 1024,
+        "repeated.value:string = true": 1024
+      },
+      "repetition": 5,
+      "search_ready_ns": 5328796,
+      "snapshot_bytes": 133465,
+      "snapshot_save_ns": 13168028
+    },
+    {
+      "build_parses": 2048,
+      "complete_ns": 23696635,
+      "field_state_memory": [
+        {
+          "batches": 1,
+          "collection": "shapes",
+          "columns": 136,
+          "coverage_cells": 139264,
+          "encoded_column_bytes": 367072,
+          "estimated_retained_bytes": 438923,
+          "mixed_entries": 1024
+        }
+      ],
+      "mode": "inferred",
+      "query_record_parses": {
+        "dyn_7:string = true": 0,
+        "mixed:? = true": 0,
+        "mixed:array = true": 0,
+        "mixed:null = true": 0,
+        "nested.value:exists = false": 0,
+        "nested.value:string = true": 0,
+        "repeated.value:null = true": 0,
+        "repeated.value:string = true": 0
+      },
+      "repetition": 5,
+      "search_ready_ns": 5531967,
+      "snapshot_bytes": 684599,
+      "snapshot_save_ns": 14988840
+    },
+    {
+      "build_parses": 1024,
+      "complete_ns": 5311603,
+      "field_state_memory": [
+        {
+          "batches": 0,
+          "collection": "shapes",
+          "columns": 0,
+          "coverage_cells": 0,
+          "encoded_column_bytes": 0,
+          "estimated_retained_bytes": 0,
+          "mixed_entries": 0
+        }
+      ],
+      "mode": "base",
+      "query_record_parses": {
+        "dyn_7:string = true": 1024,
+        "mixed:? = true": 1024,
+        "mixed:array = true": 1024,
+        "mixed:null = true": 1024,
+        "nested.value:exists = false": 1024,
+        "nested.value:string = true": 1024,
+        "repeated.value:null = true": 1024,
+        "repeated.value:string = true": 1024
+      },
+      "repetition": 6,
+      "search_ready_ns": 5311022,
+      "snapshot_bytes": 133465,
+      "snapshot_save_ns": 13462581
+    },
+    {
+      "build_parses": 2048,
+      "complete_ns": 23147162,
+      "field_state_memory": [
+        {
+          "batches": 1,
+          "collection": "shapes",
+          "columns": 136,
+          "coverage_cells": 139264,
+          "encoded_column_bytes": 367072,
+          "estimated_retained_bytes": 438923,
+          "mixed_entries": 1024
+        }
+      ],
+      "mode": "inferred",
+      "query_record_parses": {
+        "dyn_7:string = true": 0,
+        "mixed:? = true": 0,
+        "mixed:array = true": 0,
+        "mixed:null = true": 0,
+        "nested.value:exists = false": 0,
+        "nested.value:string = true": 0,
+        "repeated.value:null = true": 0,
+        "repeated.value:string = true": 0
+      },
+      "repetition": 6,
+      "search_ready_ns": 5120483,
+      "snapshot_bytes": 684599,
+      "snapshot_save_ns": 14671503
+    }
+  ],
+  "queries": [
+    "nested.value:string = true",
+    "nested.value:exists = false",
+    "mixed:array = true",
+    "mixed:null = true",
+    "mixed:? = true",
+    "dyn_7:string = true",
+    "repeated.value:string = true",
+    "repeated.value:null = true"
+  ],
+  "records": 1024
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "trial": 0,
+    "quiesce_duration_ns": 31754679,
+    "phase": "Cancelled",
+    "completed_files": 3584,
+    "total_files": 148486
+  },
+  {
+    "trial": 1,
+    "quiesce_duration_ns": 38349424,
+    "phase": "Cancelled",
+    "completed_files": 3584,
+    "total_files": 148486
+  },
+  {
+    "trial": 2,
+    "quiesce_duration_ns": 41766936,
+    "phase": "Cancelled",
+    "completed_files": 3584,
+    "total_files": 148486
+  },
+  {
+    "trial": 3,
+    "quiesce_duration_ns": 37009375,
+    "phase": "Cancelled",
+    "completed_files": 3584,
+    "total_files": 148486
+  },
+  {
+    "trial": 4,
+    "quiesce_duration_ns": 34192642,
+    "phase": "Cancelled",
+    "completed_files": 3584,
+    "total_files": 148486
+  },
+  {
+    "trial": 5,
+    "quiesce_duration_ns": 35473428,
+    "phase": "Cancelled",
+    "completed_files": 3584,
+    "total_files": 148486
+  },
+  {
+    "trial": 6,
+    "quiesce_duration_ns": 31628202,
+    "phase": "Cancelled",
+    "completed_files": 3584,
+    "total_files": 148486
+  }
+]

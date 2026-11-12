@@ -1,0 +1,41 @@
+{
+  "code_revision": "21265636a1b799d8376d700fc74eb67f787c79e6",
+  "command": [
+    "target/release/examples/bench_staged_musenalm",
+    "--mode",
+    "foreground",
+    "--profiles",
+    "ascii-off",
+    "--cases",
+    "Q001",
+    "--repetitions",
+    "1",
+    "--result-dir",
+    "target/staged-index-construction-cancellation-final/trial-3"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "259b435df73c0eb2d1d4f066f1528f9dc63c14b29766d19798078fdcd569b473",
+  "decoded_cache_bytes": 0,
+  "extended": true,
+  "failures": 0,
+  "inference": false,
+  "prepared_cache_bytes": 16777216,
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 16,
+  "readiness": "foreground",
+  "repetitions": 1,
+  "root": "/home/simon/source/objekte-integration-staged-index-construction/examples/musenalm",
+  "schema_fingerprint": "4480dbaaed30db65854437b0bb91b192d73df5e0d8be77547986d1afee108a29",
+  "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+  "source_cache_bytes": 0,
+  "workload_fingerprint": "4cae6a5098a60583863374b467725de8dfb7b3eda722772038a7ae9d3d4d5201"
+}

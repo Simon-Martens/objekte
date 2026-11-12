@@ -1,0 +1,178 @@
+[
+  {
+    "alphabet": "ascii",
+    "build_parses": 148486,
+    "capability_revision": 1,
+    "catalogue_source_bytes": 193297230,
+    "completed_files": 0,
+    "data_revision": 1,
+    "extended_phase": "Cancelled",
+    "field_state_memory": [
+      {
+        "batches": 0,
+        "collection": "agents",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "contents",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "entries",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "items",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "pages",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "places",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "series",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      }
+    ],
+    "first_listing_ns": 2488204,
+    "first_text_page_ready_ns": 2143695572,
+    "first_text_page_rows": 50,
+    "first_text_query_ns": 27136146,
+    "inference": false,
+    "measurement_peak_rss_bytes": 545320960,
+    "measurement_rss_bytes": 545320960,
+    "measurement_start_ns": 2511759721,
+    "mode": "base",
+    "quiesced_ns": 2511759961,
+    "ready_peak_rss_bytes": 526258176,
+    "ready_rss_bytes": 518668288,
+    "search_ready_ns": 2116505105,
+    "total_files": 148486
+  },
+  {
+    "alphabet": "unicode",
+    "build_parses": 148486,
+    "capability_revision": 1,
+    "catalogue_source_bytes": 193297230,
+    "completed_files": 0,
+    "data_revision": 1,
+    "extended_phase": "Cancelled",
+    "field_state_memory": [
+      {
+        "batches": 0,
+        "collection": "agents",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "contents",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "entries",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "items",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "pages",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "places",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "series",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      }
+    ],
+    "first_listing_ns": 2703920,
+    "first_text_page_ready_ns": 2240848634,
+    "first_text_page_rows": 50,
+    "first_text_query_ns": 26873392,
+    "inference": false,
+    "measurement_peak_rss_bytes": 950231040,
+    "measurement_rss_bytes": 950231040,
+    "measurement_start_ns": 2253722117,
+    "mode": "base",
+    "quiesced_ns": 2253722277,
+    "ready_peak_rss_bytes": 949526528,
+    "ready_rss_bytes": 949526528,
+    "search_ready_ns": 2213909118,
+    "total_files": 148486
+  }
+]

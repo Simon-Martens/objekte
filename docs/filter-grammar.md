@@ -9,7 +9,8 @@ term        := field (":" modifier)* operator literal
 operator    := "=" | "!=" | ">" | ">=" | "<" | "<=" | "~" | "!~"
              | "?=" | "?!=" | "?>" | "?>=" | "?<" | "?<=" | "?~" | "?!~"
 literal     := quoted-string | signed-number | "true" | "false" | "null"
-modifier    := "lower" | "length" | "each" | "null" | "exists" | registered-name
+modifier    := "lower" | "length" | "each" | "null" | "exists"
+             | "?" | "string" | "number" | "array" | "object" | registered-name
 field       := dotted-name with optional ["quoted"] / ['quoted'] / [*] segments
 ```
 
@@ -22,6 +23,24 @@ separate literal substring input and does not parse this grammar.
 
 Binding validates field types, modifiers, and literals for every branch before
 execution. The parser does not infer dates from string shapes.
+
+## Boolean field-state predicates
+
+`field:? = true` tests whether any selected value is nonempty. Absent, null,
+empty string, empty array, and empty object are empty; zero, false, and a
+whitespace-only string are nonempty. `field:string`, `field:number`,
+`field:array`, `field:null`, and `field:object` test the corresponding logical
+type, including empty containers and strings. `field:exists` remains true for
+any present value, including null. Each takes `= true`, `= false`, `!= true`,
+or `!= false`; the false result negates the aggregate positive test. A path
+selecting several values can satisfy multiple type tests at once. A terminal
+array is tested as an array; a path selecting its elements tests those
+elements. Declared logical conversions still apply before these tests, and
+unsupported modifier chains or non-Boolean comparisons fail at binding.
+
+These predicates work before field indexes finish and on unselected fields.
+An uncovered value is evaluated from source. Search readiness means a complete
+query can run; it does not mean every field has resident index coverage.
 
 For `:length`, a path may reach several arrays through an outer array. The
 default comparison (and `:each`) requires every reached array length to satisfy

@@ -1,0 +1,178 @@
+[
+  {
+    "alphabet": "ascii",
+    "build_parses": 296972,
+    "capability_revision": 296,
+    "catalogue_source_bytes": 193297230,
+    "completed_files": 148486,
+    "data_revision": 1,
+    "extended_phase": "Complete",
+    "field_state_memory": [
+      {
+        "batches": 8,
+        "collection": "agents",
+        "columns": 328,
+        "coverage_cells": 164410,
+        "encoded_column_bytes": 437660,
+        "estimated_retained_bytes": 569592,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 262,
+        "collection": "contents",
+        "columns": 3406,
+        "coverage_cells": 1741324,
+        "encoded_column_bytes": 4627064,
+        "estimated_retained_bytes": 5671658,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 10,
+        "collection": "entries",
+        "columns": 250,
+        "coverage_cells": 123200,
+        "encoded_column_bytes": 329474,
+        "estimated_retained_bytes": 409142,
+        "mixed_entries": 198
+      },
+      {
+        "batches": 9,
+        "collection": "items",
+        "columns": 54,
+        "coverage_cells": 25080,
+        "encoded_column_bytes": 67392,
+        "estimated_retained_bytes": 83112,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "pages",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 1,
+        "collection": "places",
+        "columns": 3,
+        "coverage_cells": 630,
+        "encoded_column_bytes": 1812,
+        "estimated_retained_bytes": 2406,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 3,
+        "collection": "series",
+        "columns": 18,
+        "coverage_cells": 7212,
+        "encoded_column_bytes": 19560,
+        "estimated_retained_bytes": 24573,
+        "mixed_entries": 0
+      }
+    ],
+    "first_listing_ns": 2432890,
+    "first_text_page_ready_ns": 2158513938,
+    "first_text_page_rows": 50,
+    "first_text_query_ns": 30840564,
+    "inference": false,
+    "measurement_peak_rss_bytes": 963026944,
+    "measurement_rss_bytes": 928927744,
+    "measurement_start_ns": 6637724674,
+    "mode": "complete",
+    "quiesced_ns": 6637724905,
+    "ready_peak_rss_bytes": 533352448,
+    "ready_rss_bytes": 533352448,
+    "search_ready_ns": 2127611879,
+    "total_files": 148486
+  },
+  {
+    "alphabet": "unicode",
+    "build_parses": 296972,
+    "capability_revision": 296,
+    "catalogue_source_bytes": 193297230,
+    "completed_files": 148486,
+    "data_revision": 1,
+    "extended_phase": "Complete",
+    "field_state_memory": [
+      {
+        "batches": 8,
+        "collection": "agents",
+        "columns": 328,
+        "coverage_cells": 164410,
+        "encoded_column_bytes": 437660,
+        "estimated_retained_bytes": 569592,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 262,
+        "collection": "contents",
+        "columns": 3406,
+        "coverage_cells": 1741324,
+        "encoded_column_bytes": 4627064,
+        "estimated_retained_bytes": 5671658,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 10,
+        "collection": "entries",
+        "columns": 250,
+        "coverage_cells": 123200,
+        "encoded_column_bytes": 329474,
+        "estimated_retained_bytes": 409142,
+        "mixed_entries": 198
+      },
+      {
+        "batches": 9,
+        "collection": "items",
+        "columns": 54,
+        "coverage_cells": 25080,
+        "encoded_column_bytes": 67392,
+        "estimated_retained_bytes": 83112,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "pages",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 1,
+        "collection": "places",
+        "columns": 3,
+        "coverage_cells": 630,
+        "encoded_column_bytes": 1812,
+        "estimated_retained_bytes": 2406,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 3,
+        "collection": "series",
+        "columns": 18,
+        "coverage_cells": 7212,
+        "encoded_column_bytes": 19560,
+        "estimated_retained_bytes": 24573,
+        "mixed_entries": 0
+      }
+    ],
+    "first_listing_ns": 2641181,
+    "first_text_page_ready_ns": 2172142989,
+    "first_text_page_rows": 50,
+    "first_text_query_ns": 31905705,
+    "inference": false,
+    "measurement_peak_rss_bytes": 1436250112,
+    "measurement_rss_bytes": 1401978880,
+    "measurement_start_ns": 6645696829,
+    "mode": "complete",
+    "quiesced_ns": 6645697020,
+    "ready_peak_rss_bytes": 1155358720,
+    "ready_rss_bytes": 1028542464,
+    "search_ready_ns": 2140175238,
+    "total_files": 148486
+  }
+]

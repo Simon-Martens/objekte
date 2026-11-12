@@ -1,0 +1,100 @@
+[
+  {
+    "repetition": 0,
+    "mode": "predecessor",
+    "build_or_ready_ns": 2553852324,
+    "first_listing_ns": null,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 0,
+    "mode": "base",
+    "build_or_ready_ns": 2121508558,
+    "first_listing_ns": 2485438,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 1,
+    "mode": "base",
+    "build_or_ready_ns": 2171141375,
+    "first_listing_ns": 2458808,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 1,
+    "mode": "predecessor",
+    "build_or_ready_ns": 2533029130,
+    "first_listing_ns": null,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 2,
+    "mode": "predecessor",
+    "build_or_ready_ns": 2554443994,
+    "first_listing_ns": null,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 2,
+    "mode": "base",
+    "build_or_ready_ns": 2133945909,
+    "first_listing_ns": 2455742,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 3,
+    "mode": "base",
+    "build_or_ready_ns": 2107430355,
+    "first_listing_ns": 2505196,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 3,
+    "mode": "predecessor",
+    "build_or_ready_ns": 2560925179,
+    "first_listing_ns": null,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 4,
+    "mode": "predecessor",
+    "build_or_ready_ns": 2606204799,
+    "first_listing_ns": null,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 4,
+    "mode": "base",
+    "build_or_ready_ns": 2125733303,
+    "first_listing_ns": 2436656,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 5,
+    "mode": "base",
+    "build_or_ready_ns": 2153218499,
+    "first_listing_ns": 2435354,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 5,
+    "mode": "predecessor",
+    "build_or_ready_ns": 2583132301,
+    "first_listing_ns": null,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 6,
+    "mode": "predecessor",
+    "build_or_ready_ns": 2552822148,
+    "first_listing_ns": null,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  },
+  {
+    "repetition": 6,
+    "mode": "base",
+    "build_or_ready_ns": 2114975196,
+    "first_listing_ns": 2544779,
+    "code_revision": "dbc176381e1c2d6388b5005e7d195b6fbf635355"
+  }
+]

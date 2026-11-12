@@ -1,0 +1,92 @@
+[
+  {
+    "alphabet": "ascii",
+    "build_parses": 148486,
+    "capability_revision": 8,
+    "catalogue_source_bytes": 193297230,
+    "completed_files": 3584,
+    "data_revision": 1,
+    "extended_phase": "Building",
+    "field_state_memory": [
+      {
+        "batches": 7,
+        "collection": "agents",
+        "columns": 287,
+        "coverage_cells": 146944,
+        "encoded_column_bytes": 389256,
+        "estimated_retained_bytes": 504777,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "contents",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "entries",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "items",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "pages",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "places",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      },
+      {
+        "batches": 0,
+        "collection": "series",
+        "columns": 0,
+        "coverage_cells": 0,
+        "encoded_column_bytes": 0,
+        "estimated_retained_bytes": 0,
+        "mixed_entries": 0
+      }
+    ],
+    "final_extended_phase": "Cancelled",
+    "first_listing_ns": 2421702,
+    "first_text_page_ready_ns": 2134734018,
+    "first_text_page_rows": 50,
+    "first_text_query_ns": 15949134,
+    "inference": false,
+    "measurement_peak_rss_bytes": 601968640,
+    "measurement_rss_bytes": 601968640,
+    "measurement_start_ns": 2510114513,
+    "mode": "foreground",
+    "quiesce_duration_ns": 37009375,
+    "quiesced_ns": 2563466131,
+    "ready_peak_rss_bytes": 537116672,
+    "ready_rss_bytes": 537116672,
+    "search_ready_ns": 2118708220,
+    "total_files": 148486
+  }
+]

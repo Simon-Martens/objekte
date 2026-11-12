@@ -34,6 +34,17 @@ automatic indexing. Inference does not build sort columns during opening;
 eligible complete inferred scalar postings can supply a lazy order at query
 time. It does not create relations.
 
+Staged opening publishes the validated text-search base before optional field
+work. With inference disabled, compact field states are built only for fields
+selected by the index configuration; an unconfigured collection has no second
+pass. An explicit `AutoIndex` request discovers eligible nested paths and
+builds their compact type, presence, and special-value states during the
+second source pass. A later explicit inference request can extend an already
+searchable session without rebuilding its unchanged bigram index. A field
+whose optional posting or state has no coverage remains queryable through
+source evaluation. `SearchReady` therefore means correct queries can execute,
+not that all optional acceleration is complete.
+
 The report counts logical eligible and raw-fallback unavailable records
 separately. `present_records` follows the query selector, including an empty
 ancestor array that makes a discovered descendant path present with an empty

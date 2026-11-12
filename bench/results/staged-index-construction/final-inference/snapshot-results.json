@@ -1,0 +1,126 @@
+[
+  {
+    "alphabet": "ascii",
+    "mode": "complete",
+    "save_bytes_written": 218627645,
+    "save_rename_ns": 107562,
+    "save_sync_ns": 80530245,
+    "save_total_ns": 619107463,
+    "save_write_ns": 92955502,
+    "sections": [
+      {
+        "id": 4294967295,
+        "payload_bytes": 125,
+        "serialize_ns": 0
+      },
+      {
+        "id": 0,
+        "payload_bytes": 21502142,
+        "serialize_ns": 16239130
+      },
+      {
+        "id": 1,
+        "payload_bytes": 19998499,
+        "serialize_ns": 46637075
+      },
+      {
+        "id": 2,
+        "payload_bytes": 108282360,
+        "serialize_ns": 192828636
+      },
+      {
+        "id": 3,
+        "payload_bytes": 11980652,
+        "serialize_ns": 16203068
+      },
+      {
+        "id": 4,
+        "payload_bytes": 3410326,
+        "serialize_ns": 2846915
+      },
+      {
+        "id": 5,
+        "payload_bytes": 620102,
+        "serialize_ns": 194015
+      },
+      {
+        "id": 6,
+        "payload_bytes": 717114,
+        "serialize_ns": 360247
+      },
+      {
+        "id": 7,
+        "payload_bytes": 2601297,
+        "serialize_ns": 2796236
+      },
+      {
+        "id": 8,
+        "payload_bytes": 49514536,
+        "serialize_ns": 38686789
+      }
+    ],
+    "snapshot_bytes": 218627645
+  },
+  {
+    "alphabet": "unicode",
+    "mode": "complete",
+    "save_bytes_written": 221138221,
+    "save_rename_ns": 123121,
+    "save_sync_ns": 82610053,
+    "save_total_ns": 652019889,
+    "save_write_ns": 99727372,
+    "sections": [
+      {
+        "id": 4294967295,
+        "payload_bytes": 125,
+        "serialize_ns": 0
+      },
+      {
+        "id": 0,
+        "payload_bytes": 21502142,
+        "serialize_ns": 16248386
+      },
+      {
+        "id": 1,
+        "payload_bytes": 20373501,
+        "serialize_ns": 52462325
+      },
+      {
+        "id": 2,
+        "payload_bytes": 110109430,
+        "serialize_ns": 212475853
+      },
+      {
+        "id": 3,
+        "payload_bytes": 12147696,
+        "serialize_ns": 17646048
+      },
+      {
+        "id": 4,
+        "payload_bytes": 3477524,
+        "serialize_ns": 2986762
+      },
+      {
+        "id": 5,
+        "payload_bytes": 620590,
+        "serialize_ns": 189706
+      },
+      {
+        "id": 6,
+        "payload_bytes": 719056,
+        "serialize_ns": 341110
+      },
+      {
+        "id": 7,
+        "payload_bytes": 2673129,
+        "serialize_ns": 2931618
+      },
+      {
+        "id": 8,
+        "payload_bytes": 49514536,
+        "serialize_ns": 38362577
+      }
+    ],
+    "snapshot_bytes": 221138221
+  }
+]
