@@ -1795,24 +1795,47 @@ pub(crate) fn annotate_extended_traces(
         let bounds = extended_filter_bounds(group, filter, &domain);
         let mut accesses = BTreeSet::new();
         collect_extended_accesses(group, filter, &domain, &mut accesses);
+        let resident_posting = trace.filter_exact
+            && trace.terms.iter().any(|term| {
+                term.selected.exact
+                    && term.selected.kind == crate::executor::AccessPathKind::Posting
+            });
         for term in &trace.terms {
             if term.selected.exact
                 && term.selected.kind == crate::executor::AccessPathKind::Posting
                 && accesses.remove(&format!("source_fallback:{}", term.field))
             {
-                accesses.insert(format!("resident_posting:{}", term.field));
+                let kind = match term.selected.posting.map(|(id, _, _)| id) {
+                    Some(crate::index_catalog::PostingId::Declared) => "configured_posting",
+                    Some(crate::index_catalog::PostingId::Observed) => "inferred_posting",
+                    Some(crate::index_catalog::PostingId::Named) => "named_posting",
+                    None => "resident_posting",
+                };
+                accesses.insert(format!("{kind}:{}", term.field));
             }
         }
         if accesses.is_empty() {
             continue;
         }
-        let uncertain = (&bounds.may - &bounds.must).len();
+        let resident_matches = if resident_posting {
+            let plan = plan_expr_restricted_with_execution(
+                repo, collection, filter, &domain, &domain, false, false, None,
+            )?;
+            plan.exact
+                .then(|| plan.candidates.unwrap_or_else(|| domain.clone()))
+        } else {
+            None
+        };
+        let (may, must) = resident_matches
+            .map(|matches| (matches.clone(), matches))
+            .unwrap_or((bounds.may, bounds.must));
+        let uncertain = (&may - &must).len();
         trace.extended = Some(ExtendedCoverageTrace {
             capability_revision: capability_revision.0,
             covered_records: domain.len().saturating_sub(uncertain),
             uncovered_records: uncertain,
-            may_records: bounds.may.len(),
-            must_records: bounds.must.len(),
+            may_records: may.len(),
+            must_records: must.len(),
             accesses: accesses.into_iter().collect(),
         });
     }
