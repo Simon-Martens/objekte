@@ -101,6 +101,85 @@ impl<E: FnMut(bool, u64)> AsciiGramSink<E> {
         self.before_previous = self.previous;
         self.previous = Some(byte);
     }
+
+    /// The caller has checked that all 32 bytes are ASCII. Form both kinds
+    /// of keys and their endpoint masks with AVX2; only posting insertion is
+    /// left to the scalar emitter. The two bytes before this block occupy
+    /// positions 0 and 1 of the stack window, preserving cross-block grams.
+    #[cfg(target_arch = "x86_64")]
+    #[target_feature(enable = "avx2")]
+    unsafe fn push_ascii_block_avx2(&mut self, raw: std::arch::x86_64::__m256i) {
+        use std::arch::x86_64::*;
+
+        let folded = lower_ascii_block_avx2(raw);
+        let mut window = [0u8; 34];
+        window[0] = self.before_previous.unwrap_or(0);
+        window[1] = self.previous.unwrap_or(0);
+        // SAFETY: window[2..] has exactly 32 bytes.
+        unsafe { _mm256_storeu_si256(window.as_mut_ptr().add(2).cast(), folded) };
+
+        // SAFETY: each of these overlapping 32-byte windows is in bounds.
+        let current = unsafe { _mm256_loadu_si256(window.as_ptr().add(2).cast()) };
+        let left1 = unsafe { _mm256_loadu_si256(window.as_ptr().add(1).cast()) };
+        let left2 = unsafe { _mm256_loadu_si256(window.as_ptr().cast()) };
+        let printable = |v| {
+            _mm256_and_si256(
+                _mm256_cmpgt_epi8(v, _mm256_set1_epi8(31)),
+                _mm256_cmpgt_epi8(_mm256_set1_epi8(127), v),
+            )
+        };
+        let valid_right = printable(current);
+        let normal_mask =
+            _mm256_movemask_epi8(_mm256_and_si256(valid_right, printable(left1))) as u32;
+        let skip_mask =
+            _mm256_movemask_epi8(_mm256_and_si256(valid_right, printable(left2))) as u32;
+
+        // Widen the byte endpoints before shifting so each u16 lane contains
+        // the existing (left << 8) | right key encoding.
+        let pair_keys = |left: __m256i, right: __m256i, output: &mut [u16; 32]| {
+            let halves = [
+                (_mm256_castsi256_si128(left), _mm256_castsi256_si128(right)),
+                (
+                    _mm256_extracti128_si256::<1>(left),
+                    _mm256_extracti128_si256::<1>(right),
+                ),
+            ];
+            for (part, (left, right)) in halves.into_iter().enumerate() {
+                let left = _mm256_cvtepu8_epi16(left);
+                let right = _mm256_cvtepu8_epi16(right);
+                let keys = _mm256_or_si256(_mm256_slli_epi16::<8>(left), right);
+                // SAFETY: each half of output holds exactly 16 u16 keys.
+                unsafe { _mm256_storeu_si256(output.as_mut_ptr().add(part * 16).cast(), keys) };
+            }
+        };
+        let mut normal_keys = [0u16; 32];
+        let mut skip_keys = [0u16; 32];
+        pair_keys(left1, current, &mut normal_keys);
+        pair_keys(left2, current, &mut skip_keys);
+
+        for lane in 0..32 {
+            if normal_mask & (1 << lane) != 0 {
+                (self.emit)(false, u64::from(normal_keys[lane]));
+            }
+            if skip_mask & (1 << lane) != 0 {
+                (self.emit)(true, u64::from(skip_keys[lane]));
+            }
+        }
+        self.before_previous = Some(window[32]);
+        self.previous = Some(window[33]);
+    }
+}
+
+#[cfg(target_arch = "x86_64")]
+#[target_feature(enable = "avx2")]
+fn lower_ascii_block_avx2(raw: std::arch::x86_64::__m256i) -> std::arch::x86_64::__m256i {
+    use std::arch::x86_64::*;
+
+    let upper = _mm256_and_si256(
+        _mm256_cmpgt_epi8(raw, _mm256_set1_epi8(b'A' as i8 - 1)),
+        _mm256_cmpgt_epi8(_mm256_set1_epi8(b'Z' as i8 + 1), raw),
+    );
+    _mm256_or_si256(raw, _mm256_and_si256(upper, _mm256_set1_epi8(0x20)))
 }
 
 impl<E: FnMut(bool, u64)> FoldedSink for AsciiGramSink<E> {
@@ -178,7 +257,69 @@ fn walk_folded_scalar(text: &str, sink: &mut impl FoldedSink) {
     }
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+enum GramBackend {
+    Scalar,
+    Avx2,
+}
+
+impl GramBackend {
+    fn native() -> Self {
+        #[cfg(target_arch = "x86_64")]
+        if std::is_x86_feature_detected!("avx2") {
+            return Self::Avx2;
+        }
+        Self::Scalar
+    }
+}
+
+/// Inspect each bounded block once. A block containing UTF-8 is consumed up
+/// to its first non-ASCII scalar, then full-folded by the scalar path. The
+/// sink keeps the same history across every transition.
+#[cfg(target_arch = "x86_64")]
+#[target_feature(enable = "avx2")]
+unsafe fn walk_folded_avx2<E: FnMut(bool, u64)>(text: &str, sink: &mut AsciiGramSink<E>) {
+    use std::arch::x86_64::*;
+
+    let bytes = text.as_bytes();
+    let mut offset = 0;
+    while bytes.len() - offset >= 32 {
+        // SAFETY: the loop condition guarantees 32 bytes at offset.
+        let raw = unsafe { _mm256_loadu_si256(bytes.as_ptr().add(offset).cast()) };
+        let high = _mm256_movemask_epi8(raw) as u32;
+        if high == 0 {
+            // SAFETY: AVX2 is enabled here and the block contains only ASCII.
+            unsafe { sink.push_ascii_block_avx2(raw) };
+            offset += 32;
+        } else {
+            let prefix = high.trailing_zeros() as usize;
+            for &byte in &bytes[offset..offset + prefix] {
+                sink.push(lower_ascii(byte));
+            }
+            offset += prefix;
+            offset = fold_non_ascii(text, offset, sink);
+        }
+    }
+    while offset < bytes.len() {
+        if bytes[offset].is_ascii() {
+            sink.push(lower_ascii(bytes[offset]));
+            offset += 1;
+        } else {
+            offset = fold_non_ascii(text, offset, sink);
+        }
+    }
+}
+
 fn for_each_segment_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl FnMut(bool, u64)) {
+    for_each_segment_gram_with_backend(text, alphabet, GramBackend::native(), &mut emit);
+}
+
+fn for_each_segment_gram_with_backend(
+    text: &str,
+    alphabet: BigramAlphabet,
+    backend: GramBackend,
+    mut emit: impl FnMut(bool, u64),
+) {
     match alphabet {
         BigramAlphabet::Ascii => {
             let mut sink = AsciiGramSink {
@@ -186,6 +327,14 @@ fn for_each_segment_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl Fn
                 before_previous: None,
                 emit: &mut emit,
             };
+            #[cfg(target_arch = "x86_64")]
+            if backend == GramBackend::Avx2 && text.len() >= 32 {
+                // SAFETY: GramBackend::native selects AVX2 only after runtime
+                // detection. The forced backend in tests is similarly gated.
+                unsafe { walk_folded_avx2(text, &mut sink) };
+                return;
+            }
+            let _ = backend;
             walk_folded_scalar(text, &mut sink);
         }
         BigramAlphabet::Unicode => {
@@ -643,6 +792,7 @@ pub(crate) struct BigramBuilder {
     contribution: BigramContribution,
     normal: GramWords,
     skip: GramWords,
+    backend: GramBackend,
     chunk_start: u32,
     chunk_len: u32,
 }
@@ -659,9 +809,21 @@ impl BigramBuilder {
             contribution,
             normal: GramWords::new(alphabet),
             skip: GramWords::new(alphabet),
+            backend: GramBackend::native(),
             chunk_start: 0,
             chunk_len: 0,
         }
+    }
+
+    #[cfg(test)]
+    fn new_at_with_backend(
+        alphabet: BigramAlphabet,
+        first_slot: u32,
+        backend: GramBackend,
+    ) -> Self {
+        let mut builder = Self::new_at(alphabet, first_slot);
+        builder.backend = backend;
+        builder
     }
 
     fn begin_slot(&mut self, slot: RecordSlot) -> Result<u64, String> {
@@ -714,8 +876,9 @@ impl BigramBuilder {
 
     fn add_segment(&mut self, bit: u64, segment: &str) {
         let alphabet = self.contribution.alphabet;
+        let backend = self.backend;
         let (normal, skip) = (&mut self.normal, &mut self.skip);
-        for_each_segment_gram(segment, alphabet, |is_skip, key| {
+        for_each_segment_gram_with_backend(segment, alphabet, backend, |is_skip, key| {
             if is_skip {
                 skip.set(key, bit);
             } else {

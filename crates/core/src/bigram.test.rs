@@ -117,55 +117,290 @@ fn direct_folded_grams_keep_byte_scalar_and_segment_boundaries() {
     assert!(skip.contains(&ascii_pair(b'a', b's').unwrap()));
 }
 
-/// Manual kernel comparison including full gram emission, not merely byte
-/// conversion. Run with `cargo test -p objekte-search-core --release --locked
-/// benchmark_folded_gram_emission --lib -- --ignored --nocapture`.
+/// Observe the folded byte stream from the same bounded AVX2 lowercase
+/// primitive, including scalar full-fold transitions. This is test-only so
+/// production emission does not pay for a folded output buffer.
+#[cfg(target_arch = "x86_64")]
+#[target_feature(enable = "avx2")]
+unsafe fn collect_folded_avx2(text: &str) -> String {
+    use std::arch::x86_64::*;
+
+    let mut output = Vec::new();
+    let bytes = text.as_bytes();
+    let mut offset = 0;
+    while offset < bytes.len() {
+        if bytes.len() - offset >= 32 {
+            // SAFETY: there are at least 32 bytes at offset.
+            let raw = unsafe { _mm256_loadu_si256(bytes.as_ptr().add(offset).cast()) };
+            let high = _mm256_movemask_epi8(raw) as u32;
+            if high == 0 {
+                let folded = lower_ascii_block_avx2(raw);
+                let mut block = [0u8; 32];
+                // SAFETY: block has exactly 32 bytes.
+                unsafe { _mm256_storeu_si256(block.as_mut_ptr().cast(), folded) };
+                output.extend_from_slice(&block);
+                offset += 32;
+                continue;
+            }
+        }
+        if bytes[offset].is_ascii() {
+            output.push(lower_ascii(bytes[offset]));
+            offset += 1;
+        } else {
+            let scalar = text[offset..].chars().next().unwrap();
+            for folded in scalar.case_fold_with(Variant::Full, Locale::NonTurkic) {
+                let mut buffer = [0u8; 4];
+                output.extend_from_slice(folded.encode_utf8(&mut buffer).as_bytes());
+            }
+            offset += scalar.len_utf8();
+        }
+    }
+    String::from_utf8(output).unwrap()
+}
+
+#[test]
+fn avx2_gram_sequence_and_builder_membership_match_scalar() {
+    #[cfg(not(target_arch = "x86_64"))]
+    return;
+    #[cfg(target_arch = "x86_64")]
+    if !std::is_x86_feature_detected!("avx2") {
+        return;
+    }
+
+    let mut samples = vec![
+        String::new(),
+        "A".into(),
+        "AB".into(),
+        "A\nB".into(),
+        (0..=127u8).map(char::from).collect::<String>(),
+        "@ABC[\\]^_`Z{|}~".into(),
+    ];
+    for len in [
+        3, 7, 8, 9, 15, 16, 17, 30, 31, 32, 33, 34, 63, 64, 65, 66, 127, 128,
+    ] {
+        samples.push("Az0\n!~".repeat(len / 6 + 1)[..len].to_owned());
+        for at in [0, 1, len / 2, len.saturating_sub(1), len] {
+            let mut mixed = "A".repeat(len);
+            mixed.insert_str(at, "ßİKΣ🙂é");
+            samples.push(mixed);
+        }
+    }
+    let mut state = 0x6a09_e667_f3bc_c909u64;
+    let alphabet = [
+        'A', 'z', '\n', '\0', 'ß', 'İ', 'K', 'Σ', 'ς', 'é', '中', '🙂',
+    ];
+    for len in [0, 1, 2, 3, 8, 16, 31, 32, 33, 64, 128] {
+        samples.push(
+            (0..len)
+                .map(|_| {
+                    state ^= state << 13;
+                    state ^= state >> 7;
+                    state ^= state << 17;
+                    alphabet[state as usize % alphabet.len()]
+                })
+                .collect(),
+        );
+    }
+
+    let verify_sequence = |sample: &str| {
+        let folded = folded_chars(sample).collect::<String>();
+        let mut scalar_stream = StreamCollector::default();
+        walk_folded_scalar(sample, &mut scalar_stream);
+        assert_eq!(scalar_stream.0, folded, "folded input {sample:?}");
+        #[cfg(target_arch = "x86_64")]
+        assert_eq!(
+            unsafe { collect_folded_avx2(sample) },
+            folded,
+            "AVX2 fold {sample:?}"
+        );
+        for mode in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+            let mut oracle = Vec::new();
+            for_each_gram(folded.chars(), mode, |skip, key| oracle.push((skip, key)));
+            let collect = |backend| {
+                let mut grams = Vec::new();
+                for_each_segment_gram_with_backend(sample, mode, backend, |skip, key| {
+                    grams.push((skip, key));
+                });
+                grams
+            };
+            assert_eq!(
+                collect(GramBackend::Scalar),
+                oracle,
+                "scalar {mode:?} {sample:?}"
+            );
+            assert_eq!(
+                collect(GramBackend::Avx2),
+                oracle,
+                "AVX2 {mode:?} {sample:?}"
+            );
+        }
+    };
+    for sample in &samples {
+        verify_sequence(sample);
+    }
+    // Borrow from every byte alignment. The prefix is outside the segment,
+    // so it must not enter gram history.
+    let aligned = "Aa\nZ?".repeat(30);
+    let mut seen_alignment = 0u32;
+    for offset in 0..32 {
+        let sample = &aligned[offset..];
+        seen_alignment |= 1 << ((sample.as_ptr() as usize) & 31);
+        verify_sequence(sample);
+    }
+    assert_eq!(seen_alignment, u32::MAX);
+
+    // Verify the exact vector lowercase primitive for every ASCII value.
+    #[cfg(target_arch = "x86_64")]
+    unsafe {
+        use std::arch::x86_64::*;
+        for start in 0..=96u8 {
+            let input = std::array::from_fn::<_, 32, _>(|lane| start + lane as u8);
+            let raw = _mm256_loadu_si256(input.as_ptr().cast());
+            let folded = lower_ascii_block_avx2(raw);
+            let mut output = [0u8; 32];
+            _mm256_storeu_si256(output.as_mut_ptr().cast(), folded);
+            assert_eq!(output, input.map(lower_ascii));
+        }
+    }
+
+    for mode in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let build = |backend| {
+            let mut builder = BigramBuilder::new_at_with_backend(mode, 3, backend);
+            for slot in 3..70 {
+                let sample = &samples[(slot as usize * 7) % samples.len()];
+                builder
+                    .add_record(RecordSlot(slot), [sample.as_str(), "AB", "C", "A\nB"])
+                    .unwrap();
+            }
+            builder.finish().unwrap()
+        };
+        let scalar = build(GramBackend::Scalar);
+        let native = build(GramBackend::Avx2);
+        assert_eq!(native.record_count, scalar.record_count);
+        assert_eq!(native.normal, scalar.normal);
+        assert_eq!(native.skip, scalar.skip);
+    }
+}
+
+fn gram_benchmark_cases() -> Vec<(&'static str, String)> {
+    vec![
+        ("empty", String::new()),
+        ("ascii-1", "A".into()),
+        ("ascii-3", "A\nB".into()),
+        ("ascii-8", "Az0!~ B?".into()),
+        ("ascii-16", "Az0!~ B?".repeat(2)),
+        ("ascii-32", "Az0!~ B?".repeat(4)),
+        ("ascii-64", "Az0!~ B?".repeat(8)),
+        ("ascii-128", "Az0!~ B?".repeat(16)),
+        ("ascii-repeated-2k", "A".repeat(2048)),
+        (
+            "ascii-varied-1k",
+            "The quick Brown FOX jumps over lazy dogs. ".repeat(23),
+        ),
+        (
+            "mixed-1k",
+            "The Straße near Müller and İpek has Σςσ records. ".repeat(21),
+        ),
+        ("unicode-1k", "中文🙂Σςσİßé 中🙂界 ".repeat(64)),
+    ]
+}
+
+/// Manual kernel comparison including key formation, mask extraction and
+/// emission. Alternate role order by case. Run with `cargo test -p
+/// objekte-search-core --release --locked benchmark_folded_gram_emission
+/// --lib -- --ignored --nocapture`.
 #[test]
 #[ignore]
 fn benchmark_folded_gram_emission() {
     use std::hint::black_box;
     use std::time::Instant;
 
-    let cases = [
-        ("short-ascii", "The quick Brown FOX".to_owned()),
-        ("ascii-31", "A".repeat(31)),
-        ("ascii-32", "A".repeat(32)),
-        ("ascii-64", "A".repeat(64)),
-        ("ascii-128", "A".repeat(128)),
-        (
-            "long-ascii",
-            "The quick Brown FOX jumps over lazy dogs. ".repeat(64),
-        ),
-        (
-            "mixed",
-            "The Straße near Müller and İpek has Σςσ records. ".repeat(32),
-        ),
-        ("unicode", "中文🙂Σςσİßé 中🙂界 ".repeat(64)),
-    ];
+    let cases = gram_benchmark_cases();
+    let native = GramBackend::native();
+    println!("native_backend={native:?}");
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
-        for (name, text) in &cases {
-            let iterations = (2_000_000 / text.len()).max(2_000);
-            for role in ["reference", "scalar"] {
+        for (case_index, (name, text)) in cases.iter().enumerate() {
+            let iterations = (250_000 / text.len().max(8)).max(100);
+            let roles = if case_index % 2 == 0 {
+                [GramBackend::Scalar, native]
+            } else {
+                [native, GramBackend::Scalar]
+            };
+            let mut checksums = Vec::new();
+            for role in roles {
                 let start = Instant::now();
                 let mut checksum = 0u64;
                 for _ in 0..iterations {
-                    let mut tally = |skip: bool, key: u64| {
-                        checksum = checksum.wrapping_add(key ^ (skip as u64));
-                    };
-                    match role {
-                        "reference" => {
-                            for_each_gram(folded_chars(black_box(text)), alphabet, &mut tally)
-                        }
-                        "scalar" => for_each_segment_gram(black_box(text), alphabet, &mut tally),
-                        _ => unreachable!(),
-                    }
+                    for_each_segment_gram_with_backend(
+                        black_box(text),
+                        alphabet,
+                        role,
+                        |skip, key| {
+                            checksum = checksum.wrapping_add(key ^ (skip as u64));
+                        },
+                    );
                 }
                 println!(
-                    "alphabet={alphabet:?} case={name} role={role} bytes={} iterations={iterations} elapsed_ns={} checksum={checksum}",
+                    "kind=checksum alphabet={alphabet:?} case={name} role={role:?} bytes={} iterations={iterations} elapsed_ns={} checksum={checksum}",
                     text.len(),
                     start.elapsed().as_nanos()
                 );
+                checksums.push(checksum);
             }
+            assert_eq!(checksums[0], checksums[1], "{alphabet:?} {name}");
+        }
+    }
+}
+
+/// Real contribution construction: insertion, duplicate OR, chunk flush,
+/// completion and conversion to postings are all included. Run with `cargo
+/// test -p objekte-search-core --release --locked
+/// benchmark_real_builder_gram_generation --lib -- --ignored --nocapture`.
+#[test]
+#[ignore]
+fn benchmark_real_builder_gram_generation() {
+    use std::hint::black_box;
+    use std::time::Instant;
+
+    let cases = gram_benchmark_cases();
+    let native = GramBackend::native();
+    println!("native_backend={native:?}");
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        for (case_index, (name, text)) in cases.iter().enumerate() {
+            let records = if text.len() >= 1024 { 12 } else { 64 };
+            let iterations = (160_000 / (text.len().max(8) * records)).max(8);
+            let roles = if case_index % 2 == 0 {
+                [GramBackend::Scalar, native]
+            } else {
+                [native, GramBackend::Scalar]
+            };
+            let mut checksums = Vec::new();
+            for role in roles {
+                let start = Instant::now();
+                let mut checksum = 0u64;
+                for _ in 0..iterations {
+                    let mut builder = BigramBuilder::new_at_with_backend(alphabet, 0, role);
+                    for slot in 0..records {
+                        builder
+                            .add_record(RecordSlot(slot as u32), [black_box(text.as_str())])
+                            .unwrap();
+                    }
+                    let index = builder.finish().unwrap();
+                    checksum = checksum.wrapping_add(
+                        index.normal.len() as u64
+                            ^ ((index.skip.len() as u64) << 16)
+                            ^ ((index.record_count as u64) << 32),
+                    );
+                    black_box(index);
+                }
+                println!(
+                    "kind=builder alphabet={alphabet:?} case={name} role={role:?} bytes={} records={records} iterations={iterations} elapsed_ns={} checksum={checksum}",
+                    text.len(),
+                    start.elapsed().as_nanos()
+                );
+                checksums.push(checksum);
+            }
+            assert_eq!(checksums[0], checksums[1], "{alphabet:?} {name}");
         }
     }
 }
