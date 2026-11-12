@@ -3312,6 +3312,7 @@ impl IndexView {
                 &self.0.segments,
                 &self.0.catalog,
                 self.revision(),
+                &self.0.extended_batches,
                 cache,
             )
         };
@@ -3362,6 +3363,7 @@ impl IndexView {
                 &self.0.catalog,
                 self.revision(),
                 context,
+                &self.0.extended_batches,
                 cache,
             )
         };
@@ -3692,6 +3694,7 @@ impl IndexView {
             &self.0.catalog,
             self.revision(),
             sink,
+            &self.0.extended_batches,
             cache,
         );
         result
