@@ -120,6 +120,40 @@ fn chunked_builder_matches_independent_complete_posting_maps() {
 }
 
 #[test]
+fn scratch_reuse_clears_all_gram_bits_across_partial_and_empty_batches() {
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut scratch = BigramScratch::new(alphabet);
+        for (batch, length) in [65usize, 0, 1, 63, 64, 2].into_iter().enumerate() {
+            let mut reused = BigramBuilder::with_scratch(scratch, 0);
+            let mut fresh = BigramBuilder::new(alphabet);
+            for slot in 0..length {
+                let segments: &[&str] = match (batch + slot) % 4 {
+                    0 => &["Straße", "🙂x🙂"],
+                    1 => &["ab"],
+                    2 => &[],
+                    _ => &["Σςσ", "cd"],
+                };
+                reused
+                    .add_record(RecordSlot(slot as u32), segments.iter().copied())
+                    .unwrap();
+                fresh
+                    .add_record(RecordSlot(slot as u32), segments.iter().copied())
+                    .unwrap();
+            }
+            let (reused, returned, _) = reused.finish_blocks_with_scratch().unwrap();
+            let fresh = fresh.finish_blocks().unwrap();
+            let reused = reused.into_index().unwrap();
+            let fresh = fresh.into_index().unwrap();
+            assert_eq!(reused.record_count, fresh.record_count);
+            assert_eq!(reused.normal, fresh.normal);
+            assert_eq!(reused.skip, fresh.skip);
+            scratch = returned;
+        }
+        assert!(scratch.retained_capacity_bytes() > 0);
+    }
+}
+
+#[test]
 fn chunked_builder_checks_slot_arithmetic_before_publication() {
     let mut builder = BigramBuilder::new_at(BigramAlphabet::Ascii, u32::MAX - 1);
     builder

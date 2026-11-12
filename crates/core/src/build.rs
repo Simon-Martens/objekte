@@ -1,5 +1,6 @@
 //! Bounded file-batch contributions and deterministic index admission.
 
+use std::cell::RefCell;
 use std::collections::{BTreeMap, HashMap, VecDeque};
 use std::io::{BufRead, BufReader, Cursor, Read};
 use std::num::NonZeroUsize;
@@ -16,7 +17,7 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
 
-use crate::bigram::{BigramBuilder, BigramContribution};
+use crate::bigram::{BigramBuilder, BigramContribution, BigramScratch};
 use crate::inference::{InferenceBuilder, InferenceConfig};
 use crate::inventory::{
     ByteRange, CollectionBuilder, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass,
@@ -39,6 +40,42 @@ use crate::source::{
     frame_file_for_build, read_record_range_for_build, visit_logical_strings_and_empty,
 };
 use crate::workload::BigramAlphabet;
+
+const MAX_RETAINED_BIGRAM_SCRATCH_PER_THREAD: usize = 8;
+thread_local! {
+    static WORKER_BIGRAM_SCRATCH: RefCell<Vec<BigramScratch>> = const { RefCell::new(Vec::new()) };
+}
+
+fn take_bigram_scratch(alphabet: BigramAlphabet, profile: &mut BuildWorkProfile) -> BigramScratch {
+    WORKER_BIGRAM_SCRATCH.with(|storage| {
+        let mut storage = storage.borrow_mut();
+        storage.retain(|scratch| scratch.alphabet() == alphabet);
+        if let Some(scratch) = storage.pop() {
+            profile.bigram_scratch_reused += 1;
+            scratch
+        } else {
+            profile.bigram_scratch_created += 1;
+            BigramScratch::new(alphabet)
+        }
+    })
+}
+
+fn retain_bigram_scratch(scratch: BigramScratch, grew: bool, profile: &mut BuildWorkProfile) {
+    if grew {
+        profile.bigram_scratch_grew += 1;
+    }
+    WORKER_BIGRAM_SCRATCH.with(|storage| {
+        let mut storage = storage.borrow_mut();
+        if storage.len() < MAX_RETAINED_BIGRAM_SCRATCH_PER_THREAD {
+            storage.push(scratch);
+        }
+        profile.bigram_scratch_retained_bytes = storage
+            .iter()
+            .map(|scratch| scratch.retained_capacity_bytes() as u64)
+            .sum::<u64>()
+            .max(profile.bigram_scratch_retained_bytes);
+    });
+}
 
 
 #[derive(Clone)]
@@ -167,6 +204,10 @@ pub struct BuildWorkProfile {
     pub custom_text_ns: u64,
     pub batch_finish_ns: u64,
     pub batches: u64,
+    pub bigram_scratch_created: u64,
+    pub bigram_scratch_reused: u64,
+    pub bigram_scratch_grew: u64,
+    pub bigram_scratch_retained_bytes: u64,
 }
 
 
@@ -193,6 +234,12 @@ impl BuildWorkProfile {
         self.custom_text_ns += other.custom_text_ns;
         self.batch_finish_ns += other.batch_finish_ns;
         self.batches += other.batches;
+        self.bigram_scratch_created += other.bigram_scratch_created;
+        self.bigram_scratch_reused += other.bigram_scratch_reused;
+        self.bigram_scratch_grew += other.bigram_scratch_grew;
+        self.bigram_scratch_retained_bytes = self
+            .bigram_scratch_retained_bytes
+            .max(other.bigram_scratch_retained_bytes);
     }
 }
 
@@ -273,6 +320,7 @@ impl<'a> BatchBuilder<'a> {
         inference_jobs: usize,
     ) -> Result<Self, String> {
         let schema = &definition.schema;
+        let mut profile = BuildWorkProfile::default();
         let custom_postings = schema
             .operations
             .iter()
@@ -302,7 +350,7 @@ impl<'a> BatchBuilder<'a> {
             .map(|key| {
                 (
                     canonical_custom_text_key(schema, &key.0, &key.1),
-                    BigramBuilder::new(alphabet),
+                    BigramBuilder::with_scratch(take_bigram_scratch(alphabet, &mut profile), 0),
                 )
             })
             .collect();
@@ -315,8 +363,11 @@ impl<'a> BatchBuilder<'a> {
             postings: PostingCollection::new(schema),
             inference: InferenceBuilder::with_job_count(inference, true, inference_jobs),
             custom_postings,
-            raw: BigramBuilder::new(alphabet),
-            fallback_text: BigramBuilder::new(alphabet),
+            raw: BigramBuilder::with_scratch(take_bigram_scratch(alphabet, &mut profile), 0),
+            fallback_text: BigramBuilder::with_scratch(
+                take_bigram_scratch(alphabet, &mut profile),
+                0,
+            ),
             custom_text,
             logical_records: RoaringBitmap::new(),
             empty_array_records: RoaringBitmap::new(),
@@ -330,7 +381,7 @@ impl<'a> BatchBuilder<'a> {
             relations: RelationContribution::for_schema(schema),
             profile_current_file: false,
             profile_record_index: 0,
-            profile: BuildWorkProfile::default(),
+            profile,
         })
     }
 
@@ -665,7 +716,7 @@ impl<'a> BatchBuilder<'a> {
     }
 
     fn finish(
-        self,
+        mut self,
         files: Vec<BatchFile>,
         record_parses: u64,
         failed_parses: u64,
@@ -673,8 +724,16 @@ impl<'a> BatchBuilder<'a> {
         let custom_text = self
             .custom_text
             .into_iter()
-            .map(|(key, index)| index.finish_blocks().map(|index| (key, index)))
+            .map(|(key, index)| -> Result<_, String> {
+                let (index, scratch, grew) = index.finish_blocks_with_scratch()?;
+                retain_bigram_scratch(scratch, grew, &mut self.profile);
+                Ok((key, index))
+            })
             .collect::<Result<HashMap<_, _>, _>>()?;
+        let (raw, scratch, grew) = self.raw.finish_blocks_with_scratch()?;
+        retain_bigram_scratch(scratch, grew, &mut self.profile);
+        let (fallback_text, scratch, grew) = self.fallback_text.finish_blocks_with_scratch()?;
+        retain_bigram_scratch(scratch, grew, &mut self.profile);
         Ok(BatchContribution {
             files,
             file_fingerprints: Vec::new(),
@@ -682,8 +741,8 @@ impl<'a> BatchBuilder<'a> {
             postings: self.postings,
             inference: self.inference,
             custom_postings: self.custom_postings,
-            raw: self.raw.finish_blocks()?,
-            fallback_text: self.fallback_text.finish_blocks()?,
+            raw,
+            fallback_text,
             custom_text,
             logical_records: self.logical_records,
             empty_array_records: self.empty_array_records,

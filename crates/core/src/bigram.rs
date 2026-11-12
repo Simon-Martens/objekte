@@ -527,6 +527,46 @@ impl GramWords {
             }
         }
     }
+
+    fn retained_capacity_bytes(&self) -> usize {
+        match self {
+            Self::Ascii { words, touched } => {
+                words.capacity() * std::mem::size_of::<u64>()
+                    + touched.capacity() * std::mem::size_of::<usize>()
+            }
+            // HashMap does not expose its allocation layout. This is an
+            // estimate used only for comparing opt-in diagnostic runs.
+            Self::Unicode(words) => words.capacity() * (2 * std::mem::size_of::<u64>() + 1),
+        }
+    }
+}
+
+
+/// Only accumulator storage crosses batch boundaries; completed postings do
+/// not. Both variants allocate lazily when a text store sees grams.
+pub(crate) struct BigramScratch {
+    alphabet: BigramAlphabet,
+    normal: GramWords,
+    skip: GramWords,
+}
+
+
+impl BigramScratch {
+    pub(crate) fn new(alphabet: BigramAlphabet) -> Self {
+        Self {
+            alphabet,
+            normal: GramWords::new(alphabet),
+            skip: GramWords::new(alphabet),
+        }
+    }
+
+    pub(crate) fn retained_capacity_bytes(&self) -> usize {
+        self.normal.retained_capacity_bytes() + self.skip.retained_capacity_bytes()
+    }
+
+    pub(crate) fn alphabet(&self) -> BigramAlphabet {
+        self.alphabet
+    }
 }
 
 
@@ -535,8 +575,8 @@ impl GramWords {
 /// once per chunk, with record bits mapped to final slots at publication.
 pub(crate) struct BigramBuilder {
     contribution: BigramContribution,
-    normal: GramWords,
-    skip: GramWords,
+    scratch: BigramScratch,
+    scratch_initial_capacity_bytes: usize,
     chunk_start: u32,
     chunk_len: u32,
 }
@@ -548,12 +588,18 @@ impl BigramBuilder {
     }
 
     pub fn new_at(alphabet: BigramAlphabet, first_slot: u32) -> Self {
+        Self::with_scratch(BigramScratch::new(alphabet), first_slot)
+    }
+
+    pub(crate) fn with_scratch(scratch: BigramScratch, first_slot: u32) -> Self {
+        let alphabet = scratch.alphabet;
+        let scratch_initial_capacity_bytes = scratch.retained_capacity_bytes();
         let mut contribution = BigramContribution::new(alphabet);
         contribution.record_count = first_slot;
         Self {
             contribution,
-            normal: GramWords::new(alphabet),
-            skip: GramWords::new(alphabet),
+            scratch,
+            scratch_initial_capacity_bytes,
             chunk_start: 0,
             chunk_len: 0,
         }
@@ -609,7 +655,7 @@ impl BigramBuilder {
 
     fn add_segment(&mut self, bit: u64, segment: &str) {
         let alphabet = self.contribution.alphabet;
-        let (normal, skip) = (&mut self.normal, &mut self.skip);
+        let (normal, skip) = (&mut self.scratch.normal, &mut self.scratch.skip);
         for_each_gram(folded_chars(segment), alphabet, |is_skip, key| {
             if is_skip {
                 skip.set(key, bit);
@@ -629,7 +675,7 @@ impl BigramBuilder {
 
     fn flush(&mut self) -> Result<(), String> {
         let start = self.chunk_start;
-        self.normal.drain(|key, word| {
+        self.scratch.normal.drain(|key, word| {
             self.contribution
                 .normal
                 .entry(key)
@@ -639,7 +685,7 @@ impl BigramBuilder {
                     bits: word,
                 });
         });
-        self.skip.drain(|key, word| {
+        self.scratch.skip.drain(|key, word| {
             self.contribution
                 .skip
                 .entry(key)
@@ -653,11 +699,18 @@ impl BigramBuilder {
         Ok(())
     }
 
-    pub fn finish_blocks(mut self) -> Result<BigramContribution, String> {
+    pub fn finish_blocks(self) -> Result<BigramContribution, String> {
+        Ok(self.finish_blocks_with_scratch()?.0)
+    }
+
+    pub(crate) fn finish_blocks_with_scratch(
+        mut self,
+    ) -> Result<(BigramContribution, BigramScratch, bool), String> {
         if self.chunk_len != 0 {
             self.flush()?;
         }
-        Ok(self.contribution)
+        let grew = self.scratch.retained_capacity_bytes() > self.scratch_initial_capacity_bytes;
+        Ok((self.contribution, self.scratch, grew))
     }
 
     #[cfg(test)]
