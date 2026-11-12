@@ -2021,7 +2021,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             .admission_by_collection["data"];
         assert_eq!(breakdown.parallel_batches, 0);
         assert!(breakdown.merge_join_ns >= breakdown.parallel_group_overlap_ns);
-        let parallel = (available >= 8)
+        let eight_workers = (available >= 8)
             .then(|| {
                 Repository::open_with_options(
                     &root,
@@ -2029,6 +2029,30 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
                     RepositoryOptions {
                         snapshot_mode: SnapshotMode::Disabled,
                         build_workers: NonZeroUsize::new(8),
+                        profile_build: true,
+                        ..options
+                    },
+                )
+            })
+            .transpose()
+            .unwrap();
+        if let Some(eight_workers) = eight_workers.as_ref() {
+            let breakdown = &eight_workers
+                .startup()
+                .build_profile
+                .as_ref()
+                .unwrap()
+                .admission_by_collection["data"];
+            assert_eq!(breakdown.parallel_batches, 0);
+        }
+        let parallel = (available >= 16)
+            .then(|| {
+                Repository::open_with_options(
+                    &root,
+                    vec![definition.clone()],
+                    RepositoryOptions {
+                        snapshot_mode: SnapshotMode::Disabled,
+                        build_workers: NonZeroUsize::new(16),
                         profile_build: true,
                         ..options
                     },
@@ -2046,7 +2070,11 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             assert!(breakdown.parallel_batches > 0);
             assert!(breakdown.merge_join_ns >= breakdown.parallel_group_overlap_ns);
         }
-        for repo in [&built, &restored, &four_workers].into_iter().chain(parallel.iter()) {
+        for repo in [&built, &restored, &four_workers]
+            .into_iter()
+            .chain(eight_workers.iter())
+            .chain(parallel.iter())
+        {
             let collection = &repo.collections()[0];
             assert_eq!(collection.generation.files.len(), 515);
             assert_eq!(collection.generation.records.len(), 514);
@@ -2125,7 +2153,10 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             assert_eq!(custom.skip, direct.skip);
         }
         let a = &built.collections()[0];
-        let comparison = parallel.as_ref().unwrap_or(&four_workers);
+        let comparison = parallel
+            .as_ref()
+            .or(eight_workers.as_ref())
+            .unwrap_or(&four_workers);
         let b = &comparison.collections()[0];
         assert_eq!(
             serde_json::to_value(&a.generation).unwrap(),
