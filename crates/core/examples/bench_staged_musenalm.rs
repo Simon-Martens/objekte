@@ -95,8 +95,15 @@ fn run() -> Result<(), String> {
             _ => return Err(format!("unknown argument {arg}")),
         }
     }
-    if !matches!(mode.as_str(), "base" | "partial" | "complete") || repetitions == 0 {
-        return Err("mode must be base, partial, or complete; repetitions must be positive".into());
+    if !matches!(
+        mode.as_str(),
+        "base" | "partial" | "complete" | "foreground"
+    ) || repetitions == 0
+    {
+        return Err(
+            "mode must be base, partial, complete, or foreground; repetitions must be positive"
+                .into(),
+        );
     }
     root = root.canonicalize().map_err(|error| error.to_string())?;
     let profiles = profile_names
@@ -147,6 +154,11 @@ fn run() -> Result<(), String> {
     let mut csv = BufWriter::new(
         File::create(result_dir.join("query-results.csv")).map_err(|error| error.to_string())?,
     );
+    let mut foreground_status = (mode == "foreground")
+        .then(|| File::create(result_dir.join("foreground-status.jsonl")))
+        .transpose()
+        .map_err(|error| error.to_string())?
+        .map(BufWriter::new);
     writeln!(csv, "case_id,profile,status,min_ns,median_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses,exact_posting_matches,scanned_records,residual_evaluations,prepared_plan_hits,verified_result_hits,preparation_median_ns,planning_median_ns")
         .map_err(|error| error.to_string())?;
     let mut expected: HashMap<String, (usize, Vec<SearchHit>)> = HashMap::new();
@@ -207,7 +219,9 @@ fn run() -> Result<(), String> {
                 std::thread::sleep(Duration::from_millis(2));
             }
         }
-        index.quiesce().map_err(|error| error.to_string())?;
+        if mode != "foreground" {
+            index.quiesce().map_err(|error| error.to_string())?;
+        }
         let view = index.view().map_err(|error| error.to_string())?;
         let status = index.extended_status().map_err(|error| error.to_string())?;
         build_results.push(serde_json::json!({
@@ -215,7 +229,8 @@ fn run() -> Result<(), String> {
             "mode": mode,
             "inference": inference,
             "search_ready_ns": search_ready_ns,
-            "quiesced_ns": started.elapsed().as_nanos() as u64,
+            "measurement_start_ns": started.elapsed().as_nanos() as u64,
+            "quiesced_ns": if mode == "foreground" { None } else { Some(started.elapsed().as_nanos() as u64) },
             "data_revision": view.revision().0,
             "capability_revision": view.capability_revision().0,
             "extended_phase": format!("{:?}", status.phase),
@@ -239,10 +254,27 @@ fn run() -> Result<(), String> {
                 let mut counters = Vec::new();
                 let mut error = None;
                 for repetition in 0..repetitions {
+                    let before = if mode == "foreground" {
+                        Some(index.extended_status().map_err(|error| error.to_string())?)
+                    } else {
+                        None
+                    };
                     let instant = Instant::now();
-                    match view.search(&query) {
+                    let searched = view.search(&query);
+                    let ns = instant.elapsed().as_nanos() as u64;
+                    if let (Some(before), Some(writer)) = (before, foreground_status.as_mut()) {
+                        let after = index.extended_status().map_err(|error| error.to_string())?;
+                        serde_json::to_writer(&mut *writer, &serde_json::json!({
+                            "case_id": case.id, "profile": profile_name,
+                            "repetition": repetition, "before_phase": format!("{:?}", before.phase),
+                            "after_phase": format!("{:?}", after.phase),
+                            "before_files": before.completed_files, "after_files": after.completed_files,
+                            "total_files": after.total_files, "view_capability_revision": view.capability_revision().0,
+                        })).map_err(|error| error.to_string())?;
+                        writer.write_all(b"\n").map_err(|error| error.to_string())?;
+                    }
+                    match searched {
                         Ok(result) => {
-                            let ns = instant.elapsed().as_nanos() as u64;
                             let identity =
                                 (result.count.ok_or("benchmark requires COUNT")?, result.hits);
                             if let Some(previous) = expected.get(&case.id) {
@@ -317,10 +349,26 @@ fn run() -> Result<(), String> {
                 .map_err(|error| error.to_string())?;
             }
         }
+        if mode == "foreground" {
+            index.quiesce().map_err(|error| error.to_string())?;
+            if let Some(result) = build_results.last_mut() {
+                result["quiesced_ns"] = serde_json::json!(started.elapsed().as_nanos() as u64);
+                result["final_extended_phase"] = serde_json::json!(format!(
+                    "{:?}",
+                    index
+                        .extended_status()
+                        .map_err(|error| error.to_string())?
+                        .phase
+                ));
+            }
+        }
         index.shutdown().map_err(|error| error.to_string())?;
     }
     samples.flush().map_err(|error| error.to_string())?;
     csv.flush().map_err(|error| error.to_string())?;
+    if let Some(writer) = foreground_status.as_mut() {
+        writer.flush().map_err(|error| error.to_string())?;
+    }
     let digests = expected
         .into_iter()
         .map(|(case_id, identity)| {
