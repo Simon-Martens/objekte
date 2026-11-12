@@ -441,13 +441,21 @@ fn run() -> Result<(), String> {
                     serde_json::json!(resume_started.elapsed().as_nanos() as u64);
                 measurement["resumed_build_parses"] =
                     serde_json::json!(restored.build_parses().map_err(|error| error.to_string())?);
-                measurement["resumed_phase"] = serde_json::json!(format!(
-                    "{:?}",
+                let resumed_status = restored
+                    .extended_status()
+                    .map_err(|error| error.to_string())?;
+                measurement["resumed_phase"] =
+                    serde_json::json!(format!("{:?}", resumed_status.phase));
+                measurement["resumed_completed_files"] =
+                    serde_json::json!(resumed_status.completed_files);
+                measurement["resumed_total_files"] = serde_json::json!(resumed_status.total_files);
+                measurement["resumed_capability_revision"] = serde_json::json!(
                     restored
-                        .extended_status()
+                        .view()
                         .map_err(|error| error.to_string())?
-                        .phase
-                ));
+                        .capability_revision()
+                        .0
+                );
                 restored.shutdown().map_err(|error| error.to_string())?;
             }
             snapshot_results.push(measurement);
