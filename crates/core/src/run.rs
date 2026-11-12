@@ -2891,7 +2891,7 @@ pub(crate) fn search_active_available(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
-    search_active_available_lifecycle(repo, query, base_active, catalog, revision, None)
+    search_active_available_lifecycle(repo, query, base_active, catalog, revision, &[], None)
 }
 
 pub(crate) fn search_active_available_lifecycle(
@@ -2900,10 +2900,11 @@ pub(crate) fn search_active_available_lifecycle(
     base_active: &[ActiveRecords],
     catalog: &FileCatalog,
     revision: IndexRevision,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
     _cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
     let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
-    match search_active(repo, query, base_active) {
+    match search_active_extended(repo, query, base_active, batches, None) {
         Err(_error) if has_unavailable_active_source(repo, base_active, &empty, catalog) => {
             search_segmented_reference(repo, query, base_active, &empty, catalog, revision)
         }
@@ -2918,10 +2919,15 @@ pub(crate) fn search_active_available_with_context_lifecycle(
     catalog: &FileCatalog,
     revision: IndexRevision,
     context: &ExecutionContext,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
     _cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
-    match search_with_context_active(repo, query, context, base_active) {
+    let optimized = context.check().and_then(|()| {
+        search_active_extended(repo, query, base_active, batches, Some(context))
+            .map_err(|message| context.recorded_error(message))
+    });
+    match optimized {
         Err(error)
             if matches!(
                 error.kind,
