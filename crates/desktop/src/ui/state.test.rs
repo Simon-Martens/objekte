@@ -434,15 +434,22 @@ fn successful_query_start_clears_previous_input_errors() {
 
 #[test]
 fn index_progress_does_not_erase_query_validation_or_displayed_page() {
-    let mut state = UiState { root: Some("repo".into()), ..UiState::default() };
+    let mut state = UiState {
+        root: Some("repo".into()),
+        search: SearchDraft { full_text: "retained".into(), ..SearchDraft::default() },
+        ..UiState::default()
+    };
     state.apply(UiUpdate::Error {
         field: ErrorField::Structured,
         message: "invalid draft".into(),
     });
     state.loaded_count = 100;
+    state.page.selected = Some(7);
     let mut status = IndexUiStatus::default();
     status.index_instance = 1;
     status.source_location = "repo".into();
+    status.capability_revision = 2;
+    status.extended_phase = "Building".into();
     status.check = super::super::model::IndexTaskState::Running {
         operation_id: 7,
         processed: Some(3),
@@ -451,6 +458,9 @@ fn index_progress_does_not_erase_query_validation_or_displayed_page() {
     state.apply(UiUpdate::IndexStatus(status));
     assert_eq!(state.errors.get(&ErrorField::Structured).map(String::as_str), Some("invalid draft"));
     assert_eq!(state.loaded_count, 100);
+    assert_eq!(state.page.selected, Some(7));
+    assert_eq!(state.search.full_text, "retained");
+    assert_eq!(state.index_status.capability_revision, 2);
     assert_eq!(state.status, "invalid draft");
     assert!(matches!(state.index_status.check, super::super::model::IndexTaskState::Running { operation_id: 7, .. }));
 }
