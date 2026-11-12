@@ -7,7 +7,7 @@ use std::path::Path;
 use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
-use crate::build::IndexedCollectionSegment;
+use crate::build::{ExtendedBatch, IndexedCollectionSegment};
 use crate::inventory::{ActiveRecords, absolute_path_bounds};
 use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation};
 use crate::lifecycle_catalog::FileCatalog;
@@ -37,6 +37,145 @@ impl SegmentCandidateBounds {
             may: domain.clone(),
             must: RoaringBitmap::new(),
         }
+    }
+}
+
+/// Proofs supplied by the immutable pass-2 batches of a base generation.
+/// Each leaf establishes its own covered domain. In particular, an absent
+/// posting or field-state column never makes an uncovered record a negative.
+pub(crate) fn extended_filter_bounds(
+    batches: &[std::sync::Arc<ExtendedBatch>],
+    expr: &BoundExpr,
+    input: &RoaringBitmap,
+) -> SegmentCandidateBounds {
+    match expr {
+        BoundExpr::Term(term) => extended_term_bounds(batches, term, input),
+        BoundExpr::And(parts) => {
+            let mut may = input.clone();
+            let mut must = input.clone();
+            for part in parts {
+                let child = extended_filter_bounds(batches, part, input);
+                may &= child.may;
+                must &= child.must;
+            }
+            SegmentCandidateBounds { may, must }
+        }
+        BoundExpr::Or(parts) => {
+            let mut may = RoaringBitmap::new();
+            let mut must = RoaringBitmap::new();
+            for part in parts {
+                let child = extended_filter_bounds(batches, part, input);
+                may |= child.may;
+                must |= child.must;
+            }
+            SegmentCandidateBounds { may, must }
+        }
+        BoundExpr::Not(inner) => {
+            let child = extended_filter_bounds(batches, inner, input);
+            SegmentCandidateBounds {
+                may: input - &child.must,
+                must: input - &child.may,
+            }
+        }
+    }
+}
+
+fn extended_term_bounds(
+    batches: &[std::sync::Arc<ExtendedBatch>],
+    term: &BoundTerm,
+    input: &RoaringBitmap,
+) -> SegmentCandidateBounds {
+    if term.path.root != PathRoot::Data
+        || term.related.is_some()
+        || term.rhs.is_some()
+        || term.query_path.has_position
+        || term.query_path.has_explicit_array_step
+    {
+        return SegmentCandidateBounds::unknown(input);
+    }
+    let mut covered = RoaringBitmap::new();
+    let mut may_matches = RoaringBitmap::new();
+    let mut must_matches = RoaringBitmap::new();
+    for batch in batches {
+        let Some(end) = batch.base_slot.checked_add(batch.record_count) else {
+            continue;
+        };
+        let local_input: RoaringBitmap = input
+            .range(batch.base_slot..end)
+            .map(|slot| slot - batch.base_slot)
+            .collect();
+        let local_logical = &local_input & &batch.logical_covered;
+        if local_logical.is_empty() {
+            continue;
+        }
+        if let Some(predicate) = term.derived.state_predicate() {
+            if term.transform != Transform::Identity
+                || term.operation.is_some()
+                || term.matcher.is_some()
+                || term.period.is_some()
+                || term.quantifier != Quantifier::Default
+                || !matches!(term.operator, Operator::Eq | Operator::Ne)
+            {
+                continue;
+            }
+            let Value::Bool(value) = term.literal else {
+                continue;
+            };
+            let Some(column) = batch.field_states.get(&term.path.segments) else {
+                continue;
+            };
+            let local_covered = &local_logical & column.covered_slots();
+            let expected = value == (term.operator == Operator::Eq);
+            let matches = column.matching_slots(predicate, expected, &local_covered);
+            covered.extend(local_covered.iter().map(|slot| batch.base_slot + slot));
+            may_matches.extend(matches.iter().map(|slot| batch.base_slot + slot));
+            must_matches.extend(matches.iter().map(|slot| batch.base_slot + slot));
+            continue;
+        }
+        let named = term.operation.is_some() || term.matcher.is_some();
+        let access = if named {
+            batch
+                .custom_postings
+                .get(&(term.path.segments.clone(), term.binding_name.clone()))
+                .map(|index| crate::index_catalog::PostingAccess {
+                    id: PostingId::Named,
+                    index: &index.index,
+                    admitted: index.complete,
+                    empty_selections: None,
+                    short_string_coverage: None,
+                })
+        } else {
+            batch.postings.fields.get(&term.path.segments).map(|index| {
+                crate::index_catalog::PostingAccess {
+                    id: PostingId::Declared,
+                    index,
+                    admitted: true,
+                    empty_selections: None,
+                    short_string_coverage: None,
+                }
+            })
+        };
+        let Some(access) = access else { continue };
+        let Some(proposal) = access.assess(term, &batch.logical_covered, &mut 0) else {
+            continue;
+        };
+        let Some(matches) = access.execute(
+            term,
+            &batch.logical_covered,
+            &local_logical,
+            proposal.operation,
+        ) else {
+            continue;
+        };
+        covered.extend(local_logical.iter().map(|slot| batch.base_slot + slot));
+        may_matches.extend(matches.iter().map(|slot| batch.base_slot + slot));
+        if proposal.exact {
+            must_matches.extend(matches.iter().map(|slot| batch.base_slot + slot));
+        }
+    }
+    SegmentCandidateBounds {
+        may: may_matches | (input - &covered),
+        must: must_matches,
     }
 }
 
