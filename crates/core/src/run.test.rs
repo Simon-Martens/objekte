@@ -61,7 +61,14 @@ fn search_ready_base_reuses_complete_verified_membership() {
     assert_eq!(warm.count, cold.count);
     assert_eq!(warm.hits, cold.hits);
     assert!(warm.counters.verified_result_hit);
-    task.cancel_extended();
+    task.resume_extended().unwrap();
+    index.wait_extended().unwrap();
+    let completed = index.view().unwrap();
+    assert_eq!(completed.revision(), view.revision());
+    assert!(completed.capability_revision() >= view.capability_revision());
+    let after_publication = completed.search(&query).unwrap();
+    assert_eq!(after_publication.hits, cold.hits);
+    assert!(after_publication.counters.verified_result_hit);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
