@@ -286,7 +286,12 @@ fn gram_benchmark_cases() -> Vec<(&'static str, String)> {
     vec![
         ("empty", String::new()),
         ("ascii-1", "A".into()),
+        ("ascii-2", "AB".into()),
         ("ascii-3", "A\nB".into()),
+        ("ascii-4", "Az0!".into()),
+        ("ascii-5", "Az0!~".into()),
+        ("ascii-6", "Az0!~ ".into()),
+        ("ascii-7", "Az0!~ B".into()),
         ("ascii-8", "Az0!~ B?".into()),
         ("ascii-16", "Az0!~ B?".repeat(2)),
         ("ascii-32", "Az0!~ B?".repeat(4)),

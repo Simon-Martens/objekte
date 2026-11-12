@@ -1,0 +1,76 @@
+    Finished `release` profile [optimized] target(s) in 0.07s
+     Running unittests src/lib.rs (target/release/deps/objekte_search_core-0945fa776efe814b)
+
+running 1 test
+test bigram::tests::benchmark_real_builder_gram_generation ... native_backend=Avx2
+kind=builder alphabet=Ascii case=empty role=Scalar bytes=0 records=64 iterations=312 elapsed_ns=100478 checksum=85761906966528
+kind=builder alphabet=Ascii case=empty role=Avx2 bytes=0 records=64 iterations=312 elapsed_ns=84276 checksum=85761906966528
+kind=builder alphabet=Ascii case=ascii-1 role=Avx2 bytes=1 records=64 iterations=312 elapsed_ns=121653 checksum=85761906966528
+kind=builder alphabet=Ascii case=ascii-1 role=Scalar bytes=1 records=64 iterations=312 elapsed_ns=121849 checksum=85761906966528
+kind=builder alphabet=Ascii case=ascii-2 role=Scalar bytes=2 records=64 iterations=312 elapsed_ns=842707 checksum=85761906966840
+kind=builder alphabet=Ascii case=ascii-2 role=Avx2 bytes=2 records=64 iterations=312 elapsed_ns=515850 checksum=85761906966840
+kind=builder alphabet=Ascii case=ascii-3 role=Avx2 bytes=3 records=64 iterations=312 elapsed_ns=551102 checksum=85761927413760
+kind=builder alphabet=Ascii case=ascii-3 role=Scalar bytes=3 records=64 iterations=312 elapsed_ns=543245 checksum=85761927413760
+kind=builder alphabet=Ascii case=ascii-4 role=Scalar bytes=4 records=64 iterations=312 elapsed_ns=2122520 checksum=85761947861928
+kind=builder alphabet=Ascii case=ascii-4 role=Avx2 bytes=4 records=64 iterations=312 elapsed_ns=2057203 checksum=85761947861928
+kind=builder alphabet=Ascii case=ascii-5 role=Avx2 bytes=5 records=64 iterations=312 elapsed_ns=2353714 checksum=85761968309472
+kind=builder alphabet=Ascii case=ascii-5 role=Scalar bytes=5 records=64 iterations=312 elapsed_ns=2375546 checksum=85761968309472
+kind=builder alphabet=Ascii case=ascii-6 role=Scalar bytes=6 records=64 iterations=312 elapsed_ns=2719655 checksum=85761988757016
+kind=builder alphabet=Ascii case=ascii-6 role=Avx2 bytes=6 records=64 iterations=312 elapsed_ns=2684893 checksum=85761988757016
+kind=builder alphabet=Ascii case=ascii-7 role=Avx2 bytes=7 records=64 iterations=312 elapsed_ns=3326078 checksum=85762009204560
+kind=builder alphabet=Ascii case=ascii-7 role=Scalar bytes=7 records=64 iterations=312 elapsed_ns=3321889 checksum=85762009204560
+kind=builder alphabet=Ascii case=ascii-8 role=Scalar bytes=8 records=64 iterations=312 elapsed_ns=3419235 checksum=85762029652104
+kind=builder alphabet=Ascii case=ascii-8 role=Avx2 bytes=8 records=64 iterations=312 elapsed_ns=3412635 checksum=85762029652104
+kind=builder alphabet=Ascii case=ascii-16 role=Avx2 bytes=16 records=64 iterations=156 elapsed_ns=2360984 checksum=42881035273440
+kind=builder alphabet=Ascii case=ascii-16 role=Scalar bytes=16 records=64 iterations=156 elapsed_ns=2364168 checksum=42881035273440
+kind=builder alphabet=Ascii case=ascii-32 role=Scalar bytes=32 records=64 iterations=78 elapsed_ns=1554582 checksum=21440517636720
+kind=builder alphabet=Ascii case=ascii-32 role=Avx2 bytes=32 records=64 iterations=78 elapsed_ns=1252900 checksum=21440517636720
+kind=builder alphabet=Ascii case=ascii-64 role=Avx2 bytes=64 records=64 iterations=39 elapsed_ns=818543 checksum=10720258818360
+kind=builder alphabet=Ascii case=ascii-64 role=Scalar bytes=64 records=64 iterations=39 elapsed_ns=1126814 checksum=10720258818360
+kind=builder alphabet=Ascii case=ascii-128 role=Scalar bytes=128 records=64 iterations=19 elapsed_ns=896401 checksum=5222690193560
+kind=builder alphabet=Ascii case=ascii-128 role=Avx2 bytes=128 records=64 iterations=19 elapsed_ns=586657 checksum=5222690193560
+kind=builder alphabet=Ascii case=ascii-repeated-2k role=Avx2 bytes=2048 records=12 iterations=8 elapsed_ns=683651 checksum=412317384712
+kind=builder alphabet=Ascii case=ascii-repeated-2k role=Scalar bytes=2048 records=12 iterations=8 elapsed_ns=906662 checksum=412317384712
+kind=builder alphabet=Ascii case=ascii-varied-1k role=Scalar bytes=966 records=64 iterations=8 elapsed_ns=2489370 checksum=2199044227408
+kind=builder alphabet=Ascii case=ascii-varied-1k role=Avx2 bytes=966 records=64 iterations=8 elapsed_ns=1491139 checksum=2199044227408
+kind=builder alphabet=Ascii case=mixed-1k role=Avx2 bytes=1155 records=12 iterations=11 elapsed_ns=883650 checksum=566960914872
+kind=builder alphabet=Ascii case=mixed-1k role=Scalar bytes=1155 records=12 iterations=11 elapsed_ns=1092587 checksum=566960914872
+kind=builder alphabet=Ascii case=unicode-1k role=Scalar bytes=2176 records=12 iterations=8 elapsed_ns=1315531 checksum=412316860424
+kind=builder alphabet=Ascii case=unicode-1k role=Avx2 bytes=2176 records=12 iterations=8 elapsed_ns=1429897 checksum=412316860424
+kind=builder alphabet=Unicode case=empty role=Scalar bytes=0 records=64 iterations=312 elapsed_ns=50031 checksum=85761906966528
+kind=builder alphabet=Unicode case=empty role=Avx2 bytes=0 records=64 iterations=312 elapsed_ns=49040 checksum=85761906966528
+kind=builder alphabet=Unicode case=ascii-1 role=Avx2 bytes=1 records=64 iterations=312 elapsed_ns=65609 checksum=85761906966528
+kind=builder alphabet=Unicode case=ascii-1 role=Scalar bytes=1 records=64 iterations=312 elapsed_ns=65812 checksum=85761906966528
+kind=builder alphabet=Unicode case=ascii-2 role=Scalar bytes=2 records=64 iterations=312 elapsed_ns=370110 checksum=85761906966840
+kind=builder alphabet=Unicode case=ascii-2 role=Avx2 bytes=2 records=64 iterations=312 elapsed_ns=344525 checksum=85761906966840
+kind=builder alphabet=Unicode case=ascii-3 role=Avx2 bytes=3 records=64 iterations=312 elapsed_ns=873298 checksum=85761927414384
+kind=builder alphabet=Unicode case=ascii-3 role=Scalar bytes=3 records=64 iterations=312 elapsed_ns=875309 checksum=85761927414384
+kind=builder alphabet=Unicode case=ascii-4 role=Scalar bytes=4 records=64 iterations=312 elapsed_ns=1400796 checksum=85761947861928
+kind=builder alphabet=Unicode case=ascii-4 role=Avx2 bytes=4 records=64 iterations=312 elapsed_ns=1420657 checksum=85761947861928
+kind=builder alphabet=Unicode case=ascii-5 role=Avx2 bytes=5 records=64 iterations=312 elapsed_ns=1953959 checksum=85761968309472
+kind=builder alphabet=Unicode case=ascii-5 role=Scalar bytes=5 records=64 iterations=312 elapsed_ns=1934287 checksum=85761968309472
+kind=builder alphabet=Unicode case=ascii-6 role=Scalar bytes=6 records=64 iterations=312 elapsed_ns=2486348 checksum=85761988757016
+kind=builder alphabet=Unicode case=ascii-6 role=Avx2 bytes=6 records=64 iterations=312 elapsed_ns=2490323 checksum=85761988757016
+kind=builder alphabet=Unicode case=ascii-7 role=Avx2 bytes=7 records=64 iterations=312 elapsed_ns=2963138 checksum=85762009204560
+kind=builder alphabet=Unicode case=ascii-7 role=Scalar bytes=7 records=64 iterations=312 elapsed_ns=2988881 checksum=85762009204560
+kind=builder alphabet=Unicode case=ascii-8 role=Scalar bytes=8 records=64 iterations=312 elapsed_ns=3511833 checksum=85762029652104
+kind=builder alphabet=Unicode case=ascii-8 role=Avx2 bytes=8 records=64 iterations=312 elapsed_ns=3514955 checksum=85762029652104
+kind=builder alphabet=Unicode case=ascii-16 role=Avx2 bytes=16 records=64 iterations=156 elapsed_ns=3196337 checksum=42881035273440
+kind=builder alphabet=Unicode case=ascii-16 role=Scalar bytes=16 records=64 iterations=156 elapsed_ns=3188397 checksum=42881035273440
+kind=builder alphabet=Unicode case=ascii-32 role=Scalar bytes=32 records=64 iterations=78 elapsed_ns=2815097 checksum=21440517636720
+kind=builder alphabet=Unicode case=ascii-32 role=Avx2 bytes=32 records=64 iterations=78 elapsed_ns=2811274 checksum=21440517636720
+kind=builder alphabet=Unicode case=ascii-64 role=Avx2 bytes=64 records=64 iterations=39 elapsed_ns=2623680 checksum=10720258818360
+kind=builder alphabet=Unicode case=ascii-64 role=Scalar bytes=64 records=64 iterations=39 elapsed_ns=2616411 checksum=10720258818360
+kind=builder alphabet=Unicode case=ascii-128 role=Scalar bytes=128 records=64 iterations=19 elapsed_ns=2475024 checksum=5222690193560
+kind=builder alphabet=Unicode case=ascii-128 role=Avx2 bytes=128 records=64 iterations=19 elapsed_ns=2451733 checksum=5222690193560
+kind=builder alphabet=Unicode case=ascii-repeated-2k role=Avx2 bytes=2048 records=12 iterations=8 elapsed_ns=3006887 checksum=412317384712
+kind=builder alphabet=Unicode case=ascii-repeated-2k role=Scalar bytes=2048 records=12 iterations=8 elapsed_ns=2999278 checksum=412317384712
+kind=builder alphabet=Unicode case=ascii-varied-1k role=Scalar bytes=966 records=64 iterations=8 elapsed_ns=7951057 checksum=2199044227408
+kind=builder alphabet=Unicode case=ascii-varied-1k role=Avx2 bytes=966 records=64 iterations=8 elapsed_ns=7798062 checksum=2199044227408
+kind=builder alphabet=Unicode case=mixed-1k role=Avx2 bytes=1155 records=12 iterations=11 elapsed_ns=2780786 checksum=566968844805
+kind=builder alphabet=Unicode case=mixed-1k role=Scalar bytes=1155 records=12 iterations=11 elapsed_ns=2739944 checksum=566968844805
+kind=builder alphabet=Unicode case=unicode-1k role=Scalar bytes=2176 records=12 iterations=8 elapsed_ns=2638456 checksum=412325249136
+kind=builder alphabet=Unicode case=unicode-1k role=Avx2 bytes=2176 records=12 iterations=8 elapsed_ns=2631022 checksum=412325249136
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 530 filtered out; finished in 0.13s
