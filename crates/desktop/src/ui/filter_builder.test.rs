@@ -20,12 +20,14 @@ fn typed_serialization_escapes_strings_and_keeps_numbers_unquoted() {
     let rows = vec![
         ConditionDraft {
             field: "['a.b']".into(),
+            predicate: None,
             comparison: Comparison::Equal,
             value: Some("A \"quote\"\nline".into()),
             value_type: Some(ValueType::String),
         },
         ConditionDraft {
             field: "year".into(),
+            predicate: None,
             comparison: Comparison::AtLeast,
             value: Some("1900".into()),
             value_type: Some(ValueType::Number),
@@ -39,6 +41,7 @@ fn typed_serialization_escapes_strings_and_keeps_numbers_unquoted() {
     assert_eq!(BuilderState::from_text(&text).rows.len(), 2);
     let number_as_string = serialize_conditions(&[ConditionDraft {
         field: "code".into(),
+        predicate: None,
         comparison: Comparison::Equal,
         value: Some("1900".into()),
         value_type: Some(ValueType::String),
@@ -73,6 +76,7 @@ fn incomplete_builder_row_does_not_erase_current_filter() {
     assert_eq!(state.status, BuilderStatus::Incomplete);
     state.rows[1] = ConditionDraft {
         field: "type".into(),
+        predicate: None,
         comparison: Comparison::Equal,
         value: Some("book".into()),
         value_type: Some(ValueType::String),
@@ -122,6 +126,7 @@ fn numeric_builder_values_accept_exact_size_units_and_round_trip() {
     ] {
         let row = ConditionDraft {
             field: "@file.size".into(),
+            predicate: None,
             comparison: Comparison::AtLeast,
             value: Some(value.into()),
             value_type: Some(ValueType::Number),
@@ -153,11 +158,77 @@ fn numeric_builder_rejects_invalid_sizes_and_nonliteral_expressions() {
         assert!(
             serialize_conditions(&[ConditionDraft {
                 field: "@file.size".into(),
+                predicate: None,
                 comparison: Comparison::AtLeast,
                 value: Some(value.into()),
                 value_type: Some(ValueType::Number),
-            }]).is_err(),
+            }])
+            .is_err(),
             "{value}"
         );
     }
+}
+
+#[test]
+fn boolean_field_tests_round_trip_through_the_authoritative_filter_text() {
+    for test in [
+        BooleanTest::NonEmpty,
+        BooleanTest::String,
+        BooleanTest::Number,
+        BooleanTest::Array,
+        BooleanTest::Null,
+        BooleanTest::Object,
+        BooleanTest::Exists,
+    ] {
+        for (comparison, value, symbol) in [
+            (Comparison::Equal, "true", "="),
+            (Comparison::NotEqual, "false", "!="),
+        ] {
+            let text = serialize_conditions(&[ConditionDraft {
+                field: "annotation".into(),
+                predicate: Some(test),
+                comparison,
+                value: Some(value.into()),
+                value_type: Some(ValueType::Boolean),
+            }])
+            .unwrap()
+            .unwrap();
+            assert_eq!(
+                text,
+                format!("annotation{} {symbol} {value}", test.suffix())
+            );
+            let state = BuilderState::from_text(&text);
+            assert_eq!(state.status, BuilderStatus::Synchronized, "{text}");
+            assert_eq!(state.rows[0].predicate, Some(test), "{text}");
+            assert_eq!(state.rows[0].value.as_deref(), Some(value), "{text}");
+        }
+    }
+}
+
+#[test]
+fn boolean_tests_reject_scalar_orders_and_invalid_values() {
+    for (comparison, value, kind) in [
+        (Comparison::Greater, "true", ValueType::Boolean),
+        (Comparison::Equal, "yes", ValueType::Boolean),
+        (Comparison::Equal, "true", ValueType::String),
+    ] {
+        assert!(
+            serialize_conditions(&[ConditionDraft {
+                field: "annotation".into(),
+                predicate: Some(BooleanTest::NonEmpty),
+                comparison,
+                value: Some(value.into()),
+                value_type: Some(kind),
+            }])
+            .is_err()
+        );
+    }
+    let mut state = BuilderState::from_text("annotation:? = true && title = 'Book'");
+    assert_eq!(state.status, BuilderStatus::Synchronized);
+    assert_eq!(state.rows.len(), 2);
+    state.rows[0].value = Some("false".into());
+    assert_eq!(
+        state.complete_change().unwrap().as_deref(),
+        Some("annotation:? = false && title = \"Book\"")
+    );
 }

@@ -2,10 +2,9 @@
 
 use objekte_search_core::model::{Number, PathRoot};
 use objekte_search_core::query::{
-    FilterExpr, Literal, Operand, Operator, Quantifier, Term, parse_structured_filter,
+    FilterExpr, Literal, Modifier, Operand, Operator, Quantifier, Term, parse_structured_filter,
 };
 use objekte_search_core::query_path::QueryPath;
-
 
 /// Scalar literal type selected explicitly for a builder value.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -16,6 +15,69 @@ pub enum ValueType {
     Null,
 }
 
+/// Boolean field tests selected independently of scalar literal comparison.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum BooleanTest {
+    NonEmpty,
+    String,
+    Number,
+    Array,
+    Null,
+    Object,
+    Exists,
+}
+
+impl BooleanTest {
+    pub fn label(self) -> &'static str {
+        match self {
+            Self::NonEmpty => "Nonempty",
+            Self::String => "Is string",
+            Self::Number => "Is number",
+            Self::Array => "Is array",
+            Self::Null => "Is null",
+            Self::Object => "Is object",
+            Self::Exists => "Exists",
+        }
+    }
+
+    pub fn suffix(self) -> &'static str {
+        match self {
+            Self::NonEmpty => ":?",
+            Self::String => ":string",
+            Self::Number => ":number",
+            Self::Array => ":array",
+            Self::Null => ":null",
+            Self::Object => ":object",
+            Self::Exists => ":exists",
+        }
+    }
+
+    pub fn next(current: Option<Self>) -> Option<Self> {
+        match current {
+            None => Some(Self::NonEmpty),
+            Some(Self::NonEmpty) => Some(Self::String),
+            Some(Self::String) => Some(Self::Number),
+            Some(Self::Number) => Some(Self::Array),
+            Some(Self::Array) => Some(Self::Null),
+            Some(Self::Null) => Some(Self::Object),
+            Some(Self::Object) => Some(Self::Exists),
+            Some(Self::Exists) => None,
+        }
+    }
+
+    fn from_modifier(modifier: &Modifier) -> Option<Self> {
+        Some(match modifier {
+            Modifier::NonEmpty => Self::NonEmpty,
+            Modifier::StringType => Self::String,
+            Modifier::NumberType => Self::Number,
+            Modifier::ArrayType => Self::Array,
+            Modifier::Null => Self::Null,
+            Modifier::ObjectType => Self::Object,
+            Modifier::Exists => Self::Exists,
+            _ => return None,
+        })
+    }
+}
 
 /// Comparisons represented by the initial scalar builder.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -27,7 +89,6 @@ pub enum Comparison {
     Less,
     AtMost,
 }
-
 
 impl Comparison {
     pub fn symbol(self) -> &'static str {
@@ -58,22 +119,22 @@ impl Comparison {
     }
 }
 
-
 /// One editable Field / Operator / Value row; empty fields remain local drafts.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ConditionDraft {
     pub field: String,
+    pub predicate: Option<BooleanTest>,
     pub comparison: Comparison,
     /// None means the value control has not been completed, even for strings.
     pub value: Option<String>,
     pub value_type: Option<ValueType>,
 }
 
-
 impl Default for ConditionDraft {
     fn default() -> Self {
         Self {
             field: String::new(),
+            predicate: None,
             comparison: Comparison::Equal,
             value: None,
             value_type: None,
@@ -81,14 +142,12 @@ impl Default for ConditionDraft {
     }
 }
 
-
 /// Metadata for a bounded field suggestion; unknown types require a choice.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FieldChoice {
     pub path: String,
     pub value_type: Option<ValueType>,
 }
-
 
 /// What the helper may truthfully show for the current free-text expression.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -100,14 +159,12 @@ pub enum BuilderStatus {
     Invalid(String),
 }
 
-
 /// The builder's local rows; the text input remains the source of truth.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BuilderState {
     pub status: BuilderStatus,
     pub rows: Vec<ConditionDraft>,
 }
-
 
 impl BuilderState {
     /// Rebuild from a text edit, including undo/redo and query restoration.
@@ -199,7 +256,6 @@ impl BuilderState {
     }
 }
 
-
 fn collect_conditions(expr: &FilterExpr, rows: &mut Vec<ConditionDraft>) -> bool {
     match expr {
         FilterExpr::And(parts) => parts.iter().all(|part| collect_conditions(part, rows)),
@@ -215,23 +271,35 @@ fn collect_conditions(expr: &FilterExpr, rows: &mut Vec<ConditionDraft>) -> bool
 }
 
 fn condition_from_term(term: &Term) -> Option<ConditionDraft> {
-    if !term.modifiers.is_empty()
-        || term.quantifier != Quantifier::Default
+    if term.quantifier != Quantifier::Default
         || term.path.has_explicit_array_step
         || !matches!(term.path.field.root, PathRoot::Data | PathRoot::Metadata(_))
     {
         return None;
     }
-    let comparison = Comparison::from_operator(term.operator)?;
-    let (value, value_type) = match &term.operand {
-        Operand::Literal(Literal::String(value)) => (value.clone(), ValueType::String),
-        Operand::Literal(Literal::Number(number)) => (format_number(number), ValueType::Number),
-        Operand::Literal(Literal::Bool(value)) => (value.to_string(), ValueType::Boolean),
-        Operand::Literal(Literal::Null) => (String::new(), ValueType::Null),
+    let predicate = match term.modifiers.as_slice() {
+        [] => None,
+        [modifier] => Some(BooleanTest::from_modifier(modifier)?),
         _ => return None,
     };
-    comparison.accepts(value_type).then(|| ConditionDraft {
+    let comparison = Comparison::from_operator(term.operator)?;
+    let (value, value_type) = match (&term.operand, predicate) {
+        (Operand::Literal(Literal::Bool(value)), Some(_)) => {
+            (value.to_string(), ValueType::Boolean)
+        }
+        (Operand::Literal(Literal::String(value)), None) => (value.clone(), ValueType::String),
+        (Operand::Literal(Literal::Number(number)), None) => {
+            (format_number(number), ValueType::Number)
+        }
+        (Operand::Literal(Literal::Bool(value)), None) => (value.to_string(), ValueType::Boolean),
+        (Operand::Literal(Literal::Null), None) => (String::new(), ValueType::Null),
+        _ => return None,
+    };
+    (predicate.is_none() && comparison.accepts(value_type)
+        || predicate.is_some() && matches!(comparison, Comparison::Equal | Comparison::NotEqual))
+    .then(|| ConditionDraft {
         field: term.path.field.display(),
+        predicate,
         comparison,
         value: Some(value),
         value_type: Some(value_type),
@@ -264,7 +332,13 @@ pub fn serialize_conditions(rows: &[ConditionDraft]) -> Result<Option<String>, S
             return Err("The builder supports scalar field paths only".into());
         }
         let kind = row.value_type.expect("checked above");
-        if !row.comparison.accepts(kind) {
+        if row.predicate.is_some()
+            && (kind != ValueType::Boolean
+                || !matches!(row.comparison, Comparison::Equal | Comparison::NotEqual))
+        {
+            return Err("Boolean field tests require true or false with = or !=".into());
+        }
+        if row.predicate.is_none() && !row.comparison.accepts(kind) {
             return Err("This comparison requires a numeric value".into());
         }
         let literal = match kind {
@@ -308,8 +382,9 @@ pub fn serialize_conditions(rows: &[ConditionDraft]) -> Result<Option<String>, S
             },
             ValueType::Null => "null".into(),
         };
+        let suffix = row.predicate.map_or("", BooleanTest::suffix);
         parts.push(format!(
-            "{} {} {literal}",
+            "{}{suffix} {} {literal}",
             path.field.display(),
             row.comparison.symbol()
         ));

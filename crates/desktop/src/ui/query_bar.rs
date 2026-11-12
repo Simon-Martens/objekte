@@ -15,7 +15,7 @@ use gpui_kit::{
 };
 
 use super::DesktopView;
-use super::filter_builder::{BuilderState, BuilderStatus, Comparison, FieldChoice, ValueType};
+use super::filter_builder::{BooleanTest, BuilderState, BuilderStatus, Comparison, FieldChoice, ValueType};
 use super::model::{ErrorField, FilterValidationState, UiAction};
 use super::state::Busy;
 use super::workspace::Pane;
@@ -247,13 +247,15 @@ impl FilterBuilderView {
             return;
         };
         row.field = choice.path.clone();
-        if row.value_type != choice.value_type {
+        if row.predicate.is_none() && row.value_type != choice.value_type {
             row.value = None;
             self.rows[index]
                 .value
                 .update(cx, |input, cx| input.set_value("", window, cx));
         }
-        row.value_type = choice.value_type;
+        if row.predicate.is_none() {
+            row.value_type = choice.value_type;
+        }
         self.rows[index].field.update(cx, |input, cx| {
             input.set_value(choice.path.clone(), window, cx)
         });
@@ -287,7 +289,9 @@ impl FilterBuilderView {
             return;
         };
         let choices: &[Comparison] =
-            if row.value_type == Some(ValueType::Number) || row.value_type.is_none() {
+            if row.predicate.is_none()
+                && (row.value_type == Some(ValueType::Number) || row.value_type.is_none())
+            {
                 &[
                     Comparison::Equal,
                     Comparison::NotEqual,
@@ -311,6 +315,9 @@ impl FilterBuilderView {
         let Some(row) = self.state.rows.get_mut(index) else {
             return;
         };
+        if row.predicate.is_some() {
+            return;
+        }
         row.value_type = Some(match row.value_type {
             None => ValueType::String,
             Some(ValueType::String) => ValueType::Number,
@@ -327,6 +334,28 @@ impl FilterBuilderView {
         {
             row.comparison = Comparison::Equal;
         }
+        self.publish(cx);
+    }
+
+    fn change_predicate(&mut self, index: usize, window: &mut Window, cx: &mut Context<Self>) {
+        let Some(row) = self.state.rows.get_mut(index) else {
+            return;
+        };
+        row.predicate = BooleanTest::next(row.predicate);
+        row.value_type = row.predicate.map(|_| ValueType::Boolean).or_else(|| {
+            self.fields.iter().find(|choice| choice.path == row.field)
+                .and_then(|choice| choice.value_type)
+        });
+        row.value = row.predicate.map(|_| "true".to_owned());
+        if row.predicate.is_some()
+            && !matches!(row.comparison, Comparison::Equal | Comparison::NotEqual)
+        {
+            row.comparison = Comparison::Equal;
+        }
+        self.rows[index].value.update(cx, |input, cx| {
+            input.set_value(row.value.clone().unwrap_or_default(), window, cx)
+        });
+        self.value_choices.clear();
         self.publish(cx);
     }
 
@@ -414,14 +443,16 @@ impl Render for FilterBuilderView {
             .when(editable, |this| this.children(self.rows.iter().enumerate().map(|(index, inputs)| {
                 let draft = &self.state.rows[index];
                 let kind = match draft.value_type { None => "Choose type", Some(ValueType::String) => "String", Some(ValueType::Number) => "Number", Some(ValueType::Boolean) => "Boolean", Some(ValueType::Null) => "Null" };
+                let test = draft.predicate.map_or("Value", BooleanTest::label);
                 div().flex().items_center().gap_1()
-                    .child(Input::new(&inputs.field).id(("builder-field", index)).w(px(155.)).aria_label("Field path"))
+                    .child(Input::new(&inputs.field).id(("builder-field", index)).w(px(125.)).aria_label("Field path"))
+                    .child(Button::new(("builder-test", index)).label(test).accessibility_label(format!("Field test: {test}; click to change")).on_click(cx.listener(move |this, _, window, cx| this.change_predicate(index, window, cx))))
                     .child(Button::new(("builder-operator", index)).label(draft.comparison.symbol()).on_click(cx.listener(move |this, _, _, cx| this.change_comparison(index, cx))))
-                    .child(Button::new(("builder-type", index)).label(kind).on_click(cx.listener(move |this, _, window, cx| this.change_type(index, window, cx))))
+                    .when(draft.predicate.is_none(), |this| this.child(Button::new(("builder-type", index)).label(kind).on_click(cx.listener(move |this, _, window, cx| this.change_type(index, window, cx)))))
                     .when(draft.value_type == Some(ValueType::Boolean), |this| this
                         .child(Button::new(("builder-true", index)).label("True").on_click(cx.listener(move |this, _, _, cx| this.set_boolean(index, true, cx))))
                         .child(Button::new(("builder-false", index)).label("False").on_click(cx.listener(move |this, _, _, cx| this.set_boolean(index, false, cx)))))
-                    .when(!matches!(draft.value_type, Some(ValueType::Boolean | ValueType::Null)), |this| this.child(Input::new(&inputs.value).id(("builder-value", index)).w(px(135.)).aria_label("Value")))
+                    .when(!matches!(draft.value_type, Some(ValueType::Boolean | ValueType::Null)), |this| this.child(Input::new(&inputs.value).id(("builder-value", index)).w(px(110.)).aria_label("Value")))
                     .child(Button::new(("builder-remove", index)).label("×").on_click(cx.listener(move |this, _, window, cx| this.remove_row(index, window, cx))))
             })))
             .when(editable && !suggestions.is_empty(), |this| this.child(div().flex().gap_1().children(suggestions.into_iter().enumerate().map(|(index, choice)| {
