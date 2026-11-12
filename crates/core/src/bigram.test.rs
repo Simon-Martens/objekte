@@ -530,6 +530,31 @@ fn packed_chunks_reject_overlap_and_release_large_unicode_scratch() {
 }
 
 #[test]
+fn diagnostic_gram_set_counts_existing_record_bits() {
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut words = GramWords::new(alphabet);
+        let (first, second) = match alphabet {
+            BigramAlphabet::Ascii => (
+                ascii_pair(b'a', b'b').unwrap(),
+                ascii_pair(b'b', b'c').unwrap(),
+            ),
+            BigramAlphabet::Unicode => (unicode_pair('a', 'b'), unicode_pair('b', 'c')),
+        };
+        let (mut lookups, mut duplicates) = (0, 0);
+        words.set_profiled(first, 1, &mut lookups, &mut duplicates);
+        words.set_profiled(first, 1, &mut lookups, &mut duplicates);
+        words.set_profiled(first, 2, &mut lookups, &mut duplicates);
+        words.set_profiled(second, 1, &mut lookups, &mut duplicates);
+        assert_eq!(lookups, 4);
+        assert_eq!(duplicates, 1);
+        let mut emitted = Vec::new();
+        words.drain(|key, bits| emitted.push((key, bits)));
+        assert!(emitted.contains(&(first, 3)));
+        assert!(emitted.contains(&(second, 1)));
+    }
+}
+
+#[test]
 fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     use crate::model::LogicalType;
     use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
