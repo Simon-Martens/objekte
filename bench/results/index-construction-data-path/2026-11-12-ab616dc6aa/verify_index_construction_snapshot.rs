@@ -40,9 +40,7 @@ fn run() -> Result<(), String> {
         &core.join("benches/musenalm_queries_extended.json"),
     )?;
     let mut digests = BTreeMap::new();
-    for case in cases.iter().filter(|case| {
-        ["Q001", "Q108", "Q116", "Q120", "Q194"].contains(&case.id.as_str())
-    }) {
+    for case in &cases {
         let result = repo.search(&case.query()?)?;
         let digest = Sha256::digest(format!("{:?}", (result.count, result.hits)).as_bytes());
         digests.insert(case.id.clone(), format!("{digest:x}"));
@@ -53,6 +51,7 @@ fn run() -> Result<(), String> {
             "restored": repo.startup().restored,
             "build_parses": repo.build_parses(),
             "alphabet": alphabet,
+            "case_count": digests.len(),
             "query_digests": digests,
         })
     );

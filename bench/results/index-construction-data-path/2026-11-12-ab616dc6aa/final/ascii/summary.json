@@ -1,0 +1,58 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-bench-index-construction-data-path-baseline",
+    "candidate_repo": "/home/simon/source/objekte-integration-index-construction-data-path",
+    "control_bin": "/home/simon/source/objekte-bench-index-construction-data-path-baseline/target/release/examples/bench_index_construction",
+    "candidate_bin": "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/bench_index_construction",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "ascii",
+    "workers": "auto",
+    "pairs": 3,
+    "profile": false,
+    "control_revision": "ab616dc6aabb9b9fee4657deb6752a6512bec9e5",
+    "candidate_revision": "4f51c45e22ff4329c690fbbb3bad90f18b17a658",
+    "control_sha256": "d9f29ad155893c6e6d22c0c88a21ec114f44953e01c4b7551a769da9e34daeef",
+    "candidate_sha256": "42449be3ded342ff6228c88a52a4dddd200f6501314eff3da739803cb4be3c0b"
+  },
+  "control_build_ns": {
+    "median": 1137750132,
+    "min": 1127803317,
+    "max": 1189593164,
+    "iqr": 30894923.5
+  },
+  "candidate_build_ns": {
+    "median": 1124037100,
+    "min": 1109857328,
+    "max": 1145647243,
+    "iqr": 17894957.5
+  },
+  "paired_delta_ns": {
+    "median": -3766217,
+    "min": -79735836,
+    "max": 7897111,
+    "iqr": 43816473.5
+  },
+  "paired_delta_percent": {
+    "median": -0.33394271352369387,
+    "min": -6.702781960505622,
+    "max": 0.6940988867316644,
+    "iqr": 3.698440423618643
+  },
+  "paired_deltas_ns": [
+    7897111,
+    -79735836,
+    -3766217
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 25477,
+    "estimated_index_bytes": 69662968
+  },
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 32
+}

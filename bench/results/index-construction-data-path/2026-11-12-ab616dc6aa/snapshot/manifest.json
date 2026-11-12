@@ -1,0 +1,30 @@
+[
+  {
+    "role": "baseline",
+    "alphabet": "ascii",
+    "bytes": 129139458,
+    "sha256": "80db2b54cc1d1556b5d638bbd32431c61f5a9f9c82ddb86ea2b61ab334ef6a63",
+    "metadata_path": "snapshot/baseline-ascii/trial-1794488405529024890-421682"
+  },
+  {
+    "role": "baseline",
+    "alphabet": "unicode",
+    "bytes": 131650034,
+    "sha256": "780c9c5aee29f3aea6c2cdca43a826fccd080d0dc28334c927cf7e8eaf7c43ae",
+    "metadata_path": "snapshot/baseline-unicode/trial-1794488422126887147-421889"
+  },
+  {
+    "role": "candidate",
+    "alphabet": "ascii",
+    "bytes": 129139458,
+    "sha256": "dc1f61d3060f7376f93191c8c9a6746c20f29273f39bfe730536819d013969bf",
+    "metadata_path": "snapshot/candidate-ascii/trial-1794488413641440655-421784"
+  },
+  {
+    "role": "candidate",
+    "alphabet": "unicode",
+    "bytes": 131650034,
+    "sha256": "8efcdd232ec7d57bf1e9edf4c3cb66d6064f4d6bc477fae6205b4c7626a9eba3",
+    "metadata_path": "snapshot/candidate-unicode/trial-1794488430278558416-421992"
+  }
+]

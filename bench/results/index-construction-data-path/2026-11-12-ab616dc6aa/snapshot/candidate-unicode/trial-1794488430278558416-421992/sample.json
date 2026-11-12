@@ -1,0 +1,134 @@
+{
+  "after_build_hwm": 627552256,
+  "after_build_rss": 590090240,
+  "after_release_rss": 506216448,
+  "before_rss": 6492160,
+  "bigram_stores": 15,
+  "build_admission_ns": 576195953,
+  "build_job_execution_ns": 5776513959,
+  "build_ns": 1213860599,
+  "build_parses": 148486,
+  "build_receive_wait_ns": 106866776,
+  "diagnostic_heap_bytes": 0,
+  "discovery_ns": 196570532,
+  "distinct_gram_keys": 37909,
+  "estimated_index_bytes": 72571368,
+  "extraction_index_ns": 694591764,
+  "failed_parses": 0,
+  "finalization_ns": 239165077,
+  "framing_bytes": 0,
+  "framing_chunks": 0,
+  "framing_ns": 0,
+  "inference_build": "InferenceBuildStats { observed_records: 0, merged_batches: 0, merge_ns: 0, finish_ns: 0, cumulative_budget_bytes: 0, unique_path_bytes: 0, repeated_batch_path_bytes: 0, retained_manual_summary_bytes: 0 }",
+  "inventory_heap_bytes": 58460912,
+  "open_ns": 1213882099,
+  "out_of_order_completed": 0,
+  "peak_active_jobs": 32,
+  "peak_admitted_bytes": 523665408,
+  "peak_ready_batches": 64,
+  "postings": 300,
+  "process_io_delta": {
+    "cancelled_write_bytes": 0,
+    "rchar": 193297475,
+    "read_bytes": 0,
+    "syscr": 296988,
+    "syscw": 0,
+    "wchar": 0,
+    "write_bytes": 0
+  },
+  "profile": null,
+  "profile_reconciliation": null,
+  "query_digests": {
+    "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+    "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+    "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+    "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+    "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+  },
+  "ready_wait_max_ns": 0,
+  "ready_wait_sum_ns": 0,
+  "relation_edges": 228503,
+  "relation_heap_bytes": 21469817,
+  "snapshot_result": {
+    "bytes": 131650034,
+    "directory_ns": 4434,
+    "directory_sync_ns": 492251,
+    "header_ns": 534107,
+    "hwm_after_write": 627552256,
+    "inventory_ns": 10928474,
+    "rename_ns": 38072,
+    "rss_after_write": 590090240,
+    "sections": [
+      {
+        "checksum_ns": 73,
+        "id": 4294967295,
+        "payload_bytes": 125,
+        "serialize_ns": 0,
+        "write_ns": 4494
+      },
+      {
+        "checksum_ns": 8106239,
+        "id": 0,
+        "payload_bytes": 21502142,
+        "serialize_ns": 8514582,
+        "write_ns": 3315087
+      },
+      {
+        "checksum_ns": 3739375,
+        "id": 1,
+        "payload_bytes": 9969074,
+        "serialize_ns": 6395853,
+        "write_ns": 1614906
+      },
+      {
+        "checksum_ns": 30069061,
+        "id": 2,
+        "payload_bytes": 83967396,
+        "serialize_ns": 57545005,
+        "write_ns": 13683629
+      },
+      {
+        "checksum_ns": 3346726,
+        "id": 3,
+        "payload_bytes": 9377757,
+        "serialize_ns": 5350874,
+        "write_ns": 1495050
+      },
+      {
+        "checksum_ns": 1103672,
+        "id": 4,
+        "payload_bytes": 3092646,
+        "serialize_ns": 1138350,
+        "write_ns": 477818
+      },
+      {
+        "checksum_ns": 217589,
+        "id": 5,
+        "payload_bytes": 614523,
+        "serialize_ns": 148988,
+        "write_ns": 97230
+      },
+      {
+        "checksum_ns": 246704,
+        "id": 6,
+        "payload_bytes": 697014,
+        "serialize_ns": 223743,
+        "write_ns": 106344
+      },
+      {
+        "checksum_ns": 859929,
+        "id": 7,
+        "payload_bytes": 2428909,
+        "serialize_ns": 2391267,
+        "write_ns": 385757
+      }
+    ],
+    "sync_ns": 26584488,
+    "total_ns": 194327781,
+    "write_ns": 21199069
+  },
+  "sort_fields": 8,
+  "storage_breakdown": null,
+  "storage_operations": null,
+  "weight_limit_bytes": 536870912
+}

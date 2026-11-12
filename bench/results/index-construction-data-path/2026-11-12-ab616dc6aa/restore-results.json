@@ -1,0 +1,94 @@
+[
+  {
+    "role": "baseline",
+    "alphabet": "ascii",
+    "command": [
+      "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/verify_index_construction_snapshot",
+      "/home/simon/source/objekte/examples/musenalm",
+      "/home/simon/source/objekte-integration-index-construction-data-path/target/index-construction-data-path/restore-input/baseline-ascii",
+      "ascii"
+    ],
+    "snapshot_bytes": 129139458,
+    "result": {
+      "alphabet": "ascii",
+      "build_parses": 0,
+      "query_digests": {
+        "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+        "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+        "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+        "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+        "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+      },
+      "restored": true
+    }
+  },
+  {
+    "role": "candidate",
+    "alphabet": "ascii",
+    "command": [
+      "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/verify_index_construction_snapshot",
+      "/home/simon/source/objekte/examples/musenalm",
+      "/home/simon/source/objekte-integration-index-construction-data-path/target/index-construction-data-path/restore-input/candidate-ascii",
+      "ascii"
+    ],
+    "snapshot_bytes": 129139458,
+    "result": {
+      "alphabet": "ascii",
+      "build_parses": 0,
+      "query_digests": {
+        "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+        "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+        "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+        "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+        "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+      },
+      "restored": true
+    }
+  },
+  {
+    "role": "baseline",
+    "alphabet": "unicode",
+    "command": [
+      "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/verify_index_construction_snapshot",
+      "/home/simon/source/objekte/examples/musenalm",
+      "/home/simon/source/objekte-integration-index-construction-data-path/target/index-construction-data-path/restore-input/baseline-unicode",
+      "unicode"
+    ],
+    "snapshot_bytes": 131650034,
+    "result": {
+      "alphabet": "unicode",
+      "build_parses": 0,
+      "query_digests": {
+        "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+        "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+        "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+        "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+        "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+      },
+      "restored": true
+    }
+  },
+  {
+    "role": "candidate",
+    "alphabet": "unicode",
+    "command": [
+      "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/verify_index_construction_snapshot",
+      "/home/simon/source/objekte/examples/musenalm",
+      "/home/simon/source/objekte-integration-index-construction-data-path/target/index-construction-data-path/restore-input/candidate-unicode",
+      "unicode"
+    ],
+    "snapshot_bytes": 131650034,
+    "result": {
+      "alphabet": "unicode",
+      "build_parses": 0,
+      "query_digests": {
+        "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+        "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+        "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+        "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+        "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+      },
+      "restored": true
+    }
+  }
+]

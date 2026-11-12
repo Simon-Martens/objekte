@@ -1,0 +1,58 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-task-index-construction-data-path-ascii-folding",
+    "candidate_repo": "/home/simon/source/objekte-integration-index-construction-data-path",
+    "control_bin": "/home/simon/source/objekte-task-index-construction-data-path-ascii-folding/target/release/examples/bench_index_construction",
+    "candidate_bin": "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/bench_index_construction",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "unicode",
+    "workers": "auto",
+    "pairs": 3,
+    "profile": false,
+    "control_revision": "66c40c0edb83764886416d36cd634114a2da06a6",
+    "candidate_revision": "382ba91251fb6f325b6787294e53a30b076b2400",
+    "control_sha256": "c1b4b326284ac7f8f60ecf37f2b3b30789985856b9743898f150cd7bdb65da65",
+    "candidate_sha256": "5ea4a8949d848c851fa64d43aa89c881166cd3590661078f0b6d9812cc8b3301"
+  },
+  "control_build_ns": {
+    "median": 1158471712,
+    "min": 1141228616,
+    "max": 1170402729,
+    "iqr": 14587056.5
+  },
+  "candidate_build_ns": {
+    "median": 1182637682,
+    "min": 1176512703,
+    "max": 1199768060,
+    "iqr": 11627678.5
+  },
+  "paired_delta_ns": {
+    "median": 29365331,
+    "min": 18040991,
+    "max": 41409066,
+    "iqr": 11684037.5
+  },
+  "paired_delta_percent": {
+    "median": 2.508993722621433,
+    "min": 1.557309584094524,
+    "max": 3.6284636942542248,
+    "iqr": 1.0355770550798504
+  },
+  "paired_deltas_ns": [
+    18040991,
+    41409066,
+    29365331
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 37909,
+    "estimated_index_bytes": 72571368
+  },
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 32
+}

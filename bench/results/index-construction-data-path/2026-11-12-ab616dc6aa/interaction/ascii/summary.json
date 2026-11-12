@@ -1,0 +1,58 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-task-index-construction-data-path-ascii-folding",
+    "candidate_repo": "/home/simon/source/objekte-integration-index-construction-data-path",
+    "control_bin": "/home/simon/source/objekte-task-index-construction-data-path-ascii-folding/target/release/examples/bench_index_construction",
+    "candidate_bin": "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/bench_index_construction",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "ascii",
+    "workers": "auto",
+    "pairs": 3,
+    "profile": false,
+    "control_revision": "66c40c0edb83764886416d36cd634114a2da06a6",
+    "candidate_revision": "382ba91251fb6f325b6787294e53a30b076b2400",
+    "control_sha256": "c1b4b326284ac7f8f60ecf37f2b3b30789985856b9743898f150cd7bdb65da65",
+    "candidate_sha256": "5ea4a8949d848c851fa64d43aa89c881166cd3590661078f0b6d9812cc8b3301"
+  },
+  "control_build_ns": {
+    "median": 1113065432,
+    "min": 1082883805,
+    "max": 1119089960,
+    "iqr": 18103077.5
+  },
+  "candidate_build_ns": {
+    "median": 1099455613,
+    "min": 1083556602,
+    "max": 1117374637,
+    "iqr": 16909017.5
+  },
+  "paired_delta_ns": {
+    "median": -13609819,
+    "min": -35533358,
+    "max": 34490832,
+    "iqr": 35012095.0
+  },
+  "paired_delta_percent": {
+    "median": -1.2227330585179885,
+    "min": -3.175201214386736,
+    "max": 3.1850907586525423,
+    "iqr": 3.180145986519639
+  },
+  "paired_deltas_ns": [
+    -35533358,
+    34490832,
+    -13609819
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 25477,
+    "estimated_index_bytes": 69662968
+  },
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 32
+}

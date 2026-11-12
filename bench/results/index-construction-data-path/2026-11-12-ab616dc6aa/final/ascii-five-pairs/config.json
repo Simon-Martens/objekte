@@ -1,0 +1,15 @@
+{
+  "control_repo": "/home/simon/source/objekte-bench-index-construction-data-path-baseline",
+  "candidate_repo": "/home/simon/source/objekte-integration-index-construction-data-path",
+  "control_bin": "/home/simon/source/objekte-bench-index-construction-data-path-baseline/target/release/examples/bench_index_construction",
+  "candidate_bin": "/home/simon/source/objekte-integration-index-construction-data-path/target/release/examples/bench_index_construction",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "alphabet": "ascii",
+  "workers": "auto",
+  "pairs": 5,
+  "profile": false,
+  "control_revision": "ab616dc6aabb9b9fee4657deb6752a6512bec9e5",
+  "candidate_revision": "4f51c45e22ff4329c690fbbb3bad90f18b17a658",
+  "control_sha256": "d9f29ad155893c6e6d22c0c88a21ec114f44953e01c4b7551a769da9e34daeef",
+  "candidate_sha256": "42449be3ded342ff6228c88a52a4dddd200f6501314eff3da739803cb4be3c0b"
+}
