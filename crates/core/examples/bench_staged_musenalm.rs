@@ -436,8 +436,11 @@ fn run() -> Result<(), String> {
             }
         }
         if mode == "foreground" {
+            let quiesce_started = Instant::now();
             index.quiesce().map_err(|error| error.to_string())?;
             if let Some(result) = build_results.last_mut() {
+                result["quiesce_duration_ns"] =
+                    serde_json::json!(quiesce_started.elapsed().as_nanos() as u64);
                 result["quiesced_ns"] = serde_json::json!(started.elapsed().as_nanos() as u64);
                 result["final_extended_phase"] = serde_json::json!(format!(
                     "{:?}",
