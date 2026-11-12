@@ -8,15 +8,45 @@ fn collection_observation_shares_follow_record_counts_and_stay_bounded() {
         ..Default::default()
     };
     config.policy.max_total_bytes = 132 * 1024 * 1024;
-    let empty = InferenceBuilder::for_collection_weighted(config, 0, 10, 2).unwrap();
-    let small = InferenceBuilder::for_collection_weighted(config, 1, 10, 2).unwrap();
-    let large = InferenceBuilder::for_collection_weighted(config, 9, 10, 2).unwrap();
+    let empty =
+        InferenceBuilder::for_collection_weighted(config, 0, 10, 0, 60 * 1024 * 1024).unwrap();
+    let small = InferenceBuilder::for_collection_weighted(
+        config,
+        1,
+        10,
+        20 * 1024 * 1024,
+        60 * 1024 * 1024,
+    )
+    .unwrap();
+    let large = InferenceBuilder::for_collection_weighted(
+        config,
+        9,
+        10,
+        40 * 1024 * 1024,
+        60 * 1024 * 1024,
+    )
+    .unwrap();
     let mib = 1024 * 1024;
     assert_eq!(empty.coordinator_limit, 0);
-    assert_eq!(small.coordinator_limit, 32 * mib + 68 * mib / 10);
-    assert_eq!(large.coordinator_limit, 32 * mib + 68 * mib * 9 / 10);
-    assert!(empty.coordinator_limit + small.coordinator_limit + large.coordinator_limit
-        <= config.policy.max_total_bytes);
+    assert_eq!(small.coordinator_limit, 20 * mib + 72 * mib / 10);
+    assert_eq!(large.coordinator_limit, 40 * mib + 72 * mib * 9 / 10);
+    assert!(
+        empty.coordinator_limit + small.coordinator_limit + large.coordinator_limit
+            <= config.policy.max_total_bytes
+    );
+    assert_eq!(InferenceBuilder::collection_floor_request(0), 8 * mib);
+    assert_eq!(
+        InferenceBuilder::collection_floor_request(261),
+        8 * mib + 261 * mib / 4
+    );
+    assert_eq!(InferenceBuilder::collection_floor_request(10_000), 96 * mib);
+
+    config.policy.max_total_bytes = 40 * mib;
+    let small =
+        InferenceBuilder::for_collection_weighted(config, 1, 10, 20 * mib, 60 * mib).unwrap();
+    let large =
+        InferenceBuilder::for_collection_weighted(config, 9, 10, 40 * mib, 60 * mib).unwrap();
+    assert!(small.coordinator_limit + large.coordinator_limit <= config.policy.max_total_bytes);
 }
 
 #[test]
