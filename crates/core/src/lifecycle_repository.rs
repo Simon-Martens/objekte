@@ -9,7 +9,6 @@ use crate::repository::RepositoryOptions;
 use crate::repository_configuration::{RepositoryConfiguration, load_repository_configuration};
 use crate::storage::snapshot_path_in;
 
-
 /// Choices for opening the established `.objekte/collections` layout.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum CacheFailurePolicy {
@@ -18,7 +17,6 @@ pub enum CacheFailurePolicy {
     /// Delete an invalid cache after a safe source build, then write its replacement.
     Rebuild,
 }
-
 
 /// Whether convenience opening may inspect the selected cache.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -31,7 +29,6 @@ pub enum CacheOpenPolicy {
     Ignore,
 }
 
-
 /// A custom cache directory is resolved relative to the repository root.
 /// With `sync_cache` disabled, opening never writes a cache.
 #[derive(Clone, Debug)]
@@ -42,7 +39,6 @@ pub struct RepositoryOpenOptions {
     pub cache_failure: CacheFailurePolicy,
     pub sync_cache: bool,
 }
-
 
 impl Default for RepositoryOpenOptions {
     fn default() -> Self {
@@ -55,7 +51,6 @@ impl Default for RepositoryOpenOptions {
         }
     }
 }
-
 
 impl Index {
     /// Open the configured layout with a nonblocking fresh construction path.
@@ -122,6 +117,7 @@ impl Index {
                 sync_cache: options.sync_cache,
                 replace_invalid_cache,
             }),
+            false,
         )
     }
 
@@ -199,7 +195,6 @@ impl Index {
         Ok(index)
     }
 }
-
 
 #[cfg(test)]
 #[path = "lifecycle_repository.test.rs"]

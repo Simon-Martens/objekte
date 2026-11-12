@@ -102,6 +102,18 @@ fn action_palette_opens_existing_controls_and_columns_scroll() {
 }
 
 #[test]
+fn field_index_actions_leave_an_already_complete_search_usable() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    run_action(app, Action::CancelIndexing);
+    assert_eq!(app.status.as_deref(), Some("Field indexing is already complete"));
+    run_action(app, Action::ResumeIndexing);
+    assert_eq!(app.status.as_deref(), Some("Field indexing is already complete"));
+    wait_for_hits(app);
+    assert!(!app.hits.is_empty());
+}
+
+#[test]
 fn record_find_copy_and_adjacent_result_shortcuts_work() {
     let mut fixture = fixture(3);
     let app = &mut fixture.app;

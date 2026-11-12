@@ -33,7 +33,9 @@ use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
 pub const SNAPSHOT_VERSION: u32 = 21;
-pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 22;
+pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 24;
+const PREVIOUS_LIFECYCLE_SNAPSHOT_VERSION: u32 = 22;
+const PARTIAL_LIFECYCLE_SNAPSHOT_VERSION: u32 = 23;
 const CONFIGURATION_HASH_VERSION: u32 = 17;
 const CONFIGURATION_SECTION_ID: u32 = u32::MAX;
 const MAX_SECTION_BYTES: u64 = 8 * 1024 * 1024 * 1024;
@@ -180,12 +182,74 @@ pub(crate) struct LifecycleSegmentCache {
 #[derive(Clone, Serialize, Deserialize)]
 pub(crate) struct LifecycleCacheState {
     pub(crate) revision: u64,
+    pub(crate) capability_revision: u64,
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) base_active: Vec<RoaringBitmap>,
     pub(crate) catalog: Vec<Option<LifecycleCatalogFile>>,
     pub(crate) file_versions: Vec<FileVersion>,
     pub(crate) segments: Vec<Vec<LifecycleSegmentCache>>,
+    pub(crate) extended_batches: Vec<Vec<crate::build::ExtendedBatch>>,
+    pub(crate) pending_inference: Option<crate::inference::InferenceConfig>,
     pub(crate) next_segment_ordinal: u64,
+}
+
+#[derive(Deserialize)]
+struct PreviousPartialLifecycleCacheState {
+    revision: u64,
+    capability_revision: u64,
+    configuration_identity: [u8; 32],
+    base_active: Vec<RoaringBitmap>,
+    catalog: Vec<Option<LifecycleCatalogFile>>,
+    file_versions: Vec<FileVersion>,
+    segments: Vec<Vec<LifecycleSegmentCache>>,
+    extended_batches: Vec<Vec<crate::build::ExtendedBatch>>,
+    next_segment_ordinal: u64,
+}
+
+impl From<PreviousPartialLifecycleCacheState> for LifecycleCacheState {
+    fn from(old: PreviousPartialLifecycleCacheState) -> Self {
+        Self {
+            revision: old.revision,
+            capability_revision: old.capability_revision,
+            configuration_identity: old.configuration_identity,
+            base_active: old.base_active,
+            catalog: old.catalog,
+            file_versions: old.file_versions,
+            segments: old.segments,
+            extended_batches: old.extended_batches,
+            pending_inference: None,
+            next_segment_ordinal: old.next_segment_ordinal,
+        }
+    }
+}
+
+#[derive(Deserialize)]
+struct PreviousLifecycleCacheState {
+    revision: u64,
+    configuration_identity: [u8; 32],
+    base_active: Vec<RoaringBitmap>,
+    catalog: Vec<Option<LifecycleCatalogFile>>,
+    file_versions: Vec<FileVersion>,
+    segments: Vec<Vec<LifecycleSegmentCache>>,
+    next_segment_ordinal: u64,
+}
+
+impl From<PreviousLifecycleCacheState> for LifecycleCacheState {
+    fn from(old: PreviousLifecycleCacheState) -> Self {
+        let extended_batches = vec![Vec::new(); old.base_active.len()];
+        Self {
+            revision: old.revision,
+            capability_revision: 1,
+            configuration_identity: old.configuration_identity,
+            base_active: old.base_active,
+            catalog: old.catalog,
+            file_versions: old.file_versions,
+            segments: old.segments,
+            extended_batches,
+            pending_inference: None,
+            next_segment_ordinal: old.next_segment_ordinal,
+        }
+    }
 }
 
 impl LifecycleCacheState {
@@ -250,6 +314,7 @@ impl LifecycleCacheState {
             .collect::<Result<Vec<_>, _>>()?;
         Ok(Self {
             revision: publication.revision.0,
+            capability_revision: publication.capability_revision.0,
             configuration_identity: publication.configuration_identity,
             base_active: publication
                 .active
@@ -259,6 +324,12 @@ impl LifecycleCacheState {
             catalog,
             file_versions,
             segments,
+            extended_batches: publication
+                .extended_batches
+                .iter()
+                .map(|group| group.iter().map(|batch| (**batch).clone()).collect())
+                .collect(),
+            pending_inference: publication.pending_inference,
             next_segment_ordinal: publication.next_segment_ordinal,
         })
     }
@@ -276,6 +347,10 @@ impl LifecycleCacheState {
             .map(|state| state.definition.clone())
             .collect::<Vec<_>>();
         if self.revision == 0
+            || self.capability_revision == 0
+            || self.pending_inference.is_some_and(|config| {
+                config.mode == InferenceMode::Disabled || config.validate().is_err()
+            })
             || self.configuration_identity
                 != configuration_hash(&definitions, repository.options(), &repository.sources)?
         {
@@ -283,6 +358,7 @@ impl LifecycleCacheState {
         }
         if self.base_active.len() != repository.collections().len()
             || self.segments.len() != repository.collections().len()
+            || self.extended_batches.len() != repository.collections().len()
             || self.catalog.len() != self.file_versions.len()
             || self.catalog.len() < repository.files().files.len()
             || self.catalog.len() > u32::MAX as usize
@@ -380,6 +456,76 @@ impl LifecycleCacheState {
                     return Err("lifecycle segment identity or active domain invalid".into());
                 }
                 validate_segment(segment)?;
+            }
+        }
+        for (number, group) in self.extended_batches.iter().enumerate() {
+            let collection = &repository.collections()[number];
+            for batch in group {
+                let end = batch
+                    .base_slot
+                    .checked_add(batch.record_count)
+                    .ok_or("extended cache slot overflow")? as usize;
+                if batch.collection.0 as usize != number
+                    || end > collection.generation.records.len()
+                    || batch.records.len() != batch.record_count as usize
+                    || batch
+                        .logical_covered
+                        .max()
+                        .is_some_and(|slot| slot >= batch.record_count)
+                {
+                    return Err("extended cache batch domain mismatch".into());
+                }
+                for (offset, record) in batch.records.iter().enumerate() {
+                    let base = &collection.generation.records[batch.base_slot as usize + offset];
+                    if record.id != base.id
+                        || record.file != base.file
+                        || record.range != base.range
+                        || record.revision != base.revision
+                        || record.class != base.class
+                    {
+                        return Err("extended cache record layout mismatch".into());
+                    }
+                }
+                let sources = batch
+                    .source_files
+                    .iter()
+                    .map(|(file, _)| *file)
+                    .collect::<HashSet<_>>();
+                if sources.len() != batch.source_files.len()
+                    || batch
+                        .records
+                        .iter()
+                        .any(|record| !sources.contains(&record.file))
+                    || batch.source_files.iter().any(|(file, revision)| {
+                        self.catalog
+                            .get(file.0 as usize)
+                            .and_then(Option::as_ref)
+                            .is_none_or(|entry| entry.file.revision != *revision)
+                    })
+                {
+                    return Err("extended cache source incarnation mismatch".into());
+                }
+                if batch.field_states.values().any(|column| {
+                    !column.covered_slots().is_subset(&batch.logical_covered)
+                        || column
+                            .covered_slots()
+                            .max()
+                            .is_some_and(|slot| slot >= batch.record_count)
+                        || column
+                            .covered_slots()
+                            .iter()
+                            .any(|slot| column.mask_at(slot).is_none_or(|mask| mask & !0x07ff != 0))
+                }) {
+                    return Err("extended cache field-state coverage mismatch".into());
+                }
+                batch.postings.validate_eligible(
+                    batch.record_count as usize,
+                    batch.logical_covered.len() as usize,
+                )?;
+                batch.postings.validate_domain(&batch.logical_covered)?;
+                for posting in batch.custom_postings.values() {
+                    posting.index.validate_domain(&batch.logical_covered)?;
+                }
             }
         }
         Ok(())
@@ -740,7 +886,13 @@ pub(crate) fn snapshot_build_configuration_with_sources(
         .map_err(|error| snapshot_read_error("snapshot header", error))?;
     let version = u32::from_le_bytes(header[8..12].try_into().unwrap());
     if &header[..8] != MAGIC
-        || ![SNAPSHOT_VERSION, LIFECYCLE_SNAPSHOT_VERSION].contains(&version)
+        || ![
+            SNAPSHOT_VERSION,
+            PREVIOUS_LIFECYCLE_SNAPSHOT_VERSION,
+            PARTIAL_LIFECYCLE_SNAPSHOT_VERSION,
+            LIFECYCLE_SNAPSHOT_VERSION,
+        ]
+        .contains(&version)
         || u32::from_le_bytes(header[12..16].try_into().unwrap()) != crate::MODEL_VERSION
     {
         return Err("incompatible snapshot version".into());
@@ -1233,7 +1385,8 @@ fn load_snapshot_parts(
         SNAPSHOT_VERSION
     };
     if &magic != MAGIC
-        || version != current_version
+        || (version != current_version
+            && !(lifecycle && [PREVIOUS_LIFECYCLE_SNAPSHOT_VERSION, PARTIAL_LIFECYCLE_SNAPSHOT_VERSION].contains(&version)))
         || u32::from_le_bytes(model) != crate::MODEL_VERSION
     {
         return Err("incompatible snapshot version".into());
@@ -1657,7 +1810,16 @@ fn load_snapshot_parts(
         }
     }
     let state = if lifecycle {
-        Some(read_section(&mut file, collections.len() as u32 + 1)?)
+        let id = collections.len() as u32 + 1;
+        Some(if version == PREVIOUS_LIFECYCLE_SNAPSHOT_VERSION {
+            let previous: PreviousLifecycleCacheState = read_section(&mut file, id)?;
+            previous.into()
+        } else if version == PARTIAL_LIFECYCLE_SNAPSHOT_VERSION {
+            let previous: PreviousPartialLifecycleCacheState = read_section(&mut file, id)?;
+            previous.into()
+        } else {
+            read_section(&mut file, id)?
+        })
     } else {
         None
     };

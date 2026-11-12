@@ -2746,7 +2746,7 @@ pub(crate) fn search_segmented(
     catalog: &FileCatalog,
     revision: IndexRevision,
 ) -> Result<SearchResult, String> {
-    search_segmented_lifecycle(repo, query, base_active, segments, catalog, revision, None)
+    search_segmented_lifecycle(repo, query, base_active, segments, catalog, revision, &[], None)
 }
 
 pub(crate) fn search_segmented_lifecycle(
@@ -2756,6 +2756,7 @@ pub(crate) fn search_segmented_lifecycle(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
     revision: IndexRevision,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
     match search_segmented_impl(
@@ -2765,6 +2766,7 @@ pub(crate) fn search_segmented_lifecycle(
         segments,
         catalog,
         revision,
+        batches,
         None,
         cache,
         None,
@@ -2794,6 +2796,7 @@ pub(crate) fn search_segmented_with_context(
         catalog,
         revision,
         context,
+        &[],
         None,
     )
 }
@@ -2806,6 +2809,7 @@ pub(crate) fn search_segmented_with_context_lifecycle(
     catalog: &FileCatalog,
     revision: IndexRevision,
     context: &ExecutionContext,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     search_segmented_with_context_lifecycle_budget(
@@ -2816,6 +2820,7 @@ pub(crate) fn search_segmented_with_context_lifecycle(
         catalog,
         revision,
         context,
+        batches,
         cache,
         None,
     )
@@ -2830,6 +2835,7 @@ fn search_segmented_with_context_lifecycle_budget(
     catalog: &FileCatalog,
     revision: IndexRevision,
     context: &ExecutionContext,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
@@ -2841,6 +2847,7 @@ fn search_segmented_with_context_lifecycle_budget(
         segments,
         catalog,
         revision,
+        batches,
         Some(context),
         cache,
         retained_budget,
@@ -2904,7 +2911,7 @@ pub(crate) fn search_active_available_lifecycle(
     _cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
     let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
-    match search_active_extended(repo, query, base_active, batches, None) {
+    match search_active_cached(repo, query, base_active, catalog, revision, batches, None, _cache) {
         Err(_error) if has_unavailable_active_source(repo, base_active, &empty, catalog) => {
             search_segmented_reference(repo, query, base_active, &empty, catalog, revision)
         }
@@ -2924,7 +2931,7 @@ pub(crate) fn search_active_available_with_context_lifecycle(
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
     let optimized = context.check().and_then(|()| {
-        search_active_extended(repo, query, base_active, batches, Some(context))
+        search_active_cached(repo, query, base_active, catalog, revision, batches, Some(context), _cache)
             .map_err(|message| context.recorded_error(message))
     });
     match optimized {
@@ -2957,6 +2964,73 @@ pub(crate) fn search_active_available_with_context_lifecycle(
         }
         result => result,
     }
+}
+
+/// Reuse complete membership and order across capability-only publications.
+/// The key uses the semantic data revision, so pass-2 acceleration cannot
+/// invalidate a verified result. Retain a result only after an exhaustive
+/// count and after every member fit within the configured cache budget.
+#[allow(clippy::too_many_arguments)]
+fn search_active_cached(
+    repo: &Repository,
+    query: &Query,
+    base_active: &[ActiveRecords],
+    catalog: &FileCatalog,
+    revision: IndexRevision,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
+    context: Option<&ExecutionContext>,
+    cache: Option<LifecycleCacheScope<'_>>,
+) -> Result<SearchResult, String> {
+    let mut cache_key = None;
+    if query.options.count
+        && query.options.limit > 0
+        && context.is_none_or(|context| context.limits == ExecutionLimits::default())
+        && let Some(scope) = cache
+    {
+        let key = crate::verified::lifecycle_key(query, scope.instance_id, revision.0)?;
+        let mut store = scope.store.lock().map_err(|error| error.to_string())?;
+        if store.enabled() {
+            if let Some(cached) = store.get(&key) {
+                drop(store);
+                let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
+                return materialize_lifecycle_cached(
+                    repo, query, &cached, base_active, &empty, catalog, revision, context,
+                );
+            }
+            let budget = store.budget().saturating_sub(key.len().saturating_add(128));
+            cache_key = Some((scope, key, budget));
+        }
+    }
+    let mut members = Vec::new();
+    let tracker = cache_key.as_ref().and_then(|(_, _, budget)| {
+        (*budget > 0).then(|| CacheBudget::new(*budget))
+    });
+    let result = search_active_inner(
+        repo,
+        query,
+        base_active,
+        context,
+        Some(batches),
+        tracker.as_ref().map(|_| &mut members),
+        tracker.as_ref(),
+    )?;
+    if result.counters.match_count_complete
+        && result.count == Some(members.len())
+        && tracker.as_ref().is_some_and(CacheBudget::complete)
+        && let Some((scope, key, _)) = cache_key
+    {
+        if let Some(context) = context {
+            context.check_string()?;
+        }
+        sort_cached_members(repo, query, &mut members);
+        let displaced = scope
+            .store
+            .lock()
+            .map_err(|error| error.to_string())?
+            .insert(key, members);
+        drop(displaced);
+    }
+    Ok(result)
 }
 
 /// Probe active files only after an optimized query failed. Ordinary queries
@@ -3628,6 +3702,7 @@ fn search_segmented_impl(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
     revision: IndexRevision,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
     context: Option<&ExecutionContext>,
     cache: Option<LifecycleCacheScope<'_>>,
     retained_budget: Option<usize>,
@@ -3732,12 +3807,7 @@ fn search_segmented_impl(
     // the caller did not request. The top `cap` base rows are sufficient for
     // the top `cap` rows of the merged base-and-segment result.
     base_query.options.count = query.options.count;
-    let base = if let Some(context) = context {
-        search_with_context_active(repo, &base_query, context, base_active)
-            .map_err(|error| error.message)?
-    } else {
-        search_active(repo, &base_query, base_active)?
-    };
+    let base = search_active_extended(repo, &base_query, base_active, batches, context)?;
     let mut total = base
         .count
         .map_or(base.counters.total_matches, |count| count as u64);
@@ -7144,6 +7214,7 @@ fn try_lifecycle_ordered_stream(
             catalog,
             revision,
             context,
+            &[],
             cache,
         )
         .map_err(|error| error.message)?;
@@ -7192,6 +7263,7 @@ pub(crate) fn search_stream_segmented_with_context(
         catalog,
         revision,
         sink,
+        &[],
         None,
     )
 }
@@ -7207,6 +7279,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
     catalog: &FileCatalog,
     revision: IndexRevision,
     sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<StreamOutcome, StreamError> {
     options
@@ -7353,6 +7426,7 @@ pub(crate) fn search_stream_segmented_with_context_lifecycle(
         catalog,
         revision,
         context,
+        batches,
         cache,
         all.then(|| delivery.max_buffered_bytes() / 2),
     ) {
@@ -7600,7 +7674,7 @@ pub(crate) fn search_active(
     query: &Query,
     active: &[ActiveRecords],
 ) -> Result<SearchResult, String> {
-    search_active_inner(repo, query, active, None, None)
+    search_active_inner(repo, query, active, None, None, None, None)
 }
 
 pub(crate) fn search_active_extended(
@@ -7610,7 +7684,7 @@ pub(crate) fn search_active_extended(
     batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
     context: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
-    search_active_inner(repo, query, active, context, Some(batches))
+    search_active_inner(repo, query, active, context, Some(batches), None, None)
 }
 
 fn search_active_inner(
@@ -7619,6 +7693,8 @@ fn search_active_inner(
     active: &[ActiveRecords],
     context: Option<&ExecutionContext>,
     extended_batches: Option<&[Arc<Vec<Arc<ExtendedBatch>>>]>,
+    cache_members: Option<&mut Vec<CachedMember>>,
+    cache_budget: Option<&CacheBudget>,
 ) -> Result<SearchResult, String> {
     let scoped_context = context
         .cloned()
@@ -7645,8 +7721,8 @@ fn search_active_inner(
         repo,
         query,
         None,
-        None,
-        None,
+        cache_members,
+        cache_budget,
         None,
         None,
         None,
@@ -7665,7 +7741,7 @@ pub(crate) fn search_with_context_active(
     active: &[ActiveRecords],
 ) -> Result<SearchResult, crate::streaming::ExecutionError> {
     context.check()?;
-    search_active_inner(repo, query, active, Some(context), None)
+    search_active_inner(repo, query, active, Some(context), None, None, None)
         .map_err(|message| context.recorded_error(message))
 }
 

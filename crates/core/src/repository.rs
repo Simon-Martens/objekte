@@ -1201,6 +1201,7 @@ impl Repository {
     /// a changed source layout is rejected rather than attaching stale facts.
     pub(crate) fn build_extended_from_base(
         base: &Repository,
+        options: RepositoryOptions,
         on_batch: &dyn Fn(usize, usize),
         cancelled: &dyn Fn() -> bool,
         on_extended_batch: &dyn Fn(crate::build::ExtendedBatch) -> Result<(), String>,
@@ -1215,7 +1216,7 @@ impl Repository {
         let mut extended = Self::build_fresh_phase(
             root,
             definitions,
-            base.options,
+            options,
             &base.sources,
             false,
             crate::build::ConstructionPhase::Extended,

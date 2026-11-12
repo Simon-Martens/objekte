@@ -209,10 +209,13 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
             footer.y,
         ));
     } else {
-        frame.render_widget(
-            Paragraph::new(app.status.as_deref().unwrap_or(hint)).style(Style::new().fg(DIM)),
-            footer,
-        );
+        let footer_text = match (app.status.as_deref(), app.index_status.as_deref()) {
+            (Some(message), Some(index)) => format!("{message}  ·  {index}"),
+            (Some(message), None) => message.to_owned(),
+            (None, Some(index)) => index.to_owned(),
+            (None, None) => hint.to_owned(),
+        };
+        frame.render_widget(Paragraph::new(footer_text).style(Style::new().fg(DIM)), footer);
     }
     if let Some(overlay) = app.overlay {
         overlay_view(frame, app, overlay);
