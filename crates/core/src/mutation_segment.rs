@@ -813,8 +813,9 @@ fn consolidate_inference(
 
 impl IndexedCollectionSegment {
     /// Combine already indexed shards without opening or parsing source files.
-    /// Shards with overlapping FileIds or logical IDs must first be resolved
-    /// by the coordinator's active-version policy. `max_records` bounds this
+    /// Shards with overlapping logical IDs must first be resolved by the
+    /// coordinator's active-version policy. A framed file may span shards;
+    /// matching file metadata is coalesced. `max_records` bounds this
     /// consolidation's temporary copying and future shard scan cost.
     pub fn consolidate(
         shards: &[&Self],
@@ -830,8 +831,8 @@ impl IndexedCollectionSegment {
             return Err("consolidation record budget exceeded".into());
         }
         let mut offsets = Vec::with_capacity(shards.len());
-        let mut files = Vec::new();
-        let mut file_index = HashMap::new();
+        let mut files = Vec::<SegmentFile>::new();
+        let mut file_index = HashMap::<FileId, usize>::new();
         let mut records = Vec::with_capacity(total_records);
         let mut id_lookup = HashMap::new();
         let mut postings = first.postings.clone();
@@ -854,11 +855,9 @@ impl IndexedCollectionSegment {
             }
             let base = u32::try_from(records.len()).map_err(|_| "segment slot overflow")?;
             offsets.push(base);
+            let mut diagnostic_remaps = HashMap::<FileId, Vec<DiagnosticRef>>::new();
             for file in &shard.files {
                 let mut entry = file.entry.clone();
-                if file_index.insert(entry.id, files.len()).is_some() {
-                    return Err("overlapping physical file in consolidation".into());
-                }
                 for diagnostic in &mut entry.diagnostics {
                     if let Some(slot) = diagnostic.record {
                         diagnostic.record = Some(RecordSlot(
@@ -866,16 +865,50 @@ impl IndexedCollectionSegment {
                         ));
                     }
                 }
+                let refs = if let Some(&existing) = file_index.get(&entry.id) {
+                    let target = &mut files[existing].entry;
+                    if target.relative_path != entry.relative_path
+                        || target.revision != entry.revision
+                        || target.created_ns != entry.created_ns
+                        || target.collections != entry.collections
+                    {
+                        return Err("overlapping physical file metadata mismatch".into());
+                    }
+                    let refs = entry
+                        .diagnostics
+                        .into_iter()
+                        .map(|diagnostic| target.record_diagnostic(diagnostic))
+                        .collect::<Result<Vec<_>, _>>()?;
+                    target.omitted_diagnostics = target
+                        .omitted_diagnostics
+                        .saturating_add(entry.omitted_diagnostics);
+                    target.status = target.status.max(entry.status);
+                    refs
+                } else {
+                    let refs = (0..entry.diagnostics.len())
+                        .map(|index| {
+                            u32::try_from(index + 1)
+                                .map(DiagnosticRef)
+                                .map_err(|_| "too many diagnostics".to_owned())
+                        })
+                        .collect::<Result<Vec<_>, _>>()?;
+                    file_index.insert(entry.id, files.len());
+                    files.push(SegmentFile {
+                        entry: entry.clone(),
+                        records: Vec::new(),
+                    });
+                    refs
+                };
+                diagnostic_remaps.insert(entry.id, refs);
                 let mut owned = Vec::with_capacity(file.records.len());
                 for slot in &file.records {
                     owned.push(RecordSlot(
                         base.checked_add(slot.0).ok_or("file slot overflow")?,
                     ));
                 }
-                files.push(SegmentFile {
-                    entry,
-                    records: owned,
-                });
+                files[*file_index.get(&entry.id).ok_or("segment file missing")?]
+                    .records
+                    .extend(owned);
             }
             for record in &shard.records {
                 let mut record = record.clone();
@@ -883,6 +916,14 @@ impl IndexedCollectionSegment {
                     base.checked_add(record.slot.0)
                         .ok_or("record slot overflow")?,
                 );
+                if record.class == RecordClass::RawFallback {
+                    if let Some(index) = record.diagnostic_ref.stored_index() {
+                        record.diagnostic_ref = *diagnostic_remaps
+                            .get(&record.file)
+                            .and_then(|refs| refs.get(index))
+                            .ok_or("fallback diagnostic remap missing")?;
+                    }
+                }
                 if id_lookup.insert(record.id.clone(), record.slot).is_some() {
                     return Err("overlapping record ID in consolidation".into());
                 }
