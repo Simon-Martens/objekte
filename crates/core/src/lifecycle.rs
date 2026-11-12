@@ -1074,9 +1074,7 @@ fn execute_extended_pass(
     // The optional pass shares the machine and source files with interactive
     // queries. Keep its default worker pool to one; an explicit setting wins.
     if options.build_workers.is_none() {
-        options.build_workers = std::num::NonZeroUsize::new(
-            1,
-        );
+        options.build_workers = std::num::NonZeroUsize::new(1);
     }
     let extended = Repository::build_extended_from_base(
         base,
