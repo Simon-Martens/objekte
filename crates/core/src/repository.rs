@@ -205,6 +205,7 @@ impl PendingCollection {
         &mut self,
         inventory: &mut FileInventory,
         batch: crate::build::BatchContribution,
+        pool: &rayon::ThreadPool,
         profile: Option<&mut crate::build::AdmissionBreakdown>,
     ) -> Result<(), String> {
         crate::build::CollectionAdmission {
@@ -221,7 +222,7 @@ impl PendingCollection {
             sorting: &mut self.sort_builder,
             relations: &mut self.relations,
         }
-        .admit_profiled(batch, profile)
+        .admit_profiled(batch, pool, profile)
     }
 }
 
@@ -1479,22 +1480,34 @@ impl Repository {
             let mut breakdown = options
                 .profile_build
                 .then(crate::build::AdmissionBreakdown::default);
-            let result = pending[collection_index].admit(&mut files, batch, breakdown.as_mut());
+            let result =
+                pending[collection_index].admit(&mut files, batch, &build_pool, breakdown.as_mut());
             if let (Some(started), Some(mut breakdown), Some(profile)) =
                 (admission_started, breakdown, profile.as_mut())
             {
                 let admission_ns = started.elapsed().as_nanos() as u64;
                 breakdown.callback_ns = callback_ns;
                 breakdown.total_ns = callback_ns.saturating_add(admission_ns);
-                let components = breakdown
-                    .record_inventory_ns
-                    .saturating_add(breakdown.postings_ns)
-                    .saturating_add(breakdown.inference_ns)
-                    .saturating_add(breakdown.relations_ns)
-                    .saturating_add(breakdown.custom_postings_ns)
-                    .saturating_add(breakdown.bigrams_ns)
-                    .saturating_add(breakdown.structural_facts_ns)
-                    .saturating_add(breakdown.sorting_ns);
+                // Group service intervals overlap each other and sequential
+                // inference/relation work. Only disjoint wall intervals can
+                // be subtracted to explain admission remainder.
+                let components = if breakdown.parallel_batches != 0 {
+                    breakdown
+                        .record_inventory_ns
+                        .saturating_add(breakdown.task_preparation_submission_ns)
+                        .saturating_add(breakdown.merge_join_ns)
+                        .saturating_add(breakdown.remaining_sequential_ns)
+                } else {
+                    breakdown
+                        .record_inventory_ns
+                        .saturating_add(breakdown.postings_ns)
+                        .saturating_add(breakdown.inference_ns)
+                        .saturating_add(breakdown.relations_ns)
+                        .saturating_add(breakdown.custom_postings_ns)
+                        .saturating_add(breakdown.bigrams_ns)
+                        .saturating_add(breakdown.structural_facts_ns)
+                        .saturating_add(breakdown.sorting_ns)
+                };
                 breakdown.remainder_ns = admission_ns.saturating_sub(components);
                 profile
                     .admission_by_collection

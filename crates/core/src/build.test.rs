@@ -7,6 +7,221 @@ use crate::repository::{Repository, RepositoryOptions, SnapshotMode};
 use crate::source::{SourceFormat, TextSegment};
 use crate::workload::ReturnMode;
 
+#[test]
+fn grouped_admission_joins_independent_errors_in_component_order() {
+    let mut schema = Schema::default();
+    for name in ["alpha", "beta"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::String,
+                required: false,
+                nullable: true,
+                indexed: true,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    let pool = rayon::ThreadPoolBuilder::new().num_threads(4).build().unwrap();
+    for posting_error in [true, false] {
+        for _ in 0..16 {
+            let mut inventory = FileInventory::new(PathBuf::new());
+            let mut builder = CollectionBuilder::new(CollectionId(0), "test".into(), 1, 0);
+            let mut postings = PostingCollection::new(&schema);
+            let mut inference = None;
+            let mut custom_postings = HashMap::new();
+            let mut raw = BigramContribution::new(BigramAlphabet::Ascii);
+            let mut fallback_text = BigramContribution::new(BigramAlphabet::Ascii);
+            let mut custom_text = HashMap::new();
+            let mut logical_records = RoaringBitmap::new();
+            let mut empty_array_records = RoaringBitmap::new();
+            let mut sorting = SortBuilder::new(&[], &schema, "de", Default::default(), &HashMap::new())
+                .unwrap();
+            let mut relations = Vec::new();
+            let mut local_postings = PostingCollection::new(&schema);
+            if posting_error {
+                local_postings
+                    .fields
+                    .get_mut(&vec!["alpha".into()])
+                    .unwrap()
+                    .kind = LogicalType::Bool;
+            }
+            let batch = BatchContribution {
+                files: Vec::new(),
+                file_fingerprints: Vec::new(),
+                records: Vec::new(),
+                postings: local_postings,
+                inference: None,
+                custom_postings: HashMap::new(),
+                raw: BigramContribution::new(BigramAlphabet::Unicode),
+                fallback_text: BigramContribution::new(BigramAlphabet::Ascii),
+                custom_text: HashMap::new(),
+                logical_records: RoaringBitmap::new(),
+                empty_array_records: RoaringBitmap::new(),
+                sort_keys: HashMap::new(),
+                relations: Vec::new(),
+                record_parses: 0,
+                failed_parses: 0,
+                profile: BuildWorkProfile::default(),
+            };
+            let mut admission = CollectionAdmission {
+                inventory: &mut inventory,
+                builder: &mut builder,
+                postings: &mut postings,
+                inference: &mut inference,
+                custom_postings: &mut custom_postings,
+                raw: &mut raw,
+                fallback_text: &mut fallback_text,
+                custom_text: &mut custom_text,
+                logical_records: &mut logical_records,
+                empty_array_records: &mut empty_array_records,
+                sorting: &mut sorting,
+                relations: &mut relations,
+            };
+            let mut profile = AdmissionBreakdown::default();
+            let error = admission
+                .merge_grouped(
+                    batch,
+                    0,
+                    0,
+                    &pool,
+                    4_096,
+                    4_096,
+                    2,
+                    Some(Instant::now()),
+                    Some(&mut profile),
+                )
+                .unwrap_err();
+            assert_eq!(
+                error,
+                if posting_error {
+                    "posting batch representation mismatch"
+                } else {
+                    "bigram batch coverage or alphabet mismatch"
+                }
+            );
+            assert_eq!(profile.parallel_batches, 1);
+            assert_eq!((profile.posting_groups, profile.text_groups), (1, 1));
+            assert_eq!(profile.group_estimated_work, 0);
+        }
+    }
+}
+
+#[test]
+fn grouped_admission_matches_single_worker_for_mixed_text_and_custom_data() {
+    use std::io::Write;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-grouped-admission-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut file = std::fs::File::create(root.join("data/records.jsonl")).unwrap();
+    let alphabet = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let mut first_title = String::new();
+    for record in 0..32u64 {
+        let mut state = record + 1;
+        let title = (0..512)
+            .map(|_| {
+                state ^= state << 13;
+                state ^= state >> 7;
+                state ^= state << 17;
+                alphabet[(state as usize) % alphabet.len()] as char
+            })
+            .collect::<String>();
+        if record == 0 {
+            first_title = title.clone();
+        }
+        writeln!(file, "{{\"title\":\"{title}\",\"empty\":[]}}").unwrap();
+    }
+    writeln!(file, "{{\"title\":").unwrap();
+    drop(file);
+
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    schema
+        .register_custom(
+            vec!["title".into()],
+            CustomBinding {
+                name: "folded".into(),
+                version: 1,
+                transform: Transform::CaseFold,
+            },
+        )
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![FieldPath::parse("title").unwrap()],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let options = RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode: SnapshotMode::Disabled,
+            profile_build: true,
+            build_workers: NonZeroUsize::new(1),
+            ..Default::default()
+        };
+        let single = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        let grouped = Repository::open_with_options(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                build_workers: NonZeroUsize::new(4),
+                ..options
+            },
+        )
+        .unwrap();
+        let grouped_profile = &grouped.startup().build_profile.as_ref().unwrap().admission_by_collection["data"];
+        assert!(grouped_profile.parallel_batches > 0, "{alphabet:?}: {grouped_profile:?}");
+        assert!(grouped_profile.posting_groups > 0);
+        assert!(grouped_profile.text_groups > 0);
+        assert_eq!(single.collections()[0].generation.records.len(), 33);
+        assert_eq!(grouped.collections()[0].generation.records.len(), 33);
+        assert_eq!(grouped.collections()[0].empty_array_records.len(), 32);
+        assert_eq!(grouped.collections()[0].generation.records[32].class, RecordClass::RawFallback);
+        for filter in [format!("title = '{first_title}'"), "@record.class = 1".into()] {
+            let query = Query {
+                collections: vec!["data".into()],
+                filter: Some(parse_filter(&filter).unwrap()),
+                fts: None,
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 40,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
+            };
+            assert_eq!(single.search(&query).unwrap().hits, grouped.search(&query).unwrap().hits);
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 /// Diagnostic prototype for a direct batch-to-shard fresh build. This only
 /// measures the dominant `contents` collection and does not publish an index.
 #[test]

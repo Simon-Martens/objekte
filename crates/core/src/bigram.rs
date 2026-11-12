@@ -445,6 +445,15 @@ pub(crate) struct BigramContribution {
 }
 
 impl BigramContribution {
+    /// Approximate merge work without visiting gram occurrences or records.
+    /// A dictionary entry and each packed word both require admission work.
+    pub(crate) fn estimated_merge_work(&self) -> usize {
+        self.normal.values().chain(self.skip.values()).fold(
+            self.normal.len().saturating_add(self.skip.len()),
+            |work, blocks| work.saturating_add(blocks.len()),
+        )
+    }
+
     pub fn new(alphabet: BigramAlphabet) -> Self {
         Self {
             alphabet,

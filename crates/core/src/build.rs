@@ -2389,6 +2389,23 @@ pub struct AdmissionBreakdown {
     pub callback_ns: u64,
     pub total_ns: u64,
     pub record_inventory_ns: u64,
+    /// Coordinator preparation through the last scoped group submission.
+    pub task_preparation_submission_ns: u64,
+    /// Wall interval from the last submission through coordinator inference,
+    /// relation and custom-posting merges until all groups have joined.
+    pub merge_join_ns: u64,
+    /// Sum of queued group delays; this is not recoverable wall time.
+    pub submission_to_start_ns: u64,
+    /// Sum of group execution intervals; groups can overlap.
+    pub group_execution_ns: u64,
+    pub group_overlap_ns: u64,
+    pub max_concurrent_groups: usize,
+    pub parallel_batches: u64,
+    pub posting_groups: u64,
+    pub text_groups: u64,
+    pub group_estimated_work: u64,
+    /// Sequential structural and sort admission after the scoped merge/join.
+    pub remaining_sequential_ns: u64,
     pub postings_ns: u64,
     pub inference_ns: u64,
     pub relations_ns: u64,
@@ -2408,6 +2425,17 @@ impl AdmissionBreakdown {
         self.callback_ns += other.callback_ns;
         self.total_ns += other.total_ns;
         self.record_inventory_ns += other.record_inventory_ns;
+        self.task_preparation_submission_ns += other.task_preparation_submission_ns;
+        self.merge_join_ns += other.merge_join_ns;
+        self.submission_to_start_ns += other.submission_to_start_ns;
+        self.group_execution_ns += other.group_execution_ns;
+        self.group_overlap_ns += other.group_overlap_ns;
+        self.max_concurrent_groups = self.max_concurrent_groups.max(other.max_concurrent_groups);
+        self.parallel_batches += other.parallel_batches;
+        self.posting_groups += other.posting_groups;
+        self.text_groups += other.text_groups;
+        self.group_estimated_work += other.group_estimated_work;
+        self.remaining_sequential_ns += other.remaining_sequential_ns;
         self.postings_ns += other.postings_ns;
         self.inference_ns += other.inference_ns;
         self.relations_ns += other.relations_ns;
@@ -2419,11 +2447,172 @@ impl AdmissionBreakdown {
     }
 }
 
+#[derive(Clone, Copy)]
+enum MergeGroupKind {
+    Postings,
+    Text,
+}
+
+enum MergeWork<'a> {
+    Posting {
+        destination: &'a mut PostingIndex,
+        source: PostingIndex,
+        order: usize,
+        weight: usize,
+    },
+    Text {
+        destination: &'a mut BigramContribution,
+        source: BigramContribution,
+        order: usize,
+        weight: usize,
+    },
+}
+
+impl MergeWork<'_> {
+    fn order(&self) -> usize {
+        match self {
+            Self::Posting { order, .. } | Self::Text { order, .. } => *order,
+        }
+    }
+
+    fn weight(&self) -> usize {
+        match self {
+            Self::Posting { weight, .. } | Self::Text { weight, .. } => *weight,
+        }
+    }
+
+    fn merge(self, base: u32) -> Result<(), String> {
+        match self {
+            Self::Posting {
+                destination,
+                source,
+                ..
+            } => destination.merge_shifted(source, base),
+            Self::Text {
+                destination,
+                source,
+                ..
+            } => destination.merge_shifted(source, base),
+        }
+    }
+}
+
+struct MergeGroup<'a> {
+    kind: MergeGroupKind,
+    work: Vec<MergeWork<'a>>,
+    estimated_work: usize,
+}
+
+struct MergeGroupResult {
+    kind: MergeGroupKind,
+    error: Option<(usize, String)>,
+    submitted: Option<Instant>,
+    started: Option<Instant>,
+    finished: Option<Instant>,
+    estimated_work: usize,
+}
+
+impl MergeGroup<'_> {
+    fn run(self, base: u32, submitted: Option<Instant>) -> MergeGroupResult {
+        let started = submitted.map(|_| Instant::now());
+        let mut error = None;
+        for item in self.work {
+            let order = item.order();
+            if let Err(message) = item.merge(base) {
+                error = Some((order, message));
+                break;
+            }
+        }
+        MergeGroupResult {
+            kind: self.kind,
+            error,
+            submitted,
+            started,
+            finished: submitted.map(|_| Instant::now()),
+            estimated_work: self.estimated_work,
+        }
+    }
+}
+
+fn posting_merge_work(index: &PostingIndex) -> usize {
+    index
+        .values
+        .len()
+        .saturating_add(index.lengths.len())
+        .saturating_add(usize::try_from(index.presence.len() / 64).unwrap_or(usize::MAX))
+        .saturating_add(usize::try_from(index.nulls.len() / 64).unwrap_or(usize::MAX))
+}
+
+/// Greedy balancing keeps the number of tasks bounded by the existing pool,
+/// while each task owns whole field/store values and preserves local order.
+fn weighted_merge_groups<'a>(
+    mut items: Vec<MergeWork<'a>>,
+    count: usize,
+    kind: MergeGroupKind,
+) -> Vec<MergeGroup<'a>> {
+    if count == 0 {
+        return Vec::new();
+    }
+    items.sort_by_key(|item| (std::cmp::Reverse(item.weight()), item.order()));
+    let mut groups = (0..count)
+        .map(|_| MergeGroup {
+            kind,
+            work: Vec::new(),
+            estimated_work: 0,
+        })
+        .collect::<Vec<_>>();
+    for item in items {
+        let group = groups
+            .iter_mut()
+            .min_by_key(|group| group.estimated_work)
+            .expect("nonempty merge group list");
+        group.estimated_work = group.estimated_work.saturating_add(item.weight());
+        group.work.push(item);
+    }
+    for group in &mut groups {
+        group.work.sort_by_key(MergeWork::order);
+    }
+    groups
+}
+
+/// Sweep group execution intervals, counting only time with two or more
+/// running groups. This is elapsed overlap, not worker CPU time.
+fn merge_group_overlap(results: &[MergeGroupResult]) -> (u64, usize) {
+    let mut events = Vec::with_capacity(results.len() * 2);
+    for result in results {
+        if let (Some(start), Some(end)) = (result.started, result.finished) {
+            events.push((start, 1i8));
+            events.push((end, -1i8));
+        }
+    }
+    events.sort_by_key(|&(instant, delta)| (instant, delta));
+    let mut previous = None;
+    let mut active = 0usize;
+    let mut peak = 0usize;
+    let mut overlap = 0u64;
+    for (instant, delta) in events {
+        if let Some(previous) = previous {
+            if active >= 2 {
+                overlap =
+                    overlap.saturating_add(instant.duration_since(previous).as_nanos() as u64);
+            }
+        }
+        if delta > 0 {
+            active += 1;
+            peak = peak.max(active);
+        } else {
+            active -= 1;
+        }
+        previous = Some(instant);
+    }
+    (overlap, peak)
+}
 
 impl CollectionAdmission<'_> {
     pub(crate) fn admit_profiled(
         &mut self,
-        batch: BatchContribution,
+        mut batch: BatchContribution,
+        pool: &ThreadPool,
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<(), String> {
         if let Some(profile) = profile.as_deref_mut() {
@@ -2435,8 +2624,8 @@ impl CollectionAdmission<'_> {
         let base = self.builder.next_slot()?.0;
         let count = u32::try_from(batch.records.len()).map_err(|_| "too many batch records")?;
         base.checked_add(count).ok_or("record slot overflow")?;
-        let mut records = batch.records.into_iter();
-        for batch_file in batch.files {
+        let mut records = std::mem::take(&mut batch.records).into_iter();
+        for batch_file in std::mem::take(&mut batch.files) {
             let file_id = batch_file.entry.id;
             let path = self.inventory.root.join(&batch_file.entry.relative_path);
             if batch_file.first_range {
@@ -2501,6 +2690,51 @@ impl CollectionAdmission<'_> {
         }
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.record_inventory_ns += started.elapsed().as_nanos() as u64;
+        }
+        // The single-worker path does no group-estimation scan at all.
+        if pool.current_num_threads() > 1 {
+            let preparation_started = profile.is_some().then(Instant::now);
+            let mut substantial_items = 0usize;
+            let mut small_work = 0usize;
+            let mut consider = |work: usize| {
+                if work >= 2_048 {
+                    substantial_items += 1;
+                } else {
+                    small_work = small_work.saturating_add(work);
+                }
+            };
+            let posting_work = batch.postings.fields.values().fold(0usize, |sum, index| {
+                let work = posting_merge_work(index);
+                consider(work);
+                sum.saturating_add(work)
+            });
+            let raw_work = batch.raw.estimated_merge_work();
+            let fallback_work = batch.fallback_text.estimated_merge_work();
+            consider(raw_work);
+            consider(fallback_work);
+            let custom_text_work = batch.custom_text.values().fold(0usize, |sum, index| {
+                let work = index.estimated_merge_work();
+                consider(work);
+                sum.saturating_add(work)
+            });
+            let text_work = raw_work
+                .saturating_add(fallback_work)
+                .saturating_add(custom_text_work);
+            let useful_groups = substantial_items.saturating_add(small_work / 4_096);
+            // The threshold uses actual dictionary/word work, not records.
+            if posting_work.saturating_add(text_work) >= 4_096 && useful_groups >= 2 {
+                return self.merge_grouped(
+                    batch,
+                    base,
+                    count,
+                    pool,
+                    posting_work,
+                    text_work,
+                    useful_groups,
+                    preparation_started,
+                    profile,
+                );
+            }
         }
         let started = profile.is_some().then(Instant::now);
         self.postings.merge_shifted(batch.postings, base)?;
@@ -2569,6 +2803,275 @@ impl CollectionAdmission<'_> {
             profile.sorting_ns += started.elapsed().as_nanos() as u64;
         }
         Ok(())
+    }
+
+    fn merge_grouped(
+        &mut self,
+        batch: BatchContribution,
+        base: u32,
+        count: u32,
+        pool: &ThreadPool,
+        posting_work: usize,
+        text_work: usize,
+        useful_groups: usize,
+        preparation_started: Option<Instant>,
+        mut profile: Option<&mut AdmissionBreakdown>,
+    ) -> Result<(), String> {
+        let BatchContribution {
+            postings,
+            inference,
+            custom_postings,
+            raw,
+            fallback_text,
+            custom_text,
+            logical_records,
+            empty_array_records,
+            sort_keys,
+            relations,
+            ..
+        } = batch;
+
+        // Borrow whole, independent destination indexes. Each value contains
+        // its coupled dictionaries and bitmaps; no ordinary map is mutated by
+        // two groups at once. Sort keys to define stable error precedence.
+        let mut posting_sources = postings.fields;
+        if self.postings.fields.len() != posting_sources.len() {
+            return Err("posting batch field coverage mismatch".into());
+        }
+        let mut posting_pairs = self
+            .postings
+            .fields
+            .iter_mut()
+            .map(|(path, destination)| {
+                posting_sources
+                    .remove(path)
+                    .map(|source| (path, destination, source))
+                    .ok_or_else(|| "posting batch field missing".to_string())
+            })
+            .collect::<Result<Vec<_>, _>>()?;
+        posting_pairs.sort_by(|left, right| left.0.cmp(right.0));
+        let posting_items = posting_pairs
+            .into_iter()
+            .enumerate()
+            .map(|(order, (_, destination, source))| MergeWork::Posting {
+                weight: posting_merge_work(&source),
+                destination,
+                source,
+                order,
+            })
+            .collect::<Vec<_>>();
+
+        let mut text_items = vec![
+            MergeWork::Text {
+                weight: raw.estimated_merge_work(),
+                destination: self.raw,
+                source: raw,
+                order: 0,
+            },
+            MergeWork::Text {
+                weight: fallback_text.estimated_merge_work(),
+                destination: self.fallback_text,
+                source: fallback_text,
+                order: 1,
+            },
+        ];
+        let mut custom_text_sources = custom_text;
+        let mut text_preparation_error = None;
+        if self.custom_text.len() != custom_text_sources.len() {
+            text_preparation_error = Some((2, "custom bigram batch coverage mismatch".into()));
+        } else {
+            let mut custom_pairs = self.custom_text.iter_mut().collect::<Vec<_>>();
+            custom_pairs.sort_by(|left, right| left.0.cmp(right.0));
+            for (order, (key, destination)) in custom_pairs.into_iter().enumerate() {
+                match custom_text_sources.remove(key) {
+                    Some(source) => text_items.push(MergeWork::Text {
+                        weight: source.estimated_merge_work(),
+                        destination,
+                        source,
+                        order: order + 2,
+                    }),
+                    None => {
+                        text_preparation_error =
+                            Some((order + 2, "custom bigram batch missing".into()));
+                        break;
+                    }
+                }
+            }
+        }
+
+        let total_work = posting_work.saturating_add(text_work);
+        let max_groups = pool
+            .current_num_threads()
+            .min(posting_items.len() + text_items.len())
+            .min(useful_groups);
+        let mut posting_groups = if posting_items.is_empty() {
+            0
+        } else if text_items.is_empty() {
+            max_groups
+        } else {
+            ((max_groups as u128 * posting_work as u128 / total_work.max(1) as u128) as usize)
+                .clamp(1, max_groups - 1)
+        }
+        .min(posting_items.len());
+        let mut text_groups = (max_groups - posting_groups).min(text_items.len());
+        while posting_groups + text_groups < max_groups {
+            if posting_groups < posting_items.len() {
+                posting_groups += 1;
+            } else if text_groups < text_items.len() {
+                text_groups += 1;
+            } else {
+                break;
+            }
+        }
+        let mut groups =
+            weighted_merge_groups(posting_items, posting_groups, MergeGroupKind::Postings);
+        groups.extend(weighted_merge_groups(
+            text_items,
+            text_groups,
+            MergeGroupKind::Text,
+        ));
+        let profile_enabled = profile.is_some();
+        let mut results = (0..groups.len())
+            .map(|_| None)
+            .collect::<Vec<Option<MergeGroupResult>>>();
+        let mut submitted_all = None;
+        let mut sequential_error = None;
+        pool.scope(|scope| {
+            for (group, result) in groups.into_iter().zip(results.iter_mut()) {
+                let submitted = profile_enabled.then(Instant::now);
+                scope.spawn(move |_| *result = Some(group.run(base, submitted)));
+            }
+            submitted_all = profile_enabled.then(Instant::now);
+            // These state families do not write any field or gram destination.
+            // They may run while groups execute, but their errors are reported
+            // only after every started group has joined.
+            let started = profile_enabled.then(Instant::now);
+            let outcome = match (self.inference.as_mut(), inference) {
+                (Some(global), Some(local)) => global.merge_shifted(local, base),
+                (None, None) => Ok(()),
+                _ => Err("inference batch mode mismatch".into()),
+            };
+            if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+                profile.inference_ns += started.elapsed().as_nanos() as u64;
+            }
+            if let Err(error) = outcome {
+                sequential_error = Some(error);
+            }
+            if sequential_error.is_none() {
+                let started = profile_enabled.then(Instant::now);
+                let outcome = if self.relations.len() != relations.len() {
+                    Err("relation batch coverage mismatch".into())
+                } else {
+                    self.relations
+                        .iter_mut()
+                        .zip(relations)
+                        .try_for_each(|(global, local)| global.merge_shifted(local, base, count))
+                };
+                if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+                    profile.relations_ns += started.elapsed().as_nanos() as u64;
+                }
+                if let Err(error) = outcome {
+                    sequential_error = Some(error);
+                }
+            }
+            if sequential_error.is_none() {
+                let started = profile_enabled.then(Instant::now);
+                let outcome = if self.custom_postings.len() != custom_postings.len() {
+                    Err("custom posting batch coverage mismatch".into())
+                } else {
+                    custom_postings.into_iter().try_for_each(|(key, local)| {
+                        let global = self
+                            .custom_postings
+                            .get_mut(&key)
+                            .ok_or("custom posting batch missing")?;
+                        global.index.merge_shifted(local.index, base)?;
+                        global.complete &= local.complete;
+                        Ok(())
+                    })
+                };
+                if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+                    profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
+                }
+                if let Err(error) = outcome {
+                    sequential_error = Some(error);
+                }
+            }
+        });
+        if let (Some(prepared), Some(submitted), Some(profile)) =
+            (preparation_started, submitted_all, profile.as_deref_mut())
+        {
+            profile.parallel_batches += 1;
+            profile.posting_groups += posting_groups as u64;
+            profile.text_groups += text_groups as u64;
+            profile.task_preparation_submission_ns +=
+                submitted.duration_since(prepared).as_nanos() as u64;
+            profile.merge_join_ns += submitted.elapsed().as_nanos() as u64;
+        }
+        let results = results
+            .into_iter()
+            .map(|result| result.expect("scoped merge group completed"))
+            .collect::<Vec<_>>();
+        if let Some(profile) = profile.as_deref_mut() {
+            let (overlap, peak) = merge_group_overlap(&results);
+            profile.group_overlap_ns += overlap;
+            profile.max_concurrent_groups = profile.max_concurrent_groups.max(peak);
+            for result in &results {
+                profile.group_estimated_work = profile
+                    .group_estimated_work
+                    .saturating_add(result.estimated_work as u64);
+                if let (Some(submitted), Some(started), Some(finished)) =
+                    (result.submitted, result.started, result.finished)
+                {
+                    let delay = started.duration_since(submitted).as_nanos() as u64;
+                    let execution = finished.duration_since(started).as_nanos() as u64;
+                    profile.submission_to_start_ns += delay;
+                    profile.group_execution_ns += execution;
+                    match result.kind {
+                        MergeGroupKind::Postings => profile.postings_ns += execution,
+                        MergeGroupKind::Text => profile.bigrams_ns += execution,
+                    }
+                }
+            }
+        }
+        let remaining_started = profile.is_some().then(Instant::now);
+        let outcome = (|| {
+            if let Some((_, error)) = results
+                .iter()
+                .filter(|result| matches!(result.kind, MergeGroupKind::Postings))
+                .filter_map(|result| result.error.as_ref())
+                .min_by_key(|(order, _)| order)
+            {
+                return Err(error.clone());
+            }
+            if let Some(error) = sequential_error {
+                return Err(error);
+            }
+            let text_error = results
+                .iter()
+                .filter(|result| matches!(result.kind, MergeGroupKind::Text))
+                .filter_map(|result| result.error.as_ref())
+                .chain(text_preparation_error.as_ref())
+                .min_by_key(|(order, _)| order);
+            if let Some((_, error)) = text_error {
+                return Err(error.clone());
+            }
+            let started = profile.is_some().then(Instant::now);
+            append_shifted_bitmap(self.logical_records, &logical_records, base)?;
+            append_shifted_bitmap(self.empty_array_records, &empty_array_records, base)?;
+            if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+                profile.structural_facts_ns += started.elapsed().as_nanos() as u64;
+            }
+            let started = profile.is_some().then(Instant::now);
+            self.sorting.append_keys(sort_keys, base, count)?;
+            if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+                profile.sorting_ns += started.elapsed().as_nanos() as u64;
+            }
+            Ok(())
+        })();
+        if let (Some(started), Some(profile)) = (remaining_started, profile.as_deref_mut()) {
+            profile.remaining_sequential_ns += started.elapsed().as_nanos() as u64;
+        }
+        outcome
     }
 }
 
