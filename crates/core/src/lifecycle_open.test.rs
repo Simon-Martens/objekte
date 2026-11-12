@@ -178,6 +178,43 @@ fn later_inference_reuses_searchable_base_and_updates_cache_policy() {
 }
 
 #[test]
+fn pending_later_inference_policy_survives_partial_snapshot() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-pending-inference-{}-{:?}",
+        std::process::id(), std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"nested":{"title":"Ada"}}"#).unwrap();
+    let definitions = vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)];
+    let index = Index::start_staged_build(&root, definitions.clone(), RepositoryOptions::default())
+        .unwrap().wait_complete().unwrap();
+    let mut inference = crate::inference::InferenceConfig {
+        mode: crate::inference::InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    inference.policy.min_nonblank_occurrences = 1;
+    inference.policy.min_nonblank_records = 1;
+    index.start_inference_with_pause(inference, true).unwrap();
+    assert_eq!(index.extended_status().unwrap().phase, crate::lifecycle::ExtendedPhase::Paused);
+    let cache = root.join("pending.snapshot");
+    index.flush_cache(&cache).unwrap();
+    let (_, saved) = crate::storage::load_lifecycle_snapshot_checked(
+        root.canonicalize().unwrap(), definitions.clone(), RepositoryOptions::default(),
+        &SourceRegistry::builtin(), &cache, |_| Ok(()),
+    ).unwrap();
+    assert_eq!(saved.pending_inference, Some(inference));
+    index.cancel_extended().unwrap();
+    assert_eq!(index.wait_extended(), Err(IndexError::Cancelled));
+    let restored = Index::load_cache(&root, definitions, RepositoryOptions::default(), &cache).unwrap();
+    restored.wait_extended().unwrap();
+    assert_eq!(restored.view().unwrap().repository().options().inference, inference);
+    restored.shutdown().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn partial_extended_snapshot_retains_exact_coverage_and_resumes() {
     let root = std::env::temp_dir().join(format!(
         "objekte-partial-extended-{}-{:?}",
