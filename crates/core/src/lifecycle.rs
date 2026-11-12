@@ -1061,7 +1061,7 @@ fn execute_extended_pass(
     index: &Index,
     base: &Arc<Repository>,
     job: &Arc<ExtendedJob>,
-    options: crate::repository::RepositoryOptions,
+    mut options: crate::repository::RepositoryOptions,
 ) -> Result<(), IndexError> {
     if job.wait_if_paused() {
         return Err(IndexError::Cancelled);
@@ -1071,6 +1071,13 @@ fn execute_extended_pass(
     let expected = captured.revision();
     let expected_versions = captured.0.file_versions.clone();
     drop(captured);
+    // The optional pass shares the machine and source files with interactive
+    // queries. Keep its default worker pool to one; an explicit setting wins.
+    if options.build_workers.is_none() {
+        options.build_workers = std::num::NonZeroUsize::new(
+            1,
+        );
+    }
     let extended = Repository::build_extended_from_base(
         base,
         options,
