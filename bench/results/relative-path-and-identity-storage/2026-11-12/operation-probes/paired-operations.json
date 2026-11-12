@@ -1,0 +1,202 @@
+[
+  {
+    "role": "control",
+    "pair": -1,
+    "operations": {
+      "blocks": 7,
+      "exact_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 45
+      },
+      "id_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 16
+      },
+      "path": "data/agents/009s5q5l5ux57k3.json",
+      "record_id": "009s5q5l5ux57k3",
+      "source_materialization": {
+        "iterations_per_block": 500,
+        "median_ns_per_call": 4990
+      }
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": -1,
+    "operations": {
+      "blocks": 7,
+      "exact_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 43
+      },
+      "id_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 16
+      },
+      "path": "data/agents/009s5q5l5ux57k3.json",
+      "path_eq_query": {
+        "iterations_per_block": 100,
+        "median_ns_per_call": 664052
+      },
+      "path_range_query": {
+        "iterations_per_block": 100,
+        "median_ns_per_call": 60372
+      },
+      "record_id": "009s5q5l5ux57k3",
+      "source_materialization": {
+        "iterations_per_block": 500,
+        "median_ns_per_call": 5009
+      }
+    }
+  },
+  {
+    "role": "control",
+    "pair": 0,
+    "operations": {
+      "blocks": 7,
+      "exact_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 44
+      },
+      "id_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 15
+      },
+      "path": "data/agents/009s5q5l5ux57k3.json",
+      "record_id": "009s5q5l5ux57k3",
+      "source_materialization": {
+        "iterations_per_block": 500,
+        "median_ns_per_call": 4893
+      }
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 0,
+    "operations": {
+      "blocks": 7,
+      "exact_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 43
+      },
+      "id_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 16
+      },
+      "path": "data/agents/009s5q5l5ux57k3.json",
+      "path_eq_query": {
+        "iterations_per_block": 100,
+        "median_ns_per_call": 668814
+      },
+      "path_range_query": {
+        "iterations_per_block": 100,
+        "median_ns_per_call": 60847
+      },
+      "record_id": "009s5q5l5ux57k3",
+      "source_materialization": {
+        "iterations_per_block": 500,
+        "median_ns_per_call": 5034
+      }
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 1,
+    "operations": {
+      "blocks": 7,
+      "exact_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 43
+      },
+      "id_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 16
+      },
+      "path": "data/agents/009s5q5l5ux57k3.json",
+      "path_eq_query": {
+        "iterations_per_block": 100,
+        "median_ns_per_call": 668948
+      },
+      "path_range_query": {
+        "iterations_per_block": 100,
+        "median_ns_per_call": 60521
+      },
+      "record_id": "009s5q5l5ux57k3",
+      "source_materialization": {
+        "iterations_per_block": 500,
+        "median_ns_per_call": 5256
+      }
+    }
+  },
+  {
+    "role": "control",
+    "pair": 1,
+    "operations": {
+      "blocks": 7,
+      "exact_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 47
+      },
+      "id_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 16
+      },
+      "path": "data/agents/009s5q5l5ux57k3.json",
+      "record_id": "009s5q5l5ux57k3",
+      "source_materialization": {
+        "iterations_per_block": 500,
+        "median_ns_per_call": 4932
+      }
+    }
+  },
+  {
+    "role": "control",
+    "pair": 2,
+    "operations": {
+      "blocks": 7,
+      "exact_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 44
+      },
+      "id_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 16
+      },
+      "path": "data/agents/009s5q5l5ux57k3.json",
+      "record_id": "009s5q5l5ux57k3",
+      "source_materialization": {
+        "iterations_per_block": 500,
+        "median_ns_per_call": 5186
+      }
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 2,
+    "operations": {
+      "blocks": 7,
+      "exact_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 43
+      },
+      "id_lookup": {
+        "iterations_per_block": 100000,
+        "median_ns_per_call": 16
+      },
+      "path": "data/agents/009s5q5l5ux57k3.json",
+      "path_eq_query": {
+        "iterations_per_block": 100,
+        "median_ns_per_call": 675886
+      },
+      "path_range_query": {
+        "iterations_per_block": 100,
+        "median_ns_per_call": 73522
+      },
+      "record_id": "009s5q5l5ux57k3",
+      "source_materialization": {
+        "iterations_per_block": 500,
+        "median_ns_per_call": 4982
+      }
+    }
+  }
+]

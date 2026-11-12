@@ -506,10 +506,10 @@ impl SharedPath {
 
 impl From<PathBuf> for SharedPath {
     fn from(path: PathBuf) -> Self {
-        if let Some(text) = path.to_str() {
-            if crate::path_repr::query_path(&path) == text {
-                return Self::Plain(Arc::from(text));
-            }
+        if let Some(text) = path.to_str()
+            && crate::path_repr::query_path(&path) == text
+        {
+            return Self::Plain(Arc::from(text));
         }
         Self::Native(Arc::from(path))
     }
@@ -661,6 +661,28 @@ pub struct FileInventory {
 }
 
 
+/// Opt-in component accounting for the file table and its path indexes.
+/// Hash-table control bytes, B-tree nodes and allocator rounding are omitted.
+#[derive(Clone, Debug, Serialize)]
+pub struct FileStorageDiagnostic {
+    pub files_len: usize,
+    pub files_capacity: usize,
+    pub file_entry_size: usize,
+    pub file_table_slot_bytes: usize,
+    pub native_path_payload_bytes: usize,
+    pub native_path_payload_allocations: usize,
+    pub exact_lookup_capacity: usize,
+    pub exact_lookup_slot_bytes: usize,
+    pub ordered_lookup_len: usize,
+    pub ordered_lookup_slot_bytes: usize,
+    pub escaped_query_keys: usize,
+    pub escaped_query_payload_bytes: usize,
+    pub collection_membership_bytes: usize,
+    pub root_payload_bytes: usize,
+    pub estimated_live_bytes: usize,
+}
+
+
 /// Lexical bounds over the same root-relative representation as `@file.path`.
 pub(crate) fn relative_path_bounds(
     operator: Operator,
@@ -696,6 +718,62 @@ pub(crate) fn empty_path_bounds(bounds: &(Bound<Arc<str>>, Bound<Arc<str>>)) -> 
 
 
 impl FileInventory {
+    pub fn storage_diagnostic(&self) -> FileStorageDiagnostic {
+        let native_path_payload_bytes = self
+            .files
+            .iter()
+            .map(|file| file.relative_path.payload_bytes() + 2 * std::mem::size_of::<usize>())
+            .sum::<usize>();
+        let escaped_query_keys = self
+            .files
+            .iter()
+            .filter(|file| file.relative_path.query_key_has_separate_payload())
+            .count();
+        let escaped_query_payload_bytes = self
+            .files
+            .iter()
+            .filter(|file| file.relative_path.query_key_has_separate_payload())
+            .map(|file| {
+                crate::path_repr::query_path(&file.relative_path).len()
+                    + 2 * std::mem::size_of::<usize>()
+            })
+            .sum::<usize>();
+        let file_table_slot_bytes = self.files.capacity() * std::mem::size_of::<FileEntry>();
+        let exact_lookup_slot_bytes =
+            self.by_path.capacity() * std::mem::size_of::<(SharedPath, FileId)>();
+        let ordered_lookup_slot_bytes =
+            self.relative_paths.len() * std::mem::size_of::<(Arc<str>, FileId)>();
+        let collection_membership_bytes = self
+            .files
+            .iter()
+            .map(|file| file.collections.capacity() * std::mem::size_of::<CollectionId>())
+            .sum::<usize>();
+        let root_payload_bytes = self.root.capacity();
+        FileStorageDiagnostic {
+            files_len: self.files.len(),
+            files_capacity: self.files.capacity(),
+            file_entry_size: std::mem::size_of::<FileEntry>(),
+            file_table_slot_bytes,
+            native_path_payload_bytes,
+            native_path_payload_allocations: self.files.len(),
+            exact_lookup_capacity: self.by_path.capacity(),
+            exact_lookup_slot_bytes,
+            ordered_lookup_len: self.relative_paths.len(),
+            ordered_lookup_slot_bytes,
+            escaped_query_keys,
+            escaped_query_payload_bytes,
+            collection_membership_bytes,
+            root_payload_bytes,
+            estimated_live_bytes: file_table_slot_bytes
+                + native_path_payload_bytes
+                + exact_lookup_slot_bytes
+                + ordered_lookup_slot_bytes
+                + escaped_query_payload_bytes
+                + collection_membership_bytes
+                + root_payload_bytes,
+        }
+    }
+
     /// Approximate heap used by inventory and retained diagnostics, separately.
     /// Hash-table control bytes and allocator overhead are not included.
     pub fn estimated_heap_bytes(&self) -> (usize, usize) {

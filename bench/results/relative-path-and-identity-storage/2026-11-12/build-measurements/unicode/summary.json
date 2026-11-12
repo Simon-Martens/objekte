@@ -1,0 +1,58 @@
+{
+  "config": {
+    "control_repo": "/home/simon/source/objekte-control-relative-path-storage",
+    "candidate_repo": "/home/simon/source/objekte-integration-relative-path-and-identity-storage",
+    "control_bin": "/home/simon/source/objekte/target/relative-path-storage/control/release/examples/bench_index_construction",
+    "candidate_bin": "/home/simon/source/objekte/target/relative-path-storage/candidate/release/examples/bench_index_construction",
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "alphabet": "unicode",
+    "workers": "4",
+    "pairs": 3,
+    "profile": false,
+    "control_revision": "64a09886c5fed963fb0f53df779c6ad6c1a008f1",
+    "candidate_revision": "72ba7cfd0770667d50dc7698507d518f399c7fde",
+    "control_sha256": "d0fcda96736ea84fef9e52ca0f5f5f596118cd93efbdffa26de7248075701f63",
+    "candidate_sha256": "7113a42b2ce9258c6363d344a05763e1c8dcb903c750ca7ff36170e07c194b94"
+  },
+  "control_build_ns": {
+    "median": 2944655152,
+    "min": 2939046758,
+    "max": 2962840742,
+    "iqr": 11896992.0
+  },
+  "candidate_build_ns": {
+    "median": 2854103361,
+    "min": 2852094037,
+    "max": 2864269552,
+    "iqr": 6087757.5
+  },
+  "paired_delta_ns": {
+    "median": -90551791,
+    "min": -110746705,
+    "max": -74777206,
+    "iqr": 17984749.5
+  },
+  "paired_delta_percent": {
+    "median": -3.075123786175693,
+    "min": -3.737855478699903,
+    "max": -2.544267313762827,
+    "iqr": 0.5967940824685378
+  },
+  "paired_deltas_ns": [
+    -90551791,
+    -110746705,
+    -74777206
+  ],
+  "identity": {
+    "build_parses": 148486,
+    "postings": 300,
+    "sort_fields": 8,
+    "relation_edges": 228503,
+    "bigram_stores": 15,
+    "distinct_gram_keys": 37909,
+    "estimated_index_bytes": 72571368
+  },
+  "corpus_fingerprint": "db869a76f26e1a3275a5162e5a207f47fb50fa8be02c4bdcfe3f1db50cfb747c",
+  "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+  "resolved_workers": 4
+}

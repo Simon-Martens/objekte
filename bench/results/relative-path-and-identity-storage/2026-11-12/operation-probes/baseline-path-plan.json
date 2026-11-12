@@ -1,0 +1,207 @@
+{
+  "after_build_hwm": 487317504,
+  "after_build_rss": 467759104,
+  "after_release_rss": 393007104,
+  "before_rss": 6230016,
+  "bigram_stores": 15,
+  "build_admission_ns": 1090558677,
+  "build_job_execution_ns": 5904889931,
+  "build_ns": 2488546937,
+  "build_parses": 148486,
+  "build_receive_wait_ns": 475439322,
+  "diagnostic_heap_bytes": 0,
+  "discovery_ns": 382727957,
+  "distinct_gram_keys": 25477,
+  "estimated_index_bytes": 69662968,
+  "extraction_index_ns": 1585691397,
+  "failed_parses": 0,
+  "finalization_ns": 390141018,
+  "framing_bytes": 0,
+  "framing_chunks": 0,
+  "framing_ns": 0,
+  "inference_build": "InferenceBuildStats { observed_records: 0, merged_batches: 0, merge_ns: 0, finish_ns: 0, cumulative_budget_bytes: 0, unique_path_bytes: 0, repeated_batch_path_bytes: 0, retained_manual_summary_bytes: 0 }",
+  "inventory_heap_bytes": 83675196,
+  "open_ns": 2488567956,
+  "out_of_order_completed": 0,
+  "peak_active_jobs": 4,
+  "peak_admitted_bytes": 54959169,
+  "peak_ready_batches": 8,
+  "postings": 300,
+  "process_io_delta": {
+    "cancelled_write_bytes": 0,
+    "rchar": 193297477,
+    "read_bytes": 0,
+    "syscr": 296987,
+    "syscw": 0,
+    "wchar": 0,
+    "write_bytes": 0
+  },
+  "profile": null,
+  "profile_reconciliation": null,
+  "query_digests": null,
+  "ready_wait_max_ns": 0,
+  "ready_wait_sum_ns": 0,
+  "relation_edges": 228503,
+  "relation_heap_bytes": 21469817,
+  "snapshot_result": null,
+  "sort_fields": 8,
+  "storage_breakdown": null,
+  "storage_operations": {
+    "blocks": 7,
+    "exact_lookup": {
+      "iterations_per_block": 100000,
+      "median_ns_per_call": 45
+    },
+    "id_lookup": {
+      "iterations_per_block": 100000,
+      "median_ns_per_call": 17
+    },
+    "path": "data/agents/009s5q5l5ux57k3.json",
+    "path_eq_counters": {
+      "bytes_read": 0,
+      "candidates": 0,
+      "distinct_files": 0,
+      "exact_posting_matches": 0,
+      "files_opened": 0,
+      "match_count_complete": true,
+      "peak_retained_payload_bytes": 0,
+      "peak_retained_sort_key_bytes": 0,
+      "planning_ns": 618581,
+      "preparation_ns": 1422,
+      "prepared_plan_hit": true,
+      "raw_text_verifications": 0,
+      "record_parses": 0,
+      "relation_backlink_probe_visits": 0,
+      "relation_bytes_read": 0,
+      "relation_edge_visits": 0,
+      "relation_reverse_postings_visited": 0,
+      "relation_source_reads": 0,
+      "relation_target_candidates": 0,
+      "relation_target_file_opens": 0,
+      "relation_target_matches": 0,
+      "relation_target_reads": 0,
+      "relation_verified_targets_reused": 0,
+      "residual_evaluations": 0,
+      "returned_records": 0,
+      "scanned_records": 0,
+      "sort_key_evaluations": 0,
+      "sort_target_reads": 0,
+      "sort_target_reuse": 0,
+      "source_diagnostics": [],
+      "source_unavailable_events": 0,
+      "total_matches": 0,
+      "verified_result_hit": false
+    },
+    "path_eq_plan": [
+      {
+        "actual": {
+          "bytes_read": 0,
+          "files_opened": 0,
+          "index_proven_matches": 0,
+          "raw_text_verifications": 0,
+          "record_parses": 0,
+          "relation_backlink_probe_visits": 0,
+          "relation_bytes_read": 0,
+          "relation_edge_visits": 0,
+          "relation_reverse_postings_visited": 0,
+          "relation_target_candidates": 0,
+          "relation_target_file_opens": 0,
+          "relation_target_matches": 0,
+          "relation_target_reads": 0,
+          "relation_verified_targets_reused": 0,
+          "residual_evaluations": 0
+        },
+        "bigram_alphabet": "ascii",
+        "bound_terms": [
+          {
+            "bound_value": {
+              "String": "/home/simon/source/objekte/examples/musenalm/data/agents/009s5q5l5ux57k3.json"
+            },
+            "field": "@file.path",
+            "operator": "Eq",
+            "quantifier": "Default",
+            "relation_hops": [],
+            "resolved_period": null,
+            "rhs_field": null
+          }
+        ],
+        "candidates": 0,
+        "candidates_estimated": false,
+        "collection": "agents",
+        "filter_exact": true,
+        "folded_representation": "unicode-casefold-0.2.0/unicode-9.0.0/full/non-turkic",
+        "fts_case_sensitivity": null,
+        "fts_covered_target": "none",
+        "fts_estimated_candidates": null,
+        "fts_exact_literal": null,
+        "fts_mode": null,
+        "fts_prefilter_reason": null,
+        "fts_strategy": "absent",
+        "generation": 1,
+        "input_records": 4010,
+        "normalized_sort": [],
+        "planning": {
+          "candidate_bitmap_builds": 1,
+          "dictionary_keys_visited": 0,
+          "reused_order_plans": 0,
+          "reused_term_estimates": 0,
+          "term_estimation_calls": 1
+        },
+        "remaining_verification": false,
+        "sort_strategy": "bounded_top_k",
+        "sort_strategy_estimated": false,
+        "terms": [
+          {
+            "actual_input": 4010,
+            "actual_output": 0,
+            "alternatives": [
+              {
+                "coverage": 4010,
+                "estimated_bytes": 29483280.0,
+                "estimated_files": 4010.0,
+                "estimated_output": 4010,
+                "estimated_work": 350638.125,
+                "exact": false,
+                "kind": "scanner"
+              }
+            ],
+            "binding": "default@1",
+            "dynamic_binding": false,
+            "estimated_input": null,
+            "exact_case_sensitivity": "sensitive",
+            "executed": true,
+            "field": "@file.path",
+            "gram_candidates": null,
+            "logical_type": "String",
+            "reason": "lowest estimated lookup plus remaining source work for current input",
+            "residual_verification": false,
+            "selected": {
+              "coverage": 4010,
+              "estimated_bytes": 14741640.0,
+              "estimated_files": 2005.0,
+              "estimated_output": 2005,
+              "estimated_work": 53.06974625081451,
+              "exact": true,
+              "kind": "file_path_index"
+            },
+            "span": [
+              0,
+              92
+            ],
+            "structural_candidates": null
+          }
+        ]
+      }
+    ],
+    "path_eq_query": {
+      "iterations_per_block": 100,
+      "median_ns_per_call": 634272
+    },
+    "record_id": "009s5q5l5ux57k3",
+    "source_materialization": {
+      "iterations_per_block": 500,
+      "median_ns_per_call": 4853
+    }
+  },
+  "weight_limit_bytes": 67108864
+}

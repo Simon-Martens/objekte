@@ -11,11 +11,13 @@ use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
 use objekte_search_core::inference::InferenceMode;
+use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::repository::{
     CollectionDefinition, Repository, RepositoryOptions, SnapshotMode,
 };
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::BigramAlphabet;
+use objekte_search_core::workload::ReturnMode;
 use sha2::{Digest, Sha256};
 
 fn main() {
@@ -38,6 +40,8 @@ fn run() -> Result<(), String> {
     let mut snapshot = false;
     let mut profile = false;
     let mut check_queries = false;
+    let mut storage_diagnostic = false;
+    let mut storage_operations = false;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
@@ -70,6 +74,8 @@ fn run() -> Result<(), String> {
             "--snapshot" => snapshot = true,
             "--profile" => profile = true,
             "--check-queries" => check_queries = true,
+            "--storage-diagnostic" => storage_diagnostic = true,
+            "--storage-operations" => storage_operations = true,
             _ => return Err(format!("unknown argument {arg}")),
         }
     }
@@ -241,6 +247,38 @@ fn run() -> Result<(), String> {
                     })
             });
     let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
+    let storage_breakdown = storage_diagnostic.then(|| {
+        let file = repo.files().storage_diagnostic();
+        let record_entry_size = std::mem::size_of::<objekte_search_core::inventory::RecordEntry>();
+        let lookup_pair_size = std::mem::size_of::<(
+            objekte_search_core::model::RecordId,
+            objekte_search_core::model::RecordSlot,
+        )>();
+        let record_table_slots = repo.collections().iter().map(|c| c.generation.records.capacity()).sum::<usize>();
+        let record_table_bytes = record_table_slots * record_entry_size;
+        let id_payload_bytes = repo.collections().iter().flat_map(|c| &c.generation.records)
+            .map(|r| r.id.0.len() + 2 * std::mem::size_of::<usize>()).sum::<usize>();
+        let identity_lookup_slots = repo.collections().iter().map(|c| c.id_lookup.capacity()).sum::<usize>();
+        let identity_lookup_bytes = identity_lookup_slots * lookup_pair_size;
+        let shared_id_references = repo.collections().iter().map(|c| c.id_lookup.len()).sum::<usize>();
+        let file_bytes = file.estimated_live_bytes;
+        serde_json::json!({
+            "file":file,
+            "record":{"record_table_len":records,"record_table_capacity":record_table_slots,
+                "record_entry_size":record_entry_size,"record_table_slot_bytes":record_table_bytes,
+                "unique_id_payload_bytes":id_payload_bytes,"identity_lookup_capacity":identity_lookup_slots,
+                "identity_lookup_pair_size":lookup_pair_size,"identity_lookup_slot_bytes":identity_lookup_bytes,
+                "duplicate_lookup_id_payload_bytes":0,
+                "shared_id_references":shared_id_references,
+                "estimated_live_bytes":record_table_bytes+id_payload_bytes+identity_lookup_bytes},
+            "estimated_changed_storage_bytes":file_bytes+record_table_bytes+id_payload_bytes+identity_lookup_bytes,
+            "process_rss_bytes":after_build_rss,
+            "counting":"Shared payloads counted once; excludes hash control bytes, B-tree nodes, allocator rounding, and unrelated index storage."
+        })
+    });
+    let operation_samples = storage_operations
+        .then(|| probe_storage_operations(&repo))
+        .transpose()?;
     let source_bytes = repo
         .files()
         .files
@@ -334,6 +372,8 @@ fn run() -> Result<(), String> {
         "estimated_index_bytes":estimated_index_bytes,"bigram_stores":bigram_stores,
         "distinct_gram_keys":distinct_gram_keys,
         "inventory_heap_bytes":inventory_heap_bytes,"diagnostic_heap_bytes":diagnostic_heap_bytes,
+        "storage_breakdown":storage_breakdown,
+        "storage_operations":operation_samples,
         "snapshot_result":snapshot_result,
         "query_digests":query_digests,
     });
@@ -344,6 +384,104 @@ fn run() -> Result<(), String> {
         serde_json::json!({"build_ns":startup.build_ns,"result_dir":result_dir})
     );
     Ok(())
+}
+
+fn probe_storage_operations(repo: &Repository) -> Result<serde_json::Value, String> {
+    let collection = repo
+        .collections()
+        .iter()
+        .find(|collection| !collection.generation.records.is_empty())
+        .ok_or("no records for storage probe")?;
+    let record = &collection.generation.records[0];
+    let file = &repo.files().files[record.file.0 as usize];
+    let path = file.relative_path.as_path();
+    let path_key = objekte_search_core::path_repr::query_path(path);
+    let id = record.id.0.as_ref();
+    let collection_name = collection.definition.name.as_str();
+    let exact_lookup_ns = median_probe_ns(100_000, || {
+        let found = repo
+            .files()
+            .id_for(path)
+            .ok_or("exact path lookup missed")?;
+        std::hint::black_box(found);
+        Ok(())
+    })?;
+    let id_lookup_ns = median_probe_ns(100_000, || {
+        let found = collection.id_lookup.get(id).ok_or("ID lookup missed")?;
+        std::hint::black_box(found);
+        Ok(())
+    })?;
+    let source_materialization_ns = median_probe_ns(500, || {
+        let hit = repo
+            .get_record(collection_name, id, ReturnMode::Bytes)?
+            .ok_or("source materialization missed")?;
+        std::hint::black_box(hit.payload);
+        Ok(())
+    })?;
+    let literal = serde_json::to_string(&path_key).map_err(|error| error.to_string())?;
+    let make_query = |filter: &str| -> Result<Query, String> {
+        Ok(Query {
+            collections: vec![collection_name.into()],
+            fts: None,
+            filter: Some(parse_filter(filter)?),
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 1,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        })
+    };
+    let exact_query = make_query(&format!("@file.path = {literal}"))?;
+    let range_query = make_query(&format!(
+        "@file.path >= {literal} && @file.path <= {literal}"
+    ))?;
+    let query_probe = |query: &Query| {
+        let result = repo.search(query)?;
+        if result.hits.first().is_none_or(|hit| hit.file_path != path) {
+            return Err("path query returned a different file".into());
+        }
+        std::hint::black_box(result.count);
+        Ok(())
+    };
+    query_probe(&exact_query)?;
+    query_probe(&range_query)?;
+    let path_eq_query_ns = median_probe_ns(100, || query_probe(&exact_query))?;
+    let path_range_query_ns = median_probe_ns(100, || query_probe(&range_query))?;
+    let (path_eq_analysis, path_eq_plan) = repo.explain_analyze(&exact_query)?;
+    let (path_range_analysis, path_range_plan) = repo.explain_analyze(&range_query)?;
+    Ok(serde_json::json!({
+        "blocks":7,
+        "exact_lookup":{"iterations_per_block":100000,"median_ns_per_call":exact_lookup_ns},
+        "id_lookup":{"iterations_per_block":100000,"median_ns_per_call":id_lookup_ns},
+        "source_materialization":{"iterations_per_block":500,"median_ns_per_call":source_materialization_ns},
+        "path_eq_query":{"iterations_per_block":100,"median_ns_per_call":path_eq_query_ns},
+        "path_range_query":{"iterations_per_block":100,"median_ns_per_call":path_range_query_ns},
+        "path":path_key,
+        "record_id":id,
+        "path_eq_plan":path_eq_plan,
+        "path_eq_counters":path_eq_analysis.counters,
+        "path_range_plan":path_range_plan,
+        "path_range_counters":path_range_analysis.counters,
+    }))
+}
+
+fn median_probe_ns(
+    iterations: usize,
+    mut operation: impl FnMut() -> Result<(), String>,
+) -> Result<u64, String> {
+    let mut blocks = [0u64; 7];
+    for block in &mut blocks {
+        let started = Instant::now();
+        for _ in 0..iterations {
+            operation()?;
+        }
+        *block = (started.elapsed().as_nanos() as u64) / iterations as u64;
+    }
+    blocks.sort_unstable();
+    Ok(blocks[blocks.len() / 2])
 }
 
 fn write_json(path: &Path, value: &serde_json::Value) -> Result<(), String> {

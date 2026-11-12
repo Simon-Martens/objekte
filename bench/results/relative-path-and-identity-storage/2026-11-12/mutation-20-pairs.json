@@ -1,0 +1,642 @@
+[
+  {
+    "role": "control",
+    "pair": 3,
+    "ms": {
+      "build": 3.165,
+      "add": 0.214,
+      "update_append": 0.13,
+      "update_verified": 0.138,
+      "move": 0.07,
+      "delete_verified": 0.028,
+      "compact": 0.0,
+      "flush": 12.462,
+      "decode_to_searchable": 0.861,
+      "reconcile_no_change": 0.078
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 3,
+    "ms": {
+      "build": 3.284,
+      "add": 0.234,
+      "update_append": 0.14,
+      "update_verified": 0.149,
+      "move": 0.068,
+      "delete_verified": 0.032,
+      "compact": 0.0,
+      "flush": 12.698,
+      "decode_to_searchable": 0.932,
+      "reconcile_no_change": 0.07
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 4,
+    "ms": {
+      "build": 3.518,
+      "add": 0.229,
+      "update_append": 0.144,
+      "update_verified": 0.199,
+      "move": 0.085,
+      "delete_verified": 0.038,
+      "compact": 0.0,
+      "flush": 12.921,
+      "decode_to_searchable": 0.918,
+      "reconcile_no_change": 0.067
+    }
+  },
+  {
+    "role": "control",
+    "pair": 4,
+    "ms": {
+      "build": 2.936,
+      "add": 0.261,
+      "update_append": 0.136,
+      "update_verified": 0.163,
+      "move": 0.062,
+      "delete_verified": 0.027,
+      "compact": 0.0,
+      "flush": 12.576,
+      "decode_to_searchable": 0.933,
+      "reconcile_no_change": 0.058
+    }
+  },
+  {
+    "role": "control",
+    "pair": 5,
+    "ms": {
+      "build": 3.093,
+      "add": 0.247,
+      "update_append": 0.138,
+      "update_verified": 0.181,
+      "move": 0.075,
+      "delete_verified": 0.033,
+      "compact": 0.0,
+      "flush": 12.643,
+      "decode_to_searchable": 0.898,
+      "reconcile_no_change": 0.087
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 5,
+    "ms": {
+      "build": 3.41,
+      "add": 0.261,
+      "update_append": 0.142,
+      "update_verified": 0.166,
+      "move": 0.075,
+      "delete_verified": 0.032,
+      "compact": 0.0,
+      "flush": 12.665,
+      "decode_to_searchable": 0.842,
+      "reconcile_no_change": 0.098
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 6,
+    "ms": {
+      "build": 3.184,
+      "add": 0.281,
+      "update_append": 0.151,
+      "update_verified": 0.156,
+      "move": 0.074,
+      "delete_verified": 0.033,
+      "compact": 0.0,
+      "flush": 12.724,
+      "decode_to_searchable": 0.854,
+      "reconcile_no_change": 0.082
+    }
+  },
+  {
+    "role": "control",
+    "pair": 6,
+    "ms": {
+      "build": 3.328,
+      "add": 0.254,
+      "update_append": 0.154,
+      "update_verified": 0.167,
+      "move": 0.079,
+      "delete_verified": 0.035,
+      "compact": 0.001,
+      "flush": 12.728,
+      "decode_to_searchable": 0.743,
+      "reconcile_no_change": 0.076
+    }
+  },
+  {
+    "role": "control",
+    "pair": 7,
+    "ms": {
+      "build": 3.31,
+      "add": 0.243,
+      "update_append": 0.148,
+      "update_verified": 0.186,
+      "move": 0.075,
+      "delete_verified": 0.034,
+      "compact": 0.0,
+      "flush": 12.634,
+      "decode_to_searchable": 0.927,
+      "reconcile_no_change": 0.076
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 7,
+    "ms": {
+      "build": 3.363,
+      "add": 0.262,
+      "update_append": 0.145,
+      "update_verified": 0.159,
+      "move": 0.076,
+      "delete_verified": 0.034,
+      "compact": 0.0,
+      "flush": 12.727,
+      "decode_to_searchable": 0.962,
+      "reconcile_no_change": 0.084
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 8,
+    "ms": {
+      "build": 3.407,
+      "add": 0.243,
+      "update_append": 0.147,
+      "update_verified": 0.157,
+      "move": 0.073,
+      "delete_verified": 0.032,
+      "compact": 0.001,
+      "flush": 12.734,
+      "decode_to_searchable": 1.061,
+      "reconcile_no_change": 0.076
+    }
+  },
+  {
+    "role": "control",
+    "pair": 8,
+    "ms": {
+      "build": 3.351,
+      "add": 0.246,
+      "update_append": 0.164,
+      "update_verified": 0.167,
+      "move": 0.074,
+      "delete_verified": 0.033,
+      "compact": 0.001,
+      "flush": 12.652,
+      "decode_to_searchable": 0.808,
+      "reconcile_no_change": 0.1
+    }
+  },
+  {
+    "role": "control",
+    "pair": 9,
+    "ms": {
+      "build": 3.434,
+      "add": 0.248,
+      "update_append": 0.148,
+      "update_verified": 0.176,
+      "move": 0.074,
+      "delete_verified": 0.033,
+      "compact": 0.0,
+      "flush": 12.915,
+      "decode_to_searchable": 0.982,
+      "reconcile_no_change": 0.108
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 9,
+    "ms": {
+      "build": 3.52,
+      "add": 0.279,
+      "update_append": 0.155,
+      "update_verified": 0.179,
+      "move": 0.074,
+      "delete_verified": 0.033,
+      "compact": 0.0,
+      "flush": 12.769,
+      "decode_to_searchable": 0.981,
+      "reconcile_no_change": 0.078
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 10,
+    "ms": {
+      "build": 3.229,
+      "add": 0.256,
+      "update_append": 0.149,
+      "update_verified": 0.181,
+      "move": 0.075,
+      "delete_verified": 0.033,
+      "compact": 0.0,
+      "flush": 12.565,
+      "decode_to_searchable": 0.962,
+      "reconcile_no_change": 0.107
+    }
+  },
+  {
+    "role": "control",
+    "pair": 10,
+    "ms": {
+      "build": 3.182,
+      "add": 0.255,
+      "update_append": 0.151,
+      "update_verified": 0.175,
+      "move": 0.075,
+      "delete_verified": 0.034,
+      "compact": 0.001,
+      "flush": 12.741,
+      "decode_to_searchable": 0.959,
+      "reconcile_no_change": 0.075
+    }
+  },
+  {
+    "role": "control",
+    "pair": 11,
+    "ms": {
+      "build": 3.486,
+      "add": 0.245,
+      "update_append": 0.159,
+      "update_verified": 0.156,
+      "move": 0.072,
+      "delete_verified": 0.034,
+      "compact": 0.0,
+      "flush": 12.752,
+      "decode_to_searchable": 0.894,
+      "reconcile_no_change": 0.13
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 11,
+    "ms": {
+      "build": 3.458,
+      "add": 0.244,
+      "update_append": 0.155,
+      "update_verified": 0.166,
+      "move": 0.075,
+      "delete_verified": 0.033,
+      "compact": 0.0,
+      "flush": 12.731,
+      "decode_to_searchable": 0.923,
+      "reconcile_no_change": 0.095
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 12,
+    "ms": {
+      "build": 3.376,
+      "add": 0.263,
+      "update_append": 0.146,
+      "update_verified": 0.172,
+      "move": 0.074,
+      "delete_verified": 0.032,
+      "compact": 0.0,
+      "flush": 12.789,
+      "decode_to_searchable": 0.959,
+      "reconcile_no_change": 0.07
+    }
+  },
+  {
+    "role": "control",
+    "pair": 12,
+    "ms": {
+      "build": 3.339,
+      "add": 0.3,
+      "update_append": 0.141,
+      "update_verified": 0.163,
+      "move": 0.074,
+      "delete_verified": 0.034,
+      "compact": 0.0,
+      "flush": 12.735,
+      "decode_to_searchable": 0.917,
+      "reconcile_no_change": 0.099
+    }
+  },
+  {
+    "role": "control",
+    "pair": 13,
+    "ms": {
+      "build": 3.338,
+      "add": 0.277,
+      "update_append": 0.149,
+      "update_verified": 0.163,
+      "move": 0.075,
+      "delete_verified": 0.034,
+      "compact": 0.001,
+      "flush": 12.849,
+      "decode_to_searchable": 0.897,
+      "reconcile_no_change": 0.081
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 13,
+    "ms": {
+      "build": 3.519,
+      "add": 0.265,
+      "update_append": 0.153,
+      "update_verified": 0.163,
+      "move": 0.081,
+      "delete_verified": 0.038,
+      "compact": 0.001,
+      "flush": 12.762,
+      "decode_to_searchable": 0.944,
+      "reconcile_no_change": 0.07
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 14,
+    "ms": {
+      "build": 3.226,
+      "add": 0.269,
+      "update_append": 0.148,
+      "update_verified": 0.173,
+      "move": 0.075,
+      "delete_verified": 0.034,
+      "compact": 0.0,
+      "flush": 12.832,
+      "decode_to_searchable": 0.94,
+      "reconcile_no_change": 0.081
+    }
+  },
+  {
+    "role": "control",
+    "pair": 14,
+    "ms": {
+      "build": 3.254,
+      "add": 0.257,
+      "update_append": 0.145,
+      "update_verified": 0.163,
+      "move": 0.075,
+      "delete_verified": 0.034,
+      "compact": 0.001,
+      "flush": 12.615,
+      "decode_to_searchable": 0.917,
+      "reconcile_no_change": 0.092
+    }
+  },
+  {
+    "role": "control",
+    "pair": 15,
+    "ms": {
+      "build": 3.259,
+      "add": 0.242,
+      "update_append": 0.162,
+      "update_verified": 0.159,
+      "move": 0.069,
+      "delete_verified": 0.031,
+      "compact": 0.0,
+      "flush": 12.693,
+      "decode_to_searchable": 0.879,
+      "reconcile_no_change": 0.069
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 15,
+    "ms": {
+      "build": 3.481,
+      "add": 0.244,
+      "update_append": 0.188,
+      "update_verified": 0.155,
+      "move": 0.072,
+      "delete_verified": 0.033,
+      "compact": 0.0,
+      "flush": 12.646,
+      "decode_to_searchable": 0.891,
+      "reconcile_no_change": 0.085
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 16,
+    "ms": {
+      "build": 3.236,
+      "add": 0.257,
+      "update_append": 0.148,
+      "update_verified": 0.182,
+      "move": 0.077,
+      "delete_verified": 0.036,
+      "compact": 0.001,
+      "flush": 12.773,
+      "decode_to_searchable": 0.971,
+      "reconcile_no_change": 0.068
+    }
+  },
+  {
+    "role": "control",
+    "pair": 16,
+    "ms": {
+      "build": 3.372,
+      "add": 0.239,
+      "update_append": 0.15,
+      "update_verified": 0.198,
+      "move": 0.079,
+      "delete_verified": 0.036,
+      "compact": 0.001,
+      "flush": 12.527,
+      "decode_to_searchable": 0.896,
+      "reconcile_no_change": 0.085
+    }
+  },
+  {
+    "role": "control",
+    "pair": 17,
+    "ms": {
+      "build": 3.325,
+      "add": 0.268,
+      "update_append": 0.151,
+      "update_verified": 0.175,
+      "move": 0.077,
+      "delete_verified": 0.042,
+      "compact": 0.0,
+      "flush": 12.722,
+      "decode_to_searchable": 0.877,
+      "reconcile_no_change": 0.095
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 17,
+    "ms": {
+      "build": 3.328,
+      "add": 0.252,
+      "update_append": 0.142,
+      "update_verified": 0.165,
+      "move": 0.076,
+      "delete_verified": 0.034,
+      "compact": 0.001,
+      "flush": 12.811,
+      "decode_to_searchable": 0.783,
+      "reconcile_no_change": 0.065
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 18,
+    "ms": {
+      "build": 3.58,
+      "add": 0.262,
+      "update_append": 0.153,
+      "update_verified": 0.177,
+      "move": 0.073,
+      "delete_verified": 0.04,
+      "compact": 0.0,
+      "flush": 12.731,
+      "decode_to_searchable": 0.744,
+      "reconcile_no_change": 0.133
+    }
+  },
+  {
+    "role": "control",
+    "pair": 18,
+    "ms": {
+      "build": 3.329,
+      "add": 0.259,
+      "update_append": 0.152,
+      "update_verified": 0.172,
+      "move": 0.075,
+      "delete_verified": 0.034,
+      "compact": 0.0,
+      "flush": 12.654,
+      "decode_to_searchable": 0.953,
+      "reconcile_no_change": 0.075
+    }
+  },
+  {
+    "role": "control",
+    "pair": 19,
+    "ms": {
+      "build": 3.376,
+      "add": 0.256,
+      "update_append": 0.162,
+      "update_verified": 0.178,
+      "move": 0.073,
+      "delete_verified": 0.036,
+      "compact": 0.0,
+      "flush": 12.692,
+      "decode_to_searchable": 0.878,
+      "reconcile_no_change": 0.083
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 19,
+    "ms": {
+      "build": 3.553,
+      "add": 0.267,
+      "update_append": 0.167,
+      "update_verified": 0.163,
+      "move": 0.073,
+      "delete_verified": 0.034,
+      "compact": 0.001,
+      "flush": 12.677,
+      "decode_to_searchable": 1.008,
+      "reconcile_no_change": 0.067
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 20,
+    "ms": {
+      "build": 3.451,
+      "add": 0.232,
+      "update_append": 0.152,
+      "update_verified": 0.181,
+      "move": 0.072,
+      "delete_verified": 0.033,
+      "compact": 0.0,
+      "flush": 12.684,
+      "decode_to_searchable": 1.022,
+      "reconcile_no_change": 0.137
+    }
+  },
+  {
+    "role": "control",
+    "pair": 20,
+    "ms": {
+      "build": 3.208,
+      "add": 0.25,
+      "update_append": 0.152,
+      "update_verified": 0.18,
+      "move": 0.074,
+      "delete_verified": 0.033,
+      "compact": 0.001,
+      "flush": 12.699,
+      "decode_to_searchable": 0.937,
+      "reconcile_no_change": 0.075
+    }
+  },
+  {
+    "role": "control",
+    "pair": 21,
+    "ms": {
+      "build": 3.428,
+      "add": 0.251,
+      "update_append": 0.146,
+      "update_verified": 0.159,
+      "move": 0.073,
+      "delete_verified": 0.034,
+      "compact": 0.0,
+      "flush": 12.804,
+      "decode_to_searchable": 0.959,
+      "reconcile_no_change": 0.078
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 21,
+    "ms": {
+      "build": 3.569,
+      "add": 0.25,
+      "update_append": 0.147,
+      "update_verified": 0.164,
+      "move": 0.074,
+      "delete_verified": 0.034,
+      "compact": 0.0,
+      "flush": 12.634,
+      "decode_to_searchable": 0.943,
+      "reconcile_no_change": 0.097
+    }
+  },
+  {
+    "role": "candidate",
+    "pair": 22,
+    "ms": {
+      "build": 3.625,
+      "add": 0.263,
+      "update_append": 0.141,
+      "update_verified": 0.183,
+      "move": 0.074,
+      "delete_verified": 0.034,
+      "compact": 0.0,
+      "flush": 12.565,
+      "decode_to_searchable": 0.966,
+      "reconcile_no_change": 0.081
+    }
+  },
+  {
+    "role": "control",
+    "pair": 22,
+    "ms": {
+      "build": 3.445,
+      "add": 0.237,
+      "update_append": 0.16,
+      "update_verified": 0.186,
+      "move": 0.075,
+      "delete_verified": 0.034,
+      "compact": 0.001,
+      "flush": 12.551,
+      "decode_to_searchable": 0.99,
+      "reconcile_no_change": 0.094
+    }
+  }
+]

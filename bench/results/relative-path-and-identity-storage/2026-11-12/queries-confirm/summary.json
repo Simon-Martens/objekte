@@ -1,0 +1,98 @@
+[
+  {
+    "block": 1,
+    "role": "control",
+    "case": "Q119",
+    "median_ns": 25107721
+  },
+  {
+    "block": 1,
+    "role": "control",
+    "case": "Q177",
+    "median_ns": 15825379
+  },
+  {
+    "block": 2,
+    "role": "candidate",
+    "case": "Q119",
+    "median_ns": 26252861
+  },
+  {
+    "block": 2,
+    "role": "candidate",
+    "case": "Q177",
+    "median_ns": 16007962
+  },
+  {
+    "block": 3,
+    "role": "candidate",
+    "case": "Q119",
+    "median_ns": 26363469
+  },
+  {
+    "block": 3,
+    "role": "candidate",
+    "case": "Q177",
+    "median_ns": 16109413
+  },
+  {
+    "block": 4,
+    "role": "control",
+    "case": "Q119",
+    "median_ns": 25138609
+  },
+  {
+    "block": 4,
+    "role": "control",
+    "case": "Q177",
+    "median_ns": 16437538
+  },
+  {
+    "block": 5,
+    "role": "control",
+    "case": "Q119",
+    "median_ns": 25616396
+  },
+  {
+    "block": 5,
+    "role": "control",
+    "case": "Q177",
+    "median_ns": 15221435
+  },
+  {
+    "block": 6,
+    "role": "candidate",
+    "case": "Q119",
+    "median_ns": 26011748
+  },
+  {
+    "block": 6,
+    "role": "candidate",
+    "case": "Q177",
+    "median_ns": 16062564
+  },
+  {
+    "block": 7,
+    "role": "candidate",
+    "case": "Q119",
+    "median_ns": 26460121
+  },
+  {
+    "block": 7,
+    "role": "candidate",
+    "case": "Q177",
+    "median_ns": 16779811
+  },
+  {
+    "block": 8,
+    "role": "control",
+    "case": "Q119",
+    "median_ns": 24999377
+  },
+  {
+    "block": 8,
+    "role": "control",
+    "case": "Q177",
+    "median_ns": 15875854
+  }
+]
