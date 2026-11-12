@@ -15,6 +15,7 @@ use rayon::ThreadPool;
 use roaring::RoaringBitmap;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
+use smallvec::SmallVec;
 
 use crate::bigram::{BigramBuilder, BigramContribution};
 use crate::inference::{InferenceBuilder, InferenceConfig};
@@ -25,7 +26,7 @@ use crate::inventory::{
 use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::record_preparation::finish_build_record;
-use crate::reference::data_values;
+use crate::reference::data_values_small;
 use crate::relation::RelationContribution;
 use crate::repository::{
     CollectionDefinition, IdentityPolicy, canonical_custom_text_key, map_binding_value,
@@ -162,9 +163,14 @@ pub struct BuildWorkProfile {
     pub inference_ns: u64,
     pub relations_ns: u64,
     pub custom_postings_ns: u64,
+    /// Selection counts from the sampled physical files, before mapping.
+    pub custom_posting_single_selections: u64,
+    pub custom_posting_multi_selections: u64,
     pub text_bigram_ns: u64,
     pub sorting_ns: u64,
     pub custom_text_ns: u64,
+    pub custom_text_single_selections: u64,
+    pub custom_text_multi_selections: u64,
     pub batch_finish_ns: u64,
     pub batches: u64,
 }
@@ -188,9 +194,13 @@ impl BuildWorkProfile {
         self.inference_ns += other.inference_ns;
         self.relations_ns += other.relations_ns;
         self.custom_postings_ns += other.custom_postings_ns;
+        self.custom_posting_single_selections += other.custom_posting_single_selections;
+        self.custom_posting_multi_selections += other.custom_posting_multi_selections;
         self.text_bigram_ns += other.text_bigram_ns;
         self.sorting_ns += other.sorting_ns;
         self.custom_text_ns += other.custom_text_ns;
+        self.custom_text_single_selections += other.custom_text_single_selections;
+        self.custom_text_multi_selections += other.custom_text_multi_selections;
         self.batch_finish_ns += other.batch_finish_ns;
         self.batches += other.batches;
     }
@@ -527,12 +537,19 @@ impl<'a> BatchBuilder<'a> {
         let stage_started = sample.then(Instant::now);
         for (key, custom) in &mut self.custom_postings {
             let binding = &self.definition.schema.operations[key];
-            let selected = data_values(&extracted.value, &key.0);
+            let selected = data_values_small(&extracted.value, &key.0);
+            if self.profile_current_file {
+                match selected.as_ref().map(|values| values.len()) {
+                    Some(1) => self.profile.custom_posting_single_selections += 1,
+                    Some(2..) => self.profile.custom_posting_multi_selections += 1,
+                    _ => {}
+                }
+            }
             let mapped = selected.as_ref().map(|values| {
                 values
                     .iter()
                     .map(|value| map_binding_value(binding.operation.as_ref(), value))
-                    .collect::<Option<Vec<_>>>()
+                    .collect::<Option<SmallVec<[Value; 1]>>>()
             });
             let mapped = match mapped {
                 Some(Some(values)) => Some(values),
@@ -544,7 +561,7 @@ impl<'a> BatchBuilder<'a> {
             };
             let refs = mapped
                 .as_ref()
-                .map(|values| values.iter().collect::<Vec<_>>());
+                .map(|values| values.iter().collect::<SmallVec<[&Value; 1]>>());
             custom.index.add_values(slot, refs.as_deref())?;
         }
         if let Some(started) = stage_started {
@@ -608,7 +625,14 @@ impl<'a> BatchBuilder<'a> {
         }
         let stage_started = sample.then(Instant::now);
         for (key, index) in &mut self.custom_text {
-            let values = data_values(&extracted.value, &key.0).unwrap_or_default();
+            let values = data_values_small(&extracted.value, &key.0).unwrap_or_default();
+            if self.profile_current_file {
+                match values.len() {
+                    1 => self.profile.custom_text_single_selections += 1,
+                    2.. => self.profile.custom_text_multi_selections += 1,
+                    _ => {}
+                }
+            }
             if let Some(binding) = self.definition.schema.operations.get(key) {
                 index.add_record(
                     slot,
