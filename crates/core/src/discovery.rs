@@ -68,10 +68,10 @@ pub fn discover(
     discover_bounded(root, source_path, rules, source, usize::MAX)
 }
 
-/// Visit selected files without retaining a collection-sized path list. The
-/// ordinary no-symlink policy keeps only one directory iterator per nesting
-/// level. Following symlinks necessarily retains the physical-to-lexical
-/// alias map until traversal is complete so the chosen alias is deterministic.
+/// Visit selected files in lexical order without retaining a whole-collection
+/// path list. Each directory's entries are sorted before visiting, preserving
+/// stable file IDs while allowing catalogue updates during traversal. Following
+/// symlinks also retains the physical-to-lexical alias map until completion.
 pub(crate) fn discover_stream(
     root: &Path,
     source_path: &Path,
@@ -119,13 +119,16 @@ pub(crate) fn discover_stream(
             directory: &Path,
             ancestors: &mut Vec<PathBuf>,
         ) -> Result<(), String> {
-            let entries = std::fs::read_dir(directory)
-                .map_err(|error| format!("{}: {error}", directory.display()))?;
-            for entry in entries {
+            let mut entries = std::fs::read_dir(directory)
+                .map_err(|error| format!("{}: {error}", directory.display()))?
+                .map(|entry| entry.map(|entry| (entry.file_name(), entry)))
+                .collect::<Result<Vec<_>, _>>()
+                .map_err(|error| error.to_string())?;
+            entries.sort_unstable_by(|left, right| left.0.cmp(&right.0));
+            for (_, entry) in entries {
                 if (self.cancelled)() {
                     return Err("scan cancelled".into());
                 }
-                let entry = entry.map_err(|error| error.to_string())?;
                 let path = entry.path();
                 let selected = path
                     .strip_prefix(self.source_directory)

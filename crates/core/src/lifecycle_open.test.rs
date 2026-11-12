@@ -4,6 +4,65 @@ use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
 #[test]
+fn discovery_publishes_stable_file_ids_before_catalogue_completion() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-progressive-catalogue-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for name in ["c", "a", "b"] {
+        std::fs::write(root.join(format!("data/{name}.json")), br#"{}"#).unwrap();
+    }
+    let updates = std::sync::Mutex::new(Vec::new());
+    let base = Repository::build_search_base(
+        root.canonicalize().unwrap(),
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+        &|files, complete| {
+            updates.lock().unwrap().push((
+                files
+                    .files
+                    .iter()
+                    .map(|file| (file.id, file.relative_path.clone()))
+                    .collect::<Vec<_>>(),
+                complete,
+            ));
+        },
+        &|| false,
+    )
+    .unwrap();
+    let updates = updates.into_inner().unwrap();
+    assert_eq!(updates.first().unwrap().0.len(), 1);
+    assert!(!updates.first().unwrap().1);
+    assert_eq!(updates.last().unwrap().0.len(), 3);
+    assert!(updates.last().unwrap().1);
+    assert_eq!(
+        updates.last().unwrap().0,
+        base.files()
+            .files
+            .iter()
+            .map(|file| (file.id, file.relative_path.clone()))
+            .collect::<Vec<_>>()
+    );
+    assert_eq!(
+        base.files()
+            .files
+            .iter()
+            .map(|file| file.relative_path.to_string_lossy().to_string())
+            .collect::<Vec<_>>(),
+        ["data/a.json", "data/b.json", "data/c.json"]
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn extended_paused_before_search_ready_resumes() {
     let root = std::env::temp_dir().join(format!(
         "objekte-pre-ready-pause-{}-{:?}",
@@ -54,12 +113,16 @@ fn extended_paused_before_search_ready_resumes() {
 fn explicit_inference_covers_nested_and_multivalued_states_exactly() {
     let root = std::env::temp_dir().join(format!(
         "objekte-inferred-states-{}-{:?}",
-        std::process::id(), std::thread::current().id()
+        std::process::id(),
+        std::thread::current().id()
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.json"),
-        br#"{"outer":{"inner":"x"},"items":[{"title":null},{"title":"x"}]}"#).unwrap();
+    std::fs::write(
+        root.join("data/a.json"),
+        br#"{"outer":{"inner":"x"},"items":[{"title":null},{"title":"x"}]}"#,
+    )
+    .unwrap();
     std::fs::write(root.join("data/b.json"), br#"{"outer":{},"items":[]}"#).unwrap();
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
     let mut inference = crate::inference::InferenceConfig {
@@ -68,29 +131,56 @@ fn explicit_inference_covers_nested_and_multivalued_states_exactly() {
     };
     inference.policy.min_nonblank_occurrences = 1;
     inference.policy.min_nonblank_records = 1;
-    let options = RepositoryOptions { inference, ..Default::default() };
+    let options = RepositoryOptions {
+        inference,
+        ..Default::default()
+    };
     let index = Index::start_staged_build(&root, vec![definition], options)
-        .unwrap().wait_complete().unwrap();
+        .unwrap()
+        .wait_complete()
+        .unwrap();
     let view = index.view().unwrap();
-    let batches = view.extended_batches(crate::model::CollectionId(0)).unwrap();
-    assert!(batches.iter().any(|batch| batch.field_states.contains_key(&vec!["outer".into(), "inner".into()])));
-    assert!(batches.iter().any(|batch| batch.field_states.contains_key(&vec!["items".into(), "title".into()])));
-    assert!(batches.iter().flat_map(|batch| batch.field_states.keys()).all(|path| !path.iter().any(|part| part.parse::<usize>().is_ok())));
+    let batches = view
+        .extended_batches(crate::model::CollectionId(0))
+        .unwrap();
+    assert!(batches.iter().any(|batch| batch
+        .field_states
+        .contains_key(&vec!["outer".into(), "inner".into()])));
+    assert!(batches.iter().any(|batch| batch
+        .field_states
+        .contains_key(&vec!["items".into(), "title".into()])));
+    assert!(batches
+        .iter()
+        .flat_map(|batch| batch.field_states.keys())
+        .all(|path| !path.iter().any(|part| part.parse::<usize>().is_ok())));
     for (filter, expected) in [
         ("items.title:null = true", 1),
         ("items.title:null = false", 1),
         ("outer.inner:string = true", 1),
     ] {
         let request = Query {
-            collections: vec!["data".into()], fts: None,
+            collections: vec!["data".into()],
+            fts: None,
             filter: Some(crate::query::parse_filter(filter).unwrap()),
             options: QueryOptions {
-                sort: vec![], limit: 10, offset: 0, count: true,
-                return_mode: ReturnMode::Locator, evidence: false,
+                sort: vec![],
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
             },
         };
-        assert_eq!(view.search(&request).unwrap().count, Some(expected), "{filter}");
-        assert_eq!(view.search(&request).unwrap().count, view.search_reference(&request).unwrap().count, "{filter}");
+        assert_eq!(
+            view.search(&request).unwrap().count,
+            Some(expected),
+            "{filter}"
+        );
+        assert_eq!(
+            view.search(&request).unwrap().count,
+            view.search_reference(&request).unwrap().count,
+            "{filter}"
+        );
     }
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
@@ -100,21 +190,37 @@ fn explicit_inference_covers_nested_and_multivalued_states_exactly() {
 fn later_inference_reuses_searchable_base_and_updates_cache_policy() {
     let root = std::env::temp_dir().join(format!(
         "objekte-later-inference-{}-{:?}",
-        std::process::id(), std::thread::current().id()
+        std::process::id(),
+        std::thread::current().id()
     ));
     let _ = std::fs::remove_dir_all(&root);
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.json"), br#"{"nested":{"title":"Ada"}}"#).unwrap();
-    let definitions = vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)];
+    let definitions = vec![CollectionDefinition::folder(
+        "data",
+        "data",
+        SourceFormat::Json,
+    )];
     let index = Index::start_staged_build(&root, definitions.clone(), RepositoryOptions::default())
-        .unwrap().wait_complete().unwrap();
+        .unwrap()
+        .wait_complete()
+        .unwrap();
     let base_cache = root.join("base.snapshot");
     index.flush_cache(&base_cache).unwrap();
-    let active = Index::load_cache(&root, definitions.clone(), RepositoryOptions::default(), &base_cache).unwrap();
+    let active = Index::load_cache(
+        &root,
+        definitions.clone(),
+        RepositoryOptions::default(),
+        &base_cache,
+    )
+    .unwrap();
     active.wait_for_reconciliation().unwrap();
     let before = active.view().unwrap();
     assert_eq!(before.revision(), IndexRevision::INITIAL);
-    assert!(before.extended_batches(crate::model::CollectionId(0)).unwrap().is_empty());
+    assert!(before
+        .extended_batches(crate::model::CollectionId(0))
+        .unwrap()
+        .is_empty());
     let mut inference = crate::inference::InferenceConfig {
         mode: crate::inference::InferenceMode::AutoIndex,
         ..Default::default()
@@ -127,16 +233,162 @@ fn later_inference_reuses_searchable_base_and_updates_cache_policy() {
     assert_eq!(after.revision(), before.revision());
     assert!(after.capability_revision() > before.capability_revision());
     assert_eq!(after.repository().options().inference, inference);
-    assert!(after.extended_batches(crate::model::CollectionId(0)).unwrap()
-        .iter().any(|batch| batch.field_states.contains_key(&vec!["nested".into(), "title".into()])));
+    assert!(after
+        .extended_batches(crate::model::CollectionId(0))
+        .unwrap()
+        .iter()
+        .any(|batch| batch
+            .field_states
+            .contains_key(&vec!["nested".into(), "title".into()])));
     let cache = root.join("inferred.snapshot");
     active.flush_cache(&cache).unwrap();
-    let restored = Index::load_cache(&root, definitions, RepositoryOptions {
-        inference, ..Default::default()
-    }, &cache).unwrap();
+    let restored = Index::load_cache(
+        &root,
+        definitions,
+        RepositoryOptions {
+            inference,
+            ..Default::default()
+        },
+        &cache,
+    )
+    .unwrap();
     assert!(restored.inference_report("data").unwrap().is_some());
     restored.shutdown().unwrap();
     active.shutdown().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn pending_later_inference_policy_survives_partial_snapshot() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-pending-inference-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"nested":{"title":"Ada"}}"#).unwrap();
+    let definitions = vec![CollectionDefinition::folder(
+        "data",
+        "data",
+        SourceFormat::Json,
+    )];
+    let index = Index::start_staged_build(&root, definitions.clone(), RepositoryOptions::default())
+        .unwrap()
+        .wait_complete()
+        .unwrap();
+    let mut inference = crate::inference::InferenceConfig {
+        mode: crate::inference::InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    inference.policy.min_nonblank_occurrences = 1;
+    inference.policy.min_nonblank_records = 1;
+    index.start_inference_with_pause(inference, true).unwrap();
+    assert_eq!(
+        index.extended_status().unwrap().phase,
+        crate::lifecycle::ExtendedPhase::Paused
+    );
+    let cache = root.join("pending.snapshot");
+    index.flush_cache(&cache).unwrap();
+    let (_, saved) = crate::storage::load_lifecycle_snapshot_checked(
+        root.canonicalize().unwrap(),
+        definitions.clone(),
+        RepositoryOptions::default(),
+        &SourceRegistry::builtin(),
+        &cache,
+        |_| Ok(()),
+    )
+    .unwrap();
+    assert_eq!(saved.pending_inference, Some(inference));
+    index.cancel_extended().unwrap();
+    assert_eq!(index.wait_extended(), Err(IndexError::Cancelled));
+    let restored =
+        Index::load_cache(&root, definitions, RepositoryOptions::default(), &cache).unwrap();
+    restored.wait_extended().unwrap();
+    assert_eq!(
+        restored.view().unwrap().repository().options().inference,
+        inference
+    );
+    restored.shutdown().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn inferred_unselected_array_length_and_empty_string_are_source_free_when_complete() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-inferred-structural-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"tags":[],"name":""}"#).unwrap();
+    std::fs::write(root.join("data/b.json"), br#"{"tags":[1,2],"name":"Ada"}"#).unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    for (path, kind, multi) in [
+        (
+            "tags",
+            crate::model::LogicalType::Array(Box::new(crate::model::LogicalType::Number)),
+            true,
+        ),
+        ("name", crate::model::LogicalType::String, false),
+    ] {
+        definition
+            .schema
+            .register_field(crate::reference::FieldDefinition {
+                path: vec![path.into()],
+                kind,
+                required: false,
+                nullable: false,
+                indexed: false,
+                multi,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    let mut inference = crate::inference::InferenceConfig {
+        mode: crate::inference::InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    inference.policy.min_nonblank_occurrences = 1;
+    inference.policy.min_nonblank_records = 1;
+    let index = Index::start_staged_build(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            inference,
+            ..Default::default()
+        },
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let view = index.view().unwrap();
+    for filter in ["tags:length = 0", "tags:length = 2", "name = \"\""] {
+        let request = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(crate::query::parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let result = view.search(&request).unwrap();
+        assert_eq!(result.count, Some(1), "{filter}");
+        assert_eq!(
+            result.count,
+            view.search_reference(&request).unwrap().count,
+            "{filter}"
+        );
+        assert_eq!(result.counters.record_parses, 0, "{filter}");
+    }
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -179,7 +431,7 @@ fn partial_extended_snapshot_retains_exact_coverage_and_resumes() {
             definitions.clone(),
             options,
             SourceRegistry::builtin(),
-            &|_| {},
+            &|_, _| {},
             &|| false,
         )
         .unwrap(),
@@ -193,13 +445,14 @@ fn partial_extended_snapshot_retains_exact_coverage_and_resumes() {
     let index = Index::from_published(published);
     let versions = index.view().unwrap().0.file_versions.clone();
     let admitted = std::sync::atomic::AtomicUsize::new(0);
-    let result = Repository::build_extended_from_base(&base, options, &|_, _| {}, &|| false, &|batch| {
-        index
-            .publish_extended_batch(&base, &versions, batch)
-            .map_err(|error| error.to_string())?;
-        admitted.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
-        Err("test barrier after first extended batch".into())
-    });
+    let result =
+        Repository::build_extended_from_base(&base, options, &|_, _| {}, &|| false, &|batch| {
+            index
+                .publish_extended_batch(&base, &versions, batch)
+                .map_err(|error| error.to_string())?;
+            admitted.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+            Err("test barrier after first extended batch".into())
+        });
     assert!(result.is_err());
     assert_eq!(admitted.load(std::sync::atomic::Ordering::Relaxed), 1);
     let partial = index.view().unwrap();
@@ -211,12 +464,10 @@ fn partial_extended_snapshot_retains_exact_coverage_and_resumes() {
             .len(),
         1
     );
-    assert!(
-        partial
-            .extended_batches(crate::model::CollectionId(1))
-            .unwrap()
-            .is_empty()
-    );
+    assert!(partial
+        .extended_batches(crate::model::CollectionId(1))
+        .unwrap()
+        .is_empty());
     let cache = root.join("partial.snapshot");
     index.flush_cache(&cache).unwrap();
     let (_, saved) = crate::storage::load_lifecycle_snapshot_checked(
@@ -245,12 +496,10 @@ fn partial_extended_snapshot_retains_exact_coverage_and_resumes() {
     std::fs::write(&changed, br#"{"name":"Grace"}"#).unwrap();
     restored.update_file(handle, &changed).unwrap();
     let updated = restored.view().unwrap();
-    assert!(
-        updated
-            .extended_batches(crate::model::CollectionId(0))
-            .unwrap()
-            .is_empty()
-    );
+    assert!(updated
+        .extended_batches(crate::model::CollectionId(0))
+        .unwrap()
+        .is_empty());
     let request = Query {
         collections: vec!["one".into(), "two".into()],
         fts: None,
@@ -308,15 +557,13 @@ fn staged_build_matches_static_inference_overlap_and_cache_restore() {
     let index = Index::build(&root, definitions.clone(), options).unwrap();
     assert_eq!(index.status().unwrap().indexed_files, 3);
     assert_eq!(index.status().unwrap().live_records, 6);
-    assert!(
-        index
-            .view()
-            .unwrap()
-            .repository()
-            .collections()
-            .iter()
-            .all(|state| { state.generation.records.is_empty() })
-    );
+    assert!(index
+        .view()
+        .unwrap()
+        .repository()
+        .collections()
+        .iter()
+        .all(|state| { state.generation.records.is_empty() }));
     assert_eq!(
         index.view().unwrap().repository().build_parses(),
         static_repo.build_parses() * 2

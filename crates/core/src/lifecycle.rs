@@ -1384,7 +1384,7 @@ impl Index {
         std::thread::Builder::new()
             .name("objekte-staged-build".into())
             .spawn(move || {
-                let on_catalogue = |files: &crate::inventory::FileInventory| {
+                let on_catalogue = |files: &crate::inventory::FileInventory, complete: bool| {
                     let catalogue = files
                         .files
                         .iter()
@@ -1397,7 +1397,11 @@ impl Index {
                         })
                         .collect::<Vec<_>>();
                     if let Ok(mut status) = opening.status.lock() {
-                        status.phase = StagedBuildPhase::BuildingBase;
+                        status.phase = if complete {
+                            StagedBuildPhase::BuildingBase
+                        } else {
+                            StagedBuildPhase::Discovering
+                        };
                         status.discovered_files = catalogue.len();
                     }
                     if let Ok(mut files) = opening.catalogue.lock() {
@@ -1701,6 +1705,14 @@ impl Index {
         &self,
         inference: crate::inference::InferenceConfig,
     ) -> Result<(), IndexError> {
+        self.start_inference_with_pause(inference, false)
+    }
+
+    pub(crate) fn start_inference_with_pause(
+        &self,
+        inference: crate::inference::InferenceConfig,
+        start_paused: bool,
+    ) -> Result<(), IndexError> {
         inference.validate().map_err(IndexError::IncompatibleConfiguration)?;
         if inference.mode == crate::inference::InferenceMode::Disabled {
             return Err(IndexError::IncompatibleConfiguration(
@@ -1751,6 +1763,9 @@ impl Index {
             .map(|collection| collection.generation.files.len()).sum();
         let job = Arc::new(ExtendedJob::new(ExtendedPhase::Pending, total_files));
         *job.requested_inference.lock().map_err(|_| IndexError::LockPoisoned)? = Some(inference);
+        if start_paused {
+            job.pause()?;
+        }
         *self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)? = Some(Arc::clone(&job));
         let index = self.clone();
         std::thread::Builder::new()
