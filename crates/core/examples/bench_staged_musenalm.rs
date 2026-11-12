@@ -232,6 +232,7 @@ fn run() -> Result<(), String> {
             .wait_search_ready()
             .map_err(|error| error.to_string())?;
         let search_ready_ns = started.elapsed().as_nanos() as u64;
+        let (ready_rss_bytes, ready_peak_rss_bytes) = process_memory();
         let first_query_started = Instant::now();
         let first_query_result = index
             .view()
@@ -240,11 +241,10 @@ fn run() -> Result<(), String> {
         let first_text_query_ns = first_query_started.elapsed().as_nanos() as u64;
         let first_text_page_rows = first_query_result.hits.len();
         let first_text_page_ready_ns = started.elapsed().as_nanos() as u64;
+        let catalogue = task.catalogue().map_err(|error| error.to_string())?;
+        let catalogue_source_bytes = catalogue.iter().map(|file| file.size).sum::<u64>();
         if corpus_fingerprint.is_empty() {
-            corpus_fingerprint = fingerprint_catalogue(
-                &root,
-                &task.catalogue().map_err(|error| error.to_string())?,
-            )?;
+            corpus_fingerprint = fingerprint_catalogue(&root, &catalogue)?;
         }
         if mode == "complete" {
             index.wait_extended().map_err(|error| error.to_string())?;
@@ -272,6 +272,7 @@ fn run() -> Result<(), String> {
         }
         let view = index.view().map_err(|error| error.to_string())?;
         let status = index.extended_status().map_err(|error| error.to_string())?;
+        let (measurement_rss_bytes, measurement_peak_rss_bytes) = process_memory();
         if inference {
             for definition in &definitions {
                 if let Some(paths) = index
@@ -288,6 +289,11 @@ fn run() -> Result<(), String> {
             "mode": mode,
             "inference": inference,
             "search_ready_ns": search_ready_ns,
+            "ready_rss_bytes": ready_rss_bytes,
+            "ready_peak_rss_bytes": ready_peak_rss_bytes,
+            "measurement_rss_bytes": measurement_rss_bytes,
+            "measurement_peak_rss_bytes": measurement_peak_rss_bytes,
+            "catalogue_source_bytes": catalogue_source_bytes,
             "first_listing_ns": first_listing_ns,
             "first_text_query_ns": first_text_query_ns,
             "first_text_page_rows": first_text_page_rows,
@@ -541,6 +547,21 @@ fn run() -> Result<(), String> {
         return Err(format!("{failures} case/profile groups failed"));
     }
     Ok(())
+}
+
+fn process_memory() -> (Option<u64>, Option<u64>) {
+    let Ok(status) = fs::read_to_string("/proc/self/status") else {
+        return (None, None);
+    };
+    let kib = |name: &str| {
+        status
+            .lines()
+            .find_map(|line| line.strip_prefix(name))
+            .and_then(|value| value.split_whitespace().next())
+            .and_then(|value| value.parse::<u64>().ok())
+            .map(|value| value.saturating_mul(1024))
+    };
+    (kib("VmRSS:"), kib("VmHWM:"))
 }
 
 fn median(counters: &[WorkCounters], f: impl Fn(&WorkCounters) -> u64) -> u64 {
