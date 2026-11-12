@@ -13,15 +13,6 @@ impl FoldedSink for StreamCollector {
     }
 }
 
-fn available_fold_backends() -> Vec<FoldBackend> {
-    let native = FoldBackend::native();
-    if native == FoldBackend::Scalar {
-        vec![FoldBackend::Scalar]
-    } else {
-        vec![FoldBackend::Scalar, native]
-    }
-}
-
 #[test]
 fn direct_folded_stream_and_gram_windows_match_full_fold_oracle() {
     let mut samples = vec![
@@ -59,83 +50,76 @@ fn direct_folded_stream_and_gram_windows_match_full_fold_oracle() {
     }
     for sample in &samples {
         let oracle = folded_chars(sample).collect::<String>();
-        for backend in available_fold_backends() {
-            let mut collected = StreamCollector::default();
-            walk_folded(sample, backend, &mut collected);
-            assert_eq!(collected.0, oracle, "backend={backend:?} sample={sample:?}");
-            for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
-                let mut expected = Vec::new();
-                for_each_gram(oracle.chars(), alphabet, |skip, key| {
-                    expected.push((skip, key));
-                });
-                let mut actual = Vec::new();
-                for_each_segment_gram(sample, alphabet, backend, |skip, key| {
-                    actual.push((skip, key));
-                });
-                assert_eq!(
-                    actual, expected,
-                    "backend={backend:?} alphabet={alphabet:?} sample={sample:?}"
-                );
-            }
+        let mut collected = StreamCollector::default();
+        walk_folded_scalar(sample, &mut collected);
+        assert_eq!(collected.0, oracle, "sample={sample:?}");
+        for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+            let mut expected = Vec::new();
+            for_each_gram(oracle.chars(), alphabet, |skip, key| {
+                expected.push((skip, key));
+            });
+            let mut actual = Vec::new();
+            for_each_segment_gram(sample, alphabet, |skip, key| {
+                actual.push((skip, key));
+            });
+            assert_eq!(actual, expected, "alphabet={alphabet:?} sample={sample:?}");
         }
     }
 }
 
 #[test]
 fn direct_folded_grams_keep_byte_scalar_and_segment_boundaries() {
-    for backend in available_fold_backends() {
-        let collect = |segments: &[&str], alphabet| {
-            let mut normal = HashSet::new();
-            let mut skip = HashSet::new();
-            for &segment in segments {
-                for_each_segment_gram(segment, alphabet, backend, |is_skip, key| {
-                    if is_skip {
-                        skip.insert(key);
-                    } else {
-                        normal.insert(key);
-                    }
-                });
-            }
-            (normal, skip)
-        };
-        let (normal, skip) = collect(&["ABC"], BigramAlphabet::Ascii);
-        assert_eq!(
-            normal,
-            [
-                ascii_pair(b'a', b'b').unwrap(),
-                ascii_pair(b'b', b'c').unwrap()
-            ]
-            .into()
-        );
-        assert_eq!(skip, [ascii_pair(b'a', b'c').unwrap()].into());
+    let collect = |segments: &[&str], alphabet| {
+        let mut normal = HashSet::new();
+        let mut skip = HashSet::new();
+        for &segment in segments {
+            for_each_segment_gram(segment, alphabet, |is_skip, key| {
+                if is_skip {
+                    skip.insert(key);
+                } else {
+                    normal.insert(key);
+                }
+            });
+        }
+        (normal, skip)
+    };
+    let (normal, skip) = collect(&["ABC"], BigramAlphabet::Ascii);
+    assert_eq!(
+        normal,
+        [
+            ascii_pair(b'a', b'b').unwrap(),
+            ascii_pair(b'b', b'c').unwrap()
+        ]
+        .into()
+    );
+    assert_eq!(skip, [ascii_pair(b'a', b'c').unwrap()].into());
 
-        let (normal, skip) = collect(&["a\nb"], BigramAlphabet::Ascii);
-        assert!(normal.is_empty());
-        assert!(skip.contains(&ascii_pair(b'a', b'b').unwrap()));
-        let (normal, _) = collect(&["a\nb"], BigramAlphabet::Unicode);
-        assert!(normal.contains(&unicode_pair('a', '\n')));
-        assert!(normal.contains(&unicode_pair('\n', 'b')));
+    let (normal, skip) = collect(&["a\nb"], BigramAlphabet::Ascii);
+    assert!(normal.is_empty());
+    assert!(skip.contains(&ascii_pair(b'a', b'b').unwrap()));
+    let (normal, _) = collect(&["a\nb"], BigramAlphabet::Unicode);
+    assert!(normal.contains(&unicode_pair('a', '\n')));
+    assert!(normal.contains(&unicode_pair('\n', 'b')));
 
-        let (normal, skip) = collect(&["ab", "cd"], BigramAlphabet::Ascii);
-        assert!(!normal.contains(&ascii_pair(b'b', b'c').unwrap()));
-        assert!(!skip.contains(&ascii_pair(b'a', b'c').unwrap()));
+    let (normal, skip) = collect(&["ab", "cd"], BigramAlphabet::Ascii);
+    assert!(!normal.contains(&ascii_pair(b'b', b'c').unwrap()));
+    assert!(!skip.contains(&ascii_pair(b'a', b'c').unwrap()));
 
-        let (_, skip) = collect(&["aéb"], BigramAlphabet::Ascii);
-        assert!(!skip.contains(&ascii_pair(b'a', b'b').unwrap()));
-        let (_, skip) = collect(&["aéb"], BigramAlphabet::Unicode);
-        assert!(skip.contains(&unicode_pair('a', 'b')));
+    let (_, skip) = collect(&["aéb"], BigramAlphabet::Ascii);
+    assert!(!skip.contains(&ascii_pair(b'a', b'b').unwrap()));
+    let (_, skip) = collect(&["aéb"], BigramAlphabet::Unicode);
+    assert!(skip.contains(&unicode_pair('a', 'b')));
 
-        let (normal, skip) = collect(&["AßB"], BigramAlphabet::Ascii);
-        assert!(normal.contains(&ascii_pair(b'a', b's').unwrap()));
-        assert!(normal.contains(&ascii_pair(b's', b's').unwrap()));
-        assert!(normal.contains(&ascii_pair(b's', b'b').unwrap()));
-        assert!(skip.contains(&ascii_pair(b'a', b's').unwrap()));
-    }
+    let (normal, skip) = collect(&["AßB"], BigramAlphabet::Ascii);
+    assert!(normal.contains(&ascii_pair(b'a', b's').unwrap()));
+    assert!(normal.contains(&ascii_pair(b's', b's').unwrap()));
+    assert!(normal.contains(&ascii_pair(b's', b'b').unwrap()));
+    assert!(skip.contains(&ascii_pair(b'a', b's').unwrap()));
 }
 
 /// Manual kernel comparison including full gram emission, not merely byte
-/// conversion. Run with `cargo test -p objekte-core --release --locked
-/// benchmark_folded_gram_emission -- --ignored --nocapture`.
+/// conversion. Run with `cargo test -p objekte-search-core --release --locked
+/// benchmark_folded_gram_emission --lib -- --ignored --nocapture`.
 #[test]
 #[ignore]
 fn benchmark_folded_gram_emission() {
@@ -158,14 +142,10 @@ fn benchmark_folded_gram_emission() {
         ),
         ("unicode", "中文🙂Σςσİßé 中🙂界 ".repeat(64)),
     ];
-    let backends = available_fold_backends();
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         for (name, text) in &cases {
             let iterations = (2_000_000 / text.len()).max(2_000);
-            for role in ["reference", "scalar", "native"] {
-                if role == "native" && backends.len() == 1 {
-                    continue;
-                }
+            for role in ["reference", "scalar"] {
                 let start = Instant::now();
                 let mut checksum = 0u64;
                 for _ in 0..iterations {
@@ -176,18 +156,7 @@ fn benchmark_folded_gram_emission() {
                         "reference" => {
                             for_each_gram(folded_chars(black_box(text)), alphabet, &mut tally)
                         }
-                        "scalar" => for_each_segment_gram(
-                            black_box(text),
-                            alphabet,
-                            FoldBackend::Scalar,
-                            &mut tally,
-                        ),
-                        "native" => for_each_segment_gram(
-                            black_box(text),
-                            alphabet,
-                            backends[1],
-                            &mut tally,
-                        ),
+                        "scalar" => for_each_segment_gram(black_box(text), alphabet, &mut tally),
                         _ => unreachable!(),
                     }
                 }

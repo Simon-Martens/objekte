@@ -79,30 +79,6 @@ fn for_each_gram(
 
 /// Construction reads borrowed UTF-8 directly. ASCII bytes need no character
 /// iterator or re-encoding; only non-ASCII scalars enter the locked full fold.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-enum FoldBackend {
-    Scalar,
-    #[cfg(target_arch = "x86_64")]
-    Avx2,
-    #[cfg(target_arch = "aarch64")]
-    Neon,
-}
-
-impl FoldBackend {
-    fn native() -> Self {
-        #[cfg(target_arch = "x86_64")]
-        if std::arch::is_x86_feature_detected!("avx2") {
-            return Self::Avx2;
-        }
-        #[cfg(target_arch = "aarch64")]
-        {
-            return Self::Neon;
-        }
-        #[allow(unreachable_code)]
-        Self::Scalar
-    }
-}
-
 trait FoldedSink {
     fn ascii(&mut self, byte: u8);
     fn scalar(&mut self, scalar: char);
@@ -202,108 +178,7 @@ fn walk_folded_scalar(text: &str, sink: &mut impl FoldedSink) {
     }
 }
 
-fn walk_folded(text: &str, backend: FoldBackend, sink: &mut impl FoldedSink) {
-    match backend {
-        FoldBackend::Scalar => walk_folded_scalar(text, sink),
-        #[cfg(target_arch = "x86_64")]
-        FoldBackend::Avx2 => {
-            // The only constructor for Avx2 checks the CPU feature. Tests
-            // request this backend only after the same runtime check.
-            unsafe { walk_folded_avx2(text, sink) }
-        }
-        #[cfg(target_arch = "aarch64")]
-        FoldBackend::Neon => unsafe { walk_folded_neon(text, sink) },
-    }
-}
-
-#[cfg(target_arch = "x86_64")]
-#[target_feature(enable = "avx2")]
-unsafe fn walk_folded_avx2(text: &str, sink: &mut impl FoldedSink) {
-    use std::arch::x86_64::*;
-
-    let bytes = text.as_bytes();
-    let mut offset = 0;
-    while bytes.len() - offset >= 32 {
-        // The length guard above covers the entire unaligned vector load.
-        let input = unsafe { _mm256_loadu_si256(bytes.as_ptr().add(offset).cast()) };
-        let high = _mm256_movemask_epi8(input) as u32;
-        if high == 0 {
-            let upper = _mm256_and_si256(
-                _mm256_cmpgt_epi8(input, _mm256_set1_epi8(b'A' as i8 - 1)),
-                _mm256_cmpgt_epi8(_mm256_set1_epi8(b'Z' as i8 + 1), input),
-            );
-            let lowered = _mm256_add_epi8(input, _mm256_and_si256(upper, _mm256_set1_epi8(32)));
-            let mut block = [0u8; 32];
-            unsafe { _mm256_storeu_si256(block.as_mut_ptr().cast(), lowered) };
-            for byte in block {
-                sink.ascii(byte);
-            }
-            offset += 32;
-        } else {
-            // The first high bit is the leading byte of a UTF-8 scalar:
-            // offset is a character boundary on every loop entry.
-            let ascii_len = high.trailing_zeros() as usize;
-            for &byte in &bytes[offset..offset + ascii_len] {
-                sink.ascii(lower_ascii(byte));
-            }
-            offset += ascii_len;
-            offset = fold_non_ascii(text, offset, sink);
-        }
-    }
-    while offset < bytes.len() {
-        if bytes[offset].is_ascii() {
-            sink.ascii(lower_ascii(bytes[offset]));
-            offset += 1;
-        } else {
-            offset = fold_non_ascii(text, offset, sink);
-        }
-    }
-}
-
-#[cfg(target_arch = "aarch64")]
-unsafe fn walk_folded_neon(text: &str, sink: &mut impl FoldedSink) {
-    use std::arch::aarch64::*;
-
-    let bytes = text.as_bytes();
-    let mut offset = 0;
-    while bytes.len() - offset >= 16 {
-        let input = unsafe { vld1q_u8(bytes.as_ptr().add(offset)) };
-        if vmaxvq_u8(vandq_u8(input, vdupq_n_u8(0x80))) == 0 {
-            let upper = vandq_u8(
-                vcgeq_u8(input, vdupq_n_u8(b'A')),
-                vcleq_u8(input, vdupq_n_u8(b'Z')),
-            );
-            let lowered = vaddq_u8(input, vandq_u8(upper, vdupq_n_u8(32)));
-            let mut block = [0u8; 16];
-            unsafe { vst1q_u8(block.as_mut_ptr(), lowered) };
-            for byte in block {
-                sink.ascii(byte);
-            }
-            offset += 16;
-        } else {
-            while bytes[offset].is_ascii() {
-                sink.ascii(lower_ascii(bytes[offset]));
-                offset += 1;
-            }
-            offset = fold_non_ascii(text, offset, sink);
-        }
-    }
-    while offset < bytes.len() {
-        if bytes[offset].is_ascii() {
-            sink.ascii(lower_ascii(bytes[offset]));
-            offset += 1;
-        } else {
-            offset = fold_non_ascii(text, offset, sink);
-        }
-    }
-}
-
-fn for_each_segment_gram(
-    text: &str,
-    alphabet: BigramAlphabet,
-    backend: FoldBackend,
-    mut emit: impl FnMut(bool, u64),
-) {
+fn for_each_segment_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl FnMut(bool, u64)) {
     match alphabet {
         BigramAlphabet::Ascii => {
             let mut sink = AsciiGramSink {
@@ -311,7 +186,7 @@ fn for_each_segment_gram(
                 before_previous: None,
                 emit: &mut emit,
             };
-            walk_folded(text, backend, &mut sink);
+            walk_folded_scalar(text, &mut sink);
         }
         BigramAlphabet::Unicode => {
             let mut sink = UnicodeGramSink {
@@ -319,7 +194,7 @@ fn for_each_segment_gram(
                 before_previous: None,
                 emit: &mut emit,
             };
-            walk_folded(text, backend, &mut sink);
+            walk_folded_scalar(text, &mut sink);
         }
     }
 }
@@ -418,9 +293,8 @@ impl BigramIndex {
             .ok_or("bigram record overflow")?;
         let mut normal = HashSet::new();
         let mut skip = HashSet::new();
-        let backend = FoldBackend::native();
         for segment in segments {
-            for_each_segment_gram(&segment.text, self.alphabet, backend, |is_skip, key| {
+            for_each_segment_gram(&segment.text, self.alphabet, |is_skip, key| {
                 if is_skip {
                     skip.insert(key);
                 } else {
@@ -769,7 +643,6 @@ pub(crate) struct BigramBuilder {
     contribution: BigramContribution,
     normal: GramWords,
     skip: GramWords,
-    fold_backend: FoldBackend,
     chunk_start: u32,
     chunk_len: u32,
 }
@@ -786,7 +659,6 @@ impl BigramBuilder {
             contribution,
             normal: GramWords::new(alphabet),
             skip: GramWords::new(alphabet),
-            fold_backend: FoldBackend::native(),
             chunk_start: 0,
             chunk_len: 0,
         }
@@ -843,7 +715,7 @@ impl BigramBuilder {
     fn add_segment(&mut self, bit: u64, segment: &str) {
         let alphabet = self.contribution.alphabet;
         let (normal, skip) = (&mut self.normal, &mut self.skip);
-        for_each_segment_gram(segment, alphabet, self.fold_backend, |is_skip, key| {
+        for_each_segment_gram(segment, alphabet, |is_skip, key| {
             if is_skip {
                 skip.set(key, bit);
             } else {
