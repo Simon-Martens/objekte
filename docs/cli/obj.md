@@ -22,7 +22,8 @@ The positional query is a structured expression unless it is exactly one double-
 | `--repo PATH` | Open all collections declared in `PATH/.objekte/collections/*.schema.json`. |
 | `--schema FILE` | Apply one schema to the single `files` collection. Unavailable relations are ignored. |
 | `--tui` | Open the interactive screen; multiple collections offer collection selection. |
-| `--auto-index` | Infer bounded ordered postings in each opened collection. |
+| `--auto-index` | Explicitly infer eligible fields and build their indexes. With no query, it is an index-only inference command. |
+| `--index-wait search\|complete` | Wait until text search is usable (default for queries and TUI), or until requested field indexing finishes (default for index-only commands). Both modes return complete query results. |
 | `--no-recurse` | Search immediate `.json` children only. |
 | `--fts TEXT` | Search literal scalar text without JSON-string quoting. |
 | `--query-file FILE` | Run one query per physical line; `-` reads stdin. |
@@ -30,11 +31,15 @@ The positional query is a structured expression unless it is exactly one double-
 | `--offset N` | Skip `N` hits in final result order; default `0`. |
 | `--count` | Compute an exact total for a finite page. All-results mode always computes it. |
 | `--index-alphabet ascii\|unicode` | Select bigram alphabet; default `ascii`. Exact case behavior is a query property. |
-| `--write-index[=DIR]` | Build fresh and atomically save a snapshot. |
+| `--write-index[=DIR]` | Build and atomically save the current coherent snapshot; a query using the default search wait may save partial field-index coverage. |
 | `--load-index[=DIR]` | Require a valid snapshot; combine with `--write-index` to rebuild if absent or stale. |
 | `--diagnostic`, `--diagnostics` | Include inferred index paths in the final NDJSON event and emit a pretty JSON operational diagnostic on stderr. |
 
-`QUERY`, `--fts`, and `--query-file` are mutually exclusive. Bare `obj` reports a missing query and does not build an index. An index flag permits an index-only invocation with no query. Optional snapshot directories require `=`: `--write-index 'title = "A"'` leaves the query intact, whereas `--write-index=./cache` selects a directory. The implicit directory is `<root>/.objekte`; an explicit relative directory is relative to the invocation's working directory. If both flags name directories, they must resolve to the same destination.
+`QUERY`, `--fts`, and `--query-file` are mutually exclusive. Bare `obj` reports a missing query and does not build an index. `--auto-index`, `--write-index`, or `--load-index` permits an index-only invocation with no query. An index-only `--auto-index` command waits for inference but writes nothing unless a snapshot destination is explicitly selected. Optional snapshot directories require `=`: `--write-index 'title = "A"'` leaves the query intact, whereas `--write-index=./cache` selects a directory. The implicit directory is `<root>/.objekte`; an explicit relative directory is relative to the invocation's working directory. If both flags name directories, they must resolve to the same destination.
+
+Fresh construction makes text search usable before optional field indexing finishes. `--index-wait=search` waits for that searchable base. Queries still evaluate fields without an index by reading their source records; search readiness does not promise every source read succeeds. A one-shot query stops unfinished background indexing when it exits. Use `--index-wait=complete` for a query or saved snapshot that must include all requested field indexing. An explicit index-only build or inference command waits for completion by default.
+
+The TUI shows field-index progress in its footer after search becomes available. Its `Ctrl+K` action picker can cancel or resume field indexing independently of query cancellation; existing search remains available after indexing stops.
 
 `--repo` is exclusive with `--path`, `--schema`, and `--no-recurse`. It reads collection name, source path, format and ID policy from each schema's `x-objekte` object. Relative source paths must stay inside the repository root. Available `x-relation` targets remain active, so the TUI can show outgoing links and backlinks; declarations pointing to collections absent from the repository are ignored. Repository CLI queries search all collections, while the TUI can select one. Without index flags, `--repo` builds in memory and leaves snapshots untouched. Use `--load-index` to require restore or `--write-index` to save explicitly.
 
@@ -81,7 +86,9 @@ The query terminal includes `emitted_rows`, `observed_matches`, `exact_total` or
 
 Timing fields use a monotonic clock. `preparation_ms` covers input parsing and request construction before core execution. `search_ms` is coordinator wall elapsed outside synchronous output callbacks, including verification, ordering and required reads. `sink_ms` is callback encoding, writes, flushes and downstream backpressure. Worker computation may overlap callbacks, so these fields are not independent CPU costs. `query_wall_ms` spans preparation through the output flush before its terminal event; `first_hit_ms` is null when no hit is delivered. Terminal-line write time itself is outside that query's reported wall interval. Startup, snapshot decode/reconciliation, fresh build and snapshot write are reported separately. Embedded core work counters expose `preparation_ms` and `planning_ms` in this protocol; the library retains nanosecond counters for profiling.
 
-With `--auto-index --diagnostic`, the final event includes `automatic_index_paths`, sorted by path. Each entry reports admission status, reason, observed and indexed kind, multivalue state, B-tree value/length key counts and coverage. The same typed report is available to library callers through `Repository::inference_index_diagnostics(collection)`. A built value dictionary does not imply every query can skip verification; multivalued and partially covered short-string paths retain their coverage rules.
+With `--auto-index --diagnostic`, the final event includes `automatic_index_paths` once inference has completed, sorted by path. Each entry reports admission status, reason, observed and indexed kind, multivalue state, B-tree value/length key counts and coverage. An early search-wait query may report only the currently published state. Live typed diagnostics are available through `Index::inference_index_diagnostics(collection)`. A built value dictionary does not imply every query can skip verification; multivalued and partially covered short-string paths retain their coverage rules.
+
+The diagnostic terminal event also reports `capability_revision` and `extended_index` phase, completed-file count, total-file count, and any indexing error. These fields describe the state published when the run ends; they do not assert that a search-wait snapshot has full field coverage.
 
 In multi-collection mode (`--repo` or repeated `--path`), `--auto-index --diagnostic` reports these paths under `automatic_index_collections`, keyed by collection name.
 
@@ -112,6 +119,8 @@ for path in repository.inference_index_diagnostics("files").unwrap_or_default() 
 | Both | Restore and reconcile; do not rewrite. | Build fresh, atomically save, then query. |
 
 Permission and I/O failures are errors, not automatic rebuild signals. A load verifies the complete selected inventory using filesystem metadata; unchanged source JSON is not reparsed merely for restore. A file added, removed, renamed or modified since the snapshot makes load-only fail. Neither-flag and load-only modes leave snapshot files untouched. Snapshot writes use a temporary file and atomic rename in the destination directory; `--write-index` does not clear unrelated files there.
+
+An index-only `--write-index` waits for requested extended indexing before saving. A query combined with `--write-index` uses the query's wait policy: the default saves a searchable base and whatever field-index batches have been published, while `--index-wait=complete` saves full requested coverage. On normal query or TUI exit, indexing is quiesced before the final save. A partial snapshot records its coverage and can resume indexing on a later compatible open. It is never presented as fully indexed solely because it is searchable.
 
 ## Memory and exit behavior
 

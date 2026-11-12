@@ -1,6 +1,7 @@
 //! Shared CLI repository configuration, discovery, and snapshot opening.
 
 use std::collections::HashSet;
+use std::fmt;
 use std::path::{Path, PathBuf};
 use std::time::{Duration, Instant};
 
@@ -24,6 +25,57 @@ use objekte_search_core::streaming::CancellationToken;
 use objekte_search_core::workload::BigramAlphabet;
 
 use crate::arguments::{Alphabet, Arguments, IndexWait, ResolvedPaths};
+
+/// Preserve whether an opening error came from a requested build milestone.
+#[derive(Debug)]
+pub enum OpenRepositoryError {
+    Opening(String),
+    Build(String),
+}
+
+/// A failed post-readiness open must not leave its optional builder running.
+struct StagedOpenGuard(Option<Index>);
+
+impl StagedOpenGuard {
+    fn disarm(&mut self) {
+        self.0 = None;
+    }
+}
+
+impl Drop for StagedOpenGuard {
+    fn drop(&mut self) {
+        if let Some(index) = self.0.take() {
+            let _ = index.cancel_extended();
+            let _ = index.shutdown();
+        }
+    }
+}
+
+impl OpenRepositoryError {
+    pub fn is_build_failure(&self) -> bool {
+        matches!(self, Self::Build(_))
+    }
+}
+
+impl fmt::Display for OpenRepositoryError {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::Opening(message) | Self::Build(message) => formatter.write_str(message),
+        }
+    }
+}
+
+impl From<String> for OpenRepositoryError {
+    fn from(message: String) -> Self {
+        Self::Opening(message)
+    }
+}
+
+impl From<&str> for OpenRepositoryError {
+    fn from(message: &str) -> Self {
+        Self::Opening(message.to_owned())
+    }
+}
 
 fn load_schema_configuration(
     paths: &ResolvedPaths,
@@ -313,7 +365,7 @@ pub fn open_repository_wait(
     require_current_sources: bool,
     wait: IndexWait,
     cancellation: &CancellationToken,
-) -> Result<(IndexedRepository, u128, Option<SnapshotSaveStats>), String> {
+) -> Result<(IndexedRepository, u128), OpenRepositoryError> {
     let directory = policy
         .directory
         .clone()
@@ -344,8 +396,9 @@ pub fn open_repository_wait(
     )
     .map_err(|error| error.to_string())?;
     let index = wait_for_open(&task, wait, cancellation)?;
+    let mut guard = StagedOpenGuard(Some(index.clone()));
     let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
-    stop_if_cancelled(&repo, cancellation)?;
+    stop_if_cancelled(cancellation)?;
     if require_current_sources && repo.startup().restored {
         let report = repo
             .index()
@@ -356,42 +409,20 @@ pub fn open_repository_wait(
             return Err(format!(
                 "cache reconciliation incomplete: {} source issues",
                 report.issues.len() + report.omitted_issues
-            ));
+            ).into());
         }
         if !write_requested && (report.added > 0 || report.updated > 0 || report.removed > 0) {
             return Err("loaded cache is stale; use --load-index with --write-index to reconcile and save it".into());
         }
     }
-    stop_if_cancelled(&repo, cancellation)?;
+    stop_if_cancelled(cancellation)?;
     let open_ns = open_started.elapsed().as_nanos();
-    if write_requested
-        && (!repo.startup().restored
-            || (require_current_sources
-                && repo
-                    .index()
-                    .status()
-                    .map_err(|error| error.to_string())?
-                    .dirty()))
-    {
-        let path =
-            objekte_search_core::storage::snapshot_path_in(&directory, options.bigram_alphabet);
-        let saved = repo
-            .index()
-            .flush_cache_with_stats(&path)
-            .map_err(|error| error.to_string())?
-            .1;
-        return Ok((repo, open_ns, Some(saved)));
-    }
-    Ok((repo, open_ns, None))
+    guard.disarm();
+    Ok((repo, open_ns))
 }
 
-fn stop_if_cancelled(
-    repo: &IndexedRepository,
-    cancellation: &CancellationToken,
-) -> Result<(), String> {
+fn stop_if_cancelled(cancellation: &CancellationToken) -> Result<(), String> {
     if cancellation.is_cancelled() {
-        let _ = repo.index().cancel_extended();
-        let _ = repo.index().shutdown();
         return Err("index opening cancelled".into());
     }
     Ok(())
@@ -401,7 +432,7 @@ fn wait_for_open(
     task: &StagedBuildTask,
     wait: IndexWait,
     cancellation: &CancellationToken,
-) -> Result<Index, String> {
+) -> Result<Index, OpenRepositoryError> {
     loop {
         if cancellation.is_cancelled() {
             task.cancel();
@@ -410,10 +441,14 @@ fn wait_for_open(
         }
         let status = task.status().map_err(|error| error.to_string())?;
         if wait == IndexWait::Search && status.data_revision.is_some() {
-            return task.wait_search_ready().map_err(|error| error.to_string());
+            return task
+                .wait_search_ready()
+                .map_err(|error| OpenRepositoryError::Build(error.to_string()));
         }
         if matches!(status.phase, StagedBuildPhase::Complete | StagedBuildPhase::Failed | StagedBuildPhase::Cancelled) {
-            return task.wait_complete().map_err(|error| error.to_string());
+            return task
+                .wait_complete()
+                .map_err(|error| OpenRepositoryError::Build(error.to_string()));
         }
         std::thread::sleep(Duration::from_millis(25));
     }

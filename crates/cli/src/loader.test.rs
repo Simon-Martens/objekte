@@ -9,6 +9,34 @@ fn shared_cli_and_tui_loader_enables_bounded_verified_cache() {
 }
 
 #[test]
+fn staged_open_honors_cancellation_before_search_readiness() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), br#"{"title":"A"}"#).unwrap();
+    let args = Arguments {
+        path: vec![root.path().to_owned()],
+        ..Arguments::default()
+    };
+    let paths = args.resolve_paths(root.path()).unwrap();
+    let configured = configure_definitions(&args, &paths).unwrap();
+    let cancellation = CancellationToken::new();
+    cancellation.cancel();
+    let error = open_repository_wait(
+        &paths.root,
+        &configured,
+        repository_options(&args),
+        snapshot_policy(&args, &paths),
+        false,
+        false,
+        false,
+        IndexWait::Search,
+        &cancellation,
+    )
+    .err()
+    .expect("cancelled open must stop");
+    assert!(error.to_string().contains("cancelled"));
+}
+
+#[test]
 fn configured_repository_uses_lifecycle_cache_for_load_and_write_flags() {
     let root = tempfile::tempdir().unwrap();
     let schemas = root.path().join(".objekte/collections");

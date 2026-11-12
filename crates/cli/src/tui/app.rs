@@ -137,12 +137,14 @@ pub(super) enum Action {
     Regex,
     Preview,
     Theme,
+    CancelIndexing,
+    ResumeIndexing,
     Help,
 }
 
 
 impl Action {
-    pub(super) const ALL: [Self; 13] = [
+    pub(super) const ALL: [Self; 15] = [
         Self::Collections,
         Self::Sort,
         Self::Columns,
@@ -155,6 +157,8 @@ impl Action {
         Self::Regex,
         Self::Preview,
         Self::Theme,
+        Self::CancelIndexing,
+        Self::ResumeIndexing,
         Self::Help,
     ];
 
@@ -172,6 +176,8 @@ impl Action {
             Self::Regex => "Toggle regex search              Alt+R",
             Self::Preview => "Toggle preview                   Ctrl+P",
             Self::Theme => "Switch light/dark theme          Alt+T",
+            Self::CancelIndexing => "Cancel field indexing",
+            Self::ResumeIndexing => "Resume field indexing",
             Self::Help => "Keyboard help                    F1",
         }
     }
@@ -1062,9 +1068,54 @@ impl App {
                 Some("Search ready · Building field indexes".into())
             }
             ExtendedPhase::Complete => Some("Indexing complete".into()),
-            ExtendedPhase::Cancelled => Some("Search ready · Field indexing paused".into()),
+            ExtendedPhase::Paused => Some("Search ready · Field indexing paused".into()),
+            ExtendedPhase::Cancelled => Some("Search ready · Field indexing stopped".into()),
             ExtendedPhase::Failed => Some("Search ready · Field indexing failed".into()),
         };
+    }
+
+    pub(super) fn cancel_indexing(&mut self) {
+        match self.repo.index().extended_status() {
+            Ok(status) if matches!(status.phase, ExtendedPhase::Unnecessary | ExtendedPhase::Complete) => {
+                self.status = Some("Field indexing is already complete".into());
+            }
+            Ok(status) if status.phase == ExtendedPhase::Cancelled => {
+                self.status = Some("Field indexing is already stopped".into());
+            }
+            Ok(_) => match self.repo.index().cancel_extended() {
+                Ok(()) => {
+                    self.refresh_index_status();
+                    self.status = Some("Field indexing stopped; search remains available".into());
+                }
+                Err(error) => self.status = Some(format!("Could not stop field indexing: {error}")),
+            },
+            Err(error) => self.status = Some(format!("Could not read field indexing: {error}")),
+        }
+    }
+
+    pub(super) fn resume_indexing(&mut self) {
+        match self.repo.index().extended_status() {
+            Ok(status) if matches!(status.phase, ExtendedPhase::Unnecessary | ExtendedPhase::Complete) => {
+                self.status = Some("Field indexing is already complete".into());
+                return;
+            }
+            Ok(status) if matches!(status.phase, ExtendedPhase::Pending | ExtendedPhase::Building) => {
+                self.status = Some("Field indexing is already running".into());
+                return;
+            }
+            Err(error) => {
+                self.status = Some(format!("Could not read field indexing: {error}"));
+                return;
+            }
+            Ok(_) => {}
+        }
+        match self.repo.index().resume_extended() {
+            Ok(()) => {
+                self.refresh_index_status();
+                self.status = Some("Field indexing resumed".into());
+            }
+            Err(error) => self.status = Some(format!("Could not resume field indexing: {error}")),
+        }
     }
 
     fn launch(&mut self, offset: usize) {

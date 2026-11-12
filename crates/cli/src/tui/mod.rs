@@ -12,7 +12,9 @@ mod test_support;
 mod view;
 
 use std::error::Error;
+use std::path::PathBuf;
 use std::sync::mpsc;
+use std::thread::JoinHandle;
 use std::time::{Duration, Instant};
 
 use app::{Action, App, Focus, Overlay, View};
@@ -39,7 +41,29 @@ pub struct TuiOptions {
     pub loading_label: Option<String>,
     /// An explicit save was requested at startup.
     pub snapshot_requested: bool,
+    pub snapshot_path: Option<PathBuf>,
     pub interruption: Option<CancellationToken>,
+}
+
+/// Keep the startup worker inside the terminal session even on an early exit.
+struct LoadingWorker {
+    cancellation: CancellationToken,
+    handle: Option<JoinHandle<()>>,
+    receiver: mpsc::Receiver<Result<IndexedRepository, String>>,
+}
+
+impl Drop for LoadingWorker {
+    fn drop(&mut self) {
+        self.cancellation.cancel();
+        if let Some(handle) = self.handle.take() {
+            let _ = handle.join();
+        }
+        // Cancellation can race the loader's final successful return. In
+        // that case, close the returned index instead of dropping its worker.
+        if let Ok(Ok(repository)) = self.receiver.try_recv() {
+            let _ = repository.index().shutdown();
+        }
+    }
 }
 
 
@@ -49,6 +73,8 @@ where
 {
     let mut terminal = ratatui::try_init()?;
     let mut session_index: Option<Index> = None;
+    let mut session_restored = false;
+    let final_snapshot_path = options.snapshot_path.clone();
     let result = (|| -> Result<(), Box<dyn Error>> {
         execute!(std::io::stdout(), event::EnableMouseCapture)?;
         let interrupted = || {
@@ -69,10 +95,14 @@ where
             view::draw_loading_with_label(frame, started.elapsed(), &loading_label)
         })?;
         let worker_cancel = loading_cancel.clone();
-        std::thread::spawn(move || {
-            let result = loader(worker_cancel);
-            let _ = sender.send(result);
-        });
+        let loading_worker = LoadingWorker {
+            cancellation: loading_cancel.clone(),
+            handle: Some(std::thread::spawn(move || {
+                let result = loader(worker_cancel);
+                let _ = sender.send(result);
+            })),
+            receiver,
+        };
         let repository = loop {
             if options
                 .interruption
@@ -82,9 +112,11 @@ where
                 loading_cancel.cancel();
                 return Err(interrupted().into());
             }
-            match receiver.try_recv() {
+            match loading_worker.receiver.try_recv() {
                 Ok(Ok(repository)) => break repository,
-                Ok(Err(error)) => return Err(std::io::Error::other(error).into()),
+                Ok(Err(error)) => {
+                    return Err(std::io::Error::other(error).into());
+                }
                 Err(mpsc::TryRecvError::Disconnected) => {
                     return Err(std::io::Error::other("repository loader stopped").into());
                 }
@@ -116,7 +148,9 @@ where
                 }
             }
         };
+        drop(loading_worker);
         session_index = Some(repository.index().clone());
+        session_restored = repository.startup().restored;
         let action = repository.startup().snapshot_action;
         let index_ns = if action == SnapshotAction::Restored {
             repository
@@ -138,7 +172,7 @@ where
             view::elapsed_label(Duration::from_nanos(index_ns))
         );
         let ready = if snapshot_requested && action != SnapshotAction::Restored {
-            format!("{ready}  ·  Snapshot saved")
+            format!("{ready}  ·  Snapshot will save on exit")
         } else {
             ready
         };
@@ -193,8 +227,13 @@ where
     let mouse = execute!(std::io::stdout(), event::DisableMouseCapture);
     let restore = ratatui::try_restore();
     let shutdown = session_index.map(|index| {
-        index.cancel_extended()?;
-        index.shutdown()?;
+        index.quiesce()?;
+        if result.is_ok()
+            && let Some(path) = final_snapshot_path.as_deref()
+            && (!session_restored || index.status()?.dirty())
+        {
+            index.flush_cache_with_stats(path)?;
+        }
         Ok::<_, objekte_search_core::lifecycle::IndexError>(())
     });
     result?;
@@ -635,6 +674,8 @@ fn run_action(app: &mut App, action: Action) {
             view::theme::set_light(light);
             app.set_theme(light);
         }
+        Action::CancelIndexing => app.cancel_indexing(),
+        Action::ResumeIndexing => app.resume_indexing(),
         Action::Help => app.overlay = Some(Overlay::Help),
     }
 }
