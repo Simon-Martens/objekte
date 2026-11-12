@@ -66,6 +66,38 @@ fn staged_explicit_write_then_cached_open_preserves_search_ready_path() {
 }
 
 #[test]
+fn staged_configured_open_restores_cache_unless_memory_build_is_selected() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
+    std::fs::create_dir_all(root.path().join("data")).unwrap();
+    std::fs::write(
+        root.path().join(".objekte/collections/data.schema.json"),
+        br#"{"type":"object","x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}}"#,
+    ).unwrap();
+    std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let spec = |configured_cache_policy| OpenSpec {
+        args: Arguments { repo: Some(root.path().to_path_buf()), ..Default::default() },
+        cwd: root.path().to_path_buf(),
+        configured_cache_policy,
+    };
+    let first = open_staged(&spec(None), &CancellationToken::new(), |task, _, collections| {
+        assert_eq!(collections, ["data"]);
+        assert!(matches!(task.status().unwrap().phase, objekte_search_core::lifecycle::StagedBuildPhase::Discovering
+            | objekte_search_core::lifecycle::StagedBuildPhase::BuildingBase
+            | objekte_search_core::lifecycle::StagedBuildPhase::SearchReady
+            | objekte_search_core::lifecycle::StagedBuildPhase::Complete));
+    }).unwrap();
+    assert!(!first.diagnostics.startup.restored);
+    let cache = first.configuration.cache_save.clone().unwrap();
+    first.repository.index().flush_cache(&cache).unwrap();
+    let restored = open_staged(&spec(None), &CancellationToken::new(), |_, _, _| {}).unwrap();
+    assert!(restored.diagnostics.startup.restored);
+    let memory = open_staged(&spec(Some(CacheOpenPolicy::Ignore)), &CancellationToken::new(), |_, _, _| {}).unwrap();
+    assert!(!memory.diagnostics.startup.restored);
+    assert!(memory.configuration.cache_load.is_none());
+}
+
+#[test]
 fn opens_folder_without_implicit_snapshot_write() {
     let root = tempfile::tempdir().unwrap();
     write_records(root.path());
