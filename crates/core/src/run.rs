@@ -2,7 +2,7 @@
 
 use std::cmp::Ordering;
 use std::cmp::Reverse;
-use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};
+use std::collections::{BTreeMap, BTreeSet, BinaryHeap, HashMap, HashSet};
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering as AtomicOrdering};
 use std::sync::{Arc, Mutex};
 use std::time::Instant;
@@ -1756,7 +1756,91 @@ pub struct QueryPlanTrace {
     pub candidates: u64,
     /// True when `candidates` and the selected paths are estimates only.
     pub candidates_estimated: bool,
+    /// Exact expression coverage from the pinned pass-2 publication. None
+    /// means this query has no staged extended capabilities.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub extended: Option<ExtendedCoverageTrace>,
     pub actual: Option<PlanActual>,
+}
+
+#[derive(Clone, Debug, Serialize)]
+pub struct ExtendedCoverageTrace {
+    pub capability_revision: u64,
+    pub covered_records: u64,
+    pub uncovered_records: u64,
+    pub may_records: u64,
+    pub must_records: u64,
+    pub accesses: Vec<String>,
+}
+
+/// Add staged capability detail without reading source records. The covered
+/// count is expression-level certainty: a record is covered when its `may`
+/// and `must` answers agree, even if another leaf remains unresolved.
+pub(crate) fn annotate_extended_traces(
+    repo: &Repository,
+    query: &Query,
+    active: Option<&[ActiveRecords]>,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
+    capability_revision: IndexRevision,
+    traces: &mut [QueryPlanTrace],
+) -> Result<(), String> {
+    let (prepared, _) = crate::prepared::prepare(repo, query)?;
+    for (collection_index, filter, _) in &prepared.collections {
+        let Some(filter) = filter else { continue };
+        let collection = &repo.collections[*collection_index];
+        let Some(trace) = traces.iter_mut().find(|trace| trace.collection == collection.definition.name)
+        else { continue };
+        let domain = collection_domain(collection, *collection_index, active);
+        let group = batches.get(*collection_index).map_or(&[][..], |group| group.as_slice());
+        let bounds = extended_filter_bounds(group, filter, &domain);
+        let mut accesses = BTreeSet::new();
+        collect_extended_accesses(group, filter, &domain, &mut accesses);
+        if accesses.is_empty() {
+            continue;
+        }
+        let uncertain = (&bounds.may - &bounds.must).len();
+        trace.extended = Some(ExtendedCoverageTrace {
+            capability_revision: capability_revision.0,
+            covered_records: domain.len().saturating_sub(uncertain),
+            uncovered_records: uncertain,
+            may_records: bounds.may.len(),
+            must_records: bounds.must.len(),
+            accesses: accesses.into_iter().collect(),
+        });
+    }
+    Ok(())
+}
+
+fn collect_extended_accesses(
+    batches: &[Arc<ExtendedBatch>],
+    expr: &BoundExpr,
+    domain: &RoaringBitmap,
+    accesses: &mut BTreeSet<String>,
+) {
+    match expr {
+        BoundExpr::Term(term) if term.path.root == PathRoot::Data => {
+            let leaf = extended_filter_bounds(batches, expr, domain);
+            let covered = domain.len().saturating_sub((&leaf.may - &leaf.must).len());
+            let path = term.path.segments.join(".");
+            let access = if covered == 0 {
+                format!("source_fallback:{path}")
+            } else if term.derived.state_predicate().is_some() {
+                format!("field_state:{path}")
+            } else if term.operation.is_some() || term.matcher.is_some() {
+                format!("named_posting:{path}")
+            } else {
+                format!("configured_posting:{path}")
+            };
+            accesses.insert(access);
+        }
+        BoundExpr::Term(_) => {}
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+            for part in parts {
+                collect_extended_accesses(batches, part, domain, accesses);
+            }
+        }
+        BoundExpr::Not(inner) => collect_extended_accesses(batches, inner, domain, accesses),
+    }
 }
 
 
@@ -6494,6 +6578,8 @@ pub(crate) fn explain_segmented(
     base_active: &[ActiveRecords],
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     revision: IndexRevision,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
+    capability_revision: IndexRevision,
 ) -> Result<Vec<QueryPlanTrace>, String> {
     if segments.len() != repo.collections.len() || base_active.len() != repo.collections.len() {
         return Err("segment explanation collection count mismatch".into());
@@ -6525,6 +6611,7 @@ pub(crate) fn explain_segmented(
             trace.remaining_verification = true;
         }
     }
+    annotate_extended_traces(repo, query, Some(base_active), batches, capability_revision, &mut traces)?;
     Ok(traces)
 }
 
@@ -6535,9 +6622,11 @@ pub(crate) fn search_analyze_segmented(
     segments: &[Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &FileCatalog,
     revision: IndexRevision,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
+    capability_revision: IndexRevision,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
-    let mut traces = explain_segmented(repo, query, base_active, segments, revision)?;
-    let result = search_segmented(repo, query, base_active, segments, catalog, revision)?;
+    let mut traces = explain_segmented(repo, query, base_active, segments, revision, batches, capability_revision)?;
+    let result = search_segmented_lifecycle(repo, query, base_active, segments, catalog, revision, batches, None)?;
     if traces.len() == 1 {
         let trace = &mut traces[0];
         let counters = &result.counters;
@@ -8939,6 +9028,7 @@ fn try_stored_order_page(
                 bound_terms: bound_term_diagnostics(repo, entry.filter),
                 candidates: entry.candidates.len(),
                 candidates_estimated: false,
+                extended: None,
                 actual: None,
             });
         }
@@ -9748,6 +9838,16 @@ pub(crate) fn search_analyze_with_active(
     query: &Query,
     active: Option<&[ActiveRecords]>,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
+    search_analyze_with_extended(repo, query, active, None, None)
+}
+
+pub(crate) fn search_analyze_with_extended(
+    repo: &Repository,
+    query: &Query,
+    active: Option<&[ActiveRecords]>,
+    batches: Option<&[Arc<Vec<Arc<ExtendedBatch>>>]>,
+    capability_revision: Option<IndexRevision>,
+) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
     let mut traces = Vec::new();
     let active_context = active.map(|active| {
         ExecutionContext::new(
@@ -9769,9 +9869,24 @@ pub(crate) fn search_analyze_with_active(
         None,
         active_context.as_ref(),
         active,
-        None,
+        batches,
     )?;
+    if let (Some(batches), Some(revision)) = (batches, capability_revision) {
+        annotate_extended_traces(repo, query, active, batches, revision, &mut traces)?;
+    }
     Ok((result, traces))
+}
+
+pub(crate) fn explain_with_extended(
+    repo: &Repository,
+    query: &Query,
+    active: Option<&[ActiveRecords]>,
+    batches: &[Arc<Vec<Arc<ExtendedBatch>>>],
+    capability_revision: IndexRevision,
+) -> Result<Vec<QueryPlanTrace>, String> {
+    let mut traces = explain_with_active(repo, query, active)?;
+    annotate_extended_traces(repo, query, active, batches, capability_revision, &mut traces)?;
+    Ok(traces)
 }
 
 pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, String> {
@@ -9880,6 +9995,7 @@ pub(crate) fn explain_with_active(
             bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
             candidates,
             candidates_estimated: true,
+            extended: None,
             actual: None,
         });
     }
@@ -10456,6 +10572,7 @@ fn search_impl_with_collector<'a>(
                 bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
                 candidates: candidates.len(),
                 candidates_estimated: false,
+                extended: None,
                 actual: None,
             });
         }
