@@ -3065,21 +3065,31 @@ fn search_active_cached(
     context: Option<&ExecutionContext>,
     cache: Option<LifecycleCacheScope<'_>>,
 ) -> Result<SearchResult, String> {
+    let bound_sort = BoundSort::bind(repo, query)?;
+    let computed_sort = bound_sort.has_computed;
+    let mut membership_query = query.clone();
+    if computed_sort {
+        membership_query.options.sort.clear();
+    }
     let mut cache_key = None;
     if query.options.count
         && query.options.limit > 0
         && context.is_none_or(|context| context.limits == ExecutionLimits::default())
         && let Some(scope) = cache
     {
-        let key = crate::verified::lifecycle_key(query, scope.instance_id, revision.0)?;
+        let key = crate::verified::lifecycle_key(&membership_query, scope.instance_id, revision.0)?;
         let mut store = scope.store.lock().map_err(|error| error.to_string())?;
         if store.enabled() {
             if let Some(cached) = store.get(&key) {
                 drop(store);
                 let empty = vec![Arc::new(Vec::new()); repo.collections.len()];
-                return materialize_lifecycle_cached(
-                    repo, query, &cached, base_active, &empty, catalog, revision, context,
-                );
+                return if computed_sort {
+                    materialize_computed_cached(repo, query, &cached, bound_sort, None, context)
+                } else {
+                    materialize_lifecycle_cached(
+                        repo, query, &cached, base_active, &empty, catalog, revision, context,
+                    )
+                };
             }
             let budget = store.budget().saturating_sub(key.len().saturating_add(128));
             cache_key = Some((scope, key, budget));
@@ -3106,7 +3116,7 @@ fn search_active_cached(
         if let Some(context) = context {
             context.check_string()?;
         }
-        sort_cached_members(repo, query, &mut members);
+        sort_cached_members(repo, &membership_query, &mut members);
         let displaced = scope
             .store
             .lock()
