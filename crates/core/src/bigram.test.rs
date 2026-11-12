@@ -60,7 +60,7 @@ fn chunked_builder_matches_independent_complete_posting_maps() {
     ];
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         for base in [0u32, 3, 65] {
-            for len in [0usize, 1, 63, 64, 65, 127, 128, 129] {
+            for len in [0usize, 1, 63, 64, 65, 127, 128, 129, 255, 256, 257] {
                 let mut state = 0xB16A_2026_1106u64;
                 let generated = ['a', 'B', 'ß', 'ü', '中', '🙂', 'Σ', ' '];
                 let records = (0..len)
@@ -117,6 +117,80 @@ fn chunked_builder_matches_independent_complete_posting_maps() {
     let boundary = boundary.finish().unwrap();
     assert!(!boundary.normal.contains_key(&unicode_pair('b', 'c')));
     assert!(!boundary.skip.contains_key(&unicode_pair('a', 'c')));
+}
+
+#[test]
+fn compact_columns_reject_invalid_coverage_and_keep_sparse_storage() {
+    let mut columns = GramColumns::default();
+    assert!(columns.validate(0).is_ok());
+    assert!(columns.blocks.is_empty());
+    assert!(columns.directory.is_empty());
+
+    columns.push(7, 0, 1).unwrap();
+    columns.push(9, 0, 1).unwrap();
+    columns.push(7, 64, 1).unwrap();
+    assert_eq!(columns.blocks.len(), 3);
+    assert_eq!(columns.directory.len(), 2);
+    assert!(columns.validate(65).is_ok());
+    assert_eq!(std::mem::size_of::<GramBlock>(), 16);
+    assert_eq!(std::mem::size_of::<GramColumn>(), 8);
+
+    assert_eq!(
+        columns.validate(64).unwrap_err(),
+        "bigram block coverage or order mismatch"
+    );
+    columns.blocks[2].first_slot = 0;
+    assert_eq!(
+        columns.validate(65).unwrap_err(),
+        "bigram block coverage or order mismatch"
+    );
+    columns.blocks[2].first_slot = 64;
+    columns.blocks[2].bits = 0;
+    assert_eq!(columns.validate(65).unwrap_err(), "empty bigram block");
+    columns.blocks[2].bits = 1;
+    columns.blocks[2].next = 99;
+    assert_eq!(
+        columns.validate(65).unwrap_err(),
+        "bigram block coverage or order mismatch"
+    );
+}
+
+#[test]
+fn compact_contributions_match_oracle_for_many_segments_and_large_sparse_record() {
+    let mut state = 0xA11C_EB16_AA64_2026u64;
+    let mut large = String::with_capacity(16_000);
+    let alphabet = ['a', 'Z', 'ß', 'é', '中', '🙂', '\n', ' '];
+    for _ in 0..4_000 {
+        state ^= state << 13;
+        state ^= state >> 7;
+        state ^= state << 17;
+        large.push(alphabet[(state as usize) % alphabet.len()]);
+    }
+    let records = vec![
+        (0..300).map(|i| format!("{i}aß")).collect::<Vec<_>>(),
+        vec![large],
+        Vec::new(),
+        vec!["ab".into(), "cd".into(), "İΣς".into()],
+    ];
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut builder = BigramBuilder::new(alphabet);
+        for (slot, segments) in records.iter().enumerate() {
+            builder
+                .add_record(RecordSlot(slot as u32), segments.iter().map(String::as_str))
+                .unwrap();
+        }
+        let contribution = builder.finish_blocks().unwrap();
+        let stats = contribution.storage_stats();
+        assert_eq!(stats.block_size, 16);
+        assert_eq!(stats.column_size, 8);
+        assert!(stats.blocks <= stats.block_capacity);
+        assert!(stats.columns <= stats.column_capacity);
+        assert!(stats.allocated_element_bytes() >= stats.blocks * stats.block_size);
+        let built = contribution.into_index().unwrap();
+        let expected = independent_index(&records, alphabet, 0);
+        assert_eq!(built.normal, expected.normal);
+        assert_eq!(built.skip, expected.skip);
+    }
 }
 
 #[test]
@@ -195,27 +269,21 @@ fn block_admission_rejects_coverage_alphabet_and_slot_overflow() {
     let mut global = BigramContribution::new(BigramAlphabet::Ascii);
     let mut local = BigramBuilder::new(BigramAlphabet::Ascii);
     local.add_record(RecordSlot(0), ["ab"]).unwrap();
-    assert!(
-        global
-            .merge_shifted(local.finish_blocks().unwrap(), 1)
-            .is_err()
-    );
+    assert!(global
+        .merge_shifted(local.finish_blocks().unwrap(), 1)
+        .is_err());
     let mut unicode = BigramBuilder::new(BigramAlphabet::Unicode);
     unicode.add_record(RecordSlot(0), ["ab"]).unwrap();
-    assert!(
-        global
-            .merge_shifted(unicode.finish_blocks().unwrap(), 0)
-            .is_err()
-    );
+    assert!(global
+        .merge_shifted(unicode.finish_blocks().unwrap(), 0)
+        .is_err());
     global.record_count = u32::MAX - 1;
     let mut local = BigramBuilder::new(BigramAlphabet::Ascii);
     local.add_record(RecordSlot(0), ["ab"]).unwrap();
     local.add_record(RecordSlot(1), ["cd"]).unwrap();
-    assert!(
-        global
-            .merge_shifted(local.finish_blocks().unwrap(), u32::MAX - 1)
-            .is_err()
-    );
+    assert!(global
+        .merge_shifted(local.finish_blocks().unwrap(), u32::MAX - 1)
+        .is_err());
 }
 
 #[test]
@@ -529,16 +597,12 @@ fn ascii_and_unicode_candidates_are_conservative() {
     for literal in ["Müller", "Straße", "Leipzig", "ü", "not there"] {
         for (slot, record) in segments.iter().enumerate() {
             if record[0].text.contains(literal) {
-                assert!(
-                    ascii
-                        .candidates(literal)
-                        .is_none_or(|set| set.contains(slot as u32))
-                );
-                assert!(
-                    unicode
-                        .candidates(literal)
-                        .is_none_or(|set| set.contains(slot as u32))
-                );
+                assert!(ascii
+                    .candidates(literal)
+                    .is_none_or(|set| set.contains(slot as u32)));
+                assert!(unicode
+                    .candidates(literal)
+                    .is_none_or(|set| set.contains(slot as u32)));
             }
         }
     }

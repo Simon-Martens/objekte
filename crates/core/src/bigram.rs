@@ -77,7 +77,6 @@ fn for_each_gram(
     }
 }
 
-
 /// Both alphabets' necessary grams for one already prepared representation.
 /// Exact matching never reads these keys as a literal.
 #[derive(Clone, Debug)]
@@ -85,7 +84,6 @@ pub(crate) struct BigramRequest {
     ascii: Vec<(bool, u64)>,
     unicode: Vec<(bool, u64)>,
 }
-
 
 impl BigramRequest {
     pub fn from_folded(folded: &str) -> Self {
@@ -125,7 +123,6 @@ impl BigramRequest {
     }
 }
 
-
 /// Record-level bigram postings for one text binding.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct BigramIndex {
@@ -134,7 +131,6 @@ pub struct BigramIndex {
     pub normal: HashMap<u64, RoaringBitmap>,
     pub skip: HashMap<u64, RoaringBitmap>,
 }
-
 
 impl BigramIndex {
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
@@ -304,7 +300,6 @@ impl BigramIndex {
     }
 }
 
-
 fn ascii_pair(a: u8, b: u8) -> Option<u64> {
     if !(32..=126).contains(&a) || !(32..=126).contains(&b) {
         return None;
@@ -316,31 +311,186 @@ fn unicode_pair(a: char, b: char) -> u64 {
     ((a as u64) << 21) | b as u64
 }
 
-
 #[derive(Clone, Copy, Debug)]
 struct GramBlock {
     first_slot: u32,
+    next: u32,
     bits: u64,
 }
 
+const END_OF_COLUMN: u32 = u32::MAX;
+
+#[derive(Clone, Copy, Debug)]
+struct GramColumn {
+    head: u32,
+    tail: u32,
+}
+
+/// The same arena holds every block in a contribution. A directory entry is
+/// only two offsets; sparse columns no longer allocate their own vectors.
+#[derive(Default)]
+struct GramColumns {
+    directory: HashMap<u64, GramColumn>,
+    blocks: Vec<GramBlock>,
+}
+
+impl GramColumns {
+    fn push(&mut self, key: u64, first_slot: u32, bits: u64) -> Result<(), String> {
+        let offset = u32::try_from(self.blocks.len()).map_err(|_| "bigram block overflow")?;
+        if offset == END_OF_COLUMN {
+            return Err("bigram block overflow".into());
+        }
+        self.blocks.push(GramBlock {
+            first_slot,
+            next: END_OF_COLUMN,
+            bits,
+        });
+        match self.directory.entry(key) {
+            std::collections::hash_map::Entry::Occupied(mut entry) => {
+                self.blocks[entry.get().tail as usize].next = offset;
+                entry.get_mut().tail = offset;
+            }
+            std::collections::hash_map::Entry::Vacant(entry) => {
+                entry.insert(GramColumn {
+                    head: offset,
+                    tail: offset,
+                });
+            }
+        }
+        Ok(())
+    }
+
+    fn validate(&self, record_count: u32) -> Result<(), String> {
+        let mut visited = 0usize;
+        for column in self.directory.values() {
+            let mut offset = column.head;
+            let mut previous_end = None;
+            loop {
+                let block = self
+                    .blocks
+                    .get(offset as usize)
+                    .ok_or("bigram block coverage or order mismatch")?;
+                if block.bits == 0 {
+                    return Err("empty bigram block".into());
+                }
+                let end = block
+                    .first_slot
+                    .checked_add(63 - block.bits.leading_zeros())
+                    .ok_or("bigram slot overflow")?;
+                if end >= record_count
+                    || previous_end.is_some_and(|previous| block.first_slot <= previous)
+                {
+                    return Err("bigram block coverage or order mismatch".into());
+                }
+                visited += 1;
+                if visited > self.blocks.len() {
+                    return Err("bigram block coverage or order mismatch".into());
+                }
+                if block.next == END_OF_COLUMN {
+                    if offset != column.tail {
+                        return Err("bigram block coverage or order mismatch".into());
+                    }
+                    break;
+                }
+                previous_end = Some(end);
+                offset = block.next;
+            }
+        }
+        if visited != self.blocks.len() {
+            return Err("bigram block coverage or order mismatch".into());
+        }
+        Ok(())
+    }
+
+    fn can_append(&self, other: &Self) -> Result<(), String> {
+        let total = self
+            .blocks
+            .len()
+            .checked_add(other.blocks.len())
+            .ok_or("bigram block overflow")?;
+        if total > END_OF_COLUMN as usize {
+            return Err("bigram block overflow".into());
+        }
+        Ok(())
+    }
+
+    /// Validation and index-capacity checks precede this call, so all offsets
+    /// and rebased slots are known to fit. One batch base is applied here.
+    fn append_shifted(&mut self, mut other: Self, base: u32) {
+        let offset = self.blocks.len() as u32;
+        for block in &mut other.blocks {
+            block.first_slot += base;
+            if block.next != END_OF_COLUMN {
+                block.next += offset;
+            }
+        }
+        for (key, column) in other.directory {
+            let head = column.head + offset;
+            let tail = column.tail + offset;
+            match self.directory.entry(key) {
+                std::collections::hash_map::Entry::Occupied(mut entry) => {
+                    self.blocks[entry.get().tail as usize].next = head;
+                    entry.get_mut().tail = tail;
+                }
+                std::collections::hash_map::Entry::Vacant(entry) => {
+                    entry.insert(GramColumn { head, tail });
+                }
+            }
+        }
+        self.blocks.append(&mut other.blocks);
+    }
+}
 
 /// Construction-only grams. Worker chunks and ordered batch admission move
 /// complete words; the final Roaring dictionaries are built once afterward.
 pub(crate) struct BigramContribution {
     alphabet: BigramAlphabet,
     record_count: u32,
-    normal: HashMap<u64, Vec<GramBlock>>,
-    skip: HashMap<u64, Vec<GramBlock>>,
+    normal: GramColumns,
+    skip: GramColumns,
 }
 
+/// Exact element counts and capacities for opt-in construction diagnostics.
+/// Hash-table control bytes and allocator rounding are intentionally excluded.
+#[derive(Clone, Copy, Debug, Default, Serialize)]
+pub(crate) struct BigramContributionStorage {
+    pub columns: usize,
+    pub column_capacity: usize,
+    pub blocks: usize,
+    pub block_capacity: usize,
+    pub block_size: usize,
+    pub column_size: usize,
+}
+
+impl BigramContributionStorage {
+    pub fn allocated_element_bytes(self) -> usize {
+        self.block_capacity
+            .saturating_mul(self.block_size)
+            .saturating_add(
+                self.column_capacity
+                    .saturating_mul(self.column_size.saturating_add(std::mem::size_of::<u64>())),
+            )
+    }
+}
 
 impl BigramContribution {
     pub fn new(alphabet: BigramAlphabet) -> Self {
         Self {
             alphabet,
             record_count: 0,
-            normal: HashMap::new(),
-            skip: HashMap::new(),
+            normal: GramColumns::default(),
+            skip: GramColumns::default(),
+        }
+    }
+
+    pub(crate) fn storage_stats(&self) -> BigramContributionStorage {
+        BigramContributionStorage {
+            columns: self.normal.directory.len() + self.skip.directory.len(),
+            column_capacity: self.normal.directory.capacity() + self.skip.directory.capacity(),
+            blocks: self.normal.blocks.len() + self.skip.blocks.len(),
+            block_capacity: self.normal.blocks.capacity() + self.skip.blocks.capacity(),
+            block_size: std::mem::size_of::<GramBlock>(),
+            column_size: std::mem::size_of::<GramColumn>(),
         }
     }
 
@@ -351,24 +501,12 @@ impl BigramContribution {
         let count = base
             .checked_add(batch.record_count)
             .ok_or("bigram record overflow")?;
-        validate_blocks(&batch.normal, batch.record_count)?;
-        validate_blocks(&batch.skip, batch.record_count)?;
-        for (key, mut blocks) in batch.normal {
-            for block in &mut blocks {
-                block.first_slot = base
-                    .checked_add(block.first_slot)
-                    .ok_or("bigram slot overflow")?;
-            }
-            self.normal.entry(key).or_default().append(&mut blocks);
-        }
-        for (key, mut blocks) in batch.skip {
-            for block in &mut blocks {
-                block.first_slot = base
-                    .checked_add(block.first_slot)
-                    .ok_or("bigram slot overflow")?;
-            }
-            self.skip.entry(key).or_default().append(&mut blocks);
-        }
+        batch.normal.validate(batch.record_count)?;
+        batch.skip.validate(batch.record_count)?;
+        self.normal.can_append(&batch.normal)?;
+        self.skip.can_append(&batch.skip)?;
+        self.normal.append_shifted(batch.normal, base);
+        self.skip.append_shifted(batch.skip, base);
         self.record_count = count;
         Ok(())
     }
@@ -409,51 +547,34 @@ impl BigramContribution {
     }
 }
 
-
-fn validate_blocks(
-    columns: &HashMap<u64, Vec<GramBlock>>,
-    record_count: u32,
-) -> Result<(), String> {
-    for blocks in columns.values() {
-        let mut previous_end = None;
-        for block in blocks {
-            if block.bits == 0 {
-                return Err("empty bigram block".into());
-            }
-            let end = block
-                .first_slot
-                .checked_add(63 - block.bits.leading_zeros())
-                .ok_or("bigram slot overflow")?;
-            if end >= record_count
-                || previous_end.is_some_and(|previous| block.first_slot <= previous)
-            {
-                return Err("bigram block coverage or order mismatch".into());
-            }
-            previous_end = Some(end);
-        }
-    }
-    Ok(())
-}
-
 fn convert_blocks(
-    columns: HashMap<u64, Vec<GramBlock>>,
+    columns: GramColumns,
     record_count: u32,
 ) -> Result<HashMap<u64, RoaringBitmap>, String> {
-    validate_blocks(&columns, record_count)?;
-    columns
+    columns.validate(record_count)?;
+    let GramColumns { directory, blocks } = columns;
+    let blocks = &blocks;
+    directory
         .into_iter()
-        .map(|(key, blocks)| {
-            let slots = blocks.into_iter().flat_map(|block| {
+        .map(|(key, column)| {
+            let mut offset = column.head;
+            let slots = std::iter::from_fn(move || {
+                if offset == END_OF_COLUMN {
+                    return None;
+                }
+                let block = blocks[offset as usize];
+                offset = block.next;
                 let mut bits = block.bits;
-                std::iter::from_fn(move || {
+                Some(std::iter::from_fn(move || {
                     if bits == 0 {
                         return None;
                     }
                     let offset = bits.trailing_zeros();
                     bits &= bits - 1;
                     Some(block.first_slot + offset)
-                })
-            });
+                }))
+            })
+            .flatten();
             let mut posting = RoaringBitmap::new();
             posting
                 .append(slots)
@@ -462,7 +583,6 @@ fn convert_blocks(
         })
         .collect()
 }
-
 
 /// A reusable 64-slot gram accumulator. ASCII uses its compact 95×95 pair
 /// domain; Unicode keeps only keys touched by the current chunk.
@@ -473,7 +593,6 @@ enum GramWords {
     },
     Unicode(HashMap<u64, u64>),
 }
-
 
 impl GramWords {
     fn new(alphabet: BigramAlphabet) -> Self {
@@ -506,18 +625,21 @@ impl GramWords {
         }
     }
 
-    fn drain(&mut self, mut emit: impl FnMut(u64, u64)) {
+    fn drain(
+        &mut self,
+        mut emit: impl FnMut(u64, u64) -> Result<(), String>,
+    ) -> Result<(), String> {
         match self {
             Self::Ascii { words, touched } => {
                 for index in touched.drain(..) {
                     let left = (index / 95 + 32) as u64;
                     let right = (index % 95 + 32) as u64;
-                    emit((left << 8) | right, std::mem::take(&mut words[index]));
+                    emit((left << 8) | right, std::mem::take(&mut words[index]))?;
                 }
             }
             Self::Unicode(words) => {
                 for (key, word) in words.drain() {
-                    emit(key, word);
+                    emit(key, word)?;
                 }
                 // Exceptional long/random text must not pin a large worker
                 // scratch table for the rest of the repository build.
@@ -526,9 +648,9 @@ impl GramWords {
                 }
             }
         }
+        Ok(())
     }
 }
-
 
 /// Construction-only state; completed indexes retain the existing format.
 /// The builder can start at any final slot and publishes each touched gram
@@ -540,7 +662,6 @@ pub(crate) struct BigramBuilder {
     chunk_start: u32,
     chunk_len: u32,
 }
-
 
 impl BigramBuilder {
     pub fn new(alphabet: BigramAlphabet) -> Self {
@@ -629,26 +750,10 @@ impl BigramBuilder {
 
     fn flush(&mut self) -> Result<(), String> {
         let start = self.chunk_start;
-        self.normal.drain(|key, word| {
-            self.contribution
-                .normal
-                .entry(key)
-                .or_default()
-                .push(GramBlock {
-                    first_slot: start,
-                    bits: word,
-                });
-        });
-        self.skip.drain(|key, word| {
-            self.contribution
-                .skip
-                .entry(key)
-                .or_default()
-                .push(GramBlock {
-                    first_slot: start,
-                    bits: word,
-                });
-        });
+        self.normal
+            .drain(|key, word| self.contribution.normal.push(key, start, word))?;
+        self.skip
+            .drain(|key, word| self.contribution.skip.push(key, start, word))?;
         self.chunk_len = 0;
         Ok(())
     }
@@ -665,7 +770,6 @@ impl BigramBuilder {
         self.finish_blocks()?.into_index()
     }
 }
-
 
 #[cfg(test)]
 #[path = "bigram.test.rs"]
