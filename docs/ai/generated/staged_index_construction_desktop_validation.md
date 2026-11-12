@@ -6,7 +6,7 @@
 
 | Check | Result |
 | --- | --- |
-| `cargo test --locked -p objekte-desktop --lib` | 177 passed, 1 ignored after the desktop catalogue and status changes. |
+| `cargo test --locked -p objekte-desktop --lib` | 178 passed, 1 ignored after the desktop catalogue and status changes. |
 | `cargo build --locked -p objekte-desktop --bin objekte-desktop` | Passed; the native process launched under Sway. |
 | Plain-folder Open, 3 JSON files | SearchReady returned 3 rows with stable `@file.id` and paths. The Files sidebar showed the same 3 file rows and one nested folder. [Screenshot](staged_index_construction_desktop_evidence/staged-opened.png). |
 | Boolean type filter | `kind:array = true` returned only the array-valued `c.json` record. [Screenshot](staged_index_construction_desktop_evidence/staged-array-filter-3.png). |
@@ -14,6 +14,8 @@
 | Large file catalogue | A generated 30,000-file JSON folder opened and its Files sidebar listed 30,000 virtualized rows without a window failure. [Screenshot](staged_index_construction_desktop_evidence/staged-large-json-progress.png). |
 
 The active desktop Open path starts one core staged task. It uses that task's catalogue for listing and does not start a separate `SourceScan`. Search drafts entered during a replacement Open are held until SearchReady. Catalogue row preparation and collection grouping run on the discovery worker, outside the GPUI render thread. Capability-only status is keyed separately from the data publication used for query and tab freshness.
+
+Focused backend tests cover plain-folder staged opening, explicit write followed by cached load, configured cache reuse versus memory build, file identity and collection grouping, and queued queries during replacement. A state test confirms that a late catalogue update preserves the current result selection and search text.
 
 One existing desktop cache-reuse test failed immediately after the core partial-publication checkpoint: its second identical FTS/filter/sort query missed the verified-result cache. Core commit `691cd2daf4ea` restored the blocking `Index::build` segmented layout; the previously failing test and the complete desktop suite then passed. No test expectation was weakened.
 
