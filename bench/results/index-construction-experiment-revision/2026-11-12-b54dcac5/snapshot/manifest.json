@@ -1,0 +1,34 @@
+[
+  {
+    "role": "control",
+    "alphabet": "ascii",
+    "bytes": 129139458,
+    "sha256": "a3a9f4a2a423e521e97072a99f5d42751b89e9bc77abfdf3a27c4edc8f765e98",
+    "metadata_path": "control-ascii/trial-1794498051678715165-650905",
+    "retained_payload_path": "/home/simon/source/objekte-integration-index-construction-experiment-revision/target/index-construction-experiment-revision/snapshot-payloads/control-ascii/trial-1794498051678715165-650905/search-core-ascii.snapshot"
+  },
+  {
+    "role": "control",
+    "alphabet": "unicode",
+    "bytes": 131650034,
+    "sha256": "9592e148df3adddf456b4aa4a0fd053435b662eed1df087318f2d06a0b4a97e3",
+    "metadata_path": "control-unicode/trial-1794498053429794038-651006",
+    "retained_payload_path": "/home/simon/source/objekte-integration-index-construction-experiment-revision/target/index-construction-experiment-revision/snapshot-payloads/control-unicode/trial-1794498053429794038-651006/search-core-unicode.snapshot"
+  },
+  {
+    "role": "candidate",
+    "alphabet": "ascii",
+    "bytes": 129139458,
+    "sha256": "737b15ce4e1568526a35d847a6fb0ee0901b8494927068dd3b5b9cd43ec95927",
+    "metadata_path": "candidate-ascii/trial-1794498055272485272-651107",
+    "retained_payload_path": "/home/simon/source/objekte-integration-index-construction-experiment-revision/target/index-construction-experiment-revision/snapshot-payloads/candidate-ascii/trial-1794498055272485272-651107/search-core-ascii.snapshot"
+  },
+  {
+    "role": "candidate",
+    "alphabet": "unicode",
+    "bytes": 131650034,
+    "sha256": "2f75fc095fc260c45cc473e2e68b6961335315e9d1c8d9865e9b91b632683233",
+    "metadata_path": "candidate-unicode/trial-1794498056915602735-651208",
+    "retained_payload_path": "/home/simon/source/objekte-integration-index-construction-experiment-revision/target/index-construction-experiment-revision/snapshot-payloads/candidate-unicode/trial-1794498056915602735-651208/search-core-unicode.snapshot"
+  }
+]
