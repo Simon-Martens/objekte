@@ -1409,6 +1409,7 @@ impl DesktopView {
                     .child(Button::new("index-details").ghost().label("Details…")
                         .on_click(cx.listener(|this, _, _, cx| {
                             this.state.action_panel = ActionPanel::Diagnostics;
+                            this.send(UiAction::InspectIndexCapabilities);
                             cx.notify();
                         })));
                 for (label, kind, task) in [
@@ -1444,12 +1445,6 @@ impl DesktopView {
                 }
             }
             ActionPanel::Diagnostics => {
-                let index = &self.state.index_status;
-                content = content
-                    .child(div().text_sm().child(format!("Data revision: {}", index.revision)))
-                    .child(div().text_sm().child(format!("Capability revision: {}", index.capability_revision)))
-                    .child(div().text_sm().child(format!("Saved data revision: {:?}", index.saved_revision)))
-                    .child(div().text_sm().child(format!("Saved capability revision: {:?}", index.saved_capability_revision)));
                 content = content.children(
                     self.state
                         .diagnostics

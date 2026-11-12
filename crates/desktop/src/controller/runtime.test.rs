@@ -83,6 +83,15 @@ fn capability_revision_does_not_change_desktop_data_publication() {
 }
 
 #[test]
+fn index_details_report_revisions_and_inference_state_on_demand() {
+    let fixture = crate::backend::test_support::fixture();
+    let details = index_capability_details(&fixture.session).unwrap();
+    assert!(details.contains("Data revision: 1"));
+    assert!(details.contains("Capability revision: 1"));
+    assert!(details.contains("files: inference not requested"));
+}
+
+#[test]
 fn indexed_directory_tree_follows_added_and_deleted_files() {
     let fixture = crate::backend::test_support::fixture();
     let index = fixture.session.repository.index();

@@ -596,6 +596,7 @@ pub enum UiAction {
     RebuildIndex,
     CompactIndex,
     ResumeExtendedIndex,
+    InspectIndexCapabilities,
     SetAutomaticChecking {
         enabled: bool,
         interval_seconds: u64,

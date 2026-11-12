@@ -339,6 +339,10 @@ enum WorkerEvent {
         make_default: bool,
         result: IndexSaveCompletion,
     },
+    IndexCapabilityDetails {
+        open_generation: u64,
+        result: Result<String, String>,
+    },
     IndexLoaded {
         open_generation: u64,
         operation_id: u64,
@@ -1235,6 +1239,7 @@ impl DesktopController {
                     }
                 }
             }
+            UiAction::InspectIndexCapabilities => self.inspect_index_capabilities(),
             UiAction::SetAutomaticChecking {
                 enabled,
                 interval_seconds,
@@ -3568,6 +3573,17 @@ impl DesktopController {
                 updates.push(UiUpdate::PreferenceFailed(message))
             }
             WorkerEvent::PreferenceSaved => updates.push(UiUpdate::PreferenceSaved),
+            WorkerEvent::IndexCapabilityDetails { open_generation, result }
+                if open_generation == self.open_generation =>
+            {
+                match result {
+                    Ok(details) => updates.push(UiUpdate::Diagnostics(details)),
+                    Err(message) => updates.push(UiUpdate::Error {
+                        field: ErrorField::General,
+                        message,
+                    }),
+                }
+            }
             WorkerEvent::CopiedValue {
                 open_generation,
                 publication,
@@ -4233,6 +4249,19 @@ impl DesktopController {
         });
     }
 
+    fn inspect_index_capabilities(&self) {
+        let Some(session) = self.session.clone() else { return };
+        let open_generation = self.open_generation;
+        let sender = self.worker_tx.clone();
+        thread::spawn(move || {
+            let result = index_capability_details(&session);
+            let _ = sender.send(WorkerEvent::IndexCapabilityDetails {
+                open_generation,
+                result,
+            });
+        });
+    }
+
     fn cancel_index_task(&mut self, kind: IndexTaskKind, updates: &mut Vec<UiUpdate>) {
         match kind {
             IndexTaskKind::Check => {
@@ -4501,6 +4530,61 @@ fn indexed_directories(view: &IndexView, collections: &[String]) -> DirectoryCat
         })
         .collect();
     DirectoryCatalog { all, by_collection }
+}
+
+fn index_capability_details(session: &OpenedSession) -> Result<String, String> {
+    let index = session.repository.index();
+    let status = index.status().map_err(|error| error.to_string())?;
+    let extended = index.extended_status().map_err(|error| error.to_string())?;
+    let mut lines = vec![
+        format!("Data revision: {}", status.revision.0),
+        format!("Capability revision: {}", status.capability_revision.0),
+        format!("Saved data revision: {:?}", status.saved_revision.map(|value| value.0)),
+        format!("Saved capability revision: {:?}", status.saved_capability_revision.map(|value| value.0)),
+        format!("Source files: {}; live records: {}", status.indexed_files, status.live_records),
+        format!("Extended phase: {:?}; completed files: {}/{}", extended.phase,
+            extended.completed_files, extended.total_files),
+    ];
+    if let Some(error) = extended.error {
+        lines.push(format!("Extended error: {error}"));
+    }
+    let mut shown = 0usize;
+    let mut omitted = 0usize;
+    for collection in &session.collections {
+        match index.inference_report(collection).map_err(|error| error.to_string())? {
+            Some(report) => lines.push(format!(
+                "{collection}: inference {:?}, {} observed paths, {} admitted, {} dropped, {} estimated retained bytes, complete {}",
+                report.mode, report.observed_paths, report.admitted_paths, report.dropped_paths,
+                report.retained_bytes_estimate, report.complete,
+            )),
+            None => {
+                lines.push(format!("{collection}: inference not requested"));
+                continue;
+            }
+        }
+        if let Some(details) = index.inference_index_diagnostics(collection)
+            .map_err(|error| error.to_string())?
+        {
+            for detail in details {
+                if shown < 256 {
+                    let path = serde_json::to_string(&detail.path)
+                        .unwrap_or_else(|_| format!("{:?}", detail.path));
+                    lines.push(format!(
+                        "  {path}: {:?}; covered {:?}; value keys {:?}; length keys {:?}; {}",
+                        detail.index_status, detail.covered_records, detail.value_keys,
+                        detail.length_keys, detail.reason,
+                    ));
+                    shown += 1;
+                } else {
+                    omitted += 1;
+                }
+            }
+        }
+    }
+    if omitted > 0 {
+        lines.push(format!("{omitted} more field diagnostics omitted from this view"));
+    }
+    Ok(lines.join("\n"))
 }
 
 /// Build the virtual-list rows and collection scopes on the discovery worker.
