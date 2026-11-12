@@ -3,7 +3,7 @@
 use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeMap, HashMap, HashSet};
 use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
@@ -205,6 +205,7 @@ impl PendingCollection {
         &mut self,
         inventory: &mut FileInventory,
         batch: crate::build::BatchContribution,
+        profile: Option<&mut crate::build::AdmissionBreakdown>,
     ) -> Result<(), String> {
         crate::build::CollectionAdmission {
             inventory,
@@ -220,7 +221,7 @@ impl PendingCollection {
             sorting: &mut self.sort_builder,
             relations: &mut self.relations,
         }
-        .admit(batch)
+        .admit_profiled(batch, profile)
     }
 }
 
@@ -391,6 +392,8 @@ pub struct StartupStats {
 
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct BuildProfileStats {
+    pub admission_by_collection: BTreeMap<String, crate::build::AdmissionBreakdown>,
+    pub admission_schedule: crate::build::AdmissionScheduleProfile,
     pub discovery_enumeration_ns: u64,
     pub discovery_catalogue_ns: u64,
     pub discovery_metadata_prepare_ns: u64,
@@ -1457,6 +1460,7 @@ impl Repository {
         }
         let mut normal = Vec::new();
         let mut admit = |collection_index: usize, batch: crate::build::BatchContribution| {
+            let callback_started = options.profile_build.then(Instant::now);
             if let Some(profile) = profile.as_mut() {
                 profile.work.absorb(&batch.profile);
             }
@@ -1468,7 +1472,37 @@ impl Repository {
             }
             build_parses += batch.record_parses;
             build_failed_parses += batch.failed_parses;
-            pending[collection_index].admit(&mut files, batch)
+            let callback_ns = callback_started
+                .as_ref()
+                .map_or(0, |started| started.elapsed().as_nanos() as u64);
+            let admission_started = options.profile_build.then(Instant::now);
+            let mut breakdown = options
+                .profile_build
+                .then(crate::build::AdmissionBreakdown::default);
+            let result = pending[collection_index].admit(&mut files, batch, breakdown.as_mut());
+            if let (Some(started), Some(mut breakdown), Some(profile)) =
+                (admission_started, breakdown, profile.as_mut())
+            {
+                let admission_ns = started.elapsed().as_nanos() as u64;
+                breakdown.callback_ns = callback_ns;
+                breakdown.total_ns = callback_ns.saturating_add(admission_ns);
+                let components = breakdown
+                    .record_inventory_ns
+                    .saturating_add(breakdown.postings_ns)
+                    .saturating_add(breakdown.inference_ns)
+                    .saturating_add(breakdown.relations_ns)
+                    .saturating_add(breakdown.custom_postings_ns)
+                    .saturating_add(breakdown.bigrams_ns)
+                    .saturating_add(breakdown.structural_facts_ns)
+                    .saturating_add(breakdown.sorting_ns);
+                breakdown.remainder_ns = admission_ns.saturating_sub(components);
+                profile
+                    .admission_by_collection
+                    .entry(pending[collection_index].definition.name.clone())
+                    .or_default()
+                    .absorb(breakdown);
+            }
+            result
         };
         let source_work_started = options.profile_build.then(Instant::now);
         let mut large_file_total_ns = 0u64;
@@ -1544,6 +1578,7 @@ impl Repository {
             profile.source_work_ns = started.elapsed().as_nanos() as u64;
             profile.large_file_total_ns = large_file_total_ns;
             profile.large_files = large_files;
+            profile.admission_schedule = schedule_stats.admission_schedule;
         }
         let fingerprints_started = profile.as_ref().map(|_| Instant::now());
         for (file_id, collection, digest) in large_digests {
