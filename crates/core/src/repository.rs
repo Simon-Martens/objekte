@@ -1428,9 +1428,20 @@ impl Repository {
             })
             .collect::<Vec<_>>();
         let total_inference_work = inference_work.iter().sum::<usize>();
-        let active_inference_collections = inference_work.iter().filter(|work| **work != 0).count();
-        for ((definition, id, source, member_files), work) in
-            selected.into_iter().zip(inference_work)
+        let inference_floors = selected
+            .iter()
+            .zip(&inference_work)
+            .map(|((definition, _, _, _), work)| {
+                if *work == 0 {
+                    0
+                } else {
+                    InferenceBuilder::collection_floor_request(definition.schema.fields.len())
+                }
+            })
+            .collect::<Vec<_>>();
+        let total_inference_floor = inference_floors.iter().sum::<usize>();
+        for (((definition, id, source, member_files), work), floor) in
+            selected.into_iter().zip(inference_work).zip(inference_floors)
         {
             let builder = CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let mut postings = PostingCollection::new(&definition.schema);
@@ -1451,7 +1462,8 @@ impl Repository {
                     options.inference,
                     work,
                     total_inference_work,
-                    active_inference_collections,
+                    floor,
+                    total_inference_floor,
                 )
             };
             let custom_postings: HashMap<_, _> = definition

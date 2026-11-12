@@ -490,14 +490,24 @@ impl InferenceBuilder {
     }
 
     pub(crate) fn for_collection(config: InferenceConfig, collections: usize) -> Option<Self> {
-        Self::for_collection_weighted(config, 1, collections.max(1), collections.max(1))
+        let mut builder = Self::new(config, false)?;
+        builder.coordinator_limit = config.policy.max_total_bytes / collections.max(1);
+        Some(builder)
+    }
+
+    pub(crate) fn collection_floor_request(schema_paths: usize) -> usize {
+        (8 * 1024 * 1024)
+            + schema_paths
+                .saturating_mul(256 * 1024)
+                .min(88 * 1024 * 1024)
     }
 
     pub(crate) fn for_collection_weighted(
         config: InferenceConfig,
         estimated_records: usize,
         total_estimated_records: usize,
-        collections: usize,
+        floor_request: usize,
+        total_floor_request: usize,
     ) -> Option<Self> {
         let mut builder = Self::new(config, false)?;
         if estimated_records == 0 {
@@ -505,15 +515,20 @@ impl InferenceBuilder {
             return Some(builder);
         }
         // Builders coexist until finalization. The base pass supplies stable
-        // record counts before observation starts. Reserve a small equal
-        // allowance for collections with many paths, then distribute the rest
-        // by record count. The shares still sum to at most max_total_bytes.
-        let collections = collections.max(1);
-        let floor = (32 * 1024 * 1024).min(config.policy.max_total_bytes / collections);
+        // record counts before observation starts. Reserve a bounded amount
+        // for schema complexity, then distribute the rest by record count.
+        // If requested floors exceed the policy cap, scale them together.
+        let floor = if total_floor_request <= config.policy.max_total_bytes {
+            floor_request
+        } else {
+            ((config.policy.max_total_bytes as u128)
+                .saturating_mul(floor_request as u128)
+                / total_floor_request as u128) as usize
+        };
         let remainder = config
             .policy
             .max_total_bytes
-            .saturating_sub(floor.saturating_mul(collections));
+            .saturating_sub(total_floor_request);
         builder.coordinator_limit = floor + ((remainder as u128)
             .saturating_mul(estimated_records as u128)
             / total_estimated_records.max(1) as u128) as usize;
