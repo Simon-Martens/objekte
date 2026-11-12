@@ -88,7 +88,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     let write = args.write_index.is_some();
     let configured_repository = args.repo.is_some();
     let result = crate::tui::run_with_loader(
-        move || {
+        move |_loading_cancel| {
             open_repository(
                 &root,
                 &configured,

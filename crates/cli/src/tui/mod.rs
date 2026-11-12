@@ -44,7 +44,7 @@ pub struct TuiOptions {
 
 pub fn run_with_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
 where
-    F: FnOnce() -> Result<IndexedRepository, String> + Send + 'static,
+    F: FnOnce(CancellationToken) -> Result<IndexedRepository, String> + Send + 'static,
 {
     let mut terminal = ratatui::try_init()?;
     let result = (|| -> Result<(), Box<dyn Error>> {
@@ -57,6 +57,7 @@ where
         };
         let started = Instant::now();
         let (sender, receiver) = mpsc::channel();
+        let loading_cancel = CancellationToken::new();
         let loading_label = options
             .loading_label
             .as_deref()
@@ -65,8 +66,9 @@ where
         terminal.draw(|frame| {
             view::draw_loading_with_label(frame, started.elapsed(), &loading_label)
         })?;
+        let worker_cancel = loading_cancel.clone();
         std::thread::spawn(move || {
-            let result = loader();
+            let result = loader(worker_cancel);
             let _ = sender.send(result);
         });
         let repository = loop {
@@ -75,6 +77,7 @@ where
                 .as_ref()
                 .is_some_and(CancellationToken::is_cancelled)
             {
+                loading_cancel.cancel();
                 return Err(interrupted().into());
             }
             match receiver.try_recv() {
@@ -101,8 +104,10 @@ where
                         if pressed.code == KeyCode::Char('c')
                             && pressed.modifiers.contains(KeyModifiers::CONTROL)
                         {
+                            loading_cancel.cancel();
                             return Err(interrupted().into());
                         }
+                        loading_cancel.cancel();
                         return Ok(());
                     }
                     _ => {}
