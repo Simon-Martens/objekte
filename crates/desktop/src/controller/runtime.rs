@@ -417,6 +417,7 @@ pub struct DesktopController {
     automatic_check_operation_id: u64,
     automatic_check_epoch: Arc<AtomicU64>,
     automatic_check_gate: Arc<Mutex<()>>,
+    pending_check_retirements: Arc<Mutex<Vec<OpenedSession>>>,
     requested_check: (bool, u64),
     automatic_save_operation_id: u64,
     automatic_save_epoch: Arc<AtomicU64>,
@@ -519,6 +520,7 @@ impl DesktopController {
                 automatic_check_operation_id: 0,
                 automatic_check_epoch: Arc::new(AtomicU64::new(0)),
                 automatic_check_gate: Arc::new(Mutex::new(())),
+                pending_check_retirements: Arc::new(Mutex::new(Vec::new())),
                 requested_check: (false, 30),
                 automatic_save_operation_id: 0,
                 automatic_save_epoch: Arc::new(AtomicU64::new(0)),
@@ -4306,6 +4308,12 @@ impl DesktopController {
     /// replacement before retiring the previous scheduler. The gate and
     /// epoch also prevent late toggle workers from resurrecting an old index.
     fn transfer_check_policy(&mut self, replacement: OpenedSession, old: Option<OpenedSession>) {
+        if let Some(old) = old {
+            self.pending_check_retirements
+                .lock()
+                .unwrap_or_else(|poisoned| poisoned.into_inner())
+                .push(old);
+        }
         self.automatic_check_operation_id = self.automatic_check_operation_id.wrapping_add(1);
         let operation_id = self.automatic_check_operation_id;
         self.automatic_check_epoch
@@ -4313,6 +4321,7 @@ impl DesktopController {
         let epoch = Arc::clone(&self.automatic_check_epoch);
         let gate = Arc::clone(&self.automatic_check_gate);
         let save_gate = Arc::clone(&self.automatic_save_gate);
+        let retirements = Arc::clone(&self.pending_check_retirements);
         let (enabled, interval_seconds) = self.requested_check;
         let open_generation = self.open_generation;
         let sender = self.worker_tx.clone();
@@ -4330,12 +4339,18 @@ impl DesktopController {
                         Ok(())
                     };
                     let retired = match save_gate.lock() {
-                        Ok(_save_gate) => old
-                            .as_ref()
-                            .map(backend::index_lifecycle::stop_automation)
-                            .transpose()
-                            .map(|_| ())
-                            .map_err(|error| error.to_string()),
+                        Ok(_save_gate) => {
+                            let mut pending = retirements
+                                .lock()
+                                .unwrap_or_else(|poisoned| poisoned.into_inner());
+                            let mut first_error = None;
+                            for old in pending.drain(..) {
+                                if let Err(error) = backend::index_lifecycle::stop_automation(&old) {
+                                    first_error.get_or_insert_with(|| error.to_string());
+                                }
+                            }
+                            first_error.map_or(Ok(()), Err)
+                        }
                         Err(_) => Err("automatic saving coordinator is unavailable".into()),
                     };
                     if !current {

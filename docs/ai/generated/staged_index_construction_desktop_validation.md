@@ -24,6 +24,8 @@ One existing desktop cache-reuse test failed immediately after the core partial-
 
 Two desktop batch parity tests initially compared exact physical work counters with the CLI. The CLI now opens through staged construction while that desktop test fixture uses a blocking build, so those plan counters legitimately differ. The parity assertion now compares protocol fields, hits, counts and errors, leaving physical counters to the respective execution diagnostics; all seven batch tests pass. This changes no query-result expectation.
 
+A combined integration run exposed an intermittent automatic-check transfer failure: the newest worker could report success before an older worker retired the original index scheduler. The desktop controller now shares pending retirements across transfer workers and drains them under the existing gate before reporting the current transfer complete. The previously failing test passed 40 consecutive runs, and the complete desktop library suite passed.
+
 ## Remaining native evidence
 
 The 30,000-file base reached SearchReady before the first screenshot (about half a second on this fixture), so the native captures do not isolate the early catalogue-only frame. Core's focused callback test confirms discovery publication after the first accepted file, and the desktop watcher now consumes those callbacks. The Cancel/Resume/Retry controls are wired to the core extended task, but this short native fixture completed inference before a pointer cancellation could be captured. Core lifecycle tests exercise interruption and resumption. A plain-folder `.jsonl` probe listed zero files because the default plain-folder source choice is JSON; the large probe used `.json` files instead.
