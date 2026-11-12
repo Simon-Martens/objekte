@@ -449,7 +449,7 @@ fn lifecycle_parallel_residual_filters_match_single_worker_and_reference() {
             kind: LogicalType::Array(Box::new(LogicalType::Object)),
             required: false,
             nullable: false,
-            indexed: false,
+            indexed: true,
             multi: true,
             element_nullable: vec![false],
         })
@@ -852,6 +852,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &segments,
         &catalog,
         revision,
+        &[],
         Some(cache_scope),
     )
     .unwrap();
@@ -867,6 +868,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &segments,
         &catalog,
         revision,
+        &[],
         Some(cache_scope),
     )
     .unwrap();
@@ -888,6 +890,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &segments,
         &catalog,
         IndexRevision(3),
+        &[],
         Some(cache_scope),
     )
     .unwrap();
@@ -899,6 +902,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &segments,
         &catalog,
         revision,
+        &[],
         Some(LifecycleCacheScope {
             store: &lifecycle_cache,
             instance_id: 18,
@@ -918,6 +922,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &segments,
         &catalog,
         revision,
+        &[],
         Some(no_count_scope),
     )
     .unwrap();
@@ -929,6 +934,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &segments,
         &catalog,
         revision,
+        &[],
         Some(no_count_scope),
     )
     .unwrap();
@@ -958,6 +964,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             }
             Ok(StreamControl::Continue)
         },
+        &[],
         None,
     )
     .unwrap();
@@ -990,6 +997,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &catalog,
         revision,
         &mut |_| Ok(StreamControl::Continue),
+        &[],
         None,
     )
     .unwrap();
@@ -1047,6 +1055,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
             }
             Ok(StreamControl::Continue)
         },
+        &[],
         None,
     )
     .unwrap();
@@ -1089,6 +1098,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &catalog,
         revision,
         &mut |_| Ok(StreamControl::Continue),
+        &[],
         None,
     );
     assert!(matches!(bounded_failure, Err(StreamError::Resource { .. })));
@@ -1516,6 +1526,7 @@ fn merged_segment_search_counts_filters_fts_and_pages_in_one_order() {
         &catalog,
         revision,
         &mut |_| Ok(StreamControl::Continue),
+        &[],
         None,
     )
     .unwrap();
