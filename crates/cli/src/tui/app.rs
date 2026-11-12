@@ -78,6 +78,11 @@ fn field_label(path: &str, modifiers: &[Modifier]) -> String {
             Modifier::Each => "each",
             Modifier::Null => "null",
             Modifier::Exists => "exists",
+            Modifier::NonEmpty => "?",
+            Modifier::StringType => "string",
+            Modifier::NumberType => "number",
+            Modifier::ArrayType => "array",
+            Modifier::ObjectType => "object",
             Modifier::Custom(name) => name,
         };
         label.push(':');
