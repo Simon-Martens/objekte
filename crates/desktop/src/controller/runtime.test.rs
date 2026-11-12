@@ -116,11 +116,16 @@ fn explicit_inference_keeps_data_publication_and_refreshes_session_identity() {
     assert!(controller.session.as_ref().unwrap().configuration.options.inference.mode
         == InferenceMode::AutoIndex);
     index.wait_extended().unwrap();
+    controller.update_index_ui(&index.status().unwrap(), &mut updates);
     controller.refresh_session_configuration_identity();
     assert_eq!(controller.session.as_ref().unwrap().configuration.configuration_identity,
         index.view().unwrap().configuration_identity());
     assert_eq!(Publication::from(&index.status().unwrap()), publication);
     assert!(!updates.iter().any(|update| matches!(update, UiUpdate::ResultsOutdated(_))));
+    assert!(updates.iter().rev().find_map(|update| match update {
+        UiUpdate::Status(message) => Some(message.as_str()),
+        _ => None,
+    }).is_some_and(|message| message.contains("Field indexes complete")));
 }
 
 #[test]

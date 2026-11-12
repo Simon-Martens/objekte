@@ -430,6 +430,7 @@ pub struct DesktopController {
     opening_draft: Option<OpenDraft>,
     opening_task: Option<StagedBuildTask>,
     catalogue_opened: bool,
+    catalogue_visible_files: usize,
     detection_generation: u64,
     picker_generation: u64,
     index_picker_generation: u64,
@@ -531,6 +532,7 @@ impl DesktopController {
                 opening_draft: None,
                 opening_task: None,
                 catalogue_opened: false,
+                catalogue_visible_files: 0,
                 detection_generation: 0,
                 picker_generation: 0,
                 index_picker_generation: 0,
@@ -754,6 +756,7 @@ impl DesktopController {
         self.index_ui.inference_requested =
             session.configuration.options.inference.mode == InferenceMode::AutoIndex;
         if let Ok(extended) = session.repository.index().extended_status() {
+            let previous_phase = self.index_ui.extended_phase.clone();
             self.index_ui.extended_phase = match extended.phase {
                 ExtendedPhase::Unnecessary => "Not requested",
                 ExtendedPhase::Pending => "Pending",
@@ -777,6 +780,20 @@ impl DesktopController {
                 ),
                 ExtendedPhase::Unnecessary => IndexTaskState::Idle,
             };
+            if self.index_ui.inference_requested
+                && previous_phase != self.index_ui.extended_phase
+            {
+                let message = match extended.phase {
+                    ExtendedPhase::Complete => Some("Search ready · Field indexes complete"),
+                    ExtendedPhase::Paused => Some("Search ready · Field indexing paused"),
+                    ExtendedPhase::Cancelled => Some("Search ready · Field indexing cancelled"),
+                    ExtendedPhase::Failed => Some("Search ready · Field indexing failed"),
+                    _ => None,
+                };
+                if let Some(message) = message {
+                    updates.push(UiUpdate::Status(message.into()));
+                }
+            }
         }
         self.index_ui.check_complete = match status.reconciliation {
             ReconciliationState::Complete => Some(true),
@@ -1546,6 +1563,7 @@ impl DesktopController {
             task.cancel();
         }
         self.catalogue_opened = false;
+        self.catalogue_visible_files = 0;
         let generation = self.pending_open_generation;
         let token = self.open_cancellation.clone();
         let sender = self.worker_tx.clone();
@@ -1563,7 +1581,7 @@ impl DesktopController {
                 let watcher_sender = progress_sender.clone();
                 thread::spawn(move || {
                     let mut last_status = None;
-                    let mut catalogue_sent = false;
+                    let mut published_files = None;
                     loop {
                         if progress_token.is_cancelled() {
                             return;
@@ -1576,23 +1594,26 @@ impl DesktopController {
                             });
                             last_status = Some(status.clone());
                         }
-                        if !catalogue_sent && matches!(
-                            status.phase,
-                            StagedBuildPhase::BuildingBase
-                                | StagedBuildPhase::SearchReady
-                                | StagedBuildPhase::BuildingExtended
-                                | StagedBuildPhase::Complete
-                        ) {
+                        let discovery_complete = !matches!(status.phase, StagedBuildPhase::Discovering);
+                        if status.discovered_files > published_files.unwrap_or(0)
+                            || (published_files.is_none() && discovery_complete)
+                        {
                             if let Ok(files) = task.catalogue() {
-                                let (directories, file_catalogue) = prepare_staged_catalogue(files, &collections);
-                                let _ = watcher_sender.send(WorkerEvent::CatalogueReady {
-                                    generation,
-                                    root: root.clone(),
-                                    collections: collections.clone(),
-                                    directories,
-                                    file_catalogue,
-                                });
-                                catalogue_sent = true;
+                                let count = files.len();
+                                if count > published_files.unwrap_or(0)
+                                    || (published_files.is_none() && discovery_complete)
+                                {
+                                    let (directories, file_catalogue) =
+                                        prepare_staged_catalogue(files, &collections);
+                                    let _ = watcher_sender.send(WorkerEvent::CatalogueReady {
+                                        generation,
+                                        root: root.clone(),
+                                        collections: collections.clone(),
+                                        directories,
+                                        file_catalogue,
+                                    });
+                                    published_files = Some(count);
+                                }
                             }
                         }
                         if matches!(status.phase, StagedBuildPhase::SearchReady
@@ -2561,7 +2582,8 @@ impl DesktopController {
                 if generation == self.pending_open_generation && self.opening_draft.is_some() =>
             {
                 let message = match status.phase {
-                    StagedBuildPhase::Discovering => "Discovering source files…".to_owned(),
+                    StagedBuildPhase::Discovering =>
+                        format!("Discovering source files… {} found", status.discovered_files),
                     StagedBuildPhase::BuildingBase => format!(
                         "Building search base from {} files…", status.discovered_files,
                     ),
@@ -2577,10 +2599,21 @@ impl DesktopController {
                 if generation == self.pending_open_generation
                     && (self.opening_draft.is_some() || self.session.is_some()) =>
             {
+                let count = file_catalogue.files.len();
+                if count < self.catalogue_visible_files
+                    || (count == self.catalogue_visible_files
+                        && (self.catalogue_opened || self.opening_draft.is_none()))
+                {
+                    return;
+                }
+                self.catalogue_visible_files = count;
                 if self.catalogue_opened {
+                    updates.push(UiUpdate::Directories(directories));
+                    updates.push(UiUpdate::FileCatalogue(file_catalogue));
                     return;
                 }
                 if self.opening_draft.is_none() {
+                    updates.push(UiUpdate::Directories(directories));
                     updates.push(UiUpdate::FileCatalogue(file_catalogue));
                     return;
                 }
@@ -2639,7 +2672,7 @@ impl DesktopController {
                 let root = root.display().to_string();
                 let single_collection = collections.len() == 1;
                 self.open_diagnostics = format!(
-                    "Root: {root}\nCollections: {}\nDiscovered files: {}\nBuilding search base",
+                    "Root: {root}\nCollections: {}\nDiscovered files: {}\nPreparing search base",
                     collections.join(", "),
                     file_catalogue.files.len(),
                 );
@@ -2652,7 +2685,7 @@ impl DesktopController {
                 updates.push(UiUpdate::FileCatalogue(file_catalogue));
                 updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
                 updates.push(UiUpdate::Status(
-                    "File catalogue ready; building search base".into(),
+                    "File catalogue available; preparing search".into(),
                 ));
                 let mut draft = self.current_draft.clone();
                 draft.collection = if single_collection { collections.first().cloned() } else { None };
@@ -4127,12 +4160,12 @@ impl DesktopController {
                 updated.args.auto_index = true;
                 self.session = Some(updated);
                 self.last_index_status_sent = None;
+                updates.push(UiUpdate::Status("Search ready · Inferring field indexes…".into()));
                 if let Some(session) = &self.session
                     && let Ok(status) = session.repository.index().status()
                 {
                     self.update_index_ui(&status, updates);
                 }
-                updates.push(UiUpdate::Status("Search ready · Inferring field indexes…".into()));
             }
             Err(error) => updates.push(UiUpdate::Error {
                 field: ErrorField::General,
