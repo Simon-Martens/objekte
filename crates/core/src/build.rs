@@ -13,6 +13,7 @@ use std::time::Instant;
 
 use rayon::ThreadPool;
 use roaring::RoaringBitmap;
+use serde::Serialize;
 use sha2::{Digest, Sha256};
 
 use crate::bigram::{BigramBuilder, BigramContribution};
@@ -33,10 +34,9 @@ use crate::repository::{
 use crate::sorting::{SortBuilder, SortKey};
 use crate::source::{
     BoundedBuildChunk, BoundedJsonLines, DiagnosticCategory, ExtractedRecord, PreparedSource,
-    ReaderDiagnostic, ReaderFailure, SourceOutcome, TextDerivation, extract_file_build_outcomes,
-    extract_file_build_outcomes_hashed, extract_framed_build_outcomes, frame_file_for_build,
-    read_record_range_for_build,
-    visit_logical_strings_and_empty,
+    ReaderDiagnostic, ReaderFailure, SourceBuildSample, SourceOutcome, TextDerivation,
+    extract_file_build_outcomes, extract_file_build_outcomes_hashed, extract_framed_build_outcomes,
+    frame_file_for_build, read_record_range_for_build, visit_logical_strings_and_empty,
 };
 use crate::workload::BigramAlphabet;
 
@@ -137,7 +137,65 @@ pub(crate) struct BatchContribution {
     relations: Vec<RelationContribution>,
     pub record_parses: u64,
     pub failed_parses: u64,
+    pub(crate) profile: BuildWorkProfile,
 }
+
+
+/// Optional sampled work attribution. The source fields cover every 64th
+/// physical file; component fields cover up to one in 64 records of those
+/// files. They are not exclusive wall-clock construction intervals.
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct BuildWorkProfile {
+    pub sampled_files: u64,
+    pub sampled_file_bytes: u64,
+    pub sampled_read_calls: u64,
+    pub sampled_source_records: u64,
+    pub sampled_callback_ns: u64,
+    pub source_open_ns: u64,
+    pub source_read_ns: u64,
+    pub source_hash_ns: u64,
+    pub source_frame_ns: u64,
+    pub source_extraction_ns: u64,
+    pub sampled_component_records: u64,
+    pub validation_ns: u64,
+    pub postings_ns: u64,
+    pub inference_ns: u64,
+    pub relations_ns: u64,
+    pub custom_postings_ns: u64,
+    pub text_bigram_ns: u64,
+    pub sorting_ns: u64,
+    pub custom_text_ns: u64,
+    pub batch_finish_ns: u64,
+    pub batches: u64,
+}
+
+
+impl BuildWorkProfile {
+    pub(crate) fn absorb(&mut self, other: &Self) {
+        self.sampled_files += other.sampled_files;
+        self.sampled_file_bytes += other.sampled_file_bytes;
+        self.sampled_read_calls += other.sampled_read_calls;
+        self.sampled_source_records += other.sampled_source_records;
+        self.sampled_callback_ns += other.sampled_callback_ns;
+        self.source_open_ns += other.source_open_ns;
+        self.source_read_ns += other.source_read_ns;
+        self.source_hash_ns += other.source_hash_ns;
+        self.source_frame_ns += other.source_frame_ns;
+        self.source_extraction_ns += other.source_extraction_ns;
+        self.sampled_component_records += other.sampled_component_records;
+        self.validation_ns += other.validation_ns;
+        self.postings_ns += other.postings_ns;
+        self.inference_ns += other.inference_ns;
+        self.relations_ns += other.relations_ns;
+        self.custom_postings_ns += other.custom_postings_ns;
+        self.text_bigram_ns += other.text_bigram_ns;
+        self.sorting_ns += other.sorting_ns;
+        self.custom_text_ns += other.custom_text_ns;
+        self.batch_finish_ns += other.batch_finish_ns;
+        self.batches += other.batches;
+    }
+}
+
 
 /// The collection-wide identity and diagnostic observations needed while
 /// local index families move directly into bounded fresh-build shards.
@@ -147,6 +205,7 @@ pub(crate) struct BatchMetadata {
     pub(crate) inference: Option<InferenceBuilder>,
     pub(crate) logical_records: RoaringBitmap,
 }
+
 
 impl BatchContribution {
     pub(crate) fn file_fingerprints(&self) -> &[(FileId, [u8; 32])] {
@@ -197,6 +256,9 @@ struct BatchBuilder<'a> {
     empty_array_records: RoaringBitmap,
     sorting: SortBuilder,
     relations: Vec<RelationContribution>,
+    profile_current_file: bool,
+    profile_record_index: usize,
+    profile: BuildWorkProfile,
 }
 
 
@@ -266,6 +328,9 @@ impl<'a> BatchBuilder<'a> {
                 &definition.sort_overrides,
             )?,
             relations: RelationContribution::for_schema(schema),
+            profile_current_file: false,
+            profile_record_index: 0,
+            profile: BuildWorkProfile::default(),
         })
     }
 
@@ -361,6 +426,12 @@ impl<'a> BatchBuilder<'a> {
         mut extracted: ExtractedRecord,
         source_bytes: Option<&[u8]>,
     ) -> Result<(), String> {
+        let sample = self.profile_current_file && self.profile_record_index.is_multiple_of(64);
+        self.profile_record_index += 1;
+        if sample {
+            self.profile.sampled_component_records += 1;
+        }
+        let stage_started = sample.then(Instant::now);
         if let Err(error) = finish_build_record(&self.definition.schema, &mut extracted) {
             let issue = ReaderDiagnostic::new(
                 DiagnosticCategory::LogicalValidation,
@@ -373,6 +444,9 @@ impl<'a> BatchBuilder<'a> {
                 let bytes = read_record_range_for_build(path, range)?;
                 self.fallback(file, range, &bytes, issue)
             };
+        }
+        if let Some(started) = stage_started {
+            self.profile.validation_ns += started.elapsed().as_nanos() as u64;
         }
         let id = (|| -> Result<RecordId, String> {
             match &self.definition.identity {
@@ -427,7 +501,12 @@ impl<'a> BatchBuilder<'a> {
             class: RecordClass::Logical,
             diagnostic_ref: DiagnosticRef(0),
         });
+        let stage_started = sample.then(Instant::now);
         self.postings.add(slot, &extracted.value)?;
+        if let Some(started) = stage_started {
+            self.profile.postings_ns += started.elapsed().as_nanos() as u64;
+        }
+        let stage_started = sample.then(Instant::now);
         if let Some(inference) = &mut self.inference {
             inference.observe_record_with_schema(
                 slot,
@@ -435,9 +514,17 @@ impl<'a> BatchBuilder<'a> {
                 Some(&self.definition.schema),
             )?;
         }
+        if let Some(started) = stage_started {
+            self.profile.inference_ns += started.elapsed().as_nanos() as u64;
+        }
+        let stage_started = sample.then(Instant::now);
         for relation in &mut self.relations {
             relation.add_logical(slot, &extracted.value)?;
         }
+        if let Some(started) = stage_started {
+            self.profile.relations_ns += started.elapsed().as_nanos() as u64;
+        }
+        let stage_started = sample.then(Instant::now);
         for (key, custom) in &mut self.custom_postings {
             let binding = &self.definition.schema.operations[key];
             let selected = data_values(&extracted.value, &key.0);
@@ -460,6 +547,10 @@ impl<'a> BatchBuilder<'a> {
                 .map(|values| values.iter().collect::<Vec<_>>());
             custom.index.add_values(slot, refs.as_deref())?;
         }
+        if let Some(started) = stage_started {
+            self.profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
+        }
+        let stage_started = sample.then(Instant::now);
         let has_empty_array;
         if self.source.reader().text_derivation() == TextDerivation::LogicalStringsAfterConversion {
             if let Some(binding) = &self.definition.schema.raw {
@@ -500,6 +591,10 @@ impl<'a> BatchBuilder<'a> {
         if has_empty_array {
             self.empty_array_records.insert(slot.0);
         }
+        if let Some(started) = stage_started {
+            self.profile.text_bigram_ns += started.elapsed().as_nanos() as u64;
+        }
+        let stage_started = sample.then(Instant::now);
         self.sorting.add(
             slot,
             &extracted.value,
@@ -508,6 +603,10 @@ impl<'a> BatchBuilder<'a> {
             self.root,
             &self.definition.name,
         )?;
+        if let Some(started) = stage_started {
+            self.profile.sorting_ns += started.elapsed().as_nanos() as u64;
+        }
+        let stage_started = sample.then(Instant::now);
         for (key, index) in &mut self.custom_text {
             let values = data_values(&extracted.value, &key.0).unwrap_or_default();
             if let Some(binding) = self.definition.schema.operations.get(key) {
@@ -521,6 +620,9 @@ impl<'a> BatchBuilder<'a> {
             } else {
                 index.add_record(slot, values.into_iter().flat_map(string_values))?;
             }
+        }
+        if let Some(started) = stage_started {
+            self.profile.custom_text_ns += started.elapsed().as_nanos() as u64;
         }
         Ok(())
     }
@@ -589,6 +691,7 @@ impl<'a> BatchBuilder<'a> {
             relations: self.relations,
             record_parses,
             failed_parses,
+            profile: self.profile,
         })
     }
 }
@@ -604,6 +707,32 @@ pub(crate) fn process_batch(
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
     inference_jobs: usize,
+) -> Result<BatchContribution, String> {
+    process_batch_profiled(
+        root,
+        definition,
+        collection,
+        source,
+        file_ids,
+        source_files,
+        alphabet,
+        inference,
+        inference_jobs,
+        false,
+    )
+}
+
+fn process_batch_profiled(
+    root: &Path,
+    definition: &CollectionDefinition,
+    collection: CollectionId,
+    source: &PreparedSource,
+    file_ids: &[FileId],
+    source_files: &[SourceFileInput],
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+    profile_build: bool,
 ) -> Result<BatchContribution, String> {
     let mut builder = BatchBuilder::new(
         root,
@@ -622,10 +751,37 @@ pub(crate) fn process_batch(
         let path = root.join(&original.relative_path);
         let mut file = original.for_collection(collection);
         let start = builder.records.len();
-        let (stats, fingerprint) =
-            extract_file_build_outcomes_hashed(&path, source.reader(), file.revision, |outcome| {
-                builder.outcome(&mut file, &path, outcome, None)
-            })?;
+        let sampled = profile_build && file_id.0.is_multiple_of(64);
+        builder.profile_current_file = sampled;
+        builder.profile_record_index = 0;
+        let mut source_sample = SourceBuildSample::default();
+        let mut callback_ns = 0u64;
+        let (stats, fingerprint) = extract_file_build_outcomes_hashed(
+            &path,
+            source.reader(),
+            file.revision,
+            sampled.then_some(&mut source_sample),
+            |outcome| {
+                let started = sampled.then(Instant::now);
+                let result = builder.outcome(&mut file, &path, outcome, None);
+                if let Some(started) = started {
+                    callback_ns += started.elapsed().as_nanos() as u64;
+                }
+                result
+            },
+        )?;
+        if sampled {
+            builder.profile.sampled_files += 1;
+            builder.profile.sampled_file_bytes += source_sample.bytes_read;
+            builder.profile.sampled_read_calls += source_sample.read_calls;
+            builder.profile.sampled_source_records += stats.framed_records;
+            builder.profile.sampled_callback_ns += callback_ns;
+            builder.profile.source_open_ns += source_sample.open_ns;
+            builder.profile.source_read_ns += source_sample.read_ns;
+            builder.profile.source_hash_ns += source_sample.hash_ns;
+            builder.profile.source_frame_ns += source_sample.frame_ns;
+            builder.profile.source_extraction_ns += source_sample.extraction_ns;
+        }
         if let Some(fingerprint) = fingerprint {
             file_fingerprints.push((file_id, fingerprint));
         }
@@ -637,7 +793,12 @@ pub(crate) fn process_batch(
             first_range: true,
         });
     }
+    let finish_started = profile_build.then(Instant::now);
     let mut batch = builder.finish(files, record_parses, failed_parses)?;
+    if let Some(started) = finish_started {
+        batch.profile.batch_finish_ns += started.elapsed().as_nanos() as u64;
+        batch.profile.batches += 1;
+    }
     batch.file_fingerprints = file_fingerprints;
     Ok(batch)
 }
@@ -1288,6 +1449,7 @@ fn process_unframed_large_file(
 /// Built-in JSONL uses bounded build chunks. Other readers retain the
 /// whole-buffer framing route, sharing one source buffer across range jobs.
 /// Caller schedules oversized files one at a time.
+#[cfg(test)]
 pub(crate) fn process_framed_file(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
@@ -1298,6 +1460,34 @@ pub(crate) fn process_framed_file(
     source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
+    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<BuildScheduleStats, String> {
+    process_framed_file_profiled(
+        pool,
+        root,
+        definition,
+        collection,
+        source,
+        file_id,
+        source_files,
+        alphabet,
+        inference,
+        false,
+        &mut admit,
+    )
+}
+
+pub(crate) fn process_framed_file_profiled(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    collection: CollectionId,
+    source: PreparedSource,
+    file_id: FileId,
+    source_files: Arc<Vec<SourceFileInput>>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    profile_build: bool,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     if source.reader().supports_bounded_json_lines_build() {
@@ -1311,6 +1501,7 @@ pub(crate) fn process_framed_file(
             source_files,
             alphabet,
             inference,
+            profile_build,
             admit,
         );
     }
@@ -1466,6 +1657,7 @@ fn process_bounded_json_lines_file(
     source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
+    profile_build: bool,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
@@ -1505,6 +1697,7 @@ fn process_bounded_json_lines_file(
         source_files,
         alphabet,
         inference,
+        profile_build,
         reader,
         BoundedBuildLimits::default(),
         admit,
@@ -1547,6 +1740,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
     source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
+    profile_build: bool,
     mut reader: BoundedJsonLines<R>,
     limits: BoundedBuildLimits,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
@@ -1556,6 +1750,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
     // A failure before any contribution can still use the ordinary unreadable
     // outcome. Once a chunk is admitted, an I/O failure aborts this private
     // generation instead of publishing a partially indexed file.
+    let first_started = profile_build.then(Instant::now);
     let first = match reader.next_chunk(limits.chunk_bytes, limits.ranges) {
         Ok(Some(chunk)) => chunk,
         Ok(None) => BoundedBuildChunk {
@@ -1585,6 +1780,11 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
         weight_limit_bytes: limits.admitted_bytes,
         ..Default::default()
     };
+    if let Some(started) = first_started {
+        stats.framing_ns += started.elapsed().as_nanos() as u64;
+        stats.framing_chunks += 1;
+        stats.framing_bytes += pending.as_ref().map_or(0, |chunk| chunk.bytes.len()) as u64;
+    }
     let (sender, receiver) = mpsc::channel();
     let counters = Arc::new(JobCounters::default());
     let mut ready = BTreeMap::new();
@@ -1596,8 +1796,16 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
     while failure.is_none() {
         while dispatched - next < max_jobs {
             if pending.is_none() && !eof {
+                let started = profile_build.then(Instant::now);
                 match reader.next_chunk(limits.chunk_bytes, limits.ranges) {
-                    Ok(Some(chunk)) => pending = Some(chunk),
+                    Ok(Some(chunk)) => {
+                        if let Some(started) = started {
+                            stats.framing_ns += started.elapsed().as_nanos() as u64;
+                            stats.framing_chunks += 1;
+                            stats.framing_bytes += chunk.bytes.len() as u64;
+                        }
+                        pending = Some(chunk);
+                    }
                     Ok(None) => eof = true,
                     Err(error) => {
                         failure =
@@ -1759,6 +1967,15 @@ pub(crate) struct BuildScheduleStats {
     pub job_execution_ns: u64,
     pub receive_wait_ns: u64,
     pub admission_ns: u64,
+    pub out_of_order_completed: u64,
+    /// Sum of completed-batch time waiting for earlier ordinal admission.
+    /// Overlaps across batches and is not an exclusive wall interval.
+    pub ready_wait_sum_ns: u64,
+    pub ready_wait_max_ns: u64,
+    /// Bounded JSONL chunk read, frame, and inline fingerprint work.
+    pub framing_ns: u64,
+    pub framing_chunks: u64,
+    pub framing_bytes: u64,
 }
 
 
@@ -1771,6 +1988,14 @@ impl BuildScheduleStats {
         self.job_execution_ns = self.job_execution_ns.saturating_add(other.job_execution_ns);
         self.receive_wait_ns = self.receive_wait_ns.saturating_add(other.receive_wait_ns);
         self.admission_ns = self.admission_ns.saturating_add(other.admission_ns);
+        self.out_of_order_completed += other.out_of_order_completed;
+        self.ready_wait_sum_ns = self
+            .ready_wait_sum_ns
+            .saturating_add(other.ready_wait_sum_ns);
+        self.ready_wait_max_ns = self.ready_wait_max_ns.max(other.ready_wait_max_ns);
+        self.framing_ns = self.framing_ns.saturating_add(other.framing_ns);
+        self.framing_chunks += other.framing_chunks;
+        self.framing_bytes += other.framing_bytes;
     }
 }
 
@@ -1832,6 +2057,28 @@ pub(crate) fn process_repository_file_batches(
     inference: InferenceConfig,
     mut admit: impl FnMut(usize, BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
+    process_repository_file_batches_profiled(
+        pool,
+        root,
+        jobs,
+        source_files,
+        alphabet,
+        inference,
+        false,
+        &mut admit,
+    )
+}
+
+pub(crate) fn process_repository_file_batches_profiled(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    jobs: &[RepositoryFileJob],
+    source_files: Arc<Vec<SourceFileInput>>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    profile_build: bool,
+    mut admit: impl FnMut(usize, BatchContribution) -> Result<(), String>,
+) -> Result<BuildScheduleStats, String> {
     const MIN_FILE_BYTES: u64 = 16 * 1024;
     let allowance = normal_batch_allowance(pool.current_num_threads());
     let weights = jobs
@@ -1886,6 +2133,7 @@ pub(crate) fn process_repository_file_batches(
     }
     let (sender, receiver) = mpsc::channel();
     let mut ready = BTreeMap::new();
+    let mut ready_since = BTreeMap::new();
     let mut dispatched = 0;
     let mut completed = 0;
     let mut next = 0;
@@ -1914,7 +2162,7 @@ pub(crate) fn process_repository_file_batches(
             let counters = Arc::clone(&counters);
             pool.spawn(move || {
                 let result = counters.run(|| {
-                    process_batch(
+                    process_batch_profiled(
                         &root,
                         &definition,
                         collection,
@@ -1924,6 +2172,7 @@ pub(crate) fn process_repository_file_batches(
                         alphabet,
                         inference,
                         max_jobs,
+                        profile_build,
                     )
                 });
                 let _ = sender.send((index, result));
@@ -1939,8 +2188,19 @@ pub(crate) fn process_repository_file_batches(
             .saturating_add(wait_started.elapsed().as_nanos() as u64);
         let (index, result) = received.map_err(|error| error.to_string())?;
         completed += 1;
+        if profile_build {
+            if index != next {
+                stats.out_of_order_completed += 1;
+                ready_since.insert(index, Instant::now());
+            }
+        }
         ready.insert(index, result);
         while let Some(result) = ready.remove(&next) {
+            if let Some(started) = ready_since.remove(&next) {
+                let wait = started.elapsed().as_nanos() as u64;
+                stats.ready_wait_sum_ns = stats.ready_wait_sum_ns.saturating_add(wait);
+                stats.ready_wait_max_ns = stats.ready_wait_max_ns.max(wait);
+            }
             admitted_bytes -= weights[next];
             let admission_started = Instant::now();
             let outcome = result.and_then(|batch| admit(jobs[next].collection_index, batch));

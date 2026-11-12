@@ -252,6 +252,7 @@ pub(crate) fn canonical_custom_text_key(
     (path.to_vec(), canonical.to_owned())
 }
 
+
 /// Collection size summary used by query planning.
 #[derive(Clone, Copy, Debug, serde::Serialize, serde::Deserialize)]
 pub struct CollectionStats {
@@ -374,8 +375,57 @@ pub struct StartupStats {
     pub build_job_execution_ns: u64,
     pub build_receive_wait_ns: u64,
     pub build_admission_ns: u64,
+    pub build_out_of_order_completed: u64,
+    pub build_ready_wait_sum_ns: u64,
+    pub build_ready_wait_max_ns: u64,
+    pub build_framing_ns: u64,
+    pub build_framing_chunks: u64,
+    pub build_framing_bytes: u64,
     /// Fresh-build inference counters and retained-state estimates.
     pub inference_build: InferenceBuildStats,
+    /// Opt-in fresh-build timeline and sampled worker attribution.
+    pub build_profile: Option<BuildProfileStats>,
+}
+
+
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct BuildProfileStats {
+    pub discovery_enumeration_ns: u64,
+    pub discovery_catalogue_ns: u64,
+    pub pool_init_ns: u64,
+    pub builder_setup_ns: u64,
+    pub source_work_ns: u64,
+    pub fingerprint_finish_ns: u64,
+    pub finalize_generation_ns: u64,
+    pub finalize_bigrams_ns: u64,
+    pub finalize_validation_ns: u64,
+    pub finalize_sort_ns: u64,
+    pub finalize_inference_ns: u64,
+    pub finalize_identity_ns: u64,
+    pub relations_ns: u64,
+    pub final_checks_ns: u64,
+    pub pool_teardown_ns: u64,
+    pub query_pool_init_ns: u64,
+    pub large_file_total_ns: u64,
+    pub large_files: u64,
+    pub discovery_rss_bytes: u64,
+    pub extraction_rss_bytes: u64,
+    pub finalization_rss_bytes: u64,
+    pub work: crate::build::BuildWorkProfile,
+}
+
+
+fn build_profile_rss_bytes() -> u64 {
+    std::fs::read_to_string("/proc/self/status")
+        .ok()
+        .and_then(|text| {
+            text.lines()
+                .find(|line| line.starts_with("VmRSS:"))
+                .and_then(|line| line.split_whitespace().nth(1))
+                .and_then(|number| number.parse::<u64>().ok())
+        })
+        .unwrap_or(0)
+        .saturating_mul(1024)
 }
 
 
@@ -428,6 +478,8 @@ pub struct RepositoryOptions {
     /// `None` uses the parallelism available to this process at build time.
     pub build_workers: Option<NonZeroUsize>,
     pub inference: InferenceConfig,
+    /// Collect sampled build work and detailed timeline diagnostics.
+    pub profile_build: bool,
 }
 
 
@@ -442,6 +494,7 @@ impl Default for RepositoryOptions {
                 .map_or(1, |workers| workers.get().min(32)),
             build_workers: None,
             inference: InferenceConfig::default(),
+            profile_build: false,
         }
     }
 }
@@ -1130,6 +1183,7 @@ impl Repository {
         discover_sources: bool,
     ) -> Result<Self, String> {
         let discovery_started = Instant::now();
+        let mut profile = options.profile_build.then(BuildProfileStats::default);
         let mut files = FileInventory::new(root.clone());
         let mut selected = Vec::new();
         for (collection_index, definition) in definitions.into_iter().enumerate() {
@@ -1146,6 +1200,7 @@ impl Repository {
             ) {
                 return Err(format!("duplicate collection: {}", definition.name));
             }
+            let enumeration_started = profile.as_ref().map(|_| Instant::now());
             let paths = if discover_sources {
                 discover(
                     &root,
@@ -1156,6 +1211,10 @@ impl Repository {
             } else {
                 Vec::new()
             };
+            if let (Some(started), Some(profile)) = (enumeration_started, profile.as_mut()) {
+                profile.discovery_enumeration_ns += started.elapsed().as_nanos() as u64;
+            }
+            let catalogue_started = profile.as_ref().map(|_| Instant::now());
             let mut member_files = Vec::new();
             for path in paths {
                 let relative = path
@@ -1172,9 +1231,16 @@ impl Repository {
                 let file = files.add(relative, revision, created_ns, id)?;
                 member_files.push(file);
             }
+            if let (Some(started), Some(profile)) = (catalogue_started, profile.as_mut()) {
+                profile.discovery_catalogue_ns += started.elapsed().as_nanos() as u64;
+            }
             selected.push((definition, id, source, member_files));
         }
         let discovery_ns = discovery_started.elapsed().as_nanos() as u64;
+        if let Some(profile) = profile.as_mut() {
+            profile.discovery_rss_bytes = build_profile_rss_bytes();
+        }
+        let pool_started = profile.as_ref().map(|_| Instant::now());
         let build_workers = crate::build::resolve_build_workers(
             options.build_workers,
             std::thread::available_parallelism().ok(),
@@ -1184,6 +1250,9 @@ impl Repository {
             .thread_name(|index| format!("objekte-build-{index}"))
             .build()
             .map_err(|error| error.to_string())?;
+        if let (Some(started), Some(profile)) = (pool_started, profile.as_mut()) {
+            profile.pool_init_ns = started.elapsed().as_nanos() as u64;
+        }
         let source_files = Arc::new(
             files
                 .files
@@ -1194,6 +1263,7 @@ impl Repository {
         let root_shared = Arc::new(root.clone());
         let mut pending = Vec::new();
         let extraction_started = Instant::now();
+        let setup_started = profile.as_ref().map(|_| Instant::now());
         let mut build_parses = 0;
         let mut build_failed_parses = 0;
         let mut extraction_index_ns = 0u64;
@@ -1297,8 +1367,14 @@ impl Repository {
                 }
             }
         }
+        if let (Some(started), Some(profile)) = (setup_started, profile.as_mut()) {
+            profile.builder_setup_ns = started.elapsed().as_nanos() as u64;
+        }
         let mut normal = Vec::new();
         let mut admit = |collection_index: usize, batch: crate::build::BatchContribution| {
+            if let Some(profile) = profile.as_mut() {
+                profile.work.absorb(&batch.profile);
+            }
             for &(file_id, digest) in batch.file_fingerprints() {
                 digest_bindings
                     .get_mut(file_id.0 as usize)
@@ -1309,6 +1385,9 @@ impl Repository {
             build_failed_parses += batch.failed_parses;
             pending[collection_index].admit(&mut files, batch)
         };
+        let source_work_started = options.profile_build.then(Instant::now);
+        let mut large_file_total_ns = 0u64;
+        let mut large_files = 0u64;
         for job in scheduled {
             match job {
                 ScheduledBuildJob::Files(job) => normal.push(job),
@@ -1320,19 +1399,21 @@ impl Repository {
                     file,
                 } => {
                     if !normal.is_empty() {
-                        let stats = crate::build::process_repository_file_batches(
+                        let stats = crate::build::process_repository_file_batches_profiled(
                             &build_pool,
                             Arc::clone(&root_shared),
                             &normal,
                             Arc::clone(&source_files),
                             options.bigram_alphabet,
                             options.inference,
+                            options.profile_build,
                             &mut admit,
                         )?;
                         schedule_stats.absorb(stats);
                         normal.clear();
                     }
-                    let stats = crate::build::process_framed_file(
+                    let large_started = options.profile_build.then(Instant::now);
+                    let stats = crate::build::process_framed_file_profiled(
                         &build_pool,
                         Arc::clone(&root_shared),
                         definition,
@@ -1342,8 +1423,13 @@ impl Repository {
                         Arc::clone(&source_files),
                         options.bigram_alphabet,
                         options.inference,
+                        options.profile_build,
                         |batch| admit(collection_index, batch),
                     )?;
+                    if let Some(started) = large_started {
+                        large_file_total_ns += started.elapsed().as_nanos() as u64;
+                        large_files += 1;
+                    }
                     if let Some((file_id, digest)) = stats.file_fingerprint {
                         large_digests.push((
                             file_id,
@@ -1356,18 +1442,25 @@ impl Repository {
             }
         }
         if !normal.is_empty() {
-            let stats = crate::build::process_repository_file_batches(
+            let stats = crate::build::process_repository_file_batches_profiled(
                 &build_pool,
                 Arc::clone(&root_shared),
                 &normal,
                 Arc::clone(&source_files),
                 options.bigram_alphabet,
                 options.inference,
+                options.profile_build,
                 &mut admit,
             )?;
             schedule_stats.absorb(stats);
         }
         drop(admit);
+        if let (Some(started), Some(profile)) = (source_work_started, profile.as_mut()) {
+            profile.source_work_ns = started.elapsed().as_nanos() as u64;
+            profile.large_file_total_ns = large_file_total_ns;
+            profile.large_files = large_files;
+        }
+        let fingerprints_started = profile.as_ref().map(|_| Instant::now());
         for (file_id, collection, digest) in large_digests {
             digest_bindings
                 .get_mut(file_id.0 as usize)
@@ -1375,6 +1468,10 @@ impl Repository {
                 .push((collection, digest));
         }
         let base_fingerprints = finish_fresh_fingerprints(&files, digest_bindings)?;
+        if let (Some(started), Some(profile)) = (fingerprints_started, profile.as_mut()) {
+            profile.fingerprint_finish_ns = started.elapsed().as_nanos() as u64;
+            profile.extraction_rss_bytes = build_profile_rss_bytes();
+        }
         extraction_index_ns += extraction_started.elapsed().as_nanos() as u64;
         let mut collections = Vec::new();
         let mut pending_relations = Vec::new();
@@ -1399,7 +1496,12 @@ impl Repository {
                 relations,
             } = state;
             let finalization_started = Instant::now();
+            let stage_started = profile.as_ref().map(|_| Instant::now());
             let generation = builder.finish(&files)?;
+            if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
+                profile.finalize_generation_ns += started.elapsed().as_nanos() as u64;
+            }
+            let stage_started = profile.as_ref().map(|_| Instant::now());
             let raw = raw.into_index_in_pool(&build_pool)?;
             let fallback_text = fallback_text.into_index_in_pool(&build_pool)?;
             let custom_text = custom_text
@@ -1410,6 +1512,10 @@ impl Repository {
                         .map(|index| (key, index))
                 })
                 .collect::<Result<HashMap<_, _>, _>>()?;
+            if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
+                profile.finalize_bigrams_ns += started.elapsed().as_nanos() as u64;
+            }
+            let stage_started = profile.as_ref().map(|_| Instant::now());
             let all_logical = logical_records.len() == generation.records.len() as u64;
             postings.finish_stats();
             postings.validate_eligible(generation.records.len(), logical_records.len() as usize)?;
@@ -1450,7 +1556,15 @@ impl Repository {
                     index.validate_domain(&logical_records)?;
                 }
             }
+            if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
+                profile.finalize_validation_ns += started.elapsed().as_nanos() as u64;
+            }
+            let stage_started = profile.as_ref().map(|_| Instant::now());
             let sorting = sort_builder.finish(&generation)?;
+            if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
+                profile.finalize_sort_ns += started.elapsed().as_nanos() as u64;
+            }
+            let stage_started = profile.as_ref().map(|_| Instant::now());
             let inference = inference
                 .map(|builder| {
                     let mut stats = builder.build_stats();
@@ -1465,6 +1579,10 @@ impl Repository {
                     result
                 })
                 .transpose()?;
+            if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
+                profile.finalize_inference_ns += started.elapsed().as_nanos() as u64;
+            }
+            let stage_started = profile.as_ref().map(|_| Instant::now());
             let id_lookup = generation
                 .records
                 .iter()
@@ -1490,6 +1608,9 @@ impl Repository {
                     .sum(),
             };
             let text_bindings = crate::index_catalog::TextBindingCatalog::new(&definition.schema);
+            if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
+                profile.finalize_identity_ns += started.elapsed().as_nanos() as u64;
+            }
             collections.push(CollectionState {
                 definition,
                 source,
@@ -1513,6 +1634,10 @@ impl Repository {
             pending_relations.push(relations);
             finalization_ns += finalization_started.elapsed().as_nanos() as u64;
         }
+        if let Some(profile) = profile.as_mut() {
+            profile.finalization_rss_bytes = build_profile_rss_bytes();
+        }
+        let relations_started = profile.as_ref().map(|_| Instant::now());
         let mut resolved_relations = Vec::with_capacity(collections.len());
         for (source_index, contributions) in pending_relations.into_iter().enumerate() {
             let source_id = collections[source_index].generation.collection;
@@ -1533,11 +1658,27 @@ impl Repository {
             collection.relations = indexes;
         }
         crate::relation::validate_indexes(&collections)?;
+        if let (Some(started), Some(profile)) = (relations_started, profile.as_mut()) {
+            profile.relations_ns = started.elapsed().as_nanos() as u64;
+        }
+        let checks_started = profile.as_ref().map(|_| Instant::now());
         for state in &mut collections {
             state.sorting.refresh_file_status(&state.generation, &files);
         }
         files.validate_diagnostics()?;
+        if let (Some(started), Some(profile)) = (checks_started, profile.as_mut()) {
+            profile.final_checks_ns = started.elapsed().as_nanos() as u64;
+        }
+        let teardown_started = profile.as_ref().map(|_| Instant::now());
         drop(build_pool);
+        if let (Some(started), Some(profile)) = (teardown_started, profile.as_mut()) {
+            profile.pool_teardown_ns = started.elapsed().as_nanos() as u64;
+        }
+        let query_pool_started = profile.as_ref().map(|_| Instant::now());
+        let workers = Self::create_workers(options.query_workers)?;
+        if let (Some(started), Some(profile)) = (query_pool_started, profile.as_mut()) {
+            profile.query_pool_init_ns = started.elapsed().as_nanos() as u64;
+        }
         Ok(Self {
             files,
             base_fingerprints,
@@ -1559,10 +1700,17 @@ impl Repository {
                 build_job_execution_ns: schedule_stats.job_execution_ns,
                 build_receive_wait_ns: schedule_stats.receive_wait_ns,
                 build_admission_ns: schedule_stats.admission_ns,
+                build_out_of_order_completed: schedule_stats.out_of_order_completed,
+                build_ready_wait_sum_ns: schedule_stats.ready_wait_sum_ns,
+                build_ready_wait_max_ns: schedule_stats.ready_wait_max_ns,
+                build_framing_ns: schedule_stats.framing_ns,
+                build_framing_chunks: schedule_stats.framing_chunks,
+                build_framing_bytes: schedule_stats.framing_bytes,
                 inference_build,
+                build_profile: profile,
                 ..StartupStats::default()
             },
-            workers: Self::create_workers(options.query_workers)?,
+            workers,
             prepared: Mutex::new(crate::prepared::PreparedCache::new(
                 options.prepared_cache_bytes,
             )),

@@ -4,6 +4,7 @@ use std::collections::{HashMap, HashSet};
 use std::io::{BufRead, BufReader, Read, Seek, SeekFrom};
 use std::path::Path;
 use std::sync::Arc;
+use std::time::Instant;
 
 use serde::de::{DeserializeSeed, IgnoredAny, MapAccess, Visitor};
 use serde::{Deserialize, Serialize};
@@ -957,6 +958,38 @@ pub struct ExtractionCounters {
 }
 
 
+/// Sampled source-stage wall time for one fresh-build file. Extraction includes
+/// reader parsing and the caller's record-consumption callback.
+#[derive(Clone, Copy, Debug, Default)]
+pub(crate) struct SourceBuildSample {
+    pub open_ns: u64,
+    pub read_ns: u64,
+    pub hash_ns: u64,
+    pub frame_ns: u64,
+    pub extraction_ns: u64,
+    pub bytes_read: u64,
+    pub read_calls: u64,
+}
+
+
+struct TimedBuildReader<'a> {
+    inner: &'a mut std::fs::File,
+    sample: &'a mut SourceBuildSample,
+}
+
+
+impl Read for TimedBuildReader<'_> {
+    fn read(&mut self, bytes: &mut [u8]) -> std::io::Result<usize> {
+        let started = Instant::now();
+        let count = self.inner.read(bytes)?;
+        self.sample.read_ns += started.elapsed().as_nanos() as u64;
+        self.sample.read_calls += 1;
+        self.sample.bytes_read += count as u64;
+        Ok(count)
+    }
+}
+
+
 /// Call `consume` once for every independently parseable record. No index
 /// family rereads or reparses the source; builders share the extracted value.
 pub fn extract_file<F>(
@@ -1290,7 +1323,7 @@ pub fn extract_file_outcomes<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, false, true, None, consume)
+    extract_file_outcomes_impl(path, source, expected, false, true, None, None, consume)
 }
 
 /// Search a source without testing whether the saved discovery metadata is
@@ -1304,7 +1337,7 @@ pub(crate) fn extract_file_outcomes_for_search<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, false, false, None, consume)
+    extract_file_outcomes_impl(path, source, expected, false, false, None, None, consume)
 }
 
 pub(crate) fn extract_file_build_outcomes<F>(
@@ -1316,7 +1349,7 @@ pub(crate) fn extract_file_build_outcomes<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, true, false, None, consume)
+    extract_file_outcomes_impl(path, source, expected, true, false, None, None, consume)
 }
 
 /// Capture the exact whole-file digest while the fresh builder's normal
@@ -1325,6 +1358,7 @@ pub(crate) fn extract_file_build_outcomes_hashed<F>(
     path: &Path,
     source: &dyn SourceReader,
     expected: SourceRevision,
+    profile: Option<&mut SourceBuildSample>,
     consume: F,
 ) -> Result<(ExtractionCounters, Option<[u8; 32]>), String>
 where
@@ -1338,6 +1372,7 @@ where
         true,
         false,
         Some(&mut fingerprint),
+        profile,
         consume,
     )?;
     Ok((counters, fingerprint))
@@ -1350,11 +1385,13 @@ fn extract_file_outcomes_impl<F>(
     for_build: bool,
     check_freshness: bool,
     fingerprint: Option<&mut Option<[u8; 32]>>,
+    mut profile: Option<&mut SourceBuildSample>,
     mut consume: F,
 ) -> Result<ExtractionCounters, String>
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
+    let open_started = profile.as_ref().map(|_| Instant::now());
     let mut file = match std::fs::File::open(path) {
         Ok(file) => file,
         Err(error) => {
@@ -1368,11 +1405,23 @@ where
             return Ok(ExtractionCounters::default());
         }
     };
+    if let (Some(started), Some(sample)) = (open_started, profile.as_deref_mut()) {
+        sample.open_ns = started.elapsed().as_nanos() as u64;
+    }
     if check_freshness {
         check_revision(path, &file, expected)?;
     }
     let mut bytes = Vec::new();
-    if let Err(error) = file.read_to_end(&mut bytes) {
+    let read_result = if let Some(sample) = profile.as_deref_mut() {
+        TimedBuildReader {
+            inner: &mut file,
+            sample,
+        }
+        .read_to_end(&mut bytes)
+    } else {
+        file.read_to_end(&mut bytes)
+    };
+    if let Err(error) = read_result {
         consume(SourceOutcome::Unreadable {
             diagnostic: ReaderDiagnostic::new(
                 DiagnosticCategory::Io,
@@ -1382,10 +1431,14 @@ where
         })?;
         return Ok(ExtractionCounters::default());
     }
+    let hash_started = profile.as_ref().map(|_| Instant::now());
     if let Some(fingerprint) = fingerprint {
         if bytes.len() as u64 == expected.size {
             *fingerprint = Some(Sha256::digest(&bytes).into());
         }
+    }
+    if let (Some(started), Some(sample)) = (hash_started, profile.as_deref_mut()) {
+        sample.hash_ns = started.elapsed().as_nanos() as u64;
     }
     if check_freshness {
         check_revision(path, &file, expected)?;
@@ -1393,6 +1446,7 @@ where
             return Err("stale source revision during extraction".into());
         }
     }
+    let frame_started = profile.as_ref().map(|_| Instant::now());
     let ranges = match source.frame_outcome(&bytes) {
         Ok(ranges) => ranges,
         Err(ReaderFailure::Malformed(mut diagnostic)) => {
@@ -1422,9 +1476,16 @@ where
             return Err(format!("{}: reader fatal: {error}", path.display()));
         }
     };
+    if let (Some(started), Some(sample)) = (frame_started, profile.as_deref_mut()) {
+        sample.frame_ns = started.elapsed().as_nanos() as u64;
+    }
     validate_reader_ranges(&ranges, bytes.len())?;
+    let extraction_started = profile.as_ref().map(|_| Instant::now());
     let counters =
         extract_framed_outcomes_impl(path, source, &bytes, &ranges, for_build, &mut consume)?;
+    if let (Some(started), Some(sample)) = (extraction_started, profile.as_deref_mut()) {
+        sample.extraction_ns = started.elapsed().as_nanos() as u64;
+    }
     if check_freshness {
         check_revision(path, &file, expected)?;
     }

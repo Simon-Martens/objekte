@@ -4,6 +4,7 @@
 #[path = "support/musenalm.rs"]
 mod musenalm;
 
+use std::collections::BTreeMap;
 use std::fs;
 use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
@@ -35,6 +36,8 @@ fn run() -> Result<(), String> {
     let mut jsonl = false;
     let mut inference = false;
     let mut snapshot = false;
+    let mut profile = false;
+    let mut check_queries = false;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
@@ -65,11 +68,16 @@ fn run() -> Result<(), String> {
             "--jsonl" => jsonl = true,
             "--inference" => inference = true,
             "--snapshot" => snapshot = true,
+            "--profile" => profile = true,
+            "--check-queries" => check_queries = true,
             _ => return Err(format!("unknown argument {arg}")),
         }
     }
     if plain && jsonl {
         return Err("--plain and --jsonl select different fixtures".into());
+    }
+    if check_queries && (plain || jsonl) {
+        return Err("--check-queries requires Musenalm schema mode".into());
     }
     let result_root = result_dir.ok_or("--result-dir is required")?;
     fs::create_dir_all(&result_root).map_err(|e| format!("{}: {e}", result_root.display()))?;
@@ -101,6 +109,7 @@ fn run() -> Result<(), String> {
         bigram_alphabet: alphabet,
         snapshot_mode: SnapshotMode::Disabled,
         build_workers: workers,
+        profile_build: profile,
         ..RepositoryOptions::default()
     };
     if inference {
@@ -113,6 +122,29 @@ fn run() -> Result<(), String> {
     let after_build_rss = resident_bytes();
     let after_build_hwm = peak_resident_bytes();
     let startup = repo.startup().clone();
+    let profile_reconciliation = startup.build_profile.as_ref().map(|profile| -> Result<_, String> {
+        let top_level = startup.build_discovery_ns
+            + startup.build_extraction_index_ns
+            + startup.build_finalization_ns
+            + profile.pool_init_ns
+            + profile.relations_ns
+            + profile.final_checks_ns
+            + profile.pool_teardown_ns
+            + profile.query_pool_init_ns;
+        let extraction = profile.builder_setup_ns + profile.source_work_ns + profile.fingerprint_finish_ns;
+        let finalization = profile.finalize_generation_ns + profile.finalize_bigrams_ns
+            + profile.finalize_validation_ns + profile.finalize_sort_ns
+            + profile.finalize_inference_ns + profile.finalize_identity_ns;
+        let remainder = serde_json::json!({
+            "top_level_unattributed_ns": startup.build_ns.checked_sub(top_level).ok_or("top-level profile intervals overlap")?,
+            "extraction_unattributed_ns": startup.build_extraction_index_ns.checked_sub(extraction).ok_or("extraction profile intervals overlap")?,
+            "finalization_unattributed_ns": startup.build_finalization_ns.checked_sub(finalization).ok_or("finalization profile intervals overlap")?,
+        });
+        if profile.work.source_extraction_ns < profile.work.sampled_callback_ns {
+            return Err("sampled callback exceeds sampled source extraction".into());
+        }
+        Ok(remainder)
+    }).transpose()?;
     let corpus_fingerprint = fingerprint_inventory(&repo);
     let files = repo.files().files.len();
     let records = repo
@@ -138,6 +170,63 @@ fn run() -> Result<(), String> {
         .flat_map(|c| &c.relations)
         .map(|r| r.edge_count())
         .sum::<usize>();
+    let relation_heap_bytes = repo
+        .collections()
+        .iter()
+        .flat_map(|c| &c.relations)
+        .map(|r| r.estimated_heap_bytes())
+        .sum::<usize>();
+    let estimated_index_bytes = repo
+        .collections()
+        .iter()
+        .map(|c| {
+            c.raw.estimated_heap_bytes()
+                + c.fallback_text.estimated_heap_bytes()
+                + c.custom_text
+                    .values()
+                    .map(|i| i.estimated_heap_bytes())
+                    .sum::<usize>()
+                + c.postings
+                    .fields
+                    .values()
+                    .map(|p| {
+                        p.values
+                            .values()
+                            .map(|bitmap| bitmap.serialized_size() as usize)
+                            .sum::<usize>()
+                            + p.lengths
+                                .values()
+                                .map(|bitmap| bitmap.serialized_size() as usize)
+                                .sum::<usize>()
+                    })
+                    .sum::<usize>()
+                + c.sorting
+                    .columns
+                    .values()
+                    .map(|column| {
+                        column
+                            .keys
+                            .iter()
+                            .map(|key| match key {
+                                objekte_search_core::sorting::SortKey::String(value) => value.len(),
+                                _ => 24,
+                            })
+                            .sum::<usize>()
+                    })
+                    .sum::<usize>()
+        })
+        .sum::<usize>();
+    let (bigram_stores, distinct_gram_keys) =
+        repo.collections()
+            .iter()
+            .fold((0usize, 0usize), |total, collection| {
+                std::iter::once(&collection.raw)
+                    .chain(std::iter::once(&collection.fallback_text))
+                    .chain(collection.custom_text.values())
+                    .fold(total, |(stores, keys), index| {
+                        (stores + 1, keys + index.normal.len() + index.skip.len())
+                    })
+            });
     let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
     let source_bytes = repo
         .files()
@@ -149,9 +238,32 @@ fn run() -> Result<(), String> {
         let path = result_dir.join("index.snapshot");
         let stats = repo.save_snapshot_with_stats(&path)?;
         let bytes = fs::metadata(&path).map_err(|e| e.to_string())?.len();
+        let sections = stats.sections.iter().map(|section| serde_json::json!({
+            "id":section.id,"serialize_ns":section.serialize_ns,"checksum_ns":section.checksum_ns,
+            "write_ns":section.write_ns,"payload_bytes":section.payload_bytes,
+        })).collect::<Vec<_>>();
         Some(
-            serde_json::json!({"total_ns":stats.total_ns,"directory_ns":stats.directory_ns,"header_ns":stats.header_ns,"inventory_ns":stats.inventory_ns,"write_ns":stats.write_ns,"sync_ns":stats.sync_ns,"rename_ns":stats.rename_ns,"directory_sync_ns":stats.directory_sync_ns,"bytes":bytes,"rss_after_write":resident_bytes(),"hwm_after_write":peak_resident_bytes()}),
+            serde_json::json!({"total_ns":stats.total_ns,"directory_ns":stats.directory_ns,"header_ns":stats.header_ns,"inventory_ns":stats.inventory_ns,"write_ns":stats.write_ns,"sync_ns":stats.sync_ns,"rename_ns":stats.rename_ns,"directory_sync_ns":stats.directory_sync_ns,"bytes":bytes,"sections":sections,"rss_after_write":resident_bytes(),"hwm_after_write":peak_resident_bytes()}),
         )
+    } else {
+        None
+    };
+    let query_digests = if check_queries {
+        let core = Path::new(env!("CARGO_MANIFEST_DIR"));
+        let cases = objekte_search_core::workload::load_extended_manifest(
+            &core.join("benches/musenalm_queries.json"),
+            &core.join("benches/musenalm_queries_extended.json"),
+        )?;
+        let mut digests = BTreeMap::new();
+        for case in cases
+            .iter()
+            .filter(|case| ["Q001", "Q108", "Q116", "Q120", "Q194"].contains(&case.id.as_str()))
+        {
+            let result = repo.search(&case.query()?)?;
+            let digest = Sha256::digest(format!("{:?}", (result.count, result.hits)).as_bytes());
+            digests.insert(case.id.clone(), format!("{digest:x}"));
+        }
+        Some(digests)
     } else {
         None
     };
@@ -159,13 +271,26 @@ fn run() -> Result<(), String> {
     let after_release_rss = resident_bytes();
     let rev = command_output("git", &["rev-parse", "HEAD"])?;
     let status = command_output("git", &["status", "--porcelain"])?;
+    let schema_fingerprint = if plain || jsonl {
+        None
+    } else {
+        Some(hash_schema_files(&root)?)
+    };
     let manifest = serde_json::json!({
         "code_revision":rev,"dirty_status":status,"command":arguments,"root":root,
         "compiler":command_output("rustc", &["--version"])?,
+        "kernel":command_output("uname", &["-r"])?,
+        "cpu_model":proc_field("/proc/cpuinfo", "model name"),
+        "cpu_governor":fs::read_to_string("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor").ok().map(|value| value.trim().to_string()),
+        "cpu_affinity":proc_field("/proc/self/status", "Cpus_allowed_list"),
         "alphabet":alphabet,"requested_workers":workers.map(NonZeroUsize::get),
         "resolved_workers":startup.build_workers,"inference":inference,
         "configuration":if jsonl { "jsonl_fixture" } else if plain { "plain_unconfigured" } else { "musenalm_extended" },
-        "snapshot":snapshot,"corpus_fingerprint":corpus_fingerprint,
+        "snapshot":snapshot,"corpus_fingerprint":corpus_fingerprint,"schema_fingerprint":schema_fingerprint,
+        "profile":profile,
+        "check_queries":check_queries,
+        "query_workers":options.query_workers,"prepared_cache_bytes":options.prepared_cache_bytes,
+        "verified_cache_bytes":options.verified_cache_bytes,
         "source_bytes":source_bytes,"records":records,"files":files,
     });
     let sample = serde_json::json!({
@@ -176,16 +301,27 @@ fn run() -> Result<(), String> {
         "build_job_execution_ns":startup.build_job_execution_ns,
         "build_receive_wait_ns":startup.build_receive_wait_ns,
         "build_admission_ns":startup.build_admission_ns,
+        "out_of_order_completed":startup.build_out_of_order_completed,
+        "ready_wait_sum_ns":startup.build_ready_wait_sum_ns,
+        "ready_wait_max_ns":startup.build_ready_wait_max_ns,
+        "framing_ns":startup.build_framing_ns,
+        "framing_chunks":startup.build_framing_chunks,
+        "framing_bytes":startup.build_framing_bytes,
         "peak_active_jobs":startup.build_peak_active_jobs,
         "peak_ready_batches":startup.build_peak_ready_batches,
         "peak_admitted_bytes":startup.peak_build_admitted_bytes,
         "weight_limit_bytes":startup.build_weight_limit_bytes,
         "inference_build":format!("{:?}",startup.inference_build),
+        "profile":startup.build_profile,
+        "profile_reconciliation":profile_reconciliation,
         "before_rss":before_rss,"after_build_rss":after_build_rss,"after_build_hwm":after_build_hwm,
         "after_release_rss":after_release_rss,"build_parses":build_parses,"failed_parses":failed_parses,"postings":postings,
-        "sort_fields":sort_fields,"relation_edges":relation_edges,
+        "sort_fields":sort_fields,"relation_edges":relation_edges,"relation_heap_bytes":relation_heap_bytes,
+        "estimated_index_bytes":estimated_index_bytes,"bigram_stores":bigram_stores,
+        "distinct_gram_keys":distinct_gram_keys,
         "inventory_heap_bytes":inventory_heap_bytes,"diagnostic_heap_bytes":diagnostic_heap_bytes,
         "snapshot_result":snapshot_result,
+        "query_digests":query_digests,
     });
     write_json(&result_dir.join("run-manifest.json"), &manifest)?;
     write_json(&result_dir.join("sample.json"), &sample)?;
@@ -225,12 +361,42 @@ fn fingerprint_inventory(repo: &Repository) -> String {
     format!("{:x}", hash.finalize())
 }
 
+fn hash_schema_files(root: &Path) -> Result<String, String> {
+    let mut files = fs::read_dir(root.join(".objekte/collections"))
+        .map_err(|e| e.to_string())?
+        .map(|entry| entry.map(|entry| entry.path()).map_err(|e| e.to_string()))
+        .collect::<Result<Vec<_>, _>>()?;
+    files.sort();
+    let mut hash = Sha256::new();
+    for file in files {
+        hash.update(
+            file.file_name()
+                .ok_or("schema name missing")?
+                .to_string_lossy()
+                .as_bytes(),
+        );
+        hash.update(fs::read(file).map_err(|e| e.to_string())?);
+    }
+    Ok(format!("{:x}", hash.finalize()))
+}
+
+fn proc_field(path: &str, field: &str) -> Option<String> {
+    fs::read_to_string(path).ok().and_then(|text| {
+        text.lines().find_map(|line| {
+            line.split_once(':')
+                .and_then(|(name, value)| (name.trim() == field).then(|| value.trim().to_string()))
+        })
+    })
+}
+
 fn resident_bytes() -> u64 {
     status_bytes("VmRSS:")
 }
+
 fn peak_resident_bytes() -> u64 {
     status_bytes("VmHWM:")
 }
+
 fn status_bytes(field: &str) -> u64 {
     fs::read_to_string("/proc/self/status")
         .ok()

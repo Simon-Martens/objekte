@@ -156,6 +156,27 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
     .unwrap();
     assert_eq!(batch.records.len(), 3);
     assert_eq!(batch.file_fingerprints(), &[expected.unwrap()]);
+    let profiled = process_batch_profiled(
+        &root,
+        &definition,
+        CollectionId(0),
+        &source,
+        &[input.id],
+        &[input.clone()],
+        BigramAlphabet::Ascii,
+        InferenceConfig::default(),
+        1,
+        true,
+    )
+    .unwrap();
+    assert_eq!(profiled.records.len(), batch.records.len());
+    assert_eq!(profiled.file_fingerprints(), batch.file_fingerprints());
+    assert_eq!(profiled.record_parses, batch.record_parses);
+    assert_eq!(profiled.profile.sampled_files, 1);
+    assert_eq!(profiled.profile.sampled_file_bytes, bytes.len() as u64);
+    assert!(profiled.profile.sampled_read_calls > 0);
+    assert_eq!(profiled.profile.sampled_source_records, 3);
+    assert_eq!(profiled.profile.sampled_component_records, 1);
 
     std::fs::remove_file(&path).unwrap();
     let missing = process_batch(
@@ -1787,6 +1808,7 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
         Arc::clone(&source_files),
         BigramAlphabet::Ascii,
         inference,
+        false,
         make(0),
         BoundedBuildLimits::default(),
         |batch| {
@@ -1812,6 +1834,7 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
         Arc::clone(&source_files),
         BigramAlphabet::Ascii,
         inference,
+        false,
         BoundedJsonLines::from_reader(BufReader::new(std::io::Cursor::new(blank_lines))),
         BoundedBuildLimits {
             chunk_bytes: 1024,
@@ -1839,6 +1862,7 @@ fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() 
         source_files,
         BigramAlphabet::Ascii,
         inference,
+        false,
         make(512 * 3),
         BoundedBuildLimits::default(),
         |batch| {
