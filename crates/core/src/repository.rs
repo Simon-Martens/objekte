@@ -11,7 +11,7 @@ use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, AtomicUsize, Ordering};
 use std::time::Instant;
 
-use crate::bigram::{BigramContribution, BigramIndex};
+use crate::bigram::{BigramContribution, BigramContributionStorage, BigramIndex};
 use crate::discovery::{Discovery, discover};
 use crate::inference::{
     InferenceBuildStats, InferenceBuilder, InferenceConfig, InferencePathDiagnostic,
@@ -201,6 +201,15 @@ enum ScheduledBuildJob {
 
 
 impl PendingCollection {
+    fn bigram_storage_stats(&self) -> BigramContributionStorage {
+        let mut stats = self.raw.storage_stats();
+        stats.absorb(self.fallback_text.storage_stats());
+        for contribution in self.custom_text.values() {
+            stats.absorb(contribution.storage_stats());
+        }
+        stats
+    }
+
     fn admit(
         &mut self,
         inventory: &mut FileInventory,
@@ -394,6 +403,7 @@ pub struct StartupStats {
 pub struct BuildProfileStats {
     pub admission_by_collection: BTreeMap<String, crate::build::AdmissionBreakdown>,
     pub admission_schedule: crate::build::AdmissionScheduleProfile,
+    pub contribution_storage: BuildContributionStorageProfile,
     pub discovery_enumeration_ns: u64,
     pub discovery_catalogue_ns: u64,
     pub discovery_metadata_prepare_ns: u64,
@@ -419,6 +429,63 @@ pub struct BuildProfileStats {
     pub extraction_rss_bytes: u64,
     pub finalization_rss_bytes: u64,
     pub work: crate::build::BuildWorkProfile,
+}
+
+/// Opt-in bigram construction capacity samples. Values count arena and
+/// directory element payloads, excluding hash control bytes and allocator
+/// rounding. The global-plus-batch sample includes all pending collections
+/// and the current admitted batch, but not concurrently extracting jobs or
+/// completed channel messages.
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct BuildContributionStorageProfile {
+    pub block_size: usize,
+    pub column_descriptor_size: usize,
+    pub column_store_size: usize,
+    pub contribution_size: usize,
+    pub peak_global_blocks: usize,
+    pub peak_global_columns: usize,
+    pub peak_global_element_bytes: usize,
+    pub peak_admitted_batch_blocks: usize,
+    pub peak_admitted_batch_columns: usize,
+    pub peak_admitted_batch_element_bytes: usize,
+    pub peak_global_plus_admitted_batch_element_bytes: usize,
+    pub peak_ready_batch_element_bytes: usize,
+    pub final_global_blocks: usize,
+    pub final_global_columns: usize,
+    pub final_global_element_bytes: usize,
+}
+
+impl BuildContributionStorageProfile {
+    fn observe(&mut self, global: BigramContributionStorage, batch: BigramContributionStorage) {
+        let global_bytes = global.allocated_element_bytes();
+        let batch_bytes = batch.allocated_element_bytes();
+        self.block_size = self.block_size.max(global.block_size).max(batch.block_size);
+        self.column_descriptor_size = self
+            .column_descriptor_size
+            .max(global.column_size)
+            .max(batch.column_size);
+        self.column_store_size = self
+            .column_store_size
+            .max(global.column_store_size)
+            .max(batch.column_store_size);
+        self.contribution_size = self
+            .contribution_size
+            .max(global.contribution_size)
+            .max(batch.contribution_size);
+        self.peak_global_blocks = self.peak_global_blocks.max(global.blocks);
+        self.peak_global_columns = self.peak_global_columns.max(global.columns);
+        self.peak_global_element_bytes = self.peak_global_element_bytes.max(global_bytes);
+        self.peak_admitted_batch_blocks = self.peak_admitted_batch_blocks.max(batch.blocks);
+        self.peak_admitted_batch_columns = self.peak_admitted_batch_columns.max(batch.columns);
+        self.peak_admitted_batch_element_bytes =
+            self.peak_admitted_batch_element_bytes.max(batch_bytes);
+        self.peak_global_plus_admitted_batch_element_bytes = self
+            .peak_global_plus_admitted_batch_element_bytes
+            .max(global_bytes.saturating_add(batch_bytes));
+        self.final_global_blocks = global.blocks;
+        self.final_global_columns = global.columns;
+        self.final_global_element_bytes = global_bytes;
+    }
 }
 
 
@@ -1462,6 +1529,13 @@ impl Repository {
         let mut admit = |collection_index: usize, batch: crate::build::BatchContribution| {
             let callback_started = options.profile_build.then(Instant::now);
             if let Some(profile) = profile.as_mut() {
+                let mut global = BigramContributionStorage::default();
+                for collection in &pending {
+                    global.absorb(collection.bigram_storage_stats());
+                }
+                profile
+                    .contribution_storage
+                    .observe(global, batch.bigram_storage_stats());
                 profile.work.absorb(&batch.profile);
             }
             for &(file_id, digest) in batch.file_fingerprints() {
@@ -1480,6 +1554,15 @@ impl Repository {
                 .profile_build
                 .then(crate::build::AdmissionBreakdown::default);
             let result = pending[collection_index].admit(&mut files, batch, breakdown.as_mut());
+            if let Some(profile) = profile.as_mut() {
+                let mut global = BigramContributionStorage::default();
+                for collection in &pending {
+                    global.absorb(collection.bigram_storage_stats());
+                }
+                profile
+                    .contribution_storage
+                    .observe(global, BigramContributionStorage::default());
+            }
             if let (Some(started), Some(mut breakdown), Some(profile)) =
                 (admission_started, breakdown, profile.as_mut())
             {
@@ -1579,6 +1662,8 @@ impl Repository {
             profile.large_file_total_ns = large_file_total_ns;
             profile.large_files = large_files;
             profile.admission_schedule = schedule_stats.admission_schedule;
+            profile.contribution_storage.peak_ready_batch_element_bytes =
+                schedule_stats.peak_ready_bigram_element_bytes;
         }
         let fingerprints_started = profile.as_ref().map(|_| Instant::now());
         for (file_id, collection, digest) in large_digests {

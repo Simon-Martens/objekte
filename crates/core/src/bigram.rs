@@ -460,9 +460,22 @@ pub(crate) struct BigramContributionStorage {
     pub block_capacity: usize,
     pub block_size: usize,
     pub column_size: usize,
+    pub column_store_size: usize,
+    pub contribution_size: usize,
 }
 
 impl BigramContributionStorage {
+    pub fn absorb(&mut self, other: Self) {
+        self.columns = self.columns.saturating_add(other.columns);
+        self.column_capacity = self.column_capacity.saturating_add(other.column_capacity);
+        self.blocks = self.blocks.saturating_add(other.blocks);
+        self.block_capacity = self.block_capacity.saturating_add(other.block_capacity);
+        self.block_size = self.block_size.max(other.block_size);
+        self.column_size = self.column_size.max(other.column_size);
+        self.column_store_size = self.column_store_size.max(other.column_store_size);
+        self.contribution_size = self.contribution_size.max(other.contribution_size);
+    }
+
     pub fn allocated_element_bytes(self) -> usize {
         self.block_capacity
             .saturating_mul(self.block_size)
@@ -491,6 +504,8 @@ impl BigramContribution {
             block_capacity: self.normal.blocks.capacity() + self.skip.blocks.capacity(),
             block_size: std::mem::size_of::<GramBlock>(),
             column_size: std::mem::size_of::<GramColumn>(),
+            column_store_size: std::mem::size_of::<GramColumns>(),
+            contribution_size: std::mem::size_of::<BigramContribution>(),
         }
     }
 
