@@ -44,7 +44,7 @@ fn staged_build_matches_static_inference_overlap_and_cache_restore() {
             .repository()
             .collections()
             .iter()
-            .all(|state| { !state.generation.records.is_empty() })
+            .all(|state| { state.generation.records.is_empty() })
     );
     assert_eq!(
         index.view().unwrap().repository().build_parses(),

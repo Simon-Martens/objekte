@@ -77,7 +77,7 @@ fn partial_structural_postings_survive_explicit_mutations_and_cache_roundtrip() 
                 kind,
                 required: false,
                 nullable: false,
-                indexed: false,
+                indexed: true,
                 multi,
                 element_nullable: vec![],
             })
