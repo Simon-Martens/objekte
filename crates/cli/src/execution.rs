@@ -21,7 +21,7 @@ use objekte_search_core::streaming::{
 use serde_json::{Value, json};
 
 use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
-use crate::loader::{configure_definitions, open_repository, repository_options, snapshot_policy};
+use crate::loader::{configure_definitions, open_repository_wait, repository_options, snapshot_policy};
 use crate::output::{EventWriter, counters_with_ms, milliseconds_value as ms};
 use crate::query_input::{QueryInput, QueryKind, QuerySource};
 
@@ -87,9 +87,10 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     };
     let write = args.write_index.is_some();
     let configured_repository = args.repo.is_some();
+    let wait = args.effective_index_wait();
     let result = crate::tui::run_with_loader(
-        move |_loading_cancel| {
-            open_repository(
+        move |loading_cancel| {
+            open_repository_wait(
                 &root,
                 &configured,
                 options,
@@ -97,6 +98,8 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                 write,
                 configured_repository,
                 false,
+                wait,
+                &loading_cancel,
             )
             .map(|(repo, _, _)| repo)
         },
@@ -300,7 +303,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     }
     let options = repository_options(args);
     let policy = snapshot_policy(args, &paths);
-    let (repo, startup_ns, snapshot_save) = match open_repository(
+    let (repo, startup_ns, snapshot_save) = match open_repository_wait(
         &paths.root,
         &configured,
         options,
@@ -308,9 +311,14 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         args.write_index.is_some(),
         args.repo.is_some(),
         args.load_index.is_some(),
+        args.effective_index_wait(),
+        token,
     ) {
         Ok(result) => result,
         Err(message) => {
+            if token.is_cancelled() {
+                return cancel_run(&mut output, 0, 0, &started);
+            }
             eprintln!("obj: {message}");
             if let Err(error) = output
                 .emit(
@@ -324,34 +332,43 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             return Exit::Arguments;
         }
     };
-    let source = match QuerySource::open(args) {
-        Ok(source) => source,
-        Err(message) => {
-            eprintln!("obj: {message}");
-            if let Err(error) = output
-                .emit(
-                    json!({"type":"run_error", "stage":"query_input", "error":message,
-                "elapsed_ms":ms(started.elapsed().as_nanos())}),
-                )
-                .and_then(|_| output.flush())
-            {
-                return output_failure(error);
+    let result = (|| {
+        let source = match QuerySource::open(args) {
+            Ok(source) => source,
+            Err(message) => {
+                eprintln!("obj: {message}");
+                if let Err(error) = output
+                    .emit(
+                        json!({"type":"run_error", "stage":"query_input", "error":message,
+                    "elapsed_ms":ms(started.elapsed().as_nanos())}),
+                    )
+                    .and_then(|_| output.flush())
+                {
+                    return output_failure(error);
+                }
+                return Exit::Operation;
             }
-            return Exit::Operation;
-        }
-    };
-    run_queries(
-        RunTail {
-            repo: &repo,
-            args,
-            started: &started,
-            startup_ns,
-            snapshot_save: snapshot_save.as_ref(),
-        },
-        source,
-        &mut output,
-        token,
-    )
+        };
+        run_queries(
+            RunTail {
+                repo: &repo,
+                args,
+                started: &started,
+                startup_ns,
+                snapshot_save: snapshot_save.as_ref(),
+            },
+            source,
+            &mut output,
+            token,
+        )
+    })();
+    if let Err(error) = repo.index().cancel_extended() {
+        eprintln!("obj: could not cancel optional field indexing: {error}");
+    }
+    if let Err(error) = repo.index().shutdown() {
+        eprintln!("obj: index shutdown: {error}");
+    }
+    result
 }
 
 fn run_start_event(

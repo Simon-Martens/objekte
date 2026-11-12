@@ -2,11 +2,11 @@
 
 use std::collections::HashSet;
 use std::path::{Path, PathBuf};
-use std::time::Instant;
+use std::time::{Duration, Instant};
 
 use objekte_search_core::discovery::SymlinkPolicy;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
-use objekte_search_core::lifecycle::{Index, IndexError};
+use objekte_search_core::lifecycle::{Index, IndexError, StagedBuildPhase, StagedBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::lifecycle_repository::{
     CacheFailurePolicy, CacheOpenPolicy, RepositoryOpenOptions,
@@ -20,9 +20,10 @@ use objekte_search_core::repository_configuration::{
 use objekte_search_core::schema_adapter::CompiledSchema;
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::storage::SnapshotSaveStats;
+use objekte_search_core::streaming::CancellationToken;
 use objekte_search_core::workload::BigramAlphabet;
 
-use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
+use crate::arguments::{Alphabet, Arguments, IndexWait, ResolvedPaths};
 
 fn load_schema_configuration(
     paths: &ResolvedPaths,
@@ -298,6 +299,124 @@ pub fn open_repository(
         return Ok((repo, open_ns, Some(saved)));
     }
     Ok((repo, open_ns, None))
+}
+
+/// Open at the requested readiness milestone. The source and cache policy is
+/// the same as `open_repository`; only the point at which it returns differs.
+pub fn open_repository_wait(
+    root: &Path,
+    configured: &ConfiguredDefinitions,
+    options: RepositoryOptions,
+    policy: SnapshotOpenPolicy,
+    write_requested: bool,
+    configured_repository: bool,
+    require_current_sources: bool,
+    wait: IndexWait,
+    cancellation: &CancellationToken,
+) -> Result<(IndexedRepository, u128, Option<SnapshotSaveStats>), String> {
+    let directory = policy
+        .directory
+        .clone()
+        .unwrap_or_else(|| root.join(".objekte"));
+    let open_started = Instant::now();
+    let task = Index::start_staged_open_configured_repository(
+        RepositoryConfiguration {
+            root: root.to_owned(),
+            definitions: configured.definitions.clone(),
+            schema_files: configured.schema_files.clone(),
+            protected_files: configured.protected_files.clone(),
+            schema_fields: configured.schema_fields,
+        },
+        RepositoryOpenOptions {
+            index: options,
+            cache_directory: Some(directory.clone()),
+            cache_open: match policy.mode {
+                SnapshotMode::Required => CacheOpenPolicy::Required,
+                SnapshotMode::IfValid => CacheOpenPolicy::IfPresent,
+                SnapshotMode::Disabled if configured_repository && !write_requested => {
+                    CacheOpenPolicy::IfPresent
+                }
+                SnapshotMode::Disabled => CacheOpenPolicy::Ignore,
+            },
+            cache_failure: CacheFailurePolicy::Rebuild,
+            sync_cache: false,
+        },
+    )
+    .map_err(|error| error.to_string())?;
+    let index = wait_for_open(&task, wait, cancellation)?;
+    let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
+    stop_if_cancelled(&repo, cancellation)?;
+    if require_current_sources && repo.startup().restored {
+        let report = repo
+            .index()
+            .wait_for_reconciliation()
+            .map_err(|error| error.to_string())?
+            .ok_or("restored cache has no reconciliation task")?;
+        if report.cancelled || !report.issues.is_empty() || report.omitted_issues > 0 {
+            return Err(format!(
+                "cache reconciliation incomplete: {} source issues",
+                report.issues.len() + report.omitted_issues
+            ));
+        }
+        if !write_requested && (report.added > 0 || report.updated > 0 || report.removed > 0) {
+            return Err("loaded cache is stale; use --load-index with --write-index to reconcile and save it".into());
+        }
+    }
+    stop_if_cancelled(&repo, cancellation)?;
+    let open_ns = open_started.elapsed().as_nanos();
+    if write_requested
+        && (!repo.startup().restored
+            || (require_current_sources
+                && repo
+                    .index()
+                    .status()
+                    .map_err(|error| error.to_string())?
+                    .dirty()))
+    {
+        let path =
+            objekte_search_core::storage::snapshot_path_in(&directory, options.bigram_alphabet);
+        let saved = repo
+            .index()
+            .flush_cache_with_stats(&path)
+            .map_err(|error| error.to_string())?
+            .1;
+        return Ok((repo, open_ns, Some(saved)));
+    }
+    Ok((repo, open_ns, None))
+}
+
+fn stop_if_cancelled(
+    repo: &IndexedRepository,
+    cancellation: &CancellationToken,
+) -> Result<(), String> {
+    if cancellation.is_cancelled() {
+        let _ = repo.index().cancel_extended();
+        let _ = repo.index().shutdown();
+        return Err("index opening cancelled".into());
+    }
+    Ok(())
+}
+
+fn wait_for_open(
+    task: &StagedBuildTask,
+    wait: IndexWait,
+    cancellation: &CancellationToken,
+) -> Result<Index, String> {
+    loop {
+        if cancellation.is_cancelled() {
+            task.cancel();
+            let _ = task.wait_complete();
+            return Err("index opening cancelled".into());
+        }
+        let status = task.status().map_err(|error| error.to_string())?;
+        if wait == IndexWait::Search && status.data_revision.is_some() {
+            return task.wait_search_ready().map_err(|error| error.to_string());
+        }
+        if matches!(status.phase, StagedBuildPhase::Complete | StagedBuildPhase::Failed | StagedBuildPhase::Cancelled) {
+            return task.wait_complete().map_err(|error| error.to_string());
+        }
+        std::thread::sleep(Duration::from_millis(25));
+    }
 }
 
 #[cfg(test)]

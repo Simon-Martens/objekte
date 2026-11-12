@@ -57,6 +57,7 @@ fn search_wait_field_query_preserves_result_protocol() {
     assert_eq!(events[0]["type"], "run_start");
     assert_eq!(events.last().unwrap()["type"], "run_complete");
     assert_eq!(events.last().unwrap()["query_successes"], 1);
+    assert_eq!(events.last().unwrap()["build_parses"], 2);
 }
 
 #[test]
@@ -394,7 +395,8 @@ fn auto_index_flag_preserves_answers_and_reports_short_string_capability() {
         auto.last().unwrap()["automatic_index_summary"]["short_string_complete_fields"],
         1
     );
-    assert_eq!(auto.last().unwrap()["build_parses"], 80);
+    assert_eq!(plain.last().unwrap()["build_parses"], 80);
+    assert_eq!(auto.last().unwrap()["build_parses"], 160);
     assert!(!root.path().join(".objekte").exists());
 }
 

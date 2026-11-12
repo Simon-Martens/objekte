@@ -6,6 +6,7 @@ use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
 use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::lifecycle::ExtendedPhase;
 use objekte_search_core::model::{FieldPath, LogicalType, PathRoot, Value};
 use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Modifier, Operand, Query, QueryOptions,
@@ -231,6 +232,7 @@ pub(super) struct App {
     pub(super) results_area: Rect,
     pub(super) viewport_rows: usize,
     pub(super) status: Option<String>,
+    pub(super) index_status: Option<String>,
     pub(super) clipboard: Option<String>,
     pub(super) error: Option<String>,
     pub(super) searching: bool,
@@ -314,6 +316,7 @@ impl App {
             results_area: Rect::default(),
             viewport_rows: 1,
             status,
+            index_status: None,
             clipboard: None,
             error: None,
             searching: false,
@@ -937,6 +940,7 @@ impl App {
     }
 
     pub(super) fn tick(&mut self, now: Instant) {
+        self.refresh_index_status();
         while let Ok(update) = self.receiver.try_recv() {
             self.inflight = self.inflight.saturating_sub(1);
             if update.generation != self.generation {
@@ -1040,6 +1044,27 @@ impl App {
         {
             self.launch(self.next_offset);
         }
+    }
+
+    fn refresh_index_status(&mut self) {
+        let Ok(status) = self.repo.index().extended_status() else {
+            return;
+        };
+        self.index_status = match status.phase {
+            ExtendedPhase::Unnecessary => None,
+            ExtendedPhase::Pending | ExtendedPhase::Building if status.total_files > 0 => {
+                Some(format!(
+                    "Search ready · Indexing files {}/{}",
+                    status.completed_files, status.total_files
+                ))
+            }
+            ExtendedPhase::Pending | ExtendedPhase::Building => {
+                Some("Search ready · Building field indexes".into())
+            }
+            ExtendedPhase::Complete => Some("Indexing complete".into()),
+            ExtendedPhase::Cancelled => Some("Search ready · Field indexing paused".into()),
+            ExtendedPhase::Failed => Some("Search ready · Field indexing failed".into()),
+        };
     }
 
     fn launch(&mut self, offset: usize) {

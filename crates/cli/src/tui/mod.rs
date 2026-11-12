@@ -16,6 +16,7 @@ use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
 use app::{Action, App, Focus, Overlay, View};
+use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::repository::SnapshotAction;
 use objekte_search_core::streaming::CancellationToken;
@@ -47,6 +48,7 @@ where
     F: FnOnce(CancellationToken) -> Result<IndexedRepository, String> + Send + 'static,
 {
     let mut terminal = ratatui::try_init()?;
+    let mut session_index: Option<Index> = None;
     let result = (|| -> Result<(), Box<dyn Error>> {
         execute!(std::io::stdout(), event::EnableMouseCapture)?;
         let interrupted = || {
@@ -114,6 +116,7 @@ where
                 }
             }
         };
+        session_index = Some(repository.index().clone());
         let action = repository.startup().snapshot_action;
         let index_ns = if action == SnapshotAction::Restored {
             repository
@@ -189,9 +192,17 @@ where
     })();
     let mouse = execute!(std::io::stdout(), event::DisableMouseCapture);
     let restore = ratatui::try_restore();
+    let shutdown = session_index.map(|index| {
+        index.cancel_extended()?;
+        index.shutdown()?;
+        Ok::<_, objekte_search_core::lifecycle::IndexError>(())
+    });
     result?;
     mouse?;
     restore?;
+    if let Some(shutdown) = shutdown {
+        shutdown?;
+    }
     Ok(())
 }
 
