@@ -76,6 +76,7 @@ fn search_ready_base_reuses_complete_verified_membership() {
     assert_eq!(complete_coverage.covered_records, 2);
     assert_eq!(complete_coverage.uncovered_records, 0);
     assert_eq!(complete_coverage.accesses, ["configured_posting:kind"]);
+    assert!(completed.measure_field_state_memory()[0].encoded_column_bytes > 0);
     assert_eq!(after_publication.hits, cold.hits);
     assert!(after_publication.counters.verified_result_hit);
     index.shutdown().unwrap();

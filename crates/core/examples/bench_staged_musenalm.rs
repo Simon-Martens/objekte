@@ -237,6 +237,7 @@ fn run() -> Result<(), String> {
             "completed_files": status.completed_files,
             "total_files": status.total_files,
             "build_parses": index.build_parses().map_err(|error| error.to_string())?,
+            "field_state_memory": view.measure_field_state_memory(),
         }));
         for (profile_name, profile) in &profiles {
             if profile.alphabet != alphabet {

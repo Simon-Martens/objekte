@@ -225,6 +225,21 @@ pub struct ExtendedStatus {
     pub error: Option<String>,
 }
 
+/// Explicit measurement of compact field-state storage in one pinned view.
+/// Coverage cells count field/record pairs; one record may cover many fields.
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct FieldStateMemory {
+    pub collection: String,
+    pub batches: usize,
+    pub columns: usize,
+    pub coverage_cells: u64,
+    pub mixed_entries: usize,
+    /// Bincode payload of the compact columns, excluding snapshot envelope.
+    pub encoded_column_bytes: u64,
+    /// Approximate live allocation including column blocks and path/map keys.
+    pub estimated_retained_bytes: u64,
+}
+
 struct ExtendedJob {
     cancelled: AtomicBool,
     requested_inference: Mutex<Option<crate::inference::InferenceConfig>>,
@@ -3427,6 +3442,47 @@ impl IndexView {
                     size: entry.revision.size,
                     created_ns: entry.created_ns,
                 })
+            })
+            .collect()
+    }
+
+    /// Walk compact columns only when an explicit memory measurement is
+    /// requested. Ordinary status and query paths use maintained counters.
+    pub fn measure_field_state_memory(&self) -> Vec<FieldStateMemory> {
+        self.0
+            .extended_batches
+            .iter()
+            .enumerate()
+            .map(|(index, batches)| {
+                let mut memory = FieldStateMemory {
+                    collection: self.0.repository.collections()[index].definition.name.clone(),
+                    ..FieldStateMemory::default()
+                };
+                for batch in batches.iter() {
+                    if batch.field_states.is_empty() {
+                        continue;
+                    }
+                    memory.batches += 1;
+                    memory.estimated_retained_bytes += (batch.field_states.capacity()
+                        * (std::mem::size_of::<(
+                            Vec<String>,
+                            crate::field_state::FieldStateColumn,
+                        )>() + 16)) as u64;
+                    for (path, column) in &batch.field_states {
+                        memory.columns += 1;
+                        memory.coverage_cells += column.covered_slots().len();
+                        memory.mixed_entries += column.mixed_entries();
+                        memory.encoded_column_bytes += column.encoded_bytes() as u64;
+                        memory.estimated_retained_bytes += column
+                            .estimated_retained_bytes()
+                            .saturating_sub(std::mem::size_of::<crate::field_state::FieldStateColumn>())
+                            as u64;
+                        memory.estimated_retained_bytes += (path.capacity()
+                            * std::mem::size_of::<String>()
+                            + path.iter().map(String::capacity).sum::<usize>()) as u64;
+                    }
+                }
+                memory
             })
             .collect()
     }
