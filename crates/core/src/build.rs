@@ -1976,6 +1976,38 @@ pub(crate) struct BuildScheduleStats {
     pub framing_ns: u64,
     pub framing_chunks: u64,
     pub framing_bytes: u64,
+    pub admission_schedule: AdmissionScheduleProfile,
+}
+
+
+/// Opt-in aggregate intervals. Job intervals overlap across workers and are
+/// not additive wall time; receive-call time includes channel processing.
+#[derive(Clone, Copy, Debug, Default, Serialize)]
+pub struct AdmissionScheduleProfile {
+    pub dispatch_to_worker_start_ns: u64,
+    pub worker_start_to_completion_ns: u64,
+    pub completion_to_receipt_ns: u64,
+    pub receipt_to_admission_start_ns: u64,
+    pub coordinator_receive_call_ns: u64,
+    pub possible_idle_during_admission_ns: u64,
+    pub job_limit_blocks: u64,
+    pub byte_limit_blocks: u64,
+    pub prefetched_later_collection_jobs: u64,
+}
+
+
+impl AdmissionScheduleProfile {
+    fn absorb(&mut self, other: Self) {
+        self.dispatch_to_worker_start_ns += other.dispatch_to_worker_start_ns;
+        self.worker_start_to_completion_ns += other.worker_start_to_completion_ns;
+        self.completion_to_receipt_ns += other.completion_to_receipt_ns;
+        self.receipt_to_admission_start_ns += other.receipt_to_admission_start_ns;
+        self.coordinator_receive_call_ns += other.coordinator_receive_call_ns;
+        self.possible_idle_during_admission_ns += other.possible_idle_during_admission_ns;
+        self.job_limit_blocks += other.job_limit_blocks;
+        self.byte_limit_blocks += other.byte_limit_blocks;
+        self.prefetched_later_collection_jobs += other.prefetched_later_collection_jobs;
+    }
 }
 
 
@@ -1996,6 +2028,7 @@ impl BuildScheduleStats {
         self.framing_ns = self.framing_ns.saturating_add(other.framing_ns);
         self.framing_chunks += other.framing_chunks;
         self.framing_bytes += other.framing_bytes;
+        self.admission_schedule.absorb(other.admission_schedule);
     }
 }
 
@@ -2134,6 +2167,7 @@ pub(crate) fn process_repository_file_batches_profiled(
     let (sender, receiver) = mpsc::channel();
     let mut ready = BTreeMap::new();
     let mut ready_since = BTreeMap::new();
+    let mut receipt_since = BTreeMap::new();
     let mut dispatched = 0;
     let mut completed = 0;
     let mut next = 0;
@@ -2145,11 +2179,17 @@ pub(crate) fn process_repository_file_batches_profiled(
         weight_limit_bytes: allowance,
         ..Default::default()
     };
+    if profile_build {
+        stats.admission_schedule.prefetched_later_collection_jobs = prefetched.len() as u64;
+    }
     while next < jobs.len() && failure.is_none() {
         while dispatched < jobs.len() && dispatched - next < max_jobs {
             let index = order[dispatched];
             let weight = weights[index];
             if !fits_allowance(admitted_bytes, weight, allowance) {
+                if profile_build {
+                    stats.admission_schedule.byte_limit_blocks += 1;
+                }
                 break;
             }
             let file_ids = jobs[index].files.clone();
@@ -2160,7 +2200,9 @@ pub(crate) fn process_repository_file_batches_profiled(
             let collection = jobs[index].collection;
             let source_files = Arc::clone(&source_files);
             let counters = Arc::clone(&counters);
+            let dispatched_at = profile_build.then(Instant::now);
             pool.spawn(move || {
+                let started_at = profile_build.then(Instant::now);
                 let result = counters.run(|| {
                     process_batch_profiled(
                         &root,
@@ -2175,27 +2217,48 @@ pub(crate) fn process_repository_file_batches_profiled(
                         profile_build,
                     )
                 });
-                let _ = sender.send((index, result));
+                let completed_at = profile_build.then(Instant::now);
+                let _ = sender.send((index, result, dispatched_at, started_at, completed_at));
             });
             admitted_bytes = admitted_bytes.saturating_add(weight);
             peak_bytes = peak_bytes.max(admitted_bytes);
             dispatched += 1;
         }
+        if profile_build && dispatched < jobs.len() && dispatched - next >= max_jobs {
+            stats.admission_schedule.job_limit_blocks += 1;
+        }
         let wait_started = Instant::now();
         let received = receiver.recv();
-        stats.receive_wait_ns = stats
-            .receive_wait_ns
-            .saturating_add(wait_started.elapsed().as_nanos() as u64);
-        let (index, result) = received.map_err(|error| error.to_string())?;
+        let received_at = Instant::now();
+        let receive_ns = received_at.duration_since(wait_started).as_nanos() as u64;
+        stats.receive_wait_ns = stats.receive_wait_ns.saturating_add(receive_ns);
+        let (index, result, dispatched_at, started_at, completed_at) =
+            received.map_err(|error| error.to_string())?;
         completed += 1;
         if profile_build {
+            stats.admission_schedule.coordinator_receive_call_ns += receive_ns;
+            if let (Some(dispatched_at), Some(started_at), Some(completed_at)) =
+                (dispatched_at, started_at, completed_at)
+            {
+                stats.admission_schedule.dispatch_to_worker_start_ns +=
+                    started_at.duration_since(dispatched_at).as_nanos() as u64;
+                stats.admission_schedule.worker_start_to_completion_ns +=
+                    completed_at.duration_since(started_at).as_nanos() as u64;
+                stats.admission_schedule.completion_to_receipt_ns +=
+                    received_at.duration_since(completed_at).as_nanos() as u64;
+            }
+            receipt_since.insert(index, received_at);
             if index != next {
                 stats.out_of_order_completed += 1;
-                ready_since.insert(index, Instant::now());
+                ready_since.insert(index, received_at);
             }
         }
         ready.insert(index, result);
         while let Some(result) = ready.remove(&next) {
+            if let Some(received_at) = receipt_since.remove(&next) {
+                stats.admission_schedule.receipt_to_admission_start_ns +=
+                    received_at.elapsed().as_nanos() as u64;
+            }
             if let Some(started) = ready_since.remove(&next) {
                 let wait = started.elapsed().as_nanos() as u64;
                 stats.ready_wait_sum_ns = stats.ready_wait_sum_ns.saturating_add(wait);
@@ -2203,10 +2266,15 @@ pub(crate) fn process_repository_file_batches_profiled(
             }
             admitted_bytes -= weights[next];
             let admission_started = Instant::now();
+            let possible_idle = profile_build
+                && dispatched < jobs.len()
+                && dispatched.saturating_sub(completed) < pool.current_num_threads();
             let outcome = result.and_then(|batch| admit(jobs[next].collection_index, batch));
-            stats.admission_ns = stats
-                .admission_ns
-                .saturating_add(admission_started.elapsed().as_nanos() as u64);
+            let admission_ns = admission_started.elapsed().as_nanos() as u64;
+            stats.admission_ns = stats.admission_ns.saturating_add(admission_ns);
+            if possible_idle {
+                stats.admission_schedule.possible_idle_during_admission_ns += admission_ns;
+            }
             match outcome {
                 Ok(()) => {
                     counters.admitted.fetch_add(1, Ordering::Relaxed);
@@ -2283,8 +2351,63 @@ pub(crate) struct CollectionAdmission<'a> {
 }
 
 
+/// Optional aggregate timing of the ordered merge. Values from separate
+/// batches are summed; `remainder_ns` includes timer and drop boundaries.
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct AdmissionBreakdown {
+    pub batches: u64,
+    pub files: u64,
+    pub records: u64,
+    pub callback_ns: u64,
+    pub total_ns: u64,
+    pub record_inventory_ns: u64,
+    pub postings_ns: u64,
+    pub inference_ns: u64,
+    pub relations_ns: u64,
+    pub custom_postings_ns: u64,
+    pub bigrams_ns: u64,
+    pub structural_facts_ns: u64,
+    pub sorting_ns: u64,
+    pub remainder_ns: u64,
+}
+
+
+impl AdmissionBreakdown {
+    pub(crate) fn absorb(&mut self, other: Self) {
+        self.batches += other.batches;
+        self.files += other.files;
+        self.records += other.records;
+        self.callback_ns += other.callback_ns;
+        self.total_ns += other.total_ns;
+        self.record_inventory_ns += other.record_inventory_ns;
+        self.postings_ns += other.postings_ns;
+        self.inference_ns += other.inference_ns;
+        self.relations_ns += other.relations_ns;
+        self.custom_postings_ns += other.custom_postings_ns;
+        self.bigrams_ns += other.bigrams_ns;
+        self.structural_facts_ns += other.structural_facts_ns;
+        self.sorting_ns += other.sorting_ns;
+        self.remainder_ns += other.remainder_ns;
+    }
+}
+
+
 impl CollectionAdmission<'_> {
     pub fn admit(&mut self, batch: BatchContribution) -> Result<(), String> {
+        self.admit_profiled(batch, None)
+    }
+
+    pub(crate) fn admit_profiled(
+        &mut self,
+        batch: BatchContribution,
+        mut profile: Option<&mut AdmissionBreakdown>,
+    ) -> Result<(), String> {
+        if let Some(profile) = profile.as_deref_mut() {
+            profile.batches += 1;
+            profile.files += batch.files.len() as u64;
+            profile.records += batch.records.len() as u64;
+        }
+        let started = profile.is_some().then(Instant::now);
         let base = self.builder.next_slot()?.0;
         let count = u32::try_from(batch.records.len()).map_err(|_| "too many batch records")?;
         base.checked_add(count).ok_or("record slot overflow")?;
@@ -2352,18 +2475,34 @@ impl CollectionAdmission<'_> {
         if self.builder.next_slot()?.0 != base + count {
             return Err("incomplete batch record admission".into());
         }
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.record_inventory_ns += started.elapsed().as_nanos() as u64;
+        }
+        let started = profile.is_some().then(Instant::now);
         self.postings.merge_shifted(batch.postings, base)?;
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.postings_ns += started.elapsed().as_nanos() as u64;
+        }
+        let started = profile.is_some().then(Instant::now);
         match (self.inference.as_mut(), batch.inference) {
             (Some(global), Some(local)) => global.merge_shifted(local, base)?,
             (None, None) => {}
             _ => return Err("inference batch mode mismatch".into()),
         }
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.inference_ns += started.elapsed().as_nanos() as u64;
+        }
+        let started = profile.is_some().then(Instant::now);
         if self.relations.len() != batch.relations.len() {
             return Err("relation batch coverage mismatch".into());
         }
         for (global, local) in self.relations.iter_mut().zip(batch.relations) {
             global.merge_shifted(local, base, count)?;
         }
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.relations_ns += started.elapsed().as_nanos() as u64;
+        }
+        let started = profile.is_some().then(Instant::now);
         if self.custom_postings.len() != batch.custom_postings.len() {
             return Err("custom posting batch coverage mismatch".into());
         }
@@ -2375,6 +2514,10 @@ impl CollectionAdmission<'_> {
             global.index.merge_shifted(local.index, base)?;
             global.complete &= local.complete;
         }
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
+        }
+        let started = profile.is_some().then(Instant::now);
         self.raw.merge_shifted(batch.raw, base)?;
         self.fallback_text
             .merge_shifted(batch.fallback_text, base)?;
@@ -2387,9 +2530,20 @@ impl CollectionAdmission<'_> {
                 .ok_or("custom bigram batch missing")?
                 .merge_shifted(index, base)?;
         }
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.bigrams_ns += started.elapsed().as_nanos() as u64;
+        }
+        let started = profile.is_some().then(Instant::now);
         append_shifted_bitmap(self.logical_records, &batch.logical_records, base)?;
         append_shifted_bitmap(self.empty_array_records, &batch.empty_array_records, base)?;
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.structural_facts_ns += started.elapsed().as_nanos() as u64;
+        }
+        let started = profile.is_some().then(Instant::now);
         self.sorting.append_keys(batch.sort_keys, base, count)?;
+        if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
+            profile.sorting_ns += started.elapsed().as_nanos() as u64;
+        }
         Ok(())
     }
 }
