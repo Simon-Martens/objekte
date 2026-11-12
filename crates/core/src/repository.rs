@@ -450,6 +450,7 @@ pub struct BuildContributionStorageProfile {
     pub peak_ready_capacity_bytes: usize,
     pub final_global_capacity_bytes: usize,
     pub final_global_live_payload_bytes: usize,
+    pub final_diagnostic_counter_bytes: usize,
     pub final_global_chunks: usize,
     pub final_global_chunk_capacity: usize,
     pub final_global_spans: usize,
@@ -465,6 +466,17 @@ pub struct BuildContributionStorageProfile {
     pub pending_element_size: usize,
     pub final_copied_block_bytes: u64,
     pub final_admitted_chunks: u64,
+    pub final_gram_set_lookups: u64,
+    pub final_duplicate_bit_ors: u64,
+    pub final_sorted_entries: u64,
+    /// Sums of opt-in intervals across contributions. Worker and merge
+    /// intervals may overlap; these are not exclusive wall time.
+    pub final_add_segment_ns: u64,
+    pub final_scratch_drain_ns: u64,
+    pub final_sort_ns: u64,
+    pub final_pack_ns: u64,
+    pub final_validation_ns: u64,
+    pub final_admission_merge_ns: u64,
     pub max_worker_scratch_peak_capacity_bytes: usize,
     pub max_worker_scratch_after_flush_capacity_bytes: usize,
     pub max_pending_peak_capacity_bytes: usize,
@@ -485,6 +497,7 @@ impl BuildContributionStorageProfile {
             .max(global.retained_capacity_bytes.saturating_add(batch.retained_capacity_bytes));
         self.final_global_capacity_bytes = global.retained_capacity_bytes;
         self.final_global_live_payload_bytes = global.live_payload_bytes;
+        self.final_diagnostic_counter_bytes = global.diagnostic_counter_bytes;
         self.final_global_chunks = global.chunk_len;
         self.final_global_chunk_capacity = global.chunk_capacity;
         self.final_global_spans = global.normal_span_len + global.skip_span_len;
@@ -496,6 +509,15 @@ impl BuildContributionStorageProfile {
         self.final_global_block_capacity_bytes = self.final_global_block_capacity * global.block_element_size;
         self.final_copied_block_bytes = global.copied_block_bytes;
         self.final_admitted_chunks = global.admitted_chunks;
+        self.final_gram_set_lookups = global.gram_set_lookups;
+        self.final_duplicate_bit_ors = global.duplicate_bit_ors;
+        self.final_sorted_entries = global.sorted_entries;
+        self.final_add_segment_ns = global.add_segment_ns;
+        self.final_scratch_drain_ns = global.scratch_drain_ns;
+        self.final_sort_ns = global.sort_ns;
+        self.final_pack_ns = global.pack_ns;
+        self.final_validation_ns = global.validation_ns;
+        self.final_admission_merge_ns = global.admission_merge_ns;
         self.max_worker_scratch_peak_capacity_bytes = self.max_worker_scratch_peak_capacity_bytes
             .max(batch.worker_scratch_peak_capacity_bytes);
         self.max_worker_scratch_after_flush_capacity_bytes = self.max_worker_scratch_after_flush_capacity_bytes

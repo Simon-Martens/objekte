@@ -2,6 +2,7 @@
 
 use std::collections::{HashMap, HashSet};
 use std::sync::OnceLock;
+use std::time::Instant;
 
 use rayon::ThreadPool;
 use roaring::RoaringBitmap;
@@ -468,6 +469,10 @@ pub(crate) fn storage_diagnostic_enabled() -> bool {
     *ENABLED.get_or_init(|| std::env::var_os("OBJEKTE_BIGRAM_STORAGE_STATS").is_some())
 }
 
+fn diagnostic_elapsed_ns(started: Option<Instant>) -> u64 {
+    started.map_or(0, |started| started.elapsed().as_nanos() as u64)
+}
+
 #[derive(Clone, Debug, Default, Serialize)]
 pub(crate) struct BigramConstructionStats {
     pub chunk_element_size: usize,
@@ -488,6 +493,7 @@ pub(crate) struct BigramConstructionStats {
     pub pending_skip_capacity: usize,
     pub retained_capacity_bytes: usize,
     pub live_payload_bytes: usize,
+    pub diagnostic_counter_bytes: usize,
     pub copied_block_bytes: u64,
     pub admitted_chunks: u64,
     /// Lower bound for HashMap-backed scratch: excludes control bytes and
@@ -495,6 +501,15 @@ pub(crate) struct BigramConstructionStats {
     pub worker_scratch_peak_capacity_bytes: usize,
     pub worker_scratch_after_flush_capacity_bytes: usize,
     pub pending_peak_capacity_bytes: usize,
+    pub gram_set_lookups: u64,
+    pub duplicate_bit_ors: u64,
+    pub sorted_entries: u64,
+    pub add_segment_ns: u64,
+    pub scratch_drain_ns: u64,
+    pub sort_ns: u64,
+    pub pack_ns: u64,
+    pub validation_ns: u64,
+    pub admission_merge_ns: u64,
 }
 
 impl BigramConstructionStats {
@@ -533,6 +548,9 @@ impl BigramConstructionStats {
         self.live_payload_bytes = self
             .live_payload_bytes
             .saturating_add(other.live_payload_bytes);
+        self.diagnostic_counter_bytes = self
+            .diagnostic_counter_bytes
+            .saturating_add(other.diagnostic_counter_bytes);
         self.copied_block_bytes = self
             .copied_block_bytes
             .saturating_add(other.copied_block_bytes);
@@ -546,6 +564,50 @@ impl BigramConstructionStats {
         self.pending_peak_capacity_bytes = self
             .pending_peak_capacity_bytes
             .max(other.pending_peak_capacity_bytes);
+        self.gram_set_lookups = self.gram_set_lookups.saturating_add(other.gram_set_lookups);
+        self.duplicate_bit_ors = self
+            .duplicate_bit_ors
+            .saturating_add(other.duplicate_bit_ors);
+        self.sorted_entries = self.sorted_entries.saturating_add(other.sorted_entries);
+        self.add_segment_ns = self.add_segment_ns.saturating_add(other.add_segment_ns);
+        self.scratch_drain_ns = self.scratch_drain_ns.saturating_add(other.scratch_drain_ns);
+        self.sort_ns = self.sort_ns.saturating_add(other.sort_ns);
+        self.pack_ns = self.pack_ns.saturating_add(other.pack_ns);
+        self.validation_ns = self.validation_ns.saturating_add(other.validation_ns);
+        self.admission_merge_ns = self
+            .admission_merge_ns
+            .saturating_add(other.admission_merge_ns);
+    }
+}
+
+#[derive(Default)]
+struct BigramWorkCounters {
+    gram_set_lookups: u64,
+    duplicate_bit_ors: u64,
+    sorted_entries: u64,
+    add_segment_ns: u64,
+    scratch_drain_ns: u64,
+    sort_ns: u64,
+    pack_ns: u64,
+    validation_ns: u64,
+    admission_merge_ns: u64,
+}
+
+impl BigramWorkCounters {
+    fn absorb(&mut self, other: Self) {
+        self.gram_set_lookups = self.gram_set_lookups.saturating_add(other.gram_set_lookups);
+        self.duplicate_bit_ors = self
+            .duplicate_bit_ors
+            .saturating_add(other.duplicate_bit_ors);
+        self.sorted_entries = self.sorted_entries.saturating_add(other.sorted_entries);
+        self.add_segment_ns = self.add_segment_ns.saturating_add(other.add_segment_ns);
+        self.scratch_drain_ns = self.scratch_drain_ns.saturating_add(other.scratch_drain_ns);
+        self.sort_ns = self.sort_ns.saturating_add(other.sort_ns);
+        self.pack_ns = self.pack_ns.saturating_add(other.pack_ns);
+        self.validation_ns = self.validation_ns.saturating_add(other.validation_ns);
+        self.admission_merge_ns = self
+            .admission_merge_ns
+            .saturating_add(other.admission_merge_ns);
     }
 }
 
@@ -562,6 +624,7 @@ pub(crate) struct BigramContribution {
     worker_scratch_peak_capacity_bytes: usize,
     worker_scratch_after_flush_capacity_bytes: usize,
     pending_peak_capacity_bytes: usize,
+    work: Option<Box<BigramWorkCounters>>,
 }
 
 impl BigramContribution {
@@ -577,6 +640,7 @@ impl BigramContribution {
             worker_scratch_peak_capacity_bytes: 0,
             worker_scratch_after_flush_capacity_bytes: 0,
             pending_peak_capacity_bytes: 0,
+            work: storage_diagnostic_enabled().then(|| Box::new(BigramWorkCounters::default())),
         }
     }
 
@@ -596,9 +660,25 @@ impl BigramContribution {
             worker_scratch_after_flush_capacity_bytes: self
                 .worker_scratch_after_flush_capacity_bytes,
             pending_peak_capacity_bytes: self.pending_peak_capacity_bytes,
+            diagnostic_counter_bytes: self
+                .work
+                .as_ref()
+                .map_or(0, |_| std::mem::size_of::<BigramWorkCounters>()),
             ..Default::default()
         };
-        stats.retained_capacity_bytes = self.chunks.capacity() * std::mem::size_of::<PackedChunk>()
+        if let Some(work) = &self.work {
+            stats.gram_set_lookups = work.gram_set_lookups;
+            stats.duplicate_bit_ors = work.duplicate_bit_ors;
+            stats.sorted_entries = work.sorted_entries;
+            stats.add_segment_ns = work.add_segment_ns;
+            stats.scratch_drain_ns = work.scratch_drain_ns;
+            stats.sort_ns = work.sort_ns;
+            stats.pack_ns = work.pack_ns;
+            stats.validation_ns = work.validation_ns;
+            stats.admission_merge_ns = work.admission_merge_ns;
+        }
+        stats.retained_capacity_bytes = stats.diagnostic_counter_bytes
+            + self.chunks.capacity() * std::mem::size_of::<PackedChunk>()
             + (self.pending_normal.capacity() + self.pending_skip.capacity())
                 * std::mem::size_of::<PendingBlock>();
         for chunk in &self.chunks {
@@ -633,6 +713,7 @@ impl BigramContribution {
     }
 
     pub fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
+        let validation_started = storage_diagnostic_enabled().then(Instant::now);
         if self.alphabet != batch.alphabet || self.record_count != base {
             return Err("bigram batch coverage or alphabet mismatch".into());
         }
@@ -643,6 +724,8 @@ impl BigramContribution {
             return Err("unpacked bigram contribution".into());
         }
         validate_chunks(&batch.chunks, batch.record_count)?;
+        let validation_ns = diagnostic_elapsed_ns(validation_started);
+        let merge_started = storage_diagnostic_enabled().then(Instant::now);
         let admitted_chunks = batch.chunks.len() as u64;
         self.chunks.reserve(batch.chunks.len());
         for mut chunk in batch.chunks {
@@ -662,6 +745,13 @@ impl BigramContribution {
         self.pending_peak_capacity_bytes = self
             .pending_peak_capacity_bytes
             .max(batch.pending_peak_capacity_bytes);
+        if let (Some(work), Some(batch_work)) = (self.work.as_mut(), batch.work) {
+            work.absorb(*batch_work);
+            work.validation_ns = work.validation_ns.saturating_add(validation_ns);
+            work.admission_merge_ns = work
+                .admission_merge_ns
+                .saturating_add(diagnostic_elapsed_ns(merge_started));
+        }
         self.record_count = count;
         Ok(())
     }
@@ -761,11 +851,24 @@ fn validate_chunks(chunks: &[PackedChunk], count: u32) -> Result<(), String> {
     Ok(())
 }
 
-fn pack_columns(mut pending: Vec<PendingBlock>) -> Result<PackedColumns, String> {
+fn pack_columns(
+    mut pending: Vec<PendingBlock>,
+    contribution: &mut BigramContribution,
+) -> Result<PackedColumns, String> {
     if pending.is_empty() {
         return Ok(PackedColumns::default());
     }
+    let sort_started = contribution.work.is_some().then(Instant::now);
+    if let Some(work) = contribution.work.as_mut() {
+        work.sorted_entries = work.sorted_entries.saturating_add(pending.len() as u64);
+    }
     pending.sort_unstable_by_key(|entry| (entry.key, entry.block.first_slot));
+    if let Some(work) = contribution.work.as_mut() {
+        work.sort_ns = work
+            .sort_ns
+            .saturating_add(diagnostic_elapsed_ns(sort_started));
+    }
+    let pack_started = contribution.work.is_some().then(Instant::now);
     let mut packed = PackedColumns {
         spans: Vec::new(),
         blocks: Vec::with_capacity(pending.len()),
@@ -789,6 +892,11 @@ fn pack_columns(mut pending: Vec<PendingBlock>) -> Result<PackedColumns, String>
             .checked_add(1)
             .ok_or("bigram descriptor overflow")?;
         packed.blocks.push(entry.block);
+    }
+    if let Some(work) = contribution.work.as_mut() {
+        work.pack_ns = work
+            .pack_ns
+            .saturating_add(diagnostic_elapsed_ns(pack_started));
     }
     Ok(packed)
 }
@@ -882,6 +990,37 @@ impl GramWords {
         }
     }
 
+    /// Diagnostic-only path. One lookup is counted per emitted gram; an OR
+    /// is duplicate when that record's bit was already present in its word.
+    fn set_profiled(&mut self, key: u64, bit: u64, lookups: &mut u64, duplicates: &mut u64) {
+        *lookups = (*lookups).saturating_add(1);
+        match self {
+            Self::Ascii { words, touched } => {
+                if words.is_empty() {
+                    words.resize(95 * 95, 0);
+                }
+                let left = ((key >> 8) as u8 - 32) as usize;
+                let right = (key as u8 - 32) as usize;
+                let index = left * 95 + right;
+                let word = &mut words[index];
+                if *word == 0 {
+                    touched.push(index);
+                }
+                if *word & bit != 0 {
+                    *duplicates = (*duplicates).saturating_add(1);
+                }
+                *word |= bit;
+            }
+            Self::Unicode(words) => {
+                let word = words.entry(key).or_default();
+                if *word & bit != 0 {
+                    *duplicates = (*duplicates).saturating_add(1);
+                }
+                *word |= bit;
+            }
+        }
+    }
+
     fn capacity_bytes_lower_bound(&self) -> usize {
         match self {
             Self::Ascii { words, touched } => {
@@ -924,6 +1063,7 @@ pub(crate) struct BigramBuilder {
     skip: GramWords,
     chunk_start: u32,
     chunk_len: u32,
+    storage_diagnostic: bool,
 }
 
 impl BigramBuilder {
@@ -940,6 +1080,7 @@ impl BigramBuilder {
             skip: GramWords::new(alphabet),
             chunk_start: 0,
             chunk_len: 0,
+            storage_diagnostic: storage_diagnostic_enabled(),
         }
     }
 
@@ -994,13 +1135,32 @@ impl BigramBuilder {
     fn add_segment(&mut self, bit: u64, segment: &str) {
         let alphabet = self.contribution.alphabet;
         let (normal, skip) = (&mut self.normal, &mut self.skip);
-        for_each_segment_gram(segment, alphabet, |is_skip, key| {
-            if is_skip {
-                skip.set(key, bit);
-            } else {
-                normal.set(key, bit);
+        if self.storage_diagnostic {
+            let started = Instant::now();
+            let (mut lookups, mut duplicates) = (0, 0);
+            for_each_segment_gram(segment, alphabet, |is_skip, key| {
+                if is_skip {
+                    skip.set_profiled(key, bit, &mut lookups, &mut duplicates);
+                } else {
+                    normal.set_profiled(key, bit, &mut lookups, &mut duplicates);
+                }
+            });
+            if let Some(work) = self.contribution.work.as_mut() {
+                work.gram_set_lookups = work.gram_set_lookups.saturating_add(lookups);
+                work.duplicate_bit_ors = work.duplicate_bit_ors.saturating_add(duplicates);
+                work.add_segment_ns = work
+                    .add_segment_ns
+                    .saturating_add(started.elapsed().as_nanos() as u64);
             }
-        });
+        } else {
+            for_each_segment_gram(segment, alphabet, |is_skip, key| {
+                if is_skip {
+                    skip.set(key, bit);
+                } else {
+                    normal.set(key, bit);
+                }
+            });
+        }
     }
 
     pub fn add_empty(&mut self, slot: RecordSlot) -> Result<(), String> {
@@ -1013,13 +1173,15 @@ impl BigramBuilder {
 
     fn flush(&mut self) -> Result<(), String> {
         let start = self.chunk_start;
-        if storage_diagnostic_enabled() {
+        let diagnostic = self.storage_diagnostic;
+        if diagnostic {
             self.contribution.worker_scratch_peak_capacity_bytes =
                 self.contribution.worker_scratch_peak_capacity_bytes.max(
                     self.normal.capacity_bytes_lower_bound()
                         + self.skip.capacity_bytes_lower_bound(),
                 );
         }
+        let drain_started = diagnostic.then(Instant::now);
         self.normal.drain(|key, word| {
             self.contribution.pending_normal.push(PendingBlock {
                 key,
@@ -1038,7 +1200,12 @@ impl BigramBuilder {
                 },
             });
         });
-        if storage_diagnostic_enabled() {
+        if let Some(work) = self.contribution.work.as_mut() {
+            work.scratch_drain_ns = work
+                .scratch_drain_ns
+                .saturating_add(diagnostic_elapsed_ns(drain_started));
+        }
+        if diagnostic {
             self.contribution.worker_scratch_after_flush_capacity_bytes =
                 self.normal.capacity_bytes_lower_bound() + self.skip.capacity_bytes_lower_bound();
         }
@@ -1050,16 +1217,18 @@ impl BigramBuilder {
         if self.chunk_len != 0 {
             self.flush()?;
         }
-        if storage_diagnostic_enabled() {
+        if self.storage_diagnostic {
             self.contribution.pending_peak_capacity_bytes =
                 (self.contribution.pending_normal.capacity()
                     + self.contribution.pending_skip.capacity())
                     * std::mem::size_of::<PendingBlock>();
         }
-        let normal = pack_columns(std::mem::take(&mut self.contribution.pending_normal))?;
-        let skip = pack_columns(std::mem::take(&mut self.contribution.pending_skip))?;
+        let pending_normal = std::mem::take(&mut self.contribution.pending_normal);
+        let pending_skip = std::mem::take(&mut self.contribution.pending_skip);
+        let normal = pack_columns(pending_normal, &mut self.contribution)?;
+        let skip = pack_columns(pending_skip, &mut self.contribution)?;
         if !normal.blocks.is_empty() || !skip.blocks.is_empty() {
-            if storage_diagnostic_enabled() {
+            if self.storage_diagnostic {
                 self.contribution.copied_block_bytes = ((normal.blocks.len() + skip.blocks.len())
                     * std::mem::size_of::<GramBlock>())
                     as u64;
@@ -1071,7 +1240,13 @@ impl BigramBuilder {
                 skip,
             });
         }
+        let validation_started = self.storage_diagnostic.then(Instant::now);
         validate_chunks(&self.contribution.chunks, self.contribution.record_count)?;
+        if let Some(work) = self.contribution.work.as_mut() {
+            work.validation_ns = work
+                .validation_ns
+                .saturating_add(diagnostic_elapsed_ns(validation_started));
+        }
         Ok(self.contribution)
     }
 
