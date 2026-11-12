@@ -11,6 +11,7 @@ use std::sync::Arc;
 
 use crate::bigram::BigramRequest;
 use crate::bigram::{fold, fold_into};
+use crate::field_state::{StatePredicate, selected_matches, value_matches};
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::{
@@ -704,8 +705,27 @@ pub enum Derived {
     Length,
     Null,
     Exists,
+    IsNonEmpty,
+    IsString,
+    IsNumber,
+    IsArray,
+    IsObject,
 }
 
+impl Derived {
+    pub(crate) fn state_predicate(self) -> Option<StatePredicate> {
+        Some(match self {
+            Self::Null => StatePredicate::Null,
+            Self::Exists => StatePredicate::Exists,
+            Self::IsNonEmpty => StatePredicate::NonEmpty,
+            Self::IsString => StatePredicate::String,
+            Self::IsNumber => StatePredicate::Number,
+            Self::IsArray => StatePredicate::Array,
+            Self::IsObject => StatePredicate::Object,
+            Self::None | Self::Length => return None,
+        })
+    }
+}
 
 /// Substring pattern parsed once for a bound literal.
 #[derive(Clone, Debug)]
@@ -1312,10 +1332,8 @@ fn bind_term(
             span: field.span,
         };
         let rhs = bind_literal_term(&rhs_term, schema, parameter_types, true)?;
-        if matches!(lhs.derived, Derived::Exists | Derived::Null)
-            || matches!(rhs.derived, Derived::Exists | Derived::Null)
-        {
-            return Err("exists/null modifiers cannot compare to another field".into());
+        if lhs.derived.state_predicate().is_some() || rhs.derived.state_predicate().is_some() {
+            return Err("Boolean state modifiers cannot compare to another field".into());
         }
         if lhs.kind != LogicalType::Unknown
             && rhs.kind != LogicalType::Unknown
@@ -1434,15 +1452,65 @@ fn bind_literal_term(
     let mut binding_version = 1;
     let mut each = false;
     for modifier in &term.modifiers {
+        let type_name = match modifier {
+            Modifier::StringType => Some("string"),
+            Modifier::NumberType => Some("number"),
+            Modifier::ArrayType => Some("array"),
+            Modifier::ObjectType => Some("object"),
+            _ => None,
+        };
+        // Existing registered conversions keep their old spelling for their
+        // ordinary comparison forms. A terminal Boolean comparison selects
+        // the new primitive predicate instead.
+        let named_conversion = match modifier {
+            Modifier::Custom(name) => Some(name.as_str()),
+            _ => type_name.filter(|name| {
+                let key = (term.path.field.segments.clone(), (*name).to_string());
+                (schema.operations.contains_key(&key) || schema.custom.contains_key(&key))
+                    && !matches!(parsed_literal, Literal::Bool(_))
+            }),
+        };
+        if let Some(name) = named_conversion {
+            if binding_name != "default" {
+                return Err("multiple string bindings".into());
+            }
+            let key = (term.path.field.segments.clone(), name.to_string());
+            if let Some(binding) = schema.operations.get(&key) {
+                operation = Some(binding.operation.clone());
+                binding_version = binding.version;
+            } else {
+                let binding = schema
+                    .custom
+                    .get(&key)
+                    .ok_or_else(|| format!("unknown binding {name}"))?;
+                transform = binding.transform;
+                binding_version = binding.version;
+            }
+            binding_name = name.to_string();
+            continue;
+        }
         match modifier {
-            Modifier::Length | Modifier::Null | Modifier::Exists => {
+            Modifier::Length
+            | Modifier::Null
+            | Modifier::Exists
+            | Modifier::NonEmpty
+            | Modifier::StringType
+            | Modifier::NumberType
+            | Modifier::ArrayType
+            | Modifier::ObjectType => {
                 if derived != Derived::None {
                     return Err("incompatible derived modifiers".into());
                 }
                 derived = match modifier {
                     Modifier::Length => Derived::Length,
                     Modifier::Null => Derived::Null,
-                    _ => Derived::Exists,
+                    Modifier::Exists => Derived::Exists,
+                    Modifier::NonEmpty => Derived::IsNonEmpty,
+                    Modifier::StringType => Derived::IsString,
+                    Modifier::NumberType => Derived::IsNumber,
+                    Modifier::ArrayType => Derived::IsArray,
+                    Modifier::ObjectType => Derived::IsObject,
+                    _ => unreachable!(),
                 };
             }
             Modifier::Each => {
@@ -1458,24 +1526,7 @@ fn bind_literal_term(
                 transform = Transform::CaseFold;
                 binding_name = "lower".into();
             }
-            Modifier::Custom(name) => {
-                if binding_name != "default" {
-                    return Err("multiple string bindings".into());
-                }
-                let key = (term.path.field.segments.clone(), name.clone());
-                if let Some(binding) = schema.operations.get(&key) {
-                    operation = Some(binding.operation.clone());
-                    binding_version = binding.version;
-                } else {
-                    let binding = schema
-                        .custom
-                        .get(&key)
-                        .ok_or_else(|| format!("unknown binding {name}"))?;
-                    transform = binding.transform;
-                    binding_version = binding.version;
-                }
-                binding_name = name.clone();
-            }
+            Modifier::Custom(_) => unreachable!("named conversion handled above"),
         }
     }
     if binding_name == "default" && derived == Derived::None {
@@ -1517,7 +1568,13 @@ fn bind_literal_term(
             }
             LogicalType::Number
         }
-        Derived::Null | Derived::Exists => LogicalType::Bool,
+        Derived::Null
+        | Derived::Exists
+        | Derived::IsNonEmpty
+        | Derived::IsString
+        | Derived::IsNumber
+        | Derived::IsArray
+        | Derived::IsObject => LogicalType::Bool,
         Derived::None => match &source_kind {
             LogicalType::Array(inner) => *inner.clone(),
             other => other.clone(),
@@ -1566,6 +1623,10 @@ fn bind_literal_term(
         if !op.accepts(&kind, term.operator, multi) {
             return Err(format!("unsupported operation for binding {binding_name}"));
         }
+    }
+    if derived.state_predicate().is_some() && !matches!(term.operator, Operator::Eq | Operator::Ne)
+    {
+        return Err("Boolean state predicate permits only equality or inequality".into());
     }
     if kind == LogicalType::Id && !matches!(term.operator, Operator::Eq | Operator::Ne) {
         return Err("ID permits only equality operators".into());
@@ -1636,7 +1697,10 @@ fn bind_literal_term(
     if matches!(literal, Value::Null) && !matches!(term.operator, Operator::Eq | Operator::Ne) {
         return Err("null permits only equality operators".into());
     }
-    if derived != Derived::None && !matches!(literal, Value::Number(_) | Value::Bool(_)) {
+    if derived.state_predicate().is_some() && !matches!(literal, Value::Bool(_)) {
+        return Err("Boolean state predicate requires a Boolean literal".into());
+    }
+    if derived == Derived::Length && !matches!(literal, Value::Number(_)) {
         return Err("invalid derived literal".into());
     }
     let matcher = operation
@@ -2080,14 +2144,12 @@ fn scoped_values<'a>(
         }
         PathRoot::Backlinks => return Err("backlink path requires relation binding".into()),
     };
-    if matches!(derived, Derived::Exists | Derived::Null) {
-        let result = match derived {
-            Derived::Exists => found,
-            Derived::Null => {
-                values.len() == 1 && matches!(values[0].1.as_deref(), Some(Value::Null))
-            }
-            _ => unreachable!(),
-        };
+    if let Some(predicate) = derived.state_predicate() {
+        let result = values.iter().any(|(_, value)| {
+            value
+                .as_deref()
+                .is_some_and(|value| value_matches(value, predicate))
+        });
         return Ok(Some(vec![(
             Vec::new(),
             Some(Cow::Owned(Value::Bool(result))),
@@ -2414,14 +2476,8 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
     } else {
         select_values(term, ctx)?
     };
-    if term.derived == Derived::Exists || term.derived == Derived::Null {
-        let result = match term.derived {
-            Derived::Exists => selected.is_some(),
-            Derived::Null => selected
-                .as_ref()
-                .is_some_and(|v| v.len() == 1 && matches!(v[0], Value::Null)),
-            _ => unreachable!(),
-        };
+    if let Some(predicate) = term.derived.state_predicate() {
+        let result = selected_matches(selected.as_deref(), predicate);
         return Ok(compare_scalar(
             &Value::Bool(result),
             &term.literal,

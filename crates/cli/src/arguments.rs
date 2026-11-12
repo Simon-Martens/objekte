@@ -19,6 +19,13 @@ impl Default for Alphabet {
     }
 }
 
+/// How long opening waits for optional field indexing.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
+pub enum IndexWait {
+    Search,
+    Complete,
+}
+
 
 /// One invocation of the general JSON search command.
 #[derive(Clone, Debug, Default, Parser)]
@@ -46,9 +53,13 @@ pub struct Arguments {
     #[arg(long)]
     pub no_recurse: bool,
 
-    /// Infer fields and build bounded automatic ordered postings.
+    /// Infer eligible fields and build their indexes; permits index-only use.
     #[arg(long)]
     pub auto_index: bool,
+
+    /// Wait for searchable text or all requested field indexes. Both return complete query results.
+    #[arg(long, value_enum, value_name = "search|complete")]
+    pub index_wait: Option<IndexWait>,
 
     /// Apply one explicitly selected JSON Schema to the files collection.
     #[arg(long, value_name = "FILE")]
@@ -121,11 +132,27 @@ impl Arguments {
             && self.query_file.is_none()
             && self.write_index.is_none()
             && self.load_index.is_none()
+            && !self.auto_index
             && !self.tui
         {
-            return Err("missing query (or --write-index/--load-index for index-only use)".into());
+            return Err(
+                "missing query (or --auto-index/--write-index/--load-index for index-only use)"
+                    .into(),
+            );
         }
         Ok(())
+    }
+
+    /// Queries and interactive commands use the searchable base; an explicit
+    /// index-only operation waits for its extended work by default.
+    pub fn effective_index_wait(&self) -> IndexWait {
+        self.index_wait.unwrap_or(
+            if self.query.is_some() || self.fts.is_some() || self.query_file.is_some() || self.tui {
+                IndexWait::Search
+            } else {
+                IndexWait::Complete
+            },
+        )
     }
 
     /// Validate opening choices when a graphical caller constructs arguments directly.
