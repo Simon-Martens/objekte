@@ -14,8 +14,10 @@ fn staged_catalogue_exposes_stable_file_identity_and_path() {
     assert_eq!(files[0].id.0, 0);
     assert_eq!(files[0].relative_path, PathBuf::from("a.json"));
     assert_eq!(files[0].size, std::fs::metadata(fixture._root.path().join("a.json")).unwrap().len());
-    assert_eq!(staged_files_for_ui(files.clone())[0].id, files[0].id.0);
-    assert!(staged_directories(&files, &fixture.session.collections).all.is_empty());
+    let (directories, catalogue) = prepare_staged_catalogue(files.clone(), &fixture.session.collections);
+    assert_eq!(catalogue.files[0].id, files[0].id.0);
+    assert_eq!(catalogue.by_collection["files"].len(), 3);
+    assert!(directories.all.is_empty());
 }
 
 #[test]

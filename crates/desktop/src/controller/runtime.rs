@@ -25,7 +25,7 @@ use objekte_search_core::source_scan::SourceScan;
 
 use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
-    BatchRow, BatchSource as UiBatchSource, CatalogueFile, CompletionOrigin, DetailView, DirectoryCatalog,
+    BatchRow, BatchSource as UiBatchSource, CatalogueFile, CompletionOrigin, DetailView, DirectoryCatalog, FileCatalogue,
     ErrorField, ExportFormat, FilterValidationState, IndexTaskKind, IndexTaskState, IndexUiStatus,
     OpenDraft, PageView,
     RecordTabSummary, RelationRow, SearchDraft, SnapshotMode, TabFreshness, TabViewState, UiAction,
@@ -332,7 +332,8 @@ enum WorkerEvent {
         generation: u64,
         root: PathBuf,
         collections: Vec<String>,
-        files: Vec<StagedFile>,
+        directories: DirectoryCatalog,
+        file_catalogue: FileCatalogue,
     },
     ScanQueried {
         open_generation: u64,
@@ -831,6 +832,7 @@ impl DesktopController {
                 ExtendedPhase::Unnecessary => "Not requested",
                 ExtendedPhase::Pending => "Pending",
                 ExtendedPhase::Building => "Building",
+                ExtendedPhase::Paused => "Paused",
                 ExtendedPhase::Complete => "Complete",
                 ExtendedPhase::Cancelled => "Cancelled",
                 ExtendedPhase::Failed => "Failed",
@@ -842,6 +844,7 @@ impl DesktopController {
                     total: Some(extended.total_files as u64),
                 },
                 ExtendedPhase::Complete => IndexTaskState::Succeeded("Field indexes complete".into()),
+                ExtendedPhase::Paused => IndexTaskState::Cancelled,
                 ExtendedPhase::Cancelled => IndexTaskState::Cancelled,
                 ExtendedPhase::Failed => IndexTaskState::Failed(
                     extended.error.unwrap_or_else(|| "Field indexing failed".into()),
@@ -1306,6 +1309,17 @@ impl DesktopController {
             UiAction::CompactIndex => {
                 self.start_maintenance(MaintenanceOperation::Compact, updates)
             }
+            UiAction::ResumeExtendedIndex => {
+                if let Some(session) = &self.session {
+                    match session.repository.index().resume_extended() {
+                        Ok(()) => self.poll_index_tasks(updates),
+                        Err(error) => updates.push(UiUpdate::Error {
+                            field: ErrorField::General,
+                            message: error.to_string(),
+                        }),
+                    }
+                }
+            }
             UiAction::SetAutomaticChecking {
                 enabled,
                 interval_seconds,
@@ -1615,11 +1629,13 @@ impl DesktopController {
                         }
                         if status.phase != StagedBuildPhase::Discovering {
                             if let Ok(files) = task.catalogue() {
+                                let (directories, file_catalogue) = prepare_staged_catalogue(files, &collections);
                                 let _ = watcher_sender.send(WorkerEvent::CatalogueReady {
                                     generation,
                                     root,
                                     collections,
-                                    files,
+                                    directories,
+                                    file_catalogue,
                                 });
                             }
                             return;
@@ -2720,10 +2736,15 @@ impl DesktopController {
                 };
                 updates.push(UiUpdate::Status(message));
             }
-            WorkerEvent::CatalogueReady { generation, root, collections, files }
-                if generation == self.pending_open_generation && self.opening_draft.is_some() =>
+            WorkerEvent::CatalogueReady { generation, root, collections, directories, file_catalogue }
+                if generation == self.pending_open_generation
+                    && (self.opening_draft.is_some() || self.session.is_some()) =>
             {
                 if self.catalogue_opened {
+                    return;
+                }
+                if self.opening_draft.is_none() {
+                    updates.push(UiUpdate::FileCatalogue(file_catalogue));
                     return;
                 }
                 self.catalogue_opened = true;
@@ -2781,11 +2802,10 @@ impl DesktopController {
                 }
                 let root = root.display().to_string();
                 let single_collection = collections.len() == 1;
-                let directories = staged_directories(&files, &collections);
                 self.open_diagnostics = format!(
                     "Root: {root}\nCollections: {}\nDiscovered files: {}\nBuilding search base",
                     collections.join(", "),
-                    files.len(),
+                    file_catalogue.files.len(),
                 );
                 updates.push(UiUpdate::Opened {
                     root,
@@ -2793,7 +2813,7 @@ impl DesktopController {
                     single_collection,
                     directories,
                 });
-                updates.push(UiUpdate::FileCatalogue(staged_files_for_ui(files)));
+                updates.push(UiUpdate::FileCatalogue(file_catalogue));
                 updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
                 updates.push(UiUpdate::Status(
                     "File catalogue ready; building search base".into(),
@@ -2808,8 +2828,7 @@ impl DesktopController {
                 match *result {
                     Ok((session, preferences, directory_publication, directories)) => {
                         let had_catalogue = std::mem::take(&mut self.catalogue_opened);
-                        let ready_files = self.opening_task.take()
-                            .and_then(|task| task.catalogue().ok());
+                        self.opening_task = None;
                         self.scan_hits.clear();
                         self.cancellation.cancel();
                         self.export_cancellation.cancel();
@@ -2919,9 +2938,6 @@ impl DesktopController {
                                 single_collection,
                                 directories,
                             });
-                            if let Some(files) = ready_files {
-                                updates.push(UiUpdate::FileCatalogue(staged_files_for_ui(files)));
-                            }
                         }
                         if let Some(session) = &self.session
                             && let Ok(status) = backend::index_lifecycle::status(session)
@@ -4767,24 +4783,54 @@ fn indexed_directories(view: &IndexView, collections: &[String]) -> DirectoryCat
     DirectoryCatalog { all, by_collection }
 }
 
-fn staged_directories(files: &[StagedFile], collections: &[String]) -> DirectoryCatalog {
-    let all = parent_directories(files.iter().map(|file| file.relative_path.as_path()));
-    let by_collection = collections.iter().enumerate().map(|(index, name)| {
-        let paths = files.iter()
-            .filter(move |file| file.collections.iter().any(|id| id.0 as usize == index))
-            .map(|file| file.relative_path.as_path());
-        (name.clone(), parent_directories(paths))
-    }).collect();
-    DirectoryCatalog { all, by_collection }
-}
-
-fn staged_files_for_ui(files: Vec<StagedFile>) -> Arc<Vec<CatalogueFile>> {
-    Arc::new(files.into_iter().map(|file| CatalogueFile {
-        id: file.id.0,
-        relative_path: objekte_search_core::path_repr::query_path(&file.relative_path),
-        collections: file.collections.into_iter().map(|id| id.0).collect(),
-        size: file.size,
-    }).collect())
+/// Build the virtual-list rows and collection scopes on the discovery worker.
+/// The UI receives only cheap Arc/map moves even for a very large catalogue.
+fn prepare_staged_catalogue(
+    files: Vec<StagedFile>,
+    collections: &[String],
+) -> (DirectoryCatalog, FileCatalogue) {
+    let mut all_directories = BTreeSet::new();
+    let mut scoped_directories = vec![BTreeSet::new(); collections.len()];
+    let mut scoped_indices = vec![Vec::new(); collections.len()];
+    let mut rows = Vec::with_capacity(files.len());
+    for (index, file) in files.into_iter().enumerate() {
+        let collection_ids = file.collections.iter().map(|id| id.0).collect::<Vec<_>>();
+        for id in &collection_ids {
+            if let Some(indices) = scoped_indices.get_mut(*id as usize) {
+                indices.push(index);
+            }
+        }
+        let mut parent = file.relative_path.parent();
+        while let Some(directory) = parent.filter(|directory| !directory.as_os_str().is_empty()) {
+            let path = objekte_search_core::path_repr::query_path(directory);
+            all_directories.insert(path.clone());
+            for id in &collection_ids {
+                if let Some(directories) = scoped_directories.get_mut(*id as usize) {
+                    directories.insert(path.clone());
+                }
+            }
+            parent = directory.parent();
+        }
+        rows.push(CatalogueFile {
+            id: file.id.0,
+            relative_path: objekte_search_core::path_repr::query_path(&file.relative_path),
+            collections: collection_ids,
+            size: file.size,
+        });
+    }
+    let directories = DirectoryCatalog {
+        all: all_directories.into_iter().collect(),
+        by_collection: collections.iter().cloned()
+            .zip(scoped_directories.into_iter().map(|set| set.into_iter().collect()))
+            .collect(),
+    };
+    let file_catalogue = FileCatalogue {
+        files: Arc::new(rows),
+        by_collection: collections.iter().cloned()
+            .zip(scoped_indices.into_iter().map(Arc::new))
+            .collect(),
+    };
+    (directories, file_catalogue)
 }
 
 fn parent_directories<'a>(paths: impl Iterator<Item = &'a Path>) -> Vec<String> {

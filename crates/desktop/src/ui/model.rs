@@ -595,6 +595,7 @@ pub enum UiAction {
     LoadIndex(String),
     RebuildIndex,
     CompactIndex,
+    ResumeExtendedIndex,
     SetAutomaticChecking {
         enabled: bool,
         interval_seconds: u64,
@@ -637,6 +638,12 @@ pub struct CatalogueFile {
     pub size: u64,
 }
 
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
+pub struct FileCatalogue {
+    pub files: std::sync::Arc<Vec<CatalogueFile>>,
+    pub by_collection: std::collections::BTreeMap<String, std::sync::Arc<Vec<usize>>>,
+}
+
 /// Backend-owned state that the UI may display after generation validation.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum UiUpdate {
@@ -661,7 +668,7 @@ pub enum UiUpdate {
         directories: DirectoryCatalog,
     },
     Directories(DirectoryCatalog),
-    FileCatalogue(std::sync::Arc<Vec<CatalogueFile>>),
+    FileCatalogue(FileCatalogue),
     /// A validated replacement for the same source configuration preserves UI drafts/tabs.
     IndexReplaced(IndexUiStatus),
     IndexStatus(IndexUiStatus),

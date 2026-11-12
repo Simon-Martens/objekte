@@ -309,15 +309,9 @@ impl UiState {
                 self.workspace.update_current_search(self.search.clone());
             }
             UiUpdate::Directories(directories) => self.install_directories(directories),
-            UiUpdate::FileCatalogue(files) => {
-                self.catalogue_indices_by_collection.clear();
-                for (collection_index, collection) in self.collections.iter().enumerate() {
-                    let indices = files.iter().enumerate()
-                        .filter_map(|(index, file)| file.collections.contains(&(collection_index as u32)).then_some(index))
-                        .collect();
-                    self.catalogue_indices_by_collection.insert(collection.clone(), std::sync::Arc::new(indices));
-                }
-                self.catalogue_files = files;
+            UiUpdate::FileCatalogue(catalogue) => {
+                self.catalogue_indices_by_collection = catalogue.by_collection;
+                self.catalogue_files = catalogue.files;
             }
             UiUpdate::QueryStarted { status, retain_preview } => {
                 self.busy = Busy::Querying;

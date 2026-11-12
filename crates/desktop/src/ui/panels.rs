@@ -1401,6 +1401,11 @@ impl DesktopView {
                             .disabled(self.state.root.is_none())
                             .tooltip("Remove obsolete index entries without deleting source files")
                             .on_click(cx.listener(|this, _, _, _| this.send(UiAction::CompactIndex)))))
+                    .when(matches!(index.extended_phase.as_str(), "Paused" | "Cancelled" | "Failed"), |this| {
+                        this.child(Button::new("index-resume-extended")
+                            .label(if index.extended_phase == "Paused" { "Resume field indexes" } else { "Retry field indexes" })
+                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::ResumeExtendedIndex))))
+                    })
                     .child(Button::new("index-details").ghost().label("Details…")
                         .on_click(cx.listener(|this, _, _, cx| {
                             this.state.action_panel = ActionPanel::Diagnostics;

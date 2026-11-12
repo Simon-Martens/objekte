@@ -30,6 +30,42 @@ fn staged_plain_open_exposes_catalogue_before_returning_searchable_session() {
 }
 
 #[test]
+fn staged_explicit_write_then_cached_open_preserves_search_ready_path() {
+    let root = tempfile::tempdir().unwrap();
+    write_records(root.path());
+    let cache_dir = root.path().join(".objekte");
+    let mut args = Arguments {
+        path: vec![root.path().to_path_buf()],
+        write_index: Some(cache_dir.display().to_string()),
+        ..Default::default()
+    };
+    let spec = |args: Arguments| OpenSpec {
+        args,
+        cwd: root.path().to_path_buf(),
+        configured_cache_policy: None,
+    };
+    let first = open_staged(&spec(args.clone()), &CancellationToken::new(), |_, _, _| {})
+        .unwrap();
+    assert!(!first.diagnostics.startup.restored);
+    let deadline = Instant::now() + std::time::Duration::from_secs(5);
+    loop {
+        if let Some(result) = first.take_background_snapshot_save() {
+            assert!(result.unwrap().is_some());
+            break;
+        }
+        assert!(Instant::now() < deadline, "background snapshot did not finish");
+        std::thread::sleep(std::time::Duration::from_millis(10));
+    }
+    args.write_index = None;
+    args.load_index = Some(cache_dir.display().to_string());
+    let second = open_staged(&spec(args), &CancellationToken::new(), |task, _, _| {
+        assert_eq!(task.status().unwrap().phase, objekte_search_core::lifecycle::StagedBuildPhase::Complete);
+    }).unwrap();
+    assert!(second.diagnostics.startup.restored);
+    assert_eq!(second.repository.index().status().unwrap().live_records, 3);
+}
+
+#[test]
 fn opens_folder_without_implicit_snapshot_write() {
     let root = tempfile::tempdir().unwrap();
     write_records(root.path());
