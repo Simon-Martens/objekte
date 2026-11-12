@@ -16,7 +16,7 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
 
-use crate::bigram::{BigramBuilder, BigramContribution};
+use crate::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution, storage_diagnostic_enabled};
 use crate::inference::{InferenceBuilder, InferenceConfig};
 use crate::inventory::{
     ByteRange, CollectionBuilder, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass,
@@ -221,6 +221,15 @@ pub(crate) struct BatchMetadata {
 
 
 impl BatchContribution {
+    pub(crate) fn bigram_storage_stats(&self) -> BigramConstructionStats {
+        let mut stats = self.raw.storage_stats();
+        stats.absorb(self.fallback_text.storage_stats());
+        for contribution in self.custom_text.values() {
+            stats.absorb(contribution.storage_stats());
+        }
+        stats
+    }
+
     pub(crate) fn file_fingerprints(&self) -> &[(FileId, [u8; 32])] {
         &self.file_fingerprints
     }
@@ -1992,6 +2001,9 @@ pub(crate) struct BuildScheduleStats {
     pub peak_weight_bytes: u64,
     pub peak_active_jobs: usize,
     pub peak_ready_batches: usize,
+    /// Lower bound for received results awaiting admission; active workers
+    /// and completed messages still in the channel are excluded.
+    pub peak_ready_bigram_capacity_bytes: usize,
     pub job_execution_ns: u64,
     pub receive_wait_ns: u64,
     pub admission_ns: u64,
@@ -2045,6 +2057,9 @@ impl BuildScheduleStats {
         self.peak_weight_bytes = self.peak_weight_bytes.max(other.peak_weight_bytes);
         self.peak_active_jobs = self.peak_active_jobs.max(other.peak_active_jobs);
         self.peak_ready_batches = self.peak_ready_batches.max(other.peak_ready_batches);
+        self.peak_ready_bigram_capacity_bytes = self
+            .peak_ready_bigram_capacity_bytes
+            .max(other.peak_ready_bigram_capacity_bytes);
         self.job_execution_ns = self.job_execution_ns.saturating_add(other.job_execution_ns);
         self.receive_wait_ns = self.receive_wait_ns.saturating_add(other.receive_wait_ns);
         self.admission_ns = self.admission_ns.saturating_add(other.admission_ns);
@@ -2282,6 +2297,16 @@ pub(crate) fn process_repository_file_batches_profiled(
             }
         }
         ready.insert(index, result);
+        if profile_build && storage_diagnostic_enabled() {
+            let ready_bytes = ready
+                .values()
+                .filter_map(|result| result.as_ref().ok())
+                .fold(0usize, |bytes, batch| {
+                    bytes.saturating_add(batch.bigram_storage_stats().retained_capacity_bytes)
+                });
+            stats.peak_ready_bigram_capacity_bytes =
+                stats.peak_ready_bigram_capacity_bytes.max(ready_bytes);
+        }
         while let Some(result) = ready.remove(&next) {
             if let Some(received_at) = receipt_since.remove(&next) {
                 stats.admission_schedule.receipt_to_admission_start_ns +=

@@ -463,13 +463,17 @@ struct PackedChunk {
     skip: PackedColumns,
 }
 
-fn storage_diagnostic_enabled() -> bool {
+pub(crate) fn storage_diagnostic_enabled() -> bool {
     static ENABLED: OnceLock<bool> = OnceLock::new();
     *ENABLED.get_or_init(|| std::env::var_os("OBJEKTE_BIGRAM_STORAGE_STATS").is_some())
 }
 
 #[derive(Clone, Debug, Default, Serialize)]
 pub(crate) struct BigramConstructionStats {
+    pub chunk_element_size: usize,
+    pub span_element_size: usize,
+    pub block_element_size: usize,
+    pub pending_element_size: usize,
     pub chunk_len: usize,
     pub chunk_capacity: usize,
     pub normal_span_len: usize,
@@ -491,6 +495,58 @@ pub(crate) struct BigramConstructionStats {
     pub worker_scratch_peak_capacity_bytes: usize,
     pub worker_scratch_after_flush_capacity_bytes: usize,
     pub pending_peak_capacity_bytes: usize,
+}
+
+impl BigramConstructionStats {
+    pub fn absorb(&mut self, other: Self) {
+        self.chunk_element_size = self.chunk_element_size.max(other.chunk_element_size);
+        self.span_element_size = self.span_element_size.max(other.span_element_size);
+        self.block_element_size = self.block_element_size.max(other.block_element_size);
+        self.pending_element_size = self.pending_element_size.max(other.pending_element_size);
+        self.chunk_len = self.chunk_len.saturating_add(other.chunk_len);
+        self.chunk_capacity = self.chunk_capacity.saturating_add(other.chunk_capacity);
+        self.normal_span_len = self.normal_span_len.saturating_add(other.normal_span_len);
+        self.normal_span_capacity = self
+            .normal_span_capacity
+            .saturating_add(other.normal_span_capacity);
+        self.normal_block_len = self.normal_block_len.saturating_add(other.normal_block_len);
+        self.normal_block_capacity = self
+            .normal_block_capacity
+            .saturating_add(other.normal_block_capacity);
+        self.skip_span_len = self.skip_span_len.saturating_add(other.skip_span_len);
+        self.skip_span_capacity = self
+            .skip_span_capacity
+            .saturating_add(other.skip_span_capacity);
+        self.skip_block_len = self.skip_block_len.saturating_add(other.skip_block_len);
+        self.skip_block_capacity = self
+            .skip_block_capacity
+            .saturating_add(other.skip_block_capacity);
+        self.pending_normal_capacity = self
+            .pending_normal_capacity
+            .saturating_add(other.pending_normal_capacity);
+        self.pending_skip_capacity = self
+            .pending_skip_capacity
+            .saturating_add(other.pending_skip_capacity);
+        self.retained_capacity_bytes = self
+            .retained_capacity_bytes
+            .saturating_add(other.retained_capacity_bytes);
+        self.live_payload_bytes = self
+            .live_payload_bytes
+            .saturating_add(other.live_payload_bytes);
+        self.copied_block_bytes = self
+            .copied_block_bytes
+            .saturating_add(other.copied_block_bytes);
+        self.admitted_chunks = self.admitted_chunks.saturating_add(other.admitted_chunks);
+        self.worker_scratch_peak_capacity_bytes = self
+            .worker_scratch_peak_capacity_bytes
+            .max(other.worker_scratch_peak_capacity_bytes);
+        self.worker_scratch_after_flush_capacity_bytes = self
+            .worker_scratch_after_flush_capacity_bytes
+            .max(other.worker_scratch_after_flush_capacity_bytes);
+        self.pending_peak_capacity_bytes = self
+            .pending_peak_capacity_bytes
+            .max(other.pending_peak_capacity_bytes);
+    }
 }
 
 /// Construction-only grams. Each admitted batch owns contiguous per-column
@@ -526,6 +582,10 @@ impl BigramContribution {
 
     pub(crate) fn storage_stats(&self) -> BigramConstructionStats {
         let mut stats = BigramConstructionStats {
+            chunk_element_size: std::mem::size_of::<PackedChunk>(),
+            span_element_size: std::mem::size_of::<ColumnSpan>(),
+            block_element_size: std::mem::size_of::<GramBlock>(),
+            pending_element_size: std::mem::size_of::<PendingBlock>(),
             chunk_len: self.chunks.len(),
             chunk_capacity: self.chunks.capacity(),
             pending_normal_capacity: self.pending_normal.capacity(),

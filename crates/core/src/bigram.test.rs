@@ -670,12 +670,14 @@ fn profile_single_worker_constructors() {
     );
     if let Some(stats) = construction {
         println!(
-            "construction_stats={} type_bytes={{\"pending_block\":{},\"gram_block\":{},\"column_span\":{},\"packed_chunk\":{}}}",
+            "construction_stats={} type_bytes={{\"pending_block\":{},\"gram_block\":{},\"column_span\":{},\"packed_chunk\":{},\"based_columns\":{},\"contribution\":{}}}",
             serde_json::to_string(&stats).unwrap(),
             std::mem::size_of::<PendingBlock>(),
             std::mem::size_of::<GramBlock>(),
             std::mem::size_of::<ColumnSpan>(),
-            std::mem::size_of::<PackedChunk>()
+            std::mem::size_of::<PackedChunk>(),
+            std::mem::size_of::<BasedColumns>(),
+            std::mem::size_of::<BigramContribution>()
         );
     }
     assert_eq!(index.record_count, 10_000);
