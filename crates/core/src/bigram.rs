@@ -77,6 +77,127 @@ fn for_each_gram(
     }
 }
 
+/// Construction reads borrowed UTF-8 directly. ASCII bytes need no character
+/// iterator or re-encoding; only non-ASCII scalars enter the locked full fold.
+trait FoldedSink {
+    fn ascii(&mut self, byte: u8);
+    fn scalar(&mut self, scalar: char);
+}
+
+struct AsciiGramSink<E> {
+    previous: Option<u8>,
+    before_previous: Option<u8>,
+    emit: E,
+}
+
+impl<E: FnMut(bool, u64)> AsciiGramSink<E> {
+    fn push(&mut self, byte: u8) {
+        if let Some(key) = self.previous.and_then(|left| ascii_pair(left, byte)) {
+            (self.emit)(false, key);
+        }
+        if let Some(key) = self.before_previous.and_then(|left| ascii_pair(left, byte)) {
+            (self.emit)(true, key);
+        }
+        self.before_previous = self.previous;
+        self.previous = Some(byte);
+    }
+}
+
+impl<E: FnMut(bool, u64)> FoldedSink for AsciiGramSink<E> {
+    fn ascii(&mut self, byte: u8) {
+        self.push(byte);
+    }
+
+    fn scalar(&mut self, scalar: char) {
+        let mut bytes = [0; 4];
+        for &byte in scalar.encode_utf8(&mut bytes).as_bytes() {
+            self.push(byte);
+        }
+    }
+}
+
+struct UnicodeGramSink<E> {
+    previous: Option<char>,
+    before_previous: Option<char>,
+    emit: E,
+}
+
+impl<E: FnMut(bool, u64)> UnicodeGramSink<E> {
+    fn push(&mut self, scalar: char) {
+        if let Some(left) = self.previous {
+            (self.emit)(false, unicode_pair(left, scalar));
+        }
+        if let Some(left) = self.before_previous {
+            (self.emit)(true, unicode_pair(left, scalar));
+        }
+        self.before_previous = self.previous;
+        self.previous = Some(scalar);
+    }
+}
+
+impl<E: FnMut(bool, u64)> FoldedSink for UnicodeGramSink<E> {
+    fn ascii(&mut self, byte: u8) {
+        self.push(char::from(byte));
+    }
+
+    fn scalar(&mut self, scalar: char) {
+        self.push(scalar);
+    }
+}
+
+#[inline]
+fn lower_ascii(byte: u8) -> u8 {
+    if byte.is_ascii_uppercase() {
+        byte + 32
+    } else {
+        byte
+    }
+}
+
+#[inline]
+fn fold_non_ascii(text: &str, offset: usize, sink: &mut impl FoldedSink) -> usize {
+    // The caller advances by complete scalars, so this is always a UTF-8
+    // boundary. Full case folding can expand one scalar into several.
+    let scalar = text[offset..].chars().next().expect("non-ASCII scalar");
+    for folded in scalar.case_fold_with(Variant::Full, Locale::NonTurkic) {
+        sink.scalar(folded);
+    }
+    offset + scalar.len_utf8()
+}
+
+fn walk_folded_scalar(text: &str, sink: &mut impl FoldedSink) {
+    let bytes = text.as_bytes();
+    let mut offset = 0;
+    while offset < bytes.len() {
+        if bytes[offset].is_ascii() {
+            sink.ascii(lower_ascii(bytes[offset]));
+            offset += 1;
+        } else {
+            offset = fold_non_ascii(text, offset, sink);
+        }
+    }
+}
+
+fn for_each_segment_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl FnMut(bool, u64)) {
+    match alphabet {
+        BigramAlphabet::Ascii => {
+            let mut sink = AsciiGramSink {
+                previous: None,
+                before_previous: None,
+                emit: &mut emit,
+            };
+            walk_folded_scalar(text, &mut sink);
+        }
+        BigramAlphabet::Unicode => {
+            let mut sink = UnicodeGramSink {
+                previous: None,
+                before_previous: None,
+                emit: &mut emit,
+            };
+            walk_folded_scalar(text, &mut sink);
+        }
+    }
+}
 
 /// Both alphabets' necessary grams for one already prepared representation.
 /// Exact matching never reads these keys as a literal.
@@ -85,7 +206,6 @@ pub(crate) struct BigramRequest {
     ascii: Vec<(bool, u64)>,
     unicode: Vec<(bool, u64)>,
 }
-
 
 impl BigramRequest {
     pub fn from_folded(folded: &str) -> Self {
@@ -125,7 +245,6 @@ impl BigramRequest {
     }
 }
 
-
 /// Record-level bigram postings for one text binding.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct BigramIndex {
@@ -134,7 +253,6 @@ pub struct BigramIndex {
     pub normal: HashMap<u64, RoaringBitmap>,
     pub skip: HashMap<u64, RoaringBitmap>,
 }
-
 
 impl BigramIndex {
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
@@ -176,17 +294,13 @@ impl BigramIndex {
         let mut normal = HashSet::new();
         let mut skip = HashSet::new();
         for segment in segments {
-            for_each_gram(
-                folded_chars(&segment.text),
-                self.alphabet,
-                |is_skip, key| {
-                    if is_skip {
-                        skip.insert(key);
-                    } else {
-                        normal.insert(key);
-                    }
-                },
-            );
+            for_each_segment_gram(&segment.text, self.alphabet, |is_skip, key| {
+                if is_skip {
+                    skip.insert(key);
+                } else {
+                    normal.insert(key);
+                }
+            });
         }
         for gram in normal {
             self.normal.entry(gram).or_default().insert(slot.0);
@@ -304,7 +418,6 @@ impl BigramIndex {
     }
 }
 
-
 fn ascii_pair(a: u8, b: u8) -> Option<u64> {
     if !(32..=126).contains(&a) || !(32..=126).contains(&b) {
         return None;
@@ -316,13 +429,11 @@ fn unicode_pair(a: char, b: char) -> u64 {
     ((a as u64) << 21) | b as u64
 }
 
-
 #[derive(Clone, Copy, Debug)]
 struct GramBlock {
     first_slot: u32,
     bits: u64,
 }
-
 
 /// Construction-only grams. Worker chunks and ordered batch admission move
 /// complete words; the final Roaring dictionaries are built once afterward.
@@ -332,7 +443,6 @@ pub(crate) struct BigramContribution {
     normal: HashMap<u64, Vec<GramBlock>>,
     skip: HashMap<u64, Vec<GramBlock>>,
 }
-
 
 impl BigramContribution {
     pub fn new(alphabet: BigramAlphabet) -> Self {
@@ -409,7 +519,6 @@ impl BigramContribution {
     }
 }
 
-
 fn validate_blocks(
     columns: &HashMap<u64, Vec<GramBlock>>,
     record_count: u32,
@@ -463,7 +572,6 @@ fn convert_blocks(
         .collect()
 }
 
-
 /// A reusable 64-slot gram accumulator. ASCII uses its compact 95×95 pair
 /// domain; Unicode keeps only keys touched by the current chunk.
 enum GramWords {
@@ -473,7 +581,6 @@ enum GramWords {
     },
     Unicode(HashMap<u64, u64>),
 }
-
 
 impl GramWords {
     fn new(alphabet: BigramAlphabet) -> Self {
@@ -529,7 +636,6 @@ impl GramWords {
     }
 }
 
-
 /// Construction-only state; completed indexes retain the existing format.
 /// The builder can start at any final slot and publishes each touched gram
 /// once per chunk, with record bits mapped to final slots at publication.
@@ -540,7 +646,6 @@ pub(crate) struct BigramBuilder {
     chunk_start: u32,
     chunk_len: u32,
 }
-
 
 impl BigramBuilder {
     pub fn new(alphabet: BigramAlphabet) -> Self {
@@ -610,7 +715,7 @@ impl BigramBuilder {
     fn add_segment(&mut self, bit: u64, segment: &str) {
         let alphabet = self.contribution.alphabet;
         let (normal, skip) = (&mut self.normal, &mut self.skip);
-        for_each_gram(folded_chars(segment), alphabet, |is_skip, key| {
+        for_each_segment_gram(segment, alphabet, |is_skip, key| {
             if is_skip {
                 skip.set(key, bit);
             } else {
@@ -665,7 +770,6 @@ impl BigramBuilder {
         self.finish_blocks()?.into_index()
     }
 }
-
 
 #[cfg(test)]
 #[path = "bigram.test.rs"]

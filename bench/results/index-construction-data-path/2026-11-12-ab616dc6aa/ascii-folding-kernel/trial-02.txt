@@ -1,0 +1,53 @@
+
+running 1 test
+alphabet=Ascii case=short-ascii role=reference bytes=19 iterations=105263 elapsed_ns=31793268 checksum=90221864667
+alphabet=Ascii case=short-ascii role=scalar bytes=19 iterations=105263 elapsed_ns=4780207 checksum=90221864667
+alphabet=Ascii case=short-ascii role=native bytes=19 iterations=105263 elapsed_ns=4499819 checksum=90221864667
+alphabet=Ascii case=ascii-31 role=reference bytes=31 iterations=64516 elapsed_ns=21058891 checksum=94888971512
+alphabet=Ascii case=ascii-31 role=scalar bytes=31 iterations=64516 elapsed_ns=4702915 checksum=94888971512
+alphabet=Ascii case=ascii-31 role=native bytes=31 iterations=64516 elapsed_ns=4665563 checksum=94888971512
+alphabet=Ascii case=ascii-32 role=reference bytes=32 iterations=62500 elapsed_ns=21091730 checksum=95039937500
+alphabet=Ascii case=ascii-32 role=scalar bytes=32 iterations=62500 elapsed_ns=4759556 checksum=95039937500
+alphabet=Ascii case=ascii-32 role=native bytes=32 iterations=62500 elapsed_ns=5158227 checksum=95039937500
+alphabet=Ascii case=ascii-64 role=reference bytes=64 iterations=31250 elapsed_ns=20599694 checksum=97376968750
+alphabet=Ascii case=ascii-64 role=scalar bytes=64 iterations=31250 elapsed_ns=4893854 checksum=97376968750
+alphabet=Ascii case=ascii-64 role=native bytes=64 iterations=31250 elapsed_ns=5317360 checksum=97376968750
+alphabet=Ascii case=ascii-128 role=reference bytes=128 iterations=15625 elapsed_ns=20400692 checksum=98545484375
+alphabet=Ascii case=ascii-128 role=scalar bytes=128 iterations=15625 elapsed_ns=5048926 checksum=98545484375
+alphabet=Ascii case=ascii-128 role=native bytes=128 iterations=15625 elapsed_ns=5388467 checksum=98545484375
+alphabet=Ascii case=long-ascii role=reference bytes=2688 iterations=2000 elapsed_ns=82566054 checksum=258440284000
+alphabet=Ascii case=long-ascii role=scalar bytes=2688 iterations=2000 elapsed_ns=14504637 checksum=258440284000
+alphabet=Ascii case=long-ascii role=native bytes=2688 iterations=2000 elapsed_ns=14386958 checksum=258440284000
+alphabet=Ascii case=mixed role=reference bytes=1760 iterations=2000 elapsed_ns=46468328 checksum=126796572000
+alphabet=Ascii case=mixed role=scalar bytes=1760 iterations=2000 elapsed_ns=12482429 checksum=126796572000
+alphabet=Ascii case=mixed role=native bytes=1760 iterations=2000 elapsed_ns=11101763 checksum=126796572000
+alphabet=Ascii case=unicode role=reference bytes=2176 iterations=2000 elapsed_ns=27228300 checksum=3783040000
+alphabet=Ascii case=unicode role=scalar bytes=2176 iterations=2000 elapsed_ns=26944938 checksum=3783040000
+alphabet=Ascii case=unicode role=native bytes=2176 iterations=2000 elapsed_ns=28455461 checksum=3783040000
+alphabet=Unicode case=short-ascii role=reference bytes=19 iterations=105263 elapsed_ns=28366935 checksum=736209976630747
+alphabet=Unicode case=short-ascii role=scalar bytes=19 iterations=105263 elapsed_ns=4931911 checksum=736209976630747
+alphabet=Unicode case=short-ascii role=native bytes=19 iterations=105263 elapsed_ns=4754902 checksum=736209976630747
+alphabet=Unicode case=ascii-31 role=reference bytes=31 iterations=64516 elapsed_ns=19818869 checksum=774321457160440
+alphabet=Unicode case=ascii-31 role=scalar bytes=31 iterations=64516 elapsed_ns=5062374 checksum=774321457160440
+alphabet=Unicode case=ascii-31 role=native bytes=31 iterations=64516 elapsed_ns=4862957 checksum=774321457160440
+alphabet=Unicode case=ascii-32 role=reference bytes=32 iterations=62500 elapsed_ns=19948855 checksum=775553391937500
+alphabet=Unicode case=ascii-32 role=scalar bytes=32 iterations=62500 elapsed_ns=4855789 checksum=775553391937500
+alphabet=Unicode case=ascii-32 role=native bytes=32 iterations=62500 elapsed_ns=5246100 checksum=775553391937500
+alphabet=Unicode case=ascii-64 role=reference bytes=64 iterations=31250 elapsed_ns=19563731 checksum=794624376968750
+alphabet=Unicode case=ascii-64 role=scalar bytes=64 iterations=31250 elapsed_ns=5164472 checksum=794624376968750
+alphabet=Unicode case=ascii-64 role=native bytes=64 iterations=31250 elapsed_ns=5308774 checksum=794624376968750
+alphabet=Unicode case=ascii-128 role=reference bytes=128 iterations=15625 elapsed_ns=19810845 checksum=804159869484375
+alphabet=Unicode case=ascii-128 role=scalar bytes=128 iterations=15625 elapsed_ns=5273481 checksum=804159869484375
+alphabet=Unicode case=ascii-128 role=native bytes=128 iterations=15625 elapsed_ns=5347463 checksum=804159869484375
+alphabet=Unicode case=long-ascii role=reference bytes=2688 iterations=2000 elapsed_ns=78588008 checksum=2108905445468000
+alphabet=Unicode case=long-ascii role=scalar bytes=2688 iterations=2000 elapsed_ns=14514017 checksum=2108905445468000
+alphabet=Unicode case=long-ascii role=native bytes=2688 iterations=2000 elapsed_ns=14429093 checksum=2108905445468000
+alphabet=Unicode case=mixed role=reference bytes=1760 iterations=2000 elapsed_ns=47027825 checksum=2176014341148000
+alphabet=Unicode case=mixed role=scalar bytes=1760 iterations=2000 elapsed_ns=10644901 checksum=2176014341148000
+alphabet=Unicode case=mixed role=native bytes=1760 iterations=2000 elapsed_ns=10784984 checksum=2176014341148000
+alphabet=Unicode case=unicode role=reference bytes=2176 iterations=2000 elapsed_ns=25078784 checksum=191803616817730000
+alphabet=Unicode case=unicode role=scalar bytes=2176 iterations=2000 elapsed_ns=25672123 checksum=191803616817730000
+alphabet=Unicode case=unicode role=native bytes=2176 iterations=2000 elapsed_ns=27357173 checksum=191803616817730000
+test bigram::tests::benchmark_folded_gram_emission ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 528 filtered out; finished in 0.84s
