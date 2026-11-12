@@ -2539,7 +2539,10 @@ impl CollectionAdmission<'_> {
         // the established component order, while the second can run alongside
         // it on the existing extraction pool. Join before the next batch.
         let profile_enabled = profile.is_some();
-        let parallel = self.pool.current_num_threads() > 1 && count >= 64;
+        // On four workers, admission competes with extraction and the join
+        // regressed full ASCII builds. Reserve the extra merge task for pools
+        // with enough capacity to absorb that contention.
+        let parallel = self.pool.current_num_threads() >= 8 && count >= 64;
         let postings = &mut *self.postings;
         let inference = &mut *self.inference;
         let relations = &mut *self.relations;
