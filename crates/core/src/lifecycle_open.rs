@@ -131,11 +131,11 @@ impl Index {
         // Completed blocking builds are partitioned into segments and retain
         // only an empty metadata repository. A fresh partial snapshot keeps
         // its searchable base generation in the repository itself.
-        let extended_pending = !repository.extended_complete()
-            && repository
-                .collections()
-                .iter()
-                .any(|collection| !collection.generation.records.is_empty());
+        let retained_base = repository
+            .collections()
+            .iter()
+            .any(|collection| !collection.generation.records.is_empty());
+        let extended_pending = !repository.extended_complete() && retained_base;
         let repository = Arc::new(repository);
         let slots = state
             .catalog
@@ -223,6 +223,7 @@ impl Index {
         }
         let revision = IndexRevision(state.revision);
         let capability_revision = IndexRevision(state.capability_revision);
+        let pending_inference = state.pending_inference;
         let extended_batches = state
             .extended_batches
             .into_iter()
@@ -232,6 +233,7 @@ impl Index {
         let mut published = PublishedIndex::from_repository(instance_id, revision, repository)?;
         published.capability_revision = capability_revision;
         published.extended_batches = extended_batches;
+        published.pending_inference = pending_inference;
         published.active = active;
         published.segments = segments;
         published.catalog = catalog;
@@ -239,7 +241,7 @@ impl Index {
         published.next_segment_ordinal = state.next_segment_ordinal;
         published.saved_revision = Some(revision);
         published.saved_capability_revision = Some(capability_revision);
-        let published = if extended_pending {
+        let published = if retained_base {
             published
         } else {
             crate::lifecycle_partition::partition_base(published)?
@@ -248,7 +250,9 @@ impl Index {
         index.mark_restored_from_cache();
         index.select_cache_destination(path, Some(revision), Vec::new())?;
         index.start_reconcile()?;
-        if extended_pending {
+        if let Some(inference) = pending_inference {
+            index.start_inference(inference)?;
+        } else if extended_pending {
             index.resume_extended()?;
         }
         Ok(index)

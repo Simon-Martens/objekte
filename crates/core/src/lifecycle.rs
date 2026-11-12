@@ -227,6 +227,7 @@ pub struct ExtendedStatus {
 
 struct ExtendedJob {
     cancelled: AtomicBool,
+    requested_inference: Mutex<Option<crate::inference::InferenceConfig>>,
     paused: Mutex<bool>,
     resume: Condvar,
     status: Mutex<ExtendedStatus>,
@@ -420,6 +421,7 @@ pub(crate) struct PublishedIndex {
     pub(crate) active: Vec<ActiveRecords>,
     pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
     pub(crate) extended_batches: Vec<Arc<Vec<Arc<crate::build::ExtendedBatch>>>>,
+    pub(crate) pending_inference: Option<crate::inference::InferenceConfig>,
     pub(crate) next_segment_ordinal: u64,
     pub(crate) catalog: FileCatalog,
     pub(crate) file_versions: FileVersions,
@@ -497,6 +499,7 @@ impl PublishedIndex {
             active,
             segments,
             extended_batches,
+            pending_inference: None,
             next_segment_ordinal: 1,
             catalog,
             file_versions,
@@ -962,6 +965,7 @@ impl ExtendedJob {
         let terminal = matches!(phase, ExtendedPhase::Unnecessary | ExtendedPhase::Complete);
         Self {
             cancelled: AtomicBool::new(false),
+            requested_inference: Mutex::new(None),
             paused: Mutex::new(false),
             resume: Condvar::new(),
             status: Mutex::new(ExtendedStatus {
@@ -1042,6 +1046,7 @@ fn execute_extended_pass(
     index: &Index,
     base: &Arc<Repository>,
     job: &Arc<ExtendedJob>,
+    options: crate::repository::RepositoryOptions,
 ) -> Result<(), IndexError> {
     if job.wait_if_paused() {
         return Err(IndexError::Cancelled);
@@ -1053,6 +1058,7 @@ fn execute_extended_pass(
     drop(captured);
     let extended = Repository::build_extended_from_base(
         base,
+        options,
         &|files, _records| {
             if let Ok(mut status) = job.status.lock() {
                 status.completed_files = status.completed_files.saturating_add(files);
@@ -1076,7 +1082,7 @@ fn execute_extended_pass(
     if job.cancelled.load(Ordering::Acquire) {
         return Err(IndexError::Cancelled);
     }
-    index.publish_extended_repository(expected, extended)?;
+    index.publish_extended_repository(expected, extended, options.inference != base.options().inference)?;
     Ok(())
 }
 
@@ -1479,7 +1485,7 @@ impl Index {
                     if let Ok(mut status) = opening.status.lock() {
                         status.phase = StagedBuildPhase::BuildingExtended;
                     }
-                    let result = execute_extended_pass(&index, &base, &opening.extended);
+                    let result = execute_extended_pass(&index, &base, &opening.extended, base.options());
                     if let Ok(mut status) = opening.status.lock() {
                         status.phase = match &result {
                             Ok(()) => StagedBuildPhase::Complete,
@@ -1673,6 +1679,75 @@ impl Index {
         Ok(())
     }
 
+    /// Request inference for a searchable, unpartitioned session. The second
+    /// pass reuses the published file catalogue and base text index; its
+    /// progress, cancellation, and completion use the ordinary extended job.
+    pub fn start_inference(
+        &self,
+        inference: crate::inference::InferenceConfig,
+    ) -> Result<(), IndexError> {
+        inference.validate().map_err(IndexError::IncompatibleConfiguration)?;
+        if inference.mode == crate::inference::InferenceMode::Disabled {
+            return Err(IndexError::IncompatibleConfiguration(
+                "explicit inference requires report or auto-index mode".into(),
+            ));
+        }
+        let current = self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)?.clone();
+        if let Some(job) = current.as_ref() {
+            let phase = job.status.lock().map_err(|_| IndexError::LockPoisoned)?.phase;
+            if matches!(phase, ExtendedPhase::Pending | ExtendedPhase::Building | ExtendedPhase::Paused) {
+                let requested = *job.requested_inference.lock().map_err(|_| IndexError::LockPoisoned)?;
+                if requested == Some(inference) || (requested.is_none() && self.view()?.repository().options().inference == inference) {
+                    return Ok(());
+                }
+                self.cancel_extended()?;
+                let _ = job.wait();
+            }
+        }
+        let view = self.view()?;
+        if view.repository().options().inference == inference && view.repository().extended_complete() {
+            return Ok(());
+        }
+        if view.has_segments() {
+            return Err(IndexError::IncompatibleConfiguration(
+                "later inference requires a retained searchable base; reopen with explicit inference".into(),
+            ));
+        }
+        if view.0.pending_inference != Some(inference) {
+            let mut next = (*view.0).clone();
+            next.pending_inference = Some(inference);
+            next.capability_revision = next.capability_revision.next()?;
+            let retired = {
+                let mut published = self.0.published.write().map_err(|_| IndexError::LockPoisoned)?;
+                if !Arc::ptr_eq(&published, &view.0) {
+                    return Err(IndexError::RevisionConflict {
+                        expected: view.revision(), actual: published.revision,
+                    });
+                }
+                std::mem::replace(&mut *published, Arc::new(next))
+            };
+            drop(retired);
+            self.notify_sync_cache();
+        }
+        let base = Arc::clone(&view.0.repository);
+        let mut options = base.options();
+        options.inference = inference;
+        let total_files = base.collections().iter()
+            .map(|collection| collection.generation.files.len()).sum();
+        let job = Arc::new(ExtendedJob::new(ExtendedPhase::Pending, total_files));
+        *job.requested_inference.lock().map_err(|_| IndexError::LockPoisoned)? = Some(inference);
+        *self.0.extended.lock().map_err(|_| IndexError::LockPoisoned)? = Some(Arc::clone(&job));
+        let index = self.clone();
+        std::thread::Builder::new()
+            .name("objekte-explicit-inference".into())
+            .spawn(move || {
+                let result = execute_extended_pass(&index, &base, &job, options);
+                job.finish(result);
+            })
+            .map_err(|error| IndexError::Build(error.to_string()))?;
+        Ok(())
+    }
+
     pub fn resume_extended(&self) -> Result<(), IndexError> {
         let current = self
             .0
@@ -1680,7 +1755,7 @@ impl Index {
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?
             .clone();
-        if let Some(job) = current {
+        if let Some(job) = current.as_ref() {
             let phase = job
                 .status
                 .lock()
@@ -1698,17 +1773,26 @@ impl Index {
                 ExtendedPhase::Cancelled | ExtendedPhase::Failed => {}
             }
         }
+        let requested_inference = current.as_ref().map(|job| {
+            job.requested_inference.lock()
+                .map(|value| *value).map_err(|_| IndexError::LockPoisoned)
+        }).transpose()?.flatten();
         let view = self.view()?;
-        if view.repository().extended_complete() {
+        if requested_inference.is_none() && view.repository().extended_complete() {
             return Ok(());
         }
         let base = Arc::clone(&view.0.repository);
+        let mut options = base.options();
+        if let Some(inference) = requested_inference {
+            options.inference = inference;
+        }
         let total_files = base
             .collections()
             .iter()
             .map(|collection| collection.generation.files.len())
             .sum();
         let job = Arc::new(ExtendedJob::new(ExtendedPhase::Pending, total_files));
+        *job.requested_inference.lock().map_err(|_| IndexError::LockPoisoned)? = requested_inference;
         *self
             .0
             .extended
@@ -1718,7 +1802,7 @@ impl Index {
         std::thread::Builder::new()
             .name("objekte-extended-resume".into())
             .spawn(move || {
-                let result = execute_extended_pass(&index, &base, &job);
+                let result = execute_extended_pass(&index, &base, &job, options);
                 job.finish(result);
             })
             .map_err(|error| IndexError::Build(error.to_string()))?;
@@ -3064,6 +3148,7 @@ impl Index {
         &self,
         expected_data: IndexRevision,
         repository: Repository,
+        allow_inference_change: bool,
     ) -> Result<IndexRevision, IndexError> {
         let repository = Arc::new(repository);
         let current = self.view()?;
@@ -3073,9 +3158,6 @@ impl Index {
                 actual: current.revision(),
             });
         }
-        let catalog =
-            FileCatalog::restored(Arc::clone(&repository), current.0.catalog.snapshot_slots())
-                .map_err(IndexError::InvalidPublication)?;
         let configuration_identity = crate::storage::configuration_hash(
             &repository
                 .collections()
@@ -3086,11 +3168,29 @@ impl Index {
             &repository.sources,
         )
         .map_err(IndexError::IncompatibleConfiguration)?;
-        if current.0.configuration_identity != configuration_identity {
+        let mut prior_options = current.repository().options();
+        prior_options.inference = repository.options().inference;
+        let permitted_identity = crate::storage::configuration_hash(
+            &current.repository().collections().iter()
+                .map(|collection| collection.definition.clone()).collect::<Vec<_>>(),
+            prior_options,
+            &current.repository().sources,
+        ).map_err(IndexError::IncompatibleConfiguration)?;
+        if current.0.configuration_identity != configuration_identity
+            && (!allow_inference_change || permitted_identity != configuration_identity)
+        {
             return Err(IndexError::IncompatibleConfiguration(
                 "extended configuration changed".into(),
             ));
         }
+        let mut slots = current.0.catalog.snapshot_slots();
+        if allow_inference_change {
+            for slot in slots.iter_mut().flatten() {
+                slot.2 = Some(configuration_identity);
+            }
+        }
+        let catalog = FileCatalog::restored(Arc::clone(&repository), slots)
+            .map_err(IndexError::InvalidPublication)?;
         let retired = {
             let mut guard = self
                 .0
@@ -3115,6 +3215,8 @@ impl Index {
             let mut next = (**guard).clone();
             next.repository = repository;
             next.catalog = catalog;
+            next.configuration_identity = configuration_identity;
+            next.pending_inference = None;
             next.capability_revision = next.capability_revision.next()?;
             std::mem::replace(&mut *guard, Arc::new(next))
         };
@@ -3310,6 +3412,23 @@ impl IndexView {
                 .entry(FileId(number as u32))
                 .map(|entry| entry.relative_path.as_path())
         })
+    }
+
+    /// Stable file identities and collection bindings from this pinned view.
+    /// This reads the published catalogue without enumerating source paths.
+    pub fn catalogue(&self) -> Vec<StagedFile> {
+        (0..self.0.catalog.allocated_files())
+            .filter_map(|number| {
+                let entry = self.0.catalog.entry(FileId(number as u32))?;
+                Some(StagedFile {
+                    id: entry.id,
+                    relative_path: entry.relative_path.clone(),
+                    collections: entry.collections.clone(),
+                    size: entry.revision.size,
+                    created_ns: entry.created_ns,
+                })
+            })
+            .collect()
     }
 
     /// Paths of active files indexed for one collection in this publication.

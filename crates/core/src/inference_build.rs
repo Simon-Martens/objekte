@@ -429,6 +429,7 @@ pub(crate) struct InferenceBuilder {
     fields: Vec<FieldState>,
     empty_ancestors: HashMap<Vec<ObservedStep>, RoaringBitmap>,
     selected: HashMap<usize, (u32, bool)>,
+    observed_paths: Vec<usize>,
     visit_path: Vec<ObservedStep>,
     eligible: u32,
     omitted_paths: u64,
@@ -471,6 +472,7 @@ impl InferenceBuilder {
             fields: Vec::new(),
             empty_ancestors: HashMap::new(),
             selected: HashMap::new(),
+            observed_paths: Vec::new(),
             visit_path: Vec::new(),
             eligible: 0,
             omitted_paths: 0,
@@ -732,6 +734,7 @@ impl InferenceBuilder {
         value: &Value,
         schema: Option<&Schema>,
     ) -> Result<(), String> {
+        self.observed_paths.clear();
         self.eligible = self
             .eligible
             .checked_add(1)
@@ -749,12 +752,23 @@ impl InferenceBuilder {
         state.path.clear();
         self.visit(value, &mut state, true, false, 0, schema);
         self.visit_path = state.path;
+        self.observed_paths.extend(self.selected.keys().copied());
         for (index, (count, sole_null)) in self.selected.drain() {
             if count == 1 && sole_null {
                 self.fields[index].exact_null.insert(slot.0);
             }
         }
         Ok(())
+    }
+
+    pub(crate) fn observed_paths(&self) -> impl Iterator<Item = &[String]> {
+        self.observed_paths
+            .iter()
+            .map(|index| self.fields[*index].path.as_slice())
+    }
+
+    pub(crate) fn observations_complete(&self) -> bool {
+        self.complete
     }
 
     pub(crate) fn merge_shifted(&mut self, other: Self, base: u32) -> Result<(), String> {

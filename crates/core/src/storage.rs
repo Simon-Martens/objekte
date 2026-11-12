@@ -33,8 +33,9 @@ use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
 pub const SNAPSHOT_VERSION: u32 = 21;
-pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 23;
+pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 24;
 const PREVIOUS_LIFECYCLE_SNAPSHOT_VERSION: u32 = 22;
+const PARTIAL_LIFECYCLE_SNAPSHOT_VERSION: u32 = 23;
 const CONFIGURATION_HASH_VERSION: u32 = 17;
 const CONFIGURATION_SECTION_ID: u32 = u32::MAX;
 const MAX_SECTION_BYTES: u64 = 8 * 1024 * 1024 * 1024;
@@ -188,7 +189,38 @@ pub(crate) struct LifecycleCacheState {
     pub(crate) file_versions: Vec<FileVersion>,
     pub(crate) segments: Vec<Vec<LifecycleSegmentCache>>,
     pub(crate) extended_batches: Vec<Vec<crate::build::ExtendedBatch>>,
+    pub(crate) pending_inference: Option<crate::inference::InferenceConfig>,
     pub(crate) next_segment_ordinal: u64,
+}
+
+#[derive(Deserialize)]
+struct PreviousPartialLifecycleCacheState {
+    revision: u64,
+    capability_revision: u64,
+    configuration_identity: [u8; 32],
+    base_active: Vec<RoaringBitmap>,
+    catalog: Vec<Option<LifecycleCatalogFile>>,
+    file_versions: Vec<FileVersion>,
+    segments: Vec<Vec<LifecycleSegmentCache>>,
+    extended_batches: Vec<Vec<crate::build::ExtendedBatch>>,
+    next_segment_ordinal: u64,
+}
+
+impl From<PreviousPartialLifecycleCacheState> for LifecycleCacheState {
+    fn from(old: PreviousPartialLifecycleCacheState) -> Self {
+        Self {
+            revision: old.revision,
+            capability_revision: old.capability_revision,
+            configuration_identity: old.configuration_identity,
+            base_active: old.base_active,
+            catalog: old.catalog,
+            file_versions: old.file_versions,
+            segments: old.segments,
+            extended_batches: old.extended_batches,
+            pending_inference: None,
+            next_segment_ordinal: old.next_segment_ordinal,
+        }
+    }
 }
 
 #[derive(Deserialize)]
@@ -214,6 +246,7 @@ impl From<PreviousLifecycleCacheState> for LifecycleCacheState {
             file_versions: old.file_versions,
             segments: old.segments,
             extended_batches,
+            pending_inference: None,
             next_segment_ordinal: old.next_segment_ordinal,
         }
     }
@@ -296,6 +329,7 @@ impl LifecycleCacheState {
                 .iter()
                 .map(|group| group.iter().map(|batch| (**batch).clone()).collect())
                 .collect(),
+            pending_inference: publication.pending_inference,
             next_segment_ordinal: publication.next_segment_ordinal,
         })
     }
@@ -314,6 +348,9 @@ impl LifecycleCacheState {
             .collect::<Vec<_>>();
         if self.revision == 0
             || self.capability_revision == 0
+            || self.pending_inference.is_some_and(|config| {
+                config.mode == InferenceMode::Disabled || config.validate().is_err()
+            })
             || self.configuration_identity
                 != configuration_hash(&definitions, repository.options(), &repository.sources)?
         {
@@ -852,6 +889,7 @@ pub(crate) fn snapshot_build_configuration_with_sources(
         || ![
             SNAPSHOT_VERSION,
             PREVIOUS_LIFECYCLE_SNAPSHOT_VERSION,
+            PARTIAL_LIFECYCLE_SNAPSHOT_VERSION,
             LIFECYCLE_SNAPSHOT_VERSION,
         ]
         .contains(&version)
@@ -1348,7 +1386,7 @@ fn load_snapshot_parts(
     };
     if &magic != MAGIC
         || (version != current_version
-            && !(lifecycle && version == PREVIOUS_LIFECYCLE_SNAPSHOT_VERSION))
+            && !(lifecycle && [PREVIOUS_LIFECYCLE_SNAPSHOT_VERSION, PARTIAL_LIFECYCLE_SNAPSHOT_VERSION].contains(&version)))
         || u32::from_le_bytes(model) != crate::MODEL_VERSION
     {
         return Err("incompatible snapshot version".into());
@@ -1775,6 +1813,9 @@ fn load_snapshot_parts(
         let id = collections.len() as u32 + 1;
         Some(if version == PREVIOUS_LIFECYCLE_SNAPSHOT_VERSION {
             let previous: PreviousLifecycleCacheState = read_section(&mut file, id)?;
+            previous.into()
+        } else if version == PARTIAL_LIFECYCLE_SNAPSHOT_VERSION {
+            let previous: PreviousPartialLifecycleCacheState = read_section(&mut file, id)?;
             previous.into()
         } else {
             read_section(&mut file, id)?

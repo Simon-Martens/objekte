@@ -1,6 +1,6 @@
 //! Bounded file-batch contributions and deterministic index admission.
 
-use std::collections::{BTreeMap, HashMap, VecDeque};
+use std::collections::{BTreeMap, HashMap, HashSet, VecDeque};
 use std::io::{BufRead, BufReader, Cursor, Read};
 use std::num::NonZeroUsize;
 use std::ops::Range;
@@ -250,6 +250,8 @@ struct BatchBuilder<'a> {
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     field_states: HashMap<Vec<String>, crate::field_state::FieldStateColumnBuilder>,
     field_state_absent_covered: HashMap<Vec<String>, RoaringBitmap>,
+    inferred_state_paths: HashSet<Vec<String>>,
+    inferred_unclassifiable: HashMap<Vec<String>, RoaringBitmap>,
     raw: BigramBuilder,
     fallback_text: BigramBuilder,
     custom_text: HashMap<(Vec<String>, String), BigramBuilder>,
@@ -356,6 +358,8 @@ impl<'a> BatchBuilder<'a> {
             } else {
                 HashMap::new()
             },
+            inferred_state_paths: HashSet::new(),
+            inferred_unclassifiable: HashMap::new(),
             raw: BigramBuilder::new(alphabet),
             fallback_text: BigramBuilder::new(alphabet),
             custom_text,
@@ -545,6 +549,9 @@ impl<'a> BatchBuilder<'a> {
         });
         self.postings.add(slot, &extracted.value)?;
         for (path, builder) in &mut self.field_states {
+            if self.inferred_state_paths.contains(path) {
+                continue;
+            }
             let selected = data_values(&extracted.value, path);
             if let Some(mask) = crate::field_state::classify_selected(selected.as_deref()) {
                 if mask == 0 {
@@ -563,6 +570,38 @@ impl<'a> BatchBuilder<'a> {
                 &extracted.value,
                 Some(&self.definition.schema),
             )?;
+            if inference.observations_complete() {
+                for path in inference.observed_paths() {
+                    if self.definition.schema.is_auto_index_prohibited(path)
+                        || (!self.inferred_state_paths.contains(path)
+                            && self.field_states.contains_key(path))
+                    {
+                        continue;
+                    }
+                    if !self.inferred_state_paths.contains(path) {
+                        let owned = path.to_vec();
+                        self.field_states.insert(
+                            owned.clone(),
+                            crate::field_state::FieldStateColumnBuilder::new(),
+                        );
+                        self.inferred_state_paths.insert(owned.clone());
+                        self.inferred_unclassifiable.insert(owned, RoaringBitmap::new());
+                    }
+                    let selected = data_values(&extracted.value, path);
+                    match crate::field_state::classify_selected(selected.as_deref()) {
+                        Some(mask) if mask != 0 => {
+                            self.field_states.get_mut(path).expect("inferred path registered")
+                                .insert_mask(slot.0, mask);
+                        }
+                        Some(_) => {}
+                        None => {
+                            self.inferred_unclassifiable.get_mut(path)
+                                .expect("inferred path registered")
+                                .insert(slot.0);
+                        }
+                    }
+                }
+            }
         }
         for relation in &mut self.relations {
             relation.add_logical(slot, &extracted.value)?;
@@ -710,8 +749,15 @@ impl<'a> BatchBuilder<'a> {
         let field_states = self
             .field_states
             .drain()
+            .filter(|(path, _)| {
+                !self.inferred_state_paths.contains(path)
+                    || self.inference.as_ref().is_some_and(InferenceBuilder::observations_complete)
+            })
             .map(|(path, mut builder)| {
-                if let Some(absent) = self.field_state_absent_covered.remove(&path) {
+                if self.inferred_state_paths.contains(&path) {
+                    let uncovered = self.inferred_unclassifiable.remove(&path).unwrap_or_default();
+                    builder.cover_slots(&(&self.logical_records - &uncovered));
+                } else if let Some(absent) = self.field_state_absent_covered.remove(&path) {
                     builder.cover_slots(&absent);
                 }
                 (path, builder.finish())
