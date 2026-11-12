@@ -1392,6 +1392,13 @@ impl DesktopView {
                         "Field indexes: {}",
                         index.extended_phase,
                     )))
+                    .child(Button::new("index-infer-fields")
+                        .label("Infer field indexes")
+                        .disabled(self.state.root.is_none()
+                            || index.inference_requested
+                            || matches!(index.extended, IndexTaskState::Running { .. }))
+                        .tooltip("Discover eligible fields and build optional indexes")
+                        .on_click(cx.listener(|this, _, _, _| this.send(UiAction::InferFieldIndexes))))
                     .child(div().flex().gap_2()
                         .child(Button::new("index-rebuild").label("Rebuild index")
                             .disabled(self.state.root.is_none())

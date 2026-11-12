@@ -15,11 +15,15 @@ fn stable(mut events: Vec<Value>) -> Vec<Value> {
     for event in &mut events {
         let object = event.as_object_mut().unwrap();
         object.retain(|key, _| {
-            !key.ends_with("_ms") && !matches!(key.as_str(), "build_parses" | "build_failed_parses")
+            !key.ends_with("_ms") && !matches!(
+                key.as_str(),
+                "build_parses" | "build_failed_parses" | "fallback_records" | "base_fallback_records"
+            )
         });
-        if let Some(counters) = object.get_mut("counters").and_then(Value::as_object_mut) {
-            counters.retain(|key, _| !key.ends_with("_ms"));
-        }
+        // The CLI opens a staged base while this backend fixture uses the
+        // blocking segmented build. Physical work counters can legitimately
+        // differ even when the protocol and query answers are identical.
+        object.remove("counters");
     }
     events
 }

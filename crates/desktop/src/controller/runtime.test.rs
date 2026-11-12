@@ -92,6 +92,38 @@ fn index_details_report_revisions_and_inference_state_on_demand() {
 }
 
 #[test]
+fn explicit_inference_keeps_data_publication_and_refreshes_session_identity() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), br#"{"name":"alpha","nested":{"kind":"x"}}"#).unwrap();
+    let session = backend::open_staged(
+        &OpenSpec {
+            args: objekte_cli::arguments::Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
+        },
+        &CancellationToken::new(),
+        |_, _, _| {},
+    ).unwrap();
+    let index = session.repository.index().clone();
+    let publication = Publication::from(&index.status().unwrap());
+    let mut controller = DesktopController::new().0;
+    controller.session = Some(session);
+    let mut updates = Vec::new();
+    controller.start_inference(&mut updates);
+    assert!(controller.session.as_ref().unwrap().configuration.options.inference.mode
+        == InferenceMode::AutoIndex);
+    index.wait_extended().unwrap();
+    controller.refresh_session_configuration_identity();
+    assert_eq!(controller.session.as_ref().unwrap().configuration.configuration_identity,
+        index.view().unwrap().configuration_identity());
+    assert_eq!(Publication::from(&index.status().unwrap()), publication);
+    assert!(!updates.iter().any(|update| matches!(update, UiUpdate::ResultsOutdated(_))));
+}
+
+#[test]
 fn indexed_directory_tree_follows_added_and_deleted_files() {
     let fixture = crate::backend::test_support::fixture();
     let index = fixture.session.repository.index();
@@ -112,8 +144,12 @@ fn indexed_directory_tree_follows_added_and_deleted_files() {
         ["docs", "docs/nested"]
     );
     assert!(view.file_paths_for_collection("missing").next().is_none());
+    let (_, catalogue) = prepare_staged_catalogue(view.catalogue(), &fixture.session.collections);
+    assert!(catalogue.files.iter().any(|file| file.relative_path == "docs/nested/new.json"));
     let handle = view.file_handle_for_path(&file).unwrap();
     index.delete_file(handle).unwrap();
+    let (_, catalogue) = prepare_staged_catalogue(index.view().unwrap().catalogue(), &fixture.session.collections);
+    assert!(!catalogue.files.iter().any(|file| file.relative_path == "docs/nested/new.json"));
     assert!(
         indexed_directories(&index.view().unwrap(), &fixture.session.collections)
             .all

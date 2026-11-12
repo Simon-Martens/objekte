@@ -11,6 +11,7 @@ use std::time::{Duration, Instant};
 
 use gpui_kit::{App, PathPromptOptions};
 use objekte_cli::execution::Exit;
+use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::lifecycle::{
     ExtendedPhase, IndexRevision, IndexStatus, IndexView, MaintenanceOperation, MaintenanceTask,
     ReconciliationState, ReconciliationTask, StagedBuildPhase, StagedBuildStatus,
@@ -264,6 +265,7 @@ enum WorkerEvent {
         open_generation: u64,
         publication: Publication,
         directories: DirectoryCatalog,
+        file_catalogue: FileCatalogue,
     },
     Queried {
         open_generation: u64,
@@ -592,6 +594,7 @@ impl DesktopController {
             self.last_index_poll = Instant::now();
             self.poll_publication(&mut updates);
             self.poll_index_tasks(&mut updates);
+            self.refresh_session_configuration_identity();
         }
         if self
             .pending_edit
@@ -672,11 +675,13 @@ impl DesktopController {
         let open_generation = self.open_generation;
         let collections = session.collections.clone();
         thread::spawn(move || {
-            let directories = indexed_directories(&view, &collections);
+            let (directories, file_catalogue) =
+                prepare_staged_catalogue(view.catalogue(), &collections);
             let _ = sender.send(WorkerEvent::Directories {
                 open_generation,
                 publication,
                 directories,
+                file_catalogue,
             });
         });
     }
@@ -746,6 +751,8 @@ impl DesktopController {
         self.index_ui.saved_revision = status.saved_revision.map(|revision| revision.0);
         self.index_ui.saved_capability_revision = status.saved_capability_revision.map(|revision| revision.0);
         self.index_ui.dirty = status.dirty();
+        self.index_ui.inference_requested =
+            session.configuration.options.inference.mode == InferenceMode::AutoIndex;
         if let Ok(extended) = session.repository.index().extended_status() {
             self.index_ui.extended_phase = match extended.phase {
                 ExtendedPhase::Unnecessary => "Not requested",
@@ -944,6 +951,26 @@ impl DesktopController {
         if let Ok(status) = index.status() {
             self.update_index_ui(&status, updates);
         }
+    }
+
+    /// Inference changes the persisted construction policy after its worker
+    /// succeeds, while the semantic data publication stays at the same revision.
+    fn refresh_session_configuration_identity(&mut self) {
+        let Some(session) = self.session.clone() else { return };
+        let index = session.repository.index();
+        if !matches!(index.extended_status(), Ok(status) if status.phase == ExtendedPhase::Complete) {
+            return;
+        }
+        let Ok(view) = index.view() else { return };
+        let identity = view.configuration_identity();
+        if identity == session.configuration.configuration_identity {
+            return;
+        }
+        let mut updated = session;
+        let mut configuration = (*updated.configuration).clone();
+        configuration.configuration_identity = identity;
+        updated.configuration = Arc::new(configuration);
+        self.session = Some(updated);
     }
 
     fn refresh_results_if_ready(&mut self, updates: &mut Vec<UiUpdate>) {
@@ -1228,6 +1255,7 @@ impl DesktopController {
             UiAction::CompactIndex => {
                 self.start_maintenance(MaintenanceOperation::Compact, updates)
             }
+            UiAction::InferFieldIndexes => self.start_inference(updates),
             UiAction::ResumeExtendedIndex => {
                 if let Some(session) = &self.session {
                     match session.repository.index().resume_extended() {
@@ -2514,10 +2542,12 @@ impl DesktopController {
                 open_generation,
                 publication,
                 directories,
+                file_catalogue,
             } if open_generation == self.open_generation => {
                 self.pending_directories = None;
                 if self.session_publication_is_current(publication) {
                     updates.push(UiUpdate::Directories(directories));
+                    updates.push(UiUpdate::FileCatalogue(file_catalogue));
                 } else {
                     self.request_directories();
                 }
@@ -4065,6 +4095,49 @@ impl DesktopController {
                 self.index_ui.maintenance = IndexTaskState::Failed(error.to_string());
                 updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
             }
+        }
+    }
+
+    fn start_inference(&mut self, updates: &mut Vec<UiUpdate>) {
+        let Some(session) = self.session.clone() else { return };
+        if session.configuration.options.inference.mode == InferenceMode::AutoIndex {
+            updates.push(UiUpdate::Status("Field inference is already requested".into()));
+            return;
+        }
+        if self.maintenance_task.is_some() || matches!(
+            session.repository.index().extended_status(),
+            Ok(status) if matches!(status.phase,
+                ExtendedPhase::Pending | ExtendedPhase::Building | ExtendedPhase::Paused)
+        ) {
+            updates.push(UiUpdate::Status(
+                "Finish the current index task before starting inference".into(),
+            ));
+            return;
+        }
+        let inference = InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            ..session.configuration.options.inference
+        };
+        match session.repository.index().start_inference(inference) {
+            Ok(()) => {
+                let mut updated = session;
+                let mut configuration = (*updated.configuration).clone();
+                configuration.options.inference = inference;
+                updated.configuration = Arc::new(configuration);
+                updated.args.auto_index = true;
+                self.session = Some(updated);
+                self.last_index_status_sent = None;
+                if let Some(session) = &self.session
+                    && let Ok(status) = session.repository.index().status()
+                {
+                    self.update_index_ui(&status, updates);
+                }
+                updates.push(UiUpdate::Status("Search ready · Inferring field indexes…".into()));
+            }
+            Err(error) => updates.push(UiUpdate::Error {
+                field: ErrorField::General,
+                message: error.to_string(),
+            }),
         }
     }
 

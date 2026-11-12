@@ -63,6 +63,14 @@ fn staged_explicit_write_then_cached_open_preserves_search_ready_path() {
     }).unwrap();
     assert!(second.diagnostics.startup.restored);
     assert_eq!(second.repository.index().status().unwrap().live_records, 3);
+    let before = second.repository.index().status().unwrap().revision;
+    second.repository.index().start_inference(objekte_search_core::inference::InferenceConfig {
+        mode: objekte_search_core::inference::InferenceMode::AutoIndex,
+        ..Default::default()
+    }).unwrap();
+    second.repository.index().wait_extended().unwrap();
+    assert_eq!(second.repository.index().status().unwrap().revision, before);
+    assert!(second.repository.index().inference_report("files").unwrap().is_some());
 }
 
 #[test]

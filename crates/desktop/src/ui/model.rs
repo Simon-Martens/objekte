@@ -407,6 +407,7 @@ pub struct IndexUiStatus {
     pub maintenance_kind: Option<IndexTaskKind>,
     pub extended: IndexTaskState,
     pub extended_phase: String,
+    pub inference_requested: bool,
 }
 
 impl Default for IndexUiStatus {
@@ -439,6 +440,7 @@ impl Default for IndexUiStatus {
             maintenance_kind: None,
             extended: IndexTaskState::Idle,
             extended_phase: String::new(),
+            inference_requested: false,
         }
     }
 }
@@ -595,6 +597,7 @@ pub enum UiAction {
     LoadIndex(String),
     RebuildIndex,
     CompactIndex,
+    InferFieldIndexes,
     ResumeExtendedIndex,
     InspectIndexCapabilities,
     SetAutomaticChecking {
