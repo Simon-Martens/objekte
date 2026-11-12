@@ -148,6 +148,7 @@ pub(crate) struct BatchContribution {
     postings: PostingCollection,
     inference: Option<InferenceBuilder>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    field_states: HashMap<Vec<String>, crate::field_state::FieldStateColumn>,
     raw: BigramContribution,
     fallback_text: BigramContribution,
     custom_text: HashMap<(Vec<String>, String), BigramContribution>,
@@ -157,6 +158,22 @@ pub(crate) struct BatchContribution {
     relations: Vec<RelationContribution>,
     pub record_parses: u64,
     pub failed_parses: u64,
+}
+
+/// One immutable pass-2 publication unit. Every bitmap and compact column
+/// uses local slots; `base_slot + local_slot` addresses the corresponding
+/// record in the original searchable base generation.
+#[derive(Clone, Debug, serde::Serialize, serde::Deserialize)]
+pub(crate) struct ExtendedBatch {
+    pub(crate) collection: CollectionId,
+    pub(crate) base_slot: u32,
+    pub(crate) record_count: u32,
+    pub(crate) records: Vec<RecordEntry>,
+    pub(crate) logical_covered: RoaringBitmap,
+    pub(crate) postings: PostingCollection,
+    pub(crate) custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    pub(crate) field_states: HashMap<Vec<String>, crate::field_state::FieldStateColumn>,
+    pub(crate) source_files: Vec<(FileId, SourceRevision)>,
 }
 
 /// The collection-wide identity and diagnostic observations needed while
@@ -169,6 +186,28 @@ pub(crate) struct BatchMetadata {
 }
 
 impl BatchContribution {
+    pub(crate) fn extended_snapshot(
+        &self,
+        collection: CollectionId,
+        base_slot: u32,
+    ) -> Result<ExtendedBatch, String> {
+        Ok(ExtendedBatch {
+            collection,
+            base_slot,
+            record_count: u32::try_from(self.records.len())
+                .map_err(|_| "extended batch record overflow")?,
+            records: self.records.clone(),
+            logical_covered: self.logical_records.clone(),
+            postings: self.postings.clone(),
+            custom_postings: self.custom_postings.clone(),
+            field_states: self.field_states.clone(),
+            source_files: self
+                .files
+                .iter()
+                .map(|file| (file.entry.id, file.entry.revision))
+                .collect(),
+        })
+    }
     pub(crate) fn file_fingerprints(&self) -> &[(FileId, [u8; 32])] {
         &self.file_fingerprints
     }
@@ -210,6 +249,8 @@ struct BatchBuilder<'a> {
     postings: PostingCollection,
     inference: Option<InferenceBuilder>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    field_states: HashMap<Vec<String>, crate::field_state::FieldStateColumnBuilder>,
+    field_state_absent_covered: HashMap<Vec<String>, RoaringBitmap>,
     raw: BigramBuilder,
     fallback_text: BigramBuilder,
     custom_text: HashMap<(Vec<String>, String), BigramBuilder>,
@@ -273,15 +314,44 @@ impl<'a> BatchBuilder<'a> {
             collection,
             source,
             records: Vec::new(),
-            postings: if phase.extended() {
-                PostingCollection::new(schema)
-            } else {
-                PostingCollection { fields: HashMap::new() }
+            postings: {
+                let mut selected = PostingCollection::new(schema);
+                if phase == ConstructionPhase::Base {
+                    selected.fields.retain(|path, _| schema.relations().contains_key(path));
+                } else if phase == ConstructionPhase::Extended {
+                    selected.fields.retain(|path, _| {
+                        schema.fields.get(path).is_some_and(|field| field.indexed)
+                            && !schema.relations().contains_key(path)
+                    });
+                }
+                selected
             },
             inference: phase.extended().then(|| {
                 InferenceBuilder::with_job_count(inference, true, inference_jobs)
             }).flatten(),
             custom_postings,
+            field_states: if phase.extended() {
+                schema
+                    .fields
+                    .values()
+                    .filter(|field| field.indexed)
+                    .map(|field| {
+                        (field.path.clone(), crate::field_state::FieldStateColumnBuilder::new())
+                    })
+                    .collect()
+            } else {
+                HashMap::new()
+            },
+            field_state_absent_covered: if phase.extended() {
+                schema
+                    .fields
+                    .values()
+                    .filter(|field| field.indexed)
+                    .map(|field| (field.path.clone(), RoaringBitmap::new()))
+                    .collect()
+            } else {
+                HashMap::new()
+            },
             raw: BigramBuilder::new(alphabet),
             fallback_text: BigramBuilder::new(alphabet),
             custom_text,
@@ -466,6 +536,19 @@ impl<'a> BatchBuilder<'a> {
             diagnostic_ref: DiagnosticRef(0),
         });
         self.postings.add(slot, &extracted.value)?;
+        for (path, builder) in &mut self.field_states {
+            let selected = data_values(&extracted.value, path);
+            if let Some(mask) = crate::field_state::classify_selected(selected.as_deref()) {
+                if mask == 0 {
+                    self.field_state_absent_covered
+                        .get_mut(path)
+                        .expect("selected state path is registered")
+                        .insert(slot.0);
+                } else {
+                    builder.insert_mask(slot.0, mask);
+                }
+            }
+        }
         if let Some(inference) = &mut self.inference {
             inference.observe_record_with_schema(
                 slot,
@@ -604,7 +687,7 @@ impl<'a> BatchBuilder<'a> {
     }
 
     fn finish(
-        self,
+        mut self,
         files: Vec<BatchFile>,
         record_parses: u64,
         failed_parses: u64,
@@ -614,6 +697,16 @@ impl<'a> BatchBuilder<'a> {
             .into_iter()
             .map(|(key, index)| index.finish_blocks().map(|index| (key, index)))
             .collect::<Result<HashMap<_, _>, _>>()?;
+        let field_states = self
+            .field_states
+            .drain()
+            .map(|(path, mut builder)| {
+                if let Some(absent) = self.field_state_absent_covered.remove(&path) {
+                    builder.cover_slots(&absent);
+                }
+                (path, builder.finish())
+            })
+            .collect();
         Ok(BatchContribution {
             files,
             file_fingerprints: Vec::new(),
@@ -621,6 +714,7 @@ impl<'a> BatchBuilder<'a> {
             postings: self.postings,
             inference: self.inference,
             custom_postings: self.custom_postings,
+            field_states,
             raw: self.raw.finish_blocks()?,
             fallback_text: self.fallback_text.finish_blocks()?,
             custom_text,
