@@ -116,9 +116,22 @@ fn run() -> Result<(), String> {
         options.inference.mode = InferenceMode::AutoIndex;
     }
     let before_rss = resident_bytes();
+    let io_before = proc_io();
     let started = Instant::now();
     let repo = Repository::open_with_options(&root, definitions, options)?;
     let open_ns = started.elapsed().as_nanos() as u64;
+    let io_after = proc_io();
+    let process_io_delta = io_before.zip(io_after).map(|(before, after)| {
+        after
+            .into_iter()
+            .filter_map(|(key, value)| {
+                before
+                    .get(&key)
+                    .and_then(|previous| value.checked_sub(*previous))
+                    .map(|delta| (key, delta))
+            })
+            .collect::<BTreeMap<_, _>>()
+    });
     let after_build_rss = resident_bytes();
     let after_build_hwm = peak_resident_bytes();
     let startup = repo.startup().clone();
@@ -295,6 +308,7 @@ fn run() -> Result<(), String> {
     });
     let sample = serde_json::json!({
         "open_ns":open_ns,"build_ns":startup.build_ns,
+        "process_io_delta":process_io_delta,
         "discovery_ns":startup.build_discovery_ns,
         "extraction_index_ns":startup.build_extraction_index_ns,
         "finalization_ns":startup.build_finalization_ns,
@@ -387,6 +401,23 @@ fn proc_field(path: &str, field: &str) -> Option<String> {
                 .and_then(|(name, value)| (name.trim() == field).then(|| value.trim().to_string()))
         })
     })
+}
+
+fn proc_io() -> Option<BTreeMap<String, u64>> {
+    let text = fs::read_to_string("/proc/self/io").ok()?;
+    Some(
+        text.lines()
+            .filter_map(|line| {
+                line.split_once(':').and_then(|(key, value)| {
+                    value
+                        .trim()
+                        .parse::<u64>()
+                        .ok()
+                        .map(|value| (key.to_string(), value))
+                })
+            })
+            .collect(),
+    )
 }
 
 fn resident_bytes() -> u64 {
