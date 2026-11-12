@@ -240,6 +240,7 @@ impl Index {
         published.file_versions = file_versions;
         published.next_segment_ordinal = state.next_segment_ordinal;
         published.saved_revision = Some(revision);
+        published.saved_capability_revision = Some(published.capability_revision);
         let published = crate::lifecycle_partition::partition_base(published)?;
         let index = Index::from_published(published);
         index.mark_restored_from_cache();

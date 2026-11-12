@@ -1122,6 +1122,118 @@ impl Repository {
         Ok(empty)
     }
 
+    /// Construct the searchable generation without optional field projections.
+    /// The callback fires after the normal discovery pass and before any
+    /// record extraction, so clients can show stable file identities early.
+    pub(crate) fn build_search_base(
+        root: PathBuf,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        sources: SourceRegistry,
+        on_catalogue: &dyn Fn(&FileInventory),
+    ) -> Result<Self, String> {
+        options.inference.validate()?;
+        crate::relation::validate_definitions(&definitions)?;
+        let root = root.canonicalize().map_err(|error| error.to_string())?;
+        let started = Instant::now();
+        let mut repository = Self::build_fresh_phase(
+            root,
+            definitions,
+            options,
+            &sources,
+            true,
+            crate::build::ConstructionPhase::Base,
+            None,
+            Some(on_catalogue),
+        )?;
+        repository.startup.build_ns = started.elapsed().as_nanos() as u64;
+        Ok(repository)
+    }
+
+    pub(crate) fn requests_extended(&self) -> bool {
+        self.options.inference.mode != crate::inference::InferenceMode::Disabled
+            || self.collections.iter().any(|collection| {
+                collection.definition.schema.fields.values().any(|field| field.indexed)
+                    || collection
+                        .definition
+                        .schema
+                        .operations
+                        .values()
+                        .any(|binding| binding.operation.posting())
+                    || !collection.definition.sort_fields.is_empty()
+            })
+    }
+
+    /// Reread only the already published file membership. The extended pass
+    /// retains the base generation's IDs, locators, text, and relation indexes;
+    /// a changed source layout is rejected rather than attaching stale facts.
+    pub(crate) fn build_extended_from_base(base: &Repository) -> Result<Self, String> {
+        let definitions = base
+            .collections
+            .iter()
+            .map(|collection| collection.definition.clone())
+            .collect();
+        let root = base.files.root.clone();
+        let started = Instant::now();
+        let mut extended = Self::build_fresh_phase(
+            root,
+            definitions,
+            base.options,
+            &base.sources,
+            false,
+            crate::build::ConstructionPhase::Extended,
+            Some(base),
+            None,
+        )?;
+        if extended.collections.len() != base.collections.len() {
+            return Err("extended collection count changed".into());
+        }
+        for (target, original) in extended.collections.iter_mut().zip(&base.collections) {
+            if target.generation.files != original.generation.files
+                || target.generation.records.len() != original.generation.records.len()
+                || target
+                    .generation
+                    .records
+                    .iter()
+                    .zip(&original.generation.records)
+                    .any(|(left, right)| {
+                        left.id != right.id
+                            || left.file != right.file
+                            || left.range != right.range
+                            || left.revision != right.revision
+                            || left.class != right.class
+                    })
+            {
+                return Err(format!(
+                    "extended source layout changed for {}",
+                    original.definition.name
+                ));
+            }
+            target.generation = original.generation.clone();
+            target.raw = original.raw.clone();
+            target.fallback_text = original.fallback_text.clone();
+            target.logical_records = original.logical_records.clone();
+            target.empty_array_records = original.empty_array_records.clone();
+            target.custom_text = original.custom_text.clone();
+            target.text_bindings = original.text_bindings.clone();
+            target.id_lookup = original.id_lookup.clone();
+            target.identity_order = original.identity_order.clone();
+            target.stats = original.stats;
+            target.relations = original.relations.clone();
+        }
+        extended.files = base.files.clone();
+        extended.base_fingerprints = base.base_fingerprints.clone();
+        extended.build_parses += base.build_parses;
+        extended.build_failed_parses += base.build_failed_parses;
+        extended.startup.build_ns += base.startup.build_ns;
+        extended.startup.build_discovery_ns = base.startup.build_discovery_ns;
+        extended.startup.build_extraction_index_ns += base.startup.build_extraction_index_ns;
+        extended.startup.build_finalization_ns += base.startup.build_finalization_ns;
+        extended.startup.build_ns = started.elapsed().as_nanos() as u64 + base.startup.build_ns;
+        crate::relation::validate_indexes(&extended.collections)?;
+        Ok(extended)
+    }
+
     fn build_fresh(
         root: PathBuf,
         definitions: Vec<CollectionDefinition>,
@@ -1129,8 +1241,26 @@ impl Repository {
         sources: &SourceRegistry,
         discover_sources: bool,
     ) -> Result<Self, String> {
+        Self::build_fresh_phase(
+            root, definitions, options, sources, discover_sources,
+            crate::build::ConstructionPhase::Complete, None, None,
+        )
+    }
+
+    fn build_fresh_phase(
+        root: PathBuf,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        sources: &SourceRegistry,
+        discover_sources: bool,
+        phase: crate::build::ConstructionPhase,
+        existing: Option<&Repository>,
+        on_catalogue: Option<&dyn Fn(&FileInventory)>,
+    ) -> Result<Self, String> {
         let discovery_started = Instant::now();
-        let mut files = FileInventory::new(root.clone());
+        let mut files = existing
+            .map(|repository| repository.files.clone())
+            .unwrap_or_else(|| FileInventory::new(root.clone()));
         let mut selected = Vec::new();
         for (collection_index, definition) in definitions.into_iter().enumerate() {
             let source = sources.resolve(&definition.format)?;
@@ -1156,7 +1286,17 @@ impl Repository {
             } else {
                 Vec::new()
             };
-            let mut member_files = Vec::new();
+            let mut member_files = existing
+                .and_then(|repository| repository.collections.get(collection_index))
+                .map(|collection| {
+                    if collection.definition.name != definition.name {
+                        Err("extended collection order changed".to_string())
+                    } else {
+                        Ok(collection.generation.files.clone())
+                    }
+                })
+                .transpose()?
+                .unwrap_or_default();
             for path in paths {
                 let relative = path
                     .strip_prefix(&root)
@@ -1173,6 +1313,9 @@ impl Repository {
                 member_files.push(file);
             }
             selected.push((definition, id, source, member_files));
+        }
+        if let Some(on_catalogue) = on_catalogue {
+            on_catalogue(&files);
         }
         let discovery_ns = discovery_started.elapsed().as_nanos() as u64;
         let build_workers = crate::build::resolve_build_workers(
@@ -1204,13 +1347,23 @@ impl Repository {
         let collection_count = selected.len();
         for (definition, id, source, member_files) in selected {
             let builder = CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
-            let postings = PostingCollection::new(&definition.schema);
-            let inference = InferenceBuilder::for_collection(options.inference, collection_count);
+            let postings = if phase == crate::build::ConstructionPhase::Base {
+                PostingCollection { fields: HashMap::new() }
+            } else {
+                PostingCollection::new(&definition.schema)
+            };
+            let inference = if phase == crate::build::ConstructionPhase::Base {
+                None
+            } else {
+                InferenceBuilder::for_collection(options.inference, collection_count)
+            };
             let custom_postings: HashMap<_, _> = definition
                 .schema
                 .operations
                 .iter()
-                .filter(|(_, binding)| binding.operation.posting())
+                .filter(|(_, binding)| {
+                    phase != crate::build::ConstructionPhase::Base && binding.operation.posting()
+                })
                 .map(|(key, binding)| {
                     (
                         key.clone(),
@@ -1226,7 +1379,11 @@ impl Repository {
             let logical_records = RoaringBitmap::new();
             let empty_array_records = RoaringBitmap::new();
             let sort_builder = SortBuilder::new(
-                &definition.sort_fields,
+                if phase == crate::build::ConstructionPhase::Base {
+                    &[]
+                } else {
+                    &definition.sort_fields
+                },
                 &definition.schema,
                 &definition.sort_locale,
                 definition.sort_options,
@@ -1246,6 +1403,7 @@ impl Repository {
                         })
                         .map(|(key, _)| key),
                 )
+                .filter(|_| phase != crate::build::ConstructionPhase::Extended)
                 .map(|key| {
                     (
                         canonical_custom_text_key(&definition.schema, &key.0, &key.1),
@@ -1253,7 +1411,11 @@ impl Repository {
                     )
                 })
                 .collect();
-            let relations = RelationContribution::for_schema(&definition.schema);
+            let relations = if phase == crate::build::ConstructionPhase::Extended {
+                Vec::new()
+            } else {
+                RelationContribution::for_schema(&definition.schema)
+            };
             pending.push(PendingCollection {
                 definition_shared: Arc::new(definition.clone()),
                 definition,
@@ -1320,19 +1482,20 @@ impl Repository {
                     file,
                 } => {
                     if !normal.is_empty() {
-                        let stats = crate::build::process_repository_file_batches(
+                        let stats = crate::build::process_repository_file_batches_phase(
                             &build_pool,
                             Arc::clone(&root_shared),
                             &normal,
                             Arc::clone(&source_files),
                             options.bigram_alphabet,
                             options.inference,
+                            phase,
                             &mut admit,
                         )?;
                         schedule_stats.absorb(stats);
                         normal.clear();
                     }
-                    let stats = crate::build::process_framed_file(
+                    let stats = crate::build::process_framed_file_phase(
                         &build_pool,
                         Arc::clone(&root_shared),
                         definition,
@@ -1342,6 +1505,7 @@ impl Repository {
                         Arc::clone(&source_files),
                         options.bigram_alphabet,
                         options.inference,
+                        phase,
                         |batch| admit(collection_index, batch),
                     )?;
                     if let Some((file_id, digest)) = stats.file_fingerprint {
@@ -1356,13 +1520,14 @@ impl Repository {
             }
         }
         if !normal.is_empty() {
-            let stats = crate::build::process_repository_file_batches(
+            let stats = crate::build::process_repository_file_batches_phase(
                 &build_pool,
                 Arc::clone(&root_shared),
                 &normal,
                 Arc::clone(&source_files),
                 options.bigram_alphabet,
                 options.inference,
+                phase,
                 &mut admit,
             )?;
             schedule_stats.absorb(stats);
@@ -1532,7 +1697,9 @@ impl Repository {
         for (collection, indexes) in collections.iter_mut().zip(resolved_relations) {
             collection.relations = indexes;
         }
-        crate::relation::validate_indexes(&collections)?;
+        if phase != crate::build::ConstructionPhase::Extended {
+            crate::relation::validate_indexes(&collections)?;
+        }
         for state in &mut collections {
             state.sorting.refresh_file_status(&state.generation, &files);
         }

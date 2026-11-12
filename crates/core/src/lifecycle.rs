@@ -171,8 +171,12 @@ pub enum ReconciliationState {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IndexStatus {
     pub instance_id: u64,
+    /// Changes only when record contents, membership, or binding semantics change.
     pub revision: IndexRevision,
+    /// Changes when the physical capability set or its exact coverage changes.
+    pub capability_revision: IndexRevision,
     pub saved_revision: Option<IndexRevision>,
+    pub saved_capability_revision: Option<IndexRevision>,
     pub reconciliation: ReconciliationState,
     pub indexed_files: usize,
     pub live_records: u64,
@@ -332,6 +336,7 @@ pub(crate) struct PreparedReplacement {
 impl IndexStatus {
     pub fn dirty(&self) -> bool {
         self.saved_revision != Some(self.revision)
+            || self.saved_capability_revision != Some(self.capability_revision)
     }
 }
 
@@ -351,6 +356,7 @@ pub(crate) struct PublishedSegment {
 pub(crate) struct PublishedIndex {
     pub(crate) instance_id: u64,
     pub(crate) revision: IndexRevision,
+    pub(crate) capability_revision: IndexRevision,
     pub(crate) repository: Arc<Repository>,
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) active: Vec<ActiveRecords>,
@@ -359,6 +365,7 @@ pub(crate) struct PublishedIndex {
     pub(crate) catalog: FileCatalog,
     pub(crate) file_versions: FileVersions,
     pub(crate) saved_revision: Option<IndexRevision>,
+    pub(crate) saved_capability_revision: Option<IndexRevision>,
     pub(crate) reconciliation: ReconciliationState,
 }
 
@@ -426,6 +433,7 @@ impl PublishedIndex {
         Ok(Self {
             instance_id,
             revision,
+            capability_revision: IndexRevision::INITIAL,
             repository,
             configuration_identity,
             active,
@@ -434,6 +442,7 @@ impl PublishedIndex {
             catalog,
             file_versions,
             saved_revision: None,
+            saved_capability_revision: None,
             reconciliation: ReconciliationState::NotStarted,
         })
     }
@@ -443,7 +452,9 @@ impl PublishedIndex {
         IndexStatus {
             instance_id: self.instance_id,
             revision: self.revision,
+            capability_revision: self.capability_revision,
             saved_revision: self.saved_revision,
+            saved_capability_revision: self.saved_capability_revision,
             reconciliation: self.reconciliation,
             indexed_files: self.catalog.active_files() as usize,
             live_records: self.active.iter().map(ActiveRecords::len).sum::<u64>()
@@ -795,7 +806,7 @@ struct SyncCacheWorker {
 
 struct PersistenceState {
     selected_cache: Option<PathBuf>,
-    saved: HashMap<PathBuf, IndexRevision>,
+    saved: HashMap<PathBuf, (IndexRevision, IndexRevision)>,
     protected_files: Vec<PathBuf>,
 }
 
@@ -1222,6 +1233,7 @@ impl Index {
             next.file_versions =
                 FileVersions::filled(next.catalog.allocated_files(), FileVersion(next_revision.0));
             next.saved_revision = view.0.saved_revision;
+            next.saved_capability_revision = view.0.saved_capability_revision;
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
@@ -1285,8 +1297,9 @@ impl Index {
             .persistence
             .lock()
             .map_err(|_| IndexError::LockPoisoned)?;
-        if let Some(saved) = persistence.saved.get(&destination).copied()
+        if let Some((saved, saved_capability)) = persistence.saved.get(&destination).copied()
             && saved >= view.revision()
+            && saved_capability >= view.capability_revision()
         {
             if select_if_none && persistence.selected_cache.is_none() {
                 persistence.selected_cache = Some(destination);
@@ -1298,6 +1311,7 @@ impl Index {
                     .map_err(|_| IndexError::LockPoisoned)?;
                 let mut next = (**published).clone();
                 next.saved_revision = Some(saved);
+                next.saved_capability_revision = Some(saved_capability);
                 *published = Arc::new(next);
             }
             return Ok((saved, crate::storage::SnapshotSaveStats::default()));
@@ -1318,7 +1332,7 @@ impl Index {
         .map_err(IndexError::Io)?;
         persistence
             .saved
-            .insert(destination.clone(), view.revision());
+            .insert(destination.clone(), (view.revision(), view.capability_revision()));
         let selected = match &persistence.selected_cache {
             Some(selected) => selected == &destination,
             None if select_if_none => {
@@ -1334,12 +1348,14 @@ impl Index {
                 .published
                 .write()
                 .map_err(|_| IndexError::LockPoisoned)?;
-            if published
-                .saved_revision
-                .is_none_or(|saved| saved < view.revision())
+            if published.saved_revision.is_none_or(|saved| saved < view.revision())
+                || published
+                    .saved_capability_revision
+                    .is_none_or(|saved| saved < view.capability_revision())
             {
                 let mut next = (**published).clone();
                 next.saved_revision = Some(view.revision());
+                next.saved_capability_revision = Some(view.capability_revision());
                 *published = Arc::new(next);
             }
         }
@@ -1362,7 +1378,7 @@ impl Index {
         persistence.selected_cache = Some(destination.clone());
         persistence.protected_files = protected_files;
         if let Some(revision) = saved {
-            persistence.saved.insert(destination, revision);
+            persistence.saved.insert(destination, (revision, IndexRevision::INITIAL));
         }
         Ok(())
     }
@@ -2271,7 +2287,7 @@ impl Index {
     pub(crate) fn publish_prepared(
         &self,
         expected: IndexRevision,
-        next: PublishedIndex,
+        mut next: PublishedIndex,
     ) -> Result<IndexRevision, IndexError> {
         if next.instance_id != self.0.instance_id {
             return Err(IndexError::ForeignInstance);
@@ -2282,7 +2298,6 @@ impl Index {
                 "prepared root must carry the next revision".into(),
             ));
         }
-        let next = Arc::new(next);
         let retired = {
             let mut guard = self
                 .0
@@ -2298,11 +2313,77 @@ impl Index {
                     actual: guard.revision,
                 });
             }
-            std::mem::replace(&mut *guard, next)
+            next.capability_revision = guard.capability_revision.next()?;
+            std::mem::replace(&mut *guard, Arc::new(next))
         };
         drop(retired);
         self.notify_sync_cache();
         Ok(next_revision)
+    }
+
+    /// Publish optional capabilities for an unchanged data generation. Query
+    /// membership, continuations, and verified-result cache keys retain their
+    /// semantic revision; new views see the new physical capability revision.
+    pub(crate) fn publish_extended_repository(
+        &self,
+        expected_data: IndexRevision,
+        repository: Repository,
+    ) -> Result<IndexRevision, IndexError> {
+        let repository = Arc::new(repository);
+        let current = self.view()?;
+        if current.revision() != expected_data {
+            return Err(IndexError::RevisionConflict {
+                expected: expected_data,
+                actual: current.revision(),
+            });
+        }
+        let catalog = FileCatalog::restored(
+            Arc::clone(&repository),
+            current.0.catalog.snapshot_slots(),
+        )
+        .map_err(IndexError::InvalidPublication)?;
+        let retired = {
+            let mut guard = self.0.published.write().map_err(|_| IndexError::LockPoisoned)?;
+            if self.0.quiescing.load(Ordering::Acquire) {
+                return Err(IndexError::Cancelled);
+            }
+            if guard.revision != expected_data {
+                return Err(IndexError::RevisionConflict {
+                    expected: expected_data,
+                    actual: guard.revision,
+                });
+            }
+            if guard.capability_revision != current.capability_revision() {
+                return Err(IndexError::RevisionConflict {
+                    expected: current.capability_revision(),
+                    actual: guard.capability_revision,
+                });
+            }
+            let mut next = (**guard).clone();
+            if next.configuration_identity
+                != crate::storage::configuration_hash(
+                    &repository
+                        .collections()
+                        .iter()
+                        .map(|collection| collection.definition.clone())
+                        .collect::<Vec<_>>(),
+                    repository.options(),
+                    &repository.sources,
+                )
+                .map_err(IndexError::IncompatibleConfiguration)?
+            {
+                return Err(IndexError::IncompatibleConfiguration(
+                    "extended configuration changed".into(),
+                ));
+            }
+            next.repository = repository;
+            next.catalog = catalog;
+            next.capability_revision = next.capability_revision.next()?;
+            std::mem::replace(&mut *guard, Arc::new(next))
+        };
+        drop(retired);
+        self.notify_sync_cache();
+        Ok(self.view()?.capability_revision())
     }
 }
 
@@ -2330,6 +2411,10 @@ impl IndexView {
 
     pub fn revision(&self) -> IndexRevision {
         self.0.revision
+    }
+
+    pub fn capability_revision(&self) -> IndexRevision {
+        self.0.capability_revision
     }
 
     /// Fingerprint of the schema, source registrations and index settings

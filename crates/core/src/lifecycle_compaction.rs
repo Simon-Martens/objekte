@@ -127,6 +127,7 @@ fn compact_published_with_cancel(
     next.file_versions = old.file_versions.clone();
     next.next_segment_ordinal = old.next_segment_ordinal;
     next.saved_revision = old.saved_revision;
+    next.saved_capability_revision = old.saved_capability_revision;
     next.reconciliation = old.reconciliation;
     for (number, collection) in old.repository.collections().iter().enumerate() {
         if cancelled() {
