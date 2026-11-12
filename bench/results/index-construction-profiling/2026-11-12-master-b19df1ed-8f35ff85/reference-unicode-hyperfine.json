@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "command": "target/index-construction-profiling/reference-binary --alphabet unicode --result-dir target/index-construction-profiling/reference-unicode",
+      "mean": 3.3754630842285716,
+      "stddev": 0.029689660269846135,
+      "median": 3.3625286978,
+      "user": 11.624004708571428,
+      "system": 2.9377482028571427,
+      "min": 3.3529707388000003,
+      "max": 3.4324038098000003,
+      "times": [
+        3.3660331298000004,
+        3.3529707388000003,
+        3.3591174718000003,
+        3.3551414568,
+        3.3625286978,
+        3.4324038098000003,
+        3.4000462848
+      ],
+      "memory_usage_byte": [
+        578633728,
+        586100736,
+        586100736,
+        586100736,
+        586100736,
+        586100736,
+        587599872
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

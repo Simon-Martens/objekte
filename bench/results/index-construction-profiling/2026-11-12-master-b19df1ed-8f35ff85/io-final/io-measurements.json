@@ -1,0 +1,242 @@
+[
+  {
+    "scenario": "configured-ascii",
+    "trial": 0,
+    "sample_path": "target/index-construction-profiling/io-final/configured-ascii/trial-1794467883021588652-3506368/sample.json",
+    "build_ns": 2522293754,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 193302106,
+      "read_bytes": 0,
+      "syscr": 310174,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "configured-ascii",
+    "trial": 1,
+    "sample_path": "target/index-construction-profiling/io-final/configured-ascii/trial-1794467886272208968-3506434/sample.json",
+    "build_ns": 2527083778,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 193302129,
+      "read_bytes": 0,
+      "syscr": 310180,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "configured-ascii",
+    "trial": 2,
+    "sample_path": "target/index-construction-profiling/io-final/configured-ascii/trial-1794467889534548151-3506526/sample.json",
+    "build_ns": 2526849589,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 193302128,
+      "read_bytes": 0,
+      "syscr": 310179,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "configured-unicode",
+    "trial": 0,
+    "sample_path": "target/index-construction-profiling/io-final/configured-unicode/trial-1794467892809144231-3506619/sample.json",
+    "build_ns": 2732527494,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 193302098,
+      "read_bytes": 0,
+      "syscr": 310174,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "configured-unicode",
+    "trial": 1,
+    "sample_path": "target/index-construction-profiling/io-final/configured-unicode/trial-1794467896316788045-3506705/sample.json",
+    "build_ns": 2738234110,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 193302104,
+      "read_bytes": 0,
+      "syscr": 310175,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "configured-unicode",
+    "trial": 2,
+    "sample_path": "target/index-construction-profiling/io-final/configured-unicode/trial-1794467899785513743-3506798/sample.json",
+    "build_ns": 2669789778,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 193302105,
+      "read_bytes": 0,
+      "syscr": 310175,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "plain-ascii",
+    "trial": 0,
+    "sample_path": "target/index-construction-profiling/io-final/plain-ascii/trial-1794467903206762064-3506893/sample.json",
+    "build_ns": 1809373523,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 193302099,
+      "read_bytes": 0,
+      "syscr": 310174,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "plain-ascii",
+    "trial": 1,
+    "sample_path": "target/index-construction-profiling/io-final/plain-ascii/trial-1794467905598300320-3506960/sample.json",
+    "build_ns": 1757163858,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 193302103,
+      "read_bytes": 0,
+      "syscr": 310175,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "plain-ascii",
+    "trial": 2,
+    "sample_path": "target/index-construction-profiling/io-final/plain-ascii/trial-1794467907952182592-3507052/sample.json",
+    "build_ns": 1764474606,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 193302103,
+      "read_bytes": 0,
+      "syscr": 310174,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "jsonl-ascii",
+    "trial": 0,
+    "sample_path": "target/index-construction-profiling/io-final/jsonl-ascii/trial-1794467910302045615-3507122/sample.json",
+    "build_ns": 113608346,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 15385835,
+      "read_bytes": 0,
+      "syscr": 1918,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "jsonl-ascii",
+    "trial": 1,
+    "sample_path": "target/index-construction-profiling/io-final/jsonl-ascii/trial-1794467910916084917-3507188/sample.json",
+    "build_ns": 120747583,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 15385833,
+      "read_bytes": 0,
+      "syscr": 1918,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "jsonl-ascii",
+    "trial": 2,
+    "sample_path": "target/index-construction-profiling/io-final/jsonl-ascii/trial-1794467911522109166-3507258/sample.json",
+    "build_ns": 109630617,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 15385833,
+      "read_bytes": 0,
+      "syscr": 1918,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "jsonl-ascii",
+    "trial": 3,
+    "sample_path": "target/index-construction-profiling/io-final/jsonl-ascii/trial-1794467912121465254-3507324/sample.json",
+    "build_ns": 113348378,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 15385833,
+      "read_bytes": 0,
+      "syscr": 1918,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "jsonl-ascii",
+    "trial": 4,
+    "sample_path": "target/index-construction-profiling/io-final/jsonl-ascii/trial-1794467912727995253-3507419/sample.json",
+    "build_ns": 112433720,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 15385833,
+      "read_bytes": 0,
+      "syscr": 1918,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "jsonl-ascii",
+    "trial": 5,
+    "sample_path": "target/index-construction-profiling/io-final/jsonl-ascii/trial-1794467913328386865-3507488/sample.json",
+    "build_ns": 116648385,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 15385835,
+      "read_bytes": 0,
+      "syscr": 1918,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  },
+  {
+    "scenario": "jsonl-ascii",
+    "trial": 6,
+    "sample_path": "target/index-construction-profiling/io-final/jsonl-ascii/trial-1794467913923801511-3507554/sample.json",
+    "build_ns": 111859703,
+    "io": {
+      "cancelled_write_bytes": 0,
+      "rchar": 15385833,
+      "read_bytes": 0,
+      "syscr": 1918,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    }
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "command": "target/index-construction-profiling/reference-binary --alphabet ascii --result-dir target/index-construction-profiling/reference-ascii",
+      "mean": 3.2466444233714284,
+      "stddev": 0.04129653247856776,
+      "median": 3.2492107708,
+      "user": 9.399950054285714,
+      "system": 2.931292657142857,
+      "min": 3.2050912958,
+      "max": 3.3270935288,
+      "times": [
+        3.2050912958,
+        3.2570865098,
+        3.2492107708,
+        3.3270935288,
+        3.2106761348,
+        3.2544462618,
+        3.2229064618
+      ],
+      "memory_usage_byte": [
+        568274944,
+        568274944,
+        569507840,
+        569507840,
+        588120064,
+        588120064,
+        588120064
+      ],
+      "exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

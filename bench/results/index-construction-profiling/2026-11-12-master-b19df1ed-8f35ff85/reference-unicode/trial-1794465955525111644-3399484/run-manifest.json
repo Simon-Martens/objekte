@@ -1,0 +1,23 @@
+{
+  "alphabet": "unicode",
+  "code_revision": "17b8beaaac5b01b591cf6094c002ecd1c25b4d97",
+  "command": [
+    "target/index-construction-profiling/reference-binary",
+    "--alphabet",
+    "unicode",
+    "--result-dir",
+    "target/index-construction-profiling/reference-unicode"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "configuration": "musenalm_extended",
+  "corpus_fingerprint": "db869a76f26e1a3275a5162e5a207f47fb50fa8be02c4bdcfe3f1db50cfb747c",
+  "dirty_status": "?? docs/ai/tasks/objekte_index_construction_profiling_specification.md",
+  "files": 148486,
+  "inference": false,
+  "records": 148486,
+  "requested_workers": null,
+  "resolved_workers": 16,
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "snapshot": false,
+  "source_bytes": 193297230
+}
