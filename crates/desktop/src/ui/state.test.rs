@@ -466,6 +466,32 @@ fn index_progress_does_not_erase_query_validation_or_displayed_page() {
 }
 
 #[test]
+fn late_file_catalogue_keeps_search_results_and_selection() {
+    let mut state = UiState {
+        root: Some("repo".into()),
+        collections: vec!["files".into()],
+        search: SearchDraft { full_text: "Alpha".into(), ..SearchDraft::default() },
+        ..UiState::default()
+    };
+    state.loaded_count = 10;
+    state.page.selected = Some(2);
+    let catalogue = super::super::model::FileCatalogue {
+        files: std::sync::Arc::new(vec![super::super::model::CatalogueFile {
+            id: 7,
+            relative_path: "nested/a.json".into(),
+            collections: vec![0],
+            size: 42,
+        }]),
+        by_collection: [("files".into(), std::sync::Arc::new(vec![0]))].into(),
+    };
+    state.apply(UiUpdate::FileCatalogue(catalogue));
+    assert_eq!(state.loaded_count, 10);
+    assert_eq!(state.page.selected, Some(2));
+    assert_eq!(state.search.full_text, "Alpha");
+    assert_eq!(state.catalogue_files[0].id, 7);
+}
+
+#[test]
 fn same_repository_index_replacement_keeps_tabs_and_drafts() {
     let mut state = UiState {
         root: Some("repo".into()),
