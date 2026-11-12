@@ -462,6 +462,11 @@ fn run() -> Result<(), String> {
                 "save_write_ns": saved.write_ns,
                 "save_sync_ns": saved.sync_ns,
                 "save_rename_ns": saved.rename_ns,
+                "sections": saved.sections.iter().map(|section| serde_json::json!({
+                    "id": section.id,
+                    "payload_bytes": section.payload_bytes,
+                    "serialize_ns": section.serialize_ns,
+                })).collect::<Vec<_>>(),
             });
             if snapshot_resume {
                 let restore_started = Instant::now();
