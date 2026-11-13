@@ -163,6 +163,10 @@ impl DecodedPostingCache {
 }
 
 impl SegmentReader {
+    pub(crate) fn is_constructed(&self) -> bool {
+        matches!(self.bytes, SegmentBytes::Constructed(_))
+    }
+
     pub(crate) fn encoded_len(&self) -> usize {
         match &self.bytes {
             SegmentBytes::Constructed(sections) => sections.encoded_len,

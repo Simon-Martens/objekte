@@ -491,8 +491,30 @@ fn streamed_owned_pack_matches_checked_buffered_pack() {
     let sealed = seal_segment_consuming(segment, 1, &definition, options).unwrap();
     let streamed = sealed.raw.sealed_reader().unwrap();
     for kind in REQUIRED_SECTIONS {
-        assert_eq!(buffered.section(kind).unwrap(), streamed.section(kind).unwrap());
+        if matches!(
+            kind,
+            SectionKind::RecordSlots | SectionKind::SortData | SectionKind::RelationAndIdentity
+        ) {
+            assert_eq!(streamed.section(kind).unwrap(), Some(&[][..]));
+        } else {
+            assert_eq!(buffered.section(kind).unwrap(), streamed.section(kind).unwrap());
+        }
     }
+    let persisted = write_sealed_segment(
+        &sealed, 1, options, Cursor::new(Vec::new()), &mut |_| Ok(0),
+    ).unwrap().into_inner();
+    let persisted = SegmentReader::from_owned(Arc::from(persisted)).unwrap();
+    for kind in REQUIRED_SECTIONS {
+        assert_eq!(buffered.section(kind).unwrap(), persisted.section(kind).unwrap());
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn constructed_seal_rejects_invalid_deferred_identity() {
+    let (root, definition, options, mut segment) = fixture();
+    segment.identity_order.clear();
+    assert!(seal_segment_consuming(segment, 1, &definition, options).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }
 

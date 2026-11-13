@@ -164,6 +164,35 @@ pub(crate) fn encode_record_slots_constructed(
     )
 }
 
+/// The in-memory reader retains these tables and encodes their sections only
+/// when persisted. Preserve their domain and identity proof at sealing.
+pub(crate) fn check_deferred_metadata_limits(
+    segment: &IndexedCollectionSegment,
+) -> Result<(), String> {
+    if segment.source_id.is_empty()
+        || segment.source_id.len() > MAX_SOURCE_BYTES
+        || segment.files.len() > MAX_FILES
+        || segment.records.len() > MAX_RECORDS
+        || segment.sorting.columns.len() > MAX_COLUMNS
+        || segment.sorting.composites.len() > MAX_COLUMNS
+        || segment.relations.len() > MAX_RELATIONS
+    {
+        return Err("constructed metadata exceeds format limits".into());
+    }
+    let (logical, fallback) = record_domains(&segment.records)?;
+    if logical != segment.logical_records {
+        return Err("constructed logical record domain changed".into());
+    }
+    validate_relation_structure(
+        &segment.relations,
+        &segment.records,
+        &segment.identity_order,
+        &logical,
+        &fallback,
+    )?;
+    Ok(())
+}
+
 #[cfg(test)]
 fn encode_records(
     collection: CollectionId,

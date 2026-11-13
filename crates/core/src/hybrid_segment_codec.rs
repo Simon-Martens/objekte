@@ -33,9 +33,9 @@ use crate::segment_format::{
     PostingDescriptor, REQUIRED_SECTIONS, SectionKind, SegmentReader, SegmentWriter,
 };
 use crate::segment_metadata::{
-    decode_record_slots, decode_relation_identity, decode_sort_data, encode_record_slots,
-    encode_record_slots_constructed, encode_relation_identity, encode_sort_data,
-    encode_sort_data_constructed,
+    check_deferred_metadata_limits, decode_record_slots, decode_relation_identity,
+    decode_sort_data, encode_record_slots, encode_record_slots_constructed,
+    encode_relation_identity, encode_sort_data, encode_sort_data_constructed,
 };
 use crate::workload::BigramAlphabet;
 
@@ -303,10 +303,10 @@ pub(crate) fn write_segment<W: Write + Seek>(
     write_segment_inner(segment, ordinal, definition, options, output, intern, true, |_, _| Ok(()))
 }
 
-/// Persist a previously sealed immutable segment. All dictionary, posting,
-/// structural, text, sort, relation and integrity bytes retain their existing
-/// section-relative offsets and checksums. Only RecordSlots contains file
-/// references whose numbering changes with the destination catalog.
+/// Persist a previously sealed immutable segment. Dictionary and posting
+/// sections retain their section-relative offsets. Constructed readers encode
+/// their owned sort and relation tables here; RecordSlots always receives the
+/// destination catalog's file references.
 pub(crate) fn write_sealed_segment<W: Write + Seek>(
     segment: &IndexedCollectionSegment,
     ordinal: u64,
@@ -332,6 +332,22 @@ pub(crate) fn write_sealed_segment<W: Write + Seek>(
     for &kind in &REQUIRED_SECTIONS {
         if kind == SectionKind::RecordSlots {
             write_bytes(&mut writer, kind, &record_bytes)?;
+        } else if reader.is_constructed()
+            && kind == SectionKind::SortData
+            && required(&reader, kind)?.is_empty()
+        {
+            let bytes = encode_sort_data_constructed(&segment.sorting, &segment.records)?;
+            write_bytes(&mut writer, kind, &bytes)?;
+        } else if reader.is_constructed()
+            && kind == SectionKind::RelationAndIdentity
+            && required(&reader, kind)?.is_empty()
+        {
+            let bytes = encode_relation_identity(
+                &segment.relations,
+                &segment.records,
+                &segment.identity_order,
+            )?;
+            write_bytes(&mut writer, kind, &bytes)?;
         } else {
             write_bytes(&mut writer, kind, required(&reader, kind)?)?;
         }
@@ -375,7 +391,9 @@ fn write_segment_inner<W: Write + Seek>(
     let encoding_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let sections = if validate_before_write {
         let mut pack = PostingPack::new();
-        let sections = encode_segment_sections(segment, ordinal, options, intern, true, &mut pack)?;
+        let sections = encode_segment_sections(
+            segment, ordinal, options, intern, true, false, &mut pack,
+        )?;
         write_bytes(&mut writer, SectionKind::PostingPayloads, pack.bytes())?;
         sections
     } else {
@@ -383,7 +401,7 @@ fn write_segment_inner<W: Write + Seek>(
         writer.write_section(SectionKind::PostingPayloads, |output| {
             let mut pack = StreamingPostingPack::new(output);
             sections = Some(encode_segment_sections(
-                segment, ordinal, options, intern, false, &mut pack,
+                segment, ordinal, options, intern, false, false, &mut pack,
             )?);
             Ok(())
         })?;
@@ -451,6 +469,7 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     options: RepositoryOptions,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
     validate_before_write: bool,
+    defer_constructed_metadata: bool,
     pack: &mut P,
 ) -> Result<EncodedSections, String> {
     let phase_profile = cfg!(feature = "detailed-profiling")
@@ -571,25 +590,33 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     let text_bytes = encode_meta(TEXT_MAGIC, &TextSection { bindings: texts })?;
     let metadata_ns = metadata_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
     let record_started = crate::detailed_timer::start_if_enabled(phase_profile);
-    let record_bytes = if validate_before_write {
+    let record_bytes = if defer_constructed_metadata {
+        Vec::new()
+    } else if validate_before_write {
         encode_record_slots(segment, intern)?
     } else {
         encode_record_slots_constructed(segment, intern)?
     };
     let record_ns = record_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
     let sort_started = crate::detailed_timer::start_if_enabled(phase_profile);
-    let sort_bytes = if validate_before_write {
+    let sort_bytes = if defer_constructed_metadata {
+        Vec::new()
+    } else if validate_before_write {
         encode_sort_data(&segment.sorting, &segment.records)?
     } else {
         encode_sort_data_constructed(&segment.sorting, &segment.records)?
     };
     let sort_ns = sort_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
     let relation_started = crate::detailed_timer::start_if_enabled(phase_profile);
-    let relation_bytes = encode_relation_identity(
-        &segment.relations,
-        &segment.records,
-        &segment.identity_order,
-    )?;
+    let relation_bytes = if defer_constructed_metadata {
+        Vec::new()
+    } else {
+        encode_relation_identity(
+            &segment.relations,
+            &segment.records,
+            &segment.identity_order,
+        )?
+    };
     let relation_ns = relation_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
     let integrity_bytes = encode_meta(
         INTEGRITY_MAGIC,
@@ -694,9 +721,9 @@ fn encode_owned_bytes(
     Ok(bytes)
 }
 
-/// Keep the just-encoded section allocations as the memory-only reader's
-/// authoritative byte storage. A later disk flush writes the same sections
-/// through `SegmentWriter`, which creates the portable envelope and checksums.
+/// Keep the just-encoded dictionaries and postings as the memory-only reader's
+/// authoritative byte storage. Record, sort and relation tables already live
+/// in the segment and are encoded only when a durable flush needs them.
 fn encode_constructed_sections(
     segment: &IndexedCollectionSegment,
     ordinal: u64,
@@ -705,26 +732,20 @@ fn encode_constructed_sections(
     if ordinal == 0 {
         return Err("hybrid segment ordinal must be nonzero".into());
     }
-    let files = segment.files.iter().map(|file| &file.entry).collect::<Vec<_>>();
-    let mut position = 0usize;
+    check_deferred_metadata_limits(segment)?;
     let mut payloads = Vec::new();
     let sections = {
         let mut pack = StreamingPostingPack::new(&mut payloads);
-        encode_segment_sections(segment, ordinal, options, &mut |entry| {
-            let expected = files.get(position)
-                .ok_or("constructed segment metadata ref overflow")?;
-            if **expected != *entry {
-                return Err("constructed segment metadata ref order changed".into());
-            }
-            let reference = u32::try_from(position)
-                .map_err(|_| "too many constructed segment files")?;
-            position += 1;
-            Ok(reference)
-        }, false, &mut pack)?
+        encode_segment_sections(
+            segment,
+            ordinal,
+            options,
+            &mut |_| Err("deferred constructed metadata requested a file reference".into()),
+            false,
+            true,
+            &mut pack,
+        )?
     };
-    if position != files.len() {
-        return Err("constructed segment metadata ref count changed".into());
-    }
     let EncodedSections {
         field_bytes, text_bytes, scalar, structural_bytes, bigrams,
         record_bytes, sort_bytes, relation_bytes, integrity_bytes,
