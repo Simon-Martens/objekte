@@ -29,7 +29,6 @@ const MAX_VISITED_EDGES: u64 = 32_000_000;
 const MAX_TARGET_RECORD_BYTES: u64 = 64 * 1024 * 1024;
 const TARGET_BATCH_BYTES: u64 = 1024 * 1024;
 
-
 /// Physical strategy chosen for one positive relation term.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum Strategy {
@@ -37,14 +36,12 @@ pub(crate) enum Strategy {
     SourceRestricted,
 }
 
-
 /// Exact source membership and selected-field evidence for relation FTS.
 pub(crate) struct FtsWitnesses {
     pub evidence: HashMap<u32, HashSet<String>>,
     pub work: SemijoinWork,
     pub strategies: Vec<Strategy>,
 }
-
 
 /// Query-local work performed while constructing exact relation witnesses.
 #[derive(Clone, Copy, Debug, Default)]
@@ -59,7 +56,6 @@ pub(crate) struct SemijoinWork {
     pub verified_targets_reused: u64,
 }
 
-
 impl SemijoinWork {
     pub fn add(&mut self, other: Self) {
         self.target_candidates += other.target_candidates;
@@ -72,7 +68,6 @@ impl SemijoinWork {
         self.verified_targets_reused += other.verified_targets_reused;
     }
 }
-
 
 fn ensure_slots(count: u64, execution: Option<&ExecutionContext>) -> Result<(), String> {
     if let Some(execution) = execution {
@@ -188,7 +183,7 @@ fn estimate(
         .ok_or("missing target collection")?;
     let terminal = BoundExpr::Term((*related.terminal).clone());
     let (lookup, estimated_targets) =
-        estimate_expr(target, &terminal, target.logical_records.len());
+        estimate_expr(target, &terminal, target.logical_records.len())?;
     let source_count = repo.collections[related.hops[0].from.0 as usize]
         .logical_records
         .len()

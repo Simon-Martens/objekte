@@ -639,6 +639,7 @@ pub(crate) fn decode_segment_owned<'a>(
                 field.lengths,
                 logical,
             )?,
+            sealed: None,
             value_complete: field.value_complete,
             length_complete: field.length_complete,
             empty_string_complete: field.empty_string_complete,

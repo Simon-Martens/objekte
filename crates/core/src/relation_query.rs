@@ -53,7 +53,6 @@ pub(crate) fn borrowed_relation_targets() -> usize {
     BORROWED_RELATION_TARGETS.load(std::sync::atomic::Ordering::Relaxed)
 }
 
-
 /// One record address in a pinned base-plus-delta publication. A local slot
 /// alone cannot identify a record after multiple segments have been added.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
@@ -63,13 +62,11 @@ pub(crate) struct MergedRecordSlot {
     pub slot: RecordSlot,
 }
 
-
 pub(crate) struct MergedRecord<'a> {
     pub record: &'a crate::inventory::RecordEntry,
     pub file: &'a crate::inventory::FileEntry,
     pub collection: &'a CollectionState,
 }
-
 
 /// Query-local relation lookup over a single immutable publication. Forward
 /// edges and reverse postings are borrowed from the relevant segment on demand.
@@ -83,7 +80,6 @@ pub(crate) struct MergedRelationView<'a> {
     // records. Keep only small decoded targets for this query publication.
     target_values: Arc<Vec<Mutex<(HashMap<MergedRecordSlot, Arc<Value>>, usize)>>>,
 }
-
 
 impl<'a> MergedRelationView<'a> {
     /// A worker keeps its own source-availability log while borrowing the
@@ -353,13 +349,16 @@ impl<'a> MergedRelationView<'a> {
                 .relations
                 .get(relation.ordinal as usize)
                 .ok_or("backlink segment relation missing")?;
-            if let Some(posting) = published
+            if let Some(field) = published
                 .index
                 .postings
                 .fields
                 .get(&relation_contribution.declaration().path)
-                .and_then(|field| field.values.get(&ScalarKey::Id(target_id.to_owned())))
             {
+                let Some(posting) = field.value_posting(&ScalarKey::Id(target_id.to_owned()))?
+                else {
+                    continue;
+                };
                 for slot in posting.iter() {
                     let slot = RecordSlot(slot);
                     if published.active.contains(slot) {
@@ -389,14 +388,12 @@ impl<'a> MergedRelationView<'a> {
     }
 }
 
-
 /// Direction of a declared, collection-scoped relation hop.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum HopDirection {
     Forward,
     Backlink,
 }
-
 
 /// One resolved hop and its explicit array selectors in source order.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -408,7 +405,6 @@ pub struct BoundRelationHop {
     pub to: CollectionId,
 }
 
-
 /// A finite path that begins at the matching source and ends at a local term.
 #[derive(Clone, Debug)]
 pub struct BoundRelationPath {
@@ -419,13 +415,11 @@ pub struct BoundRelationPath {
     pub evidence_path: String,
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum EvaluationMode {
     Indexed,
     Reference,
 }
-
 
 /// Physical work caused by relation traversal, separate from the source scan.
 #[derive(Clone, Default)]
@@ -440,7 +434,6 @@ pub(crate) struct RelationWork {
     active: Option<Arc<Vec<ActiveRecords>>>,
 }
 
-
 fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), String> {
     *counter = counter
         .checked_add(amount)
@@ -450,7 +443,6 @@ fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), 
     }
     Ok(())
 }
-
 
 impl RelationWork {
     pub(crate) fn attach(&mut self, execution: Option<&crate::streaming::ExecutionContext>) {
@@ -549,7 +541,6 @@ impl RelationWork {
     }
 }
 
-
 /// Combine bounded scanner chunks into one query-wide relation work budget.
 pub(crate) fn check_query_work_budget(
     counters: &crate::workload::WorkCounters,
@@ -588,7 +579,6 @@ pub(crate) fn check_query_work_budget(
     Ok(())
 }
 
-
 /// Immutable traversal choices shared by every hop of one predicate.
 #[derive(Clone, Copy)]
 struct TraverseConfig<'a> {
@@ -599,7 +589,6 @@ struct TraverseConfig<'a> {
     mode: EvaluationMode,
     target_values: Option<&'a TargetValueCache>,
 }
-
 
 /// Bind a Boolean expression with collection-specific relation declarations.
 pub(crate) fn bind_filter_with_relations(
@@ -1466,9 +1455,12 @@ fn visit_merged_hop(
         // target synchronize through the same shard and decode it once.
         let shard = (address.slot.0 as usize
             ^ address.segment.unwrap_or(0).wrapping_mul(131)
-            ^ (address.collection.0 as usize).wrapping_mul(17)) % view.target_values.len();
+            ^ (address.collection.0 as usize).wrapping_mul(17))
+            % view.target_values.len();
         let mut target_cache = cache_values.then(|| view.target_values[shard].lock().unwrap());
-        if let Some(value) = target_cache.as_ref().and_then(|cache| cache.0.get(&address).cloned())
+        if let Some(value) = target_cache
+            .as_ref()
+            .and_then(|cache| cache.0.get(&address).cloned())
         {
             work.target_cache_hits += 1;
             drop(target_cache);
@@ -1480,7 +1472,11 @@ fn visit_merged_hop(
                 collection_name: &current.collection.definition.name,
                 repository_root: &view.repo.files.root,
             };
-            merge_truth(truth, Some(terminal(&ctx, &[], source_positions)?), quantifier);
+            merge_truth(
+                truth,
+                Some(terminal(&ctx, &[], source_positions)?),
+                quantifier,
+            );
             return Ok(());
         }
         work.before_read(current.record.range.len(), true)?;
@@ -1529,7 +1525,11 @@ fn visit_merged_hop(
                 collection_name: &current.collection.definition.name,
                 repository_root: &view.repo.files.root,
             };
-            merge_truth(truth, Some(terminal(&ctx, &[], source_positions)?), quantifier);
+            merge_truth(
+                truth,
+                Some(terminal(&ctx, &[], source_positions)?),
+                quantifier,
+            );
         } else {
             let ctx = RecordContext {
                 value: &extracted.value,
@@ -2013,7 +2013,11 @@ fn visit_hop(
                         continue;
                     };
                     let references = logical_references(&value, &relation.declaration.path)?;
-                    if !references.values.iter().any(|(id, _)| id.as_str() == target.id.0.as_ref()) {
+                    if !references
+                        .values
+                        .iter()
+                        .any(|(id, _)| id.as_str() == target.id.0.as_ref())
+                    {
                         continue;
                     }
                     work.edge()?;
@@ -2222,14 +2226,12 @@ fn read_reference_value(
     Ok(Some(extracted.value))
 }
 
-
 /// Independent logical ID occurrences and presence/null state.
 struct LogicalReferences {
     present: bool,
     null: bool,
     values: Vec<(String, Vec<u32>)>,
 }
-
 
 /// An intentionally separate, iterative oracle for declared ID occurrences.
 /// It walks logical values directly and never consults build-time edge state.

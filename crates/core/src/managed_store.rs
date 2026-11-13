@@ -60,6 +60,15 @@ pub(crate) enum SegmentInput<'a> {
         ordinal: u64,
         active: &'a ActiveRecords,
     },
+    /// Encode directly into one owned immutable file while holding the writer
+    /// lock. The callback is invoked once; its segment bytes are not retained
+    /// alongside other pending new segments.
+    NewStream {
+        collection: CollectionId,
+        ordinal: u64,
+        active: &'a ActiveRecords,
+        write: Box<dyn Fn(&mut File) -> Result<(), String> + 'a>,
+    },
 }
 
 pub(crate) struct OpenedGeneration {
@@ -360,28 +369,37 @@ impl ManagedStore {
                     ordinal,
                     active,
                 } => {
-                    if *ordinal == 0 {
-                        return Err("segment ordinal must be nonzero".into());
-                    }
                     let reader = SegmentReader::from_owned(Arc::clone(bytes))?;
                     reader.require_complete_sections()?;
-                    let name = format!("segment-{generation:016x}-{index:08x}-{nonce:016x}.idx");
-                    let path = self.directory.join(&name);
-                    let mut file = create_private_new(&path)?;
-                    file.write_all(bytes)
-                        .map_err(|error| format!("segment write: {error}"))?;
-                    file.sync_all()
-                        .map_err(|error| format!("segment sync: {error}"))?;
-                    next.segments.push(SegmentRecord {
-                        name,
-                        length: bytes.len() as u64,
-                        collection: *collection,
-                        ordinal: *ordinal,
-                        active: (*active).clone(),
-                    });
-                    stats.segment_bytes_written = stats
-                        .segment_bytes_written
-                        .saturating_add(bytes.len() as u64);
+                    let record = self.write_new_segment(
+                        generation,
+                        index,
+                        nonce,
+                        *collection,
+                        *ordinal,
+                        active,
+                        &mut stats,
+                        |file| file.write_all(bytes).map_err(|error| error.to_string()),
+                    )?;
+                    next.segments.push(record);
+                }
+                SegmentInput::NewStream {
+                    collection,
+                    ordinal,
+                    active,
+                    write,
+                } => {
+                    let record = self.write_new_segment(
+                        generation,
+                        index,
+                        nonce,
+                        *collection,
+                        *ordinal,
+                        active,
+                        &mut stats,
+                        |file| write(file),
+                    )?;
+                    next.segments.push(record);
                 }
             }
         }
@@ -494,6 +512,55 @@ impl ManagedStore {
             .map(|record| record.name.clone())
             .collect();
         Ok(stats)
+    }
+
+    fn write_new_segment(
+        &self,
+        generation: u64,
+        index: usize,
+        nonce: u64,
+        collection: CollectionId,
+        ordinal: u64,
+        active: &ActiveRecords,
+        stats: &mut CommitStats,
+        write: impl FnOnce(&mut File) -> Result<(), String>,
+    ) -> Result<SegmentRecord, String> {
+        if ordinal == 0 {
+            return Err("segment ordinal must be nonzero".into());
+        }
+        let name = format!("segment-{generation:016x}-{index:08x}-{nonce:016x}.idx");
+        let path = self.directory.join(&name);
+        let mut file = create_private_new(&path)?;
+        let result = (|| {
+            write(&mut file).map_err(|error| format!("segment write: {error}"))?;
+            file.sync_all()
+                .map_err(|error| format!("segment sync: {error}"))?;
+            let length = file.metadata().map_err(|error| error.to_string())?.len();
+            let reader = SegmentReader::from_index_file(&open_regular_nofollow(&path)?)?;
+            reader.require_complete_sections()?;
+            Ok::<u64, String>(length)
+        })();
+        drop(file);
+        let length = match result {
+            Ok(length) => length,
+            Err(error) => {
+                fs::remove_file(&path).map_err(|cleanup| {
+                    format!(
+                        "{error}; remove failed segment {}: {cleanup}",
+                        path.display()
+                    )
+                })?;
+                return Err(error);
+            }
+        };
+        stats.segment_bytes_written = stats.segment_bytes_written.saturating_add(length);
+        Ok(SegmentRecord {
+            name,
+            length,
+            collection,
+            ordinal,
+            active: active.clone(),
+        })
     }
 
     fn reclaim_orphans(

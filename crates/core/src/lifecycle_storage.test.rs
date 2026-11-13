@@ -1,6 +1,7 @@
 use super::*;
 
 use crate::index_storage::{IndexStorageLocation, IndexStoragePolicy};
+use crate::inference::{InferenceConfig, InferenceMode};
 use crate::query::{Query, QueryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
@@ -38,10 +39,17 @@ fn managed_open_reuses_complete_generation_without_source_build() {
         location: IndexStorageLocation::RepositoryDirectory,
         residency: IndexResidency::OnDemand,
     };
+    let options = RepositoryOptions {
+        inference: InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            ..Default::default()
+        },
+        ..Default::default()
+    };
     let first = Index::open_with_storage(
         root.clone(),
         vec![definition.clone()],
-        RepositoryOptions::default(),
+        options,
         storage.clone(),
         SourceRegistry::builtin(),
     )
@@ -57,6 +65,15 @@ fn managed_open_reuses_complete_generation_without_source_build() {
         first_status.synchronization,
         IndexSynchronization::Synchronized
     );
+    let expected_diagnostics = serde_json::to_value(
+        first
+            .view()
+            .unwrap()
+            .repository()
+            .inference_index_diagnostics("items"),
+    )
+    .unwrap();
+    assert_ne!(expected_diagnostics, serde_json::Value::Null);
     assert!(
         first_status
             .managed_directory
@@ -70,12 +87,23 @@ fn managed_open_reuses_complete_generation_without_source_build() {
     let reopened = Index::open_with_storage(
         root.clone(),
         vec![definition],
-        RepositoryOptions::default(),
+        options,
         storage,
         SourceRegistry::builtin(),
     )
     .unwrap();
     assert_eq!(reopened.status().unwrap().build_source_reads, 0);
+    assert_eq!(
+        serde_json::to_value(
+            reopened
+                .view()
+                .unwrap()
+                .repository()
+                .inference_index_diagnostics("items")
+        )
+        .unwrap(),
+        expected_diagnostics
+    );
     assert_eq!(
         reopened
             .view()
@@ -88,6 +116,81 @@ fn managed_open_reuses_complete_generation_without_source_build() {
     assert_eq!(
         reopened.storage_status().unwrap().durable_generation,
         Some(1)
+    );
+    reopened.stop_sync_storage().unwrap();
+    reopened.wait_for_reconciliation().unwrap();
+    drop(reopened);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn progressive_managed_build_flushes_only_complete_generation() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-managed-progressive-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..8 {
+        std::fs::write(
+            root.join(format!("data/{number}.json")),
+            format!("{{\"text\":\"item {number}\"}}"),
+        )
+        .unwrap();
+    }
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let policy = IndexStoragePolicy {
+        location: IndexStorageLocation::RepositoryDirectory,
+        residency: IndexResidency::OnDemand,
+    };
+    let task = Index::start_incremental_build_with_storage(
+        root.clone(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        policy.clone(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let catalogue = task.wait_catalogue().unwrap();
+    assert!(catalogue.status().unwrap().indexed_files >= 8);
+    let complete = task.wait_complete().unwrap();
+    assert_eq!(
+        complete.storage_status().unwrap().synchronization,
+        IndexSynchronization::Synchronized
+    );
+    assert_eq!(
+        complete
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(8)
+    );
+    complete.stop_sync_storage().unwrap();
+    drop(complete);
+    let reopened = Index::start_incremental_build_with_storage(
+        root.clone(),
+        vec![definition],
+        RepositoryOptions::default(),
+        policy,
+        SourceRegistry::builtin(),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    assert_eq!(reopened.status().unwrap().build_source_reads, 0);
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(8)
     );
     reopened.stop_sync_storage().unwrap();
     reopened.wait_for_reconciliation().unwrap();
@@ -223,7 +326,11 @@ fn managed_worker_synchronizes_completed_mutations() {
     std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
     let index = Index::open_with_storage(
         root.clone(),
-        vec![CollectionDefinition::folder("items", "data", SourceFormat::Json)],
+        vec![CollectionDefinition::folder(
+            "items",
+            "data",
+            SourceFormat::Json,
+        )],
         RepositoryOptions::default(),
         IndexStoragePolicy {
             location: IndexStorageLocation::RepositoryDirectory,
@@ -242,7 +349,10 @@ fn managed_worker_synchronizes_completed_mutations() {
             assert_eq!(status.synchronization, IndexSynchronization::Synchronized);
             break;
         }
-        assert!(Instant::now() < deadline, "managed writer did not synchronize");
+        assert!(
+            Instant::now() < deadline,
+            "managed writer did not synchronize"
+        );
         std::thread::sleep(std::time::Duration::from_millis(25));
     }
     index.stop_sync_storage().unwrap();

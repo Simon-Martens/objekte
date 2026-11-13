@@ -5,7 +5,6 @@
 //! binds an independently encoded file catalog to the new manifest.
 
 use std::collections::{HashMap, HashSet};
-use std::io::Cursor;
 use std::path::PathBuf;
 use std::sync::Arc;
 use std::time::Instant;
@@ -18,8 +17,8 @@ use crate::index_storage::{
 };
 use crate::inventory::{FileEntry, FileVersions};
 use crate::lifecycle::{
-    Index, IndexError, IndexRevision, IndexStatus, PublishedIndex, PublishedSegment,
-    ReconciliationState,
+    Index, IndexError, IndexRevision, IndexStatus, InitialBuildTask, PublishedIndex,
+    PublishedSegment, ReconciliationState,
 };
 use crate::lifecycle_catalog::FileCatalog;
 use crate::managed_store::{ManagedStore, OpenedGeneration, SegmentInput};
@@ -142,19 +141,49 @@ impl ManagedPersistence {
                         active: &segment.active,
                     });
                 } else {
-                    let output = crate::hybrid_segment_codec::write_segment(
-                        &segment.index,
-                        segment.ordinal,
-                        definition,
-                        publication.repository.options(),
-                        Cursor::new(Vec::new()),
-                        &mut |entry| catalog.intern(entry),
-                    )?;
-                    inputs.push(SegmentInput::New {
-                        bytes: Arc::from(output.into_inner()),
+                    let references = segment
+                        .index
+                        .files
+                        .iter()
+                        .map(|file| catalog.intern(&file.entry))
+                        .collect::<Result<Vec<_>, _>>()?;
+                    let index = Arc::clone(&segment.index);
+                    let ordinal = segment.ordinal;
+                    let options = publication.repository.options();
+                    inputs.push(SegmentInput::NewStream {
                         collection,
-                        ordinal: segment.ordinal,
+                        ordinal,
                         active: &segment.active,
+                        write: Box::new(move |file| {
+                            let mut position = 0usize;
+                            crate::hybrid_segment_codec::write_segment(
+                                &index,
+                                ordinal,
+                                definition,
+                                options,
+                                file,
+                                &mut |entry| {
+                                    let expected = index
+                                        .files
+                                        .get(position)
+                                        .ok_or("segment metadata reference overflow")?;
+                                    if entry != &expected.entry {
+                                        return Err(
+                                            "segment metadata reference order changed".into()
+                                        );
+                                    }
+                                    let reference = *references
+                                        .get(position)
+                                        .ok_or("segment metadata reference missing")?;
+                                    position += 1;
+                                    Ok(reference)
+                                },
+                            )?;
+                            if position != references.len() {
+                                return Err("segment metadata reference count changed".into());
+                            }
+                            Ok(())
+                        }),
                     });
                 }
                 let current_refs = if reusable {
@@ -181,6 +210,7 @@ impl ManagedPersistence {
             &inputs,
             catalog_bytes,
         )?;
+        drop(inputs);
         if committed.segment_names.len() != next_indexes.len() {
             return Err("committed segment name count mismatch".into());
         }
@@ -253,6 +283,63 @@ pub(crate) fn storage_status(
 }
 
 impl Index {
+    /// Start a managed initial build with catalogue and batch publications.
+    /// A complete stored generation is returned as an already-ready task;
+    /// an absent generation is flushed only after construction completes.
+    pub fn start_incremental_build_with_storage(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        storage: IndexStoragePolicy,
+        sources: SourceRegistry,
+    ) -> Result<InitialBuildTask, IndexError> {
+        let started = Instant::now();
+        let root = root.into();
+        let prepared = storage
+            .prepare(&root, &definitions, options, &sources)
+            .map_err(IndexError::IncompatibleConfiguration)?;
+        if prepared.resolved.managed_directory.is_none() {
+            return Self::start_incremental_build_with_sources(
+                root,
+                prepared.definitions,
+                options,
+                sources,
+            );
+        }
+        let store = ManagedStore::open(&prepared.resolved).map_err(IndexError::Io)?;
+        if let Some(opened) = store.read_generation().map_err(IndexError::InvalidCache)? {
+            let index = restore_generation(
+                &prepared.resolved,
+                prepared.definitions,
+                options,
+                sources,
+                opened,
+                started,
+            )?;
+            index.set_sync_storage(true)?;
+            store
+                .cleanup_deprecated_snapshots()
+                .map_err(IndexError::Io)?;
+            return InitialBuildTask::from_ready(index);
+        }
+        let resolved = prepared.resolved;
+        Self::start_incremental_build_with_sources_and_completion(
+            root,
+            prepared.definitions,
+            options,
+            sources,
+            move |index| {
+                index.attach_storage(resolved)?;
+                index.flush_storage()?;
+                index.set_sync_storage(true)?;
+                store
+                    .cleanup_deprecated_snapshots()
+                    .map_err(IndexError::Io)?;
+                Ok(())
+            },
+        )
+    }
+
     /// Open one memory-only or managed index from the paired storage policy.
     /// A valid durable generation becomes searchable without source discovery;
     /// source reconciliation then runs independently in the background.
@@ -321,15 +408,26 @@ fn restore_generation(
             "catalog and manifest revisions differ".into(),
         ));
     }
-    let owner = Arc::new(
-        Repository::empty_for_managed_generation(
-            resolved.repository_root.clone(),
-            definitions,
-            options,
-            sources,
-        )
-        .map_err(IndexError::Build)?,
-    );
+    let mut owner = Repository::empty_for_managed_generation(
+        resolved.repository_root.clone(),
+        definitions,
+        options,
+        sources,
+    )
+    .map_err(IndexError::Build)?;
+    for (collection, summary) in owner.collections.iter_mut().zip(&restored.inference) {
+        if summary.as_ref().is_some_and(|summary| {
+            summary.report.mode != options.inference.mode
+                || summary.report.policy != options.inference.policy
+                || summary.diagnostics.len() != summary.report.fields.len()
+        }) {
+            return Err(IndexError::InvalidCache(
+                "managed inference summary differs from configuration".into(),
+            ));
+        }
+        collection.global_inference = summary.clone();
+    }
+    let owner = Arc::new(owner);
     let metadata_ms = started.elapsed().as_millis() as u64;
     let count = owner.collections().len();
     if opened.segments.len() != opened.identities.len()

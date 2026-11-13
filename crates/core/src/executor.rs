@@ -8,8 +8,8 @@ use roaring::RoaringBitmap;
 use smallvec::SmallVec;
 
 use crate::build::IndexedCollectionSegment;
-use crate::inventory::{ActiveRecords, relative_path_bounds};
 use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation};
+use crate::inventory::{ActiveRecords, relative_path_bounds};
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::{FtsMode, Operator, Quantifier};
@@ -91,8 +91,11 @@ fn indexed_file_path_term(term: &BoundTerm) -> Option<(Operator, &str)> {
     let Value::String(literal) = &term.literal else {
         return None;
     };
-    matches!(term.operator, Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le)
-        .then_some((term.operator, literal.as_str()))
+    matches!(
+        term.operator,
+        Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+    )
+    .then_some((term.operator, literal.as_str()))
 }
 
 fn file_path_matches(value: &str, operator: Operator, literal: &str) -> bool {
@@ -434,7 +437,7 @@ fn segment_positional_eq_candidates(
     segment: &IndexedCollectionSegment,
     logical_active: &RoaringBitmap,
     term: &BoundTerm,
-) -> Option<RoaringBitmap> {
+) -> Result<Option<RoaringBitmap>, String> {
     if !term.query_path.has_position
         || term.path.root != PathRoot::Data
         || term.related.is_some()
@@ -445,15 +448,14 @@ fn segment_positional_eq_candidates(
         || term.transform != Transform::Identity
         || term.operator != Operator::Eq
     {
-        return None;
+        return Ok(None);
     }
     // A match at a particular array position must also occur in the
     // unpositioned value posting. Position still requires source verification.
-    segment
-        .postings
-        .fields
-        .get(&term.path.segments)?
-        .exact_set_restricted(term, &segment.logical_records, logical_active)
+    let Some(index) = segment.postings.fields.get(&term.path.segments) else {
+        return Ok(None);
+    };
+    index.exact_set_restricted_checked(term, &segment.logical_records, logical_active)
 }
 
 fn segment_raw_covers_identity_field(
@@ -542,7 +544,7 @@ fn segment_expr_bounds(
         BoundExpr::Term(term) => {
             if term.query_path.has_position {
                 if let Some(matches) =
-                    segment_positional_eq_candidates(segment, logical_active, term)
+                    segment_positional_eq_candidates(segment, logical_active, term)?
                 {
                     return Ok(SegmentCandidateBounds {
                         may: &matches | fallback_active,
@@ -568,7 +570,10 @@ fn segment_expr_bounds(
                 {
                     matches.insert(slot.0);
                 }
-                return Ok(SegmentCandidateBounds { may: matches.clone(), must: matches });
+                return Ok(SegmentCandidateBounds {
+                    may: matches.clone(),
+                    must: matches,
+                });
             }
             if let Some(matches) = segment_file_size_matches(segment, domain, term) {
                 return Ok(SegmentCandidateBounds {
@@ -579,7 +584,9 @@ fn segment_expr_bounds(
             if let Some((operator, literal)) = indexed_file_path_term(term)
                 && let Some(catalog) = catalog
             {
-                let mut matches = if let Some(files) = catalog.relative_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN) {
+                let mut matches = if let Some(files) =
+                    catalog.relative_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN)
+                {
                     let mut matches = RoaringBitmap::new();
                     for file in files {
                         if let Some(slots) = segment.file_records(file) {
@@ -629,13 +636,21 @@ fn segment_expr_bounds(
             }
             let index_catalog = IndexCatalog::segment(segment, collection);
             let selected = index_catalog
-                .field_postings(&term.path.segments, &term.binding_name, term.operation.is_some())
+                .field_postings(
+                    &term.path.segments,
+                    &term.binding_name,
+                    term.operation.is_some(),
+                )
                 .into_iter()
                 .flatten()
-                .filter_map(|access| {
-                    access.assess(term, index_catalog.logical, &mut 0)
-                        .map(|proposal| (access, proposal))
+                .map(|access| {
+                    access
+                        .assess(term, index_catalog.logical, &mut 0)
+                        .map(|proposal| proposal.map(|proposal| (access, proposal)))
                 })
+                .collect::<Result<Vec<_>, String>>()?
+                .into_iter()
+                .flatten()
                 .min_by(|(_, left), (_, right)| {
                     let work = |proposal: &crate::index_catalog::PostingProposal| {
                         proposal.lookup_work
@@ -649,33 +664,37 @@ fn segment_expr_bounds(
                     index_catalog.logical,
                     logical_active,
                     proposal.operation,
-                )
+                )?
             {
                 return Ok(SegmentCandidateBounds {
                     may: &matches | fallback_active,
-                    must: if proposal.exact { matches } else { RoaringBitmap::new() },
+                    must: if proposal.exact {
+                        matches
+                    } else {
+                        RoaringBitmap::new()
+                    },
                 });
             }
             {
-                    if let Some(matches) =
-                        segment_sort_column_matches(segment, logical_active, term, false)
-                    {
-                        return Ok(SegmentCandidateBounds {
-                            may: &matches | fallback_active,
-                            must: matches,
-                        });
+                if let Some(matches) =
+                    segment_sort_column_matches(segment, logical_active, term, false)
+                {
+                    return Ok(SegmentCandidateBounds {
+                        may: &matches | fallback_active,
+                        must: matches,
+                    });
+                }
+                if let Some(mut grams) = segment_text_candidates(segment, term, collection)? {
+                    if empty_selection_preservation(term) {
+                        grams |= &segment.empty_array_records;
                     }
-                    if let Some(mut grams) = segment_text_candidates(segment, term, collection)? {
-                        if empty_selection_preservation(term) {
-                            grams |= &segment.empty_array_records;
-                        }
-                        SegmentCandidateBounds {
-                            may: (&grams & domain) | fallback_active,
-                            must: RoaringBitmap::new(),
-                        }
-                    } else {
-                        SegmentCandidateBounds::unknown(domain)
+                    SegmentCandidateBounds {
+                        may: (&grams & domain) | fallback_active,
+                        must: RoaringBitmap::new(),
                     }
+                } else {
+                    SegmentCandidateBounds::unknown(domain)
+                }
             }
         }
         BoundExpr::And(parts) => {
@@ -698,11 +717,21 @@ fn segment_expr_bounds(
                 must &= matches;
             }
             for (index, part) in flattened.into_iter().enumerate() {
-                if path_range.as_ref().is_some_and(|(_, indices)| indices.contains(&index)) {
+                if path_range
+                    .as_ref()
+                    .is_some_and(|(_, indices)| indices.contains(&index))
+                {
                     continue;
                 }
-                let child =
-                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active, catalog)?;
+                let child = segment_expr_bounds(
+                    segment,
+                    part,
+                    collection,
+                    domain,
+                    logical_active,
+                    fallback_active,
+                    catalog,
+                )?;
                 may &= child.may;
                 must &= child.must;
             }
@@ -712,16 +741,30 @@ fn segment_expr_bounds(
             let mut may = RoaringBitmap::new();
             let mut must = RoaringBitmap::new();
             for part in parts {
-                let child =
-                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active, catalog)?;
+                let child = segment_expr_bounds(
+                    segment,
+                    part,
+                    collection,
+                    domain,
+                    logical_active,
+                    fallback_active,
+                    catalog,
+                )?;
                 may |= child.may;
                 must |= child.must;
             }
             SegmentCandidateBounds { may, must }
         }
         BoundExpr::Not(inner) => {
-            let child =
-                segment_expr_bounds(segment, inner, collection, domain, logical_active, fallback_active, catalog)?;
+            let child = segment_expr_bounds(
+                segment,
+                inner,
+                collection,
+                domain,
+                logical_active,
+                fallback_active,
+                catalog,
+            )?;
             SegmentCandidateBounds {
                 may: domain - &child.must,
                 must: domain - &child.may,
@@ -729,7 +772,6 @@ fn segment_expr_bounds(
         }
     })
 }
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
@@ -745,7 +787,6 @@ pub enum AccessPathKind {
     Scanner,
 }
 
-
 /// Estimated cost and coverage of one physical query path.
 #[derive(Clone, Debug, Serialize)]
 pub struct AccessPathEstimate {
@@ -759,7 +800,6 @@ pub struct AccessPathEstimate {
     #[serde(skip)]
     pub(crate) posting: Option<(PostingId, PostingOperation, u32)>,
 }
-
 
 /// Planner decision and alternatives for one bound term.
 #[derive(Clone, Debug, Serialize)]
@@ -783,7 +823,6 @@ pub struct TermChoice {
     pub executed: bool,
 }
 
-
 /// Work done to choose and execute access paths for one filter expression.
 #[derive(Clone, Copy, Debug, Default, Serialize)]
 pub struct PlanningCounters {
@@ -794,7 +833,6 @@ pub struct PlanningCounters {
     pub reused_order_plans: u64,
 }
 
-
 #[derive(Default)]
 struct PlanContext {
     paths: HashMap<usize, Vec<AccessPathEstimate>>,
@@ -802,18 +840,17 @@ struct PlanContext {
     diagnostics: bool,
 }
 
-
 impl PlanContext {
     fn paths(
         &mut self,
         collection: &CollectionState,
         term: &BoundTerm,
         input_len: u64,
-    ) -> Vec<AccessPathEstimate> {
+    ) -> Result<Vec<AccessPathEstimate>, String> {
         let key = term as *const BoundTerm as usize;
         if let Some(paths) = self.paths.get(&key) {
             self.counters.reused_term_estimates += 1;
-            return rescore_paths(collection, term, paths, input_len);
+            return Ok(rescore_paths(collection, term, paths, input_len));
         }
         self.counters.term_estimation_calls += 1;
         let paths = enumerate_paths(
@@ -821,12 +858,11 @@ impl PlanContext {
             term,
             input_len,
             &mut self.counters.dictionary_keys_visited,
-        );
+        )?;
         self.paths.insert(key, paths.clone());
-        paths
+        Ok(paths)
     }
 }
-
 
 fn rescore_paths(
     collection: &CollectionState,
@@ -875,10 +911,14 @@ fn term_case_sensitivity(term: &BoundTerm) -> Option<crate::query::CaseSensitivi
     })
 }
 
-fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut Vec<TermChoice>) {
+fn skipped_choices(
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    output: &mut Vec<TermChoice>,
+) -> Result<(), String> {
     match expr {
         BoundExpr::Term(term) => {
-            let mut paths = enumerate_paths(collection, term, 0, &mut 0);
+            let mut paths = enumerate_paths(collection, term, 0, &mut 0)?;
             paths.sort_by(|a, b| a.estimated_work.total_cmp(&b.estimated_work));
             let selected = paths.remove(0);
             output.push(TermChoice {
@@ -902,13 +942,13 @@ fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut 
         }
         BoundExpr::And(parts) | BoundExpr::Or(parts) => {
             for part in parts {
-                skipped_choices(collection, part, output);
+                skipped_choices(collection, part, output)?;
             }
         }
-        BoundExpr::Not(inner) => skipped_choices(collection, inner, output),
+        BoundExpr::Not(inner) => skipped_choices(collection, inner, output)?,
     }
+    Ok(())
 }
-
 
 /// Known true and false fallback slots; all other slots are unavailable.
 struct FallbackTruth {
@@ -917,7 +957,6 @@ struct FallbackTruth {
     proofs: Vec<Proof>,
     choices: Vec<TermChoice>,
 }
-
 
 fn fallback_truth(
     repo: &Repository,
@@ -1060,14 +1099,12 @@ fn fallback_truth(
     })
 }
 
-
 /// Exact membership evidence produced by an index path.
 pub(crate) struct Proof {
     pub term: BoundTerm,
     pub input: RoaringBitmap,
     pub matches: RoaringBitmap,
 }
-
 
 /// Candidate set, exactness, and diagnostics for a planned expression.
 pub(crate) struct Plan {
@@ -1079,7 +1116,6 @@ pub(crate) struct Plan {
     pub semijoin_work: crate::relation_semijoin::SemijoinWork,
     pub planning: PlanningCounters,
 }
-
 
 /// A whole-record raw index is a field superset only when its source reader
 /// supplies every logical string and the indexed representation is identity.
@@ -1158,10 +1194,7 @@ fn term_set(
         {
             if let Value::Id(id) = &term.literal {
                 let mut result = RoaringBitmap::new();
-                if let Some(slot) = collection
-                    .id_lookup
-                    .get(id.as_str())
-                {
+                if let Some(slot) = collection.id_lookup.get(id.as_str()) {
                     result.insert(slot.0);
                 }
                 return Ok(Some(result));
@@ -1184,7 +1217,10 @@ fn term_set(
                 }
                 return Ok(Some(result));
             }
-            if let Some(files) = repo.files.relative_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN) {
+            if let Some(files) =
+                repo.files
+                    .relative_path_ids_up_to(operator, literal, MAX_INDEXED_PATH_SCAN)
+            {
                 for file in files {
                     if let Some(slots) = collection.generation.file_records.records_for(file) {
                         result.extend(slots.iter().map(|slot| slot.0));
@@ -1263,19 +1299,23 @@ fn term_set(
         }
         return Ok(Some(result));
     }
-    Ok(if term.operation.is_some() {
+    if term.operation.is_some() {
         collection
             .custom_postings
             .get(&(term.path.segments.clone(), term.binding_name.clone()))
             .filter(|posting| posting.complete)
-            .and_then(|posting| posting.index.exact_set(term, domain))
+            .map(|posting| posting.index.exact_set_checked(term, domain))
+            .transpose()
+            .map(|value| value.flatten())
     } else {
         collection
             .postings
             .fields
             .get(&term.path.segments)
-            .and_then(|index| index.exact_set(term, domain))
-    })
+            .map(|index| index.exact_set_checked(term, domain))
+            .transpose()
+            .map(|value| value.flatten())
+    }
 }
 
 fn custom_bigram_compatible(term: &BoundTerm) -> bool {
@@ -1309,11 +1349,15 @@ fn enumerate_paths(
     term: &BoundTerm,
     input_len: u64,
     dictionary_keys_visited: &mut u64,
-) -> Vec<AccessPathEstimate> {
+) -> Result<Vec<AccessPathEstimate>, String> {
     let stats = collection.stats;
     let source_unit = 30.0 + stats.mean_record_bytes() / 128.0;
     let mut paths = Vec::new();
-    let mut add = |kind, exact, lookup: f64, output: u64, posting: Option<(PostingId, PostingOperation, u32)>| {
+    let mut add = |kind,
+                   exact,
+                   lookup: f64,
+                   output: u64,
+                   posting: Option<(PostingId, PostingOperation, u32)>| {
         let output = output.min(input_len);
         let files =
             (output as f64 / stats.mean_records_per_file().max(1.0)).min(stats.file_count as f64);
@@ -1327,7 +1371,10 @@ fn enumerate_paths(
                     | AccessPathKind::RawBigram
                     | AccessPathKind::CustomBigram
             ) {
-                posting.map_or(collection.logical_records.len() as u32, |(_, _, coverage)| coverage)
+                posting.map_or(
+                    collection.logical_records.len() as u32,
+                    |(_, _, coverage)| coverage,
+                )
             } else {
                 stats.record_count as u32
             },
@@ -1347,7 +1394,7 @@ fn enumerate_paths(
         // Relation terms retain a three-valued residual until the dedicated
         // semijoin planner can prove target and source memberships together.
         add(AccessPathKind::Scanner, false, 0.0, input_len, None);
-        return paths;
+        return Ok(paths);
     }
     if term
         .rhs
@@ -1361,13 +1408,13 @@ fn enumerate_paths(
             input_len / 2,
             None,
         );
-        return paths;
+        return Ok(paths);
     }
     if term.rhs.is_some() {
         // Ordinary postings have record membership, not array occurrence
         // positions. A positional predicate always keeps a residual scan.
         add(AccessPathKind::Scanner, false, 0.0, input_len, None);
-        return paths;
+        return Ok(paths);
     }
     if let PathRoot::Metadata(field) = term.path.root {
         let direct_id_lookup = field == MetadataField::RecordId
@@ -1394,15 +1441,29 @@ fn enumerate_paths(
             stats.file_count as f64
         };
         let output = if direct_id_lookup { 1 } else { input_len / 2 };
-        add(if path_lookup { AccessPathKind::FilePathIndex } else { AccessPathKind::Metadata }, true, work, output, None);
+        add(
+            if path_lookup {
+                AccessPathKind::FilePathIndex
+            } else {
+                AccessPathKind::Metadata
+            },
+            true,
+            work,
+            output,
+            None,
+        );
     } else {
         let catalog = IndexCatalog::collection(collection);
-        for access in catalog.field_postings(
-            &term.path.segments,
-            &term.binding_name,
-            term.operation.is_some(),
-        ).into_iter().flatten() {
-            if let Some(proposal) = access.assess(term, catalog.logical, dictionary_keys_visited) {
+        for access in catalog
+            .field_postings(
+                &term.path.segments,
+                &term.binding_name,
+                term.operation.is_some(),
+            )
+            .into_iter()
+            .flatten()
+        {
+            if let Some(proposal) = access.assess(term, catalog.logical, dictionary_keys_visited)? {
                 add(
                     AccessPathKind::Posting,
                     proposal.exact,
@@ -1503,7 +1564,7 @@ fn enumerate_paths(
         }
     }
     add(AccessPathKind::Scanner, false, 0.0, input_len, None);
-    paths
+    Ok(paths)
 }
 
 fn execute_path(
@@ -1521,9 +1582,15 @@ fn execute_path(
         AccessPathKind::Posting => {
             let (id, operation, _) = selected.posting.ok_or("missing prepared posting access")?;
             let catalog = IndexCatalog::collection(collection);
-            catalog
-                .posting(&term.path.segments, &term.binding_name, term.operation.is_some(), id)
-                .and_then(|access| access.execute(term, catalog.logical, input, operation))
+            match catalog.posting(
+                &term.path.segments,
+                &term.binding_name,
+                term.operation.is_some(),
+                id,
+            ) {
+                Some(access) => access.execute(term, catalog.logical, input, operation)?,
+                None => None,
+            }
         }
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
         AccessPathKind::RawBigram => raw_bigram_candidates(collection, term),
@@ -1573,10 +1640,9 @@ pub(crate) fn estimate_expr(
     collection: &CollectionState,
     expr: &BoundExpr,
     input_len: u64,
-) -> (f64, u64) {
+) -> Result<(f64, u64), String> {
     estimate_expr_cached(collection, expr, input_len, &mut PlanContext::default())
 }
-
 
 /// An estimate-only physical decision. It has no candidate membership or
 /// exact proof and is safe to use for non-analyzing EXPLAIN.
@@ -1587,7 +1653,6 @@ pub(crate) struct EstimatedPlan {
     pub planning: PlanningCounters,
 }
 
-
 struct EstimatedNode {
     candidates: u64,
     exact: bool,
@@ -1595,23 +1660,22 @@ struct EstimatedNode {
     choices: Vec<TermChoice>,
 }
 
-
 pub(crate) fn estimate_plan_expr(
     collection: &CollectionState,
     expr: &BoundExpr,
     input_len: u64,
-) -> EstimatedPlan {
+) -> Result<EstimatedPlan, String> {
     let mut context = PlanContext {
         diagnostics: true,
         ..PlanContext::default()
     };
-    let node = estimate_plan_node(collection, expr, input_len, &mut context);
-    EstimatedPlan {
+    let node = estimate_plan_node(collection, expr, input_len, &mut context)?;
+    Ok(EstimatedPlan {
         candidates: node.candidates,
         exact: node.exact,
         choices: node.choices,
         planning: context.counters,
-    }
+    })
 }
 
 fn estimate_plan_node(
@@ -1619,10 +1683,10 @@ fn estimate_plan_node(
     expr: &BoundExpr,
     input_len: u64,
     context: &mut PlanContext,
-) -> EstimatedNode {
-    match expr {
+) -> Result<EstimatedNode, String> {
+    Ok(match expr {
         BoundExpr::Term(term) => {
-            let mut paths = context.paths(collection, term, input_len);
+            let mut paths = context.paths(collection, term, input_len)?;
             paths.sort_by(|a, b| {
                 a.estimated_work
                     .total_cmp(&b.estimated_work)
@@ -1687,9 +1751,9 @@ fn estimate_plan_node(
             let mut work = 0.0;
             let mut choices = Vec::new();
             while !remaining.is_empty() {
-                let next = choose_and_next(collection, &remaining, current, context);
+                let next = choose_and_next(collection, &remaining, current, context)?;
                 let child =
-                    estimate_plan_node(collection, remaining.remove(next), current, context);
+                    estimate_plan_node(collection, remaining.remove(next), current, context)?;
                 current = current.min(child.candidates);
                 exact &= child.exact;
                 work += child.work;
@@ -1711,9 +1775,9 @@ fn estimate_plan_node(
             while !remaining.is_empty() {
                 // Estimate-only has no overlap proof. Do not subtract summed
                 // counts or skip a branch as though estimates were matches.
-                let next = choose_or_next(collection, &remaining, input_len, context);
+                let next = choose_or_next(collection, &remaining, input_len, context)?;
                 let child =
-                    estimate_plan_node(collection, remaining.remove(next), input_len, context);
+                    estimate_plan_node(collection, remaining.remove(next), input_len, context)?;
                 candidates = candidates.saturating_add(child.candidates).min(input_len);
                 exact &= child.exact;
                 work += child.work;
@@ -1727,7 +1791,7 @@ fn estimate_plan_node(
             }
         }
         BoundExpr::Not(inner) => {
-            let mut child = estimate_plan_node(collection, inner, input_len, context);
+            let mut child = estimate_plan_node(collection, inner, input_len, context)?;
             child.candidates = if child.exact {
                 input_len.saturating_sub(child.candidates)
             } else {
@@ -1735,7 +1799,7 @@ fn estimate_plan_node(
             };
             child
         }
-    }
+    })
 }
 
 fn estimate_expr_cached(
@@ -1743,10 +1807,10 @@ fn estimate_expr_cached(
     expr: &BoundExpr,
     input_len: u64,
     context: &mut PlanContext,
-) -> (f64, u64) {
-    match expr {
+) -> Result<(f64, u64), String> {
+    Ok(match expr {
         BoundExpr::Term(term) => context
-            .paths(collection, term, input_len)
+            .paths(collection, term, input_len)?
             .into_iter()
             .min_by(|a, b| a.estimated_work.total_cmp(&b.estimated_work))
             .map(|p| (p.estimated_work, p.estimated_output))
@@ -1754,23 +1818,25 @@ fn estimate_expr_cached(
         BoundExpr::And(parts) => parts
             .iter()
             .map(|p| estimate_expr_cached(collection, p, input_len, context))
+            .collect::<Result<Vec<_>, _>>()?
+            .into_iter()
             .min_by(|a, b| a.0.total_cmp(&b.0))
             .unwrap_or((0.0, input_len)),
         BoundExpr::Or(parts) => {
             let estimates: Vec<_> = parts
                 .iter()
                 .map(|p| estimate_expr_cached(collection, p, input_len, context))
-                .collect();
+                .collect::<Result<_, _>>()?;
             (
                 estimates.iter().map(|e| e.0).sum(),
                 estimates.iter().map(|e| e.1).sum::<u64>().min(input_len),
             )
         }
         BoundExpr::Not(inner) => {
-            let (work, _) = estimate_expr_cached(collection, inner, input_len, context);
+            let (work, _) = estimate_expr_cached(collection, inner, input_len, context)?;
             (work, input_len / 2)
         }
-    }
+    })
 }
 
 /// Keep opaque operations and correlated/positional comparisons in their
@@ -1805,17 +1871,17 @@ fn choose_and_next(
     remaining: &[&BoundExpr],
     input_len: u64,
     context: &mut PlanContext,
-) -> usize {
+) -> Result<usize, String> {
     let prefix = reorderable_prefix(remaining);
     if prefix == 0 {
-        return 0;
+        return Ok(0);
     }
     let estimates = remaining[..prefix]
         .iter()
         .map(|part| estimate_expr_cached(collection, part, input_len, context))
-        .collect::<Vec<_>>();
+        .collect::<Result<Vec<_>, _>>()?;
     let total = estimates.iter().map(|(work, _)| *work).sum::<f64>();
-    estimates
+    Ok(estimates
         .iter()
         .enumerate()
         .map(|(index, &(work, output))| {
@@ -1824,7 +1890,7 @@ fn choose_and_next(
         })
         .min_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)))
         .map(|(index, _)| index)
-        .unwrap_or(0)
+        .unwrap_or(0))
 }
 
 /// Only exact bounds can be counted as definite OR matches. Candidate-only
@@ -1834,10 +1900,10 @@ fn estimate_definite(
     expr: &BoundExpr,
     input_len: u64,
     context: &mut PlanContext,
-) -> (f64, u64) {
-    match expr {
+) -> Result<(f64, u64), String> {
+    Ok(match expr {
         BoundExpr::Term(term) => context
-            .paths(collection, term, input_len)
+            .paths(collection, term, input_len)?
             .into_iter()
             .min_by(|a, b| a.estimated_work.total_cmp(&b.estimated_work))
             .map(|path| {
@@ -1848,10 +1914,10 @@ fn estimate_definite(
             })
             .unwrap_or((input_len as f64, 0)),
         _ => {
-            let (work, _) = estimate_expr_cached(collection, expr, input_len, context);
+            let (work, _) = estimate_expr_cached(collection, expr, input_len, context)?;
             (work, 0)
         }
-    }
+    })
 }
 
 fn choose_or_next(
@@ -1859,26 +1925,29 @@ fn choose_or_next(
     remaining: &[&BoundExpr],
     input_len: u64,
     context: &mut PlanContext,
-) -> usize {
+) -> Result<usize, String> {
     let prefix = reorderable_prefix(remaining);
     if prefix == 0 {
-        return 0;
+        return Ok(0);
     }
-    remaining[..prefix]
+    let choice = remaining[..prefix]
         .iter()
         .enumerate()
         .map(|(index, part)| {
-            let (work, definite) = estimate_definite(collection, part, input_len, context);
+            let (work, definite) = estimate_definite(collection, part, input_len, context)?;
             // A definite-match discount is bounded by one branch's own work.
             // Candidate residuals are verified after Boolean composition, so
             // a costly fixed dictionary walk cannot be justified solely by
             // its broad match count.
             let proved_fraction = definite.min(input_len) as f64 / input_len.max(1) as f64;
-            (index, work / (1.0 + proved_fraction))
+            Ok((index, work / (1.0 + proved_fraction)))
         })
+        .collect::<Result<Vec<_>, String>>()?
+        .into_iter()
         .min_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)))
         .map(|(index, _)| index)
-        .unwrap_or(0)
+        .unwrap_or(0);
+    Ok(choice)
 }
 
 fn flatten_and<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundExpr>) {
@@ -2014,7 +2083,7 @@ fn plan_logical_expr(
 ) -> Result<Plan, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
-            let mut paths = context.paths(collection, term, input.len());
+            let mut paths = context.paths(collection, term, input.len())?;
             paths.sort_by(|a, b| {
                 a.estimated_work
                     .total_cmp(&b.estimated_work)
@@ -2023,8 +2092,8 @@ fn plan_logical_expr(
             let selected = paths.remove(0);
             context.counters.candidate_bitmap_builds +=
                 u64::from(selected.kind != AccessPathKind::Scanner);
-            let candidates = execute_path(repo, collection, term, domain, input, &selected)?
-                .map(|set| {
+            let candidates =
+                execute_path(repo, collection, term, domain, input, &selected)?.map(|set| {
                     if matches!(
                         selected.kind,
                         AccessPathKind::Metadata | AccessPathKind::Posting
@@ -2077,7 +2146,8 @@ fn plan_logical_expr(
                     && term.kind == LogicalType::Unknown
                     && term.path.root == PathRoot::Data
                 {
-                    let posting_reason = "no lower-cost compatible posting capability; scanner selected";
+                    let posting_reason =
+                        "no lower-cost compatible posting capability; scanner selected";
                     if matches!(term.binding_name.as_str(), "default" | "lower")
                         && term.operation.is_none()
                         && matches!(term.operator, Operator::Contains | Operator::Eq)
@@ -2169,7 +2239,7 @@ fn plan_logical_expr(
             let mut proofs = Vec::new();
             let mut choices = Vec::new();
             while !remaining.is_empty() {
-                let next = choose_and_next(collection, &remaining, current.len(), context);
+                let next = choose_and_next(collection, &remaining, current.len(), context)?;
                 let child = plan_logical_expr(
                     repo,
                     collection,
@@ -2189,7 +2259,7 @@ fn plan_logical_expr(
                     exact = true;
                     if context.diagnostics {
                         for part in remaining {
-                            skipped_choices(collection, part, &mut choices);
+                            skipped_choices(collection, part, &mut choices)?;
                         }
                     }
                     break;
@@ -2225,12 +2295,12 @@ fn plan_logical_expr(
                 if active.is_empty() {
                     if context.diagnostics {
                         for skipped in &remaining {
-                            skipped_choices(collection, skipped, &mut choices);
+                            skipped_choices(collection, skipped, &mut choices)?;
                         }
                     }
                     break;
                 }
-                let next = choose_or_next(collection, &remaining, active.len(), context);
+                let next = choose_or_next(collection, &remaining, active.len(), context)?;
                 let part = remaining.remove(next);
                 let child =
                     plan_logical_expr(repo, collection, part, domain, &active, evidence, context)?;
@@ -2239,7 +2309,6 @@ fn plan_logical_expr(
                 candidates = match (candidates, child.candidates) {
                     (Some(mut union), Some(set)) => {
                         union |= set;
-
 
                         Some(union)
                     }
@@ -2390,26 +2459,43 @@ fn prepare_fts_accesses<'a, 'b>(
     let literal_work = if fts.fields.is_empty() {
         if !raw_complete
             || (regex.is_none()
-                && fts.raw_matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible()))
-            || collection.definition.schema.raw.as_ref()
+                && fts
+                    .raw_matcher
+                    .as_ref()
+                    .is_some_and(|matcher| !matcher.bigram_compatible()))
+            || collection
+                .definition
+                .schema
+                .raw
+                .as_ref()
                 .is_some_and(|binding| !binding.operation.complete_coverage())
         {
             return None;
         }
-        probes.push(TextProbe { index: indexes.raw_text, request: &fts.gram_request });
+        probes.push(TextProbe {
+            index: indexes.raw_text,
+            request: &fts.gram_request,
+        });
         if has_fallback {
             probes.push(TextProbe {
                 index: indexes.fallback_text,
                 request: &fts.fallback_gram_request,
             });
         }
-        if regex.is_none() { fts.literal.len() as f64 } else { 0.0 }
+        if regex.is_none() {
+            fts.literal.len() as f64
+        } else {
+            0.0
+        }
     } else {
         let logical_text_complete = collection.source.reader().logical_text_coverage()
             == LogicalTextCoverage::AllStringFields;
         for field in &fts.fields {
             if field.path.root != PathRoot::Data
-                || field.matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible())
+                || field
+                    .matcher
+                    .as_ref()
+                    .is_some_and(|matcher| !matcher.bigram_compatible())
             {
                 return None;
             }
@@ -2421,15 +2507,26 @@ fn prepare_fts_accesses<'a, 'b>(
                 logical_text_complete,
                 raw_field_compatible,
             )?;
-            probes.push(TextProbe { index, request: &field.gram_request });
+            probes.push(TextProbe {
+                index,
+                request: &field.gram_request,
+            });
         }
         if regex.is_none() {
-            fts.fields.iter().map(|field| field.literal.len() as f64).sum()
+            fts.fields
+                .iter()
+                .map(|field| field.literal.len() as f64)
+                .sum()
         } else {
             0.0
         }
     };
-    Some(PreparedFtsAccess { probes, regex, literal_work, max_count })
+    Some(PreparedFtsAccess {
+        probes,
+        regex,
+        literal_work,
+        max_count,
+    })
 }
 
 pub(crate) fn fts_candidates(
