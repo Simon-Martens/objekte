@@ -211,7 +211,9 @@ impl PostingIndex {
         }
         // A structural null posting records a single null selection. The
         // aggregate :null predicate also matches mixed multivalued selections.
-        if term.derived == Derived::Null && (self.multi || term.multi) {
+        // Use the index's observed multiplicity: schema-free binding can mark
+        // a term multivalued even when the indexed field is proven scalar.
+        if term.derived == Derived::Null && self.multi {
             return None;
         }
         if term.period.is_some() {
@@ -494,7 +496,7 @@ impl PostingIndex {
         if self.covered_records as u64 != domain_len {
             return None;
         }
-        if term.derived == Derived::Null && (self.multi || term.multi) {
+        if term.derived == Derived::Null && self.multi {
             return None;
         }
         if term.period.is_some() {
@@ -645,7 +647,7 @@ impl PostingIndex {
         if self.covered_records as u64 != domain.len() {
             return None;
         }
-        if term.derived == Derived::Null && (self.multi || term.multi) {
+        if term.derived == Derived::Null && self.multi {
             return None;
         }
         if term.period.is_some() {
