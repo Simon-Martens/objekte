@@ -168,22 +168,88 @@ fn cached_postings_intersect_and_union_into_existing_results() {
         let descriptor = sealed.dictionary.get(&key).unwrap().unwrap();
         let initial = RoaringBitmap::from_iter((500..5500).step_by(5));
         let mut first = initial.clone();
-        sealed.intersect_descriptor_into(descriptor, &mut first).unwrap();
+        sealed
+            .intersect_descriptor_into(descriptor, &mut first)
+            .unwrap();
         assert_eq!(first, &initial & posting);
-        let cached = sealed.reader.cached_posting(descriptor).unwrap();
+        let cached = sealed
+            .reader
+            .cached_posting(descriptor, &sealed.allowed, PostingProof::Checked)
+            .unwrap();
         let mut warm = initial.clone();
-        sealed.intersect_descriptor_into(descriptor, &mut warm).unwrap();
+        sealed
+            .intersect_descriptor_into(descriptor, &mut warm)
+            .unwrap();
         assert_eq!(warm, first);
-        assert!(Arc::ptr_eq(&cached, &sealed.reader.cached_posting(descriptor).unwrap()));
-        sealed.union_descriptor_into(descriptor, &mut union).unwrap();
+        assert!(Arc::ptr_eq(
+            &cached,
+            &sealed
+                .reader
+                .cached_posting(descriptor, &sealed.allowed, PostingProof::Checked)
+                .unwrap()
+        ));
+        sealed
+            .union_descriptor_into(descriptor, &mut union)
+            .unwrap();
         expected_union |= posting;
         assert_eq!(union, expected_union);
         let mut by_key = RoaringBitmap::new();
-        assert_eq!(sealed.union_key_into(&key, &mut by_key).unwrap(), Some(posting.len()));
+        assert_eq!(
+            sealed.union_key_into(&key, &mut by_key).unwrap(),
+            Some(posting.len())
+        );
         assert_eq!(by_key, *posting);
     }
     assert_eq!(sealed.union_key_into(&999, &mut union).unwrap(), None);
     assert_eq!(sealed.reader.decoded_cache_usage().0, map.len());
+}
+
+#[test]
+fn cached_posting_proof_does_not_cross_eligible_domains() {
+    let posting = RoaringBitmap::from_iter((0..6000).step_by(3));
+    let mut pack = PostingPack::new();
+    let mut dictionaries = Vec::new();
+    let span = append_dictionary(
+        &mut dictionaries,
+        &mut pack,
+        &BTreeMap::from([(7u64, posting.clone())]),
+    )
+    .unwrap();
+    let mut writer = SegmentWriter::new(Cursor::new(Vec::new()), 2).unwrap();
+    writer
+        .write_section(SectionKind::ScalarDictionaries, |out| {
+            out.write_all(&dictionaries)
+                .map_err(|error| error.to_string())
+        })
+        .unwrap();
+    writer
+        .write_section(SectionKind::PostingPayloads, |out| {
+            out.write_all(pack.bytes())
+                .map_err(|error| error.to_string())
+        })
+        .unwrap();
+    let reader = Arc::new(
+        SegmentReader::from_owned(Arc::from(writer.finish().unwrap().into_inner())).unwrap(),
+    );
+    let broad = SealedPostingDictionary::open(
+        Arc::clone(&reader),
+        SectionKind::ScalarDictionaries,
+        span,
+        Arc::new(RoaringBitmap::from_iter(0..6000)),
+    )
+    .unwrap();
+    let narrow = SealedPostingDictionary::open(
+        reader,
+        SectionKind::ScalarDictionaries,
+        span,
+        Arc::new(RoaringBitmap::from_iter(0..3000)),
+    )
+    .unwrap();
+    broad.reader.set_decoded_cache_limit_for_test(1024 * 1024);
+    assert_eq!(broad.get(&7).unwrap(), Some(posting));
+    assert_eq!(broad.reader.decoded_cache_usage().0, 1);
+    assert!(narrow.get(&7).is_err());
+    assert_eq!(broad.reader.decoded_cache_usage().0, 1);
 }
 
 #[test]
@@ -209,10 +275,14 @@ fn concurrent_first_and_warm_posting_access_preserves_results() {
                     RoaringBitmap::from_iter(0..20_000),
                 ] {
                     let mut intersection = input.clone();
-                    sealed.intersect_descriptor_into(descriptor, &mut intersection).unwrap();
+                    sealed
+                        .intersect_descriptor_into(descriptor, &mut intersection)
+                        .unwrap();
                     assert_eq!(intersection, &input & &posting);
                     let mut union = input.clone();
-                    sealed.union_descriptor_into(descriptor, &mut union).unwrap();
+                    sealed
+                        .union_descriptor_into(descriptor, &mut union)
+                        .unwrap();
                     assert_eq!(union, &input | &posting);
                 }
             });
@@ -254,12 +324,24 @@ fn malformed_posting_is_an_error_not_an_empty_result() {
     .unwrap();
     assert!(sealed.get(&ScalarKey::String("exists".into())).is_err());
     assert!(sealed.get(&ScalarKey::String("exists".into())).is_err());
-    let descriptor = sealed.dictionary.get(&ScalarKey::String("exists".into())).unwrap().unwrap();
+    let descriptor = sealed
+        .dictionary
+        .get(&ScalarKey::String("exists".into()))
+        .unwrap()
+        .unwrap();
     let mut destination = RoaringBitmap::from_iter([1, 4, 7]);
     let unchanged = destination.clone();
-    assert!(sealed.intersect_descriptor_into(descriptor, &mut destination).is_err());
+    assert!(
+        sealed
+            .intersect_descriptor_into(descriptor, &mut destination)
+            .is_err()
+    );
     assert_eq!(destination, unchanged);
-    assert!(sealed.union_descriptor_into(descriptor, &mut destination).is_err());
+    assert!(
+        sealed
+            .union_descriptor_into(descriptor, &mut destination)
+            .is_err()
+    );
     assert_eq!(destination, unchanged);
     assert_eq!(
         sealed.get(&ScalarKey::String("absent".into())).unwrap(),

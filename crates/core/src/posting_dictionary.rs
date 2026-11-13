@@ -1,9 +1,9 @@
 //! Typed ordered dictionaries over independently checked portable postings.
 
-use std::collections::{BTreeMap, HashMap};
+use std::collections::BTreeMap;
 use std::io::Write;
 use std::ops::Bound;
-use std::sync::{Arc, Mutex, OnceLock};
+use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 use serde::Serialize;
@@ -13,8 +13,9 @@ use crate::ordered_block::{
     write_ordered_dictionary,
 };
 use crate::segment_format::{
-    MIN_CACHED_POSTING_BYTES, PostingDescriptor, SectionKind, SegmentReader,
+    MIN_CACHED_POSTING_BYTES, PostingDescriptor, PostingProof, SectionKind, SegmentReader,
 };
+
 
 /// A span in one immutable segment's scalar or array-length section.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -23,11 +24,13 @@ pub(crate) struct DictionarySpan {
     pub length: usize,
 }
 
+
 /// Pack ordinary portable Roaring payloads into a common byte region. A
 /// descriptor has independent integrity and slot-domain checks on access.
 pub(crate) struct PostingPack {
     payloads: Vec<u8>,
 }
+
 
 impl PostingPack {
     pub(crate) fn new() -> Self {
@@ -68,15 +71,18 @@ impl PostingPack {
     }
 }
 
+
 pub(crate) trait PostingSink {
     fn append(&mut self, bitmap: &RoaringBitmap) -> Result<PostingDescriptor, String>;
 }
+
 
 impl PostingSink for PostingPack {
     fn append(&mut self, bitmap: &RoaringBitmap) -> Result<PostingDescriptor, String> {
         PostingPack::append(self, bitmap)
     }
 }
+
 
 /// Keep only one reusable payload scratch while writing the immutable posting
 /// section directly into its final owned buffer or managed file.
@@ -86,11 +92,17 @@ pub(crate) struct StreamingPostingPack<'a> {
     scratch: Vec<u8>,
 }
 
+
 impl<'a> StreamingPostingPack<'a> {
     pub(crate) fn new(output: &'a mut dyn Write) -> Self {
-        Self { output, position: 0, scratch: Vec::new() }
+        Self {
+            output,
+            position: 0,
+            scratch: Vec::new(),
+        }
     }
 }
+
 
 impl PostingSink for StreamingPostingPack<'_> {
     fn append(&mut self, bitmap: &RoaringBitmap) -> Result<PostingDescriptor, String> {
@@ -99,20 +111,27 @@ impl PostingSink for StreamingPostingPack<'_> {
         }
         self.scratch.clear();
         let size = bitmap.serialized_size();
-        self.scratch.try_reserve(size)
+        self.scratch
+            .try_reserve(size)
             .map_err(|error| format!("posting scratch allocation: {error}"))?;
-        bitmap.serialize_into(&mut self.scratch)
+        bitmap
+            .serialize_into(&mut self.scratch)
             .map_err(|error| format!("portable posting encode: {error}"))?;
         if self.scratch.len() != size {
             return Err("portable posting size changed during encoding".into());
         }
         let descriptor = PostingDescriptor::for_bitmap(self.position, bitmap, &self.scratch)?;
-        self.output.write_all(&self.scratch).map_err(|error| error.to_string())?;
-        self.position = self.position.checked_add(size as u64)
+        self.output
+            .write_all(&self.scratch)
+            .map_err(|error| error.to_string())?;
+        self.position = self
+            .position
+            .checked_add(size as u64)
             .ok_or("posting pack size overflow")?;
         Ok(descriptor)
     }
 }
+
 
 /// Append one sorted typed dictionary to a shared section. The map is a
 /// mutable-builder input only; immutable query execution uses the returned
@@ -187,6 +206,7 @@ fn append_visited_inner<K: Ord + Clone + Serialize, P: PostingSink + ?Sized>(
     })
 }
 
+
 /// The same query path serves memory-owned and file-mapped segment bytes.
 /// The caller supplies an already checked eligible record-slot domain.
 pub(crate) struct SealedPostingDictionary<K> {
@@ -194,8 +214,8 @@ pub(crate) struct SealedPostingDictionary<K> {
     dictionary: OrderedBlockDictionary<K>,
     allowed: Arc<RoaringBitmap>,
     constructed: bool,
-    validated: Mutex<HashMap<PostingDescriptor, Arc<OnceLock<Result<(), String>>>>>,
 }
+
 
 pub(crate) struct SealedPostingCursor<'a, K> {
     dictionary: &'a SealedPostingDictionary<K>,
@@ -204,6 +224,7 @@ pub(crate) struct SealedPostingCursor<'a, K> {
     upper: Bound<K>,
     descending: bool,
 }
+
 
 impl<K: EncodedKey> SealedPostingCursor<'_, K> {
     pub(crate) fn next(&mut self) -> Result<Option<(K, RoaringBitmap)>, String> {
@@ -236,6 +257,7 @@ impl<K: EncodedKey> SealedPostingCursor<'_, K> {
         )))
     }
 }
+
 
 impl<K: EncodedKey> SealedPostingDictionary<K> {
     pub(crate) fn segment_reader(&self) -> Arc<SegmentReader> {
@@ -273,7 +295,9 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
                     let found = self.dictionary.lower_bound(key)?;
                     if matches!(lower, Bound::Excluded(_)) {
                         match found {
-                            Some(position) if self.dictionary.compare_at(position, key)?.is_eq() => {
+                            Some(position)
+                                if self.dictionary.compare_at(position, key)?.is_eq() =>
+                            {
                                 self.dictionary.next(position)
                             }
                             other => other,
@@ -292,6 +316,7 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
             descending,
         })
     }
+
     pub(crate) fn open(
         reader: Arc<SegmentReader>,
         section: SectionKind,
@@ -305,7 +330,6 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
             dictionary,
             allowed,
             constructed: false,
-            validated: Mutex::new(HashMap::new()),
         })
     }
 
@@ -317,14 +341,17 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
         visit: impl FnMut(usize, &K) -> Result<(), String>,
     ) -> Result<Self, String> {
         let dictionary = OrderedBlockDictionary::open_visiting_entries(
-            Arc::clone(&reader), section, span.start, span.length, visit,
+            Arc::clone(&reader),
+            section,
+            span.start,
+            span.length,
+            visit,
         )?;
         Ok(Self {
             reader,
             dictionary,
             allowed,
             constructed: false,
-            validated: Mutex::new(HashMap::new()),
         })
     }
 
@@ -337,14 +364,16 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
         allowed: Arc<RoaringBitmap>,
     ) -> Result<Self, String> {
         let dictionary = OrderedBlockDictionary::from_constructed(
-            Arc::clone(&reader), section, span.start, span.length,
+            Arc::clone(&reader),
+            section,
+            span.start,
+            span.length,
         )?;
         Ok(Self {
             reader,
             dictionary,
             allowed,
             constructed: true,
-            validated: Mutex::new(HashMap::new()),
         })
     }
 
@@ -454,26 +483,64 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
             .map(|descriptor| descriptor.cardinality))
     }
 
+    fn cache_proof(&self) -> PostingProof {
+        if self.constructed {
+            PostingProof::Constructed
+        } else {
+            PostingProof::Checked
+        }
+    }
+
+    /// The writer's private construction proof permits unchecked decoding.
+    /// Every external cache miss is checked against this dictionary's exact
+    /// eligible domain before it can affect a result or enter the cache.
+    fn decode_operand(&self, descriptor: PostingDescriptor) -> Result<RoaringBitmap, String> {
+        if self.constructed {
+            self.reader.materialize_validated_posting(descriptor)
+        } else {
+            self.reader.materialize_posting(descriptor, &self.allowed)
+        }
+    }
+
+    fn with_operand<T>(
+        &self,
+        descriptor: PostingDescriptor,
+        use_posting: impl FnOnce(&RoaringBitmap) -> T,
+    ) -> Result<T, String> {
+        let proof = self.cache_proof();
+        if descriptor.length >= MIN_CACHED_POSTING_BYTES {
+            if let Some(bitmap) = self.reader.cached_posting(descriptor, &self.allowed, proof) {
+                return Ok(use_posting(bitmap.as_ref()));
+            }
+        }
+        let bitmap = self.decode_operand(descriptor)?;
+        if descriptor.length < MIN_CACHED_POSTING_BYTES {
+            return Ok(use_posting(&bitmap));
+        }
+        let bitmap = self
+            .reader
+            .retain_posting_owned(descriptor, &self.allowed, proof, bitmap);
+        Ok(use_posting(bitmap.as_ref()))
+    }
+
     pub(crate) fn materialize_descriptor(
         &self,
         descriptor: PostingDescriptor,
     ) -> Result<RoaringBitmap, String> {
-        self.with_validation(descriptor, |first| match first {
-            Some(bitmap) if descriptor.length < MIN_CACHED_POSTING_BYTES => Ok(bitmap),
-            Some(bitmap) => {
-                Ok(owned_bitmap(self.reader.retain_posting_owned(descriptor, bitmap)))
-            }
-            None if descriptor.length < MIN_CACHED_POSTING_BYTES => {
-                self.reader.materialize_validated_posting(descriptor)
-            }
-            None => match self.reader.cached_posting(descriptor) {
-                Some(bitmap) => Ok((*bitmap).clone()),
-                None => {
-                    let bitmap = self.reader.materialize_validated_posting(descriptor)?;
-                    Ok(owned_bitmap(self.reader.retain_posting_owned(descriptor, bitmap)))
-                }
-            },
-        })
+        let proof = self.cache_proof();
+        if descriptor.length < MIN_CACHED_POSTING_BYTES {
+            return self.decode_operand(descriptor);
+        }
+        if let Some(bitmap) = self.reader.cached_posting(descriptor, &self.allowed, proof) {
+            return Ok((*bitmap).clone());
+        }
+        let bitmap = self.decode_operand(descriptor)?;
+        Ok(owned_bitmap(self.reader.retain_posting_owned(
+            descriptor,
+            &self.allowed,
+            proof,
+            bitmap,
+        )))
     }
 
     pub(crate) fn intersect_descriptor(
@@ -481,109 +548,46 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
         descriptor: PostingDescriptor,
         input: &RoaringBitmap,
     ) -> Result<RoaringBitmap, String> {
-        self.with_validation(descriptor, |first| match first {
-            Some(bitmap) if descriptor.length < MIN_CACHED_POSTING_BYTES => Ok(input & &bitmap),
-            Some(bitmap) => {
-                let bitmap = self.reader.retain_posting_owned(descriptor, bitmap);
-                Ok(input & bitmap.as_ref())
+        if self.constructed {
+            if let Some(bitmap) =
+                self.reader
+                    .cached_posting(descriptor, &self.allowed, PostingProof::Constructed)
+            {
+                return Ok(input & bitmap.as_ref());
             }
-            None if descriptor.length < MIN_CACHED_POSTING_BYTES => {
-                self.reader.intersect_validated_posting(descriptor, input)
-            }
-            None => match self.reader.cached_posting(descriptor) {
-                Some(bitmap) => Ok(input & bitmap.as_ref()),
-                None => self.reader.intersect_validated_posting(descriptor, input),
-            },
-        })
+            return self.reader.intersect_validated_posting(descriptor, input);
+        }
+        self.with_operand(descriptor, |bitmap| input & bitmap)
     }
 
-    /// A cached operand is borrowed while the existing result is updated.
-    /// The serialized fallback returns a new bitmap; assign it only on
-    /// success so a malformed posting cannot partially change the result.
+    /// Mutate only after the operand has passed its required validation.
     pub(crate) fn intersect_descriptor_into(
         &self,
         descriptor: PostingDescriptor,
         input: &mut RoaringBitmap,
     ) -> Result<(), String> {
-        self.with_validation(descriptor, |first| {
-            if let Some(bitmap) = first {
-                if descriptor.length < MIN_CACHED_POSTING_BYTES {
-                    *input &= &bitmap;
-                } else {
-                    let bitmap = self.reader.retain_posting_owned(descriptor, bitmap);
-                    *input &= bitmap.as_ref();
-                }
-            } else if descriptor.length < MIN_CACHED_POSTING_BYTES {
-                let next = self.reader.intersect_validated_posting(descriptor, input)?;
-                *input = next;
-            } else if let Some(bitmap) = self.reader.cached_posting(descriptor) {
+        if self.constructed {
+            if let Some(bitmap) =
+                self.reader
+                    .cached_posting(descriptor, &self.allowed, PostingProof::Constructed)
+            {
                 *input &= bitmap.as_ref();
             } else {
                 let next = self.reader.intersect_validated_posting(descriptor, input)?;
                 *input = next;
             }
-            Ok(())
-        })
+            return Ok(());
+        }
+        self.with_operand(descriptor, |bitmap| *input &= bitmap)
     }
 
-    /// Union a checked posting into the destination without copying a hot
-    /// cache entry into a temporary owned bitmap.
+    /// A cache hit borrows a validated operand without cloning its bitmap.
     pub(crate) fn union_descriptor_into(
         &self,
         descriptor: PostingDescriptor,
         output: &mut RoaringBitmap,
     ) -> Result<(), String> {
-        self.with_validation(descriptor, |first| {
-            if let Some(bitmap) = first {
-                if descriptor.length < MIN_CACHED_POSTING_BYTES {
-                    *output |= &bitmap;
-                } else {
-                    let cached = self.reader.retain_posting_owned(descriptor, bitmap);
-                    *output |= cached.as_ref();
-                }
-                return Ok(());
-            }
-            if descriptor.length < MIN_CACHED_POSTING_BYTES {
-                let bitmap = self.reader.materialize_validated_posting(descriptor)?;
-                *output |= &bitmap;
-                return Ok(());
-            }
-            let bitmap = if let Some(bitmap) = self.reader.cached_posting(descriptor) {
-                bitmap
-            } else {
-                let bitmap = self.reader.materialize_validated_posting(descriptor)?;
-                self.reader.retain_posting_owned(descriptor, bitmap)
-            };
-            *output |= bitmap.as_ref();
-            Ok(())
-        })
-    }
-
-    fn with_validation<T>(
-        &self,
-        descriptor: PostingDescriptor,
-        use_posting: impl FnOnce(Option<RoaringBitmap>) -> Result<T, String>,
-    ) -> Result<T, String> {
-        if self.constructed {
-            // The in-process writer built these payloads from checked builder
-            // bitmaps. This proof is not carried across an external reopen.
-            return use_posting(None);
-        }
-        let cell = self
-            .validated
-            .lock()
-            .map_err(|_| "posting validation lock poisoned")?
-            .entry(descriptor)
-            .or_insert_with(|| Arc::new(OnceLock::new()))
-            .clone();
-        let mut first = None;
-        let proof = cell.get_or_init(|| {
-            let bitmap = self.reader.materialize_posting(descriptor, &self.allowed)?;
-            first = Some(bitmap);
-            Ok(())
-        });
-        proof.as_ref().map_err(Clone::clone)?;
-        use_posting(first)
+        self.with_operand(descriptor, |bitmap| *output |= bitmap)
     }
 
     /// `None` is a checked absent key; a present empty descriptor returns an
@@ -657,15 +661,18 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
     }
 }
 
+
 fn owned_bitmap(bitmap: Arc<RoaringBitmap>) -> RoaringBitmap {
     Arc::try_unwrap(bitmap).unwrap_or_else(|shared| (*shared).clone())
 }
+
 
 impl SealedPostingDictionary<u64> {
     pub(crate) fn descriptor_u64(&self, key: u64) -> Result<Option<PostingDescriptor>, String> {
         self.dictionary.get_u64(key)
     }
 }
+
 
 #[cfg(test)]
 #[path = "posting_dictionary.test.rs"]

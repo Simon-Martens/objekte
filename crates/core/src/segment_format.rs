@@ -22,6 +22,7 @@ const MAX_SEGMENT_BYTES: u64 = 8 * 1024 * 1024 * 1024;
 const MAX_DECODED_POSTING_CACHE_BYTES: usize = 8 * 1024 * 1024;
 pub(crate) const MIN_CACHED_POSTING_BYTES: u32 = 64;
 
+
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 #[repr(u32)]
 pub(crate) enum SectionKind {
@@ -37,6 +38,7 @@ pub(crate) enum SectionKind {
     Integrity = 10,
 }
 
+
 pub(crate) const REQUIRED_SECTIONS: [SectionKind; 10] = [
     SectionKind::FieldMetadata,
     SectionKind::TextBindings,
@@ -49,6 +51,7 @@ pub(crate) const REQUIRED_SECTIONS: [SectionKind; 10] = [
     SectionKind::RelationAndIdentity,
     SectionKind::Integrity,
 ];
+
 
 impl TryFrom<u32> for SectionKind {
     type Error = String;
@@ -70,6 +73,7 @@ impl TryFrom<u32> for SectionKind {
     }
 }
 
+
 #[derive(Clone, Debug)]
 struct SectionEntry {
     kind: SectionKind,
@@ -78,6 +82,7 @@ struct SectionEntry {
     sha256: [u8; 32],
     checked: Arc<OnceLock<Result<(), String>>>,
 }
+
 
 /// Exactly one owner for the bytes used by all section and posting readers.
 #[derive(Clone)]
@@ -88,10 +93,12 @@ enum SegmentBytes {
     Constructed(Arc<ConstructedSections>),
 }
 
+
 struct ConstructedSections {
     buffers: [Vec<u8>; REQUIRED_SECTIONS.len()],
     encoded_len: usize,
 }
+
 
 impl SegmentBytes {
     fn contiguous(&self) -> Option<&[u8]> {
@@ -104,6 +111,7 @@ impl SegmentBytes {
     }
 }
 
+
 /// A segment reader validates framing at construction and section checksums
 /// once per immutable byte span. Posting payloads have narrower checksums.
 #[derive(Clone)]
@@ -113,12 +121,14 @@ pub(crate) struct SegmentReader {
     decoded: Arc<Mutex<DecodedPostingCache>>,
 }
 
+
 #[derive(Debug)]
 pub(crate) enum SegmentOpenError {
     Io(io::Error),
     Invalid(String),
     Resource(String),
 }
+
 
 impl fmt::Display for SegmentOpenError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -130,30 +140,68 @@ impl fmt::Display for SegmentOpenError {
     }
 }
 
+
 #[derive(Default)]
 struct DecodedPostingCache {
-    entries: HashMap<PostingDescriptor, CachedPosting>,
-    recency: BTreeMap<u64, PostingDescriptor>,
+    entries: HashMap<PostingCacheKey, CachedPosting>,
+    recency: BTreeMap<u64, PostingCacheKey>,
     retained_bytes: usize,
     limit_bytes: usize,
     tick: u64,
 }
 
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+pub(crate) enum PostingProof {
+    Constructed,
+    Checked,
+}
+
+
+/// The retained domain owner makes the pointer identity stable for the
+/// lifetime of a cache entry. A descriptor checked for one eligible domain
+/// cannot prove that same payload for another dictionary's domain. Writer
+/// proof is also separate from externally checked proof.
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+struct PostingCacheKey {
+    descriptor: PostingDescriptor,
+    domain: usize,
+    proof: PostingProof,
+}
+
+
+impl PostingCacheKey {
+    fn new(
+        descriptor: PostingDescriptor,
+        allowed: &Arc<RoaringBitmap>,
+        proof: PostingProof,
+    ) -> Self {
+        Self {
+            descriptor,
+            domain: Arc::as_ptr(allowed) as usize,
+            proof,
+        }
+    }
+}
+
+
 struct CachedPosting {
     bitmap: Arc<RoaringBitmap>,
+    _allowed: Arc<RoaringBitmap>,
     weight: usize,
     last_used: u64,
 }
+
 
 impl DecodedPostingCache {
     fn next_tick(&mut self) -> u64 {
         if self.tick == u64::MAX {
             let ordered = self.recency.values().copied().collect::<Vec<_>>();
             self.recency.clear();
-            for (position, descriptor) in ordered.into_iter().enumerate() {
+            for (position, key) in ordered.into_iter().enumerate() {
                 let tick = position as u64 + 1;
-                self.entries.get_mut(&descriptor).unwrap().last_used = tick;
-                self.recency.insert(tick, descriptor);
+                self.entries.get_mut(&key).unwrap().last_used = tick;
+                self.recency.insert(tick, key);
             }
             self.tick = self.entries.len() as u64;
         }
@@ -161,6 +209,7 @@ impl DecodedPostingCache {
         self.tick
     }
 }
+
 
 impl SegmentReader {
     pub(crate) fn is_constructed(&self) -> bool {
@@ -196,20 +245,24 @@ impl SegmentReader {
                 return Err("constructed segment section order changed".into());
             }
             let offset = encoded_len as u64;
-            encoded_len = encoded_len.checked_add(bytes.len())
+            encoded_len = encoded_len
+                .checked_add(bytes.len())
                 .ok_or("constructed segment length overflow")?;
             if encoded_len as u64 > MAX_SEGMENT_BYTES {
                 return Err("constructed segment exceeds format limit".into());
             }
             let checked = OnceLock::new();
             checked.set(Ok(())).unwrap();
-            entries.insert(*kind, SectionEntry {
-                kind: *kind,
-                offset,
-                length: bytes.len() as u64,
-                sha256: [0; 32],
-                checked: Arc::new(checked),
-            });
+            entries.insert(
+                *kind,
+                SectionEntry {
+                    kind: *kind,
+                    offset,
+                    length: bytes.len() as u64,
+                    sha256: [0; 32],
+                    checked: Arc::new(checked),
+                },
+            );
         }
         let buffers = sections.map(|(_, bytes)| bytes);
         let limit_bytes = (encoded_len / 20).min(MAX_DECODED_POSTING_CACHE_BYTES);
@@ -236,7 +289,9 @@ impl SegmentReader {
     pub(crate) fn from_index_file_typed(file: &File) -> Result<Self, SegmentOpenError> {
         let metadata = file.metadata().map_err(SegmentOpenError::Io)?;
         if !metadata.is_file() || metadata.len() == 0 || metadata.len() > MAX_SEGMENT_BYTES {
-            return Err(SegmentOpenError::Invalid("index segment is not a supported regular file".into()));
+            return Err(SegmentOpenError::Invalid(
+                "index segment is not a supported regular file".into(),
+            ));
         }
         // SAFETY: the store opens application-owned immutable segment files;
         // publication never truncates or modifies an opened generation.
@@ -253,14 +308,17 @@ impl SegmentReader {
     pub(crate) fn from_index_file_owned_typed(mut file: &File) -> Result<Self, SegmentOpenError> {
         let metadata = file.metadata().map_err(SegmentOpenError::Io)?;
         if !metadata.is_file() || metadata.len() == 0 || metadata.len() > MAX_SEGMENT_BYTES {
-            return Err(SegmentOpenError::Invalid("index segment is not a supported regular file".into()));
+            return Err(SegmentOpenError::Invalid(
+                "index segment is not a supported regular file".into(),
+            ));
         }
-        let length = usize::try_from(metadata.len())
-            .map_err(|_| SegmentOpenError::Invalid("segment length exceeds address space".into()))?;
+        let length = usize::try_from(metadata.len()).map_err(|_| {
+            SegmentOpenError::Invalid("segment length exceeds address space".into())
+        })?;
         let mut bytes = Vec::new();
-        bytes
-            .try_reserve_exact(length)
-            .map_err(|error| SegmentOpenError::Resource(format!("full index residency allocation: {error}")))?;
+        bytes.try_reserve_exact(length).map_err(|error| {
+            SegmentOpenError::Resource(format!("full index residency allocation: {error}"))
+        })?;
         bytes.resize(length, 0);
         file.read_exact(&mut bytes).map_err(SegmentOpenError::Io)?;
         Self::from_owned_vec(bytes).map_err(SegmentOpenError::Invalid)
@@ -268,12 +326,16 @@ impl SegmentReader {
 
     #[cfg(test)]
     pub(crate) fn is_owned(&self) -> bool {
-        matches!(self.bytes, SegmentBytes::Owned(_) | SegmentBytes::OwnedVec(_)
-            | SegmentBytes::Constructed(_))
+        matches!(
+            self.bytes,
+            SegmentBytes::Owned(_) | SegmentBytes::OwnedVec(_) | SegmentBytes::Constructed(_)
+        )
     }
 
     fn parse(bytes: SegmentBytes) -> Result<Self, String> {
-        let raw = bytes.contiguous().ok_or("constructed bytes require internal opener")?;
+        let raw = bytes
+            .contiguous()
+            .ok_or("constructed bytes require internal opener")?;
         if raw.len() < HEADER_BYTES || raw.len() as u64 > MAX_SEGMENT_BYTES {
             return Err("immutable segment header is truncated or oversized".into());
         }
@@ -363,18 +425,21 @@ impl SegmentReader {
     pub(crate) fn cached_posting(
         &self,
         descriptor: PostingDescriptor,
+        allowed: &Arc<RoaringBitmap>,
+        proof: PostingProof,
     ) -> Option<Arc<RoaringBitmap>> {
+        let key = PostingCacheKey::new(descriptor, allowed, proof);
         let mut cache = self.decoded.lock().ok()?;
-        if !cache.entries.contains_key(&descriptor) {
+        if !cache.entries.contains_key(&key) {
             return None;
         }
         let tick = cache.next_tick();
-        let entry = cache.entries.get_mut(&descriptor)?;
+        let entry = cache.entries.get_mut(&key)?;
         let prior = entry.last_used;
         entry.last_used = tick;
         let bitmap = Arc::clone(&entry.bitmap);
         cache.recency.remove(&prior);
-        cache.recency.insert(tick, descriptor);
+        cache.recency.insert(tick, key);
         Some(bitmap)
     }
 
@@ -393,8 +458,11 @@ impl SegmentReader {
     pub(crate) fn retain_posting_owned(
         &self,
         descriptor: PostingDescriptor,
+        allowed: &Arc<RoaringBitmap>,
+        proof: PostingProof,
         bitmap: RoaringBitmap,
     ) -> Arc<RoaringBitmap> {
+        let key = PostingCacheKey::new(descriptor, allowed, proof);
         let weight = (bitmap.serialized_size() as usize)
             .saturating_mul(2)
             .saturating_add(128);
@@ -410,12 +478,11 @@ impl SegmentReader {
         if weight > cache.limit_bytes {
             return bitmap;
         }
-        if let Some(existing) = cache.entries.get(&descriptor) {
+        if let Some(existing) = cache.entries.get(&key) {
             return Arc::clone(&existing.bitmap);
         }
         while cache.retained_bytes.saturating_add(weight) > cache.limit_bytes {
-            let Some((&oldest, &victim)) = cache.recency.first_key_value()
-            else {
+            let Some((&oldest, &victim)) = cache.recency.first_key_value() else {
                 return bitmap;
             };
             cache.recency.remove(&oldest);
@@ -424,11 +491,12 @@ impl SegmentReader {
             }
         }
         let tick = cache.next_tick();
-        cache.recency.insert(tick, descriptor);
+        cache.recency.insert(tick, key);
         cache.entries.insert(
-            descriptor,
+            key,
             CachedPosting {
                 bitmap: Arc::clone(&bitmap),
+                _allowed: Arc::clone(allowed),
                 weight,
                 last_used: tick,
             },
@@ -467,9 +535,7 @@ impl SegmentReader {
 
     fn section_bytes(&self, entry: &SectionEntry) -> &[u8] {
         match &self.bytes {
-            SegmentBytes::Constructed(sections) => {
-                &sections.buffers[entry.kind as usize - 1]
-            }
+            SegmentBytes::Constructed(sections) => &sections.buffers[entry.kind as usize - 1],
             other => {
                 let start = entry.offset as usize;
                 &other.contiguous().unwrap()[start..start + entry.length as usize]
@@ -567,15 +633,17 @@ impl SegmentReader {
             .sections
             .get(&SectionKind::PostingPayloads)
             .ok_or("posting section missing")?;
-        let start = usize::try_from(descriptor.offset)
-            .map_err(|_| "posting payload offset overflow")?;
-        let end = start.checked_add(descriptor.length as usize)
+        let start =
+            usize::try_from(descriptor.offset).map_err(|_| "posting payload offset overflow")?;
+        let end = start
+            .checked_add(descriptor.length as usize)
             .ok_or("posting payload length overflow")?;
         self.section_bytes(region)
             .get(start..end)
             .ok_or("posting payload out of bounds".into())
     }
 }
+
 
 /// `u64` posting-region offset, `u32` payload length and cardinality, and an
 /// 8-byte payload checksum. No page is reserved for an individual posting.
@@ -586,6 +654,7 @@ pub(crate) struct PostingDescriptor {
     pub cardinality: u32,
     pub checksum: u64,
 }
+
 
 impl PostingDescriptor {
     pub(crate) const EMPTY: Self = Self {
@@ -633,6 +702,7 @@ impl PostingDescriptor {
     }
 }
 
+
 /// Stream sections directly into the final owned buffer or immutable file.
 /// Only the small section directory is retained by this writer.
 pub(crate) struct SegmentWriter<W: Write + Seek> {
@@ -640,6 +710,7 @@ pub(crate) struct SegmentWriter<W: Write + Seek> {
     expected_sections: usize,
     sections: Vec<(SectionKind, u64, u64, [u8; 32])>,
 }
+
 
 impl<W: Write + Seek> SegmentWriter<W> {
     pub(crate) fn new(mut writer: W, expected_sections: usize) -> Result<Self, String> {
@@ -722,29 +793,36 @@ impl<W: Write + Seek> SegmentWriter<W> {
     }
 }
 
+
 impl SegmentWriter<std::io::Cursor<Vec<u8>>> {
     /// The owned writer learns the exact remaining section lengths after the
     /// posting stream is complete. Reserve once instead of doubling the final
     /// resident segment buffer while those section buffers still exist.
     pub(crate) fn reserve_remaining(&mut self, bytes: usize) -> Result<(), String> {
-        let final_len = self.writer.get_ref().len()
+        let final_len = self
+            .writer
+            .get_ref()
+            .len()
             .checked_add(bytes)
             .ok_or("owned segment size overflow")?;
-        if u64::try_from(final_len).map_err(|_| "owned segment size overflow")?
-            > MAX_SEGMENT_BYTES
+        if u64::try_from(final_len).map_err(|_| "owned segment size overflow")? > MAX_SEGMENT_BYTES
         {
             return Err("owned segment exceeds format limit".into());
         }
-        self.writer.get_mut().try_reserve_exact(bytes)
+        self.writer
+            .get_mut()
+            .try_reserve_exact(bytes)
             .map_err(|error| format!("owned segment reserve: {error}"))
     }
 }
+
 
 struct HashingWriter<'a, W: Write> {
     writer: &'a mut W,
     hash: Sha256,
     length: u64,
 }
+
 
 impl<'a, W: Write> HashingWriter<'a, W> {
     fn new(writer: &'a mut W) -> Self {
@@ -759,6 +837,7 @@ impl<'a, W: Write> HashingWriter<'a, W> {
         (self.length, self.hash.finalize().into())
     }
 }
+
 
 impl<W: Write> Write for HashingWriter<'_, W> {
     fn write(&mut self, bytes: &[u8]) -> io::Result<usize> {
@@ -777,6 +856,7 @@ impl<W: Write> Write for HashingWriter<'_, W> {
         self.writer.flush()
     }
 }
+
 
 fn short_checksum(bytes: &[u8]) -> u64 {
     let digest = Sha256::digest(bytes);

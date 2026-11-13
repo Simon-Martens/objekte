@@ -85,7 +85,10 @@ fn owned_vec_reader_keeps_the_original_buffer() {
         panic!("constructed reader did not retain its vector");
     };
     assert_eq!(retained.as_ptr(), address);
-    assert_eq!(reader.section(SectionKind::FieldMetadata).unwrap(), Some(b"fields".as_slice()));
+    assert_eq!(
+        reader.section(SectionKind::FieldMetadata).unwrap(),
+        Some(b"fields".as_slice())
+    );
 }
 
 #[test]
@@ -93,16 +96,49 @@ fn decoded_posting_cache_evicts_oldest_without_scanning_entries() {
     let (bytes, _, descriptor) = sample_segment();
     let reader = SegmentReader::from_owned(bytes).unwrap();
     let bitmap = RoaringBitmap::from_iter((0..1000).map(|slot| slot * 17));
+    let allowed = Arc::new(RoaringBitmap::from_iter(0..20_000));
     let weight = bitmap.serialized_size() * 2 + 128;
     reader.decoded.lock().unwrap().limit_bytes = weight * 2;
-    let key = |offset| PostingDescriptor { offset, length: 100, ..descriptor };
-    reader.retain_posting_owned(key(1), bitmap.clone());
-    let pinned = reader.retain_posting_owned(key(2), bitmap.clone());
-    assert!(reader.cached_posting(key(1)).is_some());
-    reader.retain_posting_owned(key(3), bitmap.clone());
-    assert!(reader.cached_posting(key(1)).is_some());
-    assert!(reader.cached_posting(key(2)).is_none());
-    assert!(reader.cached_posting(key(3)).is_some());
+    let key = |offset| PostingDescriptor {
+        offset,
+        length: 100,
+        ..descriptor
+    };
+    reader.retain_posting_owned(key(1), &allowed, PostingProof::Checked, bitmap.clone());
+    let pinned =
+        reader.retain_posting_owned(key(2), &allowed, PostingProof::Checked, bitmap.clone());
+    assert!(
+        reader
+            .cached_posting(key(1), &allowed, PostingProof::Checked)
+            .is_some()
+    );
+    assert!(
+        reader
+            .cached_posting(key(1), &allowed, PostingProof::Constructed)
+            .is_none()
+    );
+    let other_domain = Arc::new((*allowed).clone());
+    assert!(
+        reader
+            .cached_posting(key(1), &other_domain, PostingProof::Checked)
+            .is_none()
+    );
+    reader.retain_posting_owned(key(3), &allowed, PostingProof::Checked, bitmap.clone());
+    assert!(
+        reader
+            .cached_posting(key(1), &allowed, PostingProof::Checked)
+            .is_some()
+    );
+    assert!(
+        reader
+            .cached_posting(key(2), &allowed, PostingProof::Checked)
+            .is_none()
+    );
+    assert!(
+        reader
+            .cached_posting(key(3), &allowed, PostingProof::Checked)
+            .is_some()
+    );
     assert_eq!(pinned.as_ref(), &bitmap);
     let cache = reader.decoded.lock().unwrap();
     assert_eq!(cache.entries.len(), cache.recency.len());
