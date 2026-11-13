@@ -721,6 +721,53 @@ impl CollectionSegment {
 }
 
 impl IndexedCollectionSegment {
+    pub(crate) fn project_inference_for_partitions(
+        &self,
+        routing: &PartitionRouting,
+        domains: &[DomainProjection],
+    ) -> Result<Vec<Option<InferenceState>>, String> {
+        if domains.len() != routing.selected.len() {
+            return Err("partition inference domain count mismatch".into());
+        }
+        let Some(source) = &self.inference else {
+            return Ok((0..routing.selected.len()).map(|_| None).collect());
+        };
+        let mut parts = (0..routing.selected.len())
+            .map(|_| InferenceState {
+                report: source.report.clone(),
+                indexes: HashMap::with_capacity(source.indexes.len()),
+                empty_selections: HashMap::with_capacity(source.empty_selections.len()),
+                short_string_coverage: HashMap::with_capacity(source.short_string_coverage.len()),
+            })
+            .collect::<Vec<_>>();
+        for (path, index) in &source.indexes {
+            for (part, scattered) in parts.iter_mut()
+                .zip(scatter_posting_partitions(index, routing)?) {
+                part.indexes.insert(path.clone(), scattered);
+            }
+        }
+        for (path, bitmap) in &source.empty_selections {
+            for (part, scattered) in parts.iter_mut()
+                .zip(scatter_bitmap_partitions(bitmap, routing)?) {
+                part.empty_selections.insert(path.clone(), scattered);
+            }
+        }
+        for (path, bitmap) in &source.short_string_coverage {
+            for (part, scattered) in parts.iter_mut()
+                .zip(scatter_bitmap_partitions(bitmap, routing)?) {
+                part.short_string_coverage.insert(path.clone(), scattered);
+            }
+        }
+        for (number, part) in parts.iter_mut().enumerate() {
+            finish_projected_inference(
+                part,
+                domains[number].logical.len(),
+                routing.selected[number].len(),
+            )?;
+        }
+        Ok(parts.into_iter().map(Some).collect())
+    }
+
     pub(crate) fn project_relations_for_partitions(
         &self,
         routing: &PartitionRouting,
@@ -1344,6 +1391,68 @@ fn scatter_posting_key<K: Ord + Clone>(
     }
 }
 
+fn posting_destination(
+    routing: &PartitionRouting,
+    old: u32,
+) -> Result<Option<(usize, RecordSlot)>, String> {
+    routing.locations.get(old as usize).copied()
+        .ok_or_else(|| "posting slot outside source".into())
+}
+
+fn scatter_posting_partitions(
+    index: &PostingIndex,
+    routing: &PartitionRouting,
+) -> Result<Vec<PostingIndex>, String> {
+    let mut parts = routing.logical_counts.iter().copied()
+        .map(|count| empty_projected_posting(index, count))
+        .collect::<Vec<_>>();
+    for old in index.presence.iter() {
+        if let Some((part, slot)) = posting_destination(routing, old)? {
+            parts[part].presence.insert(slot.0);
+        }
+    }
+    for old in index.empty_selections.iter() {
+        if let Some((part, slot)) = posting_destination(routing, old)? {
+            parts[part].empty_selections.insert(slot.0);
+        }
+    }
+    for old in index.nulls.iter() {
+        if let Some((part, slot)) = posting_destination(routing, old)? {
+            parts[part].nulls.insert(slot.0);
+        }
+    }
+    if let Some(facts) = &index.structural {
+        for (key, bitmap) in &facts.postings {
+            for old in bitmap.iter() {
+                if let Some((part, slot)) = posting_destination(routing, old)? {
+                    parts[part].structural.as_mut().unwrap()
+                        .postings.entry(*key).or_default().insert(slot.0);
+                }
+            }
+        }
+    }
+    index.for_each_value(|key, bitmap| {
+        for old in bitmap.iter() {
+            if let Some((part, slot)) = posting_destination(routing, old)? {
+                scatter_posting_key(&mut parts[part].values, key, slot.0);
+            }
+        }
+        Ok(())
+    })?;
+    index.for_each_length(|key, bitmap| {
+        for old in bitmap.iter() {
+            if let Some((part, slot)) = posting_destination(routing, old)? {
+                scatter_posting_key(&mut parts[part].lengths, key, slot.0);
+            }
+        }
+        Ok(())
+    })?;
+    for part in &mut parts {
+        part.finish_stats();
+    }
+    Ok(parts)
+}
+
 /// A partition reads one shared source-to-part routing table. It never
 /// allocates or scans a source-sized slot table for each output shard.
 pub(crate) struct PartitionRouting {
@@ -1753,8 +1862,17 @@ fn project_inference(
             project_bitmap_in_range(bitmap, slots, bounds).map(|bitmap| (path.clone(), bitmap))
         })
         .collect::<Result<HashMap<_, _>, _>>()?;
-    let eligible = logical.len();
-    let unavailable = new_count as u64 - eligible;
+    finish_projected_inference(&mut state, logical.len(), new_count)?;
+    Ok(Some(state))
+}
+
+fn finish_projected_inference(
+    state: &mut InferenceState,
+    eligible: u64,
+    new_count: usize,
+) -> Result<(), String> {
+    let unavailable = (new_count as u64).checked_sub(eligible)
+        .ok_or("inference eligible domain exceeds record count")?;
     state.report.eligible_records = eligible;
     state.report.unavailable_records = unavailable;
     for field in &mut state.report.fields {
@@ -1837,7 +1955,7 @@ fn project_inference(
         .report
         .summary_bytes_estimate
         .saturating_add(state.report.index_bytes_estimate);
-    Ok(Some(state))
+    Ok(())
 }
 
 impl IndexedCollectionSegment {
@@ -1968,189 +2086,27 @@ impl IndexedCollectionSegment {
         &self,
         routing: &PartitionRouting,
     ) -> Result<Vec<PostingProjection>, String> {
-        let mapping = &routing.locations;
-        let mut projected = routing.logical_counts
-            .iter().copied()
-            .map(|logical_count| PostingProjection {
+        let mut projected = (0..routing.selected.len())
+            .map(|_| PostingProjection {
                 postings: PostingCollection {
-                    fields: self
-                        .postings
-                        .fields
-                        .iter()
-                        .map(|(path, index)| {
-                            (path.clone(), empty_projected_posting(index, logical_count))
-                        })
-                        .collect(),
+                    fields: HashMap::with_capacity(self.postings.fields.len()),
                 },
-                custom_postings: self
-                    .custom_postings
-                    .iter()
-                    .map(|(key, custom)| {
-                        (
-                            key.clone(),
-                            CustomPostingIndex {
-                                index: empty_projected_posting(&custom.index, logical_count),
-                                complete: custom.complete,
-                            },
-                        )
-                    })
-                    .collect(),
+                custom_postings: HashMap::with_capacity(self.custom_postings.len()),
             })
             .collect::<Vec<_>>();
         for (path, index) in &self.postings.fields {
-            for old in index.presence.iter() {
-                if let Some((part, slot)) = mapping[old as usize] {
-                    projected[part]
-                        .postings
-                        .fields
-                        .get_mut(path)
-                        .unwrap()
-                        .presence
-                        .insert(slot.0);
-                }
+            for (part, scattered) in projected.iter_mut()
+                .zip(scatter_posting_partitions(index, routing)?) {
+                part.postings.fields.insert(path.clone(), scattered);
             }
-            for old in index.empty_selections.iter() {
-                if let Some((part, slot)) = mapping[old as usize] {
-                    projected[part]
-                        .postings
-                        .fields
-                        .get_mut(path)
-                        .unwrap()
-                        .empty_selections
-                        .insert(slot.0);
-                }
-            }
-            for old in index.nulls.iter() {
-                if let Some((part, slot)) = mapping[old as usize] {
-                    projected[part]
-                        .postings
-                        .fields
-                        .get_mut(path)
-                        .unwrap()
-                        .nulls
-                        .insert(slot.0);
-                }
-            }
-            if let Some(facts) = &index.structural {
-                for (key, bitmap) in &facts.postings {
-                    for old in bitmap.iter() {
-                        if let Some((part, slot)) = mapping[old as usize] {
-                            projected[part]
-                                .postings
-                                .fields
-                                .get_mut(path)
-                                .unwrap()
-                                .structural
-                                .as_mut()
-                                .unwrap()
-                                .postings
-                                .entry(*key)
-                                .or_default()
-                                .insert(slot.0);
-                        }
-                    }
-                }
-            }
-            index.for_each_value(|key, bitmap| {
-                for old in bitmap.iter() {
-                    if let Some((part, slot)) = mapping[old as usize] {
-                        scatter_posting_key(
-                            &mut projected[part]
-                                .postings
-                                .fields
-                                .get_mut(path)
-                                .unwrap()
-                                .values,
-                            key,
-                            slot.0,
-                        );
-                    }
-                }
-                Ok(())
-            })?;
-            index.for_each_length(|key, bitmap| {
-                for old in bitmap.iter() {
-                    if let Some((part, slot)) = mapping[old as usize] {
-                        scatter_posting_key(
-                            &mut projected[part]
-                                .postings
-                                .fields
-                                .get_mut(path)
-                                .unwrap()
-                                .lengths,
-                            key,
-                            slot.0,
-                        );
-                    }
-                }
-                Ok(())
-            })?;
         }
         for (key, custom) in &self.custom_postings {
-            let index = &custom.index;
-            for old in index.presence.iter() {
-                if let Some((part, slot)) = mapping[old as usize] {
-                    projected[part]
-                        .custom_postings
-                        .get_mut(key)
-                        .unwrap()
-                        .index
-                        .presence
-                        .insert(slot.0);
-                }
-            }
-            for old in index.nulls.iter() {
-                if let Some((part, slot)) = mapping[old as usize] {
-                    projected[part]
-                        .custom_postings
-                        .get_mut(key)
-                        .unwrap()
-                        .index
-                        .nulls
-                        .insert(slot.0);
-                }
-            }
-            index.for_each_value(|value, bitmap| {
-                for old in bitmap.iter() {
-                    if let Some((part, slot)) = mapping[old as usize] {
-                        scatter_posting_key(
-                            &mut projected[part]
-                                .custom_postings
-                                .get_mut(key)
-                                .unwrap()
-                                .index
-                                .values,
-                            value,
-                            slot.0,
-                        );
-                    }
-                }
-                Ok(())
-            })?;
-            index.for_each_length(|value, bitmap| {
-                for old in bitmap.iter() {
-                    if let Some((part, slot)) = mapping[old as usize] {
-                        scatter_posting_key(
-                            &mut projected[part]
-                                .custom_postings
-                                .get_mut(key)
-                                .unwrap()
-                                .index
-                                .lengths,
-                            value,
-                            slot.0,
-                        );
-                    }
-                }
-                Ok(())
-            })?;
-        }
-        for part in &mut projected {
-            for index in part.postings.fields.values_mut() {
-                index.finish_stats();
-            }
-            for custom in part.custom_postings.values_mut() {
-                custom.index.finish_stats();
+            for (part, scattered) in projected.iter_mut()
+                .zip(scatter_posting_partitions(&custom.index, routing)?) {
+                part.custom_postings.insert(key.clone(), CustomPostingIndex {
+                    index: scattered,
+                    complete: custom.complete,
+                });
             }
         }
         Ok(projected)
@@ -2233,6 +2189,7 @@ impl IndexedCollectionSegment {
             None,
             None,
             None,
+            None,
         )?;
         Ok(CompactedSegment {
             active: ActiveRecords::all(index.records.len())?,
@@ -2251,6 +2208,7 @@ impl IndexedCollectionSegment {
         relations: Vec<RelationContribution>,
         sorting: SortCollection,
         domains: DomainProjection,
+        inference: Option<InferenceState>,
     ) -> Result<IndexedCollectionSegment, String> {
         let selected = routing
             .selected
@@ -2271,6 +2229,7 @@ impl IndexedCollectionSegment {
             Some(relations),
             Some(sorting),
             Some(domains),
+            Some(inference),
             Some(&file_indices),
         )
     }
@@ -2285,6 +2244,7 @@ impl IndexedCollectionSegment {
         relation_projection: Option<Vec<RelationContribution>>,
         sorting_projection: Option<SortCollection>,
         domain_projection: Option<DomainProjection>,
+        inference_projection: Option<Option<InferenceState>>,
         selected_files: Option<&[usize]>,
     ) -> Result<IndexedCollectionSegment, String> {
         let mut files = Vec::new();
@@ -2452,13 +2412,17 @@ impl IndexedCollectionSegment {
         } else {
             project_sorting(&self.sorting, &slot_map, &records)?
         };
-        let inference = project_inference(
-            &self.inference,
-            &slot_map,
-            &logical_records,
-            records.len(),
-            bounds,
-        )?;
+        let inference = if let Some(inference) = inference_projection {
+            inference
+        } else {
+            project_inference(
+                &self.inference,
+                &slot_map,
+                &logical_records,
+                records.len(),
+                bounds,
+            )?
+        };
         let relations = if let Some(projected) = relation_projection {
             if projected.len() != self.relations.len()
                 || projected.iter().any(|relation| relation.record_count() != next)

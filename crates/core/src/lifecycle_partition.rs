@@ -138,14 +138,18 @@ fn compact_source_parts_with_limits(
     let domain_projections = source
         .project_domains_for_partitions(&routing)
         .map_err(IndexError::Build)?;
+    let inference_projections = source
+        .project_inference_for_partitions(&routing, &domain_projections)
+        .map_err(IndexError::Build)?;
     let mut parts = Vec::with_capacity(selections.len());
-    for ((((((files, _selected), projection), bigrams), relations), sorting), domains) in selections
+    for (((((((files, _selected), projection), bigrams), relations), sorting), domains), inference) in selections
         .into_iter()
         .zip(projections)
         .zip(bigram_projections)
         .zip(relation_projections)
         .zip(sorting_projections)
         .zip(domain_projections)
+        .zip(inference_projections)
     {
         if cancelled() {
             return Err(IndexError::Cancelled);
@@ -160,6 +164,7 @@ fn compact_source_parts_with_limits(
                 relations,
                 sorting,
                 domains,
+                inference,
             )
             .map_err(IndexError::Build)?;
         for file in &mut compacted.files {
