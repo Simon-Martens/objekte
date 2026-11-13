@@ -1139,3 +1139,112 @@ fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
     );
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn structural_membership_tracks_file_replacement_move_delete_and_add() {
+    use crate::lifecycle::Index;
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::reference::Schema;
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::source::SourceFormat;
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!("objekte-state-mutation-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let a = root.join("data/a.json");
+    let b = root.join("data/b.json");
+    let moved = root.join("data/c.json");
+    let added = root.join("data/d.json");
+    std::fs::write(&a, br#"{"x":null}"#).unwrap();
+    std::fs::write(&b, br#"{"x":"hello"}"#).unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["x".into()],
+            kind: LogicalType::Unknown,
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: true,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let index = Index::from_repository(repo).unwrap();
+    let initial = index.view().unwrap();
+    let request = |filter: &str| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let check = |view: &crate::lifecycle::IndexView, expected: [usize; 4]| {
+        for (filter, count) in [
+            "x:null = true",
+            "x:string = true",
+            "x:array = true",
+            "x:? = false",
+        ]
+        .into_iter()
+        .zip(expected)
+        {
+            let found = view.search(&request(filter)).unwrap();
+            assert_eq!(found.count, Some(count), "{filter}");
+            assert_eq!(found.counters.files_opened, 0, "{filter}");
+        }
+    };
+    check(&initial, [1, 1, 0, 1]);
+    let a_handle = initial.file_handle_for_path(&a).unwrap();
+    let b_handle = initial.file_handle_for_path(&b).unwrap();
+    std::fs::write(&a, br#"{"x":[]}"#).unwrap();
+    let replaced = index.update_file(a_handle, &a).unwrap();
+    check(&index.view().unwrap(), [0, 1, 1, 1]);
+    check(&initial, [1, 1, 0, 1]);
+    std::fs::rename(&b, &moved).unwrap();
+    index.move_file(b_handle, &moved).unwrap();
+    check(&index.view().unwrap(), [0, 1, 1, 1]);
+    index.delete_file(replaced.file).unwrap();
+    check(&index.view().unwrap(), [0, 1, 0, 0]);
+    std::fs::write(&added, br#"{"x":0}"#).unwrap();
+    index.add_file(&added).unwrap();
+    check(&index.view().unwrap(), [0, 1, 0, 0]);
+    let number = index
+        .view()
+        .unwrap()
+        .search(&request("x:number = true"))
+        .unwrap();
+    assert_eq!(number.count, Some(1));
+    assert_eq!(number.counters.files_opened, 0);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
