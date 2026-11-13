@@ -58,6 +58,59 @@ pub(crate) struct SealedBigramIndex {
     record_count: u32,
     normal: SealedPostingDictionary<u64>,
     skip: SealedPostingDictionary<u64>,
+    normal_presence: Option<GramPresence>,
+    skip_presence: Option<GramPresence>,
+}
+
+/// A compact absence proof for immutable gram keys. False positives still
+/// reach the checked dictionary; false negatives are impossible for inserted
+/// keys. Small dictionaries use the ordinary lookup directly.
+struct GramPresence {
+    words: Vec<u64>,
+    mask: u64,
+}
+
+impl GramPresence {
+    fn from_dictionary(dictionary: &SealedPostingDictionary<u64>) -> Result<Option<Self>, String> {
+        if dictionary.len() < 32 {
+            return Ok(None);
+        }
+        let bits = dictionary.len().saturating_mul(12)
+            .max(64).min(1 << 26).next_power_of_two();
+        let mut words = Vec::new();
+        words.try_reserve_exact(bits / 64)
+            .map_err(|error| format!("gram presence allocation: {error}"))?;
+        words.resize(bits / 64, 0);
+        let mut presence = Self { words, mask: (bits - 1) as u64 };
+        dictionary.visit_encoded_entries(|encoded, _| {
+            let key = u64::from_le_bytes(encoded.try_into()
+                .map_err(|_| "validated gram key length changed")?);
+            presence.insert(key);
+            Ok(())
+        })?;
+        Ok(Some(presence))
+    }
+
+    fn hashes(&self, key: u64) -> [usize; 3] {
+        let mut value = key.wrapping_add(0x9e3779b97f4a7c15);
+        value = (value ^ (value >> 30)).wrapping_mul(0xbf58476d1ce4e5b9);
+        value = (value ^ (value >> 27)).wrapping_mul(0x94d049bb133111eb);
+        value ^= value >> 31;
+        let step = value.rotate_left(32) | 1;
+        [0, 1, 2].map(|number: u64| {
+            ((value.wrapping_add(number.wrapping_mul(step))) & self.mask) as usize
+        })
+    }
+
+    fn insert(&mut self, key: u64) {
+        for bit in self.hashes(key) {
+            self.words[bit / 64] |= 1u64 << (bit % 64);
+        }
+    }
+
+    fn might_contain(&self, key: u64) -> bool {
+        self.hashes(key).into_iter().all(|bit| self.words[bit / 64] & (1u64 << (bit % 64)) != 0)
+    }
 }
 
 impl std::fmt::Debug for SealedBigramIndex {
@@ -120,11 +173,15 @@ impl SealedBigramIndex {
             spans.skip,
             allowed,
         )?;
+        let normal_presence = GramPresence::from_dictionary(&normal)?;
+        let skip_presence = GramPresence::from_dictionary(&skip)?;
         Ok(Self {
             alphabet,
             record_count,
             normal,
             skip,
+            normal_presence,
+            skip_presence,
         })
     }
 
@@ -147,7 +204,9 @@ impl SealedBigramIndex {
             spans.skip,
             allowed,
         )?;
-        Ok(Self { alphabet, record_count, normal, skip })
+        let normal_presence = GramPresence::from_dictionary(&normal)?;
+        let skip_presence = GramPresence::from_dictionary(&skip)?;
+        Ok(Self { alphabet, record_count, normal, skip, normal_presence, skip_presence })
     }
 
     pub(crate) fn record_count(&self) -> u32 {
@@ -181,6 +240,10 @@ impl SealedBigramIndex {
         let mut columns = Vec::<(bool, PostingDescriptor)>::with_capacity(grams.len());
         for &(skip, key) in grams {
             let dictionary = if skip { &self.skip } else { &self.normal };
+            let presence = if skip { &self.skip_presence } else { &self.normal_presence };
+            if presence.as_ref().is_some_and(|present| !present.might_contain(key)) {
+                return Ok(Some(RoaringBitmap::new()));
+            }
             let Some(descriptor) = dictionary.descriptor_u64(key)? else {
                 return Ok(Some(RoaringBitmap::new()));
             };

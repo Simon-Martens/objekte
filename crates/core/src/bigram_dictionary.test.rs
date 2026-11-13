@@ -147,3 +147,35 @@ fn installed_reader_releases_mutable_gram_maps_and_keeps_candidates() {
     assert_eq!(index.try_candidates_prepared(&request).unwrap(), expected);
     assert_eq!(index.try_estimate_prepared(&request).unwrap(), Some(1));
 }
+
+#[test]
+fn presence_filter_preserves_every_sealed_gram() {
+    let mut index = BigramIndex::new_ascii();
+    for slot in 0..100 {
+        let text = format!("prefix{slot:03}suffix");
+        index
+            .add_record(
+                RecordSlot(slot),
+                &[TextSegment { path: vec!["text".into()], text }],
+            )
+            .unwrap();
+    }
+    let sealed = seal(&index);
+    for (dictionary, presence) in [
+        (&sealed.normal, &sealed.normal_presence),
+        (&sealed.skip, &sealed.skip_presence),
+    ] {
+        let presence = presence.as_ref().expect("enough grams to build a filter");
+        dictionary
+            .visit_entries(|key, _| {
+                assert!(presence.might_contain(*key));
+                Ok(true)
+            })
+            .unwrap();
+    }
+    assert_eq!(
+        sealed.candidates_prepared(&BigramRequest::new("definitely missing"))
+            .unwrap(),
+        index.candidates_prepared(&BigramRequest::new("definitely missing"))
+    );
+}
