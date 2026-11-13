@@ -356,6 +356,8 @@ pub(crate) fn write_sealed_segment<W: Write + Seek>(
 }
 
 struct EncodedSections {
+    field_bindings: Vec<FieldBinding>,
+    text_bindings: Vec<TextBinding>,
     field_bytes: Vec<u8>,
     text_bytes: Vec<u8>,
     scalar: Vec<u8>,
@@ -365,6 +367,13 @@ struct EncodedSections {
     sort_bytes: Vec<u8>,
     relation_bytes: Vec<u8>,
     integrity_bytes: Vec<u8>,
+}
+
+struct ConstructedSections {
+    sections: [(SectionKind, Vec<u8>); REQUIRED_SECTIONS.len()],
+    field_bindings: Vec<FieldBinding>,
+    text_bindings: Vec<TextBinding>,
+    fallback: RoaringBitmap,
 }
 
 fn write_segment_inner<W: Write + Seek>(
@@ -392,7 +401,7 @@ fn write_segment_inner<W: Write + Seek>(
     let sections = if validate_before_write {
         let mut pack = PostingPack::new();
         let sections = encode_segment_sections(
-            segment, ordinal, options, intern, true, false, &mut pack,
+            segment, ordinal, options, intern, true, false, None, &mut pack,
         )?;
         write_bytes(&mut writer, SectionKind::PostingPayloads, pack.bytes())?;
         sections
@@ -401,7 +410,7 @@ fn write_segment_inner<W: Write + Seek>(
         writer.write_section(SectionKind::PostingPayloads, |output| {
             let mut pack = StreamingPostingPack::new(output);
             sections = Some(encode_segment_sections(
-                segment, ordinal, options, intern, false, false, &mut pack,
+                segment, ordinal, options, intern, false, false, None, &mut pack,
             )?);
             Ok(())
         })?;
@@ -424,6 +433,7 @@ fn write_segment_inner<W: Write + Seek>(
     })?;
     reserve_remaining(&mut writer, remaining_bytes)?;
     let EncodedSections {
+        field_bindings: _, text_bindings: _,
         field_bytes,
         text_bytes,
         scalar,
@@ -470,6 +480,7 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
     validate_before_write: bool,
     defer_constructed_metadata: bool,
+    constructed_fallback: Option<&RoaringBitmap>,
     pack: &mut P,
 ) -> Result<EncodedSections, String> {
     let phase_profile = cfg!(feature = "detailed-profiling")
@@ -531,16 +542,17 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
             lengths: lengths.into(),
         });
     }
-    let fallback = segment
-        .records
-        .iter()
-        .filter(|record| record.class == crate::inventory::RecordClass::RawFallback)
-        .map(|record| record.slot.0)
-        .collect::<RoaringBitmap>();
+    let fallback_owned = constructed_fallback.is_none().then(|| {
+        segment.records.iter()
+            .filter(|record| record.class == crate::inventory::RecordClass::RawFallback)
+            .map(|record| record.slot.0)
+            .collect::<RoaringBitmap>()
+    });
+    let fallback = constructed_fallback.or(fallback_owned.as_ref()).unwrap();
     let mut texts = Vec::new();
     for (key, index) in text_inputs(segment) {
         let allowed = if key == TextKey::Fallback {
-            &fallback
+            fallback
         } else {
             &segment.logical_records
         };
@@ -559,15 +571,15 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     }
     let dictionary_ns = phase.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
     let metadata_started = crate::detailed_timer::start_if_enabled(phase_profile);
-    let field_bytes = encode_meta(
-        FIELD_MAGIC,
-        &FieldSection {
-            bindings: fields,
-            inference_report: segment.inference.as_ref().map(|state| state.report.clone()),
-            record_parses: segment.record_parses,
-            failed_parses: segment.failed_parses,
-        },
-    )?;
+    let mut field_section = FieldSection {
+        bindings: fields,
+        inference_report: segment.inference.as_ref().map(|state| state.report.clone()),
+        record_parses: segment.record_parses,
+        failed_parses: segment.failed_parses,
+    };
+    let field_count = u32::try_from(field_section.bindings.len())
+        .map_err(|_| "too many field bindings")?;
+    let field_bytes = encode_meta(FIELD_MAGIC, &field_section)?;
     let structural_bytes = encode_meta(
         STRUCT_MAGIC,
         &StructuralSection {
@@ -587,7 +599,19 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
                 .unwrap_or_default(),
         },
     )?;
-    let text_bytes = encode_meta(TEXT_MAGIC, &TextSection { bindings: texts })?;
+    let text_count = u32::try_from(texts.len()).map_err(|_| "too many text bindings")?;
+    let mut text_section = TextSection { bindings: texts };
+    let text_bytes = encode_meta(TEXT_MAGIC, &text_section)?;
+    let field_bindings = if defer_constructed_metadata {
+        std::mem::take(&mut field_section.bindings)
+    } else {
+        Vec::new()
+    };
+    let text_bindings = if defer_constructed_metadata {
+        std::mem::take(&mut text_section.bindings)
+    } else {
+        Vec::new()
+    };
     let metadata_ns = metadata_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
     let record_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let record_bytes = if defer_constructed_metadata {
@@ -627,10 +651,8 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
             source_version: segment.source_version,
             slot_count,
             alphabet: options.bigram_alphabet,
-            field_bindings: u32::try_from(posting_inputs(segment).len())
-                .map_err(|_| "too many field bindings")?,
-            text_bindings: u32::try_from(text_inputs(segment).len())
-                .map_err(|_| "too many text bindings")?,
+            field_bindings: field_count,
+            text_bindings: text_count,
         },
     )?;
     if phase_profile {
@@ -640,6 +662,8 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
         );
     }
     Ok(EncodedSections {
+        field_bindings,
+        text_bindings,
         field_bytes,
         text_bytes,
         scalar,
@@ -728,11 +752,11 @@ fn encode_constructed_sections(
     segment: &IndexedCollectionSegment,
     ordinal: u64,
     options: RepositoryOptions,
-) -> Result<[(SectionKind, Vec<u8>); REQUIRED_SECTIONS.len()], String> {
+) -> Result<ConstructedSections, String> {
     if ordinal == 0 {
         return Err("hybrid segment ordinal must be nonzero".into());
     }
-    check_deferred_metadata_limits(segment)?;
+    let fallback = check_deferred_metadata_limits(segment)?;
     let mut pack = PostingPack::new();
     let sections = encode_segment_sections(
         segment,
@@ -741,14 +765,16 @@ fn encode_constructed_sections(
         &mut |_| Err("deferred constructed metadata requested a file reference".into()),
         false,
         true,
+        Some(&fallback),
         &mut pack,
     )?;
     let payloads = pack.into_bytes();
     let EncodedSections {
+        field_bindings, text_bindings,
         field_bytes, text_bytes, scalar, structural_bytes, bigrams,
         record_bytes, sort_bytes, relation_bytes, integrity_bytes,
     } = sections;
-    Ok([
+    let sections = [
         (SectionKind::FieldMetadata, field_bytes),
         (SectionKind::TextBindings, text_bytes),
         (SectionKind::ScalarDictionaries, scalar),
@@ -759,32 +785,24 @@ fn encode_constructed_sections(
         (SectionKind::SortData, sort_bytes),
         (SectionKind::RelationAndIdentity, relation_bytes),
         (SectionKind::Integrity, integrity_bytes),
-    ])
+    ];
+    Ok(ConstructedSections { sections, field_bindings, text_bindings, fallback })
 }
 
-/// Finalize an owned builder segment in place. The only external-style reads
-/// are the compact binding tables needed to attach the newly written spans;
-/// record maps, sort data, relations and structural facts remain owned.
+/// Finalize an owned builder segment in place. The private writer's binding
+/// descriptors are transferred directly to the readers it constructs.
 pub(crate) fn seal_segment_consuming(
     mut segment: IndexedCollectionSegment,
     ordinal: u64,
     _definition: &CollectionDefinition,
     options: RepositoryOptions,
 ) -> Result<IndexedCollectionSegment, String> {
-    let sections = encode_constructed_sections(&segment, ordinal, options)?;
+    let ConstructedSections { sections, field_bindings, text_bindings, fallback } =
+        encode_constructed_sections(&segment, ordinal, options)?;
     let reader = Arc::new(SegmentReader::from_constructed_sections(sections)?);
-    let fields: FieldSection =
-        decode_meta(FIELD_MAGIC, required(&reader, SectionKind::FieldMetadata)?)?;
-    let texts: TextSection =
-        decode_meta(TEXT_MAGIC, required(&reader, SectionKind::TextBindings)?)?;
     let logical = Arc::new(segment.logical_records.clone());
-    let fallback = Arc::new(
-        segment.records.iter()
-            .filter(|record| record.class == crate::inventory::RecordClass::RawFallback)
-            .map(|record| record.slot.0)
-            .collect::<RoaringBitmap>(),
-    );
-    for field in fields.bindings {
+    let fallback = Arc::new(fallback);
+    for field in field_bindings {
         let index = match &field.key {
             PostingKey::Declared(path) => segment.postings.fields.get_mut(path),
             PostingKey::Named(path, binding) => segment.custom_postings
@@ -803,7 +821,7 @@ pub(crate) fn seal_segment_consuming(
             )?,
         )?;
     }
-    for binding in texts.bindings {
+    for binding in text_bindings {
         let index = match &binding.key {
             TextKey::Raw => Some(&mut segment.raw),
             TextKey::Fallback => Some(&mut segment.fallback_text),

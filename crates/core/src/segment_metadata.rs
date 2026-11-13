@@ -168,7 +168,7 @@ pub(crate) fn encode_record_slots_constructed(
 /// when persisted. Preserve their domain and identity proof at sealing.
 pub(crate) fn check_deferred_metadata_limits(
     segment: &IndexedCollectionSegment,
-) -> Result<(), String> {
+) -> Result<RoaringBitmap, String> {
     if segment.source_id.is_empty()
         || segment.source_id.len() > MAX_SOURCE_BYTES
         || segment.files.len() > MAX_FILES
@@ -190,7 +190,7 @@ pub(crate) fn check_deferred_metadata_limits(
         &logical,
         &fallback,
     )?;
-    Ok(())
+    Ok(fallback)
 }
 
 #[cfg(test)]
