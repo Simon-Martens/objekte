@@ -116,6 +116,24 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         self.dictionary.len()
     }
 
+    /// Materialize a mutable map for bounded compaction. Query paths use the
+    /// checked point and range methods without retaining this map.
+    pub(crate) fn materialize_all(&self) -> Result<BTreeMap<K, RoaringBitmap>, String> {
+        let mut result = BTreeMap::new();
+        let mut cursor = self.dictionary.first();
+        while let Some(position) = cursor {
+            let (key, descriptor) = self.dictionary.entry(position)?;
+            if result
+                .insert(key, self.materialize_descriptor(descriptor)?)
+                .is_some()
+            {
+                return Err("sealed dictionary contains a duplicate key".into());
+            }
+            cursor = self.dictionary.next(position);
+        }
+        Ok(result)
+    }
+
     pub(crate) fn estimated_cardinality(&self, key: &K) -> Result<Option<u32>, String> {
         Ok(self
             .dictionary

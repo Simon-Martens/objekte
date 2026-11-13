@@ -1,6 +1,8 @@
 use super::*;
+use crate::model::LogicalType;
 use crate::model::Number;
-use crate::posting::ScalarKey;
+use crate::posting::{PostingIndex, ScalarKey};
+use crate::reference::FieldDefinition;
 use crate::segment_format::SegmentWriter;
 use std::io::Cursor;
 
@@ -152,5 +154,41 @@ fn malformed_posting_is_an_error_not_an_empty_result() {
     assert_eq!(
         sealed.get(&ScalarKey::String("absent".into())).unwrap(),
         None
+    );
+}
+
+#[test]
+fn posting_index_releases_builder_maps_and_materializes_for_compaction() {
+    let field = FieldDefinition {
+        path: vec!["title".into()],
+        kind: LogicalType::String,
+        required: false,
+        nullable: false,
+        indexed: true,
+        multi: false,
+        element_nullable: Vec::new(),
+    };
+    let mut index = PostingIndex::new(&field);
+    let key = ScalarKey::String("alpha".into());
+    let slots = RoaringBitmap::from_iter([0]);
+    index.presence = slots.clone();
+    index.values.insert(key.clone(), slots.clone());
+    index.covered_records = 1;
+    index.finish_stats();
+    let values = seal(&index.values, slots.clone());
+    let lengths = seal(&index.lengths, slots.clone());
+    index.install_sealed(values, lengths).unwrap();
+    assert!(index.values.is_empty());
+    assert!(index.lengths.is_empty());
+    assert_eq!(index.distinct_values(), 1);
+    index.validate_eligible(1, 1).unwrap();
+    let pinned = index.clone();
+    index.materialize_mutable().unwrap();
+    assert_eq!(index.values[&key], slots);
+    assert!(index.sealed_values().is_none());
+    assert!(pinned.values.is_empty());
+    assert_eq!(
+        pinned.sealed_values().unwrap().get(&key).unwrap(),
+        Some(slots)
     );
 }

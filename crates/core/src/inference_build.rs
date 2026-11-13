@@ -1097,6 +1097,7 @@ impl InferenceBuilder {
                     structural: Some(StructuralFacts::default()),
                     values,
                     lengths: field.lengths.take().unwrap_or_default(),
+                    sealed: None,
                     value_complete,
                     length_complete,
                     empty_string_complete,

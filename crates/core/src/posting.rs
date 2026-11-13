@@ -2,6 +2,7 @@
 
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::ops::Bound::{Excluded, Included, Unbounded};
+use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
@@ -10,6 +11,7 @@ use time::{Date, OffsetDateTime};
 use crate::field_state::{StatePredicate, value_matches};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
+use crate::posting_dictionary::SealedPostingDictionary;
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
@@ -56,12 +58,31 @@ pub struct PostingIndex {
     pub structural: Option<StructuralFacts>,
     pub values: BTreeMap<ScalarKey, RoaringBitmap>,
     pub lengths: BTreeMap<Number, RoaringBitmap>,
+    /// Immutable dictionary readers replace the completed builder maps.
+    #[serde(skip)]
+    pub(crate) sealed: Option<SealedPostingPair>,
     /// A partial dictionary cannot prove that an absent scalar value is absent.
     pub value_complete: bool,
     pub length_complete: bool,
     pub empty_string_complete: bool,
     pub covered_records: u32,
     pub stats: PostingStats,
+}
+
+#[derive(Clone)]
+pub(crate) struct SealedPostingPair {
+    values: Arc<SealedPostingDictionary<ScalarKey>>,
+    lengths: Arc<SealedPostingDictionary<Number>>,
+}
+
+impl std::fmt::Debug for SealedPostingPair {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("SealedPostingPair")
+            .field("values", &self.values.len())
+            .field("lengths", &self.lengths.len())
+            .finish()
+    }
 }
 
 /// Sparse facts inside the owning field posting, never synthetic field paths.
@@ -138,6 +159,50 @@ pub struct PostingStats {
 }
 
 impl PostingIndex {
+    /// Install checked immutable readers and release completed B-tree posting
+    /// maps. The segment reader retains the owning mapped or resident bytes.
+    pub(crate) fn install_sealed(
+        &mut self,
+        values: SealedPostingDictionary<ScalarKey>,
+        lengths: SealedPostingDictionary<Number>,
+    ) -> Result<(), String> {
+        if self.sealed.is_some()
+            || self.stats.distinct_count != values.len()
+            || (!self.values.is_empty() && self.values.len() != values.len())
+            || (!self.lengths.is_empty() && self.lengths.len() != lengths.len())
+            || (!self.length_complete && lengths.len() != 0)
+        {
+            return Err("sealed posting dictionary metadata mismatch".into());
+        }
+        self.sealed = Some(SealedPostingPair {
+            values: Arc::new(values),
+            lengths: Arc::new(lengths),
+        });
+        self.values.clear();
+        self.lengths.clear();
+        Ok(())
+    }
+
+    /// Restore mutable maps only for source-free merging or compaction.
+    pub(crate) fn materialize_mutable(&mut self) -> Result<(), String> {
+        if let Some(sealed) = &self.sealed {
+            let values = sealed.values.materialize_all()?;
+            let lengths = sealed.lengths.materialize_all()?;
+            self.values = values;
+            self.lengths = lengths;
+            self.sealed = None;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn sealed_values(&self) -> Option<&SealedPostingDictionary<ScalarKey>> {
+        self.sealed.as_ref().map(|pair| pair.values.as_ref())
+    }
+
+    pub(crate) fn sealed_lengths(&self) -> Option<&SealedPostingDictionary<Number>> {
+        self.sealed.as_ref().map(|pair| pair.lengths.as_ref())
+    }
+
     fn state_source(&self, derived: Derived) -> Option<Option<&RoaringBitmap>> {
         let key = match derived {
             Derived::Exists => return None,
@@ -241,7 +306,9 @@ impl PostingIndex {
         }
     }
 
-    pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
+    pub(crate) fn merge_shifted(&mut self, mut batch: Self, base: u32) -> Result<(), String> {
+        self.materialize_mutable()?;
+        batch.materialize_mutable()?;
         if self.path != batch.path
             || self.kind != batch.kind
             || self.multi != batch.multi
@@ -424,6 +491,7 @@ impl PostingIndex {
             structural: None,
             values: BTreeMap::new(),
             lengths: BTreeMap::new(),
+            sealed: None,
             value_complete: true,
             length_complete: matches!(field.kind, LogicalType::Array(_)),
             empty_string_complete: field.kind == LogicalType::String && !field.multi,
@@ -598,18 +666,24 @@ impl PostingIndex {
         }
         if self.stats.present_count != self.presence.len()
             || self.stats.null_count != self.nulls.len()
-            || self.stats.distinct_count != self.values.len()
+            || self.stats.distinct_count != self.distinct_values()
         {
             return Err("posting statistics mismatch".into());
         }
-        if !self.length_complete && !self.lengths.is_empty() {
+        if !self.length_complete
+            && (!self.lengths.is_empty()
+                || self
+                    .sealed_lengths()
+                    .is_some_and(|lengths| lengths.len() != 0))
+        {
             return Err("posting capability and stored facts mismatch".into());
         }
         Ok(())
     }
 
     pub fn distinct_values(&self) -> usize {
-        self.values.len()
+        self.sealed_values()
+            .map_or(self.values.len(), |values| values.len())
     }
 
     /// Cheap cardinality/work estimate; no dictionary traversal or bitmap copy.
