@@ -38,6 +38,7 @@ mod lifecycle_open;
 mod lifecycle_partition;
 pub mod lifecycle_repository;
 mod lifecycle_scan;
+mod lifecycle_storage;
 mod lifecycle_segment_codec;
 mod lifecycle_verified;
 mod materialization;

@@ -74,6 +74,7 @@ pub(crate) struct OpenedGeneration {
 #[derive(Clone, Debug, Default)]
 pub(crate) struct CommitStats {
     pub generation: u64,
+    pub segment_names: Vec<String>,
     pub segment_bytes_written: u64,
     pub segments_reused: usize,
     pub obsolete_files_reclaimed: usize,
@@ -487,6 +488,11 @@ impl ManagedStore {
                 }
             }
         }
+        stats.segment_names = next
+            .segments
+            .iter()
+            .map(|record| record.name.clone())
+            .collect();
         Ok(stats)
     }
 
@@ -581,7 +587,7 @@ impl ManagedStore {
     }
 
     fn read_catalog(&self, record: &CatalogRecord) -> Result<Arc<[u8]>, String> {
-        let mut file = open_regular_nofollow(&self.directory.join(&record.name))?;
+        let file = open_regular_nofollow(&self.directory.join(&record.name))?;
         if file.metadata().map_err(|error| error.to_string())?.len() != record.length {
             return Err("generation catalog length mismatch".into());
         }
