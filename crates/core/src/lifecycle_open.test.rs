@@ -275,7 +275,9 @@ fn direct_json_build_matches_static_inference_overlap_and_cache_restore() {
         ..Default::default()
     };
     let static_repo = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
-    let index = Index::build(&root, definitions.clone(), options).unwrap();
+    let index =
+        Index::build_unsealed_for_legacy_snapshot_tests(&root, definitions.clone(), options)
+            .unwrap();
     assert_eq!(index.status().unwrap().indexed_files, 3);
     assert_eq!(index.status().unwrap().live_records, 6);
     assert!(

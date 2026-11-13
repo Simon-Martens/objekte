@@ -87,7 +87,12 @@ fn partial_structural_postings_survive_explicit_mutations_and_cache_roundtrip() 
         verified_cache_bytes: 0,
         ..Default::default()
     };
-    let index = Index::build(&root, vec![definition.clone()], options).unwrap();
+    let index = Index::build_unsealed_for_legacy_snapshot_tests(
+        &root,
+        vec![definition.clone()],
+        options,
+    )
+    .unwrap();
     let check = |index: &Index, expected: [usize; 3], compare_reference: bool| {
         let view = index.view().unwrap();
         for (filter, count) in ["tags:length = 0", "tags:length = 2", "text = \"\""]
@@ -554,7 +559,7 @@ fn compatible_move_routes_pinned_reads_filter_sort_cache_and_compaction() {
     .unwrap();
     std::fs::write(&other, b"{\"id\":\"C\",\"name\":\"gamma\"}\n").unwrap();
     let definition = intrinsic_definition("items");
-    let index = Index::build(
+    let index = Index::build_unsealed_for_legacy_snapshot_tests(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
@@ -838,7 +843,7 @@ fn restored_shared_partition_verified_update_preserves_its_record_slot() {
     std::fs::write(&first, b"{\"id\":\"first\",\"name\":\"first\"}\n").unwrap();
     std::fs::write(&middle, old).unwrap();
     std::fs::write(&last, b"{\"id\":\"last\",\"name\":\"last\"}\n").unwrap();
-    let built = Index::build(
+    let built = Index::build_unsealed_for_legacy_snapshot_tests(
         &root,
         vec![definition.clone()],
         RepositoryOptions::default(),
@@ -1422,7 +1427,12 @@ fn slot_preserving_replacement_keeps_local_address_and_rebuilds_all_routes() {
     sources.schema = source_schema;
     sources.sort_fields = vec![FieldPath::parse("score").unwrap()];
     let definitions = vec![targets, sources];
-    let index = Index::build(&root, definitions.clone(), RepositoryOptions::default()).unwrap();
+    let index = Index::build_unsealed_for_legacy_snapshot_tests(
+        &root,
+        definitions.clone(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
     let path = root.join("sources/s.jsonl");
     let other_path = root.join("sources/r.jsonl");
     let original = b"{\"id\":\"S\",\"entry\":\"T\",\"score\":1,\"title\":\"alpha\"}\n";

@@ -263,6 +263,10 @@ pub struct BigramIndex {
 }
 
 impl BigramIndex {
+    pub(crate) fn is_sealed(&self) -> bool {
+        self.sealed.is_some()
+    }
+
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
         if self
             .normal

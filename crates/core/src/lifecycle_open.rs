@@ -17,7 +17,6 @@ use crate::repository::{
 };
 use crate::source::SourceRegistry;
 
-
 /// Opt-in restore attribution. All intervals are local to the calling thread;
 /// background reconciliation is measured separately by its task report.
 #[derive(Clone, Debug, Default, Serialize)]
@@ -35,7 +34,6 @@ pub struct LoadProfileStats {
     pub reconciliation_schedule_ns: u64,
 }
 
-
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct SegmentLoadProfile {
     pub collection: String,
@@ -45,7 +43,6 @@ pub struct SegmentLoadProfile {
     pub decode_validation_ns: u64,
     pub decode: crate::lifecycle_segment_codec::SegmentDecodeProfile,
 }
-
 
 impl Index {
     /// Build from exactly the supplied definitions and source root. A relative
@@ -62,6 +59,39 @@ impl Index {
     /// Registered-reader equivalent of [`Self::build`]. The explicit build
     /// policy takes precedence over the legacy repository snapshot mode.
     pub fn build_with_sources(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        sources: SourceRegistry,
+    ) -> Result<Self, IndexError> {
+        let started = Instant::now();
+        let index = Self::build_with_sources_unsealed(root, definitions, options, sources)?;
+        index.enable_owned_memory_sealing();
+        index.seal_current_segments_owned()?;
+        let full_ms = started.elapsed().as_millis() as u64;
+        index.update_timings_ms(|timings| {
+            timings.search_available = Some(full_ms);
+            timings.full_available = Some(full_ms);
+            if options.inference.mode != crate::inference::InferenceMode::Disabled {
+                timings.inference_full_available = Some(full_ms);
+            }
+        })?;
+        Ok(index)
+    }
+
+    #[cfg(test)]
+    pub(crate) fn build_unsealed_for_legacy_snapshot_tests(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+    ) -> Result<Self, IndexError> {
+        Self::build_with_sources_unsealed(root, definitions, options, SourceRegistry::builtin())
+    }
+
+    /// Build mutable shards for a first managed generation. The store writer
+    /// encodes them directly to immutable files and the next open installs
+    /// sealed readers; no temporary owned copy is made during this build.
+    pub(crate) fn build_with_sources_unsealed(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
         mut options: RepositoryOptions,
@@ -406,7 +436,6 @@ impl Index {
         Ok(index)
     }
 }
-
 
 #[cfg(test)]
 #[path = "lifecycle_open.test.rs"]

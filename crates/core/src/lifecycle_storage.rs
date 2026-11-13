@@ -328,6 +328,7 @@ impl Index {
             prepared.definitions,
             options,
             sources,
+            false,
             move |index| {
                 index.attach_storage(resolved)?;
                 index.flush_storage()?;
@@ -374,7 +375,8 @@ impl Index {
                 .map_err(IndexError::Io)?;
             return Ok(index);
         }
-        let index = Self::build_with_sources(root, prepared.definitions, options, sources)?;
+        let index =
+            Self::build_with_sources_unsealed(root, prepared.definitions, options, sources)?;
         index.attach_storage(prepared.resolved)?;
         index.flush_storage()?;
         index.set_sync_storage(true)?;

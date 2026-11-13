@@ -302,7 +302,11 @@ impl Index {
             definitions,
             options,
             sources,
-            |_| Ok(()),
+            true,
+            |index| {
+                index.enable_owned_memory_sealing();
+                index.seal_current_segments_owned()
+            },
         )
     }
 
@@ -311,6 +315,7 @@ impl Index {
         definitions: Vec<CollectionDefinition>,
         mut options: RepositoryOptions,
         sources: SourceRegistry,
+        seal_owned_memory: bool,
         on_complete: impl FnOnce(&Index) -> Result<(), IndexError> + Send + 'static,
     ) -> Result<InitialBuildTask, IndexError> {
         options.snapshot_mode = SnapshotMode::Disabled;
@@ -327,7 +332,12 @@ impl Index {
                     definitions,
                     options,
                     sources,
-                    |index| worker_task.publish(index.clone(), false),
+                    |index| {
+                        if seal_owned_memory {
+                            index.enable_owned_memory_sealing();
+                        }
+                        worker_task.publish(index.clone(), false)
+                    },
                     |index| worker_task.publish(index.clone(), false),
                     || worker_task.0.cancelled.load(Ordering::Acquire),
                 );

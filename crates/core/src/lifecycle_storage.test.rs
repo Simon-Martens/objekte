@@ -23,6 +23,75 @@ fn all_records() -> Query {
 }
 
 #[test]
+fn memory_only_build_and_updates_publish_owned_sealed_segments() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-memory-sealed-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let index = Index::open_with_storage(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        IndexStoragePolicy::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let first = index.view().unwrap();
+    assert!(first.0.segments[0].iter().all(|segment| {
+        segment.index.raw.is_sealed()
+            && segment.index.raw.normal.is_empty()
+            && segment.index.raw.skip.is_empty()
+    }));
+    assert_eq!(first.search(&all_records()).unwrap().count, Some(1));
+    drop(first);
+    let added = root.join("data/b.json");
+    std::fs::write(&added, br#"{"text":"beta"}"#).unwrap();
+    index.add_file(&added).unwrap();
+    let updated = index.view().unwrap();
+    assert!(
+        updated.0.segments[0]
+            .iter()
+            .all(|segment| segment.index.raw.is_sealed())
+    );
+    assert_eq!(updated.search(&all_records()).unwrap().count, Some(2));
+    drop(updated);
+
+    let task = Index::start_incremental_build_with_storage(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        IndexStoragePolicy::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let complete = task.wait_complete().unwrap();
+    let final_view = complete.view().unwrap();
+    assert!(
+        final_view.0.segments[0]
+            .iter()
+            .all(|segment| segment.index.raw.is_sealed())
+    );
+    assert_eq!(final_view.search(&all_records()).unwrap().count, Some(2));
+    assert!(
+        complete
+            .storage_status()
+            .unwrap()
+            .managed_directory
+            .is_none()
+    );
+    drop(final_view);
+    drop(complete);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn managed_open_reuses_complete_generation_without_source_build() {
     let root = std::env::temp_dir().join(format!(
         "objekte-managed-open-{}-{}",
@@ -97,12 +166,11 @@ fn managed_open_reuses_complete_generation_without_source_build() {
     let restored_segment = &restored_view.0.segments[0][0].index;
     assert!(restored_segment.raw.normal.is_empty());
     assert!(restored_segment.raw.skip.is_empty());
-    assert!(restored_segment
-        .inference
-        .as_ref()
-        .is_none_or(|inference| inference.indexes.values().all(|posting| {
+    assert!(restored_segment.inference.as_ref().is_none_or(|inference| {
+        inference.indexes.values().all(|posting| {
             posting.sealed.is_some() && posting.values.is_empty() && posting.lengths.is_empty()
-        })));
+        })
+    }));
     assert_eq!(
         serde_json::to_value(
             reopened

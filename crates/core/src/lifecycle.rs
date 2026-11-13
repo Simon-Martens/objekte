@@ -893,6 +893,7 @@ fn prepare_file_at(
 struct IndexInner {
     instance_id: u64,
     restored_from_cache: AtomicBool,
+    seal_owned_memory: AtomicBool,
     timings: Mutex<IndexTimingsMs>,
     /// Set under the publication write lock before closing waits for workers.
     /// Every data publication checks it while holding that same lock.
@@ -1229,6 +1230,7 @@ impl Index {
         Self(Arc::new(IndexInner {
             instance_id,
             restored_from_cache: AtomicBool::new(false),
+            seal_owned_memory: AtomicBool::new(false),
             timings: Mutex::new(IndexTimingsMs::default()),
             quiescing: AtomicBool::new(false),
             verified_cache: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
@@ -1251,6 +1253,54 @@ impl Index {
             sync_cache: Mutex::new(None),
             sync_cache_error: Mutex::new(None),
         }))
+    }
+
+    pub(crate) fn enable_owned_memory_sealing(&self) {
+        self.0.seal_owned_memory.store(true, Ordering::Release);
+    }
+
+    /// Finish a static memory-only build before the handle is exposed. In the
+    /// usual unique-root case, replacing each shard releases its mutable maps
+    /// before the next shard is encoded.
+    pub(crate) fn seal_current_segments_owned(&self) -> Result<(), IndexError> {
+        let mut published = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        let root = Arc::make_mut(&mut *published);
+        if !root.catalog.construction_complete() {
+            return Err(IndexError::IncompleteBuild);
+        }
+        Self::seal_new_owned_segments(root)
+    }
+
+    fn seal_new_owned_segments(root: &mut PublishedIndex) -> Result<(), IndexError> {
+        let options = root.repository.options();
+        for (number, group) in root.segments.iter_mut().enumerate() {
+            if !group.iter().any(|segment| !segment.index.raw.is_sealed()) {
+                continue;
+            }
+            let definition = &root.repository.collections()[number].definition;
+            for published in Arc::make_mut(group) {
+                if published.index.raw.is_sealed() {
+                    continue;
+                }
+                let sealed = crate::hybrid_segment_codec::seal_segment_owned(
+                    &published.index,
+                    published.ordinal,
+                    definition,
+                    options,
+                )
+                .map_err(IndexError::Build)?;
+                *published = Arc::new(PublishedSegment {
+                    ordinal: published.ordinal,
+                    index: Arc::new(sealed),
+                    active: published.active.clone(),
+                });
+            }
+        }
+        Ok(())
     }
 
     pub fn instance_id(&self) -> u64 {
@@ -2747,7 +2797,7 @@ impl Index {
     pub(crate) fn publish_prepared(
         &self,
         expected: IndexRevision,
-        next: PublishedIndex,
+        mut next: PublishedIndex,
     ) -> Result<IndexRevision, IndexError> {
         if next.instance_id != self.0.instance_id {
             return Err(IndexError::ForeignInstance);
@@ -2757,6 +2807,9 @@ impl Index {
             return Err(IndexError::InvalidPublication(
                 "prepared root must carry the next revision".into(),
             ));
+        }
+        if self.0.seal_owned_memory.load(Ordering::Acquire) {
+            Self::seal_new_owned_segments(&mut next)?;
         }
         let notify_cache = next.catalog.construction_complete();
         let next = Arc::new(next);
