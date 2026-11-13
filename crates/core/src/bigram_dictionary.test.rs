@@ -2,7 +2,7 @@ use super::*;
 use crate::model::RecordSlot;
 use crate::segment_format::SegmentWriter;
 use crate::source::TextSegment;
-use std::io::{Cursor, Write};
+use std::io::Cursor;
 
 fn seal(index: &BigramIndex) -> SealedBigramIndex {
     let allowed = Arc::new(RoaringBitmap::from_iter(0..index.record_count));
@@ -104,4 +104,46 @@ fn encoding_rejects_postings_outside_binding_domain() {
         )
         .is_err()
     );
+}
+
+#[test]
+fn installed_reader_releases_mutable_gram_maps_and_keeps_candidates() {
+    let mut index = BigramIndex::new_ascii();
+    for (slot, text) in ["abcde", "axcye", "zzzzz"].into_iter().enumerate() {
+        index
+            .add_record(
+                RecordSlot(slot as u32),
+                &[TextSegment {
+                    path: vec!["text".into()],
+                    text: text.into(),
+                }],
+            )
+            .unwrap();
+    }
+    let request = BigramRequest::new("abc");
+    let expected = index.candidates_prepared(&request);
+    let allowed = Arc::new(RoaringBitmap::from_iter(0..index.record_count));
+    let mut pack = PostingPack::new();
+    let mut dictionaries = Vec::new();
+    let spans = append_bigram_index(&mut dictionaries, &mut pack, &index, &allowed).unwrap();
+    let mut writer = SegmentWriter::new(Cursor::new(Vec::new()), 2).unwrap();
+    writer
+        .write_section(SectionKind::BigramDictionaries, |out| {
+            out.write_all(&dictionaries)
+                .map_err(|error| error.to_string())
+        })
+        .unwrap();
+    writer
+        .write_section(SectionKind::PostingPayloads, |out| {
+            out.write_all(pack.bytes())
+                .map_err(|error| error.to_string())
+        })
+        .unwrap();
+    let reader = Arc::new(
+        SegmentReader::from_owned(Arc::from(writer.finish().unwrap().into_inner())).unwrap(),
+    );
+    index.install_sealed(reader, spans, allowed).unwrap();
+    assert!(index.normal.is_empty() && index.skip.is_empty());
+    assert_eq!(index.try_candidates_prepared(&request).unwrap(), expected);
+    assert_eq!(index.try_estimate_prepared(&request).unwrap(), Some(1));
 }

@@ -3,6 +3,7 @@
 use std::collections::{HashMap, HashSet};
 #[cfg(feature = "detailed-profiling")]
 use std::sync::OnceLock;
+use std::sync::Arc;
 use std::time::Instant;
 
 use rayon::ThreadPool;
@@ -12,7 +13,9 @@ use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 #[cfg(test)]
 use crate::inventory::append_shifted_bitmap;
+use crate::bigram_dictionary::{BigramSpans, SealedBigramIndex};
 use crate::model::RecordSlot;
+use crate::segment_format::SegmentReader;
 use crate::source::TextSegment;
 use crate::workload::BigramAlphabet;
 
@@ -266,6 +269,8 @@ pub struct BigramIndex {
     pub record_count: u32,
     pub normal: HashMap<u64, RoaringBitmap>,
     pub skip: HashMap<u64, RoaringBitmap>,
+    #[serde(skip)]
+    sealed: Option<Arc<SealedBigramIndex>>,
 }
 
 
@@ -292,6 +297,44 @@ impl BigramIndex {
             record_count: 0,
             normal: HashMap::new(),
             skip: HashMap::new(),
+            sealed: None,
+        }
+    }
+
+    /// Replace mutable gram maps with a checked shared reader only after the
+    /// corresponding segment bytes have been published. The current snapshot
+    /// writer must be retired before production callers use this transition.
+    pub(crate) fn install_sealed(
+        &mut self,
+        reader: Arc<SegmentReader>,
+        spans: BigramSpans,
+        allowed: Arc<RoaringBitmap>,
+    ) -> Result<(), String> {
+        let sealed =
+            SealedBigramIndex::open(reader, spans, self.alphabet, self.record_count, allowed)?;
+        self.normal.clear();
+        self.skip.clear();
+        self.sealed = Some(Arc::new(sealed));
+        Ok(())
+    }
+
+    pub(crate) fn try_candidates_prepared(
+        &self,
+        request: &BigramRequest,
+    ) -> Result<Option<RoaringBitmap>, String> {
+        match &self.sealed {
+            Some(sealed) => sealed.candidates_prepared(request),
+            None => Ok(self.candidates_prepared(request)),
+        }
+    }
+
+    pub(crate) fn try_estimate_prepared(
+        &self,
+        request: &BigramRequest,
+    ) -> Result<Option<u64>, String> {
+        match &self.sealed {
+            Some(sealed) => sealed.estimate_prepared(request),
+            None => Ok(self.estimate_prepared(request)),
         }
     }
 
@@ -798,6 +841,7 @@ impl BigramContribution {
             record_count,
             normal: normal?,
             skip: skip?,
+            sealed: None,
         })
     }
 
@@ -816,6 +860,7 @@ impl BigramContribution {
             record_count,
             normal: convert_blocks(normal)?,
             skip: convert_blocks(skip)?,
+            sealed: None,
         })
     }
 }

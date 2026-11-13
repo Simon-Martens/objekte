@@ -36,6 +36,8 @@ Normal and skip-1 grams remain separate per text binding. Sparse ASCII and Unico
 
 The internal gram adapter now packs both families into the shared payload region, sorts observed numeric gram keys without cloning their bitmap values, and uses descriptor cardinality to order intersections. Differential tests compare its candidates and estimates against the mutable ASCII and Unicode bigram index, including skip grams and separated text segments. Production query routing and persisted binding metadata remain to be connected.
 
+`BigramIndex` now has an internal checked-reader installation step that releases its mutable gram maps after a validated shared segment is available. The fallible candidate/estimate methods are exercised against the installed reader. Production segment publication does not call this step yet: all segment query paths must first propagate corrupt payload errors, and the old snapshot writer must be retired so it cannot serialize an emptied builder map.
+
 ## Validation and reusable evidence
 
 Validation produces evidence keyed by immutable segment identity plus the exact section, block or payload byte span. It is shared by pinned views. A newly published segment has new evidence; evicting a decoded posting cache entry does not discard evidence for unchanged bytes. No invalid input is converted to an empty posting or a missing key.
