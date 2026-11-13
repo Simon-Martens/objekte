@@ -6,6 +6,7 @@
 
 use std::collections::HashMap;
 use std::fmt;
+use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::mpsc::{self, RecvTimeoutError, Sender, SyncSender};
@@ -3002,12 +3003,56 @@ impl IndexView {
         self.search_added_since_with_context(previous, query, &context)
     }
 
+    /// Limit newly matching rows before selected payloads and evidence are
+    /// materialized. The ordinary delta methods retain their all-match contract.
+    pub fn search_added_since_bounded_with_cancellation(
+        &self,
+        previous: &IndexView,
+        query: &Query,
+        limit: NonZeroUsize,
+        cancellation: &CancellationToken,
+    ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
+        let context = ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::streaming::ExecutionLimits::default(),
+            Some(cancellation.clone()),
+        );
+        self.search_added_since_with_context_limit(previous, query, &context, Some(limit))
+    }
+
+    /// Check whether a full appendable page can advance its publication
+    /// cursor without executing a delta. Global and changed-lineage queries
+    /// still require the caller's replacement path.
+    pub fn can_append_added_since_with_cancellation(
+        &self,
+        previous: &IndexView,
+        query: &Query,
+        cancellation: &CancellationToken,
+    ) -> Result<bool, ExecutionError> {
+        let context = ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::streaming::ExecutionLimits::default(),
+            Some(cancellation.clone()),
+        );
+        self.delta_query_if_appendable(previous, query, &context)
+            .map(|query| query.is_some())
+    }
+
     pub fn search_added_since_with_context(
         &self,
         previous: &IndexView,
         query: &Query,
         context: &ExecutionContext,
     ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
+        self.search_added_since_with_context_limit(previous, query, context, None)
+    }
+
+    fn delta_query_if_appendable(
+        &self,
+        previous: &IndexView,
+        query: &Query,
+        context: &ExecutionContext,
+    ) -> Result<Option<Query>, ExecutionError> {
         context.enter()?;
         if self.instance_id() != previous.instance_id()
             || self.revision() <= previous.revision()
@@ -3026,18 +3071,33 @@ impl IndexView {
         self.ensure_record_local_query(&resolved).map_err(|message| context.error(
             crate::streaming::ExecutionErrorKind::InvalidQuery, message,
         ))?;
-        let mut added = Vec::with_capacity(self.0.segments.len());
-        let mut added_records = 0usize;
         for (current, old) in self.0.segments.iter().zip(&previous.0.segments) {
             if old.len() > current.len() || old.iter().zip(current.iter()).any(|(left, right)| !Arc::ptr_eq(left, right)) {
                 return Ok(None);
             }
+        }
+        Ok(Some(resolved))
+    }
+
+    fn search_added_since_with_context_limit(
+        &self,
+        previous: &IndexView,
+        query: &Query,
+        context: &ExecutionContext,
+        limit: Option<NonZeroUsize>,
+    ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
+        let Some(resolved) = self.delta_query_if_appendable(previous, query, context)? else {
+            return Ok(None);
+        };
+        let mut added = Vec::with_capacity(self.0.segments.len());
+        let mut added_records = 0usize;
+        for (current, old) in self.0.segments.iter().zip(&previous.0.segments) {
             let next = current[old.len()..].to_vec();
             added_records = added_records.saturating_add(next.iter().map(|segment| segment.active.len() as usize).sum::<usize>());
             added.push(Arc::new(next));
         }
         let mut request = resolved;
-        request.options.limit = added_records;
+        request.options.limit = limit.map_or(added_records, |limit| added_records.min(limit.get()));
         request.options.count = false;
         let empty_base = self.0.active.iter().map(|_| ActiveRecords::from_bitmap(0, RoaringBitmap::new())
             .expect("empty active bitmap is valid")).collect::<Vec<_>>();

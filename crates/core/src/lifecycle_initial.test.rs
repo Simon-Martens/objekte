@@ -228,6 +228,23 @@ fn discovery_and_segments_publish_without_losing_records() {
     let finished = worker.join().unwrap().unwrap();
     let complete = finished.view().unwrap();
     assert!(complete.initial_construction_complete());
+    let token = crate::streaming::CancellationToken::new();
+    assert!(
+        !complete
+            .can_append_added_since_with_cancellation(&second, &follow_query, &token)
+            .unwrap()
+    );
+    assert!(
+        complete
+            .search_added_since_bounded_with_cancellation(
+                &second,
+                &follow_query,
+                std::num::NonZeroUsize::new(1).unwrap(),
+                &token,
+            )
+            .unwrap()
+            .is_none()
+    );
     let final_results = complete.search(&all_query()).unwrap();
     assert_eq!(final_results.count, Some(2_050));
     assert_eq!(final_results.hits.len(), 2_050);

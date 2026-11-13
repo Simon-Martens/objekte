@@ -4460,6 +4460,7 @@ fn search_segmented_impl(
         .collect();
     if query.options.return_mode != ReturnMode::Locator {
         let mut retained = Vec::with_capacity(page.len());
+        let mut selected_payload_bytes = 0u64;
         for mut winner in page {
             if let Some((collection_index, segment_index)) = winner.segment {
                 if let Some(context) = context {
@@ -4495,6 +4496,16 @@ fn search_segmented_impl(
                         return Err(message);
                     }
                 };
+                if query.options.return_mode == ReturnMode::Bytes
+                    || winner.hit.record_class != RecordClass::RawFallback
+                {
+                    let bytes = winner.hit.byte_end.saturating_sub(winner.hit.byte_start);
+                    counters.selected_payload_reads += 1;
+                    counters.selected_payload_bytes += bytes;
+                    selected_payload_bytes = selected_payload_bytes.saturating_add(bytes);
+                    counters.peak_retained_payload_bytes =
+                        counters.peak_retained_payload_bytes.max(selected_payload_bytes);
+                }
                 materialized.matched_fields = winner.hit.matched_fields.clone();
                 winner.hit = materialized;
             }

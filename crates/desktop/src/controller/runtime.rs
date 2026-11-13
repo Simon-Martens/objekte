@@ -2,6 +2,7 @@
 
 use std::collections::{BTreeSet, HashMap, HashSet, VecDeque};
 use std::io::Read;
+use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::mpsc::{self, Receiver, Sender};
@@ -252,6 +253,65 @@ fn project_query_page(
 
 /// Delta evaluation is confined to newly published segments. Unsupported
 /// global queries fall back to one provisional page replacement.
+fn incremental_delta_page(
+    session: &OpenedSession,
+    previous: &IndexView,
+    view: &IndexView,
+    spec: &backend::QuerySpec,
+    loaded: usize,
+    token: &CancellationToken,
+) -> Result<(GridRequestKind, backend::QueryPage), String> {
+    let started = Instant::now();
+    let mut query = backend::build_query(spec)?;
+    query.options.offset = 0;
+    query.options.count = false;
+    let visible_limit = spec
+        .limit
+        .unwrap_or(backend::MAX_PAGE_ROWS)
+        .min(backend::MAX_PAGE_ROWS);
+    let remaining = visible_limit.saturating_sub(loaded);
+    let delta = if spec.offset != 0 || spec.count {
+        Ok(None)
+    } else if let Some(limit) = NonZeroUsize::new(remaining) {
+        view.search_added_since_bounded_with_cancellation(previous, &query, limit, token)
+            .map(|available| available.map(|available| available.result))
+    } else {
+        view.can_append_added_since_with_cancellation(previous, &query, token)
+            .map(|appendable| {
+                appendable.then(|| objekte_search_core::repository::SearchResult {
+                    count: None,
+                    hits: Vec::new(),
+                    counters: objekte_search_core::workload::WorkCounters::default(),
+                })
+            })
+    };
+    match delta {
+        Ok(Some(result)) => Ok((
+            GridRequestKind::Delta(loaded),
+            backend::QueryPage {
+                repository_root: session.repository.files().root.clone(),
+                instance_id: view.instance_id(),
+                revision: view.revision(),
+                hits: result.hits,
+                page_start: loaded,
+                requested_offset: spec.offset.saturating_add(loaded),
+                next_page_start: None,
+                count: None,
+                provisional: true,
+                counters: result.counters,
+                elapsed_ns: started.elapsed().as_nanos(),
+            },
+        )),
+        Ok(None) | Err(_) if !token.is_cancelled() => {
+            backend::query_page_on_view(session, view, spec, 0, backend::MAX_PAGE_ROWS, token)
+                .map(|page| (GridRequestKind::First, page))
+                .map_err(|error| error.to_string())
+        }
+        Err(error) => Err(error.to_string()),
+        Ok(None) => Err("query cancelled".into()),
+    }
+}
+
 fn spawn_incremental_delta(
     session: OpenedSession,
     previous: IndexView,
@@ -271,42 +331,7 @@ fn spawn_incremental_delta(
             instance_id: view.instance_id(),
             revision: view.revision(),
         };
-        let started = Instant::now();
-        let result = (|| -> Result<(GridRequestKind, backend::QueryPage), String> {
-            let mut query = backend::build_query(&spec)?;
-            query.options.offset = 0;
-            query.options.count = false;
-            match view.search_added_since_with_cancellation(&previous, &query, &token) {
-                Ok(Some(available)) => {
-                    let mut hits = available.result.hits;
-                    let visible_limit = spec.limit.unwrap_or(100).min(100);
-                    hits.truncate(visible_limit.saturating_sub(loaded));
-                    Ok((
-                        GridRequestKind::Delta(loaded),
-                        backend::QueryPage {
-                            repository_root: session.repository.files().root.clone(),
-                            instance_id: view.instance_id(),
-                            revision: view.revision(),
-                            hits,
-                            page_start: loaded,
-                            requested_offset: spec.offset.saturating_add(loaded),
-                            next_page_start: None,
-                            count: None,
-                            provisional: true,
-                            counters: available.result.counters,
-                            elapsed_ns: started.elapsed().as_nanos(),
-                        },
-                    ))
-                }
-                Ok(None) | Err(_) if !token.is_cancelled() => {
-                    backend::query_page_on_view(&session, &view, &spec, 0, 100, &token)
-                        .map(|page| (GridRequestKind::First, page))
-                        .map_err(|error| error.to_string())
-                }
-                Err(error) => Err(error.to_string()),
-                Ok(None) => Err("query cancelled".into()),
-            }
-        })();
+        let result = incremental_delta_page(&session, &previous, &view, &spec, loaded, &token);
         let (kind, result) = match result {
             Ok((kind, page)) => (
                 kind,

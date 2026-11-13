@@ -41,6 +41,12 @@ pub struct WorkCounters {
     #[serde(default)]
     pub source_diagnostics: Vec<SourceDiagnostic>,
     pub returned_records: u64,
+    /// Selected lifecycle segment payload ranges opened after page selection.
+    /// Residual verification remains accounted for by the existing counters.
+    #[serde(default)]
+    pub selected_payload_reads: u64,
+    #[serde(default)]
+    pub selected_payload_bytes: u64,
     pub files_opened: u64,
     /// Physical primary-source files opened at least once. Relation target
     /// opens are counted in `files_opened` and `relation_target_reads`.
