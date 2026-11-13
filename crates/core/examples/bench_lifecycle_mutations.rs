@@ -10,13 +10,13 @@ use std::time::{Duration, Instant};
 
 use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle_mutation::{UpdateOptions, UpdateStrategy};
-use objekte_search_core::lifecycle_repository::{CacheOpenPolicy, RepositoryOpenOptions};
+use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{Query, QueryOptions};
 use objekte_search_core::reference::FieldDefinition;
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions};
-use objekte_search_core::source::SourceFormat;
-use objekte_search_core::storage::snapshot_path;
+use objekte_search_core::repository_configuration::load_repository_configuration;
+use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::ReturnMode;
 
 struct QueryProbe {
@@ -249,17 +249,21 @@ fn run_locality(root: &Path) -> Result<(), Box<dyn Error>> {
     )?;
     emit("build", started.elapsed(), &built, "synthetic=true");
     let index = if std::env::var("OBJEKTE_BENCH_RESTORE_LOCALITY").as_deref() == Ok("1") {
-        let cache = root.join("locality-cache.bin");
+        let storage = IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        };
+        let sources = SourceRegistry::builtin();
+        let options = RepositoryOptions::default();
+        let prepared = storage.prepare(&root, &[definition.clone()], options, &sources)?;
+        built.attach_storage(prepared.resolved)?;
         let started = Instant::now();
-        built.flush_cache(&cache)?;
+        built.flush_storage()?;
         emit("flush", started.elapsed(), &built, "synthetic=true");
         built.shutdown()?;
         let started = Instant::now();
-        let restored = Index::load_cache(
-            &root,
-            vec![definition],
-            RepositoryOptions::default(),
-            &cache,
+        let restored = Index::open_with_storage(
+            &root, vec![definition], options, storage, sources,
         )?;
         emit("restore", started.elapsed(), &restored, "synthetic=true");
         restored.wait_for_reconciliation()?;
@@ -353,13 +357,14 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
         return Err("benchmark fixture already has mutation paths; use a fresh copy".into());
     }
     println!("phase\tms\trss_kb\thwm_kb\trevision\tfiles\trecords\tdetail");
+    let definitions = load_repository_configuration(root)?.definitions;
+    let storage = IndexStoragePolicy {
+        location: IndexStorageLocation::RepositoryDirectory,
+        residency: IndexResidency::OnDemand,
+    };
     let started = Instant::now();
-    let index = Index::open_repository(
-        root,
-        RepositoryOpenOptions {
-            cache_open: CacheOpenPolicy::Ignore,
-            ..Default::default()
-        },
+    let index = Index::open_with_storage(
+        root, definitions.clone(), RepositoryOptions::default(), storage.clone(), SourceRegistry::builtin(),
     )?;
     emit(
         "build",
@@ -369,6 +374,8 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
     );
     let base_count = count(&index, collection)?;
     let probe_query = (mode == "stress").then(maintenance_query);
+    let pinned = (mode == "stress").then(|| index.view()).transpose()?;
+    let pinned_revision = pinned.as_ref().map(|view| view.revision());
     if let Some(query) = &probe_query {
         let (_, elapsed, probe) = while_querying(&index, query, || {
             thread::sleep(Duration::from_millis(500));
@@ -612,35 +619,58 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
         );
     }
 
-    let cache = snapshot_path(root, RepositoryOptions::default().bigram_alphabet);
-    let ((revision, stats), flush_elapsed, flush_probe) = if let Some(query) = &probe_query {
+    let (revision, flush_elapsed, flush_probe) = if let Some(query) = &probe_query {
         let (result, elapsed, probe) =
-            while_querying(&index, query, || Ok(index.flush_cache_with_stats(&cache)?))?;
+            while_querying(&index, query, || Ok(index.flush_storage()?))?;
         (result, elapsed, probe.detail())
     } else {
         let started = Instant::now();
-        (
-            index.flush_cache_with_stats(&cache)?,
-            started.elapsed(),
-            String::new(),
-        )
+        (index.flush_storage()?, started.elapsed(), String::new())
     };
     emit(
         "flush",
         flush_elapsed,
         &index,
         format!(
-            "revision={};bytes={};stats_ms={:.3};{}",
+            "revision={};durable_generation={:?};{}",
             revision.0,
-            stats.bytes_written,
-            stats.total_ns as f64 / 1_000_000.0,
+            index.storage_status()?.durable_generation,
             flush_probe,
         ),
     );
+    if let Some(pinned) = &pinned {
+        let query = Query {
+            collections: vec![collection.into()],
+            fts: None,
+            filter: None,
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 0,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let started = Instant::now();
+        let pinned_count = pinned.search(&query)?.count.ok_or("pinned count missing")?;
+        if pinned_count != base_count || pinned.revision() != pinned_revision.unwrap() {
+            return Err("pinned generation changed during maintenance".into());
+        }
+        emit(
+            "pinned_read",
+            started.elapsed(),
+            &index,
+            format!("pinned_revision={};pinned_count={pinned_count}", pinned.revision().0),
+        );
+    }
+    drop(pinned);
     drop(index);
 
     let started = Instant::now();
-    let loaded = Index::open_repository(root, RepositoryOpenOptions::default())?;
+    let loaded = Index::open_with_storage(
+        root, definitions, RepositoryOptions::default(), storage, SourceRegistry::builtin(),
+    )?;
     let loaded_count = count(&loaded, collection)?;
     emit(
         "decode_to_searchable",
