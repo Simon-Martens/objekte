@@ -407,11 +407,33 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
     }
 
     pub(crate) fn get(&self, key: &K) -> Result<Option<PostingDescriptor>, String> {
-        let Some(cursor) = self.lower_bound(key)? else {
+        let mut lo = 0usize;
+        let mut hi = self.blocks.len();
+        while lo < hi {
+            let mid = lo + (hi - lo) / 2;
+            if self.blocks[mid].last < *key {
+                lo = mid + 1;
+            } else {
+                hi = mid;
+            }
+        }
+        let Some(block) = self.blocks.get(lo) else {
             return Ok(None);
         };
-        let (found, posting) = self.entry(cursor)?;
-        Ok((found == *key).then_some(posting))
+        let leaf = self.leaf(block)?;
+        let mut left = 0usize;
+        let mut right = block.count as usize;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            let offset = read_u32(leaf, 4 + mid * 4)? as usize;
+            let (sample, descriptor, _) = read_leaf_entry::<K>(leaf, offset)?;
+            match sample.cmp(key) {
+                std::cmp::Ordering::Less => left = mid + 1,
+                std::cmp::Ordering::Greater => right = mid,
+                std::cmp::Ordering::Equal => return Ok(Some(descriptor)),
+            }
+        }
+        Ok(None)
     }
 
     pub(crate) fn lower_bound(&self, key: &K) -> Result<Option<DictionaryCursor>, String> {
