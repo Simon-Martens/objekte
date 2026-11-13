@@ -86,6 +86,30 @@ pub(crate) fn append_entries<'a, K: 'a + Ord + Clone + Serialize>(
     })
 }
 
+/// Re-encode a mutable or sealed dictionary while retaining only its keys and
+/// descriptors. The visitor supplies one checked posting at a time.
+pub(crate) fn append_visited<K: Ord + Clone + Serialize>(
+    section: &mut Vec<u8>,
+    pack: &mut PostingPack,
+    allowed: &RoaringBitmap,
+    visit: impl FnOnce(&mut dyn FnMut(&K, &RoaringBitmap) -> Result<(), String>) -> Result<(), String>,
+) -> Result<DictionarySpan, String> {
+    let start = section.len();
+    let mut entries = Vec::new();
+    visit(&mut |key, posting| {
+        if !posting.is_subset(allowed) {
+            return Err("dictionary posting outside current segment domain".into());
+        }
+        entries.push((key.clone(), pack.append(posting)?));
+        Ok(())
+    })?;
+    write_ordered_dictionary(section, entries)?;
+    Ok(DictionarySpan {
+        start,
+        length: section.len() - start,
+    })
+}
+
 /// The same query path serves memory-owned and file-mapped segment bytes.
 /// The caller supplies an already checked eligible record-slot domain.
 pub(crate) struct SealedPostingDictionary<K> {
