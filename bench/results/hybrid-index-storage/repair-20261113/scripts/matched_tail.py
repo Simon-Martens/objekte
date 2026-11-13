@@ -41,6 +41,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--baseline", type=Path, required=True)
     parser.add_argument("--candidate", type=Path, required=True)
+    parser.add_argument("--candidate-build-revision", required=True)
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--store-base", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
@@ -48,13 +49,14 @@ def main() -> None:
     args.output.mkdir(parents=True, exist_ok=False)
     if not args.store_base.is_dir() or not any(args.store_base.iterdir()):
         raise RuntimeError("--store-base must name a prebuilt managed store base")
-    candidate_revision = git("rev-parse", "HEAD")
+    runner_revision = git("rev-parse", "HEAD")
     if git("status", "--porcelain"):
         raise RuntimeError("candidate checkout must be clean for provenance")
     lock_bytes = subprocess.check_output(("git", "show", f"{BASELINE_REVISION}:Cargo.lock"))
     provenance = {
         "baseline_build_revision": BASELINE_REVISION,
-        "candidate_build_revision": candidate_revision,
+        "candidate_build_revision": args.candidate_build_revision,
+        "runner_checkout_revision": runner_revision,
         "baseline_executable_sha256": sha256(args.baseline),
         "candidate_executable_sha256": sha256(args.candidate),
         "baseline_lock_sha256": hashlib.sha256(lock_bytes).hexdigest(),
@@ -94,9 +96,10 @@ def main() -> None:
         if completed.returncode:
             raise RuntimeError(f"{mode}: {completed.stderr[-2000:]}")
         manifest = json.loads((folder / "run-manifest.json").read_text())
-        if manifest["build_mode"] != "hybrid":
+        expected_mode = "incremental" if mode == "baseline" else "hybrid"
+        if manifest["build_mode"] != expected_mode:
             raise RuntimeError(f"{mode}: backend mismatch")
-        if mode != "baseline" and manifest.get("binary_build_revision") != candidate_revision:
+        if mode != "baseline" and manifest.get("binary_build_revision") != args.candidate_build_revision:
             raise RuntimeError(f"{mode}: candidate binary revision mismatch")
         manifests[mode] = manifest
         if mode in ("resident", "ondemand"):
