@@ -1034,13 +1034,6 @@ impl App {
             return;
         }
         self.overlay = None;
-        if policy.location != IndexStorageLocation::MemoryOnly {
-            self.status = Some(
-                "Disk index storage is not available until the shared generation opener is connected"
-                    .into(),
-            );
-            return;
-        }
         self.reopen_request = Some(TuiReopenRequest {
             storage_policy: policy,
             search: self.search.text.clone(),

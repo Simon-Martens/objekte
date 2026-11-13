@@ -2,8 +2,10 @@
 
 Run `cargo run --release -p objekte-cli --bin obj -- --repo examples/musenalm --tui` from the workspace
 root. The terminal window opens before repository startup and shows the elapsed
-index-building time. On a fresh build, the file catalogue opens after discovery
-and search can begin while records are still indexed. The first run may take
+index-building time. In memory mode, a fresh build opens the file catalogue
+after discovery and search can begin while records are still indexed. Disk
+storage currently waits for its first complete generation before opening the
+search screen. The first run may take
 longer while the index is built; the release build is recommended for the
 Musenalm corpus. After each search,
 the result status line shows its execution time.

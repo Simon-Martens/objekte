@@ -18,7 +18,9 @@ use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
 use app::{Action, App, Focus, Overlay, View};
-use objekte_search_core::index_storage::{IndexStorageLocation, IndexStoragePolicy};
+use objekte_search_core::index_storage::{
+    IndexReadiness, IndexStorageLocation, IndexStoragePolicy, IndexSynchronization,
+};
 use objekte_search_core::lifecycle::{InitialBuildPhase, InitialBuildSnapshot, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::streaming::CancellationToken;
@@ -258,6 +260,8 @@ fn run_active(
     options: TuiOptions,
     initial: Option<(InitialBuildTask, InitialBuildSnapshot)>,
 ) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
+    let managed_index = (options.storage_policy.location != IndexStorageLocation::MemoryOnly)
+        .then(|| repository.index().clone());
     let timings = repository.index().timings_ms()?;
     let storage_label = match &options.storage_policy.location {
         IndexStorageLocation::MemoryOnly => "Memory index",
@@ -300,11 +304,53 @@ fn run_active(
     if let Some(light) = light {
         view::theme::set_light(light);
     }
+    let mut last_storage_state = None;
+    let mut last_storage_error = None;
     while !app.done {
         if app.interrupted() {
             return Err(interrupted().into());
         }
         app.tick(Instant::now());
+        if let Some(index) = managed_index.as_ref() {
+            let state = index.storage_status()?;
+            let summary = format!(
+                "{} · {} · generation {}{}",
+                match state.readiness {
+                    IndexReadiness::Building => "Building",
+                    IndexReadiness::Searchable => "Searchable",
+                    IndexReadiness::PreparingFullResidency => "Preparing full residency",
+                    IndexReadiness::FullyResidentReady => "Fully resident",
+                },
+                if !state.source_reconciliation_complete {
+                    "Reconciling changes"
+                } else {
+                    match state.synchronization {
+                        IndexSynchronization::MemoryOnly => "Memory index",
+                        IndexSynchronization::Pending => "Synchronizing",
+                        IndexSynchronization::Synchronizing => "Synchronizing",
+                        IndexSynchronization::Synchronized => "Synchronized",
+                        IndexSynchronization::Failed => "Synchronization failed",
+                    }
+                },
+                state.current_generation,
+                state
+                    .durable_generation
+                    .map_or_else(String::new, |number| format!(" · durable {number}")),
+            );
+            if last_storage_state.as_deref() != Some(summary.as_str()) {
+                app.status = Some(summary.clone());
+                let storage_error = state
+                    .last_error
+                    .map(|error| format!("Index synchronization: {error}"));
+                if let Some(error) = &storage_error {
+                    app.error = Some(error.clone());
+                } else if app.error == last_storage_error {
+                    app.error = None;
+                }
+                last_storage_error = storage_error;
+                last_storage_state = Some(summary);
+            }
+        }
         terminal.draw(|frame| view::draw(frame, &mut app))?;
         let poll_ms = if app.busy() { 30 } else { 250 };
         if !event::poll(Duration::from_millis(poll_ms))? {
@@ -333,6 +379,16 @@ fn run_active(
             stdout.write_all(clipboard::osc52(&text).as_bytes())?;
             stdout.flush()?;
         }
+    }
+    if let Some(index) = managed_index {
+        if index
+            .wait_for_reconciliation()?
+            .is_some_and(|report| report.cancelled)
+        {
+            return Err(std::io::Error::other("index reconciliation cancelled").into());
+        }
+        index.quiesce()?;
+        index.flush_storage()?;
     }
     Ok(app.reopen_request)
 }

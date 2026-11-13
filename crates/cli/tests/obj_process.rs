@@ -874,18 +874,34 @@ fn search_without_index_flags_leaves_disk_cache_absent() {
 }
 
 #[test]
-fn disk_storage_cannot_succeed_without_the_shared_opener() {
+fn temporary_and_repository_storage_open_with_the_shared_policy() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
     for mode in ["temporary", "repository"] {
         let (result, events) = invoke(root.path(), &["--index-storage", mode, "--fts", "needle"]);
-        assert_eq!(result.status.code(), Some(1));
-        assert!(events.is_empty());
         assert!(
-            String::from_utf8_lossy(&result.stderr).contains("disk index storage is not available")
+            result.status.success(),
+            "{}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+        assert_eq!(hits(&events).len(), 1);
+        assert_eq!(events.last().unwrap()["type"], "run_complete");
+        assert_eq!(events[0]["index_operation"], mode);
+        let finished = events.last().unwrap();
+        assert_eq!(
+            finished["index_storage_status"]["synchronization"],
+            "synchronized"
+        );
+        assert_eq!(
+            finished["index_storage_status"]["source_reconciliation_complete"],
+            true
+        );
+        assert_eq!(
+            finished["index_storage_status"]["durable_generation"],
+            finished["index_storage_status"]["current_generation"]
         );
     }
-    assert!(!root.path().join(".objekte").exists());
+    assert!(root.path().join(".objekte/indexes").is_dir());
 }
 
 #[test]

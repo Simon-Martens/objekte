@@ -6,6 +6,9 @@ use std::io::{self, BufWriter, Write};
 use std::path::PathBuf;
 use std::time::{Duration, Instant};
 
+use objekte_search_core::index_storage::{
+    IndexReadiness, IndexResidency, IndexStoragePolicy, IndexSynchronization,
+};
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
 use objekte_search_core::lifecycle::{Index, IndexRevision, IndexView};
@@ -13,6 +16,7 @@ use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::path_repr;
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::SnapshotAction;
+use objekte_search_core::source::SourceRegistry;
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
@@ -71,12 +75,6 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                 return Exit::Arguments;
             }
         };
-    if args.index_storage != IndexStorageChoice::Memory {
-        eprintln!(
-            "obj: disk index storage is not available until the shared generation opener is connected"
-        );
-        return Exit::Operation;
-    }
     let (mut policy, mut search, mut filter) = (storage_policy, initial_search, initial_filter);
     loop {
         let ui = crate::tui::TuiOptions {
@@ -86,10 +84,21 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             offset: args.offset,
             limit: args.limit,
             interruption: Some(token.clone()),
-            storage_policy: policy,
-            loading_label: Some("Building search index".to_owned()),
+            storage_policy: policy.clone(),
+            loading_label: Some(
+                if policy.location
+                    == objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly
+                {
+                    "Building search index"
+                } else {
+                    "Opening or building index"
+                }
+                .to_owned(),
+            ),
         };
-        let result =
+        let result = if policy.location
+            == objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly
+        {
             match Index::start_incremental_build(&root, configured.definitions.clone(), options) {
                 Ok(task) => {
                     crate::tui::run_with_initial_build(task, ui, configured.protected_files.clone())
@@ -97,17 +106,32 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                 Err(error) => {
                     Err(Box::new(io::Error::other(error.to_string())) as Box<dyn std::error::Error>)
                 }
-            };
+            }
+        } else {
+            let root = root.clone();
+            let definitions = configured.definitions.clone();
+            let protected_files = configured.protected_files.clone();
+            let opening_policy = policy.clone();
+            crate::tui::run_with_loader(
+                move || {
+                    let index = Index::open_with_storage(
+                        root,
+                        definitions,
+                        options,
+                        opening_policy,
+                        SourceRegistry::builtin(),
+                    )
+                    .map_err(|error| error.to_string())?;
+                    index
+                        .protect_configuration_files(&protected_files)
+                        .map_err(|error| error.to_string())?;
+                    IndexedRepository::new(index).map_err(|error| error.to_string())
+                },
+                ui,
+            )
+        };
         match result {
             Ok(Some(request)) => {
-                if request.storage_policy.location
-                    != objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly
-                {
-                    eprintln!(
-                        "obj: disk index storage is not available until the shared generation opener is connected"
-                    );
-                    return Exit::Operation;
-                }
                 policy = request.storage_policy;
                 search = request.search;
                 filter = request.filter;
@@ -284,12 +308,13 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             return Exit::Arguments;
         }
     };
-    if args.index_storage != IndexStorageChoice::Memory {
-        eprintln!(
-            "obj: disk index storage is not available until the shared generation opener is connected"
-        );
-        return Exit::Operation;
-    }
+    let storage_policy = match args.resolved_index_storage_policy(&paths) {
+        Ok(policy) => policy,
+        Err(message) => {
+            eprintln!("obj: {message}");
+            return Exit::Arguments;
+        }
+    };
     let configured = match configure_definitions(args, &paths) {
         Ok(configuration) => configuration,
         Err(message) => {
@@ -316,8 +341,13 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     // A fresh construction starts before opening query input. The input is
     // replayed after completion to preserve the ordered machine protocol.
     let mut source = None;
-    let opened =
-        open_incremental_repository(args, &paths, &configured, options, &mut source, token);
+    let opened = if storage_policy.location
+        == objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly
+    {
+        open_incremental_repository(args, &paths, &configured, options, &mut source, token)
+    } else {
+        open_managed_repository(&paths, &configured, options, storage_policy, token)
+    };
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
     }
@@ -360,12 +390,49 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             started: &started,
             startup_ns,
             snapshot_save: snapshot_save.as_ref(),
-            initial_incremental: true,
+            initial_incremental: args.index_storage == IndexStorageChoice::Memory,
         },
         source,
         &mut output,
         token,
     )
+}
+
+fn open_managed_repository(
+    paths: &ResolvedPaths,
+    configured: &ConfiguredDefinitions,
+    options: objekte_search_core::repository::RepositoryOptions,
+    storage_policy: IndexStoragePolicy,
+    token: &CancellationToken,
+) -> Result<(IndexedRepository, u128, Option<SnapshotSaveStats>), String> {
+    let started = Instant::now();
+    let index = Index::open_with_storage(
+        paths.root.clone(),
+        configured.definitions.clone(),
+        options,
+        storage_policy,
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())?;
+    index
+        .protect_configuration_files(&configured.protected_files)
+        .map_err(|error| error.to_string())?;
+    if token.is_cancelled() {
+        return Err("index opening cancelled".into());
+    }
+    if index
+        .wait_for_reconciliation()
+        .map_err(|error| error.to_string())?
+        .is_some_and(|report| report.cancelled)
+    {
+        return Err("index reconciliation cancelled".into());
+    }
+    if token.is_cancelled() {
+        return Err("index opening cancelled".into());
+    }
+    index.flush_storage().map_err(|error| error.to_string())?;
+    let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
+    Ok((repo, started.elapsed().as_nanos(), None))
 }
 
 /// Work on a fresh index as batches become searchable, while retaining the
@@ -497,6 +564,14 @@ fn run_start_event(
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "input_mode": input_mode,
         "index_operation": index_operation(args),
+        "index_residency": match args
+            .index_storage_policy()
+            .map(|policy| policy.residency)
+            .unwrap_or(IndexResidency::FullyResident)
+        {
+            IndexResidency::OnDemand => "on-demand",
+            IndexResidency::FullyResident => "full",
+        },
         "index_directory": paths.index_directory.as_deref().map(path_repr::query_path),
     })
 }
@@ -613,6 +688,22 @@ fn complete_run<W: Write>(
             return Exit::Operation;
         }
     };
+    let storage = match repo.index().storage_status() {
+        Ok(status) => status,
+        Err(error) => {
+            let message = error.to_string();
+            if let Err(error) = output
+                .emit(detailed_run_event(
+                    json!({"type":"run_error", "stage":"index_storage_status", "error":message}),
+                    &started,
+                ))
+                .and_then(|_| output.flush())
+            {
+                return output_failure(error);
+            }
+            return Exit::Operation;
+        }
+    };
     let base_fallback: usize = repo
         .collections()
         .iter()
@@ -637,8 +728,34 @@ fn complete_run<W: Write>(
         "build_parses": repo.build_parses(),
         "build_failed_parses": repo.build_failed_parses(),
         "index_timings_ms": index_timings_ms,
-        "snapshot_action": snapshot_action(stats.snapshot_action, snapshot_save.is_some(), stats.snapshot_restore_error.is_some()),
+        "snapshot_action": if args.index_storage == IndexStorageChoice::Memory {
+            snapshot_action(stats.snapshot_action, snapshot_save.is_some(), stats.snapshot_restore_error.is_some())
+        } else if repo.index().restored_from_cache() {
+            "managed_restored"
+        } else {
+            "managed_built"
+        },
         "snapshot_restore_error": stats.snapshot_restore_error,
+        "index_storage_status": {
+            "readiness": match storage.readiness {
+                IndexReadiness::Building => "building",
+                IndexReadiness::Searchable => "searchable",
+                IndexReadiness::PreparingFullResidency => "preparing_full_residency",
+                IndexReadiness::FullyResidentReady => "fully_resident_ready",
+            },
+            "source_reconciliation_complete": storage.source_reconciliation_complete,
+            "current_generation": storage.current_generation,
+            "durable_generation": storage.durable_generation,
+            "synchronization": match storage.synchronization {
+                IndexSynchronization::MemoryOnly => "memory_only",
+                IndexSynchronization::Pending => "pending",
+                IndexSynchronization::Synchronizing => "synchronizing",
+                IndexSynchronization::Synchronized => "synchronized",
+                IndexSynchronization::Failed => "failed",
+            },
+            "last_error": storage.last_error,
+            "managed_directory": storage.managed_directory.as_deref().map(path_repr::query_path),
+        },
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "automatic_index_summary": repo.inference_report("files").map(|report| json!({
             "complete": report.complete,
@@ -990,11 +1107,11 @@ fn detailed_run_event(#[allow(unused_mut)] mut event: Value, started: &Instant) 
 }
 
 fn index_operation(args: &Arguments) -> &'static str {
-    match (args.load_index.is_some(), args.write_index.is_some()) {
-        (false, false) => "memory_only",
-        (true, false) => "load_only",
-        (false, true) => "write_only",
-        (true, true) => "load_and_write",
+    match args.index_storage {
+        IndexStorageChoice::Memory => "memory_only",
+        IndexStorageChoice::Temporary => "temporary",
+        IndexStorageChoice::Repository => "repository",
+        IndexStorageChoice::Custom => "custom",
     }
 }
 

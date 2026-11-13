@@ -1,5 +1,6 @@
 use super::test_support::{fixture, relation_fixture};
 use super::*;
+use objekte_search_core::index_storage::IndexResidency;
 
 #[test]
 fn cli_mode_keeps_shortcuts_and_restricts_collection_and_links() {
@@ -132,7 +133,7 @@ fn action_palette_opens_existing_controls_and_columns_scroll() {
 }
 
 #[test]
-fn storage_action_reopens_memory_and_keeps_disk_choice_unapplied() {
+fn storage_action_requests_memory_and_repository_reopen() {
     let mut fixture = fixture(2);
     let app = &mut fixture.app;
     app.search = input::Input::with_text("needle");
@@ -157,10 +158,14 @@ fn storage_action_reopens_memory_and_keeps_disk_choice_unapplied() {
     assert!(!app.storage_full);
     app.storage_picker = 6;
     key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
-    assert!(!app.done);
-    assert!(app.reopen_request.is_none());
+    assert!(app.done);
+    let request = app.reopen_request.take().unwrap();
+    assert_eq!(
+        request.storage_policy.location,
+        IndexStorageLocation::RepositoryDirectory
+    );
+    assert_eq!(request.storage_policy.residency, IndexResidency::OnDemand);
     assert_eq!(app.storage_policy, IndexStoragePolicy::default());
-    assert!(app.status.as_deref().unwrap().contains("not available"));
 }
 
 #[test]
