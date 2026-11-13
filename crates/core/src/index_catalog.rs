@@ -63,7 +63,7 @@ impl PostingAccess<'_> {
         term: &BoundTerm,
         domain: &RoaringBitmap,
         visits: &mut u64,
-    ) -> Option<PostingProposal> {
+    ) -> Result<Option<PostingProposal>, String> {
         let index = self.index;
         let structural = term.derived.state_predicate().is_some();
         if !self.admitted
@@ -82,7 +82,7 @@ impl PostingAccess<'_> {
                 && !(structural && term.kind == LogicalType::Bool)
                 && !(term.derived == Derived::Length && term.kind == LogicalType::Number))
         {
-            return None;
+            return Ok(None);
         }
         let proposal = |operation, exact, lookup_work, output| PostingProposal {
             id: self.id,
@@ -92,8 +92,10 @@ impl PostingAccess<'_> {
             output,
             coverage: index.covered_records,
         };
-        if let Some((work, output)) = index.estimate_exact_with_visits(term, domain.len(), visits) {
-            return Some(proposal(PostingOperation::Exact, true, work, output));
+        if let Some((work, output)) =
+            index.estimate_exact_with_visits_checked(term, domain.len(), visits)?
+        {
+            return Ok(Some(proposal(PostingOperation::Exact, true, work, output)));
         }
         if index.empty_string_complete
             && !index.multi
@@ -104,16 +106,13 @@ impl PostingAccess<'_> {
             && matches!(&term.literal, Value::String(value) if value.is_empty())
         {
             *visits += 1;
-            let output = index
-                .values
-                .get(&ScalarKey::String(String::new()))
-                .map_or(0, RoaringBitmap::len);
-            return Some(proposal(
+            let output = index.value_cardinality(&ScalarKey::String(String::new()))?;
+            return Ok(Some(proposal(
                 PostingOperation::EmptyStringExact,
                 true,
                 1.0,
                 output,
-            ));
+            )));
         }
         // Opaque operations and custom matchers have no general implication
         // from a typed dictionary beyond the posting's own exact contract.
@@ -122,7 +121,7 @@ impl PostingAccess<'_> {
             || term.period.is_some()
             || term.query_path.has_explicit_array_step
         {
-            return None;
+            return Ok(None);
         }
         let complete_scalar = index.value_complete
             && !index.multi
@@ -144,25 +143,30 @@ impl PostingAccess<'_> {
                 | Operator::Ge
                 | Operator::Lt
                 | Operator::Le => {
-                    let key = ScalarKey::from_value(&term.literal)?;
-                    if let Some((work, output)) =
-                        index.estimate_observed_scalar(&key, term.operator, domain.len(), visits)
-                    {
-                        return Some(proposal(
+                    let Some(key) = ScalarKey::from_value(&term.literal) else {
+                        return Ok(None);
+                    };
+                    if let Some((work, output)) = index.estimate_observed_scalar_checked(
+                        &key,
+                        term.operator,
+                        domain.len(),
+                        visits,
+                    )? {
+                        return Ok(Some(proposal(
                             PostingOperation::ObservedScalarExact,
                             true,
                             work,
                             output,
-                        ));
+                        )));
                     }
                 }
                 Operator::Contains | Operator::NotContains if index.kind == LogicalType::String => {
-                    return Some(proposal(
+                    return Ok(Some(proposal(
                         PostingOperation::StringDictionaryExact,
                         true,
-                        index.values.len() as f64,
+                        index.distinct_values() as f64,
                         domain.len() / 4,
-                    ));
+                    )));
                 }
                 _ => {}
             }
@@ -174,12 +178,12 @@ impl PostingAccess<'_> {
             && matches!(&index.kind, LogicalType::Array(inner) if inner.as_ref() == &LogicalType::String)
             && term.quantifier == Quantifier::Any
         {
-            return Some(proposal(
+            return Ok(Some(proposal(
                 PostingOperation::StringDictionaryExact,
                 true,
-                index.values.len() as f64 * 2.0,
+                index.distinct_values() as f64 * 2.0,
                 domain.len() / 4,
-            ));
+            )));
         }
         if term.derived != Derived::None
             || !matches!(
@@ -191,42 +195,54 @@ impl PostingAccess<'_> {
                 Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
             )
         {
-            return None;
+            return Ok(None);
         }
-        let key = ScalarKey::from_value(&term.literal)?;
+        let Some(key) = ScalarKey::from_value(&term.literal) else {
+            return Ok(None);
+        };
         if let Some(covered) = self.short_string_coverage {
             if !matches!(term.literal, Value::String(_)) {
-                return None;
+                return Ok(None);
             }
-            let (work, count) =
-                index.estimate_observed_scalar(&key, term.operator, domain.len(), visits)?;
-            return Some(proposal(
+            let Some((work, count)) = index.estimate_observed_scalar_checked(
+                &key,
+                term.operator,
+                domain.len(),
+                visits,
+            )?
+            else {
+                return Ok(None);
+            };
+            return Ok(Some(proposal(
                 PostingOperation::ShortStringCandidates,
                 false,
                 work,
                 count
                     .saturating_add(domain.len() - covered.len())
                     .min(domain.len()),
-            ));
+            )));
         }
         if !index.value_complete
             || (term.quantifier != Quantifier::Any && self.empty_selections.is_none())
         {
-            return None;
+            return Ok(None);
         }
-        let (work, count) =
-            index.estimate_observed_scalar(&key, term.operator, domain.len(), visits)?;
+        let Some((work, count)) =
+            index.estimate_observed_scalar_checked(&key, term.operator, domain.len(), visits)?
+        else {
+            return Ok(None);
+        };
         let count = if term.quantifier != Quantifier::Any {
             count.saturating_add(self.empty_selections.map_or(0, RoaringBitmap::len))
         } else {
             count
         };
-        Some(proposal(
+        Ok(Some(proposal(
             PostingOperation::ValueCandidates,
             false,
             work,
             count.min(domain.len()),
-        ))
+        )))
     }
 
     pub fn execute(
@@ -235,31 +251,29 @@ impl PostingAccess<'_> {
         domain: &RoaringBitmap,
         input: &RoaringBitmap,
         operation: PostingOperation,
-    ) -> Option<RoaringBitmap> {
+    ) -> Result<Option<RoaringBitmap>, String> {
         let index = self.index;
         match operation {
-            PostingOperation::Exact => index.exact_set_restricted(term, domain, input),
-            PostingOperation::EmptyStringExact => Some(
+            PostingOperation::Exact => index.exact_set_restricted_checked(term, domain, input),
+            PostingOperation::EmptyStringExact => Ok(Some(
                 index
-                    .values
-                    .get(&ScalarKey::String(String::new()))
-                    .map(|slots| slots & input)
+                    .value_posting_restricted(&ScalarKey::String(String::new()), input)?
                     .unwrap_or_default(),
-            ),
-            PostingOperation::ObservedScalarExact => index.exact_observed_scalar_restricted(
-                &ScalarKey::from_value(&term.literal)?,
-                term.operator,
-                domain,
-                input,
-            ),
+            )),
+            PostingOperation::ObservedScalarExact => {
+                let Some(key) = ScalarKey::from_value(&term.literal) else {
+                    return Ok(None);
+                };
+                index.exact_observed_scalar_restricted_checked(&key, term.operator, domain, input)
+            }
             PostingOperation::StringDictionaryExact => {
                 let Value::String(pattern) = &term.literal else {
-                    return None;
+                    return Ok(None);
                 };
                 let mut result = RoaringBitmap::new();
-                for (key, slots) in &index.values {
+                index.for_each_value(|key, slots| {
                     let ScalarKey::String(value) = key else {
-                        return None;
+                        return Err("string posting dictionary has non-string key".into());
                     };
                     let contains = term.prepared_contains.as_ref().map_or_else(
                         || crate::reference::contains_pattern(value, pattern),
@@ -268,44 +282,35 @@ impl PostingAccess<'_> {
                     if contains == (term.operator == Operator::Contains) {
                         result |= slots & input;
                     }
-                }
-                Some(result)
+                    Ok(())
+                })?;
+                Ok(Some(result))
             }
             PostingOperation::ShortStringCandidates | PostingOperation::ValueCandidates => {
-                let key = ScalarKey::from_value(&term.literal)?;
-                let mut result = RoaringBitmap::new();
-                let values = &index.values;
-                match term.operator {
-                    Operator::Eq => {
-                        if let Some(slots) = values.get(&key) {
-                            result |= slots & input;
-                        }
-                    }
+                let Some(key) = ScalarKey::from_value(&term.literal) else {
+                    return Ok(None);
+                };
+                let mut result = match term.operator {
+                    Operator::Eq => index
+                        .value_posting_restricted(&key, input)?
+                        .unwrap_or_default(),
                     Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
-                        for (value, slots) in values {
-                            if std::mem::discriminant(value) != std::mem::discriminant(&key) {
-                                continue;
-                            }
-                            let order = value.cmp(&key);
-                            if match term.operator {
-                                Operator::Gt => order.is_gt(),
-                                Operator::Ge => order.is_ge(),
-                                Operator::Lt => order.is_lt(),
-                                Operator::Le => order.is_le(),
-                                _ => unreachable!(),
-                            } {
-                                result |= slots & input;
-                            }
-                        }
+                        index.union_scalar_range(&key, term.operator, Some(input))?
                     }
-                    _ => return None,
-                }
+                    _ => return Ok(None),
+                };
                 if operation == PostingOperation::ShortStringCandidates {
-                    result |= input - self.short_string_coverage?;
+                    let Some(coverage) = self.short_string_coverage else {
+                        return Ok(None);
+                    };
+                    result |= input - coverage;
                 } else if term.quantifier != Quantifier::Any {
-                    result |= self.empty_selections?;
+                    let Some(empty) = self.empty_selections else {
+                        return Ok(None);
+                    };
+                    result |= empty;
                 }
-                Some(result & input)
+                Ok(Some(result & input))
             }
         }
     }

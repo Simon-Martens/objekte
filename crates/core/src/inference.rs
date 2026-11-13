@@ -277,8 +277,8 @@ impl InferenceState {
                     observed_kinds: field.observed_kinds.clone(),
                     kind: posting.map(|index| index.kind.clone()),
                     multi: posting.map(|index| index.multi),
-                    value_keys: posting.map(|index| index.values.len()),
-                    length_keys: posting.map(|index| index.lengths.len()),
+                    value_keys: posting.map(PostingIndex::distinct_values),
+                    length_keys: posting.map(PostingIndex::distinct_lengths),
                     covered_records: posting.map(|index| index.covered_records),
                     present_records: field.present_records,
                     short_string_covered_records: field.short_string_covered_records,
@@ -388,14 +388,11 @@ impl InferenceState {
                         return Err("snapshot inferred short-string coverage mismatch".into());
                     }
                     let index = &self.indexes[&field.path];
-                    let represented =
-                        index
-                            .values
-                            .values()
-                            .fold(RoaringBitmap::new(), |mut all, slots| {
-                                all |= slots;
-                                all
-                            });
+                    let mut represented = RoaringBitmap::new();
+                    index.for_each_value(|_, slots| {
+                        represented |= slots;
+                        Ok(())
+                    })?;
                     if !covered.is_subset(&represented) {
                         return Err("snapshot inferred short-string coverage lacks values".into());
                     }

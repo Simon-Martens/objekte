@@ -23,7 +23,6 @@ use crate::source::{RecordRangeReader, ScanProjection};
 static NEXT_SELECTION_ID: AtomicU64 = AtomicU64::new(1);
 pub const MAX_POSTING_VALUES_PAGE: usize = 4096;
 
-
 /// Inclusive or exclusive typed dictionary boundary.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValueBound {
@@ -31,11 +30,9 @@ pub struct PostingValueBound {
     pub inclusive: bool,
 }
 
-
 /// Complete verified membership for one collection in one repository instance.
 #[derive(Clone, Debug)]
 pub struct ExactSelection(Arc<SelectionData>);
-
 
 #[derive(Debug)]
 struct SelectionData {
@@ -47,7 +44,6 @@ struct SelectionData {
     members: RoaringBitmap,
     segment_members: Vec<RoaringBitmap>,
 }
-
 
 impl ExactSelection {
     pub fn len(&self) -> u64 {
@@ -64,7 +60,6 @@ impl ExactSelection {
     }
 }
 
-
 /// One bounded page over an indexed field's stored value representation.
 #[derive(Clone, Debug)]
 pub struct PostingValuesRequest {
@@ -79,7 +74,6 @@ pub struct PostingValuesRequest {
     pub prefix: Option<String>,
     pub selection: Option<ExactSelection>,
 }
-
 
 impl PostingValuesRequest {
     pub fn new(collection: impl Into<String>, field: impl Into<String>, limit: usize) -> Self {
@@ -98,14 +92,12 @@ impl PostingValuesRequest {
     }
 }
 
-
 /// One typed key and the number of distinct eligible records containing it.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValueCount {
     pub value: ScalarKey,
     pub count: u64,
 }
-
 
 /// Domain and special-state totals for the selected posting representation.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -125,7 +117,6 @@ pub struct PostingValuesCoverage {
     pub value_counts_complete: bool,
 }
 
-
 /// In-process exclusive key that belongs to one repository generation and binding.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValuesCursor {
@@ -144,7 +135,6 @@ pub struct PostingValuesCursor {
     last_key: ScalarKey,
 }
 
-
 /// Values in posting-key order, with a cursor only when another key exists.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValuesPage {
@@ -156,7 +146,6 @@ pub struct PostingValuesPage {
     pub visited_keys: u64,
 }
 
-
 struct ResolvedPosting<'a> {
     index: &'a PostingIndex,
     binding: String,
@@ -164,7 +153,6 @@ struct ResolvedPosting<'a> {
     indexed_records: Option<&'a RoaringBitmap>,
     native_prefix: bool,
 }
-
 
 fn resolve<'a>(
     collection: &'a CollectionState,
@@ -315,12 +303,10 @@ fn resolve_segment<'a>(
     })
 }
 
-
 struct ScannedSegmentPosting {
     index: PostingIndex,
     complete_values: RoaringBitmap,
 }
-
 
 fn fully_represented(value: &Value, max_short_string: Option<usize>) -> bool {
     match value {
@@ -820,10 +806,14 @@ pub(crate) fn posting_values_segmented(
             visited_keys: 0,
         });
     }
-    let mut iterators = resolved
+    let value_maps = resolved
         .iter()
-        .map(|shard| {
-            let range = shard.index.values.range((lower.clone(), upper.clone()));
+        .map(|shard| shard.index.values_view())
+        .collect::<Result<Vec<_>, _>>()?;
+    let mut iterators = value_maps
+        .iter()
+        .map(|values| {
+            let range = values.range((lower.clone(), upper.clone()));
             if request.descending {
                 Box::new(range.rev()) as Box<dyn Iterator<Item = (&ScalarKey, &RoaringBitmap)> + '_>
             } else {
@@ -900,7 +890,6 @@ pub(crate) fn posting_values_segmented(
         visited_keys,
     })
 }
-
 
 impl Repository {
     pub fn select_exact(&self, collection: &str, query: &Query) -> Result<ExactSelection, String> {
@@ -1113,11 +1102,12 @@ impl Repository {
                 visited_keys: 0,
             });
         }
+        let value_map = index.values_view()?;
         let mut iterator: Box<dyn Iterator<Item = (&ScalarKey, &RoaringBitmap)> + '_> =
             if request.descending {
-                Box::new(index.values.range((lower, upper)).rev())
+                Box::new(value_map.range((lower, upper)).rev())
             } else {
-                Box::new(index.values.range((lower, upper)))
+                Box::new(value_map.range((lower, upper)))
             };
         let mut values = Vec::new();
         let mut visited_keys = 0;
@@ -1175,7 +1165,6 @@ impl Repository {
         })
     }
 }
-
 
 #[cfg(test)]
 #[path = "posting_values.test.rs"]

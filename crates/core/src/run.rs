@@ -57,7 +57,6 @@ use crate::verified::{CachedMember, CachedResult, VerifiedCache};
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
 
-
 /// One lifecycle query's cache namespace. The store is shared by all pinned
 /// publications of an index, so retention is bounded across revisions.
 #[derive(Clone, Copy)]
@@ -65,7 +64,6 @@ pub(crate) struct LifecycleCacheScope<'a> {
     pub(crate) store: &'a Mutex<VerifiedCache>,
     pub(crate) instance_id: u64,
 }
-
 
 fn check_computed_sort_budget(payload: u64, keys: u64, targets: u64) -> Result<(), String> {
     check_computed_sort_budget_with_limit(MAX_COMPUTED_SORT_BYTES, payload, keys, targets)
@@ -113,7 +111,6 @@ fn check_execution_sort_budget(
         .map_err(|message| computed_sort_resource(execution, &message))
 }
 
-
 /// One cached member that needs a source read to compute its sort key.
 struct CachedSortRead {
     collection_index: usize,
@@ -121,7 +118,6 @@ struct CachedSortRead {
     member_index: u32,
     range: ByteRange,
 }
-
 
 fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
     let mut bytes = cached
@@ -174,7 +170,6 @@ fn check_cached_sort_live(
     check_computed_sort_budget(fixed_bytes, key_bytes, target_bytes)
 }
 
-
 /// Comparable sort key with collection and ID tie breakers.
 #[derive(Clone)]
 struct RankKey {
@@ -183,14 +178,12 @@ struct RankKey {
     id: String,
 }
 
-
 /// Sort paths are parsed and columns resolved once per query.
 struct ResolvedSort<'a> {
     columns: Vec<Option<Vec<(&'a SortColumn, bool)>>>,
     bound: BoundSort<'a>,
     target_cache: std::sync::Mutex<SortTargetCache>,
 }
-
 
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
@@ -260,16 +253,13 @@ impl<'a> ResolvedSort<'a> {
     }
 }
 
-
 impl PartialEq for RankKey {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
-
 impl Eq for RankKey {}
-
 
 impl PartialOrd for RankKey {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -277,14 +267,12 @@ impl PartialOrd for RankKey {
     }
 }
 
-
 impl Ord for RankKey {
     fn cmp(&self, other: &Self) -> Ordering {
         crate::sort_binding::compare_parts(&self.parts, &other.parts)
             .then_with(|| (&self.collection, &self.id).cmp(&(&other.collection, &other.id)))
     }
 }
-
 
 /// Bounded page candidate and its materialized result.
 #[derive(Clone)]
@@ -296,7 +284,6 @@ struct Winner {
     retained_bytes: u64,
 }
 
-
 /// Verified record and any evidence or retained payload.
 struct ScannedMatch {
     slot: u32,
@@ -306,7 +293,6 @@ struct ScannedMatch {
     retained_bytes: u64,
     buffered_bytes: usize,
 }
-
 
 /// Per-file scan work and verified matches returned by a worker.
 #[derive(Default)]
@@ -327,7 +313,6 @@ struct ScannedFile {
     exact_members: RoaringBitmap,
 }
 
-
 impl From<&ScannedFile> for ScanWork {
     fn from(scanned: &ScannedFile) -> Self {
         Self {
@@ -342,13 +327,11 @@ impl From<&ScannedFile> for ScanWork {
     }
 }
 
-
 /// Count-only and exact-selection requests share the normal planner and scanner,
 /// but never retain ranked hits or verified-cache members.
 struct ExactCollector<'a> {
     members: Option<&'a mut RoaringBitmap>,
 }
-
 
 impl ExactCollector<'_> {
     fn add_set(&mut self, slots: &RoaringBitmap, counters: &mut WorkCounters) {
@@ -359,12 +342,10 @@ impl ExactCollector<'_> {
     }
 }
 
-
 struct FileWinner {
     key: RankKey,
     matched: ScannedMatch,
 }
-
 
 impl PartialEq for FileWinner {
     fn eq(&self, other: &Self) -> bool {
@@ -372,9 +353,7 @@ impl PartialEq for FileWinner {
     }
 }
 
-
 impl Eq for FileWinner {}
-
 
 impl PartialOrd for FileWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -382,13 +361,11 @@ impl PartialOrd for FileWinner {
     }
 }
 
-
 impl Ord for FileWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 /// Compact cache membership is budgeted independently of page payloads.
 struct CacheBudget {
@@ -396,7 +373,6 @@ struct CacheBudget {
     remaining: AtomicUsize,
     complete: AtomicBool,
 }
-
 
 impl CacheBudget {
     fn new(bytes: usize) -> Self {
@@ -441,7 +417,6 @@ impl CacheBudget {
         }
     }
 }
-
 
 fn scan_projection(
     query: &Query,
@@ -669,14 +644,12 @@ fn prepare_value_text_projection(projection: &mut ScanProjection, borrow_text: b
     }
 }
 
-
 enum Residual<'a> {
     Term(&'a BoundTerm, Option<&'a Proof>),
     And(Vec<Residual<'a>>),
     Or(Vec<Residual<'a>>),
     Not(Box<Residual<'a>>),
 }
-
 
 /// Collection-plan eligibility for matching trusted built-in source scalars.
 #[derive(Clone, Copy)]
@@ -685,7 +658,6 @@ struct DirectSourcePlan<'a> {
     filter: Option<(&'a BoundTerm, Option<&'a Proof>)>,
     decoded_scalars: bool,
 }
-
 
 fn source_fts_eligible(
     collection: &CollectionState,
@@ -707,7 +679,6 @@ fn source_fts_eligible(
                     .is_some_and(|path| path.has_explicit_array_step)
         })
 }
-
 
 impl<'a> DirectSourcePlan<'a> {
     fn prepare(
@@ -785,7 +756,6 @@ impl<'a> DirectSourcePlan<'a> {
     }
 }
 
-
 fn prepare_residual<'a>(
     expr: &'a BoundExpr,
     proofs: &'a [Proof],
@@ -805,7 +775,10 @@ fn prepare_residual<'a>(
                 .iter()
                 .enumerate()
                 .map(|(index, part)| {
-                    let (cost, output) = estimate_expr(collection, part, input_len);
+                    // Residual ordering is advisory. The checked execution
+                    // path reports any corrupt posting if that access wins.
+                    let (cost, output) = estimate_expr(collection, part, input_len)
+                        .unwrap_or((input_len as f64, input_len));
                     let fraction = output as f64 / input_len.max(1) as f64;
                     let probability = if is_and { 1.0 - fraction } else { fraction };
                     let score = cost / probability.max(0.05);
@@ -885,7 +858,6 @@ fn shared_fold_bound(filter: Option<&BoundExpr>) -> bool {
     let mut seen = SmallVec::new();
     filter.is_some_and(|node| visit(node, &mut seen))
 }
-
 
 impl Residual<'_> {
     fn unavailable(
@@ -1151,7 +1123,6 @@ impl Residual<'_> {
         })
     }
 }
-
 
 fn scan_file(
     repo: &Repository,
@@ -1737,7 +1708,6 @@ fn scan_file(
     Ok(outcome)
 }
 
-
 /// One resolved relation hop shown only in diagnostic EXPLAIN output.
 #[derive(Clone, Debug, Serialize)]
 pub struct RelationHopDiagnostic {
@@ -1747,7 +1717,6 @@ pub struct RelationHopDiagnostic {
     pub to_collection: String,
     pub selectors: Vec<Option<u32>>,
 }
-
 
 /// Exact predicate semantics shown outside the primary timed search path.
 #[derive(Clone, Debug, Serialize)]
@@ -1760,7 +1729,6 @@ pub struct BoundTermDiagnostic {
     pub resolved_period: Option<(Value, Value)>,
     pub relation_hops: Vec<RelationHopDiagnostic>,
 }
-
 
 fn bound_term_diagnostics(
     repo: &Repository,
@@ -1824,7 +1792,6 @@ fn bound_term_diagnostics(
     terms
 }
 
-
 /// Explain output for a collection plan and its actual work.
 #[derive(Clone, Debug, Serialize)]
 pub struct QueryPlanTrace {
@@ -1853,7 +1820,6 @@ pub struct QueryPlanTrace {
     pub candidates_estimated: bool,
     pub actual: Option<PlanActual>,
 }
-
 
 fn fts_covered_target(fts: Option<&BoundFts>) -> String {
     match fts {
@@ -1893,7 +1859,6 @@ fn regex_prefilter_reason(
     }
 }
 
-
 /// Observed source and predicate work for one plan.
 #[derive(Clone, Debug, Serialize)]
 pub struct PlanActual {
@@ -1913,7 +1878,6 @@ pub struct PlanActual {
     pub relation_reverse_postings_visited: u64,
     pub relation_verified_targets_reused: u64,
 }
-
 
 impl Default for PlanActual {
     fn default() -> Self {
@@ -1936,7 +1900,6 @@ impl Default for PlanActual {
         }
     }
 }
-
 
 fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &WorkCounters) {
     if let Some(trace) = traces.last_mut() {
@@ -2069,16 +2032,13 @@ fn inventory_fts_evidence(
     Ok(matches)
 }
 
-
 impl PartialEq for Winner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-
 impl Eq for Winner {}
-
 
 impl PartialOrd for Winner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -2086,13 +2046,11 @@ impl PartialOrd for Winner {
     }
 }
 
-
 impl Ord for Winner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 fn rank_key(
     sort: &ResolvedSort<'_>,
@@ -2199,7 +2157,6 @@ pub(crate) fn make_hit(
     }
 }
 
-
 /// A segment record has a local slot but retains a repository-global file ID.
 /// Resolve both through the same pinned segment; the base inventory cannot
 /// address a file added after the base generation was built.
@@ -2207,7 +2164,6 @@ pub(crate) struct SegmentRecordRef<'a> {
     pub record: &'a RecordEntry,
     pub file: &'a FileEntry,
 }
-
 
 fn segment_active_file<'a>(
     segment: &IndexedCollectionSegment,
@@ -2317,7 +2273,6 @@ pub(crate) fn get_segment_record_by_id(
     }))
 }
 
-
 /// One current-view direct lookup. A missing source is distinct from an ID
 /// that is absent from the pinned active domain.
 #[derive(Clone, Debug)]
@@ -2326,7 +2281,6 @@ pub enum DirectLookupResult {
     NotFound,
     SourceUnavailable(SourceDiagnostic),
 }
-
 
 pub(crate) fn direct_lookup_segmented(
     repo: &Repository,
@@ -2453,14 +2407,12 @@ pub(crate) fn direct_lookup_segmented(
     }
 }
 
-
 struct MergedPageHit {
     key: RankKey,
     hit: SearchHit,
     segment: Option<(usize, usize)>,
     retained_bytes: usize,
 }
-
 
 /// Optional complete ordering captured during an already exhaustive lifecycle
 /// query. Once its budget is exhausted, query execution continues without a
@@ -2470,7 +2422,6 @@ struct LifecycleCacheBuilder {
     bytes: usize,
     budget: usize,
 }
-
 
 /// One position in a stored ordering. Only the leading entry of each
 /// partition is retained in the heap, so traversal memory scales with the
@@ -2484,16 +2435,13 @@ struct LifecycleOrderCursor {
     slot: RecordSlot,
 }
 
-
 impl PartialEq for LifecycleOrderCursor {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-
 impl Eq for LifecycleOrderCursor {}
-
 
 impl PartialOrd for LifecycleOrderCursor {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -2501,13 +2449,11 @@ impl PartialOrd for LifecycleOrderCursor {
     }
 }
 
-
 impl Ord for LifecycleOrderCursor {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 impl LifecycleCacheBuilder {
     fn new(budget: usize) -> Self {
@@ -2563,16 +2509,13 @@ impl LifecycleCacheBuilder {
     }
 }
 
-
 impl PartialEq for MergedPageHit {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-
 impl Eq for MergedPageHit {}
-
 
 impl PartialOrd for MergedPageHit {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -2580,13 +2523,11 @@ impl PartialOrd for MergedPageHit {
     }
 }
 
-
 impl Ord for MergedPageHit {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 fn offer_merged(
     winners: &mut BinaryHeap<MergedPageHit>,
@@ -3211,7 +3152,6 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
     }
 }
 
-
 /// A single file's local residual work can run independently of other files. Only its
 /// bounded local top page crosses back to the ordered merge thread.
 struct SegmentFileScan {
@@ -3224,7 +3164,6 @@ struct SegmentFileScan {
     winners: Vec<SegmentLocalWinner>,
 }
 
-
 /// A file worker retains only slots and rank keys. The merge thread builds
 /// full hits for entries that can still reach the requested page.
 struct SegmentLocalWinner {
@@ -3233,16 +3172,13 @@ struct SegmentLocalWinner {
     matched_fields: Vec<String>,
 }
 
-
 impl PartialEq for SegmentLocalWinner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-
 impl Eq for SegmentLocalWinner {}
-
 
 impl PartialOrd for SegmentLocalWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -3250,13 +3186,11 @@ impl PartialOrd for SegmentLocalWinner {
     }
 }
 
-
 impl Ord for SegmentLocalWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 /// Verify one local segment candidate with the narrow source or value consumer.
 /// Relation and opaque binding requests stay on the established evaluator.
@@ -4705,7 +4639,6 @@ fn charge_lifecycle_cached_payload(
     Ok(())
 }
 
-
 #[derive(Clone)]
 struct RelationTargetPrune {
     source_path: Vec<String>,
@@ -4713,7 +4646,6 @@ struct RelationTargetPrune {
     exact: bool,
     evidence: Vec<String>,
 }
-
 
 fn eligible_one_hop_relation_term<'a>(
     repo: &Repository,
@@ -4932,30 +4864,28 @@ fn relation_target_prune(
 fn relation_source_candidates(
     published: &PublishedSegment,
     plan: &RelationTargetPrune,
-) -> Option<RoaringBitmap> {
-    let posting = published.index.postings.fields.get(&plan.source_path)?;
+) -> Result<Option<RoaringBitmap>, String> {
+    let Some(posting) = published.index.postings.fields.get(&plan.source_path) else {
+        return Ok(None);
+    };
     let mut may = if plan.exact {
         RoaringBitmap::new()
     } else {
         &published.active.bitmap() - &published.index.logical_records
     };
-    for (key, slots) in &posting.values {
-        if let crate::posting::ScalarKey::Id(id) = key
-            && plan.target_ids.contains(id)
-        {
+    for id in &plan.target_ids {
+        if let Some(slots) = posting.value_posting(&crate::posting::ScalarKey::Id(id.clone()))? {
             may |= slots;
         }
     }
     may &= published.active.bitmap();
-    Some(may)
+    Ok(Some(may))
 }
-
 
 enum DirectRelationPredicate<'a> {
     Term(&'a BoundTerm),
     Fts(BoundFts),
 }
-
 
 struct DirectTargetScan {
     matched_id: Option<String>,
@@ -4963,7 +4893,6 @@ struct DirectTargetScan {
     read: bool,
     unavailable: bool,
 }
-
 
 fn scan_direct_target_parallel(
     repo: &Repository,
@@ -5423,12 +5352,12 @@ fn try_direct_relation_page(
             return Ok(None);
         };
         let mut may = RoaringBitmap::new();
-        for (key, slots) in &posting.values {
-            if let crate::posting::ScalarKey::Id(id) = key
-                && target_ids.contains(id)
+        for id in &target_ids {
+            if let Some(slots) =
+                posting.value_posting(&crate::posting::ScalarKey::Id(id.clone()))?
             {
-                may |= slots;
                 counters.relation_reverse_postings_visited += slots.len();
+                may |= slots;
             }
         }
         may &= published.active.bitmap();
@@ -5604,14 +5533,12 @@ fn try_direct_relation_page(
     }))
 }
 
-
 struct RelationFileJob {
     segment_index: usize,
     file_id: u32,
     slot: RecordSlot,
     range: ByteRange,
 }
-
 
 struct RelationFileScan {
     counters: WorkCounters,
@@ -5620,7 +5547,6 @@ struct RelationFileScan {
     relation_unavailable: SourceAvailabilityLog,
     winner: Option<MergedPageHit>,
 }
-
 
 fn bounded_parallel_relation_filter(expr: &BoundExpr) -> bool {
     match expr {
@@ -6019,13 +5945,13 @@ fn try_parallel_relation_page(
                 )?);
             }
             if let Some(Some(plan)) = relation_prune.as_ref()
-                && let Some(relation_may) = relation_source_candidates(published, plan)
+                && let Some(relation_may) = relation_source_candidates(published, plan)?
             {
                 candidates =
                     Some(candidates.map_or(relation_may.clone(), |may| may & relation_may));
             }
             if let Some(plan) = exact_plan
-                && relation_source_candidates(published, plan).is_none()
+                && relation_source_candidates(published, plan)?.is_none()
             {
                 return Ok(None);
             }
@@ -6657,19 +6583,21 @@ fn search_segmented_relations(
                     )?);
                 }
                 if let Some(Some(plan)) = relation_prune.as_ref()
-                    && let Some(relation_may) = relation_source_candidates(published, plan)
+                    && let Some(relation_may) = relation_source_candidates(published, plan)?
                 {
                     candidates =
                         Some(candidates.map_or(relation_may.clone(), |may| may & relation_may));
                 }
             }
-            let exact_filter_fields = relation_prune
+            let exact_filter_fields = if let Some(plan) = relation_prune
                 .as_ref()
                 .and_then(Option::as_ref)
                 .filter(|plan| plan.exact)
-                .and_then(|plan| {
-                    relation_source_candidates(published, plan).map(|_| plan.evidence.as_slice())
-                });
+            {
+                relation_source_candidates(published, plan)?.map(|_| plan.evidence.as_slice())
+            } else {
+                None
+            };
             if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
                 continue;
             }
@@ -8728,7 +8656,6 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
     }
 }
 
-
 struct StoredCursor<'a> {
     columns: &'a [(&'a SortColumn, bool)],
     order: &'a [crate::model::RecordSlot],
@@ -8739,23 +8666,19 @@ struct StoredCursor<'a> {
     position: usize,
 }
 
-
 impl PartialEq for StoredCursor<'_> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
-
 impl Eq for StoredCursor<'_> {}
-
 
 impl PartialOrd for StoredCursor<'_> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-
 
 impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -8775,7 +8698,6 @@ impl Ord for StoredCursor<'_> {
         })
     }
 }
-
 
 fn stored_cursor<'a>(
     repo: &'a Repository,
@@ -8798,7 +8720,6 @@ fn stored_cursor<'a>(
     })
 }
 
-
 struct OrderedPlan<'a> {
     collection_index: usize,
     filter: Option<&'a BoundExpr>,
@@ -8807,14 +8728,12 @@ struct OrderedPlan<'a> {
     candidates: RoaringBitmap,
 }
 
-
 /// Membership already prepared for a stored-order attempt whose selective
 /// result is cheaper to rank with the general top-k collector.
 struct RejectedOrderPlans {
     entries: Vec<(Plan, RoaringBitmap)>,
     planning_ns: u64,
 }
-
 
 fn direct_payload(
     repo: &Repository,
@@ -8981,7 +8900,8 @@ fn posting_order_eligible(repo: &Repository, query: &Query) -> bool {
         return false;
     };
     let collection = &repo.collections[collection_index];
-    estimate_plan_expr(collection, filter, collection.logical_records.len()).exact
+    estimate_plan_expr(collection, filter, collection.logical_records.len())
+        .is_ok_and(|plan| plan.exact)
 }
 
 fn inferred_order_column(
@@ -10208,7 +10128,8 @@ pub(crate) fn explain_with_active(
         });
         let estimated = filter
             .as_ref()
-            .map(|expr| estimate_plan_expr(collection, expr, domain_len));
+            .map(|expr| estimate_plan_expr(collection, expr, domain_len))
+            .transpose()?;
         let fts_estimate = fts
             .as_ref()
             .and_then(|fts| estimate_fts_candidates(collection, fts));
@@ -10698,7 +10619,8 @@ fn search_impl_with_collector<'a>(
             let mut input = domain.clone();
             let filter_estimate = filter
                 .as_ref()
-                .map(|f| estimate_expr(collection, f, domain.len()));
+                .map(|f| estimate_expr(collection, f, domain.len()))
+                .transpose()?;
             let text_first = match (text_estimate, filter_estimate) {
                 (Some((text_count, text_lookup)), Some((filter_work, filter_count))) => {
                     text_lookup + text_count as f64 * source_unit * 0.1

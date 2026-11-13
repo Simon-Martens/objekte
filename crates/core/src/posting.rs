@@ -1,7 +1,9 @@
 //! Typed B-tree dictionaries with record-slot postings and special states.
 
+use std::borrow::Cow;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::ops::Bound::{Excluded, Included, Unbounded};
+use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
@@ -10,9 +12,11 @@ use time::{Date, OffsetDateTime};
 use crate::field_state::{StatePredicate, value_matches};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
+use crate::posting_dictionary::SealedPostingDictionary;
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
+use crate::segment_format::PostingDescriptor;
 
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ScalarKey {
@@ -56,12 +60,31 @@ pub struct PostingIndex {
     pub structural: Option<StructuralFacts>,
     pub values: BTreeMap<ScalarKey, RoaringBitmap>,
     pub lengths: BTreeMap<Number, RoaringBitmap>,
+    /// Immutable dictionary readers replace the completed builder maps.
+    #[serde(skip)]
+    pub(crate) sealed: Option<SealedPostingPair>,
     /// A partial dictionary cannot prove that an absent scalar value is absent.
     pub value_complete: bool,
     pub length_complete: bool,
     pub empty_string_complete: bool,
     pub covered_records: u32,
     pub stats: PostingStats,
+}
+
+#[derive(Clone)]
+pub(crate) struct SealedPostingPair {
+    values: Arc<SealedPostingDictionary<ScalarKey>>,
+    lengths: Arc<SealedPostingDictionary<Number>>,
+}
+
+impl std::fmt::Debug for SealedPostingPair {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("SealedPostingPair")
+            .field("values", &self.values.len())
+            .field("lengths", &self.lengths.len())
+            .finish()
+    }
 }
 
 /// Sparse facts inside the owning field posting, never synthetic field paths.
@@ -138,6 +161,327 @@ pub struct PostingStats {
 }
 
 impl PostingIndex {
+    /// Install checked immutable readers and release completed B-tree posting
+    /// maps. The segment reader retains the owning mapped or resident bytes.
+    pub(crate) fn install_sealed(
+        &mut self,
+        values: SealedPostingDictionary<ScalarKey>,
+        lengths: SealedPostingDictionary<Number>,
+    ) -> Result<(), String> {
+        if self.sealed.is_some()
+            || self.stats.distinct_count != values.len()
+            || (!self.values.is_empty() && self.values.len() != values.len())
+            || (!self.lengths.is_empty() && self.lengths.len() != lengths.len())
+            || (!self.length_complete && lengths.len() != 0)
+        {
+            return Err("sealed posting dictionary metadata mismatch".into());
+        }
+        self.sealed = Some(SealedPostingPair {
+            values: Arc::new(values),
+            lengths: Arc::new(lengths),
+        });
+        self.values.clear();
+        self.lengths.clear();
+        Ok(())
+    }
+
+    /// Restore mutable maps only for source-free merging or compaction.
+    pub(crate) fn materialize_mutable(&mut self) -> Result<(), String> {
+        if let Some(sealed) = &self.sealed {
+            let values = sealed.values.materialize_all()?;
+            let lengths = sealed.lengths.materialize_all()?;
+            self.values = values;
+            self.lengths = lengths;
+            self.sealed = None;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn sealed_values(&self) -> Option<&SealedPostingDictionary<ScalarKey>> {
+        self.sealed.as_ref().map(|pair| pair.values.as_ref())
+    }
+
+    pub(crate) fn sealed_lengths(&self) -> Option<&SealedPostingDictionary<Number>> {
+        self.sealed.as_ref().map(|pair| pair.lengths.as_ref())
+    }
+
+    /// Secondary APIs that need ordered traversal may borrow builder maps or
+    /// materialize a temporary map from immutable bytes. The published index
+    /// never retains both representations.
+    pub(crate) fn values_view(
+        &self,
+    ) -> Result<Cow<'_, BTreeMap<ScalarKey, RoaringBitmap>>, String> {
+        match self.sealed_values() {
+            Some(sealed) => Ok(Cow::Owned(sealed.materialize_all()?)),
+            None => Ok(Cow::Borrowed(&self.values)),
+        }
+    }
+
+    pub(crate) fn value_cardinality(&self, key: &ScalarKey) -> Result<u64, String> {
+        if let Some(sealed) = self.sealed_values() {
+            Ok(sealed.estimated_cardinality(key)?.unwrap_or(0) as u64)
+        } else {
+            Ok(self.values.get(key).map_or(0, RoaringBitmap::len))
+        }
+    }
+
+    pub(crate) fn value_posting(&self, key: &ScalarKey) -> Result<Option<RoaringBitmap>, String> {
+        if let Some(sealed) = self.sealed_values() {
+            sealed.get(key)
+        } else {
+            Ok(self.values.get(key).cloned())
+        }
+    }
+
+    pub(crate) fn value_posting_restricted(
+        &self,
+        key: &ScalarKey,
+        input: &RoaringBitmap,
+    ) -> Result<Option<RoaringBitmap>, String> {
+        if let Some(sealed) = self.sealed_values() {
+            sealed.get_restricted(key, input)
+        } else {
+            Ok(self.values.get(key).map(|bitmap| input & bitmap))
+        }
+    }
+
+    pub(crate) fn length_cardinality(&self, key: &Number) -> Result<u64, String> {
+        if let Some(sealed) = self.sealed_lengths() {
+            Ok(sealed.estimated_cardinality(key)?.unwrap_or(0) as u64)
+        } else {
+            Ok(self.lengths.get(key).map_or(0, RoaringBitmap::len))
+        }
+    }
+
+    pub(crate) fn length_posting(&self, key: &Number) -> Result<Option<RoaringBitmap>, String> {
+        if let Some(sealed) = self.sealed_lengths() {
+            sealed.get(key)
+        } else {
+            Ok(self.lengths.get(key).cloned())
+        }
+    }
+
+    pub(crate) fn for_each_value(
+        &self,
+        mut visit: impl FnMut(&ScalarKey, &RoaringBitmap) -> Result<(), String>,
+    ) -> Result<(), String> {
+        if let Some(sealed) = self.sealed_values() {
+            sealed.visit_entries(|key, descriptor| {
+                let posting = sealed.materialize_descriptor(descriptor)?;
+                visit(key, &posting)?;
+                Ok(true)
+            })
+        } else {
+            for (key, posting) in &self.values {
+                visit(key, posting)?;
+            }
+            Ok(())
+        }
+    }
+
+    pub(crate) fn for_each_length(
+        &self,
+        mut visit: impl FnMut(&Number, &RoaringBitmap) -> Result<(), String>,
+    ) -> Result<(), String> {
+        if let Some(sealed) = self.sealed_lengths() {
+            sealed.visit_entries(|key, descriptor| {
+                let posting = sealed.materialize_descriptor(descriptor)?;
+                visit(key, &posting)?;
+                Ok(true)
+            })
+        } else {
+            for (key, posting) in &self.lengths {
+                visit(key, posting)?;
+            }
+            Ok(())
+        }
+    }
+
+    pub(crate) fn union_scalar_range(
+        &self,
+        key: &ScalarKey,
+        operator: Operator,
+        input: Option<&RoaringBitmap>,
+    ) -> Result<RoaringBitmap, String> {
+        if let Some(sealed) = self.sealed_values() {
+            let Some((lower, upper)) = ordered_range_bounds(key, operator) else {
+                return Ok(RoaringBitmap::new());
+            };
+            let mut result = RoaringBitmap::new();
+            sealed.visit_bounds(lower, upper, |candidate, descriptor| {
+                if std::mem::discriminant(candidate) == std::mem::discriminant(key) {
+                    result |= if let Some(input) = input {
+                        sealed.intersect_descriptor(descriptor, input)?
+                    } else {
+                        sealed.materialize_descriptor(descriptor)?
+                    };
+                    Ok(true)
+                } else {
+                    Ok(candidate < key)
+                }
+            })?;
+            Ok(result)
+        } else {
+            Ok(scalar_range_postings(&self.values, key, operator, input).0)
+        }
+    }
+
+    pub(crate) fn count_scalar_range(
+        &self,
+        key: &ScalarKey,
+        operator: Operator,
+        limit: usize,
+    ) -> Result<usize, String> {
+        if let Some(sealed) = self.sealed_values() {
+            let Some((lower, upper)) = ordered_range_bounds(key, operator) else {
+                return Ok(0);
+            };
+            let mut count = 0;
+            sealed.visit_bounds(lower, upper, |candidate, _| {
+                if std::mem::discriminant(candidate) == std::mem::discriminant(key) {
+                    count += 1;
+                    Ok(count < limit)
+                } else {
+                    Ok(candidate < key)
+                }
+            })?;
+            Ok(count)
+        } else {
+            Ok(scalar_range_key_probe(&self.values, key, operator, limit))
+        }
+    }
+
+    fn visit_temporal_descriptors(
+        &self,
+        start: &ScalarKey,
+        end: &ScalarKey,
+        operator: Operator,
+        mut visit: impl FnMut(PostingDescriptor) -> Result<bool, String>,
+    ) -> Result<(), String> {
+        let sealed = self
+            .sealed_values()
+            .ok_or("temporal sealed dictionary missing")?;
+        let mut keep_going = true;
+        for (lower, upper) in temporal_bounds(start, end, operator) {
+            sealed.visit_bounds(lower, upper, |candidate, descriptor| {
+                if std::mem::discriminant(candidate) == std::mem::discriminant(start) {
+                    keep_going = visit(descriptor)?;
+                    Ok(keep_going)
+                } else {
+                    Ok(candidate < start)
+                }
+            })?;
+            if !keep_going {
+                break;
+            }
+        }
+        Ok(())
+    }
+
+    fn union_temporal_range(
+        &self,
+        start: &ScalarKey,
+        end: &ScalarKey,
+        operator: Operator,
+        input: Option<&RoaringBitmap>,
+    ) -> Result<RoaringBitmap, String> {
+        let sealed = self
+            .sealed_values()
+            .ok_or("temporal sealed dictionary missing")?;
+        let mut result = RoaringBitmap::new();
+        self.visit_temporal_descriptors(start, end, operator, |descriptor| {
+            result |= if let Some(input) = input {
+                sealed.intersect_descriptor(descriptor, input)?
+            } else {
+                sealed.materialize_descriptor(descriptor)?
+            };
+            Ok(true)
+        })?;
+        Ok(result)
+    }
+
+    fn count_temporal_range(
+        &self,
+        start: &ScalarKey,
+        end: &ScalarKey,
+        operator: Operator,
+        limit: usize,
+    ) -> Result<usize, String> {
+        let mut count = 0;
+        self.visit_temporal_descriptors(start, end, operator, |_| {
+            count += 1;
+            Ok(count < limit)
+        })?;
+        Ok(count)
+    }
+
+    pub(crate) fn union_lengths_matching(
+        &self,
+        mut matches: impl FnMut(&Number) -> bool,
+        input: Option<&RoaringBitmap>,
+    ) -> Result<RoaringBitmap, String> {
+        let mut result = RoaringBitmap::new();
+        if let Some(sealed) = self.sealed_lengths() {
+            sealed.visit_entries(|key, descriptor| {
+                if matches(key) {
+                    result |= if let Some(input) = input {
+                        sealed.intersect_descriptor(descriptor, input)?
+                    } else {
+                        sealed.materialize_descriptor(descriptor)?
+                    };
+                }
+                Ok(true)
+            })?;
+        } else {
+            for (key, posting) in &self.lengths {
+                if matches(key) {
+                    result |= if let Some(input) = input {
+                        input & posting
+                    } else {
+                        posting.clone()
+                    };
+                }
+            }
+        }
+        Ok(result)
+    }
+
+    fn union_length_range(
+        &self,
+        key: &Number,
+        operator: Operator,
+    ) -> Result<RoaringBitmap, String> {
+        let Some((lower, upper)) = ordered_range_bounds(key, operator) else {
+            return Ok(RoaringBitmap::new());
+        };
+        if let Some(sealed) = self.sealed_lengths() {
+            sealed.union_bounds(lower, upper, None)
+        } else {
+            Ok(range_postings(&self.lengths, key, operator, None).0)
+        }
+    }
+
+    fn count_length_range(
+        &self,
+        key: &Number,
+        operator: Operator,
+        limit: usize,
+    ) -> Result<usize, String> {
+        let Some((lower, upper)) = ordered_range_bounds(key, operator) else {
+            return Ok(0);
+        };
+        if let Some(sealed) = self.sealed_lengths() {
+            let mut count = 0;
+            sealed.visit_bounds(lower, upper, |_, _| {
+                count += 1;
+                Ok(count < limit)
+            })?;
+            Ok(count)
+        } else {
+            Ok(range_key_probe(&self.lengths, key, operator, limit))
+        }
+    }
+
     fn state_source(&self, derived: Derived) -> Option<Option<&RoaringBitmap>> {
         let key = match derived {
             Derived::Exists => return None,
@@ -207,6 +551,53 @@ impl PostingIndex {
         }
     }
 
+    pub(crate) fn estimate_observed_scalar_checked(
+        &self,
+        key: &ScalarKey,
+        operator: Operator,
+        domain_len: u64,
+        visits: &mut u64,
+    ) -> Result<Option<(f64, u64)>, String> {
+        if self.sealed.is_none() {
+            return Ok(self.estimate_observed_scalar(key, operator, domain_len, visits));
+        }
+        if self.covered_records as u64 != domain_len {
+            return Ok(None);
+        }
+        Ok(match operator {
+            Operator::Eq => {
+                *visits += 1;
+                Some((1.0, self.value_cardinality(key)?))
+            }
+            Operator::Ne if !self.multi => {
+                *visits += 1;
+                Some((
+                    2.0,
+                    self.stats.present_count
+                        - self.stats.null_count
+                        - self.value_cardinality(key)?,
+                ))
+            }
+            op if is_range(op) => {
+                let count = self.count_scalar_range(key, op, 33)?;
+                *visits += count as u64;
+                let output = if count <= 32 {
+                    count as u64 * self.stats.present_count
+                        / self.stats.distinct_count.max(1) as u64
+                } else {
+                    domain_len / 4
+                };
+                let work = if count <= 32 {
+                    count as f64
+                } else {
+                    self.stats.distinct_count as f64 / 8.0
+                };
+                Some((1.0 + work, output))
+            }
+            _ => None,
+        })
+    }
+
     /// An observed scalar field can prove a dynamic comparison even when the
     /// schema-free binder conservatively marks its term as multivalued.
     pub(crate) fn exact_observed_scalar_restricted(
@@ -241,7 +632,40 @@ impl PostingIndex {
         }
     }
 
-    pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
+    pub(crate) fn exact_observed_scalar_restricted_checked(
+        &self,
+        key: &ScalarKey,
+        operator: Operator,
+        domain: &RoaringBitmap,
+        input: &RoaringBitmap,
+    ) -> Result<Option<RoaringBitmap>, String> {
+        if self.sealed.is_none() {
+            return Ok(self.exact_observed_scalar_restricted(key, operator, domain, input));
+        }
+        if !self.value_complete || self.multi || self.covered_records as u64 != domain.len() {
+            return Ok(None);
+        }
+        Ok(match operator {
+            Operator::Eq => Some(
+                self.value_posting_restricted(key, input)?
+                    .unwrap_or_default(),
+            ),
+            Operator::Ne => {
+                let mut result = input & &self.presence;
+                result -= &self.nulls;
+                result -= &self
+                    .value_posting_restricted(key, input)?
+                    .unwrap_or_default();
+                Some(result)
+            }
+            op if is_range(op) => Some(self.union_scalar_range(key, op, Some(input))?),
+            _ => None,
+        })
+    }
+
+    pub(crate) fn merge_shifted(&mut self, mut batch: Self, base: u32) -> Result<(), String> {
+        self.materialize_mutable()?;
+        batch.materialize_mutable()?;
         if self.path != batch.path
             || self.kind != batch.kind
             || self.multi != batch.multi
@@ -413,6 +837,42 @@ impl PostingIndex {
         self.exact_set(term, domain).map(|set| &set & input)
     }
 
+    /// Checked counterpart used by published query generations. A corrupt
+    /// immutable posting is an error, never an absent or empty result.
+    pub(crate) fn exact_set_restricted_checked(
+        &self,
+        term: &BoundTerm,
+        domain: &RoaringBitmap,
+        input: &RoaringBitmap,
+    ) -> Result<Option<RoaringBitmap>, String> {
+        if self.sealed.is_none() {
+            return Ok(self.exact_set_restricted(term, domain, input));
+        }
+        if term.period.is_none()
+            && term.derived == Derived::None
+            && term.transform == Transform::Identity
+            && term.operator == Operator::Eq
+            && (!term.multi || term.quantifier == Quantifier::Any)
+            && self.scalar_equality_complete(term)
+            && self.covered_records as u64 == domain.len()
+            && !matches!(term.literal, Value::Null)
+            && term
+                .matcher
+                .as_ref()
+                .is_none_or(|matcher| matcher.posting_compatible())
+        {
+            if let Some(key) = ScalarKey::from_value(&term.literal) {
+                return Ok(Some(
+                    self.value_posting_restricted(&key, input)?
+                        .unwrap_or_default(),
+                ));
+            }
+        }
+        Ok(self
+            .exact_set_checked(term, domain)?
+            .map(|set| &set & input))
+    }
+
     pub fn new(field: &FieldDefinition) -> Self {
         Self {
             path: field.path.clone(),
@@ -424,6 +884,7 @@ impl PostingIndex {
             structural: None,
             values: BTreeMap::new(),
             lengths: BTreeMap::new(),
+            sealed: None,
             value_complete: true,
             length_complete: matches!(field.kind, LogicalType::Array(_)),
             empty_string_complete: field.kind == LogicalType::String && !field.multi,
@@ -598,18 +1059,29 @@ impl PostingIndex {
         }
         if self.stats.present_count != self.presence.len()
             || self.stats.null_count != self.nulls.len()
-            || self.stats.distinct_count != self.values.len()
+            || self.stats.distinct_count != self.distinct_values()
         {
             return Err("posting statistics mismatch".into());
         }
-        if !self.length_complete && !self.lengths.is_empty() {
+        if !self.length_complete
+            && (!self.lengths.is_empty()
+                || self
+                    .sealed_lengths()
+                    .is_some_and(|lengths| lengths.len() != 0))
+        {
             return Err("posting capability and stored facts mismatch".into());
         }
         Ok(())
     }
 
     pub fn distinct_values(&self) -> usize {
-        self.values.len()
+        self.sealed_values()
+            .map_or(self.values.len(), |values| values.len())
+    }
+
+    pub(crate) fn distinct_lengths(&self) -> usize {
+        self.sealed_lengths()
+            .map_or(self.lengths.len(), |lengths| lengths.len())
     }
 
     /// Cheap cardinality/work estimate; no dictionary traversal or bitmap copy.
@@ -780,6 +1252,135 @@ impl PostingIndex {
         }
     }
 
+    pub(crate) fn estimate_exact_with_visits_checked(
+        &self,
+        term: &BoundTerm,
+        domain_len: u64,
+        visits: &mut u64,
+    ) -> Result<Option<(f64, u64)>, String> {
+        if self.sealed.is_none() {
+            return Ok(self.estimate_exact_with_visits(term, domain_len, visits));
+        }
+        if term
+            .matcher
+            .as_ref()
+            .is_some_and(|matcher| !matcher.posting_compatible())
+            || self.covered_records as u64 != domain_len
+        {
+            return Ok(None);
+        }
+        if let Some(period) = &term.period {
+            if !self.value_complete || term.multi || term.transform != Transform::Identity {
+                return Ok(None);
+            }
+            let Some(start) = ScalarKey::from_value(&period.start) else {
+                return Ok(None);
+            };
+            let Some(end) = ScalarKey::from_value(&period.end) else {
+                return Ok(None);
+            };
+            if std::mem::discriminant(&start) != std::mem::discriminant(&end) || start >= end {
+                return Ok(None);
+            }
+            let keys = self.count_temporal_range(&start, &end, term.operator, 33)?;
+            *visits += keys as u64;
+            let output = if keys <= 32 {
+                keys as u64 * self.stats.present_count / self.stats.distinct_count.max(1) as u64
+            } else {
+                domain_len / 4
+            };
+            return Ok(Some((1.0 + keys as f64, output)));
+        }
+        if term.derived == Derived::Exists
+            || self.state_source(term.derived).is_some()
+            || (term.derived == Derived::None && matches!(term.literal, Value::Null))
+        {
+            return Ok(self.estimate_exact_with_visits(term, domain_len, visits));
+        }
+        if term.derived == Derived::Length {
+            if !self.length_complete || !length_posting_is_exact(term) {
+                return Ok(None);
+            }
+            let Value::Number(number) = &term.literal else {
+                return Ok(None);
+            };
+            let range_keys = if is_range(term.operator) {
+                Some(self.count_length_range(number, term.operator, 33)?)
+            } else {
+                None
+            };
+            *visits += range_keys.unwrap_or(1) as u64;
+            let count = if term.operator == Operator::Eq {
+                self.length_cardinality(number)?
+            } else if let Some(keys) = range_keys {
+                if keys <= 32 {
+                    keys as u64 * domain_len / self.sealed_lengths().unwrap().len().max(1) as u64
+                } else {
+                    domain_len / 4
+                }
+            } else {
+                domain_len / 4
+            };
+            let work = if let Some(keys) = range_keys {
+                if keys <= 32 {
+                    keys as f64
+                } else {
+                    self.sealed_lengths().unwrap().len() as f64
+                }
+            } else if term.operator == Operator::Eq {
+                0.0
+            } else {
+                self.sealed_lengths().unwrap().len() as f64
+            };
+            return Ok(Some((1.0 + work, count)));
+        }
+        if term.derived != Derived::None
+            || term.transform != Transform::Identity
+            || (term.multi && (term.quantifier != Quantifier::Any || term.operator != Operator::Eq))
+        {
+            return Ok(None);
+        }
+        let Some(key) = ScalarKey::from_value(&term.literal) else {
+            return Ok(None);
+        };
+        if term.operator == Operator::Eq && !self.scalar_equality_complete(term)
+            || term.operator != Operator::Eq && !self.value_complete
+        {
+            return Ok(None);
+        }
+        Ok(match term.operator {
+            Operator::Eq => {
+                *visits += 1;
+                Some((1.0, self.value_cardinality(&key)?))
+            }
+            Operator::Ne if !term.multi => {
+                *visits += 1;
+                Some((
+                    2.0,
+                    self.stats.present_count
+                        - self.stats.null_count
+                        - self.value_cardinality(&key)?,
+                ))
+            }
+            op if is_range(op) && !term.multi => {
+                let keys = self.count_scalar_range(&key, op, 33)?;
+                *visits += keys as u64;
+                let output = if keys <= 32 {
+                    keys as u64 * self.stats.present_count / self.stats.distinct_count.max(1) as u64
+                } else {
+                    domain_len / 4
+                };
+                let work = if keys <= 32 {
+                    keys as f64
+                } else {
+                    self.stats.distinct_count as f64 / 8.0
+                };
+                Some((1.0 + work, output))
+            }
+            _ => None,
+        })
+    }
+
     /// An exact answer over this index's complete record domain, or `None`
     /// when quantification/transformation needs independent verification.
     pub fn exact_set(&self, term: &BoundTerm, domain: &RoaringBitmap) -> Option<RoaringBitmap> {
@@ -883,6 +1484,88 @@ impl PostingIndex {
             }
             _ => None,
         }
+    }
+
+    pub(crate) fn exact_set_checked(
+        &self,
+        term: &BoundTerm,
+        domain: &RoaringBitmap,
+    ) -> Result<Option<RoaringBitmap>, String> {
+        if self.sealed.is_none() {
+            return Ok(self.exact_set(term, domain));
+        }
+        if term
+            .matcher
+            .as_ref()
+            .is_some_and(|matcher| !matcher.posting_compatible())
+            || self.covered_records as u64 != domain.len()
+        {
+            return Ok(None);
+        }
+        if let Some(period) = &term.period {
+            if !self.value_complete
+                || term.multi
+                || term.transform != Transform::Identity
+                || term.derived != Derived::None
+            {
+                return Ok(None);
+            }
+            let Some(start) = ScalarKey::from_value(&period.start) else {
+                return Ok(None);
+            };
+            let Some(end) = ScalarKey::from_value(&period.end) else {
+                return Ok(None);
+            };
+            if std::mem::discriminant(&start) != std::mem::discriminant(&end) || start >= end {
+                return Ok(None);
+            }
+            return Ok(Some(self.union_temporal_range(
+                &start,
+                &end,
+                term.operator,
+                None,
+            )?));
+        }
+        if term.derived == Derived::Exists
+            || self.state_source(term.derived).is_some()
+            || (term.derived == Derived::None && matches!(term.literal, Value::Null))
+        {
+            return Ok(self.exact_set(term, domain));
+        }
+        if term.derived == Derived::Length {
+            if !self.length_complete || !length_posting_is_exact(term) {
+                return Ok(None);
+            }
+            let Value::Number(number) = &term.literal else {
+                return Ok(None);
+            };
+            return Ok(match term.operator {
+                Operator::Eq => Some(self.length_posting(number)?.unwrap_or_default()),
+                Operator::Ne => Some(self.union_lengths_matching(|key| key != number, None)?),
+                op if is_range(op) => Some(self.union_length_range(number, op)?),
+                _ => None,
+            });
+        }
+        if term.derived != Derived::None || term.transform != Transform::Identity {
+            return Ok(None);
+        }
+        let Some(key) = ScalarKey::from_value(&term.literal) else {
+            return Ok(None);
+        };
+        if term.operator == Operator::Eq && !self.scalar_equality_complete(term)
+            || term.operator != Operator::Eq && !self.value_complete
+            || term.multi && (term.quantifier != Quantifier::Any || term.operator != Operator::Eq)
+        {
+            return Ok(None);
+        }
+        Ok(match term.operator {
+            Operator::Eq => Some(self.value_posting(&key)?.unwrap_or_default()),
+            Operator::Ne if !term.multi => Some(
+                &(&self.presence - &self.nulls) - &self.value_posting(&key)?.unwrap_or_default(),
+            ),
+            op if is_range(op) && !term.multi => Some(self.union_scalar_range(&key, op, None)?),
+            _ => None,
+        })
     }
 
     fn temporal_postings(
@@ -996,6 +1679,38 @@ fn is_range(operator: Operator) -> bool {
         operator,
         Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
     )
+}
+
+fn ordered_range_bounds<K>(
+    key: &K,
+    operator: Operator,
+) -> Option<(std::ops::Bound<&K>, std::ops::Bound<&K>)> {
+    match operator {
+        Operator::Gt => Some((Excluded(key), Unbounded)),
+        Operator::Ge => Some((Included(key), Unbounded)),
+        Operator::Lt => Some((Unbounded, Excluded(key))),
+        Operator::Le => Some((Unbounded, Included(key))),
+        _ => None,
+    }
+}
+
+fn temporal_bounds<'a>(
+    start: &'a ScalarKey,
+    end: &'a ScalarKey,
+    operator: Operator,
+) -> Vec<(
+    std::ops::Bound<&'a ScalarKey>,
+    std::ops::Bound<&'a ScalarKey>,
+)> {
+    match operator {
+        Operator::Eq => vec![(Included(start), Excluded(end))],
+        Operator::Ne => vec![(Unbounded, Excluded(start)), (Included(end), Unbounded)],
+        Operator::Lt => vec![(Unbounded, Excluded(start))],
+        Operator::Le => vec![(Unbounded, Excluded(end))],
+        Operator::Gt => vec![(Included(end), Unbounded)],
+        Operator::Ge => vec![(Included(start), Unbounded)],
+        _ => Vec::new(),
+    }
 }
 
 fn union_postings<'a, K: 'a>(
