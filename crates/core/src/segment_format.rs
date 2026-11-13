@@ -4,6 +4,7 @@
 //! only immutable application-owned files; memory-only builders use owned bytes.
 
 use std::collections::{BTreeMap, HashMap};
+use std::fmt;
 use std::fs::File;
 use std::io::{self, Cursor, Read, Seek, SeekFrom, Write};
 use std::sync::{Arc, Mutex, OnceLock};
@@ -102,6 +103,23 @@ pub(crate) struct SegmentReader {
     decoded: Arc<Mutex<DecodedPostingCache>>,
 }
 
+#[derive(Debug)]
+pub(crate) enum SegmentOpenError {
+    Io(io::Error),
+    Invalid(String),
+    Resource(String),
+}
+
+impl fmt::Display for SegmentOpenError {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::Io(error) => write!(formatter, "{error}"),
+            Self::Invalid(message) => formatter.write_str(message),
+            Self::Resource(message) => formatter.write_str(message),
+        }
+    }
+}
+
 #[derive(Default)]
 struct DecodedPostingCache {
     entries: HashMap<PostingDescriptor, CachedPosting>,
@@ -143,33 +161,40 @@ impl SegmentReader {
     /// replacement by the store's reader/writer protocol. Editable source
     /// files must never be passed here.
     pub(crate) fn from_index_file(file: &File) -> Result<Self, String> {
-        let metadata = file.metadata().map_err(|error| error.to_string())?;
+        Self::from_index_file_typed(file).map_err(|error| error.to_string())
+    }
+
+    pub(crate) fn from_index_file_typed(file: &File) -> Result<Self, SegmentOpenError> {
+        let metadata = file.metadata().map_err(SegmentOpenError::Io)?;
         if !metadata.is_file() || metadata.len() == 0 || metadata.len() > MAX_SEGMENT_BYTES {
-            return Err("index segment is not a supported regular file".into());
+            return Err(SegmentOpenError::Invalid("index segment is not a supported regular file".into()));
         }
         // SAFETY: the store opens application-owned immutable segment files;
         // publication never truncates or modifies an opened generation.
-        let map = unsafe { MmapOptions::new().map(file) }.map_err(|error| error.to_string())?;
-        Self::parse(SegmentBytes::Mapped(Arc::new(map)))
+        let map = unsafe { MmapOptions::new().map(file) }.map_err(SegmentOpenError::Io)?;
+        Self::parse(SegmentBytes::Mapped(Arc::new(map))).map_err(SegmentOpenError::Invalid)
     }
 
     /// Fully resident storage owns all file bytes. A short read or allocation
     /// failure is an explicit error; no mapping remains in the returned reader.
-    pub(crate) fn from_index_file_owned(mut file: &File) -> Result<Self, String> {
-        let metadata = file.metadata().map_err(|error| error.to_string())?;
+    pub(crate) fn from_index_file_owned(file: &File) -> Result<Self, String> {
+        Self::from_index_file_owned_typed(file).map_err(|error| error.to_string())
+    }
+
+    pub(crate) fn from_index_file_owned_typed(mut file: &File) -> Result<Self, SegmentOpenError> {
+        let metadata = file.metadata().map_err(SegmentOpenError::Io)?;
         if !metadata.is_file() || metadata.len() == 0 || metadata.len() > MAX_SEGMENT_BYTES {
-            return Err("index segment is not a supported regular file".into());
+            return Err(SegmentOpenError::Invalid("index segment is not a supported regular file".into()));
         }
-        let length =
-            usize::try_from(metadata.len()).map_err(|_| "segment length exceeds address space")?;
+        let length = usize::try_from(metadata.len())
+            .map_err(|_| SegmentOpenError::Invalid("segment length exceeds address space".into()))?;
         let mut bytes = Vec::new();
         bytes
             .try_reserve_exact(length)
-            .map_err(|error| format!("full index residency allocation: {error}"))?;
+            .map_err(|error| SegmentOpenError::Resource(format!("full index residency allocation: {error}")))?;
         bytes.resize(length, 0);
-        file.read_exact(&mut bytes)
-            .map_err(|error| format!("full index residency read: {error}"))?;
-        Self::from_owned(Arc::from(bytes))
+        file.read_exact(&mut bytes).map_err(SegmentOpenError::Io)?;
+        Self::from_owned(Arc::from(bytes)).map_err(SegmentOpenError::Invalid)
     }
 
     #[cfg(test)]

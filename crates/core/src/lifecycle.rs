@@ -101,6 +101,7 @@ pub enum IndexError {
     IncompatibleConfiguration(String),
     InvalidPublication(String),
     InvalidCache(String),
+    StoreConflict(String),
     StaleLocator,
     SourceUnavailable(String),
     ResourceLimit(String),
@@ -150,6 +151,7 @@ impl fmt::Display for IndexError {
                 write!(formatter, "invalid index publication: {message}")
             }
             Self::InvalidCache(message) => write!(formatter, "invalid index cache: {message}"),
+            Self::StoreConflict(message) => write!(formatter, "index store conflict: {message}"),
             Self::StaleLocator => {
                 formatter.write_str("record locator belongs to an old index view")
             }
@@ -170,6 +172,19 @@ impl fmt::Display for IndexError {
 
 
 impl std::error::Error for IndexError {}
+
+impl From<crate::managed_store::StoreReadError> for IndexError {
+    fn from(error: crate::managed_store::StoreReadError) -> Self {
+        use crate::managed_store::StoreReadError;
+        match error {
+            StoreReadError::Incompatible(message) => Self::IncompatibleConfiguration(message),
+            StoreReadError::Corrupt(message) => Self::InvalidCache(message),
+            StoreReadError::Io { path, source } => Self::Io(format!("{}: {source}", path.display())),
+            StoreReadError::Conflict(message) => Self::StoreConflict(message),
+            StoreReadError::Resource(message) => Self::ResourceLimit(message),
+        }
+    }
+}
 
 
 /// Initial status vocabulary; background task state is supplied by the
@@ -1529,7 +1544,7 @@ impl Index {
             .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?
             .store
             .read_generation()
-            .map_err(IndexError::InvalidCache)?
+            .map_err(IndexError::from)?
             .ok_or_else(|| IndexError::InvalidCache("committed generation missing".into()))?;
         if opened.generation != current.revision().0
             || opened.segments.len() != opened.identities.len()

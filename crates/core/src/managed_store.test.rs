@@ -52,6 +52,46 @@ impl TestStore {
 }
 
 #[test]
+fn store_read_errors_keep_io_distinct_from_corruption() {
+    let fixture = TestStore::new();
+    assert!(fixture.store.read_generation().unwrap().is_none());
+    let lock = fixture.store.path().join(LOCK_NAME);
+    fs::remove_file(&lock).unwrap();
+    fs::create_dir(lock).unwrap();
+    let error = fixture.store.read_generation().err().unwrap();
+    assert!(matches!(&error, StoreReadError::Io { .. }));
+    assert!(matches!(
+        crate::lifecycle::IndexError::from(error),
+        crate::lifecycle::IndexError::Io(_)
+    ));
+}
+
+#[test]
+fn supported_corruption_and_unsupported_version_have_different_kinds() {
+    let fixture = TestStore::new();
+    fixture.store.commit_generation(
+        None, 1,
+        &[SegmentInput::New {
+            collection: CollectionId(0), ordinal: 1,
+            bytes: Arc::from(complete_segment(3)), active: &fixture.active,
+        }],
+    ).unwrap();
+    let path = fixture.store.path().join(MANIFEST_NAME);
+    let original = fs::read(&path).unwrap();
+    let mut corrupt = original.clone();
+    corrupt[20] ^= 1;
+    fs::write(&path, corrupt).unwrap();
+    assert!(matches!(fixture.store.read_generation(), Err(StoreReadError::Corrupt(_))));
+    let mut unsupported = original.clone();
+    unsupported[8..12].copy_from_slice(&(FORMAT_VERSION + 1).to_le_bytes());
+    let end = unsupported.len();
+    let checksum = Sha256::digest(&unsupported[..end - 32]);
+    unsupported[end - 32..].copy_from_slice(&checksum);
+    fs::write(&path, unsupported).unwrap();
+    assert!(matches!(fixture.store.read_generation(), Err(StoreReadError::Incompatible(_))));
+}
+
+#[test]
 fn full_residency_owns_bytes_and_checks_all_sections() {
     let fixture = TestStore::with_residency(IndexResidency::FullyResident);
     fixture
@@ -321,6 +361,7 @@ fn catalog_sidecar_is_atomically_replaced_checked_and_reclaimed() {
             .read_generation()
             .err()
             .unwrap()
+            .to_string()
             .contains("catalog checksum mismatch")
     );
     fs::write(&old_catalog, first.as_ref()).unwrap();
@@ -603,6 +644,7 @@ fn active_manifest_semantics_are_checked_after_checksum() {
             .read_generation()
             .err()
             .unwrap()
+            .to_string()
             .contains("active mask kind invalid")
     );
     fs::write(&path, original).unwrap();
@@ -841,6 +883,7 @@ fn refuses_writable_lock_and_segment_files() {
             .read_generation()
             .err()
             .unwrap()
+            .to_string()
             .contains("safe owned regular file")
     );
     fs::set_permissions(&lock, fs::Permissions::from_mode(0o600)).unwrap();
@@ -872,6 +915,7 @@ fn refuses_writable_lock_and_segment_files() {
             .read_generation()
             .err()
             .unwrap()
+            .to_string()
             .contains("owned regular file")
     );
 }

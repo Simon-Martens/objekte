@@ -346,7 +346,7 @@ impl Index {
             );
         }
         let store = ManagedStore::open(&prepared.resolved).map_err(IndexError::Io)?;
-        if let Some(opened) = store.read_generation().map_err(IndexError::InvalidCache)? {
+        if let Some(opened) = store.read_generation().map_err(IndexError::from)? {
             let index = restore_generation(
                 &prepared.resolved,
                 prepared.definitions,
@@ -400,7 +400,7 @@ impl Index {
             return Self::build_with_sources(root, prepared.definitions, options, sources);
         }
         let store = ManagedStore::open(&prepared.resolved).map_err(IndexError::Io)?;
-        if let Some(opened) = store.read_generation().map_err(IndexError::InvalidCache)? {
+        if let Some(opened) = store.read_generation().map_err(IndexError::from)? {
             let index = restore_generation(
                 &prepared.resolved,
                 prepared.definitions,

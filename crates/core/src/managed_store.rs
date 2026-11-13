@@ -1,8 +1,9 @@
 //! Immutable generation files and atomic, checked manifest publication.
 
 use std::collections::HashSet;
+use std::fmt;
 use std::fs::{self, File, OpenOptions};
-use std::io::{Read, Write};
+use std::io::{self, Read, Write};
 use std::path::{Component, Path, PathBuf};
 use std::sync::Arc;
 use std::time::{SystemTime, UNIX_EPOCH};
@@ -13,7 +14,7 @@ use sha2::{Digest, Sha256};
 use crate::index_storage::{IndexResidency, ResolvedIndexStorage};
 use crate::inventory::ActiveRecords;
 use crate::model::CollectionId;
-use crate::segment_format::{FORMAT_VERSION, REQUIRED_SECTIONS, SectionKind, SegmentReader};
+use crate::segment_format::{FORMAT_VERSION, REQUIRED_SECTIONS, SectionKind, SegmentOpenError, SegmentReader};
 
 const MANIFEST_MAGIC: &[u8; 8] = b"OBJHMAN1";
 const MANIFEST_NAME: &str = "manifest.bin";
@@ -89,6 +90,27 @@ pub(crate) struct CommitStats {
     pub obsolete_files_reclaimed: usize,
     pub orphan_files_reclaimed: usize,
     pub reclaim_errors: Vec<String>,
+}
+
+#[derive(Debug)]
+pub(crate) enum StoreReadError {
+    Incompatible(String),
+    Corrupt(String),
+    Io { path: PathBuf, source: io::Error },
+    Conflict(String),
+    Resource(String),
+}
+
+impl fmt::Display for StoreReadError {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::Incompatible(message) => write!(formatter, "incompatible store: {message}"),
+            Self::Corrupt(message) => write!(formatter, "corrupt store: {message}"),
+            Self::Io { path, source } => write!(formatter, "store I/O {}: {source}", path.display()),
+            Self::Conflict(message) => write!(formatter, "store conflict: {message}"),
+            Self::Resource(message) => write!(formatter, "store resource limit: {message}"),
+        }
+    }
 }
 
 /// All paths are beneath one application-owned directory. A store exists only
@@ -205,17 +227,22 @@ impl ManagedStore {
 
     /// Hold a shared cross-process lock until every immutable file is opened
     /// and mapped. Pinned mappings then survive later manifest publication.
-    pub(crate) fn read_generation(&self) -> Result<Option<OpenedGeneration>, String> {
-        let lock = self.open_lock()?;
-        lock.lock_shared()
-            .map_err(|error| format!("store reader lock: {error}"))?;
-        let Some(manifest) = self.read_manifest()? else {
+    pub(crate) fn read_generation(&self) -> Result<Option<OpenedGeneration>, StoreReadError> {
+        let lock = self.open_lock_read()?;
+        lock.lock_shared().map_err(|error| {
+            if error.kind() == io::ErrorKind::WouldBlock {
+                StoreReadError::Conflict(format!("reader lock: {error}"))
+            } else {
+                StoreReadError::Io { path: self.directory.join(LOCK_NAME), source: error }
+            }
+        })?;
+        let Some(manifest) = self.read_manifest_typed()? else {
             return Ok(None);
         };
         let catalog = manifest
             .catalog
             .as_ref()
-            .map(|record| self.read_catalog(record))
+            .map(|record| self.read_catalog_typed(record))
             .transpose()?;
         let mut segments = Vec::with_capacity(manifest.segments.len());
         let mut names = Vec::with_capacity(manifest.segments.len());
@@ -223,20 +250,24 @@ impl ManagedStore {
         let mut active = Vec::with_capacity(manifest.segments.len());
         for record in &manifest.segments {
             let path = self.directory.join(&record.name);
-            let file = open_regular_nofollow(&path)?;
-            if file.metadata().map_err(|error| error.to_string())?.len() != record.length {
-                return Err(format!("segment length changed: {}", record.name));
+            let file = open_regular_nofollow_read(&path)?;
+            if file.metadata().map_err(|source| StoreReadError::Io { path: path.clone(), source })?.len() != record.length {
+                return Err(StoreReadError::Corrupt(format!("segment length changed: {}", record.name)));
             }
             let reader = match self.residency {
-                IndexResidency::OnDemand => SegmentReader::from_index_file(&file)?,
-                IndexResidency::FullyResident => SegmentReader::from_index_file_owned(&file)?,
-            };
-            reader.require_complete_sections()?;
+                IndexResidency::OnDemand => SegmentReader::from_index_file_typed(&file),
+                IndexResidency::FullyResident => SegmentReader::from_index_file_owned_typed(&file),
+            }.map_err(|error| match error {
+                SegmentOpenError::Io(source) => StoreReadError::Io { path: path.clone(), source },
+                SegmentOpenError::Invalid(message) => StoreReadError::Corrupt(format!("{}: {message}", path.display())),
+                SegmentOpenError::Resource(message) => StoreReadError::Resource(message),
+            })?;
+            reader.require_complete_sections().map_err(StoreReadError::Corrupt)?;
             for kind in REQUIRED_SECTIONS {
                 if kind != SectionKind::PostingPayloads
                     || self.residency == IndexResidency::FullyResident
                 {
-                    reader.section(kind)?;
+                    reader.section(kind).map_err(StoreReadError::Corrupt)?;
                 }
             }
             names.push(record.name.clone());
@@ -618,59 +649,77 @@ impl ManagedStore {
     }
 
     fn open_lock(&self) -> Result<File, String> {
+        self.open_lock_read().map_err(|error| error.to_string())
+    }
+
+    fn open_lock_read(&self) -> Result<File, StoreReadError> {
         let path = self.directory.join(LOCK_NAME);
         let mut options = OpenOptions::new();
         options.read(true).write(true).create(true);
         private_nofollow_options(&mut options);
         let file = options
             .open(&path)
-            .map_err(|error| format!("store lock {}: {error}", path.display()))?;
-        let metadata = file.metadata().map_err(|error| error.to_string())?;
+            .map_err(|source| StoreReadError::Io { path: path.clone(), source })?;
+        let metadata = file.metadata().map_err(|source| StoreReadError::Io { path: path.clone(), source })?;
         if !metadata.is_file()
             || !owned_by_current_user(&metadata)
             || writable_by_other_users(&metadata)
         {
-            return Err("store lock is not a safe owned regular file".into());
+            return Err(StoreReadError::Corrupt("store lock is not a safe owned regular file".into()));
         }
         Ok(file)
     }
 
     fn read_manifest(&self) -> Result<Option<Manifest>, String> {
+        self.read_manifest_typed().map_err(|error| error.to_string())
+    }
+
+    fn read_manifest_typed(&self) -> Result<Option<Manifest>, StoreReadError> {
         let path = self.directory.join(MANIFEST_NAME);
         match fs::symlink_metadata(&path) {
             Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(None),
-            Err(error) => return Err(format!("manifest {}: {error}", path.display())),
+            Err(source) => return Err(StoreReadError::Io { path, source }),
             Ok(_) => {}
         }
-        let file = open_regular_nofollow(&path)?;
+        let file = open_regular_nofollow_read(&path)?;
         let mut bytes = Vec::new();
         file.take((MAX_MANIFEST_BYTES + 1) as u64)
             .read_to_end(&mut bytes)
-            .map_err(|error| format!("manifest read: {error}"))?;
+            .map_err(|source| StoreReadError::Io { path: path.clone(), source })?;
         if bytes.len() > MAX_MANIFEST_BYTES {
-            return Err("manifest exceeds size limit".into());
+            return Err(StoreReadError::Corrupt("manifest exceeds size limit".into()));
         }
-        self.decode_manifest(&bytes).map(Some)
+        self.decode_manifest(&bytes).map(Some).map_err(|message| {
+            if message.starts_with("unsupported manifest")
+                || message.contains("configuration identity mismatch")
+                || message.contains("repository root mismatch")
+            {
+                StoreReadError::Incompatible(message)
+            } else {
+                StoreReadError::Corrupt(message)
+            }
+        })
     }
 
-    fn read_catalog(&self, record: &CatalogRecord) -> Result<Arc<[u8]>, String> {
-        let file = open_regular_nofollow(&self.directory.join(&record.name))?;
-        if file.metadata().map_err(|error| error.to_string())?.len() != record.length {
-            return Err("generation catalog length mismatch".into());
+    fn read_catalog_typed(&self, record: &CatalogRecord) -> Result<Arc<[u8]>, StoreReadError> {
+        let path = self.directory.join(&record.name);
+        let file = open_regular_nofollow_read(&path)?;
+        if file.metadata().map_err(|source| StoreReadError::Io { path: path.clone(), source })?.len() != record.length {
+            return Err(StoreReadError::Corrupt("generation catalog length mismatch".into()));
         }
-        let length = usize::try_from(record.length).map_err(|_| "catalog too large")?;
+        let length = usize::try_from(record.length).map_err(|_| StoreReadError::Corrupt("catalog too large".into()))?;
         if length == 0 || length > MAX_CATALOG_BYTES {
-            return Err("generation catalog byte length invalid".into());
+            return Err(StoreReadError::Corrupt("generation catalog byte length invalid".into()));
         }
         let mut bytes = Vec::new();
         bytes
             .try_reserve_exact(length)
-            .map_err(|error| format!("catalog allocation: {error}"))?;
+            .map_err(|error| StoreReadError::Resource(format!("catalog allocation: {error}")))?;
         file.take((length + 1) as u64)
             .read_to_end(&mut bytes)
-            .map_err(|error| format!("catalog read: {error}"))?;
+            .map_err(|source| StoreReadError::Io { path: path.clone(), source })?;
         if bytes.len() != length || Sha256::digest(&bytes).as_slice() != record.sha256 {
-            return Err("generation catalog checksum mismatch".into());
+            return Err(StoreReadError::Corrupt("generation catalog checksum mismatch".into()));
         }
         Ok(Arc::from(bytes))
     }
@@ -1100,6 +1149,45 @@ fn open_regular_nofollow(path: &Path) -> Result<File, String> {
             "store file is not an owned regular file: {}",
             path.display()
         ));
+    }
+    Ok(file)
+}
+
+fn open_regular_nofollow_read(path: &Path) -> Result<File, StoreReadError> {
+    match fs::symlink_metadata(path) {
+        Ok(metadata) if metadata.file_type().is_symlink() || !metadata.is_file() => {
+            return Err(StoreReadError::Corrupt(format!("unsafe store file: {}", path.display())));
+        }
+        Ok(_) => {}
+        Err(error) if error.kind() == io::ErrorKind::NotFound => {
+            return Err(StoreReadError::Corrupt(format!("missing referenced store file: {}", path.display())));
+        }
+        Err(source) => return Err(StoreReadError::Io { path: path.to_owned(), source }),
+    }
+    let mut options = OpenOptions::new();
+    options.read(true);
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::OpenOptionsExt;
+        options.custom_flags(libc::O_NOFOLLOW);
+    }
+    let file = options.open(path).map_err(|source| {
+        if source.kind() == io::ErrorKind::NotFound {
+            StoreReadError::Corrupt(format!("missing referenced store file: {}", path.display()))
+        } else {
+            StoreReadError::Io { path: path.to_owned(), source }
+        }
+    })?;
+    let metadata = file.metadata().map_err(|source| StoreReadError::Io {
+        path: path.to_owned(), source,
+    })?;
+    if !metadata.is_file()
+        || !owned_by_current_user(&metadata)
+        || writable_by_other_users(&metadata)
+    {
+        return Err(StoreReadError::Corrupt(format!(
+            "store file is not an owned regular file: {}", path.display()
+        )));
     }
     Ok(file)
 }
