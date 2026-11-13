@@ -1,18 +1,18 @@
 //! One repository opening and sequential, ordered query execution.
 
-use std::io::{self, BufWriter, Write};
 #[cfg(feature = "tui")]
 use std::io::IsTerminal;
+use std::io::{self, BufWriter, Write};
 use std::path::PathBuf;
-use std::time::Instant;
+use std::time::{Duration, Instant};
 
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
-use objekte_search_core::lifecycle::IndexRevision;
+use objekte_search_core::lifecycle::{Index, IndexRevision, IndexView};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::path_repr;
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::SnapshotAction;
+use objekte_search_core::repository::{SnapshotAction, SnapshotMode};
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
@@ -21,7 +21,10 @@ use objekte_search_core::streaming::{
 use serde_json::{Value, json};
 
 use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
-use crate::loader::{configure_definitions, open_repository, repository_options, snapshot_policy};
+use crate::loader::{
+    ConfiguredDefinitions, configure_definitions, open_repository, repository_options,
+    snapshot_policy,
+};
 use crate::output::{EventWriter, counters_with_ms, milliseconds_value as ms};
 use crate::query_input::{QueryInput, QueryKind, QuerySource};
 
@@ -68,6 +71,21 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             return Exit::Arguments;
         }
     };
+    let cache_directory = policy
+        .directory
+        .clone()
+        .unwrap_or_else(|| root.join(".objekte"));
+    let cache_path =
+        objekte_search_core::storage::snapshot_path_in(&cache_directory, options.bigram_alphabet);
+    let write = args.write_index.is_some();
+    let configured_repository = args.repo.is_some();
+    let cache_is_absent = std::fs::symlink_metadata(&cache_path)
+        .is_err_and(|error| error.kind() == io::ErrorKind::NotFound);
+    let incremental = match policy.mode {
+        SnapshotMode::Required => false,
+        SnapshotMode::IfValid => cache_is_absent,
+        SnapshotMode::Disabled => write || !configured_repository || cache_is_absent,
+    };
     let ui = crate::tui::TuiOptions {
         single_collection: !args.multiple_collections(),
         initial_search,
@@ -75,7 +93,8 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         offset: args.offset,
         limit: args.limit,
         interruption: Some(token.clone()),
-        snapshot_requested: args.write_index.is_some(),
+        snapshot_requested: write,
+        snapshot_path: write.then_some(cache_path),
         loading_label: Some(
             match (args.load_index.is_some(), args.write_index.is_some()) {
                 (true, false) => "Loading search index",
@@ -85,23 +104,30 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             .to_owned(),
         ),
     };
-    let write = args.write_index.is_some();
-    let configured_repository = args.repo.is_some();
-    let result = crate::tui::run_with_loader(
-        move || {
-            open_repository(
-                &root,
-                &configured,
-                options,
-                policy,
-                write,
-                configured_repository,
-                false,
-            )
-            .map(|(repo, _, _)| repo)
-        },
-        ui,
-    );
+    let result = if incremental {
+        match Index::start_incremental_build(&root, configured.definitions.clone(), options) {
+            Ok(task) => crate::tui::run_with_initial_build(task, ui, configured.protected_files),
+            Err(error) => {
+                Err(Box::new(io::Error::other(error.to_string())) as Box<dyn std::error::Error>)
+            }
+        }
+    } else {
+        crate::tui::run_with_loader(
+            move || {
+                open_repository(
+                    &root,
+                    &configured,
+                    options,
+                    policy,
+                    write,
+                    configured_repository,
+                    false,
+                )
+                .map(|(repo, _, _)| repo)
+            },
+            ui,
+        )
+    };
     match result {
         Ok(()) => Exit::Success,
         Err(error)
@@ -118,7 +144,6 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     }
 }
 
-
 /// Exit classifications specified by the `obj` command protocol.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Exit {
@@ -129,7 +154,6 @@ pub enum Exit {
     PipeClosed = 254,
     OutputError = 255,
 }
-
 
 /// Metadata from the opening operation, reused by the desktop batch runner.
 pub struct ExistingRun<'a> {
@@ -144,14 +168,12 @@ pub struct ExistingRun<'a> {
     pub snapshot_save: Option<SnapshotSaveStats>,
 }
 
-
 /// A desktop query already parsed through the shared core query builder.
 pub struct PreparedQuery {
     pub input: String,
     pub query: Result<Query, String>,
     pub decoded_fts: Option<String>,
 }
-
 
 /// Execute a CLI batch against a repository already opened by another frontend.
 pub fn run_on_repository<W: Write>(
@@ -300,15 +322,40 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     }
     let options = repository_options(args);
     let policy = snapshot_policy(args, &paths);
-    let (repo, startup_ns, snapshot_save) = match open_repository(
-        &paths.root,
-        &configured,
-        options,
-        policy,
-        args.write_index.is_some(),
-        args.repo.is_some(),
-        args.load_index.is_some(),
-    ) {
+    // Opening query input early lets a fresh build and input acquisition overlap.
+    // The source is consumed only after the index is complete, preserving the
+    // ordered machine output protocol.
+    let source = QuerySource::open(args);
+    let cache_directory = policy
+        .directory
+        .clone()
+        .unwrap_or_else(|| paths.root.join(".objekte"));
+    let cache_path =
+        objekte_search_core::storage::snapshot_path_in(&cache_directory, options.bigram_alphabet);
+    let cache_absent = std::fs::symlink_metadata(&cache_path)
+        .is_err_and(|error| error.kind() == io::ErrorKind::NotFound);
+    let incremental = match policy.mode {
+        SnapshotMode::Required => false,
+        SnapshotMode::IfValid => cache_absent,
+        SnapshotMode::Disabled => args.repo.is_none() || args.write_index.is_some() || cache_absent,
+    };
+    let opened = if incremental {
+        open_incremental_repository(args, &paths, &configured, options, &cache_path, token)
+    } else {
+        open_repository(
+            &paths.root,
+            &configured,
+            options,
+            policy,
+            args.write_index.is_some(),
+            args.repo.is_some(),
+            args.load_index.is_some(),
+        )
+    };
+    if token.is_cancelled() {
+        return cancel_run(&mut output, 0, 0, &started);
+    }
+    let (repo, startup_ns, snapshot_save) = match opened {
         Ok(result) => result,
         Err(message) => {
             eprintln!("obj: {message}");
@@ -324,7 +371,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             return Exit::Arguments;
         }
     };
-    let source = match QuerySource::open(args) {
+    let source = match source {
         Ok(source) => source,
         Err(message) => {
             eprintln!("obj: {message}");
@@ -352,6 +399,115 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         &mut output,
         token,
     )
+}
+
+/// Work on a fresh index as batches become searchable, while retaining the
+/// batch protocol's exact final query and snapshot behavior.
+fn open_incremental_repository(
+    args: &Arguments,
+    paths: &ResolvedPaths,
+    configured: &ConfiguredDefinitions,
+    options: objekte_search_core::repository::RepositoryOptions,
+    cache_path: &std::path::Path,
+    token: &CancellationToken,
+) -> Result<(IndexedRepository, u128, Option<SnapshotSaveStats>), String> {
+    let started = Instant::now();
+    let task = Index::start_incremental_build(&paths.root, configured.definitions.clone(), options)
+        .map_err(|error| error.to_string())?;
+    let preview_input = args
+        .fts
+        .as_ref()
+        .map(|text| QueryInput {
+            original: text.clone(),
+            line: None,
+            kind: QueryKind::Fts,
+        })
+        .or_else(|| {
+            args.query.as_ref().map(|text| QueryInput {
+                original: text.clone(),
+                line: None,
+                kind: if text.starts_with('"') {
+                    QueryKind::Fts
+                } else {
+                    QueryKind::Structured
+                },
+            })
+        });
+    let preview_query = preview_input.and_then(|input| {
+        input.parse(args).ok().map(|(mut query, _)| {
+            query.options.offset = 0;
+            query.options.limit = 100;
+            query.options.count = false;
+            query.options.return_mode = objekte_search_core::workload::ReturnMode::Locator;
+            query.options.evidence = false;
+            query
+        })
+    });
+    let mut prior_view: Option<IndexView> = None;
+    let mut preview_supported = true;
+    let mut cursor = 0;
+    loop {
+        if token.is_cancelled() {
+            task.cancel();
+            return Err("index build cancelled".into());
+        }
+        let snapshot = task.snapshot().map_err(|error| error.to_string())?;
+        if snapshot.cursor != cursor {
+            cursor = snapshot.cursor;
+            if let (Some(query), Some(view)) = (&preview_query, snapshot.view) {
+                if snapshot.status.searchable_batches > 0
+                    && !snapshot.status.construction_complete
+                    && preview_supported
+                {
+                    let supported = if let Some(previous) = prior_view.as_ref() {
+                        matches!(
+                            view.search_added_since_with_cancellation(previous, query, token),
+                            Ok(Some(_))
+                        )
+                    } else {
+                        view.search_available_with_cancellation(query, token)
+                            .is_ok()
+                    };
+                    if supported {
+                        prior_view = Some(view);
+                    } else {
+                        preview_supported = false;
+                    }
+                }
+            }
+        }
+        if snapshot.status.construction_complete {
+            break;
+        }
+        if matches!(
+            snapshot.status.phase,
+            objekte_search_core::lifecycle::InitialBuildPhase::Failed
+                | objekte_search_core::lifecycle::InitialBuildPhase::Cancelled
+        ) {
+            return Err(snapshot
+                .status
+                .error
+                .unwrap_or_else(|| "index build stopped".into()));
+        }
+        std::thread::sleep(Duration::from_millis(30));
+    }
+    let index = task.wait_complete().map_err(|error| error.to_string())?;
+    index
+        .protect_configuration_files(&configured.protected_files)
+        .map_err(|error| error.to_string())?;
+    let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
+    let startup_ns = started.elapsed().as_nanos();
+    let snapshot_save = if args.write_index.is_some() {
+        Some(
+            repo.index()
+                .flush_cache_with_stats(cache_path)
+                .map_err(|error| error.to_string())?
+                .1,
+        )
+    } else {
+        None
+    };
+    Ok((repo, startup_ns, snapshot_save))
 }
 
 fn run_start_event(
@@ -395,7 +551,6 @@ fn run_start_event(
     })
 }
 
-
 #[derive(Clone, Copy)]
 struct RunTail<'a> {
     repo: &'a IndexedRepository,
@@ -404,7 +559,6 @@ struct RunTail<'a> {
     startup_ns: u128,
     snapshot_save: Option<&'a SnapshotSaveStats>,
 }
-
 
 fn run_queries<W: Write>(
     run: RunTail<'_>,

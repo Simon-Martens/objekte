@@ -82,6 +82,18 @@ fn old_search_mode_shortcuts_toggle_new_core_requests() {
 }
 
 #[test]
+fn typing_from_catalogue_opens_query_control() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    app.toggle_files();
+    key(app, KeyEvent::new(KeyCode::Char('n'), KeyModifiers::NONE));
+    assert_eq!(app.view, View::Results);
+    assert_eq!(app.focus, Focus::Search);
+    assert_eq!(app.search.text, "n");
+    assert!(app.searching);
+}
+
+#[test]
 fn action_palette_opens_existing_controls_and_columns_scroll() {
     let mut fixture = fixture(2);
     let app = &mut fixture.app;

@@ -5,8 +5,12 @@ use std::path::PathBuf;
 use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
+use objekte_search_core::lifecycle::{
+    FileCatalogueRow, IndexView, InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus,
+    InitialBuildTask,
+};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
-use objekte_search_core::model::{FieldPath, LogicalType, PathRoot, Value};
+use objekte_search_core::model::{FieldPath, FileId, LogicalType, PathRoot, Value};
 use objekte_search_core::query::{
     CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Modifier, Operand, Query, QueryOptions,
     RegexOptions, parse_filter, parse_structured_filter,
@@ -86,7 +90,6 @@ fn field_label(path: &str, modifiers: &[Modifier]) -> String {
     label
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Focus {
     Search,
@@ -94,13 +97,12 @@ pub(super) enum Focus {
     Results,
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum View {
     Results,
+    Files,
     Detail,
 }
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Overlay {
@@ -115,10 +117,10 @@ pub(super) enum Overlay {
     Help,
 }
 
-
 /// Commands exposed by the action picker and their keyboard shortcuts.
 #[derive(Clone, Copy, Debug)]
 pub(super) enum Action {
+    Files,
     Collections,
     Sort,
     Columns,
@@ -134,9 +136,8 @@ pub(super) enum Action {
     Help,
 }
 
-
 impl Action {
-    pub(super) const ALL: [Self; 13] = [
+    pub(super) const ALL: [Self; 14] = [
         Self::Collections,
         Self::Sort,
         Self::Columns,
@@ -150,10 +151,12 @@ impl Action {
         Self::Preview,
         Self::Theme,
         Self::Help,
+        Self::Files,
     ];
 
     pub(super) fn label(self) -> &'static str {
         match self {
+            Self::Files => "Toggle file catalogue             Ctrl+I",
             Self::Collections => "Choose collection                Ctrl+O",
             Self::Sort => "Sort results                     Alt+S",
             Self::Columns => "Show or hide columns             Alt+L",
@@ -171,19 +174,30 @@ impl Action {
     }
 }
 
-
 /// Search response tagged with the input generation and requested page.
 struct Update {
     generation: u64,
     offset: usize,
     elapsed: Duration,
     result: Result<SearchResult, String>,
+    complete: bool,
+    delta: bool,
+    view: Option<IndexView>,
 }
-
 
 /// Query inputs, page state, and terminal navigation for one repository.
 pub(super) struct App {
     repo: Arc<IndexedRepository>,
+    catalogue_view: IndexView,
+    catalogue_count: usize,
+    cached_file_ids: Option<Vec<FileId>>,
+    build_receiver: Option<mpsc::Receiver<Result<InitialBuildSnapshot, String>>>,
+    build_cursor: u64,
+    pub(super) build_status: Option<InitialBuildStatus>,
+    last_search_view: Option<IndexView>,
+    pub(super) provisional: bool,
+    refresh_requested: bool,
+    snapshot_save_receiver: Option<mpsc::Receiver<Result<(), String>>>,
     pub(super) single_collection: bool,
     base_offset: usize,
     result_limit: Option<usize>,
@@ -211,6 +225,8 @@ pub(super) struct App {
     pub(super) regex: bool,
     pub(super) show_preview: bool,
     pub(super) hits: Vec<SearchHit>,
+    pub(super) file_selected: usize,
+    pub(super) file_scroll: usize,
     pub(super) display_rows: Vec<DisplayRow>,
     window_start: usize,
     next_offset: usize,
@@ -243,7 +259,6 @@ pub(super) struct App {
     receiver: mpsc::Receiver<Update>,
 }
 
-
 impl App {
     #[cfg(test)]
     pub(super) fn new(repository: Repository) -> Self {
@@ -255,7 +270,94 @@ impl App {
     }
 
     pub(super) fn with_options(repository: IndexedRepository, options: TuiOptions) -> Self {
+        Self::with_opening(repository, options, None)
+    }
+
+    pub(super) fn with_initial_build(
+        repository: IndexedRepository,
+        options: TuiOptions,
+        task: InitialBuildTask,
+        snapshot: InitialBuildSnapshot,
+    ) -> Self {
+        Self::with_opening(repository, options, Some((task, snapshot)))
+    }
+
+    fn with_opening(
+        repository: IndexedRepository,
+        options: TuiOptions,
+        initial: Option<(InitialBuildTask, InitialBuildSnapshot)>,
+    ) -> Self {
         let (sender, receiver) = mpsc::channel();
+        let (build_task, build_cursor, build_status, snapshot_view) = match initial {
+            Some((task, snapshot)) => (
+                Some(task),
+                snapshot.cursor,
+                Some(snapshot.status),
+                snapshot.view,
+            ),
+            None => (None, 0, None, None),
+        };
+        let catalogue_view = snapshot_view
+            .unwrap_or_else(|| repository.index().view().expect("opened repository view"));
+        // Restored indexes may have sparse FileIds after reconciliation. Fresh
+        // discovery assigns contiguous IDs, so it needs no second ID list.
+        let cached_file_ids = build_status.as_ref().is_none().then(|| {
+            catalogue_view
+                .catalogue_rows()
+                .map(|row| row.id)
+                .collect::<Vec<_>>()
+        });
+        let catalogue_count = build_status.as_ref().map_or_else(
+            || cached_file_ids.as_ref().map_or(0, Vec::len),
+            |status| status.discovered_files,
+        );
+        let building = build_status
+            .as_ref()
+            .is_some_and(|status| !status.construction_complete);
+        let snapshot_save_receiver =
+            if let (Some(task), Some(path)) = (&build_task, options.snapshot_path.clone()) {
+                let task = task.clone();
+                let (sender, receiver) = mpsc::channel();
+                std::thread::spawn(move || {
+                    let result = task
+                        .wait_complete()
+                        .and_then(|index| index.flush_cache_with_stats(&path).map(|_| ()))
+                        .map_err(|error| error.to_string());
+                    let _ = sender.send(result);
+                });
+                Some(receiver)
+            } else {
+                None
+            };
+        let build_receiver = build_task.as_ref().map(|task| {
+            let task = task.clone();
+            let (sender, receiver) = mpsc::sync_channel(1);
+            std::thread::spawn(move || {
+                let mut cursor = build_cursor;
+                loop {
+                    let update = task.wait_next(cursor).map_err(|error| error.to_string());
+                    match update {
+                        Ok(snapshot) => {
+                            cursor = snapshot.cursor;
+                            let terminal = matches!(
+                                snapshot.status.phase,
+                                InitialBuildPhase::Complete
+                                    | InitialBuildPhase::Cancelled
+                                    | InitialBuildPhase::Failed
+                            );
+                            if sender.send(Ok(snapshot)).is_err() || terminal {
+                                break;
+                            }
+                        }
+                        Err(error) => {
+                            let _ = sender.send(Err(error));
+                            break;
+                        }
+                    }
+                }
+            });
+            receiver
+        });
         let settings_path = if options.single_collection {
             repository.files().root.join(".objekte/.cache/obj-tui.json")
         } else {
@@ -267,6 +369,16 @@ impl App {
         };
         let mut app = Self {
             repo: Arc::new(repository),
+            catalogue_view,
+            catalogue_count,
+            cached_file_ids,
+            build_receiver,
+            build_cursor,
+            build_status,
+            last_search_view: None,
+            provisional: building,
+            refresh_requested: false,
+            snapshot_save_receiver,
             single_collection: options.single_collection,
             base_offset: options.offset,
             result_limit: options.limit,
@@ -275,7 +387,7 @@ impl App {
             search: Input::with_text(&options.initial_search),
             filter: Input::with_text(&options.initial_filter),
             focus: Focus::Search,
-            view: View::Results,
+            view: if building { View::Files } else { View::Results },
             overlay: None,
             scope: usize::from(options.single_collection),
             picker: 0,
@@ -294,6 +406,8 @@ impl App {
             regex: false,
             show_preview: true,
             hits: Vec::new(),
+            file_selected: 0,
+            file_scroll: 0,
             display_rows: Vec::new(),
             window_start: 0,
             next_offset: 0,
@@ -331,6 +445,48 @@ impl App {
         app
     }
 
+    fn poll_build(&mut self) {
+        let Some(receiver) = &self.build_receiver else {
+            return;
+        };
+        let snapshot = match receiver.try_recv() {
+            Ok(Ok(snapshot)) => snapshot,
+            Ok(Err(error)) => {
+                self.error = Some(format!("Indexing status: {error}"));
+                return;
+            }
+            Err(mpsc::TryRecvError::Disconnected | mpsc::TryRecvError::Empty) => return,
+        };
+        if snapshot.cursor == self.build_cursor {
+            return;
+        }
+        self.build_cursor = snapshot.cursor;
+        let old_complete = self
+            .build_status
+            .as_ref()
+            .is_some_and(|status| status.construction_complete);
+        let new_complete = snapshot.status.construction_complete;
+        self.catalogue_count = snapshot.status.discovered_files;
+        self.build_status = Some(snapshot.status);
+        if let Some(view) = snapshot.view {
+            let previous_revision = self.catalogue_view.revision();
+            let changed_domain = view.revision() != previous_revision;
+            self.catalogue_view = view;
+            if changed_domain || (!old_complete && new_complete) {
+                self.refresh_requested = true;
+            }
+        }
+        if self.build_status.as_ref().is_some_and(|status| {
+            matches!(
+                status.phase,
+                InitialBuildPhase::Cancelled | InitialBuildPhase::Failed
+            )
+        }) {
+            self.refresh_requested = false;
+            self.searching = false;
+        }
+    }
+
     pub(super) fn collection_names(&self) -> impl Iterator<Item = &str> {
         self.repo
             .collections()
@@ -348,6 +504,42 @@ impl App {
 
     pub(super) fn selected_hit(&self) -> Option<&SearchHit> {
         self.hits.get(self.selected)
+    }
+
+    pub(super) fn file_count(&self) -> usize {
+        self.catalogue_count
+    }
+
+    pub(super) fn file_at(&self, index: usize) -> Option<FileCatalogueRow<'_>> {
+        let id = if let Some(ids) = &self.cached_file_ids {
+            *ids.get(index)?
+        } else {
+            FileId(u32::try_from(index).ok()?)
+        };
+        self.catalogue_view.catalogue_row(id)
+    }
+
+    pub(super) fn toggle_files(&mut self) {
+        self.view = if self.view == View::Files {
+            View::Results
+        } else {
+            View::Files
+        };
+        self.overlay = None;
+        self.status = None;
+    }
+
+    pub(super) fn move_file_selection(&mut self, delta: isize) {
+        let Some(last) = self.file_count().checked_sub(1) else {
+            return;
+        };
+        self.file_selected = self.file_selected.saturating_add_signed(delta).min(last);
+        let rows = self.viewport_rows.max(1);
+        if self.file_selected < self.file_scroll {
+            self.file_scroll = self.file_selected;
+        } else if self.file_selected >= self.file_scroll + rows {
+            self.file_scroll = self.file_selected + 1 - rows;
+        }
     }
 
     pub(super) fn current_detail_hit(&self) -> Option<&SearchHit> {
@@ -901,6 +1093,8 @@ impl App {
         self.status = None;
         self.last_search_duration = None;
         self.last_projection_duration = None;
+        self.last_search_view = None;
+        self.refresh_requested = false;
     }
 
     pub(super) fn request_search(&mut self) {
@@ -928,10 +1122,30 @@ impl App {
         self.requested_offset = None;
         self.last_search_duration = None;
         self.last_projection_duration = None;
+        self.last_search_view = None;
+        self.refresh_requested = false;
         self.launch(0);
     }
 
     pub(super) fn tick(&mut self, now: Instant) {
+        self.poll_build();
+        if let Some(receiver) = &self.snapshot_save_receiver {
+            match receiver.try_recv() {
+                Ok(Ok(())) => {
+                    self.status = Some("Snapshot saved".into());
+                    self.snapshot_save_receiver = None;
+                }
+                Ok(Err(error)) => {
+                    self.status = Some(format!("Snapshot save failed: {error}"));
+                    self.snapshot_save_receiver = None;
+                }
+                Err(mpsc::TryRecvError::Disconnected) => {
+                    self.status = Some("Snapshot save worker stopped".into());
+                    self.snapshot_save_receiver = None;
+                }
+                Err(mpsc::TryRecvError::Empty) => {}
+            }
+        }
         while let Ok(update) = self.receiver.try_recv() {
             self.inflight = self.inflight.saturating_sub(1);
             if update.generation != self.generation {
@@ -942,16 +1156,26 @@ impl App {
             self.last_search_duration = Some(update.elapsed);
             match update.result {
                 Ok(result) => {
-                    let Some(total) = result.count else {
-                        self.error = Some("search omitted the requested count".into());
-                        continue;
-                    };
-                    self.total = self
-                        .result_limit
-                        .map_or(total.saturating_sub(self.base_offset), |limit| {
-                            limit.min(total.saturating_sub(self.base_offset))
-                        });
+                    if let Some(view) = update.view {
+                        self.last_search_view = Some(view);
+                    }
+                    self.provisional = !update.complete;
+                    if update.complete {
+                        let Some(total) = result.count else {
+                            self.error = Some("search omitted the requested count".into());
+                            continue;
+                        };
+                        self.total = self
+                            .result_limit
+                            .map_or(total.saturating_sub(self.base_offset), |limit| {
+                                limit.min(total.saturating_sub(self.base_offset))
+                            });
+                    }
+                    let selected_id = self
+                        .selected_hit()
+                        .map(|hit| (hit.collection.clone(), hit.record_id.clone()));
                     if self.single_collection
+                        && update.complete
                         && update.offset + result.hits.len() == self.window_start
                         && !self.hits.is_empty()
                     {
@@ -964,6 +1188,18 @@ impl App {
                             .saturating_sub(self.viewport_rows.saturating_sub(1));
                         self.hits.truncate(3 * PAGE_SIZE);
                         self.next_offset = self.window_start + self.hits.len();
+                    } else if update.delta {
+                        for hit in result.hits {
+                            if !self.hits.iter().any(|existing| {
+                                existing.collection == hit.collection
+                                    && existing.record_id == hit.record_id
+                            }) {
+                                self.hits.push(hit);
+                            }
+                        }
+                        self.hits.sort_by_key(|hit| (hit.file_id, hit.byte_start));
+                        self.hits.truncate(PAGE_SIZE);
+                        self.next_offset = self.hits.len();
                     } else if update.offset == 0 {
                         self.hits = result.hits;
                         self.next_offset = self.hits.len();
@@ -976,6 +1212,16 @@ impl App {
                             self.window_start += drop;
                             self.selected = self.selected.saturating_sub(drop);
                             self.scroll = self.scroll.saturating_sub(drop);
+                        }
+                    }
+                    if !update.complete {
+                        self.total = self.hits.len();
+                    }
+                    if let Some((collection, record_id)) = selected_id {
+                        if let Some(position) = self.hits.iter().position(|hit| {
+                            hit.collection == collection && hit.record_id == record_id
+                        }) {
+                            self.selected = position;
                         }
                     }
                     if self.single_collection {
@@ -1002,9 +1248,22 @@ impl App {
                 }
                 Err(error) => {
                     self.active_columns.clear();
-                    self.error = Some(error);
+                    if self
+                        .build_status
+                        .as_ref()
+                        .is_some_and(|status| !status.construction_complete)
+                    {
+                        self.status = Some(format!("Waiting for indexing: {error}"));
+                        self.provisional = true;
+                    } else {
+                        self.error = Some(error);
+                    }
                 }
             }
+        }
+        if self.refresh_requested && self.inflight == 0 && self.pending.is_none() {
+            self.refresh_requested = false;
+            self.launch(0);
         }
         if self.inflight < 2 {
             if let Some(offset) = self.queued_offset.take() {
@@ -1030,6 +1289,7 @@ impl App {
             && self.requested_offset.is_none()
             && !self.searching
             && self.error.is_none()
+            && !self.provisional
             && self.total > self.next_offset
             && self.selected.saturating_add(30) >= self.hits.len()
         {
@@ -1046,6 +1306,15 @@ impl App {
                 return;
             }
         };
+        let incomplete = self
+            .build_status
+            .as_ref()
+            .is_some_and(|status| !status.construction_complete);
+        if incomplete && (offset != 0 || query.options.offset != 0) {
+            self.status = Some("Pagination waits for the complete index".into());
+            self.searching = false;
+            return;
+        }
         if self.single_collection {
             let mut fields = Vec::new();
             if let Some(filter) = &query.filter {
@@ -1060,6 +1329,8 @@ impl App {
                 .retain(|field| self.active_columns.contains(field));
         }
         let repository = Arc::clone(&self.repo);
+        let published_view = incomplete.then(|| self.catalogue_view.clone());
+        let previous_view = self.last_search_view.clone();
         let sender = self.sender.clone();
         let generation = self.generation;
         self.searching = true;
@@ -1074,7 +1345,47 @@ impl App {
         let single_collection = self.single_collection;
         std::thread::spawn(move || {
             let started = Instant::now();
-            let result = if single_collection {
+            let (result, complete, delta, view) = if incomplete {
+                match published_view {
+                    Some(view) => {
+                        let can_delta = previous_view.as_ref().is_some_and(|old| {
+                            old.revision() < view.revision() && query.options.sort.is_empty()
+                        });
+                        let (available, delta) = if can_delta {
+                            match view.search_added_since_with_cancellation(
+                                previous_view.as_ref().unwrap(),
+                                &query,
+                                &token,
+                            ) {
+                                Ok(Some(available)) => (Ok(available), true),
+                                Ok(None) => (
+                                    view.search_available_with_cancellation(&query, &token),
+                                    false,
+                                ),
+                                Err(error) => (Err(error), false),
+                            }
+                        } else {
+                            (
+                                view.search_available_with_cancellation(&query, &token),
+                                false,
+                            )
+                        };
+                        match available {
+                            Ok(available) if available.complete => {
+                                (view.search(&query), true, false, Some(view))
+                            }
+                            Ok(available) => (Ok(available.result), false, delta, Some(view)),
+                            Err(error) => (Err(error.to_string()), false, false, Some(view)),
+                        }
+                    }
+                    None => (
+                        Err("index catalogue is not ready".into()),
+                        false,
+                        false,
+                        None,
+                    ),
+                }
+            } else if single_collection {
                 let mut page = Vec::new();
                 let mut options = StreamOptions::default();
                 options.mode = StreamMode::PageReplacements;
@@ -1084,7 +1395,7 @@ impl App {
                     }
                     Ok(objekte_search_core::streaming::StreamControl::Continue)
                 });
-                match outcome {
+                let result = match outcome {
                     Ok(StreamOutcome::Complete(summary)) => Ok(SearchResult {
                         count: summary.count,
                         hits: page,
@@ -1092,15 +1403,19 @@ impl App {
                     }),
                     Ok(StreamOutcome::Cancelled(_)) => Err("search cancelled".into()),
                     Err(error) => Err(error.to_string()),
-                }
+                };
+                (result, true, false, None)
             } else {
-                repository.search(&query)
+                (repository.search(&query), true, false, None)
             };
             let _ = sender.send(Update {
                 generation,
                 offset,
                 elapsed: started.elapsed(),
                 result,
+                complete,
+                delta,
+                view,
             });
         });
     }
@@ -1219,6 +1534,15 @@ impl App {
     }
 
     pub(super) fn finish_export(&mut self, all: bool) {
+        if all
+            && self
+                .build_status
+                .as_ref()
+                .is_some_and(|status| !status.construction_complete)
+        {
+            self.status = Some("Export all waits for the complete index".into());
+            return;
+        }
         let path = PathBuf::from(self.export_input.text.trim());
         if path.as_os_str().is_empty() {
             self.status = Some("Enter a JSON file path".into());
@@ -1248,7 +1572,6 @@ impl App {
         }
     }
 }
-
 
 fn sort_label(sort: &SortField) -> String {
     let Some(expression) = &sort.expression else {
