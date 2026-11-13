@@ -6,6 +6,103 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
+fn segmented_selected_record_id_regex_uses_metadata_without_source_reads() {
+    use crate::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+    use crate::lifecycle::Index;
+    use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, RegexOptions};
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::source::SourceRegistry;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-segment-id-regex-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, id) in [("a", "AbC-10"), ("b", "abc-20"), ("c", "Line\nBreak"), ("d", "XYZ-30")] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            serde_json::json!({"id":id}).to_string(),
+        )
+        .unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    definition.schema.register_field(FieldDefinition {
+        path: vec!["id".into()],
+        kind: LogicalType::Id,
+        required: true,
+        nullable: false,
+        indexed: true,
+        multi: false,
+        element_nullable: Vec::new(),
+    }).unwrap();
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::Disabled,
+        verified_cache_bytes: 1 << 20,
+        query_workers: 2,
+        ..Default::default()
+    };
+    let memory = Index::build(&root, vec![definition.clone()], options).unwrap();
+    let storage = IndexStoragePolicy {
+        location: IndexStorageLocation::RepositoryDirectory,
+        residency: IndexResidency::OnDemand,
+    };
+    let first = Index::open_with_storage(
+        root.clone(), vec![definition.clone()], options, storage.clone(), SourceRegistry::builtin(),
+    ).unwrap();
+    first.stop_sync_storage().unwrap();
+    drop(first);
+    let managed = Index::open_with_storage(
+        root.clone(), vec![definition], options, storage, SourceRegistry::builtin(),
+    ).unwrap();
+    assert!(managed.restored_from_cache());
+    for index in [&memory, &managed] {
+        for (pattern, case, flags, expected) in [
+            (r"^AbC-\d+$", CaseSensitivity::Sensitive, RegexOptions::default(), vec!["AbC-10"]),
+            (r"^AbC-\d+$", CaseSensitivity::Insensitive, RegexOptions::default(), vec!["AbC-10", "abc-20"]),
+            ("^Line.Break$", CaseSensitivity::Sensitive, RegexOptions {multi_line: false, dot_matches_new_line: true}, vec!["Line\nBreak"]),
+        ] {
+            let query = Query {
+                collections: vec!["data".into()],
+                fts: Some(FtsQuery {
+                    literal: pattern.into(),
+                    case_sensitivity: case,
+                    mode: FtsMode::Regex(flags),
+                    pattern_parameter: None,
+                    fields: vec![FtsField {
+                        path: FieldPath::parse("@record.id").unwrap(),
+                        binding: None,
+                        query_path: None,
+                    }],
+                }),
+                filter: None,
+                options: QueryOptions {
+                    sort: Vec::new(), limit: 10, offset: 0, count: true,
+                    return_mode: ReturnMode::Locator, evidence: true,
+                },
+            };
+            let result = index.view().unwrap().search(&query).unwrap();
+            let mut ids = result.hits.iter().map(|hit| hit.record_id.as_str()).collect::<Vec<_>>();
+            ids.sort_unstable();
+            assert_eq!(ids, expected);
+            assert_eq!(result.count, Some(expected.len()));
+            assert!(result.hits.iter().all(|hit| hit.matched_fields == ["@record.id"]));
+            assert_eq!(result.counters.files_opened, 0);
+            assert_eq!(result.counters.bytes_read, 0);
+            assert_eq!(result.counters.record_parses, 0);
+            assert_eq!(result.counters.scanned_records, 0);
+            assert_eq!(result.counters.exact_posting_matches, expected.len() as u64);
+        }
+    }
+    managed.stop_sync_storage().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn borrowed_source_verification_matches_reference_for_outputs_and_duplicates() {
     use crate::lifecycle::Index;
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery};

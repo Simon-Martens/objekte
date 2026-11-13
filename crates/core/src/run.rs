@@ -2032,6 +2032,44 @@ fn inventory_fts_evidence(
     Ok(matches)
 }
 
+fn segment_metadata_fts_evidence(
+    repo: &Repository,
+    collection: &CollectionState,
+    segment: &IndexedCollectionSegment,
+    active: &ActiveRecords,
+    catalog: &FileCatalog,
+    fts: &BoundFts,
+    input: &RoaringBitmap,
+    retain_evidence: bool,
+) -> Result<HashMap<u32, Vec<String>>, String> {
+    let empty = Value::Object(Default::default());
+    let mut matches = HashMap::new();
+    for slot in input.iter() {
+        let resolved = segment_record_ref(segment, active, catalog, RecordSlot(slot))?
+            .ok_or("active metadata FTS slot missing")?;
+        let ctx = RecordContext {
+            value: &empty,
+            source_bytes: None,
+            record: resolved.record,
+            file: resolved.file,
+            collection_name: &collection.definition.name,
+            repository_root: &repo.files.root,
+        };
+        let mut evidence = HashSet::new();
+        if eval_bound_fts(fts, &[], &ctx, &mut evidence)? {
+            matches.insert(
+                slot,
+                if retain_evidence {
+                    evidence.into_iter().collect()
+                } else {
+                    Vec::new()
+                },
+            );
+        }
+    }
+    Ok(matches)
+}
+
 impl PartialEq for Winner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
@@ -3972,6 +4010,33 @@ fn search_segmented_impl(
                 candidates &= fts_may;
             }
             counters.candidates += candidates.len();
+            let metadata_evidence = if filter.is_none()
+                && query.options.return_mode == ReturnMode::Locator
+                && !sort.bound.has_computed
+                && !sort.bound.needs_source
+                && let Some(fts) = fts.as_ref()
+                && !fts.fields.is_empty()
+                && fts
+                    .fields
+                    .iter()
+                    .all(|field| matches!(field.path.root, PathRoot::Metadata(_)))
+            {
+                Some(segment_metadata_fts_evidence(
+                    repo,
+                    collection,
+                    segment,
+                    &published.active,
+                    catalog,
+                    fts,
+                    &candidates,
+                    query.options.evidence,
+                )?)
+            } else {
+                None
+            };
+            if let Some(evidence) = &metadata_evidence {
+                candidates = evidence.keys().copied().collect();
+            }
             if candidates.is_empty() {
                 continue;
             }
@@ -3994,13 +4059,22 @@ fn search_segmented_impl(
             } else {
                 None
             };
-            let index_exact = (!query.options.evidence || exact_evidence.is_some())
+            let index_exact = (!query.options.evidence
+                || exact_evidence.is_some()
+                || metadata_evidence.is_some())
                 && !sort.bound.has_computed
-                && fts.is_none()
+                && (fts.is_none() || metadata_evidence.is_some())
                 && bounds
                     .as_ref()
                     .is_none_or(|bounds| bounds.may == bounds.must);
             if index_exact {
+                let exact_fields = |slot: u32| {
+                    metadata_evidence
+                        .as_ref()
+                        .and_then(|evidence| evidence.get(&slot))
+                        .cloned()
+                        .unwrap_or_else(|| exact_evidence.clone().unwrap_or_default())
+                };
                 // Stored order is already available in each shard. A global
                 // top `cap` page cannot contain a shard row ranked below that
                 // shard's own top `cap`; count the complete bitmap but only
@@ -4036,7 +4110,7 @@ fn search_segmented_impl(
                             collection,
                             resolved,
                             revision,
-                            exact_evidence.clone().unwrap_or_default(),
+                            exact_fields(slot.0),
                         );
                         offer_merged(
                             &mut winners,
@@ -4091,7 +4165,7 @@ fn search_segmented_impl(
                         resolved.record,
                         None,
                     )?;
-                    let matched_fields = exact_evidence.clone().unwrap_or_default();
+                    let matched_fields = exact_fields(slot);
                     if let Some(builder) = cache_builder.as_mut() {
                         builder.push(
                             &key,
