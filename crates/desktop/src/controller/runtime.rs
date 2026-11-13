@@ -516,6 +516,7 @@ pub struct DesktopController {
     automatic_check_operation_id: u64,
     automatic_check_epoch: Arc<AtomicU64>,
     automatic_check_gate: Arc<Mutex<()>>,
+    open_gate: Arc<Mutex<()>>,
     requested_check: (bool, u64),
     preferences: Option<DesktopPreferences>,
     open_diagnostics: String,
@@ -610,6 +611,7 @@ impl DesktopController {
                 automatic_check_operation_id: 0,
                 automatic_check_epoch: Arc::new(AtomicU64::new(0)),
                 automatic_check_gate: Arc::new(Mutex::new(())),
+                open_gate: Arc::new(Mutex::new(())),
                 requested_check: (false, 30),
                 preferences: None,
                 open_diagnostics: String::new(),
@@ -1602,9 +1604,20 @@ impl DesktopController {
         let generation = self.pending_open_generation;
         let token = self.open_cancellation.clone();
         let sender = self.worker_tx.clone();
+        let open_gate = Arc::clone(&self.open_gate);
+        let previous = self.session.clone();
+        let requested_check = self.requested_check;
         updates.push(UiUpdate::Opening("Opening repository…".into()));
         thread::spawn(move || {
-            let result = open_with_preferences(&spec, &token);
+            let result = match open_gate.lock() {
+                Ok(_open_gate) => open_after_flushing_previous(
+                    &spec,
+                    &token,
+                    previous.as_ref(),
+                    requested_check,
+                ),
+                Err(_) => Err("repository opening coordinator is unavailable".into()),
+            };
             let _ = sender.send(WorkerEvent::Opened {
                 generation,
                 result: Box::new(result),
@@ -1619,6 +1632,15 @@ impl DesktopController {
                 task.cancel();
             }
             self.pending_open_generation = self.pending_open_generation.wrapping_add(1);
+            if let Some(previous) = self.session.clone() {
+                let gate = Arc::clone(&self.open_gate);
+                let requested_check = self.requested_check;
+                thread::spawn(move || {
+                    if let Ok(_gate) = gate.lock() {
+                        let _ = resume_previous_automation(&previous, requested_check);
+                    }
+                });
+            }
             updates.push(UiUpdate::Status("Open cancelled".into()));
         }
     }
@@ -2794,6 +2816,16 @@ impl DesktopController {
                     }
                 }
             }
+            WorkerEvent::Opened { result, .. } => {
+                if let Ok((discarded, _, _, _, _, task)) = *result {
+                    if let Some(task) = task {
+                        task.cancel();
+                    }
+                    thread::spawn(move || {
+                        let _ = backend::index_lifecycle::shutdown(&discarded);
+                    });
+                }
+            }
             WorkerEvent::Queried {
                 open_generation,
                 query_generation,
@@ -3848,6 +3880,10 @@ impl DesktopController {
     }
 
     fn start_check(&mut self, updates: &mut Vec<UiUpdate>) {
+        if self.opening_draft.is_some() {
+            updates.push(UiUpdate::Status("Wait for the repository to open".into()));
+            return;
+        }
         if self.initial_construction_incomplete() {
             updates.push(UiUpdate::Status(
                 "File check is available after indexing completes".into(),
@@ -3877,6 +3913,10 @@ impl DesktopController {
     }
 
     fn start_maintenance(&mut self, operation: MaintenanceOperation, updates: &mut Vec<UiUpdate>) {
+        if self.opening_draft.is_some() {
+            updates.push(UiUpdate::Status("Wait for the repository to open".into()));
+            return;
+        }
         if self.initial_construction_incomplete() {
             updates.push(UiUpdate::Status(
                 "Index maintenance is available after indexing completes".into(),
@@ -4104,6 +4144,92 @@ impl DesktopController {
     }
 }
 
+
+fn resume_previous_automation(
+    session: &OpenedSession,
+    requested_check: (bool, u64),
+) -> Result<(), String> {
+    let index = session.repository.index();
+    if index
+        .storage_status()
+        .map_err(|error| error.to_string())?
+        .managed_directory
+        .is_none()
+    {
+        return Ok(());
+    }
+    index.set_sync_storage(true).map_err(|error| error.to_string())?;
+    backend::index_lifecycle::set_periodic_check(
+        session,
+        requested_check
+            .0
+            .then(|| Duration::from_secs(requested_check.1)),
+    )
+    .map_err(|error| error.to_string())
+}
+
+fn open_after_flushing_previous(
+    spec: &OpenSpec,
+    token: &CancellationToken,
+    previous: Option<&OpenedSession>,
+    requested_check: (bool, u64),
+) -> OpenCompletion {
+    let managed_previous = previous
+        .map(|session| {
+            session
+                .repository
+                .index()
+                .storage_status()
+                .map(|status| status.managed_directory.is_some())
+                .map_err(|error| error.to_string())
+        })
+        .transpose()?
+        .unwrap_or(false);
+    if managed_previous {
+        let previous = previous.expect("managed previous session exists");
+        if let Err(error) = backend::index_lifecycle::stop_automation(previous)
+            .map_err(|error| error.to_string())
+            .and_then(|()| {
+                previous
+                    .repository
+                    .index()
+                    .flush_storage()
+                    .map(|_| ())
+                    .map_err(|error| error.to_string())
+            })
+        {
+            return Err(match resume_previous_automation(previous, requested_check) {
+                Ok(()) => format!("Could not finish the current index before reopening: {error}"),
+                Err(resume_error) => format!(
+                    "Could not finish the current index before reopening: {error}; could not resume synchronization: {resume_error}"
+                ),
+            });
+        }
+    }
+    let result = open_with_preferences(spec, token);
+    if token.is_cancelled() {
+        if let Ok((session, ..)) = &result {
+            let _ = backend::index_lifecycle::shutdown(session);
+        }
+        if managed_previous {
+            let _ = resume_previous_automation(
+                previous.expect("managed previous session exists"),
+                requested_check,
+            );
+        }
+        return Err("Open cancelled".into());
+    }
+    if result.is_err() && managed_previous {
+        let previous = previous.expect("managed previous session exists");
+        if let Err(resume_error) = resume_previous_automation(previous, requested_check) {
+            return Err(format!(
+                "{}; could not resume synchronization: {resume_error}",
+                result.err().expect("open failed")
+            ));
+        }
+    }
+    result
+}
 
 fn open_with_preferences(spec: &OpenSpec, token: &CancellationToken) -> OpenCompletion {
     let (session, initial_task) =

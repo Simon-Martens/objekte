@@ -798,6 +798,102 @@ fn managed_index_panel_reports_storage_and_close_flushes() {
 }
 
 #[test]
+fn reopening_managed_index_flushes_pending_revision_before_restore() {
+    use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
+    let session = backend::open(
+        &OpenSpec {
+            storage_policy: Some(IndexStoragePolicy {
+                location: IndexStorageLocation::RepositoryDirectory,
+                residency: IndexResidency::OnDemand,
+            }),
+            args: objekte_cli::arguments::Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let original = session.repository.index().clone();
+    original.stop_sync_storage().unwrap();
+    std::fs::write(root.path().join("late.json"), r#"{"title":"Late"}"#).unwrap();
+    original.add_file(&root.path().join("late.json")).unwrap();
+    let pending = original.storage_status().unwrap();
+    assert_ne!(pending.durable_generation, Some(pending.current_generation));
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(session);
+    controller.start_open(OpenDraft {
+        paths: root.path().display().to_string(),
+        index_storage: StorageChoice::Repository,
+        ..OpenDraft::default()
+    }, &mut Vec::new());
+    let WorkerEvent::Opened { result, .. } = controller
+        .workers
+        .recv_timeout(Duration::from_secs(5))
+        .unwrap() else { panic!("expected opened repository") };
+    let (reopened, ..) = (*result).unwrap();
+    assert!(reopened.diagnostics.startup.restored);
+    assert_eq!(reopened.repository.index().status().unwrap().live_records, 2);
+    assert_eq!(original.storage_status().unwrap().durable_generation,
+        Some(original.storage_status().unwrap().current_generation));
+    original.shutdown().unwrap();
+    reopened.repository.index().shutdown().unwrap();
+}
+
+#[test]
+fn failed_managed_reopen_resumes_the_previous_storage_writer() {
+    use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
+    let session = backend::open(
+        &OpenSpec {
+            storage_policy: Some(IndexStoragePolicy {
+                location: IndexStorageLocation::RepositoryDirectory,
+                residency: IndexResidency::OnDemand,
+            }),
+            args: objekte_cli::arguments::Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let spec = OpenSpec {
+        storage_policy: Some(IndexStoragePolicy {
+            location: IndexStorageLocation::CustomDirectory(root.path().join("missing-base")),
+            residency: IndexResidency::OnDemand,
+        }),
+        args: session.args.clone(),
+        cwd: root.path().to_path_buf(),
+    };
+    assert!(open_after_flushing_previous(
+        &spec,
+        &CancellationToken::new(),
+        Some(&session),
+        (false, 30),
+    ).is_err());
+    let index = session.repository.index();
+    std::fs::write(root.path().join("late.json"), r#"{"title":"Late"}"#).unwrap();
+    index.add_file(&root.path().join("late.json")).unwrap();
+    let deadline = Instant::now() + Duration::from_secs(4);
+    while Instant::now() < deadline {
+        let status = index.storage_status().unwrap();
+        if status.durable_generation == Some(status.current_generation) {
+            break;
+        }
+        std::thread::sleep(Duration::from_millis(50));
+    }
+    let status = index.storage_status().unwrap();
+    assert_eq!(status.durable_generation, Some(status.current_generation));
+    index.shutdown().unwrap();
+}
+
+#[test]
 fn unchanged_index_status_does_not_redraw_the_workspace() {
     let fixture = crate::backend::test_support::fixture();
     let (mut controller, _) = DesktopController::new();
