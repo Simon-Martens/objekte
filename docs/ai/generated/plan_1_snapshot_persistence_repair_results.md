@@ -1,10 +1,10 @@
 # Plan 1 snapshot persistence repair: results
 
-**Task:** `plan-1-snapshot-persistence-repair`  
-**Base:** `c54afc3eb1cdc496734bfb30bcc9a3ea38988b78`  
-**Attribution commit:** `bf39483f7c95368f222c760de04bde217b3dbe9d`  
-**Repair commit:** `2cb74685e113e12dd6b5f34bc36f57781e4ea2d8`  
-**Worktree:** `/home/simon/source/objekte-integration-incremental-index-availability`  
+**Task:** `plan-1-snapshot-persistence-repair`
+**Base:** `c54afc3eb1cdc496734bfb30bcc9a3ea38988b78`
+**Attribution commit:** `bf39483f7c95368f222c760de04bde217b3dbe9d`
+**Repair commit:** `2cb74685e113e12dd6b5f34bc36f57781e4ea2d8`
+**Worktree:** `/home/simon/source/objekte-integration-incremental-index-availability`
 **Status:** representation repair implemented and measured on Plan 1; master merge review remains open.
 
 ## What changed

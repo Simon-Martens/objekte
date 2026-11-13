@@ -7,7 +7,10 @@ fn metadata_columns_show_captured_values_without_a_json_payload() {
     let fixture = fixture();
     let spec = QuerySpec::default();
     let mut page = query_page(&fixture.session, &spec, 0, 10, &CancellationToken::new()).unwrap();
-    let columns = initial_columns(&fixture.session, &SearchDraft::default());
+    let columns = initial_columns(
+        &fixture.session.repository.index().view().unwrap(),
+        &SearchDraft::default(),
+    );
     // Render the same known values with and without a decoded source record.
     for payload_available in [true, false] {
         if !payload_available {
@@ -92,9 +95,14 @@ fn metadata_cells_agree_with_filters_combining_metadata_and_record_fields() {
         let spec = QuerySpec { filter: filter.clone(), count: true, ..Default::default() };
         let page = query_page(&fixture.session, &spec, 0, 10, &CancellationToken::new()).unwrap();
         assert_eq!(page.count, Some(1), "{filter}");
-        let columns = initial_columns(&fixture.session, &SearchDraft {
-            structured: filter.clone(), filter_enabled: true, ..Default::default()
-        });
+        let columns = initial_columns(
+            &fixture.session.repository.index().view().unwrap(),
+            &SearchDraft {
+                structured: filter.clone(),
+                filter_enabled: true,
+                ..Default::default()
+            },
+        );
         let (view, _, _) = page_view_with_prior(&page, &spec, &[], &[], &columns);
         assert_eq!(view.rows.len(), 1, "{filter}");
         for (column, expected) in [
@@ -174,7 +182,7 @@ fn leading_columns_follow_predicate_order_and_keep_metadata_distinct() {
         filter_enabled: true,
         ..SearchDraft::default()
     };
-    let columns = initial_columns(&fixture.session, &draft);
+    let columns = initial_columns(&fixture.session.repository.index().view().unwrap(), &draft);
     assert_eq!(&columns[..5], ["@status", "@id", "@match", "year", "title"]);
     assert_eq!(columns.iter().filter(|column| *column == "year").count(), 1);
     assert!(!columns.contains(&"@collection".to_owned()));

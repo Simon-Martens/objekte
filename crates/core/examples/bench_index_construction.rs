@@ -254,6 +254,18 @@ fn run() -> Result<(), String> {
                                 .values()
                                 .map(|bitmap| bitmap.serialized_size() as usize)
                                 .sum::<usize>()
+                            + p.structural.as_ref().map_or(0, |facts| {
+                                facts
+                                    .postings
+                                    .values()
+                                    .map(|bitmap| bitmap.serialized_size())
+                                    .sum::<usize>()
+                            })
+                            + if p.empty_selections.is_empty() {
+                                0
+                            } else {
+                                p.empty_selections.serialized_size()
+                            }
                     })
                     .sum::<usize>()
                 + c.sorting

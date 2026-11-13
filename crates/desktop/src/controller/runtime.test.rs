@@ -1,5 +1,454 @@
 use super::*;
 
+fn large_delta_fixture(records: usize) -> (tempfile::TempDir, OpenedSession, IndexView, IndexView) {
+    use objekte_search_core::lifecycle::Index;
+    use objekte_search_core::lifecycle_caller::IndexedRepository;
+    use objekte_search_core::repository::{CollectionDefinition, Repository, RepositoryOptions};
+    use objekte_search_core::source::SourceFormat;
+
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir(root.path().join("data")).unwrap();
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
+    let repository =
+        Repository::open_with_options(root.path(), vec![definition], RepositoryOptions::default())
+            .unwrap();
+    let index = Index::from_repository(repository).unwrap();
+    let previous = index.view().unwrap();
+    let path = root.path().join("data/large.jsonl");
+    let mut contents = String::new();
+    for number in 0..records {
+        contents.push_str(&format!("{{\"name\":\"n{number}\"}}\n"));
+    }
+    std::fs::write(&path, contents).unwrap();
+    index.add_file(&path).unwrap();
+    let current = index.view().unwrap();
+    let mut session = crate::backend::test_support::fixture().session;
+    session.repository = Arc::new(IndexedRepository::new(index).unwrap());
+    session.collections = vec!["data".into()];
+    session.single_collection = true;
+    (root, session, previous, current)
+}
+
+#[test]
+fn completed_inference_refreshes_fields_without_rows_or_edits() {
+    use crate::ui::filter_builder::{Comparison, ConditionDraft, ValueType, serialize_conditions};
+    use objekte_search_core::inference::{InferenceConfig, InferenceMode};
+    use objekte_search_core::lifecycle::Index;
+    use objekte_search_core::lifecycle_caller::IndexedRepository;
+    use objekte_search_core::model::{FieldPath, LogicalType, PathRoot};
+    use objekte_search_core::reference::FieldDefinition;
+    use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
+    use objekte_search_core::source::SourceFormat;
+
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir(root.path().join("data")).unwrap();
+    std::fs::create_dir(root.path().join("other")).unwrap();
+    for number in 0..2_050 {
+        let body = match number {
+            2_048 => r#"{"name":"late","extra":{"rare.field":42,"mixed":true}}"#.to_owned(),
+            2_049 => r#"{"name":"last","extra":{"mixed":7}}"#.to_owned(),
+            _ => format!(r#"{{"name":"n{number}"}}"#),
+        };
+        std::fs::write(root.path().join(format!("data/f{number:04}.json")), body).unwrap();
+    }
+    std::fs::write(root.path().join("other/a.json"), r#"{"only_other":"yes"}"#).unwrap();
+    let mut data = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    data.schema
+        .register_field(FieldDefinition {
+            path: vec!["declared".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let other = CollectionDefinition::folder("other", "other", SourceFormat::Json);
+    let index = Index::start_incremental_build(
+        root.path(),
+        vec![data, other],
+        RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let view = index.view().unwrap();
+    let path = FieldPath {
+        root: PathRoot::Data,
+        segments: vec!["extra".into(), "rare.field".into()],
+    }
+    .display();
+    let choices = field_choices(&view, Some("data"), &[]);
+    assert_eq!(
+        choices
+            .iter()
+            .find(|choice| choice.path == path)
+            .unwrap()
+            .value_type,
+        Some(ValueType::Number)
+    );
+    assert_eq!(
+        choices
+            .iter()
+            .find(|choice| choice.path == "extra.mixed")
+            .unwrap()
+            .value_type,
+        None
+    );
+    assert_eq!(
+        choices
+            .iter()
+            .find(|choice| choice.path == "declared")
+            .unwrap()
+            .value_type,
+        Some(ValueType::String)
+    );
+    assert!(choices.iter().any(|choice| choice.path == "@record.id"));
+    assert!(choices.iter().all(|choice| choice.path != "only_other"));
+    assert!(
+        field_choices(&view, Some("other"), &[])
+            .iter()
+            .any(|choice| choice.path == "only_other")
+    );
+
+    let mut session = crate::backend::test_support::fixture().session;
+    session.repository = Arc::new(IndexedRepository::new(index.clone()).unwrap());
+    session.collections = vec!["data".into(), "other".into()];
+    session.single_collection = false;
+    let mut controller = DesktopController::new().0;
+    controller.session = Some(session.clone());
+    controller.open_generation = 3;
+    controller.current_draft.collection = Some("data".into());
+    controller.current_draft.structured = "name = 'no such record'".into();
+    controller.current_draft.filter_enabled = true;
+    controller.initial_task = Some(InitialBuildTask::from_ready(index).unwrap());
+    let mut updates = Vec::new();
+    controller.poll_index_tasks(&mut updates);
+    let suggested = updates
+        .iter()
+        .find_map(|update| match update {
+            UiUpdate::FieldChoices(fields) => Some(fields),
+            _ => None,
+        })
+        .unwrap();
+    assert_eq!(suggested, &choices);
+    assert!(controller.initial_task.is_none());
+    let mut repeat = Vec::new();
+    controller.push_field_choices(&mut repeat);
+    assert!(repeat.is_empty());
+    controller.current_draft.collection = Some("other".into());
+    controller.push_field_choices(&mut repeat);
+    let other_choices = repeat
+        .iter()
+        .find_map(|update| match update {
+            UiUpdate::FieldChoices(fields) => Some(fields),
+            _ => None,
+        })
+        .unwrap();
+    assert!(
+        other_choices
+            .iter()
+            .any(|choice| choice.path == "only_other")
+    );
+    assert!(other_choices.iter().all(|choice| choice.path != path));
+    repeat.clear();
+    controller.open_generation += 1;
+    controller.push_field_choices(&mut repeat);
+    assert!(matches!(repeat.as_slice(), [UiUpdate::FieldChoices(_)]));
+
+    let inserted = serialize_conditions(&[ConditionDraft {
+        field: path.clone(),
+        predicate: None,
+        comparison: Comparison::Equal,
+        value: Some("42".into()),
+        value_type: Some(ValueType::Number),
+    }])
+    .unwrap()
+    .unwrap();
+    let manual = format!("{path} = 42");
+    let selected = backend::QuerySpec {
+        filter: inserted,
+        scope: Some("data".into()),
+        ..Default::default()
+    };
+    let expected = backend::QuerySpec {
+        filter: manual,
+        scope: Some("data".into()),
+        ..Default::default()
+    };
+    let selected_page = backend::query_page(
+        &session,
+        &selected,
+        0,
+        backend::MAX_PAGE_ROWS,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let manual_page = backend::query_page(
+        &session,
+        &expected,
+        0,
+        backend::MAX_PAGE_ROWS,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert_eq!(selected_page.hits.len(), 1);
+    assert_eq!(
+        selected_page.hits[0].record_id,
+        manual_page.hits[0].record_id
+    );
+}
+
+#[test]
+fn desktop_delta_bounds_bytes_and_evidence_before_materialization() {
+    let (_root, session, previous, current) = large_delta_fixture(2_048);
+    let spec = backend::QuerySpec::default();
+    let token = CancellationToken::new();
+    let query = backend::build_query(&spec).unwrap();
+    assert_eq!(
+        query.options.return_mode,
+        objekte_search_core::workload::ReturnMode::Bytes
+    );
+    assert!(query.options.evidence);
+    let all = current
+        .search_added_since_with_cancellation(&previous, &query, &token)
+        .unwrap()
+        .unwrap();
+    assert_eq!(all.result.hits.len(), 2_048);
+    assert_eq!(all.result.counters.selected_payload_reads, 2_048);
+
+    let (kind, page) =
+        incremental_delta_page(&session, &previous, &current, &spec, 0, &token).unwrap();
+    assert!(matches!(kind, GridRequestKind::Delta(0)));
+    assert_eq!(page.hits.len(), backend::MAX_PAGE_ROWS);
+    assert_eq!(
+        page.counters.returned_records,
+        backend::MAX_PAGE_ROWS as u64
+    );
+    assert_eq!(
+        page.counters.selected_payload_reads,
+        backend::MAX_PAGE_ROWS as u64
+    );
+    assert!(page.counters.selected_payload_bytes > 0);
+    assert!(page.counters.peak_retained_payload_bytes <= page.counters.selected_payload_bytes);
+    assert!(page.hits.iter().all(|hit| hit.payload.is_some()));
+    assert!(page.provisional && page.count.is_none() && page.next_page_start.is_none());
+
+    let (kind, one) = incremental_delta_page(
+        &session,
+        &previous,
+        &current,
+        &spec,
+        backend::MAX_PAGE_ROWS - 1,
+        &token,
+    )
+    .unwrap();
+    assert!(matches!(kind, GridRequestKind::Delta(_)));
+    assert_eq!(one.hits.len(), 1);
+    assert_eq!(one.counters.selected_payload_reads, 1);
+    let (kind, full) = incremental_delta_page(
+        &session,
+        &previous,
+        &current,
+        &spec,
+        backend::MAX_PAGE_ROWS,
+        &token,
+    )
+    .unwrap();
+    assert!(matches!(kind, GridRequestKind::Delta(_)));
+    assert!(full.hits.is_empty());
+    assert_eq!(full.counters.selected_payload_reads, 0);
+    assert_eq!(full.counters.selected_payload_bytes, 0);
+    assert!(full.provisional);
+
+    let limited = backend::QuerySpec {
+        limit: Some(3),
+        ..spec.clone()
+    };
+    let (_, limited_one) =
+        incremental_delta_page(&session, &previous, &current, &limited, 2, &token).unwrap();
+    assert_eq!(limited_one.hits.len(), 1);
+    assert_eq!(limited_one.counters.selected_payload_reads, 1);
+    let (_, limited_full) =
+        incremental_delta_page(&session, &previous, &current, &limited, 3, &token).unwrap();
+    assert!(limited_full.hits.is_empty());
+    assert_eq!(limited_full.counters.selected_payload_reads, 0);
+}
+
+#[test]
+fn larger_publication_does_not_increase_selected_payload_work() {
+    let (_root, session, previous, current) = large_delta_fixture(8_192);
+    let spec = backend::QuerySpec::default();
+    let (kind, page) = incremental_delta_page(
+        &session,
+        &previous,
+        &current,
+        &spec,
+        0,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert!(matches!(kind, GridRequestKind::Delta(0)));
+    assert_eq!(page.hits.len(), backend::MAX_PAGE_ROWS);
+    assert_eq!(
+        page.counters.selected_payload_reads,
+        backend::MAX_PAGE_ROWS as u64
+    );
+    assert_eq!(
+        page.counters.returned_records,
+        backend::MAX_PAGE_ROWS as u64
+    );
+    assert!(page.counters.selected_payload_bytes > 0);
+    assert!(page.counters.peak_retained_payload_bytes <= page.counters.selected_payload_bytes);
+}
+
+#[test]
+fn full_delta_skip_preserves_replacement_and_new_query_access() {
+    let (_root, session, previous, current) = large_delta_fixture(512);
+    let token = CancellationToken::new();
+    let default_spec = backend::QuerySpec::default();
+    let (kind, full) = incremental_delta_page(
+        &session,
+        &previous,
+        &current,
+        &default_spec,
+        backend::MAX_PAGE_ROWS,
+        &token,
+    )
+    .unwrap();
+    assert!(matches!(kind, GridRequestKind::Delta(_)));
+    assert!(full.hits.is_empty());
+
+    let changed = backend::QuerySpec {
+        filter: "name = 'n511'".into(),
+        ..Default::default()
+    };
+    let (kind, found) =
+        incremental_delta_page(&session, &previous, &current, &changed, 0, &token).unwrap();
+    assert!(matches!(kind, GridRequestKind::Delta(0)));
+    assert_eq!(found.hits.len(), 1);
+
+    let counted = backend::QuerySpec {
+        count: true,
+        ..Default::default()
+    };
+    let (kind, replacement) = incremental_delta_page(
+        &session,
+        &previous,
+        &current,
+        &counted,
+        backend::MAX_PAGE_ROWS,
+        &token,
+    )
+    .unwrap();
+    assert!(matches!(kind, GridRequestKind::First));
+    assert_eq!(replacement.hits.len(), backend::MAX_PAGE_ROWS);
+    assert!(!replacement.provisional);
+    let offset = backend::QuerySpec {
+        offset: 1,
+        ..Default::default()
+    };
+    let (kind, replacement) = incremental_delta_page(
+        &session,
+        &previous,
+        &current,
+        &offset,
+        backend::MAX_PAGE_ROWS,
+        &token,
+    )
+    .unwrap();
+    assert!(matches!(kind, GridRequestKind::First));
+    assert_eq!(replacement.hits.len(), backend::MAX_PAGE_ROWS);
+    let sorted = backend::QuerySpec {
+        filter: "name:? = true SORT BY name DESC".into(),
+        ..Default::default()
+    };
+    let (kind, replacement) = incremental_delta_page(
+        &session,
+        &previous,
+        &current,
+        &sorted,
+        backend::MAX_PAGE_ROWS,
+        &token,
+    )
+    .unwrap();
+    assert!(matches!(kind, GridRequestKind::First));
+    assert_eq!(replacement.hits.len(), backend::MAX_PAGE_ROWS);
+
+    let cancelled = CancellationToken::new();
+    cancelled.cancel();
+    assert!(
+        incremental_delta_page(&session, &previous, &current, &default_spec, 0, &cancelled)
+            .is_err()
+    );
+}
+
+#[test]
+fn coalesced_delta_and_full_page_advance_without_replay() {
+    let (root, session, previous, first) = large_delta_fixture(512);
+    let second_file = root.path().join("data/second.jsonl");
+    std::fs::write(&second_file, "{\"name\":\"later\"}\n").unwrap();
+    session.repository.index().add_file(&second_file).unwrap();
+    let current = session.repository.index().view().unwrap();
+    assert!(current.revision() > first.revision());
+    let spec = backend::QuerySpec::default();
+    let token = CancellationToken::new();
+    let all = current
+        .search_added_since_with_cancellation(
+            &previous,
+            &backend::build_query(&spec).unwrap(),
+            &token,
+        )
+        .unwrap()
+        .unwrap();
+    assert_eq!(all.result.hits.len(), 513);
+    let (kind, page) =
+        incremental_delta_page(&session, &previous, &current, &spec, 0, &token).unwrap();
+    assert!(matches!(kind, GridRequestKind::Delta(0)));
+    assert_eq!(page.hits.len(), backend::MAX_PAGE_ROWS);
+    let mut ids = HashSet::new();
+    assert!(
+        page.hits
+            .iter()
+            .all(|hit| ids.insert(hit.record_id.clone()))
+    );
+    assert_eq!(
+        page.counters.selected_payload_reads,
+        backend::MAX_PAGE_ROWS as u64
+    );
+
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(session);
+    controller.executed_view = Some(previous);
+    controller.executed_spec = Some(spec);
+    controller.current_draft = SearchDraft::default();
+    controller.executed_draft = Some(SearchDraft::default());
+    controller.keys = vec![None; backend::MAX_PAGE_ROWS];
+    controller.provisional_page_ready = true;
+    let mut updates = Vec::new();
+    controller.start_incremental_refresh(&mut updates);
+    assert_eq!(
+        controller.executed_view.as_ref().unwrap().revision(),
+        current.revision()
+    );
+    let event = controller
+        .workers
+        .recv_timeout(Duration::from_secs(5))
+        .unwrap();
+    assert!(
+        matches!(event, WorkerEvent::Queried { kind: GridRequestKind::Delta(_), result, .. } if result.is_ok())
+    );
+    controller.start_incremental_refresh(&mut updates);
+    assert!(controller.workers.try_recv().is_err());
+}
+
 #[test]
 fn indexed_query_projects_metadata_with_its_repository_root() {
     let fixture = crate::backend::test_support::fixture();
@@ -435,7 +884,7 @@ fn publication_changes_invalidate_results_once_but_noop_checks_do_not() {
     assert!(controller.executed_view.is_none());
     assert!(matches!(
         updates.as_slice(),
-        [UiUpdate::ResultsOutdated(true)]
+        [UiUpdate::FieldChoices(_), UiUpdate::ResultsOutdated(true)]
     ));
     updates.clear();
     controller.poll_publication(&mut updates);

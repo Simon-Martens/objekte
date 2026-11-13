@@ -1,0 +1,13 @@
+{
+  "workspace_all_targets_exit": 0,
+  "clippy_all_targets_exit": 0,
+  "clippy_warning_lines": 232,
+  "cargo_fmt_check_starting_exit": 1,
+  "cargo_fmt_check_final_exit": 1,
+  "cargo_fmt_diff_headers_starting": 1016,
+  "cargo_fmt_diff_headers_final_after_touchup": 1016,
+  "format_baseline_note": "The same 1016 inherited format diff headers remain after formatting edited lines; unrelated files were not reformatted.",
+  "workspace_targets": 41,
+  "workspace_passed": 929,
+  "workspace_ignored": 30
+}

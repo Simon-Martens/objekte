@@ -1,0 +1,288 @@
+{
+  "after_build_hwm": 572669952,
+  "after_build_rss": 563400704,
+  "after_release_rss": 518053888,
+  "before_rss": 6610944,
+  "build_ns": 946198818,
+  "build_parses": 148486,
+  "catalogue_observed_ns": 205144102,
+  "completion_ns": 946198818,
+  "discovery_ns": 205110755,
+  "estimated_index_bytes": 71238740,
+  "fallback_records": 0,
+  "first_batch_ns": 281283107,
+  "first_result_ns": 281470219,
+  "index_family_breakdown": {
+    "agents": [
+      [
+        0,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 0,
+          "raw_bytes": 0,
+          "sorting_bytes": 0
+        }
+      ],
+      [
+        2,
+        {
+          "custom_text_bytes": 376302,
+          "fallback_bytes": 0,
+          "postings_bytes": 788958,
+          "raw_bytes": 7158916,
+          "sorting_bytes": 113856
+        }
+      ]
+    ],
+    "contents": [
+      [
+        0,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 0,
+          "raw_bytes": 0,
+          "sorting_bytes": 0
+        }
+      ],
+      [
+        1,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 255476,
+          "raw_bytes": 1755158,
+          "sorting_bytes": 154087
+        }
+      ],
+      [
+        3,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 4607050,
+          "raw_bytes": 35291398,
+          "sorting_bytes": 9944413
+        }
+      ]
+    ],
+    "entries": [
+      [
+        0,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 0,
+          "raw_bytes": 0,
+          "sorting_bytes": 0
+        }
+      ],
+      [
+        4,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 894872,
+          "raw_bytes": 6008372,
+          "sorting_bytes": 367785
+        }
+      ]
+    ],
+    "items": [
+      [
+        0,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 0,
+          "raw_bytes": 0,
+          "sorting_bytes": 0
+        }
+      ],
+      [
+        5,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 171708,
+          "raw_bytes": 1937814,
+          "sorting_bytes": 0
+        }
+      ]
+    ],
+    "pages": [
+      [
+        0,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 0,
+          "raw_bytes": 0,
+          "sorting_bytes": 0
+        }
+      ],
+      [
+        6,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 128,
+          "raw_bytes": 31068,
+          "sorting_bytes": 0
+        }
+      ]
+    ],
+    "places": [
+      [
+        0,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 0,
+          "raw_bytes": 0,
+          "sorting_bytes": 0
+        }
+      ],
+      [
+        7,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 9028,
+          "raw_bytes": 69602,
+          "sorting_bytes": 7820
+        }
+      ]
+    ],
+    "series": [
+      [
+        0,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 0,
+          "raw_bytes": 0,
+          "sorting_bytes": 0
+        }
+      ],
+      [
+        8,
+        {
+          "custom_text_bytes": 0,
+          "fallback_bytes": 0,
+          "postings_bytes": 154844,
+          "raw_bytes": 1082576,
+          "sorting_bytes": 57509
+        }
+      ]
+    ]
+  },
+  "inventory_heap_bytes": 58460912,
+  "open_ns": 946198818,
+  "process_io_delta": {
+    "cancelled_write_bytes": 0,
+    "rchar": 193307002,
+    "read_bytes": 0,
+    "syscr": 297085,
+    "syscw": 0,
+    "wchar": 0,
+    "write_bytes": 0
+  },
+  "processed_files": 148486,
+  "query_digests": {
+    "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+    "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+    "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+    "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+    "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+  },
+  "searchable_batches": 8,
+  "snapshot_result": {
+    "bytes": 179575108,
+    "directory_ns": 4420,
+    "directory_sync_ns": 7478,
+    "header_ns": 312526,
+    "hwm_after_write": 784412672,
+    "inventory_ns": 9994143,
+    "rename_ns": 10362,
+    "rss_after_write": 612200448,
+    "sections": [
+      {
+        "checksum_ns": 79,
+        "id": 4294967295,
+        "payload_bytes": 125,
+        "serialize_ns": 737,
+        "write_ns": 1742
+      },
+      {
+        "checksum_ns": 7654409,
+        "id": 0,
+        "payload_bytes": 21502142,
+        "serialize_ns": 8248184,
+        "write_ns": 3213075
+      },
+      {
+        "checksum_ns": 226087,
+        "id": 1,
+        "payload_bytes": 633572,
+        "serialize_ns": 139244,
+        "write_ns": 88795
+      },
+      {
+        "checksum_ns": 212440,
+        "id": 2,
+        "payload_bytes": 600245,
+        "serialize_ns": 102688,
+        "write_ns": 84428
+      },
+      {
+        "checksum_ns": 215643,
+        "id": 3,
+        "payload_bytes": 603327,
+        "serialize_ns": 104140,
+        "write_ns": 84644
+      },
+      {
+        "checksum_ns": 211149,
+        "id": 4,
+        "payload_bytes": 596464,
+        "serialize_ns": 95661,
+        "write_ns": 88124
+      },
+      {
+        "checksum_ns": 210906,
+        "id": 5,
+        "payload_bytes": 595689,
+        "serialize_ns": 95045,
+        "write_ns": 82442
+      },
+      {
+        "checksum_ns": 211110,
+        "id": 6,
+        "payload_bytes": 596191,
+        "serialize_ns": 95912,
+        "write_ns": 86913
+      },
+      {
+        "checksum_ns": 211345,
+        "id": 7,
+        "payload_bytes": 596950,
+        "serialize_ns": 96126,
+        "write_ns": 83123
+      },
+      {
+        "checksum_ns": 54648144,
+        "id": 8,
+        "payload_bytes": 153849911,
+        "serialize_ns": 85167251,
+        "write_ns": 22735401
+      }
+    ],
+    "sync_ns": 876,
+    "total_ns": 199314916,
+    "write_ns": 26556273
+  },
+  "source_bytes_read": 193297230,
+  "source_reads": 148486
+}

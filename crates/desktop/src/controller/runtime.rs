@@ -2,6 +2,7 @@
 
 use std::collections::{BTreeSet, HashMap, HashSet, VecDeque};
 use std::io::Read;
+use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::mpsc::{self, Receiver, Sender};
@@ -252,6 +253,65 @@ fn project_query_page(
 
 /// Delta evaluation is confined to newly published segments. Unsupported
 /// global queries fall back to one provisional page replacement.
+fn incremental_delta_page(
+    session: &OpenedSession,
+    previous: &IndexView,
+    view: &IndexView,
+    spec: &backend::QuerySpec,
+    loaded: usize,
+    token: &CancellationToken,
+) -> Result<(GridRequestKind, backend::QueryPage), String> {
+    let started = Instant::now();
+    let mut query = backend::build_query(spec)?;
+    query.options.offset = 0;
+    query.options.count = false;
+    let visible_limit = spec
+        .limit
+        .unwrap_or(backend::MAX_PAGE_ROWS)
+        .min(backend::MAX_PAGE_ROWS);
+    let remaining = visible_limit.saturating_sub(loaded);
+    let delta = if spec.offset != 0 || spec.count {
+        Ok(None)
+    } else if let Some(limit) = NonZeroUsize::new(remaining) {
+        view.search_added_since_bounded_with_cancellation(previous, &query, limit, token)
+            .map(|available| available.map(|available| available.result))
+    } else {
+        view.can_append_added_since_with_cancellation(previous, &query, token)
+            .map(|appendable| {
+                appendable.then(|| objekte_search_core::repository::SearchResult {
+                    count: None,
+                    hits: Vec::new(),
+                    counters: objekte_search_core::workload::WorkCounters::default(),
+                })
+            })
+    };
+    match delta {
+        Ok(Some(result)) => Ok((
+            GridRequestKind::Delta(loaded),
+            backend::QueryPage {
+                repository_root: session.repository.files().root.clone(),
+                instance_id: view.instance_id(),
+                revision: view.revision(),
+                hits: result.hits,
+                page_start: loaded,
+                requested_offset: spec.offset.saturating_add(loaded),
+                next_page_start: None,
+                count: None,
+                provisional: true,
+                counters: result.counters,
+                elapsed_ns: started.elapsed().as_nanos(),
+            },
+        )),
+        Ok(None) | Err(_) if !token.is_cancelled() => {
+            backend::query_page_on_view(session, view, spec, 0, backend::MAX_PAGE_ROWS, token)
+                .map(|page| (GridRequestKind::First, page))
+                .map_err(|error| error.to_string())
+        }
+        Err(error) => Err(error.to_string()),
+        Ok(None) => Err("query cancelled".into()),
+    }
+}
+
 fn spawn_incremental_delta(
     session: OpenedSession,
     previous: IndexView,
@@ -271,42 +331,7 @@ fn spawn_incremental_delta(
             instance_id: view.instance_id(),
             revision: view.revision(),
         };
-        let started = Instant::now();
-        let result = (|| -> Result<(GridRequestKind, backend::QueryPage), String> {
-            let mut query = backend::build_query(&spec)?;
-            query.options.offset = 0;
-            query.options.count = false;
-            match view.search_added_since_with_cancellation(&previous, &query, &token) {
-                Ok(Some(available)) => {
-                    let mut hits = available.result.hits;
-                    let visible_limit = spec.limit.unwrap_or(100).min(100);
-                    hits.truncate(visible_limit.saturating_sub(loaded));
-                    Ok((
-                        GridRequestKind::Delta(loaded),
-                        backend::QueryPage {
-                            repository_root: session.repository.files().root.clone(),
-                            instance_id: view.instance_id(),
-                            revision: view.revision(),
-                            hits,
-                            page_start: loaded,
-                            requested_offset: spec.offset.saturating_add(loaded),
-                            next_page_start: None,
-                            count: None,
-                            provisional: true,
-                            counters: available.result.counters,
-                            elapsed_ns: started.elapsed().as_nanos(),
-                        },
-                    ))
-                }
-                Ok(None) | Err(_) if !token.is_cancelled() => {
-                    backend::query_page_on_view(&session, &view, &spec, 0, 100, &token)
-                        .map(|page| (GridRequestKind::First, page))
-                        .map_err(|error| error.to_string())
-                }
-                Err(error) => Err(error.to_string()),
-                Ok(None) => Err("query cancelled".into()),
-            }
-        })();
+        let result = incremental_delta_page(&session, &previous, &view, &spec, loaded, &token);
         let (kind, result) = match result {
             Ok((kind, page)) => (
                 kind,
@@ -532,6 +557,7 @@ pub struct DesktopController {
     projected_pages: VecDeque<usize>,
     selected_index: Option<usize>,
     available_columns: Vec<String>,
+    field_choices_key: Option<(u64, u64, u64, Option<String>, Vec<String>)>,
     keys: Vec<Option<RecordKey>>,
     pending_reveal: Option<usize>,
     tabs: Vec<RecordTab>,
@@ -634,6 +660,7 @@ impl DesktopController {
                 projected_pages: VecDeque::new(),
                 selected_index: None,
                 available_columns: Vec::new(),
+                field_choices_key: None,
                 keys: Vec::new(),
                 pending_reveal: None,
                 tabs: Vec::new(),
@@ -727,6 +754,7 @@ impl DesktopController {
             None => self.observed_publication = Some(current),
             Some(previous) if previous != current => {
                 self.observed_publication = Some(current);
+                self.push_field_choices(updates);
                 if self.initial_task.is_some() {
                     let mut tabs_changed = false;
                     for tab in &mut self.tabs {
@@ -946,6 +974,7 @@ impl DesktopController {
                                 snapshot.status.processed_files, snapshot.status.processed_records,
                             ));
                             self.initial_task = None;
+                            self.push_field_choices(updates);
                             self.request_directories();
                             if self.requested_check.0 {
                                 self.set_automatic_check(true, self.requested_check.1, updates);
@@ -1084,6 +1113,7 @@ impl DesktopController {
                             }
                         }
                     }
+                    self.push_field_choices(updates);
                     self.refresh_results_if_ready(updates);
                 }
                 Err(error) => {
@@ -1149,6 +1179,7 @@ impl DesktopController {
             UiAction::SearchNow(draft) => {
                 self.pending_edit = None;
                 self.current_draft = draft.clone();
+                self.push_field_choices(updates);
                 self.start_validation(draft, updates);
             }
             UiAction::CompleteValues {
@@ -1712,13 +1743,27 @@ impl DesktopController {
         });
     }
 
-    fn push_field_choices(&self, updates: &mut Vec<UiUpdate>) {
+    fn push_field_choices(&mut self, updates: &mut Vec<UiUpdate>) {
         if let Some(session) = &self.session {
+            let Ok(view) = session.repository.index().view() else {
+                return;
+            };
+            let key = (
+                self.open_generation,
+                view.instance_id(),
+                view.revision().0,
+                self.current_draft.collection.clone(),
+                self.available_columns.clone(),
+            );
+            if self.field_choices_key.as_ref() == Some(&key) {
+                return;
+            }
             updates.push(UiUpdate::FieldChoices(field_choices(
-                session,
+                &view,
                 self.current_draft.collection.as_deref(),
                 &self.available_columns,
             )));
+            self.field_choices_key = Some(key);
         }
     }
 
@@ -1802,6 +1847,8 @@ impl DesktopController {
             });
             return;
         };
+        self.current_draft = draft.clone();
+        self.push_field_choices(updates);
         self.pending_edit = None;
         self.validation_generation += 1;
         let validation = validate_request(&session, &draft);
@@ -1887,7 +1934,10 @@ impl DesktopController {
             },
             retain_preview,
         });
-        let columns = initial_columns(&session, &draft);
+        let columns = initial_columns(
+            self.executed_view.as_ref().expect("query view pinned"),
+            &draft,
+        );
         spawn_grid_page(
             session,
             self.executed_view
@@ -2735,6 +2785,7 @@ impl DesktopController {
                         self.relation_actions.clear();
                         self.selected_index = None;
                         self.available_columns.clear();
+                        self.field_choices_key = None;
                         self.preferences = None;
                         let root = session.paths.root.display().to_string();
                         let collections = session.collections.clone();
@@ -2780,7 +2831,6 @@ impl DesktopController {
                             });
                         }
                         self.index_ui = IndexUiStatus::default();
-                        self.push_field_choices(updates);
                         updates.push(UiUpdate::Opened {
                             root,
                             collections: collections.clone(),
@@ -3429,6 +3479,7 @@ impl DesktopController {
                             .map(Publication::from);
                         let replacement = session.clone();
                         let old = self.session.replace(session);
+                        self.field_choices_key = None;
                         self.request_directories();
                         // The replacement has no periodic scheduler yet. Its
                         // control reflects the actual state until transfer is
@@ -3443,6 +3494,7 @@ impl DesktopController {
                             self.update_index_ui(&status, updates);
                         }
                         updates.push(UiUpdate::IndexReplaced(self.index_ui.clone()));
+                        self.push_field_choices(updates);
                         if self.check_task.is_none() {
                             self.refresh_results_if_ready(updates);
                         }

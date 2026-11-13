@@ -6,6 +6,7 @@ use std::path::Path;
 use objekte_search_core::diagnostics::signed_milliseconds_3;
 use objekte_search_core::fts_preview::PreviewMatcher;
 use objekte_search_core::inventory::{FileStatus, RecordClass};
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{MetadataField, PathRoot};
 use objekte_search_core::path_repr::query_path;
 use objekte_search_core::query::{
@@ -15,7 +16,7 @@ use objekte_search_core::query_path::{PathStep, QueryPath};
 use objekte_search_core::repository::{Payload, SearchHit};
 use serde_json::Value;
 
-use crate::backend::{OpenedSession, QueryPage, QuerySpec};
+use crate::backend::{QueryPage, QuerySpec};
 use crate::ui::model::{
     DetailOrigin, DetailRow, DetailValueKind, DetailView, MAX_COLUMNS, MAX_DETAIL_ROWS, PageView,
     RelationRow, ResultRow, RowKey, SearchDraft,
@@ -25,7 +26,7 @@ use crate::ui::preferences::nested_column;
 use super::filter_validation::field_choices;
 
 /// Build a stable leading schema from the effective predicate and declared fields.
-pub fn initial_columns(session: &OpenedSession, draft: &SearchDraft) -> Vec<String> {
+pub fn initial_columns(view: &IndexView, draft: &SearchDraft) -> Vec<String> {
     let mut columns = vec!["@status".to_owned(), "@id".to_owned()];
     if !draft.full_text.is_empty() {
         columns.push("@match".to_owned());
@@ -37,7 +38,7 @@ pub fn initial_columns(session: &OpenedSession, draft: &SearchDraft) -> Vec<Stri
             }
         }
     }
-    for field in field_choices(session, draft.collection.as_deref(), &[]) {
+    for field in field_choices(view, draft.collection.as_deref(), &[]) {
         if !columns.contains(&field.path) {
             columns.push(field.path);
         }

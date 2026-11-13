@@ -796,3 +796,569 @@ fn declared_structural_facts_are_exact_without_a_value_dictionary() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn indexed_field_state_matches_independent_source_oracle_without_verification() {
+    use crate::executor::AccessPathKind;
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::reference::Schema;
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::source::{SourceFormat, SourceRegistry};
+    use crate::storage::load_snapshot_checked;
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!("objekte-state-posting-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, body) in [
+        ("00", r#"{"u":"unindexed","legacy":[]}"#),
+        ("01", r#"{"x":null,"u":"unindexed","legacy":[1]}"#),
+        ("02", r#"{"x":"","u":"unindexed"}"#),
+        ("03", r#"{"x":0,"u":"unindexed"}"#),
+        ("04", r#"{"x":false,"u":"unindexed"}"#),
+        ("05", r#"{"x":[],"u":"unindexed"}"#),
+        ("06", r#"{"x":{},"u":"unindexed"}"#),
+        ("07", r#"{"x":"hello","u":"unindexed"}"#),
+        ("08", r#"{"x":[null,"hello"],"u":"unindexed"}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
+    }
+    let mut schema = Schema::default();
+    for (name, kind, indexed) in [
+        ("x", LogicalType::Unknown, true),
+        (
+            "legacy",
+            LogicalType::Array(Box::new(LogicalType::Number)),
+            false,
+        ),
+    ] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: false,
+                nullable: true,
+                indexed,
+                multi: true,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::Json,
+        identity: IdentityPolicy::Filename,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::Disabled,
+        verified_cache_bytes: 0,
+        ..Default::default()
+    };
+    let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+    assert!(
+        repo.collections()[0].postings.fields[&vec!["x".into()]]
+            .structural
+            .is_some()
+    );
+    assert!(
+        repo.collections()[0].postings.fields[&vec!["legacy".into()]]
+            .structural
+            .is_none()
+    );
+    assert!(
+        !repo.collections()[0]
+            .postings
+            .fields
+            .contains_key(&vec!["u".into()])
+    );
+    let request = |filter: &str| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 50,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    for (filter, expected) in [
+        ("x:exists = false", 1),
+        ("x:null = true", 1),
+        ("x:? = false", 5),
+        ("x:? != true", 5),
+        ("x:string = true", 2),
+        ("x:number = true", 1),
+        ("x:array = true", 2),
+        ("x:object = true", 1),
+        ("x:object = false", 8),
+    ] {
+        let query = request(filter);
+        let actual = repo.search(&query).unwrap();
+        let reference = repo.search_reference(&query).unwrap();
+        assert_eq!(actual.hits, reference.hits, "{filter}");
+        assert_eq!(actual.count, Some(expected), "{filter}");
+        assert_eq!(actual.counters.files_opened, 0, "{filter}");
+        assert_eq!(actual.counters.record_parses, 0, "{filter}");
+        assert!(
+            repo.explain(&query).unwrap()[0]
+                .terms
+                .iter()
+                .all(|term| term.selected.kind == AccessPathKind::Posting && term.selected.exact),
+            "{filter}"
+        );
+    }
+    for (filter, exact) in [
+        ("u:string = true", false),
+        ("legacy:array = true", false),
+        ("legacy:length = 0", true),
+    ] {
+        let query = request(filter);
+        let actual = repo.search(&query).unwrap();
+        assert_eq!(
+            actual.hits,
+            repo.search_reference(&query).unwrap().hits,
+            "{filter}"
+        );
+        if exact {
+            assert_eq!(actual.counters.files_opened, 0, "{filter}");
+        }
+    }
+    let snapshot = root.join("state.snapshot");
+    repo.save_snapshot(&snapshot).unwrap();
+    let restored = load_snapshot_checked(
+        root.clone(),
+        vec![definition],
+        options,
+        &SourceRegistry::builtin(),
+        &snapshot,
+    )
+    .unwrap();
+    for filter in [
+        "x:null = true",
+        "x:? = false",
+        "x:string = true",
+        "x:array = true",
+    ] {
+        let query = request(filter);
+        assert_eq!(
+            restored.search(&query).unwrap().hits,
+            repo.search_reference(&query).unwrap().hits,
+            "{filter}"
+        );
+        assert_eq!(
+            restored.search(&query).unwrap().counters.files_opened,
+            0,
+            "{filter}"
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn mixed_selected_occurrences_have_independent_exact_state_facts() {
+    use crate::query::parse_filter;
+    use crate::reference::{BoundExpr, Schema, bind_filter};
+
+    let field = FieldDefinition {
+        path: vec!["x".into()],
+        kind: LogicalType::Unknown,
+        required: false,
+        nullable: true,
+        indexed: true,
+        multi: true,
+        element_nullable: Vec::new(),
+    };
+    let mut schema = Schema::default();
+    schema.register_field(field.clone()).unwrap();
+    let mut index = PostingIndex::structural(&field);
+    let null = Value::Null;
+    let text = Value::String("text".into());
+    let empty = Value::String(String::new());
+    let zero = Value::Number(Number::integer(0));
+    let empty_array = Value::from_json(serde_json::json!([])).unwrap();
+    let empty_object = Value::from_json(serde_json::json!({})).unwrap();
+    let false_value = Value::Bool(false);
+    for (slot, selected) in [
+        Some(vec![&null, &text]),
+        Some(vec![&empty, &zero]),
+        Some(vec![]),
+        Some(vec![&empty_array]),
+        Some(vec![&empty_object]),
+        Some(vec![&false_value]),
+        Some(vec![&null]),
+        None,
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        index
+            .add_values(RecordSlot(slot as u32), selected.as_deref())
+            .unwrap();
+    }
+    index.finish_stats();
+    index.validate(8).unwrap();
+    assert_eq!(index.nulls.iter().collect::<Vec<_>>(), [6]);
+    assert_eq!(
+        index.structural.as_ref().unwrap().postings[&StructuralKey::AnyNull]
+            .iter()
+            .collect::<Vec<_>>(),
+        [0, 6]
+    );
+    assert_eq!(
+        index.structural.as_ref().unwrap().postings[&StructuralKey::EmptyObject]
+            .iter()
+            .collect::<Vec<_>>(),
+        [4]
+    );
+    let domain = RoaringBitmap::from_iter(0..8);
+    let restricted = RoaringBitmap::from_iter([0, 2, 4, 7]);
+    for (filter, expected) in [
+        ("x:exists = false", vec![2, 7]),
+        ("x:null = true", vec![0, 6]),
+        ("x:null != true", vec![1, 2, 3, 4, 5, 7]),
+        ("x:? = true", vec![0, 1, 5]),
+        ("x:? = false", vec![2, 3, 4, 6, 7]),
+        ("x:string = true", vec![0, 1]),
+        ("x:number = true", vec![1]),
+        ("x:array = true", vec![3]),
+        ("x:object = true", vec![4]),
+    ] {
+        let BoundExpr::Term(term) = bind_filter(&parse_filter(filter).unwrap(), &schema).unwrap()
+        else {
+            panic!("expected term")
+        };
+        let actual = index.exact_set(&term, &domain).unwrap();
+        assert_eq!(actual.iter().collect::<Vec<_>>(), expected, "{filter}");
+        assert_eq!(
+            index.estimate_exact(&term, domain.len()).unwrap().1,
+            expected.len() as u64,
+            "{filter}"
+        );
+        assert_eq!(
+            index
+                .exact_set_restricted(&term, &domain, &restricted)
+                .unwrap(),
+            &actual & &restricted,
+            "{filter}"
+        );
+    }
+}
+
+#[test]
+fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::reference::Schema;
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::source::SourceFormat;
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!("objekte-state-sparse-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for slot in 0..64 {
+        std::fs::write(
+            root.join(format!("data/{slot:02}.json")),
+            format!(r#"{{"selected":{slot},"dynamic_{slot:02}":{slot}}}"#),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["selected".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let postings = &repo.collections()[0].postings.fields;
+    assert_eq!(postings.len(), 1);
+    assert!(postings[&vec!["selected".into()]].structural.is_some());
+    let request = |filter: &str| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 64,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let indexed = repo.search(&request("selected:number = true")).unwrap();
+    assert_eq!(indexed.count, Some(64));
+    assert_eq!(indexed.counters.files_opened, 0);
+    let unindexed = repo.search(&request("dynamic_17:number = true")).unwrap();
+    assert_eq!(unindexed.count, Some(1));
+    assert_eq!(unindexed.counters.files_opened, 64);
+    assert_eq!(
+        unindexed.hits,
+        repo.search_reference(&request("dynamic_17:number = true"))
+            .unwrap()
+            .hits
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn structural_membership_tracks_file_replacement_move_delete_and_add() {
+    use crate::lifecycle::Index;
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::reference::Schema;
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::source::SourceFormat;
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!("objekte-state-mutation-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let a = root.join("data/a.json");
+    let b = root.join("data/b.json");
+    let moved = root.join("data/c.json");
+    let added = root.join("data/d.json");
+    std::fs::write(&a, br#"{"x":null}"#).unwrap();
+    std::fs::write(&b, br#"{"x":"hello"}"#).unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["x".into()],
+            kind: LogicalType::Unknown,
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: true,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let index = Index::from_repository(repo).unwrap();
+    let initial = index.view().unwrap();
+    let request = |filter: &str| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let check = |view: &crate::lifecycle::IndexView, expected: [usize; 4]| {
+        for (filter, count) in [
+            "x:null = true",
+            "x:string = true",
+            "x:array = true",
+            "x:? = false",
+        ]
+        .into_iter()
+        .zip(expected)
+        {
+            let found = view.search(&request(filter)).unwrap();
+            assert_eq!(found.count, Some(count), "{filter}");
+            assert_eq!(found.counters.files_opened, 0, "{filter}");
+        }
+    };
+    check(&initial, [1, 1, 0, 1]);
+    let a_handle = initial.file_handle_for_path(&a).unwrap();
+    let b_handle = initial.file_handle_for_path(&b).unwrap();
+    std::fs::write(&a, br#"{"x":[]}"#).unwrap();
+    let replaced = index.update_file(a_handle, &a).unwrap();
+    check(&index.view().unwrap(), [0, 1, 1, 1]);
+    check(&initial, [1, 1, 0, 1]);
+    std::fs::rename(&b, &moved).unwrap();
+    index.move_file(b_handle, &moved).unwrap();
+    check(&index.view().unwrap(), [0, 1, 1, 1]);
+    index.delete_file(replaced.file).unwrap();
+    check(&index.view().unwrap(), [0, 1, 0, 0]);
+    std::fs::write(&added, br#"{"x":0}"#).unwrap();
+    index.add_file(&added).unwrap();
+    check(&index.view().unwrap(), [0, 1, 0, 0]);
+    let number = index
+        .view()
+        .unwrap()
+        .search(&request("x:number = true"))
+        .unwrap();
+    assert_eq!(number.count, Some(1));
+    assert_eq!(number.counters.files_opened, 0);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn bounded_mixed_values_match_source_oracle_for_state_composition() {
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::reference::Schema;
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::source::SourceFormat;
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!("objekte-state-mixed-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let values = [
+        serde_json::json!(null),
+        serde_json::json!(""),
+        serde_json::json!("text"),
+        serde_json::json!(0),
+        serde_json::json!(17),
+        serde_json::json!(false),
+        serde_json::json!(true),
+        serde_json::json!([]),
+        serde_json::json!([null, "text"]),
+        serde_json::json!({}),
+        serde_json::json!({"nested": null}),
+    ];
+    let mut state = 0x8f2e_37a1_u64;
+    for slot in 0..96 {
+        state ^= state << 13;
+        state ^= state >> 7;
+        state ^= state << 17;
+        let choice = (state % (values.len() as u64 + 1)) as usize;
+        let record = if choice == values.len() {
+            serde_json::json!({"y": slot % 3})
+        } else {
+            serde_json::json!({"x": values[choice], "y": slot % 3})
+        };
+        std::fs::write(
+            root.join(format!("data/{slot:03}.json")),
+            serde_json::to_vec(&record).unwrap(),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["x".into()],
+            kind: LogicalType::Unknown,
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: true,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for filter in [
+        "x:exists = true",
+        "x:exists = false",
+        "x:null = true",
+        "x:null = false",
+        "x:? = true",
+        "x:? = false",
+        "x:string = true",
+        "x:string = false",
+        "x:number = true",
+        "x:array = true",
+        "x:object = true",
+        "x:string = true && x:? = true",
+        "x:null = true || x:array = true",
+        "!(x:number = true) && x:exists = true",
+    ] {
+        let request = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 96,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let indexed = repo.search(&request).unwrap();
+        let source = repo.search_reference(&request).unwrap();
+        assert_eq!(indexed.count, source.count, "{filter}");
+        assert_eq!(indexed.hits, source.hits, "{filter}");
+        assert_eq!(indexed.counters.files_opened, 0, "{filter}");
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}

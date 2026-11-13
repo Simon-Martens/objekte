@@ -1,0 +1,114 @@
+{
+  "build_mode": "incremental",
+  "code_revision": "491d4b4970d891619c7b5c4d14edf253858279ce",
+  "command": [
+    "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_musenalm",
+    "--root",
+    "/home/simon/source/objekte/examples/musenalm",
+    "--extended",
+    "--incremental",
+    "--profiles",
+    "unicode-off",
+    "--cases",
+    "Q004",
+    "--repetitions",
+    "15",
+    "--result-dir",
+    "/tmp/objekte-plan3-q004-isolated/01-2-after"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "decoded_cache_bytes": 0,
+  "extended": true,
+  "failures": 0,
+  "prepared_cache_bytes": 16777216,
+  "profiles": [
+    [
+      "unicode-off",
+      {
+        "alphabet": "unicode",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 32,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 15,
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "run_id": "1794544042-491d4b4970",
+  "schema_fingerprint": "bf36ea2e88d1b455e28b0f5f36c71ebd03847b2a986cd3f1f2ea3302fd1eea08",
+  "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+  "source_cache_bytes": 0,
+  "workload_fingerprint": "0a1bc376199739386521b28d3b848f628661131e989348081ef6897f1ca9ea7b"
+}

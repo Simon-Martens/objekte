@@ -7,6 +7,7 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
+use crate::field_state::{StatePredicate, value_matches};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::{Operator, Quantifier};
@@ -46,7 +47,13 @@ pub struct PostingIndex {
     pub kind: LogicalType,
     pub multi: bool,
     pub presence: RoaringBitmap,
+    /// Legacy path presence can include a traversal that selects no values.
+    /// Only these exceptional records need a separate bitmap for `:exists`.
+    pub empty_selections: RoaringBitmap,
     pub nulls: RoaringBitmap,
+    /// Exact selected-occurrence facts for an admitted logical field. `None`
+    /// preserves the narrower legacy structural-only or named value index.
+    pub structural: Option<StructuralFacts>,
     pub values: BTreeMap<ScalarKey, RoaringBitmap>,
     pub lengths: BTreeMap<Number, RoaringBitmap>,
     /// A partial dictionary cannot prove that an absent scalar value is absent.
@@ -55,6 +62,62 @@ pub struct PostingIndex {
     pub empty_string_complete: bool,
     pub covered_records: u32,
     pub stats: PostingStats,
+}
+
+/// Sparse facts inside the owning field posting, never synthetic field paths.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Serialize, Deserialize)]
+pub enum StructuralKey {
+    AnyNull,
+    NonEmpty,
+    String,
+    Number,
+    Array,
+    Object,
+    EmptyObject,
+}
+
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
+pub struct StructuralFacts {
+    pub postings: BTreeMap<StructuralKey, RoaringBitmap>,
+}
+
+impl StructuralFacts {
+    fn insert(&mut self, key: StructuralKey, slot: RecordSlot) {
+        self.postings.entry(key).or_default().insert(slot.0);
+    }
+
+    fn observe(&mut self, slot: RecordSlot, value: &Value, multi: bool) {
+        if value_matches(value, StatePredicate::NonEmpty) {
+            self.insert(StructuralKey::NonEmpty, slot);
+        }
+        match value {
+            Value::Null if multi => self.insert(StructuralKey::AnyNull, slot),
+            Value::String(_) | Value::Id(_) => self.insert(StructuralKey::String, slot),
+            Value::Number(_) => self.insert(StructuralKey::Number, slot),
+            Value::Array(_) => self.insert(StructuralKey::Array, slot),
+            Value::Object(map) => {
+                self.insert(StructuralKey::Object, slot);
+                if map.is_empty() {
+                    self.insert(StructuralKey::EmptyObject, slot);
+                }
+            }
+            _ => {}
+        }
+    }
+
+    pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
+        for (key, posting) in batch.postings {
+            append_shifted_bitmap(self.postings.entry(key).or_default(), &posting, base)?;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn estimated_bytes(&self) -> usize {
+        self.postings
+            .values()
+            .map(RoaringBitmap::serialized_size)
+            .sum()
+    }
 }
 
 /// Optional named-binding posting and its exact coverage guarantee.
@@ -75,6 +138,32 @@ pub struct PostingStats {
 }
 
 impl PostingIndex {
+    fn state_source(&self, derived: Derived) -> Option<Option<&RoaringBitmap>> {
+        let key = match derived {
+            Derived::Exists => return None,
+            Derived::Null if !self.multi => return Some(Some(&self.nulls)),
+            Derived::Null => StructuralKey::AnyNull,
+            Derived::IsNonEmpty => StructuralKey::NonEmpty,
+            Derived::IsString => StructuralKey::String,
+            Derived::IsNumber => StructuralKey::Number,
+            Derived::IsArray => StructuralKey::Array,
+            Derived::IsObject => StructuralKey::Object,
+            Derived::None | Derived::Length => return None,
+        };
+        Some(self.structural.as_ref()?.postings.get(&key))
+    }
+
+    fn state_truth(term: &BoundTerm) -> Option<bool> {
+        let Value::Bool(literal) = term.literal else {
+            return None;
+        };
+        match term.operator {
+            Operator::Eq => Some(literal),
+            Operator::Ne => Some(!literal),
+            _ => None,
+        }
+    }
+
     /// Inferred dictionary costing without materializing or unioning postings.
     pub(crate) fn estimate_observed_scalar(
         &self,
@@ -159,6 +248,7 @@ impl PostingIndex {
             || self.value_complete != batch.value_complete
             || self.length_complete != batch.length_complete
             || self.empty_string_complete != batch.empty_string_complete
+            || self.structural.is_some() != batch.structural.is_some()
         {
             return Err("posting batch representation mismatch".into());
         }
@@ -167,7 +257,11 @@ impl PostingIndex {
             .checked_add(batch.covered_records)
             .ok_or("posting coverage overflow")?;
         append_shifted_bitmap(&mut self.presence, &batch.presence, base)?;
+        append_shifted_bitmap(&mut self.empty_selections, &batch.empty_selections, base)?;
         append_shifted_bitmap(&mut self.nulls, &batch.nulls, base)?;
+        if let (Some(target), Some(source)) = (&mut self.structural, batch.structural) {
+            target.merge_shifted(source, base)?;
+        }
         for (key, posting) in batch.values {
             append_shifted_bitmap(self.values.entry(key).or_default(), &posting, base)?;
         }
@@ -180,7 +274,14 @@ impl PostingIndex {
 
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
         if !self.presence.is_subset(allowed)
+            || !self.empty_selections.is_subset(allowed)
             || !self.nulls.is_subset(allowed)
+            || self.structural.as_ref().is_some_and(|facts| {
+                facts
+                    .postings
+                    .values()
+                    .any(|slots| !slots.is_subset(allowed))
+            })
             || self
                 .values
                 .values()
@@ -209,40 +310,35 @@ impl PostingIndex {
         if self.covered_records as u64 != domain.len() {
             return None;
         }
-        // A structural null posting records a single null selection. The
-        // aggregate :null predicate also matches mixed multivalued selections.
-        // Use the index's observed multiplicity: schema-free binding can mark
-        // a term multivalued even when the indexed field is proven scalar.
-        if term.derived == Derived::Null && self.multi {
-            return None;
-        }
         if term.period.is_some() {
             if !self.value_complete {
                 return None;
             }
             return self.temporal_postings(term, Some(input));
         }
-        let borrowed = match term.derived {
-            Derived::Exists | Derived::Null => {
-                let Value::Bool(value) = term.literal else {
-                    return None;
-                };
-                let truth = match term.operator {
-                    Operator::Eq => value,
-                    Operator::Ne => !value,
-                    _ => return None,
-                };
-                let source = if term.derived == Derived::Exists {
-                    &self.presence
-                } else {
-                    &self.nulls
-                };
+        if term.derived == Derived::Exists {
+            let truth = Self::state_truth(term)?;
+            if self.empty_selections.is_empty() {
                 return Some(if truth {
-                    input & source
+                    input & &self.presence
                 } else {
-                    input - source
+                    input - &self.presence
                 });
             }
+            let mut present = input & &self.presence;
+            present -= &self.empty_selections;
+            return Some(if truth { present } else { input - &present });
+        }
+        if let Some(source) = self.state_source(term.derived) {
+            return Some(match (Self::state_truth(term)?, source) {
+                (true, Some(slots)) => input & slots,
+                (false, Some(slots)) => input - slots,
+                (true, None) => RoaringBitmap::new(),
+                (false, None) => input.clone(),
+            });
+        }
+        let borrowed = match term.derived {
+            Derived::Exists | Derived::Null => return None,
             Derived::Length if !self.length_complete || !length_posting_is_exact(term) => {
                 return None;
             }
@@ -323,7 +419,9 @@ impl PostingIndex {
             kind: field.kind.clone(),
             multi: field.multi,
             presence: RoaringBitmap::new(),
+            empty_selections: RoaringBitmap::new(),
             nulls: RoaringBitmap::new(),
+            structural: None,
             values: BTreeMap::new(),
             lengths: BTreeMap::new(),
             value_complete: true,
@@ -337,6 +435,7 @@ impl PostingIndex {
     fn structural(field: &FieldDefinition) -> Self {
         let mut index = Self::new(field);
         index.value_complete = field.indexed;
+        index.structural = field.indexed.then(StructuralFacts::default);
         index
     }
 
@@ -377,6 +476,15 @@ impl PostingIndex {
             return Ok(());
         };
         self.presence.insert(slot.0);
+        if selected.is_empty() {
+            self.empty_selections.insert(slot.0);
+            return Ok(());
+        }
+        if let Some(facts) = &mut self.structural {
+            for value in selected {
+                facts.observe(slot, value, self.multi);
+            }
+        }
         if selected.len() == 1 && matches!(selected[0], Value::Null) {
             self.nulls.insert(slot.0);
             return Ok(());
@@ -416,10 +524,12 @@ impl PostingIndex {
         let mut unique = HashSet::new();
         for value in selected {
             if let Value::Array(array) = value {
-                self.lengths
-                    .entry(Number::integer(array.values.len() as i128))
-                    .or_default()
-                    .insert(slot.0);
+                if self.length_complete {
+                    self.lengths
+                        .entry(Number::integer(array.values.len() as i128))
+                        .or_default()
+                        .insert(slot.0);
+                }
                 for item in &array.values {
                     if let Some(key) = ScalarKey::from_value(item) {
                         unique.insert(key);
@@ -450,7 +560,12 @@ impl PostingIndex {
         }
         let valid = |set: &RoaringBitmap| set.max().is_none_or(|s| (s as usize) < slot_count);
         if !valid(&self.presence)
+            || !valid(&self.empty_selections)
             || !valid(&self.nulls)
+            || self
+                .structural
+                .as_ref()
+                .is_some_and(|facts| facts.postings.values().any(|slots| !valid(slots)))
             || !self.values.values().all(valid)
             || !self.lengths.values().all(valid)
         {
@@ -458,6 +573,28 @@ impl PostingIndex {
         }
         if !self.nulls.is_subset(&self.presence) {
             return Err("null posting is not present".into());
+        }
+        if !self.empty_selections.is_subset(&self.presence) {
+            return Err("empty selection is not present".into());
+        }
+        if self.structural.as_ref().is_some_and(|facts| {
+            facts
+                .postings
+                .values()
+                .any(|slots| !slots.is_subset(&self.presence))
+                || facts
+                    .postings
+                    .get(&StructuralKey::EmptyObject)
+                    .is_some_and(|empty| {
+                        !empty.is_subset(
+                            facts
+                                .postings
+                                .get(&StructuralKey::Object)
+                                .unwrap_or(&RoaringBitmap::new()),
+                        )
+                    })
+        }) {
+            return Err("structural posting is inconsistent with presence or type".into());
         }
         if self.stats.present_count != self.presence.len()
             || self.stats.null_count != self.nulls.len()
@@ -496,9 +633,6 @@ impl PostingIndex {
         if self.covered_records as u64 != domain_len {
             return None;
         }
-        if term.derived == Derived::Null && self.multi {
-            return None;
-        }
         if term.period.is_some() {
             if !self.value_complete {
                 return None;
@@ -515,23 +649,35 @@ impl PostingIndex {
             };
             return Some((1.0 + keys as f64, count));
         }
-        match term.derived {
-            Derived::Exists | Derived::Null => {
-                let Value::Bool(literal) = term.literal else {
-                    return None;
-                };
-                let yes = if term.derived == Derived::Exists {
-                    self.stats.present_count
+        if term.derived == Derived::Exists {
+            *visits += 1;
+            let yes = self
+                .presence
+                .len()
+                .saturating_sub(self.empty_selections.len());
+            return Some((
+                1.0,
+                if Self::state_truth(term)? {
+                    yes
                 } else {
-                    self.stats.null_count
-                };
-                let matches_true = match term.operator {
-                    Operator::Eq => literal,
-                    Operator::Ne => !literal,
-                    _ => return None,
-                };
-                return Some((1.0, if matches_true { yes } else { domain_len - yes }));
-            }
+                    domain_len - yes
+                },
+            ));
+        }
+        if let Some(source) = self.state_source(term.derived) {
+            *visits += 1;
+            let yes = source.map_or(0, RoaringBitmap::len);
+            return Some((
+                1.0,
+                if Self::state_truth(term)? {
+                    yes
+                } else {
+                    domain_len - yes
+                },
+            ));
+        }
+        match term.derived {
+            Derived::Exists | Derived::Null => return None,
             Derived::Length => {
                 if !self.length_complete || !length_posting_is_exact(term) {
                     return None;
@@ -647,36 +793,35 @@ impl PostingIndex {
         if self.covered_records as u64 != domain.len() {
             return None;
         }
-        if term.derived == Derived::Null && self.multi {
-            return None;
-        }
         if term.period.is_some() {
             if !self.value_complete {
                 return None;
             }
             return self.temporal_postings(term, None);
         }
-        match term.derived {
-            Derived::Exists | Derived::Null => {
-                let yes = if term.derived == Derived::Exists {
-                    &self.presence
+        if term.derived == Derived::Exists {
+            let truth = Self::state_truth(term)?;
+            if self.empty_selections.is_empty() {
+                return Some(if truth {
+                    self.presence.clone()
                 } else {
-                    &self.nulls
-                };
-                let Value::Bool(literal) = term.literal else {
-                    return None;
-                };
-                let matches_true = match term.operator {
-                    Operator::Eq => literal,
-                    Operator::Ne => !literal,
-                    _ => return None,
-                };
-                return Some(if matches_true {
-                    yes.clone()
-                } else {
-                    domain - yes
+                    domain - &self.presence
                 });
             }
+            let mut present = self.presence.clone();
+            present -= &self.empty_selections;
+            return Some(if truth { present } else { domain - &present });
+        }
+        if let Some(source) = self.state_source(term.derived) {
+            return Some(match (Self::state_truth(term)?, source) {
+                (true, Some(slots)) => slots.clone(),
+                (false, Some(slots)) => domain - slots,
+                (true, None) => RoaringBitmap::new(),
+                (false, None) => domain.clone(),
+            });
+        }
+        match term.derived {
+            Derived::Exists | Derived::Null => return None,
             Derived::Length => {
                 if !self.length_complete || !length_posting_is_exact(term) {
                     return None;

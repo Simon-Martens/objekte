@@ -1,0 +1,15 @@
+[
+  {
+    "id": "Q214",
+    "collection": "contents",
+    "fts": null,
+    "filter": "musenalm_type:array = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": false
+  }
+]

@@ -2,6 +2,27 @@ use super::*;
 use crate::ui::model::{ResultRow, RowKey};
 
 #[test]
+fn opened_reset_followed_by_field_refresh_keeps_completion_fields() {
+    use crate::ui::filter_builder::{FieldChoice, ValueType};
+
+    let choice = FieldChoice {
+        path: "late[\"rare.field\"]".into(),
+        value_type: Some(ValueType::Number),
+    };
+    let mut state = UiState::default();
+    state.apply(UiUpdate::FieldChoices(vec![choice.clone()]));
+    state.apply(UiUpdate::Opened {
+        root: "new".into(),
+        collections: vec!["data".into()],
+        single_collection: true,
+        directories: DirectoryCatalog::default(),
+    });
+    assert!(state.completion_fields.is_empty());
+    state.apply(UiUpdate::FieldChoices(vec![choice.clone()]));
+    assert_eq!(state.completion_fields, vec![choice]);
+}
+
+#[test]
 fn split_preview_requires_its_owning_query_and_an_unpinned_record() {
     use crate::ui::workspace::TabId;
 

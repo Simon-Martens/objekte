@@ -1,0 +1,64 @@
+[
+  {
+    "alphabet": "ascii",
+    "revision": "before",
+    "build_ms": [
+      1089.239151,
+      1032.509349,
+      1005.52663
+    ],
+    "median_build_ms": 1032.509349,
+    "build_parses": [
+      148486
+    ]
+  },
+  {
+    "alphabet": "ascii",
+    "revision": "after",
+    "build_ms": [
+      988.805865,
+      1050.764368,
+      1038.42189
+    ],
+    "median_build_ms": 1038.42189,
+    "build_parses": [
+      148486
+    ]
+  },
+  {
+    "alphabet": "ascii",
+    "revision": "paired_delta",
+    "median_after_minus_before_ms": 18.255019
+  },
+  {
+    "alphabet": "unicode",
+    "revision": "before",
+    "build_ms": [
+      1060.535779,
+      998.82459,
+      1049.596266
+    ],
+    "median_build_ms": 1049.596266,
+    "build_parses": [
+      148486
+    ]
+  },
+  {
+    "alphabet": "unicode",
+    "revision": "after",
+    "build_ms": [
+      983.151231,
+      946.61093,
+      1056.632363
+    ],
+    "median_build_ms": 983.151231,
+    "build_parses": [
+      148486
+    ]
+  },
+  {
+    "alphabet": "unicode",
+    "revision": "paired_delta",
+    "median_after_minus_before_ms": -52.21366
+  }
+]

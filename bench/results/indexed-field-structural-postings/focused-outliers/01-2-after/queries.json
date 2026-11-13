@@ -1,0 +1,41 @@
+[
+  {
+    "id": "Q003",
+    "collection": "*",
+    "fts": "Leipzig",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q004",
+    "collection": "*",
+    "fts": "Wien",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q191",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.year >= 1800 SORT BY entry.preferred_title ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

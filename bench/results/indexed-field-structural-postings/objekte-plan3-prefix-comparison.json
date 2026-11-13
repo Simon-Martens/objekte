@@ -1,0 +1,92 @@
+{
+  "prefix_rows": 824,
+  "matching_digests": 206,
+  "all_statuses_ok": 880,
+  "source_open_regressions": 0,
+  "new_case_source_opens": {
+    "Q207": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q208": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q209": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q210": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q211": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q212": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q213": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q214": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q215": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q216": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q217": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q218": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q219": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    },
+    "Q220": {
+      "ascii-off": 0,
+      "ascii-warm": 0,
+      "unicode-off": 0,
+      "unicode-warm": 0
+    }
+  }
+}
