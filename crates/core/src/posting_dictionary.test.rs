@@ -148,6 +148,7 @@ fn malformed_posting_is_an_error_not_an_empty_result() {
     )
     .unwrap();
     assert!(sealed.get(&ScalarKey::String("exists".into())).is_err());
+    assert!(sealed.get(&ScalarKey::String("exists".into())).is_err());
     assert_eq!(
         sealed.get(&ScalarKey::String("absent".into())).unwrap(),
         None

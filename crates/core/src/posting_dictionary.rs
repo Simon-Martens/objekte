@@ -1,8 +1,8 @@
 //! Typed ordered dictionaries over independently checked portable postings.
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap};
 use std::ops::Bound;
-use std::sync::Arc;
+use std::sync::{Arc, Mutex, OnceLock};
 
 use roaring::RoaringBitmap;
 use serde::{Serialize, de::DeserializeOwned};
@@ -92,6 +92,7 @@ pub(crate) struct SealedPostingDictionary<K> {
     reader: Arc<SegmentReader>,
     dictionary: OrderedBlockDictionary<K>,
     allowed: Arc<RoaringBitmap>,
+    validated: Mutex<HashMap<PostingDescriptor, Arc<OnceLock<Result<(), String>>>>>,
 }
 
 impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
@@ -107,6 +108,7 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
             reader,
             dictionary,
             allowed,
+            validated: Mutex::new(HashMap::new()),
         })
     }
 
@@ -129,7 +131,43 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         &self,
         descriptor: PostingDescriptor,
     ) -> Result<RoaringBitmap, String> {
-        self.reader.materialize_posting(descriptor, &self.allowed)
+        self.with_validation(descriptor, |first| match first {
+            Some(bitmap) => Ok(bitmap),
+            None => self.reader.materialize_validated_posting(descriptor),
+        })
+    }
+
+    pub(crate) fn intersect_descriptor(
+        &self,
+        descriptor: PostingDescriptor,
+        input: &RoaringBitmap,
+    ) -> Result<RoaringBitmap, String> {
+        self.with_validation(descriptor, |first| match first {
+            Some(bitmap) => Ok(input & &bitmap),
+            None => self.reader.intersect_validated_posting(descriptor, input),
+        })
+    }
+
+    fn with_validation<T>(
+        &self,
+        descriptor: PostingDescriptor,
+        use_posting: impl FnOnce(Option<RoaringBitmap>) -> Result<T, String>,
+    ) -> Result<T, String> {
+        let cell = self
+            .validated
+            .lock()
+            .map_err(|_| "posting validation lock poisoned")?
+            .entry(descriptor)
+            .or_insert_with(|| Arc::new(OnceLock::new()))
+            .clone();
+        let mut first = None;
+        let proof = cell.get_or_init(|| {
+            let bitmap = self.reader.materialize_posting(descriptor, &self.allowed)?;
+            first = Some(bitmap);
+            Ok(())
+        });
+        proof.as_ref().map_err(Clone::clone)?;
+        use_posting(first)
     }
 
     /// `None` is a checked absent key; a present empty descriptor returns an
@@ -137,7 +175,7 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
     pub(crate) fn get(&self, key: &K) -> Result<Option<RoaringBitmap>, String> {
         self.dictionary
             .get(key)?
-            .map(|descriptor| self.reader.materialize_posting(descriptor, &self.allowed))
+            .map(|descriptor| self.materialize_descriptor(descriptor))
             .transpose()
     }
 
@@ -146,8 +184,10 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         key: &K,
         input: &RoaringBitmap,
     ) -> Result<Option<RoaringBitmap>, String> {
-        self.get(key)
-            .map(|found| found.map(|posting| input & &posting))
+        self.dictionary
+            .get(key)?
+            .map(|descriptor| self.intersect_descriptor(descriptor, input))
+            .transpose()
     }
 
     /// Seek once, then union postings in key order within the typed bounds.
@@ -178,10 +218,11 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
             if !inside {
                 break;
             }
-            let mut posting = self.reader.materialize_posting(descriptor, &self.allowed)?;
-            if let Some(input) = input {
-                posting &= input;
-            }
+            let posting = if let Some(input) = input {
+                self.intersect_descriptor(descriptor, input)?
+            } else {
+                self.materialize_descriptor(descriptor)?
+            };
             result |= posting;
             cursor = self.dictionary.next(position);
         }

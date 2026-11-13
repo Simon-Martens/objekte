@@ -287,12 +287,7 @@ impl SegmentReader {
         if descriptor.length == 0 {
             return Ok(RoaringBitmap::new());
         }
-        let region = self
-            .sections
-            .get(&SectionKind::PostingPayloads)
-            .ok_or("posting section missing")?;
-        let start = (region.offset + descriptor.offset) as usize;
-        let payload = &self.bytes.as_ref()[start..start + descriptor.length as usize];
+        let payload = self.posting_payload(descriptor)?;
         if short_checksum(payload) != descriptor.checksum {
             return Err("posting checksum mismatch".into());
         }
@@ -307,11 +302,60 @@ impl SegmentReader {
         }
         Ok(bitmap)
     }
+
+    /// Use only after checked validation of this exact descriptor, eligible
+    /// domain and immutable segment bytes has been published by its owner.
+    pub(crate) fn materialize_validated_posting(
+        &self,
+        descriptor: PostingDescriptor,
+    ) -> Result<RoaringBitmap, String> {
+        if descriptor == PostingDescriptor::EMPTY {
+            return Ok(RoaringBitmap::new());
+        }
+        let payload = self.posting_payload(descriptor)?;
+        RoaringBitmap::deserialize_unchecked_from(payload)
+            .map_err(|error| format!("validated posting decode: {error}"))
+    }
+
+    /// Restricted intersection avoids a full posting materialization once
+    /// the immutable payload has been checked for this dictionary's domain.
+    pub(crate) fn intersect_validated_posting(
+        &self,
+        descriptor: PostingDescriptor,
+        input: &RoaringBitmap,
+    ) -> Result<RoaringBitmap, String> {
+        if descriptor == PostingDescriptor::EMPTY {
+            return Ok(RoaringBitmap::new());
+        }
+        let payload = self.posting_payload(descriptor)?;
+        input
+            .intersection_with_serialized_unchecked(Cursor::new(payload))
+            .map_err(|error| format!("validated posting intersection: {error}"))
+    }
+
+    fn posting_payload(&self, descriptor: PostingDescriptor) -> Result<&[u8], String> {
+        self.validate_posting_descriptor(descriptor)?;
+        let region = self
+            .sections
+            .get(&SectionKind::PostingPayloads)
+            .ok_or("posting section missing")?;
+        let start = region
+            .offset
+            .checked_add(descriptor.offset)
+            .ok_or("posting payload offset overflow")?;
+        let end = start
+            .checked_add(descriptor.length as u64)
+            .ok_or("posting payload length overflow")?;
+        self.bytes
+            .as_ref()
+            .get(start as usize..end as usize)
+            .ok_or("posting payload out of bounds".into())
+    }
 }
 
 /// `u64` posting-region offset, `u32` payload length and cardinality, and an
 /// 8-byte payload checksum. No page is reserved for an individual posting.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 pub(crate) struct PostingDescriptor {
     pub offset: u64,
     pub length: u32,
