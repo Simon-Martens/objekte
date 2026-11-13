@@ -360,13 +360,18 @@ fn write_segment_inner<W: Write + Seek>(
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
     validate_before_write: bool,
 ) -> Result<W, String> {
+    let phase_profile = cfg!(feature = "detailed-profiling")
+        && std::env::var_os("OBJEKTE_HYBRID_PHASES").is_some();
+    let total_started = crate::detailed_timer::start_if_enabled(phase_profile);
     if ordinal == 0 {
         return Err("hybrid segment ordinal must be nonzero".into());
     }
     if validate_before_write {
         validate_components(segment, definition, options)?;
     }
+    let validation_ns = total_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
     let mut writer = SegmentWriter::new(output, REQUIRED_SECTIONS.len())?;
+    let encoding_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let sections = if validate_before_write {
         let mut pack = PostingPack::new();
         let sections = encode_segment_sections(segment, ordinal, options, intern, true, &mut pack)?;
@@ -383,6 +388,8 @@ fn write_segment_inner<W: Write + Seek>(
         })?;
         sections.ok_or("constructed section writer did not complete")?
     };
+    let encoding_ns = encoding_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let section_copy_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let EncodedSections {
         field_bytes,
         text_bytes,
@@ -411,7 +418,16 @@ fn write_segment_inner<W: Write + Seek>(
     write_bytes(&mut writer, SectionKind::RelationAndIdentity, &relation_bytes)?;
     drop(relation_bytes);
     write_bytes(&mut writer, SectionKind::Integrity, &integrity_bytes)?;
-    writer.finish()
+    let section_copy_ns = section_copy_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let result = writer.finish();
+    if phase_profile {
+        eprintln!(
+            "hybrid-seal ordinal={ordinal} slots={} validation_ns={validation_ns} encoding_ns={encoding_ns} section_copy_and_checksum_ns={section_copy_ns} total_ns={}",
+            segment.records.len(),
+            total_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0),
+        );
+    }
+    result
 }
 
 fn encode_segment_sections<P: PostingSink + ?Sized>(
@@ -422,6 +438,9 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
     validate_before_write: bool,
     pack: &mut P,
 ) -> Result<EncodedSections, String> {
+    let phase_profile = cfg!(feature = "detailed-profiling")
+        && std::env::var_os("OBJEKTE_HYBRID_PHASES").is_some();
+    let phase = crate::detailed_timer::start_if_enabled(phase_profile);
     let slot_count = u32::try_from(segment.records.len()).map_err(|_| "too many record slots")?;
     let mut scalar = Vec::new();
     let mut bigrams = Vec::new();
@@ -504,6 +523,8 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
             skip: spans.skip.into(),
         });
     }
+    let dictionary_ns = phase.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let metadata_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let field_bytes = encode_meta(
         FIELD_MAGIC,
         &FieldSection {
@@ -533,21 +554,28 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
         },
     )?;
     let text_bytes = encode_meta(TEXT_MAGIC, &TextSection { bindings: texts })?;
+    let metadata_ns = metadata_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let record_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let record_bytes = if validate_before_write {
         encode_record_slots(segment, intern)?
     } else {
         encode_record_slots_constructed(segment, intern)?
     };
+    let record_ns = record_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let sort_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let sort_bytes = if validate_before_write {
         encode_sort_data(&segment.sorting, &segment.records)?
     } else {
         encode_sort_data_constructed(&segment.sorting, &segment.records)?
     };
+    let sort_ns = sort_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
+    let relation_started = crate::detailed_timer::start_if_enabled(phase_profile);
     let relation_bytes = encode_relation_identity(
         &segment.relations,
         &segment.records,
         &segment.identity_order,
     )?;
+    let relation_ns = relation_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
     let integrity_bytes = encode_meta(
         INTEGRITY_MAGIC,
         &IntegritySection {
@@ -563,6 +591,12 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
                 .map_err(|_| "too many text bindings")?,
         },
     )?;
+    if phase_profile {
+        eprintln!(
+            "hybrid-encode ordinal={ordinal} slots={slot_count} dictionaries_and_postings_ns={dictionary_ns} metadata_ns={metadata_ns} records_ns={record_ns} sort_ns={sort_ns} relation_ns={relation_ns} total_ns={}",
+            phase.map(|started| started.elapsed().as_nanos()).unwrap_or(0),
+        );
+    }
     Ok(EncodedSections {
         field_bytes,
         text_bytes,
