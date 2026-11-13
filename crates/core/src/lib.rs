@@ -19,6 +19,7 @@ pub mod discovery;
 pub mod execution_options;
 pub mod executor;
 mod field_state;
+mod generation_catalog;
 pub mod fts_preview;
 mod index_catalog;
 pub mod index_storage;
