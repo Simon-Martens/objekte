@@ -1,0 +1,17 @@
+{"load_ns":776385280,"result_dir":"bench/results/index-creation-loading-profiling/perf-stat-restore-final/trial-1794564152944209618-3703450"}
+
+ Performance counter stats for 'target/release/examples/bench_index_construction --root /home/simon/source/objekte/examples/musenalm --alphabet ascii --workers 32 --restore-snapshot bench/results/index-creation-loading-profiling/restore-fixture-final/trial-1794564056910732446-3697060/index.snapshot --result-dir bench/results/index-creation-loading-profiling/perf-stat-restore-final':
+
+           2197.06 msec task-clock:u
+        1007047146      cpu_atom/cycles/u                                                       (40.05%)
+        6869642622      cpu_core/cycles/u                                                       (88.77%)
+        1968631609      cpu_atom/instructions/u                                                 (40.05%)
+       20671727491      cpu_core/instructions/u                                                 (88.77%)
+           2778161      cpu_atom/cache-misses/u                                                 (40.05%)
+          34204699      cpu_core/cache-misses/u                                                 (88.77%)
+                 0      context-switches:u
+
+       1.447102917 seconds time elapsed
+
+       1.232643000 seconds user
+       0.987562000 seconds sys

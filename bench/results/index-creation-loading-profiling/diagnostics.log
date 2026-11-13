@@ -1,0 +1,14 @@
+{"build_ns":3413922273,"result_dir":"bench/results/index-creation-loading-profiling/workers-1-1/trial-1794564114225629463-3701008"}
+{"build_ns":3442916963,"result_dir":"bench/results/index-creation-loading-profiling/workers-1-2/trial-1794564118019504226-3701110"}
+{"build_ns":3430040421,"result_dir":"bench/results/index-creation-loading-profiling/workers-1-3/trial-1794564121843303009-3701213"}
+{"build_ns":978205171,"result_dir":"bench/results/index-creation-loading-profiling/workers-8-1/trial-1794564125640298273-3701317"}
+{"build_ns":979916215,"result_dir":"bench/results/index-creation-loading-profiling/workers-8-2/trial-1794564127000161010-3701440"}
+{"build_ns":994060729,"result_dir":"bench/results/index-creation-loading-profiling/workers-8-3/trial-1794564128384334218-3701563"}
+{"build_ns":1052819696,"result_dir":"bench/results/index-creation-loading-profiling/workers-32-1/trial-1794564129778721531-3701686"}
+{"build_ns":1094544159,"result_dir":"bench/results/index-creation-loading-profiling/workers-32-2/trial-1794564131250035318-3701881"}
+{"build_ns":1046434485,"result_dir":"bench/results/index-creation-loading-profiling/workers-32-3/trial-1794564132753226069-3702076"}
+{"build_ns":1041984735,"result_dir":"bench/results/index-creation-loading-profiling/unicode-1/trial-1794564134205530561-3702271"}
+{"build_ns":1059773995,"result_dir":"bench/results/index-creation-loading-profiling/unicode-2/trial-1794564135657464254-3702466"}
+{"build_ns":1100681752,"result_dir":"bench/results/index-creation-loading-profiling/unicode-3/trial-1794564137134105517-3702662"}
+{"build_ns":708605841,"result_dir":"bench/results/index-creation-loading-profiling/plain-1/trial-1794564138637972470-3702857"}
+{"build_ns":2356657983,"result_dir":"bench/results/index-creation-loading-profiling/inference-1/trial-1794564139680695734-3703052"}

@@ -2,6 +2,7 @@
 
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::{Component, Path};
+use std::time::Instant;
 
 use bincode::Options;
 use roaring::RoaringBitmap;
@@ -30,6 +31,18 @@ use crate::source::DiagnosticCategory;
 use crate::storage::LifecycleSegmentCache;
 
 const MAX_SEGMENT_BYTES: usize = 512 * 1024 * 1024;
+
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct SegmentDecodeProfile {
+    pub deserialize_ns: u64,
+    pub metadata_and_lookups_ns: u64,
+    pub identity_domain_validation_ns: u64,
+    pub postings_validation_ns: u64,
+    pub bigrams_validation_ns: u64,
+    pub inference_validation_ns: u64,
+    pub sorting_validation_ns: u64,
+    pub relations_validation_ns: u64,
+}
 
 fn codec() -> impl Options {
     bincode::DefaultOptions::new()
@@ -194,6 +207,7 @@ pub(crate) fn segment_byte_diagnostic(bytes: &[u8]) -> Result<BTreeMap<String, u
 
 /// Decode and structurally validate a segment against the restored base and
 /// catalog. `active` is the snapshot's local liveness mask for this segment.
+#[cfg(test)]
 pub(crate) fn decode_segment(
     bytes: &[u8],
     repository: &Repository,
@@ -202,13 +216,30 @@ pub(crate) fn decode_segment(
     active: &RoaringBitmap,
     extras: &[FileEntry],
 ) -> Result<IndexedCollectionSegment, String> {
+    decode_segment_profiled(bytes, repository, collection_id, catalog, active, extras, None)
+}
+
+fn decode_segment_profiled(
+    bytes: &[u8],
+    repository: &Repository,
+    collection_id: CollectionId,
+    catalog: &FileCatalog,
+    active: &RoaringBitmap,
+    extras: &[FileEntry],
+    mut profile: Option<&mut SegmentDecodeProfile>,
+) -> Result<IndexedCollectionSegment, String> {
     if bytes.is_empty() || bytes.len() > MAX_SEGMENT_BYTES {
         return Err("segment snapshot byte length invalid".into());
     }
+    let phase = profile.as_ref().map(|_| Instant::now());
     let encoded: OwnedSegment = codec()
         .with_limit(bytes.len() as u64)
         .deserialize(bytes)
         .map_err(|error| format!("invalid segment snapshot: {error}"))?;
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.deserialize_ns = started.elapsed().as_nanos() as u64;
+    }
+    let phase = profile.as_ref().map(|_| Instant::now());
     let files = encoded
         .files
         .into_iter()
@@ -254,6 +285,9 @@ pub(crate) fn decode_segment(
         record_parses: encoded.record_parses,
         failed_parses: encoded.failed_parses,
     };
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.metadata_and_lookups_ns = started.elapsed().as_nanos() as u64;
+    }
     let collection = repository
         .collections()
         .get(collection_id.0 as usize)
@@ -265,25 +299,38 @@ pub(crate) fn decode_segment(
         catalog,
         active,
         repository.collections().len(),
+        profile.as_deref_mut(),
     )?;
     Ok(segment)
 }
 
 /// Cross-check the outer cache section's local record count before returning
 /// the decoded segment to the publication owner.
+#[cfg(test)]
 pub(crate) fn decode_cache_segment(
     cache: &LifecycleSegmentCache,
     repository: &Repository,
     catalog: &FileCatalog,
     extras: &[FileEntry],
 ) -> Result<IndexedCollectionSegment, String> {
-    let index = decode_segment(
+    decode_cache_segment_profiled(cache, repository, catalog, extras, None)
+}
+
+pub(crate) fn decode_cache_segment_profiled(
+    cache: &LifecycleSegmentCache,
+    repository: &Repository,
+    catalog: &FileCatalog,
+    extras: &[FileEntry],
+    profile: Option<&mut SegmentDecodeProfile>,
+) -> Result<IndexedCollectionSegment, String> {
+    let index = decode_segment_profiled(
         &cache.index,
         repository,
         cache.collection,
         catalog,
         &cache.active,
         extras,
+        profile,
     )?;
     if index.records.len() != cache.record_count as usize {
         return Err("segment envelope record count mismatch".into());
@@ -354,7 +401,9 @@ fn validate_segment(
     catalog: &FileCatalog,
     active: &RoaringBitmap,
     collection_count: usize,
+    mut profile: Option<&mut SegmentDecodeProfile>,
 ) -> Result<(), String> {
+    let phase = profile.as_ref().map(|_| Instant::now());
     let definition = &collection.definition;
     let count = segment.records.len();
     if segment.collection != collection.generation.collection
@@ -519,6 +568,10 @@ fn validate_segment(
     if segment.identity_order != identity_order {
         return Err("segment identity order mismatch".into());
     }
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.identity_domain_validation_ns = started.elapsed().as_nanos() as u64;
+    }
+    let phase = profile.as_ref().map(|_| Instant::now());
     let logical_count = logical.len() as usize;
     let expected_postings = definition
         .schema
@@ -583,6 +636,10 @@ fn validate_segment(
             return Err("segment custom posting binding mismatch".into());
         }
     }
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.postings_validation_ns = started.elapsed().as_nanos() as u64;
+    }
+    let phase = profile.as_ref().map(|_| Instant::now());
     for index in [&segment.raw, &segment.fallback_text] {
         index.validate(count)?;
         if index.alphabet != options.bigram_alphabet {
@@ -617,6 +674,10 @@ fn validate_segment(
             return Err("segment custom bigram alphabet mismatch".into());
         }
     }
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.bigrams_validation_ns = started.elapsed().as_nanos() as u64;
+    }
+    let phase = profile.as_ref().map(|_| Instant::now());
     match (&segment.inference, options.inference.mode) {
         (None, InferenceMode::Disabled) => {}
         (Some(inference), InferenceMode::ReportOnly | InferenceMode::AutoIndex) => {
@@ -624,8 +685,19 @@ fn validate_segment(
         }
         _ => return Err("segment inference mode mismatch".into()),
     }
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.inference_validation_ns = started.elapsed().as_nanos() as u64;
+    }
+    let phase = profile.as_ref().map(|_| Instant::now());
     validate_sorting(segment, definition)?;
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.sorting_validation_ns = started.elapsed().as_nanos() as u64;
+    }
+    let phase = profile.as_ref().map(|_| Instant::now());
     validate_relations(segment, collection, &logical, &fallback)?;
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.relations_validation_ns = started.elapsed().as_nanos() as u64;
+    }
     Ok(())
 }
 

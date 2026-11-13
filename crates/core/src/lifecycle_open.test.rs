@@ -4,6 +4,86 @@ use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
 #[test]
+fn incremental_and_restore_profiles_preserve_results_and_report_checked_work() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-load-profile-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..3 {
+        std::fs::write(
+            root.join(format!("data/{number}.json")),
+            format!(r#"{{"title":"record {number}"}}"#),
+        )
+        .unwrap();
+    }
+    let definitions = vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)];
+    let options = RepositoryOptions {
+        build_workers: std::num::NonZeroUsize::new(2),
+        profile_build: true,
+        ..Default::default()
+    };
+    let task = Index::start_incremental_build(&root, definitions.clone(), options).unwrap();
+    let index = task.wait_complete().unwrap();
+    let view = index.view().unwrap();
+    let build = view.startup_stats().build_profile.as_ref().unwrap();
+    assert_eq!(build.work.sampled_files, 1);
+    assert_eq!(build.segments.len(), 1);
+    assert_eq!(build.segments[0].collection, "data");
+    assert_eq!(build.segments[0].files, 3);
+    assert_eq!(build.segments[0].records, 3);
+    assert!(build.discovery_catalogue_ns >= build.discovery_enumeration_ns);
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(), limit: 10, offset: 0, count: true,
+            return_mode: ReturnMode::Locator, evidence: false,
+        },
+    };
+    let expected = view.search(&query).unwrap();
+    let ordinary_task = Index::start_incremental_build(
+        &root,
+        definitions.clone(),
+        RepositoryOptions { profile_build: false, ..options },
+    ).unwrap();
+    let ordinary_build = ordinary_task.wait_complete().unwrap();
+    assert!(ordinary_build.view().unwrap().startup_stats().build_profile.is_none());
+    assert_eq!(ordinary_build.view().unwrap().search(&query).unwrap().hits, expected.hits);
+    let cache = root.join("index.snapshot");
+    index.flush_cache(&cache).unwrap();
+    drop(view);
+
+    let (profiled, load) =
+        Index::load_cache_profiled(&root, definitions.clone(), options, &cache).unwrap();
+    assert!(profiled.restored_from_cache());
+    assert!(load.total_ns >= load.storage.total_ns);
+    assert_eq!(load.storage.sections.len(), definitions.len() + 3);
+    assert_eq!(load.segments.len(), 1);
+    assert_eq!(load.segments[0].collection, "data");
+    assert_eq!(load.segments[0].records, 3);
+    assert!(load.storage.sections.iter().all(|section| {
+        section.checksum_bytes == section.payload_bytes
+            && section.deserialize_bytes == section.payload_bytes
+    }));
+    assert_eq!(profiled.view().unwrap().search(&query).unwrap().hits, expected.hits);
+    let ordinary = Index::load_cache(&root, definitions, options, &cache).unwrap();
+    assert_eq!(ordinary.view().unwrap().search(&query).unwrap().hits, expected.hits);
+    assert!(profiled.wait_for_reconciliation().unwrap().unwrap().issues.is_empty());
+    assert!(ordinary.wait_for_reconciliation().unwrap().unwrap().issues.is_empty());
+    ordinary.shutdown().unwrap();
+    profiled.shutdown().unwrap();
+    ordinary_build.shutdown().unwrap();
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn direct_json_build_matches_static_inference_overlap_and_cache_restore() {
     use crate::inference::{InferenceConfig, InferenceMode};
 

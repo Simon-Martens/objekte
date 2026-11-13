@@ -418,7 +418,11 @@ pub struct StartupStats {
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct BuildProfileStats {
     pub admission_by_collection: BTreeMap<String, crate::build::AdmissionBreakdown>,
+    /// Sampled worker work by collection; these totals overlap in wall time.
+    pub work_by_collection: BTreeMap<String, crate::build::BuildWorkProfile>,
     pub admission_schedule: crate::build::AdmissionScheduleProfile,
+    /// Initial lifecycle segments, in publication order.
+    pub segments: Vec<IncrementalSegmentProfile>,
     pub contribution_storage: BuildContributionStorageProfile,
     pub discovery_enumeration_ns: u64,
     pub discovery_catalogue_ns: u64,
@@ -427,7 +431,12 @@ pub struct BuildProfileStats {
     pub discovery_metadata_peak_active: usize,
     pub pool_init_ns: u64,
     pub builder_setup_ns: u64,
+    pub job_scheduling_ns: u64,
     pub source_work_ns: u64,
+    pub final_segment_flush_ns: u64,
+    pub publication_index_ns: u64,
+    pub publication_install_ns: u64,
+    pub publication_callback_ns: u64,
     pub fingerprint_finish_ns: u64,
     pub finalize_generation_ns: u64,
     pub finalize_bigrams_ns: u64,
@@ -445,6 +454,24 @@ pub struct BuildProfileStats {
     pub extraction_rss_bytes: u64,
     pub finalization_rss_bytes: u64,
     pub work: crate::build::BuildWorkProfile,
+}
+
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct IncrementalSegmentProfile {
+    pub collection: String,
+    pub files: usize,
+    pub records: usize,
+    pub source_bytes: u64,
+    pub index_ns: u64,
+    pub install_ns: u64,
+    pub callback_ns: u64,
+    pub aggregate_merge_ns: u64,
+    pub postings_finish_validation_ns: u64,
+    pub bigram_finish_ns: u64,
+    pub bigram_validation_ns: u64,
+    pub sorting_finish_ns: u64,
+    pub inference_finish_ns: u64,
+    pub identity_order_ns: u64,
 }
 
 /// Opt-in construction capacity samples. Capacity bytes are lower bounds:
