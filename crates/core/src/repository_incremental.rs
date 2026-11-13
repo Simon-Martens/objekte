@@ -238,12 +238,22 @@ fn publish_segment(
         profile.publication_index_ns = profile.publication_index_ns.saturating_add(ns);
         segment_profile.as_mut().unwrap().index_ns = ns;
     }
-    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
-    *expected = index.publish_initial_segment(*expected, indexed)?;
-    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-        let ns = started.elapsed().as_nanos() as u64;
-        profile.publication_install_ns = profile.publication_install_ns.saturating_add(ns);
-        segment_profile.as_mut().unwrap().install_ns = ns;
+    let (revision, phases) = index.publish_initial_segment(*expected, indexed, profile.is_some())?;
+    *expected = revision;
+    if let Some(profile) = profile.as_mut() {
+        profile.publication_prepare_ns = profile
+            .publication_prepare_ns
+            .saturating_add(phases.preparation_ns);
+        profile.publication_seal_ns = profile
+            .publication_seal_ns
+            .saturating_add(phases.sealing_ns);
+        profile.publication_install_ns = profile
+            .publication_install_ns
+            .saturating_add(phases.install_ns);
+        let segment = segment_profile.as_mut().unwrap();
+        segment.prepare_ns = phases.preparation_ns;
+        segment.seal_ns = phases.sealing_ns;
+        segment.install_ns = phases.install_ns;
     }
     let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
     on_publication(index)?;

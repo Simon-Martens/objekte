@@ -41,6 +41,10 @@ fn incremental_and_restore_profiles_preserve_results_and_report_checked_work() {
     assert_eq!(build.segments[0].collection, "data");
     assert_eq!(build.segments[0].files, 3);
     assert_eq!(build.segments[0].records, 3);
+    assert!(build.segments[0].seal_ns > 0);
+    assert_eq!(build.publication_seal_ns, build.segments[0].seal_ns);
+    assert_eq!(build.publication_prepare_ns, build.segments[0].prepare_ns);
+    assert_eq!(build.publication_install_ns, build.segments[0].install_ns);
     assert!(build.discovery_catalogue_ns >= build.discovery_enumeration_ns);
     assert_eq!(build.admission.batches, 1);
     assert_eq!(build.admission.files, 3);

@@ -571,7 +571,33 @@ fn run() -> Result<(), String> {
         serde_json::to_vec_pretty(&result_digests).map_err(|e| e.to_string())?,
     )
     .map_err(|e| e.to_string())?;
-    let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"extended":extended,"build_mode":if incremental {"hybrid"} else {"repository"},"storage":storage_label,"schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers});
+    let executable = std::env::current_exe().map_err(|error| error.to_string())?;
+    let executable_sha256 = format!(
+        "{:x}",
+        Sha256::digest(fs::read(executable).map_err(|error| error.to_string())?)
+    );
+    let lockfile = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../Cargo.lock");
+    let lockfile_sha256 = format!(
+        "{:x}",
+        Sha256::digest(fs::read(lockfile).map_err(|error| error.to_string())?)
+    );
+    let run_manifest = serde_json::json!({
+        "run_id":run_id,"code_revision":rev,"execution_checkout_revision":rev,
+        "binary_build_revision":option_env!("OBJEKTE_BUILD_REVISION"),
+        "executable_sha256":executable_sha256,"cargo_lock_sha256":lockfile_sha256,
+        "compiler":compiler,"command":arguments,"root":root,"extended":extended,
+        "build_mode":if incremental {"hybrid"} else {"repository"},"storage":storage_label,
+        "schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],
+        "workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,
+        "repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,
+        "source_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers,
+        "internal_decoded_posting_cache":{
+            "limit_formula":"min(segment_encoded_bytes / 20, 8388608) per segment",
+            "observed_retained_bytes":serde_json::Value::Null,
+        },
+        "median_method":"middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+        "p95_method":"nearest rank: sorted[ceil(0.95 * n) - 1]",
+    });
     fs::write(
         result_dir.join("run-manifest.json"),
         serde_json::to_vec_pretty(&run_manifest).map_err(|e| e.to_string())?,
@@ -585,22 +611,23 @@ fn run() -> Result<(), String> {
     let mut csv = BufWriter::new(
         File::create(result_dir.join("query-results.csv")).map_err(|e| e.to_string())?,
     );
-    writeln!(csv,"case_id,profile,status,min_ns,median_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses,exact_posting_matches,scanned_records,residual_evaluations,prepared_plan_hits,verified_result_hits,preparation_median_ns,planning_median_ns").map_err(|e|e.to_string())?;
+    writeln!(csv,"case_id,profile,status,min_ns,median_ns,p95_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses,exact_posting_matches,scanned_records,residual_evaluations,prepared_plan_hits,verified_result_hits,preparation_median_ns,planning_median_ns").map_err(|e|e.to_string())?;
     let mut report = String::from("# Musenalm query checkpoint\n\n");
     report.push_str(&format!(
         "Code revision: `{rev}`. Repetitions: {repetitions}. Failures: {failures}.\n\n"
     ));
-    report.push_str("| Case | Profile | Min µs | Median µs | Max µs | Matches | Candidates | Parses | Prepared hits | Verified hits | Status |\n|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|\n");
+    report.push_str("| Case | Profile | Min µs | Median µs | p95 µs | Max µs | Matches | Candidates | Parses | Prepared hits | Verified hits | Status |\n|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|\n");
     let mut by_case: BTreeMap<String, Vec<String>> = BTreeMap::new();
     for (id, profile, times, counters, error) in &rows {
         let mut sorted = times.clone();
         sorted.sort_unstable();
-        let (min, med, max) = if sorted.is_empty() {
-            (None, None, None)
+        let (min, med, p95, max) = if sorted.is_empty() {
+            (None, None, None, None)
         } else {
             (
                 sorted.first().copied(),
-                sorted.get(sorted.len() / 2).copied(),
+                median_sorted(&sorted),
+                nearest_rank_sorted(&sorted, 95, 100),
                 sorted.last().copied(),
             )
         };
@@ -612,9 +639,10 @@ fn run() -> Result<(), String> {
         let prepared_hits = counters.iter().filter(|c| c.prepared_plan_hit).count();
         let verified_hits = counters.iter().filter(|c| c.verified_result_hit).count();
         report.push_str(&format!(
-            "| {id} | {profile} | {} | {} | {} | {} | {} | {} | {prepared_hits}/{} | {verified_hits}/{} | {status} |\n",
+            "| {id} | {profile} | {} | {} | {} | {} | {} | {} | {} | {prepared_hits}/{} | {verified_hits}/{} | {status} |\n",
             value(min),
             value(med),
+            value(p95),
             value(max),
             median_counter(counters, |c| c.total_matches),
             median_counter(counters, |c| c.candidates),
@@ -624,10 +652,11 @@ fn run() -> Result<(), String> {
         ));
         writeln!(
             csv,
-            "{id},{profile},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}",
+            "{id},{profile},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}",
             if error.is_some() { "failed" } else { "ok" },
             min.map(|v| v.to_string()).unwrap_or_default(),
             med.map(|v| v.to_string()).unwrap_or_default(),
+            p95.map(|v| v.to_string()).unwrap_or_default(),
             max.map(|v| v.to_string()).unwrap_or_default(),
             times.len(),
             median_counter(counters, |c| c.total_matches),
@@ -668,9 +697,10 @@ fn run() -> Result<(), String> {
         )
         .map_err(|e| e.to_string())?;
         by_case.entry(id.clone()).or_default().push(format!(
-            "{profile}: {} / {} / {} µs ({status})",
+            "{profile}: {} / {} / {} / {} µs (min/median/p95/max; {status})",
             value(min),
             value(med),
+            value(p95),
             value(max)
         ));
     }
@@ -934,5 +964,37 @@ fn status_bytes(field: &str) -> u64 {
 fn median_counter(counters: &[WorkCounters], field: impl Fn(&WorkCounters) -> u64) -> u64 {
     let mut values = counters.iter().map(field).collect::<Vec<_>>();
     values.sort_unstable();
-    values.get(values.len() / 2).copied().unwrap_or(0)
+    median_sorted(&values).unwrap_or(0)
+}
+
+fn median_sorted(values: &[u64]) -> Option<u64> {
+    let right = *values.get(values.len() / 2)?;
+    if values.len() % 2 == 1 {
+        return Some(right);
+    }
+    let left = values[values.len() / 2 - 1];
+    Some(left + (right - left) / 2 + (right - left) % 2)
+}
+
+fn nearest_rank_sorted(values: &[u64], numerator: usize, denominator: usize) -> Option<u64> {
+    if values.is_empty() || denominator == 0 || numerator == 0 || numerator > denominator {
+        return None;
+    }
+    let rank = values.len().saturating_mul(numerator).div_ceil(denominator);
+    values.get(rank - 1).copied()
+}
+
+#[cfg(test)]
+mod statistics_tests {
+    use super::{median_sorted, nearest_rank_sorted};
+
+    #[test]
+    fn even_median_and_nearest_rank_are_stable() {
+        assert_eq!(median_sorted(&[]), None);
+        assert_eq!(median_sorted(&[1, 2, 4, 8]), Some(3));
+        assert_eq!(median_sorted(&[1, 2]), Some(2));
+        assert_eq!(median_sorted(&[1, 3, 7]), Some(3));
+        let values = (1..=30).collect::<Vec<_>>();
+        assert_eq!(nearest_rank_sorted(&values, 95, 100), Some(29));
+    }
 }

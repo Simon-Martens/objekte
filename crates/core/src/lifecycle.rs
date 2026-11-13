@@ -48,6 +48,14 @@ const MAX_RECONCILIATION_ISSUES: usize = 128;
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub struct IndexRevision(pub u64);
 
+/// Exclusive phases of one progressive segment publication. The work before
+/// installation is complete before a new query view becomes visible.
+pub(crate) struct InitialPublicationPhases {
+    pub(crate) preparation_ns: u64,
+    pub(crate) sealing_ns: u64,
+    pub(crate) install_ns: u64,
+}
+
 
 impl IndexRevision {
     pub const INITIAL: Self = Self(1);
@@ -1126,7 +1134,9 @@ impl Index {
         &self,
         expected: IndexRevision,
         segment: IndexedCollectionSegment,
-    ) -> Result<IndexRevision, IndexError> {
+        profile_phases: bool,
+    ) -> Result<(IndexRevision, InitialPublicationPhases), IndexError> {
+        let prepare_started = crate::detailed_timer::start_if_enabled(profile_phases);
         let view = self.view()?;
         if view.revision() != expected {
             return Err(IndexError::RevisionConflict {
@@ -1168,7 +1178,29 @@ impl Index {
         }
         next = next.with_segment(segment)?;
         next.revision = expected.next()?;
-        self.publish_prepared(expected, next)
+        let preparation_ns = prepare_started
+            .map(|started| started.elapsed().as_nanos() as u64)
+            .unwrap_or(0);
+        let seal_started = crate::detailed_timer::start_if_enabled(profile_phases);
+        if self.0.seal_owned_memory.load(Ordering::Acquire) {
+            Self::seal_new_owned_segments(&mut next)?;
+        }
+        let sealing_ns = seal_started
+            .map(|started| started.elapsed().as_nanos() as u64)
+            .unwrap_or(0);
+        let install_started = crate::detailed_timer::start_if_enabled(profile_phases);
+        let revision = self.publish_prepared_inner(expected, next, false)?;
+        let install_ns = install_started
+            .map(|started| started.elapsed().as_nanos() as u64)
+            .unwrap_or(0);
+        Ok((
+            revision,
+            InitialPublicationPhases {
+                preparation_ns,
+                sealing_ns,
+                install_ns,
+            },
+        ))
     }
 
     /// Finalize metadata without copying the completed segment payloads.
@@ -2978,7 +3010,16 @@ impl Index {
     pub(crate) fn publish_prepared(
         &self,
         expected: IndexRevision,
+        next: PublishedIndex,
+    ) -> Result<IndexRevision, IndexError> {
+        self.publish_prepared_inner(expected, next, true)
+    }
+
+    fn publish_prepared_inner(
+        &self,
+        expected: IndexRevision,
         mut next: PublishedIndex,
+        seal_owned_memory: bool,
     ) -> Result<IndexRevision, IndexError> {
         if next.instance_id != self.0.instance_id {
             return Err(IndexError::ForeignInstance);
@@ -2989,7 +3030,7 @@ impl Index {
                 "prepared root must carry the next revision".into(),
             ));
         }
-        if self.0.seal_owned_memory.load(Ordering::Acquire) {
+        if seal_owned_memory && self.0.seal_owned_memory.load(Ordering::Acquire) {
             Self::seal_new_owned_segments(&mut next)?;
         }
         let notify_cache = next.catalog.construction_complete();
