@@ -314,6 +314,10 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         self.entries
     }
 
+    pub(crate) fn first(&self) -> Option<DictionaryCursor> {
+        (!self.blocks.is_empty()).then_some(DictionaryCursor { block: 0, entry: 0 })
+    }
+
     pub(crate) fn get(&self, key: &K) -> Result<Option<PostingDescriptor>, String> {
         let Some(cursor) = self.lower_bound(key)? else {
             return Ok(None);

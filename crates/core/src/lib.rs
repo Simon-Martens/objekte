@@ -42,6 +42,7 @@ mod managed_store;
 pub mod measurement;
 pub mod model;
 mod ordered_block;
+mod posting_dictionary;
 pub mod parameters;
 pub mod path_repr;
 pub mod posting;
