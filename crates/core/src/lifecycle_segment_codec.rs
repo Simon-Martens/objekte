@@ -39,6 +39,12 @@ pub struct SegmentDecodeProfile {
     pub identity_domain_validation_ns: u64,
     pub postings_validation_ns: u64,
     pub bigrams_validation_ns: u64,
+    /// Raw and custom-text indexes whose logical-domain subset traversal ran.
+    pub bigram_logical_domain_scans: u32,
+    /// Raw and custom-text indexes proven to have the full record-slot domain.
+    pub bigram_logical_domain_skips: u32,
+    /// Fallback-text domain checks always remain active.
+    pub bigram_fallback_domain_scans: u32,
     pub inference_validation_ns: u64,
     pub sorting_validation_ns: u64,
     pub relations_validation_ns: u64,
@@ -573,6 +579,11 @@ fn validate_segment(
     }
     let phase = profile.as_ref().map(|_| Instant::now());
     let logical_count = logical.len() as usize;
+    // Each record slot was checked against its vector position above, and
+    // `logical` was rebuilt from checked record classes before the persisted
+    // bitmap was compared with it. Thus equal cardinality proves that every
+    // slot in 0..count is logical, independently of serialized counts.
+    let full_logical_domain = logical_count == count;
     let expected_postings = definition
         .schema
         .fields
@@ -602,7 +613,7 @@ fn validate_segment(
         }
     }
     segment.postings.validate_eligible(count, logical_count)?;
-    if logical_count != count {
+    if !full_logical_domain {
         segment.postings.validate_domain(&logical)?;
     }
     let expected_custom = definition
@@ -623,7 +634,7 @@ fn validate_segment(
     }
     for (key, custom) in &segment.custom_postings {
         custom.index.validate_eligible(count, logical_count)?;
-        if logical_count != count {
+        if !full_logical_domain {
             custom.index.validate_domain(&logical)?;
         }
         if custom.index.path != key.0
@@ -646,8 +657,23 @@ fn validate_segment(
             return Err("segment bigram alphabet mismatch".into());
         }
     }
-    segment.raw.validate_domain(&logical)?;
+    // `validate(count)` above checks coverage and maximum slots. For the
+    // proven full domain, every such slot is eligible and a subset scan adds
+    // no rejection power. Mixed segments still require the full traversal.
+    if full_logical_domain {
+        if let Some(profile) = profile.as_mut() {
+            profile.bigram_logical_domain_skips += 1;
+        }
+    } else {
+        segment.raw.validate_domain(&logical)?;
+        if let Some(profile) = profile.as_mut() {
+            profile.bigram_logical_domain_scans += 1;
+        }
+    }
     segment.fallback_text.validate_domain(&fallback)?;
+    if let Some(profile) = profile.as_mut() {
+        profile.bigram_fallback_domain_scans += 1;
+    }
     let expected_text = definition
         .schema
         .custom
@@ -669,7 +695,16 @@ fn validate_segment(
     }
     for index in segment.custom_text.values() {
         index.validate(count)?;
-        index.validate_domain(&logical)?;
+        if full_logical_domain {
+            if let Some(profile) = profile.as_mut() {
+                profile.bigram_logical_domain_skips += 1;
+            }
+        } else {
+            index.validate_domain(&logical)?;
+            if let Some(profile) = profile.as_mut() {
+                profile.bigram_logical_domain_scans += 1;
+            }
+        }
         if index.alphabet != options.bigram_alphabet {
             return Err("segment custom bigram alphabet mismatch".into());
         }
