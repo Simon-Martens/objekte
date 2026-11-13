@@ -17,6 +17,9 @@ const MANIFEST_NAME: &str = "manifest.bin";
 const LOCK_NAME: &str = "store.lock";
 const MAX_MANIFEST_BYTES: usize = 4 * 1024 * 1024;
 const MAX_SEGMENTS: usize = 16_384;
+const DEPRECATED_MAGIC: &[u8; 8] = b"OBJSNAP1";
+const DEPRECATED_VERSIONS: [u32; 2] = [27, 28];
+const DEPRECATED_NAMES: [&str; 2] = ["search-core-ascii.snapshot", "search-core-unicode.snapshot"];
 
 #[derive(Clone, Debug)]
 struct SegmentRecord {
@@ -59,6 +62,7 @@ pub(crate) struct ManagedStore {
     repository_identity: [u8; 32],
     configuration_identity: [u8; 32],
     root_bytes: Vec<u8>,
+    deprecated_directories: Vec<PathBuf>,
 }
 
 impl ManagedStore {
@@ -83,11 +87,82 @@ impl ManagedStore {
             repository_identity: resolved.repository_identity,
             configuration_identity: resolved.configuration_identity,
             root_bytes: path_bytes(&resolved.repository_root),
+            deprecated_directories: resolved.deprecated_directories.clone(),
         })
     }
 
     pub(crate) fn path(&self) -> &Path {
         &self.directory
+    }
+
+    /// Remove only the two previous snapshot filenames in the selected
+    /// storage scope, and only after their regular-file header proves a
+    /// supported old format. This is never called for memory-only storage.
+    pub(crate) fn cleanup_deprecated_snapshots(&self) -> Result<Vec<PathBuf>, String> {
+        let lock = self.open_lock()?;
+        lock.lock()
+            .map_err(|error| format!("store writer lock: {error}"))?;
+        let mut candidates = Vec::new();
+        for directory in &self.deprecated_directories {
+            let metadata = match fs::symlink_metadata(directory) {
+                Ok(metadata) => metadata,
+                Err(error) if error.kind() == std::io::ErrorKind::NotFound => continue,
+                Err(error) => {
+                    return Err(format!(
+                        "deprecated index scope {}: {error}",
+                        directory.display()
+                    ));
+                }
+            };
+            if metadata.file_type().is_symlink() || !metadata.is_dir() {
+                return Err(format!(
+                    "unsafe deprecated index scope: {}",
+                    directory.display()
+                ));
+            }
+            for name in DEPRECATED_NAMES {
+                let path = directory.join(name);
+                let metadata = match fs::symlink_metadata(&path) {
+                    Ok(metadata) => metadata,
+                    Err(error) if error.kind() == std::io::ErrorKind::NotFound => continue,
+                    Err(error) => {
+                        return Err(format!("deprecated index {}: {error}", path.display()));
+                    }
+                };
+                if metadata.file_type().is_symlink()
+                    || !metadata.is_file()
+                    || !owned_by_current_user(&metadata)
+                {
+                    return Err(format!(
+                        "unsafe deprecated index candidate: {}",
+                        path.display()
+                    ));
+                }
+                let mut file = open_regular_nofollow(&path)?;
+                let mut header = [0u8; 12];
+                file.read_exact(&mut header).map_err(|error| {
+                    format!("deprecated index header {}: {error}", path.display())
+                })?;
+                if &header[..8] != DEPRECATED_MAGIC {
+                    return Err(format!("unknown index format at {}", path.display()));
+                }
+                let version = u32::from_le_bytes(header[8..12].try_into().unwrap());
+                if !DEPRECATED_VERSIONS.contains(&version) {
+                    return Err(format!(
+                        "unsupported index version {version} at {}",
+                        path.display()
+                    ));
+                }
+                candidates.push(path);
+            }
+        }
+        let mut removed = Vec::with_capacity(candidates.len());
+        for path in candidates {
+            fs::remove_file(&path)
+                .map_err(|error| format!("remove deprecated index {}: {error}", path.display()))?;
+            removed.push(path);
+        }
+        Ok(removed)
     }
 
     /// Hold a shared cross-process lock until every immutable file is opened

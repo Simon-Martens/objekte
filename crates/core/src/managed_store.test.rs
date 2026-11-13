@@ -166,6 +166,91 @@ fn rejects_unknown_existing_segment_and_generation_rewind() {
     );
 }
 
+#[test]
+fn removes_only_recognized_deprecated_snapshots_in_selected_scope() {
+    let fixture = TestStore::new();
+    let selected = fixture.base.join("destination");
+    let elsewhere = fixture.base.join("source");
+    let old_ascii = selected.join(DEPRECATED_NAMES[0]);
+    let old_unicode = selected.join(DEPRECATED_NAMES[1]);
+    let unrelated = selected.join("user-data.txt");
+    let other_repository = elsewhere.join(DEPRECATED_NAMES[0]);
+    for (path, version) in [
+        (&old_ascii, 27u32),
+        (&old_unicode, 28u32),
+        (&other_repository, 27u32),
+    ] {
+        let mut bytes = Vec::from(DEPRECATED_MAGIC.as_slice());
+        bytes.extend_from_slice(&version.to_le_bytes());
+        bytes.extend_from_slice(b"old bytes");
+        fs::write(path, bytes).unwrap();
+    }
+    fs::write(&unrelated, b"keep").unwrap();
+    let removed = fixture.store.cleanup_deprecated_snapshots().unwrap();
+    assert_eq!(removed, vec![old_ascii.clone(), old_unicode.clone()]);
+    assert!(!old_ascii.exists() && !old_unicode.exists());
+    assert_eq!(fs::read(unrelated).unwrap(), b"keep");
+    assert!(other_repository.is_file());
+    assert!(
+        fixture
+            .store
+            .cleanup_deprecated_snapshots()
+            .unwrap()
+            .is_empty()
+    );
+}
+
+#[test]
+fn unknown_candidate_blocks_cleanup_without_deleting_known_old_file() {
+    let fixture = TestStore::new();
+    let selected = fixture.base.join("destination");
+    let old_ascii = selected.join(DEPRECATED_NAMES[0]);
+    let newer_unicode = selected.join(DEPRECATED_NAMES[1]);
+    let mut old = Vec::from(DEPRECATED_MAGIC.as_slice());
+    old.extend_from_slice(&27u32.to_le_bytes());
+    fs::write(&old_ascii, old).unwrap();
+    let mut newer = Vec::from(DEPRECATED_MAGIC.as_slice());
+    newer.extend_from_slice(&29u32.to_le_bytes());
+    fs::write(&newer_unicode, newer).unwrap();
+    assert!(
+        fixture
+            .store
+            .cleanup_deprecated_snapshots()
+            .unwrap_err()
+            .contains("unsupported index version 29")
+    );
+    assert!(old_ascii.is_file() && newer_unicode.is_file());
+    fs::write(&newer_unicode, b"user content").unwrap();
+    assert!(
+        fixture
+            .store
+            .cleanup_deprecated_snapshots()
+            .unwrap_err()
+            .contains("unknown index format")
+    );
+    assert!(old_ascii.is_file() && newer_unicode.is_file());
+}
+
+#[cfg(unix)]
+#[test]
+fn deprecated_snapshot_symlink_is_not_followed() {
+    use std::os::unix::fs::symlink;
+    let fixture = TestStore::new();
+    let target = fixture.base.join("user-data.txt");
+    fs::write(&target, b"keep").unwrap();
+    let link = fixture.base.join("destination").join(DEPRECATED_NAMES[0]);
+    symlink(&target, &link).unwrap();
+    assert!(
+        fixture
+            .store
+            .cleanup_deprecated_snapshots()
+            .unwrap_err()
+            .contains("unsafe deprecated index candidate")
+    );
+    assert_eq!(fs::read(target).unwrap(), b"keep");
+    assert!(fs::symlink_metadata(link).unwrap().file_type().is_symlink());
+}
+
 #[cfg(unix)]
 #[test]
 fn obsolete_symlink_is_not_followed_or_removed() {

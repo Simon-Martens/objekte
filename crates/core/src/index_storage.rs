@@ -92,8 +92,9 @@ impl IndexStoragePolicy {
         let configuration_identity = configuration_hash(definitions, options, sources)?;
         let repository_id = hex(&repository_identity);
         let configuration_id = hex(&configuration_identity);
-        let (managed_directory, owned_namespace_root) = match &self.location {
-            IndexStorageLocation::MemoryOnly => (None, None),
+        let (managed_directory, owned_namespace_root, deprecated_directories) = match &self.location
+        {
+            IndexStorageLocation::MemoryOnly => (None, None, Vec::new()),
             IndexStorageLocation::SystemTemporary => {
                 let base = std::env::temp_dir()
                     .canonicalize()
@@ -106,12 +107,17 @@ impl IndexStoragePolicy {
                             .join(&repository_id)
                             .join(&configuration_id),
                     ),
-                    Some(owned),
+                    Some(owned.clone()),
+                    vec![owned],
                 )
             }
             IndexStorageLocation::RepositoryDirectory => {
                 let owned = root.join(".objekte").join("indexes");
-                (Some(owned.join(&configuration_id)), Some(owned))
+                (
+                    Some(owned.join(&configuration_id)),
+                    Some(owned),
+                    vec![root.join(".objekte")],
+                )
             }
             IndexStorageLocation::CustomDirectory(base) => {
                 let base = base
@@ -127,6 +133,7 @@ impl IndexStoragePolicy {
                 (
                     Some(owned.join(&repository_id).join(&configuration_id)),
                     Some(owned),
+                    vec![base],
                 )
             }
         };
@@ -136,6 +143,7 @@ impl IndexStoragePolicy {
             configuration_identity,
             managed_directory,
             owned_namespace_root,
+            deprecated_directories,
             private_namespace: matches!(&self.location, IndexStorageLocation::SystemTemporary),
             residency: self.residency,
         })
@@ -151,6 +159,8 @@ pub struct ResolvedIndexStorage {
     pub managed_directory: Option<PathBuf>,
     /// First application-owned directory beneath a selected existing base.
     pub owned_namespace_root: Option<PathBuf>,
+    /// Exact selected directories where the previous two snapshot names may exist.
+    pub deprecated_directories: Vec<PathBuf>,
     pub private_namespace: bool,
     pub residency: IndexResidency,
 }
