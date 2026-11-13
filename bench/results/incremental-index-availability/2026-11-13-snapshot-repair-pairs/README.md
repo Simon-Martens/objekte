@@ -1,0 +1,5 @@
+# Plan 1 snapshot repair: corroborating unprofiled campaign
+
+Seven alternating before/after pairs with separate fresh processes for construction, full save, and restore. Configuration and query checks match the profile campaign at `../2026-11-13-snapshot-repair-profile-pairs/`, except `--profile` was omitted on construction and save. The profile campaign is the principal comparable result because it matches the prior Plan 1 protocol.
+
+`runs.json` contains every command, manifest, raw sample, and snapshot hash; `summary.json` contains raw values, medians, inclusive quartiles, and paired differences. `byte_attribution.json` reconciles opt-in encoded-field accounting to exact snapshot lengths; its RSS and timings are diagnostic-only. `unicode.json` contains one Unicode before/after save and fresh restore check. `master_reference.json` contains one original-master nonincremental reference from the same machine and compiler. Snapshot binaries were removed after fresh restore; hashes and byte lengths remain.

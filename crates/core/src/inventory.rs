@@ -37,7 +37,6 @@ pub const MAX_DIAGNOSTIC_CODE_BYTES: usize = 128;
 pub const MAX_DIAGNOSTIC_PATH_SEGMENTS: usize = 32;
 pub const MAX_DIAGNOSTIC_SEGMENT_BYTES: usize = 128;
 
-
 /// Stable physical-file state codes in snapshots and public results.
 #[repr(u8)]
 #[derive(Clone, Copy, Debug, Default, Eq, Ord, PartialEq, PartialOrd)]
@@ -47,7 +46,6 @@ pub enum FileStatus {
     Broken = 1,
     Unreadable = 2,
 }
-
 
 impl FileStatus {
     pub fn code(self) -> u8 {
@@ -63,13 +61,11 @@ impl FileStatus {
     }
 }
 
-
 impl Serialize for FileStatus {
     fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
         serializer.serialize_u8(self.code())
     }
 }
-
 
 impl<'de> Deserialize<'de> for FileStatus {
     fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
@@ -84,7 +80,6 @@ impl<'de> Deserialize<'de> for FileStatus {
     }
 }
 
-
 #[repr(u8)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum RecordClass {
@@ -93,20 +88,17 @@ pub enum RecordClass {
     RawFallback = 1,
 }
 
-
 impl RecordClass {
     pub fn code(self) -> u8 {
         self as u8
     }
 }
 
-
 impl Serialize for RecordClass {
     fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
         serializer.serialize_u8(self.code())
     }
 }
-
 
 impl<'de> Deserialize<'de> for RecordClass {
     fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
@@ -120,12 +112,10 @@ impl<'de> Deserialize<'de> for RecordClass {
     }
 }
 
-
 /// Zero means no diagnostic, `u32::MAX` means omitted by the per-file cap,
 /// and other values are one-based indexes into the file diagnostic table.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
 pub struct DiagnosticRef(pub u32);
-
 
 impl DiagnosticRef {
     pub fn stored_index(self) -> Option<usize> {
@@ -136,7 +126,6 @@ impl DiagnosticRef {
         self.0 == u32::MAX
     }
 }
-
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct SourceDiagnostic {
@@ -154,7 +143,6 @@ pub struct SourceDiagnostic {
     pub column: Option<u64>,
     pub message: String,
 }
-
 
 impl SourceDiagnostic {
     pub fn from_reader(
@@ -186,7 +174,6 @@ impl SourceDiagnostic {
     }
 }
 
-
 fn truncate_message(message: &str) -> String {
     if message.len() <= MAX_DIAGNOSTIC_MESSAGE_BYTES {
         return message.into();
@@ -198,14 +185,12 @@ fn truncate_message(message: &str) -> String {
     message[..end].into()
 }
 
-
 /// Size and modification time recorded for a source file.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct SourceRevision {
     pub modified_ns: i128,
     pub size: u64,
 }
-
 
 impl SourceRevision {
     pub fn from_metadata(metadata: &std::fs::Metadata) -> Result<Self, String> {
@@ -220,12 +205,10 @@ impl SourceRevision {
     }
 }
 
-
 /// Index-local incarnation token for a physical file. It is independent of
 /// modification time and changes after every accepted file mutation.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub struct FileVersion(pub u64);
-
 
 impl FileVersion {
     pub const INITIAL: Self = Self(1);
@@ -238,9 +221,7 @@ impl FileVersion {
     }
 }
 
-
 const FILE_VERSION_CHUNK: usize = 1024;
-
 
 /// Version metadata is divided into shared chunks so changing one file does
 /// not copy every file's token. The outer pointer directory is shallow.
@@ -249,7 +230,6 @@ pub(crate) struct FileVersions {
     chunks: Arc<Vec<Arc<Vec<FileVersion>>>>,
     len: usize,
 }
-
 
 impl FileVersions {
     /// Restore version tokens without replaying every historical mutation.
@@ -337,9 +317,7 @@ impl FileVersions {
     }
 }
 
-
 const ACTIVE_SLOT_CHUNK: u32 = 1 << 16;
-
 
 /// Published liveness for one collection. Slot numbers are never reused by
 /// ordinary mutations. Only touched chunks are copied on retirement.
@@ -349,7 +327,6 @@ pub(crate) struct ActiveRecords {
     slot_count: u32,
     live_count: u64,
 }
-
 
 impl ActiveRecords {
     /// Restore a sparse active domain, including fully retired chunks.
@@ -466,7 +443,6 @@ impl ActiveRecords {
     }
 }
 
-
 /// Immutable native path shared with lookup keys and, for ordinary paths,
 /// with the ordered query-path index.
 #[derive(Clone, Debug)]
@@ -477,7 +453,6 @@ pub enum SharedPath {
     /// Escaped or non-UTF-8 paths retain their reversible native spelling.
     Native(Arc<Path>),
 }
-
 
 impl SharedPath {
     pub fn as_path(&self) -> &Path {
@@ -514,7 +489,6 @@ impl From<PathBuf> for SharedPath {
     }
 }
 
-
 impl From<&str> for SharedPath {
     fn from(path: &str) -> Self {
         PathBuf::from(path).into()
@@ -527,13 +501,11 @@ impl From<String> for SharedPath {
     }
 }
 
-
 impl From<std::ffi::OsString> for SharedPath {
     fn from(path: std::ffi::OsString) -> Self {
         PathBuf::from(path).into()
     }
 }
-
 
 impl Deref for SharedPath {
     type Target = Path;
@@ -543,13 +515,11 @@ impl Deref for SharedPath {
     }
 }
 
-
 impl AsRef<Path> for SharedPath {
     fn as_ref(&self) -> &Path {
         self.as_path()
     }
 }
-
 
 impl std::borrow::Borrow<Path> for SharedPath {
     fn borrow(&self) -> &Path {
@@ -557,16 +527,13 @@ impl std::borrow::Borrow<Path> for SharedPath {
     }
 }
 
-
 impl PartialEq for SharedPath {
     fn eq(&self, other: &Self) -> bool {
         self.as_path() == other.as_path()
     }
 }
 
-
 impl Eq for SharedPath {}
-
 
 impl PartialEq<PathBuf> for SharedPath {
     fn eq(&self, other: &PathBuf) -> bool {
@@ -574,13 +541,11 @@ impl PartialEq<PathBuf> for SharedPath {
     }
 }
 
-
 impl PartialEq<&Path> for SharedPath {
     fn eq(&self, other: &&Path) -> bool {
         self.as_path() == *other
     }
 }
-
 
 impl Hash for SharedPath {
     fn hash<H: Hasher>(&self, state: &mut H) {
@@ -588,13 +553,11 @@ impl Hash for SharedPath {
     }
 }
 
-
 impl Serialize for SharedPath {
     fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
         self.as_path().to_path_buf().serialize(serializer)
     }
 }
-
 
 impl<'de> Deserialize<'de> for SharedPath {
     fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
@@ -602,9 +565,8 @@ impl<'de> Deserialize<'de> for SharedPath {
     }
 }
 
-
 /// Repository-wide identity and metadata for one source file.
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct FileEntry {
     pub id: FileId,
     pub relative_path: SharedPath,
@@ -615,7 +577,6 @@ pub struct FileEntry {
     pub diagnostics: Vec<SourceDiagnostic>,
     pub omitted_diagnostics: u32,
 }
-
 
 impl FileEntry {
     pub(crate) fn record_diagnostic(
@@ -652,7 +613,6 @@ impl FileEntry {
     }
 }
 
-
 /// Authoritative source-file table shared by collections.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FileInventory {
@@ -664,7 +624,6 @@ pub struct FileInventory {
     #[serde(skip)]
     pub(crate) relative_paths: BTreeMap<Arc<str>, FileId>,
 }
-
 
 /// Opt-in component accounting for the file table and its path indexes.
 /// Hash-table control bytes, B-tree nodes and allocator rounding are omitted.
@@ -686,7 +645,6 @@ pub struct FileStorageDiagnostic {
     pub root_payload_bytes: usize,
     pub estimated_live_bytes: usize,
 }
-
 
 /// Lexical bounds over the same root-relative representation as `@file.path`.
 pub(crate) fn relative_path_bounds(
@@ -720,7 +678,6 @@ pub(crate) fn empty_path_bounds(bounds: &(Bound<Arc<str>>, Bound<Arc<str>>)) -> 
         }
     }
 }
-
 
 impl FileInventory {
     pub fn storage_diagnostic(&self) -> FileStorageDiagnostic {
@@ -991,7 +948,6 @@ impl FileInventory {
     }
 }
 
-
 fn valid_relative_path(path: &Path) -> bool {
     !path.as_os_str().is_empty()
         && !path.is_absolute()
@@ -1000,14 +956,12 @@ fn valid_relative_path(path: &Path) -> bool {
             .all(|component| matches!(component, std::path::Component::Normal(_)))
 }
 
-
 /// Standalone byte span of one logical record.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct ByteRange {
     pub start: u64,
     pub end: u64,
 }
-
 
 impl ByteRange {
     pub fn checked(start: u64, end: u64, file_size: u64) -> Result<Self, String> {
@@ -1024,7 +978,6 @@ impl ByteRange {
     }
 }
 
-
 /// Collection record identity, slot, file, and source span.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct RecordEntry {
@@ -1037,24 +990,29 @@ pub struct RecordEntry {
     pub diagnostic_ref: DiagnosticRef,
 }
 
-
 /// Compact per-file offset table. `slots[offsets[f]..offsets[f+1]]` belongs
 /// exactly to file `f`; empty files have equal consecutive offsets.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FileRecordIndex {
+    /// Valid file-ID domain, including empty generations with no offsets.
+    pub file_count: u32,
     pub offsets: Vec<u32>,
     pub slots: Vec<RecordSlot>,
 }
 
-
 impl FileRecordIndex {
     pub fn records_for(&self, file: FileId) -> Option<&[RecordSlot]> {
+        if file.0 >= self.file_count {
+            return None;
+        }
+        if self.offsets.is_empty() {
+            return self.slots.is_empty().then_some(&[]);
+        }
         let a = *self.offsets.get(file.0 as usize)? as usize;
         let b = *self.offsets.get(file.0 as usize + 1)? as usize;
         self.slots.get(a..b)
     }
 }
-
 
 /// Immutable record inventory for one published collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -1066,7 +1024,6 @@ pub struct CollectionGeneration {
     pub records: Vec<RecordEntry>,
     pub file_records: FileRecordIndex,
 }
-
 
 impl CollectionGeneration {
     pub fn validate(&self, inventory: &FileInventory) -> Result<(), String> {
@@ -1081,10 +1038,14 @@ impl CollectionGeneration {
                 return Err("invalid collection file membership".into());
             }
         }
-        if self.file_records.offsets.len() != inventory.files.len() + 1
-            || self.file_records.offsets.first() != Some(&0)
-            || self.file_records.offsets.last().copied()
-                != Some(self.file_records.slots.len() as u32)
+        if self.file_records.file_count as usize != inventory.files.len()
+            || (self.file_records.offsets.is_empty()
+                && (!self.records.is_empty() || !self.file_records.slots.is_empty()))
+            || (!self.file_records.offsets.is_empty()
+                && (self.file_records.offsets.len() != inventory.files.len() + 1
+                    || self.file_records.offsets.first() != Some(&0)
+                    || self.file_records.offsets.last().copied()
+                        != Some(self.file_records.slots.len() as u32)))
         {
             return Err("invalid file-record offset table".into());
         }
@@ -1142,7 +1103,6 @@ impl CollectionGeneration {
     }
 }
 
-
 /// Mutable accumulator used to construct a collection generation.
 pub struct CollectionBuilder {
     collection: CollectionId,
@@ -1153,7 +1113,6 @@ pub struct CollectionBuilder {
     records: Vec<RecordEntry>,
     ids: IdentitySet,
 }
-
 
 impl CollectionBuilder {
     pub(crate) fn next_slot(&self) -> Result<RecordSlot, String> {
@@ -1259,6 +1218,23 @@ impl CollectionBuilder {
     }
 
     pub fn finish(self, inventory: &FileInventory) -> Result<CollectionGeneration, String> {
+        let file_count = u32::try_from(self.included_files.len()).map_err(|_| "too many files")?;
+        if self.records.is_empty() {
+            let result = CollectionGeneration {
+                collection: self.collection,
+                name: self.name,
+                generation: self.generation,
+                files: self.files,
+                records: self.records,
+                file_records: FileRecordIndex {
+                    file_count,
+                    offsets: Vec::new(),
+                    slots: Vec::new(),
+                },
+            };
+            result.validate(inventory)?;
+            return Ok(result);
+        }
         let mut cursors = vec![0u32; self.included_files.len()];
         for entry in &self.records {
             let count = cursors
@@ -1290,13 +1266,16 @@ impl CollectionBuilder {
             generation: self.generation,
             files: self.files,
             records: self.records,
-            file_records: FileRecordIndex { offsets, slots },
+            file_records: FileRecordIndex {
+                file_count,
+                offsets,
+                slots,
+            },
         };
         result.validate(inventory)?;
         Ok(result)
     }
 }
-
 
 #[cfg(test)]
 #[path = "inventory.test.rs"]

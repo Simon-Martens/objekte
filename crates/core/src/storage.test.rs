@@ -51,9 +51,7 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
     use serde::de::{SeqAccess, Visitor};
     use serde::ser::SerializeSeq;
 
-
     struct ByteChunk<'a>(&'a [u8]);
-
 
     impl Serialize for ByteChunk<'_> {
         fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
@@ -61,9 +59,7 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
         }
     }
 
-
     struct RepeatedChunks;
-
 
     impl Serialize for RepeatedChunks {
         fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
@@ -76,14 +72,11 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
         }
     }
 
-
     struct ChunkCount(usize);
-
 
     impl<'de> Deserialize<'de> for ChunkCount {
         fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
             struct ChunkVisitor;
-
 
             impl<'de> Visitor<'de> for ChunkVisitor {
                 type Value = ChunkCount;
@@ -107,10 +100,7 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
                 }
             }
 
-
             deserializer.deserialize_seq(ChunkVisitor)
-
-
         }
     }
 
@@ -182,7 +172,7 @@ fn lifecycle_snapshot_restores_pinned_liveness_without_source_enumeration() {
         .unwrap();
     publication.file_versions = publication.file_versions.appended().unwrap();
     let cache = root.join("cache.snapshot");
-    save_lifecycle_snapshot_with_stats(&publication, &cache, |_| unreachable!(), || Ok(()))
+    save_lifecycle_snapshot_with_stats(&publication, &cache, |_, _| unreachable!(), || Ok(()))
         .unwrap();
     assert!(matches!(
         load_snapshot_checked(
@@ -217,7 +207,7 @@ fn lifecycle_snapshot_restores_pinned_liveness_without_source_enumeration() {
         state.catalog[0]
             .as_ref()
             .unwrap()
-            .decode_entry()
+            .decode_entry(&restored, &state.decoded_extra_files().unwrap())
             .unwrap()
             .relative_path,
         PathBuf::from("data/a.json")
@@ -231,7 +221,7 @@ fn lifecycle_snapshot_restores_pinned_liveness_without_source_enumeration() {
         state.catalog[1]
             .as_ref()
             .unwrap()
-            .decode_entry()
+            .decode_entry(&restored, &state.decoded_extra_files().unwrap())
             .unwrap()
             .relative_path,
         PathBuf::from("data/b.json")
@@ -239,17 +229,66 @@ fn lifecycle_snapshot_restores_pinned_liveness_without_source_enumeration() {
     fs::remove_dir_all(root).unwrap();
 }
 
+#[cfg(unix)]
+#[test]
+fn canonical_metadata_preserves_non_utf8_paths() {
+    use std::os::unix::ffi::OsStringExt;
+
+    let (root, _, _, publication) = lifecycle_fixture();
+    let mut entry = publication.repository.files().files[0].clone();
+    entry.relative_path = std::ffi::OsString::from_vec(b"data/\xff.json".to_vec()).into();
+    let decoded = decode_file_entry(EncodedFile::from_entry(&entry)).unwrap();
+    assert_eq!(decoded, entry);
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn metadata_interner_reuses_base_and_distinguishes_historical_versions() {
+    let (root, _, _, publication) = lifecycle_fixture();
+    let base = &publication.repository.files().files[0];
+    let mut interner = MetadataInterner::new(&publication.repository);
+    assert_eq!(interner.intern(base).unwrap(), 0);
+    let mut changed = base.clone();
+    changed.relative_path = PathBuf::from("data/renamed.json").into();
+    let old_ref = interner.intern(&changed).unwrap();
+    assert_eq!(old_ref, 1);
+    assert_eq!(interner.intern(&changed).unwrap(), old_ref);
+    changed.revision.size += 1;
+    assert_eq!(interner.intern(&changed).unwrap(), 2);
+    assert_eq!(interner.into_encoded().len(), 2);
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn lifecycle_snapshot_rejects_invalid_metadata_reference() {
+    let (root, definition, options, publication) = lifecycle_fixture();
+    let mut state =
+        LifecycleCacheState::from_publication(&publication, |_, _| unreachable!()).unwrap();
+    state.catalog[0].as_mut().unwrap().metadata_ref = u32::MAX;
+    state.base_active[0].clear();
+    let cache = root.join("cache.snapshot");
+    publication
+        .repository
+        .save_snapshot_with_lifecycle_state(&cache, Some(&state), || Ok(()))
+        .unwrap();
+    assert!(matches!(
+        load_lifecycle_snapshot_checked(root.clone(), vec![definition], options, &SourceRegistry::builtin(), &cache, |_| Ok(())),
+        Err(SnapshotLoadError::Invalid(message)) if message.contains("metadata reference")
+    ));
+    fs::remove_dir_all(root).unwrap();
+}
+
 #[test]
 fn lifecycle_snapshot_rejects_corrupt_sections_and_preserves_previous_cache() {
     let (root, definition, options, publication) = lifecycle_fixture();
     let cache = root.join("cache.snapshot");
-    save_lifecycle_snapshot_with_stats(&publication, &cache, |_| unreachable!(), || Ok(()))
+    save_lifecycle_snapshot_with_stats(&publication, &cache, |_, _| unreachable!(), || Ok(()))
         .unwrap();
     let original = fs::read(&cache).unwrap();
     let error = save_lifecycle_snapshot_with_stats(
         &publication,
         &cache,
-        |_| unreachable!(),
+        |_, _| unreachable!(),
         || Err("injected pre-rename failure".into()),
     )
     .unwrap_err();
@@ -270,7 +309,7 @@ fn lifecycle_snapshot_validates_active_domains_and_requires_segment_decoder() {
     let (root, definition, options, publication) = lifecycle_fixture();
     let cache = root.join("cache.snapshot");
     let mut state =
-        LifecycleCacheState::from_publication(&publication, |_| unreachable!()).unwrap();
+        LifecycleCacheState::from_publication(&publication, |_, _| unreachable!()).unwrap();
     state.base_active[0].insert(9);
     publication
         .repository
@@ -1104,7 +1143,7 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
     }
     let original = fs::read(&snapshot).unwrap();
     let header_size = MAGIC.len() + 4 + 4 + 32 + 4;
-    for old_version in [12u32, 19, 20, 21, 22] {
+    for old_version in [12u32, 19, 20, 21, 22, 23, 24, 25, 26] {
         let mut previous_version = original.clone();
         previous_version[MAGIC.len()..MAGIC.len() + 4].copy_from_slice(&old_version.to_le_bytes());
         fs::write(&snapshot, previous_version).unwrap();
