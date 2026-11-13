@@ -32,7 +32,6 @@ pub(crate) fn fixture() -> Fixture {
             storage_policy: None,
             args,
             cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )

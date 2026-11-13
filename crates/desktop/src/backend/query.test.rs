@@ -25,7 +25,6 @@ fn directory_scope_preserves_prefix_boundaries_and_combines_with_filter() {
                 ..Default::default()
             },
             cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -147,7 +146,6 @@ fn measure_desktop_lifecycle_query_cache() {
                 ..Default::default()
             },
             cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -197,7 +195,6 @@ fn hundred_row_continuations_keep_equal_sort_keys_unique_at_boundaries() {
                 ..Default::default()
             },
             cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )

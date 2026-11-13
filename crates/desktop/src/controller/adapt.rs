@@ -4,7 +4,6 @@ use std::path::{Path, PathBuf};
 
 use objekte_cli::arguments::{Alphabet, Arguments};
 use objekte_search_core::index_storage::IndexStorageLocation;
-use objekte_search_core::lifecycle_repository::CacheOpenPolicy;
 
 use crate::backend::{OpenSpec, QuerySpec};
 use crate::ui::model::{OpenDraft, OpenMode, SearchDraft};
@@ -62,15 +61,10 @@ pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
             args.repo = paths.into_iter().next();
         }
     }
-    // A fresh configured repository must never silently inspect a legacy
-    // index cache. Schemas and collection definitions are still read normally.
-    let configured_cache_policy =
-        (draft.mode == OpenMode::ConfiguredRepository).then_some(CacheOpenPolicy::Ignore);
     args.validate_open_options()?;
     Ok(OpenSpec {
         args,
         cwd: cwd.to_path_buf(),
-        configured_cache_policy,
         storage_policy: Some(policy),
     })
 }

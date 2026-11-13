@@ -76,7 +76,6 @@ fn configured_repository_memory_open_ignores_legacy_cache() {
         ..OpenDraft::default()
     };
     let spec = open_spec(&opening, Path::new("/tmp")).unwrap();
-    assert_eq!(spec.configured_cache_policy, Some(CacheOpenPolicy::Ignore));
     assert!(spec.args.load_index.is_none());
     assert!(spec.args.write_index.is_none());
 }

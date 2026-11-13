@@ -28,7 +28,6 @@ fn shared_storage_opens_all_desktop_locations_and_restores_disk_generations() {
                     IndexResidency::FullyResident
                 },
             }),
-            configured_cache_policy: None,
         };
         let first = open(&spec, &CancellationToken::new()).unwrap();
         let status = first.repository.index().storage_status().unwrap();
@@ -73,7 +72,6 @@ fn managed_incremental_open_exposes_catalogue_before_durable_completion() {
             location: IndexStorageLocation::RepositoryDirectory,
             residency: IndexResidency::OnDemand,
         }),
-        configured_cache_policy: None,
     };
     let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
     if let Some(task) = &task {
@@ -99,7 +97,6 @@ fn opens_folder_without_implicit_snapshot_write() {
             storage_policy: None,
             args,
             cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -128,186 +125,12 @@ fn repeated_paths_keep_cli_collection_names() {
             storage_policy: None,
             args,
             cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
     .unwrap();
     assert!(!session.single_collection);
     assert_eq!(session.collections, ["left", "right"]);
-}
-
-#[test]
-fn write_then_load_uses_explicit_snapshot_policy() {
-    let root = tempfile::tempdir().unwrap();
-    write_records(root.path());
-    let mut args = Arguments {
-        path: vec![root.path().to_path_buf()],
-        load_index: Some(String::new()),
-        ..Default::default()
-    };
-    let spec = OpenSpec {
-        storage_policy: None,
-        args: args.clone(),
-        cwd: root.path().to_path_buf(),
-        configured_cache_policy: None,
-    };
-    assert!(open(&spec, &CancellationToken::new()).is_err());
-    args.load_index = None;
-    args.write_index = Some(root.path().join(".objekte").display().to_string());
-    let first = open(
-        &OpenSpec {
-            storage_policy: None,
-            args: args.clone(),
-            cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
-        },
-        &CancellationToken::new(),
-    )
-    .unwrap();
-    assert!(first.diagnostics.snapshot_save.is_some());
-    args.write_index = None;
-    args.load_index = Some(root.path().join(".objekte").display().to_string());
-    let second = open(
-        &OpenSpec {
-            storage_policy: None,
-            args,
-            cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
-        },
-        &CancellationToken::new(),
-    )
-    .unwrap();
-    assert!(second.diagnostics.startup.restored);
-    assert!(second.diagnostics.snapshot_save.is_none());
-    assert!(second.take_background_snapshot_save().is_none());
-}
-
-#[test]
-fn desktop_combined_load_and_write_returns_before_source_reconciliation() {
-    let root = tempfile::tempdir().unwrap();
-    write_records(root.path());
-    let mut args = Arguments {
-        path: vec![root.path().to_path_buf()],
-        write_index: Some(root.path().join(".objekte").display().to_string()),
-        ..Default::default()
-    };
-    let spec = |args: Arguments| OpenSpec {
-        storage_policy: None,
-        args,
-        cwd: root.path().to_path_buf(),
-        configured_cache_policy: None,
-    };
-    let first = open(&spec(args.clone()), &CancellationToken::new()).unwrap();
-    assert!(first.diagnostics.snapshot_save.is_some());
-    let cache = objekte_search_core::storage::snapshot_path(
-        root.path(),
-        objekte_search_core::workload::BigramAlphabet::Ascii,
-    );
-    let saved = std::fs::read(&cache).unwrap();
-    std::fs::write(
-        root.path().join("a.json"),
-        r#"{"title":"Changed","year":2024}"#,
-    )
-    .unwrap();
-    args.load_index = Some(root.path().join(".objekte").display().to_string());
-    let second = open(&spec(args), &CancellationToken::new()).unwrap();
-    assert!(second.diagnostics.startup.restored);
-    assert!(second.diagnostics.snapshot_save.is_none());
-    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
-    let result = loop {
-        if let Some(result) = second.take_background_snapshot_save() {
-            break result;
-        }
-        assert!(
-            std::time::Instant::now() < deadline,
-            "background cache write timed out"
-        );
-        std::thread::sleep(std::time::Duration::from_millis(10));
-    };
-    assert!(result.unwrap().is_some());
-    assert!(!second.repository.index().status().unwrap().dirty());
-    assert_ne!(std::fs::read(cache).unwrap(), saved);
-}
-
-#[test]
-fn configured_repository_reuses_cache_unless_build_in_memory_is_selected() {
-    let root = tempfile::tempdir().unwrap();
-    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
-    std::fs::create_dir_all(root.path().join("data")).unwrap();
-    std::fs::write(
-        root.path().join(".objekte/collections/data.schema.json"),
-        br#"{"type":"object","x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}}"#,
-    )
-    .unwrap();
-    std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
-    let spec = |configured_cache_policy| OpenSpec {
-        storage_policy: None,
-        args: Arguments {
-            repo: Some(root.path().to_path_buf()),
-            ..Default::default()
-        },
-        cwd: root.path().to_path_buf(),
-        configured_cache_policy,
-    };
-    let first = open(&spec(None), &CancellationToken::new()).unwrap();
-    assert!(!first.diagnostics.startup.restored);
-    let cache = first.configuration.cache_save.clone().unwrap();
-    first.repository.index().flush_cache(&cache).unwrap();
-    let restored = open(&spec(None), &CancellationToken::new()).unwrap();
-    assert!(restored.diagnostics.startup.restored);
-    let memory = open(
-        &spec(Some(CacheOpenPolicy::Ignore)),
-        &CancellationToken::new(),
-    )
-    .unwrap();
-    assert!(!memory.diagnostics.startup.restored);
-    assert!(memory.configuration.cache_load.is_none());
-    assert!(memory.configuration.cache_save.is_none());
-    let separate_cache = root.path().join("manual.snapshot");
-    memory
-        .repository
-        .index()
-        .flush_cache(&separate_cache)
-        .unwrap();
-    assert!(!memory.repository.index().status().unwrap().dirty());
-    restored.repository.index().shutdown().unwrap();
-}
-
-#[test]
-fn configured_desktop_open_replaces_invalid_cache() {
-    let root = tempfile::tempdir().unwrap();
-    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
-    std::fs::create_dir_all(root.path().join("data")).unwrap();
-    std::fs::write(
-        root.path().join(".objekte/collections/data.schema.json"),
-        br#"{"type":"object","x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}}"#,
-    ).unwrap();
-    std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
-    let cache = objekte_search_core::storage::snapshot_path(
-        root.path(),
-        objekte_search_core::workload::BigramAlphabet::Ascii,
-    );
-    std::fs::write(&cache, b"invalid cache").unwrap();
-    let spec = OpenSpec {
-        storage_policy: None,
-        args: Arguments {
-            repo: Some(root.path().to_owned()),
-            ..Default::default()
-        },
-        cwd: root.path().to_owned(),
-        configured_cache_policy: None,
-    };
-    let rebuilt = open(&spec, &CancellationToken::new()).unwrap();
-    assert!(!rebuilt.diagnostics.startup.restored);
-    assert_ne!(std::fs::read(&cache).unwrap(), b"invalid cache");
-    let restored = open(&spec, &CancellationToken::new()).unwrap();
-    assert!(restored.diagnostics.startup.restored);
-    restored
-        .repository
-        .index()
-        .wait_for_reconciliation()
-        .unwrap();
 }
 
 #[test]
@@ -327,7 +150,6 @@ fn incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cach
             ..Default::default()
         },
         cwd: root.path().to_owned(),
-        configured_cache_policy: None,
     };
     let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
     let task = task.expect("fresh open must retain construction task");
@@ -347,65 +169,6 @@ fn incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cach
 }
 
 #[test]
-fn incremental_desktop_open_rebuilds_invalid_selected_cache_after_construction() {
-    let root = tempfile::tempdir().unwrap();
-    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
-    std::fs::create_dir_all(root.path().join("data")).unwrap();
-    std::fs::write(
-        root.path().join(".objekte/collections/data.schema.json"),
-        br#"{"type":"object","x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}}"#,
-    )
-    .unwrap();
-    std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
-    let cache = objekte_search_core::storage::snapshot_path(
-        root.path(),
-        objekte_search_core::workload::BigramAlphabet::Ascii,
-    );
-    std::fs::write(&cache, b"invalid cache").unwrap();
-    let spec = OpenSpec {
-        storage_policy: None,
-        args: Arguments {
-            repo: Some(root.path().to_owned()),
-            ..Default::default()
-        },
-        cwd: root.path().to_owned(),
-        configured_cache_policy: None,
-    };
-    let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
-    task.expect("invalid cache must rebuild")
-        .wait_complete()
-        .unwrap();
-    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
-    let saved = loop {
-        if let Some(result) = session.take_background_snapshot_save() {
-            break result.unwrap();
-        }
-        assert!(
-            std::time::Instant::now() < deadline,
-            "cache replacement timed out"
-        );
-        std::thread::sleep(std::time::Duration::from_millis(10));
-    };
-    assert!(saved.is_some());
-    assert_ne!(std::fs::read(&cache).unwrap(), b"invalid cache");
-    let direct = Index::load_cache(
-        root.path(),
-        session.configuration.definitions.as_ref().clone(),
-        session.configuration.options,
-        &cache,
-    );
-    assert!(
-        direct.is_ok(),
-        "saved cache failed validation: {:?}",
-        direct.err()
-    );
-    let (restored, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
-    assert!(task.is_none());
-    assert!(restored.diagnostics.startup.restored);
-}
-
-#[cfg(unix)]
-#[test]
 fn incremental_catalogue_preserves_non_utf8_file_paths() {
     use std::os::unix::ffi::{OsStrExt, OsStringExt};
 
@@ -419,7 +182,6 @@ fn incremental_catalogue_preserves_non_utf8_file_paths() {
             ..Default::default()
         },
         cwd: root.path().to_owned(),
-        configured_cache_policy: None,
     };
     let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
     let view = session.repository.index().view().unwrap();

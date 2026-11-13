@@ -786,7 +786,6 @@ fn declared_enum_completes_without_a_posting_dictionary() {
                 ..Default::default()
             },
             cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -929,7 +928,6 @@ fn managed_index_panel_reports_storage_and_close_flushes() {
                 ..Default::default()
             },
             cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )

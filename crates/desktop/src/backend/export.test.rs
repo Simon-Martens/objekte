@@ -89,7 +89,6 @@ fn malformed_source_keeps_raw_fallback_payload_in_export() {
                 ..Default::default()
             },
             cwd: source.path().to_path_buf(),
-            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )

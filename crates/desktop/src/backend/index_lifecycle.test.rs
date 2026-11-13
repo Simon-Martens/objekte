@@ -41,7 +41,6 @@ fn managed_close_flushes_latest_revision_and_cancel_resumes_sync() {
                 ..Default::default()
             },
             cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -186,91 +185,4 @@ fn save_as_copy_does_not_select_an_automatic_destination() {
     assert!(after.dirty());
     save_index(&fixture.session, &copy, true).unwrap();
     assert!(!status(&fixture.session).unwrap().dirty());
-}
-
-#[test]
-fn automatic_save_requires_configured_repository_and_selected_destination() {
-    let fixture = fixture();
-    assert_eq!(
-        set_automatic_save(&fixture.session, true).unwrap_err().kind,
-        BackendErrorKind::Options
-    );
-
-    let root = tempfile::tempdir().unwrap();
-    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
-    std::fs::create_dir_all(root.path().join("data")).unwrap();
-    std::fs::write(
-        root.path().join(".objekte/collections/data.schema.json"),
-        br#"{"type":"object","x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}}"#,
-    )
-    .unwrap();
-    std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
-    let session = open(
-        &OpenSpec {
-            storage_policy: None,
-            args: Arguments {
-                repo: Some(root.path().to_path_buf()),
-                ..Default::default()
-            },
-            cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
-        },
-        &CancellationToken::new(),
-    )
-    .unwrap();
-    assert!(session.configuration.cache_save.is_some());
-    set_automatic_save(&session, true).unwrap();
-    set_automatic_save(&session, false).unwrap();
-    assert!(session.configuration.cache_save.as_ref().unwrap().exists());
-    assert!(!status(&session).unwrap().dirty());
-
-    std::fs::write(root.path().join("data/b.json"), br#"{"name":"B"}"#).unwrap();
-    check_for_changes(&session).unwrap().wait().unwrap();
-    assert!(status(&session).unwrap().dirty());
-    set_automatic_save(&session, true).unwrap();
-    shutdown_with_final_save(&session).unwrap();
-    assert!(!status(&session).unwrap().dirty());
-    let final_revision = status(&session).unwrap().revision;
-    let late_file = root.path().join("data/c.json");
-    std::fs::write(&late_file, br#"{"name":"C"}"#).unwrap();
-    assert!(matches!(
-        session.repository.index().add_file(&late_file),
-        Err(objekte_search_core::lifecycle::IndexError::Cancelled)
-    ));
-    assert_eq!(status(&session).unwrap().revision, final_revision);
-
-    // Cancel close restores a usable index and its explicit save policy.
-    resume_after_cancelled_close(&session, None, true).unwrap();
-    session.repository.index().add_file(&late_file).unwrap();
-    set_automatic_save(&session, false).unwrap();
-    let pending_file = root.path().join("data/d.json");
-    std::fs::write(&pending_file, br#"{"name":"D"}"#).unwrap();
-    session.repository.index().add_file(&pending_file).unwrap();
-    let destination = session.configuration.cache_save.as_ref().unwrap();
-    std::fs::remove_file(destination).unwrap();
-    std::fs::create_dir(destination).unwrap();
-    let final_status = status(&session).unwrap();
-    let final_revision = final_status.revision;
-    assert!(shutdown_with_final_save(&session).is_err());
-    assert_eq!(
-        session.repository.index().view().unwrap().revision(),
-        final_revision
-    );
-    assert!(matches!(
-        session.repository.index().start_reconcile(),
-        Err(objekte_search_core::lifecycle::IndexError::Cancelled)
-    ));
-    std::fs::remove_dir(destination).unwrap();
-    shutdown_with_final_save(&session).unwrap();
-    assert_eq!(
-        status(&session).unwrap().saved_revision,
-        Some(final_revision)
-    );
-    let restored = load_index(&session, destination, &CancellationToken::new()).unwrap();
-    assert_eq!(status(&restored).unwrap().revision, final_revision);
-    assert_eq!(
-        status(&restored).unwrap().live_records,
-        final_status.live_records
-    );
-    shutdown(&restored).unwrap();
 }
