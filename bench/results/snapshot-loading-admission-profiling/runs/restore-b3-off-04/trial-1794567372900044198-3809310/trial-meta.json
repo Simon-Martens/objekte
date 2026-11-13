@@ -1,0 +1,27 @@
+{
+  "alphabet": "ascii",
+  "binary_sha256": "ad94396f17ba7ef82617fd786020ff48edd937f116253ec589fd79bba08cbc97",
+  "exact_command": [
+    "taskset",
+    "-c",
+    "0-31",
+    "/home/simon/source/objekte-integration-snapshot-loading-admission-profiling/bench/results/snapshot-loading-admission-profiling/local-binaries/b3",
+    "--root",
+    "/home/simon/source/objekte/examples/musenalm",
+    "--alphabet",
+    "ascii",
+    "--workers",
+    "32",
+    "--restore-snapshot",
+    "/home/simon/source/objekte-integration-snapshot-loading-admission-profiling/bench/results/snapshot-loading-admission-profiling/fixture/trial-1794566474269641664-3791001/index.snapshot",
+    "--result-dir",
+    "/home/simon/source/objekte-integration-snapshot-loading-admission-profiling/bench/results/snapshot-loading-admission-profiling/runs/restore-b3-off-04"
+  ],
+  "kind": "restore",
+  "name": "restore-b3-off-04",
+  "profiled": false,
+  "runner_checkout_revision": "93a98cc4dc578dde768c3a83e41b97d36f33e9b2",
+  "snapshot_sha256": "2a12d69cdc64a3e78e0af719138f5c2a445615f970d6cffb7f17623716b32ee2",
+  "source_commit": "93a98cc4dc578dde768c3a83e41b97d36f33e9b2",
+  "variant": "b3"
+}

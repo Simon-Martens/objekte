@@ -463,8 +463,9 @@ fn run_incremental(
     let index = task.wait_catalogue().map_err(|e| e.to_string())?;
     let catalogue_observed_ns = started.elapsed().as_nanos() as u64;
     let mut cursor = task.snapshot().map_err(|e| e.to_string())?;
-    let first_result_ns = loop {
+    let (first_publication_observed_ns, first_result_ns, first_result_probe_ns) = loop {
         if cursor.status.searchable_batches > 0 {
+            let published_ns = started.elapsed().as_nanos() as u64;
             let view = cursor.view.as_ref().ok_or("published batch has no view")?;
             let query = Query {
                 collections: Vec::new(),
@@ -479,8 +480,10 @@ fn run_incremental(
                     evidence: false,
                 },
             };
+            let probe_started = Instant::now();
             view.search_available(&query)?;
-            break Some(started.elapsed().as_nanos() as u64);
+            let probe_ns = probe_started.elapsed().as_nanos() as u64;
+            break (Some(published_ns), Some(started.elapsed().as_nanos() as u64), Some(probe_ns));
         }
         if matches!(
             cursor.status.phase,
@@ -488,17 +491,19 @@ fn run_incremental(
                 | objekte_search_core::lifecycle::InitialBuildPhase::Failed
                 | objekte_search_core::lifecycle::InitialBuildPhase::Cancelled
         ) {
-            break None;
+            break (None, None, None);
         }
         cursor = task.wait_next(cursor.cursor).map_err(|e| e.to_string())?;
     };
     task.wait_complete().map_err(|e| e.to_string())?;
+    let caller_return_ns = started.elapsed().as_nanos() as u64;
     let timing = task.status().map_err(|e| e.to_string())?;
     let build_ns = timing
         .completion_elapsed_ns
         .unwrap_or_else(|| started.elapsed().as_nanos() as u64);
     let status = index.status().map_err(|e| e.to_string())?;
     let view = index.view().map_err(|e| e.to_string())?;
+    let startup = view.startup_stats().clone();
     let io_after = proc_io();
     let process_io_delta = io_before.zip(io_after).map(|(before, after)| {
         after
@@ -590,7 +595,7 @@ fn run_incremental(
         "cpu_governor":fs::read_to_string("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor").ok().map(|value| value.trim().to_string()),
         "cpu_affinity":proc_field("/proc/self/status", "Cpus_allowed_list"),
         "alphabet":alphabet,"requested_workers":workers.map(NonZeroUsize::get),
-        "resolved_workers":workers.map(NonZeroUsize::get),"inference":inference,
+        "resolved_workers":startup.build_workers,"inference":inference,
         "configuration":if jsonl { "jsonl_fixture" } else if plain { "plain_unconfigured" } else { "musenalm_extended" },
         "build_mode":"incremental","snapshot":snapshot,
         "corpus_fingerprint":corpus_fingerprint,"schema_fingerprint":schema_fingerprint,
@@ -604,8 +609,21 @@ fn run_incremental(
         "discovery_ns":timing.catalogue_elapsed_ns,
         "catalogue_observed_ns":catalogue_observed_ns,
         "first_batch_ns":timing.first_batch_elapsed_ns,
+        "first_publication_observed_ns":first_publication_observed_ns,
         "first_result_ns":first_result_ns,
+        "first_result_probe_ns":first_result_probe_ns,
         "completion_ns":timing.completion_elapsed_ns,
+        "caller_return_ns":caller_return_ns,
+        "build_discovery_ns":startup.build_discovery_ns,
+        "build_extraction_index_ns":startup.build_extraction_index_ns,
+        "build_publication_ns":startup.build_publication_ns,
+        "build_finalization_ns":startup.build_finalization_ns,
+        "build_job_execution_ns":startup.build_job_execution_ns,
+        "build_receive_wait_ns":startup.build_receive_wait_ns,
+        "build_admission_ns":startup.build_admission_ns,
+        "build_peak_active_jobs":startup.build_peak_active_jobs,
+        "build_peak_ready_batches":startup.build_peak_ready_batches,
+        "build_profile":startup.build_profile,
         "process_io_delta":process_io_delta,
         "before_rss":before_rss,"after_build_rss":after_build_rss,"after_build_hwm":after_build_hwm,
         "after_release_rss":after_release_rss,
@@ -641,13 +659,22 @@ fn run_restore(
     let before_rss = resident_bytes();
     let io_before = proc_io();
     let started = Instant::now();
-    let index = Index::load_cache(root, definitions, options, snapshot)
-        .map_err(|error| error.to_string())?;
+    let (index, load_profile) = if options.profile_build {
+        let (index, profile) = Index::load_cache_profiled(root, definitions, options, snapshot)
+            .map_err(|error| error.to_string())?;
+        (index, Some(profile))
+    } else {
+        (Index::load_cache(root, definitions, options, snapshot)
+            .map_err(|error| error.to_string())?, None)
+    };
     let load_ns = started.elapsed().as_nanos() as u64;
+    if !index.restored_from_cache() {
+        return Err("selected snapshot did not restore".into());
+    }
     let after_load_rss = resident_bytes();
     let after_load_hwm = peak_resident_bytes();
     let io_after = proc_io();
-    let process_io_delta = io_before.zip(io_after).map(|(before, after)| {
+    let process_io_delta = io_before.zip(io_after.clone()).map(|(before, after)| {
         after
             .into_iter()
             .filter_map(|(key, value)| {
@@ -658,6 +685,24 @@ fn run_restore(
             })
             .collect::<BTreeMap<_, _>>()
     });
+    let reconciliation_wait_started = Instant::now();
+    let reconciliation = index.wait_for_reconciliation().map_err(|error| error.to_string())?;
+    let reconciliation_wait_ns = reconciliation_wait_started.elapsed().as_nanos() as u64;
+    let reconciliation_done_ns = started.elapsed().as_nanos() as u64;
+    let io_after_reconciliation = proc_io();
+    let reconciliation_io_delta = io_after.zip(io_after_reconciliation).map(|(before, after)| {
+        after.into_iter().filter_map(|(key, value)| {
+            before.get(&key).and_then(|old| value.checked_sub(*old))
+                .map(|delta| (key, delta))
+        }).collect::<BTreeMap<_, _>>()
+    });
+    let reconciliation = reconciliation.map(|report| serde_json::json!({
+        "examined":report.examined,"planned_changes":report.planned_changes,
+        "unchanged":report.unchanged,"added":report.added,"updated":report.updated,
+        "removed":report.removed,"skipped":report.skipped,"indexed_bytes":report.indexed_bytes,
+        "duration_ns":report.duration.as_nanos(),"cancelled":report.cancelled,
+        "issues":report.issues,"omitted_issues":report.omitted_issues,
+    }));
     let status = index.status().map_err(|error| error.to_string())?;
     let view = index.view().map_err(|error| error.to_string())?;
     let files = view.catalogue_rows().count();
@@ -691,9 +736,14 @@ fn run_restore(
         "cpu_affinity":proc_field("/proc/self/status", "Cpus_allowed_list"),
         "alphabet":alphabet,"requested_workers":workers.map(NonZeroUsize::get),
         "configuration":"musenalm_extended","build_mode":"restore",
+        "profile":options.profile_build,
     });
     let sample = serde_json::json!({
         "load_ns":load_ns,"before_rss":before_rss,
+        "restored_from_cache":true,"load_profile":load_profile,
+        "reconciliation_done_ns":reconciliation_done_ns,
+        "reconciliation_wait_ns":reconciliation_wait_ns,
+        "reconciliation":reconciliation,"reconciliation_io_delta":reconciliation_io_delta,
         "after_load_rss":after_load_rss,"after_load_hwm":after_load_hwm,
         "after_queries_rss":after_queries_rss,"after_release_rss":resident_bytes(),
         "process_io_delta":process_io_delta,"source_reads":status.build_source_reads,

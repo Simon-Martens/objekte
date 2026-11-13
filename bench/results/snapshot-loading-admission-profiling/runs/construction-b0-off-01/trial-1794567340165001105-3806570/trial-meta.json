@@ -1,0 +1,27 @@
+{
+  "alphabet": "ascii",
+  "binary_sha256": "97def2fdd9ee962d5ef29617fc2d1240f26a349d2db18bd084dc82553217d98b",
+  "exact_command": [
+    "taskset",
+    "-c",
+    "0-31",
+    "/home/simon/source/objekte-integration-snapshot-loading-admission-profiling/bench/results/snapshot-loading-admission-profiling/local-binaries/b0",
+    "--root",
+    "/home/simon/source/objekte/examples/musenalm",
+    "--alphabet",
+    "ascii",
+    "--workers",
+    "32",
+    "--incremental",
+    "--check-queries",
+    "--result-dir",
+    "/home/simon/source/objekte-integration-snapshot-loading-admission-profiling/bench/results/snapshot-loading-admission-profiling/runs/construction-b0-off-01"
+  ],
+  "kind": "construction",
+  "name": "construction-b0-off-01",
+  "profiled": false,
+  "runner_checkout_revision": "93a98cc4dc578dde768c3a83e41b97d36f33e9b2",
+  "snapshot_sha256": "2a12d69cdc64a3e78e0af719138f5c2a445615f970d6cffb7f17623716b32ee2",
+  "source_commit": "6c808ebb70203d2442a5e8f2f595199ae5f8d171",
+  "variant": "b0"
+}

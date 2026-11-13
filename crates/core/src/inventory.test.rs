@@ -1,6 +1,56 @@
 use super::*;
 
 #[test]
+fn restored_entries_build_lookup_once_with_add_equivalent_results() {
+    let root = PathBuf::from("/tmp/restore-inventory");
+    let empty = FileInventory::from_restored_entries(root.clone(), Vec::new()).unwrap();
+    assert!(empty.files.is_empty());
+    assert!(empty.relative_paths.is_empty());
+
+    let revision = SourceRevision {
+        modified_ns: 7,
+        size: 12,
+    };
+    let mut built = FileInventory::new(root.clone());
+    let first = built
+        .add("data/a.json".into(), revision, Some(5), CollectionId(0))
+        .unwrap();
+    let second = built
+        .add("data/b.json".into(), revision, None, CollectionId(0))
+        .unwrap();
+    built
+        .add("data/b.json".into(), revision, None, CollectionId(1))
+        .unwrap();
+
+    let restored = FileInventory::from_restored_entries(root.clone(), built.files.clone()).unwrap();
+    assert_eq!(restored.files, built.files);
+    assert_eq!(restored.id_for(Path::new("data/a.json")), Some(first));
+    assert_eq!(restored.id_for(Path::new("data/b.json")), Some(second));
+    assert_eq!(
+        restored.files[1].collections,
+        [CollectionId(0), CollectionId(1)]
+    );
+    assert_eq!(restored.relative_paths, built.relative_paths);
+    assert_eq!(
+        restored.relative_path_ids_up_to(Operator::Eq, "data/b.json", 1),
+        Some(vec![second])
+    );
+
+    let mut duplicate = built.files.clone();
+    duplicate[1].relative_path = duplicate[0].relative_path.clone();
+    assert!(FileInventory::from_restored_entries(root.clone(), duplicate).is_err());
+    let mut bad_id = built.files.clone();
+    bad_id[1].id = FileId(9);
+    assert!(FileInventory::from_restored_entries(root.clone(), bad_id).is_err());
+    let mut escaping = built.files.clone();
+    escaping[0].relative_path = SharedPath::from("../escape.json");
+    assert!(FileInventory::from_restored_entries(root.clone(), escaping).is_err());
+    let mut bad_status = built.files.clone();
+    bad_status[0].status = FileStatus::Broken;
+    assert!(FileInventory::from_restored_entries(root, bad_status).is_err());
+}
+
+#[test]
 fn shifted_batch_bitmaps_cross_container_boundaries_and_reject_overlap() {
     let mut destination: RoaringBitmap = [0, 1, 65_534].into_iter().collect();
     let source: RoaringBitmap = [0, 1, 63, 64, 65].into_iter().collect();

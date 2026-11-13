@@ -58,3 +58,9 @@ examples/en_wikidata_5M_entities/
 /deprecated/crates/bench/results/library-extension-candidate/*/candidate-bin/
 /deprecated/crates/bench/results/library-extension-candidate/*/reference-bin/
 /deprecated/crates/bench/results/library-extension-candidate/*/snapshots/
+
+# Local snapshot profiling campaign artifacts; selected small samples are force-added.
+/bench/results/index-creation-loading-profiling/
+
+# Local snapshot/admission profiling campaign artifacts; small samples are force-added.
+/bench/results/snapshot-loading-admission-profiling/
