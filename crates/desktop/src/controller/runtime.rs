@@ -169,6 +169,7 @@ type CompletionCacheValue = (Vec<(String, String)>, bool, u64);
 #[derive(Clone, Copy)]
 enum GridRequestKind {
     First,
+    Delta(usize),
     Continuation(usize),
     Projection(usize),
 }
@@ -193,36 +194,132 @@ fn spawn_grid_page(
             revision: view.revision(),
         };
         let result = backend::query_page_on_view(&session, &view, &spec, page_start, 100, &token)
-            .map(|page| {
-                let diagnostics = format!(
-                    "Query: {:.1} ms; page start {}; rows {}; exact total {:?}\nCounters: {:#?}",
-                    page.elapsed_ns as f64 / 1_000_000.0,
-                    page.page_start,
-                    page.hits.len(),
-                    page.count,
-                    page.counters,
-                );
-                let (view, available, hidden) =
-                    page_view_with_prior(&page, &spec, &hidden, &shown_nested, &prior_columns);
-                let keys = page
-                    .hits
-                    .into_iter()
-                    .map(|hit| RecordKey {
-                        collection: hit.collection,
-                        id: hit.record_id,
-                    })
-                    .collect();
-                (
-                    view,
-                    keys,
-                    page.next_page_start,
-                    page.elapsed_ns,
-                    available,
-                    hidden,
-                    diagnostics,
-                )
-            })
+            .map(|page| project_query_page(page, &spec, &hidden, &shown_nested, &prior_columns))
             .map_err(|error| error.to_string());
+        let _ = sender.send(WorkerEvent::Queried {
+            open_generation,
+            query_generation,
+            publication,
+            kind,
+            result: Box::new(result),
+        });
+    });
+}
+
+fn project_query_page(
+    page: backend::QueryPage,
+    spec: &backend::QuerySpec,
+    hidden: &[String],
+    shown_nested: &[String],
+    prior_columns: &[String],
+) -> (
+    PageView,
+    Vec<RecordKey>,
+    Option<usize>,
+    u128,
+    Vec<String>,
+    Vec<String>,
+    String,
+) {
+    let diagnostics = format!(
+        "Query: {:.1} ms; page start {}; rows {}; exact total {:?}\nCounters: {:#?}",
+        page.elapsed_ns as f64 / 1_000_000.0,
+        page.page_start,
+        page.hits.len(),
+        page.count,
+        page.counters,
+    );
+    let (view, available, hidden) =
+        page_view_with_prior(&page, spec, hidden, shown_nested, prior_columns);
+    let keys = page
+        .hits
+        .into_iter()
+        .map(|hit| RecordKey {
+            collection: hit.collection,
+            id: hit.record_id,
+        })
+        .collect();
+    (
+        view,
+        keys,
+        page.next_page_start,
+        page.elapsed_ns,
+        available,
+        hidden,
+        diagnostics,
+    )
+}
+
+/// Delta evaluation is confined to newly published segments. Unsupported
+/// global queries fall back to one provisional page replacement.
+fn spawn_incremental_delta(
+    session: OpenedSession,
+    previous: IndexView,
+    view: IndexView,
+    spec: backend::QuerySpec,
+    loaded: usize,
+    hidden: Vec<String>,
+    shown_nested: Vec<String>,
+    prior_columns: Vec<String>,
+    token: CancellationToken,
+    sender: Sender<WorkerEvent>,
+    open_generation: u64,
+    query_generation: u64,
+) {
+    thread::spawn(move || {
+        let publication = Publication {
+            instance_id: view.instance_id(),
+            revision: view.revision(),
+        };
+        let started = Instant::now();
+        let result = (|| -> Result<(GridRequestKind, backend::QueryPage), String> {
+            let mut query = backend::build_query(&spec)?;
+            query.options.offset = 0;
+            query.options.count = false;
+            match view.search_added_since_with_cancellation(&previous, &query, &token) {
+                Ok(Some(available)) => {
+                    let mut hits = available.result.hits;
+                    let visible_limit = spec.limit.unwrap_or(100).min(100);
+                    hits.truncate(visible_limit.saturating_sub(loaded));
+                    Ok((
+                        GridRequestKind::Delta(loaded),
+                        backend::QueryPage {
+                            repository_root: session.repository.files().root.clone(),
+                            instance_id: view.instance_id(),
+                            revision: view.revision(),
+                            hits,
+                            page_start: loaded,
+                            requested_offset: spec.offset.saturating_add(loaded),
+                            next_page_start: None,
+                            count: None,
+                            provisional: true,
+                            counters: available.result.counters,
+                            elapsed_ns: started.elapsed().as_nanos(),
+                        },
+                    ))
+                }
+                Ok(None) | Err(_) if !token.is_cancelled() => {
+                    backend::query_page_on_view(&session, &view, &spec, 0, 100, &token)
+                        .map(|page| (GridRequestKind::First, page))
+                        .map_err(|error| error.to_string())
+                }
+                Err(error) => Err(error.to_string()),
+                Ok(None) => Err("query cancelled".into()),
+            }
+        })();
+        let (kind, result) = match result {
+            Ok((kind, page)) => (
+                kind,
+                Ok(project_query_page(
+                    page,
+                    &spec,
+                    &hidden,
+                    &shown_nested,
+                    &prior_columns,
+                )),
+            ),
+            Err(error) => (GridRequestKind::First, Err(error)),
+        };
         let _ = sender.send(WorkerEvent::Queried {
             open_generation,
             query_generation,
@@ -380,6 +477,7 @@ pub struct DesktopController {
     observed_publication: Option<Publication>,
     pending_directories: Option<Publication>,
     executed_view: Option<IndexView>,
+    provisional_page_ready: bool,
     results_outdated: bool,
     refreshing_results: bool,
     refresh_anchor: Option<RecordKey>,
@@ -481,6 +579,7 @@ impl DesktopController {
                 observed_publication: None,
                 pending_directories: None,
                 executed_view: None,
+                provisional_page_ready: false,
                 results_outdated: false,
                 refreshing_results: false,
                 refresh_anchor: None,
@@ -644,7 +743,11 @@ impl DesktopController {
                     }
                     if let Some(draft) = self.executed_draft.clone() {
                         if self.current_draft == draft && !self.refreshing_results {
-                            self.start_query_impl(draft, 0, true, true, updates);
+                            if self.provisional_page_ready {
+                                self.start_incremental_refresh(updates);
+                            } else {
+                                self.start_query_impl(draft, 0, true, true, updates);
+                            }
                         }
                     }
                 } else {
@@ -1623,6 +1726,56 @@ impl DesktopController {
         self.start_query_impl(draft, page_start, false, false, updates);
     }
 
+    fn start_incremental_refresh(&mut self, updates: &mut Vec<UiUpdate>) {
+        let (Some(session), Some(previous), Some(spec), Some(draft)) = (
+            self.session.clone(),
+            self.executed_view.clone(),
+            self.executed_spec.clone(),
+            self.executed_draft.clone(),
+        ) else {
+            return;
+        };
+        let Ok(view) = session.repository.index().view() else {
+            return;
+        };
+        if view.revision() == previous.revision() {
+            return;
+        }
+        self.cancellation.cancel();
+        self.cancellation = CancellationToken::new();
+        self.query_generation = self.query_generation.wrapping_add(1);
+        self.executed_view = Some(view.clone());
+        self.refreshing_results = true;
+        self.provisional_page_ready = false;
+        self.refresh_anchor = self.refresh_anchor.clone().or_else(|| {
+            self.selected_index
+                .and_then(|index| self.keys.get(index).cloned().flatten())
+        });
+        self.pending_projections.clear();
+        self.projected_pages.clear();
+        let hidden = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
+            prefs.hidden(draft.collection.as_deref()).to_vec()
+        });
+        let shown_nested = self.preferences.as_ref().map_or_else(Vec::new, |prefs| {
+            prefs.shown_nested(draft.collection.as_deref()).to_vec()
+        });
+        spawn_incremental_delta(
+            session,
+            previous,
+            view,
+            spec,
+            self.keys.len(),
+            hidden,
+            shown_nested,
+            self.available_columns.clone(),
+            self.cancellation.clone(),
+            self.worker_tx.clone(),
+            self.open_generation,
+            self.query_generation,
+        );
+        updates.push(UiUpdate::Status("Checking newly indexed records…".into()));
+    }
+
     fn start_query_impl(
         &mut self,
         draft: SearchDraft,
@@ -1684,6 +1837,7 @@ impl DesktopController {
         self.cancellation = CancellationToken::new();
         self.query_generation += 1;
         self.executed_view = Some(view);
+        self.provisional_page_ready = false;
         self.refreshing_results = refresh;
         self.refresh_anchor = refresh
             .then(|| {
@@ -2548,6 +2702,7 @@ impl DesktopController {
                             .map(Publication::from);
                         self.initial_task = initial_task;
                         self.executed_view = None;
+                        self.provisional_page_ready = false;
                         self.results_outdated = false;
                         self.refreshing_results = false;
                         self.refresh_anchor = None;
@@ -2711,7 +2866,6 @@ impl DesktopController {
                 if !self.publication_is_current(publication) {
                     self.poll_publication(updates);
                     if self.initial_task.is_some()
-                        && matches!(kind, GridRequestKind::First)
                         && let Some(draft) = self.executed_draft.clone()
                         && self.current_draft == draft
                     {
@@ -2729,6 +2883,7 @@ impl DesktopController {
                                 self.results_outdated = false;
                                 updates.push(UiUpdate::ResultsOutdated(false));
                                 let provisional = view.provisional;
+                                self.provisional_page_ready = provisional;
                                 let needs_count =
                                     !provisional && view.exact_total.is_none() && view.has_next;
                                 if !was_refresh && self.selected_index.is_some() {
@@ -2803,6 +2958,20 @@ impl DesktopController {
                                     });
                                 }
                             }
+                            GridRequestKind::Delta(start) => {
+                                if start != self.keys.len() {
+                                    return;
+                                }
+                                self.refreshing_results = false;
+                                self.provisional_page_ready = true;
+                                self.refresh_anchor = None;
+                                self.keys.extend(keys.into_iter().map(Some));
+                                self.remember_projection(start);
+                                updates.push(UiUpdate::AppendPage(view));
+                                updates.push(UiUpdate::Status(
+                                    "Provisional results updated from newly indexed records".into(),
+                                ));
+                            }
                             GridRequestKind::Continuation(start) => {
                                 if self.pending_continuation != Some(start)
                                     || start != self.keys.len()
@@ -2841,7 +3010,7 @@ impl DesktopController {
                         )));
                     }
                     Err(message) => match kind {
-                        GridRequestKind::First => {
+                        GridRequestKind::First | GridRequestKind::Delta(_) => {
                             let was_refresh = std::mem::take(&mut self.refreshing_results);
                             if self.initial_task.is_some() && message != "cancelled" {
                                 updates.push(UiUpdate::Status(

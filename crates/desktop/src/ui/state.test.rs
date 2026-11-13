@@ -621,6 +621,44 @@ fn provisional_page_replacement_preserves_record_identity_and_finalizes_count() 
 }
 
 #[test]
+fn provisional_delta_appends_without_inventing_a_final_total() {
+    let row = |id: &str| ResultRow {
+        key: RowKey {
+            token: id.parse().unwrap(),
+            collection: "docs".into(),
+            record_id: id.into(),
+            file: format!("{id}.json"),
+            byte_start: 0,
+        },
+        cells: vec![id.into()],
+        matched_fields: Vec::new(),
+        match_highlights: Vec::new(),
+        preview: None,
+    };
+    let mut state = UiState::default();
+    state.apply(UiUpdate::Page(PageView {
+        rows: vec![row("1")],
+        provisional: true,
+        incomplete: true,
+        selected: Some(0),
+        ..PageView::default()
+    }));
+    state.apply(UiUpdate::AppendPage(PageView {
+        rows: vec![row("2")],
+        offset: 1,
+        provisional: true,
+        incomplete: true,
+        ..PageView::default()
+    }));
+    assert_eq!(state.loaded_count, 2);
+    assert_eq!(state.page.exact_total, None);
+    assert!(state.page.provisional);
+    assert_eq!(state.page.selected, Some(0));
+    assert_eq!(state.projected_rows[&0].key.record_id, "1");
+    assert_eq!(state.projected_rows[&1].key.record_id, "2");
+}
+
+#[test]
 fn overwrite_prompt_names_exact_path_and_clears_after_success() {
     let mut state = UiState::default();
     state.apply(UiUpdate::SaveIndexOverwriteRequired(

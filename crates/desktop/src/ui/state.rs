@@ -454,7 +454,9 @@ impl UiState {
                 } else if !self.has_more {
                     self.page.exact_total = Some(self.loaded_count);
                 }
-                self.status = if self.page.incomplete {
+                self.status = if self.page.provisional {
+                    "Provisional results from indexed files".into()
+                } else if self.page.incomplete {
                     "Some results could not be checked".into()
                 } else {
                     format!("{} records loaded", self.delivered_count)
