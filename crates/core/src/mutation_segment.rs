@@ -784,12 +784,12 @@ fn merge_bigram_index(
     target.record_count = base
         .checked_add(source.record_count)
         .ok_or("bigram slot overflow")?;
-    for (key, posting) in &source.normal {
-        append_shifted_bitmap(target.normal.entry(*key).or_default(), posting, base)?;
-    }
-    for (key, posting) in &source.skip {
-        append_shifted_bitmap(target.skip.entry(*key).or_default(), posting, base)?;
-    }
+    source.for_each_normal(|key, posting| {
+        append_shifted_bitmap(target.normal.entry(*key).or_default(), posting, base)
+    })?;
+    source.for_each_skip(|key, posting| {
+        append_shifted_bitmap(target.skip.entry(*key).or_default(), posting, base)
+    })?;
     Ok(())
 }
 
@@ -1412,18 +1412,20 @@ fn project_bigram(
 ) -> Result<BigramIndex, String> {
     let mut projected = BigramIndex::new(index.alphabet);
     projected.record_count = new_count;
-    for (key, bitmap) in &index.normal {
+    index.for_each_normal(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
             projected.normal.insert(*key, kept);
         }
-    }
-    for (key, bitmap) in &index.skip {
+        Ok(())
+    })?;
+    index.for_each_skip(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
             projected.skip.insert(*key, kept);
         }
-    }
+        Ok(())
+    })?;
     Ok(projected)
 }
 

@@ -1,6 +1,6 @@
 use super::*;
 use crate::model::CollectionId;
-use crate::query::{Query, QueryOptions};
+use crate::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
@@ -19,6 +19,47 @@ fn all() -> Query {
             evidence: false,
         },
     }
+}
+
+fn literal(text: &str) -> Query {
+    let mut query = all();
+    query.fts = Some(FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Literal,
+        literal: text.into(),
+        pattern_parameter: None,
+        fields: vec![],
+    });
+    query
+}
+
+#[test]
+fn compacting_sealed_segments_preserves_text_postings() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-sealed-compact-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let keep = root.join("data/keep.json");
+    let remove = root.join("data/remove.json");
+    std::fs::write(&keep, br#"{"name":"bravo needle"}"#).unwrap();
+    std::fs::write(&remove, br#"{"name":"other needle"}"#).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        RepositoryOptions::default(),
+    ).unwrap();
+    let pinned = index.view().unwrap();
+    assert_eq!(pinned.search(&literal("bravo needle")).unwrap().count, Some(1));
+    index.delete_file(pinned.file_handle_for_path(&remove).unwrap()).unwrap();
+    std::fs::remove_file(&remove).unwrap();
+    assert_eq!(index.compact().unwrap().retired_slots_removed, 1);
+    assert_eq!(index.view().unwrap().search(&literal("bravo needle")).unwrap().count, Some(1));
+    assert_eq!(pinned.search(&literal("bravo needle")).unwrap().count, Some(1));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]
@@ -217,6 +258,7 @@ fn segment_admission_keeps_large_partially_retired_shard_when_small_pairs_fit() 
             .any(|segment| Arc::ptr_eq(segment, &dense))
     );
     assert_eq!(current.search(&all()).unwrap().count, Some(72));
+    assert_eq!(current.search(&literal("new-69")).unwrap().count, Some(1));
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
