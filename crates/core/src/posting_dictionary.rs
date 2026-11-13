@@ -384,6 +384,13 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         Ok(())
     }
 
+    pub(crate) fn visit_encoded_entries(
+        &self,
+        visit: impl FnMut(&[u8], PostingDescriptor) -> Result<(), String>,
+    ) -> Result<(), String> {
+        self.dictionary.visit_encoded(visit)
+    }
+
     /// Seek to a typed lower bound, then visit only the requested key range.
     /// A visitor may stop when a logical type boundary has been crossed.
     pub(crate) fn visit_bounds(

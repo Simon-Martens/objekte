@@ -35,6 +35,85 @@ fn broad_id_union_matches_individual_lookups() {
 }
 
 #[test]
+fn sealed_broad_id_union_uses_checked_borrowed_keys() {
+    use crate::posting_dictionary::{PostingPack, SealedPostingDictionary, append_dictionary};
+    use crate::segment_format::{SectionKind, SegmentReader, SegmentWriter};
+    use std::io::Cursor;
+
+    let field = FieldDefinition {
+        path: vec!["ref".into()],
+        kind: LogicalType::Id,
+        required: false,
+        nullable: false,
+        indexed: true,
+        multi: false,
+        element_nullable: Vec::new(),
+    };
+    let mut index = PostingIndex::new(&field);
+    for id in 0..100 {
+        index.values.insert(
+            ScalarKey::Id(format!("id-{id:03}")),
+            RoaringBitmap::from_iter([id, id + 100]),
+        );
+    }
+    index.values.insert(
+        ScalarKey::String("not-an-id".into()),
+        RoaringBitmap::from_iter([201]),
+    );
+    index.finish_stats();
+    let expected = index.values.clone();
+    let mut dictionary = Vec::new();
+    let mut pack = PostingPack::new();
+    let values = append_dictionary(&mut dictionary, &mut pack, &index.values).unwrap();
+    let lengths = append_dictionary(&mut dictionary, &mut pack, &index.lengths).unwrap();
+    let mut writer = SegmentWriter::new(Cursor::new(Vec::new()), 2).unwrap();
+    writer
+        .write_section(SectionKind::ScalarDictionaries, |target| {
+            target.write_all(&dictionary).map_err(|error| error.to_string())
+        })
+        .unwrap();
+    writer
+        .write_section(SectionKind::PostingPayloads, |target| {
+            target.write_all(pack.bytes()).map_err(|error| error.to_string())
+        })
+        .unwrap();
+    let reader = Arc::new(SegmentReader::from_owned(
+        Arc::from(writer.finish().unwrap().into_inner()),
+    ).unwrap());
+    let allowed = Arc::new(RoaringBitmap::from_iter(0..202));
+    index
+        .install_sealed(
+            SealedPostingDictionary::open(
+                Arc::clone(&reader),
+                SectionKind::ScalarDictionaries,
+                values,
+                Arc::clone(&allowed),
+            ).unwrap(),
+            SealedPostingDictionary::open(
+                reader,
+                SectionKind::ScalarDictionaries,
+                lengths,
+                allowed,
+            ).unwrap(),
+        )
+        .unwrap();
+    for ids in [
+        HashSet::from(["id-017".to_owned()]),
+        (0..80).map(|id| format!("id-{id:03}")).collect(),
+    ] {
+        let (actual, visited) = index.union_id_postings(&ids).unwrap();
+        let wanted = ids.iter().fold(RoaringBitmap::new(), |mut all, id| {
+            if let Some(slots) = expected.get(&ScalarKey::Id(id.clone())) {
+                all |= slots;
+            }
+            all
+        });
+        assert_eq!(actual, wanted);
+        assert_eq!(visited, ids.len() as u64 * 2);
+    }
+}
+
+#[test]
 fn temporal_period_estimates_probe_bounded_keys_and_ranges_keep_exact_membership() {
     use crate::query::parse_filter;
     use crate::reference::{BoundExpr, Schema, bind_filter};

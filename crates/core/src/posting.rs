@@ -296,13 +296,34 @@ impl PostingIndex {
                     }
                 }
             } else {
-                sealed.visit_entries(|key, descriptor| {
-                    if let ScalarKey::Id(id) = key && ids.contains(id) {
+                sealed.visit_encoded_entries(|key, descriptor| {
+                    // The ordered-block writer uses bincode fixint encoding:
+                    // enum tag u32, then String length u64 and UTF-8 bytes.
+                    // External opening has already checked the typed key.
+                    if key.get(..4) == Some(&1u32.to_le_bytes()[..]) {
+                        let length = u64::from_le_bytes(
+                            key.get(4..12)
+                                .ok_or("sealed ID key length truncated")?
+                                .try_into()
+                                .unwrap(),
+                        );
+                        let length = usize::try_from(length)
+                            .map_err(|_| "sealed ID key length too large")?;
+                        let end = 12usize.checked_add(length)
+                            .ok_or("sealed ID key length overflow")?;
+                        if end != key.len() {
+                            return Err("sealed ID key length mismatch".into());
+                        }
+                        let id = std::str::from_utf8(&key[12..])
+                            .map_err(|_| "sealed ID key is not UTF-8")?;
+                        if !ids.contains(id) {
+                            return Ok(());
+                        }
                         let slots = sealed.materialize_descriptor(descriptor)?;
                         visited += slots.len();
                         union |= slots;
                     }
-                    Ok(true)
+                    Ok(())
                 })?;
             }
         } else if ids.len().saturating_mul(8) < self.values.len() {

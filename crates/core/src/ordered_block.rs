@@ -489,6 +489,31 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         Ok((key, descriptor))
     }
 
+    /// Visit the encoded keys after the external opener has validated every
+    /// leaf (or the internal writer has constructed them). Callers can inspect
+    /// a borrowed key without allocating an owned value for each entry.
+    pub(crate) fn visit_encoded(
+        &self,
+        mut visit: impl FnMut(&[u8], PostingDescriptor) -> Result<(), String>,
+    ) -> Result<(), String> {
+        for block in &self.blocks {
+            let leaf = self.leaf(block)?;
+            for index in 0..block.count as usize {
+                let offset = read_u32(leaf, 4 + index * 4)? as usize;
+                let bytes = entry_key_bytes(leaf, offset)?;
+                let end = offset
+                    .checked_add(4 + bytes.len() + 24)
+                    .ok_or("dictionary entry overflow")?;
+                let descriptor = PostingDescriptor::decode(
+                    leaf.get(end - 24..end)
+                        .ok_or("dictionary posting descriptor truncated")?,
+                )?;
+                visit(bytes, descriptor)?;
+            }
+        }
+        Ok(())
+    }
+
     pub(crate) fn next(&self, cursor: DictionaryCursor) -> Option<DictionaryCursor> {
         let block = self.blocks.get(cursor.block)?;
         if cursor.entry + 1 < block.count as usize {
