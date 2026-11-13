@@ -4503,8 +4503,9 @@ fn search_segmented_impl(
                     counters.selected_payload_reads += 1;
                     counters.selected_payload_bytes += bytes;
                     selected_payload_bytes = selected_payload_bytes.saturating_add(bytes);
-                    counters.peak_retained_payload_bytes =
-                        counters.peak_retained_payload_bytes.max(selected_payload_bytes);
+                    counters.peak_retained_payload_bytes = counters
+                        .peak_retained_payload_bytes
+                        .max(selected_payload_bytes);
                 }
                 materialized.matched_fields = winner.hit.matched_fields.clone();
                 winner.hit = materialized;

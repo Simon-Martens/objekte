@@ -76,7 +76,10 @@ fn inline_sort_and_quoted_literal_conflicts_are_checked() {
 fn field_choices_include_metadata_schema_and_loaded_columns() {
     let fixture = fixture();
     let view = fixture.session.repository.index().view().unwrap();
-    assert!(view.inference_report(&fixture.session.collections[0]).is_none());
+    assert!(
+        view.inference_report(&fixture.session.collections[0])
+            .is_none()
+    );
     let before = fixture.session.repository.index().status().unwrap();
     let choices = field_choices(
         &view,
@@ -98,7 +101,11 @@ fn field_choices_include_metadata_schema_and_loaded_columns() {
 fn metadata_choices_are_typed_and_available_in_every_scope() {
     let fixture = fixture();
     for scope in [None, Some("books"), Some("missing")] {
-        let choices = field_choices(&fixture.session.repository.index().view().unwrap(), scope, &["@file.size".into()]);
+        let choices = field_choices(
+            &fixture.session.repository.index().view().unwrap(),
+            scope,
+            &["@file.size".into()],
+        );
         for (path, kind) in [
             ("@record.id", ValueType::String),
             ("@record.byte_start", ValueType::Number),

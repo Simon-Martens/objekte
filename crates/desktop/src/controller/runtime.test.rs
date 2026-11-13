@@ -232,7 +232,10 @@ fn desktop_delta_bounds_bytes_and_evidence_before_materialization() {
         page.counters.returned_records,
         backend::MAX_PAGE_ROWS as u64
     );
-    assert_eq!(page.counters.selected_payload_reads, backend::MAX_PAGE_ROWS as u64);
+    assert_eq!(
+        page.counters.selected_payload_reads,
+        backend::MAX_PAGE_ROWS as u64
+    );
     assert!(page.counters.selected_payload_bytes > 0);
     assert!(page.counters.peak_retained_payload_bytes <= page.counters.selected_payload_bytes);
     assert!(page.hits.iter().all(|hit| hit.payload.is_some()));
@@ -294,7 +297,10 @@ fn larger_publication_does_not_increase_selected_payload_work() {
     .unwrap();
     assert!(matches!(kind, GridRequestKind::Delta(0)));
     assert_eq!(page.hits.len(), backend::MAX_PAGE_ROWS);
-    assert_eq!(page.counters.selected_payload_reads, backend::MAX_PAGE_ROWS as u64);
+    assert_eq!(
+        page.counters.selected_payload_reads,
+        backend::MAX_PAGE_ROWS as u64
+    );
     assert_eq!(
         page.counters.returned_records,
         backend::MAX_PAGE_ROWS as u64
@@ -413,7 +419,10 @@ fn coalesced_delta_and_full_page_advance_without_replay() {
             .iter()
             .all(|hit| ids.insert(hit.record_id.clone()))
     );
-    assert_eq!(page.counters.selected_payload_reads, backend::MAX_PAGE_ROWS as u64);
+    assert_eq!(
+        page.counters.selected_payload_reads,
+        backend::MAX_PAGE_ROWS as u64
+    );
 
     let (mut controller, _) = DesktopController::new();
     controller.session = Some(session);

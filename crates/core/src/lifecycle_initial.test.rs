@@ -95,17 +95,21 @@ fn discovery_and_segments_publish_without_losing_records() {
     let index = catalogue_rx.recv().unwrap();
     let catalogue = index.view().unwrap();
     assert!(!catalogue.initial_construction_complete());
-    assert!(catalogue
-        .collection_definitions()
-        .next()
-        .unwrap()
-        .schema
-        .fields()
-        .contains_key(&vec!["declared".into()]));
-    assert!(catalogue.inference_report("data").is_none_or(|report| report
-        .fields
-        .iter()
-        .all(|field| field.path != ["late", "rare.field"])));
+    assert!(
+        catalogue
+            .collection_definitions()
+            .next()
+            .unwrap()
+            .schema
+            .fields()
+            .contains_key(&vec!["declared".into()])
+    );
+    assert!(catalogue.inference_report("data").is_none_or(|report| {
+        report
+            .fields
+            .iter()
+            .all(|field| field.path != ["late", "rare.field"])
+    }));
     assert_eq!(catalogue.catalogue_rows().count(), 2_050);
     assert_eq!(catalogue.catalogue_row(FileId(0)).unwrap().size > 0, true);
     assert_eq!(catalogue.file_record_count(FileId(0)), None);
@@ -131,10 +135,12 @@ fn discovery_and_segments_publish_without_losing_records() {
     let first = publication_rx.recv().unwrap();
     assert_eq!(first.0.processed_files, 2_048);
     assert!(!first.initial_construction_complete());
-    assert!(first.inference_report("data").is_none_or(|report| report
-        .fields
-        .iter()
-        .all(|field| field.path != ["late", "rare.field"])));
+    assert!(first.inference_report("data").is_none_or(|report| {
+        report
+            .fields
+            .iter()
+            .all(|field| field.path != ["late", "rare.field"])
+    }));
     assert!(
         first
             .search_stream(
