@@ -1,0 +1,4916 @@
+[
+  {
+    "pair": 1,
+    "position": 1,
+    "mode": "before",
+    "command": [
+      "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/01-1-before",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-boolean-field-predicates",
+    "sample": {
+      "after_build_hwm": 576278528,
+      "after_build_rss": 567336960,
+      "after_release_rss": 526102528,
+      "before_rss": 6778880,
+      "build_ns": 996489378,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 261120501,
+      "completion_ns": 996489378,
+      "discovery_ns": 261102103,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 345605892,
+      "first_result_ns": 345798661,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 996489378,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 5037,
+        "directory_sync_ns": 6985,
+        "header_ns": 344711,
+        "hwm_after_write": 786964480,
+        "inventory_ns": 10558300,
+        "rename_ns": 10738,
+        "rss_after_write": 615796736,
+        "sections": [
+          {
+            "checksum_ns": 87,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 596,
+            "write_ns": 2046
+          },
+          {
+            "checksum_ns": 8047981,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8446440,
+            "write_ns": 3315618
+          },
+          {
+            "checksum_ns": 235359,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 138918,
+            "write_ns": 92505
+          },
+          {
+            "checksum_ns": 223766,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 103123,
+            "write_ns": 87520
+          },
+          {
+            "checksum_ns": 226994,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 105602,
+            "write_ns": 88741
+          },
+          {
+            "checksum_ns": 222556,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 102564,
+            "write_ns": 85648
+          },
+          {
+            "checksum_ns": 222296,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 100382,
+            "write_ns": 183349
+          },
+          {
+            "checksum_ns": 222443,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 101639,
+            "write_ns": 81669
+          },
+          {
+            "checksum_ns": 224769,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 101299,
+            "write_ns": 87791
+          },
+          {
+            "checksum_ns": 57092861,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 88661355,
+            "write_ns": 23832966
+          }
+        ],
+        "sync_ns": 1155,
+        "total_ns": 208148885,
+        "write_ns": 27866753
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "7c8ce508d54687afc5eeced93611b5662266b74a",
+      "command": [
+        "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/01-1-before",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 1,
+    "position": 2,
+    "mode": "after",
+    "command": [
+      "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/01-2-after",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-indexed-field-structural-postings",
+    "sample": {
+      "after_build_hwm": 581177344,
+      "after_build_rss": 570904576,
+      "after_release_rss": 525619200,
+      "before_rss": 6631424,
+      "build_ns": 903986053,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 207682393,
+      "completion_ns": 903986053,
+      "discovery_ns": 207660167,
+      "estimated_index_bytes": 71238740,
+      "fallback_records": 0,
+      "first_batch_ns": 291780319,
+      "first_result_ns": 291930494,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 788958,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 255476,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4607050,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 894872,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 171708,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 9028,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 154844,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 903986053,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 179575108,
+        "directory_ns": 4351,
+        "directory_sync_ns": 4970,
+        "header_ns": 311423,
+        "hwm_after_write": 792580096,
+        "inventory_ns": 10021084,
+        "rename_ns": 8513,
+        "rss_after_write": 619704320,
+        "sections": [
+          {
+            "checksum_ns": 76,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 727,
+            "write_ns": 1902
+          },
+          {
+            "checksum_ns": 7703407,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8506512,
+            "write_ns": 3156721
+          },
+          {
+            "checksum_ns": 226098,
+            "id": 1,
+            "payload_bytes": 633572,
+            "serialize_ns": 137677,
+            "write_ns": 86839
+          },
+          {
+            "checksum_ns": 216122,
+            "id": 2,
+            "payload_bytes": 600245,
+            "serialize_ns": 98831,
+            "write_ns": 83254
+          },
+          {
+            "checksum_ns": 213663,
+            "id": 3,
+            "payload_bytes": 603327,
+            "serialize_ns": 102513,
+            "write_ns": 87933
+          },
+          {
+            "checksum_ns": 211161,
+            "id": 4,
+            "payload_bytes": 596464,
+            "serialize_ns": 96116,
+            "write_ns": 82458
+          },
+          {
+            "checksum_ns": 216139,
+            "id": 5,
+            "payload_bytes": 595689,
+            "serialize_ns": 97896,
+            "write_ns": 173693
+          },
+          {
+            "checksum_ns": 211107,
+            "id": 6,
+            "payload_bytes": 596191,
+            "serialize_ns": 119114,
+            "write_ns": 77427
+          },
+          {
+            "checksum_ns": 211348,
+            "id": 7,
+            "payload_bytes": 596950,
+            "serialize_ns": 94886,
+            "write_ns": 81137
+          },
+          {
+            "checksum_ns": 54600171,
+            "id": 8,
+            "payload_bytes": 153849911,
+            "serialize_ns": 85605300,
+            "write_ns": 22774144
+          }
+        ],
+        "sync_ns": 863,
+        "total_ns": 200131879,
+        "write_ns": 26612950
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "491d4b4970d891619c7b5c4d14edf253858279ce",
+      "command": [
+        "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/01-2-after",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 2,
+    "position": 1,
+    "mode": "after",
+    "command": [
+      "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/02-1-after",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-indexed-field-structural-postings",
+    "sample": {
+      "after_build_hwm": 572669952,
+      "after_build_rss": 563400704,
+      "after_release_rss": 518053888,
+      "before_rss": 6610944,
+      "build_ns": 946198818,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 205144102,
+      "completion_ns": 946198818,
+      "discovery_ns": 205110755,
+      "estimated_index_bytes": 71238740,
+      "fallback_records": 0,
+      "first_batch_ns": 281283107,
+      "first_result_ns": 281470219,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 788958,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 255476,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4607050,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 894872,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 171708,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 9028,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 154844,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 946198818,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 179575108,
+        "directory_ns": 4420,
+        "directory_sync_ns": 7478,
+        "header_ns": 312526,
+        "hwm_after_write": 784412672,
+        "inventory_ns": 9994143,
+        "rename_ns": 10362,
+        "rss_after_write": 612200448,
+        "sections": [
+          {
+            "checksum_ns": 79,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 737,
+            "write_ns": 1742
+          },
+          {
+            "checksum_ns": 7654409,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8248184,
+            "write_ns": 3213075
+          },
+          {
+            "checksum_ns": 226087,
+            "id": 1,
+            "payload_bytes": 633572,
+            "serialize_ns": 139244,
+            "write_ns": 88795
+          },
+          {
+            "checksum_ns": 212440,
+            "id": 2,
+            "payload_bytes": 600245,
+            "serialize_ns": 102688,
+            "write_ns": 84428
+          },
+          {
+            "checksum_ns": 215643,
+            "id": 3,
+            "payload_bytes": 603327,
+            "serialize_ns": 104140,
+            "write_ns": 84644
+          },
+          {
+            "checksum_ns": 211149,
+            "id": 4,
+            "payload_bytes": 596464,
+            "serialize_ns": 95661,
+            "write_ns": 88124
+          },
+          {
+            "checksum_ns": 210906,
+            "id": 5,
+            "payload_bytes": 595689,
+            "serialize_ns": 95045,
+            "write_ns": 82442
+          },
+          {
+            "checksum_ns": 211110,
+            "id": 6,
+            "payload_bytes": 596191,
+            "serialize_ns": 95912,
+            "write_ns": 86913
+          },
+          {
+            "checksum_ns": 211345,
+            "id": 7,
+            "payload_bytes": 596950,
+            "serialize_ns": 96126,
+            "write_ns": 83123
+          },
+          {
+            "checksum_ns": 54648144,
+            "id": 8,
+            "payload_bytes": 153849911,
+            "serialize_ns": 85167251,
+            "write_ns": 22735401
+          }
+        ],
+        "sync_ns": 876,
+        "total_ns": 199314916,
+        "write_ns": 26556273
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "491d4b4970d891619c7b5c4d14edf253858279ce",
+      "command": [
+        "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/02-1-after",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 2,
+    "position": 2,
+    "mode": "before",
+    "command": [
+      "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/02-2-before",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-boolean-field-predicates",
+    "sample": {
+      "after_build_hwm": 558804992,
+      "after_build_rss": 550326272,
+      "after_release_rss": 498188288,
+      "before_rss": 6782976,
+      "build_ns": 866169819,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 213862550,
+      "completion_ns": 866169819,
+      "discovery_ns": 213850626,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 286622336,
+      "first_result_ns": 286804903,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 866169819,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 4947,
+        "directory_sync_ns": 9191,
+        "header_ns": 313535,
+        "hwm_after_write": 769261568,
+        "inventory_ns": 9904360,
+        "rename_ns": 10102,
+        "rss_after_write": 598478848,
+        "sections": [
+          {
+            "checksum_ns": 66,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 502,
+            "write_ns": 1984
+          },
+          {
+            "checksum_ns": 7637567,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8041803,
+            "write_ns": 3220234
+          },
+          {
+            "checksum_ns": 223158,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 140172,
+            "write_ns": 86789
+          },
+          {
+            "checksum_ns": 212209,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 99180,
+            "write_ns": 83860
+          },
+          {
+            "checksum_ns": 215029,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 104237,
+            "write_ns": 83060
+          },
+          {
+            "checksum_ns": 211078,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 96497,
+            "write_ns": 84053
+          },
+          {
+            "checksum_ns": 212514,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 95495,
+            "write_ns": 82476
+          },
+          {
+            "checksum_ns": 210940,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 97277,
+            "write_ns": 85579
+          },
+          {
+            "checksum_ns": 215668,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 97073,
+            "write_ns": 180717
+          },
+          {
+            "checksum_ns": 54229412,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 84096786,
+            "write_ns": 22745142
+          }
+        ],
+        "sync_ns": 899,
+        "total_ns": 197618281,
+        "write_ns": 26662148
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "7c8ce508d54687afc5eeced93611b5662266b74a",
+      "command": [
+        "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/02-2-before",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 3,
+    "position": 1,
+    "mode": "before",
+    "command": [
+      "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/03-1-before",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-boolean-field-predicates",
+    "sample": {
+      "after_build_hwm": 568930304,
+      "after_build_rss": 559636480,
+      "after_release_rss": 507650048,
+      "before_rss": 6807552,
+      "build_ns": 891749698,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 205830022,
+      "completion_ns": 891749698,
+      "discovery_ns": 205815872,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 282335468,
+      "first_result_ns": 282508775,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 891749698,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 4589,
+        "directory_sync_ns": 4358,
+        "header_ns": 318849,
+        "hwm_after_write": 779530240,
+        "inventory_ns": 10089943,
+        "rename_ns": 9812,
+        "rss_after_write": 608092160,
+        "sections": [
+          {
+            "checksum_ns": 70,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 678,
+            "write_ns": 1846
+          },
+          {
+            "checksum_ns": 7634151,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8072325,
+            "write_ns": 3124214
+          },
+          {
+            "checksum_ns": 224880,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 149425,
+            "write_ns": 177723
+          },
+          {
+            "checksum_ns": 212265,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 113498,
+            "write_ns": 81618
+          },
+          {
+            "checksum_ns": 219372,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 99371,
+            "write_ns": 82602
+          },
+          {
+            "checksum_ns": 211109,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 95800,
+            "write_ns": 81321
+          },
+          {
+            "checksum_ns": 210767,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 95103,
+            "write_ns": 79237
+          },
+          {
+            "checksum_ns": 210953,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 94383,
+            "write_ns": 83901
+          },
+          {
+            "checksum_ns": 211209,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 96061,
+            "write_ns": 82545
+          },
+          {
+            "checksum_ns": 54159827,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 83672235,
+            "write_ns": 22716642
+          }
+        ],
+        "sync_ns": 795,
+        "total_ns": 197232638,
+        "write_ns": 26518640
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "7c8ce508d54687afc5eeced93611b5662266b74a",
+      "command": [
+        "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/03-1-before",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 3,
+    "position": 2,
+    "mode": "after",
+    "command": [
+      "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/03-2-after",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-indexed-field-structural-postings",
+    "sample": {
+      "after_build_hwm": 563933184,
+      "after_build_rss": 554106880,
+      "after_release_rss": 508870656,
+      "before_rss": 6692864,
+      "build_ns": 905323371,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 204943268,
+      "completion_ns": 905323371,
+      "discovery_ns": 204920573,
+      "estimated_index_bytes": 71238740,
+      "fallback_records": 0,
+      "first_batch_ns": 279831189,
+      "first_result_ns": 280028795,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 788958,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 255476,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4607050,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 894872,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 171708,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 9028,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 154844,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 905323371,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 179575108,
+        "directory_ns": 4821,
+        "directory_sync_ns": 3888,
+        "header_ns": 349934,
+        "hwm_after_write": 775421952,
+        "inventory_ns": 10041826,
+        "rename_ns": 9535,
+        "rss_after_write": 602906624,
+        "sections": [
+          {
+            "checksum_ns": 63,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 673,
+            "write_ns": 1830
+          },
+          {
+            "checksum_ns": 7645367,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8075333,
+            "write_ns": 3236229
+          },
+          {
+            "checksum_ns": 224384,
+            "id": 1,
+            "payload_bytes": 633572,
+            "serialize_ns": 142937,
+            "write_ns": 86818
+          },
+          {
+            "checksum_ns": 212467,
+            "id": 2,
+            "payload_bytes": 600245,
+            "serialize_ns": 114989,
+            "write_ns": 81063
+          },
+          {
+            "checksum_ns": 217889,
+            "id": 3,
+            "payload_bytes": 603327,
+            "serialize_ns": 98947,
+            "write_ns": 81148
+          },
+          {
+            "checksum_ns": 212946,
+            "id": 4,
+            "payload_bytes": 596464,
+            "serialize_ns": 97743,
+            "write_ns": 82178
+          },
+          {
+            "checksum_ns": 210904,
+            "id": 5,
+            "payload_bytes": 595689,
+            "serialize_ns": 95417,
+            "write_ns": 82038
+          },
+          {
+            "checksum_ns": 211141,
+            "id": 6,
+            "payload_bytes": 596191,
+            "serialize_ns": 97175,
+            "write_ns": 83844
+          },
+          {
+            "checksum_ns": 213000,
+            "id": 7,
+            "payload_bytes": 596950,
+            "serialize_ns": 97468,
+            "write_ns": 82955
+          },
+          {
+            "checksum_ns": 54681149,
+            "id": 8,
+            "payload_bytes": 153849911,
+            "serialize_ns": 85034448,
+            "write_ns": 23143812
+          }
+        ],
+        "sync_ns": 1020,
+        "total_ns": 199665896,
+        "write_ns": 26970373
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "491d4b4970d891619c7b5c4d14edf253858279ce",
+      "command": [
+        "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/03-2-after",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 4,
+    "position": 1,
+    "mode": "after",
+    "command": [
+      "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/04-1-after",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-indexed-field-structural-postings",
+    "sample": {
+      "after_build_hwm": 576073728,
+      "after_build_rss": 566345728,
+      "after_release_rss": 514756608,
+      "before_rss": 6692864,
+      "build_ns": 920393422,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 208585241,
+      "completion_ns": 920393422,
+      "discovery_ns": 208561300,
+      "estimated_index_bytes": 71238740,
+      "fallback_records": 0,
+      "first_batch_ns": 284434336,
+      "first_result_ns": 284617926,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 788958,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 255476,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4607050,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 894872,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 171708,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 9028,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 154844,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 920393422,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 179575108,
+        "directory_ns": 4771,
+        "directory_sync_ns": 7037,
+        "header_ns": 321081,
+        "hwm_after_write": 787623936,
+        "inventory_ns": 10034864,
+        "rename_ns": 10749,
+        "rss_after_write": 615145472,
+        "sections": [
+          {
+            "checksum_ns": 64,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 654,
+            "write_ns": 2013
+          },
+          {
+            "checksum_ns": 7676858,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8240862,
+            "write_ns": 3129710
+          },
+          {
+            "checksum_ns": 228682,
+            "id": 1,
+            "payload_bytes": 633572,
+            "serialize_ns": 139401,
+            "write_ns": 89235
+          },
+          {
+            "checksum_ns": 214292,
+            "id": 2,
+            "payload_bytes": 600245,
+            "serialize_ns": 99928,
+            "write_ns": 84204
+          },
+          {
+            "checksum_ns": 213595,
+            "id": 3,
+            "payload_bytes": 603327,
+            "serialize_ns": 99331,
+            "write_ns": 89866
+          },
+          {
+            "checksum_ns": 211166,
+            "id": 4,
+            "payload_bytes": 596464,
+            "serialize_ns": 97592,
+            "write_ns": 81981
+          },
+          {
+            "checksum_ns": 210883,
+            "id": 5,
+            "payload_bytes": 595689,
+            "serialize_ns": 99951,
+            "write_ns": 174059
+          },
+          {
+            "checksum_ns": 211086,
+            "id": 6,
+            "payload_bytes": 596191,
+            "serialize_ns": 95207,
+            "write_ns": 82191
+          },
+          {
+            "checksum_ns": 211332,
+            "id": 7,
+            "payload_bytes": 596950,
+            "serialize_ns": 97964,
+            "write_ns": 79676
+          },
+          {
+            "checksum_ns": 54633278,
+            "id": 8,
+            "payload_bytes": 153849911,
+            "serialize_ns": 85163822,
+            "write_ns": 22758369
+          }
+        ],
+        "sync_ns": 1165,
+        "total_ns": 199452380,
+        "write_ns": 26580169
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "491d4b4970d891619c7b5c4d14edf253858279ce",
+      "command": [
+        "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/04-1-after",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 4,
+    "position": 2,
+    "mode": "before",
+    "command": [
+      "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/04-2-before",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-boolean-field-predicates",
+    "sample": {
+      "after_build_hwm": 569057280,
+      "after_build_rss": 559046656,
+      "after_release_rss": 507138048,
+      "before_rss": 6668288,
+      "build_ns": 847806111,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 205845197,
+      "completion_ns": 847806111,
+      "discovery_ns": 205824563,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 277141105,
+      "first_result_ns": 277323749,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 847806111,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307007,
+        "read_bytes": 0,
+        "syscr": 297086,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 5172,
+        "directory_sync_ns": 8293,
+        "header_ns": 312257,
+        "hwm_after_write": 779390976,
+        "inventory_ns": 9952666,
+        "rename_ns": 10493,
+        "rss_after_write": 607502336,
+        "sections": [
+          {
+            "checksum_ns": 67,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 495,
+            "write_ns": 1729
+          },
+          {
+            "checksum_ns": 7647276,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8021001,
+            "write_ns": 3110595
+          },
+          {
+            "checksum_ns": 223182,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 137704,
+            "write_ns": 90344
+          },
+          {
+            "checksum_ns": 212211,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 102026,
+            "write_ns": 81685
+          },
+          {
+            "checksum_ns": 215199,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 103057,
+            "write_ns": 85280
+          },
+          {
+            "checksum_ns": 211057,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 96683,
+            "write_ns": 82142
+          },
+          {
+            "checksum_ns": 210778,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 95584,
+            "write_ns": 84212
+          },
+          {
+            "checksum_ns": 215222,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 97280,
+            "write_ns": 178637
+          },
+          {
+            "checksum_ns": 215472,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 95861,
+            "write_ns": 80750
+          },
+          {
+            "checksum_ns": 54148680,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 84653611,
+            "write_ns": 22462950
+          }
+        ],
+        "sync_ns": 858,
+        "total_ns": 197717381,
+        "write_ns": 26266680
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "7c8ce508d54687afc5eeced93611b5662266b74a",
+      "command": [
+        "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/04-2-before",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 5,
+    "position": 1,
+    "mode": "before",
+    "command": [
+      "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/05-1-before",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-boolean-field-predicates",
+    "sample": {
+      "after_build_hwm": 570744832,
+      "after_build_rss": 561197056,
+      "after_release_rss": 509292544,
+      "before_rss": 6606848,
+      "build_ns": 894830542,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 206056897,
+      "completion_ns": 894830542,
+      "discovery_ns": 206039367,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 279949253,
+      "first_result_ns": 280126926,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 894830542,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 5445,
+        "directory_sync_ns": 3692,
+        "header_ns": 333293,
+        "hwm_after_write": 781344768,
+        "inventory_ns": 10091148,
+        "rename_ns": 9674,
+        "rss_after_write": 609652736,
+        "sections": [
+          {
+            "checksum_ns": 69,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 648,
+            "write_ns": 1899
+          },
+          {
+            "checksum_ns": 7649949,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8028209,
+            "write_ns": 3136776
+          },
+          {
+            "checksum_ns": 227480,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 148989,
+            "write_ns": 178925
+          },
+          {
+            "checksum_ns": 218301,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 99963,
+            "write_ns": 79563
+          },
+          {
+            "checksum_ns": 217498,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 99649,
+            "write_ns": 80965
+          },
+          {
+            "checksum_ns": 211054,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 96489,
+            "write_ns": 82173
+          },
+          {
+            "checksum_ns": 212601,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 95247,
+            "write_ns": 80674
+          },
+          {
+            "checksum_ns": 211069,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 96203,
+            "write_ns": 81764
+          },
+          {
+            "checksum_ns": 213003,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 96517,
+            "write_ns": 108022
+          },
+          {
+            "checksum_ns": 54171441,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 84023059,
+            "write_ns": 22670495
+          }
+        ],
+        "sync_ns": 1301,
+        "total_ns": 198131893,
+        "write_ns": 26508839
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "7c8ce508d54687afc5eeced93611b5662266b74a",
+      "command": [
+        "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/05-1-before",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 5,
+    "position": 2,
+    "mode": "after",
+    "command": [
+      "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/05-2-after",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-indexed-field-structural-postings",
+    "sample": {
+      "after_build_hwm": 577110016,
+      "after_build_rss": 567373824,
+      "after_release_rss": 522018816,
+      "before_rss": 6742016,
+      "build_ns": 931044134,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 208082117,
+      "completion_ns": 931044134,
+      "discovery_ns": 208045267,
+      "estimated_index_bytes": 71238740,
+      "fallback_records": 0,
+      "first_batch_ns": 289891787,
+      "first_result_ns": 290088791,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 788958,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 255476,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4607050,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 894872,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 171708,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 9028,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 154844,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 931044134,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 179575108,
+        "directory_ns": 4416,
+        "directory_sync_ns": 8366,
+        "header_ns": 317867,
+        "hwm_after_write": 788557824,
+        "inventory_ns": 10058794,
+        "rename_ns": 10306,
+        "rss_after_write": 616169472,
+        "sections": [
+          {
+            "checksum_ns": 73,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 548,
+            "write_ns": 1850
+          },
+          {
+            "checksum_ns": 7779593,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8453669,
+            "write_ns": 3203735
+          },
+          {
+            "checksum_ns": 242614,
+            "id": 1,
+            "payload_bytes": 633572,
+            "serialize_ns": 146379,
+            "write_ns": 91409
+          },
+          {
+            "checksum_ns": 224056,
+            "id": 2,
+            "payload_bytes": 600245,
+            "serialize_ns": 107319,
+            "write_ns": 84378
+          },
+          {
+            "checksum_ns": 225227,
+            "id": 3,
+            "payload_bytes": 603327,
+            "serialize_ns": 103959,
+            "write_ns": 90301
+          },
+          {
+            "checksum_ns": 225941,
+            "id": 4,
+            "payload_bytes": 596464,
+            "serialize_ns": 101997,
+            "write_ns": 181844
+          },
+          {
+            "checksum_ns": 222402,
+            "id": 5,
+            "payload_bytes": 595689,
+            "serialize_ns": 106165,
+            "write_ns": 78581
+          },
+          {
+            "checksum_ns": 226959,
+            "id": 6,
+            "payload_bytes": 596191,
+            "serialize_ns": 104061,
+            "write_ns": 81433
+          },
+          {
+            "checksum_ns": 222900,
+            "id": 7,
+            "payload_bytes": 596950,
+            "serialize_ns": 101414,
+            "write_ns": 83070
+          },
+          {
+            "checksum_ns": 54794220,
+            "id": 8,
+            "payload_bytes": 153849911,
+            "serialize_ns": 84738937,
+            "write_ns": 22968854
+          }
+        ],
+        "sync_ns": 870,
+        "total_ns": 199894340,
+        "write_ns": 26874044
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "491d4b4970d891619c7b5c4d14edf253858279ce",
+      "command": [
+        "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/05-2-after",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 6,
+    "position": 1,
+    "mode": "after",
+    "command": [
+      "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/06-1-after",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-indexed-field-structural-postings",
+    "sample": {
+      "after_build_hwm": 560623616,
+      "after_build_rss": 550281216,
+      "after_release_rss": 498692096,
+      "before_rss": 6758400,
+      "build_ns": 924368587,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 208277231,
+      "completion_ns": 924368587,
+      "discovery_ns": 208259415,
+      "estimated_index_bytes": 71238740,
+      "fallback_records": 0,
+      "first_batch_ns": 284933856,
+      "first_result_ns": 285102305,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 788958,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 255476,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4607050,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 894872,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 171708,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 9028,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 154844,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 924368587,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307003,
+        "read_bytes": 0,
+        "syscr": 297086,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 179575108,
+        "directory_ns": 4131,
+        "directory_sync_ns": 7789,
+        "header_ns": 327931,
+        "hwm_after_write": 772132864,
+        "inventory_ns": 9925815,
+        "rename_ns": 10386,
+        "rss_after_write": 599080960,
+        "sections": [
+          {
+            "checksum_ns": 68,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 963,
+            "write_ns": 1928
+          },
+          {
+            "checksum_ns": 7675381,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8263380,
+            "write_ns": 3198481
+          },
+          {
+            "checksum_ns": 224313,
+            "id": 1,
+            "payload_bytes": 633572,
+            "serialize_ns": 139380,
+            "write_ns": 86911
+          },
+          {
+            "checksum_ns": 218548,
+            "id": 2,
+            "payload_bytes": 600245,
+            "serialize_ns": 100670,
+            "write_ns": 82615
+          },
+          {
+            "checksum_ns": 217915,
+            "id": 3,
+            "payload_bytes": 603327,
+            "serialize_ns": 100518,
+            "write_ns": 84456
+          },
+          {
+            "checksum_ns": 211151,
+            "id": 4,
+            "payload_bytes": 596464,
+            "serialize_ns": 98142,
+            "write_ns": 82560
+          },
+          {
+            "checksum_ns": 210903,
+            "id": 5,
+            "payload_bytes": 595689,
+            "serialize_ns": 95593,
+            "write_ns": 86258
+          },
+          {
+            "checksum_ns": 211061,
+            "id": 6,
+            "payload_bytes": 596191,
+            "serialize_ns": 95306,
+            "write_ns": 82464
+          },
+          {
+            "checksum_ns": 215663,
+            "id": 7,
+            "payload_bytes": 596950,
+            "serialize_ns": 96387,
+            "write_ns": 176675
+          },
+          {
+            "checksum_ns": 54889624,
+            "id": 8,
+            "payload_bytes": 153849911,
+            "serialize_ns": 85430212,
+            "write_ns": 22842307
+          }
+        ],
+        "sync_ns": 1029,
+        "total_ns": 200088532,
+        "write_ns": 26733238
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "491d4b4970d891619c7b5c4d14edf253858279ce",
+      "command": [
+        "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/06-1-after",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 6,
+    "position": 2,
+    "mode": "before",
+    "command": [
+      "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/06-2-before",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-boolean-field-predicates",
+    "sample": {
+      "after_build_hwm": 568143872,
+      "after_build_rss": 557506560,
+      "after_release_rss": 505495552,
+      "before_rss": 6836224,
+      "build_ns": 917547435,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 206490509,
+      "completion_ns": 917547435,
+      "discovery_ns": 206468160,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 286250179,
+      "first_result_ns": 286439608,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 917547435,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307003,
+        "read_bytes": 0,
+        "syscr": 297086,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 4838,
+        "directory_sync_ns": 7494,
+        "header_ns": 319617,
+        "hwm_after_write": 778502144,
+        "inventory_ns": 10136055,
+        "rename_ns": 10006,
+        "rss_after_write": 605962240,
+        "sections": [
+          {
+            "checksum_ns": 67,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 766,
+            "write_ns": 1987
+          },
+          {
+            "checksum_ns": 7654598,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8076480,
+            "write_ns": 3134300
+          },
+          {
+            "checksum_ns": 223225,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 134267,
+            "write_ns": 87664
+          },
+          {
+            "checksum_ns": 212210,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 99370,
+            "write_ns": 91928
+          },
+          {
+            "checksum_ns": 213252,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 103050,
+            "write_ns": 86369
+          },
+          {
+            "checksum_ns": 211041,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 97046,
+            "write_ns": 82560
+          },
+          {
+            "checksum_ns": 212509,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 94926,
+            "write_ns": 179283
+          },
+          {
+            "checksum_ns": 214463,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 95257,
+            "write_ns": 79405
+          },
+          {
+            "checksum_ns": 212839,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 96499,
+            "write_ns": 80888
+          },
+          {
+            "checksum_ns": 54179724,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 85033930,
+            "write_ns": 22822752
+          }
+        ],
+        "sync_ns": 881,
+        "total_ns": 198770677,
+        "write_ns": 26655813
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "7c8ce508d54687afc5eeced93611b5662266b74a",
+      "command": [
+        "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/06-2-before",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 7,
+    "position": 1,
+    "mode": "before",
+    "command": [
+      "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/07-1-before",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-boolean-field-predicates",
+    "sample": {
+      "after_build_hwm": 568414208,
+      "after_build_rss": 558993408,
+      "after_release_rss": 517443584,
+      "before_rss": 6811648,
+      "build_ns": 869617518,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 207779592,
+      "completion_ns": 869617518,
+      "discovery_ns": 207765981,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 280510631,
+      "first_result_ns": 280662222,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 869617518,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307007,
+        "read_bytes": 0,
+        "syscr": 297086,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 4501,
+        "directory_sync_ns": 2799,
+        "header_ns": 312320,
+        "hwm_after_write": 778960896,
+        "inventory_ns": 9975323,
+        "rename_ns": 8727,
+        "rss_after_write": 607105024,
+        "sections": [
+          {
+            "checksum_ns": 68,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 731,
+            "write_ns": 1662
+          },
+          {
+            "checksum_ns": 7637779,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 7980894,
+            "write_ns": 3117466
+          },
+          {
+            "checksum_ns": 223195,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 136854,
+            "write_ns": 89481
+          },
+          {
+            "checksum_ns": 212201,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 102030,
+            "write_ns": 84270
+          },
+          {
+            "checksum_ns": 217522,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 99945,
+            "write_ns": 84363
+          },
+          {
+            "checksum_ns": 212844,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 97558,
+            "write_ns": 177646
+          },
+          {
+            "checksum_ns": 210807,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 94899,
+            "write_ns": 84550
+          },
+          {
+            "checksum_ns": 211050,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 95632,
+            "write_ns": 83101
+          },
+          {
+            "checksum_ns": 211177,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 96742,
+            "write_ns": 81969
+          },
+          {
+            "checksum_ns": 54360813,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 84676187,
+            "write_ns": 22779481
+          }
+        ],
+        "sync_ns": 1015,
+        "total_ns": 198256114,
+        "write_ns": 26595909
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "7c8ce508d54687afc5eeced93611b5662266b74a",
+      "command": [
+        "/tmp/objekte-plan2-candidate-bin/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/07-1-before",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 7,
+    "position": 2,
+    "mode": "after",
+    "command": [
+      "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan3-first-seven-pairs/07-2-after",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "cwd": "/home/simon/source/objekte-integration-indexed-field-structural-postings",
+    "sample": {
+      "after_build_hwm": 581758976,
+      "after_build_rss": 572198912,
+      "after_release_rss": 526848000,
+      "before_rss": 6787072,
+      "build_ns": 900531064,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 205367595,
+      "completion_ns": 900531064,
+      "discovery_ns": 205341539,
+      "estimated_index_bytes": 71238740,
+      "fallback_records": 0,
+      "first_batch_ns": 283226848,
+      "first_result_ns": 283414437,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 788958,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 255476,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4607050,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 894872,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 171708,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 9028,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 154844,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 900531064,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307007,
+        "read_bytes": 0,
+        "syscr": 297086,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 179575108,
+        "directory_ns": 4652,
+        "directory_sync_ns": 8486,
+        "header_ns": 327731,
+        "hwm_after_write": 793051136,
+        "inventory_ns": 10014934,
+        "rename_ns": 11158,
+        "rss_after_write": 620994560,
+        "sections": [
+          {
+            "checksum_ns": 79,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 601,
+            "write_ns": 1684
+          },
+          {
+            "checksum_ns": 7661962,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8355309,
+            "write_ns": 3218317
+          },
+          {
+            "checksum_ns": 224372,
+            "id": 1,
+            "payload_bytes": 633572,
+            "serialize_ns": 140493,
+            "write_ns": 89267
+          },
+          {
+            "checksum_ns": 212494,
+            "id": 2,
+            "payload_bytes": 600245,
+            "serialize_ns": 125075,
+            "write_ns": 86326
+          },
+          {
+            "checksum_ns": 217866,
+            "id": 3,
+            "payload_bytes": 603327,
+            "serialize_ns": 101099,
+            "write_ns": 81989
+          },
+          {
+            "checksum_ns": 215502,
+            "id": 4,
+            "payload_bytes": 596464,
+            "serialize_ns": 128771,
+            "write_ns": 83073
+          },
+          {
+            "checksum_ns": 210910,
+            "id": 5,
+            "payload_bytes": 595689,
+            "serialize_ns": 100832,
+            "write_ns": 81361
+          },
+          {
+            "checksum_ns": 212654,
+            "id": 6,
+            "payload_bytes": 596191,
+            "serialize_ns": 96584,
+            "write_ns": 83722
+          },
+          {
+            "checksum_ns": 211376,
+            "id": 7,
+            "payload_bytes": 596950,
+            "serialize_ns": 96315,
+            "write_ns": 106840
+          },
+          {
+            "checksum_ns": 54635221,
+            "id": 8,
+            "payload_bytes": 153849911,
+            "serialize_ns": 85469518,
+            "write_ns": 22929557
+          }
+        ],
+        "sync_ns": 1047,
+        "total_ns": 200168799,
+        "write_ns": 26770897
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "491d4b4970d891619c7b5c4d14edf253858279ce",
+      "command": [
+        "/home/simon/source/objekte-integration-indexed-field-structural-postings/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan3-first-seven-pairs/07-2-after",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  }
+]

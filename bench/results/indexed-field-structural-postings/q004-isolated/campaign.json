@@ -1,0 +1,92 @@
+[
+  {
+    "pair": 1,
+    "position": 1,
+    "mode": "before",
+    "median_ns": 9216114,
+    "opens": 7773,
+    "status": "ok",
+    "matches": 2995
+  },
+  {
+    "pair": 1,
+    "position": 2,
+    "mode": "after",
+    "median_ns": 9936836,
+    "opens": 7773,
+    "status": "ok",
+    "matches": 2995
+  },
+  {
+    "pair": 2,
+    "position": 1,
+    "mode": "after",
+    "median_ns": 11105982,
+    "opens": 7773,
+    "status": "ok",
+    "matches": 2995
+  },
+  {
+    "pair": 2,
+    "position": 2,
+    "mode": "before",
+    "median_ns": 10039559,
+    "opens": 7773,
+    "status": "ok",
+    "matches": 2995
+  },
+  {
+    "pair": 3,
+    "position": 1,
+    "mode": "before",
+    "median_ns": 10644848,
+    "opens": 7773,
+    "status": "ok",
+    "matches": 2995
+  },
+  {
+    "pair": 3,
+    "position": 2,
+    "mode": "after",
+    "median_ns": 9236663,
+    "opens": 7773,
+    "status": "ok",
+    "matches": 2995
+  },
+  {
+    "pair": 4,
+    "position": 1,
+    "mode": "after",
+    "median_ns": 11116664,
+    "opens": 7773,
+    "status": "ok",
+    "matches": 2995
+  },
+  {
+    "pair": 4,
+    "position": 2,
+    "mode": "before",
+    "median_ns": 10607343,
+    "opens": 7773,
+    "status": "ok",
+    "matches": 2995
+  },
+  {
+    "pair": 5,
+    "position": 1,
+    "mode": "before",
+    "median_ns": 9419406,
+    "opens": 7773,
+    "status": "ok",
+    "matches": 2995
+  },
+  {
+    "pair": 5,
+    "position": 2,
+    "mode": "after",
+    "median_ns": 8448662,
+    "opens": 7773,
+    "status": "ok",
+    "matches": 2995
+  }
+]

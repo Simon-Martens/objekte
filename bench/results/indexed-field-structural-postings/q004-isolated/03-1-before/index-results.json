@@ -1,0 +1,189 @@
+[
+  {
+    "alphabet": "unicode",
+    "build_mode": "incremental",
+    "build_ns": 1056676419,
+    "build_parses": 148486,
+    "discovery_ns": 209648835,
+    "estimated_index_bytes": 72917176,
+    "first_batch_ns": 326779522,
+    "inventory_heap_bytes": 58460912,
+    "open_ns": 1056676419,
+    "peak_resident_bytes": 801546240,
+    "resident_bytes": 627269632,
+    "restore_samples": [],
+    "restore_status": "not_measured",
+    "searchable_batches": 8,
+    "segment_families": {
+      "agents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          2,
+          {
+            "custom_text_bytes": 403038,
+            "fallback_bytes": 0,
+            "postings_bytes": 509348,
+            "raw_bytes": 7738926,
+            "sorting_bytes": 113856
+          }
+        ]
+      ],
+      "contents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          1,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 169762,
+            "raw_bytes": 1849936,
+            "sorting_bytes": 154087
+          }
+        ],
+        [
+          3,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 4143978,
+            "raw_bytes": 37150326,
+            "sorting_bytes": 9944413
+          }
+        ]
+      ],
+      "entries": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          4,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 553542,
+            "raw_bytes": 6211896,
+            "sorting_bytes": 367785
+          }
+        ]
+      ],
+      "items": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          5,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 94942,
+            "raw_bytes": 2027956,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "pages": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          6,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 128,
+            "raw_bytes": 32004,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "places": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          7,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 6848,
+            "raw_bytes": 73272,
+            "sorting_bytes": 7820
+          }
+        ]
+      ],
+      "series": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          8,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 130468,
+            "raw_bytes": 1175336,
+            "sorting_bytes": 57509
+          }
+        ]
+      ]
+    },
+    "snapshot_bytes": 180818436,
+    "snapshot_write_ns": 492902402,
+    "source_bytes_read": 193297230,
+    "source_reads": 148486,
+    "total_build_and_snapshot_ns": 1549826157
+  }
+]
