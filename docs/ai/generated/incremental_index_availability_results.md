@@ -40,6 +40,39 @@ The first trial campaign used the original checkout as the process working direc
 
 The [desktop and TUI evidence](../../../bench/results/incremental-index-availability/2026-11-13-client-smoke/README.md) captures real interaction. The desktop showed the complete physical-file catalogue and provisional query results while indexing Musenalm, then an exact 275-match result with record preview. A 6,200-file PTY TUI check showed catalogue availability before the first batch, provisional results, query replacement during construction, final exact results, resize and cancellation. The one-CPU TUI fixture deliberately lengthened observable intermediate states; its timings are not performance claims.
 
+## Foreground queries and held-view memory
+
+At `c7959d4f55`, nine alternating fresh-process warm runs compared three idle,
+three fixed-foreground-query, and three held-early-view builds. The [raw
+campaign](../../../bench/results/incremental-index-availability/2026-11-13-concurrency/README.md)
+uses Q108, Q116 and Q120 in a repeated three-query cycle with a 2 ms pause.
+Median completion was 908.074 ms idle, 941.294 ms with foreground queries
+(3.66% slower), and 916.280 ms with an early view retained. Foreground runs
+completed 834–900 queries each; their per-process median latency was 44–52 µs,
+p95 91–117 µs, and query source opens zero. Every run made exactly 148,486
+construction reads/parses. Held-view median high-water RSS was 564.892 MB
+versus 564.638 MB idle; releasing that view reduced sampled RSS by at most
+49,152 bytes. The benchmark precedes any final complete-query latency repair,
+so it will be repeated if that repair changes build or view code.
+
 ## Query comparison
 
-The full 194-case lifecycle query suite and matched latency/source-read analysis are in progress. Results must retain existing acceleration as well as result equality; preliminary matched counters found relation and metadata cases that require repair before Plan 1 completion.
+The full 194-case lifecycle suite now passes all four cache/alphabet profiles
+with five repetitions, and all 776 matched rows have equal status and result
+counts. The master and candidate runs use the same absolute corpus root and
+matching schema/corpus fingerprints, compiler and worker/cache settings.
+Candidate direct and incremental modes agree on all 194 normalized result
+digests. The older master benchmark hashes a nonzero generation into each hit,
+whereas the candidate runner zeroes that volatile field before hashing; only
+the 13 zero-hit cases have equal cross-version digests. The query comparator's
+registration check also needs lifecycle-specific handling: the incremental
+runner records static collection definitions, while the old direct runner
+records completed posting paths and file counts. Their common definition keys
+and schema manifests are equal.
+
+The first matched latency analysis at `c7959d4f55` found 49 ASCII and 44
+Unicode cache-off cases above both regression thresholds (10% and 0.5 ms),
+despite equal source-open counts. For example, Q187 rose from 123.49 to
+160.37 ms and Q160 from 64.92 to 85.84 ms in ASCII. These are in-scope
+regressions under investigation. This plan is not complete until the repeated
+outliers are repaired or the acceptance gate is otherwise resolved.
