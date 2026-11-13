@@ -294,24 +294,9 @@ impl PostingAccess<'_> {
                     Operator::Eq => index
                         .value_posting_restricted(&key, input)?
                         .unwrap_or_default(),
-                    Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => index
-                        .union_values_matching(
-                            |candidate| {
-                                if std::mem::discriminant(candidate) != std::mem::discriminant(&key)
-                                {
-                                    return false;
-                                }
-                                let order = candidate.cmp(&key);
-                                match term.operator {
-                                    Operator::Gt => order.is_gt(),
-                                    Operator::Ge => order.is_ge(),
-                                    Operator::Lt => order.is_lt(),
-                                    Operator::Le => order.is_le(),
-                                    _ => false,
-                                }
-                            },
-                            Some(input),
-                        )?,
+                    Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
+                        index.union_scalar_range(&key, term.operator, Some(input))?
+                    }
                     _ => return Ok(None),
                 };
                 if operation == PostingOperation::ShortStringCandidates {

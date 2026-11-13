@@ -16,6 +16,7 @@ use crate::posting_dictionary::SealedPostingDictionary;
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
+use crate::segment_format::PostingDescriptor;
 
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ScalarKey {
@@ -296,35 +297,122 @@ impl PostingIndex {
         }
     }
 
-    pub(crate) fn union_values_matching(
+    pub(crate) fn union_scalar_range(
         &self,
-        mut matches: impl FnMut(&ScalarKey) -> bool,
+        key: &ScalarKey,
+        operator: Operator,
         input: Option<&RoaringBitmap>,
     ) -> Result<RoaringBitmap, String> {
-        let mut result = RoaringBitmap::new();
         if let Some(sealed) = self.sealed_values() {
-            sealed.visit_entries(|key, descriptor| {
-                if matches(key) {
+            let Some((lower, upper)) = ordered_range_bounds(key, operator) else {
+                return Ok(RoaringBitmap::new());
+            };
+            let mut result = RoaringBitmap::new();
+            sealed.visit_bounds(lower, upper, |candidate, descriptor| {
+                if std::mem::discriminant(candidate) == std::mem::discriminant(key) {
                     result |= if let Some(input) = input {
                         sealed.intersect_descriptor(descriptor, input)?
                     } else {
                         sealed.materialize_descriptor(descriptor)?
                     };
+                    Ok(true)
+                } else {
+                    Ok(candidate < key)
                 }
-                Ok(true)
             })?;
+            Ok(result)
         } else {
-            for (key, posting) in &self.values {
-                if matches(key) {
-                    result |= if let Some(input) = input {
-                        input & posting
-                    } else {
-                        posting.clone()
-                    };
+            Ok(scalar_range_postings(&self.values, key, operator, input).0)
+        }
+    }
+
+    pub(crate) fn count_scalar_range(
+        &self,
+        key: &ScalarKey,
+        operator: Operator,
+        limit: usize,
+    ) -> Result<usize, String> {
+        if let Some(sealed) = self.sealed_values() {
+            let Some((lower, upper)) = ordered_range_bounds(key, operator) else {
+                return Ok(0);
+            };
+            let mut count = 0;
+            sealed.visit_bounds(lower, upper, |candidate, _| {
+                if std::mem::discriminant(candidate) == std::mem::discriminant(key) {
+                    count += 1;
+                    Ok(count < limit)
+                } else {
+                    Ok(candidate < key)
                 }
+            })?;
+            Ok(count)
+        } else {
+            Ok(scalar_range_key_probe(&self.values, key, operator, limit))
+        }
+    }
+
+    fn visit_temporal_descriptors(
+        &self,
+        start: &ScalarKey,
+        end: &ScalarKey,
+        operator: Operator,
+        mut visit: impl FnMut(PostingDescriptor) -> Result<bool, String>,
+    ) -> Result<(), String> {
+        let sealed = self
+            .sealed_values()
+            .ok_or("temporal sealed dictionary missing")?;
+        let mut keep_going = true;
+        for (lower, upper) in temporal_bounds(start, end, operator) {
+            sealed.visit_bounds(lower, upper, |candidate, descriptor| {
+                if std::mem::discriminant(candidate) == std::mem::discriminant(start) {
+                    keep_going = visit(descriptor)?;
+                    Ok(keep_going)
+                } else {
+                    Ok(candidate < start)
+                }
+            })?;
+            if !keep_going {
+                break;
             }
         }
+        Ok(())
+    }
+
+    fn union_temporal_range(
+        &self,
+        start: &ScalarKey,
+        end: &ScalarKey,
+        operator: Operator,
+        input: Option<&RoaringBitmap>,
+    ) -> Result<RoaringBitmap, String> {
+        let sealed = self
+            .sealed_values()
+            .ok_or("temporal sealed dictionary missing")?;
+        let mut result = RoaringBitmap::new();
+        self.visit_temporal_descriptors(start, end, operator, |descriptor| {
+            result |= if let Some(input) = input {
+                sealed.intersect_descriptor(descriptor, input)?
+            } else {
+                sealed.materialize_descriptor(descriptor)?
+            };
+            Ok(true)
+        })?;
         Ok(result)
+    }
+
+    fn count_temporal_range(
+        &self,
+        start: &ScalarKey,
+        end: &ScalarKey,
+        operator: Operator,
+        limit: usize,
+    ) -> Result<usize, String> {
+        let mut count = 0;
+        self.visit_temporal_descriptors(start, end, operator, |_| {
+            count += 1;
+            Ok(count < limit)
+        })?;
+        Ok(count)
     }
 
     pub(crate) fn union_lengths_matching(
@@ -358,56 +446,40 @@ impl PostingIndex {
         Ok(result)
     }
 
-    pub(crate) fn count_values_matching(
+    fn union_length_range(
         &self,
-        mut matches: impl FnMut(&ScalarKey) -> bool,
-        limit: usize,
-    ) -> Result<usize, String> {
-        let mut count = 0;
-        if let Some(sealed) = self.sealed_values() {
-            sealed.visit_entries(|key, _| {
-                if matches(key) {
-                    count += 1;
-                    Ok(count < limit)
-                } else {
-                    Ok(true)
-                }
-            })?;
+        key: &Number,
+        operator: Operator,
+    ) -> Result<RoaringBitmap, String> {
+        let Some((lower, upper)) = ordered_range_bounds(key, operator) else {
+            return Ok(RoaringBitmap::new());
+        };
+        if let Some(sealed) = self.sealed_lengths() {
+            sealed.union_bounds(lower, upper, None)
         } else {
-            count = self
-                .values
-                .keys()
-                .filter(|key| matches(key))
-                .take(limit)
-                .count();
+            Ok(range_postings(&self.lengths, key, operator, None).0)
         }
-        Ok(count)
     }
 
-    pub(crate) fn count_lengths_matching(
+    fn count_length_range(
         &self,
-        mut matches: impl FnMut(&Number) -> bool,
+        key: &Number,
+        operator: Operator,
         limit: usize,
     ) -> Result<usize, String> {
-        let mut count = 0;
+        let Some((lower, upper)) = ordered_range_bounds(key, operator) else {
+            return Ok(0);
+        };
         if let Some(sealed) = self.sealed_lengths() {
-            sealed.visit_entries(|key, _| {
-                if matches(key) {
-                    count += 1;
-                    Ok(count < limit)
-                } else {
-                    Ok(true)
-                }
+            let mut count = 0;
+            sealed.visit_bounds(lower, upper, |_, _| {
+                count += 1;
+                Ok(count < limit)
             })?;
+            Ok(count)
         } else {
-            count = self
-                .lengths
-                .keys()
-                .filter(|key| matches(key))
-                .take(limit)
-                .count();
+            Ok(range_key_probe(&self.lengths, key, operator, limit))
         }
-        Ok(count)
     }
 
     fn state_source(&self, derived: Derived) -> Option<Option<&RoaringBitmap>> {
@@ -507,10 +579,7 @@ impl PostingIndex {
                 ))
             }
             op if is_range(op) => {
-                let count = self.count_values_matching(
-                    |candidate| scalar_range_matches(candidate, key, op),
-                    33,
-                )?;
+                let count = self.count_scalar_range(key, op, 33)?;
                 *visits += count as u64;
                 let output = if count <= 32 {
                     count as u64 * self.stats.present_count
@@ -589,10 +658,7 @@ impl PostingIndex {
                     .unwrap_or_default();
                 Some(result)
             }
-            op if is_range(op) => Some(self.union_values_matching(
-                |candidate| scalar_range_matches(candidate, key, op),
-                Some(input),
-            )?),
+            op if is_range(op) => Some(self.union_scalar_range(key, op, Some(input))?),
             _ => None,
         })
     }
@@ -1216,10 +1282,7 @@ impl PostingIndex {
             if std::mem::discriminant(&start) != std::mem::discriminant(&end) || start >= end {
                 return Ok(None);
             }
-            let keys = self.count_values_matching(
-                |candidate| temporal_range_matches(candidate, &start, &end, term.operator),
-                33,
-            )?;
+            let keys = self.count_temporal_range(&start, &end, term.operator, 33)?;
             *visits += keys as u64;
             let output = if keys <= 32 {
                 keys as u64 * self.stats.present_count / self.stats.distinct_count.max(1) as u64
@@ -1242,10 +1305,7 @@ impl PostingIndex {
                 return Ok(None);
             };
             let range_keys = if is_range(term.operator) {
-                Some(self.count_lengths_matching(
-                    |candidate| range_matches(candidate.cmp(number), term.operator),
-                    33,
-                )?)
+                Some(self.count_length_range(number, term.operator, 33)?)
             } else {
                 None
             };
@@ -1303,10 +1363,7 @@ impl PostingIndex {
                 ))
             }
             op if is_range(op) && !term.multi => {
-                let keys = self.count_values_matching(
-                    |candidate| scalar_range_matches(candidate, &key, op),
-                    33,
-                )?;
+                let keys = self.count_scalar_range(&key, op, 33)?;
                 *visits += keys as u64;
                 let output = if keys <= 32 {
                     keys as u64 * self.stats.present_count / self.stats.distinct_count.max(1) as u64
@@ -1462,8 +1519,10 @@ impl PostingIndex {
             if std::mem::discriminant(&start) != std::mem::discriminant(&end) || start >= end {
                 return Ok(None);
             }
-            return Ok(Some(self.union_values_matching(
-                |candidate| temporal_range_matches(candidate, &start, &end, term.operator),
+            return Ok(Some(self.union_temporal_range(
+                &start,
+                &end,
+                term.operator,
                 None,
             )?));
         }
@@ -1483,9 +1542,7 @@ impl PostingIndex {
             return Ok(match term.operator {
                 Operator::Eq => Some(self.length_posting(number)?.unwrap_or_default()),
                 Operator::Ne => Some(self.union_lengths_matching(|key| key != number, None)?),
-                op if is_range(op) => Some(
-                    self.union_lengths_matching(|key| range_matches(key.cmp(number), op), None)?,
-                ),
+                op if is_range(op) => Some(self.union_length_range(number, op)?),
                 _ => None,
             });
         }
@@ -1506,10 +1563,7 @@ impl PostingIndex {
             Operator::Ne if !term.multi => Some(
                 &(&self.presence - &self.nulls) - &self.value_posting(&key)?.unwrap_or_default(),
             ),
-            op if is_range(op) && !term.multi => Some(self.union_values_matching(
-                |candidate| scalar_range_matches(candidate, &key, op),
-                None,
-            )?),
+            op if is_range(op) && !term.multi => Some(self.union_scalar_range(&key, op, None)?),
             _ => None,
         })
     }
@@ -1627,38 +1681,35 @@ fn is_range(operator: Operator) -> bool {
     )
 }
 
-fn range_matches(order: std::cmp::Ordering, operator: Operator) -> bool {
-    match operator {
-        Operator::Gt => order.is_gt(),
-        Operator::Ge => order.is_ge(),
-        Operator::Lt => order.is_lt(),
-        Operator::Le => order.is_le(),
-        _ => false,
-    }
-}
-
-fn scalar_range_matches(candidate: &ScalarKey, key: &ScalarKey, operator: Operator) -> bool {
-    std::mem::discriminant(candidate) == std::mem::discriminant(key)
-        && range_matches(candidate.cmp(key), operator)
-}
-
-fn temporal_range_matches(
-    candidate: &ScalarKey,
-    start: &ScalarKey,
-    end: &ScalarKey,
+fn ordered_range_bounds<K>(
+    key: &K,
     operator: Operator,
-) -> bool {
-    if std::mem::discriminant(candidate) != std::mem::discriminant(start) {
-        return false;
-    }
+) -> Option<(std::ops::Bound<&K>, std::ops::Bound<&K>)> {
     match operator {
-        Operator::Eq => candidate >= start && candidate < end,
-        Operator::Ne => candidate < start || candidate >= end,
-        Operator::Lt => candidate < start,
-        Operator::Le => candidate < end,
-        Operator::Gt => candidate >= end,
-        Operator::Ge => candidate >= start,
-        _ => false,
+        Operator::Gt => Some((Excluded(key), Unbounded)),
+        Operator::Ge => Some((Included(key), Unbounded)),
+        Operator::Lt => Some((Unbounded, Excluded(key))),
+        Operator::Le => Some((Unbounded, Included(key))),
+        _ => None,
+    }
+}
+
+fn temporal_bounds<'a>(
+    start: &'a ScalarKey,
+    end: &'a ScalarKey,
+    operator: Operator,
+) -> Vec<(
+    std::ops::Bound<&'a ScalarKey>,
+    std::ops::Bound<&'a ScalarKey>,
+)> {
+    match operator {
+        Operator::Eq => vec![(Included(start), Excluded(end))],
+        Operator::Ne => vec![(Unbounded, Excluded(start)), (Included(end), Unbounded)],
+        Operator::Lt => vec![(Unbounded, Excluded(start))],
+        Operator::Le => vec![(Unbounded, Excluded(end))],
+        Operator::Gt => vec![(Included(end), Unbounded)],
+        Operator::Ge => vec![(Included(start), Unbounded)],
+        _ => Vec::new(),
     }
 }
 

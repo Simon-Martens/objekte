@@ -152,6 +152,38 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         Ok(())
     }
 
+    /// Seek to a typed lower bound, then visit only the requested key range.
+    /// A visitor may stop when a logical type boundary has been crossed.
+    pub(crate) fn visit_bounds(
+        &self,
+        lower: Bound<&K>,
+        upper: Bound<&K>,
+        mut visit: impl FnMut(&K, PostingDescriptor) -> Result<bool, String>,
+    ) -> Result<(), String> {
+        let mut cursor = match &lower {
+            Bound::Unbounded => self.dictionary.first(),
+            Bound::Included(key) | Bound::Excluded(key) => self.dictionary.lower_bound(*key)?,
+        };
+        if let (Bound::Excluded(key), Some(found)) = (&lower, cursor) {
+            if &self.dictionary.entry(found)?.0 == *key {
+                cursor = self.dictionary.next(found);
+            }
+        }
+        while let Some(position) = cursor {
+            let (key, descriptor) = self.dictionary.entry(position)?;
+            let inside = match &upper {
+                Bound::Unbounded => true,
+                Bound::Included(end) => &key <= *end,
+                Bound::Excluded(end) => &key < *end,
+            };
+            if !inside || !visit(&key, descriptor)? {
+                break;
+            }
+            cursor = self.dictionary.next(position);
+        }
+        Ok(())
+    }
+
     pub(crate) fn estimated_cardinality(&self, key: &K) -> Result<Option<u32>, String> {
         Ok(self
             .dictionary

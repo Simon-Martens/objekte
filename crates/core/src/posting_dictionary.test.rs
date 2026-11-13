@@ -294,3 +294,100 @@ fn sealed_exact_queries_match_mutable_postings_and_estimates() {
     assert!(sealed.values.is_empty());
     assert_eq!(sealed.values_view().unwrap().len(), builder.values.len());
 }
+
+#[test]
+fn sealed_temporal_and_length_ranges_match_builder() {
+    let cases = [
+        (
+            FieldDefinition {
+                path: vec!["issued".into()],
+                kind: LogicalType::Date,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            },
+            vec![
+                "issued = 2024-02",
+                "issued != 2024-02",
+                "issued < 2024-02",
+                "issued <= 2024-02",
+                "issued > 2024-02",
+                "issued >= 2024-02",
+            ],
+        ),
+        (
+            FieldDefinition {
+                path: vec!["items".into()],
+                kind: LogicalType::Array(Box::new(LogicalType::Number)),
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: true,
+                element_nullable: vec![false],
+            },
+            vec![
+                "items:length = 2",
+                "items:length != 2",
+                "items:length < 2",
+                "items:length <= 2",
+                "items:length > 2",
+                "items:length >= 2",
+            ],
+        ),
+    ];
+    for (field, expressions) in cases {
+        let mut schema = Schema::default();
+        schema.register_field(field.clone()).unwrap();
+        let mut builder = PostingIndex::new(&field);
+        for slot in 0..100 {
+            let record = if field.path[0] == "issued" {
+                let date = time::Date::from_ordinal_date(2024, slot + 1).unwrap();
+                crate::model::Value::Date(date)
+            } else {
+                crate::model::Value::from_json(
+                    serde_json::json!({"items": vec![slot; (slot % 5) as usize]}),
+                )
+                .unwrap()
+            };
+            if field.path[0] == "issued" {
+                builder
+                    .add_values(crate::model::RecordSlot(slot as u32), Some(&[&record]))
+                    .unwrap();
+            } else {
+                builder
+                    .add(crate::model::RecordSlot(slot as u32), &record)
+                    .unwrap();
+            }
+        }
+        builder.finish_stats();
+        let domain = RoaringBitmap::from_iter(0..100);
+        let mut sealed = builder.clone();
+        sealed
+            .install_sealed(
+                seal(&builder.values, domain.clone()),
+                seal(&builder.lengths, domain.clone()),
+            )
+            .unwrap();
+        for expression in expressions {
+            let BoundExpr::Term(term) =
+                bind_filter(&parse_filter(expression).unwrap(), &schema).unwrap()
+            else {
+                panic!("expected term");
+            };
+            assert_eq!(
+                sealed.exact_set_checked(&term, &domain).unwrap(),
+                builder.exact_set(&term, &domain),
+                "{expression}"
+            );
+            assert!(
+                sealed
+                    .estimate_exact_with_visits_checked(&term, domain.len(), &mut 0)
+                    .unwrap()
+                    .is_some(),
+                "{expression}"
+            );
+        }
+    }
+}
