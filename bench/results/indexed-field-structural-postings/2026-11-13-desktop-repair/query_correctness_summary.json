@@ -1,0 +1,17 @@
+{
+  "rows_before": 880,
+  "rows_after": 880,
+  "result_digests_equal": true,
+  "queries_equal": true,
+  "mismatches": {
+    "status": 0,
+    "total_matches": 0,
+    "returned_records": 0,
+    "files_opened": 0,
+    "bytes_read": 0,
+    "record_parses": 0,
+    "exact_posting_matches": 0,
+    "scanned_records": 0,
+    "residual_evaluations": 0
+  }
+}
