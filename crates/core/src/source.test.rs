@@ -1766,7 +1766,10 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
     let restored = Repository::open_with_sources(
         &root,
         vec![definition.clone()],
-        RepositoryOptions::default(),
+        RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::IfValid,
+            ..Default::default()
+        },
         registrations(1),
     )
     .unwrap();
@@ -1884,7 +1887,10 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
     let restored = Repository::open_with_sources(
         &root,
         vec![definition.clone()],
-        RepositoryOptions::default(),
+        RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::IfValid,
+            ..Default::default()
+        },
         sources.clone(),
     )
     .unwrap();

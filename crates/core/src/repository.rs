@@ -722,7 +722,7 @@ impl Default for RepositoryOptions {
             bigram_alphabet: BigramAlphabet::Ascii,
             prepared_cache_bytes: 16 * 1024 * 1024,
             verified_cache_bytes: 0,
-            snapshot_mode: SnapshotMode::IfValid,
+            snapshot_mode: SnapshotMode::Disabled,
             query_workers: std::thread::available_parallelism()
                 .map_or(1, |workers| workers.get().min(32)),
             build_workers: None,
