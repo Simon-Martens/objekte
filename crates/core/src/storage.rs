@@ -5,7 +5,7 @@ use std::collections::{HashMap, HashSet};
 use std::fs::{self, File, OpenOptions};
 use std::io::{BufReader, BufWriter, Read, Seek, SeekFrom, Write};
 use std::path::{Path, PathBuf};
-use std::sync::Mutex;
+use std::sync::{Arc, Mutex};
 use std::time::Instant;
 
 use bincode::Options;
@@ -1684,7 +1684,7 @@ fn load_snapshot_parts(
     }
     Ok((
         Repository {
-            files,
+            files: Arc::new(files),
             base_fingerprints,
             collections,
             sources: sources.clone(),
