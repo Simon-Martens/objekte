@@ -20,6 +20,7 @@ pub mod execution_options;
 pub mod executor;
 mod field_state;
 pub mod fts_preview;
+mod hybrid_segment_codec;
 mod index_catalog;
 pub mod index_storage;
 pub mod inference;
