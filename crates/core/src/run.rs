@@ -543,6 +543,45 @@ fn scan_projection(
     }
 }
 
+/// A segmented residual without FTS or computed sorting needs only its local
+/// top-level data fields. Related terminal fields are read from targets, while
+/// a source operand is explicitly retained here.
+fn segment_filter_source_fields(expr: &BoundExpr) -> Option<HashSet<String>> {
+    fn add_path(path: &crate::model::FieldPath, fields: &mut HashSet<String>) -> Option<()> {
+        if path.root == PathRoot::Data {
+            fields.insert(path.segments.first()?.clone());
+        }
+        Some(())
+    }
+    fn collect(expr: &BoundExpr, fields: &mut HashSet<String>) -> Option<()> {
+        match expr {
+            BoundExpr::Term(term) => {
+                add_path(&term.path, fields)?;
+                if let Some(rhs) = &term.rhs {
+                    add_path(&rhs.path, fields)?;
+                }
+                if let Some(source) = term
+                    .related
+                    .as_ref()
+                    .and_then(|related| related.source_operand.as_ref())
+                {
+                    add_path(&source.path, fields)?;
+                }
+            }
+            BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+                for part in parts {
+                    collect(part, fields)?;
+                }
+            }
+            BoundExpr::Not(inner) => collect(inner, fields)?,
+        }
+        Some(())
+    }
+    let mut fields = HashSet::new();
+    collect(expr, &mut fields)?;
+    Some(fields)
+}
+
 fn borrowed_value_text(collection: &CollectionState, fts: Option<&BoundFts>) -> bool {
     !collection.source.is_extension()
         && matches!(collection.source.id(), "json" | "jsonl")
@@ -3059,6 +3098,16 @@ fn segment_exact_evidence_fields(
             fields.dedup();
             Ok(Some(fields))
         }
+        BoundExpr::Not(_) => {
+            let bounds = segment_filter_bounds_with_catalog(
+                segment,
+                active,
+                expr,
+                collection,
+                Some(catalog),
+            )?;
+            Ok(candidates.is_subset(&bounds.must).then(Vec::new))
+        }
         _ => Ok(None),
     }
 }
@@ -4410,9 +4459,12 @@ fn charge_lifecycle_cached_payload(
 }
 
 
+#[derive(Clone)]
 struct RelationTargetPrune {
     source_path: Vec<String>,
     target_ids: HashSet<String>,
+    exact: bool,
+    evidence: Vec<String>,
 }
 
 
@@ -4515,6 +4567,73 @@ fn collect_relation_target_ids(
     Ok(Some(RelationTargetPrune {
         source_path: relation.declaration.path.clone(),
         target_ids,
+        exact: false,
+        evidence: Vec::new(),
+    }))
+}
+
+/// For a positive one-hop term whose terminal predicate is fully covered by
+/// resident indexes, reverse exact target IDs to source slots. This remains
+/// useful even for a dense target set when an independent FTS condition can
+/// substantially narrow the source scan.
+fn exact_relation_source_plan(
+    repo: &Repository,
+    base_active: &[ActiveRecords],
+    segments: &[Arc<Vec<Arc<PublishedSegment>>>],
+    filter: &BoundExpr,
+) -> Result<Option<RelationTargetPrune>, String> {
+    let BoundExpr::Term(term) = filter else {
+        return Ok(None);
+    };
+    let Some((hop, terminal)) = eligible_one_hop_relation_term(repo, term) else {
+        return Ok(None);
+    };
+    if base_active[hop.from.0 as usize].len() != 0
+        || base_active[hop.to.0 as usize].len() != 0
+        || term
+            .related
+            .as_ref()
+            .is_some_and(|related| related.source_operand.is_some())
+    {
+        return Ok(None);
+    }
+    let target = &repo.collections[hop.to.0 as usize];
+    let mut target_ids = HashSet::new();
+    for published in segments[hop.to.0 as usize].iter() {
+        let bounds = segment_filter_bounds_with_catalog(
+            &published.index,
+            &published.active,
+            &BoundExpr::Term(terminal.clone()),
+            target,
+            None,
+        )?;
+        if bounds.may != bounds.must {
+            return Ok(None);
+        }
+        for slot in bounds.must.iter() {
+            let record = published
+                .index
+                .record(RecordSlot(slot))
+                .ok_or("exact relation target slot missing")?;
+            target_ids.insert(record.id.0.to_string());
+            if target_ids.len() > 100_000 {
+                return Ok(None);
+            }
+        }
+    }
+    let relation = repo.collections[hop.from.0 as usize]
+        .relations
+        .get(hop.relation.ordinal as usize)
+        .ok_or("exact relation declaration missing")?;
+    let mut evidence = vec![term.query_path.display.clone()];
+    evidence.push(term.related.as_ref().unwrap().evidence_path.clone());
+    evidence.sort();
+    evidence.dedup();
+    Ok(Some(RelationTargetPrune {
+        source_path: relation.declaration.path.clone(),
+        target_ids,
+        exact: true,
+        evidence,
     }))
 }
 
@@ -4568,7 +4687,11 @@ fn relation_source_candidates(
     plan: &RelationTargetPrune,
 ) -> Option<RoaringBitmap> {
     let posting = published.index.postings.fields.get(&plan.source_path)?;
-    let mut may = &published.active.bitmap() - &published.index.logical_records;
+    let mut may = if plan.exact {
+        RoaringBitmap::new()
+    } else {
+        &published.active.bitmap() - &published.index.logical_records
+    };
     for (key, slots) in &posting.values {
         if let crate::posting::ScalarKey::Id(id) = key
             && plan.target_ids.contains(id)
@@ -5284,6 +5407,7 @@ fn scan_relation_file_parallel(
     revision: IndexRevision,
     collection_index: usize,
     filter: Option<&BoundExpr>,
+    filter_proof: Option<&[String]>,
     fts: Option<&BoundFts>,
     job: &RelationFileJob,
     view: crate::relation_query::MergedRelationView<'_>,
@@ -5347,6 +5471,13 @@ fn scan_relation_file_parallel(
             && !borrowed_value_text
             && !borrowed_relation_source_text(resolved.collection, fts),
     );
+    if fts.is_none()
+        && !sort.bound.has_computed
+        && matches!(resolved.collection.source.id(), "json" | "jsonl")
+        && let Some(fields) = filter.and_then(segment_filter_source_fields)
+    {
+        projection.top_level = Some(fields);
+    }
     projection.resolved_text_only =
         projection.collect_text && fts.is_some_and(|fts| !fts.fields.is_empty());
     let combined_fts = fts.filter(|fts| {
@@ -5397,7 +5528,12 @@ fn scan_relation_file_parallel(
     };
     let mut evidence = HashSet::new();
     let mut relation_work = crate::relation_query::RelationWork::default();
-    let filter_matches = if let Some(filter) = filter {
+    let filter_matches = if let Some(fields) = filter_proof {
+        if query.options.evidence {
+            evidence.extend(fields.iter().cloned());
+        }
+        true
+    } else if let Some(filter) = filter {
         if record.class == RecordClass::RawFallback {
             eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
         } else {
@@ -5531,6 +5667,7 @@ fn try_parallel_relation_page(
     sort: &ResolvedSort<'_>,
     prepared: &[(usize, Option<BoundExpr>, Option<BoundFts>)],
     prune_segments: bool,
+    exact_plan: Option<&RelationTargetPrune>,
 ) -> Result<Option<SearchResult>, String> {
     let cap = query
         .options
@@ -5591,7 +5728,7 @@ fn try_parallel_relation_page(
     }
     let collection = &repo.collections[*collection_index];
     let mut jobs = Vec::new();
-    let mut relation_prune: Option<Option<RelationTargetPrune>> = None;
+    let mut relation_prune: Option<Option<RelationTargetPrune>> = exact_plan.cloned().map(Some);
     for (segment_index, published) in segments[*collection_index].iter().enumerate() {
         let mut candidates = if prune_segments {
             let filter_may = filter
@@ -5637,6 +5774,11 @@ fn try_parallel_relation_page(
             {
                 candidates =
                     Some(candidates.map_or(relation_may.clone(), |may| may & relation_may));
+            }
+            if let Some(plan) = exact_plan
+                && relation_source_candidates(published, plan).is_none()
+            {
+                return Ok(None);
             }
         }
         if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
@@ -5699,6 +5841,7 @@ fn try_parallel_relation_page(
                         revision,
                         *collection_index,
                         filter.as_ref(),
+                        exact_plan.map(|plan| plan.evidence.as_slice()),
                         fts.as_ref(),
                         job,
                         worker_view,
@@ -5769,6 +5912,19 @@ fn search_segmented_relations(
     {
         return Ok(result);
     }
+    let mut exact_relation_plan = if prune_segments
+        && prepared.len() == 1
+        && query.options.return_mode == ReturnMode::Locator
+    {
+        prepared[0]
+            .1
+            .as_ref()
+            .map(|filter| exact_relation_source_plan(repo, base_active, segments, filter))
+            .transpose()?
+            .flatten()
+    } else {
+        None
+    };
     if prune_segments
         && context.is_none()
         && cache_builder.is_none()
@@ -5783,6 +5939,7 @@ fn search_segmented_relations(
             sort,
             prepared,
             prune_segments,
+            exact_relation_plan.as_ref(),
         )?
     {
         return Ok(result);
@@ -5819,11 +5976,19 @@ fn search_segmented_relations(
                 && !borrowed_value_text
                 && !borrowed_relation_source_text(collection_plan, fts.as_ref()),
         );
+        if fts.is_none()
+            && !sort.bound.has_computed
+            && matches!(collection_plan.source.id(), "json" | "jsonl")
+            && let Some(fields) = filter.as_ref().and_then(segment_filter_source_fields)
+        {
+            projection.top_level = Some(fields);
+        }
         projection.resolved_text_only =
             projection.collect_text && fts.as_ref().is_some_and(|fts| !fts.fields.is_empty());
         let mut process = |address: crate::relation_query::MergedRecordSlot,
                            bytes: Vec<u8>,
-                           opened_source: bool|
+                           opened_source: bool,
+                           filter_proof: Option<&[String]>|
          -> Result<(), String> {
             let _fold_record =
                 FoldRecordGuard::new_with_sharing(shared_fold_bound(filter.as_ref()));
@@ -5900,7 +6065,12 @@ fn search_segmented_relations(
             let mut evidence = HashSet::new();
             let mut relation_work = crate::relation_query::RelationWork::default();
             relation_work.attach(context);
-            let filter_matches = if let Some(result) = &direct_result {
+            let filter_matches = if let Some(fields) = filter_proof {
+                if query.options.evidence {
+                    evidence.extend(fields.iter().cloned());
+                }
+                true
+            } else if let Some(result) = &direct_result {
                 result.filter_match
             } else if let Some(filter) = filter.as_ref() {
                 if record.class == RecordClass::RawFallback {
@@ -6142,11 +6312,16 @@ fn search_segmented_relations(
                         },
                         bytes,
                         start == 0 && index == 0,
+                        None,
                     )?;
                 }
             }
         }
-        let mut relation_prune: Option<Option<RelationTargetPrune>> = None;
+        let mut relation_prune: Option<Option<RelationTargetPrune>> = if let Some(plan) = exact_relation_plan.take() {
+            Some(Some(plan))
+        } else {
+            None
+        };
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
             let mut candidates = if prune_segments {
                 let filter_may = filter
@@ -6194,6 +6369,10 @@ fn search_segmented_relations(
                         Some(candidates.map_or(relation_may.clone(), |may| may & relation_may));
                 }
             }
+            let exact_filter_fields = relation_prune.as_ref().and_then(Option::as_ref)
+                .filter(|plan| plan.exact)
+                .and_then(|plan| relation_source_candidates(published, plan)
+                    .map(|_| plan.evidence.as_slice()));
             if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
                 continue;
             }
@@ -6296,6 +6475,7 @@ fn search_segmented_relations(
                             },
                             bytes,
                             start == 0 && index == 0,
+                            exact_filter_fields,
                         )?;
                     }
                 }
