@@ -13,8 +13,9 @@ use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
 use crate::model::FileId;
 
 const FIRST_SEGMENT_RECORDS: usize = crate::lifecycle_partition::BASE_PARTITION_RECORDS;
-const LATER_SEGMENT_RECORDS: usize = 32_768;
-const SEGMENT_SOURCE_BYTES: u64 = 128 * 1024 * 1024;
+const LATER_SEGMENT_RECORDS: usize = 132_000;
+const FIRST_SEGMENT_SOURCE_BYTES: u64 = 128 * 1024 * 1024;
+const LATER_SEGMENT_SOURCE_BYTES: u64 = 160 * 1024 * 1024;
 
 struct IncrementalCollection {
     definition: Arc<CollectionDefinition>,
@@ -25,6 +26,8 @@ struct IncrementalCollection {
     records: u32,
     logical_records: RoaringBitmap,
     global_inference: Option<InferenceBuilder>,
+    options: RepositoryOptions,
+    collection_count: usize,
 }
 
 impl IncrementalCollection {
@@ -35,18 +38,24 @@ impl IncrementalCollection {
         member_files: Vec<FileId>,
         options: RepositoryOptions,
         collection_count: usize,
+        early: bool,
     ) -> Self {
-        let admission = SegmentAdmission::with_limits(
+        let definition = Arc::new(definition);
+        let admission = SegmentAdmission::with_limits_eager(
             id,
             &source,
             SegmentLimits {
-                files: FIRST_SEGMENT_RECORDS,
-                records: FIRST_SEGMENT_RECORDS,
-                source_bytes: SEGMENT_SOURCE_BYTES,
+                files: if early { FIRST_SEGMENT_RECORDS } else { LATER_SEGMENT_RECORDS },
+                records: if early { FIRST_SEGMENT_RECORDS } else { LATER_SEGMENT_RECORDS },
+                source_bytes: if early { FIRST_SEGMENT_SOURCE_BYTES } else { LATER_SEGMENT_SOURCE_BYTES },
             },
+            Arc::clone(&definition),
+            options.bigram_alphabet,
+            options.inference,
+            collection_count,
         );
         Self {
-            definition: Arc::new(definition),
+            definition,
             source,
             id,
             member_files,
@@ -54,6 +63,8 @@ impl IncrementalCollection {
             records: 0,
             logical_records: RoaringBitmap::new(),
             global_inference: InferenceBuilder::for_collection(options.inference, collection_count),
+            options,
+            collection_count,
         }
     }
 
@@ -98,14 +109,18 @@ impl IncrementalCollection {
         if self.admission.file_count() == 0 {
             return None;
         }
-        let replacement = SegmentAdmission::with_limits(
+        let replacement = SegmentAdmission::with_limits_eager(
             self.id,
             &self.source,
             SegmentLimits {
                 files: LATER_SEGMENT_RECORDS,
                 records: LATER_SEGMENT_RECORDS,
-                source_bytes: SEGMENT_SOURCE_BYTES,
+                source_bytes: LATER_SEGMENT_SOURCE_BYTES,
             },
+            Arc::clone(&self.definition),
+            self.options.bigram_alphabet,
+            self.options.inference,
+            self.collection_count,
         );
         Some(std::mem::replace(&mut self.admission, replacement).seal())
     }
@@ -289,6 +304,7 @@ impl Repository {
             discovered.files.iter().map(SourceFileInput::from_entry).collect::<Vec<_>>(),
         );
         let collection_count = selected.len();
+        let early_collection = selected.iter().max_by_key(|(_, _, _, members)| members.len()).map(|(_, id, _, _)| *id);
         let mut pending = selected
             .into_iter()
             .map(|(definition, id, source, members)| {
@@ -299,6 +315,7 @@ impl Repository {
                     members,
                     options,
                     collection_count,
+                    Some(id) == early_collection,
                 )
             })
             .collect::<Vec<_>>();

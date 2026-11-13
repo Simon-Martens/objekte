@@ -319,7 +319,8 @@ fn run() -> Result<(), String> {
             .iter()
             .filter(|case| ["Q001", "Q108", "Q116", "Q120", "Q194"].contains(&case.id.as_str()))
         {
-            let result = repo.search(&case.query()?)?;
+            let mut result = repo.search(&case.query()?)?;
+            for hit in &mut result.hits { hit.generation = 0; }
             let digest = Sha256::digest(format!("{:?}", (result.count, result.hits)).as_bytes());
             digests.insert(case.id.clone(), format!("{digest:x}"));
         }
@@ -453,6 +454,7 @@ fn run_incremental(
     let after_build_rss = resident_bytes();
     let after_build_hwm = peak_resident_bytes();
     let estimated_index_bytes = view.estimated_index_bytes();
+    let index_family_breakdown = view.index_family_breakdown();
     let inventory_heap_bytes = view.estimated_inventory_bytes();
     let files = view.catalogue_rows().count();
     let source_bytes = view.catalogue_rows().map(|row| row.size).sum::<u64>();
@@ -485,7 +487,8 @@ fn run_incremental(
         )?;
         let mut digests = BTreeMap::new();
         for case in cases.iter().filter(|case| ["Q001", "Q108", "Q116", "Q120", "Q194"].contains(&case.id.as_str())) {
-            let result = view.search(&case.query()?)?;
+            let mut result = view.search(&case.query()?)?;
+            for hit in &mut result.hits { hit.generation = 0; }
             let digest = Sha256::digest(format!("{:?}", (result.count, result.hits)).as_bytes());
             digests.insert(case.id.clone(), format!("{digest:x}"));
         }
@@ -532,6 +535,7 @@ fn run_incremental(
         "searchable_batches":timing.searchable_batches,
         "processed_files":status.processed_files,
         "estimated_index_bytes":estimated_index_bytes,
+        "index_family_breakdown":index_family_breakdown,
         "inventory_heap_bytes":inventory_heap_bytes,
         "snapshot_result":snapshot_result,"query_digests":query_digests,
     });
