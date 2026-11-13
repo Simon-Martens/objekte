@@ -114,6 +114,55 @@ fn compact_published_with_cancel(
     if cancelled() {
         return Err(IndexError::Cancelled);
     }
+    // After the initial base has been partitioned, every contribution lives
+    // in an immutable shard. Keep the existing catalog and unaffected shard
+    // groups instead of rebuilding an empty repository for every collection.
+    if old
+        .repository
+        .collections()
+        .iter()
+        .all(|collection| collection.generation.files.is_empty())
+    {
+        let mut next = old.clone();
+        next.revision = next_revision;
+        for (number, group) in old.segments.iter().enumerate() {
+            if cancelled() {
+                return Err(IndexError::Cancelled);
+            }
+            if group.iter().all(|segment| segment.active.len() == segment.index.records.len() as u64)
+            {
+                continue;
+            }
+            let mut compacted = Vec::with_capacity(group.len());
+            for segment in group.iter() {
+                if cancelled() {
+                    return Err(IndexError::Cancelled);
+                }
+                if segment.active.len() == segment.index.records.len() as u64 {
+                    compacted.push(Arc::clone(segment));
+                    continue;
+                }
+                for part in compact_source_parts(&segment.index, &segment.active, &next.catalog, &cancelled)? {
+                    if cancelled() {
+                        return Err(IndexError::Cancelled);
+                    }
+                    let ordinal = next.next_segment_ordinal;
+                    next.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
+                        IndexError::ResourceLimit("segment ordinal overflow".into())
+                    })?;
+                    let active = ActiveRecords::all(part.records.len())
+                        .map_err(IndexError::ResourceLimit)?;
+                    compacted.push(Arc::new(PublishedSegment {
+                        ordinal,
+                        index: Arc::new(part),
+                        active,
+                    }));
+                }
+            }
+            next.segments[number] = Arc::new(compacted);
+        }
+        return Ok(next);
+    }
     let empty = Arc::new(old.repository.empty_like().map_err(IndexError::Build)?);
     let mut next =
         PublishedIndex::from_repository(old.instance_id, next_revision, Arc::clone(&empty))?;
