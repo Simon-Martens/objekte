@@ -1,7 +1,7 @@
 //! Versioned, checksummed sections for complete immutable search generations.
 
 use roaring::RoaringBitmap;
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeMap, HashMap, HashSet};
 use std::fs::{self, File, OpenOptions};
 use std::io::{BufReader, BufWriter, Read, Seek, SeekFrom, Write};
 use std::path::{Path, PathBuf};
@@ -82,6 +82,8 @@ pub struct SnapshotSaveStats {
     pub directory_sync_ns: u64,
     pub bytes_written: u64,
     pub sections: Vec<SnapshotSectionSaveStats>,
+    /// Opt-in, reconciled encoded-byte accounting. Disabled for timing runs.
+    pub byte_breakdown: Option<BTreeMap<String, u64>>,
 }
 
 
@@ -280,6 +282,62 @@ impl LifecycleCacheState {
         })
     }
 
+    fn byte_diagnostic(&self) -> Result<BTreeMap<String, u64>, String> {
+        let mut bytes = BTreeMap::new();
+        bytes.insert(
+            "lifecycle_header".into(),
+            encoded_size(&self.revision)?
+                + encoded_size(&self.configuration_identity)?
+                + encoded_size(&self.next_segment_ordinal)?,
+        );
+        bytes.insert("lifecycle_base_active".into(), encoded_size(&self.base_active)?);
+        let catalog_total = encoded_size(&self.catalog)?;
+        let catalog_metadata = self
+            .catalog
+            .iter()
+            .flatten()
+            .map(|entry| encoded_size(&entry.file))
+            .sum::<Result<u64, _>>()?;
+        let catalog_identity = self
+            .catalog
+            .iter()
+            .flatten()
+            .map(|entry| {
+                Ok(encoded_size(&entry.fingerprint)? + encoded_size(&entry.configuration)?)
+            })
+            .sum::<Result<u64, String>>()?;
+        if catalog_total < catalog_metadata + catalog_identity {
+            return Err("catalog byte diagnostic overlaps".into());
+        }
+        bytes.insert("lifecycle_catalog_metadata".into(), catalog_metadata);
+        bytes.insert("lifecycle_catalog_fingerprint_configuration".into(), catalog_identity);
+        bytes.insert(
+            "lifecycle_catalog_framing".into(),
+            catalog_total - catalog_metadata - catalog_identity,
+        );
+        bytes.insert("lifecycle_file_versions".into(), encoded_size(&self.file_versions)?);
+        let segments_total = encoded_size(&self.segments)?;
+        let payload_total = self
+            .segments
+            .iter()
+            .flatten()
+            .map(|segment| segment.index.len() as u64)
+            .sum::<u64>();
+        if segments_total < payload_total {
+            return Err("segment byte diagnostic overlaps".into());
+        }
+        bytes.insert("lifecycle_segment_envelopes".into(), segments_total - payload_total);
+        for segment in self.segments.iter().flatten() {
+            for (name, size) in crate::lifecycle_segment_codec::segment_byte_diagnostic(&segment.index)? {
+                *bytes.entry(name).or_default() += size;
+            }
+        }
+        if bytes.values().sum::<u64>() != encoded_size(self)? {
+            return Err("lifecycle byte diagnostic does not reconcile".into());
+        }
+        Ok(bytes)
+    }
+
     /// Validate all storage-owned domains. `validate_segment` must decode and
     /// validate every index family, file mapping, and relation contribution.
     pub(crate) fn validate(
@@ -414,9 +472,26 @@ pub(crate) fn save_lifecycle_snapshot_with_stats(
 ) -> Result<SnapshotSaveStats, String> {
     let state = LifecycleCacheState::from_publication(publication, encode_segment)?;
     state.validate(&publication.repository, |_| Ok(()))?;
-    publication
+    let detail = if std::env::var_os("OBJEKTE_SNAPSHOT_BYTE_DIAGNOSTIC").is_some() {
+        Some(state.byte_diagnostic()?)
+    } else {
+        None
+    };
+    let mut stats = publication
         .repository
-        .save_snapshot_with_lifecycle_state(path, Some(&state), before_publish)
+        .save_snapshot_with_lifecycle_state(path, Some(&state), before_publish)?;
+    if let Some(detail) = detail {
+        let breakdown = stats.byte_breakdown.as_mut().ok_or("outer byte diagnostic missing")?;
+        let expected = breakdown.remove("lifecycle_payload").ok_or("lifecycle payload missing")?;
+        if detail.values().sum::<u64>() != expected {
+            return Err("lifecycle payload byte diagnostic mismatch".into());
+        }
+        breakdown.extend(detail);
+        if breakdown.values().sum::<u64>() != stats.bytes_written {
+            return Err("snapshot byte diagnostic does not reconcile".into());
+        }
+    }
+    Ok(stats)
 }
 
 
@@ -464,6 +539,10 @@ fn codec() -> impl Options {
     bincode::DefaultOptions::new()
         .with_fixint_encoding()
         .reject_trailing_bytes()
+}
+
+fn encoded_size(value: &impl Serialize) -> Result<u64, String> {
+    codec().serialized_size(value).map_err(|error| error.to_string())
 }
 
 fn path_bytes(path: &Path) -> Vec<u8> {
@@ -958,6 +1037,9 @@ impl Repository {
     ) -> Result<SnapshotSaveStats, String> {
         let total_started = Instant::now();
         let mut stats = SnapshotSaveStats::default();
+        if std::env::var_os("OBJEKTE_SNAPSHOT_BYTE_DIAGNOSTIC").is_some() {
+            stats.byte_breakdown = Some(BTreeMap::from([("snapshot_header".into(), 52)]));
+        }
         self.ensure_snapshot_destination_is_not_source(path)?;
         let parent = path.parent().ok_or("snapshot needs a parent directory")?;
         let started = Instant::now();
@@ -1007,6 +1089,9 @@ impl Repository {
                 .bytes_written
                 .saturating_add(section.payload_bytes + SECTION_HEADER_BYTES as u64);
             stats.sections.push(section);
+            if let Some(bytes) = stats.byte_breakdown.as_mut() {
+                bytes.insert("configuration_payload".into(), encoded_size(&settings)?);
+            }
             let started = Instant::now();
             let files: Vec<_> = self
                 .files
@@ -1031,6 +1116,15 @@ impl Repository {
                 .bytes_written
                 .saturating_add(section.payload_bytes + 44);
             stats.sections.push(section);
+            if let Some(bytes) = stats.byte_breakdown.as_mut() {
+                let fingerprint_bytes = files
+                    .iter()
+                    .map(|entry| encoded_size(&entry.fingerprint))
+                    .sum::<Result<u64, _>>()?;
+                let total = encoded_size(&files)?;
+                bytes.insert("base_inventory_metadata".into(), total - fingerprint_bytes);
+                bytes.insert("base_inventory_fingerprints".into(), fingerprint_bytes);
+            }
             for (index, state) in self.collections.iter().enumerate() {
                 let encoded = EncodedCollectionRef {
                     generation: &state.generation,
@@ -1054,6 +1148,35 @@ impl Repository {
                     .bytes_written
                     .saturating_add(section.payload_bytes + 44);
                 stats.sections.push(section);
+                if let Some(bytes) = stats.byte_breakdown.as_mut() {
+                    let generation = encoded_size(&encoded.generation)?;
+                    let records = encoded_size(&encoded.generation.records)?;
+                    let offsets = encoded_size(&encoded.generation.file_records.offsets)?;
+                    let slots = encoded_size(&encoded.generation.file_records.slots)?;
+                    let indexed = encoded_size(&encoded.postings)?
+                        + encoded_size(&encoded.inference)?
+                        + encoded_size(&encoded.global_inference)?
+                        + encoded_size(&encoded.custom_postings)?
+                        + encoded_size(&encoded.raw)?
+                        + encoded_size(&encoded.fallback_text)?
+                        + encoded_size(&encoded.logical_records)?
+                        + encoded_size(&encoded.empty_array_records)?
+                        + encoded_size(&encoded.custom_text)?
+                        + encoded_size(&encoded.sorting)?
+                        + encoded_size(&encoded.relations)?;
+                    let total = encoded_size(&encoded)?;
+                    if generation < records + offsets + slots || total < generation + indexed {
+                        return Err("collection byte diagnostic overlaps".into());
+                    }
+                    *bytes.entry("base_collection_records".into()).or_default() += records;
+                    *bytes.entry("base_collection_file_offsets".into()).or_default() += offsets;
+                    *bytes.entry("base_collection_file_slots".into()).or_default() += slots;
+                    *bytes.entry("base_collection_generation_other".into()).or_default() +=
+                        generation - records - offsets - slots;
+                    *bytes.entry("base_collection_index_families".into()).or_default() += indexed;
+                    *bytes.entry("base_collection_other".into()).or_default() +=
+                        total - generation - indexed;
+                }
             }
             if let Some(lifecycle) = lifecycle {
                 let section = write_section_measured(
@@ -1066,6 +1189,16 @@ impl Repository {
                     .bytes_written
                     .saturating_add(section.payload_bytes + 44);
                 stats.sections.push(section);
+                if let Some(bytes) = stats.byte_breakdown.as_mut() {
+                    bytes.insert("lifecycle_payload".into(), encoded_size(lifecycle)?);
+                }
+            }
+            if let Some(bytes) = stats.byte_breakdown.as_mut() {
+                bytes.insert("section_framing".into(),
+                    SECTION_HEADER_BYTES as u64 * stats.sections.len() as u64);
+                if bytes.values().sum::<u64>() != stats.bytes_written {
+                    return Err("snapshot byte diagnostic does not reconcile".into());
+                }
             }
             let started = Instant::now();
             file.sync_all().map_err(|e| e.to_string())?;

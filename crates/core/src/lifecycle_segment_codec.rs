@@ -1,6 +1,6 @@
 //! Checked, source-I/O-free encoding of one indexed mutation segment.
 
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::{Component, Path, PathBuf};
 
 use bincode::Options;
@@ -216,6 +216,65 @@ pub(crate) fn encode_segment(segment: &IndexedCollectionSegment) -> Result<Vec<u
         return Err("segment snapshot exceeds byte limit".into());
     }
     Ok(bytes)
+}
+
+/// Opt-in wire-byte attribution for an already encoded segment. Diagnostic
+/// callers decode one segment at a time; normal snapshot writes never do.
+pub(crate) fn segment_byte_diagnostic(bytes: &[u8]) -> Result<BTreeMap<String, u64>, String> {
+    fn size(value: &impl Serialize) -> Result<u64, String> {
+        codec().serialized_size(value).map_err(|error| error.to_string())
+    }
+    let encoded: OwnedSegment = codec()
+        .with_limit(bytes.len() as u64)
+        .deserialize(bytes)
+        .map_err(|error| error.to_string())?;
+    let mut fields = BTreeMap::new();
+    let file_metadata = encoded
+        .files
+        .iter()
+        .map(|file| size(&file.entry))
+        .sum::<Result<u64, _>>()?;
+    let file_records = encoded
+        .files
+        .iter()
+        .map(|file| size(&file.records))
+        .sum::<Result<u64, _>>()?;
+    let files_size = size(&encoded.files)?;
+    if files_size < file_metadata + file_records {
+        return Err("segment diagnostic file sizes overlap".into());
+    }
+    fields.insert("segment_file_metadata".into(), files_size - file_records);
+    fields.insert("segment_file_record_slots".into(), file_records);
+    fields.insert(
+        "segment_header".into(),
+        size(&encoded.collection)? + size(&encoded.source_id)? + size(&encoded.source_version)?,
+    );
+    fields.insert(
+        "segment_derived_lookups".into(),
+        size(&encoded.file_index)? + size(&encoded.id_lookup)? + size(&encoded.identity_order)?,
+    );
+    fields.insert("segment_records".into(), size(&encoded.records)?);
+    fields.insert(
+        "segment_index_families".into(),
+        size(&encoded.postings)?
+            + size(&encoded.inference)?
+            + size(&encoded.custom_postings)?
+            + size(&encoded.raw)?
+            + size(&encoded.fallback_text)?
+            + size(&encoded.custom_text)?
+            + size(&encoded.logical_records)?
+            + size(&encoded.empty_array_records)?
+            + size(&encoded.sorting)?
+            + size(&encoded.relations)?,
+    );
+    fields.insert(
+        "segment_counters".into(),
+        size(&encoded.record_parses)? + size(&encoded.failed_parses)?,
+    );
+    if fields.values().sum::<u64>() != bytes.len() as u64 {
+        return Err("segment diagnostic does not reconcile".into());
+    }
+    Ok(fields)
 }
 
 /// Decode and structurally validate a segment against the restored base and

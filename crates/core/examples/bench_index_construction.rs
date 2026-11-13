@@ -510,7 +510,8 @@ fn run_incremental(
             serde_json::json!({"total_ns":stats.total_ns,"directory_ns":stats.directory_ns,
             "header_ns":stats.header_ns,"inventory_ns":stats.inventory_ns,"write_ns":stats.write_ns,
             "sync_ns":stats.sync_ns,"rename_ns":stats.rename_ns,"directory_sync_ns":stats.directory_sync_ns,
-            "bytes":bytes,"sections":sections,"rss_after_write":resident_bytes(),
+            "bytes":bytes,"sections":sections,"byte_breakdown":stats.byte_breakdown,
+            "rss_after_write":resident_bytes(),
             "hwm_after_write":peak_resident_bytes()}),
         )
     } else {
