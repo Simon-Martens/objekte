@@ -3,6 +3,7 @@ use crate::backend::test_support::fixture;
 use crate::backend::{OpenSpec, open};
 use objekte_cli::arguments::Arguments;
 use objekte_search_core::inference::InferenceMode;
+use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
 use objekte_search_core::workload::BigramAlphabet;
 
 #[test]
@@ -23,6 +24,39 @@ fn manual_shutdown_does_not_write_an_index() {
     after.sort();
     assert_eq!(before, after);
     assert_eq!(status(&fixture.session).unwrap().saved_revision, None);
+}
+
+#[test]
+fn managed_close_flushes_latest_revision_and_cancel_resumes_sync() {
+    let root = tempfile::tempdir().unwrap();
+    crate::backend::test_support::write_records(root.path());
+    let session = open(
+        &OpenSpec {
+            storage_policy: Some(IndexStoragePolicy {
+                location: IndexStorageLocation::RepositoryDirectory,
+                residency: IndexResidency::OnDemand,
+            }),
+            args: Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+            configured_cache_policy: None,
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let index = session.repository.index();
+    index.stop_sync_storage().unwrap();
+    std::fs::write(root.path().join("late.json"), r#"{"title":"Late"}"#).unwrap();
+    index.add_file(&root.path().join("late.json")).unwrap();
+    assert_ne!(index.storage_status().unwrap().durable_generation, Some(index.status().unwrap().revision.0));
+    shutdown_with_storage_flush(&session).unwrap();
+    assert_eq!(index.storage_status().unwrap().durable_generation, Some(index.status().unwrap().revision.0));
+    resume_after_cancelled_close(&session, None, false).unwrap();
+    std::fs::write(root.path().join("later.json"), r#"{"title":"Later"}"#).unwrap();
+    index.add_file(&root.path().join("later.json")).unwrap();
+    shutdown_with_storage_flush(&session).unwrap();
 }
 
 #[test]

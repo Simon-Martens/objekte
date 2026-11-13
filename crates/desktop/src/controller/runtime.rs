@@ -16,6 +16,7 @@ use objekte_search_core::lifecycle::{
     IndexRevision, IndexStatus, IndexView, InitialBuildPhase, InitialBuildTask,
     MaintenanceOperation, MaintenanceTask, ReconciliationState, ReconciliationTask,
 };
+use objekte_search_core::index_storage::{IndexReadiness, IndexSynchronization};
 use objekte_search_core::posting::ScalarKey;
 use objekte_search_core::posting_values::PostingValuesRequest;
 use objekte_search_core::repository::SearchHit;
@@ -897,18 +898,37 @@ impl DesktopController {
         };
         // These values describe the successful Open draft, not a later edit
         // in the dialog while the current repository remains active.
-        match self.open_draft.as_ref().map(|draft| draft.index_storage) {
-            Some(StorageChoice::Memory) => {
-                self.index_ui.storage_location = "Memory only".into();
-                self.index_ui.residency = "Entire index in memory".into();
-                self.index_ui.synchronization = "No index files are read or written".into();
-                self.index_ui.managed_directory = None;
+        self.index_ui.storage_location = match self.open_draft.as_ref().map(|draft| draft.index_storage) {
+            Some(StorageChoice::Memory) => "Memory only",
+            Some(StorageChoice::Temporary) => "System temporary folder",
+            Some(StorageChoice::Repository) => "Repository folder",
+            Some(StorageChoice::Custom) => "Custom folder",
+            None => "Index storage",
+        }.into();
+        match session.repository.index().storage_status() {
+            Ok(storage) => {
+                self.index_ui.managed_directory = storage.managed_directory.as_ref().map(|path| path.display().to_string());
+                self.index_ui.residency = match storage.readiness {
+                    IndexReadiness::Building => "Building index",
+                    IndexReadiness::Searchable => "Searchable on demand",
+                    IndexReadiness::PreparingFullResidency => "Preparing full residency",
+                    IndexReadiness::FullyResidentReady => "Entire index in memory",
+                }.into();
+                if !storage.source_reconciliation_complete {
+                    self.index_ui.residency.push_str("; checking source files");
+                }
+                self.index_ui.synchronization = match storage.synchronization {
+                    IndexSynchronization::MemoryOnly => "No index files are read or written".into(),
+                    IndexSynchronization::Pending => format!("Pending (current generation {}, durable generation {})", storage.current_generation, storage.durable_generation.map_or_else(|| "none".into(), |generation| generation.to_string())),
+                    IndexSynchronization::Synchronizing => "Synchronizing index files".into(),
+                    IndexSynchronization::Synchronized => format!("Synchronized generation {}", storage.durable_generation.unwrap_or(storage.current_generation)),
+                    IndexSynchronization::Failed => format!("Failed: {}", storage.last_error.as_deref().unwrap_or("unknown storage error")),
+                };
             }
-            _ => {
-                self.index_ui.storage_location = "Stored index".into();
-                self.index_ui.residency = "Preparing".into();
-                self.index_ui.synchronization = "Status unavailable".into();
+            Err(error) => {
                 self.index_ui.managed_directory = None;
+                self.index_ui.residency = "Status unavailable".into();
+                self.index_ui.synchronization = format!("Status unavailable: {error}");
             }
         }
         self.index_ui.loaded_from = session
@@ -4117,6 +4137,17 @@ impl DesktopController {
             updates.push(UiUpdate::CloseReady);
             return;
         };
+        match session.repository.index().storage_status() {
+            Ok(status) if status.managed_directory.is_some() => {
+                self.close_with_storage_flush(session, updates);
+                return;
+            }
+            Err(error) => {
+                updates.push(UiUpdate::ClosingIndex { error: Some(error.to_string()) });
+                return;
+            }
+            _ => {}
+        }
         if !self.index_ui.automatic_save {
             self.close_without_saving(updates);
             return;
@@ -4160,6 +4191,33 @@ impl DesktopController {
         self.automatic_check_epoch
             .store(self.automatic_check_operation_id, Ordering::Release);
         self.invalidate_automatic_save_policy();
+    }
+
+    fn close_with_storage_flush(&mut self, session: OpenedSession, updates: &mut Vec<UiUpdate>) {
+        self.invalidate_policy_for_close();
+        self.closing = true;
+        self.close_operation_id = self.close_operation_id.wrapping_add(1);
+        let operation_id = self.close_operation_id;
+        let open_generation = self.open_generation;
+        let sender = self.worker_tx.clone();
+        let check_gate = Arc::clone(&self.automatic_check_gate);
+        let save_gate = Arc::clone(&self.automatic_save_gate);
+        updates.push(UiUpdate::ClosingIndex { error: None });
+        thread::spawn(move || {
+            let result = match check_gate.lock() {
+                Ok(_check_gate) => match save_gate.lock() {
+                    Ok(_save_gate) => backend::index_lifecycle::shutdown_with_storage_flush(&session)
+                        .map_err(|error| error.to_string()),
+                    Err(_) => Err("automatic saving coordinator is unavailable".into()),
+                },
+                Err(_) => Err("automatic checking coordinator is unavailable".into()),
+            };
+            let _ = sender.send(WorkerEvent::IndexShutdown {
+                open_generation,
+                operation_id,
+                result,
+            });
+        });
     }
 
     fn invalidate_automatic_save_policy(&mut self) {
