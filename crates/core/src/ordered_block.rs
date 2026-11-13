@@ -19,14 +19,6 @@ fn codec() -> impl Options {
         .reject_trailing_bytes()
 }
 
-fn encode_key<K: Serialize>(key: &K) -> Result<Vec<u8>, String> {
-    let bytes = codec().serialize(key).map_err(|error| error.to_string())?;
-    if bytes.len() > MAX_KEY_BYTES {
-        return Err("dictionary key exceeds format limit".into());
-    }
-    Ok(bytes)
-}
-
 fn decode_key<K: DeserializeOwned>(bytes: &[u8]) -> Result<K, String> {
     codec()
         .with_limit(bytes.len() as u64)
@@ -35,7 +27,8 @@ fn decode_key<K: DeserializeOwned>(bytes: &[u8]) -> Result<K, String> {
 }
 
 struct PendingEntry {
-    bytes: Vec<u8>,
+    key_start: usize,
+    key_length: usize,
     posting: PostingDescriptor,
 }
 
@@ -66,6 +59,7 @@ fn flush_leaf(
     writer: &mut dyn Write,
     position: &mut u64,
     pending: &mut Vec<PendingEntry>,
+    key_arena: &[u8],
     blocks: &mut Vec<EncodedBlockMeta>,
 ) -> Result<(), String> {
     if pending.is_empty() {
@@ -84,15 +78,20 @@ fn flush_leaf(
         let offset = u32::try_from(entry_offset).map_err(|_| "leaf offset overflow")?;
         write_counted(writer, position, &offset.to_le_bytes())?;
         entry_offset = entry_offset
-            .checked_add(4 + entry.bytes.len() + 24)
+            .checked_add(4 + entry.key_length + 24)
             .ok_or("dictionary entry overflow")?;
     }
-    let first = pending.first().unwrap().bytes.clone();
-    let last = pending.last().unwrap().bytes.clone();
+    let key_bytes = |entry: &PendingEntry| {
+        key_arena
+            .get(entry.key_start..entry.key_start + entry.key_length)
+            .ok_or("dictionary key arena out of bounds")
+    };
+    let first = key_bytes(pending.first().unwrap())?.to_vec();
+    let last = key_bytes(pending.last().unwrap())?.to_vec();
     for entry in pending.drain(..) {
-        let len = u32::try_from(entry.bytes.len()).map_err(|_| "dictionary key too large")?;
+        let len = u32::try_from(entry.key_length).map_err(|_| "dictionary key too large")?;
         write_counted(writer, position, &len.to_le_bytes())?;
-        write_counted(writer, position, &entry.bytes)?;
+        write_counted(writer, position, key_bytes(&entry)?)?;
         write_counted(writer, position, &entry.posting.encode())?;
     }
     blocks.push(EncodedBlockMeta {
@@ -111,6 +110,7 @@ pub(crate) struct OrderedBlockWriter<K, W: Write> {
     writer: W,
     position: u64,
     pending: Vec<PendingEntry>,
+    key_arena: Vec<u8>,
     pending_size: usize,
     blocks: Vec<EncodedBlockMeta>,
     previous: Option<K>,
@@ -123,6 +123,7 @@ impl<K: Ord + Clone + Serialize, W: Write> OrderedBlockWriter<K, W> {
             writer,
             position: 0,
             pending: Vec::new(),
+            key_arena: Vec::new(),
             pending_size: 4,
             blocks: Vec::new(),
             previous: None,
@@ -137,9 +138,18 @@ impl<K: Ord + Clone + Serialize, W: Write> OrderedBlockWriter<K, W> {
             }
             self.previous = Some(key.clone());
         }
-        let bytes = encode_key(key)?;
+        let key_start = self.key_arena.len();
+        if let Err(error) = codec().serialize_into(&mut self.key_arena, key) {
+            self.key_arena.truncate(key_start);
+            return Err(error.to_string());
+        }
+        let key_length = self.key_arena.len() - key_start;
+        if key_length > MAX_KEY_BYTES {
+            self.key_arena.truncate(key_start);
+            return Err("dictionary key exceeds format limit".into());
+        }
         let entry_size = 4usize
-            .checked_add(bytes.len())
+            .checked_add(key_length)
             .and_then(|length| length.checked_add(24 + 4))
             .ok_or("dictionary entry size overflow")?;
         if !self.pending.is_empty()
@@ -149,14 +159,26 @@ impl<K: Ord + Clone + Serialize, W: Write> OrderedBlockWriter<K, W> {
                 &mut self.writer,
                 &mut self.position,
                 &mut self.pending,
+                &self.key_arena,
                 &mut self.blocks,
             )?;
+            self.key_arena.copy_within(key_start.., 0);
+            self.key_arena.truncate(key_length);
+            // An exceptional long key should not pin its allocation for every
+            // later ordinary leaf in the same dictionary.
+            if self.key_arena.capacity() > 1024 * 1024 && key_length < TARGET_LEAF_BYTES {
+                self.key_arena.shrink_to(TARGET_LEAF_BYTES);
+            }
             self.pending_size = 4;
         }
         self.pending_size = self.pending_size
             .checked_add(entry_size)
             .ok_or("dictionary leaf size overflow")?;
-        self.pending.push(PendingEntry { bytes, posting });
+        self.pending.push(PendingEntry {
+            key_start: self.key_arena.len() - key_length,
+            key_length,
+            posting,
+        });
         Ok(())
     }
 
@@ -165,6 +187,7 @@ impl<K: Ord + Clone + Serialize, W: Write> OrderedBlockWriter<K, W> {
             &mut self.writer,
             &mut self.position,
             &mut self.pending,
+            &self.key_arena,
             &mut self.blocks,
         )?;
         let directory_offset = self.position;
