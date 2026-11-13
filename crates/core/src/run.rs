@@ -4208,7 +4208,9 @@ fn search_segmented_impl(
             } else {
                 None
             };
-            let mut files: BTreeMap<u32, Vec<(u32, ByteRange)>> = BTreeMap::new();
+            // A physical file usually contributes one candidate. Keep that
+            // range in the map node and allocate only for multi-record files.
+            let mut files: BTreeMap<u32, SmallVec<[(u32, ByteRange); 1]>> = BTreeMap::new();
             for slot in candidates.iter() {
                 let record = segment
                     .record(RecordSlot(slot))
