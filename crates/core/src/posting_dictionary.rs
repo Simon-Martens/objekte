@@ -8,7 +8,9 @@ use std::sync::{Arc, Mutex, OnceLock};
 use roaring::RoaringBitmap;
 use serde::{Serialize, de::DeserializeOwned};
 
-use crate::ordered_block::{DictionaryCursor, OrderedBlockDictionary, write_ordered_dictionary};
+use crate::ordered_block::{
+    DictionaryCursor, OrderedBlockDictionary, OrderedBlockWriter, write_ordered_dictionary,
+};
 use crate::segment_format::{
     MIN_CACHED_POSTING_BYTES, PostingDescriptor, SectionKind, SegmentReader,
 };
@@ -165,15 +167,15 @@ fn append_visited_inner<K: Ord + Clone + Serialize, P: PostingSink + ?Sized>(
     visit: impl FnOnce(&mut dyn FnMut(&K, &RoaringBitmap) -> Result<(), String>) -> Result<(), String>,
 ) -> Result<DictionarySpan, String> {
     let start = section.len();
-    let mut entries = Vec::new();
+    let mut ordered = OrderedBlockWriter::<K, _>::new(&mut *section, validate_domain);
     visit(&mut |key, posting| {
         if validate_domain && !posting.is_subset(allowed) {
             return Err("dictionary posting outside current segment domain".into());
         }
-        entries.push((key.clone(), pack.append(posting)?));
+        ordered.push(key, pack.append(posting)?)?;
         Ok(())
     })?;
-    write_ordered_dictionary(section, entries)?;
+    ordered.finish()?;
     Ok(DictionarySpan {
         start,
         length: section.len() - start,

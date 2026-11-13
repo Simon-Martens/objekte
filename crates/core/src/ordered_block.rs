@@ -34,10 +34,17 @@ fn decode_key<K: DeserializeOwned>(bytes: &[u8]) -> Result<K, String> {
         .map_err(|error| format!("invalid dictionary key: {error}"))
 }
 
-struct PendingEntry<K> {
-    key: K,
+struct PendingEntry {
     bytes: Vec<u8>,
     posting: PostingDescriptor,
+}
+
+struct EncodedBlockMeta {
+    offset: u64,
+    length: u32,
+    count: u32,
+    first: Vec<u8>,
+    last: Vec<u8>,
 }
 
 struct BlockMeta<K> {
@@ -55,11 +62,11 @@ fn write_counted(writer: &mut dyn Write, position: &mut u64, bytes: &[u8]) -> Re
     writer.write_all(bytes).map_err(|error| error.to_string())
 }
 
-fn flush_leaf<K: Clone>(
+fn flush_leaf(
     writer: &mut dyn Write,
     position: &mut u64,
-    pending: &mut Vec<PendingEntry<K>>,
-    blocks: &mut Vec<BlockMeta<K>>,
+    pending: &mut Vec<PendingEntry>,
+    blocks: &mut Vec<EncodedBlockMeta>,
 ) -> Result<(), String> {
     if pending.is_empty() {
         return Ok(());
@@ -71,29 +78,24 @@ fn flush_leaf<K: Clone>(
     let count = u32::try_from(pending.len()).map_err(|_| "leaf entry count overflow")?;
     write_counted(writer, position, &count.to_le_bytes())?;
     let mut entry_offset = 4usize
-        .checked_add(
-            pending
-                .len()
-                .checked_mul(4)
-                .ok_or("leaf offset table overflow")?,
-        )
+        .checked_add(pending.len().checked_mul(4).ok_or("leaf offset table overflow")?)
         .ok_or("leaf offset table overflow")?;
     for entry in pending.iter() {
         let offset = u32::try_from(entry_offset).map_err(|_| "leaf offset overflow")?;
         write_counted(writer, position, &offset.to_le_bytes())?;
         entry_offset = entry_offset
             .checked_add(4 + entry.bytes.len() + 24)
-            .ok_or("leaf entry overflow")?;
+            .ok_or("dictionary entry overflow")?;
     }
-    let first = pending.first().unwrap().key.clone();
-    let last = pending.last().unwrap().key.clone();
+    let first = pending.first().unwrap().bytes.clone();
+    let last = pending.last().unwrap().bytes.clone();
     for entry in pending.drain(..) {
         let len = u32::try_from(entry.bytes.len()).map_err(|_| "dictionary key too large")?;
         write_counted(writer, position, &len.to_le_bytes())?;
         write_counted(writer, position, &entry.bytes)?;
         write_counted(writer, position, &entry.posting.encode())?;
     }
-    blocks.push(BlockMeta {
+    blocks.push(EncodedBlockMeta {
         offset: start,
         length: u32::try_from(*position - start).map_err(|_| "leaf block too large")?,
         count,
@@ -103,67 +105,110 @@ fn flush_leaf<K: Clone>(
     Ok(())
 }
 
-/// Bulk-load sorted keys. Only one leaf and the sparse directory are retained
-/// during sealing; the output can be a file stream or an owned memory buffer.
-pub(crate) fn write_ordered_dictionary<K: Ord + Clone + Serialize>(
-    writer: &mut dyn Write,
-    entries: impl IntoIterator<Item = (K, PostingDescriptor)>,
-) -> Result<(), String> {
-    let mut position = 0u64;
-    let mut pending = Vec::<PendingEntry<K>>::new();
-    let mut pending_size = 4usize;
-    let mut blocks = Vec::<BlockMeta<K>>::new();
-    let mut previous: Option<K> = None;
-    for (key, posting) in entries {
-        if previous.as_ref().is_some_and(|last| last >= &key) {
-            return Err("dictionary keys must be strictly ordered".into());
+/// Incremental leaf writer. The visitor retains only one leaf's encoded keys
+/// and the sparse directory, avoiding a second vector of every dictionary key.
+pub(crate) struct OrderedBlockWriter<K, W: Write> {
+    writer: W,
+    position: u64,
+    pending: Vec<PendingEntry>,
+    pending_size: usize,
+    blocks: Vec<EncodedBlockMeta>,
+    previous: Option<K>,
+    validate_order: bool,
+}
+
+impl<K: Ord + Clone + Serialize, W: Write> OrderedBlockWriter<K, W> {
+    pub(crate) fn new(writer: W, validate_order: bool) -> Self {
+        Self {
+            writer,
+            position: 0,
+            pending: Vec::new(),
+            pending_size: 4,
+            blocks: Vec::new(),
+            previous: None,
+            validate_order,
         }
-        let bytes = encode_key(&key)?;
+    }
+
+    pub(crate) fn push(&mut self, key: &K, posting: PostingDescriptor) -> Result<(), String> {
+        if self.validate_order {
+            if self.previous.as_ref().is_some_and(|last| last >= key) {
+                return Err("dictionary keys must be strictly ordered".into());
+            }
+            self.previous = Some(key.clone());
+        }
+        let bytes = encode_key(key)?;
         let entry_size = 4usize
             .checked_add(bytes.len())
             .and_then(|length| length.checked_add(24 + 4))
             .ok_or("dictionary entry size overflow")?;
-        if !pending.is_empty() && pending_size.saturating_add(entry_size) > TARGET_LEAF_BYTES {
-            flush_leaf(writer, &mut position, &mut pending, &mut blocks)?;
-            pending_size = 4;
+        if !self.pending.is_empty()
+            && self.pending_size.saturating_add(entry_size) > TARGET_LEAF_BYTES
+        {
+            flush_leaf(
+                &mut self.writer,
+                &mut self.position,
+                &mut self.pending,
+                &mut self.blocks,
+            )?;
+            self.pending_size = 4;
         }
-        pending_size = pending_size
+        self.pending_size = self.pending_size
             .checked_add(entry_size)
             .ok_or("dictionary leaf size overflow")?;
-        previous = Some(key.clone());
-        pending.push(PendingEntry {
-            key,
-            bytes,
-            posting,
-        });
+        self.pending.push(PendingEntry { bytes, posting });
+        Ok(())
     }
-    flush_leaf(writer, &mut position, &mut pending, &mut blocks)?;
-    let directory_offset = position;
-    write_counted(
-        writer,
-        &mut position,
-        &u32::try_from(blocks.len())
-            .map_err(|_| "dictionary block count overflow")?
-            .to_le_bytes(),
-    )?;
-    for block in blocks {
-        write_counted(writer, &mut position, &block.offset.to_le_bytes())?;
-        write_counted(writer, &mut position, &block.length.to_le_bytes())?;
-        write_counted(writer, &mut position, &block.count.to_le_bytes())?;
-        for key in [&block.first, &block.last] {
-            let bytes = encode_key(key)?;
-            write_counted(
-                writer,
-                &mut position,
-                &u32::try_from(bytes.len())
-                    .map_err(|_| "dictionary boundary key too large")?
-                    .to_le_bytes(),
-            )?;
-            write_counted(writer, &mut position, &bytes)?;
+
+    pub(crate) fn finish(mut self) -> Result<(), String> {
+        flush_leaf(
+            &mut self.writer,
+            &mut self.position,
+            &mut self.pending,
+            &mut self.blocks,
+        )?;
+        let directory_offset = self.position;
+        write_counted(
+            &mut self.writer,
+            &mut self.position,
+            &u32::try_from(self.blocks.len())
+                .map_err(|_| "dictionary block count overflow")?
+                .to_le_bytes(),
+        )?;
+        for block in self.blocks {
+            write_counted(&mut self.writer, &mut self.position, &block.offset.to_le_bytes())?;
+            write_counted(&mut self.writer, &mut self.position, &block.length.to_le_bytes())?;
+            write_counted(&mut self.writer, &mut self.position, &block.count.to_le_bytes())?;
+            for bytes in [&block.first, &block.last] {
+                write_counted(
+                    &mut self.writer,
+                    &mut self.position,
+                    &u32::try_from(bytes.len())
+                        .map_err(|_| "dictionary boundary key too large")?
+                        .to_le_bytes(),
+                )?;
+                write_counted(&mut self.writer, &mut self.position, bytes)?;
+            }
         }
+        write_counted(
+            &mut self.writer,
+            &mut self.position,
+            &directory_offset.to_le_bytes(),
+        )?;
+        Ok(())
     }
-    write_counted(writer, &mut position, &directory_offset.to_le_bytes())?;
-    Ok(())
+}
+
+/// Bulk-load sorted keys while retaining at most one leaf and its directory.
+pub(crate) fn write_ordered_dictionary<K: Ord + Clone + Serialize>(
+    writer: &mut dyn Write,
+    entries: impl IntoIterator<Item = (K, PostingDescriptor)>,
+) -> Result<(), String> {
+    let mut output = OrderedBlockWriter::<K, _>::new(writer, true);
+    for (key, posting) in entries {
+        output.push(&key, posting)?;
+    }
+    output.finish()
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
