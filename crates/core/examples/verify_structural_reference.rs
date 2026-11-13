@@ -34,7 +34,10 @@ fn main() -> Result<(), String> {
         },
     )?;
     for id in selected {
-        let case = cases.iter().find(|case| case.id == id).ok_or_else(|| id.clone())?;
+        let case = cases
+            .iter()
+            .find(|case| case.id == id)
+            .ok_or_else(|| id.clone())?;
         let query = case.query()?;
         let actual = repo.search(&query)?;
         let reference = repo.search_reference(&query)?;
