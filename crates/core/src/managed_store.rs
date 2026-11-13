@@ -12,6 +12,7 @@ use sha2::{Digest, Sha256};
 
 use crate::index_storage::{IndexResidency, ResolvedIndexStorage};
 use crate::inventory::ActiveRecords;
+use crate::model::CollectionId;
 use crate::segment_format::{FORMAT_VERSION, REQUIRED_SECTIONS, SectionKind, SegmentReader};
 
 const MANIFEST_MAGIC: &[u8; 8] = b"OBJHMAN1";
@@ -28,6 +29,8 @@ const DEPRECATED_NAMES: [&str; 2] = ["search-core-ascii.snapshot", "search-core-
 struct SegmentRecord {
     name: String,
     length: u64,
+    collection: CollectionId,
+    ordinal: u64,
     active: ActiveRecords,
 }
 
@@ -53,6 +56,8 @@ pub(crate) enum SegmentInput<'a> {
     },
     New {
         bytes: Arc<[u8]>,
+        collection: CollectionId,
+        ordinal: u64,
         active: &'a ActiveRecords,
     },
 }
@@ -62,6 +67,7 @@ pub(crate) struct OpenedGeneration {
     pub catalog: Option<Arc<[u8]>>,
     pub segment_names: Vec<String>,
     pub segments: Vec<Arc<SegmentReader>>,
+    pub identities: Vec<(CollectionId, u64)>,
     pub active: Vec<ActiveRecords>,
 }
 
@@ -203,6 +209,7 @@ impl ManagedStore {
             .transpose()?;
         let mut segments = Vec::with_capacity(manifest.segments.len());
         let mut names = Vec::with_capacity(manifest.segments.len());
+        let mut identities = Vec::with_capacity(manifest.segments.len());
         let mut active = Vec::with_capacity(manifest.segments.len());
         for record in &manifest.segments {
             let path = self.directory.join(&record.name);
@@ -223,6 +230,7 @@ impl ManagedStore {
                 }
             }
             names.push(record.name.clone());
+            identities.push((record.collection, record.ordinal));
             segments.push(Arc::new(reader));
             active.push(record.active.clone());
         }
@@ -231,6 +239,7 @@ impl ManagedStore {
             catalog,
             segment_names: names,
             segments,
+            identities,
             active,
         }))
     }
@@ -344,7 +353,15 @@ impl ManagedStore {
                     next.segments.push(record);
                     stats.segments_reused += 1;
                 }
-                SegmentInput::New { bytes, active } => {
+                SegmentInput::New {
+                    bytes,
+                    collection,
+                    ordinal,
+                    active,
+                } => {
+                    if *ordinal == 0 {
+                        return Err("segment ordinal must be nonzero".into());
+                    }
                     let reader = SegmentReader::from_owned(Arc::clone(bytes))?;
                     reader.require_complete_sections()?;
                     let name = format!("segment-{generation:016x}-{index:08x}-{nonce:016x}.idx");
@@ -357,6 +374,8 @@ impl ManagedStore {
                     next.segments.push(SegmentRecord {
                         name,
                         length: bytes.len() as u64,
+                        collection: *collection,
+                        ordinal: *ordinal,
                         active: (*active).clone(),
                     });
                     stats.segment_bytes_written = stats
@@ -374,6 +393,16 @@ impl ManagedStore {
             != next.segments.len()
         {
             return Err("duplicate segment in new generation".into());
+        }
+        if next
+            .segments
+            .iter()
+            .map(|record| (record.collection, record.ordinal))
+            .collect::<HashSet<_>>()
+            .len()
+            != next.segments.len()
+        {
+            return Err("duplicate segment identity in new generation".into());
         }
         let bytes = self.encode_manifest(&next)?;
         let temporary = self.directory.join(format!("manifest-{nonce:016x}.tmp"));
@@ -609,6 +638,8 @@ impl ManagedStore {
             bytes.extend_from_slice(&(record.name.len() as u16).to_le_bytes());
             bytes.extend_from_slice(record.name.as_bytes());
             bytes.extend_from_slice(&record.length.to_le_bytes());
+            bytes.extend_from_slice(&record.collection.0.to_le_bytes());
+            bytes.extend_from_slice(&record.ordinal.to_le_bytes());
             bytes.extend_from_slice(&record.active.slot_count().to_le_bytes());
             bytes.extend_from_slice(
                 &u32::try_from(record.active.len())
@@ -681,19 +712,25 @@ impl ManagedStore {
             _ => return Err("manifest catalog marker invalid".into()),
         };
         let count = cursor.u32()? as usize;
-        if generation == 0 || count > MAX_SEGMENTS || count > cursor.remaining() / 23 {
+        if generation == 0 || count > MAX_SEGMENTS || count > cursor.remaining() / 35 {
             return Err("manifest generation or segment count invalid".into());
         }
         let mut segments = Vec::with_capacity(count);
         let mut names = HashSet::with_capacity(count);
+        let mut identities = HashSet::with_capacity(count);
         for _ in 0..count {
             let name_len = cursor.u16()? as usize;
             let name = std::str::from_utf8(cursor.take(name_len)?)
                 .map_err(|_| "segment name is not UTF-8")?
                 .to_owned();
             let length = cursor.u64()?;
+            let collection = CollectionId(cursor.u32()?);
+            let ordinal = cursor.u64()?;
             if !valid_segment_name(&name) || length == 0 || !names.insert(name.clone()) {
                 return Err("manifest segment entry invalid".into());
+            }
+            if ordinal == 0 || !identities.insert((collection, ordinal)) {
+                return Err("manifest segment identity invalid".into());
             }
             let slot_count = cursor.u32()?;
             let live_count = cursor.u32()?;
@@ -721,6 +758,8 @@ impl ManagedStore {
             segments.push(SegmentRecord {
                 name,
                 length,
+                collection,
+                ordinal,
                 active,
             });
         }

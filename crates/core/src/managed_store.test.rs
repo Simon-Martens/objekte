@@ -60,6 +60,8 @@ fn full_residency_owns_bytes_and_checks_all_sections() {
             None,
             1,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 1,
                 bytes: Arc::from(complete_segment(4)),
                 active: &fixture.active,
             }],
@@ -86,6 +88,8 @@ fn opening_validates_metadata_but_defers_posting_payload_integrity_on_demand() {
             None,
             1,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 2,
                 bytes: Arc::from(complete_segment(5)),
                 active: &fixture.active,
             }],
@@ -147,6 +151,8 @@ fn publishes_new_and_reused_segments_without_rewriting_old_bytes() {
             None,
             1,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 3,
                 bytes: Arc::clone(&first),
                 active: &fixture.active,
             }],
@@ -167,6 +173,8 @@ fn publishes_new_and_reused_segments_without_rewriting_old_bytes() {
                     active: &fixture.active,
                 },
                 SegmentInput::New {
+                    collection: CollectionId(0),
+                    ordinal: 4,
                     bytes: Arc::clone(&second),
                     active: &fixture.active,
                 },
@@ -178,6 +186,10 @@ fn publishes_new_and_reused_segments_without_rewriting_old_bytes() {
     let current = fixture.store.read_generation().unwrap().unwrap();
     assert_eq!(current.generation, 2);
     assert_eq!(current.segments.len(), 2);
+    assert_eq!(
+        current.identities,
+        vec![(CollectionId(0), 3), (CollectionId(0), 4)]
+    );
     let unknown = fixture.store.path().join("ordinary-user-file.txt");
     fs::write(&unknown, b"preserve").unwrap();
     let orphan = fixture
@@ -193,6 +205,8 @@ fn publishes_new_and_reused_segments_without_rewriting_old_bytes() {
             Some(2),
             3,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 5,
                 bytes: Arc::clone(&third),
                 active: &fixture.active,
             }],
@@ -228,6 +242,8 @@ fn catalog_sidecar_is_atomically_replaced_checked_and_reclaimed() {
             None,
             1,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 6,
                 bytes: Arc::from(complete_segment(1)),
                 active: &fixture.active,
             }],
@@ -282,6 +298,8 @@ fn truncated_manifest_is_an_error_and_interrupted_temp_is_ignored() {
             None,
             1,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 7,
                 bytes: Arc::clone(&bytes),
                 active: &fixture.active,
             }],
@@ -310,6 +328,8 @@ fn rejects_unknown_existing_segment_and_generation_rewind() {
             None,
             1,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 8,
                 bytes: Arc::clone(&bytes),
                 active: &fixture.active,
             }],
@@ -336,6 +356,32 @@ fn rejects_unknown_existing_segment_and_generation_rewind() {
 }
 
 #[test]
+fn duplicate_segment_identity_cannot_replace_durable_generation() {
+    let fixture = TestStore::new();
+    let bytes: Arc<[u8]> = Arc::from(complete_segment(3));
+    let result = fixture.store.commit_generation(
+        None,
+        1,
+        &[
+            SegmentInput::New {
+                bytes: Arc::clone(&bytes),
+                collection: CollectionId(0),
+                ordinal: 7,
+                active: &fixture.active,
+            },
+            SegmentInput::New {
+                bytes,
+                collection: CollectionId(0),
+                ordinal: 7,
+                active: &fixture.active,
+            },
+        ],
+    );
+    assert!(result.err().unwrap().contains("duplicate segment identity"));
+    assert!(fixture.store.read_generation().unwrap().is_none());
+}
+
+#[test]
 fn stale_writer_cannot_replace_a_newer_durable_generation() {
     let fixture = TestStore::new();
     let first: Arc<[u8]> = Arc::from(complete_segment(1));
@@ -345,6 +391,8 @@ fn stale_writer_cannot_replace_a_newer_durable_generation() {
             None,
             1,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 9,
                 bytes: first,
                 active: &fixture.active,
             }],
@@ -358,6 +406,8 @@ fn stale_writer_cannot_replace_a_newer_durable_generation() {
                 None,
                 2,
                 &[SegmentInput::New {
+                    collection: CollectionId(0),
+                    ordinal: 10,
                     bytes: Arc::clone(&second),
                     active: &fixture.active,
                 }]
@@ -371,6 +421,8 @@ fn stale_writer_cannot_replace_a_newer_durable_generation() {
             Some(1),
             2,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 11,
                 bytes: second,
                 active: &fixture.active,
             }],
@@ -384,6 +436,8 @@ fn stale_writer_cannot_replace_a_newer_durable_generation() {
                 Some(1),
                 3,
                 &[SegmentInput::New {
+                    collection: CollectionId(0),
+                    ordinal: 12,
                     bytes: third,
                     active: &fixture.active,
                 }]
@@ -406,6 +460,8 @@ fn reused_segment_publishes_retirement_mask_without_rewriting_bytes() {
             None,
             1,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 13,
                 bytes: Arc::from(complete_segment(6)),
                 active: &fixture.active,
             }],
@@ -468,6 +524,8 @@ fn active_manifest_semantics_are_checked_after_checksum() {
             None,
             1,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 14,
                 bytes: Arc::from(complete_segment(6)),
                 active: &fixture.active,
             }],
@@ -591,6 +649,8 @@ fn obsolete_symlink_is_not_followed_or_removed() {
             None,
             1,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 15,
                 bytes: Arc::clone(&first),
                 active: &fixture.active,
             }],
@@ -615,6 +675,8 @@ fn obsolete_symlink_is_not_followed_or_removed() {
             Some(1),
             2,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 16,
                 bytes: second,
                 active: &fixture.active,
             }],
@@ -731,6 +793,8 @@ fn refuses_writable_lock_and_segment_files() {
             None,
             1,
             &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 17,
                 bytes: Arc::from(complete_segment(1)),
                 active: &fixture.active,
             }],
