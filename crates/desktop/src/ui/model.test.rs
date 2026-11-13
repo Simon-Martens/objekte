@@ -1,6 +1,27 @@
 use super::*;
 
 #[test]
+fn open_draft_maps_storage_and_residency_to_core_policy() {
+    let mut draft = OpenDraft::default();
+    let memory = draft.storage_policy().unwrap();
+    assert_eq!(memory.location, IndexStorageLocation::MemoryOnly);
+    assert_eq!(memory.residency, IndexResidency::FullyResident);
+
+    draft.index_storage = StorageChoice::Temporary;
+    assert_eq!(draft.storage_policy().unwrap().residency, IndexResidency::OnDemand);
+    draft.index_storage = StorageChoice::Repository;
+    assert_eq!(draft.storage_policy().unwrap().location, IndexStorageLocation::RepositoryDirectory);
+
+    draft.index_storage = StorageChoice::Custom;
+    assert!(draft.storage_policy().unwrap_err().contains("base folder"));
+    draft.index_directory = "/tmp/index base".into();
+    draft.keep_entire_index_in_memory = true;
+    let custom = draft.storage_policy().unwrap();
+    assert_eq!(custom.location, IndexStorageLocation::CustomDirectory("/tmp/index base".into()));
+    assert_eq!(custom.residency, IndexResidency::FullyResident);
+}
+
+#[test]
 fn page_bounds_rows_columns_and_multibyte_cells_without_changing_total() {
     let rows = (0..MAX_PAGE_ROWS + 3)
         .map(|n| ResultRow {

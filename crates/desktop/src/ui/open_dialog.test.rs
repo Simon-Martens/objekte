@@ -63,7 +63,6 @@ fn adding_and_removing_rows_switches_to_multiple_folder_request() {
         Ok(DetectedSource::ConfiguredRepository {
             collections: 2,
             schema_files: vec!["/tmp/one/.objekte/collections/a.json".into()],
-            default_cache: "/tmp/one/.objekte/.cache/index-ascii.bin".into(),
         }),
     );
     let second = dialog.add_folder();
@@ -78,7 +77,7 @@ fn adding_and_removing_rows_switches_to_multiple_folder_request() {
 }
 
 #[test]
-fn configured_repository_uses_settings_unless_manual_policy_is_selected() {
+fn configured_repository_defaults_to_memory_and_custom_requires_a_base_folder() {
     let mut dialog = OpenDialogState::default();
     dialog.show();
     dialog.edit_folder(0, "/tmp/one".into());
@@ -86,19 +85,28 @@ fn configured_repository_uses_settings_unless_manual_policy_is_selected() {
     dialog.accept_detection(generation, &path, Ok(DetectedSource::ConfiguredRepository {
         collections: 1,
         schema_files: vec!["/tmp/one/.objekte/collections/a.json".into()],
-        default_cache: "/tmp/one/.objekte/.cache/index-ascii.bin".into(),
     }));
     let default = dialog.to_open_draft(&OpenDraft::default()).unwrap();
     assert_eq!(default.mode, OpenMode::ConfiguredRepository);
-    assert!(default.configured_use_repository_settings);
-    let manual = OpenDraft {
-        configured_use_repository_settings: false,
-        snapshot: super::super::model::SnapshotMode::Load,
+    assert_eq!(default.index_storage, StorageChoice::Memory);
+    let custom = OpenDraft {
+        index_storage: StorageChoice::Custom,
         ..OpenDraft::default()
     };
-    assert!(dialog.to_open_draft(&manual).unwrap_err().contains("concrete index location"));
-    let manual = OpenDraft { snapshot_directory: "/tmp/index.bin".into(), ..manual };
-    assert_eq!(dialog.to_open_draft(&manual).unwrap().snapshot_directory, "/tmp/index.bin");
+    assert!(dialog.to_open_draft(&custom).unwrap_err().contains("base folder"));
+    let custom = OpenDraft { index_directory: "/tmp/indexes".into(), ..custom };
+    assert_eq!(dialog.to_open_draft(&custom).unwrap().index_directory, "/tmp/indexes");
+}
+
+#[test]
+fn custom_folder_picker_rejects_late_results() {
+    let mut dialog = OpenDialogState::default();
+    dialog.show();
+    let generation = dialog.begin_index_picker().unwrap();
+    assert!(dialog.accept_index_picker(generation));
+    let stale = dialog.begin_index_picker().unwrap();
+    dialog.close();
+    assert!(!dialog.accept_index_picker(stale));
 }
 
 #[test]

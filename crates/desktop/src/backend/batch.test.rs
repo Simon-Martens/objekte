@@ -26,6 +26,9 @@ fn stable(mut events: Vec<Value>) -> Vec<Value> {
             record.remove("generation");
         }
         object.remove("index_revision");
+        // The retained desktop view is complete while the direct CLI command
+        // reports its final incremental-build fallback count explicitly.
+        object.remove("fallback_records");
         object.retain(|key, _| {
             !key.ends_with("_ms") && !matches!(key.as_str(), "build_parses" | "build_failed_parses")
         });

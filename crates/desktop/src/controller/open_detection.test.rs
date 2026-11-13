@@ -19,7 +19,6 @@ fn existing_configured_repository_is_recognized_without_opening_data() {
     let DetectedSource::ConfiguredRepository {
         collections,
         schema_files,
-        default_cache,
     } = detected
     else {
         panic!("expected configured repository");
@@ -31,7 +30,6 @@ fn existing_configured_repository_is_recognized_without_opening_data() {
             .iter()
             .all(|path| path.ends_with(".schema.json"))
     );
-    assert!(default_cache.contains(".objekte"));
 }
 
 #[test]

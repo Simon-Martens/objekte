@@ -16,7 +16,7 @@ use gpui_kit::{
 
 use super::DesktopView;
 use super::model::UiAction;
-use super::model::{OpenDraft, OpenMode};
+use super::model::{OpenDraft, OpenMode, StorageChoice};
 
 
 /// Explicit source interpretation selected under Advanced options.
@@ -60,6 +60,7 @@ pub struct OpenDialogState {
     pub picker_generation: u64,
     pub pending_picker_slot: Option<usize>,
     pub pending_schema_picker: bool,
+    pub pending_index_picker: bool,
     pub error: Option<String>,
 }
 
@@ -76,6 +77,7 @@ impl Default for OpenDialogState {
             picker_generation: 0,
             pending_picker_slot: None,
             pending_schema_picker: false,
+            pending_index_picker: false,
             error: None,
         }
     }
@@ -96,6 +98,7 @@ impl OpenDialogState {
         self.picker_generation = self.picker_generation.wrapping_add(1);
         self.pending_picker_slot = None;
         self.pending_schema_picker = false;
+        self.pending_index_picker = false;
         self.detection = DetectionState::Idle;
         self.error = None;
     }
@@ -176,6 +179,7 @@ impl OpenDialogState {
         self.picker_generation = self.picker_generation.wrapping_add(1);
         self.pending_picker_slot = Some(slot);
         self.pending_schema_picker = false;
+        self.pending_index_picker = false;
         Some(self.picker_generation)
     }
 
@@ -198,6 +202,7 @@ impl OpenDialogState {
         self.picker_generation = self.picker_generation.wrapping_add(1);
         self.pending_picker_slot = None;
         self.pending_schema_picker = true;
+        self.pending_index_picker = false;
         Some(self.picker_generation)
     }
 
@@ -206,6 +211,25 @@ impl OpenDialogState {
             return false;
         }
         self.pending_schema_picker = false;
+        true
+    }
+
+    pub fn begin_index_picker(&mut self) -> Option<u64> {
+        if !self.visible {
+            return None;
+        }
+        self.picker_generation = self.picker_generation.wrapping_add(1);
+        self.pending_picker_slot = None;
+        self.pending_schema_picker = false;
+        self.pending_index_picker = true;
+        Some(self.picker_generation)
+    }
+
+    pub fn accept_index_picker(&mut self, generation: u64) -> bool {
+        if !self.visible || !self.pending_index_picker || self.picker_generation != generation {
+            return false;
+        }
+        self.pending_index_picker = false;
         true
     }
 
@@ -251,12 +275,7 @@ impl OpenDialogState {
         };
         let mut draft = template.clone();
         draft.mode = mode;
-        if !(mode == OpenMode::ConfiguredRepository && draft.configured_use_repository_settings)
-            && draft.snapshot != super::model::SnapshotMode::None
-            && draft.snapshot_directory.trim().is_empty()
-        {
-            return Err("Choose a concrete index location for this opening policy".into());
-        }
+        draft.storage_policy()?;
         draft.paths = self
             .folders
             .iter()
@@ -271,6 +290,7 @@ impl OpenDialogState {
         self.picker_generation = self.picker_generation.wrapping_add(1);
         self.pending_picker_slot = None;
         self.pending_schema_picker = false;
+        self.pending_index_picker = false;
         self.detection = DetectionState::Idle;
         self.error = None;
     }
@@ -360,12 +380,12 @@ impl DesktopView {
                     false,
                 )),
                 DetectionState::Ready {
-                    source: DetectedSource::ConfiguredRepository { collections, schema_files, default_cache },
+                    source: DetectedSource::ConfiguredRepository { collections, schema_files },
                     ..
                 } => Some((
                     "Objekte repository detected".to_owned(),
                     format!(
-                        "{collections} configured collections · Schemas: {} · Default index: {default_cache}. Use repository settings to load a compatible index without writing automatically.",
+                        "{collections} configured collections · Schemas: {}. Index storage defaults to memory only.",
                         if schema_files.is_empty() { "none".to_owned() } else { schema_files.join(", ") },
                     ),
                     false,
@@ -392,19 +412,7 @@ impl DesktopView {
                             ..
                         }
                     ));
-        let stored = self.state.open.snapshot;
-        let configured_mode = folders.len() == 1
-            && (source_choice == SourceChoice::ConfiguredRepository
-                || source_choice == SourceChoice::Automatic
-                    && matches!(
-                        self.state.open_dialog.detection,
-                        DetectionState::Ready {
-                            source: DetectedSource::ConfiguredRepository { .. },
-                            ..
-                        }
-                    ));
-        let use_repository_settings = configured_mode
-            && self.state.open.configured_use_repository_settings;
+        let stored = self.state.open.index_storage;
         let can_open = self
             .state
             .open_dialog
@@ -413,13 +421,17 @@ impl DesktopView {
             && self.state.busy != super::state::Busy::Opening;
         let surface_width = (window_width - 24.).clamp(320., 600.);
         let surface_height = (window_height - 24.).clamp(160., 700.);
-        let advanced_summary = if use_repository_settings {
-            "Configured repository settings will select schemas and a compatible stored index. No automatic index write is enabled.".to_owned()
-        } else if self.state.open.snapshot == super::model::SnapshotMode::None {
-            "Source files are read-only. No index file will be saved.".to_owned()
-        } else {
-            format!("Source files are read-only. Stored index: {:?}.", stored)
+        let mut advanced_summary = match stored {
+            StorageChoice::Memory => "Index stays in memory; no index files are read or written.".to_owned(),
+            StorageChoice::Temporary => "Index synchronizes to the system temporary folder.".to_owned(),
+            StorageChoice::Repository => "Index synchronizes inside this repository's .objekte/indexes folder.".to_owned(),
+            StorageChoice::Custom if self.state.open.index_directory.trim().is_empty() =>
+                "Choose a custom index base folder.".to_owned(),
+            StorageChoice::Custom => format!("Index synchronizes beneath {}.", self.state.open.index_directory.trim()),
         };
+        if stored != StorageChoice::Memory && self.state.open.keep_entire_index_in_memory {
+            advanced_summary.push_str(" The entire index is kept in memory after preparation.");
+        }
         let mut content = div()
             .id("open-dialog-content")
             .max_h(px((surface_height - 120.).clamp(40., 550.)))
@@ -629,55 +641,59 @@ impl DesktopView {
                             div()
                                 .text_xs()
                                 .font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                                .child("Stored index"),
+                                .child("Index storage"),
                         )
-                        .when(configured_mode, |this| {
-                            this.child(
-                                Button::new("open-use-repository-settings")
-                                    .label("Use repository settings")
-                                    .selected(use_repository_settings)
-                                    .on_click(cx.listener(|this, _, _, cx| {
-                                        this.state.open.configured_use_repository_settings = true;
-                                        cx.notify();
-                                    })),
-                            )
-                        })
                         .child(
                             div().flex().flex_wrap().gap_2().children(
                                 [
-                                    (super::model::SnapshotMode::None, "Build in memory"),
-                                    (super::model::SnapshotMode::Load, "Load selected index"),
-                                    (super::model::SnapshotMode::Write, "Build and save"),
-                                    (
-                                        super::model::SnapshotMode::LoadAndWrite,
-                                        "Load or rebuild and save",
-                                    ),
+                                    (StorageChoice::Memory, "Memory only"),
+                                    (StorageChoice::Temporary, "System temporary folder"),
+                                    (StorageChoice::Repository, "Repository folder"),
+                                    (StorageChoice::Custom, "Custom folder…"),
                                 ]
                                 .into_iter()
                                 .map(|(mode, label)| {
-                                    Button::new(format!("open-snapshot-{mode:?}"))
+                                    Button::new(format!("open-storage-{mode:?}"))
                                         .label(label)
-                                        .selected(!use_repository_settings && stored == mode)
+                                        .selected(stored == mode)
                                         .on_click(cx.listener(move |this, _, _, cx| {
-                                            this.state.open.snapshot = mode;
-                                            this.state.open.configured_use_repository_settings = false;
+                                            this.state.open.index_storage = mode;
+                                            this.state.open_dialog.error = None;
+                                            this.state.errors.remove(&super::model::ErrorField::Open);
+                                            if this.state.busy != super::state::Busy::Opening {
+                                                this.state.status = "Ready to open".into();
+                                            }
                                             cx.notify();
                                         }))
                                 }),
                             ),
                         )
-                        .when(!use_repository_settings && stored != super::model::SnapshotMode::None, |this| {
+                        .when(stored == StorageChoice::Custom, |this| {
                             this.child(
-                                Input::new(&self.inputs.snapshot_directory)
+                                div().flex().items_center().gap_2()
+                                    .child(Input::new(&self.inputs.index_directory)
                                     .id("open-index-directory")
-                                    .w_full(),
+                                    .w_full())
+                                    .child(Button::new("open-index-directory-browse")
+                                        .label("Browse…")
+                                        .on_click(cx.listener(|this, _, _, _| this.pick_open_index_directory()))),
                             )
                             .child(
                                 div().text_xs().text_color(rgb(secondary)).child(
-                                    "Choose the exact index file or legacy index directory. The selected location will be shown after opening.",
+                                    "Choose a base folder; Objekte creates its own index directory beneath it.",
                                 ),
                             )
-                        }),
+                        })
+                        .when(stored != StorageChoice::Memory, |this| this.child(
+                            Checkbox::new("open-index-full-residency")
+                                .accessibility_label("Keep entire index in memory")
+                                .checked(self.state.open.keep_entire_index_in_memory)
+                                .child("Keep entire index in memory")
+                                .on_change(cx.listener(|this, checked: &bool, _, cx| {
+                                    this.state.open.keep_entire_index_in_memory = *checked;
+                                    cx.notify();
+                                }))
+                        )),
                 );
         }
         content = content.child(
@@ -794,6 +810,9 @@ impl DesktopView {
             input.update(cx, |input, cx| input.set_value(path.clone(), window, cx));
         }
         self.start_open_detection();
+        self.inputs.index_directory.update(cx, |input, cx| {
+            input.set_value(self.state.open.index_directory.clone(), window, cx)
+        });
         let focus = self.inputs.open_folder.read(cx).focus_handle(cx);
         window.focus(&focus, cx);
         cx.notify();
@@ -898,10 +917,16 @@ impl DesktopView {
         }
     }
 
+    pub(super) fn pick_open_index_directory(&mut self) {
+        if let Some(generation) = self.state.open_dialog.begin_index_picker() {
+            self.send(UiAction::ChooseIndexDirectory { generation });
+        }
+    }
+
     pub(super) fn submit_open_dialog(&mut self, cx: &mut Context<Self>) {
         let mut template = self.state.open.clone();
         template.schema = self.inputs.schema.read(cx).value().to_string();
-        template.snapshot_directory = self.inputs.snapshot_directory.read(cx).value().to_string();
+        template.index_directory = self.inputs.index_directory.read(cx).value().to_string();
         match self.state.open_dialog.to_open_draft(&template) {
             Ok(draft) => {
                 self.state.open = draft.clone();
