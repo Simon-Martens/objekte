@@ -201,20 +201,42 @@ impl SealedBigramIndex {
         if allowed.max().is_some_and(|slot| slot >= record_count) {
             return Err("bigram eligible domain exceeds record slots".into());
         }
-        let normal = SealedPostingDictionary::open(
+        let mut normal_presence = None;
+        let mut normal_presence_initialized = false;
+        let normal = SealedPostingDictionary::open_visiting_entries(
             Arc::clone(&reader),
             SectionKind::BigramDictionaries,
             spans.normal,
             Arc::clone(&allowed),
+            |entries, key| {
+                if !normal_presence_initialized {
+                    normal_presence = GramPresence::new(entries)?;
+                    normal_presence_initialized = true;
+                }
+                if let Some(presence) = &mut normal_presence {
+                    presence.insert(*key);
+                }
+                Ok(())
+            },
         )?;
-        let skip = SealedPostingDictionary::open(
+        let mut skip_presence = None;
+        let mut skip_presence_initialized = false;
+        let skip = SealedPostingDictionary::open_visiting_entries(
             reader,
             SectionKind::BigramDictionaries,
             spans.skip,
             allowed,
+            |entries, key| {
+                if !skip_presence_initialized {
+                    skip_presence = GramPresence::new(entries)?;
+                    skip_presence_initialized = true;
+                }
+                if let Some(presence) = &mut skip_presence {
+                    presence.insert(*key);
+                }
+                Ok(())
+            },
         )?;
-        let normal_presence = GramPresence::from_dictionary(&normal)?;
-        let skip_presence = GramPresence::from_dictionary(&skip)?;
         Ok(Self {
             alphabet,
             record_count,

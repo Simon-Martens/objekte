@@ -309,6 +309,25 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
         })
     }
 
+    pub(crate) fn open_visiting_entries(
+        reader: Arc<SegmentReader>,
+        section: SectionKind,
+        span: DictionarySpan,
+        allowed: Arc<RoaringBitmap>,
+        visit: impl FnMut(usize, &K) -> Result<(), String>,
+    ) -> Result<Self, String> {
+        let dictionary = OrderedBlockDictionary::open_visiting_entries(
+            Arc::clone(&reader), section, span.start, span.length, visit,
+        )?;
+        Ok(Self {
+            reader,
+            dictionary,
+            allowed,
+            constructed: false,
+            validated: Mutex::new(HashMap::new()),
+        })
+    }
+
     /// The bytes and descriptors came directly from the checked in-process
     /// writer. External segments must use `open` and validate every leaf.
     pub(crate) fn from_constructed(

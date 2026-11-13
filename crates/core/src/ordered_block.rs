@@ -351,7 +351,18 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         start: usize,
         length: usize,
     ) -> Result<Self, String> {
-        Self::open_impl(reader, section, start, length, true)
+        Self::open_impl(reader, section, start, length, true, None)
+    }
+
+    /// Collect keys during the mandatory external leaf validation pass.
+    pub(crate) fn open_visiting_entries(
+        reader: Arc<SegmentReader>,
+        section: SectionKind,
+        start: usize,
+        length: usize,
+        mut visit: impl FnMut(usize, &K) -> Result<(), String>,
+    ) -> Result<Self, String> {
+        Self::open_impl(reader, section, start, length, true, Some(&mut visit))
     }
 
     /// Only for a dictionary just emitted by `write_ordered_dictionary` into
@@ -363,7 +374,7 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         start: usize,
         length: usize,
     ) -> Result<Self, String> {
-        Self::open_impl(reader, section, start, length, false)
+        Self::open_impl(reader, section, start, length, false, None)
     }
 
     fn open_impl(
@@ -372,6 +383,7 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         start: usize,
         length: usize,
         validate_leaves: bool,
+        mut visit: Option<&mut dyn FnMut(usize, &K) -> Result<(), String>>,
     ) -> Result<Self, String> {
         let whole = reader
             .section(section)?
@@ -418,6 +430,10 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         if position != footer || (count == 0 && directory_offset != 0) {
             return Err("dictionary directory trailing bytes".into());
         }
+        let entry_count = blocks.iter().try_fold(0usize, |total, block| {
+            total.checked_add(block.count as usize)
+                .ok_or("dictionary entry count overflow")
+        })?;
         let mut total = 0usize;
         let mut previous_end = 0usize;
         let mut previous_key: Option<K> = None;
@@ -469,6 +485,9 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
                 reader.validate_posting_descriptor(descriptor)?;
                 if last.as_ref().is_some_and(|prior| prior >= &key) {
                     return Err("dictionary leaf keys are unordered".into());
+                }
+                if let Some(visit) = visit.as_mut() {
+                    visit(entry_count, &key)?;
                 }
                 if first.is_none() {
                     first = Some(key.clone());
