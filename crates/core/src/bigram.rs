@@ -241,7 +241,7 @@ impl BigramRequest {
         Self::from_folded(&fold(literal))
     }
 
-    fn grams(&self, alphabet: BigramAlphabet) -> &[(bool, u64)] {
+    pub(crate) fn grams(&self, alphabet: BigramAlphabet) -> &[(bool, u64)] {
         match alphabet {
             BigramAlphabet::Ascii => &self.ascii,
             BigramAlphabet::Unicode => &self.unicode,

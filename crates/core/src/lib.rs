@@ -7,6 +7,7 @@
 pub const MODEL_VERSION: u32 = 11;
 
 pub mod bigram;
+mod bigram_dictionary;
 mod build;
 mod byte_size_literal;
 pub mod clock_context;

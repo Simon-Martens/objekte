@@ -66,9 +66,17 @@ pub(crate) fn append_dictionary<K: Ord + Clone + Serialize>(
     pack: &mut PostingPack,
     map: &BTreeMap<K, RoaringBitmap>,
 ) -> Result<DictionarySpan, String> {
+    append_entries(section, pack, map.iter())
+}
+
+pub(crate) fn append_entries<'a, K: 'a + Ord + Clone + Serialize>(
+    section: &mut Vec<u8>,
+    pack: &mut PostingPack,
+    entries: impl IntoIterator<Item = (&'a K, &'a RoaringBitmap)>,
+) -> Result<DictionarySpan, String> {
     let start = section.len();
-    let entries = map
-        .iter()
+    let entries = entries
+        .into_iter()
         .map(|(key, posting)| Ok((key.clone(), pack.append(posting)?)))
         .collect::<Result<Vec<_>, String>>()?;
     write_ordered_dictionary(section, entries)?;
@@ -111,6 +119,17 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
             .dictionary
             .get(key)?
             .map(|descriptor| descriptor.cardinality))
+    }
+
+    pub(crate) fn descriptor(&self, key: &K) -> Result<Option<PostingDescriptor>, String> {
+        self.dictionary.get(key)
+    }
+
+    pub(crate) fn materialize_descriptor(
+        &self,
+        descriptor: PostingDescriptor,
+    ) -> Result<RoaringBitmap, String> {
+        self.reader.materialize_posting(descriptor, &self.allowed)
     }
 
     /// `None` is a checked absent key; a present empty descriptor returns an

@@ -32,6 +32,8 @@ The initial typed posting adapter packs standard Roaring payloads, bulk-loads bu
 
 Normal and skip-1 grams remain separate per text binding. Sparse ASCII and Unicode gram dictionaries use sorted numeric keys, a block directory and posting descriptors. An optional direct ASCII ordinal table is permitted only after measured occupancy justifies its retained cost. Sort columns persist collation keys and slot permutations so opening does not regenerate full orders. Remaining record, relation, identifier and file lookup data is sectioned and measured; any indispensable accelerator rebuilt at open is reported by size and time.
 
+The internal gram adapter now packs both families into the shared payload region, sorts observed numeric gram keys without cloning their bitmap values, and uses descriptor cardinality to order intersections. Differential tests compare its candidates and estimates against the mutable ASCII and Unicode bigram index, including skip grams and separated text segments. Production query routing and persisted binding metadata remain to be connected.
+
 ## Validation and reusable evidence
 
 Validation produces evidence keyed by immutable segment identity plus the exact section, block or payload byte span. It is shared by pinned views. A newly published segment has new evidence; evicting a decoded posting cache entry does not discard evidence for unchanged bytes. No invalid input is converted to an empty posting or a missing key.
