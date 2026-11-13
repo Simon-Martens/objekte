@@ -5,6 +5,7 @@ use std::path::PathBuf;
 use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
+use objekte_search_core::completion::{self as completion_context, CompletionContext};
 use objekte_search_core::lifecycle::{
     FileCatalogueRow, IndexView, InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus,
     InitialBuildTask,
@@ -27,6 +28,7 @@ use ratatui::layout::Rect;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 use super::TuiOptions;
+use super::completion;
 use super::export;
 use super::input::Input;
 use super::record::{self, DisplayRow, RecordState};
@@ -190,6 +192,12 @@ struct Update {
     view: Option<IndexView>,
 }
 
+struct FilterCompletion {
+    context: CompletionContext,
+    choices: Vec<String>,
+    selected: usize,
+}
+
 /// Query inputs, page state, and terminal navigation for one repository.
 pub(super) struct App {
     repo: Arc<IndexedRepository>,
@@ -210,6 +218,8 @@ pub(super) struct App {
     cli_hidden: BTreeSet<String>,
     pub(super) search: Input,
     pub(super) filter: Input,
+    completion: Option<FilterCompletion>,
+    completion_suppressed: Option<(String, usize)>,
     pub(super) focus: Focus,
     pub(super) view: View,
     pub(super) overlay: Option<Overlay>,
@@ -391,6 +401,8 @@ impl App {
             cli_hidden: BTreeSet::new(),
             search: Input::with_text(&options.initial_search),
             filter: Input::with_text(&options.initial_filter),
+            completion: None,
+            completion_suppressed: None,
             focus: Focus::Search,
             view: if building { View::Files } else { View::Results },
             overlay: None,
@@ -480,6 +492,7 @@ impl App {
             if changed_domain || (!old_complete && new_complete) {
                 self.refresh_requested = true;
             }
+            self.refresh_completion();
         }
         if self.build_status.as_ref().is_some_and(|status| {
             matches!(
@@ -532,6 +545,7 @@ impl App {
         };
         self.overlay = None;
         self.status = None;
+        self.refresh_completion();
     }
 
     pub(super) fn move_file_selection(&mut self, delta: isize) {
@@ -890,6 +904,7 @@ impl App {
         self.view = View::Results;
         self.overlay = None;
         self.confirm_query();
+        self.refresh_completion();
     }
 
     pub(super) fn save_query(&mut self) {
@@ -1100,6 +1115,87 @@ impl App {
         self.last_projection_duration = None;
         self.last_search_view = None;
         self.refresh_requested = false;
+    }
+
+    pub(super) fn refresh_completion(&mut self) {
+        self.completion = None;
+        if self.focus != Focus::Filter || self.view != View::Results {
+            return;
+        }
+        let caret = self.filter.byte_at(self.filter.cursor);
+        if self
+            .completion_suppressed
+            .as_ref()
+            .is_some_and(|(text, position)| text == &self.filter.text && *position == caret)
+        {
+            return;
+        }
+        self.completion_suppressed = None;
+        let Some(context) = completion_context::context(&self.filter.text, caret) else {
+            return;
+        };
+        let scope = (self.scope != 0).then(|| self.scope_label());
+        let choices = completion::choices(&self.catalogue_view, scope, &context);
+        if !choices.is_empty() {
+            self.completion = Some(FilterCompletion {
+                context,
+                choices,
+                selected: 0,
+            });
+        }
+    }
+
+    pub(super) fn move_completion(&mut self, forward: bool) -> bool {
+        let Some(completion) = &mut self.completion else {
+            return false;
+        };
+        let count = completion.choices.len();
+        completion.selected = if forward {
+            (completion.selected + 1) % count
+        } else {
+            (completion.selected + count - 1) % count
+        };
+        true
+    }
+
+    pub(super) fn accept_completion(&mut self) -> bool {
+        let Some(completion) = self.completion.take() else {
+            return false;
+        };
+        let Some(choice) = completion.choices.get(completion.selected) else {
+            return false;
+        };
+        let Some((text, caret)) =
+            completion_context::insert(&self.filter.text, completion.context.replace, choice)
+        else {
+            return false;
+        };
+        self.filter.text = text;
+        self.filter.cursor = self.filter.text[..caret].chars().count();
+        self.changed(Instant::now());
+        self.completion_suppressed = Some((self.filter.text.clone(), caret));
+        true
+    }
+
+    pub(super) fn dismiss_completion(&mut self) -> bool {
+        if self.completion.take().is_none() {
+            return false;
+        }
+        self.completion_suppressed = Some((
+            self.filter.text.clone(),
+            self.filter.byte_at(self.filter.cursor),
+        ));
+        true
+    }
+
+    pub(super) fn completion_hint(&self) -> Option<String> {
+        let completion = self.completion.as_ref()?;
+        let choice = completion.choices.get(completion.selected)?;
+        Some(format!(
+            " Suggestion {}/{}: {choice} · Alt+↑↓ choose · Enter insert · Esc dismiss",
+            completion.selected + 1,
+            completion.choices.len(),
+        ))
     }
 
     pub(super) fn request_search(&mut self) {
@@ -1517,6 +1613,7 @@ impl App {
         self.view = View::Results;
         self.overlay = None;
         self.request_search();
+        self.refresh_completion();
     }
 
     pub(super) fn choose_sort(&mut self) {

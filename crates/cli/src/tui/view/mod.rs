@@ -269,6 +269,11 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
             footer.y,
         ));
     } else {
+        let completion_hint = if app.overlay.is_none() {
+            app.completion_hint()
+        } else {
+            None
+        };
         let build_issue = app.build_status.as_ref().and_then(|status| {
             matches!(
                 status.phase,
@@ -282,8 +287,13 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
             })
         });
         frame.render_widget(
-            Paragraph::new(build_issue.or(app.status.as_deref()).unwrap_or(hint))
-                .style(Style::new().fg(if build_issue.is_some() { RED } else { DIM })),
+            Paragraph::new(
+                build_issue
+                    .or(completion_hint.as_deref())
+                    .or(app.status.as_deref())
+                    .unwrap_or(hint),
+            )
+            .style(Style::new().fg(if build_issue.is_some() { RED } else { DIM })),
             footer,
         );
     }
@@ -1386,6 +1396,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 "Ctrl+K            All actions",
                 "Ctrl+I            File catalogue / results",
                 "Tab / Shift+Tab   Switch input and results",
+                "Filter: Alt+↑↓  Choose suggestion; Enter insert",
                 "Enter / Esc       Search, open / return",
                 "↑↓ / PgUp PgDn   Move rows or a page",
                 "Alt+←→           Scroll columns / adjacent record",
@@ -1409,6 +1420,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 "Ctrl+K            All actions",
                 "Ctrl+I            File catalogue / results",
                 "Tab / Shift+Tab   Switch input and results",
+                "Filter: Alt+↑↓  Choose suggestion; Enter insert",
                 "Enter / Esc       Search, open / return",
                 "↑↓ / PgUp PgDn   Move rows or a page",
                 "Alt+←→           Scroll result columns",

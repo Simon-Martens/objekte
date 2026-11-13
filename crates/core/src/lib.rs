@@ -10,6 +10,7 @@ pub mod bigram;
 mod build;
 mod byte_size_literal;
 pub mod clock_context;
+pub mod completion;
 mod decimal;
 pub mod diagnostics;
 pub mod discovery;

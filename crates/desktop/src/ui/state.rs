@@ -6,7 +6,7 @@ use objekte_search_core::model::FileId;
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 use std::sync::Arc;
 
-use super::completion::{CompletionContext, CompletionTarget};
+use objekte_search_core::completion::{CompletionContext, CompletionTarget};
 use super::filter_builder::FieldChoice;
 use super::model::{
     BatchRow, BatchSource, DetailView, DirectoryCatalog, ErrorField, ExportFormat, FileCatalogue,

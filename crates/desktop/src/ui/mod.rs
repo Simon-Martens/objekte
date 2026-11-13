@@ -1,6 +1,5 @@
 //! GPUI presentation and interaction state for the desktop application.
 
-mod completion;
 pub mod filter_builder;
 pub mod model;
 pub mod open_dialog;
@@ -14,6 +13,7 @@ mod theme;
 pub mod typography;
 mod workspace;
 
+use objekte_search_core::completion;
 use objekte_search_core::query::parse_structured_filter;
 use std::cell::Cell;
 use std::collections::BTreeMap;

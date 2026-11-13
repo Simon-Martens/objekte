@@ -59,6 +59,7 @@ fn boolean_field_predicates_keep_cli_results_and_errors_exact() {
     assert!(events.iter().any(|event| event["type"] == "query_error"));
 }
 
+#[cfg(feature = "tui")]
 #[test]
 fn tui_requires_terminal_and_rejects_query_file_before_building() {
     let root = tempfile::tempdir().unwrap();
@@ -81,6 +82,18 @@ fn tui_requires_terminal_and_rejects_query_file_before_building() {
         .unwrap();
     assert_eq!(output.status.code(), Some(2));
     assert!(String::from_utf8_lossy(&output.stderr).contains("--query-file"));
+}
+
+#[cfg(not(feature = "tui"))]
+#[test]
+fn tui_without_feature_reports_unavailable_support() {
+    let output = Command::new(env!("CARGO_BIN_EXE_obj"))
+        .arg("--tui")
+        .output()
+        .unwrap();
+    assert_eq!(output.status.code(), Some(2));
+    assert!(String::from_utf8_lossy(&output.stderr).contains("--tui support was not built"));
+    assert!(output.stdout.is_empty());
 }
 
 #[test]

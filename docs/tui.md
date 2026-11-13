@@ -15,8 +15,14 @@ applications can also construct definitions directly and call
 `Repository::open`.
 
 Type literal text in **Search**, or press Tab for a structured **Filter**.
-Tab again selects the results. Enter runs the query or opens a selected
-record. Ctrl+O selects a collection, Alt+S sorts within it using fields
+The Filter offers fields from the current index publication, built-in metadata,
+modifiers, Boolean literals, and bounded indexed-value suggestions. During
+construction, field suggestions refresh as inferred fields are published;
+indexed-value suggestions become available after construction completes.
+Use Alt+Up/Down to choose a suggestion, Enter to insert it, or Esc to dismiss it.
+Tab again selects the results. Enter runs the query when no suggestion is
+showing; in results, it opens the selected record. Ctrl+O selects a collection,
+Alt+S sorts within it using fields
 declared in `x-sort-indexes`, Ctrl+P toggles the preview pane, F1 shows
 keyboard help, and Ctrl+Q quits. Ctrl+R opens recent queries, Ctrl+B opens
 saved queries, and Ctrl+S saves the current one. Alt+L shows or hides result

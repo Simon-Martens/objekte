@@ -70,6 +70,23 @@ fn keys_switch_inputs_open_detail_and_choose_collection() {
 }
 
 #[test]
+fn filter_enter_inserts_suggestion_then_returns_to_query_action() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    key(app, KeyEvent::new(KeyCode::Tab, KeyModifiers::NONE));
+    for ch in "tit".chars() {
+        key(app, KeyEvent::new(KeyCode::Char(ch), KeyModifiers::NONE));
+    }
+    assert_eq!(app.focus, Focus::Filter);
+    assert!(app.completion_hint().unwrap().contains("title"));
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    assert_eq!(app.filter.text, "title");
+    assert!(app.completion_hint().is_none());
+    key(app, KeyEvent::new(KeyCode::Esc, KeyModifiers::NONE));
+    assert_eq!(app.focus, Focus::Search);
+}
+
+#[test]
 fn old_search_mode_shortcuts_toggle_new_core_requests() {
     let mut fixture = fixture(2);
     let app = &mut fixture.app;

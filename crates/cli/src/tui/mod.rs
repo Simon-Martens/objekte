@@ -2,6 +2,7 @@
 
 mod app;
 mod clipboard;
+mod completion;
 mod export;
 mod input;
 mod record;
@@ -667,6 +668,13 @@ fn key(app: &mut App, key: KeyEvent) {
         }
         return;
     }
+    if app.focus == Focus::Filter
+        && key.modifiers.contains(KeyModifiers::ALT)
+        && matches!(key.code, KeyCode::Up | KeyCode::Down)
+        && app.move_completion(key.code == KeyCode::Down)
+    {
+        return;
+    }
     match key.code {
         KeyCode::Tab => {
             app.focus = match app.focus {
@@ -674,6 +682,7 @@ fn key(app: &mut App, key: KeyEvent) {
                 Focus::Filter => Focus::Results,
                 Focus::Results => Focus::Search,
             };
+            app.refresh_completion();
         }
         KeyCode::BackTab => {
             app.focus = match app.focus {
@@ -681,12 +690,22 @@ fn key(app: &mut App, key: KeyEvent) {
                 Focus::Filter => Focus::Search,
                 Focus::Results => Focus::Filter,
             };
+            app.refresh_completion();
         }
-        KeyCode::Esc => app.focus = Focus::Search,
+        KeyCode::Esc => {
+            if app.focus != Focus::Filter || !app.dismiss_completion() {
+                app.focus = Focus::Search;
+                app.refresh_completion();
+            }
+        }
         KeyCode::Enter if app.focus == Focus::Results => {
             app.open_detail();
         }
-        KeyCode::Enter => app.confirm_query(),
+        KeyCode::Enter => {
+            if app.focus != Focus::Filter || !app.accept_completion() {
+                app.confirm_query();
+            }
+        }
         KeyCode::Up => {
             app.focus = Focus::Results;
             app.move_selection(-1);
@@ -718,8 +737,12 @@ fn key(app: &mut App, key: KeyEvent) {
                 Focus::Filter => &mut app.filter,
                 Focus::Results => unreachable!(),
             };
-            if input.key(key) == Some(true) {
+            let changed = input.key(key);
+            if changed == Some(true) {
                 app.changed(Instant::now());
+            }
+            if app.focus == Focus::Filter && changed.is_some() {
+                app.refresh_completion();
             }
         }
     }

@@ -13,6 +13,38 @@ fn settled(app: &mut App) {
 }
 
 #[test]
+fn filter_completion_uses_current_schema_metadata_and_posting_keys() {
+    let mut fixture = fixture(3);
+    let app = &mut fixture.app;
+    app.focus = Focus::Filter;
+    app.scope = 1;
+    app.filter = Input::with_text("tit");
+    app.refresh_completion();
+    assert!(app.completion.as_ref().unwrap().choices.contains(&"title".into()));
+    assert!(app.accept_completion());
+    assert_eq!(app.filter.text, "title");
+    app.refresh_completion();
+    assert!(app.completion.is_none(), "accepted text must not capture Enter again");
+
+    app.filter = Input::with_text("title = nee");
+    app.refresh_completion();
+    assert!(app.completion.as_ref().unwrap().choices.contains(&"\"needle title\"".into()));
+    assert!(app.accept_completion());
+    assert_eq!(app.filter.text, "title = \"needle title\"");
+
+    app.filter = Input::with_text("title:nu");
+    app.refresh_completion();
+    assert!(app.completion.as_ref().unwrap().choices.contains(&"null".into()));
+    app.filter = Input::with_text("title:exists = t");
+    app.refresh_completion();
+    assert_eq!(app.completion.as_ref().unwrap().choices, ["true"]);
+
+    app.filter = Input::with_text("@file.pa");
+    app.refresh_completion();
+    assert!(app.completion.as_ref().unwrap().choices.contains(&"@file.path".into()));
+}
+
+#[test]
 fn provisional_delta_preserves_selection_and_waits_for_complete_export() {
     let mut fixture = fixture(3);
     let app = &mut fixture.app;
