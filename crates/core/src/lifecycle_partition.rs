@@ -126,13 +126,18 @@ fn compact_source_parts_with_limits(
     let projections = source
         .project_postings_for_partitions(&routing)
         .map_err(IndexError::Build)?;
+    let bigram_projections = source
+        .project_bigrams_for_partitions(&routing)
+        .map_err(IndexError::Build)?;
     let mut parts = Vec::with_capacity(selections.len());
-    for ((files, _selected), projection) in selections.into_iter().zip(projections) {
+    for (((files, _selected), projection), bigrams) in selections
+        .into_iter().zip(projections).zip(bigram_projections)
+    {
         if cancelled() {
             return Err(IndexError::Cancelled);
         }
         let mut compacted = source
-            .compact_partition_with_postings(&routing, parts.len(), &files, projection)
+            .compact_partition_with_postings(&routing, parts.len(), &files, projection, bigrams)
             .map_err(IndexError::Build)?;
         for file in &mut compacted.files {
             if let Some(current) = catalog.entry(file.entry.id) {

@@ -1324,6 +1324,12 @@ pub(crate) struct PartitionRouting {
     logical_counts: Vec<u32>,
 }
 
+pub(crate) struct BigramProjection {
+    raw: BigramIndex,
+    fallback: BigramIndex,
+    custom: HashMap<(Vec<String>, String), BigramIndex>,
+}
+
 impl PartitionRouting {
     pub(crate) fn new(
         source: &IndexedCollectionSegment,
@@ -1539,6 +1545,45 @@ fn project_bigram(
     Ok(projected)
 }
 
+fn scatter_bigram_partitions(
+    index: &BigramIndex,
+    routing: &PartitionRouting,
+) -> Result<Vec<BigramIndex>, String> {
+    let mut parts = routing.selected.iter()
+        .map(|selected| {
+            let mut part = BigramIndex::new(index.alphabet);
+            part.record_count = u32::try_from(selected.len())
+                .map_err(|_| "partition bigram slot overflow")?;
+            Ok(part)
+        })
+        .collect::<Result<Vec<_>, String>>()?;
+    index.for_each_normal(|key, bitmap| {
+        for old in bitmap.iter() {
+            if let Some((part, slot)) = routing
+                .locations
+                .get(old as usize)
+                .ok_or("bigram posting outside source")?
+            {
+                parts[*part].normal.entry(*key).or_default().insert(slot.0);
+            }
+        }
+        Ok(())
+    })?;
+    index.for_each_skip(|key, bitmap| {
+        for old in bitmap.iter() {
+            if let Some((part, slot)) = routing
+                .locations
+                .get(old as usize)
+                .ok_or("bigram posting outside source")?
+            {
+                parts[*part].skip.entry(*key).or_default().insert(slot.0);
+            }
+        }
+        Ok(())
+    })?;
+    Ok(parts)
+}
+
 fn project_sorting(
     source: &SortCollection,
     slots: &SlotMap<'_>,
@@ -1748,6 +1793,29 @@ fn project_inference(
 }
 
 impl IndexedCollectionSegment {
+    /// Decode each gram dictionary once and scatter its posting members to
+    /// bounded destinations. A sealed source may have no mutable gram maps.
+    pub(crate) fn project_bigrams_for_partitions(
+        &self,
+        routing: &PartitionRouting,
+    ) -> Result<Vec<BigramProjection>, String> {
+        let raw = scatter_bigram_partitions(&self.raw, routing)?;
+        let fallback = scatter_bigram_partitions(&self.fallback_text, routing)?;
+        let mut custom = (0..routing.selected.len())
+            .map(|_| HashMap::with_capacity(self.custom_text.len()))
+            .collect::<Vec<_>>();
+        for (key, index) in &self.custom_text {
+            for (destination, projected) in scatter_bigram_partitions(index, routing)?
+                .into_iter().enumerate()
+            {
+                custom[destination].insert(key.clone(), projected);
+            }
+        }
+        Ok(raw.into_iter().zip(fallback).zip(custom)
+            .map(|((raw, fallback), custom)| BigramProjection { raw, fallback, custom })
+            .collect())
+    }
+
     /// Scatter typed posting dictionaries through the partition map once.
     /// Repeatedly projecting the complete source dictionary for each output
     /// shard is quadratic in the number of partitions for unique IDs.
@@ -2016,6 +2084,7 @@ impl IndexedCollectionSegment {
             retain_file,
             posting_projection,
             None,
+            None,
         )?;
         Ok(CompactedSegment {
             active: ActiveRecords::all(index.records.len())?,
@@ -2030,6 +2099,7 @@ impl IndexedCollectionSegment {
         part: usize,
         selected_files: &HashSet<FileId>,
         projection: PostingProjection,
+        bigrams: BigramProjection,
     ) -> Result<IndexedCollectionSegment, String> {
         let selected = routing
             .selected
@@ -2046,6 +2116,7 @@ impl IndexedCollectionSegment {
             next,
             |entry| selected_files.contains(&entry.id),
             Some(projection),
+            Some(bigrams),
             Some(&file_indices),
         )
     }
@@ -2056,6 +2127,7 @@ impl IndexedCollectionSegment {
         next: u32,
         retain_file: impl Fn(&FileEntry) -> bool,
         posting_projection: Option<PostingProjection>,
+        bigram_projection: Option<BigramProjection>,
         selected_files: Option<&[usize]>,
     ) -> Result<IndexedCollectionSegment, String> {
         let mut files = Vec::new();
@@ -2199,15 +2271,19 @@ impl IndexedCollectionSegment {
                 .collect::<Result<HashMap<_, _>, _>>()?;
             (postings, custom_postings)
         };
-        let raw = project_bigram(&self.raw, &slot_map, next, bounds)?;
-        let fallback_text = project_bigram(&self.fallback_text, &slot_map, next, bounds)?;
-        let custom_text = self
-            .custom_text
-            .iter()
-            .map(|(key, index)| {
-                project_bigram(index, &slot_map, next, bounds).map(|index| (key.clone(), index))
-            })
-            .collect::<Result<HashMap<_, _>, _>>()?;
+        let (raw, fallback_text, custom_text) = if let Some(projected) = bigram_projection {
+            (projected.raw, projected.fallback, projected.custom)
+        } else {
+            let raw = project_bigram(&self.raw, &slot_map, next, bounds)?;
+            let fallback = project_bigram(&self.fallback_text, &slot_map, next, bounds)?;
+            let custom = self.custom_text.iter()
+                .map(|(key, index)| {
+                    project_bigram(index, &slot_map, next, bounds)
+                        .map(|index| (key.clone(), index))
+                })
+                .collect::<Result<HashMap<_, _>, _>>()?;
+            (raw, fallback, custom)
+        };
         let sorting = project_sorting(&self.sorting, &slot_map, &records)?;
         let inference = project_inference(
             &self.inference,
