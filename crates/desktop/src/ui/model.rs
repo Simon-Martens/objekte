@@ -38,16 +38,6 @@ pub enum OpenMode {
     ConfiguredRepository,
 }
 
-/// Snapshot operation chosen explicitly by the user.
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub enum SnapshotMode {
-    #[default]
-    None,
-    Write,
-    Load,
-    LoadAndWrite,
-}
-
 /// Presentation choice for the shared core index storage policy.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum StorageChoice {
@@ -645,23 +635,13 @@ pub enum UiAction {
         path: String,
         output_path: String,
     },
-    WriteIndex,
-    Index {
-        mode: SnapshotMode,
-        directory: String,
-    },
     CheckForChanges,
-    SaveIndex,
-    SaveIndexAs(String),
-    ConfirmSaveIndexAs(String),
-    LoadIndex(String),
     RebuildIndex,
     CompactIndex,
     SetAutomaticChecking {
         enabled: bool,
         interval_seconds: u64,
     },
-    SetAutomaticSaving(bool),
     CancelIndexTask(IndexTaskKind),
     RequestClose,
     RetryClose,
@@ -669,14 +649,6 @@ pub enum UiAction {
     CancelClose,
     RefreshResults,
     RefreshRecord(u64),
-    ChooseIndexLoadPath {
-        generation: u64,
-        load_after_selection: bool,
-    },
-    ChooseIndexSavePath {
-        generation: u64,
-        save_after_selection: bool,
-    },
     SetTheme {
         dark: bool,
     },
@@ -781,24 +753,13 @@ pub enum UiUpdate {
     },
     Directories(DirectoryCatalog),
     FileCatalogue(FileCatalogue),
-    /// A validated replacement for the same source configuration preserves UI drafts/tabs.
-    IndexReplaced(IndexUiStatus),
     IndexStatus(IndexUiStatus),
     ClosingIndex {
         error: Option<String>,
     },
     CloseCancelled,
     CloseReady,
-    SaveIndexOverwriteRequired(String),
     ResultsOutdated(bool),
-    ChosenIndexLoadPath {
-        generation: u64,
-        path: String,
-    },
-    ChosenIndexSavePath {
-        generation: u64,
-        path: String,
-    },
     QueryStarted {
         status: String,
         retain_preview: bool,

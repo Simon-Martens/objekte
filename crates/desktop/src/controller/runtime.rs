@@ -27,7 +27,7 @@ use crate::backend::{self, OpenSpec, OpenedSession};
 use crate::ui::model::{
     BatchRow, BatchSource as UiBatchSource, CompletionOrigin, DetailView, DirectoryCatalog,
     ErrorField, ExportFormat, FileCatalogue, FilterValidationState, IndexTaskKind, IndexTaskState,
-    IndexUiStatus, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft, SnapshotMode,
+    IndexUiStatus, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft,
     StorageChoice,
     TabFreshness, TabViewState, UiAction, UiUpdate,
 };
@@ -159,13 +159,6 @@ type OpenCompletion = Result<
     String,
 >;
 type TabCompletion = Result<Option<(SearchHit, DetailView, Vec<Option<LinkAction>>)>, String>;
-
-
-enum IndexSaveCompletion {
-    Saved(backend::index_lifecycle::SaveOutcome),
-    OverwriteRequired(PathBuf),
-    Failed(String),
-}
 
 
 #[derive(Clone)]
@@ -456,27 +449,10 @@ enum WorkerEvent {
         generation: u64,
         result: Result<Option<Vec<PathBuf>>, String>,
     },
-    PickedIndexPath {
-        generation: u64,
-        load: bool,
-        run_after_selection: bool,
-        result: Result<Option<PathBuf>, String>,
-    },
     Exported {
         open_generation: u64,
         export_generation: u64,
         result: Result<String, String>,
-    },
-    IndexSaved {
-        open_generation: u64,
-        operation_id: u64,
-        make_default: bool,
-        result: IndexSaveCompletion,
-    },
-    IndexLoaded {
-        open_generation: u64,
-        operation_id: u64,
-        result: Result<OpenedSession, String>,
     },
     IndexShutdown {
         open_generation: u64,
@@ -541,8 +517,6 @@ pub struct DesktopController {
     index_ui: IndexUiStatus,
     last_index_status_sent: Option<IndexUiStatus>,
     index_operation_id: u64,
-    save_operation_id: u64,
-    load_operation_id: u64,
     close_operation_id: u64,
     closing: bool,
     automatic_check_operation_id: u64,
@@ -553,16 +527,12 @@ pub struct DesktopController {
     automatic_save_operation_id: u64,
     automatic_save_epoch: Arc<AtomicU64>,
     automatic_save_gate: Arc<Mutex<()>>,
-    load_cancellation: CancellationToken,
-    pending_index_overwrite: Option<PathBuf>,
-    pending_save_select_default: bool,
     preferences: Option<DesktopPreferences>,
     open_diagnostics: String,
     open_draft: Option<OpenDraft>,
     opening_draft: Option<OpenDraft>,
     detection_generation: u64,
     picker_generation: u64,
-    index_picker_generation: u64,
     pending_open_generation: u64,
     open_generation: u64,
     query_generation: u64,
@@ -645,8 +615,6 @@ impl DesktopController {
                 index_ui: IndexUiStatus::default(),
                 last_index_status_sent: None,
                 index_operation_id: 0,
-                save_operation_id: 0,
-                load_operation_id: 0,
                 close_operation_id: 0,
                 closing: false,
                 automatic_check_operation_id: 0,
@@ -657,16 +625,12 @@ impl DesktopController {
                 automatic_save_operation_id: 0,
                 automatic_save_epoch: Arc::new(AtomicU64::new(0)),
                 automatic_save_gate: Arc::new(Mutex::new(())),
-                load_cancellation: CancellationToken::new(),
-                pending_index_overwrite: None,
-                pending_save_select_default: false,
                 preferences: None,
                 open_diagnostics: String::new(),
                 open_draft: None,
                 opening_draft: None,
                 detection_generation: 0,
                 picker_generation: 0,
-                index_picker_generation: 0,
                 pending_open_generation: 0,
                 open_generation: 0,
                 query_generation: 0,
@@ -720,7 +684,7 @@ impl DesktopController {
         }
         for _ in 0..128 {
             match self.workers.try_recv() {
-                Ok(event) => self.complete(event, cx, &mut updates),
+                Ok(event) => self.complete(event, &mut updates),
                 Err(_) => break,
             }
         }
@@ -1473,21 +1437,7 @@ impl DesktopController {
             } => {
                 self.start_batch(source, text, path, output_path, updates);
             }
-            UiAction::WriteIndex | UiAction::SaveIndex => {
-                self.save_index(None, false, true, cx, updates)
-            }
-            UiAction::Index { mode, directory } => match mode {
-                SnapshotMode::None => self.start_check(updates),
-                SnapshotMode::Write => self.save_index(Some(directory), false, true, cx, updates),
-                SnapshotMode::Load => self.load_index(directory, cx, updates),
-                SnapshotMode::LoadAndWrite => self.load_index(directory, cx, updates),
-            },
             UiAction::CheckForChanges => self.start_check(updates),
-            UiAction::SaveIndexAs(path) => self.save_index(Some(path), false, false, cx, updates),
-            UiAction::ConfirmSaveIndexAs(path) => {
-                self.save_index(Some(path), true, false, cx, updates)
-            }
-            UiAction::LoadIndex(path) => self.load_index(path, cx, updates),
             UiAction::RebuildIndex => {
                 self.start_maintenance(MaintenanceOperation::Rebuild, updates)
             }
@@ -1498,24 +1448,12 @@ impl DesktopController {
                 enabled,
                 interval_seconds,
             } => self.set_automatic_check(enabled, interval_seconds, updates),
-            UiAction::SetAutomaticSaving(enabled) => self.set_automatic_save(enabled, updates),
             UiAction::CancelIndexTask(kind) => self.cancel_index_task(kind, updates),
             UiAction::RequestClose | UiAction::RetryClose => self.request_close(updates),
             UiAction::CloseWithoutSaving => self.close_without_saving(updates),
             UiAction::CancelClose => self.cancel_close(updates),
             UiAction::RefreshResults => self.refresh_results_if_ready(updates),
             UiAction::RefreshRecord(id) => self.refresh_record(id, updates),
-            UiAction::ChooseIndexLoadPath {
-                generation,
-                load_after_selection,
-            } => self.choose_index_path(generation, true, load_after_selection, cx),
-            UiAction::ChooseIndexSavePath {
-                generation,
-                save_after_selection,
-            } => {
-                self.pending_save_select_default = false;
-                self.choose_index_path(generation, false, save_after_selection, cx);
-            }
             UiAction::SaveQuery(draft) => {
                 if let Some(session) = &self.session
                     && let FilterValidationState::Invalid { message, .. } =
@@ -1702,71 +1640,6 @@ impl DesktopController {
             let _ = sender.send(WorkerEvent::PickedIndexDirectory { generation, result });
         })
         .detach();
-    }
-
-    fn choose_index_path(
-        &mut self,
-        generation: u64,
-        load: bool,
-        run_after_selection: bool,
-        cx: &mut App,
-    ) {
-        let Some(session) = &self.session else {
-            return;
-        };
-        self.index_picker_generation = generation;
-        let sender = self.worker_tx.clone();
-        if load {
-            let receiver = cx.prompt_for_paths(PathPromptOptions {
-                files: true,
-                directories: false,
-                multiple: false,
-                prompt: Some("Load Objekte index".into()),
-            });
-            cx.spawn(async move |_| {
-                let result = receiver
-                    .await
-                    .map_err(|error| error.to_string())
-                    .and_then(|result| result.map_err(|error| error.to_string()))
-                    .map(|paths| paths.and_then(|paths| paths.into_iter().next()));
-                let _ = sender.send(WorkerEvent::PickedIndexPath {
-                    generation,
-                    load,
-                    run_after_selection,
-                    result,
-                });
-            })
-            .detach();
-        } else {
-            let suggested = session.configuration.cache_save.clone().unwrap_or_else(|| {
-                objekte_search_core::storage::snapshot_path_in(
-                    &session.paths.root.join(".objekte"),
-                    session.configuration.options.bigram_alphabet,
-                )
-            });
-            let directory = suggested
-                .parent()
-                .unwrap_or(&session.paths.root)
-                .to_path_buf();
-            let name = suggested
-                .file_name()
-                .and_then(|name| name.to_str())
-                .map(str::to_owned);
-            let receiver = cx.prompt_for_new_path(&directory, name.as_deref());
-            cx.spawn(async move |_| {
-                let result = receiver
-                    .await
-                    .map_err(|error| error.to_string())
-                    .and_then(|result| result.map_err(|error| error.to_string()));
-                let _ = sender.send(WorkerEvent::PickedIndexPath {
-                    generation,
-                    load,
-                    run_after_selection,
-                    result,
-                });
-            })
-            .detach();
-        }
     }
 
     fn start_open(&mut self, draft: OpenDraft, updates: &mut Vec<UiUpdate>) {
@@ -2780,7 +2653,7 @@ impl DesktopController {
         });
     }
 
-    fn complete(&mut self, event: WorkerEvent, cx: &mut App, updates: &mut Vec<UiUpdate>) {
+    fn complete(&mut self, event: WorkerEvent, updates: &mut Vec<UiUpdate>) {
         match event {
             WorkerEvent::Validated {
                 open_generation,
@@ -3490,153 +3363,6 @@ impl DesktopController {
                     }),
                 }
             }
-            WorkerEvent::PickedIndexPath {
-                generation,
-                load,
-                run_after_selection,
-                result,
-            } if generation == self.index_picker_generation => match result {
-                Ok(Some(path)) => {
-                    let path = path.display().to_string();
-                    if load {
-                        updates.push(UiUpdate::ChosenIndexLoadPath {
-                            generation,
-                            path: path.clone(),
-                        });
-                        if run_after_selection {
-                            self.load_index(path, cx, updates);
-                        }
-                    } else {
-                        updates.push(UiUpdate::ChosenIndexSavePath {
-                            generation,
-                            path: path.clone(),
-                        });
-                        if run_after_selection {
-                            self.save_index(
-                                Some(path),
-                                false,
-                                self.pending_save_select_default,
-                                cx,
-                                updates,
-                            );
-                        }
-                    }
-                }
-                Ok(None) => {}
-                Err(message) => updates.push(UiUpdate::Error {
-                    field: ErrorField::General,
-                    message: format!("Index picker failed: {message}. Enter a path instead."),
-                }),
-            },
-            WorkerEvent::IndexSaved {
-                open_generation,
-                operation_id,
-                make_default,
-                result,
-            } if open_generation == self.open_generation
-                && operation_id == self.save_operation_id =>
-            {
-                match result {
-                    IndexSaveCompletion::Saved(saved) => {
-                        if make_default && let Some(session) = &self.session {
-                            self.session =
-                                Some(session.with_first_save_target(saved.destination.clone()));
-                        }
-                        self.index_ui.save = IndexTaskState::Succeeded(
-                            if saved.current_status.revision == saved.saved_revision {
-                                "Index saved".into()
-                            } else {
-                                "Newer index changes are not saved yet".into()
-                            },
-                        );
-                        self.update_index_ui(&saved.current_status, updates);
-                    }
-                    IndexSaveCompletion::OverwriteRequired(path) => {
-                        self.pending_index_overwrite = Some(path.clone());
-                        self.index_ui.save = IndexTaskState::Failed(
-                            "This file already exists; confirm replacement".into(),
-                        );
-                        updates.push(UiUpdate::SaveIndexOverwriteRequired(
-                            path.display().to_string(),
-                        ));
-                        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
-                    }
-                    IndexSaveCompletion::Failed(message) => {
-                        self.index_ui.save = IndexTaskState::Failed(message);
-                        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
-                    }
-                }
-            }
-            WorkerEvent::IndexLoaded {
-                open_generation,
-                operation_id,
-                result,
-            } if open_generation == self.open_generation
-                && operation_id == self.load_operation_id =>
-            {
-                match result {
-                    Ok(session) => {
-                        self.invalidate_automatic_save_policy();
-                        self.cancellation.cancel();
-                        self.export_cancellation.cancel();
-                        self.batch_cancellation.cancel();
-                        self.open_generation = self.open_generation.wrapping_add(1);
-                        self.pending_directories = None;
-                        self.query_generation = self.query_generation.wrapping_add(1);
-                        self.export_generation = self.export_generation.wrapping_add(1);
-                        self.batch_generation = self.batch_generation.wrapping_add(1);
-                        self.check_task = session
-                            .repository
-                            .index()
-                            .current_reconciliation_task()
-                            .ok()
-                            .flatten();
-                        self.check_origin = self.check_task.as_ref().map(|_| CheckOrigin::Initial);
-                        self.observed_publication = session
-                            .repository
-                            .index()
-                            .status()
-                            .ok()
-                            .as_ref()
-                            .map(Publication::from);
-                        let replacement = session.clone();
-                        let old = self.session.replace(session);
-                        self.field_choices_key = None;
-                        self.request_directories();
-                        // The replacement has no periodic scheduler yet. Its
-                        // control reflects the actual state until transfer is
-                        // confirmed by the policy worker.
-                        self.index_ui.automatic_check = false;
-                        self.transfer_check_policy(replacement, old);
-                        self.invalidate_published_contexts(updates);
-                        self.index_ui.load = IndexTaskState::Succeeded("Index loaded".into());
-                        if let Some(session) = &self.session
-                            && let Ok(status) = backend::index_lifecycle::status(session)
-                        {
-                            self.update_index_ui(&status, updates);
-                        }
-                        updates.push(UiUpdate::IndexReplaced(self.index_ui.clone()));
-                        self.push_field_choices(updates);
-                        if self.check_task.is_none() {
-                            self.refresh_results_if_ready(updates);
-                        }
-                    }
-                    Err(message) => {
-                        self.index_ui.load = IndexTaskState::Failed(message);
-                        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
-                    }
-                }
-            }
-            WorkerEvent::IndexLoaded {
-                result: Ok(discarded),
-                ..
-            } => {
-                // A superseded load owns an initial reconciliation worker;
-                // ignoring the reply alone would leave that worker detached.
-                thread::spawn(move || {
-                    let _ = backend::index_lifecycle::shutdown(&discarded);
-                });
-            }
             WorkerEvent::IndexShutdown {
                 open_generation,
                 operation_id,
@@ -4185,8 +3911,6 @@ impl DesktopController {
     }
 
     fn invalidate_policy_for_close(&mut self) {
-        self.load_cancellation.cancel();
-        self.load_operation_id = self.load_operation_id.wrapping_add(1);
         self.automatic_check_operation_id = self.automatic_check_operation_id.wrapping_add(1);
         self.automatic_check_epoch
             .store(self.automatic_check_operation_id, Ordering::Release);
@@ -4365,146 +4089,6 @@ impl DesktopController {
         }
     }
 
-    fn save_index(
-        &mut self,
-        requested: Option<String>,
-        allow_replace: bool,
-        make_default: bool,
-        cx: &mut App,
-        updates: &mut Vec<UiUpdate>,
-    ) {
-        if self.initial_construction_incomplete() {
-            updates.push(UiUpdate::Status(
-                "Saving is available after indexing completes".into(),
-            ));
-            return;
-        }
-        let Some(session) = self.session.clone() else {
-            return;
-        };
-        let destination = requested
-            .filter(|path| !path.trim().is_empty())
-            .map(PathBuf::from)
-            .or_else(|| session.configuration.cache_save.clone());
-        let Some(destination) = destination else {
-            self.pending_save_select_default = make_default;
-            self.index_picker_generation = self.index_picker_generation.wrapping_add(1);
-            self.choose_index_path(self.index_picker_generation, false, true, cx);
-            return;
-        };
-        let destination = if destination.is_absolute() {
-            destination
-        } else {
-            session.paths.root.join(destination)
-        };
-        if allow_replace && self.pending_index_overwrite.as_ref() != Some(&destination) {
-            self.index_ui.save =
-                IndexTaskState::Failed("The index destination changed; choose it again".into());
-            updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
-            return;
-        }
-        if matches!(self.index_ui.save, IndexTaskState::Running { .. }) {
-            return;
-        }
-        self.pending_index_overwrite = None;
-        self.save_operation_id = self.save_operation_id.wrapping_add(1);
-        let operation_id = self.save_operation_id;
-        let open_generation = self.open_generation;
-        let sender = self.worker_tx.clone();
-        self.index_ui.save = IndexTaskState::Running {
-            operation_id,
-            processed: None,
-            total: None,
-        };
-        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
-        thread::spawn(move || {
-            let selected = session.configuration.cache_save.as_deref();
-            let same_selected = selected.is_some_and(|selected| {
-                selected == destination
-                    || matches!(
-                        (selected.canonicalize(), destination.canonicalize()),
-                        (Ok(selected), Ok(destination)) if selected == destination
-                    )
-            });
-            let result = if !allow_replace
-                && !same_selected
-                && std::fs::symlink_metadata(&destination).is_ok()
-            {
-                IndexSaveCompletion::OverwriteRequired(destination)
-            } else {
-                let save = if make_default {
-                    backend::index_lifecycle::save_index(&session, &destination, allow_replace)
-                } else {
-                    backend::index_lifecycle::save_index_copy(&session, &destination, allow_replace)
-                };
-                match save {
-                    Ok(saved) => IndexSaveCompletion::Saved(saved),
-                    Err(error) => IndexSaveCompletion::Failed(error.to_string()),
-                }
-            };
-            let _ = sender.send(WorkerEvent::IndexSaved {
-                open_generation,
-                operation_id,
-                make_default,
-                result,
-            });
-        });
-    }
-
-    fn load_index(&mut self, path: String, cx: &mut App, updates: &mut Vec<UiUpdate>) {
-        if self.initial_construction_incomplete() {
-            updates.push(UiUpdate::Status(
-                "Loading another index is available after indexing completes".into(),
-            ));
-            return;
-        }
-        let Some(session) = self.session.clone() else {
-            return;
-        };
-        if path.trim().is_empty() {
-            self.index_picker_generation = self.index_picker_generation.wrapping_add(1);
-            self.choose_index_path(self.index_picker_generation, true, true, cx);
-            return;
-        }
-        if self.index_ui.automatic_save
-            || matches!(self.index_ui.save, IndexTaskState::Running { .. })
-        {
-            self.index_ui.load = IndexTaskState::Failed(
-                "Finish saving and turn off automatic saving before loading another index".into(),
-            );
-            updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
-            return;
-        }
-        let path = PathBuf::from(path.trim());
-        let path = if path.is_absolute() {
-            path
-        } else {
-            session.paths.root.join(path)
-        };
-        self.load_cancellation.cancel();
-        self.load_cancellation = CancellationToken::new();
-        self.load_operation_id = self.load_operation_id.wrapping_add(1);
-        let operation_id = self.load_operation_id;
-        let token = self.load_cancellation.clone();
-        let open_generation = self.open_generation;
-        let sender = self.worker_tx.clone();
-        self.index_ui.load = IndexTaskState::Running {
-            operation_id,
-            processed: None,
-            total: None,
-        };
-        updates.push(UiUpdate::IndexStatus(self.index_ui.clone()));
-        thread::spawn(move || {
-            let result = backend::index_lifecycle::load_index(&session, &path, &token)
-                .map_err(|error| error.to_string());
-            let _ = sender.send(WorkerEvent::IndexLoaded {
-                open_generation,
-                operation_id,
-                result,
-            });
-        });
-    }
-
     /// Apply the latest requested periodic policy to a successfully loaded
     /// replacement before retiring the previous scheduler. The gate and
     /// epoch also prevent late toggle workers from resurrecting an old index.
@@ -4574,8 +4158,6 @@ impl DesktopController {
                 if let Some(task) = self.initial_task.take() {
                     task.cancel();
                 }
-                self.load_cancellation.cancel();
-                self.load_operation_id = self.load_operation_id.wrapping_add(1);
                 self.index_ui.load = IndexTaskState::Cancelled;
             }
             IndexTaskKind::Save => {
