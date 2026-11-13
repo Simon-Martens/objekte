@@ -22,8 +22,51 @@ pub struct CompactionReport {
     pub slots_before: u64,
     pub slots_after: u64,
     pub retired_slots_removed: u64,
+    /// Retired slots left for a later bounded compaction call.
+    pub remaining_retired_slots: u64,
+    /// Source slot metadata visited by this call.
+    pub input_records_examined: u64,
+    /// Greater of immutable segment bytes and owning file sizes per shard.
+    pub input_bytes_budgeted: u64,
+    /// Planning estimate, not an allocator count or a strict peak bound.
+    pub temporary_bytes_estimated: u64,
     pub pinned_prior_views: usize,
     pub duration: Duration,
+}
+
+#[derive(Clone, Copy)]
+struct CompactionBudget {
+    records: u64,
+    input_bytes: u64,
+    temporary_bytes: u64,
+    elapsed: Duration,
+}
+
+impl CompactionBudget {
+    // One publication batch may include several shards. A single shard can
+    // exceed a limit so that repeated calls always make forward progress.
+    const DEFAULT: Self = Self {
+        records: 32_768,
+        input_bytes: 64 * 1024 * 1024,
+        temporary_bytes: 128 * 1024 * 1024,
+        elapsed: Duration::from_secs(1),
+    };
+}
+
+#[derive(Default)]
+struct CompactionWork {
+    records: u64,
+    input_bytes: u64,
+    temporary_bytes: u64,
+}
+
+fn source_budget_bytes(source: &IndexedCollectionSegment) -> u64 {
+    let encoded = source.raw.sealed_reader()
+        .map_or(0, |reader| reader.encoded_len() as u64);
+    let file_bytes = source.files.iter()
+        .map(|file| file.entry.revision.size)
+        .fold(0u64, u64::saturating_add);
+    encoded.max(file_bytes)
 }
 
 pub(crate) fn base_as_segment(
@@ -103,14 +146,26 @@ pub(crate) fn compact_published(
     old: &PublishedIndex,
     next_revision: IndexRevision,
 ) -> Result<PublishedIndex, IndexError> {
-    compact_published_with_cancel(old, next_revision, || false)
+    let (next, _) = compact_published_with_budget(
+        old, next_revision, || false, CompactionBudget::DEFAULT,
+    )?;
+    let live = old.active.iter().map(ActiveRecords::len).sum::<u64>()
+        + old.segments.iter().flat_map(|group| group.iter())
+            .map(|segment| segment.active.len()).sum::<u64>();
+    if slot_count(&next) > live {
+        return Err(IndexError::ResourceLimit(
+            "verified compaction exceeded its work budget".into(),
+        ));
+    }
+    Ok(next)
 }
 
-fn compact_published_with_cancel(
+fn compact_published_with_budget(
     old: &PublishedIndex,
     next_revision: IndexRevision,
     cancelled: impl Fn() -> bool,
-) -> Result<PublishedIndex, IndexError> {
+    budget: CompactionBudget,
+) -> Result<(PublishedIndex, CompactionWork), IndexError> {
     if cancelled() {
         return Err(IndexError::Cancelled);
     }
@@ -123,9 +178,11 @@ fn compact_published_with_cancel(
         .iter()
         .all(|collection| collection.generation.files.is_empty())
     {
+        let started = Instant::now();
+        let mut work = CompactionWork::default();
         let mut next = old.clone();
         next.revision = next_revision;
-        for (number, group) in old.segments.iter().enumerate() {
+        'collections: for (number, group) in old.segments.iter().enumerate() {
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
@@ -134,7 +191,7 @@ fn compact_published_with_cancel(
                 continue;
             }
             let mut compacted = Vec::with_capacity(group.len());
-            for segment in group.iter() {
+            for (position, segment) in group.iter().enumerate() {
                 if cancelled() {
                     return Err(IndexError::Cancelled);
                 }
@@ -142,6 +199,22 @@ fn compact_published_with_cancel(
                     compacted.push(Arc::clone(segment));
                     continue;
                 }
+                let records = segment.index.records.len() as u64;
+                let input_bytes = source_budget_bytes(&segment.index);
+                let temporary_bytes = input_bytes.saturating_mul(3)
+                    .saturating_add(records.saturating_mul(512));
+                if work.records > 0 && (work.records.saturating_add(records) > budget.records
+                    || work.input_bytes.saturating_add(input_bytes) > budget.input_bytes
+                    || work.temporary_bytes.saturating_add(temporary_bytes) > budget.temporary_bytes
+                    || started.elapsed() >= budget.elapsed)
+                {
+                    compacted.extend(group[position..].iter().cloned());
+                    next.segments[number] = Arc::new(compacted);
+                    break 'collections;
+                }
+                work.records = work.records.saturating_add(records);
+                work.input_bytes = work.input_bytes.saturating_add(input_bytes);
+                work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
                 for part in compact_source_parts(&segment.index, &segment.active, &next.catalog, &cancelled)? {
                     if cancelled() {
                         return Err(IndexError::Cancelled);
@@ -161,7 +234,7 @@ fn compact_published_with_cancel(
             }
             next.segments[number] = Arc::new(compacted);
         }
-        return Ok(next);
+        return Ok((next, work));
     }
     let empty = Arc::new(old.repository.empty_like().map_err(IndexError::Build)?);
     let mut next =
@@ -221,13 +294,14 @@ fn compact_published_with_cancel(
         drop(compact_source);
         next.segments[number] = Arc::new(compacted);
     }
-    Ok(next)
+    Ok((next, CompactionWork::default()))
 }
 
 impl Index {
-    /// Reclaim retired base and delta records without reading source files.
-    /// Preparation runs on a pinned root; a concurrent commit causes a
-    /// bounded retry rather than overwriting that newer publication.
+    /// Reclaim retired records without reading source files. One call handles
+    /// a bounded batch; `remaining_retired_slots` tells callers when to call
+    /// again. Preparation uses a pinned root and retries publication conflicts
+    /// without replacing a newer revision.
     pub fn compact(&self) -> Result<CompactionReport, IndexError> {
         self.compact_with_control(|| false, |_, _| {})
     }
@@ -261,11 +335,17 @@ impl Index {
                     slots_before: before,
                     slots_after: before,
                     retired_slots_removed: 0,
+                    remaining_retired_slots: 0,
+                    input_records_examined: 0,
+                    input_bytes_budgeted: 0,
+                    temporary_bytes_estimated: 0,
                     pinned_prior_views: 0,
                     duration: started.elapsed(),
                 });
             }
-            let next = compact_published_with_cancel(old, view.revision().next()?, &cancelled)?;
+            let (next, work) = compact_published_with_budget(
+                old, view.revision().next()?, &cancelled, CompactionBudget::DEFAULT,
+            )?;
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
@@ -280,6 +360,10 @@ impl Index {
                         slots_before: before,
                         slots_after: after,
                         retired_slots_removed: before.saturating_sub(after),
+                        remaining_retired_slots: after.saturating_sub(live),
+                        input_records_examined: work.records,
+                        input_bytes_budgeted: work.input_bytes,
+                        temporary_bytes_estimated: work.temporary_bytes,
                         pinned_prior_views,
                         duration: started.elapsed(),
                     });

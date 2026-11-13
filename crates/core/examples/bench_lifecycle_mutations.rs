@@ -598,8 +598,14 @@ fn run(mode: &str, root: &Path) -> Result<(), Box<dyn Error>> {
         compact_elapsed,
         &index,
         format!(
-            "retired_slots_removed={};slots_after={};{}",
-            compacted.retired_slots_removed, compacted.slots_after, compact_probe
+            "retired_slots_removed={};remaining={};records_examined={};input_bytes_budgeted={};temporary_bytes_estimated={};slots_after={};{}",
+            compacted.retired_slots_removed,
+            compacted.remaining_retired_slots,
+            compacted.input_records_examined,
+            compacted.input_bytes_budgeted,
+            compacted.temporary_bytes_estimated,
+            compacted.slots_after,
+            compact_probe
         ),
     );
     let count_after = count(&index, collection)?;

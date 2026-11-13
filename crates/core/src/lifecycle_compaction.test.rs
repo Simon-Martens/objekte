@@ -99,6 +99,52 @@ fn compaction_reuses_unaffected_sealed_segment() {
 }
 
 #[test]
+fn bounded_compaction_can_resume_remaining_retired_shards() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-bounded-compact-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let keep = root.join("data/keep.json");
+    std::fs::write(&keep, br#"{"name":"keep"}"#).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        RepositoryOptions::default(),
+    ).unwrap();
+    for number in 0..2 {
+        let path = root.join(format!("data/remove-{number}.json"));
+        std::fs::write(&path, br#"{"name":"remove"}"#).unwrap();
+        let handle = index.add_file(&path).unwrap().file;
+        index.delete_file(handle).unwrap();
+        std::fs::remove_file(&path).unwrap();
+    }
+    let old = index.view().unwrap();
+    assert_eq!(slot_count(&old.0), 3);
+    let budget = CompactionBudget {
+        records: 1,
+        input_bytes: u64::MAX,
+        temporary_bytes: u64::MAX,
+        elapsed: Duration::from_secs(60),
+    };
+    let (first, work) = compact_published_with_budget(
+        &old.0, old.revision().next().unwrap(), || false, budget,
+    ).unwrap();
+    assert_eq!(work.records, 1);
+    assert_eq!(slot_count(&first), 2);
+    let (second, work) = compact_published_with_budget(
+        &first, first.revision.next().unwrap(), || false, budget,
+    ).unwrap();
+    assert_eq!(work.records, 1);
+    assert_eq!(slot_count(&second), 1);
+    assert_eq!(old.search(&all()).unwrap().count, Some(1));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     let root = std::env::temp_dir().join(format!(
         "objekte-compact-{}-{:?}",
@@ -150,6 +196,7 @@ fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     assert_eq!(report.slots_before, 3);
     assert_eq!(report.slots_after, 1);
     assert_eq!(report.retired_slots_removed, 2);
+    assert_eq!(report.remaining_retired_slots, 0);
     let after = index.view().unwrap().search(&all()).unwrap();
     assert_eq!(after.count, before.count);
     assert_eq!(after.hits.len(), before.hits.len());
