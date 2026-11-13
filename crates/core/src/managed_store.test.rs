@@ -139,6 +139,63 @@ fn complete_segment(marker: u8) -> Vec<u8> {
 }
 
 #[test]
+fn streamed_segment_failure_keeps_previous_generation_and_allows_retry() {
+    let fixture = TestStore::new();
+    let first: Arc<[u8]> = Arc::from(complete_segment(1));
+    fixture
+        .store
+        .commit_generation(
+            None,
+            1,
+            &[SegmentInput::New {
+                collection: CollectionId(0),
+                ordinal: 1,
+                bytes: first,
+                active: &fixture.active,
+            }],
+        )
+        .unwrap();
+    let failure = fixture.store.commit_generation(
+        Some(1),
+        2,
+        &[SegmentInput::NewStream {
+            collection: CollectionId(0),
+            ordinal: 2,
+            active: &fixture.active,
+            write: Box::new(|file| {
+                file.write_all(b"partial")
+                    .map_err(|error| error.to_string())?;
+                Err("injected writer failure".into())
+            }),
+        }],
+    );
+    assert!(failure.unwrap_err().contains("injected writer failure"));
+    assert_eq!(
+        fixture.store.read_generation().unwrap().unwrap().generation,
+        1
+    );
+    let bytes = complete_segment(2);
+    let committed = fixture
+        .store
+        .commit_generation(
+            Some(1),
+            2,
+            &[SegmentInput::NewStream {
+                collection: CollectionId(0),
+                ordinal: 2,
+                active: &fixture.active,
+                write: Box::new(|file| file.write_all(&bytes).map_err(|error| error.to_string())),
+            }],
+        )
+        .unwrap();
+    assert_eq!(committed.segment_bytes_written, bytes.len() as u64);
+    assert_eq!(
+        fixture.store.read_generation().unwrap().unwrap().generation,
+        2
+    );
+}
+
+#[test]
 fn publishes_new_and_reused_segments_without_rewriting_old_bytes() {
     let fixture = TestStore::new();
     assert!(fixture.store.read_generation().unwrap().is_none());

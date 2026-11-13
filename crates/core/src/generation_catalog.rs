@@ -7,19 +7,21 @@
 use std::collections::{HashMap, HashSet};
 use std::path::{Component, Path, PathBuf};
 
+use bincode::Options;
 use sha2::{Digest, Sha256};
 
 use crate::inventory::{
-    ByteRange, FileEntry, FileStatus, FileVersion, SharedPath, SourceDiagnostic, SourceRevision,
-    MAX_DIAGNOSTICS_PER_FILE, MAX_DIAGNOSTIC_CODE_BYTES, MAX_DIAGNOSTIC_MESSAGE_BYTES,
-    MAX_DIAGNOSTIC_PATH_SEGMENTS, MAX_DIAGNOSTIC_SEGMENT_BYTES,
+    ByteRange, FileEntry, FileStatus, FileVersion, MAX_DIAGNOSTIC_CODE_BYTES,
+    MAX_DIAGNOSTIC_MESSAGE_BYTES, MAX_DIAGNOSTIC_PATH_SEGMENTS, MAX_DIAGNOSTIC_SEGMENT_BYTES,
+    MAX_DIAGNOSTICS_PER_FILE, SharedPath, SourceDiagnostic, SourceRevision,
 };
 use crate::lifecycle::PublishedIndex;
 use crate::model::{CollectionId, FileId};
+use crate::repository::GlobalInferenceSummary;
 use crate::source::DiagnosticCategory;
 
 const MAGIC: &[u8; 8] = b"OBJHCAT1";
-const VERSION: u32 = 2;
+const VERSION: u32 = 3;
 const HISTORICAL_TAG: u32 = 1 << 31;
 const HEADER_BYTES: usize = 8 + 4 + 8 + 32;
 const MAX_BYTES: usize = 512 * 1024 * 1024;
@@ -28,6 +30,7 @@ const MAX_FILES: usize = 16_000_000;
 const MAX_PATH_BYTES: usize = 64 * 1024;
 const MAX_SOURCE_ID_BYTES: usize = 256;
 const MAX_DIAGNOSTIC_BYTES: usize = 16 * 1024;
+const MAX_INFERENCE_SUMMARY_BYTES: usize = 32 * 1024 * 1024;
 
 type CatalogSlot = Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>;
 
@@ -191,6 +194,16 @@ impl<'a> GenerationCatalogBuilder<'a> {
                 return Err("managed catalog exceeds byte limit".into());
             }
         }
+        for collection in self.publication.repository.collections() {
+            let summary = bincode::DefaultOptions::new()
+                .with_fixint_encoding()
+                .serialize(&collection.global_inference)
+                .map_err(|error| error.to_string())?;
+            encode_bytes(&mut bytes, &summary, MAX_INFERENCE_SUMMARY_BYTES)?;
+            if bytes.len() > MAX_BYTES {
+                return Err("managed catalog exceeds byte limit".into());
+            }
+        }
         if bytes.len() > MAX_BYTES {
             return Err("managed catalog exceeds byte limit".into());
         }
@@ -232,6 +245,7 @@ pub(crate) struct RestoredGenerationCatalog {
     pub(crate) next_segment_ordinal: u64,
     pub(crate) slots: Vec<CatalogSlot>,
     pub(crate) file_versions: Vec<FileVersion>,
+    pub(crate) inference: Vec<Option<GlobalInferenceSummary>>,
     historical: Vec<FileEntry>,
 }
 
@@ -245,7 +259,8 @@ impl RestoredGenerationCatalog {
             return Err("invalid managed catalog envelope".into());
         }
         let mut header = Reader::new(&bytes[8..HEADER_BYTES]);
-        if header.u32()? != VERSION {
+        let version = header.u32()?;
+        if version != 2 && version != VERSION {
             return Err("unsupported managed catalog version".into());
         }
         let body_len =
@@ -335,6 +350,21 @@ impl RestoredGenerationCatalog {
             distinct.entry(entry.id).or_default().push(historical.len());
             historical.push(entry);
         }
+        let inference = if version == VERSION {
+            (0..collection_count)
+                .map(|_| {
+                    let bytes = input.bytes(MAX_INFERENCE_SUMMARY_BYTES)?;
+                    bincode::DefaultOptions::new()
+                        .with_fixint_encoding()
+                        .reject_trailing_bytes()
+                        .with_limit(bytes.len() as u64)
+                        .deserialize(bytes)
+                        .map_err(|error| format!("invalid managed inference summary: {error}"))
+                })
+                .collect::<Result<Vec<_>, String>>()?
+        } else {
+            vec![None; collection_count]
+        };
         if input.remaining() != 0 {
             return Err("trailing managed catalog bytes".into());
         }
@@ -344,6 +374,7 @@ impl RestoredGenerationCatalog {
             next_segment_ordinal,
             slots,
             file_versions: versions,
+            inference,
             historical,
         })
     }
