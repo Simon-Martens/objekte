@@ -1,5 +1,67 @@
 use super::*;
 use crate::backend::test_support::write_records;
+use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation};
+
+#[test]
+fn shared_storage_opens_all_desktop_locations_and_restores_disk_generations() {
+    let root = tempfile::tempdir().unwrap();
+    let custom = tempfile::tempdir().unwrap();
+    write_records(root.path());
+    for location in [
+        IndexStorageLocation::MemoryOnly,
+        IndexStorageLocation::SystemTemporary,
+        IndexStorageLocation::RepositoryDirectory,
+        IndexStorageLocation::CustomDirectory(custom.path().to_path_buf()),
+    ] {
+        let disk = location != IndexStorageLocation::MemoryOnly;
+        let spec = OpenSpec {
+            args: Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+            storage_policy: Some(IndexStoragePolicy {
+                location,
+                residency: if disk {
+                    IndexResidency::OnDemand
+                } else {
+                    IndexResidency::FullyResident
+                },
+            }),
+            configured_cache_policy: None,
+        };
+        let first = open_incremental(&spec, &CancellationToken::new())
+            .unwrap()
+            .0;
+        let status = first.repository.index().storage_status().unwrap();
+        assert_eq!(status.managed_directory.is_some(), disk);
+        assert_eq!(status.durable_generation.is_some(), disk);
+        assert!(
+            !root
+                .path()
+                .join(".objekte")
+                .join("search-index.json")
+                .exists()
+        );
+        first.repository.index().shutdown().unwrap();
+        if disk {
+            let reopened = open_incremental(&spec, &CancellationToken::new())
+                .unwrap()
+                .0;
+            assert!(reopened.diagnostics.startup.restored);
+            assert!(
+                reopened
+                    .repository
+                    .index()
+                    .storage_status()
+                    .unwrap()
+                    .durable_generation
+                    .is_some()
+            );
+            reopened.repository.index().shutdown().unwrap();
+        }
+    }
+}
 
 #[test]
 fn opens_folder_without_implicit_snapshot_write() {
@@ -11,6 +73,7 @@ fn opens_folder_without_implicit_snapshot_write() {
     };
     let session = open(
         &OpenSpec {
+            storage_policy: None,
             args,
             cwd: root.path().to_path_buf(),
             configured_cache_policy: None,
@@ -39,6 +102,7 @@ fn repeated_paths_keep_cli_collection_names() {
     };
     let session = open(
         &OpenSpec {
+            storage_policy: None,
             args,
             cwd: root.path().to_path_buf(),
             configured_cache_policy: None,
@@ -60,6 +124,7 @@ fn write_then_load_uses_explicit_snapshot_policy() {
         ..Default::default()
     };
     let spec = OpenSpec {
+        storage_policy: None,
         args: args.clone(),
         cwd: root.path().to_path_buf(),
         configured_cache_policy: None,
@@ -69,6 +134,7 @@ fn write_then_load_uses_explicit_snapshot_policy() {
     args.write_index = Some(root.path().join(".objekte").display().to_string());
     let first = open(
         &OpenSpec {
+            storage_policy: None,
             args: args.clone(),
             cwd: root.path().to_path_buf(),
             configured_cache_policy: None,
@@ -81,6 +147,7 @@ fn write_then_load_uses_explicit_snapshot_policy() {
     args.load_index = Some(root.path().join(".objekte").display().to_string());
     let second = open(
         &OpenSpec {
+            storage_policy: None,
             args,
             cwd: root.path().to_path_buf(),
             configured_cache_policy: None,
@@ -103,6 +170,7 @@ fn desktop_combined_load_and_write_returns_before_source_reconciliation() {
         ..Default::default()
     };
     let spec = |args: Arguments| OpenSpec {
+        storage_policy: None,
         args,
         cwd: root.path().to_path_buf(),
         configured_cache_policy: None,
@@ -151,6 +219,7 @@ fn configured_repository_reuses_cache_unless_build_in_memory_is_selected() {
     .unwrap();
     std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
     let spec = |configured_cache_policy| OpenSpec {
+        storage_policy: None,
         args: Arguments {
             repo: Some(root.path().to_path_buf()),
             ..Default::default()
@@ -198,6 +267,7 @@ fn configured_desktop_open_replaces_invalid_cache() {
     );
     std::fs::write(&cache, b"invalid cache").unwrap();
     let spec = OpenSpec {
+        storage_policy: None,
         args: Arguments {
             repo: Some(root.path().to_owned()),
             ..Default::default()
@@ -228,6 +298,7 @@ fn incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cach
         .unwrap();
     }
     let spec = OpenSpec {
+        storage_policy: None,
         args: Arguments {
             path: vec![root.path().to_owned()],
             ..Default::default()
@@ -269,6 +340,7 @@ fn incremental_desktop_open_rebuilds_invalid_selected_cache_after_construction()
     );
     std::fs::write(&cache, b"invalid cache").unwrap();
     let spec = OpenSpec {
+        storage_policy: None,
         args: Arguments {
             repo: Some(root.path().to_owned()),
             ..Default::default()
@@ -318,6 +390,7 @@ fn incremental_catalogue_preserves_non_utf8_file_paths() {
     let filename = std::ffi::OsString::from_vec(b"raw-\xff.json".to_vec());
     std::fs::write(root.path().join(filename), br#"{"title":"A"}"#).unwrap();
     let spec = OpenSpec {
+        storage_policy: None,
         args: Arguments {
             path: vec![root.path().to_owned()],
             ..Default::default()

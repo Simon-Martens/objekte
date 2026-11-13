@@ -47,7 +47,18 @@ fn memory_only_is_default_and_desktop_query_has_no_range() {
             .is_none()
     );
     opening.index_storage = crate::ui::model::StorageChoice::Custom;
-    assert!(open_spec(&opening, Path::new("/tmp")).unwrap_err().contains("being connected"));
+    let custom = open_spec(&opening, Path::new("/tmp")).unwrap();
+    assert!(matches!(
+        custom.storage_policy.unwrap().location,
+        IndexStorageLocation::CustomDirectory(path) if path == Path::new("/tmp/indexes")
+    ));
+
+    opening.index_directory = "indexes".into();
+    let relative = open_spec(&opening, Path::new("/tmp")).unwrap();
+    assert!(matches!(
+        relative.storage_policy.unwrap().location,
+        IndexStorageLocation::CustomDirectory(path) if path == Path::new("/tmp/indexes")
+    ));
 
     let spec = query_spec(&SearchDraft::default()).unwrap();
     assert_eq!(spec.offset, 0);

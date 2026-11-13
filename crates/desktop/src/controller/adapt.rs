@@ -3,6 +3,7 @@
 use std::path::{Path, PathBuf};
 
 use objekte_cli::arguments::{Alphabet, Arguments};
+use objekte_search_core::index_storage::IndexStorageLocation;
 use objekte_search_core::lifecycle_repository::CacheOpenPolicy;
 
 use crate::backend::{OpenSpec, QuerySpec};
@@ -10,9 +11,11 @@ use crate::ui::model::{OpenDraft, OpenMode, SearchDraft};
 
 /// Build the existing CLI opening arguments from visible controls.
 pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
-    let policy = draft.storage_policy()?;
-    if policy.location != objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly {
-        return Err("Stored index opening is still being connected to the shared index reader".into());
+    let mut policy = draft.storage_policy()?;
+    if let IndexStorageLocation::CustomDirectory(directory) = &mut policy.location
+        && directory.is_relative()
+    {
+        *directory = cwd.join(directory.as_path());
     }
     let mut args = Arguments {
         auto_index: draft.auto_index,
@@ -61,13 +64,14 @@ pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
     }
     // A fresh configured repository must never silently inspect a legacy
     // index cache. Schemas and collection definitions are still read normally.
-    let configured_cache_policy = (draft.mode == OpenMode::ConfiguredRepository)
-        .then_some(CacheOpenPolicy::Ignore);
+    let configured_cache_policy =
+        (draft.mode == OpenMode::ConfiguredRepository).then_some(CacheOpenPolicy::Ignore);
     args.validate_open_options()?;
     Ok(OpenSpec {
         args,
         cwd: cwd.to_path_buf(),
         configured_cache_policy,
+        storage_policy: Some(policy),
     })
 }
 

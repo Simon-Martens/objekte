@@ -173,6 +173,7 @@ fn automatic_save_requires_configured_repository_and_selected_destination() {
     std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
     let session = open(
         &OpenSpec {
+            storage_policy: None,
             args: Arguments {
                 repo: Some(root.path().to_path_buf()),
                 ..Default::default()

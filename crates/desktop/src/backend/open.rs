@@ -9,6 +9,7 @@ use objekte_cli::arguments::{Arguments, ResolvedPaths};
 use objekte_cli::loader::{
     configure_definitions, open_repository, repository_options, snapshot_policy,
 };
+use objekte_search_core::index_storage::IndexStoragePolicy;
 use objekte_search_core::lifecycle::{Index, IndexError, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::lifecycle_repository::{
@@ -19,6 +20,7 @@ use objekte_search_core::repository::{
     CollectionDefinition, RepositoryOptions, SnapshotMode, StartupStats,
 };
 use objekte_search_core::repository_configuration::RepositoryConfiguration;
+use objekte_search_core::source::SourceRegistry;
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::CancellationToken;
 
@@ -29,6 +31,8 @@ use super::{BackendError, BackendErrorKind};
 pub struct OpenSpec {
     pub args: Arguments,
     pub cwd: PathBuf,
+    /// Shared core policy for desktop opening. Legacy test callers can omit it.
+    pub storage_policy: Option<IndexStoragePolicy>,
     /// Configured-repository override for Build in memory and explicit cache
     /// choices. `None` retains the CLI-compatible convenience policy.
     pub configured_cache_policy: Option<CacheOpenPolicy>,
@@ -115,6 +119,9 @@ pub fn open(
 ) -> Result<OpenedSession, BackendError> {
     if cancellation.is_cancelled() {
         return Err(BackendError::cancelled());
+    }
+    if let Some(storage) = &spec.storage_policy {
+        return open_shared_storage(spec, cancellation, storage.clone());
     }
     spec.args
         .validate_open_options()
@@ -322,6 +329,10 @@ pub fn open_incremental(
 ) -> Result<(OpenedSession, Option<InitialBuildTask>), BackendError> {
     if cancellation.is_cancelled() {
         return Err(BackendError::cancelled());
+    }
+    if let Some(storage) = &spec.storage_policy {
+        return open_shared_storage(spec, cancellation, storage.clone())
+            .map(|session| (session, None));
     }
     spec.args
         .validate_open_options()
@@ -531,6 +542,85 @@ pub fn open_incremental(
         },
     };
     Ok((session, task))
+}
+
+fn open_shared_storage(
+    spec: &OpenSpec,
+    cancellation: &CancellationToken,
+    storage: IndexStoragePolicy,
+) -> Result<OpenedSession, BackendError> {
+    spec.args
+        .validate_open_options()
+        .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
+    let paths = spec
+        .args
+        .resolve_paths(&spec.cwd)
+        .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
+    let configured = configure_definitions(&spec.args, &paths)
+        .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
+    if cancellation.is_cancelled() {
+        return Err(BackendError::cancelled());
+    }
+    let mut options = repository_options(&spec.args);
+    options.verified_cache_bytes = 64 * 1024 * 1024;
+    let started = Instant::now();
+    let index = Index::open_with_storage(
+        &paths.root,
+        configured.definitions.clone(),
+        options,
+        storage,
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    index
+        .protect_configuration_files(&configured.protected_files)
+        .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    if cancellation.is_cancelled() {
+        index
+            .shutdown()
+            .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+        return Err(BackendError::cancelled());
+    }
+    let repository = IndexedRepository::new(index)
+        .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    let startup = repository.startup().clone();
+    let collections = repository
+        .collections()
+        .iter()
+        .map(|collection| collection.definition.name.clone())
+        .collect::<Vec<_>>();
+    let declared_values = Arc::new(read_declared_values(&configured.schema_files, &collections));
+    let configuration_identity = repository
+        .index()
+        .view()
+        .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
+        .configuration_identity();
+    Ok(OpenedSession {
+        repository: Arc::new(repository),
+        configuration: Arc::new(SessionConfiguration {
+            definitions: Arc::new(configured.definitions),
+            options,
+            configured_repository: spec.args.repo.is_some(),
+            cache_load: None,
+            cache_save: None,
+            configuration_identity,
+            protected_files: Arc::new(configured.protected_files),
+        }),
+        args: spec.args.clone(),
+        paths,
+        collections,
+        single_collection: !spec.args.multiple_collections(),
+        declared_values,
+        background_snapshot_save: None,
+        diagnostics: OpenDiagnostics {
+            open_ns: started.elapsed().as_nanos(),
+            startup,
+            snapshot_save: None,
+            schema_files: configured.schema_files,
+            schema_fields: configured.schema_fields,
+            ignored_repository_metadata: configured.ignored_repository_metadata,
+        },
+    })
 }
 
 fn read_declared_values(

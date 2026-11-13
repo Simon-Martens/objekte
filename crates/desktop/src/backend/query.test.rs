@@ -19,6 +19,7 @@ fn directory_scope_preserves_prefix_boundaries_and_combines_with_filter() {
     }
     let session = open(
         &OpenSpec {
+            storage_policy: None,
             args: Arguments {
                 path: vec![root.path().to_path_buf()],
                 ..Default::default()
@@ -52,10 +53,20 @@ fn directory_scope_preserves_prefix_boundaries_and_combines_with_filter() {
         filter: "title ~ 'A%'".into(),
         ..scoped
     };
-    let filtered =
-        query_page_on_view(&session, &view, &combined, 0, 100, &CancellationToken::new()).unwrap();
+    let filtered = query_page_on_view(
+        &session,
+        &view,
+        &combined,
+        0,
+        100,
+        &CancellationToken::new(),
+    )
+    .unwrap();
     assert_eq!(filtered.count, Some(1));
-    assert_eq!(filtered.hits[0].file_path, std::path::PathBuf::from("dir/a.json"));
+    assert_eq!(
+        filtered.hits[0].file_path,
+        std::path::PathBuf::from("dir/a.json")
+    );
 }
 
 #[test]
@@ -130,6 +141,7 @@ fn measure_desktop_lifecycle_query_cache() {
     }
     let session = open(
         &OpenSpec {
+            storage_policy: None,
             args: Arguments {
                 path: vec![root.path().to_path_buf()],
                 ..Default::default()
@@ -179,6 +191,7 @@ fn hundred_row_continuations_keep_equal_sort_keys_unique_at_boundaries() {
     }
     let session = open(
         &OpenSpec {
+            storage_policy: None,
             args: Arguments {
                 path: vec![root.path().to_path_buf()],
                 ..Default::default()
