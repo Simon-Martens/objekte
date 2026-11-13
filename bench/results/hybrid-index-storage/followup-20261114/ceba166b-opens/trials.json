@@ -1,0 +1,1108 @@
+[
+  {
+    "mode": "ondemand",
+    "pair": 1,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-1-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store"
+    ],
+    "seconds": 0.8841691017150879,
+    "open_ns": {
+      "ascii": 374609422,
+      "unicode": 384686851
+    },
+    "first_query_ns": {
+      "ascii": 18697397,
+      "unicode": 13342096
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 1,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-1-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store"
+    ],
+    "seconds": 0.8986561298370361,
+    "open_ns": {
+      "ascii": 371928650,
+      "unicode": 389693261
+    },
+    "first_query_ns": {
+      "ascii": 21280083,
+      "unicode": 31909519
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 2,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-2-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store"
+    ],
+    "seconds": 0.860119104385376,
+    "open_ns": {
+      "ascii": 372522402,
+      "unicode": 377317926
+    },
+    "first_query_ns": {
+      "ascii": 9737725,
+      "unicode": 11983284
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 2,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-2-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store"
+    ],
+    "seconds": 0.898507833480835,
+    "open_ns": {
+      "ascii": 399356892,
+      "unicode": 384038188
+    },
+    "first_query_ns": {
+      "ascii": 10811690,
+      "unicode": 11275088
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 3,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-3-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store"
+    ],
+    "seconds": 0.8575375080108643,
+    "open_ns": {
+      "ascii": 369245228,
+      "unicode": 373285569
+    },
+    "first_query_ns": {
+      "ascii": 10099139,
+      "unicode": 14477116
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 3,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-3-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store"
+    ],
+    "seconds": 0.8938460350036621,
+    "open_ns": {
+      "ascii": 405133162,
+      "unicode": 379730381
+    },
+    "first_query_ns": {
+      "ascii": 10292398,
+      "unicode": 11008240
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 4,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-4-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store"
+    ],
+    "seconds": 0.8563086986541748,
+    "open_ns": {
+      "ascii": 371306728,
+      "unicode": 378069979
+    },
+    "first_query_ns": {
+      "ascii": 10729582,
+      "unicode": 10865299
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 4,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-4-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store"
+    ],
+    "seconds": 0.8774299621582031,
+    "open_ns": {
+      "ascii": 373211565,
+      "unicode": 388466722
+    },
+    "first_query_ns": {
+      "ascii": 10932739,
+      "unicode": 14771730
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 5,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-5-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store"
+    ],
+    "seconds": 0.9070062637329102,
+    "open_ns": {
+      "ascii": 404419081,
+      "unicode": 386407948
+    },
+    "first_query_ns": {
+      "ascii": 13525876,
+      "unicode": 13279328
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 5,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-5-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store"
+    ],
+    "seconds": 0.8866159915924072,
+    "open_ns": {
+      "ascii": 400821290,
+      "unicode": 377750992
+    },
+    "first_query_ns": {
+      "ascii": 11765097,
+      "unicode": 11049631
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 6,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-6-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store"
+    ],
+    "seconds": 0.8661010265350342,
+    "open_ns": {
+      "ascii": 373757485,
+      "unicode": 378668920
+    },
+    "first_query_ns": {
+      "ascii": 10127398,
+      "unicode": 11231913
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 6,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-6-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store"
+    ],
+    "seconds": 0.8831305503845215,
+    "open_ns": {
+      "ascii": 382317382,
+      "unicode": 389883550
+    },
+    "first_query_ns": {
+      "ascii": 10200595,
+      "unicode": 12445200
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 7,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-7-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store"
+    ],
+    "seconds": 0.8612360954284668,
+    "open_ns": {
+      "ascii": 368056669,
+      "unicode": 376429836
+    },
+    "first_query_ns": {
+      "ascii": 10403271,
+      "unicode": 14442737
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "ondemand",
+    "pair": 7,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/ondemand-7-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store"
+    ],
+    "seconds": 0.8774149417877197,
+    "open_ns": {
+      "ascii": 373310979,
+      "unicode": 395801459
+    },
+    "first_query_ns": {
+      "ascii": 10889881,
+      "unicode": 14375491
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "resident",
+    "pair": 1,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-1-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store",
+      "--fully-resident"
+    ],
+    "seconds": 1.0058317184448242,
+    "open_ns": {
+      "ascii": 437398454,
+      "unicode": 463180399
+    },
+    "first_query_ns": {
+      "ascii": 9883554,
+      "unicode": 10672185
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "resident",
+    "pair": 1,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-1-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store",
+      "--fully-resident"
+    ],
+    "seconds": 1.0435230731964111,
+    "open_ns": {
+      "ascii": 462943493,
+      "unicode": 468261701
+    },
+    "first_query_ns": {
+      "ascii": 10851256,
+      "unicode": 11491231
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "resident",
+    "pair": 2,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-2-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store",
+      "--fully-resident"
+    ],
+    "seconds": 1.0129542350769043,
+    "open_ns": {
+      "ascii": 442607773,
+      "unicode": 461583237
+    },
+    "first_query_ns": {
+      "ascii": 10612990,
+      "unicode": 11350803
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "resident",
+    "pair": 2,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-2-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store",
+      "--fully-resident"
+    ],
+    "seconds": 1.0059616565704346,
+    "open_ns": {
+      "ascii": 435947109,
+      "unicode": 460256461
+    },
+    "first_query_ns": {
+      "ascii": 10303937,
+      "unicode": 10728024
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "resident",
+    "pair": 3,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-3-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store",
+      "--fully-resident"
+    ],
+    "seconds": 1.0126721858978271,
+    "open_ns": {
+      "ascii": 438573371,
+      "unicode": 465838428
+    },
+    "first_query_ns": {
+      "ascii": 10542872,
+      "unicode": 11887795
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "resident",
+    "pair": 3,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-3-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store",
+      "--fully-resident"
+    ],
+    "seconds": 1.0249102115631104,
+    "open_ns": {
+      "ascii": 442246892,
+      "unicode": 470677445
+    },
+    "first_query_ns": {
+      "ascii": 11115138,
+      "unicode": 12835493
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "resident",
+    "pair": 4,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-4-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store",
+      "--fully-resident"
+    ],
+    "seconds": 0.9971766471862793,
+    "open_ns": {
+      "ascii": 433549704,
+      "unicode": 458408660
+    },
+    "first_query_ns": {
+      "ascii": 10054921,
+      "unicode": 10274027
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "resident",
+    "pair": 4,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-4-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store",
+      "--fully-resident"
+    ],
+    "seconds": 0.9942421913146973,
+    "open_ns": {
+      "ascii": 429993835,
+      "unicode": 455242094
+    },
+    "first_query_ns": {
+      "ascii": 10464968,
+      "unicode": 11384761
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "resident",
+    "pair": 5,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-5-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store",
+      "--fully-resident"
+    ],
+    "seconds": 1.033062219619751,
+    "open_ns": {
+      "ascii": 467010870,
+      "unicode": 459064347
+    },
+    "first_query_ns": {
+      "ascii": 10571284,
+      "unicode": 10612038
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "resident",
+    "pair": 5,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-5-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store",
+      "--fully-resident"
+    ],
+    "seconds": 1.014204740524292,
+    "open_ns": {
+      "ascii": 440152314,
+      "unicode": 463872157
+    },
+    "first_query_ns": {
+      "ascii": 9807867,
+      "unicode": 10926956
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "resident",
+    "pair": 6,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-6-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store",
+      "--fully-resident"
+    ],
+    "seconds": 1.0427701473236084,
+    "open_ns": {
+      "ascii": 460859828,
+      "unicode": 470287087
+    },
+    "first_query_ns": {
+      "ascii": 12601963,
+      "unicode": 10783247
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  },
+  {
+    "mode": "resident",
+    "pair": 6,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-6-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store",
+      "--fully-resident"
+    ],
+    "seconds": 1.0023150444030762,
+    "open_ns": {
+      "ascii": 437151899,
+      "unicode": 457315541
+    },
+    "first_query_ns": {
+      "ascii": 11257313,
+      "unicode": 11058538
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "resident",
+    "pair": 7,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-7-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store",
+      "--fully-resident"
+    ],
+    "seconds": 0.9852252006530762,
+    "open_ns": {
+      "ascii": 430924829,
+      "unicode": 451510223
+    },
+    "first_query_ns": {
+      "ascii": 11083786,
+      "unicode": 9565939
+    },
+    "binary_sha256": "ca98965867dc11ef9f0902608d30115cad53ca6c9824c1821cd3081f46e245e0"
+  },
+  {
+    "mode": "resident",
+    "pair": 7,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-opens/resident-7-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store",
+      "--fully-resident"
+    ],
+    "seconds": 1.015956163406372,
+    "open_ns": {
+      "ascii": 448225364,
+      "unicode": 462534212
+    },
+    "first_query_ns": {
+      "ascii": 10016171,
+      "unicode": 10124497
+    },
+    "binary_sha256": "dba1d4e5185d9d87f03fd4f8e372a8a62b02d89d81fe64d918c7d0ce32685523"
+  }
+]

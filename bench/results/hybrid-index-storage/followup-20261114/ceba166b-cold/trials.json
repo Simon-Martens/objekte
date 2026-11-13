@@ -1,0 +1,248 @@
+[
+  {
+    "pair": 1,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-cold/1-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store"
+    ],
+    "index_file_bytes": 259472476,
+    "cached_bytes_before": 259518464,
+    "cached_bytes_after_fadvise": 0,
+    "cached_bytes_after_query": 228642816,
+    "time": "major_faults=38 minor_faults=142591 filesystem_inputs=279088 filesystem_outputs=440",
+    "open_ns": {
+      "ascii": 402701156,
+      "unicode": 467501999
+    },
+    "first_query_ns": {
+      "ascii": 62338076,
+      "unicode": 60000170
+    }
+  },
+  {
+    "pair": 1,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-cold/1-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store"
+    ],
+    "index_file_bytes": 259472476,
+    "cached_bytes_before": 259518464,
+    "cached_bytes_after_fadvise": 0,
+    "cached_bytes_after_query": 228642816,
+    "time": "major_faults=36 minor_faults=137905 filesystem_inputs=241528 filesystem_outputs=440",
+    "open_ns": {
+      "ascii": 465033789,
+      "unicode": 460739345
+    },
+    "first_query_ns": {
+      "ascii": 68650747,
+      "unicode": 54047028
+    }
+  },
+  {
+    "pair": 2,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-cold/2-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store"
+    ],
+    "index_file_bytes": 259472476,
+    "cached_bytes_before": 228642816,
+    "cached_bytes_after_fadvise": 0,
+    "cached_bytes_after_query": 228642816,
+    "time": "major_faults=36 minor_faults=143151 filesystem_inputs=240696 filesystem_outputs=408",
+    "open_ns": {
+      "ascii": 459158208,
+      "unicode": 460371984
+    },
+    "first_query_ns": {
+      "ascii": 19874591,
+      "unicode": 17678870
+    }
+  },
+  {
+    "pair": 2,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-cold/2-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store"
+    ],
+    "index_file_bytes": 259472476,
+    "cached_bytes_before": 228642816,
+    "cached_bytes_after_fadvise": 0,
+    "cached_bytes_after_query": 228642816,
+    "time": "major_faults=35 minor_faults=148465 filesystem_inputs=275528 filesystem_outputs=408",
+    "open_ns": {
+      "ascii": 408899704,
+      "unicode": 415770097
+    },
+    "first_query_ns": {
+      "ascii": 19006569,
+      "unicode": 54714648
+    }
+  },
+  {
+    "pair": 3,
+    "label": "start",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-baseline-e397/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-cold/3-start",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/start-store"
+    ],
+    "index_file_bytes": 259472476,
+    "cached_bytes_before": 228642816,
+    "cached_bytes_after_fadvise": 0,
+    "cached_bytes_after_query": 228642816,
+    "time": "major_faults=35 minor_faults=144190 filesystem_inputs=275528 filesystem_outputs=440",
+    "open_ns": {
+      "ascii": 444693028,
+      "unicode": 449877937
+    },
+    "first_query_ns": {
+      "ascii": 18039222,
+      "unicode": 23194575
+    }
+  },
+  {
+    "pair": 3,
+    "label": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+      "--result-dir",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-cold/3-candidate",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "1",
+      "--cases",
+      "Q001",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/followup-final-ceba166b-full/candidate-store"
+    ],
+    "index_file_bytes": 259472476,
+    "cached_bytes_before": 228642816,
+    "cached_bytes_after_fadvise": 0,
+    "cached_bytes_after_query": 228642816,
+    "time": "major_faults=36 minor_faults=146673 filesystem_inputs=240696 filesystem_outputs=408",
+    "open_ns": {
+      "ascii": 408166102,
+      "unicode": 432592387
+    },
+    "first_query_ns": {
+      "ascii": 20762805,
+      "unicode": 40307434
+    }
+  }
+]
