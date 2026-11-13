@@ -2,7 +2,7 @@ use super::*;
 use crate::model::Number;
 use crate::posting::ScalarKey;
 use crate::segment_format::SegmentWriter;
-use std::io::{Cursor, Write};
+use std::io::Cursor;
 
 fn seal<K: Ord + Clone + Serialize + DeserializeOwned>(
     map: &BTreeMap<K, RoaringBitmap>,

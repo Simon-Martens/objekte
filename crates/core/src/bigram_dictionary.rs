@@ -42,6 +42,18 @@ pub(crate) struct SealedBigramIndex {
     skip: SealedPostingDictionary<u64>,
 }
 
+impl std::fmt::Debug for SealedBigramIndex {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("SealedBigramIndex")
+            .field("alphabet", &self.alphabet)
+            .field("record_count", &self.record_count)
+            .field("normal_grams", &self.normal.len())
+            .field("skip_grams", &self.skip.len())
+            .finish()
+    }
+}
+
 impl SealedBigramIndex {
     pub(crate) fn open(
         reader: Arc<SegmentReader>,

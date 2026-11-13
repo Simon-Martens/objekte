@@ -62,7 +62,7 @@ pub(crate) fn segment_filter_bounds_with_catalog(
     let domain = active.bitmap();
     let logical_active = &domain & &segment.logical_records;
     let fallback_active = &domain - &segment.logical_records;
-    Ok(segment_expr_bounds(
+    segment_expr_bounds(
         segment,
         expr,
         collection,
@@ -70,7 +70,7 @@ pub(crate) fn segment_filter_bounds_with_catalog(
         &logical_active,
         &fallback_active,
         catalog,
-    ))
+    )
 }
 
 fn indexed_file_path_term(term: &BoundTerm) -> Option<(Operator, &str)> {
@@ -171,9 +171,9 @@ pub(crate) fn segment_fts_candidates(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
     fts: &BoundFts,
-) -> Option<RoaringBitmap> {
+) -> Result<Option<RoaringBitmap>, String> {
     let indexes = IndexCatalog::segment(segment, collection);
-    prepare_fts_accesses(
+    let Some(prepared) = prepare_fts_accesses(
         &indexes,
         collection,
         fts,
@@ -181,40 +181,48 @@ pub(crate) fn segment_fts_candidates(
         segment.logical_records.len() != segment.records.len() as u64,
         segment_raw_covers_identity_field(segment, collection),
         segment.records.len() as u64,
-    )?
-    .candidates()
+    ) else {
+        return Ok(None);
+    };
+    prepared.candidates_checked()
 }
 
 fn segment_text_candidates(
     segment: &IndexedCollectionSegment,
     term: &BoundTerm,
     collection: &CollectionState,
-) -> Option<RoaringBitmap> {
+) -> Result<Option<RoaringBitmap>, String> {
     if term.derived != Derived::None
         || !matches!(term.operator, Operator::Contains | Operator::Eq)
         || !custom_bigram_compatible(term)
     {
-        return None;
+        return Ok(None);
     }
-    let Value::String(literal) = &term.literal else { return None };
+    let Value::String(literal) = &term.literal else {
+        return Ok(None);
+    };
     if literal.contains(['%', '\\']) {
-        return None;
+        return Ok(None);
     }
     let indexes = IndexCatalog::segment(segment, collection);
     let raw_compatible = matches!(term.transform, Transform::Identity | Transform::CaseFold)
         && term.operation.is_none()
         && term.matcher.is_none()
         && segment_raw_covers_identity_field(segment, collection);
-    indexes
-        .field_text_for(
-            &collection.definition.schema,
-            &term.path.segments,
-            &term.binding_name,
-            term.operation.is_some(),
-            true,
-            raw_compatible,
-        )?
-        .candidates_prepared(term.gram_request.as_ref()?)
+    let Some(index) = indexes.field_text_for(
+        &collection.definition.schema,
+        &term.path.segments,
+        &term.binding_name,
+        term.operation.is_some(),
+        true,
+        raw_compatible,
+    ) else {
+        return Ok(None);
+    };
+    let Some(request) = term.gram_request.as_ref() else {
+        return Ok(None);
+    };
+    index.try_candidates_prepared(request)
 }
 
 fn segment_file_size_matches(
@@ -529,25 +537,25 @@ fn segment_expr_bounds(
     logical_active: &RoaringBitmap,
     fallback_active: &RoaringBitmap,
     catalog: Option<&FileCatalog>,
-) -> SegmentCandidateBounds {
-    match expr {
+) -> Result<SegmentCandidateBounds, String> {
+    Ok(match expr {
         BoundExpr::Term(term) => {
             if term.query_path.has_position {
                 if let Some(matches) =
                     segment_positional_eq_candidates(segment, logical_active, term)
                 {
-                    return SegmentCandidateBounds {
+                    return Ok(SegmentCandidateBounds {
                         may: &matches | fallback_active,
                         must: RoaringBitmap::new(),
-                    };
+                    });
                 }
-                return SegmentCandidateBounds::unknown(domain);
+                return Ok(SegmentCandidateBounds::unknown(domain));
             }
             if term.related.is_some()
                 || term.rhs.is_some()
                 || term.query_path.has_explicit_array_step
             {
-                return SegmentCandidateBounds::unknown(domain);
+                return Ok(SegmentCandidateBounds::unknown(domain));
             }
             if term.path.root == PathRoot::Metadata(MetadataField::RecordId)
                 && term.operator == Operator::Eq
@@ -560,13 +568,13 @@ fn segment_expr_bounds(
                 {
                     matches.insert(slot.0);
                 }
-                return SegmentCandidateBounds { may: matches.clone(), must: matches };
+                return Ok(SegmentCandidateBounds { may: matches.clone(), must: matches });
             }
             if let Some(matches) = segment_file_size_matches(segment, domain, term) {
-                return SegmentCandidateBounds {
+                return Ok(SegmentCandidateBounds {
                     may: matches.clone(),
                     must: matches,
-                };
+                });
             }
             if let Some((operator, literal)) = indexed_file_path_term(term)
                 && let Some(catalog) = catalog
@@ -583,41 +591,41 @@ fn segment_expr_bounds(
                     segment_file_path_matches(segment, domain, catalog, operator, literal)
                 };
                 matches &= domain;
-                return SegmentCandidateBounds {
+                return Ok(SegmentCandidateBounds {
                     may: matches.clone(),
                     must: matches,
-                };
+                });
             }
             if let Some(matches) = segment_file_modified_matches(segment, collection, domain, term)
             {
-                return SegmentCandidateBounds {
+                return Ok(SegmentCandidateBounds {
                     may: matches.clone(),
                     must: matches,
-                };
+                });
             }
             if let Some(matches) = segment_record_range_matches(segment, collection, domain, term) {
-                return SegmentCandidateBounds {
+                return Ok(SegmentCandidateBounds {
                     may: matches.clone(),
                     must: matches,
-                };
+                });
             }
             if let Some(matches) =
                 segment_metadata_matches(segment, collection, domain, term, catalog)
             {
-                return SegmentCandidateBounds {
+                return Ok(SegmentCandidateBounds {
                     may: matches.clone(),
                     must: matches,
-                };
+                });
             }
             if term.path.root != PathRoot::Data {
-                return SegmentCandidateBounds::unknown(domain);
+                return Ok(SegmentCandidateBounds::unknown(domain));
             }
             if let Some(matches) = segment_sort_column_matches(segment, logical_active, term, true)
             {
-                return SegmentCandidateBounds {
+                return Ok(SegmentCandidateBounds {
                     may: &matches | fallback_active,
                     must: matches,
-                };
+                });
             }
             let index_catalog = IndexCatalog::segment(segment, collection);
             let selected = index_catalog
@@ -643,21 +651,21 @@ fn segment_expr_bounds(
                     proposal.operation,
                 )
             {
-                return SegmentCandidateBounds {
+                return Ok(SegmentCandidateBounds {
                     may: &matches | fallback_active,
                     must: if proposal.exact { matches } else { RoaringBitmap::new() },
-                };
+                });
             }
             {
                     if let Some(matches) =
                         segment_sort_column_matches(segment, logical_active, term, false)
                     {
-                        return SegmentCandidateBounds {
+                        return Ok(SegmentCandidateBounds {
                             may: &matches | fallback_active,
                             must: matches,
-                        };
+                        });
                     }
-                    if let Some(mut grams) = segment_text_candidates(segment, term, collection) {
+                    if let Some(mut grams) = segment_text_candidates(segment, term, collection)? {
                         if empty_selection_preservation(term) {
                             grams |= &segment.empty_array_records;
                         }
@@ -694,7 +702,7 @@ fn segment_expr_bounds(
                     continue;
                 }
                 let child =
-                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active, catalog);
+                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active, catalog)?;
                 may &= child.may;
                 must &= child.must;
             }
@@ -705,7 +713,7 @@ fn segment_expr_bounds(
             let mut must = RoaringBitmap::new();
             for part in parts {
                 let child =
-                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active, catalog);
+                    segment_expr_bounds(segment, part, collection, domain, logical_active, fallback_active, catalog)?;
                 may |= child.may;
                 must |= child.must;
             }
@@ -713,13 +721,13 @@ fn segment_expr_bounds(
         }
         BoundExpr::Not(inner) => {
             let child =
-                segment_expr_bounds(segment, inner, collection, domain, logical_active, fallback_active, catalog);
+                segment_expr_bounds(segment, inner, collection, domain, logical_active, fallback_active, catalog)?;
             SegmentCandidateBounds {
                 may: domain - &child.must,
                 must: domain - &child.may,
             }
         }
-    }
+    })
 }
 
 
@@ -2342,6 +2350,22 @@ impl PreparedFtsAccess<'_, '_> {
             };
         }
         Some(may)
+    }
+
+    fn candidates_checked(&self) -> Result<Option<RoaringBitmap>, String> {
+        let mut may = RoaringBitmap::new();
+        for probe in &self.probes {
+            let next = if let Some(condition) = self.regex {
+                condition.candidates_checked(probe.index)?
+            } else {
+                probe.index.try_candidates_prepared(probe.request)?
+            };
+            let Some(next) = next else {
+                return Ok(None);
+            };
+            may |= next;
+        }
+        Ok(Some(may))
     }
 }
 

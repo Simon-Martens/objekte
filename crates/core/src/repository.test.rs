@@ -9,6 +9,33 @@ use crate::streaming::{ExecutionContext, ExecutionLimits};
 use crate::workload::ReturnMode;
 
 #[test]
+fn managed_generation_owner_does_not_enumerate_sources() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-managed-empty-owner-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir(&root).unwrap();
+    // This source selection is deliberately absent. A durable generation can
+    // become searchable before source reconciliation enumerates the tree.
+    let definition = CollectionDefinition::folder("items", "missing", SourceFormat::Json);
+    let owner = Repository::empty_for_managed_generation(
+        root.clone(),
+        vec![definition],
+        RepositoryOptions::default(),
+        crate::source::SourceRegistry::builtin(),
+    )
+    .unwrap();
+    assert!(owner.files().files.is_empty());
+    assert_eq!(owner.collections().len(), 1);
+    assert!(owner.collections()[0].generation.records.is_empty());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn parallel_metadata_preparation_keeps_order_revisions_and_overlapping_memberships() {
     use super::{prepare_discovered_file, prepare_discovered_window};
     use crate::inventory::FileInventory;

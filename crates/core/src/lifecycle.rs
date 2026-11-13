@@ -906,6 +906,8 @@ struct IndexInner {
     periodic_transition: Mutex<()>,
     periodic: Mutex<Option<PeriodicReconciliation>>,
     persistence: Mutex<PersistenceState>,
+    managed: Mutex<Option<crate::lifecycle_storage::ManagedPersistence>>,
+    sync_storage: Mutex<Option<SyncCacheWorker>>,
     sync_cache: Mutex<Option<SyncCacheWorker>>,
     sync_cache_error: Mutex<Option<String>>,
 }
@@ -1244,6 +1246,8 @@ impl Index {
                 saved: HashMap::new(),
                 protected_files: Vec::new(),
             }),
+            managed: Mutex::new(None),
+            sync_storage: Mutex::new(None),
             sync_cache: Mutex::new(None),
             sync_cache_error: Mutex::new(None),
         }))
@@ -1323,6 +1327,192 @@ impl Index {
             .map_err(|_| IndexError::LockPoisoned)?
             .reconciliation;
         Ok(status)
+    }
+
+    /// Attach a resolved managed destination to a completed, paired index.
+    /// A progressive initial builder calls this only after its final work
+    /// unit; partial construction is never published as a complete store.
+    pub fn attach_storage(
+        &self,
+        resolved: crate::index_storage::ResolvedIndexStorage,
+    ) -> Result<(), IndexError> {
+        let view = self.view()?;
+        if !view.initial_construction_complete() {
+            return Err(IndexError::IncompleteBuild);
+        }
+        if resolved.managed_directory.is_none()
+            || resolved.repository_root != view.repository().files().root
+            || resolved.configuration_identity != view.0.configuration_identity
+        {
+            return Err(IndexError::IncompatibleConfiguration(
+                "managed storage identity does not match the published index".into(),
+            ));
+        }
+        let mut managed = self
+            .0
+            .managed
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        if managed.is_some() {
+            return Err(IndexError::InvalidPublication(
+                "managed storage is already attached".into(),
+            ));
+        }
+        *managed = Some(
+            crate::lifecycle_storage::ManagedPersistence::open(&resolved)
+                .map_err(IndexError::Io)?,
+        );
+        Ok(())
+    }
+
+    pub(crate) fn mark_storage_opened(
+        &self,
+        generation: u64,
+        names: &[String],
+        identities: &[(CollectionId, u64)],
+        indexes: &[Arc<IndexedCollectionSegment>],
+        historical: &[FileEntry],
+    ) -> Result<(), IndexError> {
+        let view = self.view()?;
+        self.0
+            .managed
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .as_mut()
+            .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?
+            .mark_opened(&view.0, generation, names, identities, indexes, historical)
+            .map_err(IndexError::InvalidCache)
+    }
+
+    /// Persist one complete pinned revision to the attached managed store.
+    /// Concurrent query and mutation publications remain visible while the
+    /// immutable files are written; a failed save leaves the old manifest.
+    pub fn flush_storage(&self) -> Result<IndexRevision, IndexError> {
+        let view = self.view()?;
+        if !view.initial_construction_complete() {
+            return Err(IndexError::IncompleteBuild);
+        }
+        let saved = {
+            let mut managed = self
+                .0
+                .managed
+                .lock()
+                .map_err(|_| IndexError::LockPoisoned)?;
+            let state = managed.as_mut().ok_or_else(|| {
+                IndexError::InvalidPublication("no managed index storage attached".into())
+            })?;
+            match state.flush(&view.0) {
+                Ok(revision) => revision,
+                Err(error) => {
+                    state.last_error = Some(error.clone());
+                    return Err(IndexError::Io(error));
+                }
+            }
+        };
+        let mut published = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        if published.revision == saved {
+            let mut next = (**published).clone();
+            next.saved_revision = Some(saved);
+            *published = Arc::new(next);
+        }
+        Ok(saved)
+    }
+
+    /// Report searchable coverage, source freshness and durable state
+    /// separately so an old valid generation is not mistaken for a fresh one.
+    pub fn storage_status(&self) -> Result<crate::index_storage::IndexStorageStatus, IndexError> {
+        let status = self.status()?;
+        let managed = self
+            .0
+            .managed
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        Ok(crate::lifecycle_storage::storage_status(
+            &status,
+            managed.as_ref(),
+        ))
+    }
+
+    /// Coalesce completed publications into durable managed generations.
+    /// Explicit flush remains available for finite commands and shutdown.
+    pub fn set_sync_storage(&self, enabled: bool) -> Result<(), IndexError> {
+        if !enabled {
+            return self.stop_sync_storage();
+        }
+        if self.0.quiescing.load(Ordering::Acquire) {
+            return Err(IndexError::Cancelled);
+        }
+        if self
+            .0
+            .managed
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .is_none()
+        {
+            return Err(IndexError::InvalidPublication(
+                "no managed storage attached".into(),
+            ));
+        }
+        let mut sync = self
+            .0
+            .sync_storage
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        if sync.is_some() {
+            return Ok(());
+        }
+        let (signal, receiver) = mpsc::sync_channel(1);
+        let owner = Arc::downgrade(&self.0);
+        let worker = std::thread::Builder::new()
+            .name("objekte-sync-storage".into())
+            .spawn(move || {
+                while receiver.recv().is_ok() {
+                    let first_signal = Instant::now();
+                    while first_signal.elapsed() < Duration::from_secs(1)
+                        && receiver.recv_timeout(Duration::from_millis(100)).is_ok()
+                    {
+                    }
+                    let Some(inner) = owner.upgrade() else { break };
+                    if inner.quiescing.load(Ordering::Acquire) {
+                        break;
+                    }
+                    let index = Index(inner);
+                    let _ = index.flush_storage();
+                }
+            })
+            .map_err(|error| IndexError::Io(error.to_string()))?;
+        *sync = Some(SyncCacheWorker { signal, worker });
+        drop(sync);
+        self.notify_sync_storage();
+        Ok(())
+    }
+
+    fn notify_sync_storage(&self) {
+        if let Ok(sync) = self.0.sync_storage.lock()
+            && let Some(sync) = sync.as_ref()
+        {
+            let _ = sync.signal.try_send(());
+        }
+    }
+
+    pub fn stop_sync_storage(&self) -> Result<(), IndexError> {
+        let sync = self
+            .0
+            .sync_storage
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .take();
+        if let Some(sync) = sync {
+            drop(sync.signal);
+            sync.worker.join().map_err(|_| {
+                IndexError::InvalidPublication("managed storage writer panicked".into())
+            })?;
+        }
+        Ok(())
     }
 
     /// Run one source-free compaction on a worker while pinned queries use
@@ -2020,6 +2210,7 @@ impl Index {
             self.0.quiescing.store(true, Ordering::Release);
         }
         self.stop_periodic_reconciliation()?;
+        self.stop_sync_storage()?;
         self.stop_sync_cache()?;
         let operation = self
             .0
@@ -2577,6 +2768,7 @@ impl Index {
         };
         drop(retired);
         if notify_cache {
+            self.notify_sync_storage();
             self.notify_sync_cache();
         }
         Ok(next_revision)

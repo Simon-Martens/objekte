@@ -144,6 +144,38 @@ impl RegexCondition {
         }
     }
 
+    pub(crate) fn candidates_checked(
+        &self,
+        index: &BigramIndex,
+    ) -> Result<Option<RoaringBitmap>, String> {
+        match self {
+            Self::Literal(request) => index.try_candidates_prepared(request),
+            Self::All(parts) => {
+                let mut result: Option<RoaringBitmap> = None;
+                for part in parts {
+                    if let Some(set) = part.candidates_checked(index)? {
+                        if let Some(result) = &mut result {
+                            *result &= set;
+                        } else {
+                            result = Some(set);
+                        }
+                    }
+                }
+                Ok(result)
+            }
+            Self::Any(parts) => {
+                let mut result = RoaringBitmap::new();
+                for part in parts {
+                    let Some(set) = part.candidates_checked(index)? else {
+                        return Ok(None);
+                    };
+                    result |= set;
+                }
+                Ok(Some(result))
+            }
+        }
+    }
+
     pub fn estimate(&self, index: &BigramIndex) -> Option<(u64, f64)> {
         match self {
             Self::Literal(request) => Some((
