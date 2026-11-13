@@ -694,17 +694,66 @@ fn encode_owned_bytes(
     Ok(bytes)
 }
 
+/// Keep the just-encoded section allocations as the memory-only reader's
+/// authoritative byte storage. A later disk flush writes the same sections
+/// through `SegmentWriter`, which creates the portable envelope and checksums.
+fn encode_constructed_sections(
+    segment: &IndexedCollectionSegment,
+    ordinal: u64,
+    options: RepositoryOptions,
+) -> Result<[(SectionKind, Vec<u8>); REQUIRED_SECTIONS.len()], String> {
+    if ordinal == 0 {
+        return Err("hybrid segment ordinal must be nonzero".into());
+    }
+    let files = segment.files.iter().map(|file| &file.entry).collect::<Vec<_>>();
+    let mut position = 0usize;
+    let mut payloads = Vec::new();
+    let sections = {
+        let mut pack = StreamingPostingPack::new(&mut payloads);
+        encode_segment_sections(segment, ordinal, options, &mut |entry| {
+            let expected = files.get(position)
+                .ok_or("constructed segment metadata ref overflow")?;
+            if **expected != *entry {
+                return Err("constructed segment metadata ref order changed".into());
+            }
+            let reference = u32::try_from(position)
+                .map_err(|_| "too many constructed segment files")?;
+            position += 1;
+            Ok(reference)
+        }, false, &mut pack)?
+    };
+    if position != files.len() {
+        return Err("constructed segment metadata ref count changed".into());
+    }
+    let EncodedSections {
+        field_bytes, text_bytes, scalar, structural_bytes, bigrams,
+        record_bytes, sort_bytes, relation_bytes, integrity_bytes,
+    } = sections;
+    Ok([
+        (SectionKind::FieldMetadata, field_bytes),
+        (SectionKind::TextBindings, text_bytes),
+        (SectionKind::ScalarDictionaries, scalar),
+        (SectionKind::StructuralReferences, structural_bytes),
+        (SectionKind::BigramDictionaries, bigrams),
+        (SectionKind::PostingPayloads, payloads),
+        (SectionKind::RecordSlots, record_bytes),
+        (SectionKind::SortData, sort_bytes),
+        (SectionKind::RelationAndIdentity, relation_bytes),
+        (SectionKind::Integrity, integrity_bytes),
+    ])
+}
+
 /// Finalize an owned builder segment in place. The only external-style reads
 /// are the compact binding tables needed to attach the newly written spans;
 /// record maps, sort data, relations and structural facts remain owned.
 pub(crate) fn seal_segment_consuming(
     mut segment: IndexedCollectionSegment,
     ordinal: u64,
-    definition: &CollectionDefinition,
+    _definition: &CollectionDefinition,
     options: RepositoryOptions,
 ) -> Result<IndexedCollectionSegment, String> {
-    let bytes = encode_owned_bytes(&segment, ordinal, definition, options)?;
-    let reader = Arc::new(SegmentReader::from_owned_vec(bytes)?);
+    let sections = encode_constructed_sections(&segment, ordinal, options)?;
+    let reader = Arc::new(SegmentReader::from_constructed_sections(sections)?);
     let fields: FieldSection =
         decode_meta(FIELD_MAGIC, required(&reader, SectionKind::FieldMetadata)?)?;
     let texts: TextSection =

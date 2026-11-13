@@ -490,11 +490,7 @@ fn streamed_owned_pack_matches_checked_buffered_pack() {
     let buffered = SegmentReader::from_owned(Arc::from(buffered)).unwrap();
     let sealed = seal_segment_consuming(segment, 1, &definition, options).unwrap();
     let streamed = sealed.raw.sealed_reader().unwrap();
-    for kind in [
-        SectionKind::PostingPayloads,
-        SectionKind::ScalarDictionaries,
-        SectionKind::BigramDictionaries,
-    ] {
+    for kind in REQUIRED_SECTIONS {
         assert_eq!(buffered.section(kind).unwrap(), streamed.section(kind).unwrap());
     }
     std::fs::remove_dir_all(root).unwrap();

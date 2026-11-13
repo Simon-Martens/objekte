@@ -72,6 +72,7 @@ impl TryFrom<u32> for SectionKind {
 
 #[derive(Clone, Debug)]
 struct SectionEntry {
+    kind: SectionKind,
     offset: u64,
     length: u64,
     sha256: [u8; 32],
@@ -84,14 +85,21 @@ enum SegmentBytes {
     Owned(Arc<[u8]>),
     OwnedVec(Arc<Vec<u8>>),
     Mapped(Arc<Mmap>),
+    Constructed(Arc<ConstructedSections>),
 }
 
-impl AsRef<[u8]> for SegmentBytes {
-    fn as_ref(&self) -> &[u8] {
+struct ConstructedSections {
+    buffers: [Vec<u8>; REQUIRED_SECTIONS.len()],
+    encoded_len: usize,
+}
+
+impl SegmentBytes {
+    fn contiguous(&self) -> Option<&[u8]> {
         match self {
-            Self::Owned(bytes) => bytes,
-            Self::OwnedVec(bytes) => bytes,
-            Self::Mapped(map) => map,
+            Self::Owned(bytes) => Some(bytes),
+            Self::OwnedVec(bytes) => Some(bytes),
+            Self::Mapped(map) => Some(map),
+            Self::Constructed(_) => None,
         }
     }
 }
@@ -156,7 +164,10 @@ impl DecodedPostingCache {
 
 impl SegmentReader {
     pub(crate) fn encoded_len(&self) -> usize {
-        self.bytes.as_ref().len()
+        match &self.bytes {
+            SegmentBytes::Constructed(sections) => sections.encoded_len,
+            other => other.contiguous().unwrap().len(),
+        }
     }
 
     pub(crate) fn from_owned(bytes: Arc<[u8]>) -> Result<Self, String> {
@@ -167,6 +178,48 @@ impl SegmentReader {
     /// into an Arc slice while the mutable builders are still live.
     pub(crate) fn from_owned_vec(bytes: Vec<u8>) -> Result<Self, String> {
         Self::parse(SegmentBytes::OwnedVec(Arc::new(bytes)))
+    }
+
+    /// Only the completed in-process segment encoder may supply these owned
+    /// sections. External files must pass through `parse` and its checks.
+    pub(crate) fn from_constructed_sections(
+        sections: [(SectionKind, Vec<u8>); REQUIRED_SECTIONS.len()],
+    ) -> Result<Self, String> {
+        let mut encoded_len = HEADER_BYTES + REQUIRED_SECTIONS.len() * DIRECTORY_ENTRY_BYTES;
+        let mut entries = HashMap::with_capacity(REQUIRED_SECTIONS.len());
+        for (expected, (kind, bytes)) in REQUIRED_SECTIONS.iter().zip(&sections) {
+            if kind != expected {
+                return Err("constructed segment section order changed".into());
+            }
+            let offset = encoded_len as u64;
+            encoded_len = encoded_len.checked_add(bytes.len())
+                .ok_or("constructed segment length overflow")?;
+            if encoded_len as u64 > MAX_SEGMENT_BYTES {
+                return Err("constructed segment exceeds format limit".into());
+            }
+            let checked = OnceLock::new();
+            checked.set(Ok(())).unwrap();
+            entries.insert(*kind, SectionEntry {
+                kind: *kind,
+                offset,
+                length: bytes.len() as u64,
+                sha256: [0; 32],
+                checked: Arc::new(checked),
+            });
+        }
+        let buffers = sections.map(|(_, bytes)| bytes);
+        let limit_bytes = (encoded_len / 20).min(MAX_DECODED_POSTING_CACHE_BYTES);
+        Ok(Self {
+            bytes: SegmentBytes::Constructed(Arc::new(ConstructedSections {
+                buffers,
+                encoded_len,
+            })),
+            sections: entries,
+            decoded: Arc::new(Mutex::new(DecodedPostingCache {
+                limit_bytes,
+                ..Default::default()
+            })),
+        })
     }
 
     /// `file` must be an opened immutable Objekte segment, protected against
@@ -211,11 +264,12 @@ impl SegmentReader {
 
     #[cfg(test)]
     pub(crate) fn is_owned(&self) -> bool {
-        matches!(self.bytes, SegmentBytes::Owned(_) | SegmentBytes::OwnedVec(_))
+        matches!(self.bytes, SegmentBytes::Owned(_) | SegmentBytes::OwnedVec(_)
+            | SegmentBytes::Constructed(_))
     }
 
     fn parse(bytes: SegmentBytes) -> Result<Self, String> {
-        let raw = bytes.as_ref();
+        let raw = bytes.contiguous().ok_or("constructed bytes require internal opener")?;
         if raw.len() < HEADER_BYTES || raw.len() as u64 > MAX_SEGMENT_BYTES {
             return Err("immutable segment header is truncated or oversized".into());
         }
@@ -267,6 +321,7 @@ impl SegmentReader {
                 .insert(
                     kind,
                     SectionEntry {
+                        kind,
                         offset,
                         length,
                         sha256,
@@ -287,7 +342,7 @@ impl SegmentReader {
         }
         // Cap retained decoded postings relative to this segment's encoded
         // bytes so many small shards do not imply an unbounded global cache.
-        let limit_bytes = (bytes.as_ref().len() / 20).min(MAX_DECODED_POSTING_CACHE_BYTES);
+        let limit_bytes = (raw.len() / 20).min(MAX_DECODED_POSTING_CACHE_BYTES);
         Ok(Self {
             bytes,
             sections,
@@ -393,8 +448,15 @@ impl SegmentReader {
     }
 
     fn section_bytes(&self, entry: &SectionEntry) -> &[u8] {
-        let start = entry.offset as usize;
-        &self.bytes.as_ref()[start..start + entry.length as usize]
+        match &self.bytes {
+            SegmentBytes::Constructed(sections) => {
+                &sections.buffers[entry.kind as usize - 1]
+            }
+            other => {
+                let start = entry.offset as usize;
+                &other.contiguous().unwrap()[start..start + entry.length as usize]
+            }
+        }
     }
 
     /// Check descriptor framing before it can guide a dictionary lookup.
@@ -487,16 +549,12 @@ impl SegmentReader {
             .sections
             .get(&SectionKind::PostingPayloads)
             .ok_or("posting section missing")?;
-        let start = region
-            .offset
-            .checked_add(descriptor.offset)
-            .ok_or("posting payload offset overflow")?;
-        let end = start
-            .checked_add(descriptor.length as u64)
+        let start = usize::try_from(descriptor.offset)
+            .map_err(|_| "posting payload offset overflow")?;
+        let end = start.checked_add(descriptor.length as usize)
             .ok_or("posting payload length overflow")?;
-        self.bytes
-            .as_ref()
-            .get(start as usize..end as usize)
+        self.section_bytes(region)
+            .get(start..end)
             .ok_or("posting payload out of bounds".into())
     }
 }
