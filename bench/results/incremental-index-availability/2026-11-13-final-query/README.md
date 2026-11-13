@@ -1,0 +1,3 @@
+# Final Plan 1 complete-query comparison
+
+Master `7a6b96684e1fbb849eab7cc20185b942159ed189`, candidate `ad542f6e9ad3ede9fca0e2235df61476ec721749`. Same absolute `/home/simon/source/objekte/examples/musenalm` corpus, configured schema and 32 workers. Both ran `bench_musenalm --extended --profiles ascii-off,ascii-warm,unicode-off,unicode-warm --repetitions 5`. Master raw output is retained under the master baseline area and in `/tmp/objekte-plan1-final-master-extended`; this directory retains the candidate raw output and `bench/compare_incremental_queries.py` output. `compatibility.json` records equal static registration/schema/corpus identities. `comparison.csv` contains every matched case/profile result and source counter; `COMPARISON.md` summarizes outliers.

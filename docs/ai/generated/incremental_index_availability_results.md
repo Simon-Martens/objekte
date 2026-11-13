@@ -1,6 +1,6 @@
 # Incremental index availability: measured results
 
-Task: `incremental-index-availability` (Plan 1). This report is in progress until the implementation, validation, and paired comparison are complete.
+Task: `incremental-index-availability` (Plan 1). Final acceptance report, 2026-11-13.
 
 ## Master baseline
 
@@ -20,59 +20,36 @@ Command: `target/release/examples/bench_musenalm --root examples/musenalm --exte
 
 The extended runner builds ASCII and Unicode sequentially in one process; its Unicode high-water RSS includes memory retained from the earlier ASCII phase. Fresh-process construction measurements are required for the peak-RSS acceptance gate.
 
-## Incremental construction comparison
+## Final incremental construction comparison
 
-The measured implementation binary was built from `bad06b4007476c7f861fe9f1090e9d7be744218e`. Seven paired warm trials alternated run order and used fresh processes, the same absolute Musenalm root, ASCII alphabet, 32 workers, configured schemas, inference disabled, profiling, snapshot writing and five query probes. All fourteen manifests have the same corpus and schema fingerprints, 148,486 files/records, and 193,297,230 source bytes. [Commands, samples, manifests, quartiles and the runner](../../../bench/results/incremental-index-availability/2026-11-13-paired-warm/README.md) are retained. The run used no foreground query workload; that experiment is separate.
+Seven fresh-process paired warm trials alternated master and candidate order on the same absolute Musenalm root. Both used the same schema and corpus fingerprints, ASCII alphabet, 32 build workers, configured fields, inference disabled, Rust compiler and cache conditions. The measured candidate builder is `526ae413db2acaf87755c3f19b27ab6ede16d9b6`; later commits altered completed-query execution, reports and formatting, not construction. The [campaign](../../../bench/results/incremental-index-availability/2026-11-13-final-paired-warm/README.md) retains every command, manifest, sample and quartile. An earlier paired campaign is superseded by this final one.
 
-| Measure | Master median (IQR) | Incremental median (IQR) | Change |
+| Measure | Master median (IQR) | Candidate median (IQR) | Change / gate |
 | --- | ---: | ---: | ---: |
-| Full build | 967.277 ms (38.717 ms) | 896.591 ms (46.393 ms) | 7.31% faster |
-| Fresh-process build high-water RSS | 535.683 MB (9.255 MB) | 573.788 MB (3.826 MB) | 7.11% higher |
-| RSS immediately after build | 519.188 MB (9.562 MB) | 564.118 MB (2.988 MB) | 8.65% higher |
-| Estimated live index families | 69.663 MB (0) | 69.966 MB (0) | 0.43% higher |
-| Construction parses | 148,486 (0) | 148,486 (0) | Equal |
+| Full build | 973.344 ms (35.867 ms) | 910.233 ms (34.882 ms) | 6.48% faster; passes ≤5% slower |
+| Fresh-process high-water RSS | 536.842 MB (5.325 MB) | 568.316 MB (9.161 MB) | 5.86% higher; passes ≤10% |
+| RSS immediately after build | 519.459 MB (5.032 MB) | 558.719 MB (9.216 MB) | 7.56% higher |
+| Estimated completed live index | 69.663 MB (0) | 69.966 MB (0) | 0.44% higher; passes ≤10% |
+| Construction parses | 148,486 (0) | 148,486 (0) | Equal; no second pass |
 
-The candidate recorded exactly 148,486 construction source reads and 193,297,230 bytes read in every trial: one read and parse per file. It published eight completed segments, with median first searchable batch at 334.747 ms and first result at 334.904 ms. Its median observed catalogue time was 254.769 ms. The comparable master discovery median was 189.377 ms; master has no early publication. These data pass the stated no-query full-build, peak-RSS and live-index budgets. A snapshot was 178,287,528 bytes versus 129,139,458 bytes on master (38.1% larger), a material persistence cost even though no snapshot-size limit was specified.
+The candidate made exactly 148,486 construction source reads and 193,297,230 source bytes in every trial: one read and parse per physical file. It published eight complete immutable segments. Median catalogue availability was 208.079 ms, first searchable batch 286.082 ms, and first nonempty result 286.264 ms. Master discovery median was 190.152 ms and offered no early search. Snapshot size increased from 129,139,458 to 178,287,528 bytes (+38.1%). This persistence cost has no specified acceptance limit and remains a material limitation.
 
-The first trial campaign used the original checkout as the process working directory for both binaries, causing the candidate manifest to report the master revision. Its measurements were discarded for the formal comparison. The retained campaign runs each binary from its own worktree and names the same absolute corpus root.
+## Complete query comparison
 
-## Interactive client checks
+The final candidate at `ad542f6e9ad3ede9fca0e2235df61476ec721749` ran all 194 extended Musenalm cases in four profiles (ASCII/Unicode × cache off/warm) with five timed repetitions. The matched master is `7a6b96684e1fbb849eab7cc20185b942159ed189`. Both used the same absolute corpus root and matching schema/corpus fingerprints, compiler, worker settings and profile conditions. [Candidate raw measurements, plans, digests, manifests and strict comparison](../../../bench/results/incremental-index-availability/2026-11-13-final-query/COMPARISON.md) are retained. The comparator checked the common static collection registration fields, all 776 status/count rows and source-open counts. All passed, with zero candidate source-open increases. Candidate direct and lifecycle normalized result digests agree on all 194 cases. Cross-version hitful digest files cannot be compared bytewise because the older master runner hashes a volatile generation value and the candidate normalizes it to zero; all 13 zero-hit digests agree.
 
-The [desktop and TUI evidence](../../../bench/results/incremental-index-availability/2026-11-13-client-smoke/README.md) captures real interaction. The desktop showed the complete physical-file catalogue and provisional query results while indexing Musenalm, then an exact 275-match result with record preview. A 6,200-file PTY TUI check showed catalogue availability before the first batch, provisional results, query replacement during construction, final exact results, resize and cancellation. The one-CPU TUI fixture deliberately lengthened observable intermediate states; its timings are not performance claims.
+Cache-off sums of per-case medians fell from 1,998.535 to 983.339 ms (ASCII) and 1,985.371 to 980.562 ms (Unicode). Warm sums fell from 1,322.716 to 2.958 ms (ASCII) and 1,316.706 to 2.799 ms (Unicode), largely because complete lifecycle views can use the published index. These sums do not mask individual cases. Two full-suite rows exceeded both the 10% and 0.5 ms investigation thresholds: Q003 ASCII (5.336→5.948 ms) and Q004 Unicode (10.692→14.787 ms). [Three alternating master/candidate pairs with seven repetitions per run](../../../bench/results/incremental-index-availability/2026-11-13-final-focused-pairs/campaign.json) on the same corpus did not reproduce either regression: Q003 ASCII medians 5.202→3.914 ms, Q003 Unicode 5.212→5.546 ms (+0.334 ms, 6.4%); Q004 ASCII 10.414→8.830 ms, Q004 Unicode 10.553→8.411 ms. Both acceptance thresholds pass on the repeated matched comparison.
 
-## Foreground queries and held-view memory
+## Foreground queries and held views
 
-At `c7959d4f55`, nine alternating fresh-process warm runs compared three idle,
-three fixed-foreground-query, and three held-early-view builds. The [raw
-campaign](../../../bench/results/incremental-index-availability/2026-11-13-concurrency/README.md)
-uses Q108, Q116 and Q120 in a repeated three-query cycle with a 2 ms pause.
-Median completion was 908.074 ms idle, 941.294 ms with foreground queries
-(3.66% slower), and 916.280 ms with an early view retained. Foreground runs
-completed 834–900 queries each; their per-process median latency was 44–52 µs,
-p95 91–117 µs, and query source opens zero. Every run made exactly 148,486
-construction reads/parses. Held-view median high-water RSS was 564.892 MB
-versus 564.638 MB idle; releasing that view reduced sampled RSS by at most
-49,152 bytes. The benchmark precedes any final complete-query latency repair,
-so it will be repeated if that repair changes build or view code.
+A separate [nine-process instrumented campaign](../../../bench/results/incremental-index-availability/2026-11-13-concurrency-instrumented/README.md) alternated idle, fixed foreground and held-early-view builds at `28a008b2ad`. Later changes only affected completed-query execution. Idle median full build was 895.354 ms; foreground median 936.034 ms (+4.54%) with 885–906 completed Q108/Q116/Q120 queries per run; held-view median 923.650 ms. Foreground per-process median latency was 24.4–29.1 µs and p95 60.7–70.6 µs, with zero query source opens. First nonempty results appeared 281–315 ms after the foreground worker began. Held-view high-water RSS median was 567.898 MB versus idle 572.215 MB; no accumulating full-view copies were observed. Every run made exactly 148,486 construction reads/parses. The 32-worker scheduler reached 32 active jobs. Idle median summed worker execution was 4.471 s across concurrent workers; scheduler receive wait 74.335 ms, admission 361.932 ms, eight publication intervals 235.196 ms, and finalization 12.301 ms. These components overlap in wall time.
 
-## Query comparison
+## Functional and repository checks
 
-The full 194-case lifecycle suite now passes all four cache/alphabet profiles
-with five repetitions, and all 776 matched rows have equal status and result
-counts. The master and candidate runs use the same absolute corpus root and
-matching schema/corpus fingerprints, compiler and worker/cache settings.
-Candidate direct and incremental modes agree on all 194 normalized result
-digests. The older master benchmark hashes a nonzero generation into each hit,
-whereas the candidate runner zeroes that volatile field before hashing; only
-the 13 zero-hit cases have equal cross-version digests. The query comparator's
-registration check also needs lifecycle-specific handling: the incremental
-runner records static collection definitions, while the old direct runner
-records completed posting paths and file counts. Their common definition keys
-and schema manifests are equal.
+[Native desktop and PTY TUI evidence](../../../bench/results/incremental-index-availability/2026-11-13-client-smoke/README.md) shows a 148,486-file catalogue and provisional desktop results before completion, then an exact 275-match query with record preview. The TUI's 6,200-file one-CPU fixture showed the catalogue before the first batch, provisional matches, query replacement, exact final results, resize, Ctrl+Q exit 0 and Ctrl+C exit 130. The final combined code also launched in native headless Wayland and opened all 148,486 records; [screenshot](../../../bench/results/incremental-index-availability/2026-11-13-client-smoke/final-code-native.png). The deliberately slowed TUI fixture timings are not performance claims.
 
-The first matched latency analysis at `c7959d4f55` found 49 ASCII and 44
-Unicode cache-off cases above both regression thresholds (10% and 0.5 ms),
-despite equal source-open counts. For example, Q187 rose from 123.49 to
-160.37 ms and Q160 from 64.92 to 85.84 ms in ASCII. These are in-scope
-regressions under investigation. This plan is not complete until the repeated
-outliers are repaired or the acceptance gate is otherwise resolved.
+At `ad542f6e9a`, `cargo test --workspace --all-targets --locked` passed 905 tests, 30 ignored, zero failed. `cargo clippy --workspace --all-targets --locked` passed with no warnings. `git diff --check` passed. Workspace-wide `cargo fmt --all --check` and `python3 scripts/format-rust-spacing.py --check` still fail on broad preexisting style drift (master also fails). In the rustfmt comparison, master had 113 failing files, the candidate 99, and zero candidate-only failing files after scoped formatting. The combined workspace `cargo check --workspace --all-targets --locked` passed earlier during integration; the final full test/clippy builds cover the later changes.
+
+## Remaining limits
+
+The 38.1% larger completed snapshot is the measured storage tradeoff. Provisional results are explicitly labelled and can reorder until complete; complete pagination/export waits for final coverage. The changed benchmark digest normalization prevents bytewise cross-version comparison of hitful digest files, though matched status/count/source counters and candidate direct/lifecycle digests agree. No in-scope correctness failure or repeated performance regression remains open. This branch is not merged into master.
