@@ -61,6 +61,8 @@ pub struct QueryPage {
     pub requested_offset: usize,
     pub next_page_start: Option<usize>,
     pub count: Option<usize>,
+    /// Validated results from an index that has more files to construct.
+    pub provisional: bool,
     pub counters: WorkCounters,
     pub elapsed_ns: u128,
 }
@@ -69,7 +71,7 @@ impl QueryPage {
     /// A source range could not be verified, so delivered rows and count may
     /// cover only part of the requested domain.
     pub fn incomplete(&self) -> bool {
-        self.counters.source_unavailable_events > 0
+        self.provisional || self.counters.source_unavailable_events > 0
     }
 }
 
@@ -183,6 +185,33 @@ pub fn query_page_on_view(
     query.options.offset = requested_offset;
     query.options.limit = requested_rows;
     let started = Instant::now();
+    if !view.initial_construction_complete() {
+        if requested_offset > 0 {
+            return Err(BackendError::new(
+                BackendErrorKind::Query,
+                "Pagination is available after indexing completes",
+            ));
+        }
+        let available = view
+            .search_available_with_cancellation(&query, cancellation)
+            .map_err(|message| BackendError::new(BackendErrorKind::Query, message.to_string()))?;
+        if cancellation.is_cancelled() {
+            return Err(BackendError::cancelled());
+        }
+        return Ok(QueryPage {
+            repository_root: session.repository.files().root.clone(),
+            instance_id: view.instance_id(),
+            revision: view.revision(),
+            hits: available.result.hits,
+            page_start,
+            requested_offset,
+            next_page_start: None,
+            count: None,
+            provisional: !available.complete,
+            counters: available.result.counters,
+            elapsed_ns: started.elapsed().as_nanos(),
+        });
+    }
     let mut page = Vec::new();
     let outcome = view.search_stream(
         &query,
@@ -228,6 +257,7 @@ pub fn query_page_on_view(
                 requested_offset,
                 next_page_start,
                 count,
+                provisional: false,
                 counters: summary.counters,
                 elapsed_ns: started.elapsed().as_nanos(),
             })

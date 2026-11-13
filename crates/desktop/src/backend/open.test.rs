@@ -128,7 +128,10 @@ fn desktop_combined_load_and_write_returns_before_source_reconciliation() {
         if let Some(result) = second.take_background_snapshot_save() {
             break result;
         }
-        assert!(std::time::Instant::now() < deadline, "background cache write timed out");
+        assert!(
+            std::time::Instant::now() < deadline,
+            "background cache write timed out"
+        );
         std::thread::sleep(std::time::Duration::from_millis(10));
     };
     assert!(result.unwrap().is_some());
@@ -170,7 +173,11 @@ fn configured_repository_reuses_cache_unless_build_in_memory_is_selected() {
     assert!(memory.configuration.cache_load.is_none());
     assert!(memory.configuration.cache_save.is_none());
     let separate_cache = root.path().join("manual.snapshot");
-    memory.repository.index().flush_cache(&separate_cache).unwrap();
+    memory
+        .repository
+        .index()
+        .flush_cache(&separate_cache)
+        .unwrap();
     assert!(!memory.repository.index().status().unwrap().dirty());
     restored.repository.index().shutdown().unwrap();
 }
@@ -191,7 +198,10 @@ fn configured_desktop_open_replaces_invalid_cache() {
     );
     std::fs::write(&cache, b"invalid cache").unwrap();
     let spec = OpenSpec {
-        args: Arguments { repo: Some(root.path().to_owned()), ..Default::default() },
+        args: Arguments {
+            repo: Some(root.path().to_owned()),
+            ..Default::default()
+        },
         cwd: root.path().to_owned(),
         configured_cache_policy: None,
     };
@@ -200,5 +210,124 @@ fn configured_desktop_open_replaces_invalid_cache() {
     assert_ne!(std::fs::read(&cache).unwrap(), b"invalid cache");
     let restored = open(&spec, &CancellationToken::new()).unwrap();
     assert!(restored.diagnostics.startup.restored);
-    restored.repository.index().wait_for_reconciliation().unwrap();
+    restored
+        .repository
+        .index()
+        .wait_for_reconciliation()
+        .unwrap();
+}
+
+#[test]
+fn incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cache() {
+    let root = tempfile::tempdir().unwrap();
+    for number in 0..64 {
+        std::fs::write(
+            root.path().join(format!("{number:04}.json")),
+            format!(r#"{{"title":"Record {number}"}}"#),
+        )
+        .unwrap();
+    }
+    let spec = OpenSpec {
+        args: Arguments {
+            path: vec![root.path().to_owned()],
+            ..Default::default()
+        },
+        cwd: root.path().to_owned(),
+        configured_cache_policy: None,
+    };
+    let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
+    let task = task.expect("fresh open must retain construction task");
+    let catalogue = session.repository.index().view().unwrap();
+    assert_eq!(catalogue.catalogue_rows().count(), 64);
+    assert_eq!(task.status().unwrap().discovered_files, 64);
+    task.wait_complete().unwrap();
+    assert!(
+        session
+            .repository
+            .index()
+            .view()
+            .unwrap()
+            .initial_construction_complete()
+    );
+    assert!(!root.path().join(".objekte").exists());
+}
+
+#[test]
+fn incremental_desktop_open_rebuilds_invalid_selected_cache_after_construction() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
+    std::fs::create_dir_all(root.path().join("data")).unwrap();
+    std::fs::write(
+        root.path().join(".objekte/collections/data.schema.json"),
+        br#"{"type":"object","x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}}"#,
+    )
+    .unwrap();
+    std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
+    let cache = objekte_search_core::storage::snapshot_path(
+        root.path(),
+        objekte_search_core::workload::BigramAlphabet::Ascii,
+    );
+    std::fs::write(&cache, b"invalid cache").unwrap();
+    let spec = OpenSpec {
+        args: Arguments {
+            repo: Some(root.path().to_owned()),
+            ..Default::default()
+        },
+        cwd: root.path().to_owned(),
+        configured_cache_policy: None,
+    };
+    let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
+    task.expect("invalid cache must rebuild")
+        .wait_complete()
+        .unwrap();
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+    let saved = loop {
+        if let Some(result) = session.take_background_snapshot_save() {
+            break result.unwrap();
+        }
+        assert!(
+            std::time::Instant::now() < deadline,
+            "cache replacement timed out"
+        );
+        std::thread::sleep(std::time::Duration::from_millis(10));
+    };
+    assert!(saved.is_some());
+    assert_ne!(std::fs::read(&cache).unwrap(), b"invalid cache");
+    let direct = Index::load_cache(
+        root.path(),
+        session.configuration.definitions.as_ref().clone(),
+        session.configuration.options,
+        &cache,
+    );
+    assert!(
+        direct.is_ok(),
+        "saved cache failed validation: {:?}",
+        direct.err()
+    );
+    let (restored, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
+    assert!(task.is_none());
+    assert!(restored.diagnostics.startup.restored);
+}
+
+#[cfg(unix)]
+#[test]
+fn incremental_catalogue_preserves_non_utf8_file_paths() {
+    use std::os::unix::ffi::{OsStrExt, OsStringExt};
+
+    let root = tempfile::tempdir().unwrap();
+    let filename = std::ffi::OsString::from_vec(b"raw-\xff.json".to_vec());
+    std::fs::write(root.path().join(filename), br#"{"title":"A"}"#).unwrap();
+    let spec = OpenSpec {
+        args: Arguments {
+            path: vec![root.path().to_owned()],
+            ..Default::default()
+        },
+        cwd: root.path().to_owned(),
+        configured_cache_policy: None,
+    };
+    let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
+    let view = session.repository.index().view().unwrap();
+    let row = view.catalogue_rows().next().unwrap();
+    assert_eq!(row.relative_path.as_os_str().as_bytes(), b"raw-\xff.json");
+    task.unwrap().wait_complete().unwrap();
 }

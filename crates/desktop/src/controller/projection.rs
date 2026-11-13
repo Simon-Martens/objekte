@@ -115,8 +115,7 @@ pub fn page_view_with_prior(
     let effective_hidden = available
         .iter()
         .filter(|column| {
-            hidden.contains(*column)
-                || (nested_column(column) && !shown_nested.contains(*column))
+            hidden.contains(*column) || (nested_column(column) && !shown_nested.contains(*column))
         })
         .cloned()
         .collect::<Vec<_>>();
@@ -182,7 +181,8 @@ pub fn page_view_with_prior(
         requested_limit: spec.limit,
         exact_total: page.count,
         incomplete: page.incomplete(),
-        count_pending: spec.count && page.count.is_none(),
+        provisional: page.provisional,
+        count_pending: spec.count && page.count.is_none() && !page.provisional,
         has_previous: page.page_start > 0,
         has_next: page.next_page_start.is_some(),
         selected: None,
@@ -204,7 +204,9 @@ fn discover_columns(value: &Value, segments: &mut Vec<String>, found: &mut BTree
         }
         return;
     }
-    let Value::Object(object) = value else { return; };
+    let Value::Object(object) = value else {
+        return;
+    };
     for (name, child) in object {
         if segments.is_empty() && matches!(name.as_str(), "@collection" | "@file") {
             continue;
@@ -269,12 +271,21 @@ fn project_field(json: Option<&Value>, path: &str) -> String {
     };
     let mut values = Vec::new();
     path_values(value, &path.steps, &mut values);
-    if values.is_empty() { return "—".into(); }
-    values.into_iter().take(16).map(project_value).collect::<Vec<_>>().join("; ")
+    if values.is_empty() {
+        return "—".into();
+    }
+    values
+        .into_iter()
+        .take(16)
+        .map(project_value)
+        .collect::<Vec<_>>()
+        .join("; ")
 }
 
 fn path_values<'a>(value: &'a Value, steps: &[PathStep], found: &mut Vec<&'a Value>) {
-    if found.len() >= 16 { return; }
+    if found.len() >= 16 {
+        return;
+    }
     let Some((step, rest)) = steps.split_first() else {
         found.push(value);
         return;
@@ -282,17 +293,23 @@ fn path_values<'a>(value: &'a Value, steps: &[PathStep], found: &mut Vec<&'a Val
     match step {
         PathStep::Field(name) => {
             if let Value::Array(items) = value {
-                for item in items { path_values(item, steps, found); }
+                for item in items {
+                    path_values(item, steps, found);
+                }
             } else if let Some(child) = value.get(name) {
                 path_values(child, rest, found);
             }
         }
         PathStep::ArrayIndex(index) => {
-            if let Some(child) = value.get(*index as usize) { path_values(child, rest, found); }
+            if let Some(child) = value.get(*index as usize) {
+                path_values(child, rest, found);
+            }
         }
         PathStep::EachElement => {
             if let Value::Array(items) = value {
-                for item in items { path_values(item, rest, found); }
+                for item in items {
+                    path_values(item, rest, found);
+                }
             }
         }
     }
@@ -342,47 +359,89 @@ fn match_preview(
     (text, highlights)
 }
 
-fn matched_excerpt(json: Option<&Value>, field: &str, matcher: &PreviewMatcher) -> Option<(String, std::ops::Range<usize>)> {
+fn matched_excerpt(
+    json: Option<&Value>,
+    field: &str,
+    matcher: &PreviewMatcher,
+) -> Option<(String, std::ops::Range<usize>)> {
     let path = QueryPath::parse(field).ok()?;
-    if path.field.root != PathRoot::Data { return None; }
+    if path.field.root != PathRoot::Data {
+        return None;
+    }
     matching_excerpt_at(json?, &path.steps, matcher)
 }
 
-fn matching_excerpt_at(value: &Value, steps: &[PathStep], matcher: &PreviewMatcher) -> Option<(String, std::ops::Range<usize>)> {
-    let Some((step, rest)) = steps.split_first() else { return matching_excerpt(value, matcher); };
+fn matching_excerpt_at(
+    value: &Value,
+    steps: &[PathStep],
+    matcher: &PreviewMatcher,
+) -> Option<(String, std::ops::Range<usize>)> {
+    let Some((step, rest)) = steps.split_first() else {
+        return matching_excerpt(value, matcher);
+    };
     match step {
         PathStep::Field(name) => {
             if let Value::Array(items) = value {
-                items.iter().find_map(|item| matching_excerpt_at(item, steps, matcher))
+                items
+                    .iter()
+                    .find_map(|item| matching_excerpt_at(item, steps, matcher))
             } else {
                 matching_excerpt_at(value.get(name)?, rest, matcher)
             }
         }
-        PathStep::ArrayIndex(index) => matching_excerpt_at(value.get(*index as usize)?, rest, matcher),
-        PathStep::EachElement => match value {
-            Value::Array(items) => items.iter().find_map(|item| matching_excerpt_at(item, rest, matcher)),
-            _ => None,
+        PathStep::ArrayIndex(index) => {
+            matching_excerpt_at(value.get(*index as usize)?, rest, matcher)
         }
+        PathStep::EachElement => match value {
+            Value::Array(items) => items
+                .iter()
+                .find_map(|item| matching_excerpt_at(item, rest, matcher)),
+            _ => None,
+        },
     }
 }
 
-fn matching_excerpt(value: &Value, matcher: &PreviewMatcher) -> Option<(String, std::ops::Range<usize>)> {
+fn matching_excerpt(
+    value: &Value,
+    matcher: &PreviewMatcher,
+) -> Option<(String, std::ops::Range<usize>)> {
     match value {
-        Value::Object(fields) => fields.values().find_map(|value| matching_excerpt(value, matcher)),
-        Value::Array(items) => items.iter().find_map(|value| matching_excerpt(value, matcher)),
+        Value::Object(fields) => fields
+            .values()
+            .find_map(|value| matching_excerpt(value, matcher)),
+        Value::Array(items) => items
+            .iter()
+            .find_map(|value| matching_excerpt(value, matcher)),
         _ => {
-            let value = value.as_str().map(str::to_owned).unwrap_or_else(|| value_label(value));
+            let value = value
+                .as_str()
+                .map(str::to_owned)
+                .unwrap_or_else(|| value_label(value));
             let max = value.floor_char_boundary(value.len().min(64 * 1024));
             let visible = &value[..max];
             let span = matcher.find(visible)?;
-            let before = visible[..span.start].char_indices().rev().nth(12).map_or(0, |(at, _)| at);
-            let after = visible[span.end..].char_indices().nth(60).map_or(visible.len(), |(at, _)| span.end + at);
+            let before = visible[..span.start]
+                .char_indices()
+                .rev()
+                .nth(12)
+                .map_or(0, |(at, _)| at);
+            let after = visible[span.end..]
+                .char_indices()
+                .nth(60)
+                .map_or(visible.len(), |(at, _)| span.end + at);
             let mut excerpt = String::new();
-            if before > 0 { excerpt.push('…'); }
+            if before > 0 {
+                excerpt.push('…');
+            }
             let prefix_bytes = excerpt.len();
             excerpt.push_str(&visible[before..after]);
-            if after < visible.len() { excerpt.push('…'); }
-            Some((excerpt, prefix_bytes + span.start - before..prefix_bytes + span.end - before))
+            if after < visible.len() {
+                excerpt.push('…');
+            }
+            Some((
+                excerpt,
+                prefix_bytes + span.start - before..prefix_bytes + span.end - before,
+            ))
         }
     }
 }
