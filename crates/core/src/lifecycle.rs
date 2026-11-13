@@ -206,6 +206,22 @@ pub struct FileCatalogueRow<'a> {
     pub created_ns: Option<i128>,
 }
 
+#[derive(Clone, Copy, Debug, Default, serde::Serialize)]
+pub struct IndexFamilyEstimate {
+    pub raw_bytes: usize,
+    pub fallback_bytes: usize,
+    pub custom_text_bytes: usize,
+    pub postings_bytes: usize,
+    pub sorting_bytes: usize,
+}
+
+impl IndexFamilyEstimate {
+    pub fn total(self) -> usize {
+        self.raw_bytes + self.fallback_bytes + self.custom_text_bytes
+            + self.postings_bytes + self.sorting_bytes
+    }
+}
+
 /// Result of an explicit query against one pinned, possibly incomplete view.
 /// `result.count` is absent while construction is incomplete, even if the
 /// request asked for a count over the eventual repository.
@@ -2522,25 +2538,41 @@ impl IndexView {
     /// Same index-family estimate used by the construction benchmark for a
     /// direct repository, summed across the base and live lifecycle shards.
     pub fn estimated_index_bytes(&self) -> usize {
+        self.index_family_breakdown().values().flatten().map(|(_, estimate)| estimate.total()).sum()
+    }
+
+    /// Per-collection base (ordinal 0) and published segment estimates. The
+    /// benchmark uses this to expose shard overhead without counting it as a
+    /// second resident catalogue.
+    pub fn index_family_breakdown(&self) -> std::collections::BTreeMap<String, Vec<(u64, IndexFamilyEstimate)>> {
+        fn estimate(
+            raw: &crate::bigram::BigramIndex,
+            fallback: &crate::bigram::BigramIndex,
+            custom: &std::collections::HashMap<(Vec<String>, String), crate::bigram::BigramIndex>,
+            postings: &crate::posting::PostingCollection,
+            sorting: &crate::sorting::SortCollection,
+        ) -> IndexFamilyEstimate {
+            IndexFamilyEstimate {
+                raw_bytes: raw.estimated_heap_bytes(),
+                fallback_bytes: fallback.estimated_heap_bytes(),
+                custom_text_bytes: custom.values().map(|index| index.estimated_heap_bytes()).sum(),
+                postings_bytes: postings.fields.values().map(|posting| {
+                    posting.values.values().map(|bitmap| bitmap.serialized_size() as usize).sum::<usize>()
+                        + posting.lengths.values().map(|bitmap| bitmap.serialized_size() as usize).sum::<usize>()
+                }).sum(),
+                sorting_bytes: sorting.columns.values().map(|column| column.keys.iter().map(|key| match key {
+                    crate::sorting::SortKey::String(value) => value.len(),
+                    _ => 24,
+                }).sum::<usize>()).sum(),
+            }
+        }
         self.repository().collections().iter().enumerate().map(|(number, collection)| {
-            std::iter::once((&collection.raw, &collection.fallback_text, &collection.custom_text, &collection.postings, &collection.sorting))
-                .chain(self.0.segments[number].iter().map(|segment| {
-                    (&segment.index.raw, &segment.index.fallback_text, &segment.index.custom_text, &segment.index.postings, &segment.index.sorting)
-                }))
-                .map(|(raw, fallback, custom, postings, sorting)| {
-                    raw.estimated_heap_bytes()
-                        + fallback.estimated_heap_bytes()
-                        + custom.values().map(|index| index.estimated_heap_bytes()).sum::<usize>()
-                        + postings.fields.values().map(|posting| {
-                            posting.values.values().map(|bitmap| bitmap.serialized_size() as usize).sum::<usize>()
-                                + posting.lengths.values().map(|bitmap| bitmap.serialized_size() as usize).sum::<usize>()
-                        }).sum::<usize>()
-                        + sorting.columns.values().map(|column| column.keys.iter().map(|key| match key {
-                            crate::sorting::SortKey::String(value) => value.len(),
-                            _ => 24,
-                        }).sum::<usize>()).sum::<usize>()
-                }).sum::<usize>()
-        }).sum()
+            let mut parts = vec![(0, estimate(&collection.raw, &collection.fallback_text, &collection.custom_text, &collection.postings, &collection.sorting))];
+            parts.extend(self.0.segments[number].iter().map(|segment| {
+                (segment.ordinal, estimate(&segment.index.raw, &segment.index.fallback_text, &segment.index.custom_text, &segment.index.postings, &segment.index.sorting))
+            }));
+            (collection.definition.name.clone(), parts)
+        }).collect()
     }
 
     pub fn estimated_inventory_bytes(&self) -> usize {

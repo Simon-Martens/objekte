@@ -28,6 +28,8 @@ pub(crate) struct SegmentAdmission {
     records: Vec<RecordEntry>,
     id_lookup: HashMap<RecordId, RecordSlot>,
     batches: Vec<SegmentBatch>,
+    eager_spec: Option<EagerSpec>,
+    aggregate: Option<SegmentAggregate>,
     source_bytes: u64,
     limits: SegmentLimits,
     record_parses: u64,
@@ -46,6 +48,7 @@ pub(crate) struct CollectionSegment {
     pub records: Vec<RecordEntry>,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
     pub(crate) batches: Vec<SegmentBatch>,
+    aggregate: Option<SegmentAggregate>,
     pub record_parses: u64,
     pub failed_parses: u64,
 }
@@ -55,6 +58,102 @@ pub(crate) struct SegmentBatch {
     base: u32,
     count: u32,
     contribution: BatchContribution,
+}
+
+
+struct EagerSpec {
+    definition: Arc<CollectionDefinition>,
+    alphabet: BigramAlphabet,
+    inference_config: InferenceConfig,
+    collection_count: usize,
+}
+
+
+struct SegmentAggregate {
+    postings: PostingCollection,
+    inference: Option<InferenceBuilder>,
+    custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    raw: BigramContribution,
+    fallback_text: BigramContribution,
+    custom_text: HashMap<(Vec<String>, String), BigramContribution>,
+    logical_records: RoaringBitmap,
+    empty_array_records: RoaringBitmap,
+    sorting: SortBuilder,
+    relations: Vec<RelationContribution>,
+}
+
+
+impl SegmentAggregate {
+    fn new(
+        definition: &CollectionDefinition,
+        alphabet: BigramAlphabet,
+        inference_config: InferenceConfig,
+        collection_count: usize,
+    ) -> Result<Self, String> {
+        let custom_postings = definition.schema.operations.iter()
+            .filter(|(_, binding)| binding.operation.posting())
+            .map(|(key, binding)| (key.clone(), CustomPostingIndex {
+                index: PostingIndex::new(&definition.schema.fields[&key.0]),
+                complete: binding.operation.complete_coverage(),
+            })).collect();
+        let custom_text = definition.schema.custom.keys()
+            .chain(definition.schema.operations.iter()
+                .filter(|(_, binding)| binding.operation.bigram() && binding.operation.complete_coverage())
+                .map(|(key, _)| key))
+            .map(|key| (canonical_custom_text_key(&definition.schema, &key.0, &key.1), BigramContribution::new(alphabet)))
+            .collect();
+        Ok(Self {
+            postings: PostingCollection::new(&definition.schema),
+            inference: InferenceBuilder::for_collection(inference_config, collection_count),
+            custom_postings,
+            raw: BigramContribution::new(alphabet),
+            fallback_text: BigramContribution::new(alphabet),
+            custom_text,
+            logical_records: RoaringBitmap::new(),
+            empty_array_records: RoaringBitmap::new(),
+            sorting: SortBuilder::new(
+                &definition.sort_fields, &definition.schema, &definition.sort_locale,
+                definition.sort_options, &definition.sort_overrides,
+            )?,
+            relations: RelationContribution::for_schema(&definition.schema),
+        })
+    }
+
+    fn admit(&mut self, batch: BatchContribution, base: u32, count: u32) -> Result<(), String> {
+        self.postings.merge_shifted(batch.postings, base)?;
+        match (self.inference.as_mut(), batch.inference) {
+            (Some(global), Some(local)) => global.merge_shifted(local, base)?,
+            (None, None) => {}
+            _ => return Err("inference segment mode mismatch".into()),
+        }
+        if self.relations.len() != batch.relations.len() {
+            return Err("relation segment coverage mismatch".into());
+        }
+        for (global, local) in self.relations.iter_mut().zip(batch.relations) {
+            global.merge_shifted(local, base, count)?;
+        }
+        if self.custom_postings.len() != batch.custom_postings.len() {
+            return Err("custom posting segment coverage mismatch".into());
+        }
+        for (key, local) in batch.custom_postings {
+            let global = self.custom_postings.get_mut(&key).ok_or("custom posting segment missing")?;
+            global.index.merge_shifted(local.index, base)?;
+            global.complete &= local.complete;
+        }
+        self.raw.merge_shifted(batch.raw, base)?;
+        self.fallback_text.merge_shifted(batch.fallback_text, base)?;
+        if self.custom_text.len() != batch.custom_text.len() {
+            return Err("custom bigram segment coverage mismatch".into());
+        }
+        for (key, index) in batch.custom_text {
+            self.custom_text.get_mut(&key).ok_or("custom bigram segment missing")?
+                .merge_shifted(index, base)?;
+        }
+        append_shifted_bitmap(&mut self.logical_records, &batch.logical_records, base)?;
+        append_shifted_bitmap(&mut self.empty_array_records, &batch.empty_array_records, base)?;
+        self.sorting.append_keys(batch.sort_keys, base, count)?;
+        Ok(())
+    }
 }
 
 
@@ -126,11 +225,35 @@ impl SegmentAdmission {
             records: Vec::new(),
             id_lookup: HashMap::new(),
             batches: Vec::new(),
+            eager_spec: None,
+            aggregate: None,
             source_bytes: 0,
             limits,
             record_parses: 0,
             failed_parses: 0,
         }
+    }
+
+    /// Initial construction merges each completed worker contribution into
+    /// the current bounded segment immediately. It never retains both all
+    /// worker-local gram maps and a second full merged map at sealing time.
+    pub(crate) fn with_limits_eager(
+        collection: CollectionId,
+        source: &PreparedSource,
+        limits: SegmentLimits,
+        definition: Arc<CollectionDefinition>,
+        alphabet: BigramAlphabet,
+        inference_config: InferenceConfig,
+        collection_count: usize,
+    ) -> Self {
+        let mut admission = Self::with_limits(collection, source, limits);
+        admission.eager_spec = Some(EagerSpec {
+            definition,
+            alphabet,
+            inference_config,
+            collection_count,
+        });
+        admission
     }
 
     #[cfg(test)]
@@ -304,11 +427,23 @@ impl SegmentAdmission {
         }
         self.record_parses = self.record_parses.saturating_add(batch.record_parses);
         self.failed_parses = self.failed_parses.saturating_add(batch.failed_parses);
-        self.batches.push(SegmentBatch {
-            base,
-            count,
-            contribution: batch,
-        });
+        if let Some(spec) = &self.eager_spec {
+            if self.aggregate.is_none() {
+                self.aggregate = Some(SegmentAggregate::new(
+                    &spec.definition,
+                    spec.alphabet,
+                    spec.inference_config,
+                    spec.collection_count,
+                )?);
+            }
+            self.aggregate.as_mut().expect("eager aggregate initialized").admit(batch, base, count)?;
+        } else {
+            self.batches.push(SegmentBatch {
+                base,
+                count,
+                contribution: batch,
+            });
+        }
         Ok(())
     }
 
@@ -322,6 +457,7 @@ impl SegmentAdmission {
             records: self.records,
             id_lookup: self.id_lookup,
             batches: self.batches,
+            aggregate: self.aggregate,
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
         }
@@ -338,99 +474,17 @@ impl CollectionSegment {
         collection_count: usize,
         pool: &ThreadPool,
     ) -> Result<IndexedCollectionSegment, String> {
-        let mut postings = PostingCollection::new(&definition.schema);
-        let mut inference = InferenceBuilder::for_collection(inference_config, collection_count);
-        let mut custom_postings: HashMap<_, _> = definition
-            .schema
-            .operations
-            .iter()
-            .filter(|(_, binding)| binding.operation.posting())
-            .map(|(key, binding)| {
-                (
-                    key.clone(),
-                    CustomPostingIndex {
-                        index: PostingIndex::new(&definition.schema.fields[&key.0]),
-                        complete: binding.operation.complete_coverage(),
-                    },
-                )
-            })
-            .collect();
-        let mut raw = BigramContribution::new(alphabet);
-        let mut fallback_text = BigramContribution::new(alphabet);
-        let mut custom_text: HashMap<_, _> = definition
-            .schema
-            .custom
-            .keys()
-            .chain(
-                definition
-                    .schema
-                    .operations
-                    .iter()
-                    .filter(|(_, binding)| {
-                        binding.operation.bigram() && binding.operation.complete_coverage()
-                    })
-                    .map(|(key, _)| key),
-            )
-            .map(|key| {
-                (
-                    canonical_custom_text_key(&definition.schema, &key.0, &key.1),
-                    BigramContribution::new(alphabet),
-                )
-            })
-            .collect();
-        let mut logical_records = RoaringBitmap::new();
-        let mut empty_array_records = RoaringBitmap::new();
-        let mut sorting = SortBuilder::new(
-            &definition.sort_fields,
-            &definition.schema,
-            &definition.sort_locale,
-            definition.sort_options,
-            &definition.sort_overrides,
-        )?;
-        let mut relations = RelationContribution::for_schema(&definition.schema);
-        for SegmentBatch {
-            base,
-            count,
-            contribution: batch,
-        } in self.batches
-        {
-            postings.merge_shifted(batch.postings, base)?;
-            match (inference.as_mut(), batch.inference) {
-                (Some(global), Some(local)) => global.merge_shifted(local, base)?,
-                (None, None) => {}
-                _ => return Err("inference segment mode mismatch".into()),
-            }
-            if relations.len() != batch.relations.len() {
-                return Err("relation segment coverage mismatch".into());
-            }
-            for (global, local) in relations.iter_mut().zip(batch.relations) {
-                global.merge_shifted(local, base, count)?;
-            }
-            if custom_postings.len() != batch.custom_postings.len() {
-                return Err("custom posting segment coverage mismatch".into());
-            }
-            for (key, local) in batch.custom_postings {
-                let global = custom_postings
-                    .get_mut(&key)
-                    .ok_or("custom posting segment missing")?;
-                global.index.merge_shifted(local.index, base)?;
-                global.complete &= local.complete;
-            }
-            raw.merge_shifted(batch.raw, base)?;
-            fallback_text.merge_shifted(batch.fallback_text, base)?;
-            if custom_text.len() != batch.custom_text.len() {
-                return Err("custom bigram segment coverage mismatch".into());
-            }
-            for (key, index) in batch.custom_text {
-                custom_text
-                    .get_mut(&key)
-                    .ok_or("custom bigram segment missing")?
-                    .merge_shifted(index, base)?;
-            }
-            append_shifted_bitmap(&mut logical_records, &batch.logical_records, base)?;
-            append_shifted_bitmap(&mut empty_array_records, &batch.empty_array_records, base)?;
-            sorting.append_keys(batch.sort_keys, base, count)?;
+        let mut aggregate = match self.aggregate {
+            Some(aggregate) => aggregate,
+            None => SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?,
+        };
+        for SegmentBatch { base, count, contribution } in self.batches {
+            aggregate.admit(contribution, base, count)?;
         }
+        let SegmentAggregate {
+            mut postings, inference, mut custom_postings, raw, fallback_text,
+            custom_text, logical_records, empty_array_records, sorting, relations,
+        } = aggregate;
         let record_count = self.records.len();
         let logical_count = logical_records.len() as usize;
         postings.finish_stats();
