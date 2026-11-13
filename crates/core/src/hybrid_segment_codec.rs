@@ -25,8 +25,8 @@ use crate::posting::{
     StructuralKey,
 };
 use crate::posting_dictionary::{
-    DictionarySpan, PostingPack, SealedPostingDictionary, append_visited,
-    append_visited_constructed,
+    DictionarySpan, PostingPack, PostingSink, SealedPostingDictionary,
+    StreamingPostingPack, append_visited, append_visited_constructed,
 };
 use crate::repository::{CollectionDefinition, RepositoryOptions, canonical_custom_text_key};
 use crate::segment_format::{
@@ -267,8 +267,8 @@ fn text_inputs(segment: &IndexedCollectionSegment) -> Vec<(TextKey, &BigramIndex
     out
 }
 
-fn descriptor_list(
-    pack: &mut PostingPack,
+fn descriptor_list<P: PostingSink + ?Sized>(
+    pack: &mut P,
     values: &HashMap<Vec<String>, RoaringBitmap>,
 ) -> Result<Vec<(Vec<String>, Descriptor)>, String> {
     let mut ordered = values.iter().collect::<Vec<_>>();
@@ -339,6 +339,18 @@ pub(crate) fn write_sealed_segment<W: Write + Seek>(
     writer.finish()
 }
 
+struct EncodedSections {
+    field_bytes: Vec<u8>,
+    text_bytes: Vec<u8>,
+    scalar: Vec<u8>,
+    structural_bytes: Vec<u8>,
+    bigrams: Vec<u8>,
+    record_bytes: Vec<u8>,
+    sort_bytes: Vec<u8>,
+    relation_bytes: Vec<u8>,
+    integrity_bytes: Vec<u8>,
+}
+
 fn write_segment_inner<W: Write + Seek>(
     segment: &IndexedCollectionSegment,
     ordinal: u64,
@@ -354,28 +366,64 @@ fn write_segment_inner<W: Write + Seek>(
     if validate_before_write {
         validate_components(segment, definition, options)?;
     }
+    let mut writer = SegmentWriter::new(output, REQUIRED_SECTIONS.len())?;
+    let sections = if validate_before_write {
+        let mut pack = PostingPack::new();
+        let sections = encode_segment_sections(segment, ordinal, options, intern, true, &mut pack)?;
+        write_bytes(&mut writer, SectionKind::PostingPayloads, pack.bytes())?;
+        sections
+    } else {
+        let mut sections = None;
+        writer.write_section(SectionKind::PostingPayloads, |output| {
+            let mut pack = StreamingPostingPack::new(output);
+            sections = Some(encode_segment_sections(
+                segment, ordinal, options, intern, false, &mut pack,
+            )?);
+            Ok(())
+        })?;
+        sections.ok_or("constructed section writer did not complete")?
+    };
+    write_bytes(&mut writer, SectionKind::FieldMetadata, &sections.field_bytes)?;
+    write_bytes(&mut writer, SectionKind::TextBindings, &sections.text_bytes)?;
+    write_bytes(&mut writer, SectionKind::ScalarDictionaries, &sections.scalar)?;
+    write_bytes(&mut writer, SectionKind::StructuralReferences, &sections.structural_bytes)?;
+    write_bytes(&mut writer, SectionKind::BigramDictionaries, &sections.bigrams)?;
+    write_bytes(&mut writer, SectionKind::RecordSlots, &sections.record_bytes)?;
+    write_bytes(&mut writer, SectionKind::SortData, &sections.sort_bytes)?;
+    write_bytes(&mut writer, SectionKind::RelationAndIdentity, &sections.relation_bytes)?;
+    write_bytes(&mut writer, SectionKind::Integrity, &sections.integrity_bytes)?;
+    writer.finish()
+}
+
+fn encode_segment_sections<P: PostingSink + ?Sized>(
+    segment: &IndexedCollectionSegment,
+    ordinal: u64,
+    options: RepositoryOptions,
+    intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
+    validate_before_write: bool,
+    pack: &mut P,
+) -> Result<EncodedSections, String> {
     let slot_count = u32::try_from(segment.records.len()).map_err(|_| "too many record slots")?;
-    let mut pack = PostingPack::new();
     let mut scalar = Vec::new();
     let mut bigrams = Vec::new();
     let mut fields = Vec::new();
     let mut structural = Vec::new();
     for (key, index, custom_complete) in posting_inputs(segment) {
         let values = if validate_before_write {
-            append_visited(&mut scalar, &mut pack, &segment.logical_records, |append| {
+            append_visited(&mut scalar, pack, &segment.logical_records, |append| {
                 index.for_each_value(|key, posting| append(key, posting))
             })?
         } else {
-            append_visited_constructed(&mut scalar, &mut pack, &segment.logical_records, |append| {
+            append_visited_constructed(&mut scalar, pack, &segment.logical_records, |append| {
                 index.for_each_value(|key, posting| append(key, posting))
             })?
         };
         let lengths = if validate_before_write {
-            append_visited(&mut scalar, &mut pack, &segment.logical_records, |append| {
+            append_visited(&mut scalar, pack, &segment.logical_records, |append| {
                 index.for_each_length(|key, posting| append(key, posting))
             })?
         } else {
-            append_visited_constructed(&mut scalar, &mut pack, &segment.logical_records, |append| {
+            append_visited_constructed(&mut scalar, pack, &segment.logical_records, |append| {
                 index.for_each_length(|key, posting| append(key, posting))
             })?
         };
@@ -425,9 +473,9 @@ fn write_segment_inner<W: Write + Seek>(
             &segment.logical_records
         };
         let spans = if validate_before_write {
-            append_bigram_index(&mut bigrams, &mut pack, index, allowed)?
+            append_bigram_index(&mut bigrams, pack, index, allowed)?
         } else {
-            append_bigram_index_constructed(&mut bigrams, &mut pack, index, allowed)?
+            append_bigram_index_constructed(&mut bigrams, pack, index, allowed)?
         };
         texts.push(TextBinding {
             key,
@@ -454,13 +502,13 @@ fn write_segment_inner<W: Write + Seek>(
             inferred_empty_selections: segment
                 .inference
                 .as_ref()
-                .map(|state| descriptor_list(&mut pack, &state.empty_selections))
+                .map(|state| descriptor_list(pack, &state.empty_selections))
                 .transpose()?
                 .unwrap_or_default(),
             short_string_coverage: segment
                 .inference
                 .as_ref()
-                .map(|state| descriptor_list(&mut pack, &state.short_string_coverage))
+                .map(|state| descriptor_list(pack, &state.short_string_coverage))
                 .transpose()?
                 .unwrap_or_default(),
         },
@@ -496,26 +544,17 @@ fn write_segment_inner<W: Write + Seek>(
                 .map_err(|_| "too many text bindings")?,
         },
     )?;
-    let mut writer = SegmentWriter::new(output, REQUIRED_SECTIONS.len())?;
-    write_bytes(&mut writer, SectionKind::FieldMetadata, &field_bytes)?;
-    write_bytes(&mut writer, SectionKind::TextBindings, &text_bytes)?;
-    write_bytes(&mut writer, SectionKind::ScalarDictionaries, &scalar)?;
-    write_bytes(
-        &mut writer,
-        SectionKind::StructuralReferences,
-        &structural_bytes,
-    )?;
-    write_bytes(&mut writer, SectionKind::BigramDictionaries, &bigrams)?;
-    write_bytes(&mut writer, SectionKind::PostingPayloads, pack.bytes())?;
-    write_bytes(&mut writer, SectionKind::RecordSlots, &record_bytes)?;
-    write_bytes(&mut writer, SectionKind::SortData, &sort_bytes)?;
-    write_bytes(
-        &mut writer,
-        SectionKind::RelationAndIdentity,
-        &relation_bytes,
-    )?;
-    write_bytes(&mut writer, SectionKind::Integrity, &integrity_bytes)?;
-    writer.finish()
+    Ok(EncodedSections {
+        field_bytes,
+        text_bytes,
+        scalar,
+        structural_bytes,
+        bigrams,
+        record_bytes,
+        sort_bytes,
+        relation_bytes,
+        integrity_bytes,
+    })
 }
 
 /// Seal one completed in-memory segment without opening or creating any file.

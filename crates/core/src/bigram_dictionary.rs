@@ -6,8 +6,10 @@ use roaring::RoaringBitmap;
 
 use crate::bigram::{BigramIndex, BigramRequest};
 use crate::posting_dictionary::{
-    DictionarySpan, PostingPack, SealedPostingDictionary, append_visited_constructed,
+    DictionarySpan, PostingSink, SealedPostingDictionary, append_visited_constructed,
 };
+#[cfg(test)]
+use crate::posting_dictionary::PostingPack;
 use crate::segment_format::{PostingDescriptor, SectionKind, SegmentReader};
 use crate::workload::BigramAlphabet;
 
@@ -18,9 +20,9 @@ pub(crate) struct BigramSpans {
 }
 
 /// Encode one text binding's two gram families without cloning their bitmaps.
-pub(crate) fn append_bigram_index(
+pub(crate) fn append_bigram_index<P: PostingSink + ?Sized>(
     section: &mut Vec<u8>,
-    pack: &mut PostingPack,
+    pack: &mut P,
     index: &BigramIndex,
     allowed: &RoaringBitmap,
 ) -> Result<BigramSpans, String> {
@@ -36,9 +38,9 @@ pub(crate) fn append_bigram_index(
 }
 
 /// The finalized builder already checked slot bounds and the eligible domain.
-pub(crate) fn append_bigram_index_constructed(
+pub(crate) fn append_bigram_index_constructed<P: PostingSink + ?Sized>(
     section: &mut Vec<u8>,
-    pack: &mut PostingPack,
+    pack: &mut P,
     index: &BigramIndex,
     allowed: &RoaringBitmap,
 ) -> Result<BigramSpans, String> {

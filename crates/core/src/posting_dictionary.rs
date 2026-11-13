@@ -1,6 +1,7 @@
 //! Typed ordered dictionaries over independently checked portable postings.
 
 use std::collections::{BTreeMap, HashMap};
+use std::io::Write;
 use std::ops::Bound;
 use std::sync::{Arc, Mutex, OnceLock};
 
@@ -60,20 +61,66 @@ impl PostingPack {
     }
 }
 
+pub(crate) trait PostingSink {
+    fn append(&mut self, bitmap: &RoaringBitmap) -> Result<PostingDescriptor, String>;
+}
+
+impl PostingSink for PostingPack {
+    fn append(&mut self, bitmap: &RoaringBitmap) -> Result<PostingDescriptor, String> {
+        PostingPack::append(self, bitmap)
+    }
+}
+
+/// Keep only one reusable payload scratch while writing the immutable posting
+/// section directly into its final owned buffer or managed file.
+pub(crate) struct StreamingPostingPack<'a> {
+    output: &'a mut dyn Write,
+    position: u64,
+    scratch: Vec<u8>,
+}
+
+impl<'a> StreamingPostingPack<'a> {
+    pub(crate) fn new(output: &'a mut dyn Write) -> Self {
+        Self { output, position: 0, scratch: Vec::new() }
+    }
+}
+
+impl PostingSink for StreamingPostingPack<'_> {
+    fn append(&mut self, bitmap: &RoaringBitmap) -> Result<PostingDescriptor, String> {
+        if bitmap.is_empty() {
+            return Ok(PostingDescriptor::EMPTY);
+        }
+        self.scratch.clear();
+        let size = bitmap.serialized_size();
+        self.scratch.try_reserve(size)
+            .map_err(|error| format!("posting scratch allocation: {error}"))?;
+        bitmap.serialize_into(&mut self.scratch)
+            .map_err(|error| format!("portable posting encode: {error}"))?;
+        if self.scratch.len() != size {
+            return Err("portable posting size changed during encoding".into());
+        }
+        let descriptor = PostingDescriptor::for_bitmap(self.position, bitmap, &self.scratch)?;
+        self.output.write_all(&self.scratch).map_err(|error| error.to_string())?;
+        self.position = self.position.checked_add(size as u64)
+            .ok_or("posting pack size overflow")?;
+        Ok(descriptor)
+    }
+}
+
 /// Append one sorted typed dictionary to a shared section. The map is a
 /// mutable-builder input only; immutable query execution uses the returned
 /// span and the segment's owned or mapped bytes.
-pub(crate) fn append_dictionary<K: Ord + Clone + Serialize>(
+pub(crate) fn append_dictionary<K: Ord + Clone + Serialize, P: PostingSink + ?Sized>(
     section: &mut Vec<u8>,
-    pack: &mut PostingPack,
+    pack: &mut P,
     map: &BTreeMap<K, RoaringBitmap>,
 ) -> Result<DictionarySpan, String> {
     append_entries(section, pack, map.iter())
 }
 
-pub(crate) fn append_entries<'a, K: 'a + Ord + Clone + Serialize>(
+pub(crate) fn append_entries<'a, K: 'a + Ord + Clone + Serialize, P: PostingSink + ?Sized>(
     section: &mut Vec<u8>,
-    pack: &mut PostingPack,
+    pack: &mut P,
     entries: impl IntoIterator<Item = (&'a K, &'a RoaringBitmap)>,
 ) -> Result<DictionarySpan, String> {
     let start = section.len();
@@ -90,9 +137,9 @@ pub(crate) fn append_entries<'a, K: 'a + Ord + Clone + Serialize>(
 
 /// Re-encode a mutable or sealed dictionary while retaining only its keys and
 /// descriptors. The visitor supplies one checked posting at a time.
-pub(crate) fn append_visited<K: Ord + Clone + Serialize>(
+pub(crate) fn append_visited<K: Ord + Clone + Serialize, P: PostingSink + ?Sized>(
     section: &mut Vec<u8>,
-    pack: &mut PostingPack,
+    pack: &mut P,
     allowed: &RoaringBitmap,
     visit: impl FnOnce(&mut dyn FnMut(&K, &RoaringBitmap) -> Result<(), String>) -> Result<(), String>,
 ) -> Result<DictionarySpan, String> {
@@ -101,18 +148,18 @@ pub(crate) fn append_visited<K: Ord + Clone + Serialize>(
 
 /// Only for finalized builder postings whose exact eligible domain has
 /// already been checked by `SegmentAdmission::into_indexed_profiled`.
-pub(crate) fn append_visited_constructed<K: Ord + Clone + Serialize>(
+pub(crate) fn append_visited_constructed<K: Ord + Clone + Serialize, P: PostingSink + ?Sized>(
     section: &mut Vec<u8>,
-    pack: &mut PostingPack,
+    pack: &mut P,
     allowed: &RoaringBitmap,
     visit: impl FnOnce(&mut dyn FnMut(&K, &RoaringBitmap) -> Result<(), String>) -> Result<(), String>,
 ) -> Result<DictionarySpan, String> {
     append_visited_inner(section, pack, allowed, false, visit)
 }
 
-fn append_visited_inner<K: Ord + Clone + Serialize>(
+fn append_visited_inner<K: Ord + Clone + Serialize, P: PostingSink + ?Sized>(
     section: &mut Vec<u8>,
-    pack: &mut PostingPack,
+    pack: &mut P,
     allowed: &RoaringBitmap,
     validate_domain: bool,
     visit: impl FnOnce(&mut dyn FnMut(&K, &RoaringBitmap) -> Result<(), String>) -> Result<(), String>,

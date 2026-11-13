@@ -479,6 +479,26 @@ fn sealed_persistence_rebases_file_references_without_decoding_postings() {
 }
 
 #[test]
+fn streamed_owned_pack_matches_checked_buffered_pack() {
+    let (root, definition, options, segment) = fixture();
+    let buffered = write_segment(
+        &segment, 1, &definition, options, Cursor::new(Vec::new()),
+        &mut |_| Ok(0),
+    ).unwrap().into_inner();
+    let buffered = SegmentReader::from_owned(Arc::from(buffered)).unwrap();
+    let sealed = seal_segment_consuming(segment, 1, &definition, options).unwrap();
+    let streamed = sealed.raw.sealed_reader().unwrap();
+    for kind in [
+        SectionKind::PostingPayloads,
+        SectionKind::ScalarDictionaries,
+        SectionKind::BigramDictionaries,
+    ] {
+        assert_eq!(buffered.section(kind).unwrap(), streamed.section(kind).unwrap());
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn manifest_slot_count_and_source_binding_are_checked() {
     let (root, definition, options, segment) = fixture();
     let mut table = Vec::<FileEntry>::new();
