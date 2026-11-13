@@ -5988,6 +5988,45 @@ fn try_parallel_relation_page(
         if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
             continue;
         }
+        // Posting and FTS bounds can leave only a few slots in a large
+        // collection. Resolve those slots directly instead of probing every
+        // file in the segment to discover the same jobs.
+        if let Some(candidates) = candidates.as_ref()
+            && candidates.len().saturating_mul(8) < published.index.files.len() as u64
+        {
+            let mut selected_files = HashSet::new();
+            for slot_number in candidates.iter() {
+                let slot = RecordSlot(slot_number);
+                if !published.active.contains(slot) {
+                    continue;
+                }
+                let record = published
+                    .index
+                    .record(slot)
+                    .ok_or("parallel relation slot missing")?;
+                let file = published
+                    .index
+                    .file(record.file)
+                    .ok_or("parallel relation file missing")?;
+                if !selected_files.insert(record.file)
+                    || record.range.len() > 64 * 1024
+                    || record.id.0.len() > 1024
+                    || file.entry.relative_path.to_string_lossy().len() > 4096
+                {
+                    return Ok(None);
+                }
+                jobs.push(RelationFileJob {
+                    segment_index,
+                    file_id: record.file.0,
+                    slot,
+                    range: record.range,
+                });
+                if jobs.len() > 50_000 {
+                    return Ok(None);
+                }
+            }
+            continue;
+        }
         for file in &published.index.files {
             let mut selected = file.records.iter().filter(|slot| {
                 published.active.contains(**slot)
@@ -6027,7 +6066,10 @@ fn try_parallel_relation_page(
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
     let mut total = 0u64;
-    for chunk in jobs.chunks(256) {
+    // Each job reads at most one small record. Keep dispatch batches large enough
+    // that relation scans spanning thousands of files do not repeatedly enter
+    // the worker pool, while bounding the retained scan results.
+    for chunk in jobs.chunks(2048) {
         let views = (0..chunk.len())
             .map(|_| view.fork_for_worker())
             .collect::<Vec<_>>();
