@@ -77,10 +77,18 @@ fn discovery_and_segments_publish_without_losing_records() {
     assert_eq!(catalogue.catalogue_row(FileId(0)).unwrap().size > 0, true);
     assert_eq!(catalogue.file_record_count(FileId(0)), None);
     assert!(catalogue.search(&all_query()).is_err());
-    assert!(catalogue.get_record("data", "~generated:data/f0000.json", ReturnMode::Locator).is_err());
+    assert!(
+        catalogue
+            .get_record("data", "~generated:data/f0000.json", ReturnMode::Locator)
+            .is_err()
+    );
     assert!(catalogue.search_reference(&all_query()).is_err());
     assert!(catalogue.explain(&all_query()).is_err());
-    assert!(index.flush_cache(&root.with_extension("premature.idx")).is_err());
+    assert!(
+        index
+            .flush_cache(&root.with_extension("premature.idx"))
+            .is_err()
+    );
     let available = catalogue.search_available(&all_query()).unwrap();
     assert!(!available.complete);
     assert_eq!(available.result.count, None);
@@ -90,12 +98,16 @@ fn discovery_and_segments_publish_without_losing_records() {
     let first = publication_rx.recv().unwrap();
     assert_eq!(first.0.processed_files, 2_048);
     assert!(!first.initial_construction_complete());
-    assert!(first.search_stream(
-        &all_query(),
-        crate::streaming::StreamOptions::default(),
-        &crate::streaming::CancellationToken::new(),
-        &mut |_| Ok(crate::streaming::StreamControl::Continue),
-    ).is_err());
+    assert!(
+        first
+            .search_stream(
+                &all_query(),
+                crate::streaming::StreamOptions::default(),
+                &crate::streaming::CancellationToken::new(),
+                &mut |_| Ok(crate::streaming::StreamControl::Continue),
+            )
+            .is_err()
+    );
     let first_results = first.search_available(&all_query()).unwrap();
     assert_eq!(first_results.result.hits.len(), 2_048);
     assert_eq!(first_results.result.count, None);
@@ -105,12 +117,39 @@ fn discovery_and_segments_publish_without_losing_records() {
         query.filter = Some(parse_filter(expression).unwrap());
         query
     };
-    assert_eq!(first.search_available(&filtered("name = 'n2049'")).unwrap().result.hits.len(), 0);
-    assert_eq!(first.search_available(&filtered("name = 'n0' || name = 'n2049'")).unwrap().result.hits.len(), 1);
-    assert_eq!(first.search_available(&filtered("!(name = 'n2049')")).unwrap().result.hits.len(), 2_048);
+    assert_eq!(
+        first
+            .search_available(&filtered("name = 'n2049'"))
+            .unwrap()
+            .result
+            .hits
+            .len(),
+        0
+    );
+    assert_eq!(
+        first
+            .search_available(&filtered("name = 'n0' || name = 'n2049'"))
+            .unwrap()
+            .result
+            .hits
+            .len(),
+        1
+    );
+    assert_eq!(
+        first
+            .search_available(&filtered("!(name = 'n2049')"))
+            .unwrap()
+            .result
+            .hits
+            .len(),
+        2_048
+    );
     let mut follow_query = all_query();
     follow_query.options.count = false;
-    let first_delta = first.search_added_since(&catalogue, &follow_query).unwrap().unwrap();
+    let first_delta = first
+        .search_added_since(&catalogue, &follow_query)
+        .unwrap()
+        .unwrap();
     assert_eq!(first_delta.result.hits.len(), 2_048);
     resume_tx.send(()).unwrap();
 
@@ -120,12 +159,42 @@ fn discovery_and_segments_publish_without_losing_records() {
     let second_results = second.search_available(&all_query()).unwrap();
     assert_eq!(second_results.result.hits.len(), 2_050);
     assert_eq!(second_results.result.count, None);
-    assert_eq!(second.search_available(&filtered("name = 'n2049'")).unwrap().result.hits.len(), 1);
-    assert_eq!(second.search_available(&filtered("name = 'n0' || name = 'n2049'")).unwrap().result.hits.len(), 2);
-    assert_eq!(second.search_available(&filtered("!(name = 'n2049')")).unwrap().result.hits.len(), 2_049);
-    let second_delta = second.search_added_since(&first, &follow_query).unwrap().unwrap();
+    assert_eq!(
+        second
+            .search_available(&filtered("name = 'n2049'"))
+            .unwrap()
+            .result
+            .hits
+            .len(),
+        1
+    );
+    assert_eq!(
+        second
+            .search_available(&filtered("name = 'n0' || name = 'n2049'"))
+            .unwrap()
+            .result
+            .hits
+            .len(),
+        2
+    );
+    assert_eq!(
+        second
+            .search_available(&filtered("!(name = 'n2049')"))
+            .unwrap()
+            .result
+            .hits
+            .len(),
+        2_049
+    );
+    let second_delta = second
+        .search_added_since(&first, &follow_query)
+        .unwrap()
+        .unwrap();
     assert_eq!(second_delta.result.hits.len(), 2);
-    let coalesced = second.search_added_since(&catalogue, &follow_query).unwrap().unwrap();
+    let coalesced = second
+        .search_added_since(&catalogue, &follow_query)
+        .unwrap()
+        .unwrap();
     assert_eq!(coalesced.result.hits.len(), 2_050);
     resume_tx.send(()).unwrap();
 
@@ -165,8 +234,17 @@ fn discovery_and_segments_publish_without_losing_records() {
     assert!(first.search(&all_query()).is_err());
     let cache = root.with_extension("idx");
     finished.flush_cache(&cache).unwrap();
-    let restored = Index::load_cache(&root, vec![restore_definition], RepositoryOptions::default(), &cache).unwrap();
-    assert_eq!(restored.view().unwrap().search(&all_query()).unwrap().count, Some(2_050));
+    let restored = Index::load_cache(
+        &root,
+        vec![restore_definition],
+        RepositoryOptions::default(),
+        &cache,
+    )
+    .unwrap();
+    assert_eq!(
+        restored.view().unwrap().search(&all_query()).unwrap().count,
+        Some(2_050)
+    );
     std::fs::remove_file(cache).unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -176,7 +254,10 @@ fn shared_malformed_file_resolves_each_collection_diagnostic() {
     let root = std::env::temp_dir().join(format!(
         "objekte-initial-shared-diagnostic-{}-{}",
         std::process::id(),
-        std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/broken.json"), b"{ broken").unwrap();
@@ -185,7 +266,9 @@ fn shared_malformed_file_resolves_each_collection_diagnostic() {
         CollectionDefinition::folder("second", "data", SourceFormat::Json),
     ];
     let index = Index::start_incremental_build(&root, definitions, RepositoryOptions::default())
-        .unwrap().wait_complete().unwrap();
+        .unwrap()
+        .wait_complete()
+        .unwrap();
     let view = index.view().unwrap();
     let mut query = all_query();
     query.collections.clear();
@@ -194,8 +277,15 @@ fn shared_malformed_file_resolves_each_collection_diagnostic() {
     assert_eq!(index.status().unwrap().fallback_records, 2);
     for hit in result.hits {
         assert_eq!(hit.record_class, crate::inventory::RecordClass::RawFallback);
-        let diagnostic = view.diagnostic(FileId(hit.file_id), hit.diagnostic_ref).unwrap();
-        let expected_collection = view.repository().collections().iter().position(|collection| collection.definition.name == hit.collection).unwrap();
+        let diagnostic = view
+            .diagnostic(FileId(hit.file_id), hit.diagnostic_ref)
+            .unwrap();
+        let expected_collection = view
+            .repository()
+            .collections()
+            .iter()
+            .position(|collection| collection.definition.name == hit.collection)
+            .unwrap();
         assert_eq!(diagnostic.collection.0 as usize, expected_collection);
     }
     std::fs::remove_dir_all(root).unwrap();
@@ -206,30 +296,87 @@ fn jsonl_valid_and_malformed_records_roundtrip_without_duplicate_ids() {
     let root = std::env::temp_dir().join(format!(
         "objekte-initial-jsonl-{}-{}",
         std::process::id(),
-        std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/multi.jsonl"), b"{\"name\":\"first\"}\n{broken}\n{\"name\":\"third\"}\n").unwrap();
+    std::fs::write(
+        root.join("data/multi.jsonl"),
+        b"{\"name\":\"first\"}\n{broken}\n{\"name\":\"third\"}\n",
+    )
+    .unwrap();
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
-    let index = Index::start_incremental_build(&root, vec![definition.clone()], RepositoryOptions::default())
-        .unwrap().wait_complete().unwrap();
+    let index = Index::start_incremental_build(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
     let view = index.view().unwrap();
     let result = view.search(&all_query()).unwrap();
     assert_eq!(result.count, Some(3));
     assert_eq!(result.hits.len(), 3);
-    assert_eq!(result.hits.iter().filter(|hit| hit.record_class == crate::inventory::RecordClass::RawFallback).count(), 1);
-    assert_eq!(result.hits.iter().map(|hit| &hit.record_id).collect::<std::collections::HashSet<_>>().len(), 3);
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .filter(|hit| hit.record_class == crate::inventory::RecordClass::RawFallback)
+            .count(),
+        1
+    );
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| &hit.record_id)
+            .collect::<std::collections::HashSet<_>>()
+            .len(),
+        3
+    );
     for hit in &result.hits {
         if hit.record_class == crate::inventory::RecordClass::RawFallback {
-            assert!(view.diagnostic(FileId(hit.file_id), hit.diagnostic_ref).is_some());
+            assert!(
+                view.diagnostic(FileId(hit.file_id), hit.diagnostic_ref)
+                    .is_some()
+            );
         }
     }
     let cache = root.with_extension("idx");
     index.flush_cache(&cache).unwrap();
-    let restored = Index::load_cache(&root, vec![definition], RepositoryOptions::default(), &cache).unwrap();
+    let restored = Index::load_cache(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        &cache,
+    )
+    .unwrap();
     let restored_result = restored.view().unwrap().search(&all_query()).unwrap();
-    assert_eq!(result.hits.iter().map(|hit| (&hit.record_id, hit.byte_start, hit.byte_end, hit.record_class)).collect::<Vec<_>>(),
-        restored_result.hits.iter().map(|hit| (&hit.record_id, hit.byte_start, hit.byte_end, hit.record_class)).collect::<Vec<_>>());
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| (
+                &hit.record_id,
+                hit.byte_start,
+                hit.byte_end,
+                hit.record_class
+            ))
+            .collect::<Vec<_>>(),
+        restored_result
+            .hits
+            .iter()
+            .map(|hit| (
+                &hit.record_id,
+                hit.byte_start,
+                hit.byte_end,
+                hit.record_class
+            ))
+            .collect::<Vec<_>>()
+    );
     std::fs::remove_file(cache).unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

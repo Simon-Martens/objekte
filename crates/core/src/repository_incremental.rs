@@ -45,9 +45,21 @@ impl IncrementalCollection {
             id,
             &source,
             SegmentLimits {
-                files: if early { FIRST_SEGMENT_RECORDS } else { LATER_SEGMENT_RECORDS },
-                records: if early { FIRST_SEGMENT_RECORDS } else { LATER_SEGMENT_RECORDS },
-                source_bytes: if early { FIRST_SEGMENT_SOURCE_BYTES } else { LATER_SEGMENT_SOURCE_BYTES },
+                files: if early {
+                    FIRST_SEGMENT_RECORDS
+                } else {
+                    LATER_SEGMENT_RECORDS
+                },
+                records: if early {
+                    FIRST_SEGMENT_RECORDS
+                } else {
+                    LATER_SEGMENT_RECORDS
+                },
+                source_bytes: if early {
+                    FIRST_SEGMENT_SOURCE_BYTES
+                } else {
+                    LATER_SEGMENT_SOURCE_BYTES
+                },
             },
             Arc::clone(&definition),
             options.bigram_alphabet,
@@ -72,7 +84,9 @@ impl IncrementalCollection {
         let (inference, logical) = batch.observation_copy();
         let base = self.records;
         let count = u32::try_from(batch.record_count()).map_err(|_| "too many batch records")?;
-        self.records = base.checked_add(count).ok_or("collection record slot overflow")?;
+        self.records = base
+            .checked_add(count)
+            .ok_or("collection record slot overflow")?;
         match (self.global_inference.as_mut(), inference) {
             (Some(global), Some(local)) => global.merge_shifted(local, base)?,
             (None, None) => {}
@@ -125,7 +139,9 @@ impl IncrementalCollection {
         Some(std::mem::replace(&mut self.admission, replacement).seal())
     }
 
-    fn finish_summary(&mut self) -> Result<(Option<GlobalInferenceSummary>, InferenceBuildStats), String> {
+    fn finish_summary(
+        &mut self,
+    ) -> Result<(Option<GlobalInferenceSummary>, InferenceBuildStats), String> {
         let mut stats = InferenceBuildStats::default();
         let state = self
             .global_inference
@@ -261,13 +277,33 @@ impl Repository {
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
-            if selected.iter().any(|(existing, _, _, _): &(CollectionDefinition, CollectionId, PreparedSource, Vec<FileId>)| existing.name == definition.name) {
-                return Err(IndexError::Build(format!("duplicate collection: {}", definition.name)));
+            if selected.iter().any(
+                |(existing, _, _, _): &(
+                    CollectionDefinition,
+                    CollectionId,
+                    PreparedSource,
+                    Vec<FileId>,
+                )| existing.name == definition.name,
+            ) {
+                return Err(IndexError::Build(format!(
+                    "duplicate collection: {}",
+                    definition.name
+                )));
             }
-            let id = CollectionId(u32::try_from(number).map_err(|_| IndexError::ResourceLimit("too many collections".into()))?);
-            let source = sources.resolve(&definition.format).map_err(IndexError::Build)?;
-            let paths = discover(&root, &definition.source_path, &definition.discovery, &source)
+            let id = CollectionId(
+                u32::try_from(number)
+                    .map_err(|_| IndexError::ResourceLimit("too many collections".into()))?,
+            );
+            let source = sources
+                .resolve(&definition.format)
                 .map_err(IndexError::Build)?;
+            let paths = discover(
+                &root,
+                &definition.source_path,
+                &definition.discovery,
+                &source,
+            )
+            .map_err(IndexError::Build)?;
             let mut members = Vec::with_capacity(paths.len());
             let mut paths = paths.into_iter();
             loop {
@@ -284,13 +320,7 @@ impl Repository {
                         .map(|path| prepare_discovered_file(&root, path))
                         .collect::<Vec<_>>()
                 } else {
-                    prepare_discovered_window(
-                        &pool,
-                        &root,
-                        window,
-                        false,
-                        &metadata_peak_active,
-                    )
+                    prepare_discovered_window(&pool, &root, window, false, &metadata_peak_active)
                 };
                 for entry in prepared {
                     let entry = entry.map_err(IndexError::Build)?;
@@ -307,10 +337,17 @@ impl Repository {
         let discovery_ns = discovery_started.elapsed().as_nanos() as u64;
         let discovered = Arc::new(files);
         let source_files = Arc::new(
-            discovered.files.iter().map(SourceFileInput::from_entry).collect::<Vec<_>>(),
+            discovered
+                .files
+                .iter()
+                .map(SourceFileInput::from_entry)
+                .collect::<Vec<_>>(),
         );
         let collection_count = selected.len();
-        let early_collection = selected.iter().max_by_key(|(_, _, _, members)| members.len()).map(|(_, id, _, _)| *id);
+        let early_collection = selected
+            .iter()
+            .max_by_key(|(_, _, _, members)| members.len())
+            .map(|(_, id, _, _)| *id);
         let mut pending = selected
             .into_iter()
             .map(|(definition, id, source, members)| {
@@ -325,14 +362,9 @@ impl Repository {
                 )
             })
             .collect::<Vec<_>>();
-        let mut repository = Self::build_fresh(
-            root.clone(),
-            definitions.clone(),
-            options,
-            &sources,
-            false,
-        )
-        .map_err(IndexError::Build)?;
+        let mut repository =
+            Self::build_fresh(root.clone(), definitions.clone(), options, &sources, false)
+                .map_err(IndexError::Build)?;
         repository.files = Arc::clone(&discovered);
         repository.base_fingerprints = vec![None; discovered.files.len()];
         for (collection, state) in repository.collections.iter_mut().zip(&pending) {
@@ -442,7 +474,11 @@ impl Repository {
                             },
                         );
                         schedule_stats.absorb(result.map_err(|error| {
-                            if cancelled() { IndexError::Cancelled } else { IndexError::Build(error) }
+                            if cancelled() {
+                                IndexError::Cancelled
+                            } else {
+                                IndexError::Build(error)
+                            }
                         })?);
                         normal.clear();
                     }
@@ -482,7 +518,13 @@ impl Repository {
                             pending[collection_index].admit_large_chunk(batch)
                         },
                     )
-                    .map_err(|error| if cancelled() { IndexError::Cancelled } else { IndexError::Build(error) })?;
+                    .map_err(|error| {
+                        if cancelled() {
+                            IndexError::Cancelled
+                        } else {
+                            IndexError::Build(error)
+                        }
+                    })?;
                     if let Some((file, digest)) = result.file_fingerprint {
                         digest_bindings[file.0 as usize].push((collection, digest));
                     }
@@ -520,8 +562,8 @@ impl Repository {
                         &mut digest_bindings,
                         &mut build_parses,
                         &mut failed_parses,
-                    &mut source_reads,
-                    &mut source_bytes_read,
+                        &mut source_reads,
+                        &mut source_bytes_read,
                         &index,
                         &mut expected,
                         options,
@@ -533,7 +575,11 @@ impl Repository {
                 },
             );
             schedule_stats.absorb(result.map_err(|error| {
-                if cancelled() { IndexError::Cancelled } else { IndexError::Build(error) }
+                if cancelled() {
+                    IndexError::Cancelled
+                } else {
+                    IndexError::Build(error)
+                }
             })?);
         }
         let extraction_index_ns = extraction_started.elapsed().as_nanos() as u64;
@@ -558,14 +604,8 @@ impl Repository {
         let finalization_started = Instant::now();
         let base_fingerprints =
             finish_fresh_fingerprints(&discovered, digest_bindings).map_err(IndexError::Build)?;
-        let mut final_repository = Self::build_fresh(
-            root,
-            definitions,
-            options,
-            &sources,
-            false,
-        )
-        .map_err(IndexError::Build)?;
+        let mut final_repository = Self::build_fresh(root, definitions, options, &sources, false)
+            .map_err(IndexError::Build)?;
         final_repository.files = Arc::clone(&discovered);
         final_repository.base_fingerprints = base_fingerprints;
         final_repository.build_parses = build_parses;
@@ -601,7 +641,8 @@ impl Repository {
             build_finalization_ns: finalization_started.elapsed().as_nanos() as u64,
             build_workers,
             build_source_reads: source_reads.saturating_add(schedule_stats.source_reads),
-            build_source_bytes_read: source_bytes_read.saturating_add(schedule_stats.source_bytes_read),
+            build_source_bytes_read: source_bytes_read
+                .saturating_add(schedule_stats.source_bytes_read),
             peak_build_admitted_bytes: schedule_stats.peak_weight_bytes,
             build_weight_limit_bytes: schedule_stats.weight_limit_bytes,
             build_peak_active_jobs: schedule_stats.peak_active_jobs,

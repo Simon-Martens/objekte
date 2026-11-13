@@ -116,10 +116,18 @@ impl InitialBuildTask {
             .0
             .segments
             .iter()
-            .map(|group| group.iter().filter(|segment| segment.active.len() > 0).count() as u64)
+            .map(|group| {
+                group
+                    .iter()
+                    .filter(|segment| segment.active.len() > 0)
+                    .count() as u64
+            })
             .sum();
         if state.status.searchable_batches > 0 {
-            state.status.first_batch_elapsed_ns.get_or_insert(elapsed_ns);
+            state
+                .status
+                .first_batch_elapsed_ns
+                .get_or_insert(elapsed_ns);
         }
         if complete {
             state.status.completion_elapsed_ns = Some(elapsed_ns);
@@ -132,7 +140,10 @@ impl InitialBuildTask {
         };
         state.index = Some(index);
         state.view = Some(view);
-        state.cursor = state.cursor.checked_add(1).ok_or(IndexError::RevisionOverflow)?;
+        state.cursor = state
+            .cursor
+            .checked_add(1)
+            .ok_or(IndexError::RevisionOverflow)?;
         self.0.changed.notify_all();
         Ok(())
     }
@@ -187,12 +198,23 @@ impl InitialBuildTask {
     pub fn wait_next(&self, cursor: u64) -> Result<InitialBuildSnapshot, IndexError> {
         let mut state = self.0.state.lock().map_err(|_| IndexError::LockPoisoned)?;
         if cursor > state.cursor {
-            return Err(IndexError::InvalidPublication("opening cursor is from the future".into()));
+            return Err(IndexError::InvalidPublication(
+                "opening cursor is from the future".into(),
+            ));
         }
         while state.cursor == cursor
-            && !matches!(state.status.phase, InitialBuildPhase::Complete | InitialBuildPhase::Cancelled | InitialBuildPhase::Failed)
+            && !matches!(
+                state.status.phase,
+                InitialBuildPhase::Complete
+                    | InitialBuildPhase::Cancelled
+                    | InitialBuildPhase::Failed
+            )
         {
-            state = self.0.changed.wait(state).map_err(|_| IndexError::LockPoisoned)?;
+            state = self
+                .0
+                .changed
+                .wait(state)
+                .map_err(|_| IndexError::LockPoisoned)?;
         }
         Ok(InitialBuildSnapshot {
             cursor: state.cursor,
@@ -210,7 +232,11 @@ impl InitialBuildTask {
             if let Some(error) = &state.terminal_error {
                 return Err(error.clone());
             }
-            state = self.0.changed.wait(state).map_err(|_| IndexError::LockPoisoned)?;
+            state = self
+                .0
+                .changed
+                .wait(state)
+                .map_err(|_| IndexError::LockPoisoned)?;
         }
     }
 
@@ -223,7 +249,11 @@ impl InitialBuildTask {
             if let Some(error) = &state.terminal_error {
                 return Err(error.clone());
             }
-            state = self.0.changed.wait(state).map_err(|_| IndexError::LockPoisoned)?;
+            state = self
+                .0
+                .changed
+                .wait(state)
+                .map_err(|_| IndexError::LockPoisoned)?;
         }
     }
 
@@ -238,7 +268,12 @@ impl Index {
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
     ) -> Result<InitialBuildTask, IndexError> {
-        Self::start_incremental_build_with_sources(root, definitions, options, SourceRegistry::builtin())
+        Self::start_incremental_build_with_sources(
+            root,
+            definitions,
+            options,
+            SourceRegistry::builtin(),
+        )
     }
 
     pub fn start_incremental_build_with_sources(

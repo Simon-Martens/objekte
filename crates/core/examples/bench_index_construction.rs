@@ -126,8 +126,19 @@ fn run() -> Result<(), String> {
     }
     if incremental {
         return run_incremental(
-            &arguments, &root, definitions, options, &result_dir,
-            alphabet, workers, plain, jsonl, inference, profile, snapshot, check_queries,
+            &arguments,
+            &root,
+            definitions,
+            options,
+            &result_dir,
+            alphabet,
+            workers,
+            plain,
+            jsonl,
+            inference,
+            profile,
+            snapshot,
+            check_queries,
         );
     }
     let before_rss = resident_bytes();
@@ -320,7 +331,9 @@ fn run() -> Result<(), String> {
             .filter(|case| ["Q001", "Q108", "Q116", "Q120", "Q194"].contains(&case.id.as_str()))
         {
             let mut result = repo.search(&case.query()?)?;
-            for hit in &mut result.hits { hit.generation = 0; }
+            for hit in &mut result.hits {
+                hit.generation = 0;
+            }
             let digest = Sha256::digest(format!("{:?}", (result.count, result.hits)).as_bytes());
             digests.insert(case.id.clone(), format!("{digest:x}"));
         }
@@ -416,7 +429,8 @@ fn run_incremental(
     let before_rss = resident_bytes();
     let io_before = proc_io();
     let started = Instant::now();
-    let task = Index::start_incremental_build(root, definitions, options).map_err(|e| e.to_string())?;
+    let task =
+        Index::start_incremental_build(root, definitions, options).map_err(|e| e.to_string())?;
     let index = task.wait_catalogue().map_err(|e| e.to_string())?;
     let catalogue_observed_ns = started.elapsed().as_nanos() as u64;
     let mut cursor = task.snapshot().map_err(|e| e.to_string())?;
@@ -428,27 +442,44 @@ fn run_incremental(
                 fts: None,
                 filter: None,
                 options: QueryOptions {
-                    sort: Vec::new(), limit: 1, offset: 0, count: false,
-                    return_mode: ReturnMode::Locator, evidence: false,
+                    sort: Vec::new(),
+                    limit: 1,
+                    offset: 0,
+                    count: false,
+                    return_mode: ReturnMode::Locator,
+                    evidence: false,
                 },
             };
             view.search_available(&query)?;
             break Some(started.elapsed().as_nanos() as u64);
         }
-        if matches!(cursor.status.phase, objekte_search_core::lifecycle::InitialBuildPhase::Complete | objekte_search_core::lifecycle::InitialBuildPhase::Failed | objekte_search_core::lifecycle::InitialBuildPhase::Cancelled) {
+        if matches!(
+            cursor.status.phase,
+            objekte_search_core::lifecycle::InitialBuildPhase::Complete
+                | objekte_search_core::lifecycle::InitialBuildPhase::Failed
+                | objekte_search_core::lifecycle::InitialBuildPhase::Cancelled
+        ) {
             break None;
         }
         cursor = task.wait_next(cursor.cursor).map_err(|e| e.to_string())?;
     };
     task.wait_complete().map_err(|e| e.to_string())?;
     let timing = task.status().map_err(|e| e.to_string())?;
-    let build_ns = timing.completion_elapsed_ns.unwrap_or_else(|| started.elapsed().as_nanos() as u64);
+    let build_ns = timing
+        .completion_elapsed_ns
+        .unwrap_or_else(|| started.elapsed().as_nanos() as u64);
     let status = index.status().map_err(|e| e.to_string())?;
     let view = index.view().map_err(|e| e.to_string())?;
     let io_after = proc_io();
     let process_io_delta = io_before.zip(io_after).map(|(before, after)| {
-        after.into_iter().filter_map(|(key, value)| before.get(&key)
-            .and_then(|old| value.checked_sub(*old)).map(|delta| (key, delta)))
+        after
+            .into_iter()
+            .filter_map(|(key, value)| {
+                before
+                    .get(&key)
+                    .and_then(|old| value.checked_sub(*old))
+                    .map(|delta| (key, delta))
+            })
             .collect::<BTreeMap<_, _>>()
     });
     let after_build_rss = resident_bytes();
@@ -467,18 +498,24 @@ fn run_incremental(
     let corpus_fingerprint = format!("{:x}", hash.finalize());
     let snapshot_result = if snapshot {
         let path = result_dir.join("index.snapshot");
-        let (_, stats) = index.flush_cache_with_stats(&path).map_err(|e| e.to_string())?;
+        let (_, stats) = index
+            .flush_cache_with_stats(&path)
+            .map_err(|e| e.to_string())?;
         let bytes = fs::metadata(&path).map_err(|e| e.to_string())?.len();
         let sections = stats.sections.iter().map(|section| serde_json::json!({
             "id":section.id,"serialize_ns":section.serialize_ns,"checksum_ns":section.checksum_ns,
             "write_ns":section.write_ns,"payload_bytes":section.payload_bytes,
         })).collect::<Vec<_>>();
-        Some(serde_json::json!({"total_ns":stats.total_ns,"directory_ns":stats.directory_ns,
+        Some(
+            serde_json::json!({"total_ns":stats.total_ns,"directory_ns":stats.directory_ns,
             "header_ns":stats.header_ns,"inventory_ns":stats.inventory_ns,"write_ns":stats.write_ns,
             "sync_ns":stats.sync_ns,"rename_ns":stats.rename_ns,"directory_sync_ns":stats.directory_sync_ns,
             "bytes":bytes,"sections":sections,"rss_after_write":resident_bytes(),
-            "hwm_after_write":peak_resident_bytes()}))
-    } else { None };
+            "hwm_after_write":peak_resident_bytes()}),
+        )
+    } else {
+        None
+    };
     let query_digests = if check_queries {
         let core = Path::new(env!("CARGO_MANIFEST_DIR"));
         let cases = objekte_search_core::workload::load_extended_manifest(
@@ -486,20 +523,31 @@ fn run_incremental(
             &core.join("benches/musenalm_queries_extended.json"),
         )?;
         let mut digests = BTreeMap::new();
-        for case in cases.iter().filter(|case| ["Q001", "Q108", "Q116", "Q120", "Q194"].contains(&case.id.as_str())) {
+        for case in cases
+            .iter()
+            .filter(|case| ["Q001", "Q108", "Q116", "Q120", "Q194"].contains(&case.id.as_str()))
+        {
             let mut result = view.search(&case.query()?)?;
-            for hit in &mut result.hits { hit.generation = 0; }
+            for hit in &mut result.hits {
+                hit.generation = 0;
+            }
             let digest = Sha256::digest(format!("{:?}", (result.count, result.hits)).as_bytes());
             digests.insert(case.id.clone(), format!("{digest:x}"));
         }
         Some(digests)
-    } else { None };
+    } else {
+        None
+    };
     drop(view);
     drop(cursor);
     drop(index);
     drop(task);
     let after_release_rss = resident_bytes();
-    let schema_fingerprint = if plain || jsonl { None } else { Some(hash_schema_files(root)?) };
+    let schema_fingerprint = if plain || jsonl {
+        None
+    } else {
+        Some(hash_schema_files(root)?)
+    };
     let manifest = serde_json::json!({
         "code_revision":command_output("git", &["rev-parse", "HEAD"])?,
         "dirty_status":command_output("git", &["status", "--porcelain"])?,
@@ -541,7 +589,10 @@ fn run_incremental(
     });
     write_json(&result_dir.join("run-manifest.json"), &manifest)?;
     write_json(&result_dir.join("sample.json"), &sample)?;
-    println!("{}", serde_json::json!({"build_ns":build_ns,"result_dir":result_dir}));
+    println!(
+        "{}",
+        serde_json::json!({"build_ns":build_ns,"result_dir":result_dir})
+    );
     Ok(())
 }
 
