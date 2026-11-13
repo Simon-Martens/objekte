@@ -465,6 +465,31 @@ pub(crate) fn seal_segment_owned(
     definition: &CollectionDefinition,
     options: RepositoryOptions,
 ) -> Result<IndexedCollectionSegment, String> {
+    let bytes = encode_owned_bytes(segment, ordinal, definition, options)?;
+    let files = segment
+        .files
+        .iter()
+        .map(|file| &file.entry)
+        .collect::<Vec<_>>();
+    let reader = Arc::new(SegmentReader::from_owned(Arc::from(bytes))?);
+    decode_segment_sealed(
+        reader,
+        ordinal,
+        definition,
+        options,
+        segment.collection,
+        (&segment.source_id, segment.source_version),
+        u32::try_from(segment.records.len()).map_err(|_| "too many owned segment slots")?,
+        &|reference| files.get(reference as usize).copied(),
+    )
+}
+
+fn encode_owned_bytes(
+    segment: &IndexedCollectionSegment,
+    ordinal: u64,
+    definition: &CollectionDefinition,
+    options: RepositoryOptions,
+) -> Result<Vec<u8>, String> {
     let files = segment
         .files
         .iter()
@@ -496,17 +521,66 @@ pub(crate) fn seal_segment_owned(
     if position != files.len() {
         return Err("owned segment metadata ref count changed".into());
     }
+    Ok(bytes)
+}
+
+/// Finalize an owned builder segment in place. The only external-style reads
+/// are the compact binding tables needed to attach the newly written spans;
+/// record maps, sort data, relations and structural facts remain owned.
+pub(crate) fn seal_segment_consuming(
+    mut segment: IndexedCollectionSegment,
+    ordinal: u64,
+    definition: &CollectionDefinition,
+    options: RepositoryOptions,
+) -> Result<IndexedCollectionSegment, String> {
+    let bytes = encode_owned_bytes(&segment, ordinal, definition, options)?;
     let reader = Arc::new(SegmentReader::from_owned(Arc::from(bytes))?);
-    decode_segment_sealed(
-        reader,
-        ordinal,
-        definition,
-        options,
-        segment.collection,
-        (&segment.source_id, segment.source_version),
-        u32::try_from(segment.records.len()).map_err(|_| "too many owned segment slots")?,
-        &|reference| files.get(reference as usize).copied(),
-    )
+    let fields: FieldSection =
+        decode_meta(FIELD_MAGIC, required(&reader, SectionKind::FieldMetadata)?)?;
+    let texts: TextSection =
+        decode_meta(TEXT_MAGIC, required(&reader, SectionKind::TextBindings)?)?;
+    let logical = Arc::new(segment.logical_records.clone());
+    let fallback = Arc::new(
+        segment.records.iter()
+            .filter(|record| record.class == crate::inventory::RecordClass::RawFallback)
+            .map(|record| record.slot.0)
+            .collect::<RoaringBitmap>(),
+    );
+    for field in fields.bindings {
+        let index = match &field.key {
+            PostingKey::Declared(path) => segment.postings.fields.get_mut(path),
+            PostingKey::Named(path, binding) => segment.custom_postings
+                .get_mut(&(path.clone(), binding.clone())).map(|custom| &mut custom.index),
+            PostingKey::Inferred(path) => segment.inference.as_mut()
+                .and_then(|inference| inference.indexes.get_mut(path)),
+        }.ok_or("constructed posting binding missing")?;
+        index.install_sealed(
+            SealedPostingDictionary::from_constructed(
+                Arc::clone(&reader), SectionKind::ScalarDictionaries,
+                field.values.checked()?, Arc::clone(&logical),
+            )?,
+            SealedPostingDictionary::from_constructed(
+                Arc::clone(&reader), SectionKind::ScalarDictionaries,
+                field.lengths.checked()?, Arc::clone(&logical),
+            )?,
+        )?;
+    }
+    for binding in texts.bindings {
+        let index = match &binding.key {
+            TextKey::Raw => Some(&mut segment.raw),
+            TextKey::Fallback => Some(&mut segment.fallback_text),
+            TextKey::Named(path, name) => segment.custom_text.get_mut(&(path.clone(), name.clone())),
+        }.ok_or("constructed text binding missing")?;
+        if index.alphabet != binding.alphabet || index.record_count != binding.record_count {
+            return Err("constructed text binding metadata mismatch".into());
+        }
+        index.install_constructed(
+            Arc::clone(&reader),
+            BigramSpans { normal: binding.normal.checked()?, skip: binding.skip.checked()? },
+            Arc::clone(if binding.key == TextKey::Fallback { &fallback } else { &logical }),
+        )?;
+    }
+    Ok(segment)
 }
 
 fn required<'a>(reader: &'a SegmentReader, kind: SectionKind) -> Result<&'a [u8], String> {

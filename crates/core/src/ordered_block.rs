@@ -192,6 +192,28 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         start: usize,
         length: usize,
     ) -> Result<Self, String> {
+        Self::open_impl(reader, section, start, length, true)
+    }
+
+    /// Only for a dictionary just emitted by `write_ordered_dictionary` into
+    /// this process's owned bytes. The writer already proved leaf ordering and
+    /// descriptor construction; external bytes must use `open` instead.
+    pub(crate) fn from_constructed(
+        reader: Arc<SegmentReader>,
+        section: SectionKind,
+        start: usize,
+        length: usize,
+    ) -> Result<Self, String> {
+        Self::open_impl(reader, section, start, length, false)
+    }
+
+    fn open_impl(
+        reader: Arc<SegmentReader>,
+        section: SectionKind,
+        start: usize,
+        length: usize,
+        validate_leaves: bool,
+    ) -> Result<Self, String> {
         let whole = reader
             .section(section)?
             .ok_or("dictionary section missing")?;
@@ -247,6 +269,20 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
                 .ok_or("block span overflow")?;
             if offset != previous_end || end > directory_offset {
                 return Err("dictionary blocks overlap or leave gaps".into());
+            }
+            if previous_key
+                .as_ref()
+                .is_some_and(|prior| prior >= &block.first)
+            {
+                return Err("dictionary block boundaries are unordered".into());
+            }
+            if !validate_leaves {
+                previous_key = Some(block.last.clone());
+                previous_end = end;
+                total = total
+                    .checked_add(block.count as usize)
+                    .ok_or("dictionary entry count overflow")?;
+                continue;
             }
             let leaf = &bytes[offset..end];
             if read_u32(leaf, 0)? != block.count {

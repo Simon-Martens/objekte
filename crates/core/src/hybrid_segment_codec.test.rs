@@ -416,6 +416,36 @@ fn owned_seal_releases_builder_maps_without_source_or_temp_file() {
 }
 
 #[test]
+fn consuming_seal_keeps_builder_metadata_and_queries_without_source() {
+    let (root, definition, options, segment) = fixture();
+    let path = vec!["n".to_owned()];
+    let BoundExpr::Term(term) =
+        bind_filter(&parse_filter("n >= 2").unwrap(), &definition.schema).unwrap()
+    else {
+        panic!("expected term");
+    };
+    let expected = segment.postings.fields[&path].exact_set(&term, &segment.logical_records);
+    let gram = BigramRequest::new("One");
+    let expected_gram = segment.raw.candidates_prepared(&gram);
+    let files = segment.file_index.clone();
+    let ids = segment.id_lookup.clone();
+    std::fs::remove_file(root.join("data/sample.jsonl")).unwrap();
+    let sealed = seal_segment_consuming(segment, 1, &definition, options).unwrap();
+    assert_eq!(sealed.file_index, files);
+    assert_eq!(sealed.id_lookup, ids);
+    assert!(sealed.postings.fields[&path].values.is_empty());
+    assert!(sealed.raw.normal.is_empty());
+    assert_eq!(
+        sealed.postings.fields[&path]
+            .exact_set_checked(&term, &sealed.logical_records).unwrap(),
+        expected,
+    );
+    assert_eq!(sealed.raw.try_candidates_prepared(&gram).unwrap(), expected_gram);
+    assert!(!root.join("segment.idx").exists());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn manifest_slot_count_and_source_binding_are_checked() {
     let (root, definition, options, segment) = fixture();
     let mut table = Vec::<FileEntry>::new();

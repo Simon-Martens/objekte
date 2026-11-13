@@ -106,6 +106,28 @@ impl SealedBigramIndex {
         })
     }
 
+    pub(crate) fn from_constructed(
+        reader: Arc<SegmentReader>,
+        spans: BigramSpans,
+        alphabet: BigramAlphabet,
+        record_count: u32,
+        allowed: Arc<RoaringBitmap>,
+    ) -> Result<Self, String> {
+        let normal = SealedPostingDictionary::from_constructed(
+            Arc::clone(&reader),
+            SectionKind::BigramDictionaries,
+            spans.normal,
+            Arc::clone(&allowed),
+        )?;
+        let skip = SealedPostingDictionary::from_constructed(
+            reader,
+            SectionKind::BigramDictionaries,
+            spans.skip,
+            allowed,
+        )?;
+        Ok(Self { alphabet, record_count, normal, skip })
+    }
+
     pub(crate) fn record_count(&self) -> u32 {
         self.record_count
     }

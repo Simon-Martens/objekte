@@ -584,9 +584,19 @@ impl PublishedIndex {
     /// Stage one fully indexed local segment in a private next root. The
     /// caller may stage several affected collections before one publication.
     pub(crate) fn with_segment(
-        mut self,
+        self,
         index: IndexedCollectionSegment,
     ) -> Result<Self, IndexError> {
+        self.with_segment_sealing(index, false, false)
+            .map(|(next, _)| next)
+    }
+
+    fn with_segment_sealing(
+        mut self,
+        mut index: IndexedCollectionSegment,
+        seal_owned: bool,
+        profile_phases: bool,
+    ) -> Result<(Self, u64), IndexError> {
         let number = index.collection.0 as usize;
         if number >= self.segments.len() {
             return Err(IndexError::InvalidPublication(
@@ -661,12 +671,24 @@ impl PublishedIndex {
             .next_segment_ordinal
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+        let seal_started = crate::detailed_timer::start_if_enabled(profile_phases);
+        if seal_owned {
+            index = crate::hybrid_segment_codec::seal_segment_consuming(
+                index,
+                ordinal,
+                &collection.definition,
+                self.repository.options(),
+            ).map_err(IndexError::Build)?;
+        }
+        let sealing_ns = seal_started
+            .map(|started| started.elapsed().as_nanos() as u64)
+            .unwrap_or(0);
         Arc::make_mut(&mut self.segments[number]).push(Arc::new(PublishedSegment {
             ordinal,
             index: Arc::new(index),
             active,
         }));
-        Ok(self)
+        Ok((self, sealing_ns))
     }
 
     /// Coalesce small delta shards without enlarging a partition beyond the
@@ -1176,16 +1198,19 @@ impl Index {
                 .replaced(merged, None, None)
                 .map_err(IndexError::InvalidPublication)?;
         }
-        next = next.with_segment(segment)?;
+        let seal_owned = self.0.seal_owned_memory.load(Ordering::Acquire);
+        let (prepared, consumed_sealing_ns) =
+            next.with_segment_sealing(segment, seal_owned, profile_phases)?;
+        next = prepared;
         next.revision = expected.next()?;
         let preparation_ns = prepare_started
-            .map(|started| started.elapsed().as_nanos() as u64)
+            .map(|started| (started.elapsed().as_nanos() as u64).saturating_sub(consumed_sealing_ns))
             .unwrap_or(0);
         let seal_started = crate::detailed_timer::start_if_enabled(profile_phases);
-        if self.0.seal_owned_memory.load(Ordering::Acquire) {
+        if seal_owned {
             Self::seal_new_owned_segments(&mut next)?;
         }
-        let sealing_ns = seal_started
+        let sealing_ns = consumed_sealing_ns + seal_started
             .map(|started| started.elapsed().as_nanos() as u64)
             .unwrap_or(0);
         let install_started = crate::detailed_timer::start_if_enabled(profile_phases);

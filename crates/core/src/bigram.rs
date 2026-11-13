@@ -310,6 +310,21 @@ impl BigramIndex {
         Ok(())
     }
 
+    pub(crate) fn install_constructed(
+        &mut self,
+        reader: Arc<SegmentReader>,
+        spans: BigramSpans,
+        allowed: Arc<RoaringBitmap>,
+    ) -> Result<(), String> {
+        let sealed = SealedBigramIndex::from_constructed(
+            reader, spans, self.alphabet, self.record_count, allowed,
+        )?;
+        self.normal.clear();
+        self.skip.clear();
+        self.sealed = Some(Arc::new(sealed));
+        Ok(())
+    }
+
     pub(crate) fn for_each_normal(
         &self,
         mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,

@@ -228,6 +228,25 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         })
     }
 
+    /// The bytes and descriptors came directly from the checked in-process
+    /// writer. External segments must use `open` and validate every leaf.
+    pub(crate) fn from_constructed(
+        reader: Arc<SegmentReader>,
+        section: SectionKind,
+        span: DictionarySpan,
+        allowed: Arc<RoaringBitmap>,
+    ) -> Result<Self, String> {
+        let dictionary = OrderedBlockDictionary::from_constructed(
+            Arc::clone(&reader), section, span.start, span.length,
+        )?;
+        Ok(Self {
+            reader,
+            dictionary,
+            allowed,
+            validated: Mutex::new(HashMap::new()),
+        })
+    }
+
     pub(crate) fn len(&self) -> usize {
         self.dictionary.len()
     }
