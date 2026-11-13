@@ -5,8 +5,8 @@
 use super::*;
 
 use crate::build::{
-    BatchContribution, IndexedCollectionSegment, RepositoryFileJob, SegmentAdmission,
-    SegmentLimits, SourceFileInput,
+    AdmissionBreakdown, BatchContribution, IndexedCollectionSegment, RepositoryFileJob,
+    SegmentAdmission, SegmentLimits, SourceFileInput,
 };
 use crate::inventory::append_shifted_bitmap;
 use crate::lifecycle::{Index, IndexError, IndexRevision, PublishedIndex};
@@ -98,25 +98,38 @@ impl IncrementalCollection {
 
     /// Admit one complete ordinary batch, sealing the preceding group if the
     /// next batch would exceed its bounded segment target.
-    fn admit(
+    fn admit_profiled(
         &mut self,
         batch: BatchContribution,
+        mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<Option<crate::build::CollectionSegment>, String> {
+        let coordinator = profile.as_ref().map(|_| Instant::now());
         self.observe(&batch)?;
         let sealed = if !self.admission.can_admit_batch(&batch) {
             self.take_segment()
         } else {
             None
         };
-        self.admission.admit_batch(batch)?;
+        if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
+            profile.coordinator_ns += started.elapsed().as_nanos() as u64;
+        }
+        self.admission.admit_batch_profiled(batch, profile)?;
         Ok(sealed)
     }
 
     /// A large framed file is never split between publications. Its chunks
     /// remain one logical file contribution until framing/validation finish.
-    fn admit_large_chunk(&mut self, batch: BatchContribution) -> Result<(), String> {
+    fn admit_large_chunk_profiled(
+        &mut self,
+        batch: BatchContribution,
+        mut profile: Option<&mut AdmissionBreakdown>,
+    ) -> Result<(), String> {
+        let coordinator = profile.as_ref().map(|_| Instant::now());
         self.observe(&batch)?;
-        self.admission.admit_batch(batch)
+        if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
+            profile.coordinator_ns += started.elapsed().as_nanos() as u64;
+        }
+        self.admission.admit_batch_profiled(batch, profile)
     }
 
     fn take_segment(&mut self) -> Option<crate::build::CollectionSegment> {
@@ -223,6 +236,33 @@ fn publish_segment(
     Ok(())
 }
 
+fn finish_admission_profile(
+    profile: &mut Option<BuildProfileStats>,
+    collection: &str,
+    started: Option<Instant>,
+    detail: Option<AdmissionBreakdown>,
+) -> Result<(), String> {
+    // The outer interval ends before profile aggregation and before any
+    // segment publication. Consumed contribution temporaries are dropped by
+    // the inner admission calls before this boundary.
+    if let (Some(started), Some(mut detail), Some(profile)) =
+        (started, detail, profile.as_mut())
+    {
+        detail.total_ns = started.elapsed().as_nanos() as u64;
+        detail.remainder_ns = detail
+            .total_ns
+            .checked_sub(detail.incremental_component_ns())
+            .ok_or("incremental admission components overlap")?;
+        profile.admission.absorb(detail);
+        profile
+            .admission_by_collection
+            .entry(collection.to_owned())
+            .or_default()
+            .absorb(detail);
+    }
+    Ok(())
+}
+
 #[allow(clippy::too_many_arguments)]
 fn admit_normal(
     collection_index: usize,
@@ -245,6 +285,13 @@ fn admit_normal(
     if cancelled() {
         return Err("initial construction cancelled".into());
     }
+    let admission_started = profile.as_ref().map(|_| Instant::now());
+    let mut detail = profile.as_ref().map(|_| AdmissionBreakdown {
+        batches: 1,
+        files: batch.new_file_count() as u64,
+        records: batch.record_count() as u64,
+        ..Default::default()
+    });
     let collection_id = pending[collection_index].id;
     for &(file, digest) in batch.file_fingerprints() {
         digest_bindings
@@ -263,20 +310,16 @@ fn admit_normal(
             .or_default()
             .absorb(&batch.profile);
     }
-    let admission_started = profile.as_ref().map(|_| Instant::now());
-    let admitted_files = batch.new_file_count() as u64;
-    let admitted_records = batch.record_count() as u64;
-    let sealed = pending[collection_index].admit(batch)?;
-    if let (Some(started), Some(profile)) = (admission_started, profile.as_mut()) {
-        let entry = profile
-            .admission_by_collection
-            .entry(pending[collection_index].definition.name.clone())
-            .or_default();
-        entry.batches += 1;
-        entry.files += admitted_files;
-        entry.records += admitted_records;
-        entry.total_ns += started.elapsed().as_nanos() as u64;
+    if let (Some(started), Some(detail)) = (admission_started, detail.as_mut()) {
+        detail.coordinator_ns += started.elapsed().as_nanos() as u64;
     }
+    let sealed = pending[collection_index].admit_profiled(batch, detail.as_mut())?;
+    finish_admission_profile(
+        profile,
+        &pending[collection_index].definition.name,
+        admission_started,
+        detail,
+    )?;
     if let Some(sealed) = sealed {
         publish_segment(
             index,
@@ -597,6 +640,13 @@ impl Repository {
                             if cancelled() {
                                 return Err("initial construction cancelled".into());
                             }
+                            let admission_started = profile.as_ref().map(|_| Instant::now());
+                            let mut detail = profile.as_ref().map(|_| AdmissionBreakdown {
+                                batches: 1,
+                                files: batch.new_file_count() as u64,
+                                records: batch.record_count() as u64,
+                                ..Default::default()
+                            });
                             build_parses = build_parses.saturating_add(batch.record_parses);
                             failed_parses = failed_parses.saturating_add(batch.failed_parses);
                             for &(file, digest) in batch.file_fingerprints() {
@@ -609,23 +659,19 @@ impl Repository {
                                     .or_default()
                                     .absorb(&batch.profile);
                             }
-                            let admission_started = profile.as_ref().map(|_| Instant::now());
-                            let admitted_files = batch.new_file_count() as u64;
-                            let admitted_records = batch.record_count() as u64;
-                            let result = pending[collection_index].admit_large_chunk(batch);
-                            if let (Some(started), Some(profile)) =
-                                (admission_started, profile.as_mut())
+                            if let (Some(started), Some(detail)) =
+                                (admission_started, detail.as_mut())
                             {
-                                let entry = profile
-                                    .admission_by_collection
-                                    .entry(pending[collection_index].definition.name.clone())
-                                    .or_default();
-                                entry.batches += 1;
-                                entry.files += admitted_files;
-                                entry.records += admitted_records;
-                                entry.total_ns += started.elapsed().as_nanos() as u64;
+                                detail.coordinator_ns += started.elapsed().as_nanos() as u64;
                             }
-                            result
+                            pending[collection_index]
+                                .admit_large_chunk_profiled(batch, detail.as_mut())?;
+                            finish_admission_profile(
+                                &mut profile,
+                                &pending[collection_index].definition.name,
+                                admission_started,
+                                detail,
+                            )
                         },
                     )
                     .map_err(|error| {

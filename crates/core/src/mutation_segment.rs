@@ -4,6 +4,7 @@ use std::collections::HashMap;
 
 use super::*;
 use crate::bigram::BigramIndex;
+use crate::build::AdmissionBreakdown;
 use crate::inference::{InferenceIndexStatus, InferenceState, InferredFieldReport};
 use crate::inventory::ActiveRecords;
 use crate::posting::StructuralFacts;
@@ -122,18 +123,41 @@ impl SegmentAggregate {
     }
 
     fn admit(&mut self, batch: BatchContribution, base: u32, count: u32) -> Result<(), String> {
+        self.admit_profiled(batch, base, count, None)
+    }
+
+    fn admit_profiled(
+        &mut self,
+        batch: BatchContribution,
+        base: u32,
+        count: u32,
+        mut profile: Option<&mut AdmissionBreakdown>,
+    ) -> Result<(), String> {
+        let phase = profile.as_ref().map(|_| Instant::now());
         self.postings.merge_shifted(batch.postings, base)?;
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.postings_ns += started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         match (self.inference.as_mut(), batch.inference) {
             (Some(global), Some(local)) => global.merge_shifted(local, base)?,
             (None, None) => {}
             _ => return Err("inference segment mode mismatch".into()),
         }
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.inference_ns += started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         if self.relations.len() != batch.relations.len() {
             return Err("relation segment coverage mismatch".into());
         }
         for (global, local) in self.relations.iter_mut().zip(batch.relations) {
             global.merge_shifted(local, base, count)?;
         }
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.relations_ns += started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         if self.custom_postings.len() != batch.custom_postings.len() {
             return Err("custom posting segment coverage mismatch".into());
         }
@@ -142,8 +166,20 @@ impl SegmentAggregate {
             global.index.merge_shifted(local.index, base)?;
             global.complete &= local.complete;
         }
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         self.raw.merge_shifted(batch.raw, base)?;
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.raw_bigrams_ns += started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         self.fallback_text.merge_shifted(batch.fallback_text, base)?;
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.fallback_bigrams_ns += started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         if self.custom_text.len() != batch.custom_text.len() {
             return Err("custom bigram segment coverage mismatch".into());
         }
@@ -151,9 +187,23 @@ impl SegmentAggregate {
             self.custom_text.get_mut(&key).ok_or("custom bigram segment missing")?
                 .merge_shifted(index, base)?;
         }
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.custom_bigrams_ns += started.elapsed().as_nanos() as u64;
+            profile.bigrams_ns = profile.raw_bigrams_ns
+                + profile.fallback_bigrams_ns
+                + profile.custom_bigrams_ns;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         append_shifted_bitmap(&mut self.logical_records, &batch.logical_records, base)?;
         append_shifted_bitmap(&mut self.empty_array_records, &batch.empty_array_records, base)?;
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.structural_facts_ns += started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         self.sorting.append_keys(batch.sort_keys, base, count)?;
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.sorting_ns += started.elapsed().as_nanos() as u64;
+        }
         Ok(())
     }
 }
@@ -345,7 +395,16 @@ impl SegmentAdmission {
     /// Admit one ordered construction batch, including batches spanning many
     /// physical files. A fresh partition builder can seal between batches;
     /// ordinary one-file admission uses the same local slot mapping.
-    pub(crate) fn admit_batch(&mut self, mut batch: BatchContribution) -> Result<(), String> {
+    pub(crate) fn admit_batch(&mut self, batch: BatchContribution) -> Result<(), String> {
+        self.admit_batch_profiled(batch, None)
+    }
+
+    pub(crate) fn admit_batch_profiled(
+        &mut self,
+        mut batch: BatchContribution,
+        mut profile: Option<&mut AdmissionBreakdown>,
+    ) -> Result<(), String> {
+        let phase = profile.as_ref().map(|_| Instant::now());
         let base = u32::try_from(self.records.len()).map_err(|_| "too many segment records")?;
         let count = u32::try_from(batch.records.len()).map_err(|_| "too many batch records")?;
         base.checked_add(count)
@@ -427,6 +486,9 @@ impl SegmentAdmission {
         if records.next().is_some() || self.records.len() != (base + count) as usize {
             return Err("incomplete segment batch admission".into());
         }
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.record_inventory_ns += started.elapsed().as_nanos() as u64;
+        }
         self.record_parses = self.record_parses.saturating_add(batch.record_parses);
         self.failed_parses = self.failed_parses.saturating_add(batch.failed_parses);
         if let Some(spec) = &self.eager_spec {
@@ -438,7 +500,10 @@ impl SegmentAdmission {
                     spec.collection_count,
                 )?);
             }
-            self.aggregate.as_mut().expect("eager aggregate initialized").admit(batch, base, count)?;
+            self.aggregate
+                .as_mut()
+                .expect("eager aggregate initialized")
+                .admit_profiled(batch, base, count, profile)?;
         } else {
             self.batches.push(SegmentBatch {
                 base,

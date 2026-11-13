@@ -417,6 +417,8 @@ pub struct StartupStats {
 
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct BuildProfileStats {
+    /// Exclusive incremental admission work, excluding sealing/publication.
+    pub admission: crate::build::AdmissionBreakdown,
     pub admission_by_collection: BTreeMap<String, crate::build::AdmissionBreakdown>,
     /// Sampled worker work by collection; these totals overlap in wall time.
     pub work_by_collection: BTreeMap<String, crate::build::BuildWorkProfile>,
