@@ -2514,6 +2514,25 @@ impl IndexView {
         self.0.catalog.construction_complete()
     }
 
+    /// Configured collections captured by this publication.
+    pub fn collection_definitions(
+        &self,
+    ) -> impl Iterator<Item = &crate::repository::CollectionDefinition> + '_ {
+        self.repository()
+            .collections()
+            .iter()
+            .map(|state| &state.definition)
+    }
+
+    /// Inference observations captured by this publication, including the
+    /// completed global summary of an incremental construction.
+    pub fn inference_report(
+        &self,
+        collection: &str,
+    ) -> Option<&crate::inference::InferenceReport> {
+        self.repository().inference_report(collection)
+    }
+
     /// Borrow a row from this pinned publication without copying the corpus
     /// path catalogue or implying that the file has been parsed.
     pub fn catalogue_row(&self, id: FileId) -> Option<FileCatalogueRow<'_>> {

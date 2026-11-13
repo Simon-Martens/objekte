@@ -30,6 +30,183 @@ fn large_delta_fixture(records: usize) -> (tempfile::TempDir, OpenedSession, Ind
 }
 
 #[test]
+fn completed_inference_refreshes_fields_without_rows_or_edits() {
+    use crate::ui::filter_builder::{Comparison, ConditionDraft, ValueType, serialize_conditions};
+    use objekte_search_core::inference::{InferenceConfig, InferenceMode};
+    use objekte_search_core::lifecycle::Index;
+    use objekte_search_core::lifecycle_caller::IndexedRepository;
+    use objekte_search_core::model::{FieldPath, LogicalType, PathRoot};
+    use objekte_search_core::reference::FieldDefinition;
+    use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
+    use objekte_search_core::source::SourceFormat;
+
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir(root.path().join("data")).unwrap();
+    std::fs::create_dir(root.path().join("other")).unwrap();
+    for number in 0..2_050 {
+        let body = match number {
+            2_048 => r#"{"name":"late","extra":{"rare.field":42,"mixed":true}}"#.to_owned(),
+            2_049 => r#"{"name":"last","extra":{"mixed":7}}"#.to_owned(),
+            _ => format!(r#"{{"name":"n{number}"}}"#),
+        };
+        std::fs::write(root.path().join(format!("data/f{number:04}.json")), body).unwrap();
+    }
+    std::fs::write(root.path().join("other/a.json"), r#"{"only_other":"yes"}"#).unwrap();
+    let mut data = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    data.schema
+        .register_field(FieldDefinition {
+            path: vec!["declared".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let other = CollectionDefinition::folder("other", "other", SourceFormat::Json);
+    let index = Index::start_incremental_build(
+        root.path(),
+        vec![data, other],
+        RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    let view = index.view().unwrap();
+    let path = FieldPath {
+        root: PathRoot::Data,
+        segments: vec!["extra".into(), "rare.field".into()],
+    }
+    .display();
+    let choices = field_choices(&view, Some("data"), &[]);
+    assert_eq!(
+        choices
+            .iter()
+            .find(|choice| choice.path == path)
+            .unwrap()
+            .value_type,
+        Some(ValueType::Number)
+    );
+    assert_eq!(
+        choices
+            .iter()
+            .find(|choice| choice.path == "extra.mixed")
+            .unwrap()
+            .value_type,
+        None
+    );
+    assert_eq!(
+        choices
+            .iter()
+            .find(|choice| choice.path == "declared")
+            .unwrap()
+            .value_type,
+        Some(ValueType::String)
+    );
+    assert!(choices.iter().any(|choice| choice.path == "@record.id"));
+    assert!(choices.iter().all(|choice| choice.path != "only_other"));
+    assert!(
+        field_choices(&view, Some("other"), &[])
+            .iter()
+            .any(|choice| choice.path == "only_other")
+    );
+
+    let mut session = crate::backend::test_support::fixture().session;
+    session.repository = Arc::new(IndexedRepository::new(index.clone()).unwrap());
+    session.collections = vec!["data".into(), "other".into()];
+    session.single_collection = false;
+    let mut controller = DesktopController::new().0;
+    controller.session = Some(session.clone());
+    controller.open_generation = 3;
+    controller.current_draft.collection = Some("data".into());
+    controller.current_draft.structured = "name = 'no such record'".into();
+    controller.current_draft.filter_enabled = true;
+    controller.initial_task = Some(InitialBuildTask::from_ready(index).unwrap());
+    let mut updates = Vec::new();
+    controller.poll_index_tasks(&mut updates);
+    let suggested = updates
+        .iter()
+        .find_map(|update| match update {
+            UiUpdate::FieldChoices(fields) => Some(fields),
+            _ => None,
+        })
+        .unwrap();
+    assert_eq!(suggested, &choices);
+    assert!(controller.initial_task.is_none());
+    let mut repeat = Vec::new();
+    controller.push_field_choices(&mut repeat);
+    assert!(repeat.is_empty());
+    controller.current_draft.collection = Some("other".into());
+    controller.push_field_choices(&mut repeat);
+    let other_choices = repeat
+        .iter()
+        .find_map(|update| match update {
+            UiUpdate::FieldChoices(fields) => Some(fields),
+            _ => None,
+        })
+        .unwrap();
+    assert!(
+        other_choices
+            .iter()
+            .any(|choice| choice.path == "only_other")
+    );
+    assert!(other_choices.iter().all(|choice| choice.path != path));
+    repeat.clear();
+    controller.open_generation += 1;
+    controller.push_field_choices(&mut repeat);
+    assert!(matches!(repeat.as_slice(), [UiUpdate::FieldChoices(_)]));
+
+    let inserted = serialize_conditions(&[ConditionDraft {
+        field: path.clone(),
+        predicate: None,
+        comparison: Comparison::Equal,
+        value: Some("42".into()),
+        value_type: Some(ValueType::Number),
+    }])
+    .unwrap()
+    .unwrap();
+    let manual = format!("{path} = 42");
+    let selected = backend::QuerySpec {
+        filter: inserted,
+        scope: Some("data".into()),
+        ..Default::default()
+    };
+    let expected = backend::QuerySpec {
+        filter: manual,
+        scope: Some("data".into()),
+        ..Default::default()
+    };
+    let selected_page = backend::query_page(
+        &session,
+        &selected,
+        0,
+        backend::MAX_PAGE_ROWS,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let manual_page = backend::query_page(
+        &session,
+        &expected,
+        0,
+        backend::MAX_PAGE_ROWS,
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    assert_eq!(selected_page.hits.len(), 1);
+    assert_eq!(
+        selected_page.hits[0].record_id,
+        manual_page.hits[0].record_id
+    );
+}
+
+#[test]
 fn desktop_delta_bounds_bytes_and_evidence_before_materialization() {
     let (_root, session, previous, current) = large_delta_fixture(2_048);
     let spec = backend::QuerySpec::default();
@@ -698,7 +875,7 @@ fn publication_changes_invalidate_results_once_but_noop_checks_do_not() {
     assert!(controller.executed_view.is_none());
     assert!(matches!(
         updates.as_slice(),
-        [UiUpdate::ResultsOutdated(true)]
+        [UiUpdate::FieldChoices(_), UiUpdate::ResultsOutdated(true)]
     ));
     updates.clear();
     controller.poll_publication(&mut updates);

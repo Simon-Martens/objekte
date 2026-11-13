@@ -75,8 +75,11 @@ fn inline_sort_and_quoted_literal_conflicts_are_checked() {
 #[test]
 fn field_choices_include_metadata_schema_and_loaded_columns() {
     let fixture = fixture();
+    let view = fixture.session.repository.index().view().unwrap();
+    assert!(view.inference_report(&fixture.session.collections[0]).is_none());
+    let before = fixture.session.repository.index().status().unwrap();
     let choices = field_choices(
-        &fixture.session,
+        &view,
         None,
         &["title".into(), "year".into(), "[\"a.b\"]".into()],
     );
@@ -86,13 +89,16 @@ fn field_choices_include_metadata_schema_and_loaded_columns() {
             .all(|choice| choice.value_type.is_none())
     );
     assert!(choices.iter().any(|choice| choice.path == "year"));
+    let after = fixture.session.repository.index().status().unwrap();
+    assert_eq!(before.revision, after.revision);
+    assert_eq!(before.build_source_reads, after.build_source_reads);
 }
 
 #[test]
 fn metadata_choices_are_typed_and_available_in_every_scope() {
     let fixture = fixture();
     for scope in [None, Some("books"), Some("missing")] {
-        let choices = field_choices(&fixture.session, scope, &["@file.size".into()]);
+        let choices = field_choices(&fixture.session.repository.index().view().unwrap(), scope, &["@file.size".into()]);
         for (path, kind) in [
             ("@record.id", ValueType::String),
             ("@record.byte_start", ValueType::Number),

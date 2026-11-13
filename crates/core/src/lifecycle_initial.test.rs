@@ -1,8 +1,10 @@
 use super::*;
 use std::sync::mpsc;
 
-use crate::model::FileId;
+use crate::inference::{InferenceConfig, InferenceMode};
+use crate::model::{FileId, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
+use crate::reference::FieldDefinition;
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
@@ -36,11 +38,27 @@ fn discovery_and_segments_publish_without_losing_records() {
     for number in 0..2_050 {
         std::fs::write(
             root.join(format!("data/f{number:04}.json")),
-            format!(r#"{{"name":"n{number}"}}"#),
+            if number == 2_049 {
+                format!(r#"{{"name":"n{number}","late":{{"rare.field":42}}}}"#)
+            } else {
+                format!(r#"{{"name":"n{number}"}}"#)
+            },
         )
         .unwrap();
     }
-    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["declared".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
     let restore_definition = definition.clone();
     let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
     let (publication_tx, publication_rx) = mpsc::sync_channel(0);
@@ -53,6 +71,10 @@ fn discovery_and_segments_publish_without_losing_records() {
                 vec![definition],
                 RepositoryOptions {
                     build_workers: std::num::NonZeroUsize::new(4),
+                    inference: InferenceConfig {
+                        mode: InferenceMode::AutoIndex,
+                        ..Default::default()
+                    },
                     ..RepositoryOptions::default()
                 },
                 SourceRegistry::builtin(),
@@ -73,6 +95,17 @@ fn discovery_and_segments_publish_without_losing_records() {
     let index = catalogue_rx.recv().unwrap();
     let catalogue = index.view().unwrap();
     assert!(!catalogue.initial_construction_complete());
+    assert!(catalogue
+        .collection_definitions()
+        .next()
+        .unwrap()
+        .schema
+        .fields()
+        .contains_key(&vec!["declared".into()]));
+    assert!(catalogue.inference_report("data").is_none_or(|report| report
+        .fields
+        .iter()
+        .all(|field| field.path != ["late", "rare.field"])));
     assert_eq!(catalogue.catalogue_rows().count(), 2_050);
     assert_eq!(catalogue.catalogue_row(FileId(0)).unwrap().size > 0, true);
     assert_eq!(catalogue.file_record_count(FileId(0)), None);
@@ -98,6 +131,10 @@ fn discovery_and_segments_publish_without_losing_records() {
     let first = publication_rx.recv().unwrap();
     assert_eq!(first.0.processed_files, 2_048);
     assert!(!first.initial_construction_complete());
+    assert!(first.inference_report("data").is_none_or(|report| report
+        .fields
+        .iter()
+        .all(|field| field.path != ["late", "rare.field"])));
     assert!(
         first
             .search_stream(
@@ -228,6 +265,11 @@ fn discovery_and_segments_publish_without_losing_records() {
     let finished = worker.join().unwrap().unwrap();
     let complete = finished.view().unwrap();
     assert!(complete.initial_construction_complete());
+    let inference = complete.inference_report("data").unwrap();
+    assert!(inference.complete);
+    assert!(inference.fields.iter().any(|field| {
+        field.path == ["late", "rare.field"] && field.observed_kinds == [LogicalType::Number]
+    }));
     let token = crate::streaming::CancellationToken::new();
     assert!(
         !complete
@@ -281,7 +323,14 @@ fn discovery_and_segments_publish_without_losing_records() {
     let restored = Index::load_cache(
         &root,
         vec![restore_definition],
-        RepositoryOptions::default(),
+        RepositoryOptions {
+            build_workers: std::num::NonZeroUsize::new(4),
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..RepositoryOptions::default()
+        },
         &cache,
     )
     .unwrap();

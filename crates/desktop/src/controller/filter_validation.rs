@@ -2,6 +2,7 @@
 
 use std::collections::BTreeMap;
 
+use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::{FieldPath, LogicalType, MetadataField, PathRoot};
 use objekte_search_core::query_path::QueryPath;
 
@@ -34,16 +35,16 @@ pub fn validate_request(session: &OpenedSession, draft: &SearchDraft) -> FilterV
 /// Suggestions include built-in metadata, loaded schemas, and available columns;
 /// this function never discovers fields by walking records.
 pub fn field_choices(
-    session: &OpenedSession,
+    view: &IndexView,
     scope: Option<&str>,
     available_columns: &[String],
 ) -> Vec<FieldChoice> {
     let mut fields: BTreeMap<String, Option<ValueType>> = BTreeMap::new();
-    for collection in session.repository.collections() {
-        if scope.is_some_and(|name| name != collection.definition.name) {
+    for collection in view.collection_definitions() {
+        if scope.is_some_and(|name| name != collection.name) {
             continue;
         }
-        for definition in collection.definition.schema.fields().values() {
+        for definition in collection.schema.fields().values() {
             let path = FieldPath {
                 root: PathRoot::Data,
                 segments: definition.path.clone(),
@@ -59,8 +60,8 @@ pub fn field_choices(
                 })
                 .or_insert(kind);
         }
-        if let Some(report) = &collection.inference {
-            for inferred in &report.report.fields {
+        if let Some(report) = view.inference_report(&collection.name) {
+            for inferred in &report.fields {
                 let path = FieldPath {
                     root: PathRoot::Data,
                     segments: inferred.path.clone(),
@@ -71,7 +72,14 @@ pub fn field_choices(
                 } else {
                     None
                 };
-                fields.entry(path).or_insert(kind);
+                fields
+                    .entry(path)
+                    .and_modify(|existing| {
+                        if *existing != kind {
+                            *existing = None;
+                        }
+                    })
+                    .or_insert(kind);
             }
         }
     }
