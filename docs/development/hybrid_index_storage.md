@@ -6,6 +6,8 @@ Task `hybrid-index-storage`. This document fixes the wire and lifecycle contract
 
 `IndexStoragePolicy` is the sole core decision about index location and residency. Its default is `MemoryOnly` plus `FullyResident`. Memory-only opening does not inspect, create, synchronize or clean an index store. Disk modes default to `OnDemand`; `FullyResident` changes only ownership of queryable bytes and keeps synchronization enabled. `MemoryOnly` with `OnDemand` is an error.
 
+Configured repository convenience opening now defaults to an early source-backed memory build. It reads `.objekte/collections` but does not probe or select the legacy snapshot path. Explicit legacy cache options remain temporarily for existing tests and callers while the new disk path is integrated, and will be removed before this task is complete.
+
 The selected data root is canonicalized. The repository identity is SHA-256 over the root's exact platform path bytes plus length-prefixed, normalized collection names and relative source selections. The configuration identity uses the existing checked configuration input set: source/format/extractor identity and version, schema and indexed fields, inference settings, alphabet, folding, collation, and sorting. It excludes modification times and file sizes. The manifest stores the full 32-byte identities and the canonical root, so a path-hash collision cannot silently bind another repository. Changing a source file reconciles inside the same namespace.
 
 Managed paths are:

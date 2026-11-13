@@ -49,7 +49,7 @@ impl Default for RepositoryOpenOptions {
         Self {
             index: RepositoryOptions::default(),
             cache_directory: None,
-            cache_open: CacheOpenPolicy::IfPresent,
+            cache_open: CacheOpenPolicy::Ignore,
             cache_failure: CacheFailurePolicy::Rebuild,
             sync_cache: false,
         }
@@ -82,6 +82,11 @@ impl Index {
             .root
             .canonicalize()
             .map_err(|error| IndexError::Io(error.to_string()))?;
+        if options.cache_open == CacheOpenPolicy::Ignore && !options.sync_cache {
+            // The default memory-only path reads repository configuration but
+            // never probes, selects or cleans a legacy cache destination.
+            return Self::build(&root, configuration.definitions, options.index);
+        }
         let cache_directory = match options.cache_directory {
             Some(directory) if directory.is_absolute() => directory,
             Some(directory) => root.join(directory),
