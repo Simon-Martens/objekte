@@ -370,14 +370,33 @@ fn default_open_never_persists_and_stale_snapshot_is_left_untouched() {
     let saved = fs::read(&snapshot).unwrap();
     let modified = fs::metadata(&snapshot).unwrap().modified().unwrap();
 
-    let restored = Repository::open(&root, vec![definition.clone()]).unwrap();
+    let memory_only = Repository::open(&root, vec![definition.clone()]).unwrap();
+    assert!(!memory_only.startup().restored);
+    drop(memory_only);
+    let restored = Repository::open_with_options(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::IfValid,
+            ..Default::default()
+        },
+    )
+    .unwrap();
     assert!(restored.startup().restored);
     assert_eq!(restored.startup().snapshot_write_ns, 0);
     assert_eq!(restored.build_parses(), 0);
     drop(restored);
 
     fs::write(root.join("data/b.json"), br#"{"title":"B"}"#).unwrap();
-    let rebuilt = Repository::open(&root, vec![definition]).unwrap();
+    let rebuilt = Repository::open_with_options(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::IfValid,
+            ..Default::default()
+        },
+    )
+    .unwrap();
     assert!(!rebuilt.startup().restored);
     assert_eq!(rebuilt.startup().snapshot_write_ns, 0);
     assert_eq!(fs::read(&snapshot).unwrap(), saved);
@@ -1357,7 +1376,10 @@ fn startup_restores_unchanged_and_rebuilds_after_complete_file_changes() {
         sort_options: Default::default(),
         sort_overrides: Default::default(),
     }];
-    let options = RepositoryOptions::default();
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::IfValid,
+        ..Default::default()
+    };
     let fresh = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
     assert!(!fresh.startup.restored);
     assert_eq!(fresh.build_parses, 2);
