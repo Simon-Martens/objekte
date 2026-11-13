@@ -1,6 +1,6 @@
 # Snapshot loading and admission campaign
 
-This archive belongs to task `snapshot-loading-admission-profiling`. The analysis is in [the generated report](../../../docs/ai/generated/snapshot_loading_admission_profiling_results.md). `summary.json` is regenerated from the individual `runs/*/trial-*/sample.json` files by `python3 summarize.py`. Quartiles use inclusive quantiles. The 68 archived trials include 28 primary ASCII restores, 21 primary constructions, 12 additional ASCII profiled restores, and 7 Unicode cross-check restores. The two snapshot-creation samples are under `fixture/` and `unicode-fixture/`.
+This archive belongs to task `snapshot-loading-admission-profiling`. The analysis is in [the generated report](../../../docs/ai/generated/snapshot_loading_admission_profiling_results.md). `summary.json` is regenerated from the individual `runs/*/trial-*/sample.json` files by `python3 summarize.py`. Quartiles use inclusive quantiles. The 68 summarized campaign trials include 28 primary ASCII restores, 21 primary constructions, 12 additional ASCII profiled restores, and 7 Unicode cross-check restores. Five preliminary pilot samples are archived separately under `pilot-*/`. The two snapshot-creation samples are under `fixture/` and `unicode-fixture/`.
 
 ## Revisions and files
 
@@ -32,6 +32,6 @@ python3 run_unicode.py
 python3 summarize.py
 ```
 
-The runner uses `taskset -c 0-31`. `run_campaign.py` interleaves and rotates B0–B3 primary restores, B0/B3 profile-off construction, B3 profiled construction, and three B0/B3 profiled restores. `run_profiled_individual.py` adds three profiled B1/B2 restores. `run_unicode.py` adds three B0/B3 Unicode pairs and one B3 profiled Unicode restore. Each invocation is a new process; the filesystem cache was warm and no host-wide cache was cleared. Queries run after the measured build or load interval.
+Run those commands in a fresh archive copy: `summarize.py` expects one `trial-*` directory per named run. The runner uses `taskset -c 0-31`. `run_campaign.py` interleaves and rotates B0–B3 primary restores, B0/B3 profile-off construction, B3 profiled construction, and three B0/B3 profiled restores. `run_profiled_individual.py` adds three profiled B1/B2 restores. `run_unicode.py` adds three B0/B3 Unicode pairs and one B3 profiled Unicode restore. Each invocation is a new process; the filesystem cache was warm and no host-wide cache was cleared. Queries run after the measured build or load interval.
 
 `campaign.log`, `profiled-individual.log` and `unicode.log` contain rounded console progress. The `sample.json` nanoseconds and `summary.json` are authoritative. `/proc/self/io` counters apply to the measured interval; physical `read_bytes=0` describes this warm-cache run and is not a cold-start prediction.
