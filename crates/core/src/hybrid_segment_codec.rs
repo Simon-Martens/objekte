@@ -298,10 +298,24 @@ pub(crate) fn write_segment<W: Write + Seek>(
     output: W,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
 ) -> Result<W, String> {
+    write_segment_inner(segment, ordinal, definition, options, output, intern, true)
+}
+
+fn write_segment_inner<W: Write + Seek>(
+    segment: &IndexedCollectionSegment,
+    ordinal: u64,
+    definition: &CollectionDefinition,
+    options: RepositoryOptions,
+    output: W,
+    intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
+    validate_before_write: bool,
+) -> Result<W, String> {
     if ordinal == 0 {
         return Err("hybrid segment ordinal must be nonzero".into());
     }
-    validate_components(segment, definition, options)?;
+    if validate_before_write {
+        validate_components(segment, definition, options)?;
+    }
     let slot_count = u32::try_from(segment.records.len()).map_err(|_| "too many record slots")?;
     let mut pack = PostingPack::new();
     let mut scalar = Vec::new();
@@ -457,7 +471,9 @@ pub(crate) fn seal_segment_owned(
         .map(|file| &file.entry)
         .collect::<Vec<_>>();
     let mut position = 0usize;
-    let bytes = write_segment(
+    // The sealed decoder validates the completed bytes before publication.
+    // Avoid repeating the same component walk before encoding an owned copy.
+    let bytes = write_segment_inner(
         segment,
         ordinal,
         definition,
@@ -474,6 +490,7 @@ pub(crate) fn seal_segment_owned(
             position += 1;
             Ok(reference)
         },
+        false,
     )?
     .into_inner();
     if position != files.len() {
