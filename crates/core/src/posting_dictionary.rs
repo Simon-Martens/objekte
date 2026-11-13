@@ -8,7 +8,9 @@ use roaring::RoaringBitmap;
 use serde::{Serialize, de::DeserializeOwned};
 
 use crate::ordered_block::{DictionaryCursor, OrderedBlockDictionary, write_ordered_dictionary};
-use crate::segment_format::{PostingDescriptor, SectionKind, SegmentReader};
+use crate::segment_format::{
+    MIN_CACHED_POSTING_BYTES, PostingDescriptor, SectionKind, SegmentReader,
+};
 
 /// A span in one immutable segment's scalar or array-length section.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -334,8 +336,21 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         descriptor: PostingDescriptor,
     ) -> Result<RoaringBitmap, String> {
         self.with_validation(descriptor, |first| match first {
-            Some(bitmap) => Ok(bitmap),
-            None => self.reader.materialize_validated_posting(descriptor),
+            Some(bitmap) => {
+                self.reader.retain_posting(descriptor, &bitmap);
+                Ok(bitmap)
+            }
+            None if descriptor.length < MIN_CACHED_POSTING_BYTES => {
+                self.reader.materialize_validated_posting(descriptor)
+            }
+            None => match self.reader.cached_posting(descriptor) {
+                Some(bitmap) => Ok((*bitmap).clone()),
+                None => {
+                    let bitmap = self.reader.materialize_validated_posting(descriptor)?;
+                    self.reader.retain_posting(descriptor, &bitmap);
+                    Ok(bitmap)
+                }
+            },
         })
     }
 
@@ -345,8 +360,17 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         input: &RoaringBitmap,
     ) -> Result<RoaringBitmap, String> {
         self.with_validation(descriptor, |first| match first {
-            Some(bitmap) => Ok(input & &bitmap),
-            None => self.reader.intersect_validated_posting(descriptor, input),
+            Some(bitmap) => {
+                self.reader.retain_posting(descriptor, &bitmap);
+                Ok(input & &bitmap)
+            }
+            None if descriptor.length < MIN_CACHED_POSTING_BYTES => {
+                self.reader.intersect_validated_posting(descriptor, input)
+            }
+            None => match self.reader.cached_posting(descriptor) {
+                Some(bitmap) => Ok(input & bitmap.as_ref()),
+                None => self.reader.intersect_validated_posting(descriptor, input),
+            },
         })
     }
 

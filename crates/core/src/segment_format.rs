@@ -6,7 +6,7 @@
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::{self, Cursor, Read, Seek, SeekFrom, Write};
-use std::sync::{Arc, OnceLock};
+use std::sync::{Arc, Mutex, OnceLock};
 
 use memmap2::{Mmap, MmapOptions};
 use roaring::RoaringBitmap;
@@ -18,6 +18,8 @@ const HEADER_BYTES: usize = 24;
 const DIRECTORY_ENTRY_BYTES: usize = 56;
 const MAX_SECTIONS: usize = 32;
 const MAX_SEGMENT_BYTES: u64 = 8 * 1024 * 1024 * 1024;
+const MAX_DECODED_POSTING_CACHE_BYTES: usize = 8 * 1024 * 1024;
+pub(crate) const MIN_CACHED_POSTING_BYTES: u32 = 64;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 #[repr(u32)]
@@ -97,6 +99,21 @@ impl AsRef<[u8]> for SegmentBytes {
 pub(crate) struct SegmentReader {
     bytes: SegmentBytes,
     sections: HashMap<SectionKind, SectionEntry>,
+    decoded: Arc<Mutex<DecodedPostingCache>>,
+}
+
+#[derive(Default)]
+struct DecodedPostingCache {
+    entries: HashMap<PostingDescriptor, CachedPosting>,
+    retained_bytes: usize,
+    limit_bytes: usize,
+    tick: u64,
+}
+
+struct CachedPosting {
+    bitmap: Arc<RoaringBitmap>,
+    weight: usize,
+    last_used: u64,
 }
 
 impl SegmentReader {
@@ -213,7 +230,73 @@ impl SegmentReader {
         if spans.windows(2).any(|pair| pair[0].1 > pair[1].0) {
             return Err("overlapping immutable segment sections".into());
         }
-        Ok(Self { bytes, sections })
+        // Cap retained decoded postings relative to this segment's encoded
+        // bytes so many small shards do not imply an unbounded global cache.
+        let limit_bytes = (bytes.as_ref().len() / 20).min(MAX_DECODED_POSTING_CACHE_BYTES);
+        Ok(Self {
+            bytes,
+            sections,
+            decoded: Arc::new(Mutex::new(DecodedPostingCache {
+                limit_bytes,
+                ..Default::default()
+            })),
+        })
+    }
+
+    /// A bounded hot-posting cache is shared by every dictionary in this
+    /// segment. Entries are used only after the caller has validated the
+    /// descriptor against its own eligible record domain.
+    pub(crate) fn cached_posting(
+        &self,
+        descriptor: PostingDescriptor,
+    ) -> Option<Arc<RoaringBitmap>> {
+        let mut cache = self.decoded.lock().ok()?;
+        cache.tick = cache.tick.wrapping_add(1);
+        let tick = cache.tick;
+        let entry = cache.entries.get_mut(&descriptor)?;
+        entry.last_used = tick;
+        Some(Arc::clone(&entry.bitmap))
+    }
+
+    pub(crate) fn retain_posting(&self, descriptor: PostingDescriptor, bitmap: &RoaringBitmap) {
+        if descriptor.length < MIN_CACHED_POSTING_BYTES {
+            return;
+        }
+        // Roaring's in-memory containers and map entry cost are larger than
+        // the portable payload, so charge a conservative weight to the cap.
+        let weight = (bitmap.serialized_size() as usize)
+            .saturating_mul(2)
+            .saturating_add(128);
+        let Ok(mut cache) = self.decoded.lock() else {
+            return;
+        };
+        if weight > cache.limit_bytes || cache.entries.contains_key(&descriptor) {
+            return;
+        }
+        while cache.retained_bytes.saturating_add(weight) > cache.limit_bytes {
+            let Some(victim) = cache
+                .entries
+                .iter()
+                .min_by_key(|(_, entry)| entry.last_used)
+                .map(|(descriptor, _)| *descriptor)
+            else {
+                return;
+            };
+            if let Some(removed) = cache.entries.remove(&victim) {
+                cache.retained_bytes -= removed.weight;
+            }
+        }
+        cache.tick = cache.tick.wrapping_add(1);
+        let tick = cache.tick;
+        cache.entries.insert(
+            descriptor,
+            CachedPosting {
+                bitmap: Arc::new(bitmap.clone()),
+                weight,
+                last_used: tick,
+            },
+        );
+        cache.retained_bytes += weight;
     }
 
     pub(crate) fn require_complete_sections(&self) -> Result<(), String> {
