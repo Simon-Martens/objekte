@@ -41,6 +41,9 @@ pub use crate::lifecycle_initial::{
 };
 
 pub(crate) const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
+const MAX_SPARSE_SEGMENT_BYTES: usize = 32 * 1024 * 1024;
+const SIZE_MAINTENANCE_REVISIONS: u64 = 16;
+const MIN_RETIREMENT_SLOTS: usize = 256;
 const MAX_RECONCILIATION_ISSUES: usize = 128;
 
 
@@ -444,6 +447,9 @@ pub(crate) struct PublishedIndex {
     pub(crate) active: Vec<ActiveRecords>,
     pub(crate) segments: Vec<Arc<Vec<Arc<PublishedSegment>>>>,
     pub(crate) next_segment_ordinal: u64,
+    /// Hysteresis for byte-triggered coalescing; count and retirement remain
+    /// independent triggers and may run sooner.
+    pub(crate) last_size_maintenance_revision: u64,
     pub(crate) catalog: FileCatalog,
     pub(crate) file_versions: FileVersions,
     pub(crate) saved_revision: Option<IndexRevision>,
@@ -524,6 +530,7 @@ impl PublishedIndex {
             active,
             segments,
             next_segment_ordinal: 1,
+            last_size_maintenance_revision: 0,
             catalog,
             file_versions,
             saved_revision: None,
@@ -710,6 +717,19 @@ impl PublishedIndex {
     /// local verified-maintenance budget. Full base partitions do not consume
     /// the sparse-delta allowance, even when a collection has more than 64.
     pub(crate) fn make_room_for_segment(&mut self, number: usize) -> Result<(), IndexError> {
+        self.make_room_for_segment_with_limits(
+            number,
+            MAX_SPARSE_SEGMENT_BYTES,
+            SIZE_MAINTENANCE_REVISIONS,
+        )
+    }
+
+    fn make_room_for_segment_with_limits(
+        &mut self,
+        number: usize,
+        sparse_byte_limit: usize,
+        size_cooldown: u64,
+    ) -> Result<(), IndexError> {
         let full_partitions = self.segments[number]
             .iter()
             .filter(|segment| {
@@ -717,12 +737,60 @@ impl PublishedIndex {
             })
             .count();
         let admission_limit = MAX_SEGMENTS_PER_COLLECTION.saturating_add(full_partitions);
-        if self.segments[number].len() < admission_limit {
-            return Ok(());
-        }
+        let count_triggered = self.segments[number].len() >= admission_limit;
         let group = Arc::make_mut(&mut self.segments[number]);
-        group.retain(|segment| segment.active.len() > 0);
-        if group.len() < admission_limit {
+        if count_triggered {
+            // A current zero-record file still owns its catalogue contribution.
+            group.retain(|segment| segment.active.len() > 0 || segment.index.files.iter().any(|file| {
+                self.catalog.entry(file.entry.id).is_some_and(|current| {
+                    current.revision == file.entry.revision
+                        && current.created_ns == file.entry.created_ns
+                        && current.collections.contains(&segment.index.collection)
+                })
+            }));
+        }
+        let count_triggered = group.len() >= admission_limit;
+        if !count_triggered {
+            let retired = group.iter().enumerate().filter_map(|(index, segment)| {
+                let total = segment.index.records.len();
+                let removed = total.saturating_sub(segment.active.len() as usize);
+                (total >= MIN_RETIREMENT_SLOTS
+                    && total <= crate::lifecycle_partition::BASE_PARTITION_RECORDS
+                    && removed.saturating_mul(4) >= total)
+                    .then_some((removed, index))
+            }).max();
+            if let Some((_, index)) = retired {
+                let old = Arc::clone(&group[index]);
+                let replacements = crate::lifecycle_partition::compact_source_parts(
+                    &old.index, &old.active, &self.catalog, || false,
+                )?;
+                group.remove(index);
+                for (offset, part) in replacements.into_iter().enumerate() {
+                    let ordinal = self.next_segment_ordinal;
+                    self.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
+                        IndexError::ResourceLimit("segment ordinal overflow".into())
+                    })?;
+                    let active = ActiveRecords::all(part.records.len())
+                        .map_err(IndexError::ResourceLimit)?;
+                    group.insert(index + offset, Arc::new(PublishedSegment {
+                        ordinal,
+                        index: Arc::new(part),
+                        active,
+                    }));
+                }
+                return Ok(());
+            }
+        }
+        let sparse_bytes = group.iter()
+            .filter(|segment| segment.index.records.len() < crate::lifecycle_partition::BASE_PARTITION_RECORDS)
+            .filter_map(|segment| segment.index.raw.sealed_reader())
+            .map(|reader| reader.encoded_len())
+            .fold(0usize, usize::saturating_add);
+        let size_triggered = sparse_bytes > sparse_byte_limit
+            && (self.last_size_maintenance_revision == 0
+                || self.revision.0.saturating_sub(self.last_size_maintenance_revision)
+                    >= size_cooldown);
+        if !count_triggered && !size_triggered {
             return Ok(());
         }
         let Some((left, right)) = cheapest_consolidation_pair(group) else {
@@ -748,6 +816,9 @@ impl PublishedIndex {
             index: Arc::new(merged.index),
             active,
         }));
+        if size_triggered {
+            self.last_size_maintenance_revision = self.revision.0;
+        }
         Ok(())
     }
 

@@ -155,6 +155,10 @@ impl DecodedPostingCache {
 }
 
 impl SegmentReader {
+    pub(crate) fn encoded_len(&self) -> usize {
+        self.bytes.as_ref().len()
+    }
+
     pub(crate) fn from_owned(bytes: Arc<[u8]>) -> Result<Self, String> {
         Self::parse(SegmentBytes::Owned(bytes))
     }

@@ -17,6 +17,79 @@ use crate::streaming::{
 use crate::workload::ReturnMode;
 use crate::workload::{SortExpression, SortField};
 
+#[test]
+fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-size-maintenance-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/initial.json"), br#"{"name":"initial"}"#).unwrap();
+    let index = Index::build(&root, vec![CollectionDefinition::folder(
+        "data", "data", SourceFormat::Json,
+    )], RepositoryOptions::default()).unwrap();
+    for number in 0..2 {
+        let path = root.join(format!("data/new-{number}.json"));
+        std::fs::write(&path, format!("{{\"name\":\"new-{number}\"}}")).unwrap();
+        index.add_file(&path).unwrap();
+    }
+    let mut staged = (*index.view().unwrap().0).clone();
+    assert_eq!(staged.segments[0].len(), 3);
+    staged.make_room_for_segment_with_limits(0, 1, 16).unwrap();
+    assert_eq!(staged.segments[0].len(), 2);
+    assert_eq!(staged.last_size_maintenance_revision, staged.revision.0);
+    staged.make_room_for_segment_with_limits(0, 1, 16).unwrap();
+    assert_eq!(staged.segments[0].len(), 2);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn retired_ratio_trigger_compacts_one_affected_shard() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-retired-maintenance-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..256 {
+        std::fs::write(
+            root.join(format!("data/{number:03}.json")),
+            format!("{{\"name\":\"item-{number}\"}}"),
+        ).unwrap();
+    }
+    let index = Index::build(&root, vec![CollectionDefinition::folder(
+        "data", "data", SourceFormat::Json,
+    )], RepositoryOptions::default()).unwrap();
+    for number in 0..64 {
+        let path = root.join(format!("data/{number:03}.json"));
+        let handle = index.view().unwrap().file_handle_for_path(&path).unwrap();
+        index.delete_file(handle).unwrap();
+        std::fs::remove_file(path).unwrap();
+    }
+    let pinned = index.view().unwrap();
+    let old = pinned.0.segments[0][0].clone();
+    let mut staged = (*pinned.0).clone();
+    staged.make_room_for_segment_with_limits(0, usize::MAX, 16).unwrap();
+    assert_eq!(staged.segments[0].len(), 1);
+    assert!(!Arc::ptr_eq(&old, &staged.segments[0][0]));
+    assert_eq!(staged.segments[0][0].index.records.len(), 192);
+    assert_eq!(staged.segments[0][0].active.len(), 192);
+    assert_eq!(old.index.records.len(), 256);
+    let added = root.join("data/added.json");
+    std::fs::write(&added, br#"{"name":"new item"}"#).unwrap();
+    index.add_file(&added).unwrap();
+    let current = index.view().unwrap();
+    assert!(current.0.segments[0].iter().any(|segment| segment.index.records.len() == 192));
+    assert_eq!(current.0.status().live_records, 193);
+    assert_eq!(pinned.0.status().live_records, 192);
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 fn fixture_repository(root: &std::path::Path) -> Repository {
     Repository::open_with_options(
         root,
