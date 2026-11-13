@@ -61,3 +61,6 @@ examples/en_wikidata_5M_entities/
 
 # Local snapshot profiling campaign artifacts; selected small samples are force-added.
 /bench/results/index-creation-loading-profiling/
+
+# Local snapshot/admission profiling campaign artifacts; small samples are force-added.
+/bench/results/snapshot-loading-admission-profiling/
