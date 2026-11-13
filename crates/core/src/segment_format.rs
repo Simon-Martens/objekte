@@ -5,7 +5,7 @@
 
 use std::collections::HashMap;
 use std::fs::File;
-use std::io::{self, Cursor, Seek, SeekFrom, Write};
+use std::io::{self, Cursor, Read, Seek, SeekFrom, Write};
 use std::sync::{Arc, OnceLock};
 
 use memmap2::{Mmap, MmapOptions};
@@ -116,6 +116,30 @@ impl SegmentReader {
         // publication never truncates or modifies an opened generation.
         let map = unsafe { MmapOptions::new().map(file) }.map_err(|error| error.to_string())?;
         Self::parse(SegmentBytes::Mapped(Arc::new(map)))
+    }
+
+    /// Fully resident storage owns all file bytes. A short read or allocation
+    /// failure is an explicit error; no mapping remains in the returned reader.
+    pub(crate) fn from_index_file_owned(mut file: &File) -> Result<Self, String> {
+        let metadata = file.metadata().map_err(|error| error.to_string())?;
+        if !metadata.is_file() || metadata.len() == 0 || metadata.len() > MAX_SEGMENT_BYTES {
+            return Err("index segment is not a supported regular file".into());
+        }
+        let length =
+            usize::try_from(metadata.len()).map_err(|_| "segment length exceeds address space")?;
+        let mut bytes = Vec::new();
+        bytes
+            .try_reserve_exact(length)
+            .map_err(|error| format!("full index residency allocation: {error}"))?;
+        bytes.resize(length, 0);
+        file.read_exact(&mut bytes)
+            .map_err(|error| format!("full index residency read: {error}"))?;
+        Self::from_owned(Arc::from(bytes))
+    }
+
+    #[cfg(test)]
+    pub(crate) fn is_owned(&self) -> bool {
+        matches!(self.bytes, SegmentBytes::Owned(_))
     }
 
     fn parse(bytes: SegmentBytes) -> Result<Self, String> {

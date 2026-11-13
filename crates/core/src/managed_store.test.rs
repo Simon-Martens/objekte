@@ -12,6 +12,10 @@ struct TestStore {
 
 impl TestStore {
     fn new() -> Self {
+        Self::with_residency(IndexResidency::OnDemand)
+    }
+
+    fn with_residency(residency: IndexResidency) -> Self {
         let base = std::env::temp_dir().join(format!(
             "objekte-hybrid-store-test-{}-{}",
             std::process::id(),
@@ -24,7 +28,7 @@ impl TestStore {
         fs::create_dir(&destination).unwrap();
         let resolved = IndexStoragePolicy {
             location: IndexStorageLocation::CustomDirectory(destination),
-            residency: IndexResidency::OnDemand,
+            residency,
         }
         .resolve(
             &root,
@@ -40,6 +44,55 @@ impl TestStore {
         let store = ManagedStore::open(&resolved).unwrap();
         Self { base, store }
     }
+}
+
+#[test]
+fn full_residency_owns_bytes_and_checks_all_sections() {
+    let fixture = TestStore::with_residency(IndexResidency::FullyResident);
+    fixture
+        .store
+        .commit_generation(1, &[SegmentInput::New(Arc::from(complete_segment(4)))])
+        .unwrap();
+    let opened = fixture.store.read_generation().unwrap().unwrap();
+    assert!(opened.segments[0].is_owned());
+    let path = fixture.store.path().join(&opened.segment_names[0]);
+    fs::remove_file(&path).unwrap();
+    assert_eq!(
+        opened.segments[0]
+            .section(SectionKind::FieldMetadata)
+            .unwrap(),
+        Some(&[4][..])
+    );
+}
+
+#[test]
+fn opening_validates_metadata_but_defers_posting_payload_integrity_on_demand() {
+    let fixture = TestStore::new();
+    fixture
+        .store
+        .commit_generation(1, &[SegmentInput::New(Arc::from(complete_segment(5)))])
+        .unwrap();
+    let opened = fixture.store.read_generation().unwrap().unwrap();
+    assert!(!opened.segments[0].is_owned());
+    let path = fixture.store.path().join(&opened.segment_names[0]);
+    drop(opened);
+    let original = fs::read(&path).unwrap();
+    let mut corrupted = original.clone();
+    let field_offset = corrupted.len() - REQUIRED_SECTIONS.len();
+    corrupted[field_offset] ^= 1;
+    fs::write(&path, &corrupted).unwrap();
+    assert!(fixture.store.read_generation().is_err());
+    fs::write(&path, &original).unwrap();
+    let mut corrupted = original.clone();
+    let posting = SectionKind::PostingPayloads as usize - 1;
+    corrupted[field_offset + posting] ^= 1;
+    fs::write(&path, &corrupted).unwrap();
+    let opened = fixture.store.read_generation().unwrap().unwrap();
+    assert!(
+        opened.segments[0]
+            .section(SectionKind::PostingPayloads)
+            .is_err()
+    );
 }
 
 impl Drop for TestStore {

@@ -9,8 +9,8 @@ use std::time::{SystemTime, UNIX_EPOCH};
 
 use sha2::{Digest, Sha256};
 
-use crate::index_storage::ResolvedIndexStorage;
-use crate::segment_format::{FORMAT_VERSION, SegmentReader};
+use crate::index_storage::{IndexResidency, ResolvedIndexStorage};
+use crate::segment_format::{FORMAT_VERSION, REQUIRED_SECTIONS, SectionKind, SegmentReader};
 
 const MANIFEST_MAGIC: &[u8; 8] = b"OBJHMAN1";
 const MANIFEST_NAME: &str = "manifest.bin";
@@ -63,6 +63,7 @@ pub(crate) struct ManagedStore {
     configuration_identity: [u8; 32],
     root_bytes: Vec<u8>,
     deprecated_directories: Vec<PathBuf>,
+    residency: IndexResidency,
 }
 
 impl ManagedStore {
@@ -88,6 +89,7 @@ impl ManagedStore {
             configuration_identity: resolved.configuration_identity,
             root_bytes: path_bytes(&resolved.repository_root),
             deprecated_directories: resolved.deprecated_directories.clone(),
+            residency: resolved.residency,
         })
     }
 
@@ -182,8 +184,18 @@ impl ManagedStore {
             if file.metadata().map_err(|error| error.to_string())?.len() != record.length {
                 return Err(format!("segment length changed: {}", record.name));
             }
-            let reader = SegmentReader::from_index_file(&file)?;
+            let reader = match self.residency {
+                IndexResidency::OnDemand => SegmentReader::from_index_file(&file)?,
+                IndexResidency::FullyResident => SegmentReader::from_index_file_owned(&file)?,
+            };
             reader.require_complete_sections()?;
+            for kind in REQUIRED_SECTIONS {
+                if kind != SectionKind::PostingPayloads
+                    || self.residency == IndexResidency::FullyResident
+                {
+                    reader.section(kind)?;
+                }
+            }
             names.push(record.name.clone());
             segments.push(Arc::new(reader));
         }
@@ -414,7 +426,7 @@ impl ManagedStore {
 
     fn read_manifest(&self) -> Result<Option<Manifest>, String> {
         let path = self.directory.join(MANIFEST_NAME);
-        let mut file = match open_regular_nofollow(&path) {
+        let file = match open_regular_nofollow(&path) {
             Ok(file) => file,
             Err(error) if error.starts_with("missing regular file:") => return Ok(None),
             Err(error) => return Err(error),
