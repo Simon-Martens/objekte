@@ -76,6 +76,26 @@ fn owned_sections_and_postings_are_checked() {
 }
 
 #[test]
+fn decoded_posting_cache_evicts_oldest_without_scanning_entries() {
+    let (bytes, _, descriptor) = sample_segment();
+    let reader = SegmentReader::from_owned(bytes).unwrap();
+    let bitmap = RoaringBitmap::from_iter((0..1000).map(|slot| slot * 17));
+    let weight = bitmap.serialized_size() * 2 + 128;
+    reader.decoded.lock().unwrap().limit_bytes = weight * 2;
+    let key = |offset| PostingDescriptor { offset, length: 100, ..descriptor };
+    reader.retain_posting(key(1), &bitmap);
+    reader.retain_posting(key(2), &bitmap);
+    assert!(reader.cached_posting(key(1)).is_some());
+    reader.retain_posting(key(3), &bitmap);
+    assert!(reader.cached_posting(key(1)).is_some());
+    assert!(reader.cached_posting(key(2)).is_none());
+    assert!(reader.cached_posting(key(3)).is_some());
+    let cache = reader.decoded.lock().unwrap();
+    assert_eq!(cache.entries.len(), cache.recency.len());
+    assert!(cache.retained_bytes <= cache.limit_bytes);
+}
+
+#[test]
 fn corrupt_sections_cannot_be_used_for_negative_routing() {
     let (bytes, _, _) = sample_segment();
     let mut corrupt = bytes.to_vec();

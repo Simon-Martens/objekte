@@ -3,7 +3,7 @@
 //! Section framing is independent of byte ownership. Store readers may map
 //! only immutable application-owned files; memory-only builders use owned bytes.
 
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
 use std::fs::File;
 use std::io::{self, Cursor, Read, Seek, SeekFrom, Write};
 use std::sync::{Arc, Mutex, OnceLock};
@@ -105,6 +105,7 @@ pub(crate) struct SegmentReader {
 #[derive(Default)]
 struct DecodedPostingCache {
     entries: HashMap<PostingDescriptor, CachedPosting>,
+    recency: BTreeMap<u64, PostingDescriptor>,
     retained_bytes: usize,
     limit_bytes: usize,
     tick: u64,
@@ -114,6 +115,23 @@ struct CachedPosting {
     bitmap: Arc<RoaringBitmap>,
     weight: usize,
     last_used: u64,
+}
+
+impl DecodedPostingCache {
+    fn next_tick(&mut self) -> u64 {
+        if self.tick == u64::MAX {
+            let ordered = self.recency.values().copied().collect::<Vec<_>>();
+            self.recency.clear();
+            for (position, descriptor) in ordered.into_iter().enumerate() {
+                let tick = position as u64 + 1;
+                self.entries.get_mut(&descriptor).unwrap().last_used = tick;
+                self.recency.insert(tick, descriptor);
+            }
+            self.tick = self.entries.len() as u64;
+        }
+        self.tick += 1;
+        self.tick
+    }
 }
 
 impl SegmentReader {
@@ -251,11 +269,17 @@ impl SegmentReader {
         descriptor: PostingDescriptor,
     ) -> Option<Arc<RoaringBitmap>> {
         let mut cache = self.decoded.lock().ok()?;
-        cache.tick = cache.tick.wrapping_add(1);
-        let tick = cache.tick;
+        if !cache.entries.contains_key(&descriptor) {
+            return None;
+        }
+        let tick = cache.next_tick();
         let entry = cache.entries.get_mut(&descriptor)?;
+        let prior = entry.last_used;
         entry.last_used = tick;
-        Some(Arc::clone(&entry.bitmap))
+        let bitmap = Arc::clone(&entry.bitmap);
+        cache.recency.remove(&prior);
+        cache.recency.insert(tick, descriptor);
+        Some(bitmap)
     }
 
     pub(crate) fn decoded_cache_usage(&self) -> (usize, usize) {
@@ -281,20 +305,17 @@ impl SegmentReader {
             return;
         }
         while cache.retained_bytes.saturating_add(weight) > cache.limit_bytes {
-            let Some(victim) = cache
-                .entries
-                .iter()
-                .min_by_key(|(_, entry)| entry.last_used)
-                .map(|(descriptor, _)| *descriptor)
+            let Some((&oldest, &victim)) = cache.recency.first_key_value()
             else {
                 return;
             };
+            cache.recency.remove(&oldest);
             if let Some(removed) = cache.entries.remove(&victim) {
                 cache.retained_bytes -= removed.weight;
             }
         }
-        cache.tick = cache.tick.wrapping_add(1);
-        let tick = cache.tick;
+        let tick = cache.next_tick();
+        cache.recency.insert(tick, descriptor);
         cache.entries.insert(
             descriptor,
             CachedPosting {
