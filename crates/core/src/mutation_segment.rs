@@ -7,6 +7,7 @@ use crate::bigram::BigramIndex;
 use crate::inference::{InferenceIndexStatus, InferenceState, InferredFieldReport};
 use crate::inventory::ActiveRecords;
 use crate::posting::StructuralFacts;
+use crate::repository::IncrementalSegmentProfile;
 use crate::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
 
 
@@ -475,6 +476,19 @@ impl CollectionSegment {
         collection_count: usize,
         pool: &ThreadPool,
     ) -> Result<IndexedCollectionSegment, String> {
+        self.into_indexed_profiled(definition, alphabet, inference_config, collection_count, pool, None)
+    }
+
+    pub fn into_indexed_profiled(
+        self,
+        definition: &CollectionDefinition,
+        alphabet: BigramAlphabet,
+        inference_config: InferenceConfig,
+        collection_count: usize,
+        pool: &ThreadPool,
+        mut profile: Option<&mut IncrementalSegmentProfile>,
+    ) -> Result<IndexedCollectionSegment, String> {
+        let phase = profile.as_ref().map(|_| Instant::now());
         let mut aggregate = match self.aggregate {
             Some(aggregate) => aggregate,
             None => SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?,
@@ -482,12 +496,16 @@ impl CollectionSegment {
         for SegmentBatch { base, count, contribution } in self.batches {
             aggregate.admit(contribution, base, count)?;
         }
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.aggregate_merge_ns = started.elapsed().as_nanos() as u64;
+        }
         let SegmentAggregate {
             mut postings, inference, mut custom_postings, raw, fallback_text,
             custom_text, logical_records, empty_array_records, sorting, relations,
         } = aggregate;
         let record_count = self.records.len();
         let logical_count = logical_records.len() as usize;
+        let phase = profile.as_ref().map(|_| Instant::now());
         postings.finish_stats();
         postings.validate_eligible(record_count, logical_count)?;
         if logical_count != record_count {
@@ -505,12 +523,20 @@ impl CollectionSegment {
                 custom.index.validate_domain(&logical_records)?;
             }
         }
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.postings_finish_validation_ns = started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         let raw = raw.into_index_in_pool(pool)?;
         let fallback_text = fallback_text.into_index_in_pool(pool)?;
         let custom_text = custom_text
             .into_iter()
             .map(|(key, index)| index.into_index_in_pool(pool).map(|index| (key, index)))
             .collect::<Result<HashMap<_, _>, _>>()?;
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.bigram_finish_ns = started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         raw.validate(record_count)?;
         fallback_text.validate(record_count)?;
         if logical_count != record_count {
@@ -529,10 +555,22 @@ impl CollectionSegment {
                 index.validate_domain(&logical_records)?;
             }
         }
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.bigram_validation_ns = started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         let sorting = sorting.finish_for_records(&self.records)?;
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.sorting_finish_ns = started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         let inference = inference
             .map(|builder| builder.finish(&logical_records, record_count, &definition.schema))
             .transpose()?;
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.inference_finish_ns = started.elapsed().as_nanos() as u64;
+        }
+        let phase = profile.as_ref().map(|_| Instant::now());
         let mut identity_order = self
             .records
             .iter()
@@ -543,6 +581,9 @@ impl CollectionSegment {
                 .id
                 .cmp(&self.records[b.0 as usize].id)
         });
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.identity_order_ns = started.elapsed().as_nanos() as u64;
+        }
         Ok(IndexedCollectionSegment {
             collection: self.collection,
             source_id: self.source_id,

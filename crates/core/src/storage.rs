@@ -92,6 +92,37 @@ pub struct SnapshotSectionSaveStats {
     pub payload_bytes: u64,
 }
 
+/// Opt-in, non-persisted attribution for the storage portion of a restore.
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct SnapshotLoadProfile {
+    pub total_ns: u64,
+    pub header_configuration_ns: u64,
+    pub inventory_rebuild_ns: u64,
+    pub collection_validation_ns: u64,
+    pub relation_validation_ns: u64,
+    pub lifecycle_validation_ns: u64,
+    pub repository_setup_ns: u64,
+    pub sections: Vec<SnapshotSectionLoadProfile>,
+}
+
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct SnapshotSectionLoadProfile {
+    pub id: u32,
+    pub payload_bytes: u64,
+    pub header_ns: u64,
+    pub checksum_read_ns: u64,
+    pub checksum_hash_ns: u64,
+    pub checksum_bytes: u64,
+    pub checksum_read_calls: u64,
+    pub seek_ns: u64,
+    /// Includes buffered reads; `deserialize_read_ns` is nested within it.
+    pub deserialize_ns: u64,
+    pub deserialize_read_ns: u64,
+    pub deserialize_bytes: u64,
+    pub deserialize_read_calls: u64,
+    pub total_ns: u64,
+}
+
 /// Restore failures distinguish unreadable storage from invalid snapshot data.
 #[derive(Debug)]
 pub(crate) enum SnapshotLoadError {
@@ -1083,6 +1114,34 @@ fn read_section<T: for<'de> Deserialize<'de>>(
     file: &mut (impl Read + Seek),
     expected_id: u32,
 ) -> Result<T, SnapshotLoadError> {
+    read_section_profiled(file, expected_id, None)
+}
+
+struct CountedRead<'a, R> {
+    inner: R,
+    bytes: &'a mut u64,
+    calls: &'a mut u64,
+    elapsed_ns: &'a mut u64,
+}
+
+impl<R: Read> Read for CountedRead<'_, R> {
+    fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+        let started = Instant::now();
+        let count = self.inner.read(buf)?;
+        *self.elapsed_ns = self.elapsed_ns.saturating_add(started.elapsed().as_nanos() as u64);
+        *self.calls += 1;
+        *self.bytes += count as u64;
+        Ok(count)
+    }
+}
+
+fn read_section_profiled<T: for<'de> Deserialize<'de>>(
+    file: &mut (impl Read + Seek),
+    expected_id: u32,
+    mut profile: Option<&mut SnapshotSectionLoadProfile>,
+) -> Result<T, SnapshotLoadError> {
+    let total_started = profile.as_ref().map(|_| Instant::now());
+    let header_started = profile.as_ref().map(|_| Instant::now());
     let mut id = [0; 4];
     let mut size = [0; 8];
     let mut checksum = [0; 32];
@@ -1102,28 +1161,67 @@ fn read_section<T: for<'de> Deserialize<'de>>(
     let payload_at = file
         .stream_position()
         .map_err(|e| snapshot_read_error("snapshot section position", e))?;
+    if let Some(profile) = profile.as_mut() {
+        profile.id = expected_id;
+        profile.payload_bytes = len;
+        profile.header_ns = header_started.unwrap().elapsed().as_nanos() as u64;
+    }
     let mut hash = Sha256::new();
     let mut remaining = len;
     let mut buffer = [0; 64 * 1024];
     while remaining > 0 {
         let chunk = remaining.min(buffer.len() as u64) as usize;
+        let started = profile.as_ref().map(|_| Instant::now());
         file.read_exact(&mut buffer[..chunk])
             .map_err(|e| snapshot_read_error("snapshot section", e))?;
+        if let (Some(started), Some(profile)) = (started, profile.as_mut()) {
+            profile.checksum_read_ns = profile.checksum_read_ns
+                .saturating_add(started.elapsed().as_nanos() as u64);
+            profile.checksum_bytes += chunk as u64;
+            profile.checksum_read_calls += 1;
+        }
+        let started = profile.as_ref().map(|_| Instant::now());
         hash.update(&buffer[..chunk]);
+        if let (Some(started), Some(profile)) = (started, profile.as_mut()) {
+            profile.checksum_hash_ns = profile.checksum_hash_ns
+                .saturating_add(started.elapsed().as_nanos() as u64);
+        }
         remaining -= chunk as u64;
     }
     if hash.finalize().as_slice() != checksum {
         return Err("snapshot checksum mismatch".into());
     }
+    let started = profile.as_ref().map(|_| Instant::now());
     file.seek(SeekFrom::Start(payload_at))
         .map_err(|e| snapshot_read_error("snapshot section position", e))?;
-    let mut payload = BufReader::with_capacity(64 * 1024, file.take(len));
-    let decoded = codec()
-        .with_limit(len)
-        .deserialize_from(&mut payload)
-        .map_err(|e| SnapshotLoadError::Invalid(format!("invalid snapshot section: {e}")))?;
-    if !payload.buffer().is_empty() || payload.get_ref().limit() != 0 {
+    if let (Some(started), Some(profile)) = (started, profile.as_mut()) {
+        profile.seek_ns = started.elapsed().as_nanos() as u64;
+    }
+    let started = profile.as_ref().map(|_| Instant::now());
+    let (decoded, buffered, remaining) = if let Some(profile) = profile.as_mut() {
+        let mut reader = BufReader::with_capacity(64 * 1024, CountedRead {
+            inner: file,
+            bytes: &mut profile.deserialize_bytes,
+            calls: &mut profile.deserialize_read_calls,
+            elapsed_ns: &mut profile.deserialize_read_ns,
+        }.take(len));
+        let decoded = codec().with_limit(len).deserialize_from(&mut reader)
+            .map_err(|e| SnapshotLoadError::Invalid(format!("invalid snapshot section: {e}")))?;
+        (decoded, !reader.buffer().is_empty(), reader.get_ref().limit())
+    } else {
+        let mut reader = BufReader::with_capacity(64 * 1024, file.take(len));
+        let decoded = codec().with_limit(len).deserialize_from(&mut reader)
+            .map_err(|e| SnapshotLoadError::Invalid(format!("invalid snapshot section: {e}")))?;
+        (decoded, !reader.buffer().is_empty(), reader.get_ref().limit())
+    };
+    if let (Some(started), Some(profile)) = (started, profile.as_mut()) {
+        profile.deserialize_ns = started.elapsed().as_nanos() as u64;
+    }
+    if buffered || remaining != 0 {
         return Err("snapshot section has trailing bytes".into());
+    }
+    if let (Some(started), Some(profile)) = (total_started, profile.as_mut()) {
+        profile.total_ns = started.elapsed().as_nanos() as u64;
     }
     Ok(decoded)
 }
@@ -1462,13 +1560,14 @@ pub(crate) fn load_snapshot_checked(
     sources: &SourceRegistry,
     path: &Path,
 ) -> Result<Repository, SnapshotLoadError> {
-    load_snapshot_parts(root, definitions, options, sources, path, false)
+    load_snapshot_parts(root, definitions, options, sources, path, false, None)
         .map(|(repository, _)| repository)
 }
 
 /// Restore the validated base and lifecycle section without enumerating
 /// source files. The callback must decode and validate each private segment
 /// representation before this function returns to the publication owner.
+#[cfg(test)]
 pub(crate) fn load_lifecycle_snapshot_checked(
     root: PathBuf,
     definitions: Vec<CollectionDefinition>,
@@ -1477,10 +1576,44 @@ pub(crate) fn load_lifecycle_snapshot_checked(
     path: &Path,
     mut validate_segment: impl FnMut(&LifecycleSegmentCache) -> Result<(), String>,
 ) -> Result<(Repository, LifecycleCacheState), SnapshotLoadError> {
-    let (repository, state) = load_snapshot_parts(root, definitions, options, sources, path, true)?;
+    load_lifecycle_snapshot_checked_profiled(
+        root, definitions, options, sources, path, &mut validate_segment, None,
+    )
+}
+
+pub(crate) fn load_lifecycle_snapshot_checked_profiled(
+    root: PathBuf,
+    definitions: Vec<CollectionDefinition>,
+    options: RepositoryOptions,
+    sources: &SourceRegistry,
+    path: &Path,
+    mut validate_segment: impl FnMut(&LifecycleSegmentCache) -> Result<(), String>,
+    mut profile: Option<&mut SnapshotLoadProfile>,
+) -> Result<(Repository, LifecycleCacheState), SnapshotLoadError> {
+    let (repository, state) = load_snapshot_parts(
+        root, definitions, options, sources, path, true, profile.as_deref_mut(),
+    )?;
     let state = state.ok_or("lifecycle snapshot section missing")?;
+    let started = profile.as_ref().map(|_| Instant::now());
     state.validate(&repository, |segment| validate_segment(segment))?;
+    if let (Some(started), Some(profile)) = (started, profile.as_mut()) {
+        profile.lifecycle_validation_ns = started.elapsed().as_nanos() as u64;
+        profile.total_ns = profile.total_ns.saturating_add(profile.lifecycle_validation_ns);
+    }
     Ok((repository, state))
+}
+
+fn read_profiled_section<T: for<'de> Deserialize<'de>>(
+    file: &mut File,
+    id: u32,
+    profile: &mut Option<&mut SnapshotLoadProfile>,
+) -> Result<T, SnapshotLoadError> {
+    let mut section = profile.as_ref().map(|_| SnapshotSectionLoadProfile::default());
+    let value = read_section_profiled(file, id, section.as_mut())?;
+    if let (Some(profile), Some(section)) = (profile.as_mut(), section) {
+        profile.sections.push(section);
+    }
+    Ok(value)
 }
 
 fn load_snapshot_parts(
@@ -1490,7 +1623,9 @@ fn load_snapshot_parts(
     sources: &SourceRegistry,
     path: &Path,
     lifecycle: bool,
+    mut profile: Option<&mut SnapshotLoadProfile>,
 ) -> Result<(Repository, Option<LifecycleCacheState>), SnapshotLoadError> {
+    let total_started = profile.as_ref().map(|_| Instant::now());
     crate::relation::validate_definitions(&definitions)?;
     let mut file = File::open(path).map_err(|e| {
         SnapshotLoadError::Access(format!("snapshot access: {}: {e}", path.display()))
@@ -1528,11 +1663,16 @@ fn load_snapshot_parts(
     if u32::from_le_bytes(count) as usize != definitions.len() {
         return Err("snapshot collection count mismatch".into());
     }
-    let settings: SnapshotBuildConfiguration = read_section(&mut file, CONFIGURATION_SECTION_ID)?;
+    if let (Some(started), Some(profile)) = (total_started, profile.as_mut()) {
+        profile.header_configuration_ns = started.elapsed().as_nanos() as u64;
+    }
+    let settings: SnapshotBuildConfiguration =
+        read_profiled_section(&mut file, CONFIGURATION_SECTION_ID, &mut profile)?;
     if settings != SnapshotBuildConfiguration::from_options(options) {
         return Err("snapshot build settings mismatch".into());
     }
-    let encoded_files: Vec<EncodedFile> = read_section(&mut file, 0)?;
+    let encoded_files: Vec<EncodedFile> = read_profiled_section(&mut file, 0, &mut profile)?;
+    let phase = profile.as_ref().map(|_| Instant::now());
     let base_fingerprints = encoded_files
         .iter()
         .map(|file| file.fingerprint)
@@ -1558,10 +1698,15 @@ fn load_snapshot_parts(
         restored.omitted_diagnostics = entry.omitted_diagnostics;
     }
     files.rebuild_lookup()?;
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.inventory_rebuild_ns = started.elapsed().as_nanos() as u64;
+    }
     let mut collections = Vec::new();
     for (index, definition) in definitions.into_iter().enumerate() {
         let source = sources.resolve(&definition.format)?;
-        let encoded: EncodedCollection = read_section(&mut file, index as u32 + 1)?;
+        let encoded: EncodedCollection =
+            read_profiled_section(&mut file, index as u32 + 1, &mut profile)?;
+        let phase = profile.as_ref().map(|_| Instant::now());
         let generation = encoded.generation;
         if generation.collection.0 as usize != index || generation.name != definition.name {
             return Err("snapshot collection identity mismatch".into());
@@ -1909,7 +2054,12 @@ fn load_snapshot_parts(
             stats,
             relations: encoded.relations,
         });
+        if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+            profile.collection_validation_ns = profile.collection_validation_ns
+                .saturating_add(started.elapsed().as_nanos() as u64);
+        }
     }
+    let phase = profile.as_ref().map(|_| Instant::now());
     crate::relation::validate_indexes(&collections)?;
     for file in &files.files {
         for diagnostic in &file.diagnostics {
@@ -1926,8 +2076,11 @@ fn load_snapshot_parts(
             }
         }
     }
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.relation_validation_ns = started.elapsed().as_nanos() as u64;
+    }
     let state = if lifecycle {
-        Some(read_section(&mut file, collections.len() as u32 + 1)?)
+        Some(read_profiled_section(&mut file, collections.len() as u32 + 1, &mut profile)?)
     } else {
         None
     };
@@ -1939,7 +2092,8 @@ fn load_snapshot_parts(
     {
         return Err("snapshot trailing bytes".into());
     }
-    Ok((
+    let phase = profile.as_ref().map(|_| Instant::now());
+    let result = (
         Repository {
             files: Arc::new(files),
             base_fingerprints,
@@ -1962,7 +2116,14 @@ fn load_snapshot_parts(
             )),
         },
         state,
-    ))
+    );
+    if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
+        profile.repository_setup_ns = started.elapsed().as_nanos() as u64;
+    }
+    if let (Some(started), Some(profile)) = (total_started, profile.as_mut()) {
+        profile.total_ns = started.elapsed().as_nanos() as u64;
+    }
+    Ok(result)
 }
 
 #[cfg(test)]

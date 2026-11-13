@@ -2510,6 +2510,11 @@ pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
 
 
 impl IndexView {
+    /// Startup observations belonging to this immutable publication.
+    pub fn startup_stats(&self) -> &crate::repository::StartupStats {
+        self.repository().startup()
+    }
+
     pub fn initial_construction_complete(&self) -> bool {
         self.0.catalog.construction_complete()
     }
