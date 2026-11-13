@@ -124,6 +124,81 @@ fn managed_open_reuses_complete_generation_without_source_build() {
 }
 
 #[test]
+fn progressive_managed_build_flushes_only_complete_generation() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-managed-progressive-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..8 {
+        std::fs::write(
+            root.join(format!("data/{number}.json")),
+            format!("{{\"text\":\"item {number}\"}}"),
+        )
+        .unwrap();
+    }
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let policy = IndexStoragePolicy {
+        location: IndexStorageLocation::RepositoryDirectory,
+        residency: IndexResidency::OnDemand,
+    };
+    let task = Index::start_incremental_build_with_storage(
+        root.clone(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        policy.clone(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let catalogue = task.wait_catalogue().unwrap();
+    assert!(catalogue.status().unwrap().indexed_files >= 8);
+    let complete = task.wait_complete().unwrap();
+    assert_eq!(
+        complete.storage_status().unwrap().synchronization,
+        IndexSynchronization::Synchronized
+    );
+    assert_eq!(
+        complete
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(8)
+    );
+    complete.stop_sync_storage().unwrap();
+    drop(complete);
+    let reopened = Index::start_incremental_build_with_storage(
+        root.clone(),
+        vec![definition],
+        RepositoryOptions::default(),
+        policy,
+        SourceRegistry::builtin(),
+    )
+    .unwrap()
+    .wait_complete()
+    .unwrap();
+    assert_eq!(reopened.status().unwrap().build_source_reads, 0);
+    assert_eq!(
+        reopened
+            .view()
+            .unwrap()
+            .search(&all_records())
+            .unwrap()
+            .count,
+        Some(8)
+    );
+    reopened.stop_sync_storage().unwrap();
+    reopened.wait_for_reconciliation().unwrap();
+    drop(reopened);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn managed_generation_reopens_add_move_and_retirement() {
     let root = std::env::temp_dir().join(format!(
         "objekte-managed-updates-{}-{}",

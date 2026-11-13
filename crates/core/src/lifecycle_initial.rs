@@ -10,7 +10,6 @@ use crate::lifecycle::{Index, IndexError, IndexView};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
 use crate::source::SourceRegistry;
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum InitialBuildPhase {
     Discovering,
@@ -19,7 +18,6 @@ pub enum InitialBuildPhase {
     Cancelled,
     Failed,
 }
-
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InitialBuildStatus {
@@ -35,7 +33,6 @@ pub struct InitialBuildStatus {
     pub first_batch_elapsed_ns: Option<u64>,
     pub completion_elapsed_ns: Option<u64>,
 }
-
 
 impl Default for InitialBuildStatus {
     fn default() -> Self {
@@ -55,7 +52,6 @@ impl Default for InitialBuildStatus {
     }
 }
 
-
 #[derive(Clone)]
 pub struct InitialBuildSnapshot {
     /// Monotonic event cursor. A waiter checks it before sleeping, so no
@@ -65,7 +61,6 @@ pub struct InitialBuildSnapshot {
     pub view: Option<IndexView>,
 }
 
-
 struct InitialState {
     cursor: u64,
     status: InitialBuildStatus,
@@ -74,7 +69,6 @@ struct InitialState {
     terminal_error: Option<IndexError>,
 }
 
-
 struct InitialOpening {
     started: Instant,
     cancelled: AtomicBool,
@@ -82,10 +76,8 @@ struct InitialOpening {
     changed: Condvar,
 }
 
-
 #[derive(Clone)]
 pub struct InitialBuildTask(Arc<InitialOpening>);
-
 
 impl InitialBuildTask {
     fn new() -> Self {
@@ -285,7 +277,6 @@ impl InitialBuildTask {
     }
 }
 
-
 impl Index {
     pub fn start_incremental_build(
         root: impl Into<PathBuf>,
@@ -303,8 +294,24 @@ impl Index {
     pub fn start_incremental_build_with_sources(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        sources: SourceRegistry,
+    ) -> Result<InitialBuildTask, IndexError> {
+        Self::start_incremental_build_with_sources_and_completion(
+            root,
+            definitions,
+            options,
+            sources,
+            |_| Ok(()),
+        )
+    }
+
+    pub(crate) fn start_incremental_build_with_sources_and_completion(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
         mut options: RepositoryOptions,
         sources: SourceRegistry,
+        on_complete: impl FnOnce(&Index) -> Result<(), IndexError> + Send + 'static,
     ) -> Result<InitialBuildTask, IndexError> {
         options.snapshot_mode = SnapshotMode::Disabled;
         options.inference.validate().map_err(IndexError::Build)?;
@@ -326,7 +333,9 @@ impl Index {
                 );
                 match result {
                     Ok(index) => {
-                        if let Err(error) = worker_task.publish(index, true) {
+                        if let Err(error) =
+                            on_complete(&index).and_then(|()| worker_task.publish(index, true))
+                        {
                             worker_task.finish_error(error);
                         }
                     }
@@ -337,7 +346,6 @@ impl Index {
         Ok(task)
     }
 }
-
 
 #[cfg(test)]
 #[path = "lifecycle_initial.test.rs"]

@@ -17,8 +17,8 @@ use crate::index_storage::{
 };
 use crate::inventory::{FileEntry, FileVersions};
 use crate::lifecycle::{
-    Index, IndexError, IndexRevision, IndexStatus, PublishedIndex, PublishedSegment,
-    ReconciliationState,
+    Index, IndexError, IndexRevision, IndexStatus, InitialBuildTask, PublishedIndex,
+    PublishedSegment, ReconciliationState,
 };
 use crate::lifecycle_catalog::FileCatalog;
 use crate::managed_store::{ManagedStore, OpenedGeneration, SegmentInput};
@@ -283,6 +283,63 @@ pub(crate) fn storage_status(
 }
 
 impl Index {
+    /// Start a managed initial build with catalogue and batch publications.
+    /// A complete stored generation is returned as an already-ready task;
+    /// an absent generation is flushed only after construction completes.
+    pub fn start_incremental_build_with_storage(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        storage: IndexStoragePolicy,
+        sources: SourceRegistry,
+    ) -> Result<InitialBuildTask, IndexError> {
+        let started = Instant::now();
+        let root = root.into();
+        let prepared = storage
+            .prepare(&root, &definitions, options, &sources)
+            .map_err(IndexError::IncompatibleConfiguration)?;
+        if prepared.resolved.managed_directory.is_none() {
+            return Self::start_incremental_build_with_sources(
+                root,
+                prepared.definitions,
+                options,
+                sources,
+            );
+        }
+        let store = ManagedStore::open(&prepared.resolved).map_err(IndexError::Io)?;
+        if let Some(opened) = store.read_generation().map_err(IndexError::InvalidCache)? {
+            let index = restore_generation(
+                &prepared.resolved,
+                prepared.definitions,
+                options,
+                sources,
+                opened,
+                started,
+            )?;
+            index.set_sync_storage(true)?;
+            store
+                .cleanup_deprecated_snapshots()
+                .map_err(IndexError::Io)?;
+            return InitialBuildTask::from_ready(index);
+        }
+        let resolved = prepared.resolved;
+        Self::start_incremental_build_with_sources_and_completion(
+            root,
+            prepared.definitions,
+            options,
+            sources,
+            move |index| {
+                index.attach_storage(resolved)?;
+                index.flush_storage()?;
+                index.set_sync_storage(true)?;
+                store
+                    .cleanup_deprecated_snapshots()
+                    .map_err(IndexError::Io)?;
+                Ok(())
+            },
+        )
+    }
+
     /// Open one memory-only or managed index from the paired storage policy.
     /// A valid durable generation becomes searchable without source discovery;
     /// source reconciliation then runs independently in the background.
