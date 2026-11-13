@@ -1,0 +1,10 @@
+{
+  "before_revision": "ad542f6e9ad3ede9fca0e2235df61476ec721749",
+  "after_revision": "d666524f7f667305d3d1c19593835be9d478f2e5",
+  "compared_rows": 776,
+  "resolved_workload_prefix_equal": true,
+  "matched_environment": true,
+  "result_digests_equal": true,
+  "source_open_increases": 0,
+  "additional_predicate_cases": 12
+}

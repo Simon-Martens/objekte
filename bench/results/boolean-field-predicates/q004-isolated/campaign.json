@@ -1,0 +1,82 @@
+[
+  {
+    "pair": 1,
+    "position": 1,
+    "mode": "before",
+    "median_ns": 9250925,
+    "opens": 7766,
+    "status": "ok"
+  },
+  {
+    "pair": 1,
+    "position": 2,
+    "mode": "after",
+    "median_ns": 9187526,
+    "opens": 7766,
+    "status": "ok"
+  },
+  {
+    "pair": 2,
+    "position": 1,
+    "mode": "after",
+    "median_ns": 8809037,
+    "opens": 7766,
+    "status": "ok"
+  },
+  {
+    "pair": 2,
+    "position": 2,
+    "mode": "before",
+    "median_ns": 10853012,
+    "opens": 7766,
+    "status": "ok"
+  },
+  {
+    "pair": 3,
+    "position": 1,
+    "mode": "before",
+    "median_ns": 8803690,
+    "opens": 7766,
+    "status": "ok"
+  },
+  {
+    "pair": 3,
+    "position": 2,
+    "mode": "after",
+    "median_ns": 8465617,
+    "opens": 7766,
+    "status": "ok"
+  },
+  {
+    "pair": 4,
+    "position": 1,
+    "mode": "after",
+    "median_ns": 9098824,
+    "opens": 7766,
+    "status": "ok"
+  },
+  {
+    "pair": 4,
+    "position": 2,
+    "mode": "before",
+    "median_ns": 9968090,
+    "opens": 7766,
+    "status": "ok"
+  },
+  {
+    "pair": 5,
+    "position": 1,
+    "mode": "before",
+    "median_ns": 9284253,
+    "opens": 7766,
+    "status": "ok"
+  },
+  {
+    "pair": 5,
+    "position": 2,
+    "mode": "after",
+    "median_ns": 9976809,
+    "opens": 7766,
+    "status": "ok"
+  }
+]

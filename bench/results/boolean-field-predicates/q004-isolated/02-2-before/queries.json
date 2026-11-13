@@ -1,0 +1,15 @@
+[
+  {
+    "id": "Q004",
+    "collection": "*",
+    "fts": "Wien",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

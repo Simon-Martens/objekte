@@ -1,0 +1,7 @@
+# Plan 2 predicate evidence
+
+All measurements use the same absolute Musenalm source root and incremental build path. `full-incremental` is the 194-case predecessor-matched run at implementation commit `a7a31feb5d`; `predicates` is the 12 added cases at the same revision. `final-query` covers all 206 cases at the repaired final code revision. Each query directory includes raw samples, per-query counters, plans, result digests, schema and run manifests.
+
+`vs-plan1` compares the first 194 cases against Plan 1 (`ad542f6e9a`) with matching profiles and five repetitions. `final-vs-plan1` checks the common 194-case prefix of the repaired final 206-case run. `focused-pairs`, `q004-isolated`, `final-paired-query`, and `q003-isolated` are alternating matched reruns of apparent latency outliers and broad host-time variation. `construction-pairs` has three fresh-process warm pairs with alternating order, complete samples and run manifests. The final scalar-null guard repair does not change the construction path.
+
+`2026-11-13-client-smoke` contains native desktop evidence. Its five-file fixture has missing, null, empty string, zero and text values at `x`. The screenshots show the builder choosing `Nonempty`, the `x:? = true` result (zero and text), and the `x:? = false` result (missing, null and empty string). The desktop ran on task-owned headless Sway/VNC and exited through the repository cleanup script.

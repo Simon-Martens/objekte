@@ -1,0 +1,3106 @@
+[
+  {
+    "case_id": "Q001",
+    "profile": "ascii-off",
+    "before_ns": 6865734,
+    "after_ns": 6440737,
+    "delta_ns": -424997,
+    "delta_fraction": -0.06190117473237389
+  },
+  {
+    "case_id": "Q001",
+    "profile": "unicode-off",
+    "before_ns": 8937592,
+    "after_ns": 8327703,
+    "delta_ns": -609889,
+    "delta_fraction": -0.0682386262429523
+  },
+  {
+    "case_id": "Q002",
+    "profile": "ascii-off",
+    "before_ns": 8726876,
+    "after_ns": 8330867,
+    "delta_ns": -396009,
+    "delta_fraction": -0.04537809406252591
+  },
+  {
+    "case_id": "Q002",
+    "profile": "unicode-off",
+    "before_ns": 9533821,
+    "after_ns": 8284476,
+    "delta_ns": -1249345,
+    "delta_fraction": -0.13104347144759698
+  },
+  {
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "before_ns": 6193944,
+    "after_ns": 7497448,
+    "delta_ns": 1303504,
+    "delta_fraction": 0.21044814095832964
+  },
+  {
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "before_ns": 6134994,
+    "after_ns": 6076942,
+    "delta_ns": -58052,
+    "delta_fraction": -0.009462437942074575
+  },
+  {
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "before_ns": 11628618,
+    "after_ns": 11124229,
+    "delta_ns": -504389,
+    "delta_fraction": -0.043374801717624534
+  },
+  {
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "before_ns": 13961831,
+    "after_ns": 13576496,
+    "delta_ns": -385335,
+    "delta_fraction": -0.02759917377598975
+  },
+  {
+    "case_id": "Q005",
+    "profile": "ascii-off",
+    "before_ns": 2678257,
+    "after_ns": 2559080,
+    "delta_ns": -119177,
+    "delta_fraction": -0.0444979701350543
+  },
+  {
+    "case_id": "Q005",
+    "profile": "unicode-off",
+    "before_ns": 3260927,
+    "after_ns": 2453899,
+    "delta_ns": -807028,
+    "delta_fraction": -0.24748422764447042
+  },
+  {
+    "case_id": "Q006",
+    "profile": "ascii-off",
+    "before_ns": 121299577,
+    "after_ns": 117415541,
+    "delta_ns": -3884036,
+    "delta_fraction": -0.03202019410174861
+  },
+  {
+    "case_id": "Q006",
+    "profile": "unicode-off",
+    "before_ns": 139925451,
+    "after_ns": 121287043,
+    "delta_ns": -18638408,
+    "delta_fraction": -0.13320241504885344
+  },
+  {
+    "case_id": "Q007",
+    "profile": "ascii-off",
+    "before_ns": 172969961,
+    "after_ns": 148305011,
+    "delta_ns": -24664950,
+    "delta_fraction": -0.14259672521982014
+  },
+  {
+    "case_id": "Q007",
+    "profile": "unicode-off",
+    "before_ns": 168787873,
+    "after_ns": 149256682,
+    "delta_ns": -19531191,
+    "delta_fraction": -0.11571442102360041
+  },
+  {
+    "case_id": "Q008",
+    "profile": "ascii-off",
+    "before_ns": 4902,
+    "after_ns": 4624,
+    "delta_ns": -278,
+    "delta_fraction": -0.056711546307629535
+  },
+  {
+    "case_id": "Q008",
+    "profile": "unicode-off",
+    "before_ns": 7626,
+    "after_ns": 4699,
+    "delta_ns": -2927,
+    "delta_fraction": -0.38381851560451086
+  },
+  {
+    "case_id": "Q009",
+    "profile": "ascii-off",
+    "before_ns": 4689,
+    "after_ns": 4503,
+    "delta_ns": -186,
+    "delta_fraction": -0.03966730646193217
+  },
+  {
+    "case_id": "Q009",
+    "profile": "unicode-off",
+    "before_ns": 10092,
+    "after_ns": 4117,
+    "delta_ns": -5975,
+    "delta_fraction": -0.5920531113753469
+  },
+  {
+    "case_id": "Q010",
+    "profile": "ascii-off",
+    "before_ns": 4121,
+    "after_ns": 4055,
+    "delta_ns": -66,
+    "delta_fraction": -0.016015530211113793
+  },
+  {
+    "case_id": "Q010",
+    "profile": "unicode-off",
+    "before_ns": 9523,
+    "after_ns": 3856,
+    "delta_ns": -5667,
+    "delta_fraction": -0.5950855822744934
+  },
+  {
+    "case_id": "Q011",
+    "profile": "ascii-off",
+    "before_ns": 1406122,
+    "after_ns": 1367013,
+    "delta_ns": -39109,
+    "delta_fraction": -0.02781337607974277
+  },
+  {
+    "case_id": "Q011",
+    "profile": "unicode-off",
+    "before_ns": 1582214,
+    "after_ns": 1772193,
+    "delta_ns": 189979,
+    "delta_fraction": 0.1200716211587054
+  },
+  {
+    "case_id": "Q012",
+    "profile": "ascii-off",
+    "before_ns": 2423526,
+    "after_ns": 2398257,
+    "delta_ns": -25269,
+    "delta_fraction": -0.010426543804357813
+  },
+  {
+    "case_id": "Q012",
+    "profile": "unicode-off",
+    "before_ns": 2605522,
+    "after_ns": 2385822,
+    "delta_ns": -219700,
+    "delta_fraction": -0.08432091534824881
+  },
+  {
+    "case_id": "Q013",
+    "profile": "ascii-off",
+    "before_ns": 3625878,
+    "after_ns": 3618498,
+    "delta_ns": -7380,
+    "delta_fraction": -0.0020353690885352993
+  },
+  {
+    "case_id": "Q013",
+    "profile": "unicode-off",
+    "before_ns": 286436,
+    "after_ns": 286260,
+    "delta_ns": -176,
+    "delta_fraction": -0.000614447904592974
+  },
+  {
+    "case_id": "Q014",
+    "profile": "ascii-off",
+    "before_ns": 4852442,
+    "after_ns": 4541540,
+    "delta_ns": -310902,
+    "delta_fraction": -0.06407124495254146
+  },
+  {
+    "case_id": "Q014",
+    "profile": "unicode-off",
+    "before_ns": 5422207,
+    "after_ns": 4554763,
+    "delta_ns": -867444,
+    "delta_fraction": -0.15997987535333857
+  },
+  {
+    "case_id": "Q015",
+    "profile": "ascii-off",
+    "before_ns": 7211234,
+    "after_ns": 6721936,
+    "delta_ns": -489298,
+    "delta_fraction": -0.06785218729554465
+  },
+  {
+    "case_id": "Q015",
+    "profile": "unicode-off",
+    "before_ns": 7741612,
+    "after_ns": 7065887,
+    "delta_ns": -675725,
+    "delta_fraction": -0.08728479288292934
+  },
+  {
+    "case_id": "Q016",
+    "profile": "ascii-off",
+    "before_ns": 549926,
+    "after_ns": 417038,
+    "delta_ns": -132888,
+    "delta_fraction": -0.24164705796779928
+  },
+  {
+    "case_id": "Q016",
+    "profile": "unicode-off",
+    "before_ns": 470553,
+    "after_ns": 474732,
+    "delta_ns": 4179,
+    "delta_fraction": 0.008881039967867599
+  },
+  {
+    "case_id": "Q017",
+    "profile": "ascii-off",
+    "before_ns": 421224,
+    "after_ns": 410124,
+    "delta_ns": -11100,
+    "delta_fraction": -0.02635177482764517
+  },
+  {
+    "case_id": "Q017",
+    "profile": "unicode-off",
+    "before_ns": 506197,
+    "after_ns": 495065,
+    "delta_ns": -11132,
+    "delta_fraction": -0.02199143811599047
+  },
+  {
+    "case_id": "Q018",
+    "profile": "ascii-off",
+    "before_ns": 624116,
+    "after_ns": 567628,
+    "delta_ns": -56488,
+    "delta_fraction": -0.09050881566888203
+  },
+  {
+    "case_id": "Q018",
+    "profile": "unicode-off",
+    "before_ns": 494050,
+    "after_ns": 456116,
+    "delta_ns": -37934,
+    "delta_fraction": -0.07678170225685654
+  },
+  {
+    "case_id": "Q019",
+    "profile": "ascii-off",
+    "before_ns": 1846729,
+    "after_ns": 1843123,
+    "delta_ns": -3606,
+    "delta_fraction": -0.0019526416707594807
+  },
+  {
+    "case_id": "Q019",
+    "profile": "unicode-off",
+    "before_ns": 2234327,
+    "after_ns": 1946285,
+    "delta_ns": -288042,
+    "delta_fraction": -0.1289166715525525
+  },
+  {
+    "case_id": "Q020",
+    "profile": "ascii-off",
+    "before_ns": 436395,
+    "after_ns": 423473,
+    "delta_ns": -12922,
+    "delta_fraction": -0.029610788391251086
+  },
+  {
+    "case_id": "Q020",
+    "profile": "unicode-off",
+    "before_ns": 501351,
+    "after_ns": 465796,
+    "delta_ns": -35555,
+    "delta_fraction": -0.07091837854118177
+  },
+  {
+    "case_id": "Q021",
+    "profile": "ascii-off",
+    "before_ns": 968361,
+    "after_ns": 902078,
+    "delta_ns": -66283,
+    "delta_fraction": -0.06844864673401763
+  },
+  {
+    "case_id": "Q021",
+    "profile": "unicode-off",
+    "before_ns": 1008946,
+    "after_ns": 1005483,
+    "delta_ns": -3463,
+    "delta_fraction": -0.0034322946916881536
+  },
+  {
+    "case_id": "Q022",
+    "profile": "ascii-off",
+    "before_ns": 2024491,
+    "after_ns": 1709633,
+    "delta_ns": -314858,
+    "delta_fraction": -0.15552452443601872
+  },
+  {
+    "case_id": "Q022",
+    "profile": "unicode-off",
+    "before_ns": 1813966,
+    "after_ns": 1935057,
+    "delta_ns": 121091,
+    "delta_fraction": 0.06675483443460362
+  },
+  {
+    "case_id": "Q023",
+    "profile": "ascii-off",
+    "before_ns": 12806374,
+    "after_ns": 11081364,
+    "delta_ns": -1725010,
+    "delta_fraction": -0.13469933019291802
+  },
+  {
+    "case_id": "Q023",
+    "profile": "unicode-off",
+    "before_ns": 13434734,
+    "after_ns": 10969267,
+    "delta_ns": -2465467,
+    "delta_fraction": -0.183514388896721
+  },
+  {
+    "case_id": "Q024",
+    "profile": "ascii-off",
+    "before_ns": 4691045,
+    "after_ns": 3811158,
+    "delta_ns": -879887,
+    "delta_fraction": -0.18756737571266102
+  },
+  {
+    "case_id": "Q024",
+    "profile": "unicode-off",
+    "before_ns": 2344077,
+    "after_ns": 1891195,
+    "delta_ns": -452882,
+    "delta_fraction": -0.19320269769295118
+  },
+  {
+    "case_id": "Q025",
+    "profile": "ascii-off",
+    "before_ns": 68783709,
+    "after_ns": 57021819,
+    "delta_ns": -11761890,
+    "delta_fraction": -0.17099819377288883
+  },
+  {
+    "case_id": "Q025",
+    "profile": "unicode-off",
+    "before_ns": 65626740,
+    "after_ns": 57335445,
+    "delta_ns": -8291295,
+    "delta_fraction": -0.12634019303716748
+  },
+  {
+    "case_id": "Q026",
+    "profile": "ascii-off",
+    "before_ns": 73570502,
+    "after_ns": 57720798,
+    "delta_ns": -15849704,
+    "delta_fraction": -0.21543558313629563
+  },
+  {
+    "case_id": "Q026",
+    "profile": "unicode-off",
+    "before_ns": 69468252,
+    "after_ns": 59441200,
+    "delta_ns": -10027052,
+    "delta_fraction": -0.14434006486876916
+  },
+  {
+    "case_id": "Q027",
+    "profile": "ascii-off",
+    "before_ns": 706646,
+    "after_ns": 636085,
+    "delta_ns": -70561,
+    "delta_fraction": -0.09985339193882081
+  },
+  {
+    "case_id": "Q027",
+    "profile": "unicode-off",
+    "before_ns": 643155,
+    "after_ns": 633794,
+    "delta_ns": -9361,
+    "delta_fraction": -0.014554811826076097
+  },
+  {
+    "case_id": "Q028",
+    "profile": "ascii-off",
+    "before_ns": 2687306,
+    "after_ns": 2484488,
+    "delta_ns": -202818,
+    "delta_fraction": -0.0754726108600956
+  },
+  {
+    "case_id": "Q028",
+    "profile": "unicode-off",
+    "before_ns": 3154614,
+    "after_ns": 2520130,
+    "delta_ns": -634484,
+    "delta_fraction": -0.20112888613313706
+  },
+  {
+    "case_id": "Q029",
+    "profile": "ascii-off",
+    "before_ns": 90047,
+    "after_ns": 47424,
+    "delta_ns": -42623,
+    "delta_fraction": -0.47334169933479187
+  },
+  {
+    "case_id": "Q029",
+    "profile": "unicode-off",
+    "before_ns": 46665,
+    "after_ns": 48881,
+    "delta_ns": 2216,
+    "delta_fraction": 0.04748741026465231
+  },
+  {
+    "case_id": "Q030",
+    "profile": "ascii-off",
+    "before_ns": 1750377,
+    "after_ns": 1555162,
+    "delta_ns": -195215,
+    "delta_fraction": -0.11152740238245817
+  },
+  {
+    "case_id": "Q030",
+    "profile": "unicode-off",
+    "before_ns": 1807997,
+    "after_ns": 1568389,
+    "delta_ns": -239608,
+    "delta_fraction": -0.1325267685731779
+  },
+  {
+    "case_id": "Q031",
+    "profile": "ascii-off",
+    "before_ns": 12915,
+    "after_ns": 14000,
+    "delta_ns": 1085,
+    "delta_fraction": 0.08401084010840099
+  },
+  {
+    "case_id": "Q031",
+    "profile": "unicode-off",
+    "before_ns": 13188,
+    "after_ns": 13062,
+    "delta_ns": -126,
+    "delta_fraction": -0.009554140127388533
+  },
+  {
+    "case_id": "Q032",
+    "profile": "ascii-off",
+    "before_ns": 4656,
+    "after_ns": 4688,
+    "delta_ns": 32,
+    "delta_fraction": 0.0068728522336769515
+  },
+  {
+    "case_id": "Q032",
+    "profile": "unicode-off",
+    "before_ns": 4423,
+    "after_ns": 4210,
+    "delta_ns": -213,
+    "delta_fraction": -0.048157359258421906
+  },
+  {
+    "case_id": "Q033",
+    "profile": "ascii-off",
+    "before_ns": 12693,
+    "after_ns": 12907,
+    "delta_ns": 214,
+    "delta_fraction": 0.016859686441345723
+  },
+  {
+    "case_id": "Q033",
+    "profile": "unicode-off",
+    "before_ns": 12633,
+    "after_ns": 12529,
+    "delta_ns": -104,
+    "delta_fraction": -0.008232407187524715
+  },
+  {
+    "case_id": "Q034",
+    "profile": "ascii-off",
+    "before_ns": 2251,
+    "after_ns": 2241,
+    "delta_ns": -10,
+    "delta_fraction": -0.004442470013327426
+  },
+  {
+    "case_id": "Q034",
+    "profile": "unicode-off",
+    "before_ns": 2252,
+    "after_ns": 2241,
+    "delta_ns": -11,
+    "delta_fraction": -0.004884547069271772
+  },
+  {
+    "case_id": "Q035",
+    "profile": "ascii-off",
+    "before_ns": 20464,
+    "after_ns": 20583,
+    "delta_ns": 119,
+    "delta_fraction": 0.005815089913995264
+  },
+  {
+    "case_id": "Q035",
+    "profile": "unicode-off",
+    "before_ns": 20505,
+    "after_ns": 20627,
+    "delta_ns": 122,
+    "delta_fraction": 0.005949768349183149
+  },
+  {
+    "case_id": "Q036",
+    "profile": "ascii-off",
+    "before_ns": 17586,
+    "after_ns": 22641,
+    "delta_ns": 5055,
+    "delta_fraction": 0.28744455817127257
+  },
+  {
+    "case_id": "Q036",
+    "profile": "unicode-off",
+    "before_ns": 17705,
+    "after_ns": 16424,
+    "delta_ns": -1281,
+    "delta_fraction": -0.07235244281276476
+  },
+  {
+    "case_id": "Q037",
+    "profile": "ascii-off",
+    "before_ns": 31364,
+    "after_ns": 30798,
+    "delta_ns": -566,
+    "delta_fraction": -0.018046167580665684
+  },
+  {
+    "case_id": "Q037",
+    "profile": "unicode-off",
+    "before_ns": 30321,
+    "after_ns": 30129,
+    "delta_ns": -192,
+    "delta_fraction": -0.006332244978727641
+  },
+  {
+    "case_id": "Q038",
+    "profile": "ascii-off",
+    "before_ns": 28589,
+    "after_ns": 29355,
+    "delta_ns": 766,
+    "delta_fraction": 0.026793521983979884
+  },
+  {
+    "case_id": "Q038",
+    "profile": "unicode-off",
+    "before_ns": 28324,
+    "after_ns": 28498,
+    "delta_ns": 174,
+    "delta_fraction": 0.00614320011297842
+  },
+  {
+    "case_id": "Q039",
+    "profile": "ascii-off",
+    "before_ns": 11819,
+    "after_ns": 11741,
+    "delta_ns": -78,
+    "delta_fraction": -0.00659954310855404
+  },
+  {
+    "case_id": "Q039",
+    "profile": "unicode-off",
+    "before_ns": 11672,
+    "after_ns": 11664,
+    "delta_ns": -8,
+    "delta_fraction": -0.0006854009595613775
+  },
+  {
+    "case_id": "Q040",
+    "profile": "ascii-off",
+    "before_ns": 24583,
+    "after_ns": 24477,
+    "delta_ns": -106,
+    "delta_fraction": -0.004311922873530438
+  },
+  {
+    "case_id": "Q040",
+    "profile": "unicode-off",
+    "before_ns": 24209,
+    "after_ns": 24948,
+    "delta_ns": 739,
+    "delta_fraction": 0.030525837498450947
+  },
+  {
+    "case_id": "Q041",
+    "profile": "ascii-off",
+    "before_ns": 38241,
+    "after_ns": 38785,
+    "delta_ns": 544,
+    "delta_fraction": 0.01422556941502573
+  },
+  {
+    "case_id": "Q041",
+    "profile": "unicode-off",
+    "before_ns": 38569,
+    "after_ns": 38188,
+    "delta_ns": -381,
+    "delta_fraction": -0.00987839975109539
+  },
+  {
+    "case_id": "Q042",
+    "profile": "ascii-off",
+    "before_ns": 31800,
+    "after_ns": 32133,
+    "delta_ns": 333,
+    "delta_fraction": 0.010471698113207584
+  },
+  {
+    "case_id": "Q042",
+    "profile": "unicode-off",
+    "before_ns": 30824,
+    "after_ns": 31594,
+    "delta_ns": 770,
+    "delta_fraction": 0.024980534648326058
+  },
+  {
+    "case_id": "Q043",
+    "profile": "ascii-off",
+    "before_ns": 2047102,
+    "after_ns": 2153529,
+    "delta_ns": 106427,
+    "delta_fraction": 0.051989104597621516
+  },
+  {
+    "case_id": "Q043",
+    "profile": "unicode-off",
+    "before_ns": 1994593,
+    "after_ns": 1960621,
+    "delta_ns": -33972,
+    "delta_fraction": -0.017032046136730705
+  },
+  {
+    "case_id": "Q044",
+    "profile": "ascii-off",
+    "before_ns": 28895,
+    "after_ns": 30844,
+    "delta_ns": 1949,
+    "delta_fraction": 0.06745111611005372
+  },
+  {
+    "case_id": "Q044",
+    "profile": "unicode-off",
+    "before_ns": 30557,
+    "after_ns": 29831,
+    "delta_ns": -726,
+    "delta_fraction": -0.02375887685309419
+  },
+  {
+    "case_id": "Q045",
+    "profile": "ascii-off",
+    "before_ns": 44088,
+    "after_ns": 46016,
+    "delta_ns": 1928,
+    "delta_fraction": 0.04373072037742687
+  },
+  {
+    "case_id": "Q045",
+    "profile": "unicode-off",
+    "before_ns": 43248,
+    "after_ns": 43388,
+    "delta_ns": 140,
+    "delta_fraction": 0.0032371439141694047
+  },
+  {
+    "case_id": "Q046",
+    "profile": "ascii-off",
+    "before_ns": 305480,
+    "after_ns": 318711,
+    "delta_ns": 13231,
+    "delta_fraction": 0.0433121644624852
+  },
+  {
+    "case_id": "Q046",
+    "profile": "unicode-off",
+    "before_ns": 317287,
+    "after_ns": 313370,
+    "delta_ns": -3917,
+    "delta_fraction": -0.012345289911026902
+  },
+  {
+    "case_id": "Q047",
+    "profile": "ascii-off",
+    "before_ns": 8987,
+    "after_ns": 9238,
+    "delta_ns": 251,
+    "delta_fraction": 0.027929231111605723
+  },
+  {
+    "case_id": "Q047",
+    "profile": "unicode-off",
+    "before_ns": 9414,
+    "after_ns": 9378,
+    "delta_ns": -36,
+    "delta_fraction": -0.003824091778202643
+  },
+  {
+    "case_id": "Q048",
+    "profile": "ascii-off",
+    "before_ns": 18062,
+    "after_ns": 18840,
+    "delta_ns": 778,
+    "delta_fraction": 0.04307385671575692
+  },
+  {
+    "case_id": "Q048",
+    "profile": "unicode-off",
+    "before_ns": 18204,
+    "after_ns": 17842,
+    "delta_ns": -362,
+    "delta_fraction": -0.019885739397934477
+  },
+  {
+    "case_id": "Q049",
+    "profile": "ascii-off",
+    "before_ns": 16496,
+    "after_ns": 17501,
+    "delta_ns": 1005,
+    "delta_fraction": 0.06092386032977681
+  },
+  {
+    "case_id": "Q049",
+    "profile": "unicode-off",
+    "before_ns": 16676,
+    "after_ns": 16949,
+    "delta_ns": 273,
+    "delta_fraction": 0.016370832333892915
+  },
+  {
+    "case_id": "Q050",
+    "profile": "ascii-off",
+    "before_ns": 425230,
+    "after_ns": 423943,
+    "delta_ns": -1287,
+    "delta_fraction": -0.0030265973708346605
+  },
+  {
+    "case_id": "Q050",
+    "profile": "unicode-off",
+    "before_ns": 427974,
+    "after_ns": 415397,
+    "delta_ns": -12577,
+    "delta_fraction": -0.02938729922845784
+  },
+  {
+    "case_id": "Q051",
+    "profile": "ascii-off",
+    "before_ns": 62508,
+    "after_ns": 62432,
+    "delta_ns": -76,
+    "delta_fraction": -0.0012158443719203493
+  },
+  {
+    "case_id": "Q051",
+    "profile": "unicode-off",
+    "before_ns": 62051,
+    "after_ns": 61681,
+    "delta_ns": -370,
+    "delta_fraction": -0.005962837021159961
+  },
+  {
+    "case_id": "Q052",
+    "profile": "ascii-off",
+    "before_ns": 582267,
+    "after_ns": 584471,
+    "delta_ns": 2204,
+    "delta_fraction": 0.003785205069152031
+  },
+  {
+    "case_id": "Q052",
+    "profile": "unicode-off",
+    "before_ns": 585285,
+    "after_ns": 570053,
+    "delta_ns": -15232,
+    "delta_fraction": -0.026024928026517014
+  },
+  {
+    "case_id": "Q053",
+    "profile": "ascii-off",
+    "before_ns": 45496,
+    "after_ns": 46383,
+    "delta_ns": 887,
+    "delta_fraction": 0.019496219447863616
+  },
+  {
+    "case_id": "Q053",
+    "profile": "unicode-off",
+    "before_ns": 46238,
+    "after_ns": 45066,
+    "delta_ns": -1172,
+    "delta_fraction": -0.0253471170898395
+  },
+  {
+    "case_id": "Q054",
+    "profile": "ascii-off",
+    "before_ns": 1310962,
+    "after_ns": 1299949,
+    "delta_ns": -11013,
+    "delta_fraction": -0.008400701164488322
+  },
+  {
+    "case_id": "Q054",
+    "profile": "unicode-off",
+    "before_ns": 1306902,
+    "after_ns": 1285291,
+    "delta_ns": -21611,
+    "delta_fraction": -0.016536052435454196
+  },
+  {
+    "case_id": "Q055",
+    "profile": "ascii-off",
+    "before_ns": 698750,
+    "after_ns": 640701,
+    "delta_ns": -58049,
+    "delta_fraction": -0.0830754919499106
+  },
+  {
+    "case_id": "Q055",
+    "profile": "unicode-off",
+    "before_ns": 668260,
+    "after_ns": 664570,
+    "delta_ns": -3690,
+    "delta_fraction": -0.005521802891090277
+  },
+  {
+    "case_id": "Q056",
+    "profile": "ascii-off",
+    "before_ns": 50357,
+    "after_ns": 49851,
+    "delta_ns": -506,
+    "delta_fraction": -0.01004825545604382
+  },
+  {
+    "case_id": "Q056",
+    "profile": "unicode-off",
+    "before_ns": 49051,
+    "after_ns": 50474,
+    "delta_ns": 1423,
+    "delta_fraction": 0.029010621597928665
+  },
+  {
+    "case_id": "Q057",
+    "profile": "ascii-off",
+    "before_ns": 16419,
+    "after_ns": 16799,
+    "delta_ns": 380,
+    "delta_fraction": 0.02314391863085441
+  },
+  {
+    "case_id": "Q057",
+    "profile": "unicode-off",
+    "before_ns": 16520,
+    "after_ns": 15891,
+    "delta_ns": -629,
+    "delta_fraction": -0.03807506053268761
+  },
+  {
+    "case_id": "Q058",
+    "profile": "ascii-off",
+    "before_ns": 2789,
+    "after_ns": 2692,
+    "delta_ns": -97,
+    "delta_fraction": -0.03477949085693799
+  },
+  {
+    "case_id": "Q058",
+    "profile": "unicode-off",
+    "before_ns": 2715,
+    "after_ns": 2753,
+    "delta_ns": 38,
+    "delta_fraction": 0.013996316758747795
+  },
+  {
+    "case_id": "Q059",
+    "profile": "ascii-off",
+    "before_ns": 16787,
+    "after_ns": 16063,
+    "delta_ns": -724,
+    "delta_fraction": -0.043128611425507835
+  },
+  {
+    "case_id": "Q059",
+    "profile": "unicode-off",
+    "before_ns": 15771,
+    "after_ns": 16523,
+    "delta_ns": 752,
+    "delta_fraction": 0.04768245513917946
+  },
+  {
+    "case_id": "Q060",
+    "profile": "ascii-off",
+    "before_ns": 15456,
+    "after_ns": 15786,
+    "delta_ns": 330,
+    "delta_fraction": 0.021350931677018625
+  },
+  {
+    "case_id": "Q060",
+    "profile": "unicode-off",
+    "before_ns": 15589,
+    "after_ns": 15515,
+    "delta_ns": -74,
+    "delta_fraction": -0.004746936942715996
+  },
+  {
+    "case_id": "Q061",
+    "profile": "ascii-off",
+    "before_ns": 6759,
+    "after_ns": 6703,
+    "delta_ns": -56,
+    "delta_fraction": -0.008285249297233288
+  },
+  {
+    "case_id": "Q061",
+    "profile": "unicode-off",
+    "before_ns": 6812,
+    "after_ns": 7140,
+    "delta_ns": 328,
+    "delta_fraction": 0.048150322959483294
+  },
+  {
+    "case_id": "Q062",
+    "profile": "ascii-off",
+    "before_ns": 149817,
+    "after_ns": 56807,
+    "delta_ns": -93010,
+    "delta_fraction": -0.6208240720345488
+  },
+  {
+    "case_id": "Q062",
+    "profile": "unicode-off",
+    "before_ns": 57655,
+    "after_ns": 127310,
+    "delta_ns": 69655,
+    "delta_fraction": 1.2081345937039285
+  },
+  {
+    "case_id": "Q063",
+    "profile": "ascii-off",
+    "before_ns": 6229,
+    "after_ns": 6187,
+    "delta_ns": -42,
+    "delta_fraction": -0.006742655321881563
+  },
+  {
+    "case_id": "Q063",
+    "profile": "unicode-off",
+    "before_ns": 5851,
+    "after_ns": 5852,
+    "delta_ns": 1,
+    "delta_fraction": 0.0001709109553922339
+  },
+  {
+    "case_id": "Q064",
+    "profile": "ascii-off",
+    "before_ns": 214903,
+    "after_ns": 239573,
+    "delta_ns": 24670,
+    "delta_fraction": 0.1147959777201808
+  },
+  {
+    "case_id": "Q064",
+    "profile": "unicode-off",
+    "before_ns": 179243,
+    "after_ns": 177522,
+    "delta_ns": -1721,
+    "delta_fraction": -0.009601490713723848
+  },
+  {
+    "case_id": "Q065",
+    "profile": "ascii-off",
+    "before_ns": 229443,
+    "after_ns": 241170,
+    "delta_ns": 11727,
+    "delta_fraction": 0.05111073338476224
+  },
+  {
+    "case_id": "Q065",
+    "profile": "unicode-off",
+    "before_ns": 202173,
+    "after_ns": 253037,
+    "delta_ns": 50864,
+    "delta_fraction": 0.25158651254123954
+  },
+  {
+    "case_id": "Q066",
+    "profile": "ascii-off",
+    "before_ns": 61685,
+    "after_ns": 85200,
+    "delta_ns": 23515,
+    "delta_fraction": 0.38121099132690284
+  },
+  {
+    "case_id": "Q066",
+    "profile": "unicode-off",
+    "before_ns": 84395,
+    "after_ns": 82824,
+    "delta_ns": -1571,
+    "delta_fraction": -0.018614846851116806
+  },
+  {
+    "case_id": "Q067",
+    "profile": "ascii-off",
+    "before_ns": 52873,
+    "after_ns": 53887,
+    "delta_ns": 1014,
+    "delta_fraction": 0.019178030374671362
+  },
+  {
+    "case_id": "Q067",
+    "profile": "unicode-off",
+    "before_ns": 83775,
+    "after_ns": 81315,
+    "delta_ns": -2460,
+    "delta_fraction": -0.029364368845120836
+  },
+  {
+    "case_id": "Q068",
+    "profile": "ascii-off",
+    "before_ns": 3179192,
+    "after_ns": 2436193,
+    "delta_ns": -742999,
+    "delta_fraction": -0.23370686639875793
+  },
+  {
+    "case_id": "Q068",
+    "profile": "unicode-off",
+    "before_ns": 2457559,
+    "after_ns": 2260320,
+    "delta_ns": -197239,
+    "delta_fraction": -0.08025809349846735
+  },
+  {
+    "case_id": "Q069",
+    "profile": "ascii-off",
+    "before_ns": 3058679,
+    "after_ns": 3044773,
+    "delta_ns": -13906,
+    "delta_fraction": -0.004546407125428975
+  },
+  {
+    "case_id": "Q069",
+    "profile": "unicode-off",
+    "before_ns": 2911899,
+    "after_ns": 3013184,
+    "delta_ns": 101285,
+    "delta_fraction": 0.03478314323402021
+  },
+  {
+    "case_id": "Q070",
+    "profile": "ascii-off",
+    "before_ns": 53515,
+    "after_ns": 53776,
+    "delta_ns": 261,
+    "delta_fraction": 0.004877137251237951
+  },
+  {
+    "case_id": "Q070",
+    "profile": "unicode-off",
+    "before_ns": 51458,
+    "after_ns": 55542,
+    "delta_ns": 4084,
+    "delta_fraction": 0.07936569629600831
+  },
+  {
+    "case_id": "Q071",
+    "profile": "ascii-off",
+    "before_ns": 1366496,
+    "after_ns": 1090396,
+    "delta_ns": -276100,
+    "delta_fraction": -0.2020496218064305
+  },
+  {
+    "case_id": "Q071",
+    "profile": "unicode-off",
+    "before_ns": 1245319,
+    "after_ns": 1273627,
+    "delta_ns": 28308,
+    "delta_fraction": 0.02273152501487563
+  },
+  {
+    "case_id": "Q072",
+    "profile": "ascii-off",
+    "before_ns": 1815750,
+    "after_ns": 1593892,
+    "delta_ns": -221858,
+    "delta_fraction": -0.1221853228693377
+  },
+  {
+    "case_id": "Q072",
+    "profile": "unicode-off",
+    "before_ns": 1767978,
+    "after_ns": 1590250,
+    "delta_ns": -177728,
+    "delta_fraction": -0.10052613776868269
+  },
+  {
+    "case_id": "Q073",
+    "profile": "ascii-off",
+    "before_ns": 600068,
+    "after_ns": 572799,
+    "delta_ns": -27269,
+    "delta_fraction": -0.045443183105914664
+  },
+  {
+    "case_id": "Q073",
+    "profile": "unicode-off",
+    "before_ns": 603338,
+    "after_ns": 617821,
+    "delta_ns": 14483,
+    "delta_fraction": 0.0240047867033073
+  },
+  {
+    "case_id": "Q074",
+    "profile": "ascii-off",
+    "before_ns": 3188729,
+    "after_ns": 2720792,
+    "delta_ns": -467937,
+    "delta_fraction": -0.14674718359572103
+  },
+  {
+    "case_id": "Q074",
+    "profile": "unicode-off",
+    "before_ns": 3110855,
+    "after_ns": 3254146,
+    "delta_ns": 143291,
+    "delta_fraction": 0.046061613286379366
+  },
+  {
+    "case_id": "Q075",
+    "profile": "ascii-off",
+    "before_ns": 661891,
+    "after_ns": 615448,
+    "delta_ns": -46443,
+    "delta_fraction": -0.0701671423240382
+  },
+  {
+    "case_id": "Q075",
+    "profile": "unicode-off",
+    "before_ns": 636922,
+    "after_ns": 751560,
+    "delta_ns": 114638,
+    "delta_fraction": 0.17998750239432781
+  },
+  {
+    "case_id": "Q076",
+    "profile": "ascii-off",
+    "before_ns": 8941544,
+    "after_ns": 7968318,
+    "delta_ns": -973226,
+    "delta_fraction": -0.10884317070966709
+  },
+  {
+    "case_id": "Q076",
+    "profile": "unicode-off",
+    "before_ns": 10659493,
+    "after_ns": 8235824,
+    "delta_ns": -2423669,
+    "delta_fraction": -0.22737188344698944
+  },
+  {
+    "case_id": "Q077",
+    "profile": "ascii-off",
+    "before_ns": 3137818,
+    "after_ns": 2820131,
+    "delta_ns": -317687,
+    "delta_fraction": -0.10124455911719543
+  },
+  {
+    "case_id": "Q077",
+    "profile": "unicode-off",
+    "before_ns": 1459261,
+    "after_ns": 1426352,
+    "delta_ns": -32909,
+    "delta_fraction": -0.022551825889953858
+  },
+  {
+    "case_id": "Q078",
+    "profile": "ascii-off",
+    "before_ns": 52860370,
+    "after_ns": 42529123,
+    "delta_ns": -10331247,
+    "delta_fraction": -0.19544409167018695
+  },
+  {
+    "case_id": "Q078",
+    "profile": "unicode-off",
+    "before_ns": 51528603,
+    "after_ns": 45955050,
+    "delta_ns": -5573553,
+    "delta_fraction": -0.1081642558793996
+  },
+  {
+    "case_id": "Q079",
+    "profile": "ascii-off",
+    "before_ns": 503734,
+    "after_ns": 409244,
+    "delta_ns": -94490,
+    "delta_fraction": -0.18757915884176968
+  },
+  {
+    "case_id": "Q079",
+    "profile": "unicode-off",
+    "before_ns": 461337,
+    "after_ns": 468686,
+    "delta_ns": 7349,
+    "delta_fraction": 0.015929786685221492
+  },
+  {
+    "case_id": "Q080",
+    "profile": "ascii-off",
+    "before_ns": 2971,
+    "after_ns": 3227,
+    "delta_ns": 256,
+    "delta_fraction": 0.0861662739818243
+  },
+  {
+    "case_id": "Q080",
+    "profile": "unicode-off",
+    "before_ns": 3006,
+    "after_ns": 2923,
+    "delta_ns": -83,
+    "delta_fraction": -0.027611443779108402
+  },
+  {
+    "case_id": "Q081",
+    "profile": "ascii-off",
+    "before_ns": 19116,
+    "after_ns": 18150,
+    "delta_ns": -966,
+    "delta_fraction": -0.05053358443188949
+  },
+  {
+    "case_id": "Q081",
+    "profile": "unicode-off",
+    "before_ns": 18222,
+    "after_ns": 18420,
+    "delta_ns": 198,
+    "delta_fraction": 0.010865986170563113
+  },
+  {
+    "case_id": "Q082",
+    "profile": "ascii-off",
+    "before_ns": 3161927,
+    "after_ns": 2892590,
+    "delta_ns": -269337,
+    "delta_fraction": -0.085181283438865
+  },
+  {
+    "case_id": "Q082",
+    "profile": "unicode-off",
+    "before_ns": 3153140,
+    "after_ns": 2907250,
+    "delta_ns": -245890,
+    "delta_fraction": -0.07798258244162959
+  },
+  {
+    "case_id": "Q083",
+    "profile": "ascii-off",
+    "before_ns": 35047,
+    "after_ns": 33122,
+    "delta_ns": -1925,
+    "delta_fraction": -0.0549262419037293
+  },
+  {
+    "case_id": "Q083",
+    "profile": "unicode-off",
+    "before_ns": 35272,
+    "after_ns": 33975,
+    "delta_ns": -1297,
+    "delta_fraction": -0.036771376729417105
+  },
+  {
+    "case_id": "Q084",
+    "profile": "ascii-off",
+    "before_ns": 18791,
+    "after_ns": 18766,
+    "delta_ns": -25,
+    "delta_fraction": -0.0013304241392155802
+  },
+  {
+    "case_id": "Q084",
+    "profile": "unicode-off",
+    "before_ns": 20033,
+    "after_ns": 18954,
+    "delta_ns": -1079,
+    "delta_fraction": -0.05386112913692409
+  },
+  {
+    "case_id": "Q085",
+    "profile": "ascii-off",
+    "before_ns": 4170332,
+    "after_ns": 3318459,
+    "delta_ns": -851873,
+    "delta_fraction": -0.20426982791777726
+  },
+  {
+    "case_id": "Q085",
+    "profile": "unicode-off",
+    "before_ns": 3733479,
+    "after_ns": 3309620,
+    "delta_ns": -423859,
+    "delta_fraction": -0.11352923104696722
+  },
+  {
+    "case_id": "Q086",
+    "profile": "ascii-off",
+    "before_ns": 19174,
+    "after_ns": 19097,
+    "delta_ns": -77,
+    "delta_fraction": -0.004015854803379626
+  },
+  {
+    "case_id": "Q086",
+    "profile": "unicode-off",
+    "before_ns": 30438,
+    "after_ns": 19223,
+    "delta_ns": -11215,
+    "delta_fraction": -0.3684539063013339
+  },
+  {
+    "case_id": "Q087",
+    "profile": "ascii-off",
+    "before_ns": 18707,
+    "after_ns": 18398,
+    "delta_ns": -309,
+    "delta_fraction": -0.016517881007109603
+  },
+  {
+    "case_id": "Q087",
+    "profile": "unicode-off",
+    "before_ns": 19362,
+    "after_ns": 18282,
+    "delta_ns": -1080,
+    "delta_fraction": -0.05577936163619457
+  },
+  {
+    "case_id": "Q088",
+    "profile": "ascii-off",
+    "before_ns": 20407,
+    "after_ns": 15762,
+    "delta_ns": -4645,
+    "delta_fraction": -0.22761797422453078
+  },
+  {
+    "case_id": "Q088",
+    "profile": "unicode-off",
+    "before_ns": 19767,
+    "after_ns": 15677,
+    "delta_ns": -4090,
+    "delta_fraction": -0.2069105074113421
+  },
+  {
+    "case_id": "Q089",
+    "profile": "ascii-off",
+    "before_ns": 19068,
+    "after_ns": 19708,
+    "delta_ns": 640,
+    "delta_fraction": 0.03356408642752262
+  },
+  {
+    "case_id": "Q089",
+    "profile": "unicode-off",
+    "before_ns": 19869,
+    "after_ns": 19195,
+    "delta_ns": -674,
+    "delta_fraction": -0.03392219034677135
+  },
+  {
+    "case_id": "Q090",
+    "profile": "ascii-off",
+    "before_ns": 2944,
+    "after_ns": 2850,
+    "delta_ns": -94,
+    "delta_fraction": -0.03192934782608692
+  },
+  {
+    "case_id": "Q090",
+    "profile": "unicode-off",
+    "before_ns": 2746,
+    "after_ns": 2819,
+    "delta_ns": 73,
+    "delta_fraction": 0.026584122359796014
+  },
+  {
+    "case_id": "Q091",
+    "profile": "ascii-off",
+    "before_ns": 19474,
+    "after_ns": 19423,
+    "delta_ns": -51,
+    "delta_fraction": -0.0026188764506521744
+  },
+  {
+    "case_id": "Q091",
+    "profile": "unicode-off",
+    "before_ns": 19784,
+    "after_ns": 18883,
+    "delta_ns": -901,
+    "delta_fraction": -0.04554185200161742
+  },
+  {
+    "case_id": "Q092",
+    "profile": "ascii-off",
+    "before_ns": 2853,
+    "after_ns": 2819,
+    "delta_ns": -34,
+    "delta_fraction": -0.01191728005608128
+  },
+  {
+    "case_id": "Q092",
+    "profile": "unicode-off",
+    "before_ns": 2863,
+    "after_ns": 2767,
+    "delta_ns": -96,
+    "delta_fraction": -0.03353126091512404
+  },
+  {
+    "case_id": "Q093",
+    "profile": "ascii-off",
+    "before_ns": 18943,
+    "after_ns": 19014,
+    "delta_ns": 71,
+    "delta_fraction": 0.0037480863643561957
+  },
+  {
+    "case_id": "Q093",
+    "profile": "unicode-off",
+    "before_ns": 19246,
+    "after_ns": 19231,
+    "delta_ns": -15,
+    "delta_fraction": -0.0007793827288786748
+  },
+  {
+    "case_id": "Q094",
+    "profile": "ascii-off",
+    "before_ns": 19852,
+    "after_ns": 19811,
+    "delta_ns": -41,
+    "delta_fraction": -0.0020652830949022816
+  },
+  {
+    "case_id": "Q094",
+    "profile": "unicode-off",
+    "before_ns": 19118,
+    "after_ns": 19339,
+    "delta_ns": 221,
+    "delta_fraction": 0.011559786588555276
+  },
+  {
+    "case_id": "Q095",
+    "profile": "ascii-off",
+    "before_ns": 14868,
+    "after_ns": 15059,
+    "delta_ns": 191,
+    "delta_fraction": 0.012846381490449366
+  },
+  {
+    "case_id": "Q095",
+    "profile": "unicode-off",
+    "before_ns": 15178,
+    "after_ns": 14558,
+    "delta_ns": -620,
+    "delta_fraction": -0.04084859665305052
+  },
+  {
+    "case_id": "Q096",
+    "profile": "ascii-off",
+    "before_ns": 95612,
+    "after_ns": 95251,
+    "delta_ns": -361,
+    "delta_fraction": -0.0037756766933021435
+  },
+  {
+    "case_id": "Q096",
+    "profile": "unicode-off",
+    "before_ns": 94850,
+    "after_ns": 92920,
+    "delta_ns": -1930,
+    "delta_fraction": -0.020347917764891976
+  },
+  {
+    "case_id": "Q097",
+    "profile": "ascii-off",
+    "before_ns": 14341,
+    "after_ns": 13993,
+    "delta_ns": -348,
+    "delta_fraction": -0.024266090230806725
+  },
+  {
+    "case_id": "Q097",
+    "profile": "unicode-off",
+    "before_ns": 13982,
+    "after_ns": 13920,
+    "delta_ns": -62,
+    "delta_fraction": -0.004434272636246628
+  },
+  {
+    "case_id": "Q098",
+    "profile": "ascii-off",
+    "before_ns": 14062,
+    "after_ns": 13970,
+    "delta_ns": -92,
+    "delta_fraction": -0.006542454842838885
+  },
+  {
+    "case_id": "Q098",
+    "profile": "unicode-off",
+    "before_ns": 13602,
+    "after_ns": 13755,
+    "delta_ns": 153,
+    "delta_fraction": 0.011248345831495365
+  },
+  {
+    "case_id": "Q099",
+    "profile": "ascii-off",
+    "before_ns": 88070,
+    "after_ns": 87656,
+    "delta_ns": -414,
+    "delta_fraction": -0.004700806176904715
+  },
+  {
+    "case_id": "Q099",
+    "profile": "unicode-off",
+    "before_ns": 86112,
+    "after_ns": 87491,
+    "delta_ns": 1379,
+    "delta_fraction": 0.016014028242289147
+  },
+  {
+    "case_id": "Q100",
+    "profile": "ascii-off",
+    "before_ns": 16489544,
+    "after_ns": 13159896,
+    "delta_ns": -3329648,
+    "delta_fraction": -0.20192480762354614
+  },
+  {
+    "case_id": "Q100",
+    "profile": "unicode-off",
+    "before_ns": 16435310,
+    "after_ns": 14014924,
+    "delta_ns": -2420386,
+    "delta_fraction": -0.1472674382168636
+  },
+  {
+    "case_id": "Q101",
+    "profile": "ascii-off",
+    "before_ns": 12470,
+    "after_ns": 7917,
+    "delta_ns": -4553,
+    "delta_fraction": -0.3651162790697674
+  },
+  {
+    "case_id": "Q101",
+    "profile": "unicode-off",
+    "before_ns": 9296,
+    "after_ns": 7478,
+    "delta_ns": -1818,
+    "delta_fraction": -0.19556798623063687
+  },
+  {
+    "case_id": "Q102",
+    "profile": "ascii-off",
+    "before_ns": 7826,
+    "after_ns": 5082,
+    "delta_ns": -2744,
+    "delta_fraction": -0.3506261180679785
+  },
+  {
+    "case_id": "Q102",
+    "profile": "unicode-off",
+    "before_ns": 5050,
+    "after_ns": 5003,
+    "delta_ns": -47,
+    "delta_fraction": -0.009306930693069315
+  },
+  {
+    "case_id": "Q103",
+    "profile": "ascii-off",
+    "before_ns": 29189,
+    "after_ns": 18339,
+    "delta_ns": -10850,
+    "delta_fraction": -0.37171537222926443
+  },
+  {
+    "case_id": "Q103",
+    "profile": "unicode-off",
+    "before_ns": 17898,
+    "after_ns": 17665,
+    "delta_ns": -233,
+    "delta_fraction": -0.013018214325623001
+  },
+  {
+    "case_id": "Q104",
+    "profile": "ascii-off",
+    "before_ns": 52589,
+    "after_ns": 37916,
+    "delta_ns": -14673,
+    "delta_fraction": -0.2790127212915249
+  },
+  {
+    "case_id": "Q104",
+    "profile": "unicode-off",
+    "before_ns": 37599,
+    "after_ns": 36817,
+    "delta_ns": -782,
+    "delta_fraction": -0.02079842549003963
+  },
+  {
+    "case_id": "Q105",
+    "profile": "ascii-off",
+    "before_ns": 66416,
+    "after_ns": 41115,
+    "delta_ns": -25301,
+    "delta_fraction": -0.3809473620814262
+  },
+  {
+    "case_id": "Q105",
+    "profile": "unicode-off",
+    "before_ns": 35263,
+    "after_ns": 39076,
+    "delta_ns": 3813,
+    "delta_fraction": 0.10813033491194735
+  },
+  {
+    "case_id": "Q106",
+    "profile": "ascii-off",
+    "before_ns": 7816540,
+    "after_ns": 7198305,
+    "delta_ns": -618235,
+    "delta_fraction": -0.07909317933510218
+  },
+  {
+    "case_id": "Q106",
+    "profile": "unicode-off",
+    "before_ns": 7950897,
+    "after_ns": 7221342,
+    "delta_ns": -729555,
+    "delta_fraction": -0.09175757150419628
+  },
+  {
+    "case_id": "Q107",
+    "profile": "ascii-off",
+    "before_ns": 8586064,
+    "after_ns": 7424757,
+    "delta_ns": -1161307,
+    "delta_fraction": -0.13525487347869758
+  },
+  {
+    "case_id": "Q107",
+    "profile": "unicode-off",
+    "before_ns": 7994754,
+    "after_ns": 7708630,
+    "delta_ns": -286124,
+    "delta_fraction": -0.03578896861617009
+  },
+  {
+    "case_id": "Q108",
+    "profile": "ascii-off",
+    "before_ns": 44473,
+    "after_ns": 30326,
+    "delta_ns": -14147,
+    "delta_fraction": -0.31810311874620556
+  },
+  {
+    "case_id": "Q108",
+    "profile": "unicode-off",
+    "before_ns": 30460,
+    "after_ns": 32392,
+    "delta_ns": 1932,
+    "delta_fraction": 0.06342744583059745
+  },
+  {
+    "case_id": "Q109",
+    "profile": "ascii-off",
+    "before_ns": 104473,
+    "after_ns": 68910,
+    "delta_ns": -35563,
+    "delta_fraction": -0.34040374067941004
+  },
+  {
+    "case_id": "Q109",
+    "profile": "unicode-off",
+    "before_ns": 70714,
+    "after_ns": 68095,
+    "delta_ns": -2619,
+    "delta_fraction": -0.0370365132788415
+  },
+  {
+    "case_id": "Q110",
+    "profile": "ascii-off",
+    "before_ns": 4140819,
+    "after_ns": 3131564,
+    "delta_ns": -1009255,
+    "delta_fraction": -0.24373318418409495
+  },
+  {
+    "case_id": "Q110",
+    "profile": "unicode-off",
+    "before_ns": 4416117,
+    "after_ns": 3131205,
+    "delta_ns": -1284912,
+    "delta_fraction": -0.29095968245406545
+  },
+  {
+    "case_id": "Q111",
+    "profile": "ascii-off",
+    "before_ns": 183070,
+    "after_ns": 175057,
+    "delta_ns": -8013,
+    "delta_fraction": -0.04377014256841649
+  },
+  {
+    "case_id": "Q111",
+    "profile": "unicode-off",
+    "before_ns": 170223,
+    "after_ns": 173555,
+    "delta_ns": 3332,
+    "delta_fraction": 0.019574323093823898
+  },
+  {
+    "case_id": "Q112",
+    "profile": "ascii-off",
+    "before_ns": 3057744,
+    "after_ns": 2632038,
+    "delta_ns": -425706,
+    "delta_fraction": -0.13922225012950729
+  },
+  {
+    "case_id": "Q112",
+    "profile": "unicode-off",
+    "before_ns": 2846559,
+    "after_ns": 2595465,
+    "delta_ns": -251094,
+    "delta_fraction": -0.088209659451991
+  },
+  {
+    "case_id": "Q113",
+    "profile": "ascii-off",
+    "before_ns": 25937,
+    "after_ns": 17208,
+    "delta_ns": -8729,
+    "delta_fraction": -0.33654624667463473
+  },
+  {
+    "case_id": "Q113",
+    "profile": "unicode-off",
+    "before_ns": 27103,
+    "after_ns": 16721,
+    "delta_ns": -10382,
+    "delta_fraction": -0.38305722613732796
+  },
+  {
+    "case_id": "Q114",
+    "profile": "ascii-off",
+    "before_ns": 25366,
+    "after_ns": 25888,
+    "delta_ns": 522,
+    "delta_fraction": 0.020578727430418775
+  },
+  {
+    "case_id": "Q114",
+    "profile": "unicode-off",
+    "before_ns": 24692,
+    "after_ns": 28104,
+    "delta_ns": 3412,
+    "delta_fraction": 0.13818240725741138
+  },
+  {
+    "case_id": "Q115",
+    "profile": "ascii-off",
+    "before_ns": 19199,
+    "after_ns": 20098,
+    "delta_ns": 899,
+    "delta_fraction": 0.04682535548726485
+  },
+  {
+    "case_id": "Q115",
+    "profile": "unicode-off",
+    "before_ns": 18085,
+    "after_ns": 19096,
+    "delta_ns": 1011,
+    "delta_fraction": 0.05590268178048108
+  },
+  {
+    "case_id": "Q116",
+    "profile": "ascii-off",
+    "before_ns": 98847,
+    "after_ns": 155880,
+    "delta_ns": 57033,
+    "delta_fraction": 0.5769826094873896
+  },
+  {
+    "case_id": "Q116",
+    "profile": "unicode-off",
+    "before_ns": 95391,
+    "after_ns": 95429,
+    "delta_ns": 38,
+    "delta_fraction": 0.0003983604323258838
+  },
+  {
+    "case_id": "Q117",
+    "profile": "ascii-off",
+    "before_ns": 87649,
+    "after_ns": 146089,
+    "delta_ns": 58440,
+    "delta_fraction": 0.6667503337174412
+  },
+  {
+    "case_id": "Q117",
+    "profile": "unicode-off",
+    "before_ns": 87176,
+    "after_ns": 89983,
+    "delta_ns": 2807,
+    "delta_fraction": 0.03219922914563633
+  },
+  {
+    "case_id": "Q118",
+    "profile": "ascii-off",
+    "before_ns": 195915,
+    "after_ns": 325871,
+    "delta_ns": 129956,
+    "delta_fraction": 0.6633284842916571
+  },
+  {
+    "case_id": "Q118",
+    "profile": "unicode-off",
+    "before_ns": 195039,
+    "after_ns": 195562,
+    "delta_ns": 523,
+    "delta_fraction": 0.002681514979055555
+  },
+  {
+    "case_id": "Q119",
+    "profile": "ascii-off",
+    "before_ns": 4095856,
+    "after_ns": 4039415,
+    "delta_ns": -56441,
+    "delta_fraction": -0.013780025469645407
+  },
+  {
+    "case_id": "Q119",
+    "profile": "unicode-off",
+    "before_ns": 4042100,
+    "after_ns": 4056817,
+    "delta_ns": 14717,
+    "delta_fraction": 0.003640929219959954
+  },
+  {
+    "case_id": "Q120",
+    "profile": "ascii-off",
+    "before_ns": 72081,
+    "after_ns": 75552,
+    "delta_ns": 3471,
+    "delta_fraction": 0.04815415990344185
+  },
+  {
+    "case_id": "Q120",
+    "profile": "unicode-off",
+    "before_ns": 72027,
+    "after_ns": 75881,
+    "delta_ns": 3854,
+    "delta_fraction": 0.05350771238563312
+  },
+  {
+    "case_id": "Q121",
+    "profile": "ascii-off",
+    "before_ns": 23579,
+    "after_ns": 23751,
+    "delta_ns": 172,
+    "delta_fraction": 0.007294626574494201
+  },
+  {
+    "case_id": "Q121",
+    "profile": "unicode-off",
+    "before_ns": 23305,
+    "after_ns": 23179,
+    "delta_ns": -126,
+    "delta_fraction": -0.005406565114782214
+  },
+  {
+    "case_id": "Q122",
+    "profile": "ascii-off",
+    "before_ns": 17396,
+    "after_ns": 18130,
+    "delta_ns": 734,
+    "delta_fraction": 0.04219360772591396
+  },
+  {
+    "case_id": "Q122",
+    "profile": "unicode-off",
+    "before_ns": 17511,
+    "after_ns": 17536,
+    "delta_ns": 25,
+    "delta_fraction": 0.0014276740334646654
+  },
+  {
+    "case_id": "Q123",
+    "profile": "ascii-off",
+    "before_ns": 14284,
+    "after_ns": 13940,
+    "delta_ns": -344,
+    "delta_fraction": -0.02408288994679364
+  },
+  {
+    "case_id": "Q123",
+    "profile": "unicode-off",
+    "before_ns": 13990,
+    "after_ns": 13664,
+    "delta_ns": -326,
+    "delta_fraction": -0.023302358827734126
+  },
+  {
+    "case_id": "Q124",
+    "profile": "ascii-off",
+    "before_ns": 158413,
+    "after_ns": 166197,
+    "delta_ns": 7784,
+    "delta_fraction": 0.04913738140177881
+  },
+  {
+    "case_id": "Q124",
+    "profile": "unicode-off",
+    "before_ns": 158688,
+    "after_ns": 163026,
+    "delta_ns": 4338,
+    "delta_fraction": 0.02733666061705997
+  },
+  {
+    "case_id": "Q125",
+    "profile": "ascii-off",
+    "before_ns": 2965,
+    "after_ns": 2469,
+    "delta_ns": -496,
+    "delta_fraction": -0.1672849915682968
+  },
+  {
+    "case_id": "Q125",
+    "profile": "unicode-off",
+    "before_ns": 2499,
+    "after_ns": 2426,
+    "delta_ns": -73,
+    "delta_fraction": -0.029211684673869587
+  },
+  {
+    "case_id": "Q126",
+    "profile": "ascii-off",
+    "before_ns": 19000,
+    "after_ns": 18347,
+    "delta_ns": -653,
+    "delta_fraction": -0.034368421052631604
+  },
+  {
+    "case_id": "Q126",
+    "profile": "unicode-off",
+    "before_ns": 18721,
+    "after_ns": 18440,
+    "delta_ns": -281,
+    "delta_fraction": -0.015009881950750481
+  },
+  {
+    "case_id": "Q127",
+    "profile": "ascii-off",
+    "before_ns": 63755,
+    "after_ns": 63280,
+    "delta_ns": -475,
+    "delta_fraction": -0.007450396047368857
+  },
+  {
+    "case_id": "Q127",
+    "profile": "unicode-off",
+    "before_ns": 63672,
+    "after_ns": 64676,
+    "delta_ns": 1004,
+    "delta_fraction": 0.015768312602085777
+  },
+  {
+    "case_id": "Q128",
+    "profile": "ascii-off",
+    "before_ns": 36168,
+    "after_ns": 37450,
+    "delta_ns": 1282,
+    "delta_fraction": 0.03544569785445706
+  },
+  {
+    "case_id": "Q128",
+    "profile": "unicode-off",
+    "before_ns": 36187,
+    "after_ns": 36137,
+    "delta_ns": -50,
+    "delta_fraction": -0.0013817116644099237
+  },
+  {
+    "case_id": "Q129",
+    "profile": "ascii-off",
+    "before_ns": 43174,
+    "after_ns": 43163,
+    "delta_ns": -11,
+    "delta_fraction": -0.0002547829712327143
+  },
+  {
+    "case_id": "Q129",
+    "profile": "unicode-off",
+    "before_ns": 42370,
+    "after_ns": 42846,
+    "delta_ns": 476,
+    "delta_fraction": 0.011234363936747593
+  },
+  {
+    "case_id": "Q130",
+    "profile": "ascii-off",
+    "before_ns": 121353,
+    "after_ns": 119200,
+    "delta_ns": -2153,
+    "delta_fraction": -0.017741629790775648
+  },
+  {
+    "case_id": "Q130",
+    "profile": "unicode-off",
+    "before_ns": 119371,
+    "after_ns": 118743,
+    "delta_ns": -628,
+    "delta_fraction": -0.005260909266069702
+  },
+  {
+    "case_id": "Q131",
+    "profile": "ascii-off",
+    "before_ns": 596323,
+    "after_ns": 601500,
+    "delta_ns": 5177,
+    "delta_fraction": 0.008681536683978308
+  },
+  {
+    "case_id": "Q131",
+    "profile": "unicode-off",
+    "before_ns": 593214,
+    "after_ns": 609644,
+    "delta_ns": 16430,
+    "delta_fraction": 0.02769658167204425
+  },
+  {
+    "case_id": "Q132",
+    "profile": "ascii-off",
+    "before_ns": 607611,
+    "after_ns": 600501,
+    "delta_ns": -7110,
+    "delta_fraction": -0.011701565639858358
+  },
+  {
+    "case_id": "Q132",
+    "profile": "unicode-off",
+    "before_ns": 609292,
+    "after_ns": 602741,
+    "delta_ns": -6551,
+    "delta_fraction": -0.010751823427847418
+  },
+  {
+    "case_id": "Q133",
+    "profile": "ascii-off",
+    "before_ns": 68247,
+    "after_ns": 65302,
+    "delta_ns": -2945,
+    "delta_fraction": -0.043152079944906
+  },
+  {
+    "case_id": "Q133",
+    "profile": "unicode-off",
+    "before_ns": 66205,
+    "after_ns": 67088,
+    "delta_ns": 883,
+    "delta_fraction": 0.013337361226493538
+  },
+  {
+    "case_id": "Q134",
+    "profile": "ascii-off",
+    "before_ns": 142104,
+    "after_ns": 152835,
+    "delta_ns": 10731,
+    "delta_fraction": 0.0755151156899172
+  },
+  {
+    "case_id": "Q134",
+    "profile": "unicode-off",
+    "before_ns": 148049,
+    "after_ns": 148910,
+    "delta_ns": 861,
+    "delta_fraction": 0.00581564211848784
+  },
+  {
+    "case_id": "Q135",
+    "profile": "ascii-off",
+    "before_ns": 355737,
+    "after_ns": 350529,
+    "delta_ns": -5208,
+    "delta_fraction": -0.014640029010195788
+  },
+  {
+    "case_id": "Q135",
+    "profile": "unicode-off",
+    "before_ns": 365641,
+    "after_ns": 349650,
+    "delta_ns": -15991,
+    "delta_fraction": -0.043734154539561976
+  },
+  {
+    "case_id": "Q136",
+    "profile": "ascii-off",
+    "before_ns": 2409641,
+    "after_ns": 2657479,
+    "delta_ns": 247838,
+    "delta_fraction": 0.10285266560454431
+  },
+  {
+    "case_id": "Q136",
+    "profile": "unicode-off",
+    "before_ns": 2433413,
+    "after_ns": 2578978,
+    "delta_ns": 145565,
+    "delta_fraction": 0.059819274410056966
+  },
+  {
+    "case_id": "Q137",
+    "profile": "ascii-off",
+    "before_ns": 571687,
+    "after_ns": 582054,
+    "delta_ns": 10367,
+    "delta_fraction": 0.018134048876395692
+  },
+  {
+    "case_id": "Q137",
+    "profile": "unicode-off",
+    "before_ns": 571967,
+    "after_ns": 591325,
+    "delta_ns": 19358,
+    "delta_fraction": 0.033844609916306334
+  },
+  {
+    "case_id": "Q138",
+    "profile": "ascii-off",
+    "before_ns": 821072,
+    "after_ns": 828061,
+    "delta_ns": 6989,
+    "delta_fraction": 0.008512042792836683
+  },
+  {
+    "case_id": "Q138",
+    "profile": "unicode-off",
+    "before_ns": 826884,
+    "after_ns": 835501,
+    "delta_ns": 8617,
+    "delta_fraction": 0.01042105059476306
+  },
+  {
+    "case_id": "Q139",
+    "profile": "ascii-off",
+    "before_ns": 496025,
+    "after_ns": 488518,
+    "delta_ns": -7507,
+    "delta_fraction": -0.015134317826722476
+  },
+  {
+    "case_id": "Q139",
+    "profile": "unicode-off",
+    "before_ns": 485848,
+    "after_ns": 486252,
+    "delta_ns": 404,
+    "delta_fraction": 0.000831535788970994
+  },
+  {
+    "case_id": "Q140",
+    "profile": "ascii-off",
+    "before_ns": 31044,
+    "after_ns": 30681,
+    "delta_ns": -363,
+    "delta_fraction": -0.01169308078855813
+  },
+  {
+    "case_id": "Q140",
+    "profile": "unicode-off",
+    "before_ns": 30562,
+    "after_ns": 30786,
+    "delta_ns": 224,
+    "delta_fraction": 0.007329363261566746
+  },
+  {
+    "case_id": "Q141",
+    "profile": "ascii-off",
+    "before_ns": 2052395,
+    "after_ns": 1925492,
+    "delta_ns": -126903,
+    "delta_fraction": -0.06183166495728165
+  },
+  {
+    "case_id": "Q141",
+    "profile": "unicode-off",
+    "before_ns": 2043943,
+    "after_ns": 1924834,
+    "delta_ns": -119109,
+    "delta_fraction": -0.05827412995372183
+  },
+  {
+    "case_id": "Q142",
+    "profile": "ascii-off",
+    "before_ns": 250851,
+    "after_ns": 139222,
+    "delta_ns": -111629,
+    "delta_fraction": -0.44500121586120844
+  },
+  {
+    "case_id": "Q142",
+    "profile": "unicode-off",
+    "before_ns": 261674,
+    "after_ns": 165800,
+    "delta_ns": -95874,
+    "delta_fraction": -0.3663871840534405
+  },
+  {
+    "case_id": "Q143",
+    "profile": "ascii-off",
+    "before_ns": 3539017,
+    "after_ns": 3114146,
+    "delta_ns": -424871,
+    "delta_fraction": -0.12005339335753407
+  },
+  {
+    "case_id": "Q143",
+    "profile": "unicode-off",
+    "before_ns": 3656518,
+    "after_ns": 3008782,
+    "delta_ns": -647736,
+    "delta_fraction": -0.17714557948299448
+  },
+  {
+    "case_id": "Q144",
+    "profile": "ascii-off",
+    "before_ns": 10196428,
+    "after_ns": 8355686,
+    "delta_ns": -1840742,
+    "delta_fraction": -0.18052812220122572
+  },
+  {
+    "case_id": "Q144",
+    "profile": "unicode-off",
+    "before_ns": 9323087,
+    "after_ns": 8542358,
+    "delta_ns": -780729,
+    "delta_fraction": -0.08374146889329681
+  },
+  {
+    "case_id": "Q145",
+    "profile": "ascii-off",
+    "before_ns": 50454303,
+    "after_ns": 40644238,
+    "delta_ns": -9810065,
+    "delta_fraction": -0.19443465505806312
+  },
+  {
+    "case_id": "Q145",
+    "profile": "unicode-off",
+    "before_ns": 51755626,
+    "after_ns": 41305796,
+    "delta_ns": -10449830,
+    "delta_fraction": -0.20190713179664754
+  },
+  {
+    "case_id": "Q146",
+    "profile": "ascii-off",
+    "before_ns": 2671880,
+    "after_ns": 2593246,
+    "delta_ns": -78634,
+    "delta_fraction": -0.02943021393176337
+  },
+  {
+    "case_id": "Q146",
+    "profile": "unicode-off",
+    "before_ns": 2705101,
+    "after_ns": 2373238,
+    "delta_ns": -331863,
+    "delta_fraction": -0.12268044705169978
+  },
+  {
+    "case_id": "Q147",
+    "profile": "ascii-off",
+    "before_ns": 6588967,
+    "after_ns": 6078954,
+    "delta_ns": -510013,
+    "delta_fraction": -0.07740409080816457
+  },
+  {
+    "case_id": "Q147",
+    "profile": "unicode-off",
+    "before_ns": 460107,
+    "after_ns": 406447,
+    "delta_ns": -53660,
+    "delta_fraction": -0.1166250459132332
+  },
+  {
+    "case_id": "Q148",
+    "profile": "ascii-off",
+    "before_ns": 2955788,
+    "after_ns": 2857841,
+    "delta_ns": -97947,
+    "delta_fraction": -0.033137356265063644
+  },
+  {
+    "case_id": "Q148",
+    "profile": "unicode-off",
+    "before_ns": 2960038,
+    "after_ns": 2960844,
+    "delta_ns": 806,
+    "delta_fraction": 0.0002722938016337384
+  },
+  {
+    "case_id": "Q149",
+    "profile": "ascii-off",
+    "before_ns": 498303,
+    "after_ns": 375546,
+    "delta_ns": -122757,
+    "delta_fraction": -0.24635011228108195
+  },
+  {
+    "case_id": "Q149",
+    "profile": "unicode-off",
+    "before_ns": 403472,
+    "after_ns": 374891,
+    "delta_ns": -28581,
+    "delta_fraction": -0.07083762937700755
+  },
+  {
+    "case_id": "Q150",
+    "profile": "ascii-off",
+    "before_ns": 1287677,
+    "after_ns": 1245337,
+    "delta_ns": -42340,
+    "delta_fraction": -0.03288091656525671
+  },
+  {
+    "case_id": "Q150",
+    "profile": "unicode-off",
+    "before_ns": 1260688,
+    "after_ns": 1413597,
+    "delta_ns": 152909,
+    "delta_fraction": 0.1212901209498305
+  },
+  {
+    "case_id": "Q151",
+    "profile": "ascii-off",
+    "before_ns": 670694,
+    "after_ns": 379637,
+    "delta_ns": -291057,
+    "delta_fraction": -0.43396392393550565
+  },
+  {
+    "case_id": "Q151",
+    "profile": "unicode-off",
+    "before_ns": 387513,
+    "after_ns": 398289,
+    "delta_ns": 10776,
+    "delta_fraction": 0.027808099341183334
+  },
+  {
+    "case_id": "Q152",
+    "profile": "ascii-off",
+    "before_ns": 162195,
+    "after_ns": 161857,
+    "delta_ns": -338,
+    "delta_fraction": -0.002083911341286715
+  },
+  {
+    "case_id": "Q152",
+    "profile": "unicode-off",
+    "before_ns": 161233,
+    "after_ns": 160764,
+    "delta_ns": -469,
+    "delta_fraction": -0.002908833799532329
+  },
+  {
+    "case_id": "Q153",
+    "profile": "ascii-off",
+    "before_ns": 2018746,
+    "after_ns": 1954661,
+    "delta_ns": -64085,
+    "delta_fraction": -0.03174495454108639
+  },
+  {
+    "case_id": "Q153",
+    "profile": "unicode-off",
+    "before_ns": 2257081,
+    "after_ns": 2046604,
+    "delta_ns": -210477,
+    "delta_fraction": -0.09325185937057645
+  },
+  {
+    "case_id": "Q154",
+    "profile": "ascii-off",
+    "before_ns": 16192,
+    "after_ns": 16963,
+    "delta_ns": 771,
+    "delta_fraction": 0.04761610671936767
+  },
+  {
+    "case_id": "Q154",
+    "profile": "unicode-off",
+    "before_ns": 16596,
+    "after_ns": 16431,
+    "delta_ns": -165,
+    "delta_fraction": -0.009942154736080955
+  },
+  {
+    "case_id": "Q155",
+    "profile": "ascii-off",
+    "before_ns": 143669,
+    "after_ns": 144672,
+    "delta_ns": 1003,
+    "delta_fraction": 0.006981325129290283
+  },
+  {
+    "case_id": "Q155",
+    "profile": "unicode-off",
+    "before_ns": 142318,
+    "after_ns": 144445,
+    "delta_ns": 2127,
+    "delta_fraction": 0.014945403954524483
+  },
+  {
+    "case_id": "Q156",
+    "profile": "ascii-off",
+    "before_ns": 3237,
+    "after_ns": 2972,
+    "delta_ns": -265,
+    "delta_fraction": -0.08186592523941927
+  },
+  {
+    "case_id": "Q156",
+    "profile": "unicode-off",
+    "before_ns": 2900,
+    "after_ns": 3029,
+    "delta_ns": 129,
+    "delta_fraction": 0.04448275862068973
+  },
+  {
+    "case_id": "Q157",
+    "profile": "ascii-off",
+    "before_ns": 370533,
+    "after_ns": 370942,
+    "delta_ns": 409,
+    "delta_fraction": 0.0011038153146953888
+  },
+  {
+    "case_id": "Q157",
+    "profile": "unicode-off",
+    "before_ns": 371996,
+    "after_ns": 370193,
+    "delta_ns": -1803,
+    "delta_fraction": -0.0048468263099603615
+  },
+  {
+    "case_id": "Q158",
+    "profile": "ascii-off",
+    "before_ns": 4010884,
+    "after_ns": 3146509,
+    "delta_ns": -864375,
+    "delta_fraction": -0.21550735448843694
+  },
+  {
+    "case_id": "Q158",
+    "profile": "unicode-off",
+    "before_ns": 3581731,
+    "after_ns": 3122057,
+    "delta_ns": -459674,
+    "delta_fraction": -0.1283385044828883
+  },
+  {
+    "case_id": "Q159",
+    "profile": "ascii-off",
+    "before_ns": 58588,
+    "after_ns": 56404,
+    "delta_ns": -2184,
+    "delta_fraction": -0.03727725814159899
+  },
+  {
+    "case_id": "Q159",
+    "profile": "unicode-off",
+    "before_ns": 45879,
+    "after_ns": 42013,
+    "delta_ns": -3866,
+    "delta_fraction": -0.08426513219555787
+  },
+  {
+    "case_id": "Q160",
+    "profile": "ascii-off",
+    "before_ns": 63241655,
+    "after_ns": 53063246,
+    "delta_ns": -10178409,
+    "delta_fraction": -0.16094469697227243
+  },
+  {
+    "case_id": "Q160",
+    "profile": "unicode-off",
+    "before_ns": 62390104,
+    "after_ns": 53872985,
+    "delta_ns": -8517119,
+    "delta_fraction": -0.13651394137762618
+  },
+  {
+    "case_id": "Q161",
+    "profile": "ascii-off",
+    "before_ns": 13648,
+    "after_ns": 15049,
+    "delta_ns": 1401,
+    "delta_fraction": 0.10265240328253222
+  },
+  {
+    "case_id": "Q161",
+    "profile": "unicode-off",
+    "before_ns": 13254,
+    "after_ns": 13616,
+    "delta_ns": 362,
+    "delta_fraction": 0.027312509431115073
+  },
+  {
+    "case_id": "Q162",
+    "profile": "ascii-off",
+    "before_ns": 187985,
+    "after_ns": 187295,
+    "delta_ns": -690,
+    "delta_fraction": -0.0036705056254487944
+  },
+  {
+    "case_id": "Q162",
+    "profile": "unicode-off",
+    "before_ns": 186011,
+    "after_ns": 186937,
+    "delta_ns": 926,
+    "delta_fraction": 0.004978200213965778
+  },
+  {
+    "case_id": "Q163",
+    "profile": "ascii-off",
+    "before_ns": 1135326,
+    "after_ns": 1134990,
+    "delta_ns": -336,
+    "delta_fraction": -0.0002959502380813772
+  },
+  {
+    "case_id": "Q163",
+    "profile": "unicode-off",
+    "before_ns": 1094449,
+    "after_ns": 1194640,
+    "delta_ns": 100191,
+    "delta_fraction": 0.09154469509314733
+  },
+  {
+    "case_id": "Q164",
+    "profile": "ascii-off",
+    "before_ns": 3807075,
+    "after_ns": 3382012,
+    "delta_ns": -425063,
+    "delta_fraction": -0.11165080803504002
+  },
+  {
+    "case_id": "Q164",
+    "profile": "unicode-off",
+    "before_ns": 3997188,
+    "after_ns": 3661872,
+    "delta_ns": -335316,
+    "delta_fraction": -0.08388797324519137
+  },
+  {
+    "case_id": "Q165",
+    "profile": "ascii-off",
+    "before_ns": 52004,
+    "after_ns": 54711,
+    "delta_ns": 2707,
+    "delta_fraction": 0.0520536881778324
+  },
+  {
+    "case_id": "Q165",
+    "profile": "unicode-off",
+    "before_ns": 54134,
+    "after_ns": 56901,
+    "delta_ns": 2767,
+    "delta_fraction": 0.05111390253814618
+  },
+  {
+    "case_id": "Q166",
+    "profile": "ascii-off",
+    "before_ns": 3724327,
+    "after_ns": 3641630,
+    "delta_ns": -82697,
+    "delta_fraction": -0.022204548633887433
+  },
+  {
+    "case_id": "Q166",
+    "profile": "unicode-off",
+    "before_ns": 4054434,
+    "after_ns": 3770567,
+    "delta_ns": -283867,
+    "delta_fraction": -0.07001396495787082
+  },
+  {
+    "case_id": "Q167",
+    "profile": "ascii-off",
+    "before_ns": 3253156,
+    "after_ns": 3005389,
+    "delta_ns": -247767,
+    "delta_fraction": -0.07616204079976485
+  },
+  {
+    "case_id": "Q167",
+    "profile": "unicode-off",
+    "before_ns": 3202082,
+    "after_ns": 3160327,
+    "delta_ns": -41755,
+    "delta_fraction": -0.013039953380331926
+  },
+  {
+    "case_id": "Q168",
+    "profile": "ascii-off",
+    "before_ns": 1654532,
+    "after_ns": 1785607,
+    "delta_ns": 131075,
+    "delta_fraction": 0.07922179806736884
+  },
+  {
+    "case_id": "Q168",
+    "profile": "unicode-off",
+    "before_ns": 1870239,
+    "after_ns": 1639665,
+    "delta_ns": -230574,
+    "delta_fraction": -0.12328584742377846
+  },
+  {
+    "case_id": "Q169",
+    "profile": "ascii-off",
+    "before_ns": 337475,
+    "after_ns": 353087,
+    "delta_ns": 15612,
+    "delta_fraction": 0.04626120453366922
+  },
+  {
+    "case_id": "Q169",
+    "profile": "unicode-off",
+    "before_ns": 345654,
+    "after_ns": 325149,
+    "delta_ns": -20505,
+    "delta_fraction": -0.05932232810845528
+  },
+  {
+    "case_id": "Q170",
+    "profile": "ascii-off",
+    "before_ns": 54025,
+    "after_ns": 97669,
+    "delta_ns": 43644,
+    "delta_fraction": 0.8078482184173994
+  },
+  {
+    "case_id": "Q170",
+    "profile": "unicode-off",
+    "before_ns": 51384,
+    "after_ns": 57782,
+    "delta_ns": 6398,
+    "delta_fraction": 0.1245134672271524
+  },
+  {
+    "case_id": "Q171",
+    "profile": "ascii-off",
+    "before_ns": 207257,
+    "after_ns": 239920,
+    "delta_ns": 32663,
+    "delta_fraction": 0.15759660711097823
+  },
+  {
+    "case_id": "Q171",
+    "profile": "unicode-off",
+    "before_ns": 213156,
+    "after_ns": 202137,
+    "delta_ns": -11019,
+    "delta_fraction": -0.05169453358103926
+  },
+  {
+    "case_id": "Q172",
+    "profile": "ascii-off",
+    "before_ns": 518191,
+    "after_ns": 514522,
+    "delta_ns": -3669,
+    "delta_fraction": -0.007080400856054991
+  },
+  {
+    "case_id": "Q172",
+    "profile": "unicode-off",
+    "before_ns": 504517,
+    "after_ns": 578529,
+    "delta_ns": 74012,
+    "delta_fraction": 0.14669872372982473
+  },
+  {
+    "case_id": "Q173",
+    "profile": "ascii-off",
+    "before_ns": 4109536,
+    "after_ns": 3515506,
+    "delta_ns": -594030,
+    "delta_fraction": -0.144549165647898
+  },
+  {
+    "case_id": "Q173",
+    "profile": "unicode-off",
+    "before_ns": 4118555,
+    "after_ns": 3769598,
+    "delta_ns": -348957,
+    "delta_fraction": -0.08472801747214742
+  },
+  {
+    "case_id": "Q174",
+    "profile": "ascii-off",
+    "before_ns": 14048387,
+    "after_ns": 13317275,
+    "delta_ns": -731112,
+    "delta_fraction": -0.05204241597273762
+  },
+  {
+    "case_id": "Q174",
+    "profile": "unicode-off",
+    "before_ns": 15376915,
+    "after_ns": 13836135,
+    "delta_ns": -1540780,
+    "delta_fraction": -0.1002008530319638
+  },
+  {
+    "case_id": "Q175",
+    "profile": "ascii-off",
+    "before_ns": 3224437,
+    "after_ns": 2958688,
+    "delta_ns": -265749,
+    "delta_fraction": -0.08241717856481612
+  },
+  {
+    "case_id": "Q175",
+    "profile": "unicode-off",
+    "before_ns": 2988652,
+    "after_ns": 3101357,
+    "delta_ns": 112705,
+    "delta_fraction": 0.03771098140566376
+  },
+  {
+    "case_id": "Q176",
+    "profile": "ascii-off",
+    "before_ns": 652132,
+    "after_ns": 387167,
+    "delta_ns": -264965,
+    "delta_fraction": -0.40630577858470374
+  },
+  {
+    "case_id": "Q176",
+    "profile": "unicode-off",
+    "before_ns": 409665,
+    "after_ns": 425666,
+    "delta_ns": 16001,
+    "delta_fraction": 0.03905874311937807
+  },
+  {
+    "case_id": "Q177",
+    "profile": "ascii-off",
+    "before_ns": 2968548,
+    "after_ns": 2650514,
+    "delta_ns": -318034,
+    "delta_fraction": -0.10713453176435084
+  },
+  {
+    "case_id": "Q177",
+    "profile": "unicode-off",
+    "before_ns": 2552876,
+    "after_ns": 2674176,
+    "delta_ns": 121300,
+    "delta_fraction": 0.047515037941521676
+  },
+  {
+    "case_id": "Q178",
+    "profile": "ascii-off",
+    "before_ns": 220349,
+    "after_ns": 227646,
+    "delta_ns": 7297,
+    "delta_fraction": 0.03311564835783232
+  },
+  {
+    "case_id": "Q178",
+    "profile": "unicode-off",
+    "before_ns": 317085,
+    "after_ns": 212719,
+    "delta_ns": -104366,
+    "delta_fraction": -0.3291420281627955
+  },
+  {
+    "case_id": "Q179",
+    "profile": "ascii-off",
+    "before_ns": 4102704,
+    "after_ns": 3570415,
+    "delta_ns": -532289,
+    "delta_fraction": -0.1297410195812323
+  },
+  {
+    "case_id": "Q179",
+    "profile": "unicode-off",
+    "before_ns": 3843866,
+    "after_ns": 3678751,
+    "delta_ns": -165115,
+    "delta_fraction": -0.04295545162084213
+  },
+  {
+    "case_id": "Q180",
+    "profile": "ascii-off",
+    "before_ns": 799550,
+    "after_ns": 796220,
+    "delta_ns": -3330,
+    "delta_fraction": -0.0041648427240322805
+  },
+  {
+    "case_id": "Q180",
+    "profile": "unicode-off",
+    "before_ns": 810558,
+    "after_ns": 863855,
+    "delta_ns": 53297,
+    "delta_fraction": 0.06575346859817555
+  },
+  {
+    "case_id": "Q181",
+    "profile": "ascii-off",
+    "before_ns": 9147636,
+    "after_ns": 8446153,
+    "delta_ns": -701483,
+    "delta_fraction": -0.07668462103214424
+  },
+  {
+    "case_id": "Q181",
+    "profile": "unicode-off",
+    "before_ns": 9561064,
+    "after_ns": 8565593,
+    "delta_ns": -995471,
+    "delta_fraction": -0.10411717775343832
+  },
+  {
+    "case_id": "Q182",
+    "profile": "ascii-off",
+    "before_ns": 2093751,
+    "after_ns": 1514473,
+    "delta_ns": -579278,
+    "delta_fraction": -0.2766699574113636
+  },
+  {
+    "case_id": "Q182",
+    "profile": "unicode-off",
+    "before_ns": 1748869,
+    "after_ns": 1797055,
+    "delta_ns": 48186,
+    "delta_fraction": 0.027552664036014196
+  },
+  {
+    "case_id": "Q183",
+    "profile": "ascii-off",
+    "before_ns": 23314,
+    "after_ns": 14886,
+    "delta_ns": -8428,
+    "delta_fraction": -0.36149952818049236
+  },
+  {
+    "case_id": "Q183",
+    "profile": "unicode-off",
+    "before_ns": 22784,
+    "after_ns": 23810,
+    "delta_ns": 1026,
+    "delta_fraction": 0.04503160112359561
+  },
+  {
+    "case_id": "Q184",
+    "profile": "ascii-off",
+    "before_ns": 310376,
+    "after_ns": 197999,
+    "delta_ns": -112377,
+    "delta_fraction": -0.3620672990179653
+  },
+  {
+    "case_id": "Q184",
+    "profile": "unicode-off",
+    "before_ns": 197882,
+    "after_ns": 312505,
+    "delta_ns": 114623,
+    "delta_fraction": 0.5792492495527637
+  },
+  {
+    "case_id": "Q185",
+    "profile": "ascii-off",
+    "before_ns": 308513,
+    "after_ns": 184749,
+    "delta_ns": -123764,
+    "delta_fraction": -0.40116299799360156
+  },
+  {
+    "case_id": "Q185",
+    "profile": "unicode-off",
+    "before_ns": 185002,
+    "after_ns": 308722,
+    "delta_ns": 123720,
+    "delta_fraction": 0.6687495270321402
+  },
+  {
+    "case_id": "Q186",
+    "profile": "ascii-off",
+    "before_ns": 1199588,
+    "after_ns": 1052199,
+    "delta_ns": -147389,
+    "delta_fraction": -0.12286635078043462
+  },
+  {
+    "case_id": "Q186",
+    "profile": "unicode-off",
+    "before_ns": 1169139,
+    "after_ns": 1188806,
+    "delta_ns": 19667,
+    "delta_fraction": 0.016821780814770593
+  },
+  {
+    "case_id": "Q187",
+    "profile": "ascii-off",
+    "before_ns": 117207964,
+    "after_ns": 96771023,
+    "delta_ns": -20436941,
+    "delta_fraction": -0.1743647812191329
+  },
+  {
+    "case_id": "Q187",
+    "profile": "unicode-off",
+    "before_ns": 120100695,
+    "after_ns": 98384030,
+    "delta_ns": -21716665,
+    "delta_fraction": -0.18082047735027673
+  },
+  {
+    "case_id": "Q188",
+    "profile": "ascii-off",
+    "before_ns": 1851042,
+    "after_ns": 1792353,
+    "delta_ns": -58689,
+    "delta_fraction": -0.03170592563539887
+  },
+  {
+    "case_id": "Q188",
+    "profile": "unicode-off",
+    "before_ns": 1958117,
+    "after_ns": 1929064,
+    "delta_ns": -29053,
+    "delta_fraction": -0.01483721350664946
+  },
+  {
+    "case_id": "Q189",
+    "profile": "ascii-off",
+    "before_ns": 315590,
+    "after_ns": 319458,
+    "delta_ns": 3868,
+    "delta_fraction": 0.012256408631452276
+  },
+  {
+    "case_id": "Q189",
+    "profile": "unicode-off",
+    "before_ns": 357525,
+    "after_ns": 343312,
+    "delta_ns": -14213,
+    "delta_fraction": -0.03975386336619813
+  },
+  {
+    "case_id": "Q190",
+    "profile": "ascii-off",
+    "before_ns": 4534140,
+    "after_ns": 4452237,
+    "delta_ns": -81903,
+    "delta_fraction": -0.01806362397279304
+  },
+  {
+    "case_id": "Q190",
+    "profile": "unicode-off",
+    "before_ns": 5142271,
+    "after_ns": 4636422,
+    "delta_ns": -505849,
+    "delta_fraction": -0.09837073930953855
+  },
+  {
+    "case_id": "Q191",
+    "profile": "ascii-off",
+    "before_ns": 34444945,
+    "after_ns": 37153672,
+    "delta_ns": 2708727,
+    "delta_fraction": 0.0786393184834524
+  },
+  {
+    "case_id": "Q191",
+    "profile": "unicode-off",
+    "before_ns": 34697869,
+    "after_ns": 36527412,
+    "delta_ns": 1829543,
+    "delta_fraction": 0.05272782025893297
+  },
+  {
+    "case_id": "Q192",
+    "profile": "ascii-off",
+    "before_ns": 75178600,
+    "after_ns": 67574258,
+    "delta_ns": -7604342,
+    "delta_fraction": -0.10115035395711014
+  },
+  {
+    "case_id": "Q192",
+    "profile": "unicode-off",
+    "before_ns": 76908018,
+    "after_ns": 68388630,
+    "delta_ns": -8519388,
+    "delta_fraction": -0.11077372972997435
+  },
+  {
+    "case_id": "Q193",
+    "profile": "ascii-off",
+    "before_ns": 5921593,
+    "after_ns": 5902234,
+    "delta_ns": -19359,
+    "delta_fraction": -0.00326922164356791
+  },
+  {
+    "case_id": "Q193",
+    "profile": "unicode-off",
+    "before_ns": 5866411,
+    "after_ns": 5982448,
+    "delta_ns": 116037,
+    "delta_fraction": 0.019779896089789917
+  },
+  {
+    "case_id": "Q194",
+    "profile": "ascii-off",
+    "before_ns": 296220,
+    "after_ns": 367004,
+    "delta_ns": 70784,
+    "delta_fraction": 0.23895753156437793
+  },
+  {
+    "case_id": "Q194",
+    "profile": "unicode-off",
+    "before_ns": 285160,
+    "after_ns": 333434,
+    "delta_ns": 48274,
+    "delta_fraction": 0.1692874175901249
+  }
+]
