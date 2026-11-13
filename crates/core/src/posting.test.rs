@@ -1248,3 +1248,117 @@ fn structural_membership_tracks_file_replacement_move_delete_and_add() {
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn bounded_mixed_values_match_source_oracle_for_state_composition() {
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::reference::Schema;
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::source::SourceFormat;
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!("objekte-state-mixed-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let values = [
+        serde_json::json!(null),
+        serde_json::json!(""),
+        serde_json::json!("text"),
+        serde_json::json!(0),
+        serde_json::json!(17),
+        serde_json::json!(false),
+        serde_json::json!(true),
+        serde_json::json!([]),
+        serde_json::json!([null, "text"]),
+        serde_json::json!({}),
+        serde_json::json!({"nested": null}),
+    ];
+    let mut state = 0x8f2e_37a1_u64;
+    for slot in 0..96 {
+        state ^= state << 13;
+        state ^= state >> 7;
+        state ^= state << 17;
+        let choice = (state % (values.len() as u64 + 1)) as usize;
+        let record = if choice == values.len() {
+            serde_json::json!({"y": slot % 3})
+        } else {
+            serde_json::json!({"x": values[choice], "y": slot % 3})
+        };
+        std::fs::write(
+            root.join(format!("data/{slot:03}.json")),
+            serde_json::to_vec(&record).unwrap(),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["x".into()],
+            kind: LogicalType::Unknown,
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: true,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for filter in [
+        "x:exists = true",
+        "x:exists = false",
+        "x:null = true",
+        "x:null = false",
+        "x:? = true",
+        "x:? = false",
+        "x:string = true",
+        "x:string = false",
+        "x:number = true",
+        "x:array = true",
+        "x:object = true",
+        "x:string = true && x:? = true",
+        "x:null = true || x:array = true",
+        "!(x:number = true) && x:exists = true",
+    ] {
+        let request = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 96,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let indexed = repo.search(&request).unwrap();
+        let source = repo.search_reference(&request).unwrap();
+        assert_eq!(indexed.count, source.count, "{filter}");
+        assert_eq!(indexed.hits, source.hits, "{filter}");
+        assert_eq!(indexed.counters.files_opened, 0, "{filter}");
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
