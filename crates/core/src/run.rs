@@ -609,6 +609,25 @@ fn local_segment_projection(
 ) -> ScanProjection {
     let mut projection =
         ScanProjection::full(fts.is_some() && !borrowed_value_text(collection, fts));
+    if filter.is_none()
+        && !computed_sort
+        && matches!(collection.source.id(), "json" | "jsonl")
+        && let Some(fts) = fts
+        && !fts.fields.is_empty()
+        && fts.fields.iter().all(|field| {
+            field.related.is_none()
+                && field.path.root == PathRoot::Data
+                && !field.path.segments.is_empty()
+        })
+    {
+        projection.top_level = Some(
+            fts.fields
+                .iter()
+                .map(|field| field.path.segments[0].clone())
+                .collect(),
+        );
+        projection.resolved_text_only = projection.collect_text;
+    }
     if fts.is_none()
         && !computed_sort
         && matches!(collection.source.id(), "json" | "jsonl")
