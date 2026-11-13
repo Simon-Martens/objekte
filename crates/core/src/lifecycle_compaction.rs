@@ -134,10 +134,11 @@ fn compact_published_with_cancel(
         }
         let mut compacted = Vec::new();
         let mut compact_source =
-            |source: &IndexedCollectionSegment, active: &ActiveRecords| -> Result<(), IndexError> {
+            |source: &IndexedCollectionSegment, active: &ActiveRecords| -> Result<Vec<Arc<PublishedSegment>>, IndexError> {
                 if cancelled() {
                     return Err(IndexError::Cancelled);
                 }
+                let mut replacements = Vec::new();
                 for part in compact_source_parts(source, active, &next.catalog, &cancelled)? {
                     if cancelled() {
                         return Err(IndexError::Cancelled);
@@ -148,20 +149,24 @@ fn compact_published_with_cancel(
                     })?;
                     let active = ActiveRecords::all(part.records.len())
                         .map_err(IndexError::ResourceLimit)?;
-                    compacted.push(Arc::new(PublishedSegment {
+                    replacements.push(Arc::new(PublishedSegment {
                         ordinal,
                         index: Arc::new(part),
                         active,
                     }));
                 }
-                Ok(())
+                Ok(replacements)
             };
         if !collection.generation.records.is_empty() {
             let base = base_as_segment(collection, old.repository.files())?;
-            compact_source(&base, &old.active[number])?;
+            compacted.extend(compact_source(&base, &old.active[number])?);
         }
         for segment in old.segments[number].iter() {
-            compact_source(&segment.index, &segment.active)?;
+            if segment.active.len() == segment.index.records.len() as u64 {
+                compacted.push(Arc::clone(segment));
+            } else {
+                compacted.extend(compact_source(&segment.index, &segment.active)?);
+            }
         }
         drop(compact_source);
         next.segments[number] = Arc::new(compacted);

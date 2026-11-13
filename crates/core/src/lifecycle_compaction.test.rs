@@ -63,6 +63,42 @@ fn compacting_sealed_segments_preserves_text_postings() {
 }
 
 #[test]
+fn compaction_reuses_unaffected_sealed_segment() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-selective-compact-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let first = root.join("data/first.json");
+    std::fs::write(&first, br#"{"name":"first"}"#).unwrap();
+    let index = Index::build(
+        &root,
+        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        RepositoryOptions::default(),
+    ).unwrap();
+    let removed = root.join("data/removed.json");
+    let kept = root.join("data/kept.json");
+    std::fs::write(&removed, br#"{"name":"removed"}"#).unwrap();
+    std::fs::write(&kept, br#"{"name":"kept needle"}"#).unwrap();
+    index.add_file(&removed).unwrap();
+    index.add_file(&kept).unwrap();
+    let pinned = index.view().unwrap();
+    let unchanged = pinned.0.segments[0].last().unwrap().clone();
+    assert_eq!(pinned.search(&literal("kept needle")).unwrap().count, Some(1));
+    index.delete_file(pinned.file_handle_for_path(&removed).unwrap()).unwrap();
+    std::fs::remove_file(&removed).unwrap();
+    index.compact().unwrap();
+    let current = index.view().unwrap();
+    assert!(current.0.segments[0].iter().any(|segment| Arc::ptr_eq(segment, &unchanged)));
+    assert_eq!(current.search(&literal("kept needle")).unwrap().count, Some(1));
+    assert_eq!(pinned.search(&literal("kept needle")).unwrap().count, Some(1));
+    index.shutdown().unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn compact_reclaims_base_and_segment_tombstones_without_source_files() {
     let root = std::env::temp_dir().join(format!(
         "objekte-compact-{}-{:?}",
