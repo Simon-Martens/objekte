@@ -27,6 +27,7 @@ use crate::ui::model::{
     BatchRow, BatchSource as UiBatchSource, CompletionOrigin, DetailView, DirectoryCatalog,
     ErrorField, ExportFormat, FileCatalogue, FilterValidationState, IndexTaskKind, IndexTaskState,
     IndexUiStatus, OpenDraft, PageView, RecordTabSummary, RelationRow, SearchDraft, SnapshotMode,
+    StorageChoice,
     TabFreshness, TabViewState, UiAction, UiUpdate,
 };
 use crate::ui::preferences::DesktopPreferences;
@@ -447,6 +448,10 @@ enum WorkerEvent {
         result: Result<Option<Vec<PathBuf>>, String>,
     },
     PickedSchema {
+        generation: u64,
+        result: Result<Option<Vec<PathBuf>>, String>,
+    },
+    PickedIndexDirectory {
         generation: u64,
         result: Result<Option<Vec<PathBuf>>, String>,
     },
@@ -890,6 +895,22 @@ impl DesktopController {
         } else {
             "Plain folder".into()
         };
+        // These values describe the successful Open draft, not a later edit
+        // in the dialog while the current repository remains active.
+        match self.open_draft.as_ref().map(|draft| draft.index_storage) {
+            Some(StorageChoice::Memory) => {
+                self.index_ui.storage_location = "Memory only".into();
+                self.index_ui.residency = "Entire index in memory".into();
+                self.index_ui.synchronization = "No index files are read or written".into();
+                self.index_ui.managed_directory = None;
+            }
+            _ => {
+                self.index_ui.storage_location = "Stored index".into();
+                self.index_ui.residency = "Preparing".into();
+                self.index_ui.synchronization = "Status unavailable".into();
+                self.index_ui.managed_directory = None;
+            }
+        }
         self.index_ui.loaded_from = session
             .diagnostics
             .startup
@@ -1198,6 +1219,9 @@ impl DesktopController {
                 generation,
             } => self.choose_folder(slot, generation, cx),
             UiAction::ChooseSchema { generation } => self.choose_schema(generation, cx),
+            UiAction::ChooseIndexDirectory { generation } => {
+                self.choose_index_directory(generation, cx)
+            }
             UiAction::CancelOpen => self.cancel_open(updates),
             UiAction::Open(draft) => self.start_open(draft, updates),
             UiAction::SearchEdited(draft) => {
@@ -1637,6 +1661,25 @@ impl DesktopController {
                 .map_err(|error| error.to_string())
                 .and_then(|result| result.map_err(|error| error.to_string()));
             let _ = sender.send(WorkerEvent::PickedSchema { generation, result });
+        })
+        .detach();
+    }
+
+    fn choose_index_directory(&mut self, generation: u64, cx: &mut App) {
+        self.picker_generation = generation;
+        let sender = self.worker_tx.clone();
+        let receiver = cx.prompt_for_paths(PathPromptOptions {
+            files: false,
+            directories: true,
+            multiple: false,
+            prompt: Some("Choose custom index base folder".into()),
+        });
+        cx.spawn(async move |_| {
+            let result = receiver
+                .await
+                .map_err(|error| error.to_string())
+                .and_then(|result| result.map_err(|error| error.to_string()));
+            let _ = sender.send(WorkerEvent::PickedIndexDirectory { generation, result });
         })
         .detach();
     }
@@ -3403,6 +3446,27 @@ impl DesktopController {
                     Err(message) => updates.push(UiUpdate::Error {
                         field: ErrorField::Open,
                         message: format!("Schema chooser failed: {message}. Enter a path instead."),
+                    }),
+                }
+            }
+            WorkerEvent::PickedIndexDirectory { generation, result }
+                if generation == self.picker_generation =>
+            {
+                match result {
+                    Ok(Some(paths)) => {
+                        if let Some(path) = paths.into_iter().next() {
+                            updates.push(UiUpdate::ChosenIndexDirectory {
+                                generation,
+                                path: path.display().to_string(),
+                            });
+                        }
+                    }
+                    Ok(None) => {}
+                    Err(message) => updates.push(UiUpdate::Error {
+                        field: ErrorField::Open,
+                        message: format!(
+                            "Index folder chooser failed: {message}. Enter a path instead."
+                        ),
                     }),
                 }
             }

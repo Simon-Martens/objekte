@@ -971,6 +971,12 @@ fn unchanged_index_status_does_not_redraw_the_workspace() {
     let fixture = crate::backend::test_support::fixture();
     let (mut controller, _) = DesktopController::new();
     controller.session = Some(fixture.session);
+    controller.open_draft = Some(OpenDraft::default());
+    controller.opening_draft = Some(OpenDraft {
+        index_storage: crate::ui::model::StorageChoice::Custom,
+        index_directory: "/tmp/pending-indexes".into(),
+        ..OpenDraft::default()
+    });
     let status = controller
         .session
         .as_ref()
@@ -982,6 +988,8 @@ fn unchanged_index_status_does_not_redraw_the_workspace() {
     let mut updates = Vec::new();
     controller.update_index_ui(&status, &mut updates);
     assert!(matches!(updates.as_slice(), [UiUpdate::IndexStatus(_)]));
+    assert_eq!(controller.index_ui.storage_location, "Memory only");
+    assert_eq!(controller.index_ui.synchronization, "No index files are read or written");
 
     updates.clear();
     controller.update_index_ui(&status, &mut updates);

@@ -6,10 +6,14 @@ use objekte_cli::arguments::{Alphabet, Arguments};
 use objekte_search_core::lifecycle_repository::CacheOpenPolicy;
 
 use crate::backend::{OpenSpec, QuerySpec};
-use crate::ui::model::{OpenDraft, OpenMode, SearchDraft, SnapshotMode};
+use crate::ui::model::{OpenDraft, OpenMode, SearchDraft};
 
 /// Build the existing CLI opening arguments from visible controls.
 pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
+    let policy = draft.storage_policy()?;
+    if policy.location != objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly {
+        return Err("Stored index opening is still being connected to the shared index reader".into());
+    }
     let mut args = Arguments {
         auto_index: draft.auto_index,
         index_alphabet: if draft.unicode_index {
@@ -55,29 +59,10 @@ pub fn open_spec(draft: &OpenDraft, cwd: &Path) -> Result<OpenSpec, String> {
             args.repo = paths.into_iter().next();
         }
     }
-    let snapshot_path = draft.snapshot_directory.trim().to_owned();
-    if draft.snapshot != SnapshotMode::None && snapshot_path.is_empty() {
-        return Err("Choose a concrete index location for this opening policy".into());
-    }
-    let configured_cache_policy = if draft.mode == OpenMode::ConfiguredRepository {
-        match draft.snapshot {
-            SnapshotMode::None if draft.configured_use_repository_settings => None,
-            SnapshotMode::None | SnapshotMode::Write => Some(CacheOpenPolicy::Ignore),
-            SnapshotMode::Load => Some(CacheOpenPolicy::Required),
-            SnapshotMode::LoadAndWrite => Some(CacheOpenPolicy::IfPresent),
-        }
-    } else {
-        None
-    };
-    match draft.snapshot {
-        SnapshotMode::None => {}
-        SnapshotMode::Write => args.write_index = Some(snapshot_path),
-        SnapshotMode::Load => args.load_index = Some(snapshot_path),
-        SnapshotMode::LoadAndWrite => {
-            args.load_index = Some(snapshot_path.clone());
-            args.write_index = Some(snapshot_path);
-        }
-    }
+    // A fresh configured repository must never silently inspect a legacy
+    // index cache. Schemas and collection definitions are still read normally.
+    let configured_cache_policy = (draft.mode == OpenMode::ConfiguredRepository)
+        .then_some(CacheOpenPolicy::Ignore);
     args.validate_open_options()?;
     Ok(OpenSpec {
         args,

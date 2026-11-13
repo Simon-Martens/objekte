@@ -646,7 +646,9 @@ impl UiState {
                     self.open_dialog.accept_detection(generation, &path, result);
                 }
             }
-            UiUpdate::ChosenFolder { .. } | UiUpdate::ChosenSchema { .. } => {}
+            UiUpdate::ChosenFolder { .. }
+            | UiUpdate::ChosenSchema { .. }
+            | UiUpdate::ChosenIndexDirectory { .. } => {}
             UiUpdate::RestoreQuery(draft) => {
                 self.workspace.open_query(draft.clone());
                 self.search = draft;

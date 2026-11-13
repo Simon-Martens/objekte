@@ -33,9 +33,9 @@ fn opening_modes_preserve_cli_validation() {
 }
 
 #[test]
-fn snapshot_is_explicit_and_desktop_query_has_no_range() {
+fn memory_only_is_default_and_desktop_query_has_no_range() {
     let mut opening = OpenDraft {
-        snapshot_directory: "/tmp/index".into(),
+        index_directory: "/tmp/indexes".into(),
         ..OpenDraft::default()
     };
     opening.paths = "/tmp/data".into();
@@ -46,10 +46,8 @@ fn snapshot_is_explicit_and_desktop_query_has_no_range() {
             .write_index
             .is_none()
     );
-    opening.snapshot = SnapshotMode::LoadAndWrite;
-    let spec = open_spec(&opening, Path::new("/tmp")).unwrap();
-    assert_eq!(spec.args.load_index.as_deref(), Some("/tmp/index"));
-    assert_eq!(spec.args.write_index.as_deref(), Some("/tmp/index"));
+    opening.index_storage = crate::ui::model::StorageChoice::Custom;
+    assert!(open_spec(&opening, Path::new("/tmp")).unwrap_err().contains("being connected"));
 
     let spec = query_spec(&SearchDraft::default()).unwrap();
     assert_eq!(spec.offset, 0);
@@ -57,6 +55,19 @@ fn snapshot_is_explicit_and_desktop_query_has_no_range() {
     assert!(!spec.count);
     let unlimited = query_spec(&SearchDraft::default()).unwrap();
     assert_eq!(unlimited.limit, None);
+}
+
+#[test]
+fn configured_repository_memory_open_ignores_legacy_cache() {
+    let opening = OpenDraft {
+        mode: OpenMode::ConfiguredRepository,
+        paths: "/tmp/repository".into(),
+        ..OpenDraft::default()
+    };
+    let spec = open_spec(&opening, Path::new("/tmp")).unwrap();
+    assert_eq!(spec.configured_cache_policy, Some(CacheOpenPolicy::Ignore));
+    assert!(spec.args.load_index.is_none());
+    assert!(spec.args.write_index.is_none());
 }
 
 #[test]
