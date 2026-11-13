@@ -41,6 +41,7 @@ fn discovery_and_segments_publish_without_losing_records() {
         .unwrap();
     }
     let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let restore_definition = definition.clone();
     let (catalogue_tx, catalogue_rx) = mpsc::sync_channel(0);
     let (publication_tx, publication_rx) = mpsc::sync_channel(0);
     let (resume_tx, resume_rx) = mpsc::sync_channel(0);
@@ -125,5 +126,40 @@ fn discovery_and_segments_publish_without_losing_records() {
     );
     assert!(!first.initial_construction_complete());
     assert!(first.search(&all_query()).is_err());
+    let cache = root.with_extension("idx");
+    finished.flush_cache(&cache).unwrap();
+    let restored = Index::load_cache(&root, vec![restore_definition], RepositoryOptions::default(), &cache).unwrap();
+    assert_eq!(restored.view().unwrap().search(&all_query()).unwrap().count, Some(2_050));
+    std::fs::remove_file(cache).unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn shared_malformed_file_resolves_each_collection_diagnostic() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-initial-shared-diagnostic-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/broken.json"), b"{ broken").unwrap();
+    let definitions = vec![
+        CollectionDefinition::folder("first", "data", SourceFormat::Json),
+        CollectionDefinition::folder("second", "data", SourceFormat::Json),
+    ];
+    let index = Index::start_incremental_build(&root, definitions, RepositoryOptions::default())
+        .unwrap().wait_complete().unwrap();
+    let view = index.view().unwrap();
+    let mut query = all_query();
+    query.collections.clear();
+    let result = view.search(&query).unwrap();
+    assert_eq!(result.hits.len(), 2);
+    assert_eq!(index.status().unwrap().fallback_records, 2);
+    for hit in result.hits {
+        assert_eq!(hit.record_class, crate::inventory::RecordClass::RawFallback);
+        let diagnostic = view.diagnostic(FileId(hit.file_id), hit.diagnostic_ref).unwrap();
+        let expected_collection = view.repository().collections().iter().position(|collection| collection.definition.name == hit.collection).unwrap();
+        assert_eq!(diagnostic.collection.0 as usize, expected_collection);
+    }
     std::fs::remove_dir_all(root).unwrap();
 }
