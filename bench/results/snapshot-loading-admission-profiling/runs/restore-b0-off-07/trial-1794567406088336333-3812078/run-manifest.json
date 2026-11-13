@@ -1,0 +1,29 @@
+{
+  "alphabet": "ascii",
+  "build_mode": "restore",
+  "code_revision": "93a98cc4dc578dde768c3a83e41b97d36f33e9b2",
+  "command": [
+    "/home/simon/source/objekte-integration-snapshot-loading-admission-profiling/bench/results/snapshot-loading-admission-profiling/local-binaries/b0",
+    "--root",
+    "/home/simon/source/objekte/examples/musenalm",
+    "--alphabet",
+    "ascii",
+    "--workers",
+    "32",
+    "--restore-snapshot",
+    "/home/simon/source/objekte-integration-snapshot-loading-admission-profiling/bench/results/snapshot-loading-admission-profiling/fixture/trial-1794566474269641664-3791001/index.snapshot",
+    "--result-dir",
+    "/home/simon/source/objekte-integration-snapshot-loading-admission-profiling/bench/results/snapshot-loading-admission-profiling/runs/restore-b0-off-07"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "configuration": "musenalm_extended",
+  "cpu_affinity": "0-31",
+  "cpu_governor": "performance",
+  "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "dirty_status": "",
+  "kernel": "7.2.15-200.fc44.x86_64",
+  "profile": false,
+  "requested_workers": 32,
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "snapshot_path": "/home/simon/source/objekte-integration-snapshot-loading-admission-profiling/bench/results/snapshot-loading-admission-profiling/fixture/trial-1794566474269641664-3791001/index.snapshot"
+}

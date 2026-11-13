@@ -1,0 +1,66 @@
+{
+  "base_master": "8682dcb201d3cd0b6c1c0bf0b1a5c552f1710b67",
+  "corpus": {
+    "files": 148486,
+    "inventory_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+    "records": 148486,
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+    "source_bytes": 193297230
+  },
+  "fixtures": {
+    "ascii": {
+      "bytes": 132710084,
+      "created_with_binary_variant": "b0",
+      "format_version": 28,
+      "local_path": "bench/results/snapshot-loading-admission-profiling/fixture/trial-1794566474269641664-3791001/index.snapshot",
+      "sha256": "2a12d69cdc64a3e78e0af719138f5c2a445615f970d6cffb7f17623716b32ee2"
+    },
+    "unicode": {
+      "bytes": 135240992,
+      "created_with_binary_variant": "b0",
+      "format_version": 28,
+      "local_path": "bench/results/snapshot-loading-admission-profiling/unicode-fixture/trial-1794567491982172912-3813466/index.snapshot",
+      "sha256": "f5ced9b1c9af5f85a8fa43cafef7236a6024299c1bfa0c323076e7ee30ed5d7f"
+    }
+  },
+  "machine": {
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "cpu_governor": "performance",
+    "filesystem": "/dev/nvme0n1p3[/home] btrfs rw,relatime,seclabel,compress=zstd:1,ssd,discard=async,space_cache=v2,subvolid=257,subvol=/home",
+    "kernel": "7.2.15-200.fc44.x86_64",
+    "physical_reads_note": "/proc/self/io read_bytes was zero in sampled measured intervals; logical reads were nonzero",
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+  },
+  "recorded_utc": "2026-11-13T11:06:46.740378+00:00",
+  "run": {
+    "affinity": "0-31",
+    "configuration": "musenalm_extended",
+    "fresh_process": true,
+    "inference": false,
+    "locked_dependencies": true,
+    "page_cache": "warm; no host cache clearing",
+    "parallel_benchmark_jobs": false,
+    "profile": "release",
+    "workers": 32
+  },
+  "task_id": "snapshot-loading-admission-profiling",
+  "variants": {
+    "b0": {
+      "binary_sha256": "97def2fdd9ee962d5ef29617fc2d1240f26a349d2db18bd084dc82553217d98b",
+      "commit": "6c808ebb70203d2442a5e8f2f595199ae5f8d171"
+    },
+    "b1": {
+      "binary_sha256": "31450a3849af2e020733b8c8e39f2e37d414bc273e401b1183c8923e7a707036",
+      "commit": "7ac10f36cd762708aa943a70fa4700ffb9592d5c"
+    },
+    "b2": {
+      "binary_sha256": "006a931dde620ebbaa95eaf9e5d9e4bf608754743c48ebe20ddd03beb3f8ceef",
+      "commit": "55a38262b28af74cb5858c4f4478385ff4b15804"
+    },
+    "b3": {
+      "binary_sha256": "ad94396f17ba7ef82617fd786020ff48edd937f116253ec589fd79bba08cbc97",
+      "commit": "93a98cc4dc578dde768c3a83e41b97d36f33e9b2"
+    }
+  }
+}
