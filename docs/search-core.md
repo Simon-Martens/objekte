@@ -175,7 +175,11 @@ multi-valued path, the default comparison is universal across its elements;
 field and uses universal comparison. An empty present array satisfies a
 universal comparison but not an existential one; a missing path satisfies
 neither. `:exists` tests path presence, `:null` tests an explicit null, and
-`:length` compares an array's length. Negative operators apply per selected
+`:length` compares an array's length. Boolean field tests `:?`, `:string`,
+`:number`, `:array`, `:object`, `:null`, and `:exists` aggregate over selected
+logical occurrences before comparing to true or false. Zero and Boolean false
+are nonempty; missing and explicit null differ. Negative ordinary comparison
+operators apply per selected
 element under the same quantifier, rather than negating the entire record
 predicate.
 

@@ -118,6 +118,51 @@ fn presence_null_array_dedup_and_cardinality() {
 }
 
 #[test]
+fn mixed_multivalue_null_predicate_cannot_use_singleton_null_posting() {
+    use crate::query::parse_filter;
+    use crate::reference::{BoundExpr, Schema, bind_filter};
+
+    let field = FieldDefinition {
+        path: vec!["values".into()],
+        kind: LogicalType::Array(Box::new(LogicalType::String)),
+        required: false,
+        nullable: true,
+        indexed: true,
+        multi: true,
+        element_nullable: vec![true],
+    };
+    let mut schema = Schema::default();
+    schema.register_field(field.clone()).unwrap();
+    let mut posting = PostingIndex::new(&field);
+    let null = Value::Null;
+    let text = Value::String("one".into());
+    posting
+        .add_values(RecordSlot(0), Some(&[&null, &text]))
+        .unwrap();
+    posting.finish_stats();
+    assert!(!posting.nulls.contains(0));
+    let domain = RoaringBitmap::from_iter([0]);
+    for filter in [
+        "values:null = true",
+        "values:null = false",
+        "values:null != true",
+    ] {
+        let BoundExpr::Term(term) = bind_filter(&parse_filter(filter).unwrap(), &schema).unwrap()
+        else {
+            panic!("expected term");
+        };
+        assert!(posting.estimate_exact(&term, 1).is_none(), "{filter}");
+        assert!(posting.exact_set(&term, &domain).is_none(), "{filter}");
+        assert!(
+            posting
+                .exact_set_restricted(&term, &domain, &domain)
+                .is_none(),
+            "{filter}"
+        );
+    }
+}
+
+#[test]
 fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
     use crate::query::{Query, QueryOptions, parse_filter};
     use crate::repository::{

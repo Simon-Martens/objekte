@@ -111,6 +111,11 @@ pub enum Modifier {
     Each,
     Null,
     Exists,
+    NonEmpty,
+    StringType,
+    NumberType,
+    ArrayType,
+    ObjectType,
     Custom(String),
 }
 
@@ -122,6 +127,11 @@ fn parse_modifier(name: String) -> Modifier {
         "each" => Modifier::Each,
         "null" => Modifier::Null,
         "exists" => Modifier::Exists,
+        "?" => Modifier::NonEmpty,
+        "string" => Modifier::StringType,
+        "number" => Modifier::NumberType,
+        "array" => Modifier::ArrayType,
+        "object" => Modifier::ObjectType,
         _ => Modifier::Custom(name),
     }
 }
@@ -365,6 +375,7 @@ fn regex_pattern_parameter(literal: &str) -> Option<&str> {
 enum TokenKind {
     Word(String),
     String(String),
+    Question,
     Colon,
     Comma,
     LParen,
@@ -430,6 +441,7 @@ fn lex(input: &str) -> Result<Vec<Token>, String> {
                 '(' => (TokenKind::LParen, 1),
                 ')' => (TokenKind::RParen, 1),
                 ':' => (TokenKind::Colon, 1),
+                '?' => (TokenKind::Question, 1),
                 ',' => (TokenKind::Comma, 1),
                 '!' => (TokenKind::Not, 1),
                 '\'' | '"' => {
@@ -644,6 +656,7 @@ impl Parser {
             let token = self.take();
             let name = match token.kind {
                 TokenKind::Word(s) => s,
+                TokenKind::Question => "?".to_string(),
                 _ => return Err(format!("expected modifier at byte {}", token.start)),
             };
             if name.starts_with('$') {
@@ -735,6 +748,7 @@ impl Parser {
                         let token = self.take();
                         let name = match token.kind {
                             TokenKind::Word(name) => name,
+                            TokenKind::Question => "?".to_string(),
                             _ => return Err(format!("expected modifier at byte {}", token.start)),
                         };
                         end = token.end;

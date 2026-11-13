@@ -1,0 +1,842 @@
+[
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q001",
+    "profile": "ascii-off",
+    "median_ns": 5977775,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 3747686,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 13168589,
+    "opens": 7766,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q028",
+    "profile": "ascii-off",
+    "median_ns": 2517852,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q069",
+    "profile": "ascii-off",
+    "median_ns": 2769322,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q100",
+    "profile": "ascii-off",
+    "median_ns": 13574497,
+    "opens": 22185,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q190",
+    "profile": "ascii-off",
+    "median_ns": 4320459,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q001",
+    "profile": "unicode-off",
+    "median_ns": 9398818,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 3800883,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 8218297,
+    "opens": 7773,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q028",
+    "profile": "unicode-off",
+    "median_ns": 4178896,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q069",
+    "profile": "unicode-off",
+    "median_ns": 4036031,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q100",
+    "profile": "unicode-off",
+    "median_ns": 14522886,
+    "opens": 22570,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 1,
+    "mode": "before",
+    "case_id": "Q190",
+    "profile": "unicode-off",
+    "median_ns": 4374540,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q001",
+    "profile": "ascii-off",
+    "median_ns": 6003457,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 3948574,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 13458052,
+    "opens": 7766,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q028",
+    "profile": "ascii-off",
+    "median_ns": 2584359,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q069",
+    "profile": "ascii-off",
+    "median_ns": 2878292,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q100",
+    "profile": "ascii-off",
+    "median_ns": 14352410,
+    "opens": 22185,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q190",
+    "profile": "ascii-off",
+    "median_ns": 4180439,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q001",
+    "profile": "unicode-off",
+    "median_ns": 6322135,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 3574987,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 12116548,
+    "opens": 7773,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q028",
+    "profile": "unicode-off",
+    "median_ns": 2716007,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q069",
+    "profile": "unicode-off",
+    "median_ns": 2796795,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q100",
+    "profile": "unicode-off",
+    "median_ns": 14441651,
+    "opens": 22570,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 1,
+    "mode": "after",
+    "case_id": "Q190",
+    "profile": "unicode-off",
+    "median_ns": 4545626,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q001",
+    "profile": "ascii-off",
+    "median_ns": 6062995,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 4078535,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 14133098,
+    "opens": 7766,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q028",
+    "profile": "ascii-off",
+    "median_ns": 2707100,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q069",
+    "profile": "ascii-off",
+    "median_ns": 2938923,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q100",
+    "profile": "ascii-off",
+    "median_ns": 14339734,
+    "opens": 22185,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q190",
+    "profile": "ascii-off",
+    "median_ns": 4273993,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q001",
+    "profile": "unicode-off",
+    "median_ns": 6423224,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 3780224,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 13855188,
+    "opens": 7773,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q028",
+    "profile": "unicode-off",
+    "median_ns": 2593340,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q069",
+    "profile": "unicode-off",
+    "median_ns": 3068291,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q100",
+    "profile": "unicode-off",
+    "median_ns": 13931441,
+    "opens": 22570,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 2,
+    "mode": "after",
+    "case_id": "Q190",
+    "profile": "unicode-off",
+    "median_ns": 4526782,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q001",
+    "profile": "ascii-off",
+    "median_ns": 6211128,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 4941123,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 12705378,
+    "opens": 7766,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q028",
+    "profile": "ascii-off",
+    "median_ns": 2533357,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q069",
+    "profile": "ascii-off",
+    "median_ns": 3003499,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q100",
+    "profile": "ascii-off",
+    "median_ns": 13979606,
+    "opens": 22185,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q190",
+    "profile": "ascii-off",
+    "median_ns": 4382245,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q001",
+    "profile": "unicode-off",
+    "median_ns": 10196486,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 4191076,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 13525788,
+    "opens": 7773,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q028",
+    "profile": "unicode-off",
+    "median_ns": 2862613,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q069",
+    "profile": "unicode-off",
+    "median_ns": 2921740,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q100",
+    "profile": "unicode-off",
+    "median_ns": 13730892,
+    "opens": 22570,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 2,
+    "mode": "before",
+    "case_id": "Q190",
+    "profile": "unicode-off",
+    "median_ns": 4469850,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q001",
+    "profile": "ascii-off",
+    "median_ns": 7421207,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 3902884,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 12022926,
+    "opens": 7766,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q028",
+    "profile": "ascii-off",
+    "median_ns": 2946329,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q069",
+    "profile": "ascii-off",
+    "median_ns": 2859833,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q100",
+    "profile": "ascii-off",
+    "median_ns": 13741762,
+    "opens": 22185,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q190",
+    "profile": "ascii-off",
+    "median_ns": 4265349,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q001",
+    "profile": "unicode-off",
+    "median_ns": 6805336,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 3718615,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 14429205,
+    "opens": 7773,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q028",
+    "profile": "unicode-off",
+    "median_ns": 2876533,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q069",
+    "profile": "unicode-off",
+    "median_ns": 3124079,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q100",
+    "profile": "unicode-off",
+    "median_ns": 14012359,
+    "opens": 22570,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 3,
+    "mode": "before",
+    "case_id": "Q190",
+    "profile": "unicode-off",
+    "median_ns": 4621643,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q001",
+    "profile": "ascii-off",
+    "median_ns": 6041138,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 4183107,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 14211842,
+    "opens": 7766,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q028",
+    "profile": "ascii-off",
+    "median_ns": 2638643,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q069",
+    "profile": "ascii-off",
+    "median_ns": 2815156,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q100",
+    "profile": "ascii-off",
+    "median_ns": 14074337,
+    "opens": 22185,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q190",
+    "profile": "ascii-off",
+    "median_ns": 4321733,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q001",
+    "profile": "unicode-off",
+    "median_ns": 7948170,
+    "opens": 4872,
+    "status": "ok",
+    "matches": "3269"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 3926439,
+    "opens": 2948,
+    "status": "ok",
+    "matches": "2866"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 14344862,
+    "opens": 7773,
+    "status": "ok",
+    "matches": "2995"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q028",
+    "profile": "unicode-off",
+    "median_ns": 3179186,
+    "opens": 4177,
+    "status": "ok",
+    "matches": "4177"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q069",
+    "profile": "unicode-off",
+    "median_ns": 3090616,
+    "opens": 4010,
+    "status": "ok",
+    "matches": "4010"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q100",
+    "profile": "unicode-off",
+    "median_ns": 13993307,
+    "opens": 22570,
+    "status": "ok",
+    "matches": "0"
+  },
+  {
+    "pair": 3,
+    "mode": "after",
+    "case_id": "Q190",
+    "profile": "unicode-off",
+    "median_ns": 4528912,
+    "opens": 3821,
+    "status": "ok",
+    "matches": "3821"
+  }
+]

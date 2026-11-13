@@ -209,6 +209,13 @@ impl PostingIndex {
         if self.covered_records as u64 != domain.len() {
             return None;
         }
+        // A structural null posting records a single null selection. The
+        // aggregate :null predicate also matches mixed multivalued selections.
+        // Use the index's observed multiplicity: schema-free binding can mark
+        // a term multivalued even when the indexed field is proven scalar.
+        if term.derived == Derived::Null && self.multi {
+            return None;
+        }
         if term.period.is_some() {
             if !self.value_complete {
                 return None;
@@ -489,6 +496,9 @@ impl PostingIndex {
         if self.covered_records as u64 != domain_len {
             return None;
         }
+        if term.derived == Derived::Null && self.multi {
+            return None;
+        }
         if term.period.is_some() {
             if !self.value_complete {
                 return None;
@@ -560,6 +570,11 @@ impl PostingIndex {
                 return Some((1.0 + work, count));
             }
             Derived::None => {}
+            Derived::IsNonEmpty
+            | Derived::IsString
+            | Derived::IsNumber
+            | Derived::IsArray
+            | Derived::IsObject => return None,
         }
         if matches!(term.literal, Value::Null) {
             if term.multi {
@@ -632,6 +647,9 @@ impl PostingIndex {
         if self.covered_records as u64 != domain.len() {
             return None;
         }
+        if term.derived == Derived::Null && self.multi {
+            return None;
+        }
         if term.period.is_some() {
             if !self.value_complete {
                 return None;
@@ -677,6 +695,11 @@ impl PostingIndex {
                 };
             }
             Derived::None => {}
+            Derived::IsNonEmpty
+            | Derived::IsString
+            | Derived::IsNumber
+            | Derived::IsArray
+            | Derived::IsObject => return None,
         }
         if matches!(term.literal, Value::Null) {
             if term.multi {

@@ -3,13 +3,13 @@
 
 use std::ops::Range;
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum CompletionTarget {
     Field { sort: bool },
+    Modifier,
+    BooleanValue,
     Value { field: String },
 }
-
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompletionContext {
@@ -17,7 +17,6 @@ pub struct CompletionContext {
     pub prefix: String,
     pub target: CompletionTarget,
 }
-
 
 pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
     if caret > text.len() || !text.is_char_boundary(caret) {
@@ -46,7 +45,10 @@ pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
     };
     let before = text[..start].trim_end();
     let scalar_string = !quoted_path
-        && text[start..].chars().next().is_some_and(|ch| matches!(ch, '\'' | '"'));
+        && text[start..]
+            .chars()
+            .next()
+            .is_some_and(|ch| matches!(ch, '\'' | '"'));
     if scalar_string && quoted_start.is_none() && caret == end {
         return None;
     }
@@ -76,11 +78,27 @@ pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
             return Some(CompletionContext {
                 replace: start..end,
                 prefix,
-                target: CompletionTarget::Value {
-                    field: field.to_owned(),
+                target: if matches!(operator, "=" | "!=") && boolean_modifier(field) {
+                    CompletionTarget::BooleanValue
+                } else {
+                    CompletionTarget::Value {
+                        field: field.to_owned(),
+                    }
                 },
             });
         }
+    }
+    if !scalar_string
+        && !quoted_path
+        && filter_field_position(before)
+        && let Some(colon) = modifier_colon(&text[start..caret])
+    {
+        let modifier_start = start + colon + 1;
+        return Some(CompletionContext {
+            replace: modifier_start..end,
+            prefix: text[modifier_start..caret].to_owned(),
+            target: CompletionTarget::Modifier,
+        });
     }
     if filter_field_position(before) {
         if scalar_string {
@@ -93,6 +111,40 @@ pub fn context(text: &str, caret: usize) -> Option<CompletionContext> {
         });
     }
     None
+}
+
+fn boolean_modifier(field: &str) -> bool {
+    [
+        ":?", ":string", ":number", ":array", ":null", ":object", ":exists",
+    ]
+    .iter()
+    .any(|suffix| field.ends_with(suffix))
+}
+
+/// Find a modifier separator, excluding colons inside quoted path segments.
+fn modifier_colon(token: &str) -> Option<usize> {
+    let mut bracket = 0usize;
+    let mut quote = None;
+    let mut escaped = false;
+    let mut found = None;
+    for (index, ch) in token.char_indices() {
+        if escaped {
+            escaped = false;
+        } else if quote.is_some() && ch == '\\' {
+            escaped = true;
+        } else if quote == Some(ch) {
+            quote = None;
+        } else if quote.is_none() {
+            match ch {
+                '\'' | '"' if bracket > 0 => quote = Some(ch),
+                '[' => bracket += 1,
+                ']' => bracket = bracket.saturating_sub(1),
+                ':' if bracket == 0 && index > 0 => found = Some(index),
+                _ => {}
+            }
+        }
+    }
+    found
 }
 
 fn filter_field_position(mut before: &str) -> bool {
@@ -204,7 +256,8 @@ fn sort_clause_start(text: &str) -> Option<usize> {
         } else if ch == '\\' && quote.is_some() {
             escaped = true;
         } else if quote.is_none() {
-            if bracket == 0 && paren == 0
+            if bracket == 0
+                && paren == 0
                 && (at == 0 || text[..at].chars().last().is_some_and(char::is_whitespace))
                 && let Some(end) = sort_by_end(text, at)
             {
@@ -234,7 +287,11 @@ fn sort_by_end(text: &str, at: usize) -> Option<usize> {
         return None;
     }
     let end = at + 6 + spaces;
-    text[end..].chars().next().is_none_or(char::is_whitespace).then_some(end)
+    text[end..]
+        .chars()
+        .next()
+        .is_none_or(char::is_whitespace)
+        .then_some(end)
 }
 
 fn token_boundary(ch: char) -> bool {
@@ -261,7 +318,6 @@ pub fn insert(text: &str, replace: Range<usize>, completion: &str) -> Option<(St
     Some((result, caret))
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -279,6 +335,40 @@ mod tests {
             }
         );
         assert_eq!(context("year >= \"Hei", 12).unwrap().replace, 8..12);
+    }
+
+    #[test]
+    fn completes_boolean_field_tests_without_treating_quoted_colons_as_modifiers() {
+        let modifier = context("annotation:st", "annotation:st".len()).unwrap();
+        assert_eq!(modifier.target, CompletionTarget::Modifier);
+        assert_eq!(modifier.replace, 11..13);
+        assert_eq!(modifier.prefix, "st");
+        assert_eq!(
+            insert("annotation:st", modifier.replace, "string")
+                .unwrap()
+                .0,
+            "annotation:string"
+        );
+        assert_eq!(
+            context("annotation:? = tr", "annotation:? = tr".len())
+                .unwrap()
+                .target,
+            CompletionTarget::BooleanValue
+        );
+        assert_eq!(
+            context("[\"a:b\"]:nu", "[\"a:b\"]:nu".len())
+                .unwrap()
+                .target,
+            CompletionTarget::Modifier
+        );
+        assert_eq!(
+            context("[\"a:b\"] = tr", "[\"a:b\"] = tr".len())
+                .unwrap()
+                .target,
+            CompletionTarget::Value {
+                field: "[\"a:b\"]".into()
+            }
+        );
     }
 
     #[test]
@@ -313,13 +403,23 @@ mod tests {
     #[test]
     fn offers_fields_only_where_a_field_can_begin() {
         for text in [
-            "name ", "name:lower ", "name = 'Ada' ", "name = 'Ada' SORT ",
-            "!", "name = 'Ada' !", "name = 'Ada' (", "name = 'Ada' && !",
+            "name ",
+            "name:lower ",
+            "name = 'Ada' ",
+            "name = 'Ada' SORT ",
+            "!",
+            "name = 'Ada' !",
+            "name = 'Ada' (",
+            "name = 'Ada' && !",
         ] {
             assert!(context(text, text.len()).is_none(), "{text}");
         }
         for text in [
-            "", "(", "! (", "name = 'Ada' && ", "name = 'Ada' || (",
+            "",
+            "(",
+            "! (",
+            "name = 'Ada' && ",
+            "name = 'Ada' || (",
             "name = 'Ada' && !( ",
         ] {
             assert_eq!(
@@ -333,8 +433,12 @@ mod tests {
     #[test]
     fn sort_completion_stops_after_a_field_or_direction() {
         for text in [
-            "SORT BY ", "SORT  BY ", "name = 'Ada' SORT BY title, ",
-            "SORT BY MIN(", "SORT BY MIN (", "SORT BY title, MAX (",
+            "SORT BY ",
+            "SORT  BY ",
+            "name = 'Ada' SORT BY title, ",
+            "SORT BY MIN(",
+            "SORT BY MIN (",
+            "SORT BY title, MAX (",
         ] {
             assert_eq!(
                 context(text, text.len()).unwrap().target,
@@ -359,7 +463,12 @@ mod tests {
         let found = context(value, caret).unwrap();
         assert_eq!(found.replace, 7..11);
         assert_eq!(found.prefix, "A%");
-        assert_eq!(found.target, CompletionTarget::Value { field: "name".into() });
+        assert_eq!(
+            found.target,
+            CompletionTarget::Value {
+                field: "name".into()
+            }
+        );
 
         let field = "foo['a b'] = 1";
         let caret = field.find('b').unwrap() + 1;
@@ -393,7 +502,9 @@ mod tests {
                 assert_eq!(found.prefix, prefix);
                 assert_eq!(
                     found.target,
-                    CompletionTarget::Field { sort: before == "SORT BY " }
+                    CompletionTarget::Field {
+                        sort: before == "SORT BY "
+                    }
                 );
                 assert_eq!(found.replace, before.len()..text.len());
             }
@@ -402,7 +513,9 @@ mod tests {
         let found = context(text, text.len()).unwrap();
         assert_eq!(
             found.target,
-            CompletionTarget::Value { field: "@file.size".into() }
+            CompletionTarget::Value {
+                field: "@file.size".into()
+            }
         );
         assert_eq!(found.prefix, "02GiB");
     }

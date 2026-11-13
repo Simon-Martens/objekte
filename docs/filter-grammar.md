@@ -9,7 +9,8 @@ term        := field (":" modifier)* operator literal
 operator    := "=" | "!=" | ">" | ">=" | "<" | "<=" | "~" | "!~"
              | "?=" | "?!=" | "?>" | "?>=" | "?<" | "?<=" | "?~" | "?!~"
 literal     := quoted-string | signed-number | "true" | "false" | "null"
-modifier    := "lower" | "length" | "each" | "null" | "exists" | registered-name
+modifier    := "lower" | "length" | "each" | "null" | "exists"
+             | "?" | "string" | "number" | "array" | "object" | registered-name
 field       := dotted-name with optional ["quoted"] / ['quoted'] / [*] segments
 ```
 
@@ -30,6 +31,41 @@ therefore satisfies a universal comparison and no existential comparison.
 Missing paths satisfy neither. `?!=` means some reached length differs; it is
 not the complement of `?=`. A single array is compared by its own length,
 including zero.
+
+## Boolean field predicates
+
+The terminal modifiers `:?`, `:string`, `:number`, `:array`, `:null`,
+`:object`, and `:exists` take `=` or `!=` with a Boolean literal or Boolean
+parameter. They test, respectively, nonemptiness, primitive type, explicit
+null, and presence. A comparison to `false` negates the aggregate predicate.
+For example:
+
+```text
+annotation:? = true
+annotation:string = false
+items[*]:null = true
+items[*]:? != false
+```
+
+Missing is different from an explicit null. An empty string, array, or object
+is present and has its own type, but is empty; a whitespace-only string is
+nonempty. Numeric zero and Boolean `false` are nonempty. Logical IDs count as
+strings. Logical date, datetime, and unixtime values are present and nonempty,
+but do not automatically count as primitive strings or numbers.
+
+For paths selecting multiple values, each positive predicate is true if any
+selected occurrence satisfies it. Different predicates can match different
+occurrences: a selection containing null and a nonempty string satisfies
+`:null = true`, `:string = true`, and `:? = true`. An empty selection satisfies
+none of the positive predicates. Selecting an empty array is distinct from
+selecting its nonexistent elements.
+
+The `string`, `number`, `array`, and `object` names still invoke registered
+conversions for their ordinary non-Boolean comparisons. A terminal Boolean
+comparison uses the predicate meaning, even if a conversion has the same
+name. Other custom operations keep their existing binding and validation.
+These predicates work on unindexed fields through source evaluation; index
+coverage and exactness decide when an existing posting can prove a result.
 
 ## Sorting
 

@@ -38,6 +38,7 @@ pub mod measurement;
 pub mod model;
 pub mod parameters;
 pub mod path_repr;
+mod field_state;
 pub mod posting;
 pub mod posting_values;
 mod prepared;
