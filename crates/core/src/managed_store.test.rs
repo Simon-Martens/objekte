@@ -8,6 +8,7 @@ use std::io::Cursor;
 struct TestStore {
     base: PathBuf,
     store: ManagedStore,
+    active: ActiveRecords,
 }
 
 impl TestStore {
@@ -42,7 +43,11 @@ impl TestStore {
         )
         .unwrap();
         let store = ManagedStore::open(&resolved).unwrap();
-        Self { base, store }
+        Self {
+            base,
+            store,
+            active: ActiveRecords::all(16).unwrap(),
+        }
     }
 }
 
@@ -51,7 +56,14 @@ fn full_residency_owns_bytes_and_checks_all_sections() {
     let fixture = TestStore::with_residency(IndexResidency::FullyResident);
     fixture
         .store
-        .commit_generation(1, &[SegmentInput::New(Arc::from(complete_segment(4)))])
+        .commit_generation(
+            None,
+            1,
+            &[SegmentInput::New {
+                bytes: Arc::from(complete_segment(4)),
+                active: &fixture.active,
+            }],
+        )
         .unwrap();
     let opened = fixture.store.read_generation().unwrap().unwrap();
     assert!(opened.segments[0].is_owned());
@@ -70,7 +82,14 @@ fn opening_validates_metadata_but_defers_posting_payload_integrity_on_demand() {
     let fixture = TestStore::new();
     fixture
         .store
-        .commit_generation(1, &[SegmentInput::New(Arc::from(complete_segment(5)))])
+        .commit_generation(
+            None,
+            1,
+            &[SegmentInput::New {
+                bytes: Arc::from(complete_segment(5)),
+                active: &fixture.active,
+            }],
+        )
         .unwrap();
     let opened = fixture.store.read_generation().unwrap().unwrap();
     assert!(!opened.segments[0].is_owned());
@@ -124,7 +143,14 @@ fn publishes_new_and_reused_segments_without_rewriting_old_bytes() {
     let third: Arc<[u8]> = Arc::from(complete_segment(3));
     let committed = fixture
         .store
-        .commit_generation(1, &[SegmentInput::New(Arc::clone(&first))])
+        .commit_generation(
+            None,
+            1,
+            &[SegmentInput::New {
+                bytes: Arc::clone(&first),
+                active: &fixture.active,
+            }],
+        )
         .unwrap();
     assert_eq!(committed.segment_bytes_written, first.len() as u64);
     let pinned = fixture.store.read_generation().unwrap().unwrap();
@@ -133,10 +159,17 @@ fn publishes_new_and_reused_segments_without_rewriting_old_bytes() {
     let committed = fixture
         .store
         .commit_generation(
+            Some(1),
             2,
             &[
-                SegmentInput::Existing(&old_name),
-                SegmentInput::New(Arc::clone(&second)),
+                SegmentInput::Existing {
+                    name: &old_name,
+                    active: &fixture.active,
+                },
+                SegmentInput::New {
+                    bytes: Arc::clone(&second),
+                    active: &fixture.active,
+                },
             ],
         )
         .unwrap();
@@ -156,7 +189,14 @@ fn publishes_new_and_reused_segments_without_rewriting_old_bytes() {
     fs::write(&incomplete_manifest, b"OBJHMAN1partial").unwrap();
     let committed = fixture
         .store
-        .commit_generation(3, &[SegmentInput::New(Arc::clone(&third))])
+        .commit_generation(
+            Some(2),
+            3,
+            &[SegmentInput::New {
+                bytes: Arc::clone(&third),
+                active: &fixture.active,
+            }],
+        )
         .unwrap();
     assert_eq!(committed.obsolete_files_reclaimed, 2);
     assert_eq!(committed.orphan_files_reclaimed, 2);
@@ -183,7 +223,14 @@ fn truncated_manifest_is_an_error_and_interrupted_temp_is_ignored() {
     let bytes: Arc<[u8]> = Arc::from(complete_segment(7));
     fixture
         .store
-        .commit_generation(1, &[SegmentInput::New(Arc::clone(&bytes))])
+        .commit_generation(
+            None,
+            1,
+            &[SegmentInput::New {
+                bytes: Arc::clone(&bytes),
+                active: &fixture.active,
+            }],
+        )
         .unwrap();
     fs::write(
         fixture.store.path().join("manifest-interrupted.tmp"),
@@ -204,19 +251,192 @@ fn rejects_unknown_existing_segment_and_generation_rewind() {
     let bytes: Arc<[u8]> = Arc::from(complete_segment(1));
     fixture
         .store
-        .commit_generation(1, &[SegmentInput::New(Arc::clone(&bytes))])
+        .commit_generation(
+            None,
+            1,
+            &[SegmentInput::New {
+                bytes: Arc::clone(&bytes),
+                active: &fixture.active,
+            }],
+        )
         .unwrap();
-    assert!(fixture.store.commit_generation(1, &[]).is_err());
+    assert!(fixture.store.commit_generation(Some(1), 1, &[]).is_err());
     assert!(
         fixture
             .store
-            .commit_generation(2, &[SegmentInput::Existing("segment-evil.idx")])
+            .commit_generation(
+                Some(1),
+                2,
+                &[SegmentInput::Existing {
+                    name: "segment-evil.idx",
+                    active: &fixture.active
+                }]
+            )
             .is_err()
     );
     assert_eq!(
         fixture.store.read_generation().unwrap().unwrap().generation,
         1
     );
+}
+
+#[test]
+fn stale_writer_cannot_replace_a_newer_durable_generation() {
+    let fixture = TestStore::new();
+    let first: Arc<[u8]> = Arc::from(complete_segment(1));
+    fixture
+        .store
+        .commit_generation(
+            None,
+            1,
+            &[SegmentInput::New {
+                bytes: first,
+                active: &fixture.active,
+            }],
+        )
+        .unwrap();
+    let second: Arc<[u8]> = Arc::from(complete_segment(2));
+    assert!(
+        fixture
+            .store
+            .commit_generation(
+                None,
+                2,
+                &[SegmentInput::New {
+                    bytes: Arc::clone(&second),
+                    active: &fixture.active,
+                }]
+            )
+            .unwrap_err()
+            .contains("durable generation changed")
+    );
+    fixture
+        .store
+        .commit_generation(
+            Some(1),
+            2,
+            &[SegmentInput::New {
+                bytes: second,
+                active: &fixture.active,
+            }],
+        )
+        .unwrap();
+    let third: Arc<[u8]> = Arc::from(complete_segment(3));
+    assert!(
+        fixture
+            .store
+            .commit_generation(
+                Some(1),
+                3,
+                &[SegmentInput::New {
+                    bytes: third,
+                    active: &fixture.active,
+                }]
+            )
+            .unwrap_err()
+            .contains("durable generation changed")
+    );
+    assert_eq!(
+        fixture.store.read_generation().unwrap().unwrap().generation,
+        2
+    );
+}
+
+#[test]
+fn reused_segment_publishes_retirement_mask_without_rewriting_bytes() {
+    let fixture = TestStore::new();
+    fixture
+        .store
+        .commit_generation(
+            None,
+            1,
+            &[SegmentInput::New {
+                bytes: Arc::from(complete_segment(6)),
+                active: &fixture.active,
+            }],
+        )
+        .unwrap();
+    let pinned = fixture.store.read_generation().unwrap().unwrap();
+    let name = pinned.segment_names[0].clone();
+    let old_bytes = fs::read(fixture.store.path().join(&name)).unwrap();
+    let retired =
+        ActiveRecords::from_bitmap(16, RoaringBitmap::from_iter([0, 1, 3, 8, 15])).unwrap();
+    let stats = fixture
+        .store
+        .commit_generation(
+            Some(1),
+            2,
+            &[SegmentInput::Existing {
+                name: &name,
+                active: &retired,
+            }],
+        )
+        .unwrap();
+    assert_eq!(stats.segment_bytes_written, 0);
+    assert_eq!(stats.segments_reused, 1);
+    assert_eq!(pinned.active[0].len(), 16);
+    let current = fixture.store.read_generation().unwrap().unwrap();
+    assert_eq!(current.active[0].slot_count(), 16);
+    assert_eq!(current.active[0].bitmap(), retired.bitmap());
+    assert_eq!(current.segment_names, vec![name.clone()]);
+    assert_eq!(
+        fs::read(fixture.store.path().join(&name)).unwrap(),
+        old_bytes
+    );
+    let wrong_slots = ActiveRecords::all(17).unwrap();
+    assert!(
+        fixture
+            .store
+            .commit_generation(
+                Some(2),
+                3,
+                &[SegmentInput::Existing {
+                    name: &name,
+                    active: &wrong_slots,
+                }]
+            )
+            .unwrap_err()
+            .contains("active slot count changed")
+    );
+    assert_eq!(
+        fixture.store.read_generation().unwrap().unwrap().generation,
+        2
+    );
+}
+
+#[test]
+fn active_manifest_semantics_are_checked_after_checksum() {
+    let fixture = TestStore::new();
+    fixture
+        .store
+        .commit_generation(
+            None,
+            1,
+            &[SegmentInput::New {
+                bytes: Arc::from(complete_segment(6)),
+                active: &fixture.active,
+            }],
+        )
+        .unwrap();
+    let path = fixture.store.path().join(MANIFEST_NAME);
+    let original = fs::read(&path).unwrap();
+    let mut invalid = original.clone();
+    let kind = invalid.len() - 32 - 1;
+    invalid[kind] = 2;
+    let digest = Sha256::digest(&invalid[..invalid.len() - 32]);
+    let end = invalid.len();
+    invalid[end - 32..].copy_from_slice(&digest);
+    fs::write(&path, invalid).unwrap();
+    assert!(
+        fixture
+            .store
+            .read_generation()
+            .err()
+            .unwrap()
+            .contains("active mask kind invalid")
+    );
+    fs::write(&path, original).unwrap();
+    assert!(fixture.store.read_generation().is_ok());
 }
 
 #[test]
@@ -312,7 +532,14 @@ fn obsolete_symlink_is_not_followed_or_removed() {
     let first: Arc<[u8]> = Arc::from(complete_segment(1));
     fixture
         .store
-        .commit_generation(1, &[SegmentInput::New(Arc::clone(&first))])
+        .commit_generation(
+            None,
+            1,
+            &[SegmentInput::New {
+                bytes: Arc::clone(&first),
+                active: &fixture.active,
+            }],
+        )
         .unwrap();
     let name = fixture
         .store
@@ -329,7 +556,14 @@ fn obsolete_symlink_is_not_followed_or_removed() {
     let second: Arc<[u8]> = Arc::from(complete_segment(2));
     let stats = fixture
         .store
-        .commit_generation(2, &[SegmentInput::New(second)])
+        .commit_generation(
+            Some(1),
+            2,
+            &[SegmentInput::New {
+                bytes: second,
+                active: &fixture.active,
+            }],
+        )
         .unwrap();
     assert_eq!(stats.obsolete_files_reclaimed, 0);
     assert_eq!(stats.reclaim_errors.len(), 1);

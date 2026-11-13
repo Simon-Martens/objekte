@@ -7,9 +7,11 @@ use std::path::{Component, Path, PathBuf};
 use std::sync::Arc;
 use std::time::{SystemTime, UNIX_EPOCH};
 
+use roaring::RoaringBitmap;
 use sha2::{Digest, Sha256};
 
 use crate::index_storage::{IndexResidency, ResolvedIndexStorage};
+use crate::inventory::ActiveRecords;
 use crate::segment_format::{FORMAT_VERSION, REQUIRED_SECTIONS, SectionKind, SegmentReader};
 
 const MANIFEST_MAGIC: &[u8; 8] = b"OBJHMAN1";
@@ -25,6 +27,7 @@ const DEPRECATED_NAMES: [&str; 2] = ["search-core-ascii.snapshot", "search-core-
 struct SegmentRecord {
     name: String,
     length: u64,
+    active: ActiveRecords,
 }
 
 #[derive(Clone, Debug)]
@@ -35,14 +38,21 @@ struct Manifest {
 
 /// A previous immutable segment may be referenced without rewriting it.
 pub(crate) enum SegmentInput<'a> {
-    Existing(&'a str),
-    New(Arc<[u8]>),
+    Existing {
+        name: &'a str,
+        active: &'a ActiveRecords,
+    },
+    New {
+        bytes: Arc<[u8]>,
+        active: &'a ActiveRecords,
+    },
 }
 
 pub(crate) struct OpenedGeneration {
     pub generation: u64,
     pub segment_names: Vec<String>,
     pub segments: Vec<Arc<SegmentReader>>,
+    pub active: Vec<ActiveRecords>,
 }
 
 #[derive(Clone, Debug, Default)]
@@ -178,6 +188,7 @@ impl ManagedStore {
         };
         let mut segments = Vec::with_capacity(manifest.segments.len());
         let mut names = Vec::with_capacity(manifest.segments.len());
+        let mut active = Vec::with_capacity(manifest.segments.len());
         for record in &manifest.segments {
             let path = self.directory.join(&record.name);
             let file = open_regular_nofollow(&path)?;
@@ -198,11 +209,13 @@ impl ManagedStore {
             }
             names.push(record.name.clone());
             segments.push(Arc::new(reader));
+            active.push(record.active.clone());
         }
         Ok(Some(OpenedGeneration {
             generation: manifest.generation,
             segment_names: names,
             segments,
+            active,
         }))
     }
 
@@ -210,6 +223,7 @@ impl ManagedStore {
     /// manifest. Existing entries must belong to the current generation.
     pub(crate) fn commit_generation(
         &self,
+        expected_generation: Option<u64>,
         generation: u64,
         inputs: &[SegmentInput<'_>],
     ) -> Result<CommitStats, String> {
@@ -220,6 +234,9 @@ impl ManagedStore {
         lock.lock()
             .map_err(|error| format!("store writer lock: {error}"))?;
         let previous = self.read_manifest()?;
+        if previous.as_ref().map(|old| old.generation) != expected_generation {
+            return Err("durable generation changed during publication".into());
+        }
         if previous
             .as_ref()
             .is_some_and(|old| generation <= old.generation)
@@ -247,11 +264,11 @@ impl ManagedStore {
         let nonce = unique_nonce()?;
         for (index, input) in inputs.iter().enumerate() {
             match input {
-                SegmentInput::Existing(name) => {
+                SegmentInput::Existing { name, active } => {
                     if !previous_names.contains(name) {
                         return Err(format!("segment is not in durable generation: {name}"));
                     }
-                    let record = previous
+                    let mut record = previous
                         .as_ref()
                         .unwrap()
                         .segments
@@ -264,10 +281,14 @@ impl ManagedStore {
                         return Err("reused segment length changed".into());
                     }
                     SegmentReader::from_index_file(&file)?.require_complete_sections()?;
+                    if active.slot_count() != record.active.slot_count() {
+                        return Err("reused segment active slot count changed".into());
+                    }
+                    record.active = (*active).clone();
                     next.segments.push(record);
                     stats.segments_reused += 1;
                 }
-                SegmentInput::New(bytes) => {
+                SegmentInput::New { bytes, active } => {
                     let reader = SegmentReader::from_owned(Arc::clone(bytes))?;
                     reader.require_complete_sections()?;
                     let name = format!("segment-{generation:016x}-{index:08x}-{nonce:016x}.idx");
@@ -280,6 +301,7 @@ impl ManagedStore {
                     next.segments.push(SegmentRecord {
                         name,
                         length: bytes.len() as u64,
+                        active: (*active).clone(),
                     });
                     stats.segment_bytes_written = stats
                         .segment_bytes_written
@@ -462,6 +484,23 @@ impl ManagedStore {
             bytes.extend_from_slice(&(record.name.len() as u16).to_le_bytes());
             bytes.extend_from_slice(record.name.as_bytes());
             bytes.extend_from_slice(&record.length.to_le_bytes());
+            bytes.extend_from_slice(&record.active.slot_count().to_le_bytes());
+            bytes.extend_from_slice(
+                &u32::try_from(record.active.len())
+                    .map_err(|_| "active cardinality too large")?
+                    .to_le_bytes(),
+            );
+            if record.active.len() == record.active.slot_count() as u64 {
+                bytes.push(0);
+            } else {
+                bytes.push(1);
+                let mask = record.active.bitmap();
+                let length =
+                    u32::try_from(mask.serialized_size()).map_err(|_| "active mask too large")?;
+                bytes.extend_from_slice(&length.to_le_bytes());
+                mask.serialize_into(&mut bytes)
+                    .map_err(|error| format!("active mask encode: {error}"))?;
+            }
         }
         let digest = Sha256::digest(&bytes);
         bytes.extend_from_slice(&digest);
@@ -497,7 +536,7 @@ impl ManagedStore {
         }
         let generation = cursor.u64()?;
         let count = cursor.u32()? as usize;
-        if generation == 0 || count > MAX_SEGMENTS || count > cursor.remaining() / 10 {
+        if generation == 0 || count > MAX_SEGMENTS || count > cursor.remaining() / 23 {
             return Err("manifest generation or segment count invalid".into());
         }
         let mut segments = Vec::with_capacity(count);
@@ -511,7 +550,34 @@ impl ManagedStore {
             if !valid_segment_name(&name) || length == 0 || !names.insert(name.clone()) {
                 return Err("manifest segment entry invalid".into());
             }
-            segments.push(SegmentRecord { name, length });
+            let slot_count = cursor.u32()?;
+            let live_count = cursor.u32()?;
+            if live_count > slot_count {
+                return Err("manifest active cardinality exceeds slot count".into());
+            }
+            let active = match cursor.u8()? {
+                0 if live_count == slot_count => ActiveRecords::all(slot_count as usize)?,
+                1 if live_count < slot_count => {
+                    let length = cursor.u32()? as usize;
+                    if length == 0 || length > cursor.remaining() {
+                        return Err("manifest active mask length invalid".into());
+                    }
+                    let bytes = cursor.take(length)?;
+                    let mut reader = std::io::Cursor::new(bytes);
+                    let mask = RoaringBitmap::deserialize_from(&mut reader)
+                        .map_err(|error| format!("manifest active mask invalid: {error}"))?;
+                    if reader.position() != length as u64 || mask.len() != live_count as u64 {
+                        return Err("manifest active mask cardinality mismatch".into());
+                    }
+                    ActiveRecords::from_bitmap(slot_count as usize, mask)?
+                }
+                _ => return Err("manifest active mask kind invalid".into()),
+            };
+            segments.push(SegmentRecord {
+                name,
+                length,
+                active,
+            });
         }
         if cursor.remaining() != 0 {
             return Err("manifest trailing bytes".into());
@@ -552,6 +618,10 @@ impl<'a> SliceCursor<'a> {
 
     fn u16(&mut self) -> Result<u16, String> {
         Ok(u16::from_le_bytes(self.take(2)?.try_into().unwrap()))
+    }
+
+    fn u8(&mut self) -> Result<u8, String> {
+        Ok(self.take(1)?[0])
     }
 
     fn u32(&mut self) -> Result<u32, String> {
