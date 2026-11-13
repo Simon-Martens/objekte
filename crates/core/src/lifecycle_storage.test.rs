@@ -123,6 +123,9 @@ fn managed_open_reuses_complete_generation_without_source_build() {
         SourceRegistry::builtin(),
     )
     .unwrap();
+    assert!(first.view().unwrap().0.segments[0]
+        .iter()
+        .all(|segment| segment.index.raw.is_sealed()));
     assert_eq!(
         first.view().unwrap().search(&all_records()).unwrap().count,
         Some(1)
@@ -235,6 +238,9 @@ fn progressive_managed_build_flushes_only_complete_generation() {
     let catalogue = task.wait_catalogue().unwrap();
     assert!(catalogue.status().unwrap().indexed_files >= 8);
     let complete = task.wait_complete().unwrap();
+    assert!(complete.view().unwrap().0.segments[0]
+        .iter()
+        .all(|segment| segment.index.raw.is_sealed()));
     assert_eq!(
         complete.storage_status().unwrap().synchronization,
         IndexSynchronization::Synchronized
@@ -315,6 +321,9 @@ fn managed_generation_reopens_add_move_and_retirement() {
     let added = root.join("data/b.json");
     std::fs::write(&added, br#"{"text":"beta"}"#).unwrap();
     index.add_file(&added).unwrap();
+    assert!(index.view().unwrap().0.segments[0]
+        .iter()
+        .all(|segment| segment.index.raw.is_sealed()));
     index.flush_storage().unwrap();
     let after_add = store.read_generation().unwrap().unwrap().segment_names;
     assert!(initial_names.iter().all(|name| after_add.contains(name)));

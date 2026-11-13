@@ -1434,6 +1434,150 @@ impl Index {
             .map_err(IndexError::InvalidCache)
     }
 
+    /// Replace the mutable shards of a newly committed generation with the
+    /// same sealed readers used by a later managed reopen. Existing views
+    /// remain pinned to their previous publication until they are dropped.
+    pub(crate) fn install_committed_sealed_segments(&self) -> Result<(), IndexError> {
+        let current = self.view()?;
+        let opened = self
+            .0
+            .managed
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?
+            .as_ref()
+            .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?
+            .store
+            .read_generation()
+            .map_err(IndexError::InvalidCache)?
+            .ok_or_else(|| IndexError::InvalidCache("committed generation missing".into()))?;
+        if opened.generation != current.revision().0
+            || opened.segments.len() != opened.identities.len()
+            || opened.segments.len() != opened.active.len()
+            || opened.segments.len() != opened.segment_names.len()
+        {
+            return Err(IndexError::InvalidCache(
+                "committed segment tables differ from current publication".into(),
+            ));
+        }
+        let catalog_bytes = opened
+            .catalog
+            .as_deref()
+            .ok_or_else(|| IndexError::InvalidCache("committed catalog missing".into()))?;
+        let restored = crate::generation_catalog::RestoredGenerationCatalog::decode(
+            catalog_bytes,
+            current.0.configuration_identity,
+            current.0.segments.len(),
+        )
+        .map_err(IndexError::InvalidCache)?;
+        if restored.revision != opened.generation
+            || restored.next_segment_ordinal != current.0.next_segment_ordinal
+            || restored.slots.len() != current.0.catalog.allocated_files()
+            || restored.file_versions.len() != current.0.file_versions.len()
+        {
+            return Err(IndexError::InvalidCache(
+                "committed catalog differs from current publication".into(),
+            ));
+        }
+        for (number, slot) in restored.slots.iter().enumerate() {
+            let file = FileId(number as u32);
+            if slot.as_ref().map(|(entry, _, _)| entry) != current.0.catalog.entry(file)
+                || restored.file_versions[number] != current.0.file_versions.get(file).unwrap()
+            {
+                return Err(IndexError::InvalidCache(
+                    "committed file catalog differs from current publication".into(),
+                ));
+            }
+        }
+        let positions = opened
+            .identities
+            .iter()
+            .copied()
+            .enumerate()
+            .map(|(position, identity)| (identity, position))
+            .collect::<HashMap<_, _>>();
+        let segment_count = current.0.segments.iter().map(|group| group.len()).sum::<usize>();
+        if positions.len() != opened.identities.len() || positions.len() != segment_count {
+            return Err(IndexError::InvalidCache(
+                "committed segment identities differ from current publication".into(),
+            ));
+        }
+        let mut indexes = vec![None; opened.segments.len()];
+        let mut groups = Vec::with_capacity(current.0.segments.len());
+        for (number, group) in current.0.segments.iter().enumerate() {
+            let collection = CollectionId(number as u32);
+            let configured = &current.repository().collections()[number];
+            let mut sealed_group = Vec::with_capacity(group.len());
+            for segment in group.iter() {
+                let position = *positions.get(&(collection, segment.ordinal)).ok_or_else(|| {
+                    IndexError::InvalidCache("committed segment identity missing".into())
+                })?;
+                if opened.active[position].slot_count() != segment.active.slot_count()
+                    || opened.active[position].bitmap() != segment.active.bitmap()
+                {
+                    return Err(IndexError::InvalidCache(
+                        "committed segment liveness differs from publication".into(),
+                    ));
+                }
+                let decoded = crate::hybrid_segment_codec::decode_segment_sealed(
+                    Arc::clone(&opened.segments[position]),
+                    segment.ordinal,
+                    &configured.definition,
+                    current.repository().options(),
+                    collection,
+                    (configured.source.id(), configured.source.version()),
+                    segment.active.slot_count(),
+                    &|reference| restored.resolve_metadata(reference),
+                )
+                .map_err(IndexError::InvalidCache)?;
+                let sealed = Arc::new(decoded);
+                indexes[position] = Some(Arc::clone(&sealed));
+                sealed_group.push(Arc::new(PublishedSegment {
+                    ordinal: segment.ordinal,
+                    index: sealed,
+                    active: segment.active.clone(),
+                }));
+            }
+            groups.push(Arc::new(sealed_group));
+        }
+        let indexes = indexes
+            .into_iter()
+            .collect::<Option<Vec<_>>>()
+            .ok_or_else(|| IndexError::InvalidCache("committed segment unused".into()))?;
+        let mut next = (*current.0).clone();
+        next.segments = groups;
+        let mut managed = self
+            .0
+            .managed
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        let mut published = self
+            .0
+            .published
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        if published.revision != current.revision() {
+            return Err(IndexError::RevisionConflict {
+                expected: current.revision(),
+                actual: published.revision,
+            });
+        }
+        managed
+            .as_mut()
+            .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?
+            .mark_opened(
+                &next,
+                opened.generation,
+                &opened.segment_names,
+                &opened.identities,
+                &indexes,
+                restored.historical_entries(),
+            )
+            .map_err(IndexError::InvalidCache)?;
+        *published = Arc::new(next);
+        self.enable_owned_memory_sealing();
+        Ok(())
+    }
+
     /// Persist one complete pinned revision to the attached managed store.
     /// Concurrent query and mutation publications remain visible while the
     /// immutable files are written; a failed save leaves the old manifest.
