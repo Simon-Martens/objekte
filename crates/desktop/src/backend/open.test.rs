@@ -30,9 +30,7 @@ fn shared_storage_opens_all_desktop_locations_and_restores_disk_generations() {
             }),
             configured_cache_policy: None,
         };
-        let first = open_incremental(&spec, &CancellationToken::new())
-            .unwrap()
-            .0;
+        let first = open(&spec, &CancellationToken::new()).unwrap();
         let status = first.repository.index().storage_status().unwrap();
         assert_eq!(status.managed_directory.is_some(), disk);
         assert_eq!(status.durable_generation.is_some(), disk);
@@ -45,9 +43,7 @@ fn shared_storage_opens_all_desktop_locations_and_restores_disk_generations() {
         );
         first.repository.index().shutdown().unwrap();
         if disk {
-            let reopened = open_incremental(&spec, &CancellationToken::new())
-                .unwrap()
-                .0;
+            let reopened = open(&spec, &CancellationToken::new()).unwrap();
             assert!(reopened.diagnostics.startup.restored);
             assert!(
                 reopened
@@ -61,6 +57,33 @@ fn shared_storage_opens_all_desktop_locations_and_restores_disk_generations() {
             reopened.repository.index().shutdown().unwrap();
         }
     }
+}
+
+#[test]
+fn managed_incremental_open_exposes_catalogue_before_durable_completion() {
+    let root = tempfile::tempdir().unwrap();
+    write_records(root.path());
+    let spec = OpenSpec {
+        args: Arguments {
+            path: vec![root.path().to_path_buf()],
+            ..Default::default()
+        },
+        cwd: root.path().to_path_buf(),
+        storage_policy: Some(IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        }),
+        configured_cache_policy: None,
+    };
+    let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
+    if let Some(task) = &task {
+        assert!(task.status().unwrap().catalogue_complete);
+    }
+    if let Some(task) = task {
+        task.wait_complete().unwrap();
+    }
+    assert!(session.repository.index().storage_status().unwrap().durable_generation.is_some());
+    session.repository.index().shutdown().unwrap();
 }
 
 #[test]

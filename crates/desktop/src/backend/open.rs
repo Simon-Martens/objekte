@@ -121,7 +121,8 @@ pub fn open(
         return Err(BackendError::cancelled());
     }
     if let Some(storage) = &spec.storage_policy {
-        return open_shared_storage(spec, cancellation, storage.clone());
+        return open_shared_storage(spec, cancellation, storage.clone(), false)
+            .map(|(session, _)| session);
     }
     spec.args
         .validate_open_options()
@@ -331,8 +332,7 @@ pub fn open_incremental(
         return Err(BackendError::cancelled());
     }
     if let Some(storage) = &spec.storage_policy {
-        return open_shared_storage(spec, cancellation, storage.clone())
-            .map(|session| (session, None));
+        return open_shared_storage(spec, cancellation, storage.clone(), true);
     }
     spec.args
         .validate_open_options()
@@ -548,7 +548,8 @@ fn open_shared_storage(
     spec: &OpenSpec,
     cancellation: &CancellationToken,
     storage: IndexStoragePolicy,
-) -> Result<OpenedSession, BackendError> {
+    incremental: bool,
+) -> Result<(OpenedSession, Option<InitialBuildTask>), BackendError> {
     spec.args
         .validate_open_options()
         .map_err(|message| BackendError::new(BackendErrorKind::Options, message))?;
@@ -564,7 +565,7 @@ fn open_shared_storage(
     let mut options = repository_options(&spec.args);
     options.verified_cache_bytes = 64 * 1024 * 1024;
     let started = Instant::now();
-    let index = Index::open_with_storage(
+    let build = Index::start_incremental_build_with_storage(
         &paths.root,
         configured.definitions.clone(),
         options,
@@ -572,10 +573,37 @@ fn open_shared_storage(
         SourceRegistry::builtin(),
     )
     .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    let index = if incremental {
+        loop {
+            if cancellation.is_cancelled() {
+                build.cancel();
+                return Err(BackendError::cancelled());
+            }
+            let status = build
+                .status()
+                .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+            if status.catalogue_complete
+                || matches!(status.phase,
+                    objekte_search_core::lifecycle::InitialBuildPhase::Cancelled
+                    | objekte_search_core::lifecycle::InitialBuildPhase::Failed)
+            {
+                break;
+            }
+            std::thread::sleep(std::time::Duration::from_millis(20));
+        }
+        build.wait_catalogue()
+    } else {
+        build.wait_complete()
+    }
+    .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
+    let task = (incremental && !build.status().map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?.construction_complete).then_some(build);
     index
         .protect_configuration_files(&configured.protected_files)
         .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
     if cancellation.is_cancelled() {
+        if let Some(task) = &task {
+            task.cancel();
+        }
         index
             .shutdown()
             .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?;
@@ -595,7 +623,7 @@ fn open_shared_storage(
         .view()
         .map_err(|error| BackendError::new(BackendErrorKind::Open, error.to_string()))?
         .configuration_identity();
-    Ok(OpenedSession {
+    Ok((OpenedSession {
         repository: Arc::new(repository),
         configuration: Arc::new(SessionConfiguration {
             definitions: Arc::new(configured.definitions),
@@ -620,7 +648,7 @@ fn open_shared_storage(
             schema_fields: configured.schema_fields,
             ignored_repository_metadata: configured.ignored_repository_metadata,
         },
-    })
+    }, task))
 }
 
 fn read_declared_values(
