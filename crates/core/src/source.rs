@@ -1088,6 +1088,7 @@ pub(crate) struct SourceBuildSample {
 #[derive(Clone, Copy, Debug, Default)]
 pub(crate) struct SourceBufferProfile {
     pub files_read: u64,
+    pub bytes_read: u64,
     pub growth_files: u64,
     pub peak_capacity_bytes: u64,
 }
@@ -1581,6 +1582,7 @@ where
     };
     if let Some(stats) = buffer_profile.as_deref_mut() {
         stats.files_read += 1;
+        stats.bytes_read = stats.bytes_read.saturating_add(bytes.len() as u64);
         stats.growth_files += u64::from(bytes.capacity() > previous_capacity);
         stats.peak_capacity_bytes = stats.peak_capacity_bytes.max(bytes.capacity() as u64);
     }

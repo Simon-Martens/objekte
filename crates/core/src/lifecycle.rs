@@ -188,6 +188,8 @@ pub struct IndexStatus {
     pub initial_construction_complete: bool,
     /// Construction parse attempts captured by the resident repository.
     pub build_parses: u64,
+    pub build_source_reads: u64,
+    pub build_source_bytes_read: u64,
     /// Active fallback records across the base and published segments.
     pub fallback_records: u64,
 }
@@ -501,6 +503,8 @@ impl PublishedIndex {
             processed_files: self.processed_files,
             initial_construction_complete: self.catalog.construction_complete(),
             build_parses: self.repository.build_parses(),
+            build_source_reads: self.repository.startup().build_source_reads,
+            build_source_bytes_read: self.repository.startup().build_source_bytes_read,
             fallback_records: self.repository.collections().iter().enumerate().map(|(number, collection)| {
                 let base = collection.generation.records.iter().filter(|record| {
                     record.class == crate::inventory::RecordClass::RawFallback
@@ -2513,6 +2517,34 @@ impl IndexView {
     pub fn catalogue_rows(&self) -> impl Iterator<Item = FileCatalogueRow<'_>> + '_ {
         (0..self.0.catalog.allocated_files())
             .filter_map(|number| self.catalogue_row(FileId(number as u32)))
+    }
+
+    /// Same index-family estimate used by the construction benchmark for a
+    /// direct repository, summed across the base and live lifecycle shards.
+    pub fn estimated_index_bytes(&self) -> usize {
+        self.repository().collections().iter().enumerate().map(|(number, collection)| {
+            std::iter::once((&collection.raw, &collection.fallback_text, &collection.custom_text, &collection.postings, &collection.sorting))
+                .chain(self.0.segments[number].iter().map(|segment| {
+                    (&segment.index.raw, &segment.index.fallback_text, &segment.index.custom_text, &segment.index.postings, &segment.index.sorting)
+                }))
+                .map(|(raw, fallback, custom, postings, sorting)| {
+                    raw.estimated_heap_bytes()
+                        + fallback.estimated_heap_bytes()
+                        + custom.values().map(|index| index.estimated_heap_bytes()).sum::<usize>()
+                        + postings.fields.values().map(|posting| {
+                            posting.values.values().map(|bitmap| bitmap.serialized_size() as usize).sum::<usize>()
+                                + posting.lengths.values().map(|bitmap| bitmap.serialized_size() as usize).sum::<usize>()
+                        }).sum::<usize>()
+                        + sorting.columns.values().map(|column| column.keys.iter().map(|key| match key {
+                            crate::sorting::SortKey::String(value) => value.len(),
+                            _ => 24,
+                        }).sum::<usize>()).sum::<usize>()
+                }).sum::<usize>()
+        }).sum()
+    }
+
+    pub fn estimated_inventory_bytes(&self) -> usize {
+        self.repository().files().estimated_heap_bytes().0
     }
 
     fn has_segments(&self) -> bool {

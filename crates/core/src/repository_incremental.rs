@@ -166,6 +166,8 @@ fn admit_normal(
     digest_bindings: &mut [Vec<(CollectionId, [u8; 32])>],
     build_parses: &mut u64,
     failed_parses: &mut u64,
+    source_reads: &mut u64,
+    source_bytes_read: &mut u64,
     index: &Index,
     expected: &mut IndexRevision,
     options: RepositoryOptions,
@@ -185,6 +187,8 @@ fn admit_normal(
     }
     *build_parses = build_parses.saturating_add(batch.record_parses);
     *failed_parses = failed_parses.saturating_add(batch.failed_parses);
+    *source_reads = source_reads.saturating_add(batch.source_reads);
+    *source_bytes_read = source_bytes_read.saturating_add(batch.source_bytes_read);
     let sealed = pending[collection_index].admit(batch)?;
     if let Some(sealed) = sealed {
         publish_segment(
@@ -367,6 +371,8 @@ impl Repository {
         let mut digest_bindings = vec![Vec::new(); discovered.files.len()];
         let mut build_parses = 0u64;
         let mut failed_parses = 0u64;
+        let mut source_reads = 0u64;
+        let mut source_bytes_read = 0u64;
         let mut schedule_stats = crate::build::BuildScheduleStats::default();
         let mut normal = Vec::new();
         for job in jobs {
@@ -399,6 +405,8 @@ impl Repository {
                                     &mut digest_bindings,
                                     &mut build_parses,
                                     &mut failed_parses,
+                                    &mut source_reads,
+                                    &mut source_bytes_read,
                                     &index,
                                     &mut expected,
                                     options,
@@ -485,6 +493,8 @@ impl Repository {
                         &mut digest_bindings,
                         &mut build_parses,
                         &mut failed_parses,
+                    &mut source_reads,
+                    &mut source_bytes_read,
                         &index,
                         &mut expected,
                         options,
@@ -560,6 +570,8 @@ impl Repository {
             build_extraction_index_ns: extraction_index_ns,
             build_finalization_ns: finalization_started.elapsed().as_nanos() as u64,
             build_workers,
+            build_source_reads: source_reads.saturating_add(schedule_stats.source_reads),
+            build_source_bytes_read: source_bytes_read.saturating_add(schedule_stats.source_bytes_read),
             peak_build_admitted_bytes: schedule_stats.peak_weight_bytes,
             build_weight_limit_bytes: schedule_stats.weight_limit_bytes,
             build_peak_active_jobs: schedule_stats.peak_active_jobs,

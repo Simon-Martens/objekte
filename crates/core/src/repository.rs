@@ -389,6 +389,10 @@ pub struct StartupStats {
     pub build_finalization_ns: u64,
     pub snapshot_write_ns: u64,
     pub build_workers: usize,
+    /// Actual construction source opens that reached a read attempt.
+    pub build_source_reads: u64,
+    /// Bytes consumed by those construction reads, excluding query checks.
+    pub build_source_bytes_read: u64,
     pub peak_build_admitted_bytes: u64,
     pub build_weight_limit_bytes: u64,
     pub build_peak_active_jobs: usize,
