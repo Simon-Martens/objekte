@@ -905,6 +905,40 @@ fn temporary_and_repository_storage_open_with_the_shared_policy() {
 }
 
 #[test]
+fn full_residency_repository_storage_reports_ready_on_reopen() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
+    let args = [
+        "--index-storage",
+        "repository",
+        "--index-residency",
+        "full",
+        "--fts",
+        "needle",
+    ];
+    for expected_action in ["managed_built", "managed_restored"] {
+        let (result, events) = invoke(root.path(), &args);
+        assert!(
+            result.status.success(),
+            "{}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+        assert_eq!(hits(&events).len(), 1);
+        assert_eq!(events[0]["index_residency"], "full");
+        let finished = events.last().unwrap();
+        assert_eq!(finished["snapshot_action"], expected_action);
+        assert_eq!(
+            finished["index_storage_status"]["readiness"],
+            "fully_resident_ready"
+        );
+        assert_eq!(
+            finished["index_storage_status"]["synchronization"],
+            "synchronized"
+        );
+    }
+}
+
+#[test]
 fn bare_obj_errors_before_build_but_disk_mode_allows_index_only() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
