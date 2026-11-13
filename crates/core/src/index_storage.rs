@@ -77,7 +77,17 @@ impl IndexStoragePolicy {
         };
         for definition in &mut prepared {
             let selected = root.join(normalized_selection(&definition.source_path)?);
-            let selected = selected.canonicalize().unwrap_or(selected);
+            let selected = match selected.canonicalize() {
+                Ok(path) => path,
+                Err(error) if error.kind() == std::io::ErrorKind::NotFound => selected,
+                Err(error) => {
+                    return Err(format!(
+                        "collection {} source selection {}: {error}",
+                        definition.name,
+                        selected.display()
+                    ));
+                }
+            };
             if selected.starts_with(&owned) {
                 return Err(format!(
                     "collection {} selects the managed index namespace as source data",
@@ -429,6 +439,34 @@ mod tests {
         );
         assert!(prepared.resolved.managed_directory.is_none());
         assert!(!root.join(".objekte").exists());
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn disk_source_preparation_reports_invalid_path_components() {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-hybrid-invalid-source-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        std::fs::create_dir(&root).unwrap();
+        std::fs::write(root.join("data"), b"not a directory").unwrap();
+        let definitions = [CollectionDefinition::folder(
+            "files",
+            "data/nested",
+            SourceFormat::Json,
+        )];
+        let policy = IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        };
+        assert!(policy
+            .prepare_source_definitions(&root, &definitions)
+            .unwrap_err()
+            .contains("source selection"));
         std::fs::remove_dir_all(root).unwrap();
     }
 
