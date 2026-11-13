@@ -308,8 +308,8 @@ impl BigramIndex {
     ) -> Result<(), String> {
         let sealed =
             SealedBigramIndex::open(reader, spans, self.alphabet, self.record_count, allowed)?;
-        self.normal.clear();
-        self.skip.clear();
+        self.normal = HashMap::new();
+        self.skip = HashMap::new();
         self.sealed = Some(Arc::new(sealed));
         Ok(())
     }
@@ -323,8 +323,8 @@ impl BigramIndex {
         let sealed = SealedBigramIndex::from_constructed(
             reader, spans, self.alphabet, self.record_count, allowed,
         )?;
-        self.normal.clear();
-        self.skip.clear();
+        self.normal = HashMap::new();
+        self.skip = HashMap::new();
         self.sealed = Some(Arc::new(sealed));
         Ok(())
     }

@@ -435,6 +435,8 @@ fn consuming_seal_keeps_builder_metadata_and_queries_without_source() {
     assert_eq!(sealed.id_lookup, ids);
     assert!(sealed.postings.fields[&path].values.is_empty());
     assert!(sealed.raw.normal.is_empty());
+    assert_eq!(sealed.raw.normal.capacity(), 0);
+    assert_eq!(sealed.raw.skip.capacity(), 0);
     assert_eq!(
         sealed.postings.fields[&path]
             .exact_set_checked(&term, &sealed.logical_records).unwrap(),
