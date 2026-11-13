@@ -134,6 +134,24 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         Ok(result)
     }
 
+    /// Visit keys and descriptors without decoding posting payloads. The
+    /// callback returns false to stop early. A negative lookup is backed by
+    /// the ordered dictionary's checked directory/block evidence.
+    pub(crate) fn visit_entries(
+        &self,
+        mut visit: impl FnMut(&K, PostingDescriptor) -> Result<bool, String>,
+    ) -> Result<(), String> {
+        let mut cursor = self.dictionary.first();
+        while let Some(position) = cursor {
+            let (key, descriptor) = self.dictionary.entry(position)?;
+            if !visit(&key, descriptor)? {
+                break;
+            }
+            cursor = self.dictionary.next(position);
+        }
+        Ok(())
+    }
+
     pub(crate) fn estimated_cardinality(&self, key: &K) -> Result<Option<u32>, String> {
         Ok(self
             .dictionary
