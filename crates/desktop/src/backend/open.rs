@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 use std::path::PathBuf;
-use std::sync::{Arc, Mutex};
+use std::sync::Arc;
 use std::time::Instant;
 
 use objekte_cli::arguments::{Arguments, ResolvedPaths};
@@ -11,9 +11,8 @@ use objekte_search_core::index_storage::IndexStoragePolicy;
 use objekte_search_core::lifecycle::{Index, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::{FieldPath, PathRoot};
-use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions, StartupStats};
+use objekte_search_core::repository::StartupStats;
 use objekte_search_core::source::SourceRegistry;
-use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::CancellationToken;
 
 use super::{BackendError, BackendErrorKind};
@@ -27,30 +26,21 @@ pub struct OpenSpec {
     pub storage_policy: Option<IndexStoragePolicy>,
 }
 
-/// Observed opening work and configuration, including explicit index writes.
+/// Observed opening work and configuration.
 #[derive(Clone, Debug)]
 pub struct OpenDiagnostics {
     pub open_ns: u128,
     pub startup: StartupStats,
-    pub snapshot_save: Option<SnapshotSaveStats>,
     pub schema_files: Vec<PathBuf>,
     pub schema_fields: usize,
     pub ignored_repository_metadata: bool,
 }
 
-type BackgroundSnapshotSave = Arc<Mutex<Option<Result<Option<SnapshotSaveStats>, String>>>>;
-
-/// Resolved, immutable inputs needed to validate a replacement cache without
-/// rereading a different schema or changing the source configuration.
+/// Resolved identity and opening mode of the active session.
 #[derive(Clone, Debug)]
 pub struct SessionConfiguration {
-    pub definitions: Arc<Vec<CollectionDefinition>>,
-    pub options: RepositoryOptions,
     pub configured_repository: bool,
-    pub cache_load: Option<PathBuf>,
-    pub cache_save: Option<PathBuf>,
     pub configuration_identity: [u8; 32],
-    pub protected_files: Arc<Vec<PathBuf>>,
 }
 
 /// Immutable repository handle and CLI opening context reused across searches.
@@ -65,23 +55,9 @@ pub struct OpenedSession {
     pub diagnostics: OpenDiagnostics,
     /// Declared schema literals, parsed once on the opening worker.
     pub declared_values: Arc<HashMap<(String, String), Vec<String>>>,
-    pub(super) background_snapshot_save: Option<BackgroundSnapshotSave>,
 }
 
 impl OpenedSession {
-    /// Record the first explicit destination selected by a manual session.
-    /// Core flush chooses that same path when no cache target existed yet.
-    pub fn with_first_save_target(&self, destination: PathBuf) -> Self {
-        if self.configuration.cache_save.is_some() {
-            return self.clone();
-        }
-        let mut changed = self.clone();
-        let mut configuration = (*self.configuration).clone();
-        configuration.cache_save = Some(destination);
-        changed.configuration = Arc::new(configuration);
-        changed
-    }
-
     /// Rebind the compatibility metadata view after a rebuild or compaction
     /// publishes a new base. The live Index and session identity stay intact.
     pub fn refresh_base_metadata(&self) -> Result<Self, BackendError> {
@@ -93,13 +69,6 @@ impl OpenedSession {
         Ok(refreshed)
     }
 
-    /// Take the result of an explicit write requested while a restored cache
-    /// reconciles in the background. `None` means no result is ready.
-    pub fn take_background_snapshot_save(
-        &self,
-    ) -> Option<Result<Option<SnapshotSaveStats>, String>> {
-        self.background_snapshot_save.as_ref()?.lock().ok()?.take()
-    }
 }
 
 pub fn open(
@@ -211,24 +180,17 @@ fn open_shared_storage(
     Ok((OpenedSession {
         repository: Arc::new(repository),
         configuration: Arc::new(SessionConfiguration {
-            definitions: Arc::new(configured.definitions),
-            options,
             configured_repository: spec.args.repo.is_some(),
-            cache_load: None,
-            cache_save: None,
             configuration_identity,
-            protected_files: Arc::new(configured.protected_files),
         }),
         args: spec.args.clone(),
         paths,
         collections,
         single_collection: !spec.args.multiple_collections(),
         declared_values,
-        background_snapshot_save: None,
         diagnostics: OpenDiagnostics {
             open_ns: started.elapsed().as_nanos(),
             startup,
-            snapshot_save: None,
             schema_files: configured.schema_files,
             schema_fields: configured.schema_fields,
             ignored_repository_metadata: configured.ignored_repository_metadata,

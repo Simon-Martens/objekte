@@ -1,30 +1,14 @@
 //! Typed desktop commands over the active core index. Blocking calls in this
 //! module belong on controller workers, never in a GPUI render callback.
 
-use std::path::{Path, PathBuf};
-use std::sync::Arc;
-use std::time::{Duration, Instant};
+use std::time::Duration;
 
-use objekte_cli::arguments::Alphabet;
-use objekte_search_core::inference::InferenceMode;
 use objekte_search_core::lifecycle::{
-    Index, IndexRevision, IndexStatus, MaintenanceOperation, MaintenanceTask, ReconciliationTask,
+    IndexStatus, MaintenanceOperation, MaintenanceTask, ReconciliationTask,
 };
-use objekte_search_core::lifecycle_caller::IndexedRepository;
-use objekte_search_core::storage::SnapshotSaveStats;
-use objekte_search_core::streaming::CancellationToken;
-use objekte_search_core::workload::BigramAlphabet;
 
 use super::open::OpenedSession;
 use super::{BackendError, BackendErrorKind};
-
-#[derive(Clone, Debug)]
-pub struct SaveOutcome {
-    pub destination: PathBuf,
-    pub saved_revision: IndexRevision,
-    pub current_status: IndexStatus,
-    pub stats: SnapshotSaveStats,
-}
 
 fn lifecycle_error(error: impl std::fmt::Display) -> BackendError {
     BackendError::new(BackendErrorKind::Open, error.to_string())
@@ -64,150 +48,6 @@ pub fn start_maintenance(
     .map_err(lifecycle_error)
 }
 
-fn same_existing_destination(left: &Path, right: &Path) -> bool {
-    match (left.canonicalize(), right.canonicalize()) {
-        (Ok(left), Ok(right)) => left == right,
-        _ => left == right,
-    }
-}
-
-/// Save a pinned active revision. Replacing another existing destination is
-/// permitted only after the UI has obtained its explicit overwrite decision.
-pub fn save_index(
-    session: &OpenedSession,
-    destination: &Path,
-    allow_replace: bool,
-) -> Result<SaveOutcome, BackendError> {
-    save_index_internal(session, destination, allow_replace, true)
-}
-
-pub fn save_index_copy(
-    session: &OpenedSession,
-    destination: &Path,
-    allow_replace: bool,
-) -> Result<SaveOutcome, BackendError> {
-    save_index_internal(session, destination, allow_replace, false)
-}
-
-fn save_index_internal(
-    session: &OpenedSession,
-    destination: &Path,
-    allow_replace: bool,
-    select_if_none: bool,
-) -> Result<SaveOutcome, BackendError> {
-    if destination.as_os_str().is_empty() {
-        return Err(BackendError::new(
-            BackendErrorKind::Options,
-            "Choose an index destination",
-        ));
-    }
-    let known_selected = session
-        .configuration
-        .cache_save
-        .as_deref()
-        .is_some_and(|selected| same_existing_destination(selected, destination));
-    match std::fs::symlink_metadata(destination) {
-        Ok(_) if !known_selected && !allow_replace => {
-            return Err(BackendError::new(
-                BackendErrorKind::Options,
-                format!(
-                    "{} already exists; confirm replacement before saving an index copy",
-                    destination.display()
-                ),
-            ));
-        }
-        Err(error) if error.kind() != std::io::ErrorKind::NotFound => {
-            return Err(lifecycle_error(error));
-        }
-        _ => {}
-    }
-    let index = session.repository.index();
-    let (saved_revision, stats) = if select_if_none {
-        index.flush_cache_with_stats(destination)
-    } else {
-        index.flush_cache_copy_with_stats(destination)
-    }
-    .map_err(lifecycle_error)?;
-    Ok(SaveOutcome {
-        destination: destination.to_path_buf(),
-        saved_revision,
-        current_status: status(session)?,
-        stats,
-    })
-}
-
-/// Prepare a cache replacement against the active source/schema definition.
-/// The caller installs this session only after success and ownership checks.
-pub fn load_index(
-    session: &OpenedSession,
-    cache: &Path,
-    cancellation: &CancellationToken,
-) -> Result<OpenedSession, BackendError> {
-    if cache.as_os_str().is_empty() {
-        return Err(BackendError::new(
-            BackendErrorKind::Options,
-            "Choose an index cache to load",
-        ));
-    }
-    if cancellation.is_cancelled() {
-        return Err(BackendError::cancelled());
-    }
-    let started = Instant::now();
-    let settings = objekte_search_core::storage::snapshot_build_configuration(
-        cache,
-        &session.configuration.definitions,
-        session.configuration.options,
-    )
-    .map_err(|message| BackendError::new(BackendErrorKind::Open, message))?;
-    let options = settings.apply_to(session.configuration.options);
-    let index = Index::load_cache(
-        &session.paths.root,
-        session.configuration.definitions.as_ref().clone(),
-        options,
-        cache,
-    )
-    .map_err(lifecycle_error)?;
-    index
-        .protect_configuration_files(&session.configuration.protected_files)
-        .map_err(lifecycle_error)?;
-    if cancellation.is_cancelled() {
-        index.shutdown().map_err(lifecycle_error)?;
-        return Err(BackendError::cancelled());
-    }
-    let repository = IndexedRepository::new(index).map_err(lifecycle_error)?;
-    let identity = repository
-        .index()
-        .view()
-        .map_err(lifecycle_error)?
-        .configuration_identity();
-    let mut configuration = (*session.configuration).clone();
-    configuration.options = options;
-    configuration.configuration_identity = identity;
-    configuration.cache_load = Some(cache.to_path_buf());
-    configuration.cache_save = Some(cache.to_path_buf());
-    let mut args = session.args.clone();
-    args.index_alphabet = match options.bigram_alphabet {
-        BigramAlphabet::Ascii => Alphabet::Ascii,
-        BigramAlphabet::Unicode => Alphabet::Unicode,
-    };
-    args.auto_index = options.inference.mode == InferenceMode::AutoIndex;
-    let mut diagnostics = session.diagnostics.clone();
-    diagnostics.open_ns = started.elapsed().as_nanos();
-    diagnostics.startup = repository.startup().clone();
-    diagnostics.snapshot_save = None;
-    Ok(OpenedSession {
-        repository: Arc::new(repository),
-        configuration: Arc::new(configuration),
-        args,
-        paths: session.paths.clone(),
-        collections: session.collections.clone(),
-        single_collection: session.single_collection,
-        diagnostics,
-        declared_values: Arc::clone(&session.declared_values),
-        background_snapshot_save: None,
-    })
-}
-
 pub fn set_periodic_check(
     session: &OpenedSession,
     interval: Option<Duration>,
@@ -220,31 +60,6 @@ pub fn set_periodic_check(
         None => session.repository.index().stop_periodic_reconciliation(),
     }
     .map_err(lifecycle_error)
-}
-
-pub fn set_automatic_save(session: &OpenedSession, enabled: bool) -> Result<(), BackendError> {
-    if enabled
-        && (!session.configuration.configured_repository
-            || session.configuration.cache_save.is_none())
-    {
-        return Err(BackendError::new(
-            BackendErrorKind::Options,
-            "Automatic saving requires a configured repository and selected index destination",
-        ));
-    }
-    session
-        .repository
-        .index()
-        .set_sync_cache(enabled)
-        .map_err(lifecycle_error)
-}
-
-pub fn automatic_save_error(session: &OpenedSession) -> Result<Option<String>, BackendError> {
-    session
-        .repository
-        .index()
-        .sync_cache_error()
-        .map_err(lifecycle_error)
 }
 
 pub fn stop_automation(session: &OpenedSession) -> Result<(), BackendError> {
@@ -266,27 +81,8 @@ pub fn shutdown(session: &OpenedSession) -> Result<(), BackendError> {
 }
 
 /// Quiesce every mutation producer before persisting the final accepted
-/// revision. A failed flush leaves the index quiesced for Retry or an explicit
-/// Cancel close, which resumes the prior automation policy.
-pub fn shutdown_with_final_save(session: &OpenedSession) -> Result<(), BackendError> {
-    session
-        .repository
-        .index()
-        .quiesce()
-        .map_err(lifecycle_error)?;
-    let destination = session.configuration.cache_save.as_ref().ok_or_else(|| {
-        BackendError::new(
-            BackendErrorKind::Options,
-            "No index save destination is selected",
-        )
-    })?;
-    save_index(session, destination, true)?;
-    shutdown(session)
-}
-
-/// Finish every mutation and persist the accepted managed generation before
-/// the window closes. A failed flush remains quiesced so Retry can use the
-/// same publication; Cancel close resumes it below.
+/// managed generation. A failed flush leaves the index quiesced for Retry or
+/// Cancel close, which resumes the prior checking policy.
 pub fn shutdown_with_storage_flush(session: &OpenedSession) -> Result<(), BackendError> {
     let index = session.repository.index();
     index.quiesce().map_err(lifecycle_error)?;
@@ -297,7 +93,6 @@ pub fn shutdown_with_storage_flush(session: &OpenedSession) -> Result<(), Backen
 pub fn resume_after_cancelled_close(
     session: &OpenedSession,
     check_interval: Option<Duration>,
-    automatic_save: bool,
 ) -> Result<(), BackendError> {
     session
         .repository
@@ -317,10 +112,9 @@ pub fn resume_after_cancelled_close(
             .repository
             .index()
             .set_sync_storage(true)
-            .map_err(lifecycle_error)
-    } else {
-        set_automatic_save(session, automatic_save)
+            .map_err(lifecycle_error)?;
     }
+    Ok(())
 }
 
 #[cfg(test)]

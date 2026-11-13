@@ -141,23 +141,18 @@ fn nested_column_visibility_is_explicit_and_scoped() {
 }
 
 #[test]
-fn lifecycle_preferences_are_off_by_default_and_scoped_to_source_and_destination() {
+fn lifecycle_preferences_are_off_by_default_and_scoped_to_source() {
     let temp = tempfile::tempdir().unwrap();
     let mut preferences = DesktopPreferences::load(temp.path()).unwrap();
-    assert_eq!(preferences.lifecycle_policy("repo-a", Some("/index/a")), LifecyclePreference::default());
+    assert_eq!(preferences.lifecycle_policy("repo-a"), LifecyclePreference::default());
     preferences.set_automatic_check_local("repo-a", true, 45).unwrap();
-    preferences.set_automatic_save_local("repo-a", "/index/a", true).unwrap();
     assert!(preferences.set_automatic_check_local("repo-a", true, 0).is_err());
-    assert!(preferences.set_automatic_save_local("repo-a", "", true).is_err());
     preferences.persist().unwrap();
 
     let reloaded = DesktopPreferences::load(temp.path()).unwrap();
-    assert_eq!(reloaded.lifecycle_policy("repo-a", Some("/index/a")), LifecyclePreference {
+    assert_eq!(reloaded.lifecycle_policy("repo-a"), LifecyclePreference {
         automatic_check: true,
         check_interval_seconds: 45,
-        automatic_save: true,
     });
-    assert!(!reloaded.lifecycle_policy("repo-a", Some("/index/b")).automatic_save);
-    assert_eq!(reloaded.lifecycle_policy("repo-b", Some("/index/a")), LifecyclePreference::default());
-    assert!(!reloaded.lifecycle_policy("repo-a", None).automatic_save);
+    assert_eq!(reloaded.lifecycle_policy("repo-b"), LifecyclePreference::default());
 }
