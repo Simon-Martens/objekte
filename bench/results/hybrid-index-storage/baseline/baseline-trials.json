@@ -1,0 +1,114 @@
+[
+  {
+    "round": 0,
+    "mode": "build",
+    "output": {
+      "build_ns": 1104185853,
+      "result_dir": "target/hybrid-index-storage/baseline/build/trial-1794575054714300627-413899"
+    }
+  },
+  {
+    "round": 0,
+    "mode": "restore",
+    "output": {
+      "load_ns": 692971163,
+      "result_dir": "target/hybrid-index-storage/baseline/restore/trial-1794575056331841492-414101"
+    }
+  },
+  {
+    "round": 1,
+    "mode": "build",
+    "output": {
+      "build_ns": 1110278265,
+      "result_dir": "target/hybrid-index-storage/baseline/build/trial-1794575057806370421-414168"
+    }
+  },
+  {
+    "round": 1,
+    "mode": "restore",
+    "output": {
+      "load_ns": 661143438,
+      "result_dir": "target/hybrid-index-storage/baseline/restore/trial-1794575059359593827-414365"
+    }
+  },
+  {
+    "round": 2,
+    "mode": "build",
+    "output": {
+      "build_ns": 1112374268,
+      "result_dir": "target/hybrid-index-storage/baseline/build/trial-1794575060716835547-414433"
+    }
+  },
+  {
+    "round": 2,
+    "mode": "restore",
+    "output": {
+      "load_ns": 678534502,
+      "result_dir": "target/hybrid-index-storage/baseline/restore/trial-1794575062343416946-414628"
+    }
+  },
+  {
+    "round": 3,
+    "mode": "build",
+    "output": {
+      "build_ns": 1079653885,
+      "result_dir": "target/hybrid-index-storage/baseline/build/trial-1794575063737251941-414695"
+    }
+  },
+  {
+    "round": 3,
+    "mode": "restore",
+    "output": {
+      "load_ns": 710876168,
+      "result_dir": "target/hybrid-index-storage/baseline/restore/trial-1794575065295308062-414890"
+    }
+  },
+  {
+    "round": 4,
+    "mode": "build",
+    "output": {
+      "build_ns": 1088226554,
+      "result_dir": "target/hybrid-index-storage/baseline/build/trial-1794575066714901704-414959"
+    }
+  },
+  {
+    "round": 4,
+    "mode": "restore",
+    "output": {
+      "load_ns": 650916153,
+      "result_dir": "target/hybrid-index-storage/baseline/restore/trial-1794575068237109912-415158"
+    }
+  },
+  {
+    "round": 5,
+    "mode": "build",
+    "output": {
+      "build_ns": 1017332944,
+      "result_dir": "target/hybrid-index-storage/baseline/build/trial-1794575069614950268-415236"
+    }
+  },
+  {
+    "round": 5,
+    "mode": "restore",
+    "output": {
+      "load_ns": 649546621,
+      "result_dir": "target/hybrid-index-storage/baseline/restore/trial-1794575071057858634-415432"
+    }
+  },
+  {
+    "round": 6,
+    "mode": "build",
+    "output": {
+      "build_ns": 985146460,
+      "result_dir": "target/hybrid-index-storage/baseline/build/trial-1794575072427994972-415499"
+    }
+  },
+  {
+    "round": 6,
+    "mode": "restore",
+    "output": {
+      "load_ns": 690655788,
+      "result_dir": "target/hybrid-index-storage/baseline/restore/trial-1794575073847955440-415694"
+    }
+  }
+]

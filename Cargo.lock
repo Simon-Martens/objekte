@@ -5227,6 +5227,7 @@ dependencies = [
  "icu_locale_core",
  "libc",
  "memchr",
+ "memmap2",
  "rayon",
  "regex",
  "regex-syntax",

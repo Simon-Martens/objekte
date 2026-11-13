@@ -1,0 +1,474 @@
+//! Checked immutable segment envelope and portable Roaring payload access.
+//!
+//! Section framing is independent of byte ownership. Store readers may map
+//! only immutable application-owned files; memory-only builders use owned bytes.
+
+use std::collections::HashMap;
+use std::fs::File;
+use std::io::{self, Cursor, Seek, SeekFrom, Write};
+use std::sync::{Arc, OnceLock};
+
+use memmap2::{Mmap, MmapOptions};
+use roaring::RoaringBitmap;
+use sha2::{Digest, Sha256};
+
+const MAGIC: &[u8; 8] = b"OBJHSEG1";
+pub(crate) const FORMAT_VERSION: u32 = 1;
+const HEADER_BYTES: usize = 24;
+const DIRECTORY_ENTRY_BYTES: usize = 56;
+const MAX_SECTIONS: usize = 32;
+const MAX_SEGMENT_BYTES: u64 = 8 * 1024 * 1024 * 1024;
+
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
+#[repr(u32)]
+pub(crate) enum SectionKind {
+    FieldMetadata = 1,
+    TextBindings = 2,
+    ScalarDictionaries = 3,
+    StructuralReferences = 4,
+    BigramDictionaries = 5,
+    PostingPayloads = 6,
+    RecordSlots = 7,
+    SortData = 8,
+    RelationAndIdentity = 9,
+    Integrity = 10,
+}
+
+impl TryFrom<u32> for SectionKind {
+    type Error = String;
+
+    fn try_from(value: u32) -> Result<Self, Self::Error> {
+        Ok(match value {
+            1 => Self::FieldMetadata,
+            2 => Self::TextBindings,
+            3 => Self::ScalarDictionaries,
+            4 => Self::StructuralReferences,
+            5 => Self::BigramDictionaries,
+            6 => Self::PostingPayloads,
+            7 => Self::RecordSlots,
+            8 => Self::SortData,
+            9 => Self::RelationAndIdentity,
+            10 => Self::Integrity,
+            _ => return Err(format!("unknown immutable segment section {value}")),
+        })
+    }
+}
+
+#[derive(Clone, Debug)]
+struct SectionEntry {
+    offset: u64,
+    length: u64,
+    sha256: [u8; 32],
+    checked: Arc<OnceLock<Result<(), String>>>,
+}
+
+/// Exactly one owner for the bytes used by all section and posting readers.
+#[derive(Clone)]
+enum SegmentBytes {
+    Owned(Arc<[u8]>),
+    Mapped(Arc<Mmap>),
+}
+
+impl AsRef<[u8]> for SegmentBytes {
+    fn as_ref(&self) -> &[u8] {
+        match self {
+            Self::Owned(bytes) => bytes,
+            Self::Mapped(map) => map,
+        }
+    }
+}
+
+/// A segment reader validates framing at construction and section checksums
+/// once per immutable byte span. Posting payloads have narrower checksums.
+#[derive(Clone)]
+pub(crate) struct SegmentReader {
+    bytes: SegmentBytes,
+    sections: HashMap<SectionKind, SectionEntry>,
+}
+
+impl SegmentReader {
+    pub(crate) fn from_owned(bytes: Arc<[u8]>) -> Result<Self, String> {
+        Self::parse(SegmentBytes::Owned(bytes))
+    }
+
+    /// `file` must be an opened immutable Objekte segment, protected against
+    /// replacement by the store's reader/writer protocol. Editable source
+    /// files must never be passed here.
+    pub(crate) fn from_index_file(file: &File) -> Result<Self, String> {
+        let metadata = file.metadata().map_err(|error| error.to_string())?;
+        if !metadata.is_file() || metadata.len() == 0 || metadata.len() > MAX_SEGMENT_BYTES {
+            return Err("index segment is not a supported regular file".into());
+        }
+        // SAFETY: the store opens application-owned immutable segment files;
+        // publication never truncates or modifies an opened generation.
+        let map = unsafe { MmapOptions::new().map(file) }.map_err(|error| error.to_string())?;
+        Self::parse(SegmentBytes::Mapped(Arc::new(map)))
+    }
+
+    fn parse(bytes: SegmentBytes) -> Result<Self, String> {
+        let raw = bytes.as_ref();
+        if raw.len() < HEADER_BYTES || raw.len() as u64 > MAX_SEGMENT_BYTES {
+            return Err("immutable segment header is truncated or oversized".into());
+        }
+        if &raw[..8] != MAGIC {
+            return Err("immutable segment magic mismatch".into());
+        }
+        if u32_at(raw, 8)? != FORMAT_VERSION {
+            return Err("unsupported immutable segment format".into());
+        }
+        let count = u32_at(raw, 12)? as usize;
+        if count == 0 || count > MAX_SECTIONS {
+            return Err("invalid immutable segment section count".into());
+        }
+        let directory_end = u64_at(raw, 16)?;
+        let expected_end = HEADER_BYTES
+            .checked_add(
+                count
+                    .checked_mul(DIRECTORY_ENTRY_BYTES)
+                    .ok_or("directory overflow")?,
+            )
+            .ok_or("directory overflow")?;
+        if directory_end != expected_end as u64 || expected_end > raw.len() {
+            return Err("immutable segment directory bounds mismatch".into());
+        }
+        let mut sections = HashMap::with_capacity(count);
+        let mut spans = Vec::with_capacity(count);
+        let mut previous_kind = 0u32;
+        for index in 0..count {
+            let position = HEADER_BYTES + index * DIRECTORY_ENTRY_BYTES;
+            let kind = SectionKind::try_from(u32_at(raw, position)?)?;
+            if kind as u32 <= previous_kind {
+                return Err("immutable segment directory order mismatch".into());
+            }
+            previous_kind = kind as u32;
+            if u32_at(raw, position + 4)? != 0 {
+                return Err("unsupported immutable segment section flags".into());
+            }
+            let offset = u64_at(raw, position + 8)?;
+            let length = u64_at(raw, position + 16)?;
+            let end = offset
+                .checked_add(length)
+                .ok_or("immutable segment section offset overflow")?;
+            if offset < directory_end || end > raw.len() as u64 {
+                return Err("immutable segment section out of bounds".into());
+            }
+            let mut sha256 = [0u8; 32];
+            sha256.copy_from_slice(&raw[position + 24..position + 56]);
+            if sections
+                .insert(
+                    kind,
+                    SectionEntry {
+                        offset,
+                        length,
+                        sha256,
+                        checked: Arc::new(OnceLock::new()),
+                    },
+                )
+                .is_some()
+            {
+                return Err("duplicate immutable segment section".into());
+            }
+            if length > 0 {
+                spans.push((offset, end));
+            }
+        }
+        spans.sort_unstable();
+        if spans.windows(2).any(|pair| pair[0].1 > pair[1].0) {
+            return Err("overlapping immutable segment sections".into());
+        }
+        Ok(Self { bytes, sections })
+    }
+
+    pub(crate) fn section(&self, kind: SectionKind) -> Result<Option<&[u8]>, String> {
+        let Some(entry) = self.sections.get(&kind) else {
+            return Ok(None);
+        };
+        let result = entry.checked.get_or_init(|| {
+            let bytes = self.section_bytes(entry);
+            let digest: [u8; 32] = Sha256::digest(bytes).into();
+            if digest == entry.sha256 {
+                Ok(())
+            } else {
+                Err("immutable segment section checksum mismatch".into())
+            }
+        });
+        result.as_ref().map_err(Clone::clone)?;
+        Ok(Some(self.section_bytes(entry)))
+    }
+
+    fn section_bytes(&self, entry: &SectionEntry) -> &[u8] {
+        let start = entry.offset as usize;
+        &self.bytes.as_ref()[start..start + entry.length as usize]
+    }
+
+    /// Check descriptor framing before it can guide a dictionary lookup.
+    pub(crate) fn validate_posting_descriptor(
+        &self,
+        descriptor: PostingDescriptor,
+    ) -> Result<(), String> {
+        if descriptor.length == 0 {
+            if descriptor != PostingDescriptor::EMPTY {
+                return Err("invalid empty posting descriptor".into());
+            }
+            return Ok(());
+        }
+        if descriptor.cardinality == 0 {
+            return Err("nonempty posting advertises zero cardinality".into());
+        }
+        let region = self
+            .sections
+            .get(&SectionKind::PostingPayloads)
+            .ok_or("posting section missing")?;
+        let end = descriptor
+            .offset
+            .checked_add(descriptor.length as u64)
+            .ok_or("posting descriptor offset overflow")?;
+        if end > region.length {
+            return Err("posting descriptor out of bounds".into());
+        }
+        Ok(())
+    }
+
+    /// Validate one portable bitmap without hashing the complete posting region.
+    pub(crate) fn materialize_posting(
+        &self,
+        descriptor: PostingDescriptor,
+        allowed: &RoaringBitmap,
+    ) -> Result<RoaringBitmap, String> {
+        self.validate_posting_descriptor(descriptor)?;
+        if descriptor.length == 0 {
+            return Ok(RoaringBitmap::new());
+        }
+        let region = self
+            .sections
+            .get(&SectionKind::PostingPayloads)
+            .ok_or("posting section missing")?;
+        let start = (region.offset + descriptor.offset) as usize;
+        let payload = &self.bytes.as_ref()[start..start + descriptor.length as usize];
+        if short_checksum(payload) != descriptor.checksum {
+            return Err("posting checksum mismatch".into());
+        }
+        let mut cursor = Cursor::new(payload);
+        let bitmap = RoaringBitmap::deserialize_from(&mut cursor)
+            .map_err(|error| format!("invalid portable posting: {error}"))?;
+        if cursor.position() != descriptor.length as u64
+            || bitmap.len() != descriptor.cardinality as u64
+            || !bitmap.is_subset(allowed)
+        {
+            return Err("posting cardinality or record domain mismatch".into());
+        }
+        Ok(bitmap)
+    }
+}
+
+/// `u64` posting-region offset, `u32` payload length and cardinality, and an
+/// 8-byte payload checksum. No page is reserved for an individual posting.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(crate) struct PostingDescriptor {
+    pub offset: u64,
+    pub length: u32,
+    pub cardinality: u32,
+    pub checksum: u64,
+}
+
+impl PostingDescriptor {
+    pub(crate) const EMPTY: Self = Self {
+        offset: 0,
+        length: 0,
+        cardinality: 0,
+        checksum: 0,
+    };
+
+    pub(crate) fn for_bitmap(
+        offset: u64,
+        bitmap: &RoaringBitmap,
+        payload: &[u8],
+    ) -> Result<Self, String> {
+        if bitmap.is_empty() {
+            return Ok(Self::EMPTY);
+        }
+        Ok(Self {
+            offset,
+            length: u32::try_from(payload.len()).map_err(|_| "posting payload too large")?,
+            cardinality: u32::try_from(bitmap.len()).map_err(|_| "posting too many slots")?,
+            checksum: short_checksum(payload),
+        })
+    }
+
+    pub(crate) fn encode(self) -> [u8; 24] {
+        let mut bytes = [0u8; 24];
+        bytes[..8].copy_from_slice(&self.offset.to_le_bytes());
+        bytes[8..12].copy_from_slice(&self.length.to_le_bytes());
+        bytes[12..16].copy_from_slice(&self.cardinality.to_le_bytes());
+        bytes[16..24].copy_from_slice(&self.checksum.to_le_bytes());
+        bytes
+    }
+
+    pub(crate) fn decode(bytes: &[u8]) -> Result<Self, String> {
+        if bytes.len() != 24 {
+            return Err("posting descriptor size mismatch".into());
+        }
+        Ok(Self {
+            offset: u64_at(bytes, 0)?,
+            length: u32_at(bytes, 8)?,
+            cardinality: u32_at(bytes, 12)?,
+            checksum: u64_at(bytes, 16)?,
+        })
+    }
+}
+
+/// Stream sections directly into the final owned buffer or immutable file.
+/// Only the small section directory is retained by this writer.
+pub(crate) struct SegmentWriter<W: Write + Seek> {
+    writer: W,
+    expected_sections: usize,
+    sections: Vec<(SectionKind, u64, u64, [u8; 32])>,
+}
+
+impl<W: Write + Seek> SegmentWriter<W> {
+    pub(crate) fn new(mut writer: W, expected_sections: usize) -> Result<Self, String> {
+        if expected_sections == 0 || expected_sections > MAX_SECTIONS {
+            return Err("invalid segment section count".into());
+        }
+        let directory_bytes = HEADER_BYTES
+            .checked_add(
+                expected_sections
+                    .checked_mul(DIRECTORY_ENTRY_BYTES)
+                    .ok_or("segment directory overflow")?,
+            )
+            .ok_or("segment directory overflow")?;
+        writer
+            .write_all(&vec![0; directory_bytes])
+            .map_err(|error| error.to_string())?;
+        Ok(Self {
+            writer,
+            expected_sections,
+            sections: Vec::with_capacity(expected_sections),
+        })
+    }
+
+    pub(crate) fn write_section(
+        &mut self,
+        kind: SectionKind,
+        produce: impl FnOnce(&mut dyn Write) -> Result<(), String>,
+    ) -> Result<(), String> {
+        if self.sections.len() >= self.expected_sections
+            || self.sections.iter().any(|entry| entry.0 == kind)
+        {
+            return Err("segment section duplicate or count exceeded".into());
+        }
+        let start = self
+            .writer
+            .stream_position()
+            .map_err(|error| error.to_string())?;
+        let mut hashing = HashingWriter::new(&mut self.writer);
+        produce(&mut hashing)?;
+        let (length, digest) = hashing.finish();
+        if start.checked_add(length).ok_or("segment size overflow")? > MAX_SEGMENT_BYTES {
+            return Err("segment too large".into());
+        }
+        self.sections.push((kind, start, length, digest));
+        Ok(())
+    }
+
+    pub(crate) fn finish(mut self) -> Result<W, String> {
+        if self.sections.len() != self.expected_sections {
+            return Err("segment section count mismatch".into());
+        }
+        self.sections.sort_unstable_by_key(|entry| entry.0 as u32);
+        let directory_end = HEADER_BYTES + self.expected_sections * DIRECTORY_ENTRY_BYTES;
+        self.writer
+            .seek(SeekFrom::Start(0))
+            .map_err(|error| error.to_string())?;
+        self.writer
+            .write_all(MAGIC)
+            .map_err(|error| error.to_string())?;
+        self.writer
+            .write_all(&FORMAT_VERSION.to_le_bytes())
+            .map_err(|error| error.to_string())?;
+        self.writer
+            .write_all(&(self.expected_sections as u32).to_le_bytes())
+            .map_err(|error| error.to_string())?;
+        self.writer
+            .write_all(&(directory_end as u64).to_le_bytes())
+            .map_err(|error| error.to_string())?;
+        for (kind, offset, length, checksum) in self.sections {
+            self.writer
+                .write_all(&(kind as u32).to_le_bytes())
+                .and_then(|_| self.writer.write_all(&0u32.to_le_bytes()))
+                .and_then(|_| self.writer.write_all(&offset.to_le_bytes()))
+                .and_then(|_| self.writer.write_all(&length.to_le_bytes()))
+                .and_then(|_| self.writer.write_all(&checksum))
+                .map_err(|error| error.to_string())?;
+        }
+        self.writer.flush().map_err(|error| error.to_string())?;
+        Ok(self.writer)
+    }
+}
+
+struct HashingWriter<'a, W: Write> {
+    writer: &'a mut W,
+    hash: Sha256,
+    length: u64,
+}
+
+impl<'a, W: Write> HashingWriter<'a, W> {
+    fn new(writer: &'a mut W) -> Self {
+        Self {
+            writer,
+            hash: Sha256::new(),
+            length: 0,
+        }
+    }
+
+    fn finish(self) -> (u64, [u8; 32]) {
+        (self.length, self.hash.finalize().into())
+    }
+}
+
+impl<W: Write> Write for HashingWriter<'_, W> {
+    fn write(&mut self, bytes: &[u8]) -> io::Result<usize> {
+        let allowed =
+            usize::try_from(MAX_SEGMENT_BYTES.saturating_sub(self.length)).unwrap_or(usize::MAX);
+        if bytes.len() > allowed {
+            return Err(io::Error::other("segment section too large"));
+        }
+        let written = self.writer.write(bytes)?;
+        self.hash.update(&bytes[..written]);
+        self.length += written as u64;
+        Ok(written)
+    }
+
+    fn flush(&mut self) -> io::Result<()> {
+        self.writer.flush()
+    }
+}
+
+fn short_checksum(bytes: &[u8]) -> u64 {
+    let digest = Sha256::digest(bytes);
+    u64::from_le_bytes(digest[..8].try_into().unwrap())
+}
+
+fn u32_at(bytes: &[u8], start: usize) -> Result<u32, String> {
+    Ok(u32::from_le_bytes(
+        bytes
+            .get(start..start + 4)
+            .ok_or("truncated segment integer")?
+            .try_into()
+            .unwrap(),
+    ))
+}
+
+fn u64_at(bytes: &[u8], start: usize) -> Result<u64, String> {
+    Ok(u64::from_le_bytes(
+        bytes
+            .get(start..start + 8)
+            .ok_or("truncated segment integer")?
+            .try_into()
+            .unwrap(),
+    ))
+}
+
+#[cfg(test)]
+#[path = "segment_format.test.rs"]
+mod tests;

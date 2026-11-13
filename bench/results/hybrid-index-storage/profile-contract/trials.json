@@ -1,0 +1,50 @@
+[
+  {
+    "round": 0,
+    "inference": false,
+    "output": {
+      "build_ns": 1005833926,
+      "result_dir": "target/hybrid-index-storage/profile-contract/disabled/trial-1794575474394381744-421807"
+    }
+  },
+  {
+    "round": 0,
+    "inference": true,
+    "output": {
+      "build_ns": 2459630320,
+      "result_dir": "target/hybrid-index-storage/profile-contract/inference/trial-1794575475851808065-422008"
+    }
+  },
+  {
+    "round": 1,
+    "inference": false,
+    "output": {
+      "build_ns": 1037925442,
+      "result_dir": "target/hybrid-index-storage/profile-contract/disabled/trial-1794575478794517526-422206"
+    }
+  },
+  {
+    "round": 1,
+    "inference": true,
+    "output": {
+      "build_ns": 2462687842,
+      "result_dir": "target/hybrid-index-storage/profile-contract/inference/trial-1794575480283905982-422401"
+    }
+  },
+  {
+    "round": 2,
+    "inference": false,
+    "output": {
+      "build_ns": 1049021800,
+      "result_dir": "target/hybrid-index-storage/profile-contract/disabled/trial-1794575483214299883-422596"
+    }
+  },
+  {
+    "round": 2,
+    "inference": true,
+    "output": {
+      "build_ns": 2467499168,
+      "result_dir": "target/hybrid-index-storage/profile-contract/inference/trial-1794575484714015924-422791"
+    }
+  }
+]
