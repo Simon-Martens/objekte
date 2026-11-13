@@ -457,6 +457,44 @@ fn segment_raw_covers_identity_field(
         && segment.raw.record_count as usize == segment.records.len()
 }
 
+/// Metadata is resident in the published record and file catalog. Evaluate it
+/// over the active slots, just as the base collection metadata access does,
+/// without reopening source files. RepositoryRoot needs the repository path,
+/// which is not part of this local segment interface.
+fn segment_metadata_matches(
+    segment: &IndexedCollectionSegment,
+    collection: &CollectionState,
+    domain: &RoaringBitmap,
+    term: &BoundTerm,
+    catalog: Option<&FileCatalog>,
+) -> Option<RoaringBitmap> {
+    let PathRoot::Metadata(field) = term.path.root else {
+        return None;
+    };
+    if field == MetadataField::RepositoryRoot {
+        return None;
+    }
+    let catalog = catalog?;
+    let empty = Value::Object(BTreeMap::new());
+    let mut matches = RoaringBitmap::new();
+    for slot in domain.iter() {
+        let record = segment.records.get(slot as usize)?;
+        let file = catalog.entry(record.file)?;
+        let ctx = RecordContext {
+            value: &empty,
+            source_bytes: None,
+            record,
+            file,
+            collection_name: &collection.definition.name,
+            repository_root: std::path::Path::new(""),
+        };
+        if eval_term(term, &ctx).ok()? {
+            matches.insert(slot);
+        }
+    }
+    Some(matches)
+}
+
 fn segment_expr_bounds(
     segment: &IndexedCollectionSegment,
     expr: &BoundExpr,
@@ -532,6 +570,14 @@ fn segment_expr_bounds(
                 };
             }
             if let Some(matches) = segment_record_range_matches(segment, collection, domain, term) {
+                return SegmentCandidateBounds {
+                    may: matches.clone(),
+                    must: matches,
+                };
+            }
+            if let Some(matches) =
+                segment_metadata_matches(segment, collection, domain, term, catalog)
+            {
                 return SegmentCandidateBounds {
                     may: matches.clone(),
                     must: matches,
