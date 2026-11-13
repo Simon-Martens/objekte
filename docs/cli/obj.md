@@ -54,6 +54,8 @@ A query file accepts UTF-8, LF or CRLF, and an optional initial BOM. Blank lines
 "Goethe"
 title ~ "Goethe"
 @root :null
+annotation:? = true
+items[*]:null = true
 @root[0] = "first"
 year >= 1800 && year < 1900 SORT BY year DESC
 ```

@@ -26,6 +26,40 @@ fn hits(events: &[Value]) -> Vec<&Value> {
 }
 
 #[test]
+fn boolean_field_predicates_keep_cli_results_and_errors_exact() {
+    let root = tempfile::tempdir().unwrap();
+    for (name, data) in [
+        ("missing", r#"{}"#),
+        ("null", r#"{"x":null}"#),
+        ("zero", r#"{"x":0}"#),
+        ("empty", r#"{"x":""}"#),
+        ("text", r#"{"x":"value"}"#),
+    ] {
+        std::fs::write(root.path().join(format!("{name}.json")), data).unwrap();
+    }
+    for (query, count) in [
+        ("x:exists = true", 4),
+        ("x:null = true", 1),
+        ("x:? = true", 2),
+        ("x:? = false", 3),
+        ("x:string = true", 2),
+        ("x:number = true", 1),
+        ("x:null != true", 4),
+    ] {
+        let (output, events) = invoke(root.path(), &[query]);
+        assert!(
+            output.status.success(),
+            "{query}: {}",
+            String::from_utf8_lossy(&output.stderr)
+        );
+        assert_eq!(hits(&events).len(), count, "{query}");
+    }
+    let (output, events) = invoke(root.path(), &["x:? > true"]);
+    assert!(!output.status.success());
+    assert!(events.iter().any(|event| event["type"] == "query_error"));
+}
+
+#[test]
 fn tui_requires_terminal_and_rejects_query_file_before_building() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("one.json"), br#"{"title":"one"}"#).unwrap();

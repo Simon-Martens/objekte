@@ -1009,6 +1009,33 @@ impl DesktopView {
                         })
                         .collect();
                 }
+                completion::CompletionTarget::Modifier => {
+                    let prefix = context.prefix.to_lowercase();
+                    self.state.completion_suggestions = [
+                        ("?", "Nonempty test"),
+                        ("string", "String type test"),
+                        ("number", "Number type test"),
+                        ("array", "Array type test"),
+                        ("null", "Null test"),
+                        ("object", "Object type test"),
+                        ("exists", "Exists test"),
+                        ("lower", "Lowercase conversion"),
+                        ("length", "Length conversion"),
+                        ("each", "Element selection"),
+                    ]
+                    .into_iter()
+                    .filter(|(name, _)| name.starts_with(&prefix))
+                    .map(|(name, label)| (name.to_owned(), format!(":{name} · {label}")))
+                    .collect();
+                }
+                completion::CompletionTarget::BooleanValue => {
+                    let prefix = context.prefix.to_lowercase();
+                    self.state.completion_suggestions = ["true", "false"]
+                        .into_iter()
+                        .filter(|value| value.starts_with(&prefix))
+                        .map(|value| (value.to_owned(), format!("{value} · Boolean")))
+                        .collect();
+                }
                 completion::CompletionTarget::Value { field } => {
                     self.state.completion_pending = true;
                     self.send(UiAction::CompleteValues {

@@ -119,6 +119,24 @@ fn discovery_and_segments_publish_without_losing_records() {
     };
     assert_eq!(
         first
+            .search_available(&filtered("name:? = true"))
+            .unwrap()
+            .result
+            .hits
+            .len(),
+        2_048
+    );
+    assert_eq!(
+        first
+            .search_available(&filtered("name:object = true"))
+            .unwrap()
+            .result
+            .hits
+            .len(),
+        0
+    );
+    assert_eq!(
+        first
             .search_available(&filtered("name = 'n2049'"))
             .unwrap()
             .result
@@ -159,6 +177,15 @@ fn discovery_and_segments_publish_without_losing_records() {
     let second_results = second.search_available(&all_query()).unwrap();
     assert_eq!(second_results.result.hits.len(), 2_050);
     assert_eq!(second_results.result.count, None);
+    assert_eq!(
+        second
+            .search_available(&filtered("name:string = true"))
+            .unwrap()
+            .result
+            .hits
+            .len(),
+        2_050
+    );
     assert_eq!(
         second
             .search_available(&filtered("name = 'n2049'"))
