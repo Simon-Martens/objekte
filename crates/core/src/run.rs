@@ -2650,6 +2650,47 @@ fn segment_rank_key(
     })
 }
 
+/// Compare a stored segment row with the current page boundary without
+/// allocating rank parts, IDs, or a SearchHit for rows below the page.
+fn segment_compare_to_rank(
+    repo: &Repository,
+    sort: &ResolvedSort<'_>,
+    collection_index: usize,
+    segment: &IndexedCollectionSegment,
+    record: &RecordEntry,
+    worst: &RankKey,
+) -> Result<Ordering, String> {
+    let terms = sort.bound.terms[collection_index]
+        .as_ref()
+        .ok_or("segment sort collection missing")?;
+    if terms.len() != worst.parts.len() {
+        return Err("segment sort rank arity mismatch".into());
+    }
+    for (term, (other, _, _)) in terms.iter().zip(&worst.parts) {
+        let BoundSortSource::Stored(base_column) = &term.source else {
+            return Err("computed segment sort has no stored comparison".into());
+        };
+        let column = segment
+            .sorting
+            .columns
+            .get(&base_column.path)
+            .ok_or("segment sort column missing")?;
+        let key = column
+            .keys
+            .get(record.slot.0 as usize)
+            .ok_or("segment sort slot missing")?;
+        let order = key.compare_with(other, term.descending, term.options);
+        if !order.is_eq() {
+            return Ok(order);
+        }
+    }
+    Ok((
+        repo.collections[collection_index].definition.name.as_str(),
+        record.id.0.as_ref(),
+    )
+        .cmp(&(worst.collection.as_str(), worst.id.as_str())))
+}
+
 fn base_rank_key_merged(
     repo: &Repository,
     sort: &ResolvedSort<'_>,
@@ -4056,6 +4097,26 @@ fn search_segmented_impl(
                             .ok_or("active segment candidate missing")?;
                     total += 1;
                     counters.exact_posting_matches += 1;
+                    let enters_page = if cap == 0 {
+                        false
+                    } else if winners.len() < cap {
+                        true
+                    } else if let Some(worst) = winners.peek() {
+                        segment_compare_to_rank(
+                            repo,
+                            &sort,
+                            collection_index,
+                            segment,
+                            resolved.record,
+                            &worst.key,
+                        )?
+                        .is_lt()
+                    } else {
+                        false
+                    };
+                    if !enters_page && cache_builder.is_none() {
+                        continue;
+                    }
                     let key = segment_rank_key(
                         repo,
                         &sort,
@@ -4065,8 +4126,6 @@ fn search_segmented_impl(
                         None,
                     )?;
                     let matched_fields = exact_evidence.clone().unwrap_or_default();
-                    let hit =
-                        segment_locator_hit(collection, resolved, revision, matched_fields.clone());
                     if let Some(builder) = cache_builder.as_mut() {
                         builder.push(
                             &key,
@@ -4074,10 +4133,14 @@ fn search_segmented_impl(
                                 collection_index,
                                 segment_index: Some(segment_index),
                                 slot,
-                                matched_fields,
+                                matched_fields: matched_fields.clone(),
                             },
                         );
                     }
+                    if !enters_page {
+                        continue;
+                    }
+                    let hit = segment_locator_hit(collection, resolved, revision, matched_fields);
                     offer_merged(
                         &mut winners,
                         cap,
