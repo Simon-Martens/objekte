@@ -1,0 +1,128 @@
+{
+  "records": [
+    {
+      "trial": 1,
+      "mode": "baseline",
+      "command": [
+        "target/hybrid-index-storage/baseline/bench_index_construction-da8fde6847",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "target/hybrid-index-storage/repair-build-paired-d0ed/1-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental"
+      ],
+      "build_ns": 1083417287,
+      "first_batch_ns": 379358664,
+      "rss": 559202304,
+      "hwm": 568930304
+    },
+    {
+      "trial": 1,
+      "mode": "candidate",
+      "command": [
+        "target/hybrid-index-storage/bench_index_construction-d0ed131399",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "target/hybrid-index-storage/repair-build-paired-d0ed/1-candidate",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental"
+      ],
+      "build_ns": 1238920604,
+      "first_batch_ns": 345498075,
+      "rss": 641658880,
+      "hwm": 651640832
+    },
+    {
+      "trial": 2,
+      "mode": "candidate",
+      "command": [
+        "target/hybrid-index-storage/bench_index_construction-d0ed131399",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "target/hybrid-index-storage/repair-build-paired-d0ed/2-candidate",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental"
+      ],
+      "build_ns": 1235701513,
+      "first_batch_ns": 336431177,
+      "rss": 631975936,
+      "hwm": 645595136
+    },
+    {
+      "trial": 2,
+      "mode": "baseline",
+      "command": [
+        "target/hybrid-index-storage/baseline/bench_index_construction-da8fde6847",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "target/hybrid-index-storage/repair-build-paired-d0ed/2-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental"
+      ],
+      "build_ns": 970252135,
+      "first_batch_ns": 340654979,
+      "rss": 563359744,
+      "hwm": 572104704
+    },
+    {
+      "trial": 3,
+      "mode": "baseline",
+      "command": [
+        "target/hybrid-index-storage/baseline/bench_index_construction-da8fde6847",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "target/hybrid-index-storage/repair-build-paired-d0ed/3-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental"
+      ],
+      "build_ns": 1018160379,
+      "first_batch_ns": 329201208,
+      "rss": 555671552,
+      "hwm": 565846016
+    },
+    {
+      "trial": 3,
+      "mode": "candidate",
+      "command": [
+        "target/hybrid-index-storage/bench_index_construction-d0ed131399",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "target/hybrid-index-storage/repair-build-paired-d0ed/3-candidate",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental"
+      ],
+      "build_ns": 1211398999,
+      "first_batch_ns": 340023322,
+      "rss": 649162752,
+      "hwm": 658210816
+    }
+  ],
+  "hashes": {
+    "baseline": "a39a37dc050aa2a499542661ef5d3a2233314da00f01336696eb330018edb642",
+    "candidate": "0a179406154db8c633380fe2cf97e74604bbd54aae7f70bd4439dae91fe85782"
+  }
+}

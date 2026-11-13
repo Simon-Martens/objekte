@@ -1,0 +1,633 @@
+{
+  "baseline_build_revision": "da8fde68472b8646a63a05b3b3654c58de877301",
+  "candidate_build_revision": "e56f6654e9",
+  "runner_checkout_revision": "e56f6654e9fb93a634f1c5ce1835689a78b864c2",
+  "baseline_executable_sha256": "01deffe55c7c7a343d208aeb4453f8b1202b0688945175fd54e1bd851320a048",
+  "candidate_executable_sha256": "f470eb7f3329467fa95fef7250c12f558654e1ff33a444ac1b0834db8b678a5d",
+  "baseline_lock_sha256": "9cb715c0fc2b5a5d0aad31ae58c47edf90234822f48c542844afe04628e7753d",
+  "candidate_lock_sha256": "e8915ae2f6dc40433bf346ac0060f4a58a130ae17688801f24da0b744ed8d200",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cases_preselected": [
+    "Q001",
+    "Q008",
+    "Q042",
+    "Q143",
+    "Q167",
+    "Q175",
+    "Q177",
+    "Q194",
+    "Q202"
+  ],
+  "profiles": [
+    "ascii-off",
+    "unicode-off"
+  ],
+  "repetitions": 30,
+  "median_method": "middle pair mean, rounded to nearest nanosecond with half up",
+  "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+  "warmup": "benchmark default; every repetition measured, no discarded samples",
+  "commands": {
+    "baseline": [
+      "target/hybrid-index-storage/baseline/bench_musenalm-da8fde6847",
+      "--root",
+      "examples/musenalm",
+      "--result-dir",
+      "target/hybrid-index-storage/repair-tail-matched-e56f/baseline",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--cases",
+      "Q001,Q008,Q042,Q143,Q167,Q175,Q177,Q194,Q202",
+      "--repetitions",
+      "30",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32"
+    ],
+    "memory": [
+      "target/hybrid-index-storage/bench_musenalm-e56f6654e9",
+      "--root",
+      "examples/musenalm",
+      "--result-dir",
+      "target/hybrid-index-storage/repair-tail-matched-e56f/memory",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--cases",
+      "Q001,Q008,Q042,Q143,Q167,Q175,Q177,Q194,Q202",
+      "--repetitions",
+      "30",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "memory"
+    ],
+    "resident": [
+      "target/hybrid-index-storage/bench_musenalm-e56f6654e9",
+      "--root",
+      "examples/musenalm",
+      "--result-dir",
+      "target/hybrid-index-storage/repair-tail-matched-e56f/resident",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--cases",
+      "Q001,Q008,Q042,Q143,Q167,Q175,Q177,Q194,Q202",
+      "--repetitions",
+      "30",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "target/hybrid-index-storage/repair-stores-20261113",
+      "--fully-resident"
+    ],
+    "ondemand": [
+      "target/hybrid-index-storage/bench_musenalm-e56f6654e9",
+      "--root",
+      "examples/musenalm",
+      "--result-dir",
+      "target/hybrid-index-storage/repair-tail-matched-e56f/ondemand",
+      "--extended",
+      "--incremental",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--cases",
+      "Q001,Q008,Q042,Q143,Q167,Q175,Q177,Q194,Q202",
+      "--repetitions",
+      "30",
+      "--verified-cache-bytes",
+      "0",
+      "--prepared-cache-bytes",
+      "16777216",
+      "--query-workers",
+      "32",
+      "--storage",
+      "custom",
+      "target/hybrid-index-storage/repair-stores-20261113"
+    ]
+  },
+  "corpus_fingerprint": "ad517d15e3216bfbdb569906d14a1717271daaf27a8d58e47e55e1e63e5db868",
+  "workload_fingerprint": "b0a7ddfadd81939c89333097a4fdb7ff240953afff1a0559c183c29f40ea99f0",
+  "schema_fingerprint": "a7cff399f67082c6153b1245b24a8a392a50a5dd69563762047b5c15ec944433",
+  "comparison": [
+    {
+      "case": "Q001",
+      "alphabet": "ascii",
+      "baseline": {
+        "median_ns": 5716391,
+        "p95_ns": 6994661,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 7269333,
+        "p95_ns": 10119029,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 8843275,
+        "p95_ns": 10492234,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 8896712,
+        "p95_ns": 13502968,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q001",
+      "alphabet": "unicode",
+      "baseline": {
+        "median_ns": 5803245,
+        "p95_ns": 7758078,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 5902646,
+        "p95_ns": 7075113,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 6889990,
+        "p95_ns": 8096495,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 6815687,
+        "p95_ns": 7584277,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q008",
+      "alphabet": "ascii",
+      "baseline": {
+        "median_ns": 3889,
+        "p95_ns": 7835,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 6794,
+        "p95_ns": 9743,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 6140,
+        "p95_ns": 17174,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 6967,
+        "p95_ns": 13280,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q008",
+      "alphabet": "unicode",
+      "baseline": {
+        "median_ns": 3870,
+        "p95_ns": 13647,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 6836,
+        "p95_ns": 9866,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 6272,
+        "p95_ns": 24582,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 11076,
+        "p95_ns": 16014,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q042",
+      "alphabet": "ascii",
+      "baseline": {
+        "median_ns": 29555,
+        "p95_ns": 39298,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 28234,
+        "p95_ns": 38982,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 27607,
+        "p95_ns": 39136,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 29412,
+        "p95_ns": 38403,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q042",
+      "alphabet": "unicode",
+      "baseline": {
+        "median_ns": 28961,
+        "p95_ns": 39007,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 28774,
+        "p95_ns": 39138,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 27375,
+        "p95_ns": 37928,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 45939,
+        "p95_ns": 55688,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q143",
+      "alphabet": "ascii",
+      "baseline": {
+        "median_ns": 3008411,
+        "p95_ns": 3664147,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 3354073,
+        "p95_ns": 4289192,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 3905322,
+        "p95_ns": 5638651,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 3901083,
+        "p95_ns": 5368972,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q143",
+      "alphabet": "unicode",
+      "baseline": {
+        "median_ns": 3080373,
+        "p95_ns": 3568883,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 3087768,
+        "p95_ns": 3604408,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 3490652,
+        "p95_ns": 3978115,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 3461663,
+        "p95_ns": 4870552,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q167",
+      "alphabet": "ascii",
+      "baseline": {
+        "median_ns": 3046414,
+        "p95_ns": 3853128,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 3627653,
+        "p95_ns": 5215195,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 4257051,
+        "p95_ns": 7155475,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 4320846,
+        "p95_ns": 6438227,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q167",
+      "alphabet": "unicode",
+      "baseline": {
+        "median_ns": 3093312,
+        "p95_ns": 4472749,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 3541859,
+        "p95_ns": 4848924,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 4009831,
+        "p95_ns": 6506063,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 3870130,
+        "p95_ns": 5451504,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q175",
+      "alphabet": "ascii",
+      "baseline": {
+        "median_ns": 2775350,
+        "p95_ns": 3440283,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 3183896,
+        "p95_ns": 6165068,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 3593595,
+        "p95_ns": 7372471,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 3675597,
+        "p95_ns": 6882116,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q175",
+      "alphabet": "unicode",
+      "baseline": {
+        "median_ns": 2680531,
+        "p95_ns": 3650057,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 3099475,
+        "p95_ns": 3613022,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 3465622,
+        "p95_ns": 4834460,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 3516279,
+        "p95_ns": 4965926,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q177",
+      "alphabet": "ascii",
+      "baseline": {
+        "median_ns": 2449394,
+        "p95_ns": 3264407,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 3093860,
+        "p95_ns": 4458419,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 3392884,
+        "p95_ns": 6151495,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 3419930,
+        "p95_ns": 5532994,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q177",
+      "alphabet": "unicode",
+      "baseline": {
+        "median_ns": 2457221,
+        "p95_ns": 3197036,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 2939768,
+        "p95_ns": 4237420,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 3181086,
+        "p95_ns": 3595870,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 3224690,
+        "p95_ns": 4236170,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q194",
+      "alphabet": "ascii",
+      "baseline": {
+        "median_ns": 194212,
+        "p95_ns": 233345,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 196117,
+        "p95_ns": 571357,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 247890,
+        "p95_ns": 1076873,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 245451,
+        "p95_ns": 1737814,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q194",
+      "alphabet": "unicode",
+      "baseline": {
+        "median_ns": 184761,
+        "p95_ns": 223756,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 195366,
+        "p95_ns": 266032,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 220860,
+        "p95_ns": 289052,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 205525,
+        "p95_ns": 281089,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q202",
+      "alphabet": "ascii",
+      "baseline": {
+        "median_ns": 88959859,
+        "p95_ns": 95564011,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 91934210,
+        "p95_ns": 114133293,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 113218455,
+        "p95_ns": 137999187,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 113752142,
+        "p95_ns": 137155364,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    },
+    {
+      "case": "Q202",
+      "alphabet": "unicode",
+      "baseline": {
+        "median_ns": 90092369,
+        "p95_ns": 93365839,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "memory": {
+        "median_ns": 91862262,
+        "p95_ns": 99807503,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "resident": {
+        "median_ns": 111270083,
+        "p95_ns": 118818093,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      },
+      "ondemand": {
+        "median_ns": 110662416,
+        "p95_ns": 113322911,
+        "prepared_plan_hits": 0,
+        "verified_result_hits": 0
+      }
+    }
+  ]
+}

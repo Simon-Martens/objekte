@@ -1,0 +1,161 @@
+{
+  "binary_build_revision": "e56f6654e9",
+  "build_mode": "hybrid",
+  "cargo_lock_sha256": "e8915ae2f6dc40433bf346ac0060f4a58a130ae17688801f24da0b744ed8d200",
+  "code_revision": "e56f6654e9fb93a634f1c5ce1835689a78b864c2",
+  "command": [
+    "target/hybrid-index-storage/bench_musenalm-e56f6654e9",
+    "--root",
+    "examples/musenalm",
+    "--result-dir",
+    "target/hybrid-index-storage/repair-tail-matched-e56f/resident",
+    "--extended",
+    "--incremental",
+    "--profiles",
+    "ascii-off,unicode-off",
+    "--cases",
+    "Q001,Q008,Q042,Q143,Q167,Q175,Q177,Q194,Q202",
+    "--repetitions",
+    "30",
+    "--verified-cache-bytes",
+    "0",
+    "--prepared-cache-bytes",
+    "16777216",
+    "--query-workers",
+    "32",
+    "--storage",
+    "custom",
+    "target/hybrid-index-storage/repair-stores-20261113",
+    "--fully-resident"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "ad517d15e3216bfbdb569906d14a1717271daaf27a8d58e47e55e1e63e5db868",
+  "executable_sha256": "f470eb7f3329467fa95fef7250c12f558654e1ff33a444ac1b0834db8b678a5d",
+  "execution_checkout_revision": "e56f6654e9fb93a634f1c5ce1835689a78b864c2",
+  "extended": true,
+  "failures": 0,
+  "internal_decoded_posting_cache": {
+    "limit_formula": "min(segment_encoded_bytes / 20, 8388608) per segment",
+    "observations": [
+      {
+        "after_queries": {
+          "entries": 1598,
+          "limit_bytes": 5117720,
+          "retained_bytes": 2225024,
+          "sealed_segments": 8
+        },
+        "alphabet": "ascii"
+      },
+      {
+        "after_queries": {
+          "entries": 1599,
+          "limit_bytes": 5260113,
+          "retained_bytes": 2241912,
+          "sealed_segments": 8
+        },
+        "alphabet": "unicode"
+      }
+    ]
+  },
+  "median_method": "middle pair arithmetic mean, rounded to nearest nanosecond with half up",
+  "p95_method": "nearest rank: sorted[ceil(0.95 * n) - 1]",
+  "prepared_cache_bytes": 16777216,
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ],
+    [
+      "unicode-off",
+      {
+        "alphabet": "unicode",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 32,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 30,
+  "root": "examples/musenalm",
+  "run_id": "1794594782-e56f6654e9",
+  "schema_fingerprint": "a7cff399f67082c6153b1245b24a8a392a50a5dd69563762047b5c15ec944433",
+  "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+  "source_cache_bytes": 0,
+  "storage": "IndexStoragePolicy { location: CustomDirectory(\"target/hybrid-index-storage/repair-stores-20261113\"), residency: FullyResident }",
+  "workload_fingerprint": "b0a7ddfadd81939c89333097a4fdb7ff240953afff1a0559c183c29f40ea99f0"
+}

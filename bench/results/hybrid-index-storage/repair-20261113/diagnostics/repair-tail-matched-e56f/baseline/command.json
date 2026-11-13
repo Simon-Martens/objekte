@@ -1,0 +1,21 @@
+[
+  "target/hybrid-index-storage/baseline/bench_musenalm-da8fde6847",
+  "--root",
+  "examples/musenalm",
+  "--result-dir",
+  "target/hybrid-index-storage/repair-tail-matched-e56f/baseline",
+  "--extended",
+  "--incremental",
+  "--profiles",
+  "ascii-off,unicode-off",
+  "--cases",
+  "Q001,Q008,Q042,Q143,Q167,Q175,Q177,Q194,Q202",
+  "--repetitions",
+  "30",
+  "--verified-cache-bytes",
+  "0",
+  "--prepared-cache-bytes",
+  "16777216",
+  "--query-workers",
+  "32"
+]
