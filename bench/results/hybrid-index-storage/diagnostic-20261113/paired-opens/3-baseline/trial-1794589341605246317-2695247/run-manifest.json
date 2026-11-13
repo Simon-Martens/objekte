@@ -1,0 +1,30 @@
+{
+  "alphabet": "ascii",
+  "build_mode": "restore",
+  "code_revision": "389375b06d06e96229df60eb064b21dc81ac3fba",
+  "command": [
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/baseline/bench_index_construction-da8fde6847",
+    "--root",
+    "examples/musenalm",
+    "--result-dir",
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-opens-final-20261113/3-baseline",
+    "--alphabet",
+    "ascii",
+    "--workers",
+    "32",
+    "--incremental",
+    "--restore-snapshot",
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/baseline/fixture/trial-1794575018344972131-413663/index.snapshot"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "configuration": "musenalm_extended",
+  "cpu_affinity": "0-31",
+  "cpu_governor": "performance",
+  "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "dirty_status": "",
+  "kernel": "7.2.15-200.fc44.x86_64",
+  "profile": false,
+  "requested_workers": 32,
+  "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+  "snapshot_path": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/baseline/fixture/trial-1794575018344972131-413663/index.snapshot"
+}

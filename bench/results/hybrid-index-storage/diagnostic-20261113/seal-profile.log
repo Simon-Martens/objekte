@@ -1,0 +1,12 @@
+seal segment: collection=1 records=2048 files=2048 bytes=2815416 write_ms=36.556 decode_ms=2.684
+seal segment: collection=0 records=4010 files=4010 bytes=9444284 write_ms=113.435 decode_ms=8.273
+seal segment: collection=1 records=131900 files=131900 bytes=76470478 write_ms=270.924 decode_ms=154.246
+seal segment: collection=2 records=4928 files=4928 bytes=9069495 write_ms=19.139 decode_ms=4.967
+seal segment: collection=3 records=4180 files=4180 bytes=2437905 write_ms=4.725 decode_ms=1.570
+seal segment: collection=4 records=8 files=8 bytes=32297 write_ms=0.118 decode_ms=0.047
+seal segment: collection=5 records=210 files=210 bytes=119385 write_ms=0.734 decode_ms=0.225
+seal segment: collection=6 records=1202 files=1202 bytes=1965226 write_ms=24.202 decode_ms=1.727
+Q027 collection=contents FTS=Some("1808") FILTER=None sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 633.275 / 667.497 / 1068.231 µs (ok)
+build "ascii": IndexStoragePolicy { location: MemoryOnly, residency: FullyResident } open/build=1.690 s; parses=148486; resident_bytes=686723072; peak_resident_bytes=742498304; managed_bytes=null
+reports: target/hybrid-index-storage/seal-profile-skip-validation
+reproduce: cargo run --release --example bench_musenalm -- "--root" "examples/musenalm" "--result-dir" "target/hybrid-index-storage/seal-profile-skip-validation" "--extended" "--incremental" "--storage" "memory" "--profiles" "ascii-off" "--cases" "Q027" "--verified-cache-bytes" "0" "--repetitions" "3"

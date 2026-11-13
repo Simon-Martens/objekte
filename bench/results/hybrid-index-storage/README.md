@@ -1,6 +1,6 @@
 # Hybrid index storage benchmark archive
 
-Task `hybrid-index-storage`. This archive records the pre-implementation baseline and the Phase 0 inference-timer correction. It is **not** a final acceptance result.
+Task `hybrid-index-storage`. This archive records the pre-implementation baseline, the Phase 0 inference-timer correction, and the [2026-11-13 integration diagnostic](diagnostic-20261113/REPORT.md). The task remains **incomplete** because construction, memory, and query acceptance gates fail.
 
 ## Baseline environment and fixture
 

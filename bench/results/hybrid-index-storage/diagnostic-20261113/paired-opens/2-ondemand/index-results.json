@@ -1,0 +1,190 @@
+[
+  {
+    "alphabet": "ascii",
+    "build_mode": "hybrid",
+    "build_ns": 407628904,
+    "build_parses": 0,
+    "discovery_ns": 610012,
+    "durable_generation": 10,
+    "estimated_index_bytes": 11918518,
+    "first_batch_ns": 610012,
+    "inventory_heap_bytes": 77,
+    "managed_bytes": 128312320,
+    "managed_directory": "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/stores-smoke/objekte-indexes/33ea1718900937feb7a796e7a50fd1cdac9c59cba70c37a85f45fb8f3a723921/fb1b264b62e70c495a1856cebde2472710d3f3c47b490204e57710f7971131ab",
+    "open_ns": 407628904,
+    "peak_resident_bytes": 332722176,
+    "resident_bytes": 277565440,
+    "restore_samples": [],
+    "restore_status": "not_measured",
+    "searchable_batches": 8,
+    "segment_families": {
+      "agents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          2,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 279610,
+            "raw_bytes": 0,
+            "sorting_bytes": 113856
+          }
+        ]
+      ],
+      "contents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          1,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 85714,
+            "raw_bytes": 0,
+            "sorting_bytes": 154087
+          }
+        ],
+        [
+          3,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 463072,
+            "raw_bytes": 0,
+            "sorting_bytes": 9944413
+          }
+        ]
+      ],
+      "entries": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          4,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 341330,
+            "raw_bytes": 0,
+            "sorting_bytes": 367785
+          }
+        ]
+      ],
+      "items": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          5,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 76766,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "pages": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          6,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "places": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          7,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 2180,
+            "raw_bytes": 0,
+            "sorting_bytes": 7820
+          }
+        ]
+      ],
+      "series": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          8,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 24376,
+            "raw_bytes": 0,
+            "sorting_bytes": 57509
+          }
+        ]
+      ]
+    },
+    "source_bytes_read": 0,
+    "source_reads": 0,
+    "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/stores-smoke\"), residency: OnDemand }"
+  }
+]

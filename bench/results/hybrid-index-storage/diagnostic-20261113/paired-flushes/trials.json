@@ -1,0 +1,280 @@
+{
+  "records": [
+    {
+      "round": 1,
+      "mode": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/baseline/bench_index_construction-da8fde6847",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/1-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental",
+        "--snapshot"
+      ],
+      "flush_ns": 388067092,
+      "stored_bytes": 132710084
+    },
+    {
+      "round": 1,
+      "mode": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_managed_flush",
+        "--root",
+        "examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/1-candidate/store",
+        "--alphabet",
+        "ascii"
+      ],
+      "flush_ns": 779693553,
+      "stored_bytes": 128312320
+    },
+    {
+      "round": 2,
+      "mode": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_managed_flush",
+        "--root",
+        "examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/2-candidate/store",
+        "--alphabet",
+        "ascii"
+      ],
+      "flush_ns": 737181466,
+      "stored_bytes": 128312320
+    },
+    {
+      "round": 2,
+      "mode": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/baseline/bench_index_construction-da8fde6847",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/2-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental",
+        "--snapshot"
+      ],
+      "flush_ns": 394900343,
+      "stored_bytes": 132710084
+    },
+    {
+      "round": 3,
+      "mode": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/baseline/bench_index_construction-da8fde6847",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/3-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental",
+        "--snapshot"
+      ],
+      "flush_ns": 360252237,
+      "stored_bytes": 132710084
+    },
+    {
+      "round": 3,
+      "mode": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_managed_flush",
+        "--root",
+        "examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/3-candidate/store",
+        "--alphabet",
+        "ascii"
+      ],
+      "flush_ns": 754302319,
+      "stored_bytes": 128312320
+    },
+    {
+      "round": 4,
+      "mode": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_managed_flush",
+        "--root",
+        "examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/4-candidate/store",
+        "--alphabet",
+        "ascii"
+      ],
+      "flush_ns": 752269585,
+      "stored_bytes": 128312320
+    },
+    {
+      "round": 4,
+      "mode": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/baseline/bench_index_construction-da8fde6847",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/4-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental",
+        "--snapshot"
+      ],
+      "flush_ns": 366363273,
+      "stored_bytes": 132710084
+    },
+    {
+      "round": 5,
+      "mode": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/baseline/bench_index_construction-da8fde6847",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/5-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental",
+        "--snapshot"
+      ],
+      "flush_ns": 351285884,
+      "stored_bytes": 132710084
+    },
+    {
+      "round": 5,
+      "mode": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_managed_flush",
+        "--root",
+        "examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/5-candidate/store",
+        "--alphabet",
+        "ascii"
+      ],
+      "flush_ns": 800651414,
+      "stored_bytes": 128312320
+    },
+    {
+      "round": 6,
+      "mode": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_managed_flush",
+        "--root",
+        "examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/6-candidate/store",
+        "--alphabet",
+        "ascii"
+      ],
+      "flush_ns": 797274695,
+      "stored_bytes": 128312320
+    },
+    {
+      "round": 6,
+      "mode": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/baseline/bench_index_construction-da8fde6847",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/6-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental",
+        "--snapshot"
+      ],
+      "flush_ns": 413095105,
+      "stored_bytes": 132710084
+    },
+    {
+      "round": 7,
+      "mode": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/baseline/bench_index_construction-da8fde6847",
+        "--root",
+        "examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/7-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--incremental",
+        "--snapshot"
+      ],
+      "flush_ns": 417629622,
+      "stored_bytes": 132710084
+    },
+    {
+      "round": 7,
+      "mode": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_managed_flush",
+        "--root",
+        "examples/musenalm",
+        "--output",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-flushes-final-20261113/7-candidate/store",
+        "--alphabet",
+        "ascii"
+      ],
+      "flush_ns": 732528757,
+      "stored_bytes": 128312320
+    }
+  ],
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "binary_sha256": {
+    "baseline": "a39a37dc050aa2a499542661ef5d3a2233314da00f01336696eb330018edb642",
+    "candidate": "9dbdccb67592e8948261cbb59c0edbed0004b5e23138e24cac6678b9314e6568"
+  }
+}

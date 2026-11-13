@@ -1,0 +1,70 @@
+[
+  {
+    "id": "Q001",
+    "collection": "*",
+    "fts": "Almanach",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q167",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.year >= 1800 && year >= 1800",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q175",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.year >= 1800 SORT BY numbering ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q177",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.year >= $year",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "parameters": {
+      "year": 1803
+    }
+  },
+  {
+    "id": "Q202",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:array = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": false
+  }
+]

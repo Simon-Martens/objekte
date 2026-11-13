@@ -1,0 +1,93 @@
+389375b06d06e96229df60eb064b21dc81ac3fba Add explicit managed flush benchmark
+5f449395134369ab04d7f8e3dde5d715f0d82193 Rebase stale managed catalog history during flush
+33d1af0a8e358f54ec83f0f86594ef8de7f0734f Cache validated hot postings within segment budget
+044ad6c17ff9c57362c93d652e005f228e8d9e30 Expose nonblocking managed synchronization status
+70a055c0026bff8f925b70547e3cf88d2c22bbb9 Avoid duplicate validation during owned segment sealing
+f1d0e5096d04b7915f36fc462169507401999070 Exercise hybrid modes in Musenalm query campaign
+d0938dfbe5228d2e68d35b8c1de153068683eb5a Install committed sealed readers after fresh managed builds
+5d083edd1f13205e4c033149cb6c5d8b353523f5 Merge desktop storage policy tests and documentation
+8b166cc7463c2004bb4a71d368186e34bd84e23b Seal memory-only lifecycle segments into owned readers
+53d9e24184ab630828bb0bb19ae59c23e2358fd7 test(desktop): assert typed default storage policy
+4d5d26269dd9b7321fd10b411a2114c5650a47b8 Merge remote-tracking branch 'origin/integration/hybrid-index-storage' into task/hybrid-index-storage/desktop
+69bec5717d202b28a8f730247ceeeb8e8f862210 docs: describe desktop managed storage workflow
+796667044c959a110061a9a26323af883569026f Merge commit 'fa562a764f' into integration/hybrid-index-storage
+5342a54a08c6f4ef4738954500c3b36bcb6cfdc5 Disable production legacy snapshots and migrate oracle coverage
+fa562a764fb74aa3c11986b872a3cf21f6a779c2 desktop: flush managed index before replacement open
+8ae51cb64cd2543dd379962080fb58c3137f3674 Merge commit 'ea6ec585cf' into integration/hybrid-index-storage
+ea6ec585cfd061c2b2edeca6d91c58483b465f26 Verify segmented metadata FTS without source reads
+352600791a58b578d063617c6f287b48ed67afcd Merge commit 'f725dcc8f2' into integration/hybrid-index-storage
+196660e8b090bd2d1ce673eae014f6429ffa816e desktop: remove snapshot save and load backend
+21c3242613f0ed5248035b305f41f23e27699e90 Merge remote-tracking branch 'origin/integration/hybrid-index-storage' into task/hybrid-index-storage/sealed-query
+f725dcc8f209c27eae2ae64b5934e8abb2203697 Merge branch 'integration/hybrid-index-storage' into task/hybrid-index-storage/cli
+527165108ae8445ff3dbcbc99e08d2edd946f581 Remove obsolete CLI snapshot opening and writing
+6c8687f0c102bacd869a8019918f4fc669b78ec1 Merge commit '4ee4e11627' into integration/hybrid-index-storage
+534b9a8a43e176e646dbfd5451d34ff18f05eb35 Seal completed memory segments into owned immutable bytes
+d6fe6083e5ff8f1a03fdeba898467db9f4936f92 desktop: remove unused snapshot UI actions and workers
+07caad5caf8caf61c273cd6dce5ad32cecae4537 Reencode sealed posting and bigram dictionaries source free
+3edc9fb91d3534aedfc67ffa15c7f3688bc657c8 Migrate CLI loader tests to typed storage policy
+3b81e322810e4c9dcce07645c60bf5771a00458b Merge remote-tracking branch 'origin/integration/hybrid-index-storage' into task/hybrid-index-storage/desktop
+4ee4e116271050a6ade465ff57255e6f7bc344ee desktop: retire legacy snapshot opening routes
+bb7ec8a75f875ffcf10a459d86eb25f8e4b0a86e Merge branch 'integration/hybrid-index-storage' into task/hybrid-index-storage/cli
+679c83b720f0c7bf0ac00332ca0c873871d7418c Use sealed dictionaries for managed generation queries
+25a751860e1b600505fc1375dd68265697643197 Verify full resident CLI reopen and storage status
+0861ca973d6726bffc436367f570edea42b80aaa Merge commit '0af9b78c2b' into integration/hybrid-index-storage
+66f7188bf2249050e35d343a59bc1c30913ffd02 Merge branch 'integration/hybrid-index-storage' into task/hybrid-index-storage/cli
+4962cb3785f84afb1d7c46f4df8ea89f1c179629 Default repository openings to memory-only storage
+0af9b78c2bdbb79c8d6a773cf842fc57aa9e0d7a Stream posting-value pages from ordered sealed cursors
+497bfbbf11761053be8b89965937926be6bc0102 Show progressive managed builds in terminal UI
+07a4b156a8dabf3f5c822428ab73e41b97eda6ed desktop: use progressive shared storage opener
+45c7505215a1855aef33fef7de3ecd41e7c11740 Open hybrid segments with sealed posting and bigram readers
+092ec002c7748b6b292249dbbe75a297ca2c8a74 Merge remote-tracking branch 'origin/integration/hybrid-index-storage' into task/hybrid-index-storage/desktop
+407e209a61641e3cca0d3c61b319876cb1d59fb1 desktop: report managed storage status and flush on close
+6f29454d256a21c7caa9eb785bab26e3bd85aba6 Merge branch 'integration/hybrid-index-storage' into task/hybrid-index-storage/cli
+23787ba7b171c51c32b29e0003dc2f6babc06afc Expose progressive managed initial opening
+2a24af9f96b3d799854a1551bd156939ce0ddac2 Wire CLI and terminal UI to managed index storage
+7d06b0e3475c7406f4a3c0ddb7409c13608fdb2c Merge branch 'integration/hybrid-index-storage' into task/hybrid-index-storage/cli
+b5b0d594618eea46d28724a233143a38a5dc6cd3 Initialize unsealed posting field in owned decoder
+4f3c8edd5aed3e10327abc4d88ab82c8c52d0156 Merge branch 'integration/hybrid-index-storage' into task/hybrid-index-storage/cli
+3b04bcd041c905d1721be14e5fbe84a9547c8085 Merge commit '89cde537bf' into integration/hybrid-index-storage
+56b178cdad1b903305d10d7b13c95c5e5e468e41 Stream managed segments and preserve inference diagnostics
+89cde537bf1360e7bb4829a3384a5f62dd53314d Seek ordered posting ranges in sealed dictionaries
+d1ed3969b727e102b80f169e5899c3d4df177ceb desktop: open all storage choices with shared core
+b0c0003a3f953dd1053bfec6762516bb8defc90e Execute sealed posting dictionaries through checked query paths
+86f1f381c4ef82d734e88fd8ee404cbb0dcc1197 Merge branch 'integration/hybrid-index-storage' into task/hybrid-index-storage/desktop
+058de13dedebeeac9ef6838de15c82b3bcbd69d1 Merge branch 'integration/hybrid-index-storage' into task/hybrid-index-storage/cli
+947d66e10b878c8e24d2f43a17c4c948ea1a8cb4 Open and synchronize complete managed index generations
+6b71fc745566506643ffd9bdb1b5bbed9f14834c Stabilize historical metadata references across generations
+7cf99968fa8b2397e769882b6777c62444b7083b Keep historical metadata refs stable across generations
+d51cc267ef108458193b0962f3614fa3714f780a Document shared CLI and terminal storage choices
+412a4add26ca7a82c748653e7bbf7fb07b4580d5 Encode searchable immutable hybrid segments
+68a981e300acac52912b2353669b277c1a98195b Encode source-free managed generation catalogs
+e4450ba89f1f82459782f07b4d487bc4b89b33b6 Install sealed posting dictionaries without retained builder maps
+404b7932f0f4245d37167a1e6806cf38719095d2 Add checked generation catalog sidecar codec
+3ef9f6eed1bc53a7601dbe089253f69ba5d5fe48 Encode immutable hybrid segments with checked owned decode
+9f8a8dfe6bb442e777fb1d10621323367b15c8b8 Add checked record sort and relation segment sections
+cf0dd92e30673b69de91400f5896ec9b872a0547 Persist collection and ordinal for each segment
+ae989cc9631ad8c1e35f881fe3fc591d25ebb4cb Encode checked hybrid segment record sort and relation metadata
+e9967ff19b35cefaa1681c4e8caa6db0431a26b2 Document generation catalog publication contract
+cc61b12f7e69607496b55fc3f125f0d03b8c3988 Publish immutable generation catalog beside segments
+e1fa9a2daa491cf086b6b897b290c1cf1a8b9df8 Prepare source-free repository owner for managed generations
+11e7f02e7fab3f7a80c019b2ba5834a8353b58c5 Migrate CLI process coverage to managed index policies
+5cda86d630f6e1d82ba204dded0873c690a23b49 Report invalid source paths during store preparation
+d339288219aaf356a20955a9b9e3c68b74ad9bd9 Prepare desktop index storage controls and memory-only opening
+077150a16cf222c055359dabc774f0d3fd735dc2 Add TUI index storage selector and memory reopen
+b927570ff72c03b9622ab8db3822b5e8792637df Track live slots in immutable store generations
+885fab1d2a1392521355c7b0e934068c8ec23a1a Propagate sealed gram failures through segment queries
+05bdbdc35d87a35ce93d433964a1fa77c897d08a Remove TUI legacy snapshot save state
+5a0d8c57b6eb247f49fd654974186d719d6aff86 Reject unsafe managed store filesystem entries
+69f039f94a901dd20202940b7ff36a66dc5f2f75 Open CLI memory indexes without legacy snapshot probing
+0be3dffa141389097fd971d1997dc184267675d1 Pair resolved storage identity with excluded source definitions
+de4dfe746ced441cd8987bc7d62649e8667924ae Prepare checked bigram reader installation
+03dc3e23bcf3f166946b9c194145ccdb4ec678e9 Keep schema files protected in memory-only repository opens
+a64bda80c76f2f36cac0f5a7b1f5e0953cf3ab18 Persist active segment masks with generation conflict checks
+8abf481fe224b39d22d8fac71e3d4d15f8bf43f5 Merge branch 'integration/hybrid-index-storage' into task/hybrid-index-storage/cli
+73380f3ce145a803d3cc1e72caefd561f9815190 Parse shared index storage and residency options
+33790d0ecf99a1b4987671fcd453dfea9f1eba6c Default configured repository opening to memory only
+412042650adc111945101726f7a3dec9d40c41cd Cache posting validation evidence for sealed readers
+a0c9bddbd6cfc0cde40344aba3b17c0e15e8baef Pack normal and skip gram dictionaries in shared segments
+54bcf9bf85d5a475daee7bda16e2fb108b912b86 Add typed sealed posting dictionary adapter
+4c2632bc1459ee122babce4fbfc8504489857942 Prepare owned full-residency segment opening
+1eea29c80731187e5f59f225ad49454bb0aee501 Recognize and safely remove selected deprecated snapshots
+e6475f6c5fa93c7af7deb27a90dc6390d5c09c51 Add locked immutable generation manifest storage
+083fc1e6b0df42f099b59ae6c6d68d59e5c2d9e2 Introduce checked immutable segment and ordered block primitives
+bfca5ba9d20586d3d474061de4636e41f546f7f0 Define hybrid index storage contracts and baseline

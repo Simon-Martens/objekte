@@ -1,0 +1,121 @@
+{
+  "build_mode": "hybrid",
+  "code_revision": "389375b06d06e96229df60eb064b21dc81ac3fba",
+  "command": [
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/release/examples/bench_musenalm",
+    "--root",
+    "examples/musenalm",
+    "--result-dir",
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/paired-opens-final-20261113/7-resident",
+    "--extended",
+    "--incremental",
+    "--storage",
+    "custom",
+    "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/stores-smoke",
+    "--profiles",
+    "ascii-off",
+    "--cases",
+    "Q001",
+    "--verified-cache-bytes",
+    "0",
+    "--repetitions",
+    "1",
+    "--fully-resident"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "ad517d15e3216bfbdb569906d14a1717271daaf27a8d58e47e55e1e63e5db868",
+  "decoded_cache_bytes": 0,
+  "extended": true,
+  "failures": 0,
+  "prepared_cache_bytes": 16777216,
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ]
+  ],
+  "query_workers": 32,
+  "registrations": [
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "agents",
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "contents",
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "entries",
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "items",
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "pages",
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "places",
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "format": "json",
+      "identity": "Filename",
+      "name": "series",
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 1,
+  "root": "examples/musenalm",
+  "run_id": "1794589352-389375b06d",
+  "schema_fingerprint": "a7cff399f67082c6153b1245b24a8a392a50a5dd69563762047b5c15ec944433",
+  "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+  "source_cache_bytes": 0,
+  "storage": "IndexStoragePolicy { location: CustomDirectory(\"/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/stores-smoke\"), residency: FullyResident }",
+  "workload_fingerprint": "b0a7ddfadd81939c89333097a4fdb7ff240953afff1a0559c183c29f40ea99f0"
+}

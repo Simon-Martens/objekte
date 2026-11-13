@@ -1,0 +1,8 @@
+Q001 collection=* FTS=Some("Almanach") FILTER=None sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 5659.538 / 7246.276 / 11134.139 µs (ok)
+Q167 collection=contents FTS=None FILTER=Some("entry.year >= 1800 && year >= 1800") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 6285.866 / 6995.662 / 10655.855 µs (ok)
+Q175 collection=contents FTS=None FILTER=Some("entry.year >= 1800 SORT BY numbering ASC") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 5977.818 / 6591.242 / 9006.231 µs (ok)
+Q177 collection=contents FTS=None FILTER=Some("entry.year >= $year") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 5405.617 / 6147.931 / 9574.260 µs (ok)
+Q202 collection=contents FTS=None FILTER=Some("contributors:array = true") sort=[] limit=50 offset=0 mode=Locator count=true evidence=false | ascii-off: 95282.996 / 106703.403 / 116643.342 µs (ok)
+build "ascii": IndexStoragePolicy { location: MemoryOnly, residency: FullyResident } open/build=1.767 s; parses=148486; resident_bytes=684363776; peak_resident_bytes=743907328; managed_bytes=null
+reports: /home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/tail-30-final-20261113/memory
+reproduce: cargo run --release --example bench_musenalm -- "--root" "examples/musenalm" "--result-dir" "/home/simon/source/objekte-integration-hybrid-index-storage/target/hybrid-index-storage/tail-30-final-20261113/memory" "--extended" "--profiles" "ascii-off" "--cases" "Q001,Q167,Q175,Q177,Q202" "--repetitions" "30" "--verified-cache-bytes" "0" "--incremental" "--storage" "memory"
