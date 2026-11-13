@@ -4,6 +4,7 @@ use std::sync::Arc;
 use sha2::{Digest, Sha256};
 
 use super::*;
+use crate::inventory::FileVersions;
 use crate::lifecycle::{IndexRevision, PublishedIndex};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::source::{DiagnosticCategory, SourceFormat};
@@ -63,7 +64,7 @@ fn current_and_historical_metadata_round_trip_without_source_files() {
     let mut builder = GenerationCatalogBuilder::from_publication(&published).unwrap();
     assert_eq!(builder.intern(&current).unwrap(), 0);
     let old_ref = builder.intern(&older).unwrap();
-    assert_eq!(old_ref, 2);
+    assert_eq!(old_ref, HISTORICAL_TAG);
     assert_eq!(builder.intern(&older).unwrap(), old_ref);
     let bytes = builder.encode().unwrap();
     std::fs::remove_dir_all(root.path().join("data")).unwrap();
@@ -89,7 +90,7 @@ fn retired_hole_cannot_resolve_but_its_history_can() {
     published.catalog = published.catalog.retired(FileId(0)).unwrap();
     let mut builder = GenerationCatalogBuilder::from_publication(&published).unwrap();
     let old_ref = builder.intern(&old).unwrap();
-    assert_eq!(old_ref, 2);
+    assert_eq!(old_ref, HISTORICAL_TAG);
     let restored = RestoredGenerationCatalog::decode(
         &builder.encode().unwrap(),
         published.configuration_identity,
@@ -100,6 +101,88 @@ fn retired_hole_cannot_resolve_but_its_history_can() {
     assert!(restored.resolve_metadata(0).is_none());
     assert_eq!(restored.resolve_metadata(old_ref), Some(&old));
     assert_eq!(restored.file_versions.len(), 2);
+}
+
+#[test]
+fn tagged_history_survives_retirement_and_new_file_ids() {
+    let (_, mut published) = publication();
+    let old = published.catalog.entry(FileId(0)).unwrap().clone();
+    let mut old_revision = old.clone();
+    old_revision.revision.size += 1;
+    let mut first = GenerationCatalogBuilder::from_publication(&published).unwrap();
+    let old_ref = first.intern(&old_revision).unwrap();
+    let first = RestoredGenerationCatalog::decode(
+        &first.encode().unwrap(),
+        published.configuration_identity,
+        1,
+    )
+    .unwrap();
+    assert_eq!(old_ref, HISTORICAL_TAG);
+
+    published.catalog = published.catalog.retired(FileId(0)).unwrap();
+    let mut added = old.clone();
+    added.id = FileId(2);
+    added.relative_path = PathBuf::from("data/c.json").into();
+    published.catalog = published
+        .catalog
+        .appended(added.clone(), None, None)
+        .unwrap();
+    published.file_versions = FileVersions::from_versions(vec![FileVersion::INITIAL; 3]).unwrap();
+    let mut next = GenerationCatalogBuilder::from_publication_with_history(
+        &published,
+        first.historical_entries(),
+    )
+    .unwrap();
+    assert_eq!(next.intern(&old_revision).unwrap(), old_ref);
+    assert_eq!(next.intern(&added).unwrap(), 2);
+    let mut changed_added = added.clone();
+    changed_added.revision.size += 1;
+    let added_ref = next.intern(&changed_added).unwrap();
+    assert_eq!(added_ref, HISTORICAL_TAG | 1);
+    let next = RestoredGenerationCatalog::decode(
+        &next.encode().unwrap(),
+        published.configuration_identity,
+        1,
+    )
+    .unwrap();
+    assert!(next.resolve_metadata(0).is_none());
+    assert_eq!(next.resolve_metadata(2), Some(&added));
+    assert_eq!(next.resolve_metadata(old_ref), Some(&old_revision));
+    assert_eq!(next.resolve_metadata(added_ref), Some(&changed_added));
+}
+
+#[test]
+fn historical_reference_remains_valid_when_entry_becomes_current_again() {
+    let (_, mut published) = publication();
+    let current = published.catalog.entry(FileId(0)).unwrap().clone();
+    let mut former = current.clone();
+    former.revision.size += 1;
+    let mut first = GenerationCatalogBuilder::from_publication(&published).unwrap();
+    let historical_ref = first.intern(&former).unwrap();
+    let first = RestoredGenerationCatalog::decode(
+        &first.encode().unwrap(),
+        published.configuration_identity,
+        1,
+    )
+    .unwrap();
+    published.catalog = published
+        .catalog
+        .replaced(former.clone(), None, None)
+        .unwrap();
+    let mut next = GenerationCatalogBuilder::from_publication_with_history(
+        &published,
+        first.historical_entries(),
+    )
+    .unwrap();
+    assert_eq!(next.intern(&former).unwrap(), 0);
+    let next = RestoredGenerationCatalog::decode(
+        &next.encode().unwrap(),
+        published.configuration_identity,
+        1,
+    )
+    .unwrap();
+    assert_eq!(next.resolve_metadata(0), Some(&former));
+    assert_eq!(next.resolve_metadata(historical_ref), Some(&former));
 }
 
 #[test]
