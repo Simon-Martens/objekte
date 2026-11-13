@@ -48,6 +48,19 @@ pub fn run_with_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn 
 where
     F: FnOnce() -> Result<IndexedRepository, String> + Send + 'static,
 {
+    run_with_opening_loader(move || loader().map(TuiOpening::Ready), options)
+}
+
+/// A selected cache can load immediately or fall back to a fresh incremental build.
+pub enum TuiOpening {
+    Ready(IndexedRepository),
+    Initial(InitialBuildTask, Vec<PathBuf>),
+}
+
+pub fn run_with_opening_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
+where
+    F: FnOnce() -> Result<TuiOpening, String> + Send + 'static,
+{
     let mut terminal = ratatui::try_init()?;
     let result = (|| -> Result<(), Box<dyn Error>> {
         execute!(std::io::stdout(), event::EnableMouseCapture)?;
@@ -69,9 +82,11 @@ where
         })?;
         std::thread::spawn(move || {
             let result = loader();
-            let _ = sender.send(result);
+            if let Err(mpsc::SendError(Ok(TuiOpening::Initial(task, _)))) = sender.send(result) {
+                task.cancel();
+            }
         });
-        let repository = loop {
+        let opening = loop {
             if options
                 .interruption
                 .as_ref()
@@ -80,7 +95,7 @@ where
                 return Err(interrupted().into());
             }
             match receiver.try_recv() {
-                Ok(Ok(repository)) => break repository,
+                Ok(Ok(opening)) => break opening,
                 Ok(Err(error)) => return Err(std::io::Error::other(error).into()),
                 Err(mpsc::TryRecvError::Disconnected) => {
                     return Err(std::io::Error::other("repository loader stopped").into());
@@ -111,7 +126,12 @@ where
                 }
             }
         };
-        run_active(&mut terminal, repository, options, None)
+        match opening {
+            TuiOpening::Ready(repository) => run_active(&mut terminal, repository, options, None),
+            TuiOpening::Initial(task, protected_files) => {
+                run_initial_active(&mut terminal, task, options, protected_files)
+            }
+        }
     })();
     let mouse = execute!(std::io::stdout(), event::DisableMouseCapture);
     let restore = ratatui::try_restore();
@@ -127,6 +147,18 @@ pub fn run_with_initial_build(
     options: TuiOptions,
     protected_files: Vec<PathBuf>,
 ) -> Result<(), Box<dyn Error>> {
+    run_with_opening_loader(
+        move || Ok(TuiOpening::Initial(task, protected_files)),
+        options,
+    )
+}
+
+fn run_initial_active(
+    terminal: &mut ratatui::DefaultTerminal,
+    task: InitialBuildTask,
+    options: TuiOptions,
+    protected_files: Vec<PathBuf>,
+) -> Result<(), Box<dyn Error>> {
     struct CancelOnExit(InitialBuildTask);
     impl Drop for CancelOnExit {
         fn drop(&mut self) {
@@ -135,9 +167,7 @@ pub fn run_with_initial_build(
     }
 
     let guard = CancelOnExit(task);
-    let mut terminal = ratatui::try_init()?;
-    let result = (|| -> Result<(), Box<dyn Error>> {
-        execute!(std::io::stdout(), event::EnableMouseCapture)?;
+    (|| -> Result<(), Box<dyn Error>> {
         let started = Instant::now();
         let (repository, snapshot) = loop {
             if options
@@ -194,18 +224,12 @@ pub fn run_with_initial_build(
             }
         };
         run_active(
-            &mut terminal,
+            terminal,
             repository,
             options,
             Some((guard.0.clone(), snapshot)),
         )
-    })();
-    let mouse = execute!(std::io::stdout(), event::DisableMouseCapture);
-    let restore = ratatui::try_restore();
-    result?;
-    mouse?;
-    restore?;
-    Ok(())
+    })()
 }
 
 fn interrupted() -> std::io::Error {

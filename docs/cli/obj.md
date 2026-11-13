@@ -85,7 +85,9 @@ On a fresh build, the CLI may evaluate an accepted query internally as
 searchable batches arrive. It waits for construction to complete before
 emitting any query events, so hit order, exact counts, exports, and exit
 status retain the complete-index behavior. A valid existing snapshot still
-uses the normal restore path.
+uses the normal restore path. Early internal evaluation covers direct inputs
+and regular query files. Stdin and named pipes are read by the normal ordered
+query stream after opening so input reads cannot block construction.
 
 `query_start` includes a monotonic `query_id`, original input, `structured` or `fts` kind, optional physical query-file line, requested scope and count policy. A `hit` includes the query ID, zero-based emitted position and requested offset; collection and stable record ID; generation and file ID; relative path, size and available created/modified metadata; record byte range, class and status; diagnostic reference/details when available; and matched-field evidence when the core provides it. Unscoped FTS does not invent an exact field list.
 

@@ -3,8 +3,10 @@
 Run `cargo run --release -p objekte-cli --bin obj -- --repo examples/musenalm --tui` from the workspace
 root. The terminal window opens before repository startup and shows the elapsed
 index-building time. On a fresh build, the file catalogue opens after discovery
-and search can begin while records are still indexed. The first run may take longer while the index is built;
-the release build is recommended for the Musenalm corpus. After each search,
+and search can begin while records are still indexed. A selected cache that
+cannot be used also enters this fresh-build path. The first run may take
+longer while the index is built; the release build is recommended for the
+Musenalm corpus. After each search,
 the result status line shows its execution time.
 The terminal UI is an optional feature of `crates/cli`, enabled by default for the `obj` binary. It uses the schema files under
 `REPOSITORY/.objekte/collections/` to construct the core's in-memory
