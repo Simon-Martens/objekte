@@ -325,7 +325,7 @@ fn run_active(
                     "Reconciling changes"
                 } else {
                     match state.synchronization {
-                        IndexSynchronization::MemoryOnly => "Memory index",
+                        IndexSynchronization::MemoryOnly => "Preparing storage",
                         IndexSynchronization::Pending => "Synchronizing",
                         IndexSynchronization::Synchronizing => "Synchronizing",
                         IndexSynchronization::Synchronized => "Synchronized",
@@ -380,7 +380,12 @@ fn run_active(
             stdout.flush()?;
         }
     }
-    if let Some(index) = managed_index {
+    if let Some(index) = managed_index
+        && app
+            .build_status
+            .as_ref()
+            .is_none_or(|status| status.construction_complete)
+    {
         if index
             .wait_for_reconciliation()?
             .is_some_and(|report| report.cancelled)

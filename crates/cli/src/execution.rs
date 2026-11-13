@@ -96,40 +96,30 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                 .to_owned(),
             ),
         };
-        let result = if policy.location
-            == objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly
-        {
-            match Index::start_incremental_build(&root, configured.definitions.clone(), options) {
-                Ok(task) => {
-                    crate::tui::run_with_initial_build(task, ui, configured.protected_files.clone())
-                }
-                Err(error) => {
-                    Err(Box::new(io::Error::other(error.to_string())) as Box<dyn std::error::Error>)
-                }
-            }
-        } else {
-            let root = root.clone();
-            let definitions = configured.definitions.clone();
-            let protected_files = configured.protected_files.clone();
-            let opening_policy = policy.clone();
-            crate::tui::run_with_loader(
-                move || {
-                    let index = Index::open_with_storage(
-                        root,
+        let opening_root = root.clone();
+        let definitions = configured.definitions.clone();
+        let protected_files = configured.protected_files.clone();
+        let opening_policy = policy.clone();
+        let result = crate::tui::run_with_opening_loader(
+            move || {
+                let task = if opening_policy.location
+                    == objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly
+                {
+                    Index::start_incremental_build(&opening_root, definitions, options)
+                } else {
+                    Index::start_incremental_build_with_storage(
+                        opening_root,
                         definitions,
                         options,
                         opening_policy,
                         SourceRegistry::builtin(),
                     )
-                    .map_err(|error| error.to_string())?;
-                    index
-                        .protect_configuration_files(&protected_files)
-                        .map_err(|error| error.to_string())?;
-                    IndexedRepository::new(index).map_err(|error| error.to_string())
-                },
-                ui,
-            )
-        };
+                }
+                .map_err(|error| error.to_string())?;
+                Ok(crate::tui::TuiOpening::Initial(task, protected_files))
+            },
+            ui,
+        );
         match result {
             Ok(Some(request)) => {
                 policy = request.storage_policy;
