@@ -65,6 +65,7 @@ pub mod repository_configuration;
 pub mod run;
 pub mod schema_adapter;
 mod segment_format;
+mod segment_metadata;
 mod sort_binding;
 pub mod sorting;
 pub mod source;
