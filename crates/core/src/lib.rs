@@ -38,6 +38,7 @@ mod lifecycle_scan;
 mod lifecycle_segment_codec;
 mod lifecycle_verified;
 mod materialization;
+mod managed_store;
 pub mod measurement;
 pub mod model;
 mod ordered_block;

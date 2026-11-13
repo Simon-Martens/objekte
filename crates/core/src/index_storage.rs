@@ -92,20 +92,27 @@ impl IndexStoragePolicy {
         let configuration_identity = configuration_hash(definitions, options, sources)?;
         let repository_id = hex(&repository_identity);
         let configuration_id = hex(&configuration_identity);
-        let managed_directory = match &self.location {
-            IndexStorageLocation::MemoryOnly => None,
-            IndexStorageLocation::SystemTemporary => Some(
-                std::env::temp_dir()
-                    .join(private_temporary_namespace())
-                    .join("indexes")
-                    .join(&repository_id)
-                    .join(&configuration_id),
-            ),
-            IndexStorageLocation::RepositoryDirectory => Some(
-                root.join(".objekte")
-                    .join("indexes")
-                    .join(&configuration_id),
-            ),
+        let (managed_directory, owned_namespace_root) = match &self.location {
+            IndexStorageLocation::MemoryOnly => (None, None),
+            IndexStorageLocation::SystemTemporary => {
+                let base = std::env::temp_dir()
+                    .canonicalize()
+                    .map_err(|error| format!("system temporary directory: {error}"))?;
+                let owned = base.join(private_temporary_namespace());
+                (
+                    Some(
+                        owned
+                            .join("indexes")
+                            .join(&repository_id)
+                            .join(&configuration_id),
+                    ),
+                    Some(owned),
+                )
+            }
+            IndexStorageLocation::RepositoryDirectory => {
+                let owned = root.join(".objekte").join("indexes");
+                (Some(owned.join(&configuration_id)), Some(owned))
+            }
             IndexStorageLocation::CustomDirectory(base) => {
                 let base = base
                     .canonicalize()
@@ -116,10 +123,10 @@ impl IndexStoragePolicy {
                         base.display()
                     ));
                 }
-                Some(
-                    base.join("objekte-indexes")
-                        .join(&repository_id)
-                        .join(&configuration_id),
+                let owned = base.join("objekte-indexes");
+                (
+                    Some(owned.join(&repository_id).join(&configuration_id)),
+                    Some(owned),
                 )
             }
         };
@@ -128,6 +135,8 @@ impl IndexStoragePolicy {
             repository_identity,
             configuration_identity,
             managed_directory,
+            owned_namespace_root,
+            private_namespace: matches!(&self.location, IndexStorageLocation::SystemTemporary),
             residency: self.residency,
         })
     }
@@ -140,6 +149,9 @@ pub struct ResolvedIndexStorage {
     pub repository_identity: [u8; 32],
     pub configuration_identity: [u8; 32],
     pub managed_directory: Option<PathBuf>,
+    /// First application-owned directory beneath a selected existing base.
+    pub owned_namespace_root: Option<PathBuf>,
+    pub private_namespace: bool,
     pub residency: IndexResidency,
 }
 

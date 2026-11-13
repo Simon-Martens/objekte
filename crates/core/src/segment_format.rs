@@ -34,6 +34,19 @@ pub(crate) enum SectionKind {
     Integrity = 10,
 }
 
+pub(crate) const REQUIRED_SECTIONS: [SectionKind; 10] = [
+    SectionKind::FieldMetadata,
+    SectionKind::TextBindings,
+    SectionKind::ScalarDictionaries,
+    SectionKind::StructuralReferences,
+    SectionKind::BigramDictionaries,
+    SectionKind::PostingPayloads,
+    SectionKind::RecordSlots,
+    SectionKind::SortData,
+    SectionKind::RelationAndIdentity,
+    SectionKind::Integrity,
+];
+
 impl TryFrom<u32> for SectionKind {
     type Error = String;
 
@@ -177,6 +190,17 @@ impl SegmentReader {
             return Err("overlapping immutable segment sections".into());
         }
         Ok(Self { bytes, sections })
+    }
+
+    pub(crate) fn require_complete_sections(&self) -> Result<(), String> {
+        if self.sections.len() != REQUIRED_SECTIONS.len()
+            || REQUIRED_SECTIONS
+                .iter()
+                .any(|kind| !self.sections.contains_key(kind))
+        {
+            return Err("immutable segment required section missing".into());
+        }
+        Ok(())
     }
 
     pub(crate) fn section(&self, kind: SectionKind) -> Result<Option<&[u8]>, String> {
