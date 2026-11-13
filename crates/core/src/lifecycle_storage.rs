@@ -128,8 +128,25 @@ impl ManagedPersistence {
         {
             return Err("published revision did not advance beyond durable generation".into());
         }
+        // Historical refs have stable offsets only while their segment files
+        // are reused. Once the table greatly exceeds the metadata still
+        // referenced by this publication, rewrite those segments and rebuild
+        // the table from their actual file entries. Otherwise repeated
+        // replacements retain obsolete metadata after old shards are gone.
+        let referenced_files = publication
+            .segments
+            .iter()
+            .flat_map(|group| group.iter())
+            .map(|segment| segment.index.files.len())
+            .sum::<usize>();
+        let rebase_history = self.historical.len() > referenced_files.saturating_mul(2).max(64);
+        let history = if rebase_history {
+            &[][..]
+        } else {
+            &self.historical
+        };
         let mut catalog =
-            GenerationCatalogBuilder::from_publication_with_history(publication, &self.historical)?;
+            GenerationCatalogBuilder::from_publication_with_history(publication, history)?;
         let mut inputs = Vec::new();
         let mut next_indexes = Vec::new();
         for (number, group) in publication.segments.iter().enumerate() {
@@ -141,7 +158,7 @@ impl ManagedPersistence {
                 }
                 let identity = (collection, segment.ordinal);
                 let previous = self.durable_segments.get(&identity);
-                let reusable = previous.is_some_and(|previous| {
+                let reusable = !rebase_history && previous.is_some_and(|previous| {
                     Arc::ptr_eq(&previous.index, &segment.index)
                         && previous.current_refs.len() == segment.index.files.len()
                         && previous.current_refs.iter().zip(&segment.index.files).all(

@@ -205,6 +205,85 @@ fn managed_open_reuses_complete_generation_without_source_build() {
 }
 
 #[test]
+fn repeated_replacements_rebase_unreferenced_historical_metadata() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-managed-history-rebase-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let source = root.join("data/a.json");
+    std::fs::write(&source, br#"{"text":"first"}"#).unwrap();
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let policy = IndexStoragePolicy {
+        location: IndexStorageLocation::RepositoryDirectory,
+        residency: IndexResidency::OnDemand,
+    };
+    let index = Index::open_with_storage(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        policy.clone(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    index.stop_sync_storage().unwrap();
+    let resolved = policy
+        .prepare(
+            &root,
+            &[definition.clone()],
+            RepositoryOptions::default(),
+            &SourceRegistry::builtin(),
+        )
+        .unwrap()
+        .resolved;
+    let store = ManagedStore::open(&resolved).unwrap();
+    let mut history_sizes = Vec::new();
+    for revision in 0..70 {
+        std::fs::write(&source, format!(r#"{{"text":"value {revision}"}}"#)).unwrap();
+        let handle = index.view().unwrap().file_handle_for_path(&source).unwrap();
+        index.update_file(handle, &source).unwrap();
+        index.flush_storage().unwrap();
+        let generation = store.read_generation().unwrap().unwrap();
+        let catalog = RestoredGenerationCatalog::decode(
+            generation.catalog.as_deref().unwrap(),
+            resolved.configuration_identity,
+            1,
+        )
+        .unwrap();
+        history_sizes.push(catalog.historical_entries().len());
+    }
+    let opened = store.read_generation().unwrap().unwrap();
+    let catalog = RestoredGenerationCatalog::decode(
+        opened.catalog.as_deref().unwrap(),
+        resolved.configuration_identity,
+        1,
+    )
+    .unwrap();
+    assert!(history_sizes.windows(2).any(|pair| pair[0] > 64 && pair[1] < pair[0]));
+    assert!(catalog.historical_entries().len() <= 64);
+    assert_eq!(index.view().unwrap().search(&all_records()).unwrap().count, Some(1));
+    drop(opened);
+    drop(index);
+    let reopened = Index::open_with_storage(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        policy,
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    assert_eq!(reopened.view().unwrap().search(&all_records()).unwrap().count, Some(1));
+    reopened.stop_sync_storage().unwrap();
+    reopened.wait_for_reconciliation().unwrap();
+    drop(reopened);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn progressive_managed_build_flushes_only_complete_generation() {
     let root = std::env::temp_dir().join(format!(
         "objekte-managed-progressive-{}-{}",
