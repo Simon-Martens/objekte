@@ -1,6 +1,7 @@
 //! Read-only workspace layout inspired by DBDelve's dense sidebar and grid.
 
 use std::collections::BTreeSet;
+use std::sync::Arc;
 
 use gpui_kit::assets::IconName as AssetIconName;
 use gpui_kit::component::{
@@ -629,15 +630,43 @@ impl DesktopView {
             let all_directories = self.state.sidebar_directories().to_vec();
             let expanded_directories = self.state.expanded_directories.clone();
             let selected_directory = self.state.search.directory.clone();
+            let file_ids = Arc::clone(&self.state.visible_file_ids);
+            let catalogue_view = self
+                .state
+                .file_catalogue
+                .as_ref()
+                .map(|catalogue| catalogue.view.clone());
+            let file_count = file_ids.len();
             let target = cx.entity();
             sidebar = sidebar.child(
                 div()
                     .flex_1()
                     .min_h_0()
                     .child(
-                        uniform_list("sidebar-files-list", directory_count, move |range, _, _| {
+                        uniform_list("sidebar-files-list", directory_count + file_count, move |range, _, _| {
                             range
                                 .map(|item| {
+                                    if item >= directory_count {
+                                        let Some(view) = &catalogue_view else {
+                                            return div().into_any_element();
+                                        };
+                                        let Some(row) = view.catalogue_row(file_ids[item - directory_count]) else {
+                                            return div().into_any_element();
+                                        };
+                                        let path = objekte_search_core::path_repr::query_path(row.relative_path);
+                                        let label = format!("{} · #{}", path.rsplit('/').next().unwrap_or(&path), row.id.0);
+                                        return div().h(px(32.)).child(
+                                            sidebar_item(
+                                                format!("sidebar-file-{}", row.id.0),
+                                                AssetIconName::FileText,
+                                                label,
+                                                false,
+                                                false,
+                                                colors,
+                                                row_style,
+                                            ).tooltip(format!("{} · file ID {} · {} bytes · modified {} ns", path, row.id.0, row.size, row.modified_ns)),
+                                        ).into_any_element();
+                                    }
                                     let Some((index, directory)) = visible_directories.get(item)
                                     else {
                                         return div().into_any_element();
@@ -773,10 +802,11 @@ impl DesktopView {
                     .mt_2()
                     .text_xs()
                     .text_color(rgb(colors.secondary))
-                    .child(match self.state.sidebar_directories().len() {
-                        1 => "1 folder".to_owned(),
-                        count => format!("{count} folders"),
-                    }),
+                    .child(format!(
+                        "{} folders · {} files",
+                        self.state.sidebar_directories().len(),
+                        self.state.visible_file_ids.len()
+                    )),
             );
         }
         let sidebar = if mode == SidebarMode::Collections {
@@ -1301,23 +1331,25 @@ impl DesktopView {
         let rows = div()
             .id("results-scroll")
             .track_focus(&self.grid_focus)
-            .on_key_down(cx.listener(|this, event: &gpui_kit::KeyDownEvent, window, cx| {
-                match event.keystroke.key.as_str() {
-                    "up" => this.select_relative(-1, window, cx),
-                    "down" => this.select_relative(1, window, cx),
-                    "home" => this.select_absolute(false, window, cx),
-                    "end" => this.select_absolute(true, window, cx),
-                    "pageup" => this.select_page(false, window, cx),
-                    "pagedown" => this.select_page(true, window, cx),
-                    "enter" => {
-                        this.state.inspector_visible = true;
-                        this.send(UiAction::OpenDetail);
-                        cx.notify();
+            .on_key_down(
+                cx.listener(|this, event: &gpui_kit::KeyDownEvent, window, cx| {
+                    match event.keystroke.key.as_str() {
+                        "up" => this.select_relative(-1, window, cx),
+                        "down" => this.select_relative(1, window, cx),
+                        "home" => this.select_absolute(false, window, cx),
+                        "end" => this.select_absolute(true, window, cx),
+                        "pageup" => this.select_page(false, window, cx),
+                        "pagedown" => this.select_page(true, window, cx),
+                        "enter" => {
+                            this.state.inspector_visible = true;
+                            this.send(UiAction::OpenDetail);
+                            cx.notify();
+                        }
+                        _ => return,
                     }
-                    _ => return,
-                }
-                cx.stop_propagation();
-            }))
+                    cx.stop_propagation();
+                }),
+            )
             .flex()
             .flex_col()
             .flex_1()
@@ -1373,7 +1405,13 @@ impl DesktopView {
                         .w_full()
                         .min_h(px(30.))
                         .bg(rgb(shade))
-                        .hover(|row| row.bg(rgb(if selected { colors.selected } else { colors.raised })))
+                        .hover(|row| {
+                            row.bg(rgb(if selected {
+                                colors.selected
+                            } else {
+                                colors.raised
+                            }))
+                        })
                         .border_b_1()
                         .border_color(rgb(colors.border))
                         .children(row_columns.iter().map(
@@ -1508,6 +1546,16 @@ impl DesktopView {
             }
             None => format!("{} loaded", self.state.delivered_count),
         };
+        if page.provisional {
+            range = if matches!(
+                self.state.index_status.load,
+                IndexTaskState::Failed(_) | IndexTaskState::Cancelled
+            ) {
+                format!("Partial results · {range} · index construction stopped")
+            } else {
+                format!("Provisional · {range} · indexing continues")
+            };
+        }
         let undisplayed = self
             .state
             .available_columns
@@ -1573,16 +1621,19 @@ impl DesktopView {
                     .text_color(rgb(colors.secondary))
                     .child(range)
                     .child(div().flex_1())
-                    .when(page.exact_total.is_none() && !page.count_pending, |this| {
-                        this.child(
-                            Button::new("count-exact")
-                                .ghost()
-                                .label("Count all")
-                                .on_click(cx.listener(|this, _, _, _| {
-                                    this.send(UiAction::CountExact);
-                                })),
-                        )
-                    })
+                    .when(
+                        page.exact_total.is_none() && !page.count_pending && !page.provisional,
+                        |this| {
+                            this.child(
+                                Button::new("count-exact")
+                                    .ghost()
+                                    .label("Count all")
+                                    .on_click(cx.listener(|this, _, _, _| {
+                                        this.send(UiAction::CountExact);
+                                    })),
+                            )
+                        },
+                    )
                     .when(self.state.continuation_error.is_some(), |this| {
                         this.child(
                             Button::new("retry-more")
@@ -1634,28 +1685,32 @@ impl DesktopView {
         let index = &self.state.index_status;
         let index_status = if matches!(index.maintenance, IndexTaskState::Running { .. }) {
             if index.maintenance_kind == Some(super::model::IndexTaskKind::Compact) {
-                "Compacting index…"
+                "Compacting index…".to_owned()
             } else {
-                "Rebuilding index…"
+                "Rebuilding index…".to_owned()
             }
         } else if matches!(index.load, IndexTaskState::Running { .. }) {
-            "Opening index…"
+            format!(
+                "Indexing {} of {} files…",
+                index.processed_files.unwrap_or(0),
+                index.discovered_files.unwrap_or(0)
+            )
         } else if matches!(index.load, IndexTaskState::Failed(_)) {
-            "Index unavailable; source scan active"
+            "Index construction failed".to_owned()
         } else if matches!(index.check, IndexTaskState::Running { .. }) {
-            "Checking files…"
+            "Checking files…".to_owned()
         } else if matches!(index.save, IndexTaskState::Running { .. }) {
-            "Saving index…"
+            "Saving index…".to_owned()
         } else if matches!(index.check, IndexTaskState::Failed(_)) {
-            "Some files could not be checked"
+            "Some files could not be checked".to_owned()
         } else if matches!(index.save, IndexTaskState::Failed(_)) {
-            "Index could not be saved"
+            "Index could not be saved".to_owned()
         } else if index.dirty {
-            "Index changes not saved"
+            "Index changes not saved".to_owned()
         } else if index.check_complete == Some(true) {
-            "Files checked"
+            "Files checked".to_owned()
         } else {
-            "Index ready"
+            "Index ready".to_owned()
         };
         div()
             .flex()
@@ -1725,11 +1780,16 @@ impl DesktopView {
         self.workspace_layout
             .get()
             .is_some_and(|layout| layout.0 < 1100.)
-            && self.state.workspace.group(pane.other()).active.is_some_and(|id| {
-                matches!(id, TabId::Search(_))
-                    && self.state.workspace.current_search == Some(id)
-                    && self.state.preview_visible_for(id)
-            })
+            && self
+                .state
+                .workspace
+                .group(pane.other())
+                .active
+                .is_some_and(|id| {
+                    matches!(id, TabId::Search(_))
+                        && self.state.workspace.current_search == Some(id)
+                        && self.state.preview_visible_for(id)
+                })
             && matches!(
                 self.state.workspace.group(pane).active,
                 Some(TabId::Record(_))
@@ -1857,11 +1917,13 @@ impl DesktopView {
                                         },
                                         title
                                     ))
-                                    .child(Icon::new(icon).size_4().text_color(rgb(if selected && focused {
-                                        colors.accent
-                                    } else {
-                                        colors.secondary
-                                    })))
+                                    .child(Icon::new(icon).size_4().text_color(rgb(
+                                        if selected && focused {
+                                            colors.accent
+                                        } else {
+                                            colors.secondary
+                                        },
+                                    )))
                                     .child(
                                         div()
                                             .min_w_0()
@@ -2096,7 +2158,11 @@ impl DesktopView {
         let count = snapshot.and_then(|snapshot| snapshot.exact_total);
         let has_snapshot = snapshot.is_some();
         let empty_snapshot = has_snapshot && rows.is_empty();
-        let empty_title = if count == Some(0) { "No matches" } else { "No preview rows" };
+        let empty_title = if count == Some(0) {
+            "No matches"
+        } else {
+            "No preview rows"
+        };
         let empty_message = if count == Some(0) {
             "This query returned no records."
         } else {
@@ -2154,31 +2220,44 @@ impl DesktopView {
                             })),
                     ),
             )
-            .when(has_snapshot, |this| this.child(
-                div()
-                    .flex()
-                    .items_center()
-                    .h(px(30.))
-                    .px_3()
-                    .text_xs()
-                    .text_color(rgb(colors.secondary))
-                    .child("Result preview"),
-            ))
-            .when(!has_snapshot, |this| this.child(
-                div()
-                    .flex()
-                    .flex_col()
-                    .flex_1()
-                    .items_center()
-                    .justify_center()
-                    .gap_2()
-                    .px_4()
-                    .text_center()
-                    .text_color(rgb(colors.secondary))
-                    .child(Icon::new(AssetIconName::Search).size_8())
-                    .child(div().font_weight(FontWeight::SEMIBOLD).text_color(rgb(colors.text)).child("No current preview"))
-                    .child(div().text_sm().child("Activate this query to edit or refresh its results.")),
-            ))
+            .when(has_snapshot, |this| {
+                this.child(
+                    div()
+                        .flex()
+                        .items_center()
+                        .h(px(30.))
+                        .px_3()
+                        .text_xs()
+                        .text_color(rgb(colors.secondary))
+                        .child("Result preview"),
+                )
+            })
+            .when(!has_snapshot, |this| {
+                this.child(
+                    div()
+                        .flex()
+                        .flex_col()
+                        .flex_1()
+                        .items_center()
+                        .justify_center()
+                        .gap_2()
+                        .px_4()
+                        .text_center()
+                        .text_color(rgb(colors.secondary))
+                        .child(Icon::new(AssetIconName::Search).size_8())
+                        .child(
+                            div()
+                                .font_weight(FontWeight::SEMIBOLD)
+                                .text_color(rgb(colors.text))
+                                .child("No current preview"),
+                        )
+                        .child(
+                            div()
+                                .text_sm()
+                                .child("Activate this query to edit or refresh its results."),
+                        ),
+                )
+            })
             .when(!headers.is_empty(), |this| {
                 this.child(
                     div()
@@ -2202,58 +2281,67 @@ impl DesktopView {
                         })),
                 )
             })
-            .when(empty_snapshot, |this| this.child(
-                div()
-                    .flex()
-                    .flex_col()
-                    .flex_1()
-                    .items_center()
-                    .justify_center()
-                    .gap_2()
-                    .px_4()
-                    .text_center()
-                    .text_color(rgb(colors.secondary))
-                    .child(Icon::new(AssetIconName::Search).size_8())
-                    .child(div().font_weight(FontWeight::SEMIBOLD).text_color(rgb(colors.text)).child(empty_title))
-                    .child(div().text_sm().child(empty_message)),
-            ))
-            .when(has_snapshot && !empty_snapshot, |this| this.child(
-                div()
-                    .flex()
-                    .flex_col()
-                    .flex_1()
-                    .min_h_0()
-                    .overflow_y_scrollbar()
-                    .children(rows.into_iter().enumerate().map(|(index, cells)| {
-                        let target = activate_target.clone();
-                        div()
-                            .id(format!("inactive-query-row-{id:?}-{index}"))
-                            .flex()
-                            .items_center()
-                            .h(px(36.))
-                            .flex_shrink_0()
-                            .cursor_pointer()
-                            .hover(|this| this.bg(rgb(colors.selected)))
-                            .border_b_1()
-                            .border_color(rgb(colors.border))
-                            .on_click(move |_, window, cx| {
-                                target.update(cx, |this, cx| {
-                                    this.activate_workspace_tab(id, window, cx);
-                                });
-                            })
-                            .children(cells.into_iter().map(|cell| {
-                                div()
-                                    .flex_1()
-                                    .min_w_0()
-                                    .overflow_hidden()
-                                    .whitespace_nowrap()
-                                    .text_ellipsis()
-                                    .px_3()
-                                    .text_sm()
-                                    .child(cell)
-                            }))
-                    })),
-            ))
+            .when(empty_snapshot, |this| {
+                this.child(
+                    div()
+                        .flex()
+                        .flex_col()
+                        .flex_1()
+                        .items_center()
+                        .justify_center()
+                        .gap_2()
+                        .px_4()
+                        .text_center()
+                        .text_color(rgb(colors.secondary))
+                        .child(Icon::new(AssetIconName::Search).size_8())
+                        .child(
+                            div()
+                                .font_weight(FontWeight::SEMIBOLD)
+                                .text_color(rgb(colors.text))
+                                .child(empty_title),
+                        )
+                        .child(div().text_sm().child(empty_message)),
+                )
+            })
+            .when(has_snapshot && !empty_snapshot, |this| {
+                this.child(
+                    div()
+                        .flex()
+                        .flex_col()
+                        .flex_1()
+                        .min_h_0()
+                        .overflow_y_scrollbar()
+                        .children(rows.into_iter().enumerate().map(|(index, cells)| {
+                            let target = activate_target.clone();
+                            div()
+                                .id(format!("inactive-query-row-{id:?}-{index}"))
+                                .flex()
+                                .items_center()
+                                .h(px(36.))
+                                .flex_shrink_0()
+                                .cursor_pointer()
+                                .hover(|this| this.bg(rgb(colors.selected)))
+                                .border_b_1()
+                                .border_color(rgb(colors.border))
+                                .on_click(move |_, window, cx| {
+                                    target.update(cx, |this, cx| {
+                                        this.activate_workspace_tab(id, window, cx);
+                                    });
+                                })
+                                .children(cells.into_iter().map(|cell| {
+                                    div()
+                                        .flex_1()
+                                        .min_w_0()
+                                        .overflow_hidden()
+                                        .whitespace_nowrap()
+                                        .text_ellipsis()
+                                        .px_3()
+                                        .text_sm()
+                                        .child(cell)
+                                }))
+                        })),
+                )
+            })
             .when_some(count, |this, count| {
                 this.child(
                     div()
@@ -2346,37 +2434,48 @@ impl DesktopView {
                     .flex_1()
                     .min_h_0()
                     .overflow_y_scrollbar()
-                    .children(fields.into_iter().enumerate().map(|(index, (label, value))| {
-                        let target = activate_target.clone();
-                        let label = if label == "$" {
-                            "Record".to_string()
-                        } else {
-                            label.strip_prefix("$.").unwrap_or(&label).to_string()
-                        };
-                        div()
-                            .id(format!("inactive-record-row-{id}-{index}"))
-                            .flex()
-                            .gap_3()
-                            .px_3()
-                            .py_2()
-                            .cursor_pointer()
-                            .hover(|this| this.bg(rgb(colors.selected)))
-                            .border_b_1()
-                            .border_color(rgb(colors.border))
-                            .on_click(move |_, window, cx| {
-                                target.update(cx, |this, cx| {
-                                    this.activate_workspace_tab(TabId::Record(id), window, cx);
-                                });
-                            })
-                            .child(
+                    .children(
+                        fields
+                            .into_iter()
+                            .enumerate()
+                            .map(|(index, (label, value))| {
+                                let target = activate_target.clone();
+                                let label = if label == "$" {
+                                    "Record".to_string()
+                                } else {
+                                    label.strip_prefix("$.").unwrap_or(&label).to_string()
+                                };
                                 div()
-                                    .w(px(130.))
-                                    .flex_shrink_0()
-                                    .text_color(rgb(colors.secondary))
-                                    .child(label),
-                            )
-                            .child(div().flex_1().min_w_0().whitespace_normal().child(value))
-                    })),
+                                    .id(format!("inactive-record-row-{id}-{index}"))
+                                    .flex()
+                                    .gap_3()
+                                    .px_3()
+                                    .py_2()
+                                    .cursor_pointer()
+                                    .hover(|this| this.bg(rgb(colors.selected)))
+                                    .border_b_1()
+                                    .border_color(rgb(colors.border))
+                                    .on_click(move |_, window, cx| {
+                                        target.update(cx, |this, cx| {
+                                            this.activate_workspace_tab(
+                                                TabId::Record(id),
+                                                window,
+                                                cx,
+                                            );
+                                        });
+                                    })
+                                    .child(
+                                        div()
+                                            .w(px(130.))
+                                            .flex_shrink_0()
+                                            .text_color(rgb(colors.secondary))
+                                            .child(label),
+                                    )
+                                    .child(
+                                        div().flex_1().min_w_0().whitespace_normal().child(value),
+                                    )
+                            }),
+                    ),
             )
             .when(clipped, |this| {
                 this.child(
@@ -2407,7 +2506,10 @@ impl DesktopView {
                         layout.0 - sidebar - secondary
                     }
                 });
-                let preview_width = self.state.inspector_width.min((pane_width - 280.).max(260.));
+                let preview_width = self
+                    .state
+                    .inspector_width
+                    .min((pane_width - 280.).max(260.));
                 div()
                     .flex()
                     .flex_col()
@@ -2629,6 +2731,7 @@ impl DesktopView {
 
 impl Render for DesktopView {
     fn render(&mut self, window: &mut Window, cx: &mut Context<Self>) -> impl IntoElement {
+        self.state.refresh_visible_files_if_needed();
         let width = f32::from(window.bounds().size.width);
         let height = f32::from(window.bounds().size.height);
         if self.last_window_width >= 1100.
@@ -2735,7 +2838,8 @@ impl Render for DesktopView {
                         (95.0..180.0).contains(&y) && x >= sidebar + 12. && x <= width - right;
                     let builder_top = super::query_bar::builder_overlay_top(height);
                     let builder_right = right.min((width - 568.).max(8.));
-                    let in_builder = (builder_top..(builder_top + 320.).min(height - 8.)).contains(&y)
+                    let in_builder = (builder_top..(builder_top + 320.).min(height - 8.))
+                        .contains(&y)
                         && x >= width - builder_right - 560.
                         && x <= width - builder_right;
                     if !in_filter_line && !in_builder {
@@ -2887,7 +2991,10 @@ mod directory_tree_tests {
     fn collapsed_parent_marks_only_its_selected_descendant() {
         assert!(directory_contains_selection("assets", Some("assets/icons")));
         assert!(!directory_contains_selection("assets", Some("assets")));
-        assert!(!directory_contains_selection("assets", Some("assets2/icons")));
+        assert!(!directory_contains_selection(
+            "assets",
+            Some("assets2/icons")
+        ));
         assert!(!directory_contains_selection("assets", None));
     }
 }

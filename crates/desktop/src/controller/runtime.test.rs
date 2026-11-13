@@ -1,53 +1,62 @@
 use super::*;
 
 #[test]
-fn source_scan_projects_metadata_with_its_repository_root() {
+fn indexed_query_projects_metadata_with_its_repository_root() {
     let fixture = crate::backend::test_support::fixture();
-    let scan = SourceScan::open(
-        fixture._root.path(),
-        fixture.session.configuration.definitions.as_ref().clone(),
-    ).unwrap();
+    let view = fixture.session.repository.index().view().unwrap();
     let (sender, receiver) = mpsc::channel();
-    let spec = backend::QuerySpec { filter: "year = 2024".into(), ..Default::default() };
-    spawn_scan_page(
-        Arc::new(scan), spec, 0, Vec::new(), Vec::new(),
-        vec!["@file.size".into(), "@repository.root".into(), "@record.id".into()],
-        CancellationToken::new(), sender, 0, 0, GridRequestKind::First,
+    let spec = backend::QuerySpec {
+        filter: "year = 2024".into(),
+        ..Default::default()
+    };
+    spawn_grid_page(
+        fixture.session.clone(),
+        view,
+        spec,
+        0,
+        Vec::new(),
+        Vec::new(),
+        vec![
+            "@file.size".into(),
+            "@repository.root".into(),
+            "@record.id".into(),
+        ],
+        CancellationToken::new(),
+        sender,
+        0,
+        0,
+        GridRequestKind::First,
     );
     let event = receiver.recv_timeout(Duration::from_secs(5)).unwrap();
-    let WorkerEvent::ScanQueried { result, .. } = event else { panic!("expected source result") };
+    let WorkerEvent::Queried { result, .. } = event else {
+        panic!("expected indexed result")
+    };
     let (page, hits, _, _, _, _, _) = (*result).unwrap();
     assert_eq!(hits.len(), 1);
-    assert_eq!(&page.rows[0].cells[..3], &[
-        std::fs::metadata(fixture._root.path().join("a.json")).unwrap().len().to_string(),
-        fixture._root.path().display().to_string(),
-        "path:a.json".into(),
-    ]);
+    assert_eq!(
+        &page.rows[0].cells[..3],
+        &[
+            std::fs::metadata(fixture._root.path().join("a.json"))
+                .unwrap()
+                .len()
+                .to_string(),
+            fixture._root.path().display().to_string(),
+            "path:a.json".into(),
+        ]
+    );
 }
 
 #[test]
-fn first_query_runs_against_sources_before_index_session_is_ready() {
+fn file_catalogue_uses_pinned_file_ids_without_copied_paths() {
     let fixture = crate::backend::test_support::fixture();
-    let scan = SourceScan::open(
-        fixture._root.path(),
-        fixture.session.configuration.definitions.as_ref().clone(),
-    ).unwrap();
-    let (mut controller, _) = DesktopController::new();
-    controller.scan_session = Some(Arc::new(scan));
-    let draft = SearchDraft {
-        full_text: "Alpha".into(),
-        collection: Some("files".into()),
-        ..SearchDraft::default()
-    };
-    let mut updates = Vec::new();
-    controller.start_scan_query(draft, 0, &mut updates);
-    assert!(updates.iter().any(|update| matches!(update, UiUpdate::QueryStarted { .. })));
-    let event = controller.workers.recv_timeout(Duration::from_secs(5)).unwrap();
-    let WorkerEvent::ScanQueried { result, .. } = event else { panic!("expected source result") };
-    let (page, hits, _, _, _, _, _) = (*result).unwrap();
-    assert_eq!(page.exact_total, Some(1));
-    assert_eq!(hits.len(), 1);
-    assert_eq!(hits[0].record_id, "path:a.json");
+    let view = fixture.session.repository.index().view().unwrap();
+    let catalogue = indexed_file_catalogue(view, &fixture.session.collections);
+    assert_eq!(catalogue.ids.len(), 3);
+    assert_eq!(catalogue.filtered_ids(Some("files"), None).len(), 3);
+    assert_eq!(catalogue.filtered_ids(Some("missing"), None).len(), 0);
+    for id in catalogue.ids.iter().copied() {
+        assert!(catalogue.view.catalogue_row(id).is_some());
+    }
 }
 
 #[test]
@@ -642,12 +651,26 @@ fn row_preview_reuses_only_its_own_slot_and_explicit_tabs_stay_pinned() {
     assert_eq!(controller.tabs.len(), 2);
     let pinned_id = controller.active_tab.unwrap();
     assert_ne!(pinned_id, first_id);
-    assert!(controller.tabs.iter().find(|tab| tab.id == pinned_id).unwrap().pinned);
+    assert!(
+        controller
+            .tabs
+            .iter()
+            .find(|tab| tab.id == pinned_id)
+            .unwrap()
+            .pinned
+    );
 
     controller.open_record(0, false, &mut updates);
     assert_eq!(controller.active_tab, Some(first_id));
     assert_eq!(controller.tabs.len(), 2);
-    assert!(controller.tabs.iter().find(|tab| tab.id == pinned_id).unwrap().pinned);
+    assert!(
+        controller
+            .tabs
+            .iter()
+            .find(|tab| tab.id == pinned_id)
+            .unwrap()
+            .pinned
+    );
     controller.pin_preview(&mut updates);
     assert!(controller.tabs.iter().all(|tab| tab.pinned));
     assert!(updates.iter().any(|update| matches!(
@@ -692,30 +715,38 @@ fn activating_record_tab_selects_matching_result_or_clears_old_selection() {
     updates.clear();
     controller.activate_tab(first_id, &mut updates);
     assert_eq!(controller.selected_index, Some(0));
-    assert!(updates
-        .iter()
-        .any(|update| matches!(update, UiUpdate::RowSelection(Some(0)))));
+    assert!(
+        updates
+            .iter()
+            .any(|update| matches!(update, UiUpdate::RowSelection(Some(0))))
+    );
 
     updates.clear();
     controller.close_tab(first_id, &mut updates);
     assert_eq!(controller.active_tab, None);
-    assert!(updates
-        .iter()
-        .any(|update| matches!(update, UiUpdate::Tabs { active: None, .. })));
+    assert!(
+        updates
+            .iter()
+            .any(|update| matches!(update, UiUpdate::Tabs { active: None, .. }))
+    );
     controller.activate_tab(second_id, &mut updates);
     assert_eq!(controller.active_tab, Some(second_id));
     assert_eq!(controller.selected_index, Some(1));
-    assert!(updates
-        .iter()
-        .any(|update| matches!(update, UiUpdate::RowSelection(Some(1)))));
+    assert!(
+        updates
+            .iter()
+            .any(|update| matches!(update, UiUpdate::RowSelection(Some(1))))
+    );
 
     controller.keys.clear();
     updates.clear();
     controller.activate_tab(second_id, &mut updates);
     assert_eq!(controller.selected_index, None);
-    assert!(updates
-        .iter()
-        .any(|update| matches!(update, UiUpdate::RowSelection(None))));
+    assert!(
+        updates
+            .iter()
+            .any(|update| matches!(update, UiUpdate::RowSelection(None)))
+    );
 }
 
 #[test]
@@ -751,9 +782,11 @@ fn active_record_selection_follows_reordered_and_appended_results() {
     updates.clear();
     controller.sync_active_tab_row_selection_in(0, &mut updates);
     assert_eq!(controller.selected_index, Some(0));
-    assert!(updates
-        .iter()
-        .any(|update| matches!(update, UiUpdate::RowSelection(Some(0)))));
+    assert!(
+        updates
+            .iter()
+            .any(|update| matches!(update, UiUpdate::RowSelection(Some(0))))
+    );
 
     // Selection stays clear until the page containing that record arrives.
     controller.keys = vec![Some(first), None];
@@ -786,9 +819,11 @@ fn opening_record_outside_results_clears_previous_row_selection() {
         &mut updates,
     );
     assert_eq!(controller.selected_index, None);
-    assert!(updates
-        .iter()
-        .any(|update| matches!(update, UiUpdate::RowSelection(None))));
+    assert!(
+        updates
+            .iter()
+            .any(|update| matches!(update, UiUpdate::RowSelection(None)))
+    );
 }
 
 #[test]
