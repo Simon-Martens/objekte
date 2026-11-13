@@ -582,6 +582,43 @@ fn segment_filter_source_fields(expr: &BoundExpr) -> Option<HashSet<String>> {
     Some(fields)
 }
 
+fn segment_filter_evidence_bytes(expr: &BoundExpr) -> Option<usize> {
+    match expr {
+        BoundExpr::Term(term) => {
+            let mut bytes = term.query_path.display.len();
+            if let Some(rhs) = &term.rhs {
+                bytes = bytes.checked_add(rhs.query_path.display.len())?;
+            }
+            if let Some(related) = &term.related {
+                bytes = bytes.checked_add(related.evidence_path.len())?;
+            }
+            Some(bytes)
+        }
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => parts.iter().try_fold(0usize, |sum, part| {
+            sum.checked_add(segment_filter_evidence_bytes(part)?)
+        }),
+        BoundExpr::Not(inner) => segment_filter_evidence_bytes(inner),
+    }
+}
+
+fn local_segment_projection(
+    collection: &CollectionState,
+    filter: Option<&BoundExpr>,
+    fts: Option<&BoundFts>,
+    computed_sort: bool,
+) -> ScanProjection {
+    let mut projection =
+        ScanProjection::full(fts.is_some() && !borrowed_value_text(collection, fts));
+    if fts.is_none()
+        && !computed_sort
+        && matches!(collection.source.id(), "json" | "jsonl")
+        && let Some(fields) = filter.and_then(segment_filter_source_fields)
+    {
+        projection.top_level = Some(fields);
+    }
+    projection
+}
+
 fn borrowed_value_text(collection: &CollectionState, fts: Option<&BoundFts>) -> bool {
     !collection.source.is_extension()
         && matches!(collection.source.id(), "json" | "jsonl")
@@ -2149,6 +2186,27 @@ pub(crate) struct SegmentRecordRef<'a> {
     pub file: &'a FileEntry,
 }
 
+fn segment_active_file<'a>(
+    segment: &IndexedCollectionSegment,
+    active: &ActiveRecords,
+    catalog: &'a FileCatalog,
+    file_id: crate::model::FileId,
+) -> Result<&'a FileEntry, String> {
+    if active.slot_count() as usize != segment.records.len() {
+        return Err("segment active domain length mismatch".into());
+    }
+    let segment_file = segment.file(file_id).ok_or("segment record file missing")?;
+    let file = catalog
+        .entry(file_id)
+        .ok_or("active segment record file is retired")?;
+    if file.revision != segment_file.entry.revision
+        || !file.collections.contains(&segment.collection)
+    {
+        return Err("active segment record file changed without retirement".into());
+    }
+    Ok(file)
+}
+
 
 pub(crate) fn segment_record_ref<'a>(
     segment: &'a IndexedCollectionSegment,
@@ -3122,7 +3180,35 @@ struct SegmentFileScan {
     residual_evaluations: u64,
     raw_text_verifications: u64,
     matches: u64,
-    winners: Vec<MergedPageHit>,
+    winners: Vec<SegmentLocalWinner>,
+}
+
+/// A file worker retains only slots and rank keys. The merge thread builds
+/// full hits for entries that can still reach the requested page.
+struct SegmentLocalWinner {
+    key: RankKey,
+    slot: RecordSlot,
+    matched_fields: Vec<String>,
+}
+
+impl PartialEq for SegmentLocalWinner {
+    fn eq(&self, other: &Self) -> bool {
+        self.key == other.key
+    }
+}
+
+impl Eq for SegmentLocalWinner {}
+
+impl PartialOrd for SegmentLocalWinner {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for SegmentLocalWinner {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.key.cmp(&other.key)
+    }
 }
 
 
@@ -3138,6 +3224,8 @@ fn verify_local_segment_record(
     filter: Option<&BoundExpr>,
     fts: Option<&BoundFts>,
     direct_plan: Option<&DirectSourcePlan<'_>>,
+    projection: &ScanProjection,
+    filter_proof: Option<&[String]>,
     retain_evidence: bool,
     execution: Option<&ExecutionContext>,
 ) -> Result<(ExtractedRecord, bool, HashSet<String>, bool), String> {
@@ -3178,7 +3266,6 @@ fn verify_local_segment_record(
         ));
     }
     let borrowed_value_text = borrowed_value_text(collection, fts);
-    let projection = ScanProjection::full(fts.is_some() && !borrowed_value_text);
     let combined_fts = fts.filter(|fts| {
         collection.source.id() == "json_decoded_scalars"
             && source_fts_eligible(collection, fts, true)
@@ -3189,7 +3276,7 @@ fn verify_local_segment_record(
         let (extracted, result) = prepare_decoded_record_with_borrowed_fts(
             &collection.definition.schema,
             bytes,
-            &projection,
+            projection,
             combined_fts,
             retain_evidence,
             execution,
@@ -3202,7 +3289,7 @@ fn verify_local_segment_record(
                 &collection.source,
                 &collection.definition.schema,
                 bytes,
-                &projection,
+                projection,
                 false,
                 execution,
             )?,
@@ -3226,19 +3313,34 @@ fn verify_local_segment_record(
         repository_root: &repo.files.root,
     };
     let mut evidence = HashSet::new();
-    let filter_matches = if let Some(filter) = filter {
+    let filter_matches = if let Some(fields) = filter_proof {
+        if retain_evidence {
+            evidence.extend(fields.iter().cloned());
+        }
+        true
+    } else if let Some(filter) = filter {
         if record.class == RecordClass::RawFallback {
             eval_unavailable_filter(filter, &ctx, &mut evidence)? == Some(true)
         } else {
             let mut work = crate::relation_query::RelationWork::default();
-            crate::relation_query::eval_filter_truth(
-                repo,
-                filter,
-                &ctx,
-                &mut evidence,
-                crate::relation_query::EvaluationMode::Indexed,
-                &mut work,
-            )? == Some(true)
+            if retain_evidence {
+                crate::relation_query::eval_filter_truth(
+                    repo,
+                    filter,
+                    &ctx,
+                    &mut evidence,
+                    crate::relation_query::EvaluationMode::Indexed,
+                    &mut work,
+                )? == Some(true)
+            } else {
+                crate::relation_query::eval_filter_truth_membership(
+                    repo,
+                    filter,
+                    &ctx,
+                    crate::relation_query::EvaluationMode::Indexed,
+                    &mut work,
+                )? == Some(true)
+            }
         }
     } else {
         true
@@ -3281,22 +3383,25 @@ fn scan_segment_file_parallel(
     query: &Query,
     sort: &ResolvedSort<'_>,
     collection_index: usize,
-    segment_index: usize,
     published: &PublishedSegment,
     catalog: &FileCatalog,
-    revision: IndexRevision,
     filter: Option<&BoundExpr>,
     fts: Option<&BoundFts>,
     direct_plan: Option<&DirectSourcePlan<'_>>,
+    projection: &ScanProjection,
+    filter_proof: Option<&[String]>,
     file_id: u32,
     ranges: &[(u32, ByteRange)],
     cap: usize,
 ) -> Result<SegmentFileScan, String> {
     let collection = &repo.collections[collection_index];
     let segment = &published.index;
-    let file = catalog
-        .entry(crate::model::FileId(file_id))
-        .ok_or("active segment candidate file is retired")?;
+    let file = segment_active_file(
+        segment,
+        &published.active,
+        catalog,
+        crate::model::FileId(file_id),
+    )?;
     let path = repo.files.root.join(&file.relative_path);
     let mut reader = RecordRangeReader::open_for_search(&path, file.revision, None)?;
     let mut result = SegmentFileScan {
@@ -3309,7 +3414,6 @@ fn scan_segment_file_parallel(
         winners: Vec::new(),
     };
     let mut local_winners = BinaryHeap::new();
-    let mut local_winner_bytes = 0;
     let mut cursor = 0;
     while cursor < ranges.len() {
         let start = cursor;
@@ -3325,12 +3429,19 @@ fn scan_segment_file_parallel(
         let (read, bytes_read) = reader.read(&ranges[start..cursor])?;
         result.bytes_read += bytes_read;
         for (slot, bytes) in read {
-            let resolved =
-                segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
-                    .ok_or("active segment scan slot missing")?;
+            if !published.active.contains(RecordSlot(slot)) {
+                return Err("inactive segment scan slot".into());
+            }
+            let record = segment
+                .record(RecordSlot(slot))
+                .ok_or("segment scan slot missing")?;
+            if record.file.0 != file_id {
+                return Err("segment scan file ownership mismatch".into());
+            }
+            let resolved = SegmentRecordRef { record, file };
             let record = resolved.record;
             result.record_parses += u64::from(record.class == RecordClass::Logical);
-            result.residual_evaluations += u64::from(filter.is_some());
+            result.residual_evaluations += u64::from(filter.is_some() && filter_proof.is_none());
             let (extracted, matched, evidence, raw_checked) = verify_local_segment_record(
                 repo,
                 collection,
@@ -3340,6 +3451,8 @@ fn scan_segment_file_parallel(
                 filter,
                 fts,
                 direct_plan,
+                projection,
+                filter_proof,
                 query.options.evidence,
                 None,
             )?;
@@ -3358,28 +3471,27 @@ fn scan_segment_file_parallel(
             };
             result.matches += 1;
             let key = segment_rank_key(repo, sort, collection_index, segment, record, Some(&ctx))?;
-            let hit = segment_locator_hit(
-                collection,
-                resolved,
-                revision,
-                if query.options.evidence {
+            if cap == 0
+                || (local_winners.len() >= cap
+                    && local_winners
+                        .peek()
+                        .is_some_and(|worst: &SegmentLocalWinner| key >= worst.key))
+            {
+                continue;
+            }
+            let winner = SegmentLocalWinner {
+                key,
+                slot: RecordSlot(slot),
+                matched_fields: if query.options.evidence {
                     evidence.into_iter().collect()
                 } else {
                     Vec::new()
                 },
-            );
-            offer_merged(
-                &mut local_winners,
-                cap,
-                MergedPageHit {
-                    key,
-                    hit,
-                    segment: Some((collection_index, segment_index)),
-                    retained_bytes: 0,
-                },
-                None,
-                &mut local_winner_bytes,
-            )?;
+            };
+            if local_winners.len() >= cap {
+                local_winners.pop();
+            }
+            local_winners.push(winner);
         }
     }
     result.winners = local_winners.into_sorted_vec();
@@ -3839,6 +3951,12 @@ fn search_segmented_impl(
         let collection = &repo.collections[collection_index];
         let direct_plan =
             DirectSourcePlan::prepare_bound(collection, &sort, fts.as_ref(), filter.as_ref());
+        let projection = local_segment_projection(
+            collection,
+            filter.as_ref(),
+            fts.as_ref(),
+            sort.bound.has_computed,
+        );
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
             if let Some(context) = context {
                 context.check_string()?;
@@ -3997,6 +4115,25 @@ fn search_segmented_impl(
                 }
                 continue;
             }
+            let filter_proof = if fts.is_some()
+                && let (Some(filter), Some(bounds)) = (filter.as_ref(), bounds.as_ref())
+                && candidates.is_subset(&bounds.must)
+            {
+                if query.options.evidence {
+                    segment_exact_evidence_fields(
+                        segment,
+                        &published.active,
+                        collection,
+                        filter,
+                        &candidates,
+                        catalog,
+                    )?
+                } else {
+                    Some(Vec::new())
+                }
+            } else {
+                None
+            };
             let mut files: BTreeMap<u32, Vec<(u32, ByteRange)>> = BTreeMap::new();
             for slot in candidates.iter() {
                 let record = segment
@@ -4018,9 +4155,9 @@ fn search_segmented_impl(
             // Local residual verification is independent by source file. Limit the
             // parallel route to small ordered pages and bounded source rows;
             // all other plans keep the existing serial, cache-aware path.
-            let small_single_record_files = files
-                .values()
-                .all(|ranges| ranges.len() == 1 && ranges[0].1.len() <= 8 * 1024);
+            let single_record_files = files.values().all(|ranges| ranges.len() == 1);
+            let small_single_record_files = single_record_files
+                && files.values().all(|ranges| ranges[0].1.len() <= 8 * 1024);
             let parallel_scan = context.is_none()
                 && retained_budget.is_none()
                 && cache_builder.is_none()
@@ -4031,10 +4168,9 @@ fn search_segmented_impl(
                 && files.len() > 1
                 && (cap <= 64 || (cap <= 256 && small_single_record_files))
                 && collection.definition.name.len() <= 1024
-                && query
-                    .filter
-                    .as_ref()
-                    .is_none_or(|filter| format!("{filter:?}").len() <= 1024)
+                && filter.as_ref().is_none_or(|filter| {
+                    segment_filter_evidence_bytes(filter).is_some_and(|bytes| bytes <= 1024)
+                })
                 && fts.as_ref().is_none_or(|fts| {
                     fts.fields
                         .iter()
@@ -4056,11 +4192,11 @@ fn search_segmented_impl(
                 });
             if parallel_scan {
                 let jobs = files.into_iter().collect::<Vec<_>>();
-                // Small single-record files retain at most one compact hit per
-                // job. Dispatch them in larger bounded batches to avoid one
-                // pool installation for every worker-sized group.
-                let batch_size = if small_single_record_files {
-                    256
+                // One-record files retain at most one compact winner per job.
+                // Group their work to amortize pool setup while active workers
+                // still bound source buffers by the query worker count.
+                let batch_size = if single_record_files {
+                    2048
                 } else {
                     repo.options.query_workers.clamp(1, 32)
                 };
@@ -4074,13 +4210,13 @@ fn search_segmented_impl(
                                     query,
                                     &sort,
                                     collection_index,
-                                    segment_index,
                                     published,
                                     catalog,
-                                    revision,
                                     filter.as_ref(),
                                     fts.as_ref(),
                                     direct_plan.as_ref(),
+                                    &projection,
+                                    filter_proof.as_deref(),
                                     *file_id,
                                     ranges,
                                     cap,
@@ -4101,10 +4237,36 @@ fn search_segmented_impl(
                         counters.raw_text_verifications += scan.raw_text_verifications;
                         total += scan.matches;
                         for winner in scan.winners {
+                            if cap == 0
+                                || (winners.len() >= cap
+                                    && winners
+                                        .peek()
+                                        .is_some_and(|worst| winner.key >= worst.key))
+                            {
+                                continue;
+                            }
+                            let resolved = segment_record_ref(
+                                segment,
+                                &published.active,
+                                catalog,
+                                winner.slot,
+                            )?
+                            .ok_or("segment winner disappeared before merge")?;
+                            let hit = segment_locator_hit(
+                                collection,
+                                resolved,
+                                revision,
+                                winner.matched_fields,
+                            );
                             offer_merged(
                                 &mut winners,
                                 cap,
-                                winner,
+                                MergedPageHit {
+                                    key: winner.key,
+                                    hit,
+                                    segment: Some((collection_index, segment_index)),
+                                    retained_bytes: 0,
+                                },
                                 winner_budget,
                                 &mut winner_bytes,
                             )?;
@@ -4118,9 +4280,12 @@ fn search_segmented_impl(
                     context.check_string()?;
                     context.charge_reads(1)?;
                 }
-                let file = catalog
-                    .entry(crate::model::FileId(file_id))
-                    .ok_or("active segment candidate file is retired")?;
+                let file = segment_active_file(
+                    segment,
+                    &published.active,
+                    catalog,
+                    crate::model::FileId(file_id),
+                )?;
                 let path = repo.files.root.join(&file.relative_path);
                 let mut reader = RecordRangeReader::open_for_search(&path, file.revision, context)?;
                 delta_opened.insert(file_id);
@@ -4146,16 +4311,19 @@ fn search_segmented_impl(
                         if let Some(context) = context {
                             context.check_string()?;
                         }
-                        let resolved = segment_record_ref(
-                            segment,
-                            &published.active,
-                            catalog,
-                            RecordSlot(slot),
-                        )?
-                        .ok_or("active segment scan slot missing")?;
+                        if !published.active.contains(RecordSlot(slot)) {
+                            return Err("inactive segment scan slot".into());
+                        }
+                        let record = segment.record(RecordSlot(slot))
+                            .ok_or("segment scan slot missing")?;
+                        if record.file.0 != file_id {
+                            return Err("segment scan file ownership mismatch".into());
+                        }
+                        let resolved = SegmentRecordRef { record, file };
                         let record = resolved.record;
                         counters.record_parses += u64::from(record.class == RecordClass::Logical);
-                        counters.residual_evaluations += u64::from(filter.is_some());
+                        counters.residual_evaluations +=
+                            u64::from(filter.is_some() && filter_proof.is_none());
                         let (extracted, matched, evidence, raw_checked) =
                             verify_local_segment_record(
                                 repo,
@@ -4166,6 +4334,8 @@ fn search_segmented_impl(
                                 filter.as_ref(),
                                 fts.as_ref(),
                                 direct_plan.as_ref(),
+                                &projection,
+                                filter_proof.as_deref(),
                                 query.options.evidence,
                                 context,
                             )?;
@@ -7151,6 +7321,10 @@ fn try_lifecycle_ordered_stream(
                 filter.as_ref(),
                 fts.as_ref(),
                 direct_plans[cursor.collection_index].as_ref(),
+                &ScanProjection::full(
+                    fts.is_some() && !borrowed_value_text(collection, fts.as_ref()),
+                ),
+                None,
                 request.options.evidence,
                 Some(context),
             )?;

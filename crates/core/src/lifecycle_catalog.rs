@@ -205,6 +205,10 @@ impl FileCatalog {
         self.construction_complete
     }
 
+    pub(crate) fn repository_root(&self) -> &Path {
+        &self.base.files().root
+    }
+
     pub(crate) fn set_construction_complete(&mut self, complete: bool) {
         self.construction_complete = complete;
     }

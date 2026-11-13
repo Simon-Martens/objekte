@@ -459,8 +459,7 @@ fn segment_raw_covers_identity_field(
 
 /// Metadata is resident in the published record and file catalog. Evaluate it
 /// over the active slots, just as the base collection metadata access does,
-/// without reopening source files. RepositoryRoot needs the repository path,
-/// which is not part of this local segment interface.
+/// without reopening source files.
 fn segment_metadata_matches(
     segment: &IndexedCollectionSegment,
     collection: &CollectionState,
@@ -468,10 +467,14 @@ fn segment_metadata_matches(
     term: &BoundTerm,
     catalog: Option<&FileCatalog>,
 ) -> Option<RoaringBitmap> {
-    let PathRoot::Metadata(field) = term.path.root else {
+    let PathRoot::Metadata(_) = term.path.root else {
         return None;
     };
-    if field == MetadataField::RepositoryRoot {
+    if term.related.is_some()
+        || term.rhs.is_some()
+        || term.matcher.is_some()
+        || term.operation.is_some()
+    {
         return None;
     }
     let catalog = catalog?;
@@ -486,7 +489,7 @@ fn segment_metadata_matches(
             record,
             file,
             collection_name: &collection.definition.name,
-            repository_root: std::path::Path::new(""),
+            repository_root: catalog.repository_root(),
         };
         if eval_term(term, &ctx).ok()? {
             matches.insert(slot);
