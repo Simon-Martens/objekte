@@ -1426,6 +1426,23 @@ impl Repository {
         Ok(empty)
     }
 
+    /// Prepare the configured, zero-record query owner for a managed
+    /// generation without enumerating source directories or reading payloads.
+    /// The restored catalog and immutable segments are attached separately
+    /// after their identity and slot domains have been checked.
+    pub(crate) fn empty_for_managed_generation(
+        root: PathBuf,
+        definitions: Vec<CollectionDefinition>,
+        mut options: RepositoryOptions,
+        sources: SourceRegistry,
+    ) -> Result<Self, String> {
+        options.inference.validate()?;
+        crate::relation::validate_definitions(&definitions)?;
+        options.snapshot_mode = SnapshotMode::Disabled;
+        let root = root.canonicalize().map_err(|error| error.to_string())?;
+        Self::build_fresh(root, definitions, options, &sources, false)
+    }
+
     fn build_fresh(
         root: PathBuf,
         definitions: Vec<CollectionDefinition>,
