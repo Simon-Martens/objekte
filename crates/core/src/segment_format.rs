@@ -646,6 +646,24 @@ impl<W: Write + Seek> SegmentWriter<W> {
     }
 }
 
+impl SegmentWriter<std::io::Cursor<Vec<u8>>> {
+    /// The owned writer learns the exact remaining section lengths after the
+    /// posting stream is complete. Reserve once instead of doubling the final
+    /// resident segment buffer while those section buffers still exist.
+    pub(crate) fn reserve_remaining(&mut self, bytes: usize) -> Result<(), String> {
+        let final_len = self.writer.get_ref().len()
+            .checked_add(bytes)
+            .ok_or("owned segment size overflow")?;
+        if u64::try_from(final_len).map_err(|_| "owned segment size overflow")?
+            > MAX_SEGMENT_BYTES
+        {
+            return Err("owned segment exceeds format limit".into());
+        }
+        self.writer.get_mut().try_reserve_exact(bytes)
+            .map_err(|error| format!("owned segment reserve: {error}"))
+    }
+}
+
 struct HashingWriter<'a, W: Write> {
     writer: &'a mut W,
     hash: Sha256,

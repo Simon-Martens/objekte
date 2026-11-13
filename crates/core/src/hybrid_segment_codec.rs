@@ -300,7 +300,7 @@ pub(crate) fn write_segment<W: Write + Seek>(
     output: W,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
 ) -> Result<W, String> {
-    write_segment_inner(segment, ordinal, definition, options, output, intern, true)
+    write_segment_inner(segment, ordinal, definition, options, output, intern, true, |_, _| Ok(()))
 }
 
 /// Persist a previously sealed immutable segment. All dictionary, posting,
@@ -359,6 +359,7 @@ fn write_segment_inner<W: Write + Seek>(
     output: W,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
     validate_before_write: bool,
+    reserve_remaining: impl FnOnce(&mut SegmentWriter<W>, usize) -> Result<(), String>,
 ) -> Result<W, String> {
     let phase_profile = cfg!(feature = "detailed-profiling")
         && std::env::var_os("OBJEKTE_HYBRID_PHASES").is_some();
@@ -390,6 +391,20 @@ fn write_segment_inner<W: Write + Seek>(
     };
     let encoding_ns = encoding_started.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
     let section_copy_started = crate::detailed_timer::start_if_enabled(phase_profile);
+    let remaining_bytes = [
+        sections.field_bytes.len(),
+        sections.text_bytes.len(),
+        sections.scalar.len(),
+        sections.structural_bytes.len(),
+        sections.bigrams.len(),
+        sections.record_bytes.len(),
+        sections.sort_bytes.len(),
+        sections.relation_bytes.len(),
+        sections.integrity_bytes.len(),
+    ].into_iter().try_fold(0usize, |total, length| {
+        total.checked_add(length).ok_or("owned segment size overflow")
+    })?;
+    reserve_remaining(&mut writer, remaining_bytes)?;
     let EncodedSections {
         field_bytes,
         text_bytes,
@@ -670,6 +685,7 @@ fn encode_owned_bytes(
             Ok(reference)
         },
         false,
+        |writer, bytes| writer.reserve_remaining(bytes),
     )?
     .into_inner();
     if position != files.len() {
