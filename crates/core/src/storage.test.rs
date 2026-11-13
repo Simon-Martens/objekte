@@ -1186,6 +1186,10 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
         "posting_statistics",
         "posting_coverage",
         "diagnostic_owner",
+        "file_id",
+        "path_escape",
+        "path_absolute",
+        "collection_out_of_bounds",
         "structural_fallback",
         "structural_out_of_bounds",
     ] {
@@ -1244,6 +1248,18 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
             "diagnostic_owner" => {
                 files[0].diagnostics[0].file = FileId(99);
             }
+            "file_id" => {
+                files[0].id = FileId(99);
+            }
+            "path_escape" => {
+                files[0].relative_path = b"../escape.jsonl".to_vec();
+            }
+            "path_absolute" => {
+                files[0].relative_path = b"/tmp/escape.jsonl".to_vec();
+            }
+            "collection_out_of_bounds" => {
+                files[0].collections[0] = CollectionId(99);
+            }
             "structural_fallback" => {
                 collection.empty_array_records.insert(1);
             }
@@ -1269,6 +1285,28 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
             "checksummed corruption accepted: {case}"
         );
     }
+    let mut reader = Cursor::new(&original);
+    reader.set_position(header_size as u64);
+    let settings: SnapshotBuildConfiguration =
+        read_section(&mut reader, CONFIGURATION_SECTION_ID).unwrap();
+    let mut files: Vec<EncodedFile> = read_section(&mut reader, 0).unwrap();
+    let collection: EncodedCollection = read_section(&mut reader, 1).unwrap();
+    let first_membership = files[0].collections[0];
+    files[0].collections.push(first_membership);
+    let mut rewritten = original[..header_size].to_vec();
+    write_section(&mut rewritten, CONFIGURATION_SECTION_ID, &settings).unwrap();
+    write_section(&mut rewritten, 0, &files).unwrap();
+    write_section(&mut rewritten, 1, &collection).unwrap();
+    fs::write(&snapshot, rewritten).unwrap();
+    let restored = load_snapshot(
+        root.clone(),
+        definitions.clone(),
+        options,
+        &crate::source::SourceRegistry::builtin(),
+        &snapshot,
+    )
+    .unwrap();
+    assert_eq!(restored.files.files[0].collections, [CollectionId(0)]);
     fs::remove_dir_all(root).unwrap();
 }
 

@@ -158,6 +158,17 @@ fn full_logical_domain_skips_only_proven_redundant_bigram_scans() {
     assert_eq!(profile.bigram_logical_domain_skips, 1 + indexed.custom_text.len() as u32);
     assert_eq!(profile.bigram_logical_domain_scans, 0);
     assert_eq!(profile.bigram_fallback_domain_scans, 1);
+    let encoded = encode_base_metadata_segment(&indexed);
+    let inactive = RoaringBitmap::from_iter([0]);
+    assert!(decode_segment(
+        &encoded,
+        &repository,
+        CollectionId(0),
+        &catalog,
+        &inactive,
+        &[],
+    )
+    .is_ok());
 
     indexed.logical_records.remove(1);
     assert!(decode(&indexed).0.err().unwrap().contains("logical domain"));
@@ -189,6 +200,42 @@ fn mixed_logical_domain_retains_raw_and_custom_subset_scans() {
     indexed.raw.normal.entry(u64::MAX).or_default().insert(2);
     let bytes = encode_base_metadata_segment(&indexed);
     assert!(decode_segment(&bytes, &repository, CollectionId(0), &catalog, &active, &[]).is_err());
+    indexed.raw.normal.remove(&u64::MAX);
+    indexed
+        .custom_text
+        .values_mut()
+        .next()
+        .unwrap()
+        .normal
+        .entry(u64::MAX)
+        .or_default()
+        .insert(2);
+    let bytes = encode_base_metadata_segment(&indexed);
+    assert!(decode_segment(&bytes, &repository, CollectionId(0), &catalog, &active, &[]).is_err());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn empty_record_domain_keeps_bounds_checks() {
+    let (root, repository, catalog, mut indexed) = fixture_with_content(b"");
+    assert!(indexed.records.is_empty());
+    let active = RoaringBitmap::new();
+    let mut profile = SegmentDecodeProfile::default();
+    let bytes = encode_base_metadata_segment(&indexed);
+    decode_segment_profiled(
+        &bytes,
+        &repository,
+        CollectionId(0),
+        &catalog,
+        &active,
+        &[],
+        Some(&mut profile),
+    )
+    .unwrap();
+    assert_eq!(profile.bigram_logical_domain_skips, 1 + indexed.custom_text.len() as u32);
+    indexed.raw.normal.entry(u64::MAX).or_default().insert(0);
+    let corrupt = encode_base_metadata_segment(&indexed);
+    assert!(decode_segment(&corrupt, &repository, CollectionId(0), &catalog, &active, &[]).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }
 
