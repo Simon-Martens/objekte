@@ -19,7 +19,7 @@ use sha2::{Digest, Sha256};
 use crate::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution, storage_diagnostic_enabled};
 use crate::inference::{InferenceBuilder, InferenceConfig};
 use crate::inventory::{
-    ByteRange, CollectionBuilder, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass,
+    ByteRange, CollectionBuilder, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass, SharedPath,
     RecordEntry, SourceDiagnostic, SourceRevision, append_shifted_bitmap,
 };
 use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
@@ -55,7 +55,7 @@ pub(crate) struct BatchFile {
 #[derive(Clone)]
 pub(crate) struct SourceFileInput {
     pub(crate) id: FileId,
-    pub(crate) relative_path: PathBuf,
+    pub(crate) relative_path: SharedPath,
     pub(crate) revision: SourceRevision,
     pub(crate) created_ns: Option<i128>,
 }
@@ -65,7 +65,7 @@ impl SourceFileInput {
     pub(crate) fn from_entry(entry: &FileEntry) -> Self {
         Self {
             id: entry.id,
-            relative_path: entry.relative_path.to_path_buf(),
+            relative_path: entry.relative_path.clone(),
             revision: entry.revision,
             created_ns: entry.created_ns,
         }
@@ -138,6 +138,8 @@ pub(crate) struct BatchContribution {
     relations: Vec<RelationContribution>,
     pub record_parses: u64,
     pub failed_parses: u64,
+    pub(crate) source_reads: u64,
+    pub(crate) source_bytes_read: u64,
     pub(crate) profile: BuildWorkProfile,
 }
 
@@ -241,6 +243,13 @@ impl BatchContribution {
             inference: self.inference.clone(),
             logical_records: self.logical_records.clone(),
         }
+    }
+
+    /// Initial segment publication needs collection-wide inference decisions
+    /// without retaining a second record inventory. The local observation
+    /// remains in the segment and this copy feeds only final admission.
+    pub(crate) fn observation_copy(&self) -> (Option<InferenceBuilder>, RoaringBitmap) {
+        (self.inference.clone(), self.logical_records.clone())
     }
 
     pub(crate) fn new_file_count(&self) -> usize {
@@ -713,6 +722,8 @@ impl<'a> BatchBuilder<'a> {
             relations: self.relations,
             record_parses,
             failed_parses,
+            source_reads: 0,
+            source_bytes_read: 0,
             profile: self.profile,
         })
     }
@@ -786,7 +797,7 @@ fn process_batch_profiled(
             file.revision,
             &mut input_buffer,
             sampled.then_some(&mut source_sample),
-            profile_build.then_some(&mut input_buffer_profile),
+            Some(&mut input_buffer_profile),
             |outcome| {
                 let started = sampled.then(Instant::now);
                 let result = builder.outcome(&mut file, &path, outcome, None);
@@ -837,6 +848,8 @@ fn process_batch_profiled(
         batch.profile.batches += 1;
     }
     batch.file_fingerprints = file_fingerprints;
+    batch.source_reads = input_buffer_profile.files_read;
+    batch.source_bytes_read = input_buffer_profile.bytes_read;
     Ok(batch)
 }
 
@@ -1468,6 +1481,8 @@ fn process_unframed_large_file(
         inference,
         inference_jobs,
     )?;
+    let source_reads = batch.source_reads;
+    let source_bytes_read = batch.source_bytes_read;
     let file_fingerprint = batch
         .file_fingerprints()
         .first()
@@ -1476,6 +1491,8 @@ fn process_unframed_large_file(
     admit(batch)?;
     Ok(BuildScheduleStats {
         file_fingerprint,
+        source_reads,
+        source_bytes_read,
         weight_limit_bytes: 64 * 1024 * 1024,
         peak_weight_bytes: source_files[file_id.0 as usize].revision.size,
         admission_ns: started.elapsed().as_nanos() as u64,
@@ -1569,6 +1586,8 @@ pub(crate) fn process_framed_file_profiled(
     let file_fingerprint = (bytes.len() as u64 == input.revision.size)
         .then(|| (file_id, Sha256::digest(&*bytes).into()));
     let source_bytes = bytes.len() as u64;
+    stats.source_reads = 1;
+    stats.source_bytes_read = source_bytes;
     let mut chunks = Vec::new();
     let mut start = 0;
     while start < ranges.len() {
@@ -1744,6 +1763,8 @@ fn process_bounded_json_lines_file(
     if stats.file_fingerprint.is_none() && bytes_read == expected_size {
         stats.file_fingerprint = Some((file_id, digest.finalize().into()));
     }
+    stats.source_reads = stats.source_reads.saturating_add(1);
+    stats.source_bytes_read = stats.source_bytes_read.saturating_add(bytes_read);
     Ok(stats)
 }
 
@@ -1997,6 +2018,8 @@ pub(crate) struct BuildScheduleStats {
     /// Digest of the one large file scheduled by this call, if readable.
     /// The repository coordinator must collect it before aggregate `absorb`.
     pub(crate) file_fingerprint: Option<(FileId, [u8; 32])>,
+    pub source_reads: u64,
+    pub source_bytes_read: u64,
     pub weight_limit_bytes: u64,
     pub peak_weight_bytes: u64,
     pub peak_active_jobs: usize,
@@ -2071,6 +2094,8 @@ impl BuildScheduleStats {
         self.framing_ns = self.framing_ns.saturating_add(other.framing_ns);
         self.framing_chunks += other.framing_chunks;
         self.framing_bytes += other.framing_bytes;
+        self.source_reads = self.source_reads.saturating_add(other.source_reads);
+        self.source_bytes_read = self.source_bytes_read.saturating_add(other.source_bytes_read);
         self.admission_schedule.absorb(other.admission_schedule);
     }
 }

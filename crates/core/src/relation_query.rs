@@ -2,7 +2,7 @@
 
 use std::cell::RefCell;
 use std::collections::HashMap;
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
 
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::PublishedSegment;
@@ -79,6 +79,9 @@ pub(crate) struct MergedRelationView<'a> {
     segments: &'a [Arc<Vec<Arc<PublishedSegment>>>],
     catalog: &'a FileCatalog,
     source_errors: RefCell<SourceAvailabilityLog>,
+    // Source-dependent comparisons often revisit one target for many source
+    // records. Keep only small decoded targets for this query publication.
+    target_values: Arc<Vec<Mutex<(HashMap<MergedRecordSlot, Arc<Value>>, usize)>>>,
 }
 
 
@@ -92,6 +95,7 @@ impl<'a> MergedRelationView<'a> {
             segments: self.segments,
             catalog: self.catalog,
             source_errors: RefCell::new(SourceAvailabilityLog::default()),
+            target_values: self.target_values.clone(),
         }
     }
 
@@ -174,6 +178,7 @@ impl<'a> MergedRelationView<'a> {
             segments,
             catalog,
             source_errors: RefCell::new(SourceAvailabilityLog::default()),
+            target_values: Arc::new((0..16).map(|_| Mutex::new((HashMap::new(), 0))).collect()),
         })
     }
 
@@ -1434,6 +1439,7 @@ fn visit_merged_hop(
     address: MergedRecordSlot,
     quantifier: Quantifier,
     collect_text: bool,
+    cache_values: bool,
     truth: &mut Option<bool>,
     work: &mut RelationWork,
     source_positions: &[u32],
@@ -1455,6 +1461,27 @@ fn visit_merged_hop(
             return Err(format!(
                 "relation target record exceeds {MAX_QUERY_RELATION_BYTES} source bytes"
             ));
+        }
+        // Distinct targets can load in parallel; repeated visits to one
+        // target synchronize through the same shard and decode it once.
+        let shard = (address.slot.0 as usize
+            ^ address.segment.unwrap_or(0).wrapping_mul(131)
+            ^ (address.collection.0 as usize).wrapping_mul(17)) % view.target_values.len();
+        let mut target_cache = cache_values.then(|| view.target_values[shard].lock().unwrap());
+        if let Some(value) = target_cache.as_ref().and_then(|cache| cache.0.get(&address).cloned())
+        {
+            work.target_cache_hits += 1;
+            drop(target_cache);
+            let ctx = RecordContext {
+                value: &value,
+                source_bytes: None,
+                record: current.record,
+                file: current.file,
+                collection_name: &current.collection.definition.name,
+                repository_root: &view.repo.files.root,
+            };
+            merge_truth(truth, Some(terminal(&ctx, &[], source_positions)?), quantifier);
+            return Ok(());
         }
         work.before_read(current.record.range.len(), true)?;
         let path = view.repo.files.root.join(&current.file.relative_path);
@@ -1484,19 +1511,40 @@ fn visit_merged_hop(
             false,
             work.execution.as_ref(),
         )?;
-        let ctx = RecordContext {
-            value: &extracted.value,
-            source_bytes: Some(&bytes),
-            record: current.record,
-            file: current.file,
-            collection_name: &current.collection.definition.name,
-            repository_root: &view.repo.files.root,
-        };
-        merge_truth(
-            truth,
-            Some(terminal(&ctx, &extracted.text, source_positions)?),
-            quantifier,
-        );
+        if cache_values {
+            let value = Arc::new(extracted.value);
+            if let Some(cache) = target_cache.as_mut()
+                && bytes.len() <= 64 * 1024
+                && cache.1.saturating_add(bytes.len()) <= 512 * 1024
+            {
+                cache.1 += bytes.len();
+                cache.0.insert(address, value.clone());
+            }
+            drop(target_cache);
+            let ctx = RecordContext {
+                value: &value,
+                source_bytes: None,
+                record: current.record,
+                file: current.file,
+                collection_name: &current.collection.definition.name,
+                repository_root: &view.repo.files.root,
+            };
+            merge_truth(truth, Some(terminal(&ctx, &[], source_positions)?), quantifier);
+        } else {
+            let ctx = RecordContext {
+                value: &extracted.value,
+                source_bytes: Some(&bytes),
+                record: current.record,
+                file: current.file,
+                collection_name: &current.collection.definition.name,
+                repository_root: &view.repo.files.root,
+            };
+            merge_truth(
+                truth,
+                Some(terminal(&ctx, &extracted.text, source_positions)?),
+                quantifier,
+            );
+        }
         return Ok(());
     }
     let hop = &hops[depth];
@@ -1527,6 +1575,7 @@ fn visit_merged_hop(
                         target,
                         quantifier,
                         collect_text,
+                        cache_values,
                         truth,
                         work,
                         if depth == 0 {
@@ -1567,6 +1616,7 @@ fn visit_merged_hop(
                     source,
                     quantifier,
                     collect_text,
+                    cache_values,
                     truth,
                     work,
                     source_positions,
@@ -1603,6 +1653,7 @@ fn eval_related_term_merged(
         source_slot,
         term.quantifier,
         false,
+        related.source_operand.is_some() && related.terminal.path.root == PathRoot::Data,
         &mut truth,
         work,
         &[],
@@ -1734,6 +1785,7 @@ pub(crate) fn eval_fts_with_relations_merged(
                 source_slot,
                 Quantifier::Any,
                 !borrowed_text,
+                false,
                 &mut truth,
                 work,
                 &[],

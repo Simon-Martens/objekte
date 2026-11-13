@@ -2,15 +2,16 @@
 //! checked the repository and query generations that produced it.
 
 use gpui_kit::SharedString;
+use objekte_search_core::model::FileId;
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
+use std::sync::Arc;
 
 use super::completion::{CompletionContext, CompletionTarget};
 use super::filter_builder::FieldChoice;
 use super::model::{
-    BatchRow, BatchSource, DetailView, DirectoryCatalog, ErrorField, ExportFormat,
+    BatchRow, BatchSource, DetailView, DirectoryCatalog, ErrorField, ExportFormat, FileCatalogue,
     FilterValidationState, IndexUiStatus, MAX_BATCH_ROWS, OpenDraft, PageView, QueryEntry,
-    RecordTabSummary, ResultRow,
-    SearchDraft, TabViewState, UiUpdate,
+    RecordTabSummary, ResultRow, SearchDraft, TabViewState, UiUpdate,
 };
 use super::open_dialog::{DetectionState, OpenDialogState};
 use super::workspace::{TabId, Workspace};
@@ -121,6 +122,9 @@ pub struct UiState {
     pub single_collection: bool,
     pub directories: Vec<String>,
     pub directories_by_collection: BTreeMap<String, Vec<String>>,
+    pub file_catalogue: Option<FileCatalogue>,
+    pub visible_file_ids: Arc<Vec<FileId>>,
+    pub(super) visible_file_scope: Option<(Option<String>, Option<String>, u64)>,
     pub expanded_directories: BTreeSet<String>,
     pub page: PageView,
     /// Lightweight extent is separate from a bounded cache of projected text.
@@ -201,6 +205,22 @@ pub struct UiState {
 }
 
 impl UiState {
+    pub fn refresh_visible_files_if_needed(&mut self) {
+        let Some(catalogue) = &self.file_catalogue else {
+            return;
+        };
+        let scope = (
+            self.search.collection.clone(),
+            self.search.directory.clone(),
+            catalogue.view.revision().0,
+        );
+        if self.visible_file_scope.as_ref() == Some(&scope) {
+            return;
+        }
+        self.visible_file_ids = catalogue.filtered_ids(scope.0.as_deref(), scope.1.as_deref());
+        self.visible_file_scope = Some(scope);
+    }
+
     fn install_directories(&mut self, catalog: DirectoryCatalog) {
         self.directories = catalog.all;
         self.directories_by_collection = catalog.by_collection;
@@ -212,7 +232,8 @@ impl UiState {
 
     pub fn select_sidebar_directory(&mut self, directory: Option<String>) {
         if let (Some(collection), Some(path)) = (&self.search.collection, &directory)
-            && !self.directories_by_collection
+            && !self
+                .directories_by_collection
                 .get(collection)
                 .is_some_and(|paths| paths.iter().any(|candidate| candidate == path))
         {
@@ -224,9 +245,9 @@ impl UiState {
     pub fn preview_visible_for(&self, search: TabId) -> bool {
         self.show_preview
             && self.preview_search == Some(search)
-            && self.active_tab.is_some_and(|id| {
-                self.tabs.iter().any(|tab| tab.id == id && !tab.pinned)
-            })
+            && self
+                .active_tab
+                .is_some_and(|id| self.tabs.iter().any(|tab| tab.id == id && !tab.pinned))
     }
 
     /// Apply one controller update without retaining unbounded result content.
@@ -247,6 +268,9 @@ impl UiState {
                 self.collections = collections;
                 self.single_collection = single_collection;
                 self.install_directories(directories);
+                self.file_catalogue = None;
+                self.visible_file_ids = Arc::new(Vec::new());
+                self.visible_file_scope = None;
                 self.expanded_directories.clear();
                 self.sidebar_mode = if single_collection {
                     SidebarMode::Files
@@ -305,6 +329,11 @@ impl UiState {
                 self.workspace.update_current_search(self.search.clone());
             }
             UiUpdate::Directories(directories) => self.install_directories(directories),
+            UiUpdate::FileCatalogue(catalogue) => {
+                self.file_catalogue = Some(catalogue);
+                self.visible_file_scope = None;
+                self.refresh_visible_files_if_needed();
+            }
             UiUpdate::QueryStarted { status, retain_preview } => {
                 self.busy = Busy::Querying;
                 self.status = status;
@@ -378,7 +407,9 @@ impl UiState {
                 self.showing_last_valid_results = false;
                 self.result_outdated = false;
                 self.busy = Busy::None;
-                self.status = if self.page.incomplete {
+                self.status = if self.page.provisional {
+                    "Provisional results from indexed files".into()
+                } else if self.page.incomplete {
                     "Some results could not be checked".into()
                 } else if self.delivered_count == 0 {
                     "No matching records".into()
@@ -423,7 +454,9 @@ impl UiState {
                 } else if !self.has_more {
                     self.page.exact_total = Some(self.loaded_count);
                 }
-                self.status = if self.page.incomplete {
+                self.status = if self.page.provisional {
+                    "Provisional results from indexed files".into()
+                } else if self.page.incomplete {
                     "Some results could not be checked".into()
                 } else {
                     format!("{} records loaded", self.delivered_count)
@@ -690,23 +723,33 @@ impl UiState {
             return;
         }
         let rows = self.projected_rows.values().take(40).cloned().collect();
-        self.query_snapshots.insert(id, QuerySnapshot {
-            columns: self.page.columns.clone(),
-            rows,
-            exact_total: self.page.exact_total,
-        });
+        self.query_snapshots.insert(
+            id,
+            QuerySnapshot {
+                columns: self.page.columns.clone(),
+                rows,
+                exact_total: self.page.exact_total,
+            },
+        );
         self.prune_query_snapshots();
     }
 
     pub fn prune_query_snapshots(&mut self) {
-        let visible = [self.workspace.primary.active, self.workspace.secondary.active];
+        let visible = [
+            self.workspace.primary.active,
+            self.workspace.secondary.active,
+        ];
         self.query_snapshots.retain(|id, _| {
-            self.workspace.tab(super::workspace::TabId::Search(*id)).is_some()
+            self.workspace
+                .tab(super::workspace::TabId::Search(*id))
+                .is_some()
         });
         while self.query_snapshots.len() > 3 {
-            let oldest_hidden = self.query_snapshots.keys().find(|id| {
-                !visible.contains(&Some(super::workspace::TabId::Search(**id)))
-            }).copied();
+            let oldest_hidden = self
+                .query_snapshots
+                .keys()
+                .find(|id| !visible.contains(&Some(super::workspace::TabId::Search(**id))))
+                .copied();
             let oldest = oldest_hidden.or_else(|| self.query_snapshots.keys().next().copied());
             if let Some(id) = oldest {
                 self.query_snapshots.remove(&id);

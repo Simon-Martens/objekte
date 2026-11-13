@@ -1,8 +1,10 @@
 use super::*;
+use std::path::PathBuf;
 use std::sync::Arc;
 
 use crate::build::{FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build};
 use crate::inference::{InferenceConfig, InferenceMode};
+use crate::inventory::SourceRevision;
 use crate::model::{FieldPath, LogicalType};
 use crate::reference::FieldDefinition;
 use crate::relation::{RelationCardinality, RelationDefinition};
@@ -10,6 +12,10 @@ use crate::repository::{CollectionDefinition, Repository, SnapshotMode};
 use crate::source::{SourceFormat, SourceRegistry};
 use crate::storage::LifecycleSegmentCache;
 use crate::workload::BigramAlphabet;
+
+fn encode_base_metadata_segment(segment: &IndexedCollectionSegment) -> Vec<u8> {
+    encode_segment(segment, &mut |entry| Ok(entry.id.0)).unwrap()
+}
 
 fn fixture() -> (
     PathBuf,
@@ -81,7 +87,7 @@ fn fixture() -> (
         &root,
         SourceFileInput {
             id: FileId(0),
-            relative_path: PathBuf::from("data/sample.jsonl"),
+            relative_path: PathBuf::from("data/sample.jsonl").into(),
             revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
             created_ns: repository.files().files[0].created_ns,
         },
@@ -117,12 +123,16 @@ fn roundtrip_mixed_records_relations_and_inference_without_source_file() {
     assert_eq!(indexed.relations.len(), 1);
     assert!(indexed.relations[0].references().count() >= 2);
     assert!(indexed.inference.is_some());
-    let bytes = encode_segment(&indexed).unwrap();
+    let bytes = encode_base_metadata_segment(&indexed);
     std::fs::remove_file(root.join("data/sample.jsonl")).unwrap();
     let active = RoaringBitmap::from_iter([0, 1, 2]);
-    let restored = decode_segment(&bytes, &repository, CollectionId(0), &catalog, &active).unwrap();
+    let restored =
+        decode_segment(&bytes, &repository, CollectionId(0), &catalog, &active, &[]).unwrap();
     for record in &restored.records {
-        let (lookup_id, slot) = restored.id_lookup.get_key_value(record.id.0.as_ref()).unwrap();
+        let (lookup_id, slot) = restored
+            .id_lookup
+            .get_key_value(record.id.0.as_ref())
+            .unwrap();
         assert_eq!(*slot, record.slot);
         assert!(Arc::ptr_eq(&lookup_id.0, &record.id.0));
     }
@@ -134,7 +144,7 @@ fn roundtrip_mixed_records_relations_and_inference_without_source_file() {
         index: bytes.clone(),
     };
     assert_eq!(
-        decode_cache_segment(&envelope, &repository, &catalog)
+        decode_cache_segment(&envelope, &repository, &catalog, &[])
             .unwrap()
             .records
             .len(),
@@ -142,7 +152,7 @@ fn roundtrip_mixed_records_relations_and_inference_without_source_file() {
     );
     let mut invalid_envelope = envelope;
     invalid_envelope.record_count += 1;
-    assert!(decode_cache_segment(&invalid_envelope, &repository, &catalog).is_err());
+    assert!(decode_cache_segment(&invalid_envelope, &repository, &catalog, &[]).is_err());
     assert_eq!(restored.records.len(), indexed.records.len());
     assert_eq!(
         restored.files[0].entry.relative_path,
@@ -165,17 +175,14 @@ fn roundtrip_mixed_records_relations_and_inference_without_source_file() {
 fn rejects_corrupt_identity_posting_sort_and_relation_domains() {
     let (root, repository, catalog, mut indexed) = fixture();
     let active = RoaringBitmap::from_iter([0, 1, 2]);
-    let valid_bytes = encode_segment(&indexed).unwrap();
+    let valid_bytes = encode_base_metadata_segment(&indexed);
     let decode = |segment: &IndexedCollectionSegment| {
-        let bytes = encode_segment(segment).unwrap();
-        decode_segment(&bytes, &repository, CollectionId(0), &catalog, &active)
+        let bytes = encode_base_metadata_segment(segment);
+        decode_segment(&bytes, &repository, CollectionId(0), &catalog, &active, &[])
     };
     indexed.identity_order.reverse();
     assert!(decode(&indexed).err().unwrap().contains("identity order"));
     indexed.identity_order.reverse();
-    indexed.file_index.insert(FileId(0), 99);
-    assert!(decode(&indexed).err().unwrap().contains("file identity"));
-    indexed.file_index.insert(FileId(0), 0);
     let original_end = indexed.records[2].range.end;
     indexed.records[2].range.end = indexed.files[0].entry.revision.size + 1;
     assert!(decode(&indexed).err().unwrap().contains("source span"));
@@ -234,7 +241,8 @@ fn rejects_corrupt_identity_posting_sort_and_relation_domains() {
             &repository,
             CollectionId(0),
             &retired,
-            &active
+            &active,
+            &[]
         )
         .is_err()
     );
@@ -244,7 +252,7 @@ fn rejects_corrupt_identity_posting_sort_and_relation_domains() {
 #[test]
 fn rejects_truncated_and_empty_segment_payloads() {
     let (root, repository, catalog, indexed) = fixture();
-    let mut bytes = encode_segment(&indexed).unwrap();
+    let mut bytes = encode_base_metadata_segment(&indexed);
     bytes.pop();
     assert!(
         decode_segment(
@@ -252,7 +260,8 @@ fn rejects_truncated_and_empty_segment_payloads() {
             &repository,
             CollectionId(0),
             &catalog,
-            &RoaringBitmap::new()
+            &RoaringBitmap::new(),
+            &[]
         )
         .is_err()
     );
@@ -262,22 +271,49 @@ fn rejects_truncated_and_empty_segment_payloads() {
             &repository,
             CollectionId(0),
             &catalog,
-            &RoaringBitmap::new()
+            &RoaringBitmap::new(),
+            &[]
         )
         .is_err()
     );
     std::fs::remove_dir_all(root).unwrap();
 }
 
-#[cfg(unix)]
 #[test]
-fn file_entry_path_codec_preserves_non_utf8_bytes() {
-    use std::os::unix::ffi::OsStringExt;
-
-    let (root, _repository, _catalog, indexed) = fixture();
-    let mut entry = indexed.files[0].entry.clone();
-    entry.relative_path = std::ffi::OsString::from_vec(b"data/\xff.jsonl".to_vec()).into();
-    let decoded = EncodedFile::from_entry(&entry).into_entry().unwrap();
-    assert_eq!(decoded.relative_path, entry.relative_path);
+fn rejects_invalid_metadata_reference_and_duplicate_record_id() {
+    let (root, repository, catalog, indexed) = fixture();
+    let bytes = encode_base_metadata_segment(&indexed);
+    let mut encoded: OwnedSegment = codec().deserialize(&bytes).unwrap();
+    encoded.files[0].metadata_ref = u32::MAX;
+    let invalid_ref = codec().serialize(&encoded).unwrap();
+    assert!(
+        decode_segment(
+            &invalid_ref,
+            &repository,
+            CollectionId(0),
+            &catalog,
+            &RoaringBitmap::new(),
+            &[],
+        )
+        .err()
+        .unwrap()
+        .contains("metadata reference")
+    );
+    encoded.files[0].metadata_ref = 0;
+    encoded.records[1].id = encoded.records[0].id.clone();
+    let duplicate = codec().serialize(&encoded).unwrap();
+    assert!(
+        decode_segment(
+            &duplicate,
+            &repository,
+            CollectionId(0),
+            &catalog,
+            &RoaringBitmap::new(),
+            &[],
+        )
+        .err()
+        .unwrap()
+        .contains("duplicate segment record identity")
+    );
     std::fs::remove_dir_all(root).unwrap();
 }

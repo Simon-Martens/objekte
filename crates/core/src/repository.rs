@@ -245,6 +245,8 @@ fn pending_bigram_storage_stats(pending: &[PendingCollection]) -> BigramConstruc
 
 #[path = "repository_direct.rs"]
 mod direct;
+#[path = "repository_incremental.rs"]
+mod incremental;
 pub(crate) use direct::DirectBuild;
 
 /// Built-in identity and case-fold registrations for the same logical field
@@ -313,7 +315,7 @@ impl CollectionStats {
 /// }
 /// ```
 pub struct Repository {
-    pub(crate) files: FileInventory,
+    pub(crate) files: Arc<FileInventory>,
     /// Whole-file SHA-256 captured during the fresh builder's indexed reads.
     /// A missing digest means at least one eligible binding could not read
     /// complete bytes, so verified maintenance must fall back.
@@ -384,9 +386,15 @@ pub struct StartupStats {
     pub build_ns: u64,
     pub build_discovery_ns: u64,
     pub build_extraction_index_ns: u64,
+    /// Time spent sealing, indexing, and publishing initial segments.
+    pub build_publication_ns: u64,
     pub build_finalization_ns: u64,
     pub snapshot_write_ns: u64,
     pub build_workers: usize,
+    /// Actual construction source opens that reached a read attempt.
+    pub build_source_reads: u64,
+    /// Bytes consumed by those construction reads, excluding query checks.
+    pub build_source_bytes_read: u64,
     pub peak_build_admitted_bytes: u64,
     pub build_weight_limit_bytes: u64,
     pub build_peak_active_jobs: usize,
@@ -1922,7 +1930,7 @@ impl Repository {
             profile.query_pool_init_ns = started.elapsed().as_nanos() as u64;
         }
         Ok(Self {
-            files,
+            files: Arc::new(files),
             base_fingerprints,
             collections,
             sources: sources.clone(),

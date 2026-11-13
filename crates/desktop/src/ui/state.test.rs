@@ -5,7 +5,10 @@ use crate::ui::model::{ResultRow, RowKey};
 fn split_preview_requires_its_owning_query_and_an_unpinned_record() {
     use crate::ui::workspace::TabId;
 
-    let mut state = UiState { show_preview: true, ..UiState::default() };
+    let mut state = UiState {
+        show_preview: true,
+        ..UiState::default()
+    };
     let query = state.workspace.opened(Some("files".into()));
     state.preview_search = Some(query);
     let preview = RecordTabSummary {
@@ -21,7 +24,10 @@ fn split_preview_requires_its_owning_query_and_an_unpinned_record() {
         links_loading: false,
         freshness: Default::default(),
     };
-    state.apply(UiUpdate::Tabs { tabs: vec![preview.clone()], active: Some(4) });
+    state.apply(UiUpdate::Tabs {
+        tabs: vec![preview.clone()],
+        active: Some(4),
+    });
     assert!(state.preview_visible_for(query));
     assert!(state.inspector_visible);
     assert!(!state.preview_visible_for(TabId::Search(999)));
@@ -41,7 +47,10 @@ fn split_preview_requires_its_owning_query_and_an_unpinned_record() {
     assert!(!state.inspector_visible);
     state.preview_search = Some(query);
     state.apply(UiUpdate::Tabs {
-        tabs: vec![RecordTabSummary { pinned: true, ..preview }],
+        tabs: vec![RecordTabSummary {
+            pinned: true,
+            ..preview
+        }],
         active: Some(4),
     });
     assert!(!state.preview_visible_for(query));
@@ -68,14 +77,32 @@ fn open_record_previews_survive_tab_moves_and_prune_on_close() {
     };
     let mut state = UiState::default();
     state.workspace.opened(Some("files".into()));
-    state.apply(UiUpdate::Tabs { tabs: vec![tab(0)], active: Some(0) });
-    state.apply(UiUpdate::Detail(Some(DetailView { title: "record zero".into(), ..DetailView::default() })));
-    state.apply(UiUpdate::Tabs { tabs: vec![tab(0), tab(1)], active: Some(1) });
-    state.apply(UiUpdate::Detail(Some(DetailView { title: "record one".into(), ..DetailView::default() })));
+    state.apply(UiUpdate::Tabs {
+        tabs: vec![tab(0)],
+        active: Some(0),
+    });
+    state.apply(UiUpdate::Detail(Some(DetailView {
+        title: "record zero".into(),
+        ..DetailView::default()
+    })));
+    state.apply(UiUpdate::Tabs {
+        tabs: vec![tab(0), tab(1)],
+        active: Some(1),
+    });
+    state.apply(UiUpdate::Detail(Some(DetailView {
+        title: "record one".into(),
+        ..DetailView::default()
+    })));
     assert!(state.workspace.move_tab(TabId::Record(1), Pane::Primary, 1));
     state.prune_record_snapshots();
-    assert_eq!(state.record_detail_snapshots.get(&0).unwrap().title, "record zero");
-    assert_eq!(state.record_detail_snapshots.get(&1).unwrap().title, "record one");
+    assert_eq!(
+        state.record_detail_snapshots.get(&0).unwrap().title,
+        "record zero"
+    );
+    assert_eq!(
+        state.record_detail_snapshots.get(&1).unwrap().title,
+        "record one"
+    );
     assert!(state.workspace.close(TabId::Record(0)));
     state.prune_record_snapshots();
     assert!(!state.record_detail_snapshots.contains_key(&0));
@@ -83,7 +110,10 @@ fn open_record_previews_survive_tab_moves_and_prune_on_close() {
 
 #[test]
 fn record_preview_caps_large_text() {
-    let preview = RecordPreview::from_detail(&DetailView { title: "🙂".repeat(20_000), ..DetailView::default() });
+    let preview = RecordPreview::from_detail(&DetailView {
+        title: "🙂".repeat(20_000),
+        ..DetailView::default()
+    });
     assert!(preview.clipped);
     assert!(preview.title.len() <= 1024);
     assert!(preview.title.is_char_boundary(preview.title.len()));
@@ -96,25 +126,36 @@ fn visible_query_preview_survives_new_tab_and_cache_stays_bounded() {
     state.page.columns = vec!["@id".into()];
     state.page.exact_total = Some(120);
     for index in 0..50 {
-        state.projected_rows.insert(index, ResultRow {
-            key: RowKey {
-                token: index as u64,
-                collection: "files".into(),
-                record_id: format!("record-{index}"),
-                file: format!("{index}.json"),
-                byte_start: 0,
+        state.projected_rows.insert(
+            index,
+            ResultRow {
+                key: RowKey {
+                    token: index as u64,
+                    collection: "files".into(),
+                    record_id: format!("record-{index}"),
+                    file: format!("{index}.json"),
+                    byte_start: 0,
+                },
+                cells: vec![format!("record-{index}")],
+                matched_fields: Vec::new(),
+                match_highlights: Vec::new(),
+                preview: None,
             },
-            cells: vec![format!("record-{index}")],
-            matched_fields: Vec::new(),
-            match_highlights: Vec::new(),
-            preview: None,
-        });
+        );
     }
     state.snapshot_current_query();
     state.workspace.open_query(SearchDraft::default());
     state.prune_query_snapshots();
-    let super::super::workspace::TabId::Search(first_id) = first else { unreachable!() };
-    assert_eq!(state.query_snapshots.get(&first_id).and_then(|snapshot| snapshot.exact_total), Some(120));
+    let super::super::workspace::TabId::Search(first_id) = first else {
+        unreachable!()
+    };
+    assert_eq!(
+        state
+            .query_snapshots
+            .get(&first_id)
+            .and_then(|snapshot| snapshot.exact_total),
+        Some(120)
+    );
     assert_eq!(state.query_snapshots.get(&first_id).unwrap().rows.len(), 40);
     for _ in 0..4 {
         state.workspace.open_query(SearchDraft::default());
@@ -122,7 +163,12 @@ fn visible_query_preview_survives_new_tab_and_cache_stays_bounded() {
         state.prune_query_snapshots();
     }
     assert!(state.query_snapshots.len() <= 3);
-    assert!(state.query_snapshots.values().all(|snapshot| snapshot.rows.len() <= 40));
+    assert!(
+        state
+            .query_snapshots
+            .values()
+            .all(|snapshot| snapshot.rows.len() <= 40)
+    );
     assert!(state.workspace.tab(first).is_some());
 }
 
@@ -434,7 +480,10 @@ fn successful_query_start_clears_previous_input_errors() {
 
 #[test]
 fn index_progress_does_not_erase_query_validation_or_displayed_page() {
-    let mut state = UiState { root: Some("repo".into()), ..UiState::default() };
+    let mut state = UiState {
+        root: Some("repo".into()),
+        ..UiState::default()
+    };
     state.apply(UiUpdate::Error {
         field: ErrorField::Structured,
         message: "invalid draft".into(),
@@ -449,17 +498,32 @@ fn index_progress_does_not_erase_query_validation_or_displayed_page() {
         total: None,
     };
     state.apply(UiUpdate::IndexStatus(status));
-    assert_eq!(state.errors.get(&ErrorField::Structured).map(String::as_str), Some("invalid draft"));
+    assert_eq!(
+        state
+            .errors
+            .get(&ErrorField::Structured)
+            .map(String::as_str),
+        Some("invalid draft")
+    );
     assert_eq!(state.loaded_count, 100);
     assert_eq!(state.status, "invalid draft");
-    assert!(matches!(state.index_status.check, super::super::model::IndexTaskState::Running { operation_id: 7, .. }));
+    assert!(matches!(
+        state.index_status.check,
+        super::super::model::IndexTaskState::Running {
+            operation_id: 7,
+            ..
+        }
+    ));
 }
 
 #[test]
 fn same_repository_index_replacement_keeps_tabs_and_drafts() {
     let mut state = UiState {
         root: Some("repo".into()),
-        search: SearchDraft { full_text: "retained".into(), ..SearchDraft::default() },
+        search: SearchDraft {
+            full_text: "retained".into(),
+            ..SearchDraft::default()
+        },
         ..UiState::default()
     };
     state.tabs.push(RecordTabSummary {
@@ -475,7 +539,11 @@ fn same_repository_index_replacement_keeps_tabs_and_drafts() {
         links_loading: false,
         freshness: super::super::model::TabFreshness::Outdated,
     });
-    let status = IndexUiStatus { index_instance: 2, source_location: "repo".into(), ..IndexUiStatus::default() };
+    let status = IndexUiStatus {
+        index_instance: 2,
+        source_location: "repo".into(),
+        ..IndexUiStatus::default()
+    };
     state.apply(UiUpdate::IndexReplaced(status));
     assert_eq!(state.tabs.len(), 1);
     assert_eq!(state.search.full_text, "retained");
@@ -488,8 +556,17 @@ fn exhausted_incomplete_page_never_infers_an_exact_total() {
     state.apply(UiUpdate::Page(PageView {
         incomplete: true,
         rows: vec![ResultRow {
-            key: RowKey { token: 1, collection: "docs".into(), record_id: "1".into(), file: "a.json".into(), byte_start: 0 },
-            cells: vec!["one".into()], matched_fields: Vec::new(), match_highlights: Vec::new(), preview: None,
+            key: RowKey {
+                token: 1,
+                collection: "docs".into(),
+                record_id: "1".into(),
+                file: "a.json".into(),
+                byte_start: 0,
+            },
+            cells: vec!["one".into()],
+            matched_fields: Vec::new(),
+            match_highlights: Vec::new(),
+            preview: None,
         }],
         ..PageView::default()
     }));
@@ -498,10 +575,99 @@ fn exhausted_incomplete_page_never_infers_an_exact_total() {
 }
 
 #[test]
+fn provisional_page_replacement_preserves_record_identity_and_finalizes_count() {
+    let row = |id: &str| ResultRow {
+        key: RowKey {
+            token: id.parse().unwrap(),
+            collection: "docs".into(),
+            record_id: id.into(),
+            file: format!("{id}.json"),
+            byte_start: 0,
+        },
+        cells: vec![id.into()],
+        matched_fields: Vec::new(),
+        match_highlights: Vec::new(),
+        preview: None,
+    };
+    let mut state = UiState::default();
+    state.apply(UiUpdate::Page(PageView {
+        rows: vec![row("2")],
+        provisional: true,
+        incomplete: true,
+        selected: Some(0),
+        ..PageView::default()
+    }));
+    assert_eq!(state.page.exact_total, None);
+    assert_eq!(state.projected_rows[&0].key.record_id, "2");
+    state.apply(UiUpdate::Page(PageView {
+        rows: vec![row("1"), row("2")],
+        provisional: true,
+        incomplete: true,
+        selected: Some(1),
+        ..PageView::default()
+    }));
+    assert_eq!(state.page.selected, Some(1));
+    assert_eq!(state.projected_rows[&1].key.record_id, "2");
+    assert_eq!(state.page.exact_total, None);
+    state.apply(UiUpdate::Page(PageView {
+        rows: vec![row("1"), row("2")],
+        exact_total: Some(2),
+        selected: Some(1),
+        ..PageView::default()
+    }));
+    assert!(!state.page.provisional);
+    assert_eq!(state.page.exact_total, Some(2));
+    assert_eq!(state.projected_rows[&1].key.record_id, "2");
+}
+
+#[test]
+fn provisional_delta_appends_without_inventing_a_final_total() {
+    let row = |id: &str| ResultRow {
+        key: RowKey {
+            token: id.parse().unwrap(),
+            collection: "docs".into(),
+            record_id: id.into(),
+            file: format!("{id}.json"),
+            byte_start: 0,
+        },
+        cells: vec![id.into()],
+        matched_fields: Vec::new(),
+        match_highlights: Vec::new(),
+        preview: None,
+    };
+    let mut state = UiState::default();
+    state.apply(UiUpdate::Page(PageView {
+        rows: vec![row("1")],
+        provisional: true,
+        incomplete: true,
+        selected: Some(0),
+        ..PageView::default()
+    }));
+    state.apply(UiUpdate::AppendPage(PageView {
+        rows: vec![row("2")],
+        offset: 1,
+        provisional: true,
+        incomplete: true,
+        ..PageView::default()
+    }));
+    assert_eq!(state.loaded_count, 2);
+    assert_eq!(state.page.exact_total, None);
+    assert!(state.page.provisional);
+    assert_eq!(state.page.selected, Some(0));
+    assert_eq!(state.projected_rows[&0].key.record_id, "1");
+    assert_eq!(state.projected_rows[&1].key.record_id, "2");
+}
+
+#[test]
 fn overwrite_prompt_names_exact_path_and_clears_after_success() {
     let mut state = UiState::default();
-    state.apply(UiUpdate::SaveIndexOverwriteRequired("/tmp/other-index.bin".into()));
-    assert_eq!(state.index_overwrite_pending.as_deref(), Some("/tmp/other-index.bin"));
+    state.apply(UiUpdate::SaveIndexOverwriteRequired(
+        "/tmp/other-index.bin".into(),
+    ));
+    assert_eq!(
+        state.index_overwrite_pending.as_deref(),
+        Some("/tmp/other-index.bin")
+    );
     state.apply(UiUpdate::IndexStatus(IndexUiStatus {
         save: super::super::model::IndexTaskState::Succeeded("Index saved".into()),
         ..IndexUiStatus::default()

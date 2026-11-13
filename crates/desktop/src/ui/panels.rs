@@ -30,7 +30,10 @@ mod display_title_tests {
 
     #[test]
     fn uses_a_present_display_name_and_falls_back_to_record_identity() {
-        let mut detail = DetailView { title: "files / path:0001.json".into(), ..DetailView::default() };
+        let mut detail = DetailView {
+            title: "files / path:0001.json".into(),
+            ..DetailView::default()
+        };
         assert_eq!(detail.display_title(), detail.title);
         detail.structured.push(DetailRow {
             label: "$.name".into(),
@@ -425,9 +428,11 @@ impl DesktopView {
                                     let resume = [Pane::Primary, Pane::Secondary]
                                         .into_iter()
                                         .find(|pane| this.preview_docked_in(*pane))
-                                        .and_then(|pane| match this.state.workspace.group(pane).active {
-                                            Some(TabId::Record(id)) => Some(id),
-                                            _ => None,
+                                        .and_then(|pane| {
+                                            match this.state.workspace.group(pane).active {
+                                                Some(TabId::Record(id)) => Some(id),
+                                                _ => None,
+                                            }
                                         });
                                     this.state.preview_search = None;
                                     this.state.inspector_visible = false;
@@ -502,7 +507,11 @@ impl DesktopView {
                 div()
                     .h_full()
                     .border_b_2()
-                    .border_color(rgb(if show_fields { colors.accent } else { colors.border }))
+                    .border_color(rgb(if show_fields {
+                        colors.accent
+                    } else {
+                        colors.border
+                    }))
                     .child(
                         Button::new("fields-tab")
                             .custom(footer_tab_style)
@@ -1047,8 +1056,12 @@ impl DesktopView {
             ActionPanel::Diagnostics => "Diagnostics",
         };
         let max_panel_height = (window_height
-            - if kind == ActionPanel::Columns { 72. } else { 60. })
-            .clamp(100., 600.);
+            - if kind == ActionPanel::Columns {
+                72.
+            } else {
+                60.
+            })
+        .clamp(100., 600.);
         let scroll = match kind {
             ActionPanel::Columns => &self.columns_scroll,
             ActionPanel::Export => &self.export_scroll,
@@ -1063,7 +1076,8 @@ impl DesktopView {
                     .state
                     .workspace
                     .current_search
-                    .and_then(|id| self.state.workspace.pane_of(id)) == Some(Pane::Primary);
+                    .and_then(|id| self.state.workspace.pane_of(id))
+                    == Some(Pane::Primary);
                 let preferred_right = if self.state.inspector_visible && query_on_left {
                     self.state.inspector_width + 8.
                 } else {
@@ -1388,13 +1402,20 @@ impl DesktopView {
                     .child(div().text_xs().child(format!("{} files · {} records",
                         index.indexed_files.map_or_else(|| "—".to_owned(), |n| n.to_string()),
                         index.live_records.map_or_else(|| "—".to_owned(), |n| n.to_string()))))
+                    .when(index.catalogue_complete && !index.construction_complete, |this| this.child(
+                        div().text_xs().child(format!("Indexing {} of {} discovered files · {} records · {} searchable batches",
+                            index.processed_files.unwrap_or(0),
+                            index.discovered_files.unwrap_or(0),
+                            index.processed_records.unwrap_or(0),
+                            index.searchable_batches))
+                    ))
                     .child(div().flex().gap_2()
                         .child(Button::new("index-rebuild").label("Rebuild index")
-                            .disabled(self.state.root.is_none())
+                            .disabled(self.state.root.is_none() || matches!(index.load, IndexTaskState::Running { .. }))
                             .tooltip("Reread configured source files")
                             .on_click(cx.listener(|this, _, _, _| this.send(UiAction::RebuildIndex))))
                         .child(Button::new("index-compact").label("Compact index")
-                            .disabled(self.state.root.is_none())
+                            .disabled(self.state.root.is_none() || matches!(index.load, IndexTaskState::Running { .. }))
                             .tooltip("Remove obsolete index entries without deleting source files")
                             .on_click(cx.listener(|this, _, _, _| this.send(UiAction::CompactIndex)))))
                     .child(Button::new("index-details").ghost().label("Details…")
@@ -1497,15 +1518,28 @@ impl DesktopView {
                 this.state.show_help = false;
                 cx.notify();
             }))
-            .child(div().flex().items_center()
-                .child(div().flex_1().font_weight(gpui_kit::FontWeight::SEMIBOLD)
-                    .child(format!("Objekte {} · Help", env!("CARGO_PKG_VERSION"))))
-                .child(Button::new("help-close").ghost().icon(IconName::Close)
-                    .tooltip("Close help").accessibility_label("Close help")
-                    .on_click(cx.listener(|this, _, _, cx| {
-                        this.state.show_help = false;
-                        cx.notify();
-                    }))))
+            .child(
+                div()
+                    .flex()
+                    .items_center()
+                    .child(
+                        div()
+                            .flex_1()
+                            .font_weight(gpui_kit::FontWeight::SEMIBOLD)
+                            .child(format!("Objekte {} · Help", env!("CARGO_PKG_VERSION"))),
+                    )
+                    .child(
+                        Button::new("help-close")
+                            .ghost()
+                            .icon(IconName::Close)
+                            .tooltip("Close help")
+                            .accessibility_label("Close help")
+                            .on_click(cx.listener(|this, _, _, cx| {
+                                this.state.show_help = false;
+                                cx.notify();
+                            })),
+                    ),
+            )
             .child(body.overflow_y_scrollbar())
     }
 }

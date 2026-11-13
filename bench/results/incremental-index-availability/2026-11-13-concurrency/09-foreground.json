@@ -1,0 +1,24 @@
+{
+  "after_build_hwm": 548999168,
+  "after_build_rss": 538828800,
+  "after_held_release_rss": 538828800,
+  "build_ns": 945733861,
+  "build_parses": 148486,
+  "code_revision": "c7959d4f557b0190772b7bd635655a8612925057",
+  "files": 148486,
+  "held_revision": null,
+  "mode": "foreground",
+  "query": {
+    "first_nonempty_result_ns_from_worker_start": 288859887,
+    "max_ns": 228039,
+    "median_ns": 46848,
+    "p95_ns": 94404,
+    "queries": 900,
+    "source_opens": 0
+  },
+  "records": 148486,
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "source_bytes_read": 193297230,
+  "source_reads": 148486,
+  "wall_ns": 947399980
+}

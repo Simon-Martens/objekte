@@ -324,7 +324,7 @@ fn prepare_replacement_bytes(
     }
     let input = SourceFileInput {
         id: handle.file_id,
-        relative_path: relative,
+        relative_path: relative.into(),
         revision,
         created_ns: previous.created_ns,
     };

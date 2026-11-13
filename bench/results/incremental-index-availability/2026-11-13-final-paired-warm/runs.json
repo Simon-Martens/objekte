@@ -1,0 +1,5343 @@
+[
+  {
+    "pair": 1,
+    "position": 1,
+    "mode": "baseline",
+    "command": [
+      "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/01-1-baseline",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/01-1-baseline/trial-1794539085574573172-1516724",
+    "sample": {
+      "after_build_hwm": 536842240,
+      "after_build_rss": 519458816,
+      "after_release_rss": 449531904,
+      "before_rss": 6533120,
+      "bigram_stores": 15,
+      "build_admission_ns": 358489479,
+      "build_job_execution_ns": 4565953293,
+      "build_ns": 968686364,
+      "build_parses": 148486,
+      "build_receive_wait_ns": 75595852,
+      "diagnostic_heap_bytes": 0,
+      "discovery_ns": 192839090,
+      "distinct_gram_keys": 25477,
+      "estimated_index_bytes": 69662968,
+      "extraction_index_ns": 445097187,
+      "failed_parses": 0,
+      "finalization_ns": 246408498,
+      "framing_bytes": 0,
+      "framing_chunks": 0,
+      "framing_ns": 0,
+      "inference_build": "InferenceBuildStats { observed_records: 0, merged_batches: 0, merge_ns: 0, finish_ns: 0, cumulative_budget_bytes: 0, unique_path_bytes: 0, repeated_batch_path_bytes: 0, retained_manual_summary_bytes: 0 }",
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 968698667,
+      "out_of_order_completed": 219,
+      "peak_active_jobs": 32,
+      "peak_admitted_bytes": 523665408,
+      "peak_ready_batches": 64,
+      "postings": 300,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193302106,
+        "read_bytes": 0,
+        "syscr": 297041,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "profile": {
+        "admission_by_collection": {
+          "agents": {
+            "batches": 8,
+            "bigrams_ns": 314774,
+            "callback_ns": 133738,
+            "custom_postings_ns": 468,
+            "files": 4010,
+            "inference_ns": 543,
+            "postings_ns": 4287212,
+            "record_inventory_ns": 989819,
+            "records": 4010,
+            "relations_ns": 348,
+            "remainder_ns": 3683,
+            "sorting_ns": 109699,
+            "structural_facts_ns": 21776,
+            "total_ns": 5862060
+          },
+          "contents": {
+            "batches": 262,
+            "bigrams_ns": 11726840,
+            "callback_ns": 3400456,
+            "custom_postings_ns": 14549,
+            "files": 133948,
+            "inference_ns": 15758,
+            "postings_ns": 225462265,
+            "record_inventory_ns": 74186009,
+            "records": 133948,
+            "relations_ns": 12180059,
+            "remainder_ns": 198047,
+            "sorting_ns": 10538122,
+            "structural_facts_ns": 1662205,
+            "total_ns": 339384310
+          },
+          "entries": {
+            "batches": 10,
+            "bigrams_ns": 358597,
+            "callback_ns": 83181,
+            "custom_postings_ns": 295,
+            "files": 4928,
+            "inference_ns": 855,
+            "postings_ns": 6661793,
+            "record_inventory_ns": 1260860,
+            "records": 4928,
+            "relations_ns": 212251,
+            "remainder_ns": 5448,
+            "sorting_ns": 92529,
+            "structural_facts_ns": 60338,
+            "total_ns": 8736147
+          },
+          "items": {
+            "batches": 9,
+            "bigrams_ns": 185659,
+            "callback_ns": 65921,
+            "custom_postings_ns": 140,
+            "files": 4180,
+            "inference_ns": 364,
+            "postings_ns": 873551,
+            "record_inventory_ns": 958445,
+            "records": 4180,
+            "relations_ns": 245,
+            "remainder_ns": 3252,
+            "sorting_ns": 360,
+            "structural_facts_ns": 54031,
+            "total_ns": 2141968
+          },
+          "pages": {
+            "batches": 1,
+            "bigrams_ns": 1016,
+            "callback_ns": 291,
+            "custom_postings_ns": 24,
+            "files": 8,
+            "inference_ns": 88,
+            "postings_ns": 4765,
+            "record_inventory_ns": 2024,
+            "records": 8,
+            "relations_ns": 78,
+            "remainder_ns": 271,
+            "sorting_ns": 20,
+            "structural_facts_ns": 116,
+            "total_ns": 8693
+          },
+          "places": {
+            "batches": 1,
+            "bigrams_ns": 4681,
+            "callback_ns": 3112,
+            "custom_postings_ns": 14,
+            "files": 210,
+            "inference_ns": 94,
+            "postings_ns": 55377,
+            "record_inventory_ns": 36255,
+            "records": 210,
+            "relations_ns": 71,
+            "remainder_ns": 225,
+            "sorting_ns": 1896,
+            "structural_facts_ns": 1453,
+            "total_ns": 103178
+          },
+          "series": {
+            "batches": 3,
+            "bigrams_ns": 89211,
+            "callback_ns": 19828,
+            "custom_postings_ns": 81,
+            "files": 1202,
+            "inference_ns": 334,
+            "postings_ns": 1605011,
+            "record_inventory_ns": 291576,
+            "records": 1202,
+            "relations_ns": 86137,
+            "remainder_ns": 1509,
+            "sorting_ns": 11191,
+            "structural_facts_ns": 15507,
+            "total_ns": 2120385
+          }
+        },
+        "admission_schedule": {
+          "byte_limit_blocks": 0,
+          "completion_to_receipt_ns": 11596736995,
+          "coordinator_receive_call_ns": 75595852,
+          "dispatch_to_worker_start_ns": 1105838222,
+          "job_limit_blocks": 237,
+          "possible_idle_during_admission_ns": 50042332,
+          "prefetched_later_collection_jobs": 2,
+          "receipt_to_admission_start_ns": 6207470323,
+          "worker_start_to_completion_ns": 4566093702
+        },
+        "builder_setup_ns": 2589696,
+        "contribution_storage": {
+          "block_element_size": 0,
+          "chunk_element_size": 0,
+          "final_add_segment_ns": 0,
+          "final_admission_merge_ns": 0,
+          "final_admitted_chunks": 0,
+          "final_copied_block_bytes": 0,
+          "final_diagnostic_counter_bytes": 0,
+          "final_duplicate_bit_ors": 0,
+          "final_global_block_capacity": 0,
+          "final_global_block_capacity_bytes": 0,
+          "final_global_blocks": 0,
+          "final_global_capacity_bytes": 0,
+          "final_global_chunk_capacity": 0,
+          "final_global_chunk_capacity_bytes": 0,
+          "final_global_chunks": 0,
+          "final_global_live_payload_bytes": 0,
+          "final_global_span_capacity": 0,
+          "final_global_span_capacity_bytes": 0,
+          "final_global_spans": 0,
+          "final_gram_set_lookups": 0,
+          "final_pack_ns": 0,
+          "final_scratch_drain_ns": 0,
+          "final_sort_ns": 0,
+          "final_sorted_entries": 0,
+          "final_validation_ns": 0,
+          "max_pending_peak_capacity_bytes": 0,
+          "max_worker_scratch_after_flush_capacity_bytes": 0,
+          "max_worker_scratch_peak_capacity_bytes": 0,
+          "peak_admitted_batch_capacity_bytes": 0,
+          "peak_global_capacity_bytes": 0,
+          "peak_global_plus_admitted_batch_capacity_bytes": 0,
+          "peak_ready_capacity_bytes": 0,
+          "pending_element_size": 0,
+          "span_element_size": 0
+        },
+        "discovery_catalogue_ns": 136750499,
+        "discovery_enumeration_ns": 55939468,
+        "discovery_metadata_peak_active": 32,
+        "discovery_metadata_prepare_ns": 54685709,
+        "discovery_ordered_insert_ns": 81707217,
+        "discovery_rss_bytes": 64020480,
+        "extraction_rss_bytes": 478482432,
+        "final_checks_ns": 1035739,
+        "finalization_rss_bytes": 530395136,
+        "finalize_bigrams_ns": 140906709,
+        "finalize_generation_ns": 19186271,
+        "finalize_identity_ns": 8454035,
+        "finalize_inference_ns": 876,
+        "finalize_sort_ns": 71757502,
+        "finalize_validation_ns": 6093220,
+        "fingerprint_finish_ns": 6655370,
+        "large_file_total_ns": 0,
+        "large_files": 0,
+        "pool_init_ns": 578998,
+        "pool_teardown_ns": 36096,
+        "query_pool_init_ns": 3109201,
+        "relations_ns": 69244882,
+        "source_work_ns": 435779736,
+        "work": {
+          "batch_finish_ns": 222812940,
+          "batches": 294,
+          "custom_postings_ns": 67883,
+          "custom_text_ns": 717959,
+          "inference_ns": 50740,
+          "input_buffer_batch_end_capacity_bytes": 1345616,
+          "input_buffer_files_read": 148486,
+          "input_buffer_growth_files": 719,
+          "input_buffer_oversized_drops": 0,
+          "input_buffer_peak_capacity_bytes": 86760,
+          "postings_ns": 14621366,
+          "relations_ns": 739182,
+          "sampled_callback_ns": 41338050,
+          "sampled_component_records": 2321,
+          "sampled_file_bytes": 3060949,
+          "sampled_files": 2321,
+          "sampled_read_calls": 4672,
+          "sampled_source_records": 2321,
+          "sorting_ns": 4096414,
+          "source_extraction_ns": 57451454,
+          "source_frame_ns": 162444,
+          "source_hash_ns": 1397408,
+          "source_open_ns": 4846346,
+          "source_read_ns": 2481407,
+          "text_bigram_ns": 12180427,
+          "validation_ns": 5107351
+        }
+      },
+      "profile_reconciliation": {
+        "extraction_unattributed_ns": 72385,
+        "finalization_unattributed_ns": 9885,
+        "top_level_unattributed_ns": 10336673
+      },
+      "query_digests": {
+        "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+        "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+        "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+        "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+        "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+      },
+      "ready_wait_max_ns": 432681395,
+      "ready_wait_sum_ns": 6207387316,
+      "relation_edges": 228503,
+      "relation_heap_bytes": 21469817,
+      "snapshot_result": {
+        "bytes": 129139458,
+        "directory_ns": 4500,
+        "directory_sync_ns": 6175,
+        "header_ns": 392399,
+        "hwm_after_write": 543768576,
+        "inventory_ns": 10562052,
+        "rename_ns": 9159,
+        "rss_after_write": 519684096,
+        "sections": [
+          {
+            "checksum_ns": 74,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 280,
+            "write_ns": 1955
+          },
+          {
+            "checksum_ns": 8148075,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8518648,
+            "write_ns": 3285262
+          },
+          {
+            "checksum_ns": 3592011,
+            "id": 1,
+            "payload_bytes": 9594072,
+            "serialize_ns": 4675456,
+            "write_ns": 1502431
+          },
+          {
+            "checksum_ns": 30423021,
+            "id": 2,
+            "payload_bytes": 82140326,
+            "serialize_ns": 59455416,
+            "write_ns": 13288228
+          },
+          {
+            "checksum_ns": 3279144,
+            "id": 3,
+            "payload_bytes": 9210713,
+            "serialize_ns": 5256804,
+            "write_ns": 1431957
+          },
+          {
+            "checksum_ns": 1083238,
+            "id": 4,
+            "payload_bytes": 3025448,
+            "serialize_ns": 1179169,
+            "write_ns": 566135
+          },
+          {
+            "checksum_ns": 217418,
+            "id": 5,
+            "payload_bytes": 614035,
+            "serialize_ns": 158023,
+            "write_ns": 84877
+          },
+          {
+            "checksum_ns": 247273,
+            "id": 6,
+            "payload_bytes": 695072,
+            "serialize_ns": 227946,
+            "write_ns": 92548
+          },
+          {
+            "checksum_ns": 841652,
+            "id": 7,
+            "payload_bytes": 2357077,
+            "serialize_ns": 1822374,
+            "write_ns": 329003
+          }
+        ],
+        "sync_ns": 1119,
+        "total_ns": 165411220,
+        "write_ns": 20592933
+      },
+      "sort_fields": 8,
+      "storage_breakdown": null,
+      "storage_operations": null,
+      "weight_limit_bytes": 536870912
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "check_queries": true,
+      "code_revision": "7a6b96684e1fbb849eab7cc20185b942159ed189",
+      "command": [
+        "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/01-1-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "?? docs/ai/done/objekte_fedora_gpui_development_environment_specification.md\n?? docs/ai/done/objekte_headless_wayland_follow_up_plan.md\n?? docs/ai/tasks/objekte_01_incremental_index_availability_plan.md\n?? docs/ai/tasks/objekte_02_boolean_field_predicates_plan.md\n?? docs/ai/tasks/objekte_03_indexed_field_structural_postings_plan.md\n?? docs/development/objekte_index_lifecycle_implementation_guide.md",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 1,
+    "position": 2,
+    "mode": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/01-2-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/01-2-candidate/trial-1794539087091642511-1516825",
+    "sample": {
+      "after_build_hwm": 580665344,
+      "after_build_rss": 571109376,
+      "after_release_rss": 529793024,
+      "before_rss": 6762496,
+      "build_ns": 867648707,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 210043833,
+      "completion_ns": 867648707,
+      "discovery_ns": 210022064,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 286184835,
+      "first_result_ns": 286392930,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 867648707,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 4638,
+        "directory_sync_ns": 4007,
+        "header_ns": 319966,
+        "hwm_after_write": 791101440,
+        "inventory_ns": 10015875,
+        "rename_ns": 9019,
+        "rss_after_write": 619565056,
+        "sections": [
+          {
+            "checksum_ns": 79,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 598,
+            "write_ns": 1771
+          },
+          {
+            "checksum_ns": 7629181,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8171603,
+            "write_ns": 3132122
+          },
+          {
+            "checksum_ns": 223205,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 138531,
+            "write_ns": 86521
+          },
+          {
+            "checksum_ns": 216569,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 100755,
+            "write_ns": 82759
+          },
+          {
+            "checksum_ns": 219362,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 99345,
+            "write_ns": 81935
+          },
+          {
+            "checksum_ns": 211075,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 96065,
+            "write_ns": 83755
+          },
+          {
+            "checksum_ns": 210813,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 96374,
+            "write_ns": 178479
+          },
+          {
+            "checksum_ns": 211001,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 105134,
+            "write_ns": 81404
+          },
+          {
+            "checksum_ns": 211208,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 95667,
+            "write_ns": 80141
+          },
+          {
+            "checksum_ns": 54665073,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 84533698,
+            "write_ns": 23015425
+          }
+        ],
+        "sync_ns": 895,
+        "total_ns": 198910138,
+        "write_ns": 26832300
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "526ae413db2acaf87755c3f19b27ab6ede16d9b6",
+      "command": [
+        "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/01-2-candidate",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 2,
+    "position": 1,
+    "mode": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/02-1-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/02-1-candidate/trial-1794539088863268440-1517041",
+    "sample": {
+      "after_build_hwm": 568315904,
+      "after_build_rss": 558718976,
+      "after_release_rss": 513146880,
+      "before_rss": 6746112,
+      "build_ns": 912482800,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 208078694,
+      "completion_ns": 912482800,
+      "discovery_ns": 208043015,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 280657268,
+      "first_result_ns": 280872778,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 912482800,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307007,
+        "read_bytes": 0,
+        "syscr": 297086,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 4978,
+        "directory_sync_ns": 6965,
+        "header_ns": 343965,
+        "hwm_after_write": 778973184,
+        "inventory_ns": 10250029,
+        "rename_ns": 9768,
+        "rss_after_write": 607170560,
+        "sections": [
+          {
+            "checksum_ns": 67,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 617,
+            "write_ns": 1876
+          },
+          {
+            "checksum_ns": 7639611,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8074015,
+            "write_ns": 3111776
+          },
+          {
+            "checksum_ns": 223198,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 136890,
+            "write_ns": 88038
+          },
+          {
+            "checksum_ns": 213985,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 102509,
+            "write_ns": 108041
+          },
+          {
+            "checksum_ns": 217650,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 101509,
+            "write_ns": 176719
+          },
+          {
+            "checksum_ns": 217480,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 97523,
+            "write_ns": 77914
+          },
+          {
+            "checksum_ns": 210790,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 94174,
+            "write_ns": 78686
+          },
+          {
+            "checksum_ns": 210983,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 96176,
+            "write_ns": 79555
+          },
+          {
+            "checksum_ns": 228699,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 96063,
+            "write_ns": 81000
+          },
+          {
+            "checksum_ns": 54168850,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 84702587,
+            "write_ns": 22748928
+          }
+        ],
+        "sync_ns": 859,
+        "total_ns": 198497525,
+        "write_ns": 26560786
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "526ae413db2acaf87755c3f19b27ab6ede16d9b6",
+      "command": [
+        "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/02-1-candidate",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 2,
+    "position": 2,
+    "mode": "baseline",
+    "command": [
+      "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/02-2-baseline",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/02-2-baseline/trial-1794539090572988517-1517239",
+    "sample": {
+      "after_build_hwm": 533602304,
+      "after_build_rss": 517193728,
+      "after_release_rss": 445980672,
+      "before_rss": 6709248,
+      "bigram_stores": 15,
+      "build_admission_ns": 376134926,
+      "build_job_execution_ns": 4641768465,
+      "build_ns": 990520638,
+      "build_parses": 148486,
+      "build_receive_wait_ns": 75280812,
+      "diagnostic_heap_bytes": 0,
+      "discovery_ns": 191352517,
+      "distinct_gram_keys": 25477,
+      "estimated_index_bytes": 69662968,
+      "extraction_index_ns": 463015141,
+      "failed_parses": 0,
+      "finalization_ns": 253548695,
+      "framing_bytes": 0,
+      "framing_chunks": 0,
+      "framing_ns": 0,
+      "inference_build": "InferenceBuildStats { observed_records: 0, merged_batches: 0, merge_ns: 0, finish_ns: 0, cumulative_budget_bytes: 0, unique_path_bytes: 0, repeated_batch_path_bytes: 0, retained_manual_summary_bytes: 0 }",
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 990534622,
+      "out_of_order_completed": 229,
+      "peak_active_jobs": 32,
+      "peak_admitted_bytes": 523665408,
+      "peak_ready_batches": 64,
+      "postings": 300,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193302100,
+        "read_bytes": 0,
+        "syscr": 297041,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "profile": {
+        "admission_by_collection": {
+          "agents": {
+            "batches": 8,
+            "bigrams_ns": 327606,
+            "callback_ns": 226737,
+            "custom_postings_ns": 474,
+            "files": 4010,
+            "inference_ns": 424,
+            "postings_ns": 4322063,
+            "record_inventory_ns": 1065766,
+            "records": 4010,
+            "relations_ns": 462,
+            "remainder_ns": 3347,
+            "sorting_ns": 105848,
+            "structural_facts_ns": 21414,
+            "total_ns": 6074141
+          },
+          "contents": {
+            "batches": 262,
+            "bigrams_ns": 12101898,
+            "callback_ns": 3641992,
+            "custom_postings_ns": 18163,
+            "files": 133948,
+            "inference_ns": 18593,
+            "postings_ns": 241657538,
+            "record_inventory_ns": 74368268,
+            "records": 133948,
+            "relations_ns": 12443991,
+            "remainder_ns": 222612,
+            "sorting_ns": 9029603,
+            "structural_facts_ns": 1751457,
+            "total_ns": 355254115
+          },
+          "entries": {
+            "batches": 10,
+            "bigrams_ns": 454182,
+            "callback_ns": 103409,
+            "custom_postings_ns": 687,
+            "files": 4928,
+            "inference_ns": 516,
+            "postings_ns": 6909778,
+            "record_inventory_ns": 1683558,
+            "records": 4928,
+            "relations_ns": 235051,
+            "remainder_ns": 5114,
+            "sorting_ns": 84941,
+            "structural_facts_ns": 61647,
+            "total_ns": 9538883
+          },
+          "items": {
+            "batches": 9,
+            "bigrams_ns": 260411,
+            "callback_ns": 89133,
+            "custom_postings_ns": 166,
+            "files": 4180,
+            "inference_ns": 368,
+            "postings_ns": 875190,
+            "record_inventory_ns": 1346744,
+            "records": 4180,
+            "relations_ns": 207,
+            "remainder_ns": 4553,
+            "sorting_ns": 368,
+            "structural_facts_ns": 53203,
+            "total_ns": 2630343
+          },
+          "pages": {
+            "batches": 1,
+            "bigrams_ns": 1757,
+            "callback_ns": 484,
+            "custom_postings_ns": 20,
+            "files": 8,
+            "inference_ns": 90,
+            "postings_ns": 6311,
+            "record_inventory_ns": 3343,
+            "records": 8,
+            "relations_ns": 14,
+            "remainder_ns": 251,
+            "sorting_ns": 71,
+            "structural_facts_ns": 217,
+            "total_ns": 12558
+          },
+          "places": {
+            "batches": 1,
+            "bigrams_ns": 6657,
+            "callback_ns": 4971,
+            "custom_postings_ns": 14,
+            "files": 210,
+            "inference_ns": 93,
+            "postings_ns": 71375,
+            "record_inventory_ns": 59024,
+            "records": 210,
+            "relations_ns": 22,
+            "remainder_ns": 233,
+            "sorting_ns": 2440,
+            "structural_facts_ns": 1803,
+            "total_ns": 146632
+          },
+          "series": {
+            "batches": 3,
+            "bigrams_ns": 114971,
+            "callback_ns": 42578,
+            "custom_postings_ns": 147,
+            "files": 1202,
+            "inference_ns": 442,
+            "postings_ns": 1702704,
+            "record_inventory_ns": 355052,
+            "records": 1202,
+            "relations_ns": 106630,
+            "remainder_ns": 1540,
+            "sorting_ns": 9380,
+            "structural_facts_ns": 15231,
+            "total_ns": 2348675
+          }
+        },
+        "admission_schedule": {
+          "byte_limit_blocks": 0,
+          "completion_to_receipt_ns": 11775488257,
+          "coordinator_receive_call_ns": 75280812,
+          "dispatch_to_worker_start_ns": 1195377637,
+          "job_limit_blocks": 234,
+          "possible_idle_during_admission_ns": 86211080,
+          "prefetched_later_collection_jobs": 2,
+          "receipt_to_admission_start_ns": 6627992278,
+          "worker_start_to_completion_ns": 4641910710
+        },
+        "builder_setup_ns": 2651218,
+        "contribution_storage": {
+          "block_element_size": 0,
+          "chunk_element_size": 0,
+          "final_add_segment_ns": 0,
+          "final_admission_merge_ns": 0,
+          "final_admitted_chunks": 0,
+          "final_copied_block_bytes": 0,
+          "final_diagnostic_counter_bytes": 0,
+          "final_duplicate_bit_ors": 0,
+          "final_global_block_capacity": 0,
+          "final_global_block_capacity_bytes": 0,
+          "final_global_blocks": 0,
+          "final_global_capacity_bytes": 0,
+          "final_global_chunk_capacity": 0,
+          "final_global_chunk_capacity_bytes": 0,
+          "final_global_chunks": 0,
+          "final_global_live_payload_bytes": 0,
+          "final_global_span_capacity": 0,
+          "final_global_span_capacity_bytes": 0,
+          "final_global_spans": 0,
+          "final_gram_set_lookups": 0,
+          "final_pack_ns": 0,
+          "final_scratch_drain_ns": 0,
+          "final_sort_ns": 0,
+          "final_sorted_entries": 0,
+          "final_validation_ns": 0,
+          "max_pending_peak_capacity_bytes": 0,
+          "max_worker_scratch_after_flush_capacity_bytes": 0,
+          "max_worker_scratch_peak_capacity_bytes": 0,
+          "peak_admitted_batch_capacity_bytes": 0,
+          "peak_global_capacity_bytes": 0,
+          "peak_global_plus_admitted_batch_capacity_bytes": 0,
+          "peak_ready_capacity_bytes": 0,
+          "pending_element_size": 0,
+          "span_element_size": 0
+        },
+        "discovery_catalogue_ns": 136143890,
+        "discovery_enumeration_ns": 55057990,
+        "discovery_metadata_peak_active": 32,
+        "discovery_metadata_prepare_ns": 55394752,
+        "discovery_ordered_insert_ns": 80387484,
+        "discovery_rss_bytes": 64864256,
+        "extraction_rss_bytes": 478273536,
+        "final_checks_ns": 1027403,
+        "finalization_rss_bytes": 530464768,
+        "finalize_bigrams_ns": 142351035,
+        "finalize_generation_ns": 19218808,
+        "finalize_identity_ns": 14078394,
+        "finalize_inference_ns": 820,
+        "finalize_sort_ns": 71546167,
+        "finalize_validation_ns": 6343391,
+        "fingerprint_finish_ns": 7178765,
+        "large_file_total_ns": 0,
+        "large_files": 0,
+        "pool_init_ns": 708759,
+        "pool_teardown_ns": 36408,
+        "query_pool_init_ns": 1891261,
+        "relations_ns": 68921108,
+        "source_work_ns": 453142441,
+        "work": {
+          "batch_finish_ns": 230053676,
+          "batches": 294,
+          "custom_postings_ns": 71908,
+          "custom_text_ns": 635381,
+          "inference_ns": 53497,
+          "input_buffer_batch_end_capacity_bytes": 1345616,
+          "input_buffer_files_read": 148486,
+          "input_buffer_growth_files": 719,
+          "input_buffer_oversized_drops": 0,
+          "input_buffer_peak_capacity_bytes": 86760,
+          "postings_ns": 14860402,
+          "relations_ns": 734560,
+          "sampled_callback_ns": 41463180,
+          "sampled_component_records": 2321,
+          "sampled_file_bytes": 3060949,
+          "sampled_files": 2321,
+          "sampled_read_calls": 4672,
+          "sampled_source_records": 2321,
+          "sorting_ns": 4029310,
+          "source_extraction_ns": 57019433,
+          "source_frame_ns": 156613,
+          "source_hash_ns": 1399171,
+          "source_open_ns": 4764884,
+          "source_read_ns": 2477011,
+          "text_bigram_ns": 11999825,
+          "validation_ns": 5397543
+        }
+      },
+      "profile_reconciliation": {
+        "extraction_unattributed_ns": 42717,
+        "finalization_unattributed_ns": 10080,
+        "top_level_unattributed_ns": 10019346
+      },
+      "query_digests": {
+        "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+        "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+        "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+        "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+        "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+      },
+      "ready_wait_max_ns": 449748170,
+      "ready_wait_sum_ns": 6627949386,
+      "relation_edges": 228503,
+      "relation_heap_bytes": 21469817,
+      "snapshot_result": {
+        "bytes": 129139458,
+        "directory_ns": 4246,
+        "directory_sync_ns": 6770,
+        "header_ns": 394207,
+        "hwm_after_write": 540655616,
+        "inventory_ns": 10537112,
+        "rename_ns": 10627,
+        "rss_after_write": 517419008,
+        "sections": [
+          {
+            "checksum_ns": 73,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 494,
+            "write_ns": 1785
+          },
+          {
+            "checksum_ns": 8157589,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8573091,
+            "write_ns": 3253832
+          },
+          {
+            "checksum_ns": 3594299,
+            "id": 1,
+            "payload_bytes": 9594072,
+            "serialize_ns": 4758612,
+            "write_ns": 1586986
+          },
+          {
+            "checksum_ns": 29697551,
+            "id": 2,
+            "payload_bytes": 82140326,
+            "serialize_ns": 57469739,
+            "write_ns": 12926139
+          },
+          {
+            "checksum_ns": 3267964,
+            "id": 3,
+            "payload_bytes": 9210713,
+            "serialize_ns": 5334775,
+            "write_ns": 1434480
+          },
+          {
+            "checksum_ns": 1081160,
+            "id": 4,
+            "payload_bytes": 3025448,
+            "serialize_ns": 1178496,
+            "write_ns": 431539
+          },
+          {
+            "checksum_ns": 226849,
+            "id": 5,
+            "payload_bytes": 614035,
+            "serialize_ns": 170678,
+            "write_ns": 94703
+          },
+          {
+            "checksum_ns": 246111,
+            "id": 6,
+            "payload_bytes": 695072,
+            "serialize_ns": 233678,
+            "write_ns": 101261
+          },
+          {
+            "checksum_ns": 834773,
+            "id": 7,
+            "payload_bytes": 2357077,
+            "serialize_ns": 1787253,
+            "write_ns": 328444
+          }
+        ],
+        "sync_ns": 970,
+        "total_ns": 162476086,
+        "write_ns": 20168745
+      },
+      "sort_fields": 8,
+      "storage_breakdown": null,
+      "storage_operations": null,
+      "weight_limit_bytes": 536870912
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "check_queries": true,
+      "code_revision": "7a6b96684e1fbb849eab7cc20185b942159ed189",
+      "command": [
+        "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/02-2-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "?? docs/ai/done/objekte_fedora_gpui_development_environment_specification.md\n?? docs/ai/done/objekte_headless_wayland_follow_up_plan.md\n?? docs/ai/tasks/objekte_01_incremental_index_availability_plan.md\n?? docs/ai/tasks/objekte_02_boolean_field_predicates_plan.md\n?? docs/ai/tasks/objekte_03_indexed_field_structural_postings_plan.md\n?? docs/development/objekte_index_lifecycle_implementation_guide.md",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 3,
+    "position": 1,
+    "mode": "baseline",
+    "command": [
+      "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/03-1-baseline",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/03-1-baseline/trial-1794539092115559951-1517337",
+    "sample": {
+      "after_build_hwm": 538095616,
+      "after_build_rss": 521900032,
+      "after_release_rss": 451129344,
+      "before_rss": 6569984,
+      "bigram_stores": 15,
+      "build_admission_ns": 340961825,
+      "build_job_execution_ns": 4291185035,
+      "build_ns": 938069640,
+      "build_parses": 148486,
+      "build_receive_wait_ns": 73919724,
+      "diagnostic_heap_bytes": 0,
+      "discovery_ns": 187301870,
+      "distinct_gram_keys": 25477,
+      "estimated_index_bytes": 69662968,
+      "extraction_index_ns": 424021887,
+      "failed_parses": 0,
+      "finalization_ns": 254462254,
+      "framing_bytes": 0,
+      "framing_chunks": 0,
+      "framing_ns": 0,
+      "inference_build": "InferenceBuildStats { observed_records: 0, merged_batches: 0, merge_ns: 0, finish_ns: 0, cumulative_budget_bytes: 0, unique_path_bytes: 0, repeated_batch_path_bytes: 0, retained_manual_summary_bytes: 0 }",
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 938090417,
+      "out_of_order_completed": 214,
+      "peak_active_jobs": 32,
+      "peak_admitted_bytes": 523665408,
+      "peak_ready_batches": 64,
+      "postings": 300,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193302100,
+        "read_bytes": 0,
+        "syscr": 297041,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "profile": {
+        "admission_by_collection": {
+          "agents": {
+            "batches": 8,
+            "bigrams_ns": 322624,
+            "callback_ns": 98790,
+            "custom_postings_ns": 616,
+            "files": 4010,
+            "inference_ns": 550,
+            "postings_ns": 4122419,
+            "record_inventory_ns": 842584,
+            "records": 4010,
+            "relations_ns": 930,
+            "remainder_ns": 3446,
+            "sorting_ns": 111763,
+            "structural_facts_ns": 22754,
+            "total_ns": 5526476
+          },
+          "contents": {
+            "batches": 262,
+            "bigrams_ns": 11286282,
+            "callback_ns": 6647370,
+            "custom_postings_ns": 12926,
+            "files": 133948,
+            "inference_ns": 17945,
+            "postings_ns": 214590362,
+            "record_inventory_ns": 66965931,
+            "records": 133948,
+            "relations_ns": 11951376,
+            "remainder_ns": 217013,
+            "sorting_ns": 9128864,
+            "structural_facts_ns": 1626899,
+            "total_ns": 322444968
+          },
+          "entries": {
+            "batches": 10,
+            "bigrams_ns": 352177,
+            "callback_ns": 77162,
+            "custom_postings_ns": 418,
+            "files": 4928,
+            "inference_ns": 858,
+            "postings_ns": 6665212,
+            "record_inventory_ns": 1320020,
+            "records": 4928,
+            "relations_ns": 213298,
+            "remainder_ns": 5755,
+            "sorting_ns": 84253,
+            "structural_facts_ns": 60726,
+            "total_ns": 8779879
+          },
+          "items": {
+            "batches": 9,
+            "bigrams_ns": 188032,
+            "callback_ns": 61454,
+            "custom_postings_ns": 188,
+            "files": 4180,
+            "inference_ns": 435,
+            "postings_ns": 815439,
+            "record_inventory_ns": 840441,
+            "records": 4180,
+            "relations_ns": 315,
+            "remainder_ns": 3692,
+            "sorting_ns": 341,
+            "structural_facts_ns": 57478,
+            "total_ns": 1967815
+          },
+          "pages": {
+            "batches": 1,
+            "bigrams_ns": 1206,
+            "callback_ns": 333,
+            "custom_postings_ns": 27,
+            "files": 8,
+            "inference_ns": 32,
+            "postings_ns": 4999,
+            "record_inventory_ns": 2856,
+            "records": 8,
+            "relations_ns": 15,
+            "remainder_ns": 725,
+            "sorting_ns": 219,
+            "structural_facts_ns": 622,
+            "total_ns": 11034
+          },
+          "places": {
+            "batches": 1,
+            "bigrams_ns": 4685,
+            "callback_ns": 3081,
+            "custom_postings_ns": 23,
+            "files": 210,
+            "inference_ns": 27,
+            "postings_ns": 67445,
+            "record_inventory_ns": 38675,
+            "records": 210,
+            "relations_ns": 18,
+            "remainder_ns": 268,
+            "sorting_ns": 2035,
+            "structural_facts_ns": 1516,
+            "total_ns": 117773
+          },
+          "series": {
+            "batches": 3,
+            "bigrams_ns": 84519,
+            "callback_ns": 18149,
+            "custom_postings_ns": 89,
+            "files": 1202,
+            "inference_ns": 193,
+            "postings_ns": 1552029,
+            "record_inventory_ns": 250523,
+            "records": 1202,
+            "relations_ns": 71955,
+            "remainder_ns": 1094,
+            "sorting_ns": 9365,
+            "structural_facts_ns": 13186,
+            "total_ns": 2001102
+          }
+        },
+        "admission_schedule": {
+          "byte_limit_blocks": 0,
+          "completion_to_receipt_ns": 11861680030,
+          "coordinator_receive_call_ns": 73919724,
+          "dispatch_to_worker_start_ns": 1121720574,
+          "job_limit_blocks": 234,
+          "possible_idle_during_admission_ns": 49247777,
+          "prefetched_later_collection_jobs": 2,
+          "receipt_to_admission_start_ns": 5391178654,
+          "worker_start_to_completion_ns": 4291316888
+        },
+        "builder_setup_ns": 2431282,
+        "contribution_storage": {
+          "block_element_size": 0,
+          "chunk_element_size": 0,
+          "final_add_segment_ns": 0,
+          "final_admission_merge_ns": 0,
+          "final_admitted_chunks": 0,
+          "final_copied_block_bytes": 0,
+          "final_diagnostic_counter_bytes": 0,
+          "final_duplicate_bit_ors": 0,
+          "final_global_block_capacity": 0,
+          "final_global_block_capacity_bytes": 0,
+          "final_global_blocks": 0,
+          "final_global_capacity_bytes": 0,
+          "final_global_chunk_capacity": 0,
+          "final_global_chunk_capacity_bytes": 0,
+          "final_global_chunks": 0,
+          "final_global_live_payload_bytes": 0,
+          "final_global_span_capacity": 0,
+          "final_global_span_capacity_bytes": 0,
+          "final_global_spans": 0,
+          "final_gram_set_lookups": 0,
+          "final_pack_ns": 0,
+          "final_scratch_drain_ns": 0,
+          "final_sort_ns": 0,
+          "final_sorted_entries": 0,
+          "final_validation_ns": 0,
+          "max_pending_peak_capacity_bytes": 0,
+          "max_worker_scratch_after_flush_capacity_bytes": 0,
+          "max_worker_scratch_peak_capacity_bytes": 0,
+          "peak_admitted_batch_capacity_bytes": 0,
+          "peak_global_capacity_bytes": 0,
+          "peak_global_plus_admitted_batch_capacity_bytes": 0,
+          "peak_ready_capacity_bytes": 0,
+          "pending_element_size": 0,
+          "span_element_size": 0
+        },
+        "discovery_catalogue_ns": 133686952,
+        "discovery_enumeration_ns": 53473513,
+        "discovery_metadata_peak_active": 32,
+        "discovery_metadata_prepare_ns": 54823611,
+        "discovery_ordered_insert_ns": 78511852,
+        "discovery_rss_bytes": 64327680,
+        "extraction_rss_bytes": 486580224,
+        "final_checks_ns": 1072501,
+        "finalization_rss_bytes": 536977408,
+        "finalize_bigrams_ns": 142678060,
+        "finalize_generation_ns": 18651616,
+        "finalize_identity_ns": 15324546,
+        "finalize_inference_ns": 889,
+        "finalize_sort_ns": 71063860,
+        "finalize_validation_ns": 6733588,
+        "fingerprint_finish_ns": 4990318,
+        "large_file_total_ns": 0,
+        "large_files": 0,
+        "pool_init_ns": 1040240,
+        "pool_teardown_ns": 36445,
+        "query_pool_init_ns": 1469797,
+        "relations_ns": 58686793,
+        "source_work_ns": 416534849,
+        "work": {
+          "batch_finish_ns": 206657640,
+          "batches": 294,
+          "custom_postings_ns": 63611,
+          "custom_text_ns": 694498,
+          "inference_ns": 47632,
+          "input_buffer_batch_end_capacity_bytes": 1345616,
+          "input_buffer_files_read": 148486,
+          "input_buffer_growth_files": 719,
+          "input_buffer_oversized_drops": 0,
+          "input_buffer_peak_capacity_bytes": 86760,
+          "postings_ns": 14113016,
+          "relations_ns": 691105,
+          "sampled_callback_ns": 39456732,
+          "sampled_component_records": 2321,
+          "sampled_file_bytes": 3060949,
+          "sampled_files": 2321,
+          "sampled_read_calls": 4672,
+          "sampled_source_records": 2321,
+          "sorting_ns": 3758773,
+          "source_extraction_ns": 54530152,
+          "source_frame_ns": 140366,
+          "source_hash_ns": 1373202,
+          "source_open_ns": 4400208,
+          "source_read_ns": 2258812,
+          "text_bigram_ns": 11487250,
+          "validation_ns": 5067135
+        }
+      },
+      "profile_reconciliation": {
+        "extraction_unattributed_ns": 65438,
+        "finalization_unattributed_ns": 9695,
+        "top_level_unattributed_ns": 9977853
+      },
+      "query_digests": {
+        "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+        "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+        "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+        "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+        "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+      },
+      "ready_wait_max_ns": 413305203,
+      "ready_wait_sum_ns": 5391142347,
+      "relation_edges": 228503,
+      "relation_heap_bytes": 21469817,
+      "snapshot_result": {
+        "bytes": 129139458,
+        "directory_ns": 4031,
+        "directory_sync_ns": 7281,
+        "header_ns": 400826,
+        "hwm_after_write": 545353728,
+        "inventory_ns": 10351962,
+        "rename_ns": 10411,
+        "rss_after_write": 522125312,
+        "sections": [
+          {
+            "checksum_ns": 74,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 626,
+            "write_ns": 2006
+          },
+          {
+            "checksum_ns": 8078158,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8481444,
+            "write_ns": 3309535
+          },
+          {
+            "checksum_ns": 3604528,
+            "id": 1,
+            "payload_bytes": 9594072,
+            "serialize_ns": 4840269,
+            "write_ns": 1483182
+          },
+          {
+            "checksum_ns": 29552976,
+            "id": 2,
+            "payload_bytes": 82140326,
+            "serialize_ns": 57585182,
+            "write_ns": 12988994
+          },
+          {
+            "checksum_ns": 3285993,
+            "id": 3,
+            "payload_bytes": 9210713,
+            "serialize_ns": 5476879,
+            "write_ns": 1447521
+          },
+          {
+            "checksum_ns": 1084647,
+            "id": 4,
+            "payload_bytes": 3025448,
+            "serialize_ns": 1140891,
+            "write_ns": 449860
+          },
+          {
+            "checksum_ns": 219312,
+            "id": 5,
+            "payload_bytes": 614035,
+            "serialize_ns": 167825,
+            "write_ns": 85844
+          },
+          {
+            "checksum_ns": 250375,
+            "id": 6,
+            "payload_bytes": 695072,
+            "serialize_ns": 255895,
+            "write_ns": 98133
+          },
+          {
+            "checksum_ns": 840188,
+            "id": 7,
+            "payload_bytes": 2357077,
+            "serialize_ns": 2136274,
+            "write_ns": 438296
+          }
+        ],
+        "sync_ns": 1014,
+        "total_ns": 163625150,
+        "write_ns": 20314591
+      },
+      "sort_fields": 8,
+      "storage_breakdown": null,
+      "storage_operations": null,
+      "weight_limit_bytes": 536870912
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "check_queries": true,
+      "code_revision": "7a6b96684e1fbb849eab7cc20185b942159ed189",
+      "command": [
+        "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/03-1-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "?? docs/ai/done/objekte_fedora_gpui_development_environment_specification.md\n?? docs/ai/done/objekte_headless_wayland_follow_up_plan.md\n?? docs/ai/tasks/objekte_01_incremental_index_availability_plan.md\n?? docs/ai/tasks/objekte_02_boolean_field_predicates_plan.md\n?? docs/ai/tasks/objekte_03_indexed_field_structural_postings_plan.md\n?? docs/development/objekte_index_lifecycle_implementation_guide.md",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 3,
+    "position": 2,
+    "mode": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/03-2-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/03-2-candidate/trial-1794539093602075979-1517436",
+    "sample": {
+      "after_build_hwm": 565805056,
+      "after_build_rss": 555528192,
+      "after_release_rss": 514273280,
+      "before_rss": 6529024,
+      "build_ns": 935643962,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 205589292,
+      "completion_ns": 935643962,
+      "discovery_ns": 205572202,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 279629730,
+      "first_result_ns": 279767649,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 935643962,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 4414,
+        "directory_sync_ns": 7652,
+        "header_ns": 324508,
+        "hwm_after_write": 776187904,
+        "inventory_ns": 9935397,
+        "rename_ns": 10241,
+        "rss_after_write": 603983872,
+        "sections": [
+          {
+            "checksum_ns": 66,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 432,
+            "write_ns": 1948
+          },
+          {
+            "checksum_ns": 7638875,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8178986,
+            "write_ns": 3186951
+          },
+          {
+            "checksum_ns": 223228,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 136036,
+            "write_ns": 95302
+          },
+          {
+            "checksum_ns": 213987,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 98202,
+            "write_ns": 82545
+          },
+          {
+            "checksum_ns": 213285,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 103959,
+            "write_ns": 85228
+          },
+          {
+            "checksum_ns": 211076,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 95582,
+            "write_ns": 83667
+          },
+          {
+            "checksum_ns": 210781,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 96223,
+            "write_ns": 81363
+          },
+          {
+            "checksum_ns": 211026,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 119456,
+            "write_ns": 181199
+          },
+          {
+            "checksum_ns": 211258,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 99185,
+            "write_ns": 88591
+          },
+          {
+            "checksum_ns": 54113932,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 83747672,
+            "write_ns": 22199238
+          }
+        ],
+        "sync_ns": 947,
+        "total_ns": 196759232,
+        "write_ns": 26095131
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "526ae413db2acaf87755c3f19b27ab6ede16d9b6",
+      "command": [
+        "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/03-2-candidate",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 4,
+    "position": 1,
+    "mode": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/04-1-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/04-1-candidate/trial-1794539095304639736-1517631",
+    "sample": {
+      "after_build_hwm": 575442944,
+      "after_build_rss": 566169600,
+      "after_release_rss": 524939264,
+      "before_rss": 6545408,
+      "build_ns": 918629888,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 210310625,
+      "completion_ns": 918629888,
+      "discovery_ns": 210289256,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 288301561,
+      "first_result_ns": 288478486,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 918629888,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 4528,
+        "directory_sync_ns": 5505,
+        "header_ns": 312456,
+        "hwm_after_write": 786038784,
+        "inventory_ns": 10128638,
+        "rename_ns": 10033,
+        "rss_after_write": 614625280,
+        "sections": [
+          {
+            "checksum_ns": 68,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 264,
+            "write_ns": 1784
+          },
+          {
+            "checksum_ns": 7636770,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8020096,
+            "write_ns": 3103284
+          },
+          {
+            "checksum_ns": 223209,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 134372,
+            "write_ns": 91175
+          },
+          {
+            "checksum_ns": 216514,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 99399,
+            "write_ns": 85652
+          },
+          {
+            "checksum_ns": 215037,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 100064,
+            "write_ns": 176537
+          },
+          {
+            "checksum_ns": 215385,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 95594,
+            "write_ns": 80094
+          },
+          {
+            "checksum_ns": 210799,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 100878,
+            "write_ns": 79863
+          },
+          {
+            "checksum_ns": 211000,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 95473,
+            "write_ns": 83354
+          },
+          {
+            "checksum_ns": 211223,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 96845,
+            "write_ns": 80546
+          },
+          {
+            "checksum_ns": 54868296,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 84969198,
+            "write_ns": 22681237
+          }
+        ],
+        "sync_ns": 926,
+        "total_ns": 199141379,
+        "write_ns": 26472058
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "526ae413db2acaf87755c3f19b27ab6ede16d9b6",
+      "command": [
+        "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/04-1-candidate",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 4,
+    "position": 2,
+    "mode": "baseline",
+    "command": [
+      "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/04-2-baseline",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/04-2-baseline/trial-1794539096992235520-1517826",
+    "sample": {
+      "after_build_hwm": 531750912,
+      "after_build_rss": 514834432,
+      "after_release_rss": 443666432,
+      "before_rss": 6750208,
+      "bigram_stores": 15,
+      "build_admission_ns": 361504288,
+      "build_job_execution_ns": 4647088589,
+      "build_ns": 973343724,
+      "build_parses": 148486,
+      "build_receive_wait_ns": 74556388,
+      "diagnostic_heap_bytes": 0,
+      "discovery_ns": 189066651,
+      "distinct_gram_keys": 25477,
+      "estimated_index_bytes": 69662968,
+      "extraction_index_ns": 447470256,
+      "failed_parses": 0,
+      "finalization_ns": 253696680,
+      "framing_bytes": 0,
+      "framing_chunks": 0,
+      "framing_ns": 0,
+      "inference_build": "InferenceBuildStats { observed_records: 0, merged_batches: 0, merge_ns: 0, finish_ns: 0, cumulative_budget_bytes: 0, unique_path_bytes: 0, repeated_batch_path_bytes: 0, retained_manual_summary_bytes: 0 }",
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 973362090,
+      "out_of_order_completed": 214,
+      "peak_active_jobs": 32,
+      "peak_admitted_bytes": 523665408,
+      "peak_ready_batches": 62,
+      "postings": 300,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193302100,
+        "read_bytes": 0,
+        "syscr": 297041,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "profile": {
+        "admission_by_collection": {
+          "agents": {
+            "batches": 8,
+            "bigrams_ns": 326040,
+            "callback_ns": 159093,
+            "custom_postings_ns": 459,
+            "files": 4010,
+            "inference_ns": 462,
+            "postings_ns": 4769794,
+            "record_inventory_ns": 948559,
+            "records": 4010,
+            "relations_ns": 425,
+            "remainder_ns": 3569,
+            "sorting_ns": 108582,
+            "structural_facts_ns": 28598,
+            "total_ns": 6345581
+          },
+          "contents": {
+            "batches": 262,
+            "bigrams_ns": 11957393,
+            "callback_ns": 4196725,
+            "custom_postings_ns": 16028,
+            "files": 133948,
+            "inference_ns": 15591,
+            "postings_ns": 224525395,
+            "record_inventory_ns": 75247199,
+            "records": 133948,
+            "relations_ns": 12818295,
+            "remainder_ns": 203467,
+            "sorting_ns": 9332344,
+            "structural_facts_ns": 1684514,
+            "total_ns": 339996951
+          },
+          "entries": {
+            "batches": 10,
+            "bigrams_ns": 422728,
+            "callback_ns": 87803,
+            "custom_postings_ns": 431,
+            "files": 4928,
+            "inference_ns": 537,
+            "postings_ns": 6833505,
+            "record_inventory_ns": 1591556,
+            "records": 4928,
+            "relations_ns": 224668,
+            "remainder_ns": 5249,
+            "sorting_ns": 97943,
+            "structural_facts_ns": 62652,
+            "total_ns": 9327072
+          },
+          "items": {
+            "batches": 9,
+            "bigrams_ns": 246292,
+            "callback_ns": 97137,
+            "custom_postings_ns": 190,
+            "files": 4180,
+            "inference_ns": 699,
+            "postings_ns": 836022,
+            "record_inventory_ns": 1381683,
+            "records": 4180,
+            "relations_ns": 215,
+            "remainder_ns": 4442,
+            "sorting_ns": 414,
+            "structural_facts_ns": 53885,
+            "total_ns": 2620979
+          },
+          "pages": {
+            "batches": 1,
+            "bigrams_ns": 1623,
+            "callback_ns": 363,
+            "custom_postings_ns": 12,
+            "files": 8,
+            "inference_ns": 132,
+            "postings_ns": 5140,
+            "record_inventory_ns": 3016,
+            "records": 8,
+            "relations_ns": 14,
+            "remainder_ns": 194,
+            "sorting_ns": 28,
+            "structural_facts_ns": 185,
+            "total_ns": 10707
+          },
+          "places": {
+            "batches": 1,
+            "bigrams_ns": 7683,
+            "callback_ns": 4928,
+            "custom_postings_ns": 26,
+            "files": 210,
+            "inference_ns": 93,
+            "postings_ns": 67867,
+            "record_inventory_ns": 54113,
+            "records": 210,
+            "relations_ns": 22,
+            "remainder_ns": 240,
+            "sorting_ns": 2435,
+            "structural_facts_ns": 1765,
+            "total_ns": 139172
+          },
+          "series": {
+            "batches": 3,
+            "bigrams_ns": 114922,
+            "callback_ns": 28842,
+            "custom_postings_ns": 89,
+            "files": 1202,
+            "inference_ns": 222,
+            "postings_ns": 2298523,
+            "record_inventory_ns": 382742,
+            "records": 1202,
+            "relations_ns": 89383,
+            "remainder_ns": 1566,
+            "sorting_ns": 10277,
+            "structural_facts_ns": 14877,
+            "total_ns": 2941443
+          }
+        },
+        "admission_schedule": {
+          "byte_limit_blocks": 0,
+          "completion_to_receipt_ns": 10175976087,
+          "coordinator_receive_call_ns": 74556388,
+          "dispatch_to_worker_start_ns": 1371867438,
+          "job_limit_blocks": 236,
+          "possible_idle_during_admission_ns": 93256814,
+          "prefetched_later_collection_jobs": 2,
+          "receipt_to_admission_start_ns": 6574980150,
+          "worker_start_to_completion_ns": 4647216854
+        },
+        "builder_setup_ns": 2379397,
+        "contribution_storage": {
+          "block_element_size": 0,
+          "chunk_element_size": 0,
+          "final_add_segment_ns": 0,
+          "final_admission_merge_ns": 0,
+          "final_admitted_chunks": 0,
+          "final_copied_block_bytes": 0,
+          "final_diagnostic_counter_bytes": 0,
+          "final_duplicate_bit_ors": 0,
+          "final_global_block_capacity": 0,
+          "final_global_block_capacity_bytes": 0,
+          "final_global_blocks": 0,
+          "final_global_capacity_bytes": 0,
+          "final_global_chunk_capacity": 0,
+          "final_global_chunk_capacity_bytes": 0,
+          "final_global_chunks": 0,
+          "final_global_live_payload_bytes": 0,
+          "final_global_span_capacity": 0,
+          "final_global_span_capacity_bytes": 0,
+          "final_global_spans": 0,
+          "final_gram_set_lookups": 0,
+          "final_pack_ns": 0,
+          "final_scratch_drain_ns": 0,
+          "final_sort_ns": 0,
+          "final_sorted_entries": 0,
+          "final_validation_ns": 0,
+          "max_pending_peak_capacity_bytes": 0,
+          "max_worker_scratch_after_flush_capacity_bytes": 0,
+          "max_worker_scratch_peak_capacity_bytes": 0,
+          "peak_admitted_batch_capacity_bytes": 0,
+          "peak_global_capacity_bytes": 0,
+          "peak_global_plus_admitted_batch_capacity_bytes": 0,
+          "peak_ready_capacity_bytes": 0,
+          "pending_element_size": 0,
+          "span_element_size": 0
+        },
+        "discovery_catalogue_ns": 133955296,
+        "discovery_enumeration_ns": 54971061,
+        "discovery_metadata_peak_active": 32,
+        "discovery_metadata_prepare_ns": 55335378,
+        "discovery_ordered_insert_ns": 78266110,
+        "discovery_rss_bytes": 64888832,
+        "extraction_rss_bytes": 475422720,
+        "final_checks_ns": 1020687,
+        "finalization_rss_bytes": 530194432,
+        "finalize_bigrams_ns": 142559805,
+        "finalize_generation_ns": 19097697,
+        "finalize_identity_ns": 13870266,
+        "finalize_inference_ns": 669,
+        "finalize_sort_ns": 71815036,
+        "finalize_validation_ns": 6342849,
+        "fingerprint_finish_ns": 7122705,
+        "large_file_total_ns": 0,
+        "large_files": 0,
+        "pool_init_ns": 962964,
+        "pool_teardown_ns": 25807,
+        "query_pool_init_ns": 2869520,
+        "relations_ns": 68480079,
+        "source_work_ns": 437928675,
+        "work": {
+          "batch_finish_ns": 226732579,
+          "batches": 294,
+          "custom_postings_ns": 70536,
+          "custom_text_ns": 670087,
+          "inference_ns": 56559,
+          "input_buffer_batch_end_capacity_bytes": 1345616,
+          "input_buffer_files_read": 148486,
+          "input_buffer_growth_files": 719,
+          "input_buffer_oversized_drops": 0,
+          "input_buffer_peak_capacity_bytes": 86760,
+          "postings_ns": 15371583,
+          "relations_ns": 754693,
+          "sampled_callback_ns": 42432064,
+          "sampled_component_records": 2321,
+          "sampled_file_bytes": 3060949,
+          "sampled_files": 2321,
+          "sampled_read_calls": 4672,
+          "sampled_source_records": 2321,
+          "sorting_ns": 4054768,
+          "source_extraction_ns": 58483638,
+          "source_frame_ns": 146452,
+          "source_hash_ns": 1399897,
+          "source_open_ns": 4758730,
+          "source_read_ns": 2420218,
+          "text_bigram_ns": 12330186,
+          "validation_ns": 5362841
+        }
+      },
+      "profile_reconciliation": {
+        "extraction_unattributed_ns": 39479,
+        "finalization_unattributed_ns": 10358,
+        "top_level_unattributed_ns": 9751080
+      },
+      "query_digests": {
+        "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+        "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+        "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+        "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+        "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+      },
+      "ready_wait_max_ns": 433970554,
+      "ready_wait_sum_ns": 6574915190,
+      "relation_edges": 228503,
+      "relation_heap_bytes": 21469817,
+      "snapshot_result": {
+        "bytes": 129139458,
+        "directory_ns": 3920,
+        "directory_sync_ns": 7527,
+        "header_ns": 402589,
+        "hwm_after_write": 538591232,
+        "inventory_ns": 10557298,
+        "rename_ns": 10404,
+        "rss_after_write": 514842624,
+        "sections": [
+          {
+            "checksum_ns": 73,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 276,
+            "write_ns": 1985
+          },
+          {
+            "checksum_ns": 8096041,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8492101,
+            "write_ns": 3282572
+          },
+          {
+            "checksum_ns": 3594282,
+            "id": 1,
+            "payload_bytes": 9594072,
+            "serialize_ns": 4830835,
+            "write_ns": 1463911
+          },
+          {
+            "checksum_ns": 29552015,
+            "id": 2,
+            "payload_bytes": 82140326,
+            "serialize_ns": 57337752,
+            "write_ns": 12946686
+          },
+          {
+            "checksum_ns": 3287448,
+            "id": 3,
+            "payload_bytes": 9210713,
+            "serialize_ns": 5025530,
+            "write_ns": 1425113
+          },
+          {
+            "checksum_ns": 1086146,
+            "id": 4,
+            "payload_bytes": 3025448,
+            "serialize_ns": 1120913,
+            "write_ns": 424547
+          },
+          {
+            "checksum_ns": 225950,
+            "id": 5,
+            "payload_bytes": 614035,
+            "serialize_ns": 179654,
+            "write_ns": 101076
+          },
+          {
+            "checksum_ns": 250477,
+            "id": 6,
+            "payload_bytes": 695072,
+            "serialize_ns": 231070,
+            "write_ns": 97349
+          },
+          {
+            "checksum_ns": 849162,
+            "id": 7,
+            "payload_bytes": 2357077,
+            "serialize_ns": 2376345,
+            "write_ns": 460187
+          }
+        ],
+        "sync_ns": 1119,
+        "total_ns": 162537558,
+        "write_ns": 20219737
+      },
+      "sort_fields": 8,
+      "storage_breakdown": null,
+      "storage_operations": null,
+      "weight_limit_bytes": 536870912
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "check_queries": true,
+      "code_revision": "7a6b96684e1fbb849eab7cc20185b942159ed189",
+      "command": [
+        "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/04-2-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "?? docs/ai/done/objekte_fedora_gpui_development_environment_specification.md\n?? docs/ai/done/objekte_headless_wayland_follow_up_plan.md\n?? docs/ai/tasks/objekte_01_incremental_index_availability_plan.md\n?? docs/ai/tasks/objekte_02_boolean_field_predicates_plan.md\n?? docs/ai/tasks/objekte_03_indexed_field_structural_postings_plan.md\n?? docs/development/objekte_index_lifecycle_implementation_guide.md",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 5,
+    "position": 1,
+    "mode": "baseline",
+    "command": [
+      "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/05-1-baseline",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/05-1-baseline/trial-1794539098513902323-1517926",
+    "sample": {
+      "after_build_hwm": 540397568,
+      "after_build_rss": 522485760,
+      "after_release_rss": 451149824,
+      "before_rss": 6537216,
+      "bigram_stores": 15,
+      "build_admission_ns": 374822369,
+      "build_job_execution_ns": 4446763877,
+      "build_ns": 987969877,
+      "build_parses": 148486,
+      "build_receive_wait_ns": 75671860,
+      "diagnostic_heap_bytes": 0,
+      "discovery_ns": 190152177,
+      "distinct_gram_keys": 25477,
+      "estimated_index_bytes": 69662968,
+      "extraction_index_ns": 459589117,
+      "failed_parses": 0,
+      "finalization_ns": 253214865,
+      "framing_bytes": 0,
+      "framing_chunks": 0,
+      "framing_ns": 0,
+      "inference_build": "InferenceBuildStats { observed_records: 0, merged_batches: 0, merge_ns: 0, finish_ns: 0, cumulative_budget_bytes: 0, unique_path_bytes: 0, repeated_batch_path_bytes: 0, retained_manual_summary_bytes: 0 }",
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 987988537,
+      "out_of_order_completed": 218,
+      "peak_active_jobs": 32,
+      "peak_admitted_bytes": 523665408,
+      "peak_ready_batches": 64,
+      "postings": 300,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193302100,
+        "read_bytes": 0,
+        "syscr": 297041,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "profile": {
+        "admission_by_collection": {
+          "agents": {
+            "batches": 8,
+            "bigrams_ns": 326402,
+            "callback_ns": 139506,
+            "custom_postings_ns": 491,
+            "files": 4010,
+            "inference_ns": 524,
+            "postings_ns": 4245327,
+            "record_inventory_ns": 962576,
+            "records": 4010,
+            "relations_ns": 326,
+            "remainder_ns": 3760,
+            "sorting_ns": 155681,
+            "structural_facts_ns": 23443,
+            "total_ns": 5858036
+          },
+          "contents": {
+            "batches": 262,
+            "bigrams_ns": 12243015,
+            "callback_ns": 3628587,
+            "custom_postings_ns": 17067,
+            "files": 133948,
+            "inference_ns": 18908,
+            "postings_ns": 230662539,
+            "record_inventory_ns": 85064654,
+            "records": 133948,
+            "relations_ns": 12368896,
+            "remainder_ns": 194718,
+            "sorting_ns": 9551762,
+            "structural_facts_ns": 1683172,
+            "total_ns": 355433318
+          },
+          "entries": {
+            "batches": 10,
+            "bigrams_ns": 362255,
+            "callback_ns": 77398,
+            "custom_postings_ns": 406,
+            "files": 4928,
+            "inference_ns": 638,
+            "postings_ns": 6853540,
+            "record_inventory_ns": 1406620,
+            "records": 4928,
+            "relations_ns": 210293,
+            "remainder_ns": 4683,
+            "sorting_ns": 95936,
+            "structural_facts_ns": 59081,
+            "total_ns": 9070850
+          },
+          "items": {
+            "batches": 9,
+            "bigrams_ns": 180058,
+            "callback_ns": 61233,
+            "custom_postings_ns": 181,
+            "files": 4180,
+            "inference_ns": 255,
+            "postings_ns": 819682,
+            "record_inventory_ns": 990833,
+            "records": 4180,
+            "relations_ns": 333,
+            "remainder_ns": 4259,
+            "sorting_ns": 318,
+            "structural_facts_ns": 55801,
+            "total_ns": 2112953
+          },
+          "pages": {
+            "batches": 1,
+            "bigrams_ns": 1135,
+            "callback_ns": 307,
+            "custom_postings_ns": 11,
+            "files": 8,
+            "inference_ns": 85,
+            "postings_ns": 4524,
+            "record_inventory_ns": 2533,
+            "records": 8,
+            "relations_ns": 13,
+            "remainder_ns": 268,
+            "sorting_ns": 15,
+            "structural_facts_ns": 189,
+            "total_ns": 9080
+          },
+          "places": {
+            "batches": 1,
+            "bigrams_ns": 4290,
+            "callback_ns": 3042,
+            "custom_postings_ns": 14,
+            "files": 210,
+            "inference_ns": 91,
+            "postings_ns": 53394,
+            "record_inventory_ns": 33660,
+            "records": 210,
+            "relations_ns": 22,
+            "remainder_ns": 208,
+            "sorting_ns": 2006,
+            "structural_facts_ns": 1592,
+            "total_ns": 98319
+          },
+          "series": {
+            "batches": 3,
+            "bigrams_ns": 90100,
+            "callback_ns": 19045,
+            "custom_postings_ns": 94,
+            "files": 1202,
+            "inference_ns": 189,
+            "postings_ns": 1627260,
+            "record_inventory_ns": 281735,
+            "records": 1202,
+            "relations_ns": 71698,
+            "remainder_ns": 1333,
+            "sorting_ns": 10228,
+            "structural_facts_ns": 14457,
+            "total_ns": 2116139
+          }
+        },
+        "admission_schedule": {
+          "byte_limit_blocks": 0,
+          "completion_to_receipt_ns": 12663301553,
+          "coordinator_receive_call_ns": 75671860,
+          "dispatch_to_worker_start_ns": 1240665441,
+          "job_limit_blocks": 232,
+          "possible_idle_during_admission_ns": 89718451,
+          "prefetched_later_collection_jobs": 2,
+          "receipt_to_admission_start_ns": 6002065513,
+          "worker_start_to_completion_ns": 4446969915
+        },
+        "builder_setup_ns": 2432095,
+        "contribution_storage": {
+          "block_element_size": 0,
+          "chunk_element_size": 0,
+          "final_add_segment_ns": 0,
+          "final_admission_merge_ns": 0,
+          "final_admitted_chunks": 0,
+          "final_copied_block_bytes": 0,
+          "final_diagnostic_counter_bytes": 0,
+          "final_duplicate_bit_ors": 0,
+          "final_global_block_capacity": 0,
+          "final_global_block_capacity_bytes": 0,
+          "final_global_blocks": 0,
+          "final_global_capacity_bytes": 0,
+          "final_global_chunk_capacity": 0,
+          "final_global_chunk_capacity_bytes": 0,
+          "final_global_chunks": 0,
+          "final_global_live_payload_bytes": 0,
+          "final_global_span_capacity": 0,
+          "final_global_span_capacity_bytes": 0,
+          "final_global_spans": 0,
+          "final_gram_set_lookups": 0,
+          "final_pack_ns": 0,
+          "final_scratch_drain_ns": 0,
+          "final_sort_ns": 0,
+          "final_sorted_entries": 0,
+          "final_validation_ns": 0,
+          "max_pending_peak_capacity_bytes": 0,
+          "max_worker_scratch_after_flush_capacity_bytes": 0,
+          "max_worker_scratch_peak_capacity_bytes": 0,
+          "peak_admitted_batch_capacity_bytes": 0,
+          "peak_global_capacity_bytes": 0,
+          "peak_global_plus_admitted_batch_capacity_bytes": 0,
+          "peak_ready_capacity_bytes": 0,
+          "pending_element_size": 0,
+          "span_element_size": 0
+        },
+        "discovery_catalogue_ns": 133826413,
+        "discovery_enumeration_ns": 56180537,
+        "discovery_metadata_peak_active": 32,
+        "discovery_metadata_prepare_ns": 54550744,
+        "discovery_ordered_insert_ns": 78934238,
+        "discovery_rss_bytes": 65310720,
+        "extraction_rss_bytes": 480759808,
+        "final_checks_ns": 1040931,
+        "finalization_rss_bytes": 535941120,
+        "finalize_bigrams_ns": 142939323,
+        "finalize_generation_ns": 18848860,
+        "finalize_identity_ns": 13842706,
+        "finalize_inference_ns": 770,
+        "finalize_sort_ns": 71288664,
+        "finalize_validation_ns": 6284651,
+        "fingerprint_finish_ns": 4825350,
+        "large_file_total_ns": 0,
+        "large_files": 0,
+        "pool_init_ns": 803229,
+        "pool_teardown_ns": 34944,
+        "query_pool_init_ns": 3372095,
+        "relations_ns": 69295522,
+        "source_work_ns": 452265332,
+        "work": {
+          "batch_finish_ns": 221383104,
+          "batches": 294,
+          "custom_postings_ns": 65805,
+          "custom_text_ns": 630940,
+          "inference_ns": 52824,
+          "input_buffer_batch_end_capacity_bytes": 1345616,
+          "input_buffer_files_read": 148486,
+          "input_buffer_growth_files": 719,
+          "input_buffer_oversized_drops": 0,
+          "input_buffer_peak_capacity_bytes": 86760,
+          "postings_ns": 14462558,
+          "relations_ns": 726979,
+          "sampled_callback_ns": 40433813,
+          "sampled_component_records": 2321,
+          "sampled_file_bytes": 3060949,
+          "sampled_files": 2321,
+          "sampled_read_calls": 4672,
+          "sampled_source_records": 2321,
+          "sorting_ns": 3897315,
+          "source_extraction_ns": 55564366,
+          "source_frame_ns": 146532,
+          "source_hash_ns": 1386219,
+          "source_open_ns": 4682138,
+          "source_read_ns": 2354104,
+          "text_bigram_ns": 11924216,
+          "validation_ns": 5016234
+        }
+      },
+      "profile_reconciliation": {
+        "extraction_unattributed_ns": 66340,
+        "finalization_unattributed_ns": 9891,
+        "top_level_unattributed_ns": 10466997
+      },
+      "query_digests": {
+        "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+        "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+        "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+        "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+        "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+      },
+      "ready_wait_max_ns": 448992302,
+      "ready_wait_sum_ns": 6001980429,
+      "relation_edges": 228503,
+      "relation_heap_bytes": 21469817,
+      "snapshot_result": {
+        "bytes": 129139458,
+        "directory_ns": 4367,
+        "directory_sync_ns": 7402,
+        "header_ns": 420479,
+        "hwm_after_write": 547483648,
+        "inventory_ns": 10644989,
+        "rename_ns": 10014,
+        "rss_after_write": 522715136,
+        "sections": [
+          {
+            "checksum_ns": 73,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 378,
+            "write_ns": 1832
+          },
+          {
+            "checksum_ns": 8178919,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8593788,
+            "write_ns": 3286100
+          },
+          {
+            "checksum_ns": 3588976,
+            "id": 1,
+            "payload_bytes": 9594072,
+            "serialize_ns": 4692013,
+            "write_ns": 1559753
+          },
+          {
+            "checksum_ns": 29456444,
+            "id": 2,
+            "payload_bytes": 82140326,
+            "serialize_ns": 57631961,
+            "write_ns": 12836792
+          },
+          {
+            "checksum_ns": 3273023,
+            "id": 3,
+            "payload_bytes": 9210713,
+            "serialize_ns": 5424875,
+            "write_ns": 1543551
+          },
+          {
+            "checksum_ns": 1082931,
+            "id": 4,
+            "payload_bytes": 3025448,
+            "serialize_ns": 1130934,
+            "write_ns": 411151
+          },
+          {
+            "checksum_ns": 223823,
+            "id": 5,
+            "payload_bytes": 614035,
+            "serialize_ns": 164442,
+            "write_ns": 86145
+          },
+          {
+            "checksum_ns": 250402,
+            "id": 6,
+            "payload_bytes": 695072,
+            "serialize_ns": 228964,
+            "write_ns": 96857
+          },
+          {
+            "checksum_ns": 836738,
+            "id": 7,
+            "payload_bytes": 2357077,
+            "serialize_ns": 1919407,
+            "write_ns": 340554
+          }
+        ],
+        "sync_ns": 1040,
+        "total_ns": 162776570,
+        "write_ns": 20172745
+      },
+      "sort_fields": 8,
+      "storage_breakdown": null,
+      "storage_operations": null,
+      "weight_limit_bytes": 536870912
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "check_queries": true,
+      "code_revision": "7a6b96684e1fbb849eab7cc20185b942159ed189",
+      "command": [
+        "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/05-1-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "?? docs/ai/done/objekte_fedora_gpui_development_environment_specification.md\n?? docs/ai/done/objekte_headless_wayland_follow_up_plan.md\n?? docs/ai/tasks/objekte_01_incremental_index_availability_plan.md\n?? docs/ai/tasks/objekte_02_boolean_field_predicates_plan.md\n?? docs/ai/tasks/objekte_03_indexed_field_structural_postings_plan.md\n?? docs/development/objekte_index_lifecycle_implementation_guide.md",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 5,
+    "position": 2,
+    "mode": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/05-2-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/05-2-candidate/trial-1794539100050838128-1518026",
+    "sample": {
+      "after_build_hwm": 564957184,
+      "after_build_rss": 556195840,
+      "after_release_rss": 514801664,
+      "before_rss": 6819840,
+      "build_ns": 893700639,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 206535299,
+      "completion_ns": 893700639,
+      "discovery_ns": 206488939,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 278966563,
+      "first_result_ns": 279147661,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 893700639,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 4776,
+        "directory_sync_ns": 4490,
+        "header_ns": 316280,
+        "hwm_after_write": 775319552,
+        "inventory_ns": 10060988,
+        "rename_ns": 9797,
+        "rss_after_write": 604651520,
+        "sections": [
+          {
+            "checksum_ns": 68,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 510,
+            "write_ns": 1652
+          },
+          {
+            "checksum_ns": 7649463,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8189664,
+            "write_ns": 3098424
+          },
+          {
+            "checksum_ns": 223149,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 132077,
+            "write_ns": 186959
+          },
+          {
+            "checksum_ns": 212244,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 99882,
+            "write_ns": 76919
+          },
+          {
+            "checksum_ns": 214915,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 101326,
+            "write_ns": 84629
+          },
+          {
+            "checksum_ns": 211066,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 98134,
+            "write_ns": 77034
+          },
+          {
+            "checksum_ns": 210791,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 96037,
+            "write_ns": 80494
+          },
+          {
+            "checksum_ns": 212565,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 95787,
+            "write_ns": 82383
+          },
+          {
+            "checksum_ns": 211203,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 95992,
+            "write_ns": 80226
+          },
+          {
+            "checksum_ns": 54234714,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 84522582,
+            "write_ns": 22755993
+          }
+        ],
+        "sync_ns": 1125,
+        "total_ns": 199012412,
+        "write_ns": 26532011
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "526ae413db2acaf87755c3f19b27ab6ede16d9b6",
+      "command": [
+        "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/05-2-candidate",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 6,
+    "position": 1,
+    "mode": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/06-1-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/06-1-candidate/trial-1794539101707038856-1518221",
+    "sample": {
+      "after_build_hwm": 574537728,
+      "after_build_rss": 564453376,
+      "after_release_rss": 512573440,
+      "before_rss": 6893568,
+      "build_ns": 910233283,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 206510935,
+      "completion_ns": 910233283,
+      "discovery_ns": 206487694,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 287633281,
+      "first_result_ns": 287820754,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 910233283,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 4775,
+        "directory_sync_ns": 7618,
+        "header_ns": 337202,
+        "hwm_after_write": 785047552,
+        "inventory_ns": 9879847,
+        "rename_ns": 9235,
+        "rss_after_write": 612904960,
+        "sections": [
+          {
+            "checksum_ns": 65,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 779,
+            "write_ns": 1748
+          },
+          {
+            "checksum_ns": 7649152,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8054051,
+            "write_ns": 3193727
+          },
+          {
+            "checksum_ns": 224917,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 133489,
+            "write_ns": 86856
+          },
+          {
+            "checksum_ns": 216515,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 98076,
+            "write_ns": 83134
+          },
+          {
+            "checksum_ns": 213873,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 121089,
+            "write_ns": 90549
+          },
+          {
+            "checksum_ns": 217516,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 106125,
+            "write_ns": 83775
+          },
+          {
+            "checksum_ns": 210798,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 94863,
+            "write_ns": 85797
+          },
+          {
+            "checksum_ns": 210980,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 99105,
+            "write_ns": 83499
+          },
+          {
+            "checksum_ns": 211214,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 95444,
+            "write_ns": 84194
+          },
+          {
+            "checksum_ns": 54148722,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 83894486,
+            "write_ns": 21755595
+          }
+        ],
+        "sync_ns": 896,
+        "total_ns": 196402703,
+        "write_ns": 25557236
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "526ae413db2acaf87755c3f19b27ab6ede16d9b6",
+      "command": [
+        "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/06-1-candidate",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 6,
+    "position": 2,
+    "mode": "baseline",
+    "command": [
+      "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/06-2-baseline",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/06-2-baseline/trial-1794539103393814062-1518416",
+    "sample": {
+      "after_build_hwm": 541032448,
+      "after_build_rss": 524881920,
+      "after_release_rss": 454033408,
+      "before_rss": 6524928,
+      "bigram_stores": 15,
+      "build_admission_ns": 388415552,
+      "build_job_execution_ns": 4422562614,
+      "build_ns": 999695922,
+      "build_parses": 148486,
+      "build_receive_wait_ns": 77834899,
+      "diagnostic_heap_bytes": 0,
+      "discovery_ns": 188768242,
+      "distinct_gram_keys": 25477,
+      "estimated_index_bytes": 69662968,
+      "extraction_index_ns": 475517938,
+      "failed_parses": 0,
+      "finalization_ns": 252623123,
+      "framing_bytes": 0,
+      "framing_chunks": 0,
+      "framing_ns": 0,
+      "inference_build": "InferenceBuildStats { observed_records: 0, merged_batches: 0, merge_ns: 0, finish_ns: 0, cumulative_budget_bytes: 0, unique_path_bytes: 0, repeated_batch_path_bytes: 0, retained_manual_summary_bytes: 0 }",
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 999713914,
+      "out_of_order_completed": 226,
+      "peak_active_jobs": 32,
+      "peak_admitted_bytes": 523665408,
+      "peak_ready_batches": 64,
+      "postings": 300,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193302100,
+        "read_bytes": 0,
+        "syscr": 297041,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "profile": {
+        "admission_by_collection": {
+          "agents": {
+            "batches": 8,
+            "bigrams_ns": 293344,
+            "callback_ns": 131725,
+            "custom_postings_ns": 462,
+            "files": 4010,
+            "inference_ns": 477,
+            "postings_ns": 4276274,
+            "record_inventory_ns": 853248,
+            "records": 4010,
+            "relations_ns": 346,
+            "remainder_ns": 4005,
+            "sorting_ns": 117475,
+            "structural_facts_ns": 22654,
+            "total_ns": 5700010
+          },
+          "contents": {
+            "batches": 262,
+            "bigrams_ns": 12090293,
+            "callback_ns": 3794053,
+            "custom_postings_ns": 17314,
+            "files": 133948,
+            "inference_ns": 19294,
+            "postings_ns": 243952006,
+            "record_inventory_ns": 86496755,
+            "records": 133948,
+            "relations_ns": 10955207,
+            "remainder_ns": 202887,
+            "sorting_ns": 9453642,
+            "structural_facts_ns": 1784022,
+            "total_ns": 368765473
+          },
+          "entries": {
+            "batches": 10,
+            "bigrams_ns": 397874,
+            "callback_ns": 84951,
+            "custom_postings_ns": 604,
+            "files": 4928,
+            "inference_ns": 608,
+            "postings_ns": 7259887,
+            "record_inventory_ns": 1454206,
+            "records": 4928,
+            "relations_ns": 222734,
+            "remainder_ns": 5548,
+            "sorting_ns": 102975,
+            "structural_facts_ns": 61870,
+            "total_ns": 9591257
+          },
+          "items": {
+            "batches": 9,
+            "bigrams_ns": 184023,
+            "callback_ns": 61055,
+            "custom_postings_ns": 157,
+            "files": 4180,
+            "inference_ns": 266,
+            "postings_ns": 795718,
+            "record_inventory_ns": 854150,
+            "records": 4180,
+            "relations_ns": 256,
+            "remainder_ns": 3657,
+            "sorting_ns": 320,
+            "structural_facts_ns": 51102,
+            "total_ns": 1950704
+          },
+          "pages": {
+            "batches": 1,
+            "bigrams_ns": 1278,
+            "callback_ns": 366,
+            "custom_postings_ns": 11,
+            "files": 8,
+            "inference_ns": 22,
+            "postings_ns": 5030,
+            "record_inventory_ns": 2891,
+            "records": 8,
+            "relations_ns": 13,
+            "remainder_ns": 326,
+            "sorting_ns": 33,
+            "structural_facts_ns": 110,
+            "total_ns": 10080
+          },
+          "places": {
+            "batches": 1,
+            "bigrams_ns": 4513,
+            "callback_ns": 3371,
+            "custom_postings_ns": 14,
+            "files": 210,
+            "inference_ns": 105,
+            "postings_ns": 74796,
+            "record_inventory_ns": 34245,
+            "records": 210,
+            "relations_ns": 12,
+            "remainder_ns": 240,
+            "sorting_ns": 2041,
+            "structural_facts_ns": 1606,
+            "total_ns": 120943
+          },
+          "series": {
+            "batches": 3,
+            "bigrams_ns": 89968,
+            "callback_ns": 18867,
+            "custom_postings_ns": 172,
+            "files": 1202,
+            "inference_ns": 385,
+            "postings_ns": 1690614,
+            "record_inventory_ns": 254434,
+            "records": 1202,
+            "relations_ns": 74317,
+            "remainder_ns": 1204,
+            "sorting_ns": 9864,
+            "structural_facts_ns": 14046,
+            "total_ns": 2153871
+          }
+        },
+        "admission_schedule": {
+          "byte_limit_blocks": 0,
+          "completion_to_receipt_ns": 13717303232,
+          "coordinator_receive_call_ns": 77834899,
+          "dispatch_to_worker_start_ns": 1163702825,
+          "job_limit_blocks": 239,
+          "possible_idle_during_admission_ns": 41856678,
+          "prefetched_later_collection_jobs": 2,
+          "receipt_to_admission_start_ns": 6450651293,
+          "worker_start_to_completion_ns": 4422676344
+        },
+        "builder_setup_ns": 2440873,
+        "contribution_storage": {
+          "block_element_size": 0,
+          "chunk_element_size": 0,
+          "final_add_segment_ns": 0,
+          "final_admission_merge_ns": 0,
+          "final_admitted_chunks": 0,
+          "final_copied_block_bytes": 0,
+          "final_diagnostic_counter_bytes": 0,
+          "final_duplicate_bit_ors": 0,
+          "final_global_block_capacity": 0,
+          "final_global_block_capacity_bytes": 0,
+          "final_global_blocks": 0,
+          "final_global_capacity_bytes": 0,
+          "final_global_chunk_capacity": 0,
+          "final_global_chunk_capacity_bytes": 0,
+          "final_global_chunks": 0,
+          "final_global_live_payload_bytes": 0,
+          "final_global_span_capacity": 0,
+          "final_global_span_capacity_bytes": 0,
+          "final_global_spans": 0,
+          "final_gram_set_lookups": 0,
+          "final_pack_ns": 0,
+          "final_scratch_drain_ns": 0,
+          "final_sort_ns": 0,
+          "final_sorted_entries": 0,
+          "final_validation_ns": 0,
+          "max_pending_peak_capacity_bytes": 0,
+          "max_worker_scratch_after_flush_capacity_bytes": 0,
+          "max_worker_scratch_peak_capacity_bytes": 0,
+          "peak_admitted_batch_capacity_bytes": 0,
+          "peak_global_capacity_bytes": 0,
+          "peak_global_plus_admitted_batch_capacity_bytes": 0,
+          "peak_ready_capacity_bytes": 0,
+          "pending_element_size": 0,
+          "span_element_size": 0
+        },
+        "discovery_catalogue_ns": 135006832,
+        "discovery_enumeration_ns": 53603842,
+        "discovery_metadata_peak_active": 32,
+        "discovery_metadata_prepare_ns": 56048797,
+        "discovery_ordered_insert_ns": 78609709,
+        "discovery_rss_bytes": 64327680,
+        "extraction_rss_bytes": 481931264,
+        "final_checks_ns": 1033521,
+        "finalization_rss_bytes": 539893760,
+        "finalize_bigrams_ns": 140146500,
+        "finalize_generation_ns": 19043979,
+        "finalize_identity_ns": 15581273,
+        "finalize_inference_ns": 885,
+        "finalize_sort_ns": 71647980,
+        "finalize_validation_ns": 6193547,
+        "fingerprint_finish_ns": 4881995,
+        "large_file_total_ns": 0,
+        "large_files": 0,
+        "pool_init_ns": 1023273,
+        "pool_teardown_ns": 45590,
+        "query_pool_init_ns": 2851440,
+        "relations_ns": 68196697,
+        "source_work_ns": 468131142,
+        "work": {
+          "batch_finish_ns": 203941181,
+          "batches": 294,
+          "custom_postings_ns": 70200,
+          "custom_text_ns": 605582,
+          "inference_ns": 51350,
+          "input_buffer_batch_end_capacity_bytes": 1345616,
+          "input_buffer_files_read": 148486,
+          "input_buffer_growth_files": 719,
+          "input_buffer_oversized_drops": 0,
+          "input_buffer_peak_capacity_bytes": 86760,
+          "postings_ns": 20227759,
+          "relations_ns": 709332,
+          "sampled_callback_ns": 48920793,
+          "sampled_component_records": 2321,
+          "sampled_file_bytes": 3060949,
+          "sampled_files": 2321,
+          "sampled_read_calls": 4672,
+          "sampled_source_records": 2321,
+          "sorting_ns": 6673348,
+          "source_extraction_ns": 67975712,
+          "source_frame_ns": 138279,
+          "source_hash_ns": 1385500,
+          "source_open_ns": 5004191,
+          "source_read_ns": 2278903,
+          "text_bigram_ns": 11424366,
+          "validation_ns": 5573312
+        }
+      },
+      "profile_reconciliation": {
+        "extraction_unattributed_ns": 63928,
+        "finalization_unattributed_ns": 8959,
+        "top_level_unattributed_ns": 9636098
+      },
+      "query_digests": {
+        "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+        "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+        "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+        "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+        "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+      },
+      "ready_wait_max_ns": 464719065,
+      "ready_wait_sum_ns": 6450585736,
+      "relation_edges": 228503,
+      "relation_heap_bytes": 21469817,
+      "snapshot_result": {
+        "bytes": 129139458,
+        "directory_ns": 3942,
+        "directory_sync_ns": 4901,
+        "header_ns": 411402,
+        "hwm_after_write": 548110336,
+        "inventory_ns": 10437768,
+        "rename_ns": 8398,
+        "rss_after_write": 525111296,
+        "sections": [
+          {
+            "checksum_ns": 76,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 452,
+            "write_ns": 1890
+          },
+          {
+            "checksum_ns": 8058273,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8407919,
+            "write_ns": 3208082
+          },
+          {
+            "checksum_ns": 3595830,
+            "id": 1,
+            "payload_bytes": 9594072,
+            "serialize_ns": 4641998,
+            "write_ns": 1541702
+          },
+          {
+            "checksum_ns": 29371106,
+            "id": 2,
+            "payload_bytes": 82140326,
+            "serialize_ns": 57483826,
+            "write_ns": 13035585
+          },
+          {
+            "checksum_ns": 3357616,
+            "id": 3,
+            "payload_bytes": 9210713,
+            "serialize_ns": 5631274,
+            "write_ns": 1620788
+          },
+          {
+            "checksum_ns": 1093410,
+            "id": 4,
+            "payload_bytes": 3025448,
+            "serialize_ns": 1215703,
+            "write_ns": 421280
+          },
+          {
+            "checksum_ns": 228858,
+            "id": 5,
+            "payload_bytes": 614035,
+            "serialize_ns": 163417,
+            "write_ns": 89557
+          },
+          {
+            "checksum_ns": 264133,
+            "id": 6,
+            "payload_bytes": 695072,
+            "serialize_ns": 247240,
+            "write_ns": 109073
+          },
+          {
+            "checksum_ns": 842284,
+            "id": 7,
+            "payload_bytes": 2357077,
+            "serialize_ns": 2084805,
+            "write_ns": 346033
+          }
+        ],
+        "sync_ns": 918,
+        "total_ns": 162659273,
+        "write_ns": 20384513
+      },
+      "sort_fields": 8,
+      "storage_breakdown": null,
+      "storage_operations": null,
+      "weight_limit_bytes": 536870912
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "check_queries": true,
+      "code_revision": "7a6b96684e1fbb849eab7cc20185b942159ed189",
+      "command": [
+        "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/06-2-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "?? docs/ai/done/objekte_fedora_gpui_development_environment_specification.md\n?? docs/ai/done/objekte_headless_wayland_follow_up_plan.md\n?? docs/ai/tasks/objekte_01_incremental_index_availability_plan.md\n?? docs/ai/tasks/objekte_02_boolean_field_predicates_plan.md\n?? docs/ai/tasks/objekte_03_indexed_field_structural_postings_plan.md\n?? docs/development/objekte_index_lifecycle_implementation_guide.md",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 7,
+    "position": 1,
+    "mode": "baseline",
+    "command": [
+      "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/07-1-baseline",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/07-1-baseline/trial-1794539104958367531-1518515",
+    "sample": {
+      "after_build_hwm": 534241280,
+      "after_build_rss": 517128192,
+      "after_release_rss": 445730816,
+      "before_rss": 6713344,
+      "bigram_stores": 15,
+      "build_admission_ns": 341641932,
+      "build_job_execution_ns": 4575157040,
+      "build_ns": 926776371,
+      "build_parses": 148486,
+      "build_receive_wait_ns": 61423674,
+      "diagnostic_heap_bytes": 0,
+      "discovery_ns": 191737650,
+      "distinct_gram_keys": 25477,
+      "estimated_index_bytes": 69662968,
+      "extraction_index_ns": 412166882,
+      "failed_parses": 0,
+      "finalization_ns": 240811791,
+      "framing_bytes": 0,
+      "framing_chunks": 0,
+      "framing_ns": 0,
+      "inference_build": "InferenceBuildStats { observed_records: 0, merged_batches: 0, merge_ns: 0, finish_ns: 0, cumulative_budget_bytes: 0, unique_path_bytes: 0, repeated_batch_path_bytes: 0, retained_manual_summary_bytes: 0 }",
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 926797911,
+      "out_of_order_completed": 229,
+      "peak_active_jobs": 32,
+      "peak_admitted_bytes": 523665408,
+      "peak_ready_batches": 61,
+      "postings": 300,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193302100,
+        "read_bytes": 0,
+        "syscr": 297041,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "profile": {
+        "admission_by_collection": {
+          "agents": {
+            "batches": 8,
+            "bigrams_ns": 332560,
+            "callback_ns": 139208,
+            "custom_postings_ns": 536,
+            "files": 4010,
+            "inference_ns": 545,
+            "postings_ns": 4795107,
+            "record_inventory_ns": 1148234,
+            "records": 4010,
+            "relations_ns": 381,
+            "remainder_ns": 4172,
+            "sorting_ns": 109486,
+            "structural_facts_ns": 23090,
+            "total_ns": 6553319
+          },
+          "contents": {
+            "batches": 262,
+            "bigrams_ns": 11320560,
+            "callback_ns": 4066236,
+            "custom_postings_ns": 12270,
+            "files": 133948,
+            "inference_ns": 13592,
+            "postings_ns": 209368268,
+            "record_inventory_ns": 73814625,
+            "records": 133948,
+            "relations_ns": 11973861,
+            "remainder_ns": 183427,
+            "sorting_ns": 9499492,
+            "structural_facts_ns": 1544133,
+            "total_ns": 321796464
+          },
+          "entries": {
+            "batches": 10,
+            "bigrams_ns": 374226,
+            "callback_ns": 78676,
+            "custom_postings_ns": 527,
+            "files": 4928,
+            "inference_ns": 1024,
+            "postings_ns": 6567220,
+            "record_inventory_ns": 1286889,
+            "records": 4928,
+            "relations_ns": 209605,
+            "remainder_ns": 4544,
+            "sorting_ns": 91269,
+            "structural_facts_ns": 58693,
+            "total_ns": 8672673
+          },
+          "items": {
+            "batches": 9,
+            "bigrams_ns": 188764,
+            "callback_ns": 61225,
+            "custom_postings_ns": 224,
+            "files": 4180,
+            "inference_ns": 324,
+            "postings_ns": 809432,
+            "record_inventory_ns": 961004,
+            "records": 4180,
+            "relations_ns": 201,
+            "remainder_ns": 3447,
+            "sorting_ns": 418,
+            "structural_facts_ns": 52350,
+            "total_ns": 2077389
+          },
+          "pages": {
+            "batches": 1,
+            "bigrams_ns": 1081,
+            "callback_ns": 282,
+            "custom_postings_ns": 12,
+            "files": 8,
+            "inference_ns": 25,
+            "postings_ns": 4422,
+            "record_inventory_ns": 2330,
+            "records": 8,
+            "relations_ns": 12,
+            "remainder_ns": 282,
+            "sorting_ns": 22,
+            "structural_facts_ns": 204,
+            "total_ns": 8672
+          },
+          "places": {
+            "batches": 1,
+            "bigrams_ns": 4771,
+            "callback_ns": 3132,
+            "custom_postings_ns": 22,
+            "files": 210,
+            "inference_ns": 103,
+            "postings_ns": 58307,
+            "record_inventory_ns": 40016,
+            "records": 210,
+            "relations_ns": 22,
+            "remainder_ns": 231,
+            "sorting_ns": 1769,
+            "structural_facts_ns": 1709,
+            "total_ns": 110082
+          },
+          "series": {
+            "batches": 3,
+            "bigrams_ns": 113829,
+            "callback_ns": 18138,
+            "custom_postings_ns": 181,
+            "files": 1202,
+            "inference_ns": 85,
+            "postings_ns": 1804133,
+            "record_inventory_ns": 284197,
+            "records": 1202,
+            "relations_ns": 69938,
+            "remainder_ns": 1158,
+            "sorting_ns": 10153,
+            "structural_facts_ns": 13786,
+            "total_ns": 2315598
+          }
+        },
+        "admission_schedule": {
+          "byte_limit_blocks": 0,
+          "completion_to_receipt_ns": 10329125298,
+          "coordinator_receive_call_ns": 61423674,
+          "dispatch_to_worker_start_ns": 1140345617,
+          "job_limit_blocks": 239,
+          "possible_idle_during_admission_ns": 50763490,
+          "prefetched_later_collection_jobs": 2,
+          "receipt_to_admission_start_ns": 5614817929,
+          "worker_start_to_completion_ns": 4575285689
+        },
+        "builder_setup_ns": 2423609,
+        "contribution_storage": {
+          "block_element_size": 0,
+          "chunk_element_size": 0,
+          "final_add_segment_ns": 0,
+          "final_admission_merge_ns": 0,
+          "final_admitted_chunks": 0,
+          "final_copied_block_bytes": 0,
+          "final_diagnostic_counter_bytes": 0,
+          "final_duplicate_bit_ors": 0,
+          "final_global_block_capacity": 0,
+          "final_global_block_capacity_bytes": 0,
+          "final_global_blocks": 0,
+          "final_global_capacity_bytes": 0,
+          "final_global_chunk_capacity": 0,
+          "final_global_chunk_capacity_bytes": 0,
+          "final_global_chunks": 0,
+          "final_global_live_payload_bytes": 0,
+          "final_global_span_capacity": 0,
+          "final_global_span_capacity_bytes": 0,
+          "final_global_spans": 0,
+          "final_gram_set_lookups": 0,
+          "final_pack_ns": 0,
+          "final_scratch_drain_ns": 0,
+          "final_sort_ns": 0,
+          "final_sorted_entries": 0,
+          "final_validation_ns": 0,
+          "max_pending_peak_capacity_bytes": 0,
+          "max_worker_scratch_after_flush_capacity_bytes": 0,
+          "max_worker_scratch_peak_capacity_bytes": 0,
+          "peak_admitted_batch_capacity_bytes": 0,
+          "peak_global_capacity_bytes": 0,
+          "peak_global_plus_admitted_batch_capacity_bytes": 0,
+          "peak_ready_capacity_bytes": 0,
+          "pending_element_size": 0,
+          "span_element_size": 0
+        },
+        "discovery_catalogue_ns": 134758949,
+        "discovery_enumeration_ns": 56822979,
+        "discovery_metadata_peak_active": 32,
+        "discovery_metadata_prepare_ns": 53585886,
+        "discovery_ordered_insert_ns": 80816598,
+        "discovery_rss_bytes": 64139264,
+        "extraction_rss_bytes": 477138944,
+        "final_checks_ns": 1042600,
+        "finalization_rss_bytes": 532635648,
+        "finalize_bigrams_ns": 138292728,
+        "finalize_generation_ns": 18107374,
+        "finalize_identity_ns": 7652677,
+        "finalize_inference_ns": 753,
+        "finalize_sort_ns": 70156748,
+        "finalize_validation_ns": 6591816,
+        "fingerprint_finish_ns": 4913786,
+        "large_file_total_ns": 0,
+        "large_files": 0,
+        "pool_init_ns": 1035240,
+        "pool_teardown_ns": 28967,
+        "query_pool_init_ns": 2463581,
+        "relations_ns": 67794952,
+        "source_work_ns": 404760754,
+        "work": {
+          "batch_finish_ns": 227323475,
+          "batches": 294,
+          "custom_postings_ns": 73913,
+          "custom_text_ns": 643920,
+          "inference_ns": 60800,
+          "input_buffer_batch_end_capacity_bytes": 1345616,
+          "input_buffer_files_read": 148486,
+          "input_buffer_growth_files": 719,
+          "input_buffer_oversized_drops": 0,
+          "input_buffer_peak_capacity_bytes": 86760,
+          "postings_ns": 14917300,
+          "relations_ns": 759299,
+          "sampled_callback_ns": 42165176,
+          "sampled_component_records": 2321,
+          "sampled_file_bytes": 3060949,
+          "sampled_files": 2321,
+          "sampled_read_calls": 4672,
+          "sampled_source_records": 2321,
+          "sorting_ns": 4095549,
+          "source_extraction_ns": 57856107,
+          "source_frame_ns": 150961,
+          "source_hash_ns": 1393451,
+          "source_open_ns": 4865159,
+          "source_read_ns": 2451236,
+          "text_bigram_ns": 12173574,
+          "validation_ns": 5703897
+        }
+      },
+      "profile_reconciliation": {
+        "extraction_unattributed_ns": 68733,
+        "finalization_unattributed_ns": 9695,
+        "top_level_unattributed_ns": 9694708
+      },
+      "query_digests": {
+        "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+        "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+        "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+        "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+        "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+      },
+      "ready_wait_max_ns": 401475798,
+      "ready_wait_sum_ns": 5614776516,
+      "relation_edges": 228503,
+      "relation_heap_bytes": 21469817,
+      "snapshot_result": {
+        "bytes": 129139458,
+        "directory_ns": 3895,
+        "directory_sync_ns": 6793,
+        "header_ns": 398949,
+        "hwm_after_write": 541736960,
+        "inventory_ns": 10565552,
+        "rename_ns": 11556,
+        "rss_after_write": 517353472,
+        "sections": [
+          {
+            "checksum_ns": 74,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 463,
+            "write_ns": 1777
+          },
+          {
+            "checksum_ns": 8159466,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8532438,
+            "write_ns": 3302404
+          },
+          {
+            "checksum_ns": 3597013,
+            "id": 1,
+            "payload_bytes": 9594072,
+            "serialize_ns": 4728584,
+            "write_ns": 1458452
+          },
+          {
+            "checksum_ns": 29844295,
+            "id": 2,
+            "payload_bytes": 82140326,
+            "serialize_ns": 57552883,
+            "write_ns": 13002721
+          },
+          {
+            "checksum_ns": 3286043,
+            "id": 3,
+            "payload_bytes": 9210713,
+            "serialize_ns": 5219607,
+            "write_ns": 1460279
+          },
+          {
+            "checksum_ns": 1087334,
+            "id": 4,
+            "payload_bytes": 3025448,
+            "serialize_ns": 1126748,
+            "write_ns": 521389
+          },
+          {
+            "checksum_ns": 217416,
+            "id": 5,
+            "payload_bytes": 614035,
+            "serialize_ns": 159025,
+            "write_ns": 80237
+          },
+          {
+            "checksum_ns": 251690,
+            "id": 6,
+            "payload_bytes": 695072,
+            "serialize_ns": 265291,
+            "write_ns": 99647
+          },
+          {
+            "checksum_ns": 840193,
+            "id": 7,
+            "payload_bytes": 2357077,
+            "serialize_ns": 2159367,
+            "write_ns": 336564
+          }
+        ],
+        "sync_ns": 1137,
+        "total_ns": 162947403,
+        "write_ns": 20273250
+      },
+      "sort_fields": 8,
+      "storage_breakdown": null,
+      "storage_operations": null,
+      "weight_limit_bytes": 536870912
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "check_queries": true,
+      "code_revision": "7a6b96684e1fbb849eab7cc20185b942159ed189",
+      "command": [
+        "/home/simon/source/objekte/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/07-1-baseline",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "?? docs/ai/done/objekte_fedora_gpui_development_environment_specification.md\n?? docs/ai/done/objekte_headless_wayland_follow_up_plan.md\n?? docs/ai/tasks/objekte_01_incremental_index_availability_plan.md\n?? docs/ai/tasks/objekte_02_boolean_field_predicates_plan.md\n?? docs/ai/tasks/objekte_03_indexed_field_structural_postings_plan.md\n?? docs/development/objekte_index_lifecycle_implementation_guide.md",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  },
+  {
+    "pair": 7,
+    "position": 2,
+    "mode": "candidate",
+    "command": [
+      "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-plan1-final-pairs-526ae/07-2-candidate",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--profile",
+      "--snapshot",
+      "--check-queries",
+      "--incremental"
+    ],
+    "artifact": "/tmp/objekte-plan1-final-pairs-526ae/07-2-candidate/trial-1794539106451020368-1518613",
+    "sample": {
+      "after_build_hwm": 565854208,
+      "after_build_rss": 555995136,
+      "after_release_rss": 510402560,
+      "before_rss": 6787072,
+      "build_ns": 867518904,
+      "build_parses": 148486,
+      "catalogue_observed_ns": 210863198,
+      "completion_ns": 867518904,
+      "discovery_ns": 210838741,
+      "estimated_index_bytes": 69965692,
+      "fallback_records": 0,
+      "first_batch_ns": 286081553,
+      "first_result_ns": 286263892,
+      "index_family_breakdown": {
+        "agents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            2,
+            {
+              "custom_text_bytes": 376302,
+              "fallback_bytes": 0,
+              "postings_bytes": 509348,
+              "raw_bytes": 7158916,
+              "sorting_bytes": 113856
+            }
+          ]
+        ],
+        "contents": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            1,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 169762,
+              "raw_bytes": 1755158,
+              "sorting_bytes": 154087
+            }
+          ],
+          [
+            3,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 4143978,
+              "raw_bytes": 35291398,
+              "sorting_bytes": 9944413
+            }
+          ]
+        ],
+        "entries": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            4,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 553542,
+              "raw_bytes": 6008372,
+              "sorting_bytes": 367785
+            }
+          ]
+        ],
+        "items": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            5,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 94942,
+              "raw_bytes": 1937814,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "pages": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            6,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 128,
+              "raw_bytes": 31068,
+              "sorting_bytes": 0
+            }
+          ]
+        ],
+        "places": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            7,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 6848,
+              "raw_bytes": 69602,
+              "sorting_bytes": 7820
+            }
+          ]
+        ],
+        "series": [
+          [
+            0,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 0,
+              "raw_bytes": 0,
+              "sorting_bytes": 0
+            }
+          ],
+          [
+            8,
+            {
+              "custom_text_bytes": 0,
+              "fallback_bytes": 0,
+              "postings_bytes": 130468,
+              "raw_bytes": 1082576,
+              "sorting_bytes": 57509
+            }
+          ]
+        ]
+      },
+      "inventory_heap_bytes": 58460912,
+      "open_ns": 867518904,
+      "process_io_delta": {
+        "cancelled_write_bytes": 0,
+        "rchar": 193307002,
+        "read_bytes": 0,
+        "syscr": 297085,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "processed_files": 148486,
+      "query_digests": {
+        "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+        "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+        "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+        "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+        "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+      },
+      "searchable_batches": 8,
+      "snapshot_result": {
+        "bytes": 178287528,
+        "directory_ns": 4184,
+        "directory_sync_ns": 4998,
+        "header_ns": 310687,
+        "hwm_after_write": 776605696,
+        "inventory_ns": 10023384,
+        "rename_ns": 9672,
+        "rss_after_write": 604450816,
+        "sections": [
+          {
+            "checksum_ns": 69,
+            "id": 4294967295,
+            "payload_bytes": 125,
+            "serialize_ns": 444,
+            "write_ns": 1725
+          },
+          {
+            "checksum_ns": 7652305,
+            "id": 0,
+            "payload_bytes": 21502142,
+            "serialize_ns": 8061167,
+            "write_ns": 3224308
+          },
+          {
+            "checksum_ns": 226925,
+            "id": 1,
+            "payload_bytes": 630354,
+            "serialize_ns": 134658,
+            "write_ns": 85533
+          },
+          {
+            "checksum_ns": 212240,
+            "id": 2,
+            "payload_bytes": 599597,
+            "serialize_ns": 98004,
+            "write_ns": 80573
+          },
+          {
+            "checksum_ns": 216712,
+            "id": 3,
+            "payload_bytes": 602311,
+            "serialize_ns": 99755,
+            "write_ns": 82218
+          },
+          {
+            "checksum_ns": 212756,
+            "id": 4,
+            "payload_bytes": 596161,
+            "serialize_ns": 98273,
+            "write_ns": 81842
+          },
+          {
+            "checksum_ns": 210925,
+            "id": 5,
+            "payload_bytes": 595519,
+            "serialize_ns": 94413,
+            "write_ns": 80432
+          },
+          {
+            "checksum_ns": 212586,
+            "id": 6,
+            "payload_bytes": 595980,
+            "serialize_ns": 96060,
+            "write_ns": 83822
+          },
+          {
+            "checksum_ns": 211214,
+            "id": 7,
+            "payload_bytes": 596664,
+            "serialize_ns": 96635,
+            "write_ns": 83293
+          },
+          {
+            "checksum_ns": 54152035,
+            "id": 8,
+            "payload_bytes": 152568183,
+            "serialize_ns": 84392839,
+            "write_ns": 22118222
+          }
+        ],
+        "sync_ns": 866,
+        "total_ns": 197417489,
+        "write_ns": 25930494
+      },
+      "source_bytes_read": 193297230,
+      "source_reads": 148486
+    },
+    "manifest": {
+      "alphabet": "ascii",
+      "build_mode": "incremental",
+      "check_queries": true,
+      "code_revision": "526ae413db2acaf87755c3f19b27ab6ede16d9b6",
+      "command": [
+        "/home/simon/source/objekte-integration-incremental-index-availability/target/release/examples/bench_index_construction",
+        "--root",
+        "/home/simon/source/objekte/examples/musenalm",
+        "--result-dir",
+        "/tmp/objekte-plan1-final-pairs-526ae/07-2-candidate",
+        "--alphabet",
+        "ascii",
+        "--workers",
+        "32",
+        "--profile",
+        "--snapshot",
+        "--check-queries",
+        "--incremental"
+      ],
+      "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "configuration": "musenalm_extended",
+      "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+      "cpu_affinity": "0-31",
+      "cpu_governor": "performance",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+      "dirty_status": "",
+      "files": 148486,
+      "inference": false,
+      "kernel": "7.2.15-200.fc44.x86_64",
+      "prepared_cache_bytes": 16777216,
+      "profile": true,
+      "query_workers": 32,
+      "records": 148486,
+      "requested_workers": 32,
+      "resolved_workers": 32,
+      "root": "/home/simon/source/objekte/examples/musenalm",
+      "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+      "snapshot": true,
+      "source_bytes": 193297230,
+      "verified_cache_bytes": 0
+    }
+  }
+]

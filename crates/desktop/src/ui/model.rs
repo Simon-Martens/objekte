@@ -1,7 +1,15 @@
 //! Bounded, renderer-owned state and typed actions for the desktop window.
 //!
-//! Repository handles, query execution, and I/O live outside this module. The
-//! controller checks operation generations before it sends updates here.
+//! Query execution and I/O live outside this module. The controller checks
+//! operation generations before it sends updates here. A pinned catalogue
+//! view is retained so the file sidebar does not copy every path.
+
+use std::collections::BTreeMap;
+use std::fmt;
+use std::sync::Arc;
+
+use objekte_search_core::lifecycle::IndexView;
+use objekte_search_core::model::FileId;
 
 /// Maximum number of result rows retained by one window page.
 pub const MAX_PAGE_ROWS: usize = 100;
@@ -147,6 +155,8 @@ pub struct PageView {
     pub exact_total: Option<usize>,
     /// Missing source data prevents inferring an exact total from exhaustion.
     pub incomplete: bool,
+    /// Initial construction is still publishing validated record batches.
+    pub provisional: bool,
     pub count_pending: bool,
     pub has_previous: bool,
     pub has_next: bool,
@@ -386,6 +396,12 @@ pub struct IndexUiStatus {
     pub schema_paths: Vec<String>,
     pub indexed_files: Option<usize>,
     pub live_records: Option<usize>,
+    pub discovered_files: Option<usize>,
+    pub catalogue_complete: bool,
+    pub processed_files: Option<usize>,
+    pub processed_records: Option<u64>,
+    pub construction_complete: bool,
+    pub searchable_batches: usize,
     pub index_instance: u64,
     pub revision: u64,
     pub saved_revision: Option<u64>,
@@ -414,6 +430,12 @@ impl Default for IndexUiStatus {
             schema_paths: Vec::new(),
             indexed_files: None,
             live_records: None,
+            discovered_files: None,
+            catalogue_complete: false,
+            processed_files: None,
+            processed_records: None,
+            construction_complete: false,
+            searchable_batches: 0,
             index_instance: 0,
             revision: 0,
             saved_revision: None,
@@ -619,6 +641,68 @@ pub struct DirectoryCatalog {
     pub by_collection: std::collections::BTreeMap<String, Vec<String>>,
 }
 
+/// A pinned catalogue and compact physical-file IDs. Paths remain owned by
+/// the index, even while progress publications arrive.
+#[derive(Clone)]
+pub struct FileCatalogue {
+    pub view: IndexView,
+    pub ids: Arc<Vec<FileId>>,
+    pub by_collection: BTreeMap<String, Arc<Vec<FileId>>>,
+}
+
+impl FileCatalogue {
+    pub fn filtered_ids(
+        &self,
+        collection: Option<&str>,
+        directory: Option<&str>,
+    ) -> Arc<Vec<FileId>> {
+        let ids = match collection {
+            Some(name) => match self.by_collection.get(name) {
+                Some(ids) => ids,
+                None => return Arc::new(Vec::new()),
+            },
+            None => &self.ids,
+        };
+        let Some(directory) = directory else {
+            return Arc::clone(ids);
+        };
+        let prefix = format!("{directory}/");
+        Arc::new(
+            ids.iter()
+                .copied()
+                .filter(|id| {
+                    self.view.catalogue_row(*id).is_some_and(|row| {
+                        objekte_search_core::path_repr::query_path(row.relative_path)
+                            .starts_with(&prefix)
+                    })
+                })
+                .collect(),
+        )
+    }
+}
+
+impl fmt::Debug for FileCatalogue {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter
+            .debug_struct("FileCatalogue")
+            .field("instance_id", &self.view.instance_id())
+            .field("revision", &self.view.revision())
+            .field("files", &self.ids.len())
+            .finish()
+    }
+}
+
+impl PartialEq for FileCatalogue {
+    fn eq(&self, other: &Self) -> bool {
+        self.view.instance_id() == other.view.instance_id()
+            && self.view.revision() == other.view.revision()
+            && self.ids == other.ids
+            && self.by_collection == other.by_collection
+    }
+}
+
+impl Eq for FileCatalogue {}
+
 /// Backend-owned state that the UI may display after generation validation.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum UiUpdate {
@@ -643,6 +727,7 @@ pub enum UiUpdate {
         directories: DirectoryCatalog,
     },
     Directories(DirectoryCatalog),
+    FileCatalogue(FileCatalogue),
     /// A validated replacement for the same source configuration preserves UI drafts/tabs.
     IndexReplaced(IndexUiStatus),
     IndexStatus(IndexUiStatus),

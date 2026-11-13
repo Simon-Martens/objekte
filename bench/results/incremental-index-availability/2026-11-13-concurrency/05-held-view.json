@@ -1,0 +1,17 @@
+{
+  "after_build_hwm": 564891648,
+  "after_build_rss": 555036672,
+  "after_held_release_rss": 554987520,
+  "build_ns": 896459509,
+  "build_parses": 148486,
+  "code_revision": "c7959d4f557b0190772b7bd635655a8612925057",
+  "files": 148486,
+  "held_revision": 2,
+  "mode": "held-view",
+  "query": null,
+  "records": 148486,
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "source_bytes_read": 193297230,
+  "source_reads": 148486,
+  "wall_ns": 897153632
+}

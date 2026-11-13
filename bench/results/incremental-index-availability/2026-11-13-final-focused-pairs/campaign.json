@@ -1,0 +1,218 @@
+[
+  {
+    "pair": 1,
+    "mode": "master",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 5202002,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 1,
+    "mode": "master",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 10848550,
+    "status": "ok",
+    "opens": 7766
+  },
+  {
+    "pair": 1,
+    "mode": "master",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 5235942,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 1,
+    "mode": "master",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 10553003,
+    "status": "ok",
+    "opens": 7773
+  },
+  {
+    "pair": 1,
+    "mode": "candidate",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 4238295,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 1,
+    "mode": "candidate",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 8468580,
+    "status": "ok",
+    "opens": 7766
+  },
+  {
+    "pair": 1,
+    "mode": "candidate",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 6342457,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 1,
+    "mode": "candidate",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 8362755,
+    "status": "ok",
+    "opens": 7773
+  },
+  {
+    "pair": 2,
+    "mode": "candidate",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 3914043,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 2,
+    "mode": "candidate",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 8830127,
+    "status": "ok",
+    "opens": 7766
+  },
+  {
+    "pair": 2,
+    "mode": "candidate",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 4681282,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 2,
+    "mode": "candidate",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 8410823,
+    "status": "ok",
+    "opens": 7773
+  },
+  {
+    "pair": 2,
+    "mode": "master",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 5282567,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 2,
+    "mode": "master",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 10226098,
+    "status": "ok",
+    "opens": 7766
+  },
+  {
+    "pair": 2,
+    "mode": "master",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 5132000,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 2,
+    "mode": "master",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 10433507,
+    "status": "ok",
+    "opens": 7773
+  },
+  {
+    "pair": 3,
+    "mode": "master",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 5080984,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 3,
+    "mode": "master",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 10413850,
+    "status": "ok",
+    "opens": 7766
+  },
+  {
+    "pair": 3,
+    "mode": "master",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 5211992,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 3,
+    "mode": "master",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 10557997,
+    "status": "ok",
+    "opens": 7773
+  },
+  {
+    "pair": 3,
+    "mode": "candidate",
+    "case_id": "Q003",
+    "profile": "ascii-off",
+    "median_ns": 3704062,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 3,
+    "mode": "candidate",
+    "case_id": "Q004",
+    "profile": "ascii-off",
+    "median_ns": 8925236,
+    "status": "ok",
+    "opens": 7766
+  },
+  {
+    "pair": 3,
+    "mode": "candidate",
+    "case_id": "Q003",
+    "profile": "unicode-off",
+    "median_ns": 5546344,
+    "status": "ok",
+    "opens": 2948
+  },
+  {
+    "pair": 3,
+    "mode": "candidate",
+    "case_id": "Q004",
+    "profile": "unicode-off",
+    "median_ns": 9088605,
+    "status": "ok",
+    "opens": 7773
+  }
+]

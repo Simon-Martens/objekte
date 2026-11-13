@@ -1,0 +1,15 @@
+{
+  "before_revision": "7a6b96684e1fbb849eab7cc20185b942159ed189",
+  "after_revision": "ad542f6e9ad3ede9fca0e2235df61476ec721749",
+  "common_registration_fields": [
+    "format",
+    "identity",
+    "name",
+    "sort_fields",
+    "source_path",
+    "type_hints"
+  ],
+  "schema_manifest_digest": "f94dd058ab3d27be17b5e475089b0b83580d6e960d566bd54032157298da0eed",
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "workload_git_blob": "39dcfe72d4e735cd4da392381517a62bcc493a8b"
+}

@@ -7,12 +7,48 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
+use objekte_search_core::lifecycle::{Index, IndexView};
+use objekte_search_core::query::Query;
+use objekte_search_core::repository::SearchResult;
 use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit, SnapshotMode};
 use objekte_search_core::workload::{
     BenchmarkCase, BigramAlphabet, Profile, TimingSample, WorkCounters, load_extended_manifest,
     load_manifest,
 };
 use sha2::{Digest, Sha256};
+
+enum SearchBackend {
+    Direct(Repository),
+    Incremental(Index, IndexView),
+}
+
+impl SearchBackend {
+    fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
+        match self {
+            Self::Direct(repo) => repo.configure_verified_cache(bytes),
+            Self::Incremental(index, _) => index
+                .configure_verified_cache(bytes)
+                .map_err(|error| error.to_string()),
+        }
+    }
+
+    fn search(&self, query: &Query) -> Result<SearchResult, String> {
+        match self {
+            Self::Direct(repo) => repo.search(query),
+            Self::Incremental(_, view) => view.search(query),
+        }
+    }
+
+    fn explain_analyze(
+        &self,
+        query: &Query,
+    ) -> Result<(SearchResult, Vec<objekte_search_core::run::QueryPlanTrace>), String> {
+        match self {
+            Self::Direct(repo) => repo.explain_analyze(query),
+            Self::Incremental(_, view) => view.search_analyze(query),
+        }
+    }
+}
 
 fn main() {
     if let Err(error) = run() {
@@ -41,9 +77,11 @@ fn run() -> Result<(), String> {
     let mut warm_cache_bytes = 64 * 1024 * 1024usize;
     let mut prepared_cache_bytes = RepositoryOptions::default().prepared_cache_bytes;
     let mut query_workers = RepositoryOptions::default().query_workers;
+    let mut incremental = false;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--extended" => extended = true,
+            "--incremental" => incremental = true,
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--result-dir" => {
                 result_dir = Some(PathBuf::from(
@@ -214,97 +252,164 @@ fn run() -> Result<(), String> {
         if selected_profiles.is_empty() {
             continue;
         }
-        let build_start = Instant::now();
-        let repo = Repository::open_with_options(
-            &root,
-            definitions.clone(),
-            RepositoryOptions {
-                bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::Disabled,
-                query_workers,
-                prepared_cache_bytes,
-                ..RepositoryOptions::default()
-            },
-        )?;
-        let open_ns = build_start.elapsed().as_nanos() as u64;
-        let save_started = Instant::now();
-        repo.save_snapshot(&objekte_search_core::storage::snapshot_path(
-            &root, alphabet,
-        ))?;
-        let snapshot_write_ns = save_started.elapsed().as_nanos() as u64;
-        let total_build_and_snapshot_ns = build_start.elapsed().as_nanos() as u64;
-        let build_ns = repo.startup().build_ns;
-        if corpus_hash.is_empty() {
-            corpus_hash = fingerprint_inventory(&repo);
-        }
-        let memory_bytes = resident_bytes();
-        let peak_resident_bytes = peak_resident_bytes();
-        let snapshot_bytes =
-            fs::metadata(objekte_search_core::storage::snapshot_path(&root, alphabet))
-                .map_err(|e| e.to_string())?
+        let backend = if incremental {
+            let build_start = Instant::now();
+            let task = Index::start_incremental_build(
+                &root,
+                definitions.clone(),
+                RepositoryOptions {
+                    bigram_alphabet: alphabet,
+                    snapshot_mode: SnapshotMode::Disabled,
+                    query_workers,
+                    prepared_cache_bytes,
+                    ..RepositoryOptions::default()
+                },
+            )
+            .map_err(|error| error.to_string())?;
+            let index = task.wait_complete().map_err(|error| error.to_string())?;
+            let open_ns = build_start.elapsed().as_nanos() as u64;
+            let view = index.view().map_err(|error| error.to_string())?;
+            let status = index.status().map_err(|error| error.to_string())?;
+            let build_status = task.status().map_err(|error| error.to_string())?;
+            let save_started = Instant::now();
+            let snapshot_path = objekte_search_core::storage::snapshot_path(&root, alphabet);
+            index
+                .flush_cache(&snapshot_path)
+                .map_err(|error| error.to_string())?;
+            let snapshot_write_ns = save_started.elapsed().as_nanos() as u64;
+            let total_build_and_snapshot_ns = build_start.elapsed().as_nanos() as u64;
+            if corpus_hash.is_empty() {
+                let mut hash = Sha256::new();
+                for row in view.catalogue_rows() {
+                    hash.update(row.relative_path.to_string_lossy().as_bytes());
+                    hash.update(row.modified_ns.to_le_bytes());
+                    hash.update(row.size.to_le_bytes());
+                }
+                corpus_hash = format!("{:x}", hash.finalize());
+            }
+            let memory_bytes = resident_bytes();
+            let peak_resident_bytes = peak_resident_bytes();
+            let snapshot_bytes = fs::metadata(&snapshot_path)
+                .map_err(|error| error.to_string())?
                 .len();
-        let estimated_index_bytes: usize = repo
-            .collections()
-            .iter()
-            .map(|c| {
-                c.raw.estimated_heap_bytes()
-                    + c.custom_text
-                        .values()
-                        .map(|i| i.estimated_heap_bytes())
-                        .sum::<usize>()
-                    + c.postings
-                        .fields
-                        .values()
-                        .map(|p| {
-                            p.values
-                                .values()
-                                .map(|s| s.serialized_size() as usize)
-                                .sum::<usize>()
-                                + p.lengths
+            build_results.push(serde_json::json!({
+                "alphabet":alphabet,"build_mode":"incremental","build_ns":open_ns,"open_ns":open_ns,
+                "discovery_ns":build_status.catalogue_elapsed_ns,
+                "first_batch_ns":build_status.first_batch_elapsed_ns,
+                "searchable_batches":build_status.searchable_batches,
+                "snapshot_write_ns":snapshot_write_ns,
+                "total_build_and_snapshot_ns":total_build_and_snapshot_ns,
+                "build_parses":status.build_parses,"source_reads":status.build_source_reads,
+                "source_bytes_read":status.build_source_bytes_read,
+                "inventory_heap_bytes":view.estimated_inventory_bytes(),
+                "resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,
+                "estimated_index_bytes":view.estimated_index_bytes(),
+                "segment_families":view.index_family_breakdown(),
+                "snapshot_bytes":snapshot_bytes,"restore_samples":[],"restore_status":"not_measured",
+            }));
+            if registrations.is_empty() {
+                registrations = definitions.iter().map(|definition| serde_json::json!({
+                    "name":definition.name,"source_path":definition.source_path,"format":definition.format,
+                    "identity":format!("{:?}",definition.identity),
+                    "type_hints":definition.schema.fields().len(),
+                    "sort_fields":definition.sort_fields.iter().map(|path|path.display()).collect::<Vec<_>>(),
+                })).collect();
+            }
+            SearchBackend::Incremental(index, view)
+        } else {
+            let build_start = Instant::now();
+            let repo = Repository::open_with_options(
+                &root,
+                definitions.clone(),
+                RepositoryOptions {
+                    bigram_alphabet: alphabet,
+                    snapshot_mode: SnapshotMode::Disabled,
+                    query_workers,
+                    prepared_cache_bytes,
+                    ..RepositoryOptions::default()
+                },
+            )?;
+            let open_ns = build_start.elapsed().as_nanos() as u64;
+            let save_started = Instant::now();
+            repo.save_snapshot(&objekte_search_core::storage::snapshot_path(
+                &root, alphabet,
+            ))?;
+            let snapshot_write_ns = save_started.elapsed().as_nanos() as u64;
+            let total_build_and_snapshot_ns = build_start.elapsed().as_nanos() as u64;
+            let build_ns = repo.startup().build_ns;
+            if corpus_hash.is_empty() {
+                corpus_hash = fingerprint_inventory(&repo);
+            }
+            let memory_bytes = resident_bytes();
+            let peak_resident_bytes = peak_resident_bytes();
+            let snapshot_bytes =
+                fs::metadata(objekte_search_core::storage::snapshot_path(&root, alphabet))
+                    .map_err(|e| e.to_string())?
+                    .len();
+            let estimated_index_bytes: usize = repo
+                .collections()
+                .iter()
+                .map(|c| {
+                    c.raw.estimated_heap_bytes()
+                        + c.custom_text
+                            .values()
+                            .map(|i| i.estimated_heap_bytes())
+                            .sum::<usize>()
+                        + c.postings
+                            .fields
+                            .values()
+                            .map(|p| {
+                                p.values
                                     .values()
                                     .map(|s| s.serialized_size() as usize)
                                     .sum::<usize>()
-                        })
-                        .sum::<usize>()
-                    + c.sorting
-                        .columns
-                        .values()
-                        .map(|s| {
-                            s.keys
-                                .iter()
-                                .map(|k| match k {
-                                    objekte_search_core::sorting::SortKey::String(v) => v.len(),
-                                    _ => 24,
-                                })
-                                .sum::<usize>()
-                        })
-                        .sum::<usize>()
-            })
-            .sum();
-        let (bigram_store_count, distinct_gram_keys) =
-            repo.collections()
+                                    + p.lengths
+                                        .values()
+                                        .map(|s| s.serialized_size() as usize)
+                                        .sum::<usize>()
+                            })
+                            .sum::<usize>()
+                        + c.sorting
+                            .columns
+                            .values()
+                            .map(|s| {
+                                s.keys
+                                    .iter()
+                                    .map(|k| match k {
+                                        objekte_search_core::sorting::SortKey::String(v) => v.len(),
+                                        _ => 24,
+                                    })
+                                    .sum::<usize>()
+                            })
+                            .sum::<usize>()
+                })
+                .sum();
+            let (bigram_store_count, distinct_gram_keys) =
+                repo.collections()
+                    .iter()
+                    .fold((0usize, 0usize), |total, collection| {
+                        std::iter::once(&collection.raw)
+                            .chain(std::iter::once(&collection.fallback_text))
+                            .chain(collection.custom_text.values())
+                            .fold(total, |(stores, keys), index| {
+                                (stores + 1, keys + index.normal.len() + index.skip.len())
+                            })
+                    });
+            let restore_samples = measure_restore_children(&root, alphabet, 5, extended)?;
+            let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
+            let relations = repo
+                .collections()
                 .iter()
-                .fold((0usize, 0usize), |total, collection| {
-                    std::iter::once(&collection.raw)
-                        .chain(std::iter::once(&collection.fallback_text))
-                        .chain(collection.custom_text.values())
-                        .fold(total, |(stores, keys), index| {
-                            (stores + 1, keys + index.normal.len() + index.skip.len())
-                        })
-                });
-        let restore_samples = measure_restore_children(&root, alphabet, 5, extended)?;
-        let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
-        let relations = repo
-            .collections()
-            .iter()
-            .flat_map(|collection| &collection.relations)
-            .collect::<Vec<_>>();
-        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"open_ns":open_ns,"discovery_ns":repo.startup().build_discovery_ns,"extraction_index_ns":repo.startup().build_extraction_index_ns,"finalization_ns":repo.startup().build_finalization_ns,"snapshot_write_ns":snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"inventory_heap_bytes":inventory_heap_bytes,"diagnostic_heap_bytes":diagnostic_heap_bytes,"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"bigram_store_count":bigram_store_count,"distinct_gram_keys":distinct_gram_keys,"relation_count":relations.len(),"relation_edges":relations.iter().map(|relation| relation.edge_count()).sum::<usize>(),"relation_heap_bytes":relations.iter().map(|relation| relation.estimated_heap_bytes()).sum::<usize>(),"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
-        if registrations.is_empty() {
-            registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
-        }
+                .flat_map(|collection| &collection.relations)
+                .collect::<Vec<_>>();
+            build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"open_ns":open_ns,"discovery_ns":repo.startup().build_discovery_ns,"extraction_index_ns":repo.startup().build_extraction_index_ns,"finalization_ns":repo.startup().build_finalization_ns,"snapshot_write_ns":snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"inventory_heap_bytes":inventory_heap_bytes,"diagnostic_heap_bytes":diagnostic_heap_bytes,"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"bigram_store_count":bigram_store_count,"distinct_gram_keys":distinct_gram_keys,"relation_count":relations.len(),"relation_edges":relations.iter().map(|relation| relation.edge_count()).sum::<usize>(),"relation_heap_bytes":relations.iter().map(|relation| relation.estimated_heap_bytes()).sum::<usize>(),"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
+            if registrations.is_empty() {
+                registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
+            }
+            SearchBackend::Direct(repo)
+        };
         for (profile_name, profile) in selected_profiles {
-            repo.configure_verified_cache(profile.verified_cache_bytes)?;
+            backend.configure_verified_cache(profile.verified_cache_bytes)?;
             for case in &cases {
                 let query = match case.query() {
                     Ok(q) => q,
@@ -338,16 +443,24 @@ fn run() -> Result<(), String> {
                 let mut counter_samples = Vec::new();
                 let mut error = None;
                 if profile.warm {
-                    repo.search(&query)?;
+                    backend.search(&query)?;
                 }
                 for repetition in 0..repetitions {
                     let start = Instant::now();
-                    match repo.search(&query) {
+                    match backend.search(&query) {
                         Ok(result) => {
                             let ns = start.elapsed().as_nanos() as u64;
                             let identity = (
                                 result.count.ok_or("benchmark requires COUNT")?,
-                                result.hits.clone(),
+                                result
+                                    .hits
+                                    .iter()
+                                    .cloned()
+                                    .map(|mut hit| {
+                                        hit.generation = 0;
+                                        hit
+                                    })
+                                    .collect(),
                             );
                             if let Some(previous) = expected.get(&case.id) {
                                 if previous != &identity {
@@ -400,7 +513,7 @@ fn run() -> Result<(), String> {
                     error,
                 ));
                 let diagnostic_start = Instant::now();
-                let (diagnostic_result, plans) = repo.explain_analyze(&query)?;
+                let (diagnostic_result, plans) = backend.explain_analyze(&query)?;
                 let diagnostic_ns = diagnostic_start.elapsed().as_nanos() as u64;
                 serde_json::to_writer(&mut plan_output, &serde_json::json!({
                     "case_id": case.id, "profile": profile_name, "diagnostic_timing": "outside_primary_samples",
@@ -425,7 +538,7 @@ fn run() -> Result<(), String> {
         serde_json::to_vec_pretty(&result_digests).map_err(|e| e.to_string())?,
     )
     .map_err(|e| e.to_string())?;
-    let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"extended":extended,"schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers});
+    let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"extended":extended,"build_mode":if incremental {"incremental"} else {"repository"},"schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers});
     fs::write(
         result_dir.join("run-manifest.json"),
         serde_json::to_vec_pretty(&run_manifest).map_err(|e| e.to_string())?,

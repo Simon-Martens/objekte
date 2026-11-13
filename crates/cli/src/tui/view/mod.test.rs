@@ -2,6 +2,27 @@ use super::*;
 use crate::tui::test_support::{fixture, relation_fixture};
 
 #[test]
+fn discovered_file_catalogue_shows_physical_metadata_without_record_claims() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    app.toggle_files();
+    assert_eq!(app.file_count(), 3);
+    let backend = ratatui::backend::TestBackend::new(100, 15);
+    let mut terminal = ratatui::Terminal::new(backend).unwrap();
+    terminal.draw(|frame| draw(frame, app)).unwrap();
+    let screen = format!("{:?}", terminal.backend().buffer());
+    assert!(screen.contains("3 files in catalogue"));
+    assert!(screen.contains("docs/0000.json"));
+    assert!(screen.contains("mtime (Unix s)"));
+    assert!(screen.contains("record IDs and validity are known after indexing"));
+    assert!(!screen.contains("Valid"));
+    app.move_file_selection(2);
+    assert_eq!(app.file_selected, 2);
+    app.toggle_files();
+    assert_eq!(app.view, View::Results);
+}
+
+#[test]
 fn cli_result_table_has_only_fixed_columns_until_query_adds_fields() {
     let mut fixture = fixture(2);
     let app = &mut fixture.app;
