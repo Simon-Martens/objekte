@@ -64,20 +64,19 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     let index = Index::build(&root, vec![CollectionDefinition::folder(
         "data", "data", SourceFormat::Json,
     )], RepositoryOptions::default()).unwrap();
+    let pinned = index.view().unwrap();
+    let old = pinned.0.segments[0][0].clone();
     for number in 0..64 {
         let path = root.join(format!("data/{number:03}.json"));
         let handle = index.view().unwrap().file_handle_for_path(&path).unwrap();
         index.delete_file(handle).unwrap();
         std::fs::remove_file(path).unwrap();
     }
-    let pinned = index.view().unwrap();
-    let old = pinned.0.segments[0][0].clone();
-    let mut staged = (*pinned.0).clone();
-    staged.make_room_for_segment_with_limits(0, usize::MAX, 16).unwrap();
-    assert_eq!(staged.segments[0].len(), 1);
-    assert!(!Arc::ptr_eq(&old, &staged.segments[0][0]));
-    assert_eq!(staged.segments[0][0].index.records.len(), 192);
-    assert_eq!(staged.segments[0][0].active.len(), 192);
+    let maintained = index.view().unwrap();
+    assert_eq!(maintained.0.segments[0].len(), 1);
+    assert!(!Arc::ptr_eq(&old, &maintained.0.segments[0][0]));
+    assert_eq!(maintained.0.segments[0][0].index.records.len(), 192);
+    assert_eq!(maintained.0.segments[0][0].active.len(), 192);
     assert_eq!(old.index.records.len(), 256);
     let added = root.join("data/added.json");
     std::fs::write(&added, br#"{"name":"new item"}"#).unwrap();
@@ -85,7 +84,8 @@ fn retired_ratio_trigger_compacts_one_affected_shard() {
     let current = index.view().unwrap();
     assert!(current.0.segments[0].iter().any(|segment| segment.index.records.len() == 192));
     assert_eq!(current.0.status().live_records, 193);
-    assert_eq!(pinned.0.status().live_records, 192);
+    assert_eq!(maintained.0.status().live_records, 192);
+    assert_eq!(pinned.0.status().live_records, 256);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();
 }

@@ -2824,6 +2824,11 @@ impl Index {
         for segment in indexed {
             next = next.with_segment(segment)?;
         }
+        // A replacement may remove a collection contribution without adding
+        // a new shard there. Recheck its retired ratio after the catalog swap.
+        for collection in &previous.collections {
+            next.make_room_for_segment(collection.0 as usize)?;
+        }
         next.revision = view.revision().next()?;
         Ok(next)
     }
@@ -3106,6 +3111,10 @@ impl Index {
             .advanced(handle.file_id)
             .map_err(IndexError::ResourceLimit)?
             .0;
+        // Pure deletions have no shard admission to trigger retirement work.
+        for collection in &file.collections {
+            next.make_room_for_segment(collection.0 as usize)?;
+        }
         next.revision = current.revision().next()?;
         Ok((
             current.revision(),
