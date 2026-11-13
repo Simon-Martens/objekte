@@ -1,0 +1,176 @@
+{
+  "sample": {
+    "after_build_hwm": 534368256,
+    "after_build_rss": 517910528,
+    "after_release_rss": 441540608,
+    "before_rss": 6463488,
+    "bigram_stores": 15,
+    "build_admission_ns": 358846735,
+    "build_job_execution_ns": 4395894633,
+    "build_ns": 949098122,
+    "build_parses": 148486,
+    "build_receive_wait_ns": 74792279,
+    "diagnostic_heap_bytes": 0,
+    "discovery_ns": 188316975,
+    "distinct_gram_keys": 25477,
+    "estimated_index_bytes": 69662968,
+    "extraction_index_ns": 444189733,
+    "failed_parses": 0,
+    "finalization_ns": 242560882,
+    "framing_bytes": 0,
+    "framing_chunks": 0,
+    "framing_ns": 0,
+    "inference_build": "InferenceBuildStats { observed_records: 0, merged_batches: 0, merge_ns: 0, finish_ns: 0, cumulative_budget_bytes: 0, unique_path_bytes: 0, repeated_batch_path_bytes: 0, retained_manual_summary_bytes: 0 }",
+    "inventory_heap_bytes": 58460912,
+    "open_ns": 949108785,
+    "out_of_order_completed": 0,
+    "peak_active_jobs": 32,
+    "peak_admitted_bytes": 523665408,
+    "peak_ready_batches": 64,
+    "postings": 300,
+    "process_io_delta": {
+      "cancelled_write_bytes": 0,
+      "rchar": 193297490,
+      "read_bytes": 0,
+      "syscr": 296989,
+      "syscw": 0,
+      "wchar": 0,
+      "write_bytes": 0
+    },
+    "profile": null,
+    "profile_reconciliation": null,
+    "query_digests": {
+      "Q001": "89fae2a9968914355fe2ba8cc4d8b5b1b474ba6cd9e861e2dd36b6a888d9d899",
+      "Q108": "8c7013be38450a2f71f91488352ce7ebfa56e78c207f0327dc749309bdd06cc3",
+      "Q116": "2df85e5e338009a23830007a3e503851da7956b97bf2a38da737ca117f5df212",
+      "Q120": "87617f0bc1c631b44fdb89488d3396ecb366717eef9e9708e0bb8fd5bd5c9ce9",
+      "Q194": "624513c7ba050724b4ad84c3b30121c209c2e83aed0b1b413cccf21c2901416b"
+    },
+    "ready_wait_max_ns": 0,
+    "ready_wait_sum_ns": 0,
+    "relation_edges": 228503,
+    "relation_heap_bytes": 21469817,
+    "snapshot_result": {
+      "bytes": 129139458,
+      "directory_ns": 4104,
+      "directory_sync_ns": 8676,
+      "header_ns": 413022,
+      "hwm_after_write": 541261824,
+      "inventory_ns": 10629687,
+      "rename_ns": 8572,
+      "rss_after_write": 518135808,
+      "sections": [
+        {
+          "checksum_ns": 76,
+          "id": 4294967295,
+          "payload_bytes": 125,
+          "serialize_ns": 525,
+          "write_ns": 1719
+        },
+        {
+          "checksum_ns": 8048462,
+          "id": 0,
+          "payload_bytes": 21502142,
+          "serialize_ns": 8452577,
+          "write_ns": 3353997
+        },
+        {
+          "checksum_ns": 3614010,
+          "id": 1,
+          "payload_bytes": 9594072,
+          "serialize_ns": 5025014,
+          "write_ns": 1470907
+        },
+        {
+          "checksum_ns": 29477772,
+          "id": 2,
+          "payload_bytes": 82140326,
+          "serialize_ns": 56591449,
+          "write_ns": 13152054
+        },
+        {
+          "checksum_ns": 3298687,
+          "id": 3,
+          "payload_bytes": 9210713,
+          "serialize_ns": 5219304,
+          "write_ns": 1430093
+        },
+        {
+          "checksum_ns": 1121534,
+          "id": 4,
+          "payload_bytes": 3025448,
+          "serialize_ns": 1192236,
+          "write_ns": 480723
+        },
+        {
+          "checksum_ns": 217417,
+          "id": 5,
+          "payload_bytes": 614035,
+          "serialize_ns": 173109,
+          "write_ns": 116204
+        },
+        {
+          "checksum_ns": 246072,
+          "id": 6,
+          "payload_bytes": 695072,
+          "serialize_ns": 226838,
+          "write_ns": 97886
+        },
+        {
+          "checksum_ns": 843933,
+          "id": 7,
+          "payload_bytes": 2357077,
+          "serialize_ns": 2061963,
+          "write_ns": 427072
+        }
+      ],
+      "sync_ns": 921,
+      "total_ns": 162047134,
+      "write_ns": 20542155
+    },
+    "sort_fields": 8,
+    "storage_breakdown": null,
+    "storage_operations": null,
+    "weight_limit_bytes": 536870912
+  },
+  "manifest": {
+    "alphabet": "ascii",
+    "check_queries": true,
+    "code_revision": "7a6b96684e1fbb849eab7cc20185b942159ed189",
+    "command": [
+      "target/release/examples/bench_index_construction",
+      "--root",
+      "/home/simon/source/objekte/examples/musenalm",
+      "--result-dir",
+      "/tmp/objekte-snapshot-repair-master-reference",
+      "--alphabet",
+      "ascii",
+      "--workers",
+      "32",
+      "--snapshot",
+      "--check-queries"
+    ],
+    "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "configuration": "musenalm_extended",
+    "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+    "cpu_affinity": "0-31",
+    "cpu_governor": "performance",
+    "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "dirty_status": "?? docs/ai/done/objekte_fedora_gpui_development_environment_specification.md\n?? docs/ai/done/objekte_headless_wayland_follow_up_plan.md\n?? docs/ai/tasks/objekte_incremental_desktop_query_and_completion_repair_specification.md\n?? docs/ai/tasks/objekte_plan_1_snapshot_persistence_repair_specification.md\n?? docs/development/objekte_index_lifecycle_implementation_guide.md",
+    "files": 148486,
+    "inference": false,
+    "kernel": "7.2.15-200.fc44.x86_64",
+    "prepared_cache_bytes": 16777216,
+    "profile": false,
+    "query_workers": 32,
+    "records": 148486,
+    "requested_workers": 32,
+    "resolved_workers": 32,
+    "root": "/home/simon/source/objekte/examples/musenalm",
+    "schema_fingerprint": "4115070eb30b0af98b109429d0883b493f857cdf671ec55b943d91b73c5ebfe3",
+    "snapshot": true,
+    "source_bytes": 193297230,
+    "verified_cache_bytes": 0
+  },
+  "snapshot_sha256": "2c4a22e018230f9cf779acb9cc55a7745e7ab1511125e3b1a7fdb929eff89a32"
+}
