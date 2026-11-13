@@ -6,10 +6,11 @@ use std::ops::Bound;
 use std::sync::{Arc, Mutex, OnceLock};
 
 use roaring::RoaringBitmap;
-use serde::{Serialize, de::DeserializeOwned};
+use serde::Serialize;
 
 use crate::ordered_block::{
-    DictionaryCursor, OrderedBlockDictionary, OrderedBlockWriter, write_ordered_dictionary,
+    DictionaryCursor, EncodedKey, OrderedBlockDictionary, OrderedBlockWriter,
+    write_ordered_dictionary,
 };
 use crate::segment_format::{
     MIN_CACHED_POSTING_BYTES, PostingDescriptor, SectionKind, SegmentReader,
@@ -204,7 +205,7 @@ pub(crate) struct SealedPostingCursor<'a, K> {
     descending: bool,
 }
 
-impl<K: Ord + Clone + DeserializeOwned> SealedPostingCursor<'_, K> {
+impl<K: EncodedKey> SealedPostingCursor<'_, K> {
     pub(crate) fn next(&mut self) -> Result<Option<(K, RoaringBitmap)>, String> {
         let Some(position) = self.cursor else {
             return Ok(None);
@@ -236,7 +237,7 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingCursor<'_, K> {
     }
 }
 
-impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
+impl<K: EncodedKey> SealedPostingDictionary<K> {
     pub(crate) fn segment_reader(&self) -> Arc<SegmentReader> {
         Arc::clone(&self.reader)
     }
@@ -254,7 +255,7 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
                     match self.dictionary.lower_bound(key)? {
                         Some(found) => {
                             if matches!(upper, Bound::Included(_))
-                                && self.dictionary.entry(found)?.0 == *key
+                                && self.dictionary.compare_at(found, key)?.is_eq()
                             {
                                 Some(found)
                             } else {
@@ -272,7 +273,7 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
                     let found = self.dictionary.lower_bound(key)?;
                     if matches!(lower, Bound::Excluded(_)) {
                         match found {
-                            Some(position) if self.dictionary.entry(position)?.0 == *key => {
+                            Some(position) if self.dictionary.compare_at(position, key)?.is_eq() => {
                                 self.dictionary.next(position)
                             }
                             other => other,
@@ -408,7 +409,7 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
             Bound::Included(key) | Bound::Excluded(key) => self.dictionary.lower_bound(*key)?,
         };
         if let (Bound::Excluded(key), Some(found)) = (&lower, cursor) {
-            if &self.dictionary.entry(found)?.0 == *key {
+            if self.dictionary.compare_at(found, key)?.is_eq() {
                 cursor = self.dictionary.next(found);
             }
         }
@@ -537,7 +538,7 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
             Bound::Included(key) | Bound::Excluded(key) => self.dictionary.lower_bound(*key)?,
         };
         if let (Bound::Excluded(key), Some(found)) = (&lower, cursor) {
-            if &self.dictionary.entry(found)?.0 == *key {
+            if self.dictionary.compare_at(found, key)?.is_eq() {
                 cursor = self.dictionary.next(found);
             }
         }

@@ -39,6 +39,8 @@ fn seeks_across_many_leaves_and_keeps_negative_results_exact() {
             dictionary.get(&key).unwrap(),
             Some(PostingDescriptor::EMPTY)
         );
+        assert_eq!(dictionary.get(&key).unwrap(), dictionary.get_decoded(&key).unwrap());
+        assert_eq!(dictionary.lower_bound(&key).unwrap(), dictionary.lower_bound_decoded(&key).unwrap());
     }
     assert_eq!(
         dictionary
@@ -46,6 +48,9 @@ fn seeks_across_many_leaves_and_keeps_negative_results_exact() {
             .unwrap(),
         None
     );
+    let absent = ScalarKey::String("key-04000".into());
+    assert_eq!(dictionary.get(&absent).unwrap(), dictionary.get_decoded(&absent).unwrap());
+    assert_eq!(dictionary.lower_bound(&absent).unwrap(), dictionary.lower_bound_decoded(&absent).unwrap());
     assert_eq!(
         dictionary
             .get(&ScalarKey::String("key-02000x".into()))
@@ -75,6 +80,49 @@ fn validated_u64_lookup_matches_typed_lookup_across_leaves() {
     for key in [0, 1, 3, 1198, 5997, 11997, 11998] {
         assert_eq!(dictionary.get_u64(key).unwrap(), dictionary.get(&key).unwrap());
     }
+}
+
+#[test]
+fn borrowed_scalar_probes_match_decoded_typed_order() {
+    let keys = vec![
+        ScalarKey::String("".into()),
+        ScalarKey::String("A".into()),
+        ScalarKey::String("ä".into()),
+        ScalarKey::Id("item-7".into()),
+        ScalarKey::Number(Number::Integer(i128::MIN)),
+        ScalarKey::Number(Number::Integer(-1)),
+        ScalarKey::Number(Number::Float(0.5)),
+        ScalarKey::Number(Number::ExactDecimal(
+            crate::decimal::ExactDecimal::parse("12345678901234567890.125").unwrap(),
+        )),
+        ScalarKey::Bool(false),
+        ScalarKey::Bool(true),
+        ScalarKey::Date(time::Date::from_calendar_date(2024, time::Month::March, 1).unwrap()),
+        ScalarKey::Datetime(time::OffsetDateTime::UNIX_EPOCH),
+        ScalarKey::Unixtime(i64::MIN),
+        ScalarKey::Unixtime(i64::MAX),
+    ];
+    for encoded_key in &keys {
+        let bytes = codec().serialize(encoded_key).unwrap();
+        for target in &keys {
+            assert_eq!(
+                ScalarKey::compare_encoded(&bytes, target).unwrap(),
+                encoded_key.cmp(target),
+                "encoded={encoded_key:?}, target={target:?}",
+            );
+        }
+    }
+    for encoded_key in [
+        Number::Integer(i128::MAX),
+        Number::Float(-0.5),
+        Number::ExactDecimal(crate::decimal::ExactDecimal::parse("1e100").unwrap()),
+    ] {
+        let bytes = codec().serialize(&encoded_key).unwrap();
+        for target in [Number::Integer(-1), Number::Float(0.5)] {
+            assert_eq!(Number::compare_encoded(&bytes, &target).unwrap(), encoded_key.cmp(&target));
+        }
+    }
+    assert!(ScalarKey::compare_encoded(&[0, 0, 0, 0, 4], &keys[0]).is_err());
 }
 
 #[test]

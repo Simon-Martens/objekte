@@ -7,7 +7,7 @@ use crate::reference::{BoundExpr, FieldDefinition, Schema, bind_filter};
 use crate::segment_format::SegmentWriter;
 use std::io::Cursor;
 
-fn seal<K: Ord + Clone + Serialize + DeserializeOwned>(
+fn seal<K: EncodedKey + Serialize>(
     map: &BTreeMap<K, RoaringBitmap>,
     allowed: RoaringBitmap,
 ) -> SealedPostingDictionary<K> {

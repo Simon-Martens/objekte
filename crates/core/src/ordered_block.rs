@@ -7,6 +7,8 @@ use std::sync::Arc;
 use bincode::Options;
 use serde::{Serialize, de::DeserializeOwned};
 
+use crate::model::Number;
+use crate::posting::ScalarKey;
 use crate::segment_format::{PostingDescriptor, SectionKind, SegmentReader};
 
 const TARGET_LEAF_BYTES: usize = 16 * 1024;
@@ -24,6 +26,95 @@ fn decode_key<K: DeserializeOwned>(bytes: &[u8]) -> Result<K, String> {
         .with_limit(bytes.len() as u64)
         .deserialize(bytes)
         .map_err(|error| format!("invalid dictionary key: {error}"))
+}
+
+/// Compare a validated portable key against a query key without materializing
+/// owned strings at every binary-search probe.
+pub(crate) trait EncodedKey: Ord + Clone + DeserializeOwned {
+    fn compare_encoded(bytes: &[u8], key: &Self) -> Result<std::cmp::Ordering, String>;
+}
+
+fn encoded_tag(bytes: &[u8], variants: u32) -> Result<u32, String> {
+    let tag = read_u32(bytes, 0)?;
+    if tag >= variants {
+        return Err("invalid dictionary key variant".into());
+    }
+    Ok(tag)
+}
+
+impl EncodedKey for u64 {
+    fn compare_encoded(bytes: &[u8], key: &Self) -> Result<std::cmp::Ordering, String> {
+        let encoded: [u8; 8] = bytes.try_into()
+            .map_err(|_| "invalid u64 dictionary key length")?;
+        Ok(u64::from_le_bytes(encoded).cmp(key))
+    }
+}
+
+impl EncodedKey for Number {
+    fn compare_encoded(bytes: &[u8], key: &Self) -> Result<std::cmp::Ordering, String> {
+        let tag = encoded_tag(bytes, 3)?;
+        let value = match tag {
+            0 => {
+                let encoded: [u8; 16] = bytes.get(4..).ok_or("integer key truncated")?
+                    .try_into().map_err(|_| "invalid integer key length")?;
+                Number::Integer(i128::from_le_bytes(encoded))
+            }
+            1 => {
+                let encoded: [u8; 8] = bytes.get(4..).ok_or("float key truncated")?
+                    .try_into().map_err(|_| "invalid float key length")?;
+                let value = f64::from_le_bytes(encoded);
+                if !value.is_finite() {
+                    return Err("invalid float key".into());
+                }
+                Number::Float(value)
+            }
+            _ => decode_key(bytes)?,
+        };
+        Ok(value.cmp(key))
+    }
+}
+
+impl EncodedKey for ScalarKey {
+    fn compare_encoded(bytes: &[u8], key: &Self) -> Result<std::cmp::Ordering, String> {
+        let tag = encoded_tag(bytes, 7)?;
+        let target_tag = match key {
+            ScalarKey::String(_) => 0,
+            ScalarKey::Id(_) => 1,
+            ScalarKey::Number(_) => 2,
+            ScalarKey::Bool(_) => 3,
+            ScalarKey::Date(_) => 4,
+            ScalarKey::Datetime(_) => 5,
+            ScalarKey::Unixtime(_) => 6,
+        };
+        if tag != target_tag {
+            return Ok(tag.cmp(&target_tag));
+        }
+        match key {
+            ScalarKey::String(target) | ScalarKey::Id(target) => {
+                let length = usize::try_from(read_u64(bytes, 4)?)
+                    .map_err(|_| "string key too large")?;
+                let value = bytes.get(12..).ok_or("string key truncated")?;
+                if length != value.len() {
+                    return Err("invalid string key length".into());
+                }
+                let value = std::str::from_utf8(value).map_err(|_| "invalid string key utf8")?;
+                Ok(value.cmp(target))
+            }
+            ScalarKey::Number(target) => Number::compare_encoded(
+                bytes.get(4..).ok_or("number key truncated")?, target,
+            ),
+            ScalarKey::Bool(target) => match bytes.get(4..) {
+                Some([value]) if *value <= 1 => Ok((*value != 0).cmp(target)),
+                _ => Err("invalid bool key".into()),
+            },
+            ScalarKey::Unixtime(target) => {
+                let encoded: [u8; 8] = bytes.get(4..).ok_or("unixtime key truncated")?
+                    .try_into().map_err(|_| "invalid unixtime key length")?;
+                Ok(i64::from_le_bytes(encoded).cmp(target))
+            }
+            _ => Ok(decode_key::<ScalarKey>(bytes)?.cmp(key)),
+        }
+    }
 }
 
 struct PendingEntry {
@@ -429,7 +520,22 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         })
     }
 
-    pub(crate) fn get(&self, key: &K) -> Result<Option<PostingDescriptor>, String> {
+    pub(crate) fn get(&self, key: &K) -> Result<Option<PostingDescriptor>, String>
+    where K: EncodedKey {
+        self.get_with(key, K::compare_encoded)
+    }
+
+    /// Checked fallback for key types without a borrowed comparator.
+    #[allow(dead_code)]
+    pub(crate) fn get_decoded(&self, key: &K) -> Result<Option<PostingDescriptor>, String> {
+        self.get_with(key, |bytes, target| Ok(decode_key::<K>(bytes)?.cmp(target)))
+    }
+
+    fn get_with(
+        &self,
+        key: &K,
+        compare: impl Fn(&[u8], &K) -> Result<std::cmp::Ordering, String>,
+    ) -> Result<Option<PostingDescriptor>, String> {
         let mut lo = 0usize;
         let mut hi = self.blocks.len();
         while lo < hi {
@@ -449,17 +555,38 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         while left < right {
             let mid = left + (right - left) / 2;
             let offset = read_u32(leaf, 4 + mid * 4)? as usize;
-            let (sample, descriptor, _) = read_leaf_entry::<K>(leaf, offset)?;
-            match sample.cmp(key) {
+            let sample = entry_key_bytes(leaf, offset)?;
+            match compare(sample, key)? {
                 std::cmp::Ordering::Less => left = mid + 1,
                 std::cmp::Ordering::Greater => right = mid,
-                std::cmp::Ordering::Equal => return Ok(Some(descriptor)),
+                std::cmp::Ordering::Equal => {
+                    let end = offset.checked_add(4 + sample.len() + 24)
+                        .ok_or("dictionary entry overflow")?;
+                    return Ok(Some(PostingDescriptor::decode(
+                        leaf.get(end - 24..end)
+                            .ok_or("dictionary posting descriptor truncated")?,
+                    )?));
+                }
             }
         }
         Ok(None)
     }
 
-    pub(crate) fn lower_bound(&self, key: &K) -> Result<Option<DictionaryCursor>, String> {
+    pub(crate) fn lower_bound(&self, key: &K) -> Result<Option<DictionaryCursor>, String>
+    where K: EncodedKey {
+        self.lower_bound_with(key, K::compare_encoded)
+    }
+
+    #[allow(dead_code)]
+    pub(crate) fn lower_bound_decoded(&self, key: &K) -> Result<Option<DictionaryCursor>, String> {
+        self.lower_bound_with(key, |bytes, target| Ok(decode_key::<K>(bytes)?.cmp(target)))
+    }
+
+    fn lower_bound_with(
+        &self,
+        key: &K,
+        compare: impl Fn(&[u8], &K) -> Result<std::cmp::Ordering, String>,
+    ) -> Result<Option<DictionaryCursor>, String> {
         let mut lo = 0usize;
         let mut hi = self.blocks.len();
         while lo < hi {
@@ -479,8 +606,8 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         while left < right {
             let mid = left + (right - left) / 2;
             let offset = read_u32(leaf, 4 + mid * 4)? as usize;
-            let (sample, _, _) = read_leaf_entry::<K>(leaf, offset)?;
-            if sample < *key {
+            let sample = entry_key_bytes(leaf, offset)?;
+            if compare(sample, key)?.is_lt() {
                 left = mid + 1;
             } else {
                 right = mid;
@@ -510,6 +637,21 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         let offset = read_u32(leaf, 4 + cursor.entry * 4)? as usize;
         let (key, descriptor, _) = read_leaf_entry::<K>(leaf, offset)?;
         Ok((key, descriptor))
+    }
+
+    pub(crate) fn compare_at(
+        &self,
+        cursor: DictionaryCursor,
+        key: &K,
+    ) -> Result<std::cmp::Ordering, String>
+    where K: EncodedKey {
+        let block = self.blocks.get(cursor.block).ok_or("dictionary cursor block missing")?;
+        if cursor.entry >= block.count as usize {
+            return Err("dictionary cursor entry missing".into());
+        }
+        let leaf = self.leaf(block)?;
+        let offset = read_u32(leaf, 4 + cursor.entry * 4)? as usize;
+        K::compare_encoded(entry_key_bytes(leaf, offset)?, key)
     }
 
     /// Visit the encoded keys after the external opener has validated every
