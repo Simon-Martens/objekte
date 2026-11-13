@@ -12,8 +12,20 @@ fn events(bytes: &[u8]) -> Vec<Value> {
 }
 
 fn stable(mut events: Vec<Value>) -> Vec<Value> {
+    // The CLI now constructs fresh indexes incrementally, so its final
+    // publication number can differ from the desktop's complete-build number.
+    // Both runs must stamp their hits with their own final publication.
+    let revision = events
+        .iter()
+        .rev()
+        .find_map(|event| event["index_revision"].as_u64());
     for event in &mut events {
         let object = event.as_object_mut().unwrap();
+        if let Some(record) = object.get_mut("record").and_then(Value::as_object_mut) {
+            assert_eq!(record.get("generation").and_then(Value::as_u64), revision);
+            record.remove("generation");
+        }
+        object.remove("index_revision");
         object.retain(|key, _| {
             !key.ends_with("_ms") && !matches!(key.as_str(), "build_parses" | "build_failed_parses")
         });
