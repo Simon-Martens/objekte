@@ -16,7 +16,7 @@ Managed paths are:
 | Repository | `<data-root>/.objekte/indexes/<configuration-id>/` |
 | Custom | `<selected-base>/objekte-indexes/<repository-id>/<configuration-id>/` |
 
-The system temporary owner directory must be private (`0700` on Unix), checked for symlinks and current ownership before writes. The selected custom base must exist. All selected managed paths are excluded from source discovery before construction or reconciliation, including a custom base nested under a source root. No directory is created during policy resolution.
+The system temporary owner directory must be private (`0700` on Unix), checked for symlinks and current ownership before writes. The selected custom base must exist. `IndexStoragePolicy::prepare` returns one `PreparedIndexStorage` containing both effective collection definitions and their resolved identity/path. Its source-definition step appends the selected owned index namespace to discovery exclusions when it lies beneath a collection source directory. The operation is idempotent, leaves memory-only definitions untouched, and rejects a collection source selected from within the managed namespace. Callers must use the returned definitions for construction and reconciliation with the paired resolved storage. `resolve` hashes the same effective discovery rules when used for diagnostics. No index directory is created during preparation or policy resolution.
 
 ## Immutable format, version 1
 
