@@ -11,9 +11,10 @@ use std::thread;
 use std::time::{Duration, Instant};
 
 use objekte_search_core::lifecycle::{Index, IndexView, InitialBuildPhase, InitialBuildTask};
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::{RepositoryOptions, SnapshotMode};
-use objekte_search_core::workload::{BigramAlphabet, load_extended_manifest};
+use objekte_search_core::workload::{load_extended_manifest, BigramAlphabet};
 use serde_json::json;
 
 fn main() {
@@ -81,6 +82,10 @@ fn run() -> Result<(), String> {
         })
         .transpose()?;
     let status = index.status().map_err(|e| e.to_string())?;
+    let startup = IndexedRepository::new(index.clone())
+        .map_err(|e| e.to_string())?
+        .startup()
+        .clone();
     let after_build_rss = resident_bytes();
     let after_build_hwm = peak_resident_bytes();
     let held_revision = held_view
@@ -97,6 +102,13 @@ fn run() -> Result<(), String> {
         "after_build_hwm": after_build_hwm,
         "after_held_release_rss": after_held_release_rss,
         "build_parses": status.build_parses,
+        "build_workers": startup.build_workers,
+        "peak_active_jobs": startup.build_peak_active_jobs,
+        "job_execution_ns": startup.build_job_execution_ns,
+        "receive_wait_ns": startup.build_receive_wait_ns,
+        "admission_ns": startup.build_admission_ns,
+        "extraction_index_ns": startup.build_extraction_index_ns,
+        "finalization_ns": startup.build_finalization_ns,
         "source_reads": status.build_source_reads,
         "source_bytes_read": status.build_source_bytes_read,
         "files": status.indexed_files,
