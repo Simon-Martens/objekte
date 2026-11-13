@@ -116,6 +116,26 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         self.dictionary.len()
     }
 
+    /// Verify persisted statistic bounds using checked dictionary keys and a
+    /// seek to the claimed last key, without traversing every leaf.
+    pub(crate) fn matches_bounds(&self, min: Option<&K>, max: Option<&K>) -> Result<bool, String> {
+        let Some(first) = self.dictionary.first() else {
+            return Ok(min.is_none() && max.is_none());
+        };
+        let (first_key, _) = self.dictionary.entry(first)?;
+        if min != Some(&first_key) {
+            return Ok(false);
+        }
+        let Some(max) = max else {
+            return Ok(false);
+        };
+        let Some(last) = self.dictionary.lower_bound(max)? else {
+            return Ok(false);
+        };
+        let (last_key, _) = self.dictionary.entry(last)?;
+        Ok(&last_key == max && self.dictionary.next(last).is_none())
+    }
+
     /// Materialize a mutable map for bounded compaction. Query paths use the
     /// checked point and range methods without retaining this map.
     pub(crate) fn materialize_all(&self) -> Result<BTreeMap<K, RoaringBitmap>, String> {
