@@ -6,7 +6,7 @@ use roaring::RoaringBitmap;
 
 use crate::bigram::{BigramIndex, BigramRequest};
 use crate::posting_dictionary::{
-    DictionarySpan, PostingPack, SealedPostingDictionary, append_visited,
+    DictionarySpan, PostingPack, SealedPostingDictionary, append_visited_constructed,
 };
 use crate::segment_format::{PostingDescriptor, SectionKind, SegmentReader};
 use crate::workload::BigramAlphabet;
@@ -26,10 +26,26 @@ pub(crate) fn append_bigram_index(
 ) -> Result<BigramSpans, String> {
     index.validate(index.record_count as usize)?;
     index.validate_domain(allowed)?;
-    let normal = append_visited(section, pack, allowed, |append| {
+    let normal = append_visited_constructed(section, pack, allowed, |append| {
         index.for_each_normal(|key, posting| append(key, posting))
     })?;
-    let skip = append_visited(section, pack, allowed, |append| {
+    let skip = append_visited_constructed(section, pack, allowed, |append| {
+        index.for_each_skip(|key, posting| append(key, posting))
+    })?;
+    Ok(BigramSpans { normal, skip })
+}
+
+/// The finalized builder already checked slot bounds and the eligible domain.
+pub(crate) fn append_bigram_index_constructed(
+    section: &mut Vec<u8>,
+    pack: &mut PostingPack,
+    index: &BigramIndex,
+    allowed: &RoaringBitmap,
+) -> Result<BigramSpans, String> {
+    let normal = append_visited_constructed(section, pack, allowed, |append| {
+        index.for_each_normal(|key, posting| append(key, posting))
+    })?;
+    let skip = append_visited_constructed(section, pack, allowed, |append| {
         index.for_each_skip(|key, posting| append(key, posting))
     })?;
     Ok(BigramSpans { normal, skip })

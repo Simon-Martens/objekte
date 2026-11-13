@@ -136,16 +136,35 @@ pub(crate) fn encode_record_slots(
     segment: &IndexedCollectionSegment,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
 ) -> Result<Vec<u8>, String> {
-    encode_records(
+    encode_records_inner(
         segment.collection,
         &segment.source_id,
         segment.source_version,
         &segment.files,
         &segment.records,
         intern,
+        true,
     )
 }
 
+/// The admission builder already owns validated file, ID, slot and domain
+/// maps. Encoding its same dense table need not recreate those maps.
+pub(crate) fn encode_record_slots_constructed(
+    segment: &IndexedCollectionSegment,
+    intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
+) -> Result<Vec<u8>, String> {
+    encode_records_inner(
+        segment.collection,
+        &segment.source_id,
+        segment.source_version,
+        &segment.files,
+        &segment.records,
+        intern,
+        false,
+    )
+}
+
+#[cfg(test)]
 fn encode_records(
     collection: CollectionId,
     source_id: &str,
@@ -154,13 +173,33 @@ fn encode_records(
     records: &[RecordEntry],
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
 ) -> Result<Vec<u8>, String> {
-    validate_records(
-        collection,
-        source_id.to_owned(),
-        source_version,
-        files,
-        records,
-    )?;
+    encode_records_inner(collection, source_id, source_version, files, records, intern, true)
+}
+
+fn encode_records_inner(
+    collection: CollectionId,
+    source_id: &str,
+    source_version: u32,
+    files: &[SegmentFile],
+    records: &[RecordEntry],
+    intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
+    validate: bool,
+) -> Result<Vec<u8>, String> {
+    if validate {
+        validate_records(
+            collection,
+            source_id.to_owned(),
+            source_version,
+            files,
+            records,
+        )?;
+    } else if source_id.is_empty()
+        || source_id.len() > MAX_SOURCE_BYTES
+        || files.len() > MAX_FILES
+        || records.len() > MAX_RECORDS
+    {
+        return Err("constructed record metadata exceeds format limits".into());
+    }
     let mut out = Vec::new();
     start(&mut out, RECORD_MAGIC);
     put_u32(&mut out, collection.0);
@@ -395,7 +434,30 @@ pub(crate) fn encode_sort_data(
     sorting: &SortCollection,
     records: &[RecordEntry],
 ) -> Result<Vec<u8>, String> {
-    validate_sort_structure(sorting, records)?;
+    encode_sort_data_inner(sorting, records, true)
+}
+
+/// `finish_for_records` already checked this builder-owned sort structure.
+pub(crate) fn encode_sort_data_constructed(
+    sorting: &SortCollection,
+    records: &[RecordEntry],
+) -> Result<Vec<u8>, String> {
+    encode_sort_data_inner(sorting, records, false)
+}
+
+fn encode_sort_data_inner(
+    sorting: &SortCollection,
+    records: &[RecordEntry],
+    validate: bool,
+) -> Result<Vec<u8>, String> {
+    if validate {
+        validate_sort_structure(sorting, records)?;
+    } else if sorting.columns.len() > MAX_COLUMNS
+        || sorting.composites.len() > MAX_COLUMNS
+        || records.len() > MAX_RECORDS
+    {
+        return Err("constructed sort metadata exceeds format limits".into());
+    }
     let mut out = Vec::new();
     start(&mut out, SORT_MAGIC);
     put_u32(&mut out, records.len() as u32);

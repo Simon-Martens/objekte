@@ -96,10 +96,31 @@ pub(crate) fn append_visited<K: Ord + Clone + Serialize>(
     allowed: &RoaringBitmap,
     visit: impl FnOnce(&mut dyn FnMut(&K, &RoaringBitmap) -> Result<(), String>) -> Result<(), String>,
 ) -> Result<DictionarySpan, String> {
+    append_visited_inner(section, pack, allowed, true, visit)
+}
+
+/// Only for finalized builder postings whose exact eligible domain has
+/// already been checked by `SegmentAdmission::into_indexed_profiled`.
+pub(crate) fn append_visited_constructed<K: Ord + Clone + Serialize>(
+    section: &mut Vec<u8>,
+    pack: &mut PostingPack,
+    allowed: &RoaringBitmap,
+    visit: impl FnOnce(&mut dyn FnMut(&K, &RoaringBitmap) -> Result<(), String>) -> Result<(), String>,
+) -> Result<DictionarySpan, String> {
+    append_visited_inner(section, pack, allowed, false, visit)
+}
+
+fn append_visited_inner<K: Ord + Clone + Serialize>(
+    section: &mut Vec<u8>,
+    pack: &mut PostingPack,
+    allowed: &RoaringBitmap,
+    validate_domain: bool,
+    visit: impl FnOnce(&mut dyn FnMut(&K, &RoaringBitmap) -> Result<(), String>) -> Result<(), String>,
+) -> Result<DictionarySpan, String> {
     let start = section.len();
     let mut entries = Vec::new();
     visit(&mut |key, posting| {
-        if !posting.is_subset(allowed) {
+        if validate_domain && !posting.is_subset(allowed) {
             return Err("dictionary posting outside current segment domain".into());
         }
         entries.push((key.clone(), pack.append(posting)?));

@@ -14,7 +14,7 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize, de::DeserializeOwned};
 
 use crate::bigram::BigramIndex;
-use crate::bigram_dictionary::{BigramSpans, append_bigram_index};
+use crate::bigram_dictionary::{BigramSpans, append_bigram_index, append_bigram_index_constructed};
 use crate::build::IndexedCollectionSegment;
 use crate::inference::{InferenceMode, InferenceReport, InferenceState};
 use crate::inventory::FileEntry;
@@ -26,6 +26,7 @@ use crate::posting::{
 };
 use crate::posting_dictionary::{
     DictionarySpan, PostingPack, SealedPostingDictionary, append_visited,
+    append_visited_constructed,
 };
 use crate::repository::{CollectionDefinition, RepositoryOptions, canonical_custom_text_key};
 use crate::segment_format::{
@@ -33,7 +34,8 @@ use crate::segment_format::{
 };
 use crate::segment_metadata::{
     decode_record_slots, decode_relation_identity, decode_sort_data, encode_record_slots,
-    encode_relation_identity, encode_sort_data,
+    encode_record_slots_constructed, encode_relation_identity, encode_sort_data,
+    encode_sort_data_constructed,
 };
 use crate::workload::BigramAlphabet;
 
@@ -323,12 +325,24 @@ fn write_segment_inner<W: Write + Seek>(
     let mut fields = Vec::new();
     let mut structural = Vec::new();
     for (key, index, custom_complete) in posting_inputs(segment) {
-        let values = append_visited(&mut scalar, &mut pack, &segment.logical_records, |append| {
-            index.for_each_value(|key, posting| append(key, posting))
-        })?;
-        let lengths = append_visited(&mut scalar, &mut pack, &segment.logical_records, |append| {
-            index.for_each_length(|key, posting| append(key, posting))
-        })?;
+        let values = if validate_before_write {
+            append_visited(&mut scalar, &mut pack, &segment.logical_records, |append| {
+                index.for_each_value(|key, posting| append(key, posting))
+            })?
+        } else {
+            append_visited_constructed(&mut scalar, &mut pack, &segment.logical_records, |append| {
+                index.for_each_value(|key, posting| append(key, posting))
+            })?
+        };
+        let lengths = if validate_before_write {
+            append_visited(&mut scalar, &mut pack, &segment.logical_records, |append| {
+                index.for_each_length(|key, posting| append(key, posting))
+            })?
+        } else {
+            append_visited_constructed(&mut scalar, &mut pack, &segment.logical_records, |append| {
+                index.for_each_length(|key, posting| append(key, posting))
+            })?
+        };
         let facts = index
             .structural
             .as_ref()
@@ -374,7 +388,11 @@ fn write_segment_inner<W: Write + Seek>(
         } else {
             &segment.logical_records
         };
-        let spans = append_bigram_index(&mut bigrams, &mut pack, index, allowed)?;
+        let spans = if validate_before_write {
+            append_bigram_index(&mut bigrams, &mut pack, index, allowed)?
+        } else {
+            append_bigram_index_constructed(&mut bigrams, &mut pack, index, allowed)?
+        };
         texts.push(TextBinding {
             key,
             alphabet: index.alphabet,
@@ -412,8 +430,16 @@ fn write_segment_inner<W: Write + Seek>(
         },
     )?;
     let text_bytes = encode_meta(TEXT_MAGIC, &TextSection { bindings: texts })?;
-    let record_bytes = encode_record_slots(segment, intern)?;
-    let sort_bytes = encode_sort_data(&segment.sorting, &segment.records)?;
+    let record_bytes = if validate_before_write {
+        encode_record_slots(segment, intern)?
+    } else {
+        encode_record_slots_constructed(segment, intern)?
+    };
+    let sort_bytes = if validate_before_write {
+        encode_sort_data(&segment.sorting, &segment.records)?
+    } else {
+        encode_sort_data_constructed(&segment.sorting, &segment.records)?
+    };
     let relation_bytes = encode_relation_identity(
         &segment.relations,
         &segment.records,
