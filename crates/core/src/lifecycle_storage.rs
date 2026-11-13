@@ -458,7 +458,7 @@ fn restore_generation(
             ));
         }
         let configured = &owner.collections()[number];
-        let segment = crate::hybrid_segment_codec::decode_segment_owned(
+        let segment = crate::hybrid_segment_codec::decode_segment_sealed(
             Arc::clone(reader),
             ordinal,
             &configured.definition,

@@ -82,6 +82,41 @@ fn equality_bounds_and_restriction_match_builder_map_across_leaves() {
         sealed.get_restricted(&lower, &restricted).unwrap().unwrap(),
         map.get(&lower).unwrap() & &restricted
     );
+    let lower = ScalarKey::String("key-00991".into());
+    let upper = ScalarKey::String("key-03107".into());
+    for descending in [false, true] {
+        let mut cursor = sealed
+            .cursor_range(
+                Bound::Excluded(lower.clone()),
+                Bound::Included(upper.clone()),
+                descending,
+            )
+            .unwrap();
+        let mut actual = Vec::new();
+        while let Some(entry) = cursor.next().unwrap() {
+            actual.push(entry);
+        }
+        let expected = map.range((Bound::Excluded(&lower), Bound::Included(&upper)));
+        let expected = if descending {
+            expected
+                .rev()
+                .map(|(key, value)| (key.clone(), value.clone()))
+                .collect::<Vec<_>>()
+        } else {
+            expected
+                .map(|(key, value)| (key.clone(), value.clone()))
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(actual, expected);
+    }
+    let mut empty = sealed
+        .cursor_range(
+            Bound::Unbounded,
+            Bound::Excluded(ScalarKey::String("key-00000".into())),
+            true,
+        )
+        .unwrap();
+    assert!(empty.next().unwrap().is_none());
 }
 
 #[test]

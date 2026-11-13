@@ -93,6 +93,16 @@ fn managed_open_reuses_complete_generation_without_source_build() {
     )
     .unwrap();
     assert_eq!(reopened.status().unwrap().build_source_reads, 0);
+    let restored_view = reopened.view().unwrap();
+    let restored_segment = &restored_view.0.segments[0][0].index;
+    assert!(restored_segment.raw.normal.is_empty());
+    assert!(restored_segment.raw.skip.is_empty());
+    assert!(restored_segment
+        .inference
+        .as_ref()
+        .is_none_or(|inference| inference.indexes.values().all(|posting| {
+            posting.sealed.is_some() && posting.values.is_empty() && posting.lengths.is_empty()
+        })));
     assert_eq!(
         serde_json::to_value(
             reopened

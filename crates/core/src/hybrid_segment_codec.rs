@@ -1,10 +1,9 @@
 //! Source-I/O-free packing of one immutable search segment.
 //!
 //! Version 1 keeps typed dictionary bytes and portable Roaring postings in
-//! independently addressable sections. `decode_segment_owned` materializes
-//! those postings into the current mutable index types; that costs one read
-//! and allocation per posting. A sealed reader can reuse the same spans and
-//! descriptors without changing the file format.
+//! independently addressable sections. The materialized and sealed decoders
+//! share all metadata validation. The sealed path keeps typed dictionary
+//! readers and checks posting payloads only when queries access them.
 
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::io::{Seek, Write};
@@ -15,7 +14,7 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize, de::DeserializeOwned};
 
 use crate::bigram::BigramIndex;
-use crate::bigram_dictionary::append_bigram_index;
+use crate::bigram_dictionary::{BigramSpans, append_bigram_index};
 use crate::build::IndexedCollectionSegment;
 use crate::inference::{InferenceMode, InferenceReport, InferenceState};
 use crate::inventory::FileEntry;
@@ -25,7 +24,9 @@ use crate::posting::{
     CustomPostingIndex, PostingCollection, PostingIndex, PostingStats, ScalarKey, StructuralFacts,
     StructuralKey,
 };
-use crate::posting_dictionary::{DictionarySpan, PostingPack, append_dictionary};
+use crate::posting_dictionary::{
+    DictionarySpan, PostingPack, SealedPostingDictionary, append_dictionary,
+};
 use crate::repository::{CollectionDefinition, RepositoryOptions, canonical_custom_text_key};
 use crate::segment_format::{
     PostingDescriptor, REQUIRED_SECTIONS, SectionKind, SegmentReader, SegmentWriter,
@@ -506,10 +507,8 @@ fn check_spans(spans: impl IntoIterator<Item = Span>, section_len: usize) -> Res
     Ok(())
 }
 
-/// Decode into the current owned index representation. Every dictionary entry
-/// is validated and materialized before returning. The envelope's metadata
-/// sections are checked eagerly; posting integrity is checked per descriptor
-/// so the same file can later support on-demand sealed readers.
+/// Decode into mutable owned maps for compatibility and inspection tests.
+/// Every posting payload is validated and materialized before returning.
 pub(crate) fn decode_segment_owned<'a>(
     reader: Arc<SegmentReader>,
     expected_ordinal: u64,
@@ -519,6 +518,55 @@ pub(crate) fn decode_segment_owned<'a>(
     source: (&str, u32),
     expected_slot_count: u32,
     resolve: &dyn Fn(u32) -> Option<&'a FileEntry>,
+) -> Result<IndexedCollectionSegment, String> {
+    decode_segment_impl(
+        reader,
+        expected_ordinal,
+        definition,
+        options,
+        collection,
+        source,
+        expected_slot_count,
+        resolve,
+        false,
+    )
+}
+
+/// Open a managed segment with checked metadata and immutable dictionary
+/// readers. Both mapped and fully resident readers use this same path.
+pub(crate) fn decode_segment_sealed<'a>(
+    reader: Arc<SegmentReader>,
+    expected_ordinal: u64,
+    definition: &CollectionDefinition,
+    options: RepositoryOptions,
+    collection: CollectionId,
+    source: (&str, u32),
+    expected_slot_count: u32,
+    resolve: &dyn Fn(u32) -> Option<&'a FileEntry>,
+) -> Result<IndexedCollectionSegment, String> {
+    decode_segment_impl(
+        reader,
+        expected_ordinal,
+        definition,
+        options,
+        collection,
+        source,
+        expected_slot_count,
+        resolve,
+        true,
+    )
+}
+
+fn decode_segment_impl<'a>(
+    reader: Arc<SegmentReader>,
+    expected_ordinal: u64,
+    definition: &CollectionDefinition,
+    options: RepositoryOptions,
+    collection: CollectionId,
+    source: (&str, u32),
+    expected_slot_count: u32,
+    resolve: &dyn Fn(u32) -> Option<&'a FileEntry>,
+    sealed: bool,
 ) -> Result<IndexedCollectionSegment, String> {
     if expected_ordinal == 0 {
         return Err("hybrid segment ordinal must be nonzero".into());
@@ -592,6 +640,8 @@ pub(crate) fn decode_segment_owned<'a>(
         .collect::<HashMap<_, _>>();
     let logical = &records.logical_records;
     let fallback = &records.fallback_records;
+    let logical_shared = sealed.then(|| Arc::new(logical.clone()));
+    let fallback_shared = sealed.then(|| Arc::new(fallback.clone()));
     let mut declared = HashMap::new();
     let mut named = HashMap::new();
     let mut inferred = HashMap::new();
@@ -619,7 +669,7 @@ pub(crate) fn decode_segment_owned<'a>(
             | PostingKey::Inferred(path)
             | PostingKey::Named(path, _) => path.clone(),
         };
-        let index = PostingIndex {
+        let mut index = PostingIndex {
             path,
             kind: field.kind,
             multi: field.multi,
@@ -627,18 +677,26 @@ pub(crate) fn decode_segment_owned<'a>(
             empty_selections: materialize(&reader, refs.empty_selections, logical)?,
             nulls: materialize(&reader, refs.nulls, logical)?,
             structural: facts,
-            values: materialize_dictionary::<ScalarKey>(
-                &reader,
-                SectionKind::ScalarDictionaries,
-                field.values,
-                logical,
-            )?,
-            lengths: materialize_dictionary::<Number>(
-                &reader,
-                SectionKind::ScalarDictionaries,
-                field.lengths,
-                logical,
-            )?,
+            values: if sealed {
+                BTreeMap::new()
+            } else {
+                materialize_dictionary::<ScalarKey>(
+                    &reader,
+                    SectionKind::ScalarDictionaries,
+                    field.values,
+                    logical,
+                )?
+            },
+            lengths: if sealed {
+                BTreeMap::new()
+            } else {
+                materialize_dictionary::<Number>(
+                    &reader,
+                    SectionKind::ScalarDictionaries,
+                    field.lengths,
+                    logical,
+                )?
+            },
             sealed: None,
             value_complete: field.value_complete,
             length_complete: field.length_complete,
@@ -646,6 +704,23 @@ pub(crate) fn decode_segment_owned<'a>(
             covered_records: field.covered_records,
             stats: field.stats,
         };
+        if sealed {
+            let allowed = Arc::clone(logical_shared.as_ref().unwrap());
+            index.install_sealed(
+                SealedPostingDictionary::open(
+                    Arc::clone(&reader),
+                    SectionKind::ScalarDictionaries,
+                    field.values.checked()?,
+                    Arc::clone(&allowed),
+                )?,
+                SealedPostingDictionary::open(
+                    Arc::clone(&reader),
+                    SectionKind::ScalarDictionaries,
+                    field.lengths.checked()?,
+                    allowed,
+                )?,
+            )?;
+        }
         match field.key {
             PostingKey::Declared(path) => {
                 if field.custom_complete.is_some() || declared.insert(path, index).is_some() {
@@ -687,22 +762,37 @@ pub(crate) fn decode_segment_owned<'a>(
         };
         let mut index = BigramIndex::new(binding.alphabet);
         index.record_count = binding.record_count;
-        index.normal = materialize_dictionary::<u64>(
-            &reader,
-            SectionKind::BigramDictionaries,
-            binding.normal,
-            allowed,
-        )?
-        .into_iter()
-        .collect();
-        index.skip = materialize_dictionary::<u64>(
-            &reader,
-            SectionKind::BigramDictionaries,
-            binding.skip,
-            allowed,
-        )?
-        .into_iter()
-        .collect();
+        if sealed {
+            index.install_sealed(
+                Arc::clone(&reader),
+                BigramSpans {
+                    normal: binding.normal.checked()?,
+                    skip: binding.skip.checked()?,
+                },
+                Arc::clone(if binding.key == TextKey::Fallback {
+                    fallback_shared.as_ref().unwrap()
+                } else {
+                    logical_shared.as_ref().unwrap()
+                }),
+            )?;
+        } else {
+            index.normal = materialize_dictionary::<u64>(
+                &reader,
+                SectionKind::BigramDictionaries,
+                binding.normal,
+                allowed,
+            )?
+            .into_iter()
+            .collect();
+            index.skip = materialize_dictionary::<u64>(
+                &reader,
+                SectionKind::BigramDictionaries,
+                binding.skip,
+                allowed,
+            )?
+            .into_iter()
+            .collect();
+        }
         match binding.key {
             TextKey::Raw => raw = Some(index),
             TextKey::Fallback => fallback_text = Some(index),
@@ -925,9 +1015,13 @@ fn validate_components(
 }
 
 fn validate_posting_stats(index: &PostingIndex) -> Result<(), String> {
-    if index.stats.min_key.as_ref() != index.values.first_key_value().map(|(key, _)| key)
-        || index.stats.max_key.as_ref() != index.values.last_key_value().map(|(key, _)| key)
-    {
+    let valid = if let Some(values) = index.sealed_values() {
+        values.matches_bounds(index.stats.min_key.as_ref(), index.stats.max_key.as_ref())?
+    } else {
+        index.stats.min_key.as_ref() == index.values.first_key_value().map(|(key, _)| key)
+            && index.stats.max_key.as_ref() == index.values.last_key_value().map(|(key, _)| key)
+    };
+    if !valid {
         return Err("hybrid posting statistic bounds mismatch".into());
     }
     Ok(())
