@@ -5,7 +5,6 @@
 //! binds an independently encoded file catalog to the new manifest.
 
 use std::collections::{HashMap, HashSet};
-use std::io::Cursor;
 use std::path::PathBuf;
 use std::sync::Arc;
 use std::time::Instant;
@@ -142,19 +141,49 @@ impl ManagedPersistence {
                         active: &segment.active,
                     });
                 } else {
-                    let output = crate::hybrid_segment_codec::write_segment(
-                        &segment.index,
-                        segment.ordinal,
-                        definition,
-                        publication.repository.options(),
-                        Cursor::new(Vec::new()),
-                        &mut |entry| catalog.intern(entry),
-                    )?;
-                    inputs.push(SegmentInput::New {
-                        bytes: Arc::from(output.into_inner()),
+                    let references = segment
+                        .index
+                        .files
+                        .iter()
+                        .map(|file| catalog.intern(&file.entry))
+                        .collect::<Result<Vec<_>, _>>()?;
+                    let index = Arc::clone(&segment.index);
+                    let ordinal = segment.ordinal;
+                    let options = publication.repository.options();
+                    inputs.push(SegmentInput::NewStream {
                         collection,
-                        ordinal: segment.ordinal,
+                        ordinal,
                         active: &segment.active,
+                        write: Box::new(move |file| {
+                            let mut position = 0usize;
+                            crate::hybrid_segment_codec::write_segment(
+                                &index,
+                                ordinal,
+                                definition,
+                                options,
+                                file,
+                                &mut |entry| {
+                                    let expected = index
+                                        .files
+                                        .get(position)
+                                        .ok_or("segment metadata reference overflow")?;
+                                    if entry != &expected.entry {
+                                        return Err(
+                                            "segment metadata reference order changed".into()
+                                        );
+                                    }
+                                    let reference = *references
+                                        .get(position)
+                                        .ok_or("segment metadata reference missing")?;
+                                    position += 1;
+                                    Ok(reference)
+                                },
+                            )?;
+                            if position != references.len() {
+                                return Err("segment metadata reference count changed".into());
+                            }
+                            Ok(())
+                        }),
                     });
                 }
                 let current_refs = if reusable {
@@ -181,6 +210,7 @@ impl ManagedPersistence {
             &inputs,
             catalog_bytes,
         )?;
+        drop(inputs);
         if committed.segment_names.len() != next_indexes.len() {
             return Err("committed segment name count mismatch".into());
         }
@@ -321,15 +351,26 @@ fn restore_generation(
             "catalog and manifest revisions differ".into(),
         ));
     }
-    let owner = Arc::new(
-        Repository::empty_for_managed_generation(
-            resolved.repository_root.clone(),
-            definitions,
-            options,
-            sources,
-        )
-        .map_err(IndexError::Build)?,
-    );
+    let mut owner = Repository::empty_for_managed_generation(
+        resolved.repository_root.clone(),
+        definitions,
+        options,
+        sources,
+    )
+    .map_err(IndexError::Build)?;
+    for (collection, summary) in owner.collections.iter_mut().zip(&restored.inference) {
+        if summary.as_ref().is_some_and(|summary| {
+            summary.report.mode != options.inference.mode
+                || summary.report.policy != options.inference.policy
+                || summary.diagnostics.len() != summary.report.fields.len()
+        }) {
+            return Err(IndexError::InvalidCache(
+                "managed inference summary differs from configuration".into(),
+            ));
+        }
+        collection.global_inference = summary.clone();
+    }
+    let owner = Arc::new(owner);
     let metadata_ms = started.elapsed().as_millis() as u64;
     let count = owner.collections().len();
     if opened.segments.len() != opened.identities.len()

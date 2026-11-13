@@ -116,6 +116,74 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         self.dictionary.len()
     }
 
+    /// Materialize a mutable map for bounded compaction. Query paths use the
+    /// checked point and range methods without retaining this map.
+    pub(crate) fn materialize_all(&self) -> Result<BTreeMap<K, RoaringBitmap>, String> {
+        let mut result = BTreeMap::new();
+        let mut cursor = self.dictionary.first();
+        while let Some(position) = cursor {
+            let (key, descriptor) = self.dictionary.entry(position)?;
+            if result
+                .insert(key, self.materialize_descriptor(descriptor)?)
+                .is_some()
+            {
+                return Err("sealed dictionary contains a duplicate key".into());
+            }
+            cursor = self.dictionary.next(position);
+        }
+        Ok(result)
+    }
+
+    /// Visit keys and descriptors without decoding posting payloads. The
+    /// callback returns false to stop early. A negative lookup is backed by
+    /// the ordered dictionary's checked directory/block evidence.
+    pub(crate) fn visit_entries(
+        &self,
+        mut visit: impl FnMut(&K, PostingDescriptor) -> Result<bool, String>,
+    ) -> Result<(), String> {
+        let mut cursor = self.dictionary.first();
+        while let Some(position) = cursor {
+            let (key, descriptor) = self.dictionary.entry(position)?;
+            if !visit(&key, descriptor)? {
+                break;
+            }
+            cursor = self.dictionary.next(position);
+        }
+        Ok(())
+    }
+
+    /// Seek to a typed lower bound, then visit only the requested key range.
+    /// A visitor may stop when a logical type boundary has been crossed.
+    pub(crate) fn visit_bounds(
+        &self,
+        lower: Bound<&K>,
+        upper: Bound<&K>,
+        mut visit: impl FnMut(&K, PostingDescriptor) -> Result<bool, String>,
+    ) -> Result<(), String> {
+        let mut cursor = match &lower {
+            Bound::Unbounded => self.dictionary.first(),
+            Bound::Included(key) | Bound::Excluded(key) => self.dictionary.lower_bound(*key)?,
+        };
+        if let (Bound::Excluded(key), Some(found)) = (&lower, cursor) {
+            if &self.dictionary.entry(found)?.0 == *key {
+                cursor = self.dictionary.next(found);
+            }
+        }
+        while let Some(position) = cursor {
+            let (key, descriptor) = self.dictionary.entry(position)?;
+            let inside = match &upper {
+                Bound::Unbounded => true,
+                Bound::Included(end) => &key <= *end,
+                Bound::Excluded(end) => &key < *end,
+            };
+            if !inside || !visit(&key, descriptor)? {
+                break;
+            }
+            cursor = self.dictionary.next(position);
+        }
+        Ok(())
+    }
+
     pub(crate) fn estimated_cardinality(&self, key: &K) -> Result<Option<u32>, String> {
         Ok(self
             .dictionary
