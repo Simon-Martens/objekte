@@ -38,17 +38,18 @@ invocation, independently of the process working directory.
 | `--offset N` | Skip `N` hits in final result order; default `0`. |
 | `--count` | Compute an exact total for a finite page. All-results mode always computes it. |
 | `--index-alphabet ascii\|unicode` | Select bigram alphabet; default `ascii`. Exact case behavior is a query property. |
-| `--write-index[=DIR]` | Build fresh and atomically save a snapshot. |
-| `--load-index[=DIR]` | Require a valid snapshot; combine with `--write-index` to rebuild if absent or stale. |
+| `--index-storage memory\|temporary\|repository\|custom` | Choose where the index lives; default `memory`. |
+| `--index-directory DIR` | Existing base directory for `--index-storage custom`. Relative paths resolve from the invocation's working directory. |
+| `--index-residency on-demand\|full` | For disk storage, read index data on demand or keep it all in memory; default `on-demand`. Memory storage is always `full`. |
 | `--diagnostic`, `--diagnostics` | Include inferred index paths in the final NDJSON event and emit a pretty JSON operational diagnostic on stderr. |
 
-`QUERY`, `--fts`, and `--query-file` are mutually exclusive. Bare `obj` reports a missing query and does not build an index. An index flag permits an index-only invocation with no query. Optional snapshot directories require `=`: `--write-index 'title = "A"'` leaves the query intact, whereas `--write-index=./cache` selects a directory. The implicit directory is `<root>/.objekte`; an explicit relative directory is relative to the invocation's working directory. If both flags name directories, they must resolve to the same destination.
+`QUERY`, `--fts`, and `--query-file` are mutually exclusive. Bare `obj` reports a missing query and does not build an index. An explicit storage choice permits an index-only invocation with no query. `custom` requires `--index-directory`; the directory option is invalid with other storage choices. An explicit `--index-residency on-demand` is invalid with `memory`. The removed `--load-index` and `--write-index` flags report replacement guidance.
 
-`--repo` is exclusive with `--path`, `--schema`, and `--no-recurse`. It reads collection name, source path, format and ID policy from each schema's `x-objekte` object. Relative source paths must stay inside the repository root. Available `x-relation` targets remain active, so the TUI can show outgoing links and backlinks; declarations pointing to collections absent from the repository are ignored. Repository CLI queries search all collections, while the TUI can select one. Without index flags, `--repo` builds in memory and leaves snapshots untouched. Use `--load-index` to require restore or `--write-index` to save explicitly.
+`--repo` is exclusive with `--path`, `--schema`, and `--no-recurse`. It reads collection name, source path, format and ID policy from each schema's `x-objekte` object. Relative source paths must stay inside the repository root. Available `x-relation` targets remain active, so the TUI can show outgoing links and backlinks; declarations pointing to collections absent from the repository are ignored. Repository CLI queries search all collections, while the TUI can select one. The default builds in memory; select a disk storage choice to reuse and synchronize an index.
 
-With repeated `--path`, each directory becomes a collection named after its final directory component. Queries search all selected collections, and the TUI can select one. Names must be distinct; directories must not overlap and must share a useful parent directory. That common parent is the repository root and the default snapshot location is its `.objekte` directory. Only the selected directories are searched. Repeated `--path` does not require `.objekte` or collection schemas, and it cannot be combined with `--schema`. A single `--path` retains the `files` collection name and existing `--schema` behavior.
+With repeated `--path`, each directory becomes a collection named after its final directory component. Queries search all selected collections, and the TUI can select one. Names must be distinct; directories must not overlap and must share a useful parent directory. That common parent is the repository root. Only the selected directories are searched. Repeated `--path` does not require `.objekte` or collection schemas, and it cannot be combined with `--schema`. A single `--path` retains the `files` collection name and existing `--schema` behavior.
 
-A query file accepts UTF-8, LF or CRLF, and an optional initial BOM. Blank lines are ignored. A nonblank line beginning with `"` must be one complete JSON string literal with no trailing tokens; JSON escapes are decoded once. Every other line is passed unchanged to the core structured-query parser. There is no comment or multiline continuation syntax. An erroneous line gets its own `query_error`, and later lines continue. The process exits nonzero if any line fails. A readable file with no queries is an error unless the invocation also has an index flag.
+A query file accepts UTF-8, LF or CRLF, and an optional initial BOM. Blank lines are ignored. A nonblank line beginning with `"` must be one complete JSON string literal with no trailing tokens; JSON escapes are decoded once. Every other line is passed unchanged to the core structured-query parser. There is no comment or multiline continuation syntax. An erroneous line gets its own `query_error`, and later lines continue. The process exits nonzero if any line fails. A readable file with no queries is an error unless the invocation also has an explicit storage choice.
 
 ```text
 "Goethe"
@@ -64,7 +65,7 @@ year >= 1800 && year < 1900 SORT BY year DESC
 
 ## Collection and text rules
 
-Discovery recursively selects regular files with the case-sensitive `.json` extension. Hidden JSON files and hidden directories are included. `.git` directories and the default or selected snapshot directory are pruned before descent. `.jsonl`, nested symlinks and files excluded by extension are ignored. `.gitignore` does not filter inputs. A top-level symlink passed with `--path` is resolved while canonicalizing the root. Directory discovery errors fail startup; an empty directory is a valid zero-record collection.
+Discovery recursively selects regular files with the case-sensitive `.json` extension. Hidden JSON files and hidden directories are included. `.git` directories and application-owned index directories are pruned before descent. `.jsonl`, nested symlinks and files excluded by extension are ignored. `.gitignore` does not filter inputs. A top-level symlink passed with `--path` is resolved while canonicalizing the root. Directory discovery errors fail startup; an empty directory is a valid zero-record collection.
 
 The stable public record ID uses the core's `path:` prefix followed by the path relative to the selected root, including the extension. Thus `path:a/001.json` and `path:b/001.json` are different records. Non-UTF-8 path components use the core's reversible encoded representation. Adding an unrelated file does not renumber existing public identities.
 
@@ -86,8 +87,8 @@ Stdout contains one UTF-8 JSON object per line, with `protocol_version: 2`, a mo
 On a fresh build, the CLI may evaluate an accepted query internally as
 searchable batches arrive. It waits for construction to complete before
 emitting any query events, so hit order, exact counts, exports, and exit
-status retain the complete-index behavior. A valid existing snapshot still
-uses the normal restore path. Early internal evaluation covers direct inputs
+status retain the complete-index behavior. A valid stored generation can
+open without reparsing unchanged source content. Early internal evaluation covers direct inputs
 and regular query files. Stdin and named pipes are read by the normal ordered
 query stream after opening so input reads cannot block construction.
 
@@ -104,7 +105,7 @@ With `--auto-index --diagnostic`, the final event includes `automatic_index_path
 In multi-collection mode (`--repo` or repeated `--path`), `--auto-index --diagnostic` reports these paths under `automatic_index_collections`, keyed by collection name.
 
 ```sh
-obj --path examples/musenalm --load-index --auto-index --diagnostic |
+obj --path examples/musenalm --index-storage repository --auto-index --diagnostic |
   jq -r 'select(.type=="run_complete") | .automatic_index_paths[] |
     select(.index_status=="Built" and .value_keys>0) |
     "\(.path|join("."))\t\(.kind)\tkeys=\(.value_keys)\tmulti=\(.multi)"'
@@ -120,19 +121,19 @@ for path in repository.inference_index_diagnostics("files").unwrap_or_default() 
 }
 ```
 
-## Snapshot policy
+## Index storage
 
-| Flags | Current compatible snapshot | Missing, stale, incompatible or corrupt snapshot |
+| Choice | Opening and synchronization | Residency |
 | --- | --- | --- |
-| Neither | Ignore it and build in memory. | Build in memory. |
-| `--write-index` | Ignore it, build fresh, atomically replace. | Build fresh and save. |
-| `--load-index` | Restore and reconcile; never write. | Fail startup; suggest combining with `--write-index`. |
-| Both | Restore and reconcile; do not rewrite. | Build fresh, atomically save, then query. |
+| `memory` | Build from sources and leave index stores untouched. | Full |
+| `temporary` | Reuse a valid index in the system temporary folder, or build and synchronize there. | On demand by default; full optional |
+| `repository` | Reuse or build under the repository's `.objekte/indexes` directory. | On demand by default; full optional |
+| `custom` | Reuse or build in an Objekte-owned namespace beneath the selected base directory. | On demand by default; full optional |
 
-Permission and I/O failures are errors, not automatic rebuild signals. A load verifies the complete selected inventory using filesystem metadata; unchanged source JSON is not reparsed merely for restore. A file added, removed, renamed or modified since the snapshot makes load-only fail. Neither-flag and load-only modes leave snapshot files untouched. Snapshot writes use a temporary file and atomic rename in the destination directory; `--write-index` does not clear unrelated files there.
+Disk modes use an index namespace based on the repository and effective configuration. A valid generation can become searchable before source reconciliation finishes. Subsequent changes are synchronized automatically, and a finite command flushes its completed generation before successful exit. The full residency option prepares owned in-memory index data before reporting readiness. Files belonging to old snapshot formats in the selected storage scope are removed when a new index is created; source files, schemas, saved queries and unrelated files are preserved. Permission, I/O and synchronization failures are reported as errors.
 
 ## Memory and exit behavior
 
 All-results execution performs one query traversal and sends bounded ordered batches through synchronous backpressure. It does not repeatedly ask for pages or retain all document bodies. The default stream settings bound each event to 16 MiB and buffered result work to 64 MiB; one record exceeding the event limit can fail explicitly. A computed sort must first evaluate all needed keys before emitting its first row, and key/target state is subject to the core's 64 MiB key and 128 MiB computed-sort budgets. A finite `--limit` keeps bounded top-k selection. The resident index and any individual source record add to process memory; these limits are not a total RSS guarantee.
 
-Exit status is `0` for success and zero matches, `1` for query/input/output errors, `2` for invalid arguments or collection/snapshot startup failures, and `130` for Ctrl-C cancellation. A downstream broken pipe is treated as intentional consumer termination: the command stops without a false completion event and exits successfully.
+Exit status is `0` for success and zero matches, `1` for query/input/output errors, `2` for invalid arguments or collection/index startup failures, and `130` for Ctrl-C cancellation. A downstream broken pipe is treated as intentional consumer termination: the command stops without a false completion event and exits successfully.
