@@ -1285,6 +1285,11 @@ impl Repository {
         sources: SourceRegistry,
         policy: SnapshotOpenPolicy,
     ) -> Result<Self, String> {
+        if !cfg!(test) && policy.mode != SnapshotMode::Disabled {
+            return Err(
+                "deprecated snapshot loading is unavailable; use IndexStoragePolicy".into(),
+            );
+        }
         options.inference.validate()?;
         crate::relation::validate_definitions(&definitions)?;
         options.snapshot_mode = policy.mode;

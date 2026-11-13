@@ -1738,6 +1738,11 @@ impl Index {
         path: &Path,
         select_if_none: bool,
     ) -> Result<(IndexRevision, crate::storage::SnapshotSaveStats), IndexError> {
+        if !cfg!(test) {
+            return Err(IndexError::InvalidCache(
+                "deprecated snapshot writing is unavailable; use Index::flush_storage".into(),
+            ));
+        }
         let view = self.view()?;
         if !view.initial_construction_complete() {
             return Err(IndexError::IncompleteBuild);
@@ -1886,6 +1891,12 @@ impl Index {
     /// previous explicit flush. Disabling stops future writes and joins the
     /// worker; callers must run this off interactive threads.
     pub fn set_sync_cache(&self, enabled: bool) -> Result<(), IndexError> {
+        if enabled && !cfg!(test) {
+            return Err(IndexError::InvalidCache(
+                "deprecated snapshot synchronization is unavailable; use Index::set_sync_storage"
+                    .into(),
+            ));
+        }
         if enabled {
             self.enable_sync_cache()
         } else {

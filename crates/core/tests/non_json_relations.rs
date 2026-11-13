@@ -1,22 +1,24 @@
 use std::collections::BTreeMap;
 use std::sync::Arc;
 
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+};
 use objekte_search_core::inventory::ByteRange;
+use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
 use objekte_search_core::source::{
     ExtractedRecord, SourceFormat, SourceReader, SourceRegistry, TextSegment,
 };
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 
-
 struct PipeReader;
-
 
 impl SourceReader for PipeReader {
     fn name(&self) -> &'static str {
@@ -56,7 +58,6 @@ impl SourceReader for PipeReader {
         })
     }
 }
-
 
 fn add_field(schema: &mut Schema, name: &str, kind: LogicalType) {
     schema
@@ -153,24 +154,39 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         };
         let built =
             Repository::open_with_sources(&root, definitions(), options, sources.clone()).unwrap();
-        built
-            .save_snapshot(&objekte_search_core::storage::snapshot_path(
-                &root,
-                options.bigram_alphabet,
-            ))
-            .unwrap();
+        let policy = IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        };
+        let first = Index::open_with_storage(
+            &root,
+            definitions(),
+            options,
+            policy.clone(),
+            sources.clone(),
+        )
+        .unwrap();
+        first.stop_sync_storage().unwrap();
         let restored =
-            Repository::open_with_sources(&root, definitions(), options, sources.clone()).unwrap();
-        assert!(restored.startup().restored);
-        for repository in [&built, &restored] {
-            let actual = repository.search(&query).unwrap();
-            let reference = repository.search_reference(&query).unwrap();
+            Index::open_with_storage(&root, definitions(), options, policy, sources.clone())
+                .unwrap();
+        assert!(restored.restored_from_cache());
+        let view = restored.view().unwrap();
+        for stored in [false, true] {
+            let search = |query: &Query| {
+                if stored {
+                    view.search(query)
+                } else {
+                    built.search(query)
+                }
+            };
+            let actual = search(&query).unwrap();
+            let reference = built.search_reference(&query).unwrap();
             assert_eq!(actual.hits, reference.hits);
             assert_eq!(actual.count, Some(1));
             assert_eq!(actual.hits[0].record_id, "m1");
@@ -179,22 +195,17 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
                     .matched_fields
                     .contains(&"entry.title".into())
             );
-            assert!(
-                repository
-                    .search(&query)
-                    .unwrap()
-                    .counters
-                    .verified_result_hit
-            );
+            assert!(search(&query).unwrap().counters.verified_result_hit);
             let mut positioned = query.clone();
             positioned.fts.as_mut().unwrap().fields[0].query_path = Some("entry.title[0]".into());
             assert!(
-                repository
-                    .search(&positioned)
+                search(&positioned)
                     .unwrap_err()
                     .contains("logical-string text derivation")
             );
         }
+        restored.stop_sync_storage().unwrap();
+        restored.wait_for_reconciliation().unwrap();
     }
     std::fs::remove_dir_all(root).unwrap();
 }

@@ -171,6 +171,11 @@ impl Index {
         path: &Path,
         protected_files: &[PathBuf],
     ) -> Result<Self, IndexError> {
+        if !cfg!(test) {
+            return Err(IndexError::InvalidCache(
+                "deprecated snapshot loading is unavailable; use IndexStoragePolicy".into(),
+            ));
+        }
         let root = root.into();
         match Self::load_cache(&root, definitions.clone(), options, path) {
             Ok(index) => {
@@ -206,6 +211,11 @@ impl Index {
         path: &Path,
         mut profile: Option<&mut LoadProfileStats>,
     ) -> Result<Self, IndexError> {
+        if !cfg!(test) {
+            return Err(IndexError::InvalidCache(
+                "deprecated snapshot loading is unavailable; use IndexStoragePolicy".into(),
+            ));
+        }
         let standard_started = Instant::now();
         let total_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         let root = root
