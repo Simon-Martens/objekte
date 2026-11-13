@@ -6,7 +6,7 @@ use roaring::RoaringBitmap;
 
 use crate::bigram::{BigramIndex, BigramRequest};
 use crate::posting_dictionary::{
-    DictionarySpan, PostingPack, SealedPostingDictionary, append_entries,
+    DictionarySpan, PostingPack, SealedPostingDictionary, append_visited,
 };
 use crate::segment_format::{PostingDescriptor, SectionKind, SegmentReader};
 use crate::workload::BigramAlphabet;
@@ -26,12 +26,12 @@ pub(crate) fn append_bigram_index(
 ) -> Result<BigramSpans, String> {
     index.validate(index.record_count as usize)?;
     index.validate_domain(allowed)?;
-    let mut normal = index.normal.iter().collect::<Vec<_>>();
-    normal.sort_unstable_by_key(|(key, _)| **key);
-    let normal = append_entries(section, pack, normal)?;
-    let mut skip = index.skip.iter().collect::<Vec<_>>();
-    skip.sort_unstable_by_key(|(key, _)| **key);
-    let skip = append_entries(section, pack, skip)?;
+    let normal = append_visited(section, pack, allowed, |append| {
+        index.for_each_normal(|key, posting| append(key, posting))
+    })?;
+    let skip = append_visited(section, pack, allowed, |append| {
+        index.for_each_skip(|key, posting| append(key, posting))
+    })?;
     Ok(BigramSpans { normal, skip })
 }
 
@@ -55,6 +55,27 @@ impl std::fmt::Debug for SealedBigramIndex {
 }
 
 impl SealedBigramIndex {
+    pub(crate) fn for_each_normal(
+        &self,
+        mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
+    ) -> Result<(), String> {
+        self.normal.visit_entries(|key, descriptor| {
+            let posting = self.normal.materialize_descriptor(descriptor)?;
+            visit(key, &posting)?;
+            Ok(true)
+        })
+    }
+
+    pub(crate) fn for_each_skip(
+        &self,
+        mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
+    ) -> Result<(), String> {
+        self.skip.visit_entries(|key, descriptor| {
+            let posting = self.skip.materialize_descriptor(descriptor)?;
+            visit(key, &posting)?;
+            Ok(true)
+        })
+    }
     pub(crate) fn open(
         reader: Arc<SegmentReader>,
         spans: BigramSpans,

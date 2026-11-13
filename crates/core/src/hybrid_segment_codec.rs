@@ -25,7 +25,7 @@ use crate::posting::{
     StructuralKey,
 };
 use crate::posting_dictionary::{
-    DictionarySpan, PostingPack, SealedPostingDictionary, append_dictionary,
+    DictionarySpan, PostingPack, SealedPostingDictionary, append_visited,
 };
 use crate::repository::{CollectionDefinition, RepositoryOptions, canonical_custom_text_key};
 use crate::segment_format::{
@@ -309,8 +309,12 @@ pub(crate) fn write_segment<W: Write + Seek>(
     let mut fields = Vec::new();
     let mut structural = Vec::new();
     for (key, index, custom_complete) in posting_inputs(segment) {
-        let values = append_dictionary(&mut scalar, &mut pack, &index.values)?;
-        let lengths = append_dictionary(&mut scalar, &mut pack, &index.lengths)?;
+        let values = append_visited(&mut scalar, &mut pack, &segment.logical_records, |append| {
+            index.for_each_value(|key, posting| append(key, posting))
+        })?;
+        let lengths = append_visited(&mut scalar, &mut pack, &segment.logical_records, |append| {
+            index.for_each_length(|key, posting| append(key, posting))
+        })?;
         let facts = index
             .structural
             .as_ref()

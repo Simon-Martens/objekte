@@ -287,6 +287,97 @@ fn sealed_reopen_from_mapped_and_owned_bytes_queries_without_source() {
 }
 
 #[test]
+fn sealed_segment_reencodes_after_move_and_retirement_without_source() {
+    let (root, definition, options, segment) = fixture();
+    let mut metadata = Vec::<FileEntry>::new();
+    let bytes = write_segment(
+        &segment,
+        1,
+        &definition,
+        options,
+        Cursor::new(Vec::new()),
+        &mut |entry| {
+            metadata.push(entry.clone());
+            Ok((metadata.len() - 1) as u32)
+        },
+    )
+    .unwrap()
+    .into_inner();
+    std::fs::remove_file(root.join("data/sample.jsonl")).unwrap();
+    let reopened = decode_segment_sealed(
+        Arc::new(SegmentReader::from_owned(Arc::from(bytes)).unwrap()),
+        1,
+        &definition,
+        options,
+        segment.collection,
+        (segment.source_id.as_str(), segment.source_version),
+        segment.records.len() as u32,
+        &|id| metadata.get(id as usize),
+    )
+    .unwrap();
+    let BoundExpr::Term(term) =
+        bind_filter(&parse_filter("n >= 1").unwrap(), &definition.schema).unwrap()
+    else {
+        panic!("expected term");
+    };
+    let path = vec!["n".to_owned()];
+    let active = RoaringBitmap::from_iter([1]);
+    let before = reopened.postings.fields[&path]
+        .exact_set_checked(&term, &reopened.logical_records)
+        .unwrap()
+        .unwrap()
+        & &active;
+    let gram = BigramRequest::new("One");
+    let before_gram = reopened.raw.try_candidates_prepared(&gram).unwrap();
+    // A catalog move changes the current path. The segment keeps its indexed
+    // historical path because fallback record IDs are derived from it.
+    let mut moved_current = reopened.files[0].entry.clone();
+    moved_current.relative_path = PathBuf::from("data/moved.jsonl").into();
+    let mut moved_metadata = Vec::<FileEntry>::new();
+    let rewritten = write_segment(
+        &reopened,
+        2,
+        &definition,
+        options,
+        Cursor::new(Vec::new()),
+        &mut |entry| {
+            moved_metadata.push(entry.clone());
+            Ok((moved_metadata.len() - 1) as u32)
+        },
+    )
+    .unwrap()
+    .into_inner();
+    let restored = decode_segment_sealed(
+        Arc::new(SegmentReader::from_owned(Arc::from(rewritten)).unwrap()),
+        2,
+        &definition,
+        options,
+        segment.collection,
+        (segment.source_id.as_str(), segment.source_version),
+        segment.records.len() as u32,
+        &|id| moved_metadata.get(id as usize),
+    )
+    .unwrap();
+    assert_eq!(moved_current.relative_path, PathBuf::from("data/moved.jsonl"));
+    assert_eq!(restored.files[0].entry.relative_path, PathBuf::from("data/sample.jsonl"));
+    assert_eq!(
+        restored.postings.fields[&path]
+            .exact_set_checked(&term, &restored.logical_records)
+            .unwrap()
+            .unwrap()
+            & &active,
+        before,
+    );
+    assert_eq!(
+        restored.raw.try_candidates_prepared(&gram).unwrap(),
+        before_gram
+    );
+    assert!(restored.postings.fields[&path].values.is_empty());
+    assert!(restored.raw.normal.is_empty());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn manifest_slot_count_and_source_binding_are_checked() {
     let (root, definition, options, segment) = fixture();
     let mut table = Vec::<FileEntry>::new();
