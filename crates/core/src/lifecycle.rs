@@ -186,6 +186,10 @@ pub struct IndexStatus {
     /// processed. Equal to `indexed_files` on an ordinary completed index.
     pub processed_files: usize,
     pub initial_construction_complete: bool,
+    /// Construction parse attempts captured by the resident repository.
+    pub build_parses: u64,
+    /// Active fallback records across the base and published segments.
+    pub fallback_records: u64,
 }
 
 /// Discovery-only facts for one physical file. Record identity, validity,
@@ -496,6 +500,18 @@ impl PublishedIndex {
             indexed_files: self.catalog.active_files() as usize,
             processed_files: self.processed_files,
             initial_construction_complete: self.catalog.construction_complete(),
+            build_parses: self.repository.build_parses(),
+            fallback_records: self.repository.collections().iter().enumerate().map(|(number, collection)| {
+                let base = collection.generation.records.iter().filter(|record| {
+                    record.class == crate::inventory::RecordClass::RawFallback
+                        && self.active[number].contains(record.slot)
+                }).count() as u64;
+                let segments = self.segments[number].iter().map(|segment| segment.index.records.iter().filter(|record| {
+                    record.class == crate::inventory::RecordClass::RawFallback
+                        && segment.active.contains(record.slot)
+                }).count() as u64).sum::<u64>();
+                base + segments
+            }).sum(),
             live_records: self.active.iter().map(ActiveRecords::len).sum::<u64>()
                 + self
                     .segments
@@ -806,7 +822,7 @@ fn prepare_file_at(
         .map(|duration| duration.as_nanos() as i128);
     let source = SourceFileInput {
         id,
-        relative_path: relative.to_owned(),
+        relative_path: relative.to_owned().into(),
         revision,
         created_ns,
     };
@@ -2755,7 +2771,6 @@ impl IndexView {
                 self.revision(),
                 cache,
             )
-            .map(|result| self.stamp_result(result))
         } else {
             crate::run::search_segmented_lifecycle(
                 self.repository(),
@@ -2836,7 +2851,6 @@ impl IndexView {
                 context,
                 cache,
             )
-            .map(|result| self.stamp_result(result))
         } else {
             crate::run::search_segmented_with_context_lifecycle(
                 self.repository(),
@@ -2931,6 +2945,7 @@ impl IndexView {
         context.enter()?;
         if self.instance_id() != previous.instance_id()
             || self.revision() <= previous.revision()
+            || (self.initial_construction_complete() && !previous.initial_construction_complete())
             || !query.options.sort.is_empty()
             || query.options.offset != 0
             || query.options.count
@@ -3052,7 +3067,7 @@ impl IndexView {
         return_mode: ReturnMode,
     ) -> Result<crate::run::DirectLookupResult, String> {
         self.ensure_initial_complete()?;
-        let result = crate::run::direct_lookup_segmented(
+        let mut result = crate::run::direct_lookup_segmented(
             self.repository(),
             collection,
             record_id,
@@ -3062,6 +3077,9 @@ impl IndexView {
             &self.0.catalog,
             self.revision(),
         )?;
+        if let crate::run::DirectLookupResult::Found(hit) = &mut result {
+            self.remap_hit_diagnostic(hit);
+        }
         Ok(result)
     }
 
@@ -3075,7 +3093,7 @@ impl IndexView {
                 &self.0.segments,
                 &self.0.catalog,
                 self.revision(),
-            );
+            ).map(|result| self.stamp_result(result));
         }
         self.repository()
             .search_reference_with_active(query, Some(&self.0.active))
@@ -3216,7 +3234,7 @@ impl IndexView {
                 &self.0.segments,
                 &self.0.catalog,
                 self.revision(),
-            );
+            ).map(|(result, trace)| (self.stamp_result(result), trace));
         }
         crate::run::search_analyze_with_active(
             self.repository(),
@@ -3305,6 +3323,29 @@ impl IndexView {
             store: &owner.verified_cache,
             instance_id: self.instance_id(),
         });
+        let mut remap_rows = |event: StreamEvent<'_>| -> Result<StreamControl, String> {
+            match event {
+                StreamEvent::OrderedRows { sequence, start, rows, progress } => {
+                    if rows.iter().any(|hit| hit.diagnostic_ref.stored_index().is_some()) {
+                        let mut remapped = rows.to_vec();
+                        for hit in &mut remapped { self.remap_hit_diagnostic(hit); }
+                        sink(StreamEvent::OrderedRows { sequence, start, rows: &remapped, progress })
+                    } else {
+                        sink(StreamEvent::OrderedRows { sequence, start, rows, progress })
+                    }
+                }
+                StreamEvent::PageReplacement { sequence, rows, progress } => {
+                    if rows.iter().any(|hit| hit.diagnostic_ref.stored_index().is_some()) {
+                        let mut remapped = rows.to_vec();
+                        for hit in &mut remapped { self.remap_hit_diagnostic(hit); }
+                        sink(StreamEvent::PageReplacement { sequence, rows: &remapped, progress })
+                    } else {
+                        sink(StreamEvent::PageReplacement { sequence, rows, progress })
+                    }
+                }
+                StreamEvent::Progress { sequence, progress } => sink(StreamEvent::Progress { sequence, progress }),
+            }
+        };
         let result = crate::run::search_stream_segmented_with_context_lifecycle(
             self.repository(),
             query,
@@ -3315,7 +3356,7 @@ impl IndexView {
             &self.0.segments,
             &self.0.catalog,
             self.revision(),
-            sink,
+            &mut remap_rows,
             cache,
         );
         result

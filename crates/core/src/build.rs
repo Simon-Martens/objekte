@@ -19,7 +19,7 @@ use sha2::{Digest, Sha256};
 use crate::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution, storage_diagnostic_enabled};
 use crate::inference::{InferenceBuilder, InferenceConfig};
 use crate::inventory::{
-    ByteRange, CollectionBuilder, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass,
+    ByteRange, CollectionBuilder, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass, SharedPath,
     RecordEntry, SourceDiagnostic, SourceRevision, append_shifted_bitmap,
 };
 use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
@@ -55,7 +55,7 @@ pub(crate) struct BatchFile {
 #[derive(Clone)]
 pub(crate) struct SourceFileInput {
     pub(crate) id: FileId,
-    pub(crate) relative_path: PathBuf,
+    pub(crate) relative_path: SharedPath,
     pub(crate) revision: SourceRevision,
     pub(crate) created_ns: Option<i128>,
 }
@@ -65,7 +65,7 @@ impl SourceFileInput {
     pub(crate) fn from_entry(entry: &FileEntry) -> Self {
         Self {
             id: entry.id,
-            relative_path: entry.relative_path.to_path_buf(),
+            relative_path: entry.relative_path.clone(),
             revision: entry.revision,
             created_ns: entry.created_ns,
         }
