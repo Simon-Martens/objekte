@@ -7,7 +7,15 @@ use sha2::{Digest, Sha256};
 use std::path::PathBuf;
 
 fn main() -> Result<(), String> {
-    let root = PathBuf::from(std::env::args().nth(1).ok_or("missing corpus root")?);
+    let mut arguments = std::env::args().skip(1);
+    let root = PathBuf::from(arguments.next().ok_or("missing corpus root")?);
+    let mut selected = arguments.collect::<Vec<_>>();
+    if selected.is_empty() {
+        selected = ["Q115", "Q116", "Q117", "Q118", "Q120"]
+            .into_iter()
+            .map(str::to_owned)
+            .collect();
+    }
     let base = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches");
     let cases = load_extended_manifest(
         &base.join("musenalm_queries.json"),
@@ -25,8 +33,8 @@ fn main() -> Result<(), String> {
             ..Default::default()
         },
     )?;
-    for id in ["Q115", "Q116", "Q117", "Q118", "Q120"] {
-        let case = cases.iter().find(|case| case.id == id).ok_or(id)?;
+    for id in selected {
+        let case = cases.iter().find(|case| case.id == id).ok_or_else(|| id.clone())?;
         let query = case.query()?;
         let actual = repo.search(&query)?;
         let reference = repo.search_reference(&query)?;

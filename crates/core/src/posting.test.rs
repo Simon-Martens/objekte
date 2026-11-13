@@ -1055,3 +1055,87 @@ fn mixed_selected_occurrences_have_independent_exact_state_facts() {
         );
     }
 }
+
+#[test]
+fn sparse_dynamic_keys_do_not_create_unselected_state_postings() {
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::reference::Schema;
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::source::SourceFormat;
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!("objekte-state-sparse-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for slot in 0..64 {
+        std::fs::write(
+            root.join(format!("data/{slot:02}.json")),
+            format!(r#"{{"selected":{slot},"dynamic_{slot:02}":{slot}}}"#),
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["selected".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let postings = &repo.collections()[0].postings.fields;
+    assert_eq!(postings.len(), 1);
+    assert!(postings[&vec!["selected".into()]].structural.is_some());
+    let request = |filter: &str| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 64,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let indexed = repo.search(&request("selected:number = true")).unwrap();
+    assert_eq!(indexed.count, Some(64));
+    assert_eq!(indexed.counters.files_opened, 0);
+    let unindexed = repo.search(&request("dynamic_17:number = true")).unwrap();
+    assert_eq!(unindexed.count, Some(1));
+    assert_eq!(unindexed.counters.files_opened, 64);
+    assert_eq!(
+        unindexed.hits,
+        repo.search_reference(&request("dynamic_17:number = true"))
+            .unwrap()
+            .hits
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}

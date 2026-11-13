@@ -36,7 +36,7 @@ fn extended_manifest_preserves_the_fixed_150_and_binds_parameters() {
     let fixed = directory.join("musenalm_queries.json");
     let extended = directory.join("musenalm_queries_extended.json");
     let cases = load_extended_manifest(&fixed, &extended).unwrap();
-    assert_eq!(cases.len(), 206);
+    assert_eq!(cases.len(), 220);
     assert_eq!(cases[0].request, load_manifest(&fixed).unwrap()[0]);
     assert!(cases[..150].iter().all(|case| case.parameters.is_empty()));
     assert_eq!(
