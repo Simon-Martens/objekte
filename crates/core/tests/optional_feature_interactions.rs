@@ -2,13 +2,17 @@ use std::collections::HashMap;
 use std::path::PathBuf;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+};
 use objekte_search_core::inference::{InferenceConfig, InferenceIndexStatus, InferenceMode};
+use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::repository::{
     CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
 };
-use objekte_search_core::source::SourceFormat;
+use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::streaming::{
     CancellationToken, StreamControl, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
 };
@@ -16,9 +20,7 @@ use objekte_search_core::workload::{ReturnMode, SortField};
 
 static NEXT_ROOT: AtomicUsize = AtomicUsize::new(0);
 
-
 struct Fixture(PathBuf);
-
 
 impl Fixture {
     fn new() -> Self {
@@ -84,13 +86,11 @@ impl Fixture {
     }
 }
 
-
 impl Drop for Fixture {
     fn drop(&mut self) {
         std::fs::remove_dir_all(&self.0).ok();
     }
 }
-
 
 fn query(filter: &str, sort: Vec<SortField>, return_mode: ReturnMode) -> Query {
     Query {
@@ -239,22 +239,55 @@ fn unrelated_empty_array_does_not_fabricate_universal_hit_or_lose_fallback_or() 
 #[test]
 fn reopening_without_inference_does_not_restore_inferred_postings() {
     let fixture = Fixture::new();
-    let auto = fixture.open(InferenceMode::AutoIndex, SnapshotMode::IfValid);
-    assert!(!auto.startup().restored);
-    assert!(auto.inference_report("data").is_some());
+    let policy = IndexStoragePolicy {
+        location: IndexStorageLocation::RepositoryDirectory,
+        residency: IndexResidency::OnDemand,
+    };
+    let options = |mode| RepositoryOptions {
+        inference: InferenceConfig {
+            mode,
+            ..Default::default()
+        },
+        query_workers: 4,
+        verified_cache_bytes: 1024 * 1024,
+        ..Default::default()
+    };
+    let auto = Index::open_with_storage(
+        &fixture.0,
+        vec![fixture.definition()],
+        options(InferenceMode::AutoIndex),
+        policy.clone(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    assert!(!auto.restored_from_cache());
+    assert!(auto.view().unwrap().inference_report("data").is_some());
     let baseline = auto
+        .view()
+        .unwrap()
         .search(&query("score = 7", vec![], ReturnMode::Locator))
         .unwrap();
     assert_eq!(baseline.count, Some(24));
+    auto.stop_sync_storage().unwrap();
     drop(auto);
 
-    let disabled = fixture.open(InferenceMode::Disabled, SnapshotMode::IfValid);
-    assert!(!disabled.startup().restored);
-    assert!(disabled.inference_report("data").is_none());
+    let disabled = Index::open_with_storage(
+        &fixture.0,
+        vec![fixture.definition()],
+        options(InferenceMode::Disabled),
+        policy,
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    assert!(!disabled.restored_from_cache());
+    assert!(disabled.view().unwrap().inference_report("data").is_none());
     let restored_answers = disabled
+        .view()
+        .unwrap()
         .search(&query("score = 7", vec![], ReturnMode::Locator))
         .unwrap();
     assert_eq!(ids(&restored_answers), ids(&baseline));
+    disabled.stop_sync_storage().unwrap();
 }
 
 #[test]

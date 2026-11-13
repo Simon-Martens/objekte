@@ -1,14 +1,18 @@
 use std::collections::HashMap;
 
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+};
+use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
-use objekte_search_core::source::SourceFormat;
+use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 use serde_json::Value as JsonValue;
 
@@ -123,7 +127,6 @@ fn fixture() -> (
     (root, sources, targets)
 }
 
-
 #[derive(Clone, Copy)]
 enum TargetTest {
     TitleIsHymn,
@@ -131,13 +134,11 @@ enum TargetTest {
     IssuedInFebruary,
 }
 
-
 #[derive(Clone, Copy)]
 enum Quantifier {
     All,
     Any,
 }
-
 
 // This oracle reads the original JSON fixture and never calls the engine's
 // binding, relation index, scanner, or exact comparison helpers.
@@ -286,25 +287,53 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, definitions(), options).unwrap();
-        built
-            .save_snapshot(&objekte_search_core::storage::snapshot_path(
-                &root,
-                options.bigram_alphabet,
-            ))
-            .unwrap();
-        let restored = Repository::open_with_options(&root, definitions(), options).unwrap();
-        assert!(restored.startup().restored);
-        for repository in [&built, &restored] {
+        let policy = IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        };
+        let first = Index::open_with_storage(
+            &root,
+            definitions(),
+            options,
+            policy.clone(),
+            SourceRegistry::builtin(),
+        )
+        .unwrap();
+        first.stop_sync_storage().unwrap();
+        let restored = Index::open_with_storage(
+            &root,
+            definitions(),
+            options,
+            policy,
+            SourceRegistry::builtin(),
+        )
+        .unwrap();
+        assert!(restored.restored_from_cache());
+        let view = restored.view().unwrap();
+        for stored in [false, true] {
+            let search = |query: &Query| {
+                if stored {
+                    view.search(query)
+                } else {
+                    built.search(query)
+                }
+            };
+            let search_with_parameters = |query: &Query, params: &HashMap<String, Value>| {
+                if stored {
+                    view.search_with_parameters(query, params)
+                } else {
+                    built.search_with_parameters(query, params)
+                }
+            };
             for (filter, _field, _predicate, _quantifier, _negated, expected) in &cases {
                 for mode in [ReturnMode::Locator, ReturnMode::Bytes, ReturnMode::Logical] {
                     let request = query("mentions", filter, mode);
-                    let actual = repository.search(&request).unwrap();
-                    let reference = repository.search_reference(&request).unwrap();
+                    let actual = search(&request).unwrap();
+                    let reference = built.search_reference(&request).unwrap();
                     assert_eq!(sorted_ids(&actual), *expected, "{filter}");
                     assert_eq!(actual.count, Some(expected.len()), "{filter}");
                     assert_eq!(actual.hits, reference.hits, "{filter}");
@@ -345,8 +374,8 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
                             .as_deref(),
                         Some(path)
                     );
-                    let actual = repository.search(&selected).unwrap();
-                    let reference = repository.search_reference(&selected).unwrap();
+                    let actual = search(&selected).unwrap();
+                    let reference = built.search_reference(&selected).unwrap();
                     assert_eq!(sorted_ids(&actual), expected);
                     assert_eq!(actual.hits, reference.hits);
                     assert_eq!(actual.count, Some(expected.len()));
@@ -356,13 +385,7 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
                             .iter()
                             .all(|hit| hit.matched_fields.contains(&path.to_owned()))
                     );
-                    assert!(
-                        repository
-                            .search(&selected)
-                            .unwrap()
-                            .counters
-                            .verified_result_hit
-                    );
+                    assert!(search(&selected).unwrap().counters.verified_result_hit);
                 }
             }
             let mut selected = query("mentions", "entry = $target", ReturnMode::Locator);
@@ -384,23 +407,13 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
                 ),
                 ("pattern".into(), Value::String("^Hy.*n$".into())),
             ]);
-            assert!(repository.search(&selected).is_err());
-            assert!(
-                repository
-                    .search_with_parameters(&selected, &HashMap::new())
-                    .is_err()
-            );
+            assert!(search(&selected).is_err());
+            assert!(search_with_parameters(&selected, &HashMap::new()).is_err());
             let mut wrong_type = params.clone();
             wrong_type.insert("pattern".into(), Value::Bool(true));
-            assert!(
-                repository
-                    .search_with_parameters(&selected, &wrong_type)
-                    .is_err()
-            );
-            let actual = repository
-                .search_with_parameters(&selected, &params)
-                .unwrap();
-            let reference = repository
+            assert!(search_with_parameters(&selected, &wrong_type).is_err());
+            let actual = search_with_parameters(&selected, &params).unwrap();
+            let reference = built
                 .search_reference_with_parameters(&selected, &params)
                 .unwrap();
             assert_eq!(sorted_ids(&actual), ["m1"]);
@@ -409,20 +422,18 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
             let mut alternate = params.clone();
             alternate.insert("pattern".into(), Value::String("^Fest.*$".into()));
             assert_eq!(
-                repository
-                    .search_with_parameters(&selected, &alternate)
-                    .unwrap()
-                    .count,
+                search_with_parameters(&selected, &alternate).unwrap().count,
                 Some(0)
             );
             assert!(
-                repository
-                    .search_with_parameters(&selected, &params)
+                search_with_parameters(&selected, &params)
                     .unwrap()
                     .counters
                     .verified_result_hit
             );
         }
+        restored.stop_sync_storage().unwrap();
+        restored.wait_for_reconciliation().unwrap();
     }
     std::fs::remove_dir_all(root).unwrap();
 }

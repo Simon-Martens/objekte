@@ -1177,6 +1177,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         Overlay::Actions => {
             (super::app::Action::ALL.len() as u16 + 3).min(area.height.saturating_sub(2))
         }
+        Overlay::Storage => 10.min(area.height.saturating_sub(2)),
         Overlay::Collections => {
             (app.collection_names().count() as u16 + 3).min(area.height.saturating_sub(2))
         }
@@ -1205,6 +1206,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
     frame.render_widget(Clear, panel);
     let title = match overlay {
         Overlay::Actions => " Actions · Ctrl+K ",
+        Overlay::Storage => " Index storage ",
         Overlay::Collections => " Collections ",
         Overlay::Sort => " Sort by ",
         Overlay::History => " Recent queries ",
@@ -1256,6 +1258,73 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                     ),
                 ])
             })
+            .collect(),
+        Overlay::Storage => ["Memory", "Temporary", "Repository", "Custom"]
+            .into_iter()
+            .enumerate()
+            .map(|(index, name)| {
+                Line::from(Span::styled(
+                    format!(
+                        "{} [{}] {name}",
+                        if app.storage_picker == index {
+                            "❯"
+                        } else {
+                            " "
+                        },
+                        if app.storage_choice == index {
+                            "x"
+                        } else {
+                            " "
+                        }
+                    ),
+                    Style::new().fg(if app.storage_picker == index {
+                        ACCENT
+                    } else {
+                        TEXT
+                    }),
+                ))
+            })
+            .chain([
+                Line::from(Span::styled(
+                    format!(
+                        "{} [{}] Keep entire index in memory",
+                        if app.storage_picker == 4 { "❯" } else { " " },
+                        if app.storage_choice == 0 || app.storage_full {
+                            "x"
+                        } else {
+                            " "
+                        }
+                    ),
+                    Style::new().fg(if app.storage_picker == 4 {
+                        ACCENT
+                    } else {
+                        TEXT
+                    }),
+                )),
+                Line::from(Span::styled(
+                    format!(
+                        "{} Custom base: {}",
+                        if app.storage_picker == 5 { "❯" } else { " " },
+                        app.storage_directory.text
+                    ),
+                    Style::new().fg(if app.storage_picker == 5 {
+                        ACCENT
+                    } else {
+                        TEXT
+                    }),
+                )),
+                Line::from(Span::styled(
+                    format!(
+                        "{} Apply and reopen",
+                        if app.storage_picker == 6 { "❯" } else { " " }
+                    ),
+                    Style::new().fg(if app.storage_picker == 6 {
+                        ACCENT
+                    } else {
+                        TEXT
+                    }),
+                )),
+            ])
             .collect(),
         Overlay::Collections => std::iter::once("All collections".to_owned())
             .chain(app.collection_names().map(str::to_owned))
@@ -1455,6 +1524,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
     };
     let selected = match overlay {
         Overlay::Actions => app.action_picker,
+        Overlay::Storage => app.storage_picker,
         Overlay::Collections => app.picker,
         Overlay::Sort => app.sort_picker,
         Overlay::History | Overlay::Saved => app.list_picker,

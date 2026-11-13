@@ -651,6 +651,9 @@ pub(crate) fn save_lifecycle_snapshot_with_stats(
     ) -> Result<Vec<u8>, String>,
     before_publish: impl FnOnce() -> Result<(), String>,
 ) -> Result<SnapshotSaveStats, String> {
+    if !cfg!(test) {
+        return Err("deprecated snapshot writing is unavailable; use IndexStoragePolicy".into());
+    }
     let state = LifecycleCacheState::from_publication(publication, encode_segment)?;
     state.validate(&publication.repository, |_| Ok(()))?;
     let detail = if snapshot_byte_diagnostic_enabled() {
@@ -1315,6 +1318,11 @@ impl Repository {
         lifecycle: Option<&LifecycleCacheState>,
         before_publish: impl FnOnce() -> Result<(), String>,
     ) -> Result<SnapshotSaveStats, String> {
+        if !cfg!(test) {
+            return Err(
+                "deprecated snapshot writing is unavailable; use IndexStoragePolicy".into(),
+            );
+        }
         let total_started = crate::detailed_timer::DetailedInstant::now();
         let mut stats = SnapshotSaveStats::default();
         if snapshot_byte_diagnostic_enabled() {
@@ -1620,6 +1628,9 @@ pub fn load_snapshot(
     sources: &SourceRegistry,
     path: &Path,
 ) -> Result<Repository, String> {
+    if !cfg!(test) {
+        return Err("deprecated snapshot loading is unavailable; use IndexStoragePolicy".into());
+    }
     load_snapshot_checked(root, definitions, options, sources, path)
         .map_err(|error| error.to_string())
 }

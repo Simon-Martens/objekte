@@ -1,13 +1,17 @@
 use std::collections::HashMap;
 
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+};
+use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{FieldPath, LogicalType, Value};
 use objekte_search_core::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
-use objekte_search_core::source::SourceFormat;
+use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 
 fn collection() -> CollectionDefinition {
@@ -77,31 +81,51 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, vec![collection()], options).unwrap();
-        built
-            .save_snapshot(&objekte_search_core::storage::snapshot_path(
-                &root,
-                options.bigram_alphabet,
-            ))
-            .unwrap();
-        let restored = Repository::open_with_options(&root, vec![collection()], options).unwrap();
-        assert!(restored.startup().restored);
-        for repository in [&built, &restored] {
-            for (iteration, id) in ["A", "a", "A"].into_iter().enumerate() {
-                let params = HashMap::from([(
-                    "id".to_owned(),
-                    parse_parameter_json(&format!(r#"{{"type":"id","value":"{id}"}}"#)).unwrap(),
-                )]);
-                let actual = repository
+        let policy = IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        };
+        let first = Index::open_with_storage(
+            &root,
+            vec![collection()],
+            options,
+            policy.clone(),
+            SourceRegistry::builtin(),
+        )
+        .unwrap();
+        let first_view = first.view().unwrap();
+        let restored = Index::open_with_storage(
+            &root,
+            vec![collection()],
+            options,
+            policy,
+            SourceRegistry::builtin(),
+        )
+        .unwrap();
+        assert!(restored.restored_from_cache());
+        assert_eq!(restored.status().unwrap().build_source_reads, 0);
+        let restored_view = restored.view().unwrap();
+        for (iteration, id) in ["A", "a", "A"].into_iter().enumerate() {
+            let params = HashMap::from([(
+                "id".to_owned(),
+                parse_parameter_json(&format!(r#"{{"type":"id","value":"{id}"}}"#)).unwrap(),
+            )]);
+            let reference = built
+                .search_reference_with_parameters(&template, &params)
+                .unwrap();
+            for actual in [
+                built.search_with_parameters(&template, &params).unwrap(),
+                first_view
                     .search_with_parameters(&template, &params)
-                    .unwrap();
-                let reference = repository
-                    .search_reference_with_parameters(&template, &params)
-                    .unwrap();
+                    .unwrap(),
+                restored_view
+                    .search_with_parameters(&template, &params)
+                    .unwrap(),
+            ] {
                 assert_eq!(actual.count, Some(1));
                 assert_eq!(actual.hits, reference.hits);
                 assert_eq!(actual.hits[0].record_id, id);
@@ -116,6 +140,9 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
                 }
             }
         }
+        first.stop_sync_storage().unwrap();
+        restored.stop_sync_storage().unwrap();
+        restored.wait_for_reconciliation().unwrap();
     }
     std::fs::remove_dir_all(root).unwrap();
 }

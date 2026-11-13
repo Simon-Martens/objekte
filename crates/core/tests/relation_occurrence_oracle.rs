@@ -1,13 +1,17 @@
 use std::collections::HashMap;
 
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+};
+use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query};
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
-use objekte_search_core::source::SourceFormat;
+use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 use serde_json::Value as JsonValue;
 
@@ -240,20 +244,41 @@ fn shared_source_occurrences_match_independent_oracle_across_routes_and_restore(
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, definitions(), options).unwrap();
-        built
-            .save_snapshot(&objekte_search_core::storage::snapshot_path(
-                &root,
-                options.bigram_alphabet,
-            ))
-            .unwrap();
-        let restored = Repository::open_with_options(&root, definitions(), options).unwrap();
-        assert!(restored.startup().restored);
-        for repo in [&built, &restored] {
+        let policy = IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        };
+        let first = Index::open_with_storage(
+            &root,
+            definitions(),
+            options,
+            policy.clone(),
+            SourceRegistry::builtin(),
+        )
+        .unwrap();
+        first.stop_sync_storage().unwrap();
+        let restored = Index::open_with_storage(
+            &root,
+            definitions(),
+            options,
+            policy,
+            SourceRegistry::builtin(),
+        )
+        .unwrap();
+        assert!(restored.restored_from_cache());
+        let view = restored.view().unwrap();
+        for stored in [false, true] {
+            let search = |query: &Query| {
+                if stored {
+                    view.search(query)
+                } else {
+                    built.search(query)
+                }
+            };
             for (filter, nested, group_index, existential, negated, known) in [
                 (
                     "items[*].local_title = items[*].entry.title",
@@ -322,8 +347,8 @@ fn shared_source_occurrences_match_independent_oracle_across_routes_and_restore(
                 for mode in [ReturnMode::Locator, ReturnMode::Bytes, ReturnMode::Logical] {
                     let request = query(filter, mode);
                     for _ in 0..2 {
-                        let optimized = repo.search(&request).unwrap();
-                        let reference = repo.search_reference(&request).unwrap();
+                        let optimized = search(&request).unwrap();
+                        let reference = built.search_reference(&request).unwrap();
                         let mut actual = optimized
                             .hits
                             .iter()
@@ -343,12 +368,14 @@ fn shared_source_occurrences_match_independent_oracle_across_routes_and_restore(
                 "other[*].local_title = items[*].entry.title",
             ] {
                 assert!(
-                    repo.search(&query(filter, ReturnMode::Locator))
+                    search(&query(filter, ReturnMode::Locator))
                         .unwrap_err()
                         .contains("shared [*]"),
                     "{filter}"
                 );
             }
         }
+        restored.stop_sync_storage().unwrap();
+        restored.wait_for_reconciliation().unwrap();
     }
 }

@@ -1,13 +1,17 @@
 use std::collections::HashMap;
 use std::path::PathBuf;
 
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+};
+use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::Query;
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{
     CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
 };
-use objekte_search_core::source::SourceFormat;
+use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::{ReturnMode, SortExpression, SortField, WorkloadCase};
 
 fn fixture() -> (PathBuf, Repository) {
@@ -275,7 +279,7 @@ fn explicit_composite_order_streams_and_matches_reference() {
         &root,
         definitions.clone(),
         RepositoryOptions {
-            snapshot_mode: SnapshotMode::IfValid,
+            snapshot_mode: SnapshotMode::Disabled,
             ..Default::default()
         },
     )
@@ -320,23 +324,39 @@ fn explicit_composite_order_streams_and_matches_reference() {
         "stored_composite_order_page"
     );
     assert_eq!(repo.search(&typed).unwrap().hits, result.hits);
-    repo.save_snapshot(&objekte_search_core::storage::snapshot_path(
-        &root,
-        objekte_search_core::workload::BigramAlphabet::Ascii,
-    ))
-    .unwrap();
     drop(repo);
-    let restored = Repository::open_with_options(
+    let storage = IndexStoragePolicy {
+        location: IndexStorageLocation::RepositoryDirectory,
+        residency: IndexResidency::OnDemand,
+    };
+    let first = Index::open_with_storage(
         &root,
-        definitions,
-        RepositoryOptions {
-            snapshot_mode: SnapshotMode::IfValid,
-            ..Default::default()
-        },
+        definitions.clone(),
+        RepositoryOptions::default(),
+        storage.clone(),
+        SourceRegistry::builtin(),
     )
     .unwrap();
-    assert!(restored.startup().restored);
-    assert_eq!(restored.search(&query).unwrap().hits, result.hits);
+    assert_eq!(
+        first.view().unwrap().search(&query).unwrap().hits,
+        result.hits
+    );
+    first.stop_sync_storage().unwrap();
+    let restored = Index::open_with_storage(
+        &root,
+        definitions,
+        RepositoryOptions::default(),
+        storage,
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    assert!(restored.restored_from_cache());
+    assert_eq!(
+        restored.view().unwrap().search(&query).unwrap().hits,
+        result.hits
+    );
+    restored.stop_sync_storage().unwrap();
+    restored.wait_for_reconciliation().unwrap();
     drop(restored);
     std::fs::remove_dir_all(root).unwrap();
 }

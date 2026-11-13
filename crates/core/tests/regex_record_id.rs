@@ -1,12 +1,16 @@
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+};
+use objekte_search_core::lifecycle::Index;
 use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::query::{
     CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions, RegexOptions, parse_filter,
 };
 use objekte_search_core::reference::{FieldDefinition, Schema};
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions,
 };
-use objekte_search_core::source::SourceFormat;
+use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode};
 
 fn definition() -> CollectionDefinition {
@@ -103,23 +107,44 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-        built
-            .save_snapshot(&objekte_search_core::storage::snapshot_path(
-                &root,
-                options.bigram_alphabet,
-            ))
-            .unwrap();
-        let restored = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-        assert!(restored.startup().restored);
-        for repo in [&built, &restored] {
+        let policy = IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        };
+        let first = Index::open_with_storage(
+            &root,
+            vec![definition()],
+            options,
+            policy.clone(),
+            SourceRegistry::builtin(),
+        )
+        .unwrap();
+        first.stop_sync_storage().unwrap();
+        let restored = Index::open_with_storage(
+            &root,
+            vec![definition()],
+            options,
+            policy,
+            SourceRegistry::builtin(),
+        )
+        .unwrap();
+        assert!(restored.restored_from_cache());
+        let view = restored.view().unwrap();
+        for stored in [false, true] {
+            let search = |query: &Query| {
+                if stored {
+                    view.search(query)
+                } else {
+                    built.search(query)
+                }
+            };
             for (query, expected) in &cases {
-                let actual = repo.search(query).unwrap();
-                let reference = repo.search_reference(query).unwrap();
+                let actual = search(query).unwrap();
+                let reference = built.search_reference(query).unwrap();
                 let mut ids = actual
                     .hits
                     .iter()
@@ -137,12 +162,7 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
                 );
                 assert_eq!(actual.counters.files_opened, 0);
             }
-            assert!(
-                repo.search(&sensitive)
-                    .unwrap()
-                    .counters
-                    .verified_result_hit
-            );
+            assert!(search(&sensitive).unwrap().counters.verified_result_hit);
 
             for (pattern, flags, expected) in [
                 ("^Line.Break$", RegexOptions::default(), vec![]),
@@ -165,8 +185,8 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
                 ),
             ] {
                 let query = regex_id_query(pattern, CaseSensitivity::Sensitive, flags);
-                let actual = repo.search(&query).unwrap();
-                let reference = repo.search_reference(&query).unwrap();
+                let actual = search(&query).unwrap();
+                let reference = built.search_reference(&query).unwrap();
                 assert_eq!(actual.hits, reference.hits);
                 assert_eq!(
                     actual
@@ -180,10 +200,12 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
 
             let mut typed_id = insensitive.clone();
             typed_id.filter = Some(parse_filter("id = 'AbC-10'").unwrap());
-            assert_eq!(repo.search(&typed_id).unwrap().hits[0].record_id, "AbC-10");
+            assert_eq!(search(&typed_id).unwrap().hits[0].record_id, "AbC-10");
             typed_id.filter = Some(parse_filter("id = 'abc-10'").unwrap());
-            assert_eq!(repo.search(&typed_id).unwrap().count, Some(0));
+            assert_eq!(search(&typed_id).unwrap().count, Some(0));
         }
+        restored.stop_sync_storage().unwrap();
+        restored.wait_for_reconciliation().unwrap();
     }
     std::fs::remove_dir_all(root).unwrap();
 }

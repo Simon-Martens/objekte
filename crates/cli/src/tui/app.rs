@@ -6,6 +6,9 @@ use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
 use objekte_search_core::completion::{self as completion_context, CompletionContext};
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+};
 use objekte_search_core::lifecycle::{
     FileCatalogueRow, IndexView, InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus,
     InitialBuildTask,
@@ -27,13 +30,13 @@ use objekte_search_core::{lifecycle::Index, repository::Repository};
 use ratatui::layout::Rect;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
-use super::TuiOptions;
 use super::completion;
 use super::export;
 use super::input::Input;
 use super::record::{self, DisplayRow, RecordState};
 use super::relations::{self, LinkAction, RelationRow};
 use super::settings::{self, Settings};
+use super::{TuiOptions, TuiReopenRequest};
 
 pub(super) const PAGE_SIZE: usize = 100;
 pub(super) const DEBOUNCE: Duration = Duration::from_millis(180);
@@ -97,14 +100,12 @@ fn field_label(path: &str, modifiers: &[Modifier]) -> String {
     label
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Focus {
     Search,
     Filter,
     Results,
 }
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum View {
@@ -113,10 +114,10 @@ pub(super) enum View {
     Detail,
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Overlay {
     Actions,
+    Storage,
     Collections,
     Sort,
     History,
@@ -127,11 +128,11 @@ pub(super) enum Overlay {
     Help,
 }
 
-
 /// Commands exposed by the action picker and their keyboard shortcuts.
 #[derive(Clone, Copy, Debug)]
 pub(super) enum Action {
     Files,
+    Storage,
     Collections,
     Sort,
     Columns,
@@ -147,10 +148,10 @@ pub(super) enum Action {
     Help,
 }
 
-
 impl Action {
-    pub(super) const ALL: [Self; 14] = [
+    pub(super) const ALL: [Self; 15] = [
         Self::Collections,
+        Self::Storage,
         Self::Sort,
         Self::Columns,
         Self::History,
@@ -169,6 +170,7 @@ impl Action {
     pub(super) fn label(self) -> &'static str {
         match self {
             Self::Files => "Toggle file catalogue             Ctrl+I",
+            Self::Storage => "Index storage                      ",
             Self::Collections => "Choose collection                Ctrl+O",
             Self::Sort => "Sort results                     Alt+S",
             Self::Columns => "Show or hide columns             Alt+L",
@@ -186,7 +188,6 @@ impl Action {
     }
 }
 
-
 /// Search response tagged with the input generation and requested page.
 struct Update {
     generation: u64,
@@ -199,13 +200,11 @@ struct Update {
     view: Option<IndexView>,
 }
 
-
 struct FilterCompletion {
     context: CompletionContext,
     choices: Vec<String>,
     selected: usize,
 }
-
 
 /// Query inputs, page state, and terminal navigation for one repository.
 pub(super) struct App {
@@ -219,7 +218,6 @@ pub(super) struct App {
     last_search_view: Option<IndexView>,
     pub(super) provisional: bool,
     refresh_requested: bool,
-    snapshot_save_receiver: Option<mpsc::Receiver<Result<(), String>>>,
     pub(super) single_collection: bool,
     base_offset: usize,
     result_limit: Option<usize>,
@@ -237,6 +235,12 @@ pub(super) struct App {
     pub(super) sort_picker: usize,
     pub(super) sort_input: Input,
     pub(super) action_picker: usize,
+    pub(super) storage_picker: usize,
+    pub(super) storage_choice: usize,
+    pub(super) storage_full: bool,
+    pub(super) storage_directory: Input,
+    pub(super) storage_policy: IndexStoragePolicy,
+    pub(super) reopen_request: Option<TuiReopenRequest>,
     pub(super) list_picker: usize,
     pub(super) column_picker: usize,
     pub(super) column_offset: usize,
@@ -283,7 +287,6 @@ pub(super) struct App {
     sender: mpsc::Sender<Update>,
     receiver: mpsc::Receiver<Update>,
 }
-
 
 impl App {
     #[cfg(test)]
@@ -340,21 +343,6 @@ impl App {
         let building = build_status
             .as_ref()
             .is_some_and(|status| !status.construction_complete);
-        let snapshot_save_receiver =
-            if let (Some(task), Some(path)) = (&build_task, options.snapshot_path.clone()) {
-                let task = task.clone();
-                let (sender, receiver) = mpsc::channel();
-                std::thread::spawn(move || {
-                    let result = task
-                        .wait_complete()
-                        .and_then(|index| index.flush_cache_with_stats(&path).map(|_| ()))
-                        .map_err(|error| error.to_string());
-                    let _ = sender.send(result);
-                });
-                Some(receiver)
-            } else {
-                None
-            };
         let build_receiver = build_task.as_ref().map(|task| {
             let task = task.clone();
             let (sender, receiver) = mpsc::sync_channel(1);
@@ -404,7 +392,6 @@ impl App {
             last_search_view: None,
             provisional: building,
             refresh_requested: false,
-            snapshot_save_receiver,
             single_collection: options.single_collection,
             base_offset: options.offset,
             result_limit: options.limit,
@@ -422,6 +409,21 @@ impl App {
             sort_picker: 0,
             sort_input: Input::default(),
             action_picker: 0,
+            storage_picker: 0,
+            storage_choice: match &options.storage_policy.location {
+                IndexStorageLocation::MemoryOnly => 0,
+                IndexStorageLocation::SystemTemporary => 1,
+                IndexStorageLocation::RepositoryDirectory => 2,
+                IndexStorageLocation::CustomDirectory(_) => 3,
+            },
+            storage_full: options.storage_policy.location != IndexStorageLocation::MemoryOnly
+                && options.storage_policy.residency == IndexResidency::FullyResident,
+            storage_directory: Input::with_text(match &options.storage_policy.location {
+                IndexStorageLocation::CustomDirectory(path) => path.to_str().unwrap_or_default(),
+                _ => "",
+            }),
+            storage_policy: options.storage_policy,
+            reopen_request: None,
             list_picker: 0,
             column_picker: 0,
             column_offset: 0,
@@ -977,6 +979,69 @@ impl App {
         Action::ALL.get(self.action_picker).copied()
     }
 
+    pub(super) fn open_storage(&mut self) {
+        self.storage_choice = match &self.storage_policy.location {
+            IndexStorageLocation::MemoryOnly => 0,
+            IndexStorageLocation::SystemTemporary => 1,
+            IndexStorageLocation::RepositoryDirectory => 2,
+            IndexStorageLocation::CustomDirectory(_) => 3,
+        };
+        self.storage_full = self.storage_policy.location != IndexStorageLocation::MemoryOnly
+            && self.storage_policy.residency == IndexResidency::FullyResident;
+        self.storage_directory = Input::with_text(match &self.storage_policy.location {
+            IndexStorageLocation::CustomDirectory(path) => path.to_str().unwrap_or_default(),
+            _ => "",
+        });
+        self.storage_picker = self.storage_choice;
+        self.overlay = Some(Overlay::Storage);
+    }
+
+    pub(super) fn apply_storage(&mut self) {
+        let location = match self.storage_choice {
+            0 => IndexStorageLocation::MemoryOnly,
+            1 => IndexStorageLocation::SystemTemporary,
+            2 => IndexStorageLocation::RepositoryDirectory,
+            _ => {
+                let input = self.storage_directory.text.trim();
+                if input.is_empty() {
+                    self.status = Some("Choose an existing custom index base directory".into());
+                    return;
+                }
+                let path = match PathBuf::from(input).canonicalize() {
+                    Ok(path) if path.is_dir() => path,
+                    Ok(_) => {
+                        self.status = Some("Custom index base is not a directory".into());
+                        return;
+                    }
+                    Err(error) => {
+                        self.status = Some(format!("Custom index base: {error}"));
+                        return;
+                    }
+                };
+                IndexStorageLocation::CustomDirectory(path)
+            }
+        };
+        let policy = IndexStoragePolicy {
+            residency: if self.storage_choice == 0 || self.storage_full {
+                IndexResidency::FullyResident
+            } else {
+                IndexResidency::OnDemand
+            },
+            location,
+        };
+        if let Err(error) = policy.validate() {
+            self.status = Some(error);
+            return;
+        }
+        self.overlay = None;
+        self.reopen_request = Some(TuiReopenRequest {
+            storage_policy: policy,
+            search: self.search.text.clone(),
+            filter: self.filter.text.clone(),
+        });
+        self.done = true;
+    }
+
     pub(super) fn sort_choices(&self) -> Vec<Option<SortField>> {
         let mut choices = vec![None];
         if self.scope == 0 {
@@ -1261,23 +1326,6 @@ impl App {
 
     pub(super) fn tick(&mut self, now: Instant) {
         self.poll_build();
-        if let Some(receiver) = &self.snapshot_save_receiver {
-            match receiver.try_recv() {
-                Ok(Ok(())) => {
-                    self.status = Some("Snapshot saved".into());
-                    self.snapshot_save_receiver = None;
-                }
-                Ok(Err(error)) => {
-                    self.status = Some(format!("Snapshot save failed: {error}"));
-                    self.snapshot_save_receiver = None;
-                }
-                Err(mpsc::TryRecvError::Disconnected) => {
-                    self.status = Some("Snapshot save worker stopped".into());
-                    self.snapshot_save_receiver = None;
-                }
-                Err(mpsc::TryRecvError::Empty) => {}
-            }
-        }
         while let Ok(update) = self.receiver.try_recv() {
             self.inflight = self.inflight.saturating_sub(1);
             if update.generation != self.generation {
@@ -1746,7 +1794,6 @@ impl App {
         }
     }
 }
-
 
 fn sort_label(sort: &SortField) -> String {
     let Some(expression) = &sort.expression else {
