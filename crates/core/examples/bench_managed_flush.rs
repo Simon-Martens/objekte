@@ -63,6 +63,12 @@ fn run() -> Result<(), String> {
     let started = Instant::now();
     let revision = index.flush_storage().map_err(|error| error.to_string())?;
     let flush_ns = started.elapsed().as_nanos() as u64;
+    let unchanged_started = Instant::now();
+    let unchanged_revision = index.flush_storage().map_err(|error| error.to_string())?;
+    let unchanged_flush_ns = unchanged_started.elapsed().as_nanos() as u64;
+    if unchanged_revision != revision {
+        return Err("unchanged flush changed the durable revision".into());
+    }
     let status = index.storage_status().map_err(|error| error.to_string())?;
     println!(
         "{}",
@@ -70,6 +76,7 @@ fn run() -> Result<(), String> {
             "root": root.canonicalize().map_err(|error| error.to_string())?,
             "alphabet": alphabet,
             "flush_ns": flush_ns,
+            "unchanged_flush_ns": unchanged_flush_ns,
             "revision": revision.0,
             "durable_generation": status.durable_generation,
             "managed_directory": status.managed_directory,
