@@ -278,6 +278,51 @@ impl PostingIndex {
         }
     }
 
+    /// A broad direct relation can match thousands of target IDs. Scan each
+    /// ordered source dictionary once when that costs less than thousands of
+    /// independent seeks and repeated key decoding.
+    pub(crate) fn union_id_postings(
+        &self,
+        ids: &HashSet<String>,
+    ) -> Result<(RoaringBitmap, u64), String> {
+        let mut union = RoaringBitmap::new();
+        let mut visited = 0u64;
+        if let Some(sealed) = self.sealed_values() {
+            if ids.len().saturating_mul(8) < sealed.len() {
+                for id in ids {
+                    if let Some(slots) = sealed.get(&ScalarKey::Id(id.clone()))? {
+                        visited += slots.len();
+                        union |= slots;
+                    }
+                }
+            } else {
+                sealed.visit_entries(|key, descriptor| {
+                    if let ScalarKey::Id(id) = key && ids.contains(id) {
+                        let slots = sealed.materialize_descriptor(descriptor)?;
+                        visited += slots.len();
+                        union |= slots;
+                    }
+                    Ok(true)
+                })?;
+            }
+        } else if ids.len().saturating_mul(8) < self.values.len() {
+            for id in ids {
+                if let Some(slots) = self.values.get(&ScalarKey::Id(id.clone())) {
+                    visited += slots.len();
+                    union |= slots;
+                }
+            }
+        } else {
+            for (key, slots) in &self.values {
+                if let ScalarKey::Id(id) = key && ids.contains(id) {
+                    visited += slots.len();
+                    union |= slots;
+                }
+            }
+        }
+        Ok((union, visited))
+    }
+
     pub(crate) fn value_posting_restricted(
         &self,
         key: &ScalarKey,

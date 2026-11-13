@@ -5425,15 +5425,8 @@ fn try_direct_relation_page(
         let Some(posting) = published.index.postings.fields.get(source_path) else {
             return Ok(None);
         };
-        let mut may = RoaringBitmap::new();
-        for id in &target_ids {
-            if let Some(slots) =
-                posting.value_posting(&crate::posting::ScalarKey::Id(id.clone()))?
-            {
-                counters.relation_reverse_postings_visited += slots.len();
-                may |= slots;
-            }
-        }
+        let (mut may, visited) = posting.union_id_postings(&target_ids)?;
+        counters.relation_reverse_postings_visited += visited;
         may &= published.active.bitmap();
         may &= &published.index.logical_records;
         if local_filter.is_some() {

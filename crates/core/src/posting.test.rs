@@ -1,6 +1,40 @@
 use super::*;
 
 #[test]
+fn broad_id_union_matches_individual_lookups() {
+    let field = FieldDefinition {
+        path: vec!["ref".into()],
+        kind: LogicalType::Id,
+        required: false,
+        nullable: false,
+        indexed: true,
+        multi: false,
+        element_nullable: Vec::new(),
+    };
+    let mut index = PostingIndex::new(&field);
+    for id in 0..100 {
+        index.values.insert(
+            ScalarKey::Id(format!("id-{id:03}")),
+            RoaringBitmap::from_iter([id, id + 100]),
+        );
+    }
+    for ids in [
+        HashSet::from(["id-017".to_owned()]),
+        (0..80).map(|id| format!("id-{id:03}")).collect(),
+    ] {
+        let (actual, visited) = index.union_id_postings(&ids).unwrap();
+        let expected = ids.iter().fold(RoaringBitmap::new(), |mut all, id| {
+            if let Some(slots) = index.values.get(&ScalarKey::Id(id.clone())) {
+                all |= slots;
+            }
+            all
+        });
+        assert_eq!(actual, expected);
+        assert_eq!(visited, ids.len() as u64 * 2);
+    }
+}
+
+#[test]
 fn temporal_period_estimates_probe_bounded_keys_and_ranges_keep_exact_membership() {
     use crate::query::parse_filter;
     use crate::reference::{BoundExpr, Schema, bind_filter};
