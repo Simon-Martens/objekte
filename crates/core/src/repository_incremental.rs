@@ -82,19 +82,35 @@ impl IncrementalCollection {
         }
     }
 
-    fn observe(&mut self, batch: &BatchContribution) -> Result<(), String> {
-        let (inference, logical) = batch.observation_copy();
+    fn observe(
+        &mut self,
+        batch: &BatchContribution,
+        mut profile: Option<&mut AdmissionBreakdown>,
+    ) -> Result<(), String> {
+        let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
         let base = self.records;
         let count = u32::try_from(batch.record_count()).map_err(|_| "too many batch records")?;
         self.records = base
             .checked_add(count)
             .ok_or("collection record slot overflow")?;
+        if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
+            profile.coordinator_ns += started.elapsed().as_nanos() as u64;
+        }
+        let inference_started = crate::detailed_timer::start_if_enabled(profile.is_some());
+        let inference = batch.inference_copy();
         match (self.global_inference.as_mut(), inference) {
             (Some(global), Some(local)) => global.merge_shifted(local, base)?,
             (None, None) => {}
             _ => return Err("collection inference mode changed during build".into()),
         }
-        append_shifted_bitmap(&mut self.logical_records, &logical, base)?;
+        if let (Some(started), Some(profile)) = (inference_started, profile.as_mut()) {
+            profile.inference_observation_ns += started.elapsed().as_nanos() as u64;
+        }
+        let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
+        append_shifted_bitmap(&mut self.logical_records, batch.logical_records(), base)?;
+        if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
+            profile.coordinator_ns += started.elapsed().as_nanos() as u64;
+        }
         Ok(())
     }
 
@@ -105,8 +121,8 @@ impl IncrementalCollection {
         batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<Option<crate::build::CollectionSegment>, String> {
+        self.observe(&batch, profile.as_deref_mut())?;
         let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
-        self.observe(&batch)?;
         let sealed = if !self.admission.can_admit_batch(&batch) {
             self.take_segment()
         } else {
@@ -126,8 +142,8 @@ impl IncrementalCollection {
         batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<(), String> {
+        self.observe(&batch, profile.as_deref_mut())?;
         let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
-        self.observe(&batch)?;
         if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
             profile.coordinator_ns += started.elapsed().as_nanos() as u64;
         }

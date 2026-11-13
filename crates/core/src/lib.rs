@@ -20,6 +20,7 @@ pub mod executor;
 mod field_state;
 pub mod fts_preview;
 mod index_catalog;
+pub mod index_storage;
 pub mod inference;
 pub mod inventory;
 mod json_scalar_text;

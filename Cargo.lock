@@ -5225,6 +5225,7 @@ dependencies = [
  "globset",
  "icu_collator",
  "icu_locale_core",
+ "libc",
  "memchr",
  "rayon",
  "regex",

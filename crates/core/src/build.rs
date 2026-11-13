@@ -248,11 +248,14 @@ impl BatchContribution {
         }
     }
 
-    /// Initial segment publication needs collection-wide inference decisions
-    /// without retaining a second record inventory. The local observation
-    /// remains in the segment and this copy feeds only final admission.
-    pub(crate) fn observation_copy(&self) -> (Option<InferenceBuilder>, RoaringBitmap) {
-        (self.inference.clone(), self.logical_records.clone())
+    /// Initial publication needs collection-wide inference decisions. Keep
+    /// this copy separately measurable from coordinator bookkeeping.
+    pub(crate) fn inference_copy(&self) -> Option<InferenceBuilder> {
+        self.inference.clone()
+    }
+
+    pub(crate) fn logical_records(&self) -> &RoaringBitmap {
+        &self.logical_records
     }
 
     pub(crate) fn new_file_count(&self) -> usize {
@@ -2463,8 +2466,10 @@ pub struct AdmissionBreakdown {
     pub records: u64,
     pub callback_ns: u64,
     pub total_ns: u64,
-    /// Incremental coordinator accounting, observation and capacity checks.
+    /// Incremental coordinator accounting and capacity checks.
     pub coordinator_ns: u64,
+    /// Collection-wide inference copy and merge outside segment admission.
+    pub inference_observation_ns: u64,
     pub record_inventory_ns: u64,
     pub postings_ns: u64,
     pub inference_ns: u64,
@@ -2489,6 +2494,7 @@ impl AdmissionBreakdown {
         self.callback_ns += other.callback_ns;
         self.total_ns += other.total_ns;
         self.coordinator_ns += other.coordinator_ns;
+        self.inference_observation_ns += other.inference_observation_ns;
         self.record_inventory_ns += other.record_inventory_ns;
         self.postings_ns += other.postings_ns;
         self.inference_ns += other.inference_ns;
@@ -2506,6 +2512,7 @@ impl AdmissionBreakdown {
     /// Exclusive incremental phases; omit the aggregate `bigrams_ns` parent.
     pub(crate) fn incremental_component_ns(&self) -> u64 {
         self.coordinator_ns
+            + self.inference_observation_ns
             + self.record_inventory_ns
             + self.postings_ns
             + self.inference_ns
