@@ -1,8 +1,8 @@
 //! Checked, source-free metadata for one immutable managed generation.
 //!
-//! Segment record slots contain only a `metadata_ref`. The first refs address
-//! the sparse current catalog; historical incarnations are stored once after
-//! that domain and can be shared by any number of segment slots.
+//! Segment record slots contain only a `metadata_ref`. Untagged refs address
+//! the sparse current catalog. High-bit tagged refs address an append-only
+//! historical table whose indices remain stable across generations.
 
 use std::collections::{HashMap, HashSet};
 use std::path::{Component, Path, PathBuf};
@@ -19,7 +19,8 @@ use crate::model::{CollectionId, FileId};
 use crate::source::DiagnosticCategory;
 
 const MAGIC: &[u8; 8] = b"OBJHCAT1";
-const VERSION: u32 = 1;
+const VERSION: u32 = 2;
+const HISTORICAL_TAG: u32 = 1 << 31;
 const HEADER_BYTES: usize = 8 + 4 + 8 + 32;
 const MAX_BYTES: usize = 512 * 1024 * 1024;
 const MAX_RESTORED_TABLE_BYTES: usize = 1024 * 1024 * 1024;
@@ -44,6 +45,15 @@ pub(crate) struct GenerationCatalogBuilder<'a> {
 
 impl<'a> GenerationCatalogBuilder<'a> {
     pub(crate) fn from_publication(publication: &'a PublishedIndex) -> Result<Self, String> {
+        Self::from_publication_with_history(publication, &[])
+    }
+
+    /// Carry forward the durable historical table in its original order so
+    /// unchanged segment files retain the meaning of tagged references.
+    pub(crate) fn from_publication_with_history(
+        publication: &'a PublishedIndex,
+        prior: &[FileEntry],
+    ) -> Result<Self, String> {
         if !publication.catalog.construction_complete() {
             return Err("cannot persist an incomplete file catalog".into());
         }
@@ -52,20 +62,42 @@ impl<'a> GenerationCatalogBuilder<'a> {
         {
             return Err("managed catalog file count exceeds limit".into());
         }
+        if prior.len() > MAX_FILES {
+            return Err("managed historical file count exceeds limit".into());
+        }
+        let mut historical_by_file = HashMap::<FileId, Vec<u32>>::new();
+        for (index, entry) in prior.iter().enumerate() {
+            if entry.id.0 as usize >= publication.catalog.allocated_files() {
+                return Err("historical file ID is outside the catalog".into());
+            }
+            validate_file(entry, publication.repository.collections().len())?;
+            let references = historical_by_file.entry(entry.id).or_default();
+            if references
+                .iter()
+                .any(|reference| prior[(reference & !HISTORICAL_TAG) as usize] == *entry)
+            {
+                return Err("duplicate historical metadata".into());
+            }
+            references.push(HISTORICAL_TAG | index as u32);
+        }
         let builder = Self {
             publication,
             configuration_identity: publication.configuration_identity,
             revision: publication.revision.0,
             next_segment_ordinal: publication.next_segment_ordinal,
             collection_count: publication.repository.collections().len(),
-            historical: Vec::new(),
-            historical_by_file: HashMap::new(),
+            historical: prior.to_vec(),
+            historical_by_file,
         };
         builder.validate_header_state()?;
         Ok(builder)
     }
 
-    /// Return a dense ref accepted by `segment_metadata::encode_record_slots`.
+    pub(crate) fn historical_entries(&self) -> &[FileEntry] {
+        &self.historical
+    }
+
+    /// Return a stable ref accepted by `segment_metadata::encode_record_slots`.
     /// A current ref is used only for full metadata equality, including path,
     /// diagnostics and revision. Retired holes never resolve as current refs.
     pub(crate) fn intern(&mut self, entry: &FileEntry) -> Result<u32, String> {
@@ -79,24 +111,15 @@ impl<'a> GenerationCatalogBuilder<'a> {
         }
         if let Some(existing) = self.historical_by_file.get(&entry.id) {
             for &reference in existing {
-                if self.historical
-                    [(reference as usize) - self.publication.catalog.allocated_files()]
-                    == *entry
-                {
+                if self.historical[(reference & !HISTORICAL_TAG) as usize] == *entry {
                     return Ok(reference);
                 }
             }
         }
-        let reference = self
-            .publication
-            .catalog
-            .allocated_files()
-            .checked_add(self.historical.len())
-            .and_then(|number| u32::try_from(number).ok())
-            .ok_or("managed metadata reference overflow")?;
         if self.historical.len() >= MAX_FILES {
             return Err("managed historical file count exceeds limit".into());
         }
+        let reference = HISTORICAL_TAG | self.historical.len() as u32;
         self.historical.push(entry.clone());
         self.historical_by_file
             .entry(entry.id)
@@ -156,7 +179,6 @@ impl<'a> GenerationCatalogBuilder<'a> {
         let mut distinct = HashMap::<FileId, Vec<&FileEntry>>::new();
         for entry in &self.historical {
             if entry.id.0 as usize >= self.publication.catalog.allocated_files()
-                || self.publication.catalog.entry(entry.id) == Some(entry)
                 || distinct
                     .get(&entry.id)
                     .is_some_and(|known| known.contains(&entry))
@@ -304,9 +326,6 @@ impl RestoredGenerationCatalog {
         for _ in 0..historical_count {
             let entry = decode_file(&mut input, collection_count)?;
             if entry.id.0 as usize >= slot_count
-                || slots[entry.id.0 as usize]
-                    .as_ref()
-                    .is_some_and(|(current, _, _)| current == &entry)
                 || distinct
                     .get(&entry.id)
                     .is_some_and(|known| known.iter().any(|&index| historical[index] == entry))
@@ -330,12 +349,18 @@ impl RestoredGenerationCatalog {
     }
 
     pub(crate) fn resolve_metadata(&self, reference: u32) -> Option<&FileEntry> {
-        let number = reference as usize;
-        if number < self.slots.len() {
-            self.slots[number].as_ref().map(|(entry, _, _)| entry)
+        if reference & HISTORICAL_TAG != 0 {
+            self.historical.get((reference & !HISTORICAL_TAG) as usize)
         } else {
-            self.historical.get(number - self.slots.len())
+            self.slots
+                .get(reference as usize)?
+                .as_ref()
+                .map(|(entry, _, _)| entry)
         }
+    }
+
+    pub(crate) fn historical_entries(&self) -> &[FileEntry] {
+        &self.historical
     }
 }
 
