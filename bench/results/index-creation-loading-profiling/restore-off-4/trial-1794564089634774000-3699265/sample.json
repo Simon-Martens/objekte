@@ -1,0 +1,55 @@
+{
+  "after_load_hwm": 406740992,
+  "after_load_rss": 329170944,
+  "after_queries_rss": 334888960,
+  "after_release_rss": 271781888,
+  "before_rss": 6991872,
+  "build_parses": 0,
+  "files": 148486,
+  "load_ns": 775023859,
+  "load_profile": null,
+  "process_io_delta": {
+    "cancelled_write_bytes": 0,
+    "rchar": 265422858,
+    "read_bytes": 0,
+    "syscr": 4123,
+    "syscw": 0,
+    "wchar": 0,
+    "write_bytes": 0
+  },
+  "query_digests": {
+    "Q001": "e4537ea101a2c6fede6e0c0ef06bca35dfb066dd2989b864abe899dfa484f80b",
+    "Q108": "6d567c3096643777bd12108d9614163f4f6d304fed8157fb482f084710d6c56d",
+    "Q116": "ad6b8bdd90f2d769224c443aaaf9368f61a72c44c682ee4a2de4fa02ff2a837b",
+    "Q120": "eb9f6848a5e9d1692200b15c440ea045be82a76067d59bda260b634f1126aabb",
+    "Q194": "ea002f98c9a28363ea1f629ab62c4e9e8ac3ee16ec3c8f5af1202f12cab41cf5"
+  },
+  "reconciliation": {
+    "added": 0,
+    "cancelled": false,
+    "duration_ns": 343979258,
+    "examined": 148486,
+    "indexed_bytes": 0,
+    "issues": [],
+    "omitted_issues": 0,
+    "planned_changes": 0,
+    "removed": 0,
+    "skipped": 0,
+    "unchanged": 148486,
+    "updated": 0
+  },
+  "reconciliation_done_ns": 1119350611,
+  "reconciliation_io_delta": {
+    "cancelled_write_bytes": 0,
+    "rchar": 101,
+    "read_bytes": 0,
+    "syscr": 4,
+    "syscw": 0,
+    "wchar": 0,
+    "write_bytes": 0
+  },
+  "reconciliation_wait_ns": 344278432,
+  "records": 148486,
+  "restored_from_cache": true,
+  "source_reads": 0
+}
