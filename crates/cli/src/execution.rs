@@ -77,35 +77,53 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         );
         return Exit::Operation;
     }
-    let ui = crate::tui::TuiOptions {
-        single_collection: !args.multiple_collections(),
-        initial_search,
-        initial_filter,
-        offset: args.offset,
-        limit: args.limit,
-        interruption: Some(token.clone()),
-        storage_policy,
-        loading_label: Some("Building search index".to_owned()),
-    };
-    let result =
-        match Index::start_incremental_build(&root, configured.definitions.clone(), options) {
-            Ok(task) => crate::tui::run_with_initial_build(task, ui, configured.protected_files),
-            Err(error) => {
-                Err(Box::new(io::Error::other(error.to_string())) as Box<dyn std::error::Error>)
-            }
+    let (mut policy, mut search, mut filter) = (storage_policy, initial_search, initial_filter);
+    loop {
+        let ui = crate::tui::TuiOptions {
+            single_collection: !args.multiple_collections(),
+            initial_search: search,
+            initial_filter: filter,
+            offset: args.offset,
+            limit: args.limit,
+            interruption: Some(token.clone()),
+            storage_policy: policy,
+            loading_label: Some("Building search index".to_owned()),
         };
-    match result {
-        Ok(()) => Exit::Success,
-        Err(error)
-            if error
-                .downcast_ref::<io::Error>()
-                .is_some_and(|error| error.kind() == io::ErrorKind::Interrupted) =>
-        {
-            Exit::Cancelled
-        }
-        Err(error) => {
-            eprintln!("obj: {error}");
-            Exit::Operation
+        let result =
+            match Index::start_incremental_build(&root, configured.definitions.clone(), options) {
+                Ok(task) => {
+                    crate::tui::run_with_initial_build(task, ui, configured.protected_files.clone())
+                }
+                Err(error) => {
+                    Err(Box::new(io::Error::other(error.to_string())) as Box<dyn std::error::Error>)
+                }
+            };
+        match result {
+            Ok(Some(request)) => {
+                if request.storage_policy.location
+                    != objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly
+                {
+                    eprintln!(
+                        "obj: disk index storage is not available until the shared generation opener is connected"
+                    );
+                    return Exit::Operation;
+                }
+                policy = request.storage_policy;
+                search = request.search;
+                filter = request.filter;
+            }
+            Ok(None) => return Exit::Success,
+            Err(error)
+                if error
+                    .downcast_ref::<io::Error>()
+                    .is_some_and(|error| error.kind() == io::ErrorKind::Interrupted) =>
+            {
+                return Exit::Cancelled;
+            }
+            Err(error) => {
+                eprintln!("obj: {error}");
+                return Exit::Operation;
+            }
         }
     }
 }

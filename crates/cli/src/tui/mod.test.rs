@@ -121,6 +121,7 @@ fn action_palette_opens_existing_controls_and_columns_scroll() {
     assert_eq!(app.overlay, Some(Overlay::Actions));
     key(app, KeyEvent::new(KeyCode::Down, KeyModifiers::NONE));
     key(app, KeyEvent::new(KeyCode::Down, KeyModifiers::NONE));
+    key(app, KeyEvent::new(KeyCode::Down, KeyModifiers::NONE));
     key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
     assert_eq!(app.overlay, Some(Overlay::Columns));
     key(app, KeyEvent::new(KeyCode::Esc, KeyModifiers::NONE));
@@ -128,6 +129,38 @@ fn action_palette_opens_existing_controls_and_columns_scroll() {
     assert_eq!(app.column_offset, 1);
     key(app, KeyEvent::new(KeyCode::Left, KeyModifiers::ALT));
     assert_eq!(app.column_offset, 0);
+}
+
+#[test]
+fn storage_action_reopens_memory_and_keeps_disk_choice_unapplied() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    app.search = input::Input::with_text("needle");
+    key(
+        app,
+        KeyEvent::new(KeyCode::Char('k'), KeyModifiers::CONTROL),
+    );
+    key(app, KeyEvent::new(KeyCode::Down, KeyModifiers::NONE));
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    assert_eq!(app.overlay, Some(Overlay::Storage));
+    app.storage_picker = 6;
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    let request = app.reopen_request.take().unwrap();
+    assert_eq!(request.storage_policy, IndexStoragePolicy::default());
+    assert_eq!(request.search, "needle");
+    assert!(app.done);
+
+    app.done = false;
+    app.open_storage();
+    app.storage_picker = 2;
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    assert!(!app.storage_full);
+    app.storage_picker = 6;
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    assert!(!app.done);
+    assert!(app.reopen_request.is_none());
+    assert_eq!(app.storage_policy, IndexStoragePolicy::default());
+    assert!(app.status.as_deref().unwrap().contains("not available"));
 }
 
 #[test]

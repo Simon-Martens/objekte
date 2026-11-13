@@ -43,7 +43,17 @@ pub struct TuiOptions {
     pub interruption: Option<CancellationToken>,
 }
 
-pub fn run_with_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
+/// A validated storage choice and the current query to reopen in a new view.
+pub struct TuiReopenRequest {
+    pub storage_policy: IndexStoragePolicy,
+    pub search: String,
+    pub filter: String,
+}
+
+pub fn run_with_loader<F>(
+    loader: F,
+    options: TuiOptions,
+) -> Result<Option<TuiReopenRequest>, Box<dyn Error>>
 where
     F: FnOnce() -> Result<IndexedRepository, String> + Send + 'static,
 {
@@ -56,12 +66,15 @@ pub enum TuiOpening {
     Initial(InitialBuildTask, Vec<PathBuf>),
 }
 
-pub fn run_with_opening_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
+pub fn run_with_opening_loader<F>(
+    loader: F,
+    options: TuiOptions,
+) -> Result<Option<TuiReopenRequest>, Box<dyn Error>>
 where
     F: FnOnce() -> Result<TuiOpening, String> + Send + 'static,
 {
     let mut terminal = ratatui::try_init()?;
-    let result = (|| -> Result<(), Box<dyn Error>> {
+    let result = (|| -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
         execute!(std::io::stdout(), event::EnableMouseCapture)?;
         let interrupted = || {
             std::io::Error::new(
@@ -119,7 +132,7 @@ where
                         {
                             return Err(interrupted().into());
                         }
-                        return Ok(());
+                        return Ok(None);
                     }
                     _ => {}
                 }
@@ -134,10 +147,10 @@ where
     })();
     let mouse = execute!(std::io::stdout(), event::DisableMouseCapture);
     let restore = ratatui::try_restore();
-    result?;
+    let outcome = result?;
     mouse?;
     restore?;
-    Ok(())
+    Ok(outcome)
 }
 
 /// Opens the screen as soon as discovery publishes the physical file catalogue.
@@ -145,7 +158,7 @@ pub fn run_with_initial_build(
     task: InitialBuildTask,
     options: TuiOptions,
     protected_files: Vec<PathBuf>,
-) -> Result<(), Box<dyn Error>> {
+) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
     run_with_opening_loader(
         move || Ok(TuiOpening::Initial(task, protected_files)),
         options,
@@ -157,7 +170,7 @@ fn run_initial_active(
     task: InitialBuildTask,
     options: TuiOptions,
     protected_files: Vec<PathBuf>,
-) -> Result<(), Box<dyn Error>> {
+) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
     struct CancelOnExit(InitialBuildTask);
 
     impl Drop for CancelOnExit {
@@ -167,7 +180,7 @@ fn run_initial_active(
     }
 
     let guard = CancelOnExit(task);
-    (|| -> Result<(), Box<dyn Error>> {
+    (|| -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
         let started = Instant::now();
         let (repository, snapshot) = loop {
             if options
@@ -210,7 +223,7 @@ fn run_initial_active(
                                 || (pressed.code == KeyCode::Char('q')
                                     && pressed.modifiers.contains(KeyModifiers::CONTROL))) =>
                     {
-                        return Ok(());
+                        return Ok(None);
                     }
                     Event::Key(pressed)
                         if pressed.kind != KeyEventKind::Release
@@ -244,7 +257,7 @@ fn run_active(
     repository: IndexedRepository,
     options: TuiOptions,
     initial: Option<(InitialBuildTask, InitialBuildSnapshot)>,
-) -> Result<(), Box<dyn Error>> {
+) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
     let timings = repository.index().timings_ms()?;
     let storage_label = match &options.storage_policy.location {
         IndexStorageLocation::MemoryOnly => "Memory index",
@@ -321,7 +334,7 @@ fn run_active(
             stdout.flush()?;
         }
     }
-    Ok(())
+    Ok(app.reopen_request)
 }
 
 fn mouse_event(app: &mut App, mouse: MouseEvent) {
@@ -414,6 +427,31 @@ fn key(app: &mut App, key: KeyEvent) {
                     if let Some(action) = app.choose_action() {
                         run_action(app, action);
                     }
+                }
+                _ => {}
+            }
+            return;
+        }
+        Some(Overlay::Storage) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Up => app.storage_picker = app.storage_picker.saturating_sub(1),
+                KeyCode::Down | KeyCode::Tab => {
+                    app.storage_picker = (app.storage_picker + 1).min(6)
+                }
+                KeyCode::BackTab => app.storage_picker = app.storage_picker.saturating_sub(1),
+                KeyCode::Enter if app.storage_picker < 4 => {
+                    app.storage_choice = app.storage_picker;
+                }
+                KeyCode::Enter | KeyCode::Char(' ') if app.storage_picker == 4 => {
+                    if app.storage_choice != 0 {
+                        app.storage_full = !app.storage_full;
+                    }
+                }
+                KeyCode::Enter if app.storage_picker == 5 => app.storage_picker = 6,
+                KeyCode::Enter if app.storage_picker == 6 => app.apply_storage(),
+                _ if app.storage_picker == 5 => {
+                    app.storage_directory.key(key);
                 }
                 _ => {}
             }
@@ -749,6 +787,7 @@ fn key(app: &mut App, key: KeyEvent) {
 fn run_action(app: &mut App, action: Action) {
     match action {
         Action::Files => app.toggle_files(),
+        Action::Storage => app.open_storage(),
         Action::Collections => {
             if app.single_collection {
                 app.status = Some(format!("Collection: {}", app.scope_label()));
