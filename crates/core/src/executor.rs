@@ -479,6 +479,29 @@ fn segment_metadata_matches(
     }
     let catalog = catalog?;
     let empty = Value::Object(BTreeMap::new());
+    if matches!(
+        term.path.root,
+        PathRoot::Metadata(MetadataField::CollectionName | MetadataField::RepositoryRoot)
+    ) {
+        let Some(slot) = domain.iter().next() else {
+            return Some(RoaringBitmap::new());
+        };
+        let record = segment.records.get(slot as usize)?;
+        let file = catalog.entry(record.file)?;
+        let ctx = RecordContext {
+            value: &empty,
+            source_bytes: None,
+            record,
+            file,
+            collection_name: &collection.definition.name,
+            repository_root: catalog.repository_root(),
+        };
+        return Some(if eval_term(term, &ctx).ok()? {
+            domain.clone()
+        } else {
+            RoaringBitmap::new()
+        });
+    }
     let mut matches = RoaringBitmap::new();
     for slot in domain.iter() {
         let record = segment.records.get(slot as usize)?;
