@@ -1,0 +1,54 @@
+{
+  "rows_before": 880,
+  "rows_after": 880,
+  "digests_equal": true,
+  "mismatches": {
+    "status": 0,
+    "total_matches": 0,
+    "returned_records": 0,
+    "files_opened": 0,
+    "bytes_read": 0,
+    "record_parses": 0,
+    "exact_posting_matches": 0,
+    "scanned_records": 0,
+    "residual_evaluations": 0
+  },
+  "full_suite_outliers": [
+    {
+      "case": "Q141",
+      "profile": "ascii-off",
+      "before_median_ns": 4488147,
+      "after_median_ns": 5725456,
+      "increase_percent": 27.568370643831397
+    },
+    {
+      "case": "Q177",
+      "profile": "ascii-off",
+      "before_median_ns": 6337232,
+      "after_median_ns": 8799110,
+      "increase_percent": 38.847843979832206
+    },
+    {
+      "case": "Q214",
+      "profile": "ascii-off",
+      "before_median_ns": 2650667,
+      "after_median_ns": 3207917,
+      "increase_percent": 21.023010434732093
+    },
+    {
+      "case": "Q209",
+      "profile": "unicode-off",
+      "before_median_ns": 2433833,
+      "after_median_ns": 3092656,
+      "increase_percent": 27.069359319230202
+    }
+  ],
+  "q214_isolated": {
+    "before_median_ns": 3066457,
+    "after_median_ns": 3109811,
+    "increase_percent": 1.4138140531564591,
+    "source_opens": [
+      0
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "Q141",
+    "collection": "entries",
+    "fts": "Almanach",
+    "filter": "year >= 1800 && year < 1850",
+    "fts_fields": [],
+    "sort": [
+      {
+        "field": "year",
+        "descending": false
+      }
+    ],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q177",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.year >= $year",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true,
+    "parameters": {
+      "year": 1803
+    }
+  },
+  {
+    "id": "Q209",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors.type:? = false",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": false
+  },
+  {
+    "id": "Q214",
+    "collection": "contents",
+    "fts": null,
+    "filter": "musenalm_type:array = true",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": false
+  }
+]
