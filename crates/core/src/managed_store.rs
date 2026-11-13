@@ -89,7 +89,7 @@ impl ManagedStore {
         if !directory.starts_with(namespace) {
             return Err("managed store escaped its owned namespace".into());
         }
-        ensure_directories_without_symlinks(directory)?;
+        ensure_directories_without_symlinks(directory, namespace)?;
         if resolved.private_namespace {
             check_private_namespace(namespace)?;
         }
@@ -436,23 +436,24 @@ impl ManagedStore {
         let file = options
             .open(&path)
             .map_err(|error| format!("store lock {}: {error}", path.display()))?;
-        if !file
-            .metadata()
-            .map_err(|error| error.to_string())?
-            .is_file()
+        let metadata = file.metadata().map_err(|error| error.to_string())?;
+        if !metadata.is_file()
+            || !owned_by_current_user(&metadata)
+            || writable_by_other_users(&metadata)
         {
-            return Err("store lock is not a regular file".into());
+            return Err("store lock is not a safe owned regular file".into());
         }
         Ok(file)
     }
 
     fn read_manifest(&self) -> Result<Option<Manifest>, String> {
         let path = self.directory.join(MANIFEST_NAME);
-        let file = match open_regular_nofollow(&path) {
-            Ok(file) => file,
-            Err(error) if error.starts_with("missing regular file:") => return Ok(None),
-            Err(error) => return Err(error),
-        };
+        match fs::symlink_metadata(&path) {
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(None),
+            Err(error) => return Err(format!("manifest {}: {error}", path.display())),
+            Ok(_) => {}
+        }
+        let file = open_regular_nofollow(&path)?;
         let mut bytes = Vec::new();
         file.take((MAX_MANIFEST_BYTES + 1) as u64)
             .read_to_end(&mut bytes)
@@ -662,7 +663,7 @@ fn unique_nonce() -> Result<u64, String> {
         .as_nanos() as u64)
 }
 
-fn ensure_directories_without_symlinks(path: &Path) -> Result<(), String> {
+fn ensure_directories_without_symlinks(path: &Path, namespace: &Path) -> Result<(), String> {
     let mut current = PathBuf::new();
     for component in path.components() {
         match component {
@@ -681,9 +682,24 @@ fn ensure_directories_without_symlinks(path: &Path) -> Result<(), String> {
                                 current.display()
                             ));
                         }
+                        if current.starts_with(namespace) {
+                            check_owned_directory(&current, &metadata)?;
+                        }
                     }
                     Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
                         create_private_directory(&current)?;
+                        let metadata = fs::symlink_metadata(&current).map_err(|error| {
+                            format!("store directory {}: {error}", current.display())
+                        })?;
+                        if metadata.file_type().is_symlink() || !metadata.is_dir() {
+                            return Err(format!(
+                                "unsafe managed store directory: {}",
+                                current.display()
+                            ));
+                        }
+                        if current.starts_with(namespace) {
+                            check_owned_directory(&current, &metadata)?;
+                        }
                     }
                     Err(error) => {
                         return Err(format!("store directory {}: {error}", current.display()));
@@ -695,6 +711,31 @@ fn ensure_directories_without_symlinks(path: &Path) -> Result<(), String> {
     Ok(())
 }
 
+fn check_owned_directory(path: &Path, metadata: &fs::Metadata) -> Result<(), String> {
+    if metadata.file_type().is_symlink()
+        || !metadata.is_dir()
+        || !owned_by_current_user(metadata)
+        || writable_by_other_users(metadata)
+    {
+        return Err(format!(
+            "unsafe or unowned managed store namespace: {}",
+            path.display()
+        ));
+    }
+    Ok(())
+}
+
+#[cfg(unix)]
+fn writable_by_other_users(metadata: &fs::Metadata) -> bool {
+    use std::os::unix::fs::MetadataExt;
+    metadata.mode() & 0o022 != 0
+}
+
+#[cfg(not(unix))]
+fn writable_by_other_users(_metadata: &fs::Metadata) -> bool {
+    false
+}
+
 fn create_private_directory(path: &Path) -> Result<(), String> {
     let mut builder = fs::DirBuilder::new();
     #[cfg(unix)]
@@ -702,9 +743,14 @@ fn create_private_directory(path: &Path) -> Result<(), String> {
         use std::os::unix::fs::DirBuilderExt;
         builder.mode(0o700);
     }
-    builder
-        .create(path)
-        .map_err(|error| format!("create store directory {}: {error}", path.display()))
+    match builder.create(path) {
+        Ok(()) => Ok(()),
+        Err(error) if error.kind() == std::io::ErrorKind::AlreadyExists => Ok(()),
+        Err(error) => Err(format!(
+            "create store directory {}: {error}",
+            path.display()
+        )),
+    }
 }
 
 #[cfg(unix)]
@@ -775,12 +821,15 @@ fn open_regular_nofollow(path: &Path) -> Result<File, String> {
     let file = options
         .open(path)
         .map_err(|error| format!("store file {}: {error}", path.display()))?;
-    if !file
-        .metadata()
-        .map_err(|error| error.to_string())?
-        .is_file()
+    let metadata = file.metadata().map_err(|error| error.to_string())?;
+    if !metadata.is_file()
+        || !owned_by_current_user(&metadata)
+        || writable_by_other_users(&metadata)
     {
-        return Err(format!("store file is not regular: {}", path.display()));
+        return Err(format!(
+            "store file is not an owned regular file: {}",
+            path.display()
+        ));
     }
     Ok(file)
 }

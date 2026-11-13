@@ -611,3 +611,137 @@ fn refuses_symlinked_managed_namespace() {
     assert!(ManagedStore::open(&resolved).is_err());
     fs::remove_dir_all(base).unwrap();
 }
+
+#[cfg(unix)]
+#[test]
+fn refuses_writable_owned_namespace_before_creating_generation_children() {
+    use std::os::unix::fs::PermissionsExt;
+    let base = std::env::temp_dir().join(format!(
+        "objekte-hybrid-writable-namespace-{}-{}",
+        std::process::id(),
+        unique_nonce().unwrap()
+    ));
+    let root = base.join("source");
+    let destination = base.join("destination");
+    fs::create_dir_all(&root).unwrap();
+    fs::create_dir(&destination).unwrap();
+    let resolved = IndexStoragePolicy {
+        location: IndexStorageLocation::CustomDirectory(destination),
+        residency: IndexResidency::OnDemand,
+    }
+    .resolve(
+        &root,
+        &[CollectionDefinition::folder(
+            "files",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+        &SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let owned = resolved.owned_namespace_root.as_ref().unwrap();
+    fs::create_dir(owned).unwrap();
+    fs::set_permissions(owned, fs::Permissions::from_mode(0o777)).unwrap();
+    assert!(
+        ManagedStore::open(&resolved)
+            .err()
+            .unwrap()
+            .contains("unsafe or unowned managed store namespace")
+    );
+    assert!(!resolved.managed_directory.as_ref().unwrap().exists());
+    fs::remove_dir_all(base).unwrap();
+}
+
+#[cfg(unix)]
+#[test]
+fn refuses_writable_lock_and_segment_files() {
+    use std::os::unix::fs::PermissionsExt;
+    let fixture = TestStore::new();
+    let lock = fixture.store.path().join(LOCK_NAME);
+    fs::write(&lock, b"").unwrap();
+    fs::set_permissions(&lock, fs::Permissions::from_mode(0o666)).unwrap();
+    assert!(
+        fixture
+            .store
+            .read_generation()
+            .err()
+            .unwrap()
+            .contains("safe owned regular file")
+    );
+    fs::set_permissions(&lock, fs::Permissions::from_mode(0o600)).unwrap();
+    fixture
+        .store
+        .commit_generation(
+            None,
+            1,
+            &[SegmentInput::New {
+                bytes: Arc::from(complete_segment(1)),
+                active: &fixture.active,
+            }],
+        )
+        .unwrap();
+    let name = fixture
+        .store
+        .read_generation()
+        .unwrap()
+        .unwrap()
+        .segment_names
+        .remove(0);
+    let segment = fixture.store.path().join(name);
+    fs::set_permissions(&segment, fs::Permissions::from_mode(0o666)).unwrap();
+    assert!(
+        fixture
+            .store
+            .read_generation()
+            .err()
+            .unwrap()
+            .contains("owned regular file")
+    );
+}
+
+#[test]
+fn concurrent_first_open_converges_on_one_safe_namespace() {
+    let base = std::env::temp_dir().join(format!(
+        "objekte-hybrid-concurrent-open-{}-{}",
+        std::process::id(),
+        unique_nonce().unwrap()
+    ));
+    let root = base.join("source");
+    let destination = base.join("destination");
+    fs::create_dir_all(&root).unwrap();
+    fs::create_dir(&destination).unwrap();
+    let resolved = IndexStoragePolicy {
+        location: IndexStorageLocation::CustomDirectory(destination),
+        residency: IndexResidency::OnDemand,
+    }
+    .resolve(
+        &root,
+        &[CollectionDefinition::folder(
+            "files",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions::default(),
+        &SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let barrier = Arc::new(std::sync::Barrier::new(8));
+    let workers = (0..8)
+        .map(|_| {
+            let resolved = resolved.clone();
+            let barrier = Arc::clone(&barrier);
+            std::thread::spawn(move || {
+                barrier.wait();
+                ManagedStore::open(&resolved).map(|store| store.path().to_path_buf())
+            })
+        })
+        .collect::<Vec<_>>();
+    for worker in workers {
+        assert_eq!(
+            worker.join().unwrap().unwrap(),
+            resolved.managed_directory.clone().unwrap()
+        );
+    }
+    fs::remove_dir_all(base).unwrap();
+}
