@@ -38,6 +38,8 @@ The internal gram adapter now packs both families into the shared payload region
 
 `BigramIndex` now has an internal checked-reader installation step that releases its mutable gram maps after a validated shared segment is available. The fallible candidate/estimate methods are exercised against the installed reader. Production segment publication does not call this step yet: all segment query paths must first propagate corrupt payload errors, and the old snapshot writer must be retired so it cannot serialize an emptied builder map.
 
+Segment FTS and text-filter candidate paths now return storage errors through the query executor, including recursive Boolean bounds and relation pruning. A focused lifecycle-segment test installs a sealed raw/fallback reader with deliberately corrupted posting bytes and verifies the FTS candidate call errors instead of treating the gram as absent. Static mutable collection access keeps the established infallible path. The sealed reader is still not installed by ordinary publication.
+
 ## Validation and reusable evidence
 
 Validation produces evidence keyed by immutable segment identity plus the exact section, block or payload byte span. It is shared by pinned views. A newly published segment has new evidence; evicting a decoded posting cache entry does not discard evidence for unchanged bytes. No invalid input is converted to an empty posting or a missing key.
