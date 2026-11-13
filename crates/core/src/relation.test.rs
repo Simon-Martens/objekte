@@ -417,6 +417,44 @@ fn projecting_relation_contributions_preserves_references_and_unknown_rows() {
             .project_slots(&[None, Some(RecordSlot(0)), Some(RecordSlot(0))])
             .is_err()
     );
+    let routes = [None, Some((0, RecordSlot(0))), Some((1, RecordSlot(0)))];
+    let expected_visits = contribution.references.len()
+        + contribution.present.len() as usize
+        + contribution.nulls.len() as usize
+        + contribution.empty_arrays.len() as usize
+        + contribution.unavailable.len() as usize;
+    let mut visits = 0;
+    let parts = contribution
+        .project_partitions(&[1, 1], |old| {
+            visits += 1;
+            routes.get(old as usize).copied().ok_or("route missing".into())
+        })
+        .unwrap();
+    assert_eq!(visits, expected_visits);
+    for (part, map) in [
+        [None, Some(RecordSlot(0)), None],
+        [None, None, Some(RecordSlot(0))],
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        let expected = contribution.project_slots(&map).unwrap();
+        assert_eq!(
+            parts[part].references().collect::<Vec<_>>(),
+            expected.references().collect::<Vec<_>>()
+        );
+        assert_eq!(parts[part].present(), expected.present());
+        assert_eq!(parts[part].nulls(), expected.nulls());
+        assert_eq!(parts[part].empty_arrays(), expected.empty_arrays());
+        assert_eq!(parts[part].unavailable(), expected.unavailable());
+    }
+    assert!(
+        contribution
+            .project_partitions(&[1], |old| {
+                routes.get(old as usize).copied().ok_or("route missing".into())
+            })
+            .is_err()
+    );
 }
 
 #[test]

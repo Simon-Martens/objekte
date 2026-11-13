@@ -721,6 +721,34 @@ impl CollectionSegment {
 }
 
 impl IndexedCollectionSegment {
+    pub(crate) fn project_relations_for_partitions(
+        &self,
+        routing: &PartitionRouting,
+    ) -> Result<Vec<Vec<RelationContribution>>, String> {
+        let counts = routing
+            .selected
+            .iter()
+            .map(|slots| u32::try_from(slots.len()).map_err(|_| "partition slot overflow".into()))
+            .collect::<Result<Vec<_>, String>>()?;
+        let mut projected = counts
+            .iter()
+            .map(|_| Vec::with_capacity(self.relations.len()))
+            .collect::<Vec<_>>();
+        for relation in &self.relations {
+            let parts = relation.project_partitions(&counts, |old| {
+                routing
+                    .locations
+                    .get(old as usize)
+                    .copied()
+                    .ok_or("relation partition source outside routing".into())
+            })?;
+            for (destination, contribution) in projected.iter_mut().zip(parts) {
+                destination.push(contribution);
+            }
+        }
+        Ok(projected)
+    }
+
     pub fn file(&self, id: FileId) -> Option<&SegmentFile> {
         self.files.get(*self.file_index.get(&id)?)
     }
@@ -2085,6 +2113,7 @@ impl IndexedCollectionSegment {
             posting_projection,
             None,
             None,
+            None,
         )?;
         Ok(CompactedSegment {
             active: ActiveRecords::all(index.records.len())?,
@@ -2100,6 +2129,7 @@ impl IndexedCollectionSegment {
         selected_files: &HashSet<FileId>,
         projection: PostingProjection,
         bigrams: BigramProjection,
+        relations: Vec<RelationContribution>,
     ) -> Result<IndexedCollectionSegment, String> {
         let selected = routing
             .selected
@@ -2117,6 +2147,7 @@ impl IndexedCollectionSegment {
             |entry| selected_files.contains(&entry.id),
             Some(projection),
             Some(bigrams),
+            Some(relations),
             Some(&file_indices),
         )
     }
@@ -2128,6 +2159,7 @@ impl IndexedCollectionSegment {
         retain_file: impl Fn(&FileEntry) -> bool,
         posting_projection: Option<PostingProjection>,
         bigram_projection: Option<BigramProjection>,
+        relation_projection: Option<Vec<RelationContribution>>,
         selected_files: Option<&[usize]>,
     ) -> Result<IndexedCollectionSegment, String> {
         let mut files = Vec::new();
@@ -2292,11 +2324,19 @@ impl IndexedCollectionSegment {
             records.len(),
             bounds,
         )?;
-        let relations = self
-            .relations
-            .iter()
-            .map(|relation| relation.project_slots_with(next, |old| slot_map.get(old as usize)))
-            .collect::<Result<Vec<_>, _>>()?;
+        let relations = if let Some(projected) = relation_projection {
+            if projected.len() != self.relations.len()
+                || projected.iter().any(|relation| relation.record_count() != next)
+            {
+                return Err("partition relation projection mismatch".into());
+            }
+            projected
+        } else {
+            self.relations
+                .iter()
+                .map(|relation| relation.project_slots_with(next, |old| slot_map.get(old as usize)))
+                .collect::<Result<Vec<_>, _>>()?
+        };
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
         postings.validate_eligible(records.len(), logical_records.len() as usize)?;

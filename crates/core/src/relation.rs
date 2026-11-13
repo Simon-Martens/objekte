@@ -409,6 +409,69 @@ impl RelationContribution {
         })
     }
 
+    /// Scatter one source contribution across partition-local slot domains.
+    /// Each reference and bitmap member is visited once for all output parts.
+    pub(crate) fn project_partitions(
+        &self,
+        part_counts: &[u32],
+        mut route: impl FnMut(u32) -> Result<Option<(usize, RecordSlot)>, String>,
+    ) -> Result<Vec<Self>, String> {
+        let mut parts = part_counts
+            .iter()
+            .map(|&record_count| Self {
+                declaration: self.declaration.clone(),
+                record_count,
+                references: Vec::new(),
+                present: RoaringBitmap::new(),
+                nulls: RoaringBitmap::new(),
+                empty_arrays: RoaringBitmap::new(),
+                unavailable: RoaringBitmap::new(),
+            })
+            .collect::<Vec<_>>();
+        let mut locate = |old: u32| -> Result<Option<(usize, RecordSlot)>, String> {
+            if old >= self.record_count {
+                return Err("relation partition source out of bounds".into());
+            }
+            let Some((part, slot)) = route(old)? else {
+                return Ok(None);
+            };
+            if part_counts.get(part).is_none_or(|count| slot.0 >= *count) {
+                return Err("relation partition target out of bounds".into());
+            }
+            Ok(Some((part, slot)))
+        };
+        for reference in &self.references {
+            if let Some((part, source)) = locate(reference.source.0)? {
+                parts[part].references.push(PendingReference {
+                    source,
+                    target_id: reference.target_id.clone(),
+                    positions: reference.positions.clone(),
+                });
+            }
+        }
+        for old in self.present.iter() {
+            if let Some((part, slot)) = locate(old)? {
+                parts[part].present.insert(slot.0);
+            }
+        }
+        for old in self.nulls.iter() {
+            if let Some((part, slot)) = locate(old)? {
+                parts[part].nulls.insert(slot.0);
+            }
+        }
+        for old in self.empty_arrays.iter() {
+            if let Some((part, slot)) = locate(old)? {
+                parts[part].empty_arrays.insert(slot.0);
+            }
+        }
+        for old in self.unavailable.iter() {
+            if let Some((part, slot)) = locate(old)? {
+                parts[part].unavailable.insert(slot.0);
+            }
+        }
+        Ok(parts)
+    }
+
     pub(crate) fn for_schema(schema: &Schema) -> Vec<Self> {
         schema
             .relations()
