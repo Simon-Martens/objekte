@@ -1677,27 +1677,35 @@ fn load_snapshot_parts(
         .iter()
         .map(|file| file.fingerprint)
         .collect::<Vec<_>>();
-    let mut files = FileInventory::new(root);
+    let mut entries = Vec::with_capacity(encoded_files.len());
     for (index, entry) in encoded_files.into_iter().enumerate() {
         if entry.id.0 as usize != index || entry.collections.is_empty() {
             return Err("invalid snapshot file identity".into());
         }
         let path = path_from_bytes(entry.relative_path)?;
-        for collection in &entry.collections {
+        let mut memberships = Vec::with_capacity(entry.collections.len());
+        for collection in entry.collections {
             if collection.0 as usize >= definitions.len() {
                 return Err("snapshot file collection out of bounds".into());
             }
-            let id = files.add(path.clone(), entry.revision, entry.created_ns, *collection)?;
-            if id != entry.id {
-                return Err("snapshot file ID mismatch".into());
+            // `FileInventory::add` previously kept the first occurrence of a
+            // membership when an encoded list contained duplicates.
+            if !memberships.contains(&collection) {
+                memberships.push(collection);
             }
         }
-        let restored = &mut files.files[entry.id.0 as usize];
-        restored.status = entry.status;
-        restored.diagnostics = entry.diagnostics;
-        restored.omitted_diagnostics = entry.omitted_diagnostics;
+        entries.push(FileEntry {
+            id: entry.id,
+            relative_path: path.into(),
+            revision: entry.revision,
+            created_ns: entry.created_ns,
+            collections: memberships,
+            status: entry.status,
+            diagnostics: entry.diagnostics,
+            omitted_diagnostics: entry.omitted_diagnostics,
+        });
     }
-    files.rebuild_lookup()?;
+    let files = FileInventory::from_restored_entries(root, entries)?;
     if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
         profile.inventory_rebuild_ns = started.elapsed().as_nanos() as u64;
     }

@@ -776,6 +776,23 @@ impl FileInventory {
         }
     }
 
+    /// Restore an already decoded file table without first populating lookup
+    /// maps through `add`. `rebuild_lookup` validates identities and paths,
+    /// constructs both final maps once, and checks diagnostic ownership.
+    pub(crate) fn from_restored_entries(
+        root: PathBuf,
+        entries: Vec<FileEntry>,
+    ) -> Result<Self, String> {
+        let mut inventory = Self {
+            root,
+            files: entries,
+            by_path: HashMap::new(),
+            relative_paths: BTreeMap::new(),
+        };
+        inventory.rebuild_lookup()?;
+        Ok(inventory)
+    }
+
     pub fn add(
         &mut self,
         relative_path: PathBuf,
@@ -884,6 +901,7 @@ impl FileInventory {
 
     pub fn rebuild_lookup(&mut self) -> Result<(), String> {
         self.by_path.clear();
+        self.by_path.reserve(self.files.len());
         self.relative_paths.clear();
         for (slot, file) in self.files.iter().enumerate() {
             if !valid_relative_path(&file.relative_path)
