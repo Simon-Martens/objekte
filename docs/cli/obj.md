@@ -81,6 +81,14 @@ Malformed JSON follows the core's raw-text fallback behavior. Such a file can ma
 
 Stdout contains one UTF-8 JSON object per line, with `protocol_version: 2`, a monotonic `sequence`, and a `type`. A normal run emits `run_start`, then for each query `query_start`, zero or more ordered `hit` events, exactly one `query_complete`, and finally `run_complete`. Query and run errors or cancellation use the corresponding `query_error`, `query_cancelled`, `run_error`, or `run_cancelled` terminal type. An index-only run has only run events. Stderr carries operational messages and optional diagnostics; it never shares stdout's event stream.
 
+On a fresh build, the CLI may evaluate an accepted query internally as
+searchable batches arrive. It waits for construction to complete before
+emitting any query events, so hit order, exact counts, exports, and exit
+status retain the complete-index behavior. A valid existing snapshot still
+uses the normal restore path. Early internal evaluation covers direct inputs
+and regular query files. Stdin and named pipes are read by the normal ordered
+query stream after opening so input reads cannot block construction.
+
 `query_start` includes a monotonic `query_id`, original input, `structured` or `fts` kind, optional physical query-file line, requested scope and count policy. A `hit` includes the query ID, zero-based emitted position and requested offset; collection and stable record ID; generation and file ID; relative path, size and available created/modified metadata; record byte range, class and status; diagnostic reference/details when available; and matched-field evidence when the core provides it. Unscoped FTS does not invent an exact field list.
 
 `data` is the complete original source JSON value, not a projection or a serialization of the core's typed model. Its insignificant outer and inter-token whitespace is removed so the event stays on one line; string escapes, number spelling, member order and duplicate names are preserved. `data_available: true` distinguishes a genuine JSON `null` from unavailable source JSON. For malformed raw fallback, `data_available` is false, `data` is null, and the event carries `raw_text` with `raw_encoding: "utf8"` or `raw_base64` with `raw_encoding: "base64"`.

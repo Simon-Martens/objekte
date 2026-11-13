@@ -10,7 +10,6 @@ use objekte_search_core::workload::ReturnMode;
 
 use crate::arguments::Arguments;
 
-
 /// Query spelling, source location, and explicit input kind.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct QueryInput {
@@ -19,7 +18,6 @@ pub struct QueryInput {
     pub kind: QueryKind,
 }
 
-
 /// How one input is parsed before the core request is built.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum QueryKind {
@@ -27,16 +25,15 @@ pub enum QueryKind {
     Fts,
 }
 
-
 /// One direct query or a buffered physical-line reader.
 pub struct QuerySource {
     direct: Option<QueryInput>,
+    pending_error: Option<String>,
     reader: Option<Box<dyn BufRead>>,
     line: usize,
     first_line: bool,
     yielded: usize,
 }
-
 
 impl QueryInput {
     pub fn parse(&self, args: &Arguments) -> Result<(Query, Option<String>), String> {
@@ -86,12 +83,12 @@ impl QueryInput {
     }
 }
 
-
 impl QuerySource {
     /// Parse pasted batch text with the same physical-line rules as a query file.
     pub fn from_text(text: String) -> Self {
         Self {
             direct: None,
+            pending_error: None,
             reader: Some(Box::new(BufReader::new(Cursor::new(text.into_bytes())))),
             line: 0,
             first_line: true,
@@ -122,6 +119,7 @@ impl QuerySource {
         };
         Ok(Self {
             direct,
+            pending_error: None,
             reader,
             line: 0,
             first_line: true,
@@ -130,6 +128,9 @@ impl QuerySource {
     }
 
     pub fn next_input(&mut self) -> Result<Option<QueryInput>, String> {
+        if let Some(error) = self.pending_error.take() {
+            return Err(error);
+        }
         if let Some(input) = self.direct.take() {
             self.yielded += 1;
             return Ok(Some(input));
@@ -165,6 +166,29 @@ impl QuerySource {
         }
     }
 
+    /// Preview the first input while opening without consuming it from the
+    /// eventual ordered batch stream, including a physical-line read error.
+    pub fn peek_first_input(&mut self) -> Result<Option<QueryInput>, String> {
+        if let Some(input) = &self.direct {
+            return Ok(Some(input.clone()));
+        }
+        if let Some(error) = &self.pending_error {
+            return Err(error.clone());
+        }
+        match self.next_input() {
+            Ok(Some(input)) => {
+                self.yielded = self.yielded.saturating_sub(1);
+                self.direct = Some(input.clone());
+                Ok(Some(input))
+            }
+            Ok(None) => Ok(None),
+            Err(error) => {
+                self.pending_error = Some(error.clone());
+                Err(error)
+            }
+        }
+    }
+
     pub fn is_file(&self) -> bool {
         self.reader.is_some()
     }
@@ -173,7 +197,6 @@ impl QuerySource {
         self.yielded
     }
 }
-
 
 fn kind_of(text: &str) -> QueryKind {
     if text.starts_with('"') {
