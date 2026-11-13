@@ -14,6 +14,7 @@ use std::thread::JoinHandle;
 use std::time::{Duration, Instant, SystemTime};
 
 use serde::{Deserialize, Serialize};
+use roaring::RoaringBitmap;
 
 use crate::build::{
     FilePreparationBinding, IndexedCollectionSegment, PreparedCollectionBuild, PreparedFileBuild,
@@ -34,6 +35,9 @@ use crate::streaming::{
 use crate::workload::ReturnMode;
 
 pub use crate::inventory::FileVersion;
+pub use crate::lifecycle_initial::{
+    InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus, InitialBuildTask,
+};
 
 pub(crate) const MAX_SEGMENTS_PER_COLLECTION: usize = 64;
 const MAX_RECONCILIATION_ISSUES: usize = 128;
@@ -91,6 +95,7 @@ pub enum IndexError {
     StaleLocator,
     SourceUnavailable(String),
     ResourceLimit(String),
+    IncompleteBuild,
     Cancelled,
     Io(String),
     Build(String),
@@ -141,6 +146,7 @@ impl fmt::Display for IndexError {
             }
             Self::SourceUnavailable(message) => write!(formatter, "source unavailable: {message}"),
             Self::ResourceLimit(message) => write!(formatter, "resource limit: {message}"),
+            Self::IncompleteBuild => formatter.write_str("initial index construction is incomplete"),
             Self::Cancelled => formatter.write_str("index operation cancelled"),
             Self::Io(message) => write!(formatter, "index I/O: {message}"),
             Self::Build(message) => write!(formatter, "index build: {message}"),
@@ -176,6 +182,33 @@ pub struct IndexStatus {
     pub reconciliation: ReconciliationState,
     pub indexed_files: usize,
     pub live_records: u64,
+    /// Physical files whose every configured collection membership has been
+    /// processed. Equal to `indexed_files` on an ordinary completed index.
+    pub processed_files: usize,
+    pub initial_construction_complete: bool,
+}
+
+/// Discovery-only facts for one physical file. Record identity, validity,
+/// byte ranges and record counts require construction and are omitted here.
+#[derive(Clone, Copy, Debug)]
+pub struct FileCatalogueRow<'a> {
+    pub id: FileId,
+    pub relative_path: &'a Path,
+    pub collections: &'a [CollectionId],
+    pub size: u64,
+    pub modified_ns: i128,
+    pub created_ns: Option<i128>,
+}
+
+/// Result of an explicit query against one pinned, possibly incomplete view.
+/// `result.count` is absent while construction is incomplete, even if the
+/// request asked for a count over the eventual repository.
+pub struct AvailableSearchResult {
+    pub result: SearchResult,
+    pub complete: bool,
+    pub revision: IndexRevision,
+    pub discovered_files: usize,
+    pub processed_files: usize,
 }
 
 
@@ -360,6 +393,10 @@ pub(crate) struct PublishedIndex {
     pub(crate) file_versions: FileVersions,
     pub(crate) saved_revision: Option<IndexRevision>,
     pub(crate) reconciliation: ReconciliationState,
+    pub(crate) processed_files: usize,
+    /// Only populated during an initial build. One bitmap per collection
+    /// prevents a shared physical file from being counted too early.
+    pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
 }
 
 
@@ -422,6 +459,7 @@ impl PublishedIndex {
             FileVersions::filled(repository.files().files.len(), FileVersion(revision.0));
         let catalog = FileCatalog::from_repository(Arc::clone(&repository))
             .map_err(IndexError::ResourceLimit)?;
+        let processed_files = catalog.active_files() as usize;
         let segments = vec![Arc::new(Vec::new()); active.len()];
         Ok(Self {
             instance_id,
@@ -435,7 +473,17 @@ impl PublishedIndex {
             file_versions,
             saved_revision: None,
             reconciliation: ReconciliationState::NotStarted,
+            processed_files,
+            processed_memberships: Vec::new(),
         })
+    }
+
+    pub(crate) fn begin_initial_construction(&mut self) {
+        self.catalog.set_construction_complete(false);
+        self.processed_files = 0;
+        self.processed_memberships = (0..self.repository.collections().len())
+            .map(|_| Arc::new(RoaringBitmap::new()))
+            .collect();
     }
 
     fn status(&self) -> IndexStatus {
@@ -446,6 +494,8 @@ impl PublishedIndex {
             saved_revision: self.saved_revision,
             reconciliation: self.reconciliation,
             indexed_files: self.catalog.active_files() as usize,
+            processed_files: self.processed_files,
+            initial_construction_complete: self.catalog.construction_complete(),
             live_records: self.active.iter().map(ActiveRecords::len).sum::<u64>()
                 + self
                     .segments
@@ -509,6 +559,25 @@ impl PublishedIndex {
                     collection: collection.definition.name.clone(),
                     record_id: id.0.to_string(),
                 });
+            }
+        }
+        if !self.catalog.construction_complete() {
+            for file in &index.files {
+                let members = self.processed_memberships.get_mut(number).ok_or_else(|| {
+                    IndexError::InvalidPublication("processed membership missing".into())
+                })?;
+                if Arc::make_mut(members).insert(file.entry.id.0) {
+                    let catalogue_entry = self.catalog.entry(file.entry.id).ok_or_else(|| {
+                        IndexError::InvalidPublication("processed file missing".into())
+                    })?;
+                    if catalogue_entry.collections.iter().all(|collection| {
+                        self.processed_memberships
+                            .get(collection.0 as usize)
+                            .is_some_and(|covered| covered.contains(file.entry.id.0))
+                    }) {
+                        self.processed_files += 1;
+                    }
+                }
             }
         }
         let active = ActiveRecords::all(index.records.len()).map_err(IndexError::ResourceLimit)?;
@@ -959,6 +1028,91 @@ pub struct Index(Arc<IndexInner>);
 
 
 impl Index {
+    /// Publish one complete initial work unit. A concurrent lifecycle
+    /// mutation changes the revision and rejects this stale work atomically.
+    pub(crate) fn publish_initial_segment(
+        &self,
+        expected: IndexRevision,
+        segment: IndexedCollectionSegment,
+    ) -> Result<IndexRevision, IndexError> {
+        let view = self.view()?;
+        if view.revision() != expected {
+            return Err(IndexError::RevisionConflict {
+                expected,
+                actual: view.revision(),
+            });
+        }
+        if view.initial_construction_complete() {
+            return Err(IndexError::InvalidPublication(
+                "initial construction already completed".into(),
+            ));
+        }
+        let mut next = (*view.0).clone();
+        for file in &segment.files {
+            if file.entry.status == FileStatus::Valid
+                && file.entry.diagnostics.is_empty()
+                && file.entry.omitted_diagnostics == 0
+            {
+                continue;
+            }
+            let mut merged = next
+                .catalog
+                .entry(file.entry.id)
+                .ok_or(IndexError::UnknownFile)?
+                .clone();
+            merged.status = merged.status.max(file.entry.status);
+            for diagnostic in &file.entry.diagnostics {
+                merged
+                    .record_diagnostic(diagnostic.clone())
+                    .map_err(IndexError::InvalidPublication)?;
+            }
+            merged.omitted_diagnostics = merged
+                .omitted_diagnostics
+                .saturating_add(file.entry.omitted_diagnostics);
+            next.catalog = next
+                .catalog
+                .replaced(merged, None, None)
+                .map_err(IndexError::InvalidPublication)?;
+        }
+        next = next.with_segment(segment)?;
+        next.revision = expected.next()?;
+        self.publish_prepared(expected, next)
+    }
+
+    /// Finalize metadata without copying the completed segment payloads.
+    pub(crate) fn finish_initial_construction(
+        &self,
+        expected: IndexRevision,
+        repository: Arc<Repository>,
+    ) -> Result<IndexRevision, IndexError> {
+        let view = self.view()?;
+        if view.revision() != expected {
+            return Err(IndexError::RevisionConflict {
+                expected,
+                actual: view.revision(),
+            });
+        }
+        if view.initial_construction_complete() {
+            return Err(IndexError::InvalidPublication(
+                "initial construction already completed".into(),
+            ));
+        }
+        let mut next = (*view.0).clone();
+        if next.processed_files != next.catalog.active_files() as usize {
+            return Err(IndexError::InvalidPublication(
+                "initial construction has unprocessed files".into(),
+            ));
+        }
+        next.catalog
+            .rebase(Arc::clone(&repository))
+            .map_err(IndexError::InvalidPublication)?;
+        next.catalog.set_construction_complete(true);
+        next.processed_memberships.clear();
+        next.repository = repository;
+        next.revision = expected.next()?;
+        self.publish_prepared(expected, next)
+    }
+
     /// Adopt a completed static repository as the first published view.
     /// This does not trigger discovery, reconciliation or cache persistence.
     pub fn from_repository(repository: Repository) -> Result<Self, IndexError> {
@@ -1278,6 +1432,9 @@ impl Index {
         select_if_none: bool,
     ) -> Result<(IndexRevision, crate::storage::SnapshotSaveStats), IndexError> {
         let view = self.view()?;
+        if !view.initial_construction_complete() {
+            return Err(IndexError::IncompleteBuild);
+        }
         let destination = crate::lifecycle_cache_guard::canonical_cache_destination(path)
             .map_err(IndexError::InvalidCache)?;
         let mut persistence = self
@@ -2282,6 +2439,7 @@ impl Index {
                 "prepared root must carry the next revision".into(),
             ));
         }
+        let notify_cache = next.catalog.construction_complete();
         let next = Arc::new(next);
         let retired = {
             let mut guard = self
@@ -2301,7 +2459,9 @@ impl Index {
             std::mem::replace(&mut *guard, next)
         };
         drop(retired);
-        self.notify_sync_cache();
+        if notify_cache {
+            self.notify_sync_cache();
+        }
         Ok(next_revision)
     }
 }
@@ -2313,15 +2473,102 @@ pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
 
 
 impl IndexView {
+    pub fn initial_construction_complete(&self) -> bool {
+        self.0.catalog.construction_complete()
+    }
+
+    /// Borrow a row from this pinned publication without copying the corpus
+    /// path catalogue or implying that the file has been parsed.
+    pub fn catalogue_row(&self, id: FileId) -> Option<FileCatalogueRow<'_>> {
+        if !self.0.catalog.is_active(id) {
+            return None;
+        }
+        let file = self.0.catalog.entry(id)?;
+        Some(FileCatalogueRow {
+            id,
+            relative_path: file.relative_path.as_path(),
+            collections: &file.collections,
+            size: file.revision.size,
+            modified_ns: file.revision.modified_ns,
+            created_ns: file.created_ns,
+        })
+    }
+
+    pub fn catalogue_rows(&self) -> impl Iterator<Item = FileCatalogueRow<'_>> + '_ {
+        (0..self.0.catalog.allocated_files())
+            .filter_map(|number| self.catalogue_row(FileId(number as u32)))
+    }
+
     fn has_segments(&self) -> bool {
         self.0.segments.iter().any(|group| !group.is_empty())
+    }
+
+    fn ensure_initial_complete(&self) -> Result<(), String> {
+        if self.initial_construction_complete() {
+            Ok(())
+        } else {
+            Err("initial index construction is incomplete; use the explicit available-record APIs".into())
+        }
+    }
+
+    fn ensure_local_partial_query(&self, query: &Query) -> Result<(), String> {
+        if self.initial_construction_complete() {
+            return Ok(());
+        }
+        self.ensure_record_local_query(query)
+    }
+
+    fn ensure_record_local_query(&self, query: &Query) -> Result<(), String> {
+        if query.options.offset != 0 {
+            return Err("pagination waits for initial index construction".into());
+        }
+        let (prepared, _) = crate::prepared::prepare(self.repository(), query)?;
+        if prepared.collections.iter().any(|(_, filter, fts)| {
+            filter.as_ref().is_some_and(crate::run::bound_expr_has_relations)
+                || fts.as_ref().is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
+        }) {
+            return Err("relation queries wait for initial index construction".into());
+        }
+        Ok(())
     }
 
     fn stamp_result(&self, mut result: SearchResult) -> SearchResult {
         for hit in &mut result.hits {
             hit.generation = self.revision().0;
+            self.remap_hit_diagnostic(hit);
         }
         result
+    }
+
+    fn remap_hit_diagnostic(&self, hit: &mut SearchHit) {
+        let Some(local) = hit.diagnostic_ref.stored_index() else {
+            return;
+        };
+        let Some(collection) = self.repository().collections().iter().position(|collection| collection.definition.name == hit.collection) else {
+            return;
+        };
+        let id = crate::model::RecordId(std::sync::Arc::from(hit.record_id.as_str()));
+        let file = FileId(hit.file_id);
+        for segment in self.0.segments[collection].iter() {
+            let Some(slot) = segment.index.id_lookup.get(&id) else {
+                continue;
+            };
+            if !segment.active.contains(*slot) || segment.index.record(*slot).is_none_or(|record| record.file != file) {
+                continue;
+            }
+            let Some(diagnostic) = segment.index.file(file).and_then(|source| source.entry.diagnostics.get(local)) else {
+                return;
+            };
+            let Some(position) = self.0.catalog.entry(file).and_then(|entry| entry.diagnostics.iter().position(|candidate| candidate == diagnostic)) else {
+                return;
+            };
+            let reference = crate::inventory::DiagnosticRef((position + 1) as u32);
+            hit.diagnostic_ref = reference;
+            if let Some(crate::repository::Payload::LogicalUnavailable { diagnostic_ref }) = &mut hit.payload {
+                *diagnostic_ref = reference;
+            }
+            return;
+        }
     }
 
     pub fn instance_id(&self) -> u64 {
@@ -2426,6 +2673,16 @@ impl IndexView {
 
     pub(crate) fn file_record_count(&self, file: FileId) -> Option<u64> {
         let entry = self.file_entry(file)?;
+        if !self.initial_construction_complete()
+            && !entry.collections.iter().all(|collection| {
+                self.0
+                    .processed_memberships
+                    .get(collection.0 as usize)
+                    .is_some_and(|covered| covered.contains(file.0))
+            })
+        {
+            return None;
+        }
         let mut count = 0;
         for collection_id in &entry.collections {
             let number = collection_id.0 as usize;
@@ -2476,6 +2733,13 @@ impl IndexView {
     }
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
+        if !self.initial_construction_complete() {
+            return Err("initial index construction is incomplete; use search_available".into());
+        }
+        self.search_published(query)
+    }
+
+    fn search_published(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
         let owner = self.1.upgrade();
         let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
@@ -2503,7 +2767,26 @@ impl IndexView {
                 cache,
             )
         };
-        result
+        result.map(|result| self.stamp_result(result))
+    }
+
+    /// Opt in to the validated records in this publication. An incomplete
+    /// view cannot return a complete count or a final continuation page.
+    pub fn search_available(&self, query: &Query) -> Result<AvailableSearchResult, String> {
+        self.ensure_local_partial_query(query)?;
+        let mut result = self.search_published(query)?;
+        let complete = self.initial_construction_complete();
+        if !complete {
+            result.count = None;
+            result.counters.match_count_complete = false;
+        }
+        Ok(AvailableSearchResult {
+            result,
+            complete,
+            revision: self.revision(),
+            discovered_files: self.0.catalog.active_files() as usize,
+            processed_files: self.0.processed_files,
+        })
     }
 
     /// Bind typed parameters before querying this pinned publication.
@@ -2516,6 +2799,20 @@ impl IndexView {
     }
 
     pub fn search_with_context(
+        &self,
+        query: &Query,
+        context: &ExecutionContext,
+    ) -> Result<SearchResult, ExecutionError> {
+        if !self.initial_construction_complete() {
+            return Err(context.error(
+                crate::streaming::ExecutionErrorKind::Execution,
+                "initial index construction is incomplete; use search_available_with_context",
+            ));
+        }
+        self.search_published_with_context(query, context)
+    }
+
+    fn search_published_with_context(
         &self,
         query: &Query,
         context: &ExecutionContext,
@@ -2552,7 +2849,131 @@ impl IndexView {
                 cache,
             )
         };
-        result
+        result.map(|result| self.stamp_result(result))
+    }
+
+    pub fn search_available_with_context(
+        &self,
+        query: &Query,
+        context: &ExecutionContext,
+    ) -> Result<AvailableSearchResult, ExecutionError> {
+        self.ensure_local_partial_query(query).map_err(|message| context.error(
+            crate::streaming::ExecutionErrorKind::InvalidQuery, message,
+        ))?;
+        let mut result = self.search_published_with_context(query, context)?;
+        let complete = self.initial_construction_complete();
+        if !complete {
+            result.count = None;
+            result.counters.match_count_complete = false;
+        }
+        Ok(AvailableSearchResult {
+            result,
+            complete,
+            revision: self.revision(),
+            discovered_files: self.0.catalog.active_files() as usize,
+            processed_files: self.0.processed_files,
+        })
+    }
+
+    /// Use a fresh request context while keeping query cancellation separate
+    /// from the independent construction worker.
+    pub fn search_available_with_cancellation(
+        &self,
+        query: &Query,
+        cancellation: &CancellationToken,
+    ) -> Result<AvailableSearchResult, ExecutionError> {
+        let context = ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::streaming::ExecutionLimits::default(),
+            Some(cancellation.clone()),
+        );
+        self.search_available_with_context(query, &context)
+    }
+
+    /// Evaluate only segments published after `previous`. A caller can append
+    /// these record-local matches to its previous unsorted result, including
+    /// when several notifications were coalesced. A changed lineage or query
+    /// with global dependencies returns `None` for a full replacement search.
+    pub fn search_added_since(
+        &self,
+        previous: &IndexView,
+        query: &Query,
+    ) -> Result<Option<AvailableSearchResult>, String> {
+        let context = ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::streaming::ExecutionLimits::default(),
+            None,
+        );
+        self.search_added_since_with_context(previous, query, &context)
+            .map_err(|error| error.to_string())
+    }
+
+    pub fn search_added_since_with_cancellation(
+        &self,
+        previous: &IndexView,
+        query: &Query,
+        cancellation: &CancellationToken,
+    ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
+        let context = ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::streaming::ExecutionLimits::default(),
+            Some(cancellation.clone()),
+        );
+        self.search_added_since_with_context(previous, query, &context)
+    }
+
+    pub fn search_added_since_with_context(
+        &self,
+        previous: &IndexView,
+        query: &Query,
+        context: &ExecutionContext,
+    ) -> Result<Option<AvailableSearchResult>, ExecutionError> {
+        context.enter()?;
+        if self.instance_id() != previous.instance_id()
+            || self.revision() <= previous.revision()
+            || !query.options.sort.is_empty()
+            || query.options.offset != 0
+            || query.options.count
+            || self.0.segments.len() != previous.0.segments.len()
+            || self.0.active.iter().zip(&previous.0.active).any(|(new, old)| new.bitmap() != old.bitmap())
+        {
+            return Ok(None);
+        }
+        let resolved = query.with_clock(context.clock.now).map_err(|message| context.error(
+            crate::streaming::ExecutionErrorKind::InvalidQuery, message,
+        ))?;
+        self.ensure_record_local_query(&resolved).map_err(|message| context.error(
+            crate::streaming::ExecutionErrorKind::InvalidQuery, message,
+        ))?;
+        let mut added = Vec::with_capacity(self.0.segments.len());
+        let mut added_records = 0usize;
+        for (current, old) in self.0.segments.iter().zip(&previous.0.segments) {
+            if old.len() > current.len() || old.iter().zip(current.iter()).any(|(left, right)| !Arc::ptr_eq(left, right)) {
+                return Ok(None);
+            }
+            let next = current[old.len()..].to_vec();
+            added_records = added_records.saturating_add(next.iter().map(|segment| segment.active.len() as usize).sum::<usize>());
+            added.push(Arc::new(next));
+        }
+        let mut request = resolved;
+        request.options.limit = added_records;
+        request.options.count = false;
+        let empty_base = self.0.active.iter().map(|_| ActiveRecords::from_bitmap(0, RoaringBitmap::new())
+            .expect("empty active bitmap is valid")).collect::<Vec<_>>();
+        let mut result = crate::run::search_segmented_with_context_lifecycle(
+            self.repository(), &request, &empty_base, &added, &self.0.catalog,
+            self.revision(), context, None,
+        )?;
+        result = self.stamp_result(result);
+        result.count = None;
+        result.counters.match_count_complete = false;
+        Ok(Some(AvailableSearchResult {
+            result,
+            complete: false,
+            revision: self.revision(),
+            discovered_files: self.0.catalog.active_files() as usize,
+            processed_files: self.0.processed_files,
+        }))
     }
 
     /// Search only when every required source was available to this execution.
@@ -2630,6 +3051,7 @@ impl IndexView {
         record_id: &str,
         return_mode: ReturnMode,
     ) -> Result<crate::run::DirectLookupResult, String> {
+        self.ensure_initial_complete()?;
         let result = crate::run::direct_lookup_segmented(
             self.repository(),
             collection,
@@ -2644,6 +3066,7 @@ impl IndexView {
     }
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
+        self.ensure_initial_complete()?;
         if self.0.segments.iter().any(|segments| !segments.is_empty()) {
             return crate::run::search_segmented_reference(
                 self.repository(),
@@ -2664,6 +3087,7 @@ impl IndexView {
         collection: &str,
         query: &Query,
     ) -> Result<crate::posting_values::ExactSelection, String> {
+        self.ensure_initial_complete()?;
         if self.has_segments() {
             return crate::posting_values::select_exact_segmented(
                 self.repository(),
@@ -2683,6 +3107,7 @@ impl IndexView {
         &self,
         request: &crate::posting_values::PostingValuesRequest,
     ) -> Result<crate::posting_values::PostingValuesPage, String> {
+        self.ensure_initial_complete()?;
         if self.has_segments() {
             return crate::posting_values::posting_values_segmented(
                 self.repository(),
@@ -2705,6 +3130,7 @@ impl IndexView {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::OutgoingReferencePage, String> {
+        self.ensure_initial_complete()?;
         if self.has_segments() {
             return crate::relation_inspection::relation_outgoing_page_segmented(
                 self.repository(),
@@ -2737,6 +3163,7 @@ impl IndexView {
         offset: usize,
         limit: usize,
     ) -> Result<crate::relation_inspection::BacklinkPage, String> {
+        self.ensure_initial_complete()?;
         if self.has_segments() {
             return crate::relation_inspection::relation_backlink_page_segmented(
                 self.repository(),
@@ -2762,6 +3189,7 @@ impl IndexView {
     }
 
     pub fn collection_graph(&self) -> Result<crate::relation_inspection::CollectionGraph, String> {
+        self.ensure_initial_complete()?;
         if self.has_segments() {
             return crate::relation_inspection::collection_graph_segmented(
                 self.repository(),
@@ -2778,6 +3206,7 @@ impl IndexView {
         &self,
         query: &Query,
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
+        self.ensure_initial_complete()?;
         let resolved = query.resolve_current_clock()?;
         if self.has_segments() {
             return crate::run::search_analyze_segmented(
@@ -2798,6 +3227,7 @@ impl IndexView {
     }
 
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+        self.ensure_initial_complete()?;
         let resolved = query.resolve_current_clock()?;
         if self.has_segments() {
             return crate::run::explain_segmented(
@@ -2863,6 +3293,13 @@ impl IndexView {
     where
         F: for<'event> FnMut(StreamEvent<'event>) -> Result<StreamControl, String>,
     {
+        if !self.initial_construction_complete() {
+            return Err(StreamError::Execution {
+                kind: crate::streaming::ExecutionErrorKind::Execution,
+                message: "initial index construction is incomplete; use search_available".into(),
+                progress: crate::streaming::StreamProgress::default(),
+            });
+        }
         let owner = self.1.upgrade();
         let cache = owner.as_ref().map(|owner| crate::run::LifecycleCacheScope {
             store: &owner.verified_cache,

@@ -2716,7 +2716,7 @@ fn record_unavailable_hit(
     Ok(true)
 }
 
-fn bound_expr_has_relations(expr: &BoundExpr) -> bool {
+pub(crate) fn bound_expr_has_relations(expr: &BoundExpr) -> bool {
     match expr {
         BoundExpr::Term(term) => {
             term.related.is_some()

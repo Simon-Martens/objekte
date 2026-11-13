@@ -513,8 +513,7 @@ fn ordinary_existing_cache_destination_does_not_scan_large_source_inventory() {
     repository.save_snapshot(&cache).unwrap();
     let revision = repository.files.files[0].revision;
     for number in 0..8192 {
-        repository
-            .files
+        Arc::make_mut(&mut repository.files)
             .add(
                 PathBuf::from(format!("data/synthetic-{number}.json")),
                 revision,

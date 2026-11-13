@@ -243,6 +243,13 @@ impl BatchContribution {
         }
     }
 
+    /// Initial segment publication needs collection-wide inference decisions
+    /// without retaining a second record inventory. The local observation
+    /// remains in the segment and this copy feeds only final admission.
+    pub(crate) fn observation_copy(&self) -> (Option<InferenceBuilder>, RoaringBitmap) {
+        (self.inference.clone(), self.logical_records.clone())
+    }
+
     pub(crate) fn new_file_count(&self) -> usize {
         self.files.iter().filter(|file| file.first_range).count()
     }
