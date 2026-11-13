@@ -9,6 +9,7 @@ use std::fmt;
 use std::sync::Arc;
 
 use objekte_search_core::lifecycle::IndexView;
+use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
 use objekte_search_core::model::FileId;
 
 /// Maximum number of result rows retained by one window page.
@@ -47,6 +48,16 @@ pub enum SnapshotMode {
     LoadAndWrite,
 }
 
+/// Presentation choice for the shared core index storage policy.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum StorageChoice {
+    #[default]
+    Memory,
+    Temporary,
+    Repository,
+    Custom,
+}
+
 /// Editable opening options; strings stay intact until backend validation.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OpenDraft {
@@ -57,11 +68,11 @@ pub struct OpenDraft {
     pub recursive: bool,
     pub auto_index: bool,
     pub unicode_index: bool,
-    pub snapshot: SnapshotMode,
-    pub snapshot_directory: String,
-    /// Configured repositories use their declared schemas/cache by default.
-    /// A selected manual snapshot policy takes precedence when this is false.
-    pub configured_use_repository_settings: bool,
+    pub index_storage: StorageChoice,
+    /// Base folder for custom index storage, not an index filename.
+    pub index_directory: String,
+    /// Disk synchronization remains active when the entire index is resident.
+    pub keep_entire_index_in_memory: bool,
     pub diagnostic: bool,
 }
 
@@ -74,11 +85,38 @@ impl Default for OpenDraft {
             recursive: true,
             auto_index: false,
             unicode_index: false,
-            snapshot: SnapshotMode::None,
-            snapshot_directory: String::new(),
-            configured_use_repository_settings: true,
+            index_storage: StorageChoice::Memory,
+            index_directory: String::new(),
+            keep_entire_index_in_memory: false,
             diagnostic: false,
         }
+    }
+}
+
+impl OpenDraft {
+    pub fn storage_policy(&self) -> Result<IndexStoragePolicy, String> {
+        let location = match self.index_storage {
+            StorageChoice::Memory => IndexStorageLocation::MemoryOnly,
+            StorageChoice::Temporary => IndexStorageLocation::SystemTemporary,
+            StorageChoice::Repository => IndexStorageLocation::RepositoryDirectory,
+            StorageChoice::Custom => {
+                let directory = self.index_directory.trim();
+                if directory.is_empty() {
+                    return Err("Choose a base folder for custom index storage".into());
+                }
+                IndexStorageLocation::CustomDirectory(directory.into())
+            }
+        };
+        let residency = if self.index_storage == StorageChoice::Memory
+            || self.keep_entire_index_in_memory
+        {
+            IndexResidency::FullyResident
+        } else {
+            IndexResidency::OnDemand
+        };
+        let policy = IndexStoragePolicy { location, residency };
+        policy.validate()?;
+        Ok(policy)
     }
 }
 
@@ -391,6 +429,10 @@ pub enum IndexTaskState {
 pub struct IndexUiStatus {
     pub source_location: String,
     pub opening_mode: String,
+    pub storage_location: String,
+    pub residency: String,
+    pub synchronization: String,
+    pub managed_directory: Option<String>,
     pub loaded_from: Option<String>,
     pub save_destination: Option<String>,
     pub schema_paths: Vec<String>,
@@ -425,6 +467,10 @@ impl Default for IndexUiStatus {
         Self {
             source_location: String::new(),
             opening_mode: String::new(),
+            storage_location: String::new(),
+            residency: String::new(),
+            synchronization: String::new(),
+            managed_directory: None,
             loaded_from: None,
             save_destination: None,
             schema_paths: Vec::new(),
@@ -526,6 +572,9 @@ pub enum UiAction {
         generation: u64,
     },
     ChooseSchema {
+        generation: u64,
+    },
+    ChooseIndexDirectory {
         generation: u64,
     },
     CancelOpen,
@@ -716,6 +765,10 @@ pub enum UiUpdate {
         path: String,
     },
     ChosenSchema {
+        generation: u64,
+        path: String,
+    },
+    ChosenIndexDirectory {
         generation: u64,
         path: String,
     },

@@ -779,13 +779,13 @@ fn declared_enum_completes_without_a_posting_dictionary() {
     .unwrap();
     let session = backend::open(
         &OpenSpec {
+            storage_policy: None,
             args: Arguments {
                 path: vec![root.path().to_path_buf()],
                 schema: Some(schema),
                 ..Default::default()
             },
             cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
         },
         &CancellationToken::new(),
     )
@@ -913,6 +913,46 @@ fn manual_close_has_no_implicit_index_save() {
 }
 
 #[test]
+fn managed_index_panel_reports_storage_and_close_flushes() {
+    use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
+    let session = backend::open(
+        &OpenSpec {
+            storage_policy: Some(IndexStoragePolicy {
+                location: IndexStorageLocation::RepositoryDirectory,
+                residency: IndexResidency::OnDemand,
+            }),
+            args: objekte_cli::arguments::Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let (mut controller, _) = DesktopController::new();
+    controller.session = Some(session);
+    controller.open_draft = Some(OpenDraft {
+        paths: root.path().display().to_string(),
+        index_storage: StorageChoice::Repository,
+        ..OpenDraft::default()
+    });
+    let mut updates = Vec::new();
+    let status = controller.session.as_ref().unwrap().repository.index().status().unwrap();
+    controller.update_index_ui(&status, &mut updates);
+    assert_eq!(controller.index_ui.storage_location, "Repository folder");
+    assert_eq!(controller.index_ui.residency, "Searchable on demand");
+    assert!(controller.index_ui.synchronization.starts_with("Synchronized generation "));
+    assert!(controller.index_ui.managed_directory.is_some());
+    updates.clear();
+    controller.request_close(&mut updates);
+    assert!(matches!(controller.workers.recv_timeout(Duration::from_secs(5)).unwrap(),
+        WorkerEvent::IndexShutdown { result: Ok(()), .. }));
+}
+
+#[test]
 fn pending_automatic_save_enable_cannot_write_after_manual_close() {
     let fixture = crate::backend::test_support::fixture();
     let (mut controller, _) = DesktopController::new();
@@ -971,6 +1011,12 @@ fn unchanged_index_status_does_not_redraw_the_workspace() {
     let fixture = crate::backend::test_support::fixture();
     let (mut controller, _) = DesktopController::new();
     controller.session = Some(fixture.session);
+    controller.open_draft = Some(OpenDraft::default());
+    controller.opening_draft = Some(OpenDraft {
+        index_storage: crate::ui::model::StorageChoice::Custom,
+        index_directory: "/tmp/pending-indexes".into(),
+        ..OpenDraft::default()
+    });
     let status = controller
         .session
         .as_ref()
@@ -982,6 +1028,11 @@ fn unchanged_index_status_does_not_redraw_the_workspace() {
     let mut updates = Vec::new();
     controller.update_index_ui(&status, &mut updates);
     assert!(matches!(updates.as_slice(), [UiUpdate::IndexStatus(_)]));
+    assert_eq!(controller.index_ui.storage_location, "Memory only");
+    assert_eq!(
+        controller.index_ui.synchronization,
+        "No index files are read or written"
+    );
 
     updates.clear();
     controller.update_index_ui(&status, &mut updates);

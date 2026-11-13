@@ -5,8 +5,6 @@ use std::path::Path;
 
 use objekte_cli::arguments::Arguments;
 use objekte_cli::loader::configure_definitions;
-use objekte_search_core::storage::snapshot_path_in;
-use objekte_search_core::workload::BigramAlphabet;
 
 /// Folder classification before any source discovery or index construction.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -15,7 +13,6 @@ pub enum DetectedSource {
     ConfiguredRepository {
         collections: usize,
         schema_files: Vec<String>,
-        default_cache: String,
     },
     InvalidConfiguration {
         message: String,
@@ -58,9 +55,6 @@ pub fn detect_source(path: &Path) -> Result<DetectedSource, String> {
                 .iter()
                 .map(|path| path.display().to_string())
                 .collect(),
-            default_cache: snapshot_path_in(&root.join(".objekte"), BigramAlphabet::Ascii)
-                .display()
-                .to_string(),
         }),
         Err(message) => Ok(DetectedSource::InvalidConfiguration { message }),
     }

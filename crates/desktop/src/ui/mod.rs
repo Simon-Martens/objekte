@@ -66,7 +66,7 @@ struct Inputs {
     open_folder: Entity<InputState>,
     open_extra_folders: Vec<Entity<InputState>>,
     schema: Entity<InputState>,
-    snapshot_directory: Entity<InputState>,
+    index_directory: Entity<InputState>,
     index_load_path: Entity<InputState>,
     index_save_path: Entity<InputState>,
     index_interval: Entity<InputState>,
@@ -137,8 +137,8 @@ impl DesktopView {
             open_extra_folders: Vec::new(),
             schema: cx
                 .new(|cx| InputState::new(window, cx).placeholder("Schema file (single folder)")),
-            snapshot_directory: cx
-                .new(|cx| InputState::new(window, cx).placeholder("Index directory (optional)")),
+            index_directory: cx
+                .new(|cx| InputState::new(window, cx).placeholder("Custom index base folder")),
             index_load_path: cx
                 .new(|cx| InputState::new(window, cx).placeholder("Existing index file")),
             index_save_path: cx
@@ -160,11 +160,26 @@ impl DesktopView {
         let mut subscriptions = Vec::new();
         subscriptions.push(
             cx.subscribe(&inputs.open_folder, |this: &mut Self, _, event, cx| {
-                if matches!(event, InputEvent::Change) {
+                if matches!(event, InputEvent::Change) && this.state.open_dialog.visible {
                     this.open_folder_edited(0, cx);
                 }
             }),
         );
+        subscriptions.push(cx.subscribe(
+            &inputs.index_directory,
+            |this: &mut Self, _, event, cx| {
+                if matches!(event, InputEvent::Change) && this.state.open_dialog.visible {
+                    this.state.open.index_directory =
+                        this.inputs.index_directory.read(cx).value().to_string();
+                    this.state.open_dialog.error = None;
+                    this.state.errors.remove(&model::ErrorField::Open);
+                    if this.state.busy != state::Busy::Opening {
+                        this.state.status = "Ready to open".into();
+                    }
+                    cx.notify();
+                }
+            },
+        ));
         let builder_view = cx.new(|cx| FilterBuilderView::new(window, cx));
         subscriptions.push(cx.subscribe_in(
             &builder_view,
@@ -374,6 +389,14 @@ impl DesktopView {
             self.state.open.schema = path.clone();
             self.inputs
                 .schema
+                .update(cx, |input, cx| input.set_value(path.clone(), window, cx));
+        }
+        if let UiUpdate::ChosenIndexDirectory { generation, path } = &update
+            && self.state.open_dialog.accept_index_picker(*generation)
+        {
+            self.state.open.index_directory = path.clone();
+            self.inputs
+                .index_directory
                 .update(cx, |input, cx| input.set_value(path.clone(), window, cx));
         }
         if let UiUpdate::ChosenIndexLoadPath { path, .. } = &update {
