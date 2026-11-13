@@ -1,6 +1,6 @@
 //! Command arguments and their filesystem interpretation.
 
-use std::path::{Component, Path, PathBuf};
+use std::path::{Path, PathBuf};
 
 use clap::{ArgGroup, Parser, ValueEnum};
 use objekte_search_core::index_storage::{
@@ -140,9 +140,6 @@ impl Arguments {
 
     pub fn validate_input(&self) -> Result<(), String> {
         self.validate_open_options()?;
-        if self.load_index.is_some() || self.write_index.is_some() {
-            return Err("--load-index and --write-index were removed; use --index-storage memory|temporary|repository|custom, with --index-directory PATH for custom storage".into());
-        }
         if self.tui && self.query_file.is_some() {
             return Err("--tui cannot be combined with --query-file".into());
         }
@@ -161,6 +158,9 @@ impl Arguments {
 
     /// Validate opening choices when a graphical caller constructs arguments directly.
     pub fn validate_open_options(&self) -> Result<(), String> {
+        if self.load_index.is_some() || self.write_index.is_some() {
+            return Err("--load-index and --write-index were removed; use --index-storage memory|temporary|repository|custom, with --index-directory PATH for custom storage".into());
+        }
         self.index_storage_policy()?;
         if self.repo.is_some() && !self.path.is_empty() {
             return Err("--repo cannot be combined with --path".into());
@@ -280,21 +280,6 @@ impl Arguments {
             }
             root.to_path_buf()
         };
-        let read = self
-            .load_index
-            .as_deref()
-            .map(|input| index_path(input, cwd, &root));
-        let write = self
-            .write_index
-            .as_deref()
-            .map(|input| index_path(input, cwd, &root));
-        let read = read.transpose()?;
-        let write = write.transpose()?;
-        if let (Some(read), Some(write)) = (&read, &write)
-            && read != write
-        {
-            return Err("--load-index and --write-index must name the same directory".into());
-        }
         let schema_file = self
             .schema
             .as_ref()
@@ -330,7 +315,7 @@ impl Arguments {
             }
             Some(base)
         } else {
-            write.or(read)
+            None
         };
         Ok(ResolvedPaths {
             root,
@@ -343,47 +328,6 @@ impl Arguments {
             schema_file,
         })
     }
-}
-
-fn index_path(input: &str, cwd: &Path, root: &Path) -> Result<PathBuf, String> {
-    let path = if input.is_empty() {
-        root.join(".objekte")
-    } else if Path::new(input).is_absolute() {
-        PathBuf::from(input)
-    } else {
-        cwd.join(input)
-    };
-    let path = normalize(&path);
-    let mut ancestor = path.clone();
-    let mut suffix = Vec::new();
-    while !ancestor.exists() {
-        let name = ancestor
-            .file_name()
-            .ok_or_else(|| format!("{} has no existing ancestor", path.display()))?;
-        suffix.push(name.to_os_string());
-        ancestor.pop();
-    }
-    let mut resolved = ancestor
-        .canonicalize()
-        .map_err(|error| format!("{}: {error}", ancestor.display()))?;
-    for component in suffix.iter().rev() {
-        resolved.push(component);
-    }
-    Ok(resolved)
-}
-
-fn normalize(path: &Path) -> PathBuf {
-    let mut parts = PathBuf::new();
-    for part in path.components() {
-        match part {
-            Component::CurDir => {}
-            Component::ParentDir => {
-                parts.pop();
-            }
-            _ => parts.push(part.as_os_str()),
-        }
-    }
-    parts
 }
 
 #[cfg(test)]

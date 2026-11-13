@@ -1,25 +1,16 @@
-//! Shared CLI repository configuration, discovery, and snapshot opening.
+//! Shared CLI repository configuration and source discovery.
 
 use std::collections::HashSet;
 use std::path::{Path, PathBuf};
-use std::time::Instant;
 
 use objekte_search_core::discovery::SymlinkPolicy;
 use objekte_search_core::inference::{InferenceConfig, InferenceMode};
-use objekte_search_core::lifecycle::{Index, IndexError};
-use objekte_search_core::lifecycle_caller::IndexedRepository;
-use objekte_search_core::lifecycle_repository::{
-    CacheFailurePolicy, CacheOpenPolicy, RepositoryOpenOptions,
-};
-use objekte_search_core::repository::{
-    CollectionDefinition, RepositoryOptions, SnapshotMode, SnapshotOpenPolicy,
-};
+use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::repository_configuration::{
-    RepositoryConfiguration, load_explicit_schema, load_repository_configuration,
+    load_explicit_schema, load_repository_configuration,
 };
 use objekte_search_core::schema_adapter::CompiledSchema;
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::workload::BigramAlphabet;
 
 use crate::arguments::{Alphabet, Arguments, IndexStorageChoice, ResolvedPaths};
@@ -108,7 +99,7 @@ pub fn configure_definitions(
 
 /// Exclude an application-owned index directory from source discovery, even
 /// when a custom base is located inside a collection source folder.
-fn exclude_cache_directory(
+fn exclude_managed_directory(
     definition: &mut CollectionDefinition,
     source_root: &Path,
     directory: &Path,
@@ -160,7 +151,7 @@ fn make_definition(
         } else {
             directory.to_owned()
         };
-        exclude_cache_directory(&mut definition, source_root, &managed);
+        exclude_managed_directory(&mut definition, source_root, &managed);
     }
     definition
 }
@@ -185,122 +176,6 @@ pub fn repository_options(args: &Arguments) -> RepositoryOptions {
         },
         ..RepositoryOptions::default()
     }
-}
-
-/// Preserve the CLI's load-only, write-only, combined, and in-memory policies.
-pub fn snapshot_policy(args: &Arguments, paths: &ResolvedPaths) -> SnapshotOpenPolicy {
-    let mode = match (args.load_index.is_some(), args.write_index.is_some()) {
-        (false, false) => SnapshotMode::Disabled,
-        (true, false) => SnapshotMode::Required,
-        (false, true) => SnapshotMode::Disabled,
-        (true, true) => SnapshotMode::IfValid,
-    };
-    SnapshotOpenPolicy::new(mode, paths.index_directory.clone())
-}
-
-/// Open once and write a snapshot only when explicitly requested.
-pub fn open_repository(
-    root: &Path,
-    configured: &ConfiguredDefinitions,
-    options: RepositoryOptions,
-    policy: SnapshotOpenPolicy,
-    write_requested: bool,
-    configured_repository: bool,
-    require_current_sources: bool,
-) -> Result<(IndexedRepository, u128, Option<SnapshotSaveStats>), String> {
-    let directory = policy
-        .directory
-        .clone()
-        .unwrap_or_else(|| root.join(".objekte"));
-    let open_started = Instant::now();
-    let index = if configured_repository {
-        Index::open_configured_repository(
-            RepositoryConfiguration {
-                root: root.to_owned(),
-                definitions: configured.definitions.clone(),
-                schema_files: configured.schema_files.clone(),
-                protected_files: configured.protected_files.clone(),
-                schema_fields: configured.schema_fields,
-            },
-            RepositoryOpenOptions {
-                index: options,
-                cache_directory: Some(directory.clone()),
-                cache_open: match policy.mode {
-                    SnapshotMode::Required => CacheOpenPolicy::Required,
-                    SnapshotMode::IfValid => CacheOpenPolicy::IfPresent,
-                    SnapshotMode::Disabled if write_requested => CacheOpenPolicy::Ignore,
-                    SnapshotMode::Disabled => CacheOpenPolicy::Ignore,
-                },
-                cache_failure: CacheFailurePolicy::Rebuild,
-                sync_cache: false,
-            },
-        )
-        .map_err(|error| error.to_string())?
-    } else {
-        let cache =
-            objekte_search_core::storage::snapshot_path_in(&directory, options.bigram_alphabet);
-        let build = || Index::build(root, configured.definitions.clone(), options);
-        let load = || {
-            Index::load_cache_or_rebuild_invalid(
-                root,
-                configured.definitions.clone(),
-                options,
-                &cache,
-                &configured.protected_files,
-            )
-        };
-        let index = match policy.mode {
-            SnapshotMode::Disabled => build(),
-            SnapshotMode::Required => load(),
-            SnapshotMode::IfValid => match std::fs::symlink_metadata(&cache) {
-                Err(error) if error.kind() == std::io::ErrorKind::NotFound => build(),
-                Err(error) => Err(IndexError::Io(format!("{}: {error}", cache.display()))),
-                Ok(_) => load(),
-            },
-        }
-        .map_err(|error| error.to_string())?;
-        index
-            .protect_configuration_files(&configured.protected_files)
-            .map_err(|error| error.to_string())?;
-        index
-    };
-    let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
-    if require_current_sources && repo.startup().restored {
-        let report = repo
-            .index()
-            .wait_for_reconciliation()
-            .map_err(|error| error.to_string())?
-            .ok_or("restored cache has no reconciliation task")?;
-        if report.cancelled || !report.issues.is_empty() || report.omitted_issues > 0 {
-            return Err(format!(
-                "cache reconciliation incomplete: {} source issues",
-                report.issues.len() + report.omitted_issues
-            ));
-        }
-        if !write_requested && (report.added > 0 || report.updated > 0 || report.removed > 0) {
-            return Err("loaded cache is stale; use --load-index with --write-index to reconcile and save it".into());
-        }
-    }
-    let open_ns = open_started.elapsed().as_nanos();
-    if write_requested
-        && (!repo.startup().restored
-            || (require_current_sources
-                && repo
-                    .index()
-                    .status()
-                    .map_err(|error| error.to_string())?
-                    .dirty()))
-    {
-        let path =
-            objekte_search_core::storage::snapshot_path_in(&directory, options.bigram_alphabet);
-        let saved = repo
-            .index()
-            .flush_cache_with_stats(&path)
-            .map_err(|error| error.to_string())?
-            .1;
-        return Ok((repo, open_ns, Some(saved)));
-    }
-    Ok((repo, open_ns, None))
 }
 
 #[cfg(test)]

@@ -1,5 +1,7 @@
 use super::*;
 use objekte_search_core::index_storage::IndexStorageLocation;
+use objekte_search_core::lifecycle::Index;
+use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::source::SourceRegistry;
 
 fn open_with_policy(

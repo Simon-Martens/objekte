@@ -6,7 +6,7 @@ use objekte_search_core::index_storage::{
 use super::{Arguments, IndexStorageChoice};
 
 #[test]
-fn optional_index_paths_require_equals_and_do_not_eat_query() {
+fn removed_index_flags_are_recognized_without_consuming_query() {
     let args = Arguments::try_parse_from(["obj", "--write-index", "title = \"A\""]).unwrap();
     assert_eq!(args.write_index.as_deref(), Some(""));
     assert_eq!(args.query.as_deref(), Some("title = \"A\""));
@@ -34,12 +34,16 @@ fn input_modes_and_repeated_positionals_are_rejected() {
 }
 
 #[test]
-fn index_directory_mismatch_is_an_argument_error() {
+fn removed_flags_are_rejected_before_path_resolution() {
     let cwd = tempfile::tempdir().unwrap();
     let args =
         Arguments::try_parse_from(["obj", "--load-index=one", "--write-index=two", "--fts", "A"])
             .unwrap();
-    assert!(args.resolve_paths(cwd.path()).is_err());
+    assert!(
+        args.resolve_paths(cwd.path())
+            .unwrap_err()
+            .contains("were removed")
+    );
     let args = Arguments::try_parse_from([
         "obj",
         "--load-index=one/../same",
@@ -48,9 +52,10 @@ fn index_directory_mismatch_is_an_argument_error() {
         "A",
     ])
     .unwrap();
-    assert_eq!(
-        args.resolve_paths(cwd.path()).unwrap().index_directory,
-        Some(cwd.path().join("same"))
+    assert!(
+        args.resolve_paths(cwd.path())
+            .unwrap_err()
+            .contains("were removed")
     );
 }
 
