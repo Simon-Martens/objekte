@@ -699,6 +699,51 @@ fn empty_ancestor_reconciles_late_descendant_and_null_statistics() {
 }
 
 #[test]
+fn admitted_nested_state_posting_excludes_empty_ancestor_from_exists() {
+    use crate::reference::BoundExpr;
+
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let mut batch = InferenceBuilder::new(config, true).unwrap();
+    for slot in 0..24 {
+        let record = if slot < 12 {
+            value(r#"{"items":[]}"#)
+        } else if slot < 22 {
+            value(r#"{"items":[{"title":"A"}]}"#)
+        } else {
+            value(r#"{"items":[{"title":null}]}"#)
+        };
+        batch.observe_record(RecordSlot(slot), &record).unwrap();
+    }
+    let mut combined = InferenceBuilder::new(config, false).unwrap();
+    combined.merge_shifted(batch, 0).unwrap();
+    let logical = RoaringBitmap::from_iter(0..24);
+    let schema = Schema::default();
+    let state = combined.finish(&logical, 24, &schema).unwrap();
+    let index = &state.indexes[&vec!["items".into(), "title".into()]];
+    assert_eq!(index.presence.len(), 24);
+    assert_eq!(index.empty_selections.len(), 12);
+    assert!(index.structural.is_some());
+    for (filter, expected) in [
+        ("items.title:exists = true", (12..24).collect::<Vec<_>>()),
+        ("items.title:exists = false", (0..12).collect::<Vec<_>>()),
+        ("items.title:? = true", (12..22).collect::<Vec<_>>()),
+        ("items.title:null = true", vec![22, 23]),
+        ("items.title:string = true", (12..22).collect::<Vec<_>>()),
+    ] {
+        let BoundExpr::Term(term) = crate::reference::bind_filter(
+            &parse_filter(filter).unwrap(), &schema,
+        ).unwrap() else { panic!("term") };
+        assert_eq!(index.exact_set(&term, &logical).unwrap().iter().collect::<Vec<_>>(),
+            expected, "{filter}");
+        assert_eq!(index.estimate_exact(&term, 24).unwrap().1,
+            expected.len() as u64, "{filter}");
+    }
+}
+
+#[test]
 fn terminal_array_null_observation_is_not_exact_null() {
     let config = InferenceConfig {
         mode: InferenceMode::ReportOnly,
@@ -1430,7 +1475,9 @@ fn derived_existence_and_null_use_exact_inferred_postings() {
     .unwrap();
     for (filter, expected) in [
         ("flag:exists = true", vec!["path:03.json"]),
+        ("flag:? = true", vec!["path:03.json"]),
         ("nullable:null = true", vec!["path:05.json"]),
+        ("nullable:? = true", vec!["path:06.json"]),
         ("items.flag:exists = true", vec!["path:07.json"]),
     ] {
         let mut request = query(filter);

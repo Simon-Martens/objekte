@@ -847,6 +847,18 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         compacted.postings.fields[&vec!["n".to_owned()]].values,
         oracle.postings.fields[&vec!["n".to_owned()]].values
     );
+    assert_eq!(
+        compacted.postings.fields[&vec!["n".to_owned()]]
+            .structural
+            .as_ref()
+            .unwrap()
+            .postings,
+        oracle.postings.fields[&vec!["n".to_owned()]]
+            .structural
+            .as_ref()
+            .unwrap()
+            .postings,
+    );
     assert_eq!(compacted.raw.normal, oracle.raw.normal);
     assert_eq!(compacted.fallback_text.normal, oracle.fallback_text.normal);
     assert_eq!(
@@ -873,6 +885,18 @@ fn compaction_matches_active_file_oracle_across_indexes() {
     assert_eq!(
         inferred.indexes[&vec!["extra".to_owned()]].values,
         oracle.inference.as_ref().unwrap().indexes[&vec!["extra".to_owned()]].values
+    );
+    assert_eq!(
+        inferred.indexes[&vec!["extra".to_owned()]]
+            .structural
+            .as_ref()
+            .unwrap()
+            .postings,
+        oracle.inference.as_ref().unwrap().indexes[&vec!["extra".to_owned()]]
+            .structural
+            .as_ref()
+            .unwrap()
+            .postings,
     );
     assert!(
         all.compact_active(&active, 2, |file| file.id == FileId(200))

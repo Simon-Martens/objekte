@@ -65,7 +65,7 @@ impl PostingAccess<'_> {
         visits: &mut u64,
     ) -> Option<PostingProposal> {
         let index = self.index;
-        let structural = matches!(term.derived, Derived::Exists | Derived::Null);
+        let structural = term.derived.state_predicate().is_some();
         if !self.admitted
             || term.path.root != PathRoot::Data
             || term.related.is_some()

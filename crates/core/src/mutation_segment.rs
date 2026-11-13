@@ -6,6 +6,7 @@ use super::*;
 use crate::bigram::BigramIndex;
 use crate::inference::{InferenceIndexStatus, InferenceState, InferredFieldReport};
 use crate::inventory::ActiveRecords;
+use crate::posting::StructuralFacts;
 use crate::sorting::{CompositeSortOrder, SortCollection, SortColumn, compare_composite};
 
 
@@ -766,7 +767,11 @@ fn consolidate_inference(
             }
             let mut index = initial.clone();
             index.presence.clear();
+            index.empty_selections.clear();
             index.nulls.clear();
+            if let Some(facts) = &mut index.structural {
+                facts.postings.clear();
+            }
             index.values.clear();
             index.lengths.clear();
             index.covered_records = 0;
@@ -1135,7 +1140,9 @@ fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> Posting
         kind: source.kind.clone(),
         multi: source.multi,
         presence: RoaringBitmap::new(),
+        empty_selections: RoaringBitmap::new(),
         nulls: RoaringBitmap::new(),
+        structural: source.structural.as_ref().map(|_| StructuralFacts::default()),
         values: Default::default(),
         lengths: Default::default(),
         value_complete: source.value_complete,
@@ -1206,7 +1213,9 @@ fn project_posting(
         kind: index.kind.clone(),
         multi: index.multi,
         presence: project_bitmap_in_range(&index.presence, slots, bounds)?,
+        empty_selections: project_bitmap_in_range(&index.empty_selections, slots, bounds)?,
         nulls: project_bitmap_in_range(&index.nulls, slots, bounds)?,
+        structural: index.structural.as_ref().map(|_| StructuralFacts::default()),
         values: Default::default(),
         lengths: Default::default(),
         value_complete: index.value_complete,
@@ -1225,6 +1234,14 @@ fn project_posting(
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
             projected.lengths.insert(key.clone(), kept);
+        }
+    }
+    if let (Some(source), Some(target)) = (&index.structural, &mut projected.structural) {
+        for (key, bitmap) in &source.postings {
+            let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
+            if !kept.is_empty() {
+                target.postings.insert(*key, kept);
+            }
         }
     }
     projected.covered_records = logical_count;
@@ -1530,6 +1547,17 @@ impl IndexedCollectionSegment {
                         .insert(slot.0);
                 }
             }
+            for old in index.empty_selections.iter() {
+                if let Some((part, slot)) = mapping[old as usize] {
+                    projected[part]
+                        .postings
+                        .fields
+                        .get_mut(path)
+                        .unwrap()
+                        .empty_selections
+                        .insert(slot.0);
+                }
+            }
             for old in index.nulls.iter() {
                 if let Some((part, slot)) = mapping[old as usize] {
                     projected[part]
@@ -1539,6 +1567,26 @@ impl IndexedCollectionSegment {
                         .unwrap()
                         .nulls
                         .insert(slot.0);
+                }
+            }
+            if let Some(facts) = &index.structural {
+                for (key, bitmap) in &facts.postings {
+                    for old in bitmap.iter() {
+                        if let Some((part, slot)) = mapping[old as usize] {
+                            projected[part]
+                                .postings
+                                .fields
+                                .get_mut(path)
+                                .unwrap()
+                                .structural
+                                .as_mut()
+                                .unwrap()
+                                .postings
+                                .entry(*key)
+                                .or_default()
+                                .insert(slot.0);
+                        }
+                    }
                 }
             }
             for (key, bitmap) in &index.values {

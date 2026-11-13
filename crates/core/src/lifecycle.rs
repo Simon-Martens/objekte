@@ -2559,6 +2559,8 @@ impl IndexView {
                 postings_bytes: postings.fields.values().map(|posting| {
                     posting.values.values().map(|bitmap| bitmap.serialized_size() as usize).sum::<usize>()
                         + posting.lengths.values().map(|bitmap| bitmap.serialized_size() as usize).sum::<usize>()
+                        + posting.structural.as_ref().map_or(0, crate::posting::StructuralFacts::estimated_bytes)
+                        + if posting.empty_selections.is_empty() { 0 } else { posting.empty_selections.serialized_size() }
                 }).sum(),
                 sorting_bytes: sorting.columns.values().map(|column| column.keys.iter().map(|key| match key {
                     crate::sorting::SortKey::String(value) => value.len(),

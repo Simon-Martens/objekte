@@ -34,8 +34,8 @@ use crate::workload::BigramAlphabet;
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
 // Path predicates and persisted sort projections now use root-relative keys.
 // Older snapshots can carry absolute derived values and must be rebuilt.
-pub const SNAPSHOT_VERSION: u32 = 23;
-pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 24;
+pub const SNAPSHOT_VERSION: u32 = 25;
+pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 26;
 const CONFIGURATION_HASH_VERSION: u32 = 17;
 const CONFIGURATION_SECTION_ID: u32 = u32::MAX;
 const MAX_SECTION_BYTES: u64 = 8 * 1024 * 1024 * 1024;
