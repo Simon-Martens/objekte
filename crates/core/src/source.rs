@@ -4,7 +4,6 @@ use std::collections::{BTreeMap, HashMap, HashSet};
 use std::io::{BufRead, BufReader, Read, Seek, SeekFrom};
 use std::path::Path;
 use std::sync::Arc;
-use std::time::Instant;
 
 use serde::de::{DeserializeSeed, IgnoredAny, MapAccess, SeqAccess, Visitor};
 use serde::{Deserialize, Serialize};
@@ -675,8 +674,9 @@ impl<'de> Deserialize<'de> for LogicalBuildValue {
         }
 
 
-
         deserializer.deserialize_any(LogicalVisitor)
+
+
     }
 }
 
@@ -1115,7 +1115,7 @@ struct TimedBuildReader<'a> {
 
 impl Read for TimedBuildReader<'_> {
     fn read(&mut self, bytes: &mut [u8]) -> std::io::Result<usize> {
-        let started = Instant::now();
+        let started = crate::detailed_timer::DetailedInstant::now();
         let count = self.inner.read(bytes)?;
         self.sample.read_ns += started.elapsed().as_nanos() as u64;
         self.sample.read_calls += 1;
@@ -1538,7 +1538,7 @@ fn extract_file_outcomes_impl<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    let open_started = profile.as_ref().map(|_| Instant::now());
+    let open_started = crate::detailed_timer::start_if_enabled(profile.is_some());
     let mut file = match std::fs::File::open(path) {
         Ok(file) => file,
         Err(error) => {
@@ -1562,6 +1562,7 @@ where
     let mut owned_bytes = Vec::new();
     let bytes = buffer.unwrap_or(&mut owned_bytes);
     bytes.clear();
+    #[cfg(feature = "detailed-profiling")]
     let previous_capacity = bytes.capacity();
     if reusable {
         let hint = usize::try_from(expected.size)
@@ -1583,8 +1584,11 @@ where
     if let Some(stats) = buffer_profile.as_deref_mut() {
         stats.files_read += 1;
         stats.bytes_read = stats.bytes_read.saturating_add(bytes.len() as u64);
-        stats.growth_files += u64::from(bytes.capacity() > previous_capacity);
-        stats.peak_capacity_bytes = stats.peak_capacity_bytes.max(bytes.capacity() as u64);
+        #[cfg(feature = "detailed-profiling")]
+        {
+            stats.growth_files += u64::from(bytes.capacity() > previous_capacity);
+            stats.peak_capacity_bytes = stats.peak_capacity_bytes.max(bytes.capacity() as u64);
+        }
     }
     if let Err(error) = read_result {
         consume(SourceOutcome::Unreadable {
@@ -1596,7 +1600,7 @@ where
         })?;
         return Ok(ExtractionCounters::default());
     }
-    let hash_started = profile.as_ref().map(|_| Instant::now());
+    let hash_started = crate::detailed_timer::start_if_enabled(profile.is_some());
     if let Some(fingerprint) = fingerprint {
         if bytes.len() as u64 == expected.size {
             *fingerprint = Some(Sha256::digest(bytes.as_slice()).into());
@@ -1611,7 +1615,7 @@ where
             return Err("stale source revision during extraction".into());
         }
     }
-    let frame_started = profile.as_ref().map(|_| Instant::now());
+    let frame_started = crate::detailed_timer::start_if_enabled(profile.is_some());
     let ranges = match source.frame_outcome(&bytes) {
         Ok(ranges) => ranges,
         Err(ReaderFailure::Malformed(mut diagnostic)) => {
@@ -1645,7 +1649,7 @@ where
         sample.frame_ns = started.elapsed().as_nanos() as u64;
     }
     validate_reader_ranges(&ranges, bytes.len())?;
-    let extraction_started = profile.as_ref().map(|_| Instant::now());
+    let extraction_started = crate::detailed_timer::start_if_enabled(profile.is_some());
     let counters =
         extract_framed_outcomes_impl(path, source, &bytes, &ranges, for_build, &mut consume)?;
     if let (Some(started), Some(sample)) = (extraction_started, profile.as_deref_mut()) {

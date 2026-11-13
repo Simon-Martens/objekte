@@ -1145,8 +1145,11 @@ fn reusable_build_buffer_preserves_outcomes_and_releases_large_storage() {
         }
     }
     assert_eq!(profile.files_read, 4);
-    assert!(profile.growth_files >= 3);
-    assert!(profile.peak_capacity_bytes > MAX_RETAINED_BUILD_BUFFER_BYTES as u64);
+    #[cfg(feature = "detailed-profiling")]
+    {
+        assert!(profile.growth_files >= 3);
+        assert!(profile.peak_capacity_bytes > MAX_RETAINED_BUILD_BUFFER_BYTES as u64);
+    }
     assert_eq!(parses.load(Ordering::Relaxed), 3);
     std::fs::remove_dir_all(root).unwrap();
 }

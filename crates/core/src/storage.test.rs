@@ -51,7 +51,9 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
     use serde::de::{SeqAccess, Visitor};
     use serde::ser::SerializeSeq;
 
+
     struct ByteChunk<'a>(&'a [u8]);
+
 
     impl Serialize for ByteChunk<'_> {
         fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
@@ -59,7 +61,9 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
         }
     }
 
+
     struct RepeatedChunks;
+
 
     impl Serialize for RepeatedChunks {
         fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
@@ -72,11 +76,14 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
         }
     }
 
+
     struct ChunkCount(usize);
+
 
     impl<'de> Deserialize<'de> for ChunkCount {
         fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
             struct ChunkVisitor;
+
 
             impl<'de> Visitor<'de> for ChunkVisitor {
                 type Value = ChunkCount;
@@ -100,7 +107,10 @@ fn snapshot_section_can_exceed_the_old_512_mib_limit() {
                 }
             }
 
+
             deserializer.deserialize_seq(ChunkVisitor)
+
+
         }
     }
 
@@ -664,12 +674,16 @@ fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
     assert_eq!(written.build_parses(), 1);
     assert!(!snapshot.exists());
     let save = written.save_snapshot_with_stats(&snapshot).unwrap();
+    #[cfg(feature = "detailed-profiling")]
     assert_eq!(save.sections.len(), 3);
     assert_eq!(save.bytes_written, fs::metadata(&snapshot).unwrap().len());
     assert!(save.total_ns >= save.sync_ns);
-    assert_eq!(save.sections[0].id, CONFIGURATION_SECTION_ID);
-    assert_eq!(save.sections[1].id, 0);
-    assert_eq!(save.sections[2].id, 1);
+    #[cfg(feature = "detailed-profiling")]
+    {
+        assert_eq!(save.sections[0].id, CONFIGURATION_SECTION_ID);
+        assert_eq!(save.sections[1].id, 0);
+        assert_eq!(save.sections[2].id, 1);
+    }
     let original = fs::read(&snapshot).unwrap();
     let mut previous_path_contract = original.clone();
     previous_path_contract[MAGIC.len()..MAGIC.len() + 4].copy_from_slice(&21u32.to_le_bytes());
@@ -734,8 +748,11 @@ fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
     );
     assert_eq!(rebuilt.build_parses(), 2);
     let phases = rebuilt.startup();
-    assert!(phases.snapshot_decode_ns > 0);
-    assert!(phases.reconciliation_ns > 0);
+    #[cfg(feature = "detailed-profiling")]
+    {
+        assert!(phases.snapshot_decode_ns > 0);
+        assert!(phases.reconciliation_ns > 0);
+    }
     assert!(
         phases.build_ns
             >= phases

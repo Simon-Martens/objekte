@@ -1,6 +1,7 @@
 //! Conservative record-level bigram candidates over separate text segments.
 
 use std::collections::{HashMap, HashSet};
+#[cfg(feature = "detailed-profiling")]
 use std::sync::OnceLock;
 use std::time::Instant;
 
@@ -79,6 +80,7 @@ fn for_each_gram(
     }
 }
 
+
 /// Construction reads borrowed UTF-8 directly. ASCII bytes need no character
 /// iterator or re-encoding; only non-ASCII scalars enter the locked full fold.
 trait FoldedSink {
@@ -86,11 +88,13 @@ trait FoldedSink {
     fn scalar(&mut self, scalar: char);
 }
 
+
 struct AsciiGramSink<E> {
     previous: Option<u8>,
     before_previous: Option<u8>,
     emit: E,
 }
+
 
 impl<E: FnMut(bool, u64)> AsciiGramSink<E> {
     fn push(&mut self, byte: u8) {
@@ -105,6 +109,7 @@ impl<E: FnMut(bool, u64)> AsciiGramSink<E> {
     }
 }
 
+
 impl<E: FnMut(bool, u64)> FoldedSink for AsciiGramSink<E> {
     fn ascii(&mut self, byte: u8) {
         self.push(byte);
@@ -118,11 +123,13 @@ impl<E: FnMut(bool, u64)> FoldedSink for AsciiGramSink<E> {
     }
 }
 
+
 struct UnicodeGramSink<E> {
     previous: Option<char>,
     before_previous: Option<char>,
     emit: E,
 }
+
 
 impl<E: FnMut(bool, u64)> UnicodeGramSink<E> {
     fn push(&mut self, scalar: char) {
@@ -137,6 +144,7 @@ impl<E: FnMut(bool, u64)> UnicodeGramSink<E> {
     }
 }
 
+
 impl<E: FnMut(bool, u64)> FoldedSink for UnicodeGramSink<E> {
     fn ascii(&mut self, byte: u8) {
         self.push(char::from(byte));
@@ -146,6 +154,7 @@ impl<E: FnMut(bool, u64)> FoldedSink for UnicodeGramSink<E> {
         self.push(scalar);
     }
 }
+
 
 #[inline]
 fn lower_ascii(byte: u8) -> u8 {
@@ -201,6 +210,7 @@ fn for_each_segment_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl Fn
     }
 }
 
+
 /// Both alphabets' necessary grams for one already prepared representation.
 /// Exact matching never reads these keys as a literal.
 #[derive(Clone, Debug)]
@@ -208,6 +218,7 @@ pub(crate) struct BigramRequest {
     ascii: Vec<(bool, u64)>,
     unicode: Vec<(bool, u64)>,
 }
+
 
 impl BigramRequest {
     pub fn from_folded(folded: &str) -> Self {
@@ -247,6 +258,7 @@ impl BigramRequest {
     }
 }
 
+
 /// Record-level bigram postings for one text binding.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct BigramIndex {
@@ -255,6 +267,7 @@ pub struct BigramIndex {
     pub normal: HashMap<u64, RoaringBitmap>,
     pub skip: HashMap<u64, RoaringBitmap>,
 }
+
 
 impl BigramIndex {
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
@@ -420,6 +433,7 @@ impl BigramIndex {
     }
 }
 
+
 fn ascii_pair(a: u8, b: u8) -> Option<u64> {
     if !(32..=126).contains(&a) || !(32..=126).contains(&b) {
         return None;
@@ -431,17 +445,20 @@ fn unicode_pair(a: char, b: char) -> u64 {
     ((a as u64) << 21) | b as u64
 }
 
+
 #[derive(Clone, Copy, Debug)]
 struct GramBlock {
     first_slot: u32,
     bits: u64,
 }
 
+
 #[derive(Clone, Copy, Debug)]
 struct PendingBlock {
     key: u64,
     block: GramBlock,
 }
+
 
 #[derive(Clone, Copy, Debug)]
 struct ColumnSpan {
@@ -450,11 +467,13 @@ struct ColumnSpan {
     len: u32,
 }
 
+
 #[derive(Default)]
 struct PackedColumns {
     spans: Vec<ColumnSpan>,
     blocks: Vec<GramBlock>,
 }
+
 
 struct PackedChunk {
     /// Positions in both payloads remain local to this chunk until conversion.
@@ -464,14 +483,24 @@ struct PackedChunk {
     skip: PackedColumns,
 }
 
+
 pub(crate) fn storage_diagnostic_enabled() -> bool {
-    static ENABLED: OnceLock<bool> = OnceLock::new();
-    *ENABLED.get_or_init(|| std::env::var_os("OBJEKTE_BIGRAM_STORAGE_STATS").is_some())
+    #[cfg(not(feature = "detailed-profiling"))]
+    {
+        return false;
+    }
+
+    #[cfg(feature = "detailed-profiling")]
+    {
+        static ENABLED: OnceLock<bool> = OnceLock::new();
+        *ENABLED.get_or_init(|| std::env::var_os("OBJEKTE_BIGRAM_STORAGE_STATS").is_some())
+    }
 }
 
 fn diagnostic_elapsed_ns(started: Option<Instant>) -> u64 {
     started.map_or(0, |started| started.elapsed().as_nanos() as u64)
 }
+
 
 #[derive(Clone, Debug, Default, Serialize)]
 pub(crate) struct BigramConstructionStats {
@@ -511,6 +540,7 @@ pub(crate) struct BigramConstructionStats {
     pub validation_ns: u64,
     pub admission_merge_ns: u64,
 }
+
 
 impl BigramConstructionStats {
     pub fn absorb(&mut self, other: Self) {
@@ -580,6 +610,7 @@ impl BigramConstructionStats {
     }
 }
 
+
 #[derive(Default)]
 struct BigramWorkCounters {
     gram_set_lookups: u64,
@@ -592,6 +623,7 @@ struct BigramWorkCounters {
     validation_ns: u64,
     admission_merge_ns: u64,
 }
+
 
 impl BigramWorkCounters {
     fn absorb(&mut self, other: Self) {
@@ -611,6 +643,7 @@ impl BigramWorkCounters {
     }
 }
 
+
 /// Construction-only grams. Each admitted batch owns contiguous per-column
 /// word spans and one global base; admission never rebases individual words.
 pub(crate) struct BigramContribution {
@@ -626,6 +659,7 @@ pub(crate) struct BigramContribution {
     pending_peak_capacity_bytes: usize,
     work: Option<Box<BigramWorkCounters>>,
 }
+
 
 impl BigramContribution {
     pub fn new(alphabet: BigramAlphabet) -> Self {
@@ -702,7 +736,8 @@ impl BigramContribution {
     }
 
     pub fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
-        let validation_started = storage_diagnostic_enabled().then(Instant::now);
+        let validation_started =
+            crate::detailed_timer::start_if_enabled(storage_diagnostic_enabled());
         if self.alphabet != batch.alphabet || self.record_count != base {
             return Err("bigram batch coverage or alphabet mismatch".into());
         }
@@ -714,7 +749,7 @@ impl BigramContribution {
         }
         validate_chunks(&batch.chunks, batch.record_count)?;
         let validation_ns = diagnostic_elapsed_ns(validation_started);
-        let merge_started = storage_diagnostic_enabled().then(Instant::now);
+        let merge_started = crate::detailed_timer::start_if_enabled(storage_diagnostic_enabled());
         let admitted_chunks = batch.chunks.len() as u64;
         self.chunks.reserve(batch.chunks.len());
         for mut chunk in batch.chunks {
@@ -785,6 +820,7 @@ impl BigramContribution {
     }
 }
 
+
 fn validate_columns(columns: &PackedColumns, count: u32) -> Result<(), String> {
     let mut next_start = 0usize;
     let mut previous_key = None;
@@ -847,7 +883,7 @@ fn pack_columns(
     if pending.is_empty() {
         return Ok(PackedColumns::default());
     }
-    let sort_started = contribution.work.is_some().then(Instant::now);
+    let sort_started = crate::detailed_timer::start_if_enabled(contribution.work.is_some());
     if let Some(work) = contribution.work.as_mut() {
         work.sorted_entries = work.sorted_entries.saturating_add(pending.len() as u64);
     }
@@ -857,7 +893,7 @@ fn pack_columns(
             .sort_ns
             .saturating_add(diagnostic_elapsed_ns(sort_started));
     }
-    let pack_started = contribution.work.is_some().then(Instant::now);
+    let pack_started = crate::detailed_timer::start_if_enabled(contribution.work.is_some());
     let mut packed = PackedColumns {
         spans: Vec::new(),
         blocks: Vec::with_capacity(pending.len()),
@@ -890,10 +926,12 @@ fn pack_columns(
     Ok(packed)
 }
 
+
 struct BasedColumns {
     base: u32,
     columns: PackedColumns,
 }
+
 
 fn split_chunks(chunks: Vec<PackedChunk>) -> (Vec<BasedColumns>, Vec<BasedColumns>) {
     let mut normal = Vec::with_capacity(chunks.len());
@@ -938,6 +976,7 @@ fn convert_blocks(chunks: Vec<BasedColumns>) -> Result<HashMap<u64, RoaringBitma
     Ok(result)
 }
 
+
 /// A reusable 64-slot gram accumulator. ASCII uses its compact 95×95 pair
 /// domain; Unicode keeps only keys touched by the current chunk.
 enum GramWords {
@@ -947,6 +986,7 @@ enum GramWords {
     },
     Unicode(HashMap<u64, u64>),
 }
+
 
 impl GramWords {
     fn new(alphabet: BigramAlphabet) -> Self {
@@ -1043,6 +1083,7 @@ impl GramWords {
     }
 }
 
+
 /// Construction-only state; completed indexes retain the existing format.
 /// The builder can start at any final slot and publishes each touched gram
 /// once per chunk, with record bits mapped to final slots at publication.
@@ -1054,6 +1095,7 @@ pub(crate) struct BigramBuilder {
     chunk_len: u32,
     storage_diagnostic: bool,
 }
+
 
 impl BigramBuilder {
     pub fn new(alphabet: BigramAlphabet) -> Self {
@@ -1125,7 +1167,7 @@ impl BigramBuilder {
         let alphabet = self.contribution.alphabet;
         let (normal, skip) = (&mut self.normal, &mut self.skip);
         if self.storage_diagnostic {
-            let started = Instant::now();
+            let started = crate::detailed_timer::DetailedInstant::now();
             let (mut lookups, mut duplicates) = (0, 0);
             for_each_segment_gram(segment, alphabet, |is_skip, key| {
                 if is_skip {
@@ -1170,7 +1212,7 @@ impl BigramBuilder {
                         + self.skip.capacity_bytes_lower_bound(),
                 );
         }
-        let drain_started = diagnostic.then(Instant::now);
+        let drain_started = crate::detailed_timer::start_if_enabled(diagnostic);
         self.normal.drain(|key, word| {
             self.contribution.pending_normal.push(PendingBlock {
                 key,
@@ -1229,7 +1271,7 @@ impl BigramBuilder {
                 skip,
             });
         }
-        let validation_started = self.storage_diagnostic.then(Instant::now);
+        let validation_started = crate::detailed_timer::start_if_enabled(self.storage_diagnostic);
         validate_chunks(&self.contribution.chunks, self.contribution.record_count)?;
         if let Some(work) = self.contribution.work.as_mut() {
             work.validation_ns = work
@@ -1244,6 +1286,7 @@ impl BigramBuilder {
         self.finish_blocks()?.into_index()
     }
 }
+
 
 #[cfg(test)]
 #[path = "bigram.test.rs"]

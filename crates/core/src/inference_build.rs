@@ -2,7 +2,6 @@
 
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::sync::Arc;
-use std::time::Instant;
 
 use roaring::RoaringBitmap;
 
@@ -16,6 +15,7 @@ use super::{
     InferenceBuildStats, InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy,
     InferenceReport, InferenceState, InferredFieldReport, ObservedStep, typed_path,
 };
+
 
 /// Observations retained for one path while construction batches are admitted.
 #[derive(Clone)]
@@ -64,6 +64,7 @@ struct FieldState {
     #[cfg(test)]
     key_builds: usize,
 }
+
 
 impl FieldState {
     fn new(path: Vec<String>, mode: InferenceMode) -> Self {
@@ -444,6 +445,7 @@ impl FieldState {
     }
 }
 
+
 /// One batch or coordinator's bounded construction-only observation state.
 #[derive(Clone)]
 pub(crate) struct InferenceBuilder {
@@ -460,6 +462,7 @@ pub(crate) struct InferenceBuilder {
     estimated_bytes: usize,
     observed_records: u64,
     merged_batches: u64,
+    #[cfg(feature = "detailed-profiling")]
     merge_ns: u64,
     unique_path_bytes: usize,
     repeated_batch_path_bytes: usize,
@@ -468,12 +471,14 @@ pub(crate) struct InferenceBuilder {
     coordinator_limit: usize,
 }
 
+
 /// Reused traversal state for one already parsed logical record.
 struct VisitState {
     slot: RecordSlot,
     path: Vec<ObservedStep>,
     contributions: usize,
 }
+
 
 impl InferenceBuilder {
     pub(crate) fn new(config: InferenceConfig, batch: bool) -> Option<Self> {
@@ -502,6 +507,7 @@ impl InferenceBuilder {
             estimated_bytes: 0,
             observed_records: 0,
             merged_batches: 0,
+            #[cfg(feature = "detailed-profiling")]
             merge_ns: 0,
             unique_path_bytes: 0,
             repeated_batch_path_bytes: 0,
@@ -531,7 +537,17 @@ impl InferenceBuilder {
         InferenceBuildStats {
             observed_records: self.observed_records,
             merged_batches: self.merged_batches,
-            merge_ns: self.merge_ns,
+            merge_ns: {
+                #[cfg(feature = "detailed-profiling")]
+                {
+                    self.merge_ns
+                }
+
+                #[cfg(not(feature = "detailed-profiling"))]
+                {
+                    0
+                }
+            },
             cumulative_budget_bytes: self.estimated_bytes,
             unique_path_bytes: self.unique_path_bytes,
             repeated_batch_path_bytes: self.repeated_batch_path_bytes,
@@ -804,7 +820,8 @@ impl InferenceBuilder {
     }
 
     pub(crate) fn merge_shifted(&mut self, other: Self, base: u32) -> Result<(), String> {
-        let started = Instant::now();
+        #[cfg(feature = "detailed-profiling")]
+        let started = crate::detailed_timer::DetailedInstant::now();
         if self.config != other.config || self.batch || !other.batch {
             return Err("inference batch policy mismatch".into());
         }
@@ -828,9 +845,12 @@ impl InferenceBuilder {
             }
         }
         if !self.complete {
-            self.merge_ns = self
-                .merge_ns
-                .saturating_add(started.elapsed().as_nanos() as u64);
+            #[cfg(feature = "detailed-profiling")]
+            {
+                self.merge_ns = self
+                    .merge_ns
+                    .saturating_add(started.elapsed().as_nanos() as u64);
+            }
             return Ok(());
         }
         for (path, bitmap) in other.empty_ancestors {
@@ -850,9 +870,13 @@ impl InferenceBuilder {
                 self.fields[index] = new;
             }
         }
-        self.merge_ns = self
-            .merge_ns
-            .saturating_add(started.elapsed().as_nanos() as u64);
+
+        #[cfg(feature = "detailed-profiling")]
+        {
+            self.merge_ns = self
+                .merge_ns
+                .saturating_add(started.elapsed().as_nanos() as u64);
+        }
         Ok(())
     }
 
@@ -1230,6 +1254,7 @@ impl InferenceBuilder {
         })
     }
 }
+
 
 #[cfg(test)]
 #[path = "inference_build.test.rs"]

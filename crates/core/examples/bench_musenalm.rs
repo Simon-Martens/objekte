@@ -17,10 +17,12 @@ use objekte_search_core::workload::{
 };
 use sha2::{Digest, Sha256};
 
+
 enum SearchBackend {
     Direct(Repository),
     Incremental(Index, IndexView),
 }
+
 
 impl SearchBackend {
     fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
@@ -49,6 +51,7 @@ impl SearchBackend {
         }
     }
 }
+
 
 fn main() {
     if let Err(error) = run() {
@@ -608,8 +611,30 @@ fn run() -> Result<(), String> {
             median_counter(counters, |c| c.residual_evaluations),
             prepared_hits,
             verified_hits,
-            median_counter(counters, |c| c.preparation_ns),
-            median_counter(counters, |c| c.planning_ns),
+            median_counter(counters, |c| {
+                #[cfg(feature = "detailed-profiling")]
+                {
+                    c.preparation_ns
+                }
+
+                #[cfg(not(feature = "detailed-profiling"))]
+                {
+                    let _ = c;
+                    0
+                }
+            }),
+            median_counter(counters, |c| {
+                #[cfg(feature = "detailed-profiling")]
+                {
+                    c.planning_ns
+                }
+
+                #[cfg(not(feature = "detailed-profiling"))]
+                {
+                    let _ = c;
+                    0
+                }
+            }),
         )
         .map_err(|e| e.to_string())?;
         by_case.entry(id.clone()).or_default().push(format!(

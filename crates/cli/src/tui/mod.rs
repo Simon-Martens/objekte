@@ -30,6 +30,7 @@ use ratatui::crossterm::{
     execute,
 };
 
+
 #[derive(Clone, Default)]
 pub struct TuiOptions {
     pub single_collection: bool,
@@ -45,6 +46,7 @@ pub struct TuiOptions {
     pub interruption: Option<CancellationToken>,
 }
 
+
 pub fn run_with_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
 where
     F: FnOnce() -> Result<IndexedRepository, String> + Send + 'static,
@@ -52,11 +54,13 @@ where
     run_with_opening_loader(move || loader().map(TuiOpening::Ready), options)
 }
 
+
 /// A selected cache can load immediately or fall back to a fresh incremental build.
 pub enum TuiOpening {
     Ready(IndexedRepository),
     Initial(InitialBuildTask, Vec<PathBuf>),
 }
+
 
 pub fn run_with_opening_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
 where
@@ -161,11 +165,14 @@ fn run_initial_active(
     protected_files: Vec<PathBuf>,
 ) -> Result<(), Box<dyn Error>> {
     struct CancelOnExit(InitialBuildTask);
+
+
     impl Drop for CancelOnExit {
         fn drop(&mut self) {
             self.0.cancel();
         }
     }
+
 
     let guard = CancelOnExit(task);
     (|| -> Result<(), Box<dyn Error>> {
@@ -247,14 +254,7 @@ fn run_active(
     initial: Option<(InitialBuildTask, InitialBuildSnapshot)>,
 ) -> Result<(), Box<dyn Error>> {
     let action = repository.startup().snapshot_action;
-    let index_ns = if action == SnapshotAction::Restored {
-        repository
-            .startup()
-            .snapshot_decode_ns
-            .saturating_add(repository.startup().reconciliation_ns)
-    } else {
-        repository.startup().build_ns
-    };
+    let timings = repository.index().timings_ms()?;
     let snapshot_requested = options.snapshot_requested;
     let incremental = initial.is_some();
     let mut app = match initial {
@@ -267,9 +267,16 @@ fn run_active(
         } else {
             "Index built"
         };
+        let display =
+            |value: Option<u64>| value.map_or_else(|| "—".to_owned(), |ms| format!("{ms} ms"));
         let ready = format!(
-            "{operation} in {}",
-            view::elapsed_label(Duration::from_nanos(index_ns))
+            "{operation}: metadata {} · search {} · full {}{}",
+            display(timings.metadata),
+            display(timings.search_available),
+            display(timings.full_available),
+            timings
+                .inference_full_available
+                .map_or_else(String::new, |ms| format!(" · inference {ms} ms")),
         );
         let ready = if snapshot_requested && action != SnapshotAction::Restored {
             format!("{ready}  ·  Snapshot saved")

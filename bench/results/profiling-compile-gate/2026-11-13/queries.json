@@ -1,0 +1,176 @@
+{
+  "baseline_commit": "40808d893e",
+  "candidate_base_commit": "9c6c9e1af3",
+  "baseline_binary_sha256": "f9ac116c43033f494bdf0e70def491f9d30f898493359b9d2a1c875fa4224706",
+  "candidate_binary_sha256": "05ca00995d9d1d6e428649b9679d2ea919e9c8cdfb196281d7f94e96bcc94b1a",
+  "command_args": [
+    "--extended",
+    "--cases",
+    "Q035,Q045,Q084,Q127,Q189,Q190,Q194",
+    "--profiles",
+    "ascii-off",
+    "--repetitions",
+    "5",
+    "--incremental"
+  ],
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "runs": [
+    {
+      "mode": "baseline",
+      "warmup": true,
+      "medians_ns": {
+        "Q035": 19240,
+        "Q045": 41710,
+        "Q084": 16943,
+        "Q127": 61314,
+        "Q189": 511049,
+        "Q190": 4687333,
+        "Q194": 222726
+      },
+      "digests": {
+        "Q035": "bfd48d3ad64f9eba69cee58d82a340d9d023099742ba885826b76239bfc88f91",
+        "Q045": "08e3be144103937ec4084a8bea32707d34d3608a938c8b0cf729fc927a88c0ea",
+        "Q084": "67c891be5daa1a509276296717cdba0264aeac178bf293db02ee8096467cfc8d",
+        "Q127": "305d3e8f550bb44ea46fcbd3ae9b3a8c1a141c888046c1e7b27e8845b8f757eb",
+        "Q189": "f3a8a67e13d3de58fa300d307fa4b7256ae1e4a653153a9790007f33e4fb152f",
+        "Q190": "0d2b028f34710d1f74470794c10da7ee8db385145ea2ea472676e95db5bc4099",
+        "Q194": "94a440ccdc9e034f401529374427f773ebb8431332ce7b166856d35846d6053a"
+      }
+    },
+    {
+      "mode": "default",
+      "warmup": true,
+      "medians_ns": {
+        "Q035": 19458,
+        "Q045": 42718,
+        "Q084": 17479,
+        "Q127": 63295,
+        "Q189": 537185,
+        "Q190": 4751511,
+        "Q194": 205393
+      },
+      "digests": {
+        "Q035": "bfd48d3ad64f9eba69cee58d82a340d9d023099742ba885826b76239bfc88f91",
+        "Q045": "08e3be144103937ec4084a8bea32707d34d3608a938c8b0cf729fc927a88c0ea",
+        "Q084": "67c891be5daa1a509276296717cdba0264aeac178bf293db02ee8096467cfc8d",
+        "Q127": "305d3e8f550bb44ea46fcbd3ae9b3a8c1a141c888046c1e7b27e8845b8f757eb",
+        "Q189": "f3a8a67e13d3de58fa300d307fa4b7256ae1e4a653153a9790007f33e4fb152f",
+        "Q190": "0d2b028f34710d1f74470794c10da7ee8db385145ea2ea472676e95db5bc4099",
+        "Q194": "94a440ccdc9e034f401529374427f773ebb8431332ce7b166856d35846d6053a"
+      }
+    },
+    {
+      "mode": "baseline",
+      "warmup": false,
+      "medians_ns": {
+        "Q035": 19282,
+        "Q045": 42236,
+        "Q084": 17145,
+        "Q127": 61656,
+        "Q189": 492738,
+        "Q190": 4833471,
+        "Q194": 274113
+      },
+      "digests": {
+        "Q035": "bfd48d3ad64f9eba69cee58d82a340d9d023099742ba885826b76239bfc88f91",
+        "Q045": "08e3be144103937ec4084a8bea32707d34d3608a938c8b0cf729fc927a88c0ea",
+        "Q084": "67c891be5daa1a509276296717cdba0264aeac178bf293db02ee8096467cfc8d",
+        "Q127": "305d3e8f550bb44ea46fcbd3ae9b3a8c1a141c888046c1e7b27e8845b8f757eb",
+        "Q189": "f3a8a67e13d3de58fa300d307fa4b7256ae1e4a653153a9790007f33e4fb152f",
+        "Q190": "0d2b028f34710d1f74470794c10da7ee8db385145ea2ea472676e95db5bc4099",
+        "Q194": "94a440ccdc9e034f401529374427f773ebb8431332ce7b166856d35846d6053a"
+      }
+    },
+    {
+      "mode": "default",
+      "warmup": false,
+      "medians_ns": {
+        "Q035": 19502,
+        "Q045": 41738,
+        "Q084": 17537,
+        "Q127": 63200,
+        "Q189": 464819,
+        "Q190": 4599870,
+        "Q194": 332034
+      },
+      "digests": {
+        "Q035": "bfd48d3ad64f9eba69cee58d82a340d9d023099742ba885826b76239bfc88f91",
+        "Q045": "08e3be144103937ec4084a8bea32707d34d3608a938c8b0cf729fc927a88c0ea",
+        "Q084": "67c891be5daa1a509276296717cdba0264aeac178bf293db02ee8096467cfc8d",
+        "Q127": "305d3e8f550bb44ea46fcbd3ae9b3a8c1a141c888046c1e7b27e8845b8f757eb",
+        "Q189": "f3a8a67e13d3de58fa300d307fa4b7256ae1e4a653153a9790007f33e4fb152f",
+        "Q190": "0d2b028f34710d1f74470794c10da7ee8db385145ea2ea472676e95db5bc4099",
+        "Q194": "94a440ccdc9e034f401529374427f773ebb8431332ce7b166856d35846d6053a"
+      }
+    },
+    {
+      "mode": "default",
+      "warmup": false,
+      "medians_ns": {
+        "Q035": 18961,
+        "Q045": 41881,
+        "Q084": 17023,
+        "Q127": 62609,
+        "Q189": 374285,
+        "Q190": 4637659,
+        "Q194": 200042
+      },
+      "digests": {
+        "Q035": "bfd48d3ad64f9eba69cee58d82a340d9d023099742ba885826b76239bfc88f91",
+        "Q045": "08e3be144103937ec4084a8bea32707d34d3608a938c8b0cf729fc927a88c0ea",
+        "Q084": "67c891be5daa1a509276296717cdba0264aeac178bf293db02ee8096467cfc8d",
+        "Q127": "305d3e8f550bb44ea46fcbd3ae9b3a8c1a141c888046c1e7b27e8845b8f757eb",
+        "Q189": "f3a8a67e13d3de58fa300d307fa4b7256ae1e4a653153a9790007f33e4fb152f",
+        "Q190": "0d2b028f34710d1f74470794c10da7ee8db385145ea2ea472676e95db5bc4099",
+        "Q194": "94a440ccdc9e034f401529374427f773ebb8431332ce7b166856d35846d6053a"
+      }
+    },
+    {
+      "mode": "baseline",
+      "warmup": false,
+      "medians_ns": {
+        "Q035": 19388,
+        "Q045": 42048,
+        "Q084": 17018,
+        "Q127": 63004,
+        "Q189": 431873,
+        "Q190": 6585008,
+        "Q194": 254958
+      },
+      "digests": {
+        "Q035": "bfd48d3ad64f9eba69cee58d82a340d9d023099742ba885826b76239bfc88f91",
+        "Q045": "08e3be144103937ec4084a8bea32707d34d3608a938c8b0cf729fc927a88c0ea",
+        "Q084": "67c891be5daa1a509276296717cdba0264aeac178bf293db02ee8096467cfc8d",
+        "Q127": "305d3e8f550bb44ea46fcbd3ae9b3a8c1a141c888046c1e7b27e8845b8f757eb",
+        "Q189": "f3a8a67e13d3de58fa300d307fa4b7256ae1e4a653153a9790007f33e4fb152f",
+        "Q190": "0d2b028f34710d1f74470794c10da7ee8db385145ea2ea472676e95db5bc4099",
+        "Q194": "94a440ccdc9e034f401529374427f773ebb8431332ce7b166856d35846d6053a"
+      }
+    }
+  ],
+  "case_medians_ms": {
+    "baseline": {
+      "Q035": 0.019334999999999998,
+      "Q045": 0.042142,
+      "Q084": 0.0170815,
+      "Q127": 0.06233,
+      "Q189": 0.46230550000000004,
+      "Q190": 5.709239500000001,
+      "Q194": 0.26453550000000003
+    },
+    "default": {
+      "Q035": 0.0192315,
+      "Q045": 0.0418095,
+      "Q084": 0.01728,
+      "Q127": 0.0629045,
+      "Q189": 0.419552,
+      "Q190": 4.6187645,
+      "Q194": 0.266038
+    }
+  },
+  "sum_case_medians_ms": {
+    "baseline": 6.576969000000001,
+    "default": 5.4455800000000005
+  },
+  "digests_equal": true
+}

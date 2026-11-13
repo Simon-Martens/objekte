@@ -11,6 +11,7 @@ path = "src/main.rs"
 [features]
 default = ["tui"]
 tui = ["dep:ratatui", "dep:regex", "dep:unicode-width", "dep:unicode-casefold"]
+detailed-profiling = ["objekte-search-core/detailed-profiling"]
 
 [dependencies]
 objekte-search-core = { path = "../core" }

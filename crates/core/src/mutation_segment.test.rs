@@ -5,6 +5,7 @@ use crate::posting::ScalarKey;
 use crate::reference::FieldDefinition;
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::source::{SourceFormat, SourceRegistry};
+use std::time::Instant;
 
 #[test]
 fn admits_one_worker_batch_spanning_files_without_reprojecting_postings() {

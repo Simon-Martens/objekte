@@ -17,6 +17,7 @@ const LATER_SEGMENT_RECORDS: usize = 132_000;
 const FIRST_SEGMENT_SOURCE_BYTES: u64 = 128 * 1024 * 1024;
 const LATER_SEGMENT_SOURCE_BYTES: u64 = 160 * 1024 * 1024;
 
+
 struct IncrementalCollection {
     definition: Arc<CollectionDefinition>,
     source: PreparedSource,
@@ -29,6 +30,7 @@ struct IncrementalCollection {
     options: RepositoryOptions,
     collection_count: usize,
 }
+
 
 impl IncrementalCollection {
     fn new(
@@ -103,7 +105,7 @@ impl IncrementalCollection {
         batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<Option<crate::build::CollectionSegment>, String> {
-        let coordinator = profile.as_ref().map(|_| Instant::now());
+        let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
         self.observe(&batch)?;
         let sealed = if !self.admission.can_admit_batch(&batch) {
             self.take_segment()
@@ -124,7 +126,7 @@ impl IncrementalCollection {
         batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<(), String> {
-        let coordinator = profile.as_ref().map(|_| Instant::now());
+        let coordinator = crate::detailed_timer::start_if_enabled(profile.is_some());
         self.observe(&batch)?;
         if let (Some(started), Some(profile)) = (coordinator, profile.as_mut()) {
             profile.coordinator_ns += started.elapsed().as_nanos() as u64;
@@ -161,7 +163,7 @@ impl IncrementalCollection {
             .take()
             .map(|builder| {
                 stats = builder.build_stats();
-                let started = Instant::now();
+                let started = crate::detailed_timer::DetailedInstant::now();
                 let state = builder.finish(
                     &self.logical_records,
                     self.records as usize,
@@ -179,6 +181,7 @@ impl IncrementalCollection {
     }
 }
 
+
 fn publish_segment(
     index: &Index,
     expected: &mut IndexRevision,
@@ -191,15 +194,19 @@ fn publish_segment(
     publication_ns: &mut u64,
     profile: &mut Option<BuildProfileStats>,
 ) -> Result<(), IndexError> {
-    let started = Instant::now();
+    let started = crate::detailed_timer::DetailedInstant::now();
     let mut segment_profile = profile.as_ref().map(|_| IncrementalSegmentProfile {
         collection: collection.definition.name.clone(),
         files: segment.files.len(),
         records: segment.records.len(),
-        source_bytes: segment.files.iter().map(|file| file.entry.revision.size).sum(),
+        source_bytes: segment
+            .files
+            .iter()
+            .map(|file| file.entry.revision.size)
+            .sum(),
         ..Default::default()
     });
-    let phase = profile.as_ref().map(|_| Instant::now());
+    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
     let indexed: IndexedCollectionSegment = segment
         .into_indexed_profiled(
             &collection.definition,
@@ -215,14 +222,14 @@ fn publish_segment(
         profile.publication_index_ns = profile.publication_index_ns.saturating_add(ns);
         segment_profile.as_mut().unwrap().index_ns = ns;
     }
-    let phase = profile.as_ref().map(|_| Instant::now());
+    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
     *expected = index.publish_initial_segment(*expected, indexed)?;
     if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
         let ns = started.elapsed().as_nanos() as u64;
         profile.publication_install_ns = profile.publication_install_ns.saturating_add(ns);
         segment_profile.as_mut().unwrap().install_ns = ns;
     }
-    let phase = profile.as_ref().map(|_| Instant::now());
+    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
     on_publication(index)?;
     if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
         let ns = started.elapsed().as_nanos() as u64;
@@ -245,9 +252,7 @@ fn finish_admission_profile(
     // The outer interval ends before profile aggregation and before any
     // segment publication. Consumed contribution temporaries are dropped by
     // the inner admission calls before this boundary.
-    if let (Some(started), Some(mut detail), Some(profile)) =
-        (started, detail, profile.as_mut())
-    {
+    if let (Some(started), Some(mut detail), Some(profile)) = (started, detail, profile.as_mut()) {
         detail.total_ns = started.elapsed().as_nanos() as u64;
         detail.remainder_ns = detail
             .total_ns
@@ -285,7 +290,7 @@ fn admit_normal(
     if cancelled() {
         return Err("initial construction cancelled".into());
     }
-    let admission_started = profile.as_ref().map(|_| Instant::now());
+    let admission_started = crate::detailed_timer::start_if_enabled(profile.is_some());
     let mut detail = profile.as_ref().map(|_| AdmissionBreakdown {
         batches: 1,
         files: batch.new_file_count() as u64,
@@ -305,7 +310,8 @@ fn admit_normal(
     *source_bytes_read = source_bytes_read.saturating_add(batch.source_bytes_read);
     if let Some(profile) = profile.as_mut() {
         profile.work.absorb(&batch.profile);
-        profile.work_by_collection
+        profile
+            .work_by_collection
             .entry(pending[collection_index].definition.name.clone())
             .or_default()
             .absorb(&batch.profile);
@@ -338,6 +344,7 @@ fn admit_normal(
     Ok(())
 }
 
+
 impl Repository {
     #[allow(clippy::too_many_arguments)]
     pub(crate) fn build_incremental_with_sources(
@@ -350,11 +357,13 @@ impl Repository {
         cancelled: impl Fn() -> bool,
     ) -> Result<Index, IndexError> {
         let started = Instant::now();
-        let mut profile = options.profile_build.then(BuildProfileStats::default);
+        let mut profile = options
+            .detailed_profiling_enabled()
+            .then(BuildProfileStats::default);
         let root = root
             .canonicalize()
             .map_err(|error| IndexError::Io(error.to_string()))?;
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let build_workers = crate::build::resolve_build_workers(
             options.build_workers,
             std::thread::available_parallelism().ok(),
@@ -397,7 +406,7 @@ impl Repository {
             let source = sources
                 .resolve(&definition.format)
                 .map_err(IndexError::Build)?;
-            let phase = profile.as_ref().map(|_| Instant::now());
+            let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
             let paths = discover(
                 &root,
                 &definition.source_path,
@@ -406,7 +415,8 @@ impl Repository {
             )
             .map_err(IndexError::Build)?;
             if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-                profile.discovery_enumeration_ns = profile.discovery_enumeration_ns
+                profile.discovery_enumeration_ns = profile
+                    .discovery_enumeration_ns
                     .saturating_add(started.elapsed().as_nanos() as u64);
             }
             let mut members = Vec::with_capacity(paths.len());
@@ -419,7 +429,7 @@ impl Repository {
                 if window.is_empty() {
                     break;
                 }
-                let phase = profile.as_ref().map(|_| Instant::now());
+                let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
                 let prepared = if build_workers == 1 {
                     window
                         .into_iter()
@@ -429,10 +439,11 @@ impl Repository {
                     prepare_discovered_window(&pool, &root, window, false, &metadata_peak_active)
                 };
                 if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-                    profile.discovery_metadata_prepare_ns = profile.discovery_metadata_prepare_ns
+                    profile.discovery_metadata_prepare_ns = profile
+                        .discovery_metadata_prepare_ns
                         .saturating_add(started.elapsed().as_nanos() as u64);
                 }
-                let phase = profile.as_ref().map(|_| Instant::now());
+                let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
                 for entry in prepared {
                     let entry = entry.map_err(IndexError::Build)?;
                     members.push(
@@ -442,7 +453,8 @@ impl Repository {
                     );
                 }
                 if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-                    profile.discovery_ordered_insert_ns = profile.discovery_ordered_insert_ns
+                    profile.discovery_ordered_insert_ns = profile
+                        .discovery_ordered_insert_ns
                         .saturating_add(started.elapsed().as_nanos() as u64);
                 }
             }
@@ -455,7 +467,7 @@ impl Repository {
             profile.discovery_metadata_peak_active = metadata_peak_active.load(Ordering::Relaxed);
             profile.discovery_rss_bytes = build_profile_rss_bytes();
         }
-        let setup_started = profile.as_ref().map(|_| Instant::now());
+        let setup_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         let discovered = Arc::new(files);
         let source_files = Arc::new(
             discovered
@@ -522,7 +534,7 @@ impl Repository {
             return Err(IndexError::Cancelled);
         }
         let mut expected = IndexRevision::INITIAL;
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut jobs = Vec::new();
         for (collection_index, state) in pending.iter().enumerate() {
             for batch in crate::build::file_batches(&state.member_files, &discovered) {
@@ -550,7 +562,7 @@ impl Repository {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.job_scheduling_ns = started.elapsed().as_nanos() as u64;
         }
-        let extraction_started = Instant::now();
+        let extraction_started = crate::detailed_timer::DetailedInstant::now();
         let mut digest_bindings = vec![Vec::new(); discovered.files.len()];
         let mut build_parses = 0u64;
         let mut failed_parses = 0u64;
@@ -580,7 +592,7 @@ impl Repository {
                             Arc::clone(&source_files),
                             options.bigram_alphabet,
                             options.inference,
-                            options.profile_build,
+                            options.detailed_profiling_enabled(),
                             |number, batch| {
                                 admit_normal(
                                     number,
@@ -635,12 +647,13 @@ impl Repository {
                         Arc::clone(&source_files),
                         options.bigram_alphabet,
                         options.inference,
-                        options.profile_build,
+                        options.detailed_profiling_enabled(),
                         |batch| {
                             if cancelled() {
                                 return Err("initial construction cancelled".into());
                             }
-                            let admission_started = profile.as_ref().map(|_| Instant::now());
+                            let admission_started =
+                                crate::detailed_timer::start_if_enabled(profile.is_some());
                             let mut detail = profile.as_ref().map(|_| AdmissionBreakdown {
                                 batches: 1,
                                 files: batch.new_file_count() as u64,
@@ -654,7 +667,8 @@ impl Repository {
                             }
                             if let Some(profile) = profile.as_mut() {
                                 profile.work.absorb(&batch.profile);
-                                profile.work_by_collection
+                                profile
+                                    .work_by_collection
                                     .entry(pending[collection_index].definition.name.clone())
                                     .or_default()
                                     .absorb(&batch.profile);
@@ -710,7 +724,7 @@ impl Repository {
                 Arc::clone(&source_files),
                 options.bigram_alphabet,
                 options.inference,
-                options.profile_build,
+                options.detailed_profiling_enabled(),
                 |number, batch| {
                     admit_normal(
                         number,
@@ -746,7 +760,7 @@ impl Repository {
             profile.admission_schedule = schedule_stats.admission_schedule;
             profile.extraction_rss_bytes = build_profile_rss_bytes();
         }
-        let flush_started = profile.as_ref().map(|_| Instant::now());
+        let flush_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         for number in 0..pending.len() {
             if cancelled() {
                 return Err(IndexError::Cancelled);
@@ -769,14 +783,14 @@ impl Repository {
         if let (Some(started), Some(profile)) = (flush_started, profile.as_mut()) {
             profile.final_segment_flush_ns = started.elapsed().as_nanos() as u64;
         }
-        let finalization_started = Instant::now();
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let finalization_started = crate::detailed_timer::DetailedInstant::now();
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let base_fingerprints =
             finish_fresh_fingerprints(&discovered, digest_bindings).map_err(IndexError::Build)?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.fingerprint_finish_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut final_repository = Self::build_fresh(root, definitions, options, &sources, false)
             .map_err(IndexError::Build)?;
         final_repository.files = Arc::clone(&discovered);

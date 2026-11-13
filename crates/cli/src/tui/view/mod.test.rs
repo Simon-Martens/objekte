@@ -114,7 +114,7 @@ fn draws_query_results_and_detail_on_small_terminal() {
     assert!(screen.contains("objekte"));
     assert!(screen.contains("docs"));
     let elapsed = elapsed_label(app.last_search_duration.unwrap());
-    assert!(screen.contains(&format!("search {elapsed}")));
+    assert!(screen.contains(&format!("all {elapsed}")));
     app.view = View::Detail;
     terminal.draw(|frame| draw(frame, app)).unwrap();
     let screen = format!("{:?}", terminal.backend().buffer());

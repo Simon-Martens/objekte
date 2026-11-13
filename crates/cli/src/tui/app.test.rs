@@ -20,28 +20,55 @@ fn filter_completion_uses_current_schema_metadata_and_posting_keys() {
     app.scope = 1;
     app.filter = Input::with_text("tit");
     app.refresh_completion();
-    assert!(app.completion.as_ref().unwrap().choices.contains(&"title".into()));
+    assert!(
+        app.completion
+            .as_ref()
+            .unwrap()
+            .choices
+            .contains(&"title".into())
+    );
     assert!(app.accept_completion());
     assert_eq!(app.filter.text, "title");
     app.refresh_completion();
-    assert!(app.completion.is_none(), "accepted text must not capture Enter again");
+    assert!(
+        app.completion.is_none(),
+        "accepted text must not capture Enter again"
+    );
 
     app.filter = Input::with_text("title = nee");
     app.refresh_completion();
-    assert!(app.completion.as_ref().unwrap().choices.contains(&"\"needle title\"".into()));
+    assert!(
+        app.completion
+            .as_ref()
+            .unwrap()
+            .choices
+            .contains(&"\"needle title\"".into())
+    );
     assert!(app.accept_completion());
     assert_eq!(app.filter.text, "title = \"needle title\"");
 
     app.filter = Input::with_text("title:nu");
     app.refresh_completion();
-    assert!(app.completion.as_ref().unwrap().choices.contains(&"null".into()));
+    assert!(
+        app.completion
+            .as_ref()
+            .unwrap()
+            .choices
+            .contains(&"null".into())
+    );
     app.filter = Input::with_text("title:exists = t");
     app.refresh_completion();
     assert_eq!(app.completion.as_ref().unwrap().choices, ["true"]);
 
     app.filter = Input::with_text("@file.pa");
     app.refresh_completion();
-    assert!(app.completion.as_ref().unwrap().choices.contains(&"@file.path".into()));
+    assert!(
+        app.completion
+            .as_ref()
+            .unwrap()
+            .choices
+            .contains(&"@file.path".into())
+    );
 }
 
 #[test]
@@ -63,6 +90,7 @@ fn provisional_delta_preserves_selection_and_waits_for_complete_export() {
     app.requested_offset = Some(0);
     app.sender
         .send(Update {
+            first_result: None,
             generation: app.generation,
             offset: 0,
             elapsed: Duration::ZERO,
@@ -98,6 +126,7 @@ fn provisional_delta_preserves_selection_and_waits_for_complete_export() {
     app.requested_offset = Some(0);
     app.sender
         .send(Update {
+            first_result: None,
             generation: app.generation,
             offset: 0,
             elapsed: Duration::ZERO,
@@ -124,7 +153,10 @@ fn cli_columns_follow_filter_and_sort_without_schema_defaults() {
     assert_eq!(app.total, 3);
     assert!(app.column_keys().is_empty());
     assert_eq!(app.display_rows.len(), 3);
-    assert!(app.last_projection_duration.is_some());
+    assert_eq!(
+        app.last_projection_duration.is_some(),
+        cfg!(feature = "detailed-profiling")
+    );
     assert!(app.display_rows.iter().all(|row| row.matched.is_empty()));
 
     app.filter = Input::with_text("number >= 1 SORT BY title");

@@ -94,6 +94,9 @@ fn run() -> Result<(), String> {
     if check_queries && (plain || jsonl) {
         return Err("--check-queries requires Musenalm schema mode".into());
     }
+    if profile && !cfg!(feature = "detailed-profiling") {
+        return Err("--profile requires --features detailed-profiling".into());
+    }
     let result_root = result_dir.ok_or("--result-dir is required")?;
     fs::create_dir_all(&result_root).map_err(|e| format!("{}: {e}", result_root.display()))?;
     let run_id = format!(
@@ -483,7 +486,11 @@ fn run_incremental(
             let probe_started = Instant::now();
             view.search_available(&query)?;
             let probe_ns = probe_started.elapsed().as_nanos() as u64;
-            break (Some(published_ns), Some(started.elapsed().as_nanos() as u64), Some(probe_ns));
+            break (
+                Some(published_ns),
+                Some(started.elapsed().as_nanos() as u64),
+                Some(probe_ns),
+            );
         }
         if matches!(
             cursor.status.phase,
@@ -659,14 +666,24 @@ fn run_restore(
     let before_rss = resident_bytes();
     let io_before = proc_io();
     let started = Instant::now();
+    #[cfg(feature = "detailed-profiling")]
     let (index, load_profile) = if options.profile_build {
         let (index, profile) = Index::load_cache_profiled(root, definitions, options, snapshot)
             .map_err(|error| error.to_string())?;
         (index, Some(profile))
     } else {
-        (Index::load_cache(root, definitions, options, snapshot)
-            .map_err(|error| error.to_string())?, None)
+        (
+            Index::load_cache(root, definitions, options, snapshot)
+                .map_err(|error| error.to_string())?,
+            None,
+        )
     };
+    #[cfg(not(feature = "detailed-profiling"))]
+    let (index, load_profile) = (
+        Index::load_cache(root, definitions, options, snapshot)
+            .map_err(|error| error.to_string())?,
+        None::<()>,
+    );
     let load_ns = started.elapsed().as_nanos() as u64;
     if !index.restored_from_cache() {
         return Err("selected snapshot did not restore".into());
@@ -686,23 +703,34 @@ fn run_restore(
             .collect::<BTreeMap<_, _>>()
     });
     let reconciliation_wait_started = Instant::now();
-    let reconciliation = index.wait_for_reconciliation().map_err(|error| error.to_string())?;
+    let reconciliation = index
+        .wait_for_reconciliation()
+        .map_err(|error| error.to_string())?;
     let reconciliation_wait_ns = reconciliation_wait_started.elapsed().as_nanos() as u64;
     let reconciliation_done_ns = started.elapsed().as_nanos() as u64;
     let io_after_reconciliation = proc_io();
-    let reconciliation_io_delta = io_after.zip(io_after_reconciliation).map(|(before, after)| {
-        after.into_iter().filter_map(|(key, value)| {
-            before.get(&key).and_then(|old| value.checked_sub(*old))
-                .map(|delta| (key, delta))
-        }).collect::<BTreeMap<_, _>>()
+    let reconciliation_io_delta = io_after
+        .zip(io_after_reconciliation)
+        .map(|(before, after)| {
+            after
+                .into_iter()
+                .filter_map(|(key, value)| {
+                    before
+                        .get(&key)
+                        .and_then(|old| value.checked_sub(*old))
+                        .map(|delta| (key, delta))
+                })
+                .collect::<BTreeMap<_, _>>()
+        });
+    let reconciliation = reconciliation.map(|report| {
+        serde_json::json!({
+            "examined":report.examined,"planned_changes":report.planned_changes,
+            "unchanged":report.unchanged,"added":report.added,"updated":report.updated,
+            "removed":report.removed,"skipped":report.skipped,"indexed_bytes":report.indexed_bytes,
+            "duration_ns":report.duration.as_nanos(),"cancelled":report.cancelled,
+            "issues":report.issues,"omitted_issues":report.omitted_issues,
+        })
     });
-    let reconciliation = reconciliation.map(|report| serde_json::json!({
-        "examined":report.examined,"planned_changes":report.planned_changes,
-        "unchanged":report.unchanged,"added":report.added,"updated":report.updated,
-        "removed":report.removed,"skipped":report.skipped,"indexed_bytes":report.indexed_bytes,
-        "duration_ns":report.duration.as_nanos(),"cancelled":report.cancelled,
-        "issues":report.issues,"omitted_issues":report.omitted_issues,
-    }));
     let status = index.status().map_err(|error| error.to_string())?;
     let view = index.view().map_err(|error| error.to_string())?;
     let files = view.catalogue_rows().count();

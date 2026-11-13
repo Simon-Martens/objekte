@@ -14,8 +14,8 @@ use std::sync::{Arc, Condvar, Mutex, RwLock, Weak};
 use std::thread::JoinHandle;
 use std::time::{Duration, Instant, SystemTime};
 
-use serde::{Deserialize, Serialize};
 use roaring::RoaringBitmap;
+use serde::{Deserialize, Serialize};
 
 use crate::build::{
     FilePreparationBinding, IndexedCollectionSegment, PreparedCollectionBuild, PreparedFileBuild,
@@ -147,7 +147,9 @@ impl fmt::Display for IndexError {
             }
             Self::SourceUnavailable(message) => write!(formatter, "source unavailable: {message}"),
             Self::ResourceLimit(message) => write!(formatter, "resource limit: {message}"),
-            Self::IncompleteBuild => formatter.write_str("initial index construction is incomplete"),
+            Self::IncompleteBuild => {
+                formatter.write_str("initial index construction is incomplete")
+            }
             Self::Cancelled => formatter.write_str("index operation cancelled"),
             Self::Io(message) => write!(formatter, "index I/O: {message}"),
             Self::Build(message) => write!(formatter, "index build: {message}"),
@@ -195,6 +197,7 @@ pub struct IndexStatus {
     pub fallback_records: u64,
 }
 
+
 /// Discovery-only facts for one physical file. Record identity, validity,
 /// byte ranges and record counts require construction and are omitted here.
 #[derive(Clone, Copy, Debug)]
@@ -207,6 +210,7 @@ pub struct FileCatalogueRow<'a> {
     pub created_ns: Option<i128>,
 }
 
+
 #[derive(Clone, Copy, Debug, Default, serde::Serialize)]
 pub struct IndexFamilyEstimate {
     pub raw_bytes: usize,
@@ -216,12 +220,17 @@ pub struct IndexFamilyEstimate {
     pub sorting_bytes: usize,
 }
 
+
 impl IndexFamilyEstimate {
     pub fn total(self) -> usize {
-        self.raw_bytes + self.fallback_bytes + self.custom_text_bytes
-            + self.postings_bytes + self.sorting_bytes
+        self.raw_bytes
+            + self.fallback_bytes
+            + self.custom_text_bytes
+            + self.postings_bytes
+            + self.sorting_bytes
     }
 }
+
 
 /// Result of an explicit query against one pinned, possibly incomplete view.
 /// `result.count` is absent while construction is incomplete, even if the
@@ -522,17 +531,38 @@ impl PublishedIndex {
             build_parses: self.repository.build_parses(),
             build_source_reads: self.repository.startup().build_source_reads,
             build_source_bytes_read: self.repository.startup().build_source_bytes_read,
-            fallback_records: self.repository.collections().iter().enumerate().map(|(number, collection)| {
-                let base = collection.generation.records.iter().filter(|record| {
-                    record.class == crate::inventory::RecordClass::RawFallback
-                        && self.active[number].contains(record.slot)
-                }).count() as u64;
-                let segments = self.segments[number].iter().map(|segment| segment.index.records.iter().filter(|record| {
-                    record.class == crate::inventory::RecordClass::RawFallback
-                        && segment.active.contains(record.slot)
-                }).count() as u64).sum::<u64>();
-                base + segments
-            }).sum(),
+            fallback_records: self
+                .repository
+                .collections()
+                .iter()
+                .enumerate()
+                .map(|(number, collection)| {
+                    let base = collection
+                        .generation
+                        .records
+                        .iter()
+                        .filter(|record| {
+                            record.class == crate::inventory::RecordClass::RawFallback
+                                && self.active[number].contains(record.slot)
+                        })
+                        .count() as u64;
+                    let segments = self.segments[number]
+                        .iter()
+                        .map(|segment| {
+                            segment
+                                .index
+                                .records
+                                .iter()
+                                .filter(|record| {
+                                    record.class == crate::inventory::RecordClass::RawFallback
+                                        && segment.active.contains(record.slot)
+                                })
+                                .count() as u64
+                        })
+                        .sum::<u64>();
+                    base + segments
+                })
+                .sum(),
             live_records: self.active.iter().map(ActiveRecords::len).sum::<u64>()
                 + self
                     .segments
@@ -863,6 +893,7 @@ fn prepare_file_at(
 struct IndexInner {
     instance_id: u64,
     restored_from_cache: AtomicBool,
+    timings: Mutex<IndexTimingsMs>,
     /// Set under the publication write lock before closing waits for workers.
     /// Every data publication checks it while holding that same lock.
     quiescing: AtomicBool,
@@ -877,6 +908,17 @@ struct IndexInner {
     persistence: Mutex<PersistenceState>,
     sync_cache: Mutex<Option<SyncCacheWorker>>,
     sync_cache_error: Mutex<Option<String>>,
+}
+
+
+/// Coarse startup milestones available in ordinary builds. Values are elapsed
+/// milliseconds from the beginning of the corresponding build/load operation.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, serde::Serialize)]
+pub struct IndexTimingsMs {
+    pub metadata: Option<u64>,
+    pub search_available: Option<u64>,
+    pub full_available: Option<u64>,
+    pub inference_full_available: Option<u64>,
 }
 
 
@@ -1153,6 +1195,10 @@ impl Index {
     /// Adopt a completed static repository as the first published view.
     /// This does not trigger discovery, reconciliation or cache persistence.
     pub fn from_repository(repository: Repository) -> Result<Self, IndexError> {
+        let build_ns = repository.startup().build_ns;
+        let metadata_ns = repository.startup().build_discovery_ns;
+        let inference_enabled =
+            repository.options().inference.mode != crate::inference::InferenceMode::Disabled;
         let instance_id = crate::repository::next_repository_instance();
         let published = PublishedIndex::from_repository(
             instance_id,
@@ -1160,7 +1206,19 @@ impl Index {
             Arc::new(repository),
         )?;
         let published = crate::lifecycle_partition::partition_base(published)?;
-        Ok(Self::from_published(published))
+        let index = Self::from_published(published);
+        if build_ns > 0 {
+            let full_ms = build_ns / 1_000_000;
+            index.update_timings_ms(|timings| {
+                timings.metadata = Some(metadata_ns / 1_000_000);
+                timings.search_available = Some(full_ms);
+                timings.full_available = Some(full_ms);
+                if inference_enabled {
+                    timings.inference_full_available = Some(full_ms);
+                }
+            })?;
+        }
+        Ok(index)
     }
 
     pub(crate) fn from_published(published: PublishedIndex) -> Self {
@@ -1169,6 +1227,7 @@ impl Index {
         Self(Arc::new(IndexInner {
             instance_id,
             restored_from_cache: AtomicBool::new(false),
+            timings: Mutex::new(IndexTimingsMs::default()),
             quiescing: AtomicBool::new(false),
             verified_cache: Mutex::new(crate::verified::VerifiedCache::new(verified_cache_bytes)),
             published: RwLock::new(Arc::new(published)),
@@ -1192,6 +1251,27 @@ impl Index {
 
     pub fn instance_id(&self) -> u64 {
         self.0.instance_id
+    }
+
+    pub fn timings_ms(&self) -> Result<IndexTimingsMs, IndexError> {
+        Ok(*self
+            .0
+            .timings
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?)
+    }
+
+    pub(crate) fn update_timings_ms(
+        &self,
+        update: impl FnOnce(&mut IndexTimingsMs),
+    ) -> Result<(), IndexError> {
+        let mut timings = self
+            .0
+            .timings
+            .lock()
+            .map_err(|_| IndexError::LockPoisoned)?;
+        update(&mut timings);
+        Ok(())
     }
 
     /// Set the aggregate in-memory verified-result cache budget for this
@@ -2531,10 +2611,7 @@ impl IndexView {
 
     /// Inference observations captured by this publication, including the
     /// completed global summary of an incremental construction.
-    pub fn inference_report(
-        &self,
-        collection: &str,
-    ) -> Option<&crate::inference::InferenceReport> {
+    pub fn inference_report(&self, collection: &str) -> Option<&crate::inference::InferenceReport> {
         self.repository().inference_report(collection)
     }
 
@@ -2563,13 +2640,19 @@ impl IndexView {
     /// Same index-family estimate used by the construction benchmark for a
     /// direct repository, summed across the base and live lifecycle shards.
     pub fn estimated_index_bytes(&self) -> usize {
-        self.index_family_breakdown().values().flatten().map(|(_, estimate)| estimate.total()).sum()
+        self.index_family_breakdown()
+            .values()
+            .flatten()
+            .map(|(_, estimate)| estimate.total())
+            .sum()
     }
 
     /// Per-collection base (ordinal 0) and published segment estimates. The
     /// benchmark uses this to expose shard overhead without counting it as a
     /// second resident catalogue.
-    pub fn index_family_breakdown(&self) -> std::collections::BTreeMap<String, Vec<(u64, IndexFamilyEstimate)>> {
+    pub fn index_family_breakdown(
+        &self,
+    ) -> std::collections::BTreeMap<String, Vec<(u64, IndexFamilyEstimate)>> {
         fn estimate(
             raw: &crate::bigram::BigramIndex,
             fallback: &crate::bigram::BigramIndex,
@@ -2580,26 +2663,81 @@ impl IndexView {
             IndexFamilyEstimate {
                 raw_bytes: raw.estimated_heap_bytes(),
                 fallback_bytes: fallback.estimated_heap_bytes(),
-                custom_text_bytes: custom.values().map(|index| index.estimated_heap_bytes()).sum(),
-                postings_bytes: postings.fields.values().map(|posting| {
-                    posting.values.values().map(|bitmap| bitmap.serialized_size() as usize).sum::<usize>()
-                        + posting.lengths.values().map(|bitmap| bitmap.serialized_size() as usize).sum::<usize>()
-                        + posting.structural.as_ref().map_or(0, crate::posting::StructuralFacts::estimated_bytes)
-                        + if posting.empty_selections.is_empty() { 0 } else { posting.empty_selections.serialized_size() }
-                }).sum(),
-                sorting_bytes: sorting.columns.values().map(|column| column.keys.iter().map(|key| match key {
-                    crate::sorting::SortKey::String(value) => value.len(),
-                    _ => 24,
-                }).sum::<usize>()).sum(),
+                custom_text_bytes: custom
+                    .values()
+                    .map(|index| index.estimated_heap_bytes())
+                    .sum(),
+                postings_bytes: postings
+                    .fields
+                    .values()
+                    .map(|posting| {
+                        posting
+                            .values
+                            .values()
+                            .map(|bitmap| bitmap.serialized_size() as usize)
+                            .sum::<usize>()
+                            + posting
+                                .lengths
+                                .values()
+                                .map(|bitmap| bitmap.serialized_size() as usize)
+                                .sum::<usize>()
+                            + posting
+                                .structural
+                                .as_ref()
+                                .map_or(0, crate::posting::StructuralFacts::estimated_bytes)
+                            + if posting.empty_selections.is_empty() {
+                                0
+                            } else {
+                                posting.empty_selections.serialized_size()
+                            }
+                    })
+                    .sum(),
+                sorting_bytes: sorting
+                    .columns
+                    .values()
+                    .map(|column| {
+                        column
+                            .keys
+                            .iter()
+                            .map(|key| match key {
+                                crate::sorting::SortKey::String(value) => value.len(),
+                                _ => 24,
+                            })
+                            .sum::<usize>()
+                    })
+                    .sum(),
             }
         }
-        self.repository().collections().iter().enumerate().map(|(number, collection)| {
-            let mut parts = vec![(0, estimate(&collection.raw, &collection.fallback_text, &collection.custom_text, &collection.postings, &collection.sorting))];
-            parts.extend(self.0.segments[number].iter().map(|segment| {
-                (segment.ordinal, estimate(&segment.index.raw, &segment.index.fallback_text, &segment.index.custom_text, &segment.index.postings, &segment.index.sorting))
-            }));
-            (collection.definition.name.clone(), parts)
-        }).collect()
+        self.repository()
+            .collections()
+            .iter()
+            .enumerate()
+            .map(|(number, collection)| {
+                let mut parts = vec![(
+                    0,
+                    estimate(
+                        &collection.raw,
+                        &collection.fallback_text,
+                        &collection.custom_text,
+                        &collection.postings,
+                        &collection.sorting,
+                    ),
+                )];
+                parts.extend(self.0.segments[number].iter().map(|segment| {
+                    (
+                        segment.ordinal,
+                        estimate(
+                            &segment.index.raw,
+                            &segment.index.fallback_text,
+                            &segment.index.custom_text,
+                            &segment.index.postings,
+                            &segment.index.sorting,
+                        ),
+                    )
+                }));
+                (collection.definition.name.clone(), parts)
+            })
+            .collect()
     }
 
     pub fn estimated_inventory_bytes(&self) -> usize {
@@ -2614,7 +2752,10 @@ impl IndexView {
         if self.initial_construction_complete() {
             Ok(())
         } else {
-            Err("initial index construction is incomplete; use the explicit available-record APIs".into())
+            Err(
+                "initial index construction is incomplete; use the explicit available-record APIs"
+                    .into(),
+            )
         }
     }
 
@@ -2631,8 +2772,12 @@ impl IndexView {
         }
         let (prepared, _) = crate::prepared::prepare(self.repository(), query)?;
         if prepared.collections.iter().any(|(_, filter, fts)| {
-            filter.as_ref().is_some_and(crate::run::bound_expr_has_relations)
-                || fts.as_ref().is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
+            filter
+                .as_ref()
+                .is_some_and(crate::run::bound_expr_has_relations)
+                || fts
+                    .as_ref()
+                    .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
         }) {
             return Err("relation queries wait for initial index construction".into());
         }
@@ -2651,7 +2796,12 @@ impl IndexView {
         let Some(local) = hit.diagnostic_ref.stored_index() else {
             return;
         };
-        let Some(collection) = self.repository().collections().iter().position(|collection| collection.definition.name == hit.collection) else {
+        let Some(collection) = self
+            .repository()
+            .collections()
+            .iter()
+            .position(|collection| collection.definition.name == hit.collection)
+        else {
             return;
         };
         let id = crate::model::RecordId(std::sync::Arc::from(hit.record_id.as_str()));
@@ -2660,18 +2810,34 @@ impl IndexView {
             let Some(slot) = segment.index.id_lookup.get(&id) else {
                 continue;
             };
-            if !segment.active.contains(*slot) || segment.index.record(*slot).is_none_or(|record| record.file != file) {
+            if !segment.active.contains(*slot)
+                || segment
+                    .index
+                    .record(*slot)
+                    .is_none_or(|record| record.file != file)
+            {
                 continue;
             }
-            let Some(diagnostic) = segment.index.file(file).and_then(|source| source.entry.diagnostics.get(local)) else {
+            let Some(diagnostic) = segment
+                .index
+                .file(file)
+                .and_then(|source| source.entry.diagnostics.get(local))
+            else {
                 return;
             };
-            let Some(position) = self.0.catalog.entry(file).and_then(|entry| entry.diagnostics.iter().position(|candidate| candidate == diagnostic)) else {
+            let Some(position) = self.0.catalog.entry(file).and_then(|entry| {
+                entry
+                    .diagnostics
+                    .iter()
+                    .position(|candidate| candidate == diagnostic)
+            }) else {
                 return;
             };
             let reference = crate::inventory::DiagnosticRef((position + 1) as u32);
             hit.diagnostic_ref = reference;
-            if let Some(crate::repository::Payload::LogicalUnavailable { diagnostic_ref }) = &mut hit.payload {
+            if let Some(crate::repository::Payload::LogicalUnavailable { diagnostic_ref }) =
+                &mut hit.payload
+            {
                 *diagnostic_ref = reference;
             }
             return;
@@ -2962,9 +3128,9 @@ impl IndexView {
         query: &Query,
         context: &ExecutionContext,
     ) -> Result<AvailableSearchResult, ExecutionError> {
-        self.ensure_local_partial_query(query).map_err(|message| context.error(
-            crate::streaming::ExecutionErrorKind::InvalidQuery, message,
-        ))?;
+        self.ensure_local_partial_query(query).map_err(|message| {
+            context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
+        })?;
         let mut result = self.search_published_with_context(query, context)?;
         let complete = self.initial_construction_complete();
         if !complete {
@@ -3085,18 +3251,29 @@ impl IndexView {
             || query.options.offset != 0
             || query.options.count
             || self.0.segments.len() != previous.0.segments.len()
-            || self.0.active.iter().zip(&previous.0.active).any(|(new, old)| new.bitmap() != old.bitmap())
+            || self
+                .0
+                .active
+                .iter()
+                .zip(&previous.0.active)
+                .any(|(new, old)| new.bitmap() != old.bitmap())
         {
             return Ok(None);
         }
-        let resolved = query.with_clock(context.clock.now).map_err(|message| context.error(
-            crate::streaming::ExecutionErrorKind::InvalidQuery, message,
-        ))?;
-        self.ensure_record_local_query(&resolved).map_err(|message| context.error(
-            crate::streaming::ExecutionErrorKind::InvalidQuery, message,
-        ))?;
+        let resolved = query.with_clock(context.clock.now).map_err(|message| {
+            context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
+        })?;
+        self.ensure_record_local_query(&resolved)
+            .map_err(|message| {
+                context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
+            })?;
         for (current, old) in self.0.segments.iter().zip(&previous.0.segments) {
-            if old.len() > current.len() || old.iter().zip(current.iter()).any(|(left, right)| !Arc::ptr_eq(left, right)) {
+            if old.len() > current.len()
+                || old
+                    .iter()
+                    .zip(current.iter())
+                    .any(|(left, right)| !Arc::ptr_eq(left, right))
+            {
                 return Ok(None);
             }
         }
@@ -3117,17 +3294,34 @@ impl IndexView {
         let mut added_records = 0usize;
         for (current, old) in self.0.segments.iter().zip(&previous.0.segments) {
             let next = current[old.len()..].to_vec();
-            added_records = added_records.saturating_add(next.iter().map(|segment| segment.active.len() as usize).sum::<usize>());
+            added_records = added_records.saturating_add(
+                next.iter()
+                    .map(|segment| segment.active.len() as usize)
+                    .sum::<usize>(),
+            );
             added.push(Arc::new(next));
         }
         let mut request = resolved;
         request.options.limit = limit.map_or(added_records, |limit| added_records.min(limit.get()));
         request.options.count = false;
-        let empty_base = self.0.active.iter().map(|_| ActiveRecords::from_bitmap(0, RoaringBitmap::new())
-            .expect("empty active bitmap is valid")).collect::<Vec<_>>();
+        let empty_base = self
+            .0
+            .active
+            .iter()
+            .map(|_| {
+                ActiveRecords::from_bitmap(0, RoaringBitmap::new())
+                    .expect("empty active bitmap is valid")
+            })
+            .collect::<Vec<_>>();
         let mut result = crate::run::search_segmented_with_context_lifecycle(
-            self.repository(), &request, &empty_base, &added, &self.0.catalog,
-            self.revision(), context, None,
+            self.repository(),
+            &request,
+            &empty_base,
+            &added,
+            &self.0.catalog,
+            self.revision(),
+            context,
+            None,
         )?;
         result = self.stamp_result(result);
         result.count = None;
@@ -3243,7 +3437,8 @@ impl IndexView {
                 &self.0.segments,
                 &self.0.catalog,
                 self.revision(),
-            ).map(|result| self.stamp_result(result));
+            )
+            .map(|result| self.stamp_result(result));
         }
         self.repository()
             .search_reference_with_active(query, Some(&self.0.active))
@@ -3384,7 +3579,8 @@ impl IndexView {
                 &self.0.segments,
                 &self.0.catalog,
                 self.revision(),
-            ).map(|(result, trace)| (self.stamp_result(result), trace));
+            )
+            .map(|(result, trace)| (self.stamp_result(result), trace));
         }
         crate::run::search_analyze_with_active(
             self.repository(),
@@ -3475,25 +3671,64 @@ impl IndexView {
         });
         let mut remap_rows = |event: StreamEvent<'_>| -> Result<StreamControl, String> {
             match event {
-                StreamEvent::OrderedRows { sequence, start, rows, progress } => {
-                    if rows.iter().any(|hit| hit.diagnostic_ref.stored_index().is_some()) {
+                StreamEvent::OrderedRows {
+                    sequence,
+                    start,
+                    rows,
+                    progress,
+                } => {
+                    if rows
+                        .iter()
+                        .any(|hit| hit.diagnostic_ref.stored_index().is_some())
+                    {
                         let mut remapped = rows.to_vec();
-                        for hit in &mut remapped { self.remap_hit_diagnostic(hit); }
-                        sink(StreamEvent::OrderedRows { sequence, start, rows: &remapped, progress })
+                        for hit in &mut remapped {
+                            self.remap_hit_diagnostic(hit);
+                        }
+                        sink(StreamEvent::OrderedRows {
+                            sequence,
+                            start,
+                            rows: &remapped,
+                            progress,
+                        })
                     } else {
-                        sink(StreamEvent::OrderedRows { sequence, start, rows, progress })
+                        sink(StreamEvent::OrderedRows {
+                            sequence,
+                            start,
+                            rows,
+                            progress,
+                        })
                     }
                 }
-                StreamEvent::PageReplacement { sequence, rows, progress } => {
-                    if rows.iter().any(|hit| hit.diagnostic_ref.stored_index().is_some()) {
+                StreamEvent::PageReplacement {
+                    sequence,
+                    rows,
+                    progress,
+                } => {
+                    if rows
+                        .iter()
+                        .any(|hit| hit.diagnostic_ref.stored_index().is_some())
+                    {
                         let mut remapped = rows.to_vec();
-                        for hit in &mut remapped { self.remap_hit_diagnostic(hit); }
-                        sink(StreamEvent::PageReplacement { sequence, rows: &remapped, progress })
+                        for hit in &mut remapped {
+                            self.remap_hit_diagnostic(hit);
+                        }
+                        sink(StreamEvent::PageReplacement {
+                            sequence,
+                            rows: &remapped,
+                            progress,
+                        })
                     } else {
-                        sink(StreamEvent::PageReplacement { sequence, rows, progress })
+                        sink(StreamEvent::PageReplacement {
+                            sequence,
+                            rows,
+                            progress,
+                        })
                     }
                 }
-                StreamEvent::Progress { sequence, progress } => sink(StreamEvent::Progress { sequence, progress }),
+                StreamEvent::Progress { sequence, progress } => {
+                    sink(StreamEvent::Progress { sequence, progress })
+                }
             }
         };
         let result = crate::run::search_stream_segmented_with_context_lifecycle(

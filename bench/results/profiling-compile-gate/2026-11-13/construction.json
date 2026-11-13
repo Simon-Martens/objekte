@@ -1,0 +1,110 @@
+{
+  "baseline_commit": "40808d893e",
+  "candidate_base_commit": "9c6c9e1af3",
+  "same_base_tree": true,
+  "baseline_binary_sha256": "ad94396f17ba7ef82617fd786020ff48edd937f116253ec589fd79bba08cbc97",
+  "candidate_binary_sha256": "f240400bc23110ce9df49838fe6af01b782f3f2a858c2bb99d3ffd4eab48c843",
+  "command_args": [
+    "--incremental",
+    "--workers",
+    "8"
+  ],
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "runs": [
+    {
+      "mode": "baseline",
+      "warmup": true,
+      "build_ns": 945028119,
+      "catalogue_ns": 207832503,
+      "first_batch_ns": 272453000,
+      "files": 148486,
+      "records": 148486
+    },
+    {
+      "mode": "default",
+      "warmup": true,
+      "build_ns": 942716962,
+      "catalogue_ns": 221067160,
+      "first_batch_ns": 282680639,
+      "files": 148486,
+      "records": 148486
+    },
+    {
+      "mode": "baseline",
+      "warmup": false,
+      "build_ns": 939669479,
+      "catalogue_ns": 211206459,
+      "first_batch_ns": 288585756,
+      "files": 148486,
+      "records": 148486
+    },
+    {
+      "mode": "default",
+      "warmup": false,
+      "build_ns": 936010417,
+      "catalogue_ns": 209918619,
+      "first_batch_ns": 277906012,
+      "files": 148486,
+      "records": 148486
+    },
+    {
+      "mode": "default",
+      "warmup": false,
+      "build_ns": 947019244,
+      "catalogue_ns": 214696194,
+      "first_batch_ns": 275345443,
+      "files": 148486,
+      "records": 148486
+    },
+    {
+      "mode": "baseline",
+      "warmup": false,
+      "build_ns": 948066324,
+      "catalogue_ns": 207154872,
+      "first_batch_ns": 275975726,
+      "files": 148486,
+      "records": 148486
+    },
+    {
+      "mode": "baseline",
+      "warmup": false,
+      "build_ns": 941405694,
+      "catalogue_ns": 220498155,
+      "first_batch_ns": 286600112,
+      "files": 148486,
+      "records": 148486
+    },
+    {
+      "mode": "default",
+      "warmup": false,
+      "build_ns": 942344424,
+      "catalogue_ns": 222498031,
+      "first_batch_ns": 286629650,
+      "files": 148486,
+      "records": 148486
+    },
+    {
+      "mode": "default",
+      "warmup": false,
+      "build_ns": 923736471,
+      "catalogue_ns": 209169575,
+      "first_batch_ns": 274212139,
+      "files": 148486,
+      "records": 148486
+    },
+    {
+      "mode": "baseline",
+      "warmup": false,
+      "build_ns": 933367163,
+      "catalogue_ns": 208665618,
+      "first_batch_ns": 270651622,
+      "files": 148486,
+      "records": 148486
+    }
+  ],
+  "medians_ms": {
+    "baseline": 940.5375865000001,
+    "default": 939.1774204999999
+  },
+  "delta_percent": -0.14461580478263292
+}

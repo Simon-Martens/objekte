@@ -97,6 +97,7 @@ fn field_label(path: &str, modifiers: &[Modifier]) -> String {
     label
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Focus {
     Search,
@@ -104,12 +105,14 @@ pub(super) enum Focus {
     Results,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum View {
     Results,
     Files,
     Detail,
 }
+
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Overlay {
@@ -123,6 +126,7 @@ pub(super) enum Overlay {
     Export { all: bool },
     Help,
 }
+
 
 /// Commands exposed by the action picker and their keyboard shortcuts.
 #[derive(Clone, Copy, Debug)]
@@ -142,6 +146,7 @@ pub(super) enum Action {
     Theme,
     Help,
 }
+
 
 impl Action {
     pub(super) const ALL: [Self; 14] = [
@@ -181,22 +186,26 @@ impl Action {
     }
 }
 
+
 /// Search response tagged with the input generation and requested page.
 struct Update {
     generation: u64,
     offset: usize,
     elapsed: Duration,
+    first_result: Option<Duration>,
     result: Result<SearchResult, String>,
     complete: bool,
     delta: bool,
     view: Option<IndexView>,
 }
 
+
 struct FilterCompletion {
     context: CompletionContext,
     choices: Vec<String>,
     selected: usize,
 }
+
 
 /// Query inputs, page state, and terminal navigation for one repository.
 pub(super) struct App {
@@ -261,6 +270,7 @@ pub(super) struct App {
     pub(super) error: Option<String>,
     pub(super) searching: bool,
     pub(super) last_search_duration: Option<Duration>,
+    pub(super) last_first_result_duration: Option<Duration>,
     pub(super) last_projection_duration: Option<Duration>,
     pub(super) done: bool,
     generation: u64,
@@ -273,6 +283,7 @@ pub(super) struct App {
     sender: mpsc::Sender<Update>,
     receiver: mpsc::Receiver<Update>,
 }
+
 
 impl App {
     #[cfg(test)]
@@ -444,6 +455,7 @@ impl App {
             error: None,
             searching: false,
             last_search_duration: None,
+            last_first_result_duration: None,
             last_projection_duration: None,
             done: false,
             generation: 0,
@@ -485,6 +497,23 @@ impl App {
         let new_complete = snapshot.status.construction_complete;
         self.catalogue_count = snapshot.status.discovered_files;
         self.build_status = Some(snapshot.status);
+        if let Ok(timings) = self.repo.index().timings_ms() {
+            self.status = Some(format!(
+                "Indexing: metadata {} · search {} · full {}{}",
+                timings
+                    .metadata
+                    .map_or_else(|| "—".to_owned(), |ms| format!("{ms} ms")),
+                timings
+                    .search_available
+                    .map_or_else(|| "—".to_owned(), |ms| format!("{ms} ms")),
+                timings
+                    .full_available
+                    .map_or_else(|| "—".to_owned(), |ms| format!("{ms} ms")),
+                timings
+                    .inference_full_available
+                    .map_or_else(String::new, |ms| format!(" · inference {ms} ms")),
+            ));
+        }
         if let Some(view) = snapshot.view {
             let previous_revision = self.catalogue_view.revision();
             let changed_domain = view.revision() != previous_revision;
@@ -1112,6 +1141,7 @@ impl App {
         self.error = None;
         self.status = None;
         self.last_search_duration = None;
+        self.last_first_result_duration = None;
         self.last_projection_duration = None;
         self.last_search_view = None;
         self.refresh_requested = false;
@@ -1222,6 +1252,7 @@ impl App {
         self.relation_rows.clear();
         self.requested_offset = None;
         self.last_search_duration = None;
+        self.last_first_result_duration = None;
         self.last_projection_duration = None;
         self.last_search_view = None;
         self.refresh_requested = false;
@@ -1255,6 +1286,7 @@ impl App {
             self.searching = false;
             self.requested_offset = None;
             self.last_search_duration = Some(update.elapsed);
+            self.last_first_result_duration = update.first_result;
             match update.result {
                 Ok(result) => {
                     if let Some(view) = update.view {
@@ -1326,6 +1358,7 @@ impl App {
                         }
                     }
                     if self.single_collection {
+                        #[cfg(feature = "detailed-profiling")]
                         let projection_started = Instant::now();
                         self.display_rows = self
                             .hits
@@ -1340,7 +1373,10 @@ impl App {
                                 )
                             })
                             .collect();
-                        self.last_projection_duration = Some(projection_started.elapsed());
+                        #[cfg(feature = "detailed-profiling")]
+                        {
+                            self.last_projection_duration = Some(projection_started.elapsed());
+                        }
                         if let Some(hit) = self.selected_hit().cloned() {
                             self.record.load(&hit);
                         }
@@ -1446,6 +1482,7 @@ impl App {
         let single_collection = self.single_collection;
         std::thread::spawn(move || {
             let started = Instant::now();
+            let mut first_result = None;
             let (result, complete, delta, view) = if incomplete {
                 match published_view {
                     Some(view) => {
@@ -1492,6 +1529,9 @@ impl App {
                 options.mode = StreamMode::PageReplacements;
                 let outcome = repository.search_stream(&query, options, &token, &mut |event| {
                     if let StreamEvent::PageReplacement { rows, .. } = event {
+                        if first_result.is_none() && !rows.is_empty() {
+                            first_result = Some(started.elapsed());
+                        }
                         page = rows.to_vec();
                     }
                     Ok(objekte_search_core::streaming::StreamControl::Continue)
@@ -1507,12 +1547,44 @@ impl App {
                 };
                 (result, true, false, None)
             } else {
-                (repository.search(&query), true, false, None)
+                let mut hits = Vec::new();
+                let outcome = repository.search_stream(
+                    &query,
+                    StreamOptions {
+                        mode: StreamMode::OrderedRows,
+                        ..StreamOptions::default()
+                    },
+                    &token,
+                    &mut |event| {
+                        if let StreamEvent::OrderedRows { rows, .. } = event {
+                            if first_result.is_none() && !rows.is_empty() {
+                                first_result = Some(started.elapsed());
+                            }
+                            hits.extend_from_slice(rows);
+                        }
+                        Ok(objekte_search_core::streaming::StreamControl::Continue)
+                    },
+                );
+                let result = match outcome {
+                    Ok(StreamOutcome::Complete(summary)) => Ok(SearchResult {
+                        count: summary.count,
+                        hits,
+                        counters: summary.counters,
+                    }),
+                    Ok(StreamOutcome::Cancelled(_)) => Err("search cancelled".into()),
+                    Err(error) => Err(error.to_string()),
+                };
+                (result, true, false, None)
             };
+            if first_result.is_none() && result.as_ref().is_ok_and(|result| !result.hits.is_empty())
+            {
+                first_result = Some(started.elapsed());
+            }
             let _ = sender.send(Update {
                 generation,
                 offset,
                 elapsed: started.elapsed(),
+                first_result,
                 result,
                 complete,
                 delta,
@@ -1674,6 +1746,7 @@ impl App {
         }
     }
 }
+
 
 fn sort_label(sort: &SortField) -> String {
     let Some(expression) = &sort.expression else {

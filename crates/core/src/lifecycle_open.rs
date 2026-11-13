@@ -17,6 +17,7 @@ use crate::repository::{
 };
 use crate::source::SourceRegistry;
 
+
 /// Opt-in restore attribution. All intervals are local to the calling thread;
 /// background reconciliation is measured separately by its task report.
 #[derive(Clone, Debug, Default, Serialize)]
@@ -34,6 +35,7 @@ pub struct LoadProfileStats {
     pub reconciliation_schedule_ns: u64,
 }
 
+
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct SegmentLoadProfile {
     pub collection: String,
@@ -43,6 +45,7 @@ pub struct SegmentLoadProfile {
     pub decode_validation_ns: u64,
     pub decode: crate::lifecycle_segment_codec::SegmentDecodeProfile,
 }
+
 
 impl Index {
     /// Build from exactly the supplied definitions and source root. A relative
@@ -93,6 +96,10 @@ impl Index {
             catalog_slots,
             segments,
         } = direct;
+        let build_ns = repository.startup().build_ns;
+        let metadata_ns = repository.startup().build_discovery_ns;
+        let inference_enabled =
+            repository.options().inference.mode != crate::inference::InferenceMode::Disabled;
         let instance_id = crate::repository::next_repository_instance();
         let repository = Arc::new(repository);
         let mut published = PublishedIndex::from_repository(
@@ -108,7 +115,17 @@ impl Index {
                 published = published.with_segment(segment)?;
             }
         }
-        Ok(Self::from_published(published))
+        let index = Self::from_published(published);
+        let full_ms = build_ns / 1_000_000;
+        index.update_timings_ms(|timings| {
+            timings.metadata = Some(metadata_ns / 1_000_000);
+            timings.search_available = Some(full_ms);
+            timings.full_available = Some(full_ms);
+            if inference_enabled {
+                timings.inference_full_available = Some(full_ms);
+            }
+        })?;
+        Ok(index)
     }
 
     /// Restore a checked cache at an explicit path, then immediately start
@@ -125,6 +142,7 @@ impl Index {
 
     /// Restore through the normal checked path, returning non-persisted timing
     /// evidence for benchmark callers. Reconciliation is still scheduled.
+    #[cfg(feature = "detailed-profiling")]
     pub fn load_cache_profiled(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
@@ -133,7 +151,12 @@ impl Index {
     ) -> Result<(Self, LoadProfileStats), IndexError> {
         let mut profile = LoadProfileStats::default();
         let index = Self::load_cache_with_sources_inner(
-            root, definitions, options, SourceRegistry::builtin(), path, Some(&mut profile),
+            root,
+            definitions,
+            options,
+            SourceRegistry::builtin(),
+            path,
+            Some(&mut profile),
         )?;
         Ok((index, profile))
     }
@@ -183,12 +206,14 @@ impl Index {
         path: &Path,
         mut profile: Option<&mut LoadProfileStats>,
     ) -> Result<Self, IndexError> {
-        let total_started = profile.as_ref().map(|_| Instant::now());
+        let standard_started = Instant::now();
+        let total_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         let root = root
             .into()
             .canonicalize()
             .map_err(|error| IndexError::Io(error.to_string()))?;
         options.snapshot_mode = SnapshotMode::Disabled;
+        let inference_enabled = options.inference.mode != crate::inference::InferenceMode::Disabled;
         let (repository, state) = crate::storage::load_lifecycle_snapshot_checked_profiled(
             root,
             definitions,
@@ -205,14 +230,14 @@ impl Index {
             }
         })?;
         let repository = Arc::new(repository);
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let extra_files = state
             .decoded_extra_files()
             .map_err(IndexError::InvalidCache)?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.extra_metadata_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let slots = state
             .catalog
             .iter()
@@ -232,16 +257,17 @@ impl Index {
             .map_err(IndexError::InvalidCache)?;
         let catalog = FileCatalog::restored(Arc::clone(&repository), slots)
             .map_err(IndexError::InvalidCache)?;
+        let metadata_ms = standard_started.elapsed().as_millis() as u64;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.catalogue_rebuild_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let file_versions =
             FileVersions::from_versions(state.file_versions).map_err(IndexError::InvalidCache)?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.file_versions_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut active = Vec::with_capacity(state.base_active.len());
         for (number, bitmap) in state.base_active.into_iter().enumerate() {
             let collection = &repository.collections()[number];
@@ -275,13 +301,13 @@ impl Index {
         for (number, group) in state.segments.into_iter().enumerate() {
             let mut restored = Vec::with_capacity(group.len());
             for segment in group {
-                let phase = profile.as_ref().map(|_| Instant::now());
+                let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
                 let encoded_bytes = segment.index.len();
                 let ordinal = segment.ordinal;
                 let records = segment.record_count;
-                let mut decode_profile = profile.as_ref().map(|_| {
-                    crate::lifecycle_segment_codec::SegmentDecodeProfile::default()
-                });
+                let mut decode_profile = profile
+                    .as_ref()
+                    .map(|_| crate::lifecycle_segment_codec::SegmentDecodeProfile::default());
                 let index = crate::lifecycle_segment_codec::decode_cache_segment_profiled(
                     &segment,
                     &repository,
@@ -312,7 +338,7 @@ impl Index {
             }
             segments.push(Arc::new(restored));
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         for (number, collection) in repository.collections().iter().enumerate() {
             let mut ids = HashSet::new();
             for (id, slot) in &collection.id_lookup {
@@ -333,7 +359,7 @@ impl Index {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.cross_segment_uniqueness_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let revision = IndexRevision(state.revision);
         let instance_id = crate::repository::next_repository_instance();
         let mut published = PublishedIndex::from_repository(instance_id, revision, repository)?;
@@ -350,8 +376,17 @@ impl Index {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.publication_setup_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         index.start_reconcile()?;
+        let available_ms = standard_started.elapsed().as_millis() as u64;
+        index.update_timings_ms(|timings| {
+            timings.metadata = Some(metadata_ms);
+            timings.search_available = Some(available_ms);
+            timings.full_available = Some(available_ms);
+            if inference_enabled {
+                timings.inference_full_available = Some(available_ms);
+            }
+        })?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.reconciliation_schedule_ns = started.elapsed().as_nanos() as u64;
         }
@@ -361,6 +396,7 @@ impl Index {
         Ok(index)
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle_open.test.rs"]

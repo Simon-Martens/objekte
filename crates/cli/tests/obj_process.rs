@@ -856,6 +856,7 @@ fn bare_obj_errors_before_build_but_index_only_writes() {
     assert_eq!(events[1]["snapshot_action"], "built_and_written");
 }
 
+#[cfg(feature = "detailed-profiling")]
 #[test]
 fn diagnostic_snapshot_phases_are_emitted_only_for_an_explicit_save() {
     let root = tempfile::tempdir().unwrap();
@@ -962,10 +963,15 @@ fn diagnostic_flag_keeps_stdout_structured_and_reports_stderr_json() {
     let diagnostic: Value = serde_json::from_slice(&result.stderr).unwrap();
     assert_eq!(diagnostic["level"], "info");
     assert!(diagnostic["timestamp_ms"].as_f64().is_some());
-    for field in ["timestamp_ms", "elapsed_ms"] {
+    for field in ["timestamp_ms"] {
         let text = diagnostic[field].as_number().unwrap().to_string();
         assert_eq!(text.split_once('.').unwrap().1.len(), 3, "{text}");
     }
+
+    #[cfg(feature = "detailed-profiling")]
+    assert!(diagnostic["elapsed_ms"].as_f64().is_some());
+    #[cfg(not(feature = "detailed-profiling"))]
+    assert!(diagnostic.get("elapsed_ms").is_none());
 }
 
 #[test]
@@ -1001,27 +1007,37 @@ fn protocol_timings_and_file_timestamps_are_milliseconds_with_three_decimals() {
         "preparation_ms",
         "search_ms",
         "sink_ms",
-        "query_wall_ms",
-        "first_hit_ms",
+        "all_results_ms",
+        "first_result_ms",
     ] {
-        three_decimals(&query[field]);
+        if cfg!(feature = "detailed-profiling")
+            || matches!(field, "all_results_ms" | "first_result_ms")
+        {
+            three_decimals(&query[field]);
+        }
     }
-    for field in ["preparation_ms", "planning_ms"] {
-        three_decimals(&query["counters"][field]);
+    if cfg!(feature = "detailed-profiling") {
+        for field in ["preparation_ms", "planning_ms"] {
+            three_decimals(&query["counters"][field]);
+        }
     }
     let run = events.last().unwrap();
-    for field in [
-        "startup_ms",
-        "build_ms",
-        "discovery_ms",
-        "extraction_index_ms",
-        "finalization_ms",
-        "snapshot_decode_ms",
-        "reconciliation_ms",
-        "snapshot_write_ms",
-        "elapsed_ms",
-    ] {
-        three_decimals(&run[field]);
+    for field in ["metadata", "search_available", "full_available"] {
+        assert!(run["index_timings_ms"][field].as_u64().is_some());
+    }
+    if cfg!(feature = "detailed-profiling") {
+        for field in [
+            "startup_ms",
+            "discovery_ms",
+            "extraction_index_ms",
+            "finalization_ms",
+            "snapshot_decode_ms",
+            "reconciliation_ms",
+            "snapshot_write_ms",
+            "run_elapsed_ms",
+        ] {
+            three_decimals(&run[field]);
+        }
     }
 }
 
@@ -1217,13 +1233,15 @@ fn malformed_query_line_is_terminal_but_later_lines_execute() {
         .iter()
         .find(|event| event["type"] == "query_error")
         .unwrap();
-    for value in [
-        &error["query_wall_ms"],
-        &events.last().unwrap()["elapsed_ms"],
-    ] {
+    for value in [&error["all_results_ms"]] {
         let text = value.as_number().unwrap().to_string();
         assert_eq!(text.split_once('.').unwrap().1.len(), 3, "{text}");
     }
+    assert!(
+        events.last().unwrap()["index_timings_ms"]["full_available"]
+            .as_u64()
+            .is_some()
+    );
 }
 
 #[test]
@@ -1270,7 +1288,13 @@ fn explicit_snapshot_flags_require_a_cache_when_missing() {
         unchanged_events.last().unwrap()["snapshot_action"],
         "restored"
     );
-    assert_eq!(unchanged_events.last().unwrap()["snapshot_write_ms"], 0.0);
+    assert_eq!(
+        unchanged_events.last().unwrap()["snapshot_action"],
+        "restored"
+    );
+    if cfg!(feature = "detailed-profiling") {
+        assert_eq!(unchanged_events.last().unwrap()["snapshot_write_ms"], 0.0);
+    }
     assert_eq!(std::fs::read(&snapshot).unwrap(), saved);
     assert_eq!(
         std::fs::metadata(&snapshot).unwrap().modified().unwrap(),

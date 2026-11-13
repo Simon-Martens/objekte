@@ -3,6 +3,7 @@
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 
+
 /// Why a pinned source range could not be read during a live query.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -12,6 +13,7 @@ pub enum SourceUnavailableKind {
     UnusableRange,
     Unreadable,
 }
+
 
 /// A bounded example of source unavailability. `source_unavailable_events`
 /// counts every occurrence even after the diagnostic limit is reached.
@@ -103,8 +105,10 @@ pub struct WorkCounters {
     /// Target values reused by reverse mapping or source-dependent comparisons.
     #[serde(default)]
     pub relation_verified_targets_reused: u64,
+    #[cfg(feature = "detailed-profiling")]
     #[serde(default)]
     pub preparation_ns: u64,
+    #[cfg(feature = "detailed-profiling")]
     #[serde(default)]
     pub planning_ns: u64,
     pub prepared_plan_hit: bool,
@@ -133,7 +137,8 @@ impl WorkCounters {
         self.match_count_complete = false;
         if self.source_diagnostics.len() < 32 {
             if diagnostic.message.len() > 256 {
-                let end = (0..=256).rev()
+                let end = (0..=256)
+                    .rev()
                     .find(|end| diagnostic.message.is_char_boundary(*end))
                     .unwrap_or(0);
                 diagnostic.message.truncate(end);
@@ -187,6 +192,7 @@ impl WorkCounters {
     }
 }
 
+
 /// Query-local collector; it counts every unavailable read while retaining a
 /// fixed number of representative diagnostics.
 #[derive(Default)]
@@ -195,8 +201,11 @@ pub(crate) struct SourceAvailabilityLog {
     diagnostics: Vec<SourceDiagnostic>,
 }
 
+
 impl SourceAvailabilityLog {
-    pub(crate) fn events(&self) -> u64 { self.events }
+    pub(crate) fn events(&self) -> u64 {
+        self.events
+    }
 
     pub(crate) fn record(&mut self, diagnostic: SourceDiagnostic) {
         self.events = self.events.saturating_add(1);
@@ -210,16 +219,20 @@ impl SourceAvailabilityLog {
         for diagnostic in self.diagnostics {
             counters.record_source_unavailable(diagnostic);
         }
-        counters.source_unavailable_events = counters.source_unavailable_events.saturating_add(
-            self.events.saturating_sub(shown),
-        );
+        counters.source_unavailable_events = counters
+            .source_unavailable_events
+            .saturating_add(self.events.saturating_sub(shown));
     }
 }
+
 
 #[cfg(test)]
 #[test]
 fn source_diagnostics_remain_bounded_after_many_failures() {
-    let mut counters = WorkCounters { match_count_complete: true, ..Default::default() };
+    let mut counters = WorkCounters {
+        match_count_complete: true,
+        ..Default::default()
+    };
     for file_id in 0..40 {
         counters.record_source_unavailable(SourceDiagnostic {
             file_id,
@@ -231,5 +244,10 @@ fn source_diagnostics_remain_bounded_after_many_failures() {
     assert_eq!(counters.source_unavailable_events, 40);
     assert!(!counters.match_count_complete);
     assert_eq!(counters.source_diagnostics.len(), 32);
-    assert!(counters.source_diagnostics.iter().all(|entry| entry.message.len() <= 256));
+    assert!(
+        counters
+            .source_diagnostics
+            .iter()
+            .all(|entry| entry.message.len() <= 256)
+    );
 }

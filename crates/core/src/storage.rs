@@ -6,7 +6,6 @@ use std::fs::{self, File, OpenOptions};
 use std::io::{BufReader, BufWriter, Read, Seek, SeekFrom, Write};
 use std::path::{Path, PathBuf};
 use std::sync::{Arc, Mutex};
-use std::time::Instant;
 
 use bincode::Options;
 use serde::{Deserialize, Serialize};
@@ -41,6 +40,7 @@ const CONFIGURATION_SECTION_ID: u32 = u32::MAX;
 const MAX_SECTION_BYTES: u64 = 8 * 1024 * 1024 * 1024;
 const SECTION_HEADER_BYTES: usize = 44;
 
+
 /// Settings that affect index contents. Runtime cache sizes and worker counts
 /// remain caller choices when a snapshot is restored.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -48,6 +48,7 @@ pub struct SnapshotBuildConfiguration {
     pub bigram_alphabet: BigramAlphabet,
     pub inference: InferenceConfig,
 }
+
 
 impl SnapshotBuildConfiguration {
     pub(crate) fn from_options(options: RepositoryOptions) -> Self {
@@ -63,6 +64,7 @@ impl SnapshotBuildConfiguration {
         options
     }
 }
+
 
 /// Phase timings for one explicit, durable snapshot save. Opening does not
 /// modify these values or perform a save.
@@ -83,6 +85,7 @@ pub struct SnapshotSaveStats {
     pub byte_breakdown: Option<BTreeMap<String, u64>>,
 }
 
+
 #[derive(Clone, Debug)]
 pub struct SnapshotSectionSaveStats {
     pub id: u32,
@@ -91,6 +94,21 @@ pub struct SnapshotSectionSaveStats {
     pub write_ns: u64,
     pub payload_bytes: u64,
 }
+
+
+#[inline(always)]
+fn snapshot_byte_diagnostic_enabled() -> bool {
+    #[cfg(feature = "detailed-profiling")]
+    {
+        std::env::var_os("OBJEKTE_SNAPSHOT_BYTE_DIAGNOSTIC").is_some()
+    }
+
+    #[cfg(not(feature = "detailed-profiling"))]
+    {
+        false
+    }
+}
+
 
 /// Opt-in, non-persisted attribution for the storage portion of a restore.
 #[derive(Clone, Debug, Default, Serialize)]
@@ -104,6 +122,7 @@ pub struct SnapshotLoadProfile {
     pub repository_setup_ns: u64,
     pub sections: Vec<SnapshotSectionLoadProfile>,
 }
+
 
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct SnapshotSectionLoadProfile {
@@ -123,12 +142,14 @@ pub struct SnapshotSectionLoadProfile {
     pub total_ns: u64,
 }
 
+
 /// Restore failures distinguish unreadable storage from invalid snapshot data.
 #[derive(Debug)]
 pub(crate) enum SnapshotLoadError {
     Access(String),
     Invalid(String),
 }
+
 
 impl std::fmt::Display for SnapshotLoadError {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -138,17 +159,20 @@ impl std::fmt::Display for SnapshotLoadError {
     }
 }
 
+
 impl From<String> for SnapshotLoadError {
     fn from(message: String) -> Self {
         Self::Invalid(message)
     }
 }
 
+
 impl From<&str> for SnapshotLoadError {
     fn from(message: &str) -> Self {
         Self::Invalid(message.into())
     }
 }
+
 
 fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadError {
     if error.kind() == std::io::ErrorKind::UnexpectedEof {
@@ -157,6 +181,7 @@ fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadErro
         SnapshotLoadError::Access(format!("snapshot access while reading {context}: {error}"))
     }
 }
+
 
 /// Snapshot representation of one source-file revision.
 #[derive(Clone, Serialize, Deserialize)]
@@ -174,6 +199,7 @@ struct EncodedFile {
     fingerprint: Option<[u8; 32]>,
 }
 
+
 impl EncodedFile {
     fn from_entry(entry: &FileEntry) -> Self {
         Self {
@@ -190,11 +216,13 @@ impl EncodedFile {
     }
 }
 
+
 struct MetadataInterner<'a> {
     repository: &'a Repository,
     extras: Vec<(FileEntry, EncodedFile)>,
     by_id: HashMap<FileId, Vec<usize>>,
 }
+
 
 impl<'a> MetadataInterner<'a> {
     fn new(repository: &'a Repository) -> Self {
@@ -234,6 +262,7 @@ impl<'a> MetadataInterner<'a> {
     }
 }
 
+
 /// One active catalog entry. A `None` slot is retired; IDs are never reused.
 #[derive(Clone, Serialize, Deserialize)]
 pub(crate) struct LifecycleCatalogFile {
@@ -241,6 +270,7 @@ pub(crate) struct LifecycleCatalogFile {
     pub(crate) fingerprint: Option<[u8; 32]>,
     configuration_matches: bool,
 }
+
 
 impl LifecycleCatalogFile {
     pub(crate) fn decode_entry(
@@ -255,6 +285,7 @@ impl LifecycleCatalogFile {
         self.configuration_matches.then_some(identity)
     }
 }
+
 
 pub(crate) fn metadata_entry<'a>(
     reference: u32,
@@ -293,6 +324,7 @@ fn decode_file_entry(file: EncodedFile) -> Result<FileEntry, String> {
     })
 }
 
+
 /// Encoded indexed segment supplied by the segment owner. Storage checks
 /// envelope identity and active domain; the caller must validate the decoded
 /// index families and relation contributions before publication.
@@ -304,6 +336,7 @@ pub(crate) struct LifecycleSegmentCache {
     pub(crate) active: RoaringBitmap,
     pub(crate) index: Vec<u8>,
 }
+
 
 /// Mutation state appended after a fully validated base repository snapshot.
 /// The segment payload remains opaque until the caller's structural decoder
@@ -319,6 +352,7 @@ pub(crate) struct LifecycleCacheState {
     pub(crate) segments: Vec<Vec<LifecycleSegmentCache>>,
     pub(crate) next_segment_ordinal: u64,
 }
+
 
 impl LifecycleCacheState {
     pub(crate) fn decoded_extra_files(&self) -> Result<Vec<FileEntry>, String> {
@@ -605,6 +639,7 @@ impl LifecycleCacheState {
     }
 }
 
+
 /// Encode one pinned lifecycle revision with the existing atomic temp-file
 /// protocol. `before_publish` is where the caller rechecks destination safety.
 pub(crate) fn save_lifecycle_snapshot_with_stats(
@@ -618,7 +653,7 @@ pub(crate) fn save_lifecycle_snapshot_with_stats(
 ) -> Result<SnapshotSaveStats, String> {
     let state = LifecycleCacheState::from_publication(publication, encode_segment)?;
     state.validate(&publication.repository, |_| Ok(()))?;
-    let detail = if std::env::var_os("OBJEKTE_SNAPSHOT_BYTE_DIAGNOSTIC").is_some() {
+    let detail = if snapshot_byte_diagnostic_enabled() {
         Some(state.byte_diagnostic()?)
     } else {
         None
@@ -647,6 +682,7 @@ pub(crate) fn save_lifecycle_snapshot_with_stats(
     Ok(stats)
 }
 
+
 /// Owned snapshot representation of a collection generation.
 #[derive(Serialize, Deserialize)]
 struct EncodedCollection {
@@ -666,6 +702,7 @@ struct EncodedCollection {
     relations: Vec<RelationIndex>,
 }
 
+
 /// Borrowed collection state prepared for snapshot encoding.
 #[derive(Serialize)]
 struct EncodedCollectionRef<'a> {
@@ -684,6 +721,7 @@ struct EncodedCollectionRef<'a> {
     stats: CollectionStats,
     relations: &'a Vec<RelationIndex>,
 }
+
 
 fn codec() -> impl Options {
     bincode::DefaultOptions::new()
@@ -1017,6 +1055,7 @@ fn write_section(file: &mut impl Write, id: u32, value: &impl Serialize) -> Resu
     file.write_all(section.get_ref()).map_err(|e| e.to_string())
 }
 
+
 struct SectionWriter<'a, W: Write> {
     inner: &'a mut W,
     checksum: Sha256,
@@ -1024,6 +1063,7 @@ struct SectionWriter<'a, W: Write> {
     checksum_ns: u64,
     write_ns: u64,
 }
+
 
 impl<W: Write> Write for SectionWriter<'_, W> {
     fn write(&mut self, bytes: &[u8]) -> std::io::Result<usize> {
@@ -1034,12 +1074,12 @@ impl<W: Write> Write for SectionWriter<'_, W> {
         {
             return Err(std::io::Error::other("snapshot section too large"));
         }
-        let started = Instant::now();
+        let started = crate::detailed_timer::DetailedInstant::now();
         let written = self.inner.write(bytes)?;
         self.write_ns = self
             .write_ns
             .saturating_add(started.elapsed().as_nanos() as u64);
-        let started = Instant::now();
+        let started = crate::detailed_timer::DetailedInstant::now();
         self.checksum.update(&bytes[..written]);
         self.checksum_ns = self
             .checksum_ns
@@ -1049,7 +1089,7 @@ impl<W: Write> Write for SectionWriter<'_, W> {
     }
 
     fn flush(&mut self) -> std::io::Result<()> {
-        let started = Instant::now();
+        let started = crate::detailed_timer::DetailedInstant::now();
         self.inner.flush()?;
         self.write_ns = self
             .write_ns
@@ -1058,12 +1098,13 @@ impl<W: Write> Write for SectionWriter<'_, W> {
     }
 }
 
+
 fn write_section_measured(
     file: &mut (impl Write + Seek),
     id: u32,
     value: &impl Serialize,
 ) -> Result<SnapshotSectionSaveStats, String> {
-    let started = Instant::now();
+    let started = crate::detailed_timer::DetailedInstant::now();
     let header_at = file.stream_position().map_err(|e| e.to_string())?;
     file.write_all(&[0; SECTION_HEADER_BYTES])
         .map_err(|e| e.to_string())?;
@@ -1090,7 +1131,7 @@ fn write_section_measured(
     let checksum = writer.checksum.finalize();
     let file = writer.inner;
     let end_at = file.stream_position().map_err(|e| e.to_string())?;
-    let started = Instant::now();
+    let started = crate::detailed_timer::DetailedInstant::now();
     file.seek(SeekFrom::Start(header_at))
         .map_err(|e| e.to_string())?;
     file.write_all(&id.to_le_bytes())
@@ -1117,6 +1158,7 @@ fn read_section<T: for<'de> Deserialize<'de>>(
     read_section_profiled(file, expected_id, None)
 }
 
+
 struct CountedRead<'a, R> {
     inner: R,
     bytes: &'a mut u64,
@@ -1124,24 +1166,28 @@ struct CountedRead<'a, R> {
     elapsed_ns: &'a mut u64,
 }
 
+
 impl<R: Read> Read for CountedRead<'_, R> {
     fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
-        let started = Instant::now();
+        let started = crate::detailed_timer::DetailedInstant::now();
         let count = self.inner.read(buf)?;
-        *self.elapsed_ns = self.elapsed_ns.saturating_add(started.elapsed().as_nanos() as u64);
+        *self.elapsed_ns = self
+            .elapsed_ns
+            .saturating_add(started.elapsed().as_nanos() as u64);
         *self.calls += 1;
         *self.bytes += count as u64;
         Ok(count)
     }
 }
 
+
 fn read_section_profiled<T: for<'de> Deserialize<'de>>(
     file: &mut (impl Read + Seek),
     expected_id: u32,
     mut profile: Option<&mut SnapshotSectionLoadProfile>,
 ) -> Result<T, SnapshotLoadError> {
-    let total_started = profile.as_ref().map(|_| Instant::now());
-    let header_started = profile.as_ref().map(|_| Instant::now());
+    let total_started = crate::detailed_timer::start_if_enabled(profile.is_some());
+    let header_started = crate::detailed_timer::start_if_enabled(profile.is_some());
     let mut id = [0; 4];
     let mut size = [0; 8];
     let mut checksum = [0; 32];
@@ -1171,19 +1217,21 @@ fn read_section_profiled<T: for<'de> Deserialize<'de>>(
     let mut buffer = [0; 64 * 1024];
     while remaining > 0 {
         let chunk = remaining.min(buffer.len() as u64) as usize;
-        let started = profile.as_ref().map(|_| Instant::now());
+        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
         file.read_exact(&mut buffer[..chunk])
             .map_err(|e| snapshot_read_error("snapshot section", e))?;
         if let (Some(started), Some(profile)) = (started, profile.as_mut()) {
-            profile.checksum_read_ns = profile.checksum_read_ns
+            profile.checksum_read_ns = profile
+                .checksum_read_ns
                 .saturating_add(started.elapsed().as_nanos() as u64);
             profile.checksum_bytes += chunk as u64;
             profile.checksum_read_calls += 1;
         }
-        let started = profile.as_ref().map(|_| Instant::now());
+        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
         hash.update(&buffer[..chunk]);
         if let (Some(started), Some(profile)) = (started, profile.as_mut()) {
-            profile.checksum_hash_ns = profile.checksum_hash_ns
+            profile.checksum_hash_ns = profile
+                .checksum_hash_ns
                 .saturating_add(started.elapsed().as_nanos() as u64);
         }
         remaining -= chunk as u64;
@@ -1191,28 +1239,44 @@ fn read_section_profiled<T: for<'de> Deserialize<'de>>(
     if hash.finalize().as_slice() != checksum {
         return Err("snapshot checksum mismatch".into());
     }
-    let started = profile.as_ref().map(|_| Instant::now());
+    let started = crate::detailed_timer::start_if_enabled(profile.is_some());
     file.seek(SeekFrom::Start(payload_at))
         .map_err(|e| snapshot_read_error("snapshot section position", e))?;
     if let (Some(started), Some(profile)) = (started, profile.as_mut()) {
         profile.seek_ns = started.elapsed().as_nanos() as u64;
     }
-    let started = profile.as_ref().map(|_| Instant::now());
+    let started = crate::detailed_timer::start_if_enabled(profile.is_some());
     let (decoded, buffered, remaining) = if let Some(profile) = profile.as_mut() {
-        let mut reader = BufReader::with_capacity(64 * 1024, CountedRead {
-            inner: file,
-            bytes: &mut profile.deserialize_bytes,
-            calls: &mut profile.deserialize_read_calls,
-            elapsed_ns: &mut profile.deserialize_read_ns,
-        }.take(len));
-        let decoded = codec().with_limit(len).deserialize_from(&mut reader)
+        let mut reader = BufReader::with_capacity(
+            64 * 1024,
+            CountedRead {
+                inner: file,
+                bytes: &mut profile.deserialize_bytes,
+                calls: &mut profile.deserialize_read_calls,
+                elapsed_ns: &mut profile.deserialize_read_ns,
+            }
+            .take(len),
+        );
+        let decoded = codec()
+            .with_limit(len)
+            .deserialize_from(&mut reader)
             .map_err(|e| SnapshotLoadError::Invalid(format!("invalid snapshot section: {e}")))?;
-        (decoded, !reader.buffer().is_empty(), reader.get_ref().limit())
+        (
+            decoded,
+            !reader.buffer().is_empty(),
+            reader.get_ref().limit(),
+        )
     } else {
         let mut reader = BufReader::with_capacity(64 * 1024, file.take(len));
-        let decoded = codec().with_limit(len).deserialize_from(&mut reader)
+        let decoded = codec()
+            .with_limit(len)
+            .deserialize_from(&mut reader)
             .map_err(|e| SnapshotLoadError::Invalid(format!("invalid snapshot section: {e}")))?;
-        (decoded, !reader.buffer().is_empty(), reader.get_ref().limit())
+        (
+            decoded,
+            !reader.buffer().is_empty(),
+            reader.get_ref().limit(),
+        )
     };
     if let (Some(started), Some(profile)) = (started, profile.as_mut()) {
         profile.deserialize_ns = started.elapsed().as_nanos() as u64;
@@ -1225,6 +1289,7 @@ fn read_section_profiled<T: for<'de> Deserialize<'de>>(
     }
     Ok(decoded)
 }
+
 
 impl Repository {
     pub fn save_snapshot(&self, path: &Path) -> Result<(), String> {
@@ -1250,14 +1315,14 @@ impl Repository {
         lifecycle: Option<&LifecycleCacheState>,
         before_publish: impl FnOnce() -> Result<(), String>,
     ) -> Result<SnapshotSaveStats, String> {
-        let total_started = Instant::now();
+        let total_started = crate::detailed_timer::DetailedInstant::now();
         let mut stats = SnapshotSaveStats::default();
-        if std::env::var_os("OBJEKTE_SNAPSHOT_BYTE_DIAGNOSTIC").is_some() {
+        if snapshot_byte_diagnostic_enabled() {
             stats.byte_breakdown = Some(BTreeMap::from([("snapshot_header".into(), 52)]));
         }
         self.ensure_snapshot_destination_is_not_source(path)?;
         let parent = path.parent().ok_or("snapshot needs a parent directory")?;
-        let started = Instant::now();
+        let started = crate::detailed_timer::DetailedInstant::now();
         fs::create_dir_all(parent).map_err(|e| e.to_string())?;
         stats.directory_ns = started.elapsed().as_nanos() as u64;
         let nonce = std::time::SystemTime::now()
@@ -1274,7 +1339,7 @@ impl Repository {
                 .write(true)
                 .open(&temporary)
                 .map_err(|e| e.to_string())?;
-            let started = Instant::now();
+            let started = crate::detailed_timer::DetailedInstant::now();
             let definitions = self
                 .collections
                 .iter()
@@ -1282,7 +1347,7 @@ impl Repository {
                 .collect::<Vec<_>>();
             let configuration = configuration_hash(&definitions, self.options, &self.sources)?;
             stats.header_ns = started.elapsed().as_nanos() as u64;
-            let started = Instant::now();
+            let started = crate::detailed_timer::DetailedInstant::now();
             file.write_all(MAGIC).map_err(|e| e.to_string())?;
             file.write_all(
                 &lifecycle
@@ -1303,11 +1368,12 @@ impl Repository {
             stats.bytes_written = stats
                 .bytes_written
                 .saturating_add(section.payload_bytes + SECTION_HEADER_BYTES as u64);
+            #[cfg(feature = "detailed-profiling")]
             stats.sections.push(section);
             if let Some(bytes) = stats.byte_breakdown.as_mut() {
                 bytes.insert("configuration_payload".into(), encoded_size(&settings)?);
             }
-            let started = Instant::now();
+            let started = crate::detailed_timer::DetailedInstant::now();
             let files: Vec<_> = self
                 .files
                 .files
@@ -1330,6 +1396,7 @@ impl Repository {
             stats.bytes_written = stats
                 .bytes_written
                 .saturating_add(section.payload_bytes + 44);
+            #[cfg(feature = "detailed-profiling")]
             stats.sections.push(section);
             if let Some(bytes) = stats.byte_breakdown.as_mut() {
                 let fingerprint_bytes = files
@@ -1362,6 +1429,7 @@ impl Repository {
                 stats.bytes_written = stats
                     .bytes_written
                     .saturating_add(section.payload_bytes + 44);
+                #[cfg(feature = "detailed-profiling")]
                 stats.sections.push(section);
                 if let Some(bytes) = stats.byte_breakdown.as_mut() {
                     let generation = encoded_size(&encoded.generation)?;
@@ -1410,6 +1478,7 @@ impl Repository {
                 stats.bytes_written = stats
                     .bytes_written
                     .saturating_add(section.payload_bytes + 44);
+                #[cfg(feature = "detailed-profiling")]
                 stats.sections.push(section);
                 if let Some(bytes) = stats.byte_breakdown.as_mut() {
                     bytes.insert("lifecycle_payload".into(), encoded_size(lifecycle)?);
@@ -1424,17 +1493,17 @@ impl Repository {
                     return Err("snapshot byte diagnostic does not reconcile".into());
                 }
             }
-            let started = Instant::now();
+            let started = crate::detailed_timer::DetailedInstant::now();
             file.sync_all().map_err(|e| e.to_string())?;
             stats.sync_ns = started.elapsed().as_nanos() as u64;
             before_publish()?;
             self.ensure_snapshot_destination_is_not_source(path)?;
-            let started = Instant::now();
+            let started = crate::detailed_timer::DetailedInstant::now();
             fs::rename(&temporary, path).map_err(|e| e.to_string())?;
             stats.rename_ns = started.elapsed().as_nanos() as u64;
             #[cfg(target_os = "linux")]
             {
-                let started = Instant::now();
+                let started = crate::detailed_timer::DetailedInstant::now();
                 File::open(parent)
                     .and_then(|directory| directory.sync_all())
                     .map_err(|e| format!("snapshot directory sync: {e}"))?;
@@ -1531,6 +1600,7 @@ impl Repository {
     }
 }
 
+
 #[cfg(test)]
 impl Repository {
     pub(crate) fn save_default_snapshot_for_test(&self) {
@@ -1541,6 +1611,7 @@ impl Repository {
         .unwrap();
     }
 }
+
 
 pub fn load_snapshot(
     root: PathBuf,
@@ -1577,7 +1648,13 @@ pub(crate) fn load_lifecycle_snapshot_checked(
     mut validate_segment: impl FnMut(&LifecycleSegmentCache) -> Result<(), String>,
 ) -> Result<(Repository, LifecycleCacheState), SnapshotLoadError> {
     load_lifecycle_snapshot_checked_profiled(
-        root, definitions, options, sources, path, &mut validate_segment, None,
+        root,
+        definitions,
+        options,
+        sources,
+        path,
+        &mut validate_segment,
+        None,
     )
 }
 
@@ -1591,14 +1668,22 @@ pub(crate) fn load_lifecycle_snapshot_checked_profiled(
     mut profile: Option<&mut SnapshotLoadProfile>,
 ) -> Result<(Repository, LifecycleCacheState), SnapshotLoadError> {
     let (repository, state) = load_snapshot_parts(
-        root, definitions, options, sources, path, true, profile.as_deref_mut(),
+        root,
+        definitions,
+        options,
+        sources,
+        path,
+        true,
+        profile.as_deref_mut(),
     )?;
     let state = state.ok_or("lifecycle snapshot section missing")?;
-    let started = profile.as_ref().map(|_| Instant::now());
+    let started = crate::detailed_timer::start_if_enabled(profile.is_some());
     state.validate(&repository, |segment| validate_segment(segment))?;
     if let (Some(started), Some(profile)) = (started, profile.as_mut()) {
         profile.lifecycle_validation_ns = started.elapsed().as_nanos() as u64;
-        profile.total_ns = profile.total_ns.saturating_add(profile.lifecycle_validation_ns);
+        profile.total_ns = profile
+            .total_ns
+            .saturating_add(profile.lifecycle_validation_ns);
     }
     Ok((repository, state))
 }
@@ -1608,7 +1693,9 @@ fn read_profiled_section<T: for<'de> Deserialize<'de>>(
     id: u32,
     profile: &mut Option<&mut SnapshotLoadProfile>,
 ) -> Result<T, SnapshotLoadError> {
-    let mut section = profile.as_ref().map(|_| SnapshotSectionLoadProfile::default());
+    let mut section = profile
+        .as_ref()
+        .map(|_| SnapshotSectionLoadProfile::default());
     let value = read_section_profiled(file, id, section.as_mut())?;
     if let (Some(profile), Some(section)) = (profile.as_mut(), section) {
         profile.sections.push(section);
@@ -1625,7 +1712,7 @@ fn load_snapshot_parts(
     lifecycle: bool,
     mut profile: Option<&mut SnapshotLoadProfile>,
 ) -> Result<(Repository, Option<LifecycleCacheState>), SnapshotLoadError> {
-    let total_started = profile.as_ref().map(|_| Instant::now());
+    let total_started = crate::detailed_timer::start_if_enabled(profile.is_some());
     crate::relation::validate_definitions(&definitions)?;
     let mut file = File::open(path).map_err(|e| {
         SnapshotLoadError::Access(format!("snapshot access: {}: {e}", path.display()))
@@ -1672,7 +1759,7 @@ fn load_snapshot_parts(
         return Err("snapshot build settings mismatch".into());
     }
     let encoded_files: Vec<EncodedFile> = read_profiled_section(&mut file, 0, &mut profile)?;
-    let phase = profile.as_ref().map(|_| Instant::now());
+    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
     let base_fingerprints = encoded_files
         .iter()
         .map(|file| file.fingerprint)
@@ -1714,7 +1801,7 @@ fn load_snapshot_parts(
         let source = sources.resolve(&definition.format)?;
         let encoded: EncodedCollection =
             read_profiled_section(&mut file, index as u32 + 1, &mut profile)?;
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let generation = encoded.generation;
         if generation.collection.0 as usize != index || generation.name != definition.name {
             return Err("snapshot collection identity mismatch".into());
@@ -2063,11 +2150,12 @@ fn load_snapshot_parts(
             relations: encoded.relations,
         });
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
-            profile.collection_validation_ns = profile.collection_validation_ns
+            profile.collection_validation_ns = profile
+                .collection_validation_ns
                 .saturating_add(started.elapsed().as_nanos() as u64);
         }
     }
-    let phase = profile.as_ref().map(|_| Instant::now());
+    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
     crate::relation::validate_indexes(&collections)?;
     for file in &files.files {
         for diagnostic in &file.diagnostics {
@@ -2088,7 +2176,11 @@ fn load_snapshot_parts(
         profile.relation_validation_ns = started.elapsed().as_nanos() as u64;
     }
     let state = if lifecycle {
-        Some(read_profiled_section(&mut file, collections.len() as u32 + 1, &mut profile)?)
+        Some(read_profiled_section(
+            &mut file,
+            collections.len() as u32 + 1,
+            &mut profile,
+        )?)
     } else {
         None
     };
@@ -2100,7 +2192,7 @@ fn load_snapshot_parts(
     {
         return Err("snapshot trailing bytes".into());
     }
-    let phase = profile.as_ref().map(|_| Instant::now());
+    let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
     let result = (
         Repository {
             files: Arc::new(files),

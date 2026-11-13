@@ -37,12 +37,14 @@ use super::projection::detail_view_with_query;
 use super::relations::{self, LinkAction};
 use super::{initial_columns, open_spec, page_view_with_prior, query_spec};
 
+
 /// One lightweight locator retained for every delivered result.
 #[derive(Clone, Eq, PartialEq)]
 struct RecordKey {
     collection: String,
     id: String,
 }
+
 
 #[derive(Clone)]
 struct TabContext {
@@ -51,6 +53,7 @@ struct TabContext {
     draft: SearchDraft,
 }
 
+
 #[derive(Clone)]
 struct TabFrame {
     key: RecordKey,
@@ -58,6 +61,7 @@ struct TabFrame {
     view: TabViewState,
     in_results: bool,
 }
+
 
 struct RecordTab {
     id: u64,
@@ -81,12 +85,14 @@ struct RecordTab {
     cached_detail: Option<DetailView>,
 }
 
+
 /// Source publications are comparable only within one live index instance.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 struct Publication {
     instance_id: u64,
     revision: IndexRevision,
 }
+
 
 impl From<&IndexStatus> for Publication {
     fn from(status: &IndexStatus) -> Self {
@@ -97,12 +103,14 @@ impl From<&IndexStatus> for Publication {
     }
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 enum CheckOrigin {
     Initial,
     Explicit,
     Periodic,
 }
+
 
 #[derive(Clone)]
 enum TabLoadKind {
@@ -123,6 +131,7 @@ enum TabLoadKind {
         frame: TabFrame,
     },
 }
+
 
 type QueryCompletion = Result<
     (
@@ -149,11 +158,13 @@ type OpenCompletion = Result<
 >;
 type TabCompletion = Result<Option<(SearchHit, DetailView, Vec<Option<LinkAction>>)>, String>;
 
+
 enum IndexSaveCompletion {
     Saved(backend::index_lifecycle::SaveOutcome),
     OverwriteRequired(PathBuf),
     Failed(String),
 }
+
 
 #[derive(Clone)]
 struct CompletionRequest {
@@ -164,8 +175,10 @@ struct CompletionRequest {
     prefix: String,
 }
 
+
 type CompletionCacheKey = (u64, Option<String>, String, String);
 type CompletionCacheValue = (Vec<(String, String)>, bool, u64);
+
 
 #[derive(Clone, Copy)]
 enum GridRequestKind {
@@ -174,6 +187,7 @@ enum GridRequestKind {
     Continuation(usize),
     Projection(usize),
 }
+
 
 fn spawn_grid_page(
     session: OpenedSession,
@@ -223,7 +237,11 @@ fn project_query_page(
     String,
 ) {
     let diagnostics = format!(
-        "Query: {:.1} ms; page start {}; rows {}; exact total {:?}\nCounters: {:#?}",
+        "Query: first result {}; all results {:.1} ms; page start {}; rows {}; exact total {:?}\nCounters: {:#?}",
+        page.first_result_ns.map_or_else(
+            || "—".to_owned(),
+            |ns| format!("{:.1} ms", ns as f64 / 1_000_000.0)
+        ),
         page.elapsed_ns as f64 / 1_000_000.0,
         page.page_start,
         page.hits.len(),
@@ -292,6 +310,7 @@ fn incremental_delta_page(
                 repository_root: session.repository.files().root.clone(),
                 instance_id: view.instance_id(),
                 revision: view.revision(),
+                first_result_ns: (!result.hits.is_empty()).then(|| started.elapsed().as_nanos()),
                 hits: result.hits,
                 page_start: loaded,
                 requested_offset: spec.offset.saturating_add(loaded),
@@ -354,6 +373,7 @@ fn spawn_incremental_delta(
         });
     });
 }
+
 
 /// Completion messages from off-thread filesystem and search operations.
 enum WorkerEvent {
@@ -491,6 +511,7 @@ enum WorkerEvent {
     },
 }
 
+
 /// UI-thread coordinator; expensive work is owned by short-lived workers.
 pub struct DesktopController {
     actions: Receiver<UiAction>,
@@ -574,6 +595,7 @@ pub struct DesktopController {
     completion_cache: HashMap<CompletionCacheKey, CompletionCacheValue>,
     completion_cache_order: VecDeque<CompletionCacheKey>,
 }
+
 
 impl DesktopController {
     /// Make the action sender consumed by `DesktopView` and its controller.
@@ -724,8 +746,10 @@ impl DesktopController {
         {
             match result {
                 Ok(Some(stats)) => {
-                    self.open_diagnostics
-                        .push_str(&format!("\nReconciled cache save: {stats:#?}"));
+                    self.open_diagnostics.push_str(&format!(
+                        "\nReconciled cache saved: {} bytes",
+                        stats.bytes_written
+                    ));
                     updates.push(UiUpdate::Diagnostics(self.open_diagnostics.clone()));
                 }
                 Ok(None) => {
@@ -969,6 +993,16 @@ impl DesktopController {
                             };
                         }
                         InitialBuildPhase::Complete => {
+                            if let Ok(timings) = index.timings_ms() {
+                                self.open_diagnostics.push_str(&format!(
+                                    "\nIndex complete: metadata {:?} ms; search {:?} ms; full {:?} ms; inference {:?} ms",
+                                    timings.metadata,
+                                    timings.search_available,
+                                    timings.full_available,
+                                    timings.inference_full_available,
+                                ));
+                                updates.push(UiUpdate::Diagnostics(self.open_diagnostics.clone()));
+                            }
                             self.index_ui.load = IndexTaskState::Succeeded(format!(
                                 "Indexed {} files and {} records",
                                 snapshot.status.processed_files, snapshot.status.processed_records,
@@ -2790,15 +2824,19 @@ impl DesktopController {
                         let root = session.paths.root.display().to_string();
                         let collections = session.collections.clone();
                         let single_collection = session.single_collection;
+                        let index_timings =
+                            session.repository.index().timings_ms().unwrap_or_default();
                         self.open_diagnostics = format!(
-                            "Open: {:.1} ms\nRoot: {}\nCollections: {}\nSchema fields: {}; files: {:?}\nSnapshot save: {:#?}\nStartup: {:#?}{}",
+                            "Open: {:.1} ms\nRoot: {}\nCollections: {}\nSchema fields: {}; files: {:?}\nIndex: metadata {:?} ms; search {:?} ms; full {:?} ms; inference {:?} ms{}",
                             session.diagnostics.open_ns as f64 / 1_000_000.0,
                             root,
                             collections.join(", "),
                             session.diagnostics.schema_fields,
                             session.diagnostics.schema_files,
-                            session.diagnostics.snapshot_save,
-                            session.diagnostics.startup,
+                            index_timings.metadata,
+                            index_timings.search_available,
+                            index_timings.full_available,
+                            index_timings.inference_full_available,
                             if session.diagnostics.startup.restored
                                 && session.args.write_index.is_some()
                             {
@@ -4644,6 +4682,7 @@ impl DesktopController {
         });
     }
 }
+
 
 fn open_with_preferences(spec: &OpenSpec, token: &CancellationToken) -> OpenCompletion {
     let (session, initial_task) =

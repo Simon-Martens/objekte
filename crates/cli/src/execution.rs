@@ -27,7 +27,9 @@ use crate::loader::{
     ConfiguredDefinitions, configure_definitions, open_repository, repository_options,
     snapshot_policy,
 };
-use crate::output::{EventWriter, counters_with_ms, milliseconds_value as ms};
+use crate::output::{
+    EventWriter, counters_with_ms, detailed_elapsed_ns, detailed_start, milliseconds_value as ms,
+};
 use crate::query_input::{QueryInput, QueryKind, QuerySource};
 
 #[cfg(feature = "tui")]
@@ -179,6 +181,7 @@ fn selected_cache_or_incremental(
     }
 }
 
+
 /// Exit classifications specified by the `obj` command protocol.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Exit {
@@ -189,6 +192,7 @@ pub enum Exit {
     PipeClosed = 254,
     OutputError = 255,
 }
+
 
 /// Metadata from the opening operation, reused by the desktop batch runner.
 pub struct ExistingRun<'a> {
@@ -203,12 +207,14 @@ pub struct ExistingRun<'a> {
     pub snapshot_save: Option<SnapshotSaveStats>,
 }
 
+
 /// A desktop query already parsed through the shared core query builder.
 pub struct PreparedQuery {
     pub input: String,
     pub query: Result<Query, String>,
     pub decoded_fts: Option<String>,
 }
+
 
 /// Execute a CLI batch against a repository already opened by another frontend.
 pub fn run_on_repository<W: Write>(
@@ -234,10 +240,10 @@ pub fn run_on_repository<W: Write>(
         Err(message) => {
             eprintln!("obj: {message}");
             if let Err(error) = output
-                .emit(
-                    json!({"type":"run_error", "stage":"query_input", "error":message,
-                    "elapsed_ms":ms(started.elapsed().as_nanos())}),
-                )
+                .emit(detailed_run_event(
+                    json!({"type":"run_error", "stage":"query_input", "error":message}),
+                    &started,
+                ))
                 .and_then(|_| output.flush())
             {
                 return output_failure(error);
@@ -404,10 +410,10 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         Err(message) => {
             eprintln!("obj: {message}");
             if let Err(error) = output
-                .emit(
-                    json!({"type":"run_error", "stage":"startup", "error":message,
-                "elapsed_ms":ms(started.elapsed().as_nanos())}),
-                )
+                .emit(detailed_run_event(
+                    json!({"type":"run_error", "stage":"startup", "error":message}),
+                    &started,
+                ))
                 .and_then(|_| output.flush())
             {
                 return output_failure(error);
@@ -420,10 +426,10 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         Err(message) => {
             eprintln!("obj: {message}");
             if let Err(error) = output
-                .emit(
-                    json!({"type":"run_error", "stage":"query_input", "error":message,
-                "elapsed_ms":ms(started.elapsed().as_nanos())}),
-                )
+                .emit(detailed_run_event(
+                    json!({"type":"run_error", "stage":"query_input", "error":message}),
+                    &started,
+                ))
                 .and_then(|_| output.flush())
             {
                 return output_failure(error);
@@ -590,6 +596,7 @@ fn run_start_event(
     })
 }
 
+
 #[derive(Clone, Copy)]
 struct RunTail<'a> {
     repo: &'a IndexedRepository,
@@ -599,6 +606,7 @@ struct RunTail<'a> {
     snapshot_save: Option<&'a SnapshotSaveStats>,
     initial_incremental: bool,
 }
+
 
 fn run_queries<W: Write>(
     run: RunTail<'_>,
@@ -622,9 +630,11 @@ fn run_queries<W: Write>(
             Err(message) => {
                 eprintln!("obj: {message}");
                 if let Err(error) = output
-                    .emit(json!({"type":"run_error", "stage":"query_input",
-                    "error":message, "query_successes":successes, "query_errors":failures,
-                    "elapsed_ms":ms(started.elapsed().as_nanos())}))
+                    .emit(detailed_run_event(
+                        json!({"type":"run_error", "stage":"query_input",
+                    "error":message, "query_successes":successes, "query_errors":failures}),
+                        started,
+                    ))
                     .and_then(|_| output.flush())
                 {
                     return output_failure(error);
@@ -656,10 +666,10 @@ fn run_queries<W: Write>(
         let message = "query file contains no queries";
         eprintln!("obj: {message}");
         if let Err(error) = output
-            .emit(
-                json!({"type":"run_error", "stage":"query_input", "error":message,
-            "elapsed_ms":ms(started.elapsed().as_nanos())}),
-            )
+            .emit(detailed_run_event(
+                json!({"type":"run_error", "stage":"query_input", "error":message}),
+                started,
+            ))
             .and_then(|_| output.flush())
         {
             return output_failure(error);
@@ -686,15 +696,16 @@ fn complete_run<W: Write>(
         "run_error"
     };
     let stats = repo.startup();
+    let index_timings_ms = repo.index().timings_ms().unwrap_or_default();
     let live = match repo.index().status() {
         Ok(status) => status,
         Err(error) => {
             let message = error.to_string();
             if let Err(error) = output
-                .emit(
-                    json!({"type":"run_error", "stage":"index_status", "error":message,
-                    "elapsed_ms":ms(started.elapsed().as_nanos())}),
-                )
+                .emit(detailed_run_event(
+                    json!({"type":"run_error", "stage":"index_status", "error":message}),
+                    &started,
+                ))
                 .and_then(|_| output.flush())
             {
                 return output_failure(error);
@@ -725,14 +736,7 @@ fn complete_run<W: Write>(
         "base_fallback_records": base_fallback,
         "build_parses": repo.build_parses(),
         "build_failed_parses": repo.build_failed_parses(),
-        "startup_ms": ms(startup_ns),
-        "build_ms": ms(stats.build_ns as u128),
-        "discovery_ms": ms(stats.build_discovery_ns as u128),
-        "extraction_index_ms": ms(stats.build_extraction_index_ns as u128),
-        "finalization_ms": ms(stats.build_finalization_ns as u128),
-        "snapshot_decode_ms": ms(stats.snapshot_decode_ns as u128),
-        "reconciliation_ms": ms(stats.reconciliation_ns as u128),
-        "snapshot_write_ms": ms(snapshot_save.as_ref().map_or(0, |save| save.total_ns) as u128),
+        "index_timings_ms": index_timings_ms,
         "snapshot_action": snapshot_action(stats.snapshot_action, snapshot_save.is_some(), stats.snapshot_restore_error.is_some()),
         "snapshot_restore_error": stats.snapshot_restore_error,
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
@@ -753,8 +757,22 @@ fn complete_run<W: Write>(
             "incompatible_fields": report.fields.iter().filter(|field| field.index_status == InferenceIndexStatus::Incompatible).count(),
             "retained_bytes_estimate": report.retained_bytes_estimate,
         })),
-        "elapsed_ms": ms(started.elapsed().as_nanos()),
     });
+    #[cfg(feature = "detailed-profiling")]
+    {
+        event["startup_ms"] = ms(startup_ns);
+        event["discovery_ms"] = ms(stats.build_discovery_ns as u128);
+        event["extraction_index_ms"] = ms(stats.build_extraction_index_ns as u128);
+        event["finalization_ms"] = ms(stats.build_finalization_ns as u128);
+        event["snapshot_decode_ms"] = ms(stats.snapshot_decode_ns as u128);
+        event["reconciliation_ms"] = ms(stats.reconciliation_ns as u128);
+        event["snapshot_write_ms"] =
+            ms(snapshot_save.as_ref().map_or(0, |save| save.total_ns) as u128);
+        event["run_elapsed_ms"] = ms(started.elapsed().as_nanos());
+    }
+
+    #[cfg(not(feature = "detailed-profiling"))]
+    let _ = (startup_ns, started);
     if let Some(paths) = automatic_index_paths {
         event["automatic_index_paths"] = json!(paths);
     }
@@ -778,6 +796,8 @@ fn complete_run<W: Write>(
             .collect::<std::collections::BTreeMap<_, _>>();
         event["automatic_index_collections"] = json!(collections);
     }
+
+    #[cfg(feature = "detailed-profiling")]
     if args.diagnostic
         && let Some(save) = &snapshot_save
     {
@@ -816,8 +836,11 @@ fn cancel_run<W: Write>(
     started: &Instant,
 ) -> Exit {
     match output
-        .emit(json!({"type":"run_cancelled", "query_successes":successes,
-            "query_errors":failures, "elapsed_ms":ms(started.elapsed().as_nanos())}))
+        .emit(detailed_run_event(
+            json!({"type":"run_cancelled", "query_successes":successes,
+            "query_errors":failures}),
+            started,
+        ))
         .and_then(|_| output.flush())
     {
         Ok(()) => Exit::Cancelled,
@@ -855,7 +878,7 @@ fn execute_query<W: Write>(
         return output_failure(error);
     }
     let started = Instant::now();
-    let preparation_started = Instant::now();
+    let preparation_started = detailed_start();
     let parsed = match prepared {
         Some(prepared) => prepared
             .query
@@ -871,7 +894,8 @@ fn execute_query<W: Write>(
                 .emit(json!({"type":"query_error", "query_id":query_id,
                 "line":input.line, "error":message, "stage":"input",
                 "emitted_rows":0, "observed_matches":0, "exact_total":null,
-                "total_exact":false, "query_wall_ms":ms(started.elapsed().as_nanos())}))
+                "total_exact":false, "first_result_ms":null,
+                "all_results_ms":ms(started.elapsed().as_nanos())}))
                 .and_then(|_| output.flush())
             {
                 return output_failure(error);
@@ -879,12 +903,12 @@ fn execute_query<W: Write>(
             return Exit::Operation;
         }
     };
-    let preparation_ns = preparation_started.elapsed().as_nanos();
+    let preparation_ns = detailed_elapsed_ns(preparation_started);
     let mut emitted = 0usize;
     let mut first_hit_ns = None;
     let mut sink_error_kind = None;
     let sink_before = output.sink_ns();
-    let search_started = Instant::now();
+    let search_started = detailed_start();
     let mut sink = |event: StreamEvent<'_>| -> Result<StreamControl, String> {
         match event {
             StreamEvent::OrderedRows { rows, .. } => {
@@ -920,7 +944,7 @@ fn execute_query<W: Write>(
         token,
         &mut sink,
     );
-    let search_elapsed_ns = search_started.elapsed().as_nanos();
+    let search_elapsed_ns = detailed_elapsed_ns(search_started);
     let sink_ns = output.sink_ns().saturating_sub(sink_before);
     let search_ns = search_elapsed_ns.saturating_sub(sink_ns);
     if sink_error_kind == Some(io::ErrorKind::BrokenPipe) {
@@ -942,33 +966,41 @@ fn execute_query<W: Write>(
                     summary.counters.source_unavailable_events
                 );
                 if let Err(error) = output
-                    .emit(json!({
-                        "type":"query_error", "query_id":query_id, "line":input.line,
-                        "error":message, "stage":"source", "partial":true,
-                        "emitted_rows":emitted,
-                        "observed_matches":summary.progress.observed_matches,
-                        "exact_total":null, "total_exact":false,
-                        "counters":counters_with_ms(&summary.counters),
-                        "preparation_ms":ms(preparation_ns), "search_ms":ms(search_ns),
-                        "sink_ms":ms(sink_ns),
-                        "query_wall_ms":ms(started.elapsed().as_nanos()),
-                    }))
+                    .emit(detailed_query_event(
+                        json!({
+                            "type":"query_error", "query_id":query_id, "line":input.line,
+                            "error":message, "stage":"source", "partial":true,
+                            "emitted_rows":emitted,
+                            "observed_matches":summary.progress.observed_matches,
+                            "exact_total":null, "total_exact":false,
+                            "counters":counters_with_ms(&summary.counters),
+                            "first_result_ms":first_hit_ns.map(ms),
+                            "all_results_ms":ms(started.elapsed().as_nanos()),
+                        }),
+                        preparation_ns,
+                        search_ns,
+                        sink_ns,
+                    ))
                     .and_then(|_| output.flush())
                 {
                     return output_failure(error);
                 }
                 return Exit::Operation;
             }
-            let event = json!({
-                "type":"query_complete", "query_id":query_id, "line":input.line,
-                "decoded_fts":decoded_fts, "complete":true,
-                "emitted_rows":emitted, "observed_matches":summary.progress.observed_matches,
-                "exact_total":summary.count.filter(|_| summary.counters.match_count_complete),
-                "total_exact":summary.count.is_some() && summary.counters.match_count_complete,
-                "counters":counters_with_ms(&summary.counters), "preparation_ms":ms(preparation_ns),
-                "search_ms":ms(search_ns), "sink_ms":ms(sink_ns),
-                "query_wall_ms":ms(started.elapsed().as_nanos()), "first_hit_ms":first_hit_ns.map(ms),
-            });
+            let event = detailed_query_event(
+                json!({
+                    "type":"query_complete", "query_id":query_id, "line":input.line,
+                    "decoded_fts":decoded_fts, "complete":true,
+                    "emitted_rows":emitted, "observed_matches":summary.progress.observed_matches,
+                    "exact_total":summary.count.filter(|_| summary.counters.match_count_complete),
+                    "total_exact":summary.count.is_some() && summary.counters.match_count_complete,
+                    "counters":counters_with_ms(&summary.counters),
+                    "all_results_ms":ms(started.elapsed().as_nanos()), "first_result_ms":first_hit_ns.map(ms),
+                }),
+                preparation_ns,
+                search_ns,
+                sink_ns,
+            );
             if let Err(error) = output.emit(event).and_then(|_| output.flush()) {
                 return output_failure(error);
             }
@@ -976,12 +1008,16 @@ fn execute_query<W: Write>(
         }
         Ok(StreamOutcome::Cancelled(progress)) => {
             if let Err(error) = output
-                .emit(json!({"type":"query_cancelled", "query_id":query_id,
+                .emit(detailed_query_event(
+                    json!({"type":"query_cancelled", "query_id":query_id,
                 "line":input.line, "emitted_rows":emitted,
                 "observed_matches":progress.observed_matches, "exact_total":null,
-                "total_exact":false, "preparation_ms":ms(preparation_ns),
-                "search_ms":ms(search_ns), "sink_ms":ms(sink_ns),
-                "query_wall_ms":ms(started.elapsed().as_nanos())}))
+                "total_exact":false, "first_result_ms":first_hit_ns.map(ms),
+                "all_results_ms":ms(started.elapsed().as_nanos())}),
+                    preparation_ns,
+                    search_ns,
+                    sink_ns,
+                ))
                 .and_then(|_| output.flush())
             {
                 return output_failure(error);
@@ -998,13 +1034,18 @@ fn execute_query<W: Write>(
                 }
             };
             if let Err(write_error) = output
-                .emit(json!({"type":"query_error", "query_id":query_id,
+                .emit(detailed_query_event(
+                    json!({"type":"query_error", "query_id":query_id,
                 "line":input.line, "error":error.to_string(), "stage":"execution",
                 "emitted_rows":emitted, "observed_matches":progress.observed_matches,
                 "processed_candidates":progress.processed_candidates,
                 "progress_final":false, "exact_total":null, "total_exact":false,
-                "preparation_ms":ms(preparation_ns), "search_ms":ms(search_ns), "sink_ms":ms(sink_ns),
-                "query_wall_ms":ms(started.elapsed().as_nanos())}))
+                "first_result_ms":first_hit_ns.map(ms),
+                "all_results_ms":ms(started.elapsed().as_nanos())}),
+                    preparation_ns,
+                    search_ns,
+                    sink_ns,
+                ))
                 .and_then(|_| output.flush())
             {
                 return output_failure(write_error);
@@ -1012,6 +1053,40 @@ fn execute_query<W: Write>(
             Exit::Operation
         }
     }
+}
+
+fn detailed_query_event(
+    #[allow(unused_mut)] mut event: Value,
+    preparation_ns: u128,
+    search_ns: u128,
+    sink_ns: u128,
+) -> Value {
+    #[cfg(feature = "detailed-profiling")]
+    {
+        let fields = event.as_object_mut().expect("query event is an object");
+        fields.insert("preparation_ms".into(), ms(preparation_ns));
+        fields.insert("search_ms".into(), ms(search_ns));
+        fields.insert("sink_ms".into(), ms(sink_ns));
+    }
+
+    #[cfg(not(feature = "detailed-profiling"))]
+    {
+        let _ = (preparation_ns, search_ns, sink_ns);
+    }
+    event
+}
+
+fn detailed_run_event(#[allow(unused_mut)] mut event: Value, started: &Instant) -> Value {
+    #[cfg(feature = "detailed-profiling")]
+    {
+        event["elapsed_ms"] = ms(started.elapsed().as_nanos());
+    }
+
+    #[cfg(not(feature = "detailed-profiling"))]
+    {
+        let _ = started;
+    }
+    event
 }
 
 fn index_operation(args: &Arguments) -> &'static str {

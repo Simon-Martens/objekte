@@ -10,6 +10,7 @@ use crate::lifecycle::{Index, IndexError, IndexView};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
 use crate::source::SourceRegistry;
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum InitialBuildPhase {
     Discovering,
@@ -18,6 +19,7 @@ pub enum InitialBuildPhase {
     Cancelled,
     Failed,
 }
+
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InitialBuildStatus {
@@ -33,6 +35,7 @@ pub struct InitialBuildStatus {
     pub first_batch_elapsed_ns: Option<u64>,
     pub completion_elapsed_ns: Option<u64>,
 }
+
 
 impl Default for InitialBuildStatus {
     fn default() -> Self {
@@ -52,6 +55,7 @@ impl Default for InitialBuildStatus {
     }
 }
 
+
 #[derive(Clone)]
 pub struct InitialBuildSnapshot {
     /// Monotonic event cursor. A waiter checks it before sleeping, so no
@@ -61,6 +65,7 @@ pub struct InitialBuildSnapshot {
     pub view: Option<IndexView>,
 }
 
+
 struct InitialState {
     cursor: u64,
     status: InitialBuildStatus,
@@ -69,6 +74,7 @@ struct InitialState {
     terminal_error: Option<IndexError>,
 }
 
+
 struct InitialOpening {
     started: Instant,
     cancelled: AtomicBool,
@@ -76,8 +82,10 @@ struct InitialOpening {
     changed: Condvar,
 }
 
+
 #[derive(Clone)]
 pub struct InitialBuildTask(Arc<InitialOpening>);
+
 
 impl InitialBuildTask {
     fn new() -> Self {
@@ -108,6 +116,7 @@ impl InitialBuildTask {
         let mut state = self.0.state.lock().map_err(|_| IndexError::LockPoisoned)?;
         state.status.catalogue_complete = true;
         let elapsed_ns = self.0.started.elapsed().as_nanos() as u64;
+        let elapsed_ms = elapsed_ns / 1_000_000;
         state.status.catalogue_elapsed_ns.get_or_insert(elapsed_ns);
         state.status.discovered_files = status.indexed_files;
         state.status.processed_files = status.processed_files;
@@ -132,6 +141,20 @@ impl InitialBuildTask {
         if complete {
             state.status.completion_elapsed_ns = Some(elapsed_ns);
         }
+        index.update_timings_ms(|timings| {
+            timings.metadata.get_or_insert(elapsed_ms);
+            if state.status.searchable_batches > 0 || complete {
+                timings.search_available.get_or_insert(elapsed_ms);
+            }
+            if complete {
+                timings.full_available.get_or_insert(elapsed_ms);
+                if view.repository().options().inference.mode
+                    != crate::inference::InferenceMode::Disabled
+                {
+                    timings.inference_full_available.get_or_insert(elapsed_ms);
+                }
+            }
+        })?;
         state.status.construction_complete = complete;
         state.status.phase = if complete {
             InitialBuildPhase::Complete
@@ -262,6 +285,7 @@ impl InitialBuildTask {
     }
 }
 
+
 impl Index {
     pub fn start_incremental_build(
         root: impl Into<PathBuf>,
@@ -313,6 +337,7 @@ impl Index {
         Ok(task)
     }
 }
+
 
 #[cfg(test)]
 #[path = "lifecycle_initial.test.rs"]

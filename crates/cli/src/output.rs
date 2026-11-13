@@ -34,21 +34,52 @@ fn signed_milliseconds_value(nanoseconds: i128) -> Value {
 
 /// Preserve work counters while presenting their timing members in milliseconds.
 pub fn counters_with_ms(counters: &WorkCounters) -> Value {
+    #[allow(unused_mut)]
     let mut value = json!(counters);
-    let fields = value
-        .as_object_mut()
-        .expect("work counters serialize as an object");
-    fields.remove("preparation_ns");
-    fields.remove("planning_ns");
-    fields.insert(
-        "preparation_ms".into(),
-        milliseconds_value(counters.preparation_ns as u128),
-    );
-    fields.insert(
-        "planning_ms".into(),
-        milliseconds_value(counters.planning_ns as u128),
-    );
+    #[cfg(feature = "detailed-profiling")]
+    {
+        let fields = value
+            .as_object_mut()
+            .expect("work counters serialize as an object");
+        fields.remove("preparation_ns");
+        fields.remove("planning_ns");
+        fields.insert(
+            "preparation_ms".into(),
+            milliseconds_value(counters.preparation_ns as u128),
+        );
+        fields.insert(
+            "planning_ms".into(),
+            milliseconds_value(counters.planning_ns as u128),
+        );
+    }
     value
+}
+
+#[inline(always)]
+pub(crate) fn detailed_start() -> Option<Instant> {
+    #[cfg(feature = "detailed-profiling")]
+    {
+        Some(Instant::now())
+    }
+
+    #[cfg(not(feature = "detailed-profiling"))]
+    {
+        None
+    }
+}
+
+#[inline(always)]
+pub(crate) fn detailed_elapsed_ns(started: Option<Instant>) -> u128 {
+    #[cfg(feature = "detailed-profiling")]
+    {
+        started.map_or(0, |started| started.elapsed().as_nanos())
+    }
+
+    #[cfg(not(feature = "detailed-profiling"))]
+    {
+        let _ = started;
+        0
+    }
 }
 
 
@@ -56,6 +87,7 @@ pub fn counters_with_ms(counters: &WorkCounters) -> Value {
 pub struct EventWriter<W: Write> {
     writer: W,
     sequence: u64,
+    #[cfg(feature = "detailed-profiling")]
     sink_ns: u128,
 }
 
@@ -65,6 +97,7 @@ impl<W: Write> EventWriter<W> {
         Self {
             writer,
             sequence: 0,
+            #[cfg(feature = "detailed-profiling")]
             sink_ns: 0,
         }
     }
@@ -74,11 +107,19 @@ impl<W: Write> EventWriter<W> {
     }
 
     pub fn sink_ns(&self) -> u128 {
-        self.sink_ns
+        #[cfg(feature = "detailed-profiling")]
+        {
+            self.sink_ns
+        }
+
+        #[cfg(not(feature = "detailed-profiling"))]
+        {
+            0
+        }
     }
 
     pub fn emit(&mut self, mut object: Value) -> io::Result<()> {
-        let started = Instant::now();
+        let started = detailed_start();
         let sequence = self
             .sequence
             .checked_add(1)
@@ -92,7 +133,15 @@ impl<W: Write> EventWriter<W> {
         self.writer.write_all(&encoded)?;
         self.writer.write_all(b"\n")?;
         self.sequence = sequence;
-        self.sink_ns += started.elapsed().as_nanos();
+        #[cfg(feature = "detailed-profiling")]
+        {
+            self.sink_ns += detailed_elapsed_ns(started);
+        }
+
+        #[cfg(not(feature = "detailed-profiling"))]
+        {
+            let _ = started;
+        }
         Ok(())
     }
 
@@ -104,7 +153,7 @@ impl<W: Write> EventWriter<W> {
         position: usize,
         offset: usize,
     ) -> io::Result<()> {
-        let started = Instant::now();
+        let started = detailed_start();
         let sequence = self
             .sequence
             .checked_add(1)
@@ -187,14 +236,30 @@ impl<W: Write> EventWriter<W> {
         }
         self.writer.write_all(b"}\n")?;
         self.sequence = sequence;
-        self.sink_ns += started.elapsed().as_nanos();
+        #[cfg(feature = "detailed-profiling")]
+        {
+            self.sink_ns += detailed_elapsed_ns(started);
+        }
+
+        #[cfg(not(feature = "detailed-profiling"))]
+        {
+            let _ = started;
+        }
         Ok(())
     }
 
     pub fn flush(&mut self) -> io::Result<()> {
-        let started = Instant::now();
+        let started = detailed_start();
         self.writer.flush()?;
-        self.sink_ns += started.elapsed().as_nanos();
+        #[cfg(feature = "detailed-profiling")]
+        {
+            self.sink_ns += detailed_elapsed_ns(started);
+        }
+
+        #[cfg(not(feature = "detailed-profiling"))]
+        {
+            let _ = started;
+        }
         Ok(())
     }
 }

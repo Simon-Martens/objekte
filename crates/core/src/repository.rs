@@ -11,7 +11,9 @@ use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, AtomicUsize, Ordering};
 use std::time::Instant;
 
-use crate::bigram::{BigramConstructionStats, BigramContribution, BigramIndex, storage_diagnostic_enabled};
+use crate::bigram::{
+    BigramConstructionStats, BigramContribution, BigramIndex, storage_diagnostic_enabled,
+};
 use crate::discovery::{Discovery, discover};
 use crate::inference::{
     InferenceBuildStats, InferenceBuilder, InferenceConfig, InferencePathDiagnostic,
@@ -234,6 +236,7 @@ impl PendingCollection {
     }
 }
 
+
 fn pending_bigram_storage_stats(pending: &[PendingCollection]) -> BigramConstructionStats {
     let mut stats = BigramConstructionStats::default();
     for collection in pending {
@@ -241,7 +244,6 @@ fn pending_bigram_storage_stats(pending: &[PendingCollection]) -> BigramConstruc
     }
     stats
 }
-
 
 #[path = "repository_direct.rs"]
 mod direct;
@@ -458,6 +460,7 @@ pub struct BuildProfileStats {
     pub work: crate::build::BuildWorkProfile,
 }
 
+
 #[derive(Clone, Debug, Default, Serialize)]
 pub struct IncrementalSegmentProfile {
     pub collection: String,
@@ -475,6 +478,7 @@ pub struct IncrementalSegmentProfile {
     pub inference_finish_ns: u64,
     pub identity_order_ns: u64,
 }
+
 
 /// Opt-in construction capacity samples. Capacity bytes are lower bounds:
 /// hash control bytes, allocator rounding, active workers and channel-held
@@ -519,19 +523,37 @@ pub struct BuildContributionStorageProfile {
     pub max_pending_peak_capacity_bytes: usize,
 }
 
+
 impl BuildContributionStorageProfile {
     fn observe(&mut self, global: BigramConstructionStats, batch: BigramConstructionStats) {
-        self.chunk_element_size = self.chunk_element_size.max(global.chunk_element_size).max(batch.chunk_element_size);
-        self.span_element_size = self.span_element_size.max(global.span_element_size).max(batch.span_element_size);
-        self.block_element_size = self.block_element_size.max(global.block_element_size).max(batch.block_element_size);
-        self.pending_element_size = self.pending_element_size.max(global.pending_element_size).max(batch.pending_element_size);
-        self.peak_global_capacity_bytes = self.peak_global_capacity_bytes
+        self.chunk_element_size = self
+            .chunk_element_size
+            .max(global.chunk_element_size)
+            .max(batch.chunk_element_size);
+        self.span_element_size = self
+            .span_element_size
+            .max(global.span_element_size)
+            .max(batch.span_element_size);
+        self.block_element_size = self
+            .block_element_size
+            .max(global.block_element_size)
+            .max(batch.block_element_size);
+        self.pending_element_size = self
+            .pending_element_size
+            .max(global.pending_element_size)
+            .max(batch.pending_element_size);
+        self.peak_global_capacity_bytes = self
+            .peak_global_capacity_bytes
             .max(global.retained_capacity_bytes);
-        self.peak_admitted_batch_capacity_bytes = self.peak_admitted_batch_capacity_bytes
+        self.peak_admitted_batch_capacity_bytes = self
+            .peak_admitted_batch_capacity_bytes
             .max(batch.retained_capacity_bytes);
-        self.peak_global_plus_admitted_batch_capacity_bytes = self
-            .peak_global_plus_admitted_batch_capacity_bytes
-            .max(global.retained_capacity_bytes.saturating_add(batch.retained_capacity_bytes));
+        self.peak_global_plus_admitted_batch_capacity_bytes =
+            self.peak_global_plus_admitted_batch_capacity_bytes.max(
+                global
+                    .retained_capacity_bytes
+                    .saturating_add(batch.retained_capacity_bytes),
+            );
         self.final_global_capacity_bytes = global.retained_capacity_bytes;
         self.final_global_live_payload_bytes = global.live_payload_bytes;
         self.final_diagnostic_counter_bytes = global.diagnostic_counter_bytes;
@@ -540,10 +562,13 @@ impl BuildContributionStorageProfile {
         self.final_global_spans = global.normal_span_len + global.skip_span_len;
         self.final_global_span_capacity = global.normal_span_capacity + global.skip_span_capacity;
         self.final_global_blocks = global.normal_block_len + global.skip_block_len;
-        self.final_global_block_capacity = global.normal_block_capacity + global.skip_block_capacity;
+        self.final_global_block_capacity =
+            global.normal_block_capacity + global.skip_block_capacity;
         self.final_global_chunk_capacity_bytes = global.chunk_capacity * global.chunk_element_size;
-        self.final_global_span_capacity_bytes = self.final_global_span_capacity * global.span_element_size;
-        self.final_global_block_capacity_bytes = self.final_global_block_capacity * global.block_element_size;
+        self.final_global_span_capacity_bytes =
+            self.final_global_span_capacity * global.span_element_size;
+        self.final_global_block_capacity_bytes =
+            self.final_global_block_capacity * global.block_element_size;
         self.final_copied_block_bytes = global.copied_block_bytes;
         self.final_admitted_chunks = global.admitted_chunks;
         self.final_gram_set_lookups = global.gram_set_lookups;
@@ -555,11 +580,14 @@ impl BuildContributionStorageProfile {
         self.final_pack_ns = global.pack_ns;
         self.final_validation_ns = global.validation_ns;
         self.final_admission_merge_ns = global.admission_merge_ns;
-        self.max_worker_scratch_peak_capacity_bytes = self.max_worker_scratch_peak_capacity_bytes
+        self.max_worker_scratch_peak_capacity_bytes = self
+            .max_worker_scratch_peak_capacity_bytes
             .max(batch.worker_scratch_peak_capacity_bytes);
-        self.max_worker_scratch_after_flush_capacity_bytes = self.max_worker_scratch_after_flush_capacity_bytes
+        self.max_worker_scratch_after_flush_capacity_bytes = self
+            .max_worker_scratch_after_flush_capacity_bytes
             .max(batch.worker_scratch_after_flush_capacity_bytes);
-        self.max_pending_peak_capacity_bytes = self.max_pending_peak_capacity_bytes
+        self.max_pending_peak_capacity_bytes = self
+            .max_pending_peak_capacity_bytes
             .max(batch.pending_peak_capacity_bytes);
     }
 }
@@ -682,7 +710,8 @@ pub struct RepositoryOptions {
     /// `None` uses the parallelism available to this process at build time.
     pub build_workers: Option<NonZeroUsize>,
     pub inference: InferenceConfig,
-    /// Collect sampled build work and detailed timeline diagnostics.
+    /// Request detailed instrumentation in a build compiled with the
+    /// `detailed-profiling` feature. Ignored by ordinary builds.
     pub profile_build: bool,
 }
 
@@ -699,6 +728,24 @@ impl Default for RepositoryOptions {
             build_workers: None,
             inference: InferenceConfig::default(),
             profile_build: false,
+        }
+    }
+}
+
+
+impl RepositoryOptions {
+    /// A compile-time false result removes detailed profiling from normal
+    /// builds, including callers that accidentally set `profile_build`.
+    #[inline(always)]
+    pub(crate) const fn detailed_profiling_enabled(&self) -> bool {
+        #[cfg(feature = "detailed-profiling")]
+        {
+            self.profile_build
+        }
+
+        #[cfg(not(feature = "detailed-profiling"))]
+        {
+            false
         }
     }
 }
@@ -1288,7 +1335,7 @@ impl Repository {
             SnapshotMode::Required | SnapshotMode::IfValid
         ) && snapshot_exists
         {
-            let decode_started = Instant::now();
+            let decode_started = crate::detailed_timer::DetailedInstant::now();
             let loaded = crate::storage::load_snapshot_checked(
                 root.clone(),
                 definitions.clone(),
@@ -1299,7 +1346,7 @@ impl Repository {
             decode_ns = decode_started.elapsed().as_nanos() as u64;
             match loaded {
                 Ok(mut repo) => {
-                    let reconciliation_started = Instant::now();
+                    let reconciliation_started = crate::detailed_timer::DetailedInstant::now();
                     let current = crate::storage::sources_match(&repo)?;
                     reconciliation_ns = reconciliation_started.elapsed().as_nanos() as u64;
                     if current {
@@ -1386,8 +1433,10 @@ impl Repository {
         sources: &SourceRegistry,
         discover_sources: bool,
     ) -> Result<Self, String> {
-        let mut profile = options.profile_build.then(BuildProfileStats::default);
-        let pool_started = profile.as_ref().map(|_| Instant::now());
+        let mut profile = options
+            .detailed_profiling_enabled()
+            .then(BuildProfileStats::default);
+        let pool_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         let build_workers = crate::build::resolve_build_workers(
             options.build_workers,
             std::thread::available_parallelism().ok(),
@@ -1421,7 +1470,7 @@ impl Repository {
             ) {
                 return Err(format!("duplicate collection: {}", definition.name));
             }
-            let enumeration_started = profile.as_ref().map(|_| Instant::now());
+            let enumeration_started = crate::detailed_timer::start_if_enabled(profile.is_some());
             let paths = if discover_sources {
                 discover(
                     &root,
@@ -1435,7 +1484,7 @@ impl Repository {
             if let (Some(started), Some(profile)) = (enumeration_started, profile.as_mut()) {
                 profile.discovery_enumeration_ns += started.elapsed().as_nanos() as u64;
             }
-            let catalogue_started = profile.as_ref().map(|_| Instant::now());
+            let catalogue_started = crate::detailed_timer::start_if_enabled(profile.is_some());
             let mut member_files = Vec::new();
             let mut paths = paths.into_iter();
             loop {
@@ -1443,7 +1492,7 @@ impl Repository {
                 if window.is_empty() {
                     break;
                 }
-                let prepare_started = profile.as_ref().map(|_| Instant::now());
+                let prepare_started = crate::detailed_timer::start_if_enabled(profile.is_some());
                 let prepared = if build_workers == 1 {
                     if profile.is_some() {
                         metadata_peak_active.fetch_max(1, Ordering::Relaxed);
@@ -1464,7 +1513,7 @@ impl Repository {
                 if let (Some(started), Some(profile)) = (prepare_started, profile.as_mut()) {
                     profile.discovery_metadata_prepare_ns += started.elapsed().as_nanos() as u64;
                 }
-                let insert_started = profile.as_ref().map(|_| Instant::now());
+                let insert_started = crate::detailed_timer::start_if_enabled(profile.is_some());
                 for entry in prepared {
                     let entry = entry?;
                     let file = files.add(entry.relative, entry.revision, entry.created_ns, id)?;
@@ -1493,8 +1542,8 @@ impl Repository {
         );
         let root_shared = Arc::new(root.clone());
         let mut pending = Vec::new();
-        let extraction_started = Instant::now();
-        let setup_started = profile.as_ref().map(|_| Instant::now());
+        let extraction_started = crate::detailed_timer::DetailedInstant::now();
+        let setup_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut build_parses = 0;
         let mut build_failed_parses = 0;
         let mut extraction_index_ns = 0u64;
@@ -1603,7 +1652,8 @@ impl Repository {
         }
         let mut normal = Vec::new();
         let mut admit = |collection_index: usize, batch: crate::build::BatchContribution| {
-            let callback_started = options.profile_build.then(Instant::now);
+            let callback_started =
+                crate::detailed_timer::start_if_enabled(options.detailed_profiling_enabled());
             if let Some(profile) = profile.as_mut() {
                 if storage_diagnostic_enabled() {
                     profile.contribution_storage.observe(
@@ -1624,7 +1674,8 @@ impl Repository {
             let callback_ns = callback_started
                 .as_ref()
                 .map_or(0, |started| started.elapsed().as_nanos() as u64);
-            let admission_started = options.profile_build.then(Instant::now);
+            let admission_started =
+                crate::detailed_timer::start_if_enabled(options.detailed_profiling_enabled());
             let mut breakdown = options
                 .profile_build
                 .then(crate::build::AdmissionBreakdown::default);
@@ -1661,7 +1712,8 @@ impl Repository {
             }
             result
         };
-        let source_work_started = options.profile_build.then(Instant::now);
+        let source_work_started =
+            crate::detailed_timer::start_if_enabled(options.detailed_profiling_enabled());
         let mut large_file_total_ns = 0u64;
         let mut large_files = 0u64;
         for job in scheduled {
@@ -1682,13 +1734,15 @@ impl Repository {
                             Arc::clone(&source_files),
                             options.bigram_alphabet,
                             options.inference,
-                            options.profile_build,
+                            options.detailed_profiling_enabled(),
                             &mut admit,
                         )?;
                         schedule_stats.absorb(stats);
                         normal.clear();
                     }
-                    let large_started = options.profile_build.then(Instant::now);
+                    let large_started = crate::detailed_timer::start_if_enabled(
+                        options.detailed_profiling_enabled(),
+                    );
                     let stats = crate::build::process_framed_file_profiled(
                         &build_pool,
                         Arc::clone(&root_shared),
@@ -1699,7 +1753,7 @@ impl Repository {
                         Arc::clone(&source_files),
                         options.bigram_alphabet,
                         options.inference,
-                        options.profile_build,
+                        options.detailed_profiling_enabled(),
                         |batch| admit(collection_index, batch),
                     )?;
                     if let Some(started) = large_started {
@@ -1725,7 +1779,7 @@ impl Repository {
                 Arc::clone(&source_files),
                 options.bigram_alphabet,
                 options.inference,
-                options.profile_build,
+                options.detailed_profiling_enabled(),
                 &mut admit,
             )?;
             schedule_stats.absorb(stats);
@@ -1739,7 +1793,7 @@ impl Repository {
             profile.contribution_storage.peak_ready_capacity_bytes =
                 schedule_stats.peak_ready_bigram_capacity_bytes;
         }
-        let fingerprints_started = profile.as_ref().map(|_| Instant::now());
+        let fingerprints_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         for (file_id, collection, digest) in large_digests {
             digest_bindings
                 .get_mut(file_id.0 as usize)
@@ -1774,13 +1828,13 @@ impl Repository {
                 custom_text,
                 relations,
             } = state;
-            let finalization_started = Instant::now();
-            let stage_started = profile.as_ref().map(|_| Instant::now());
+            let finalization_started = crate::detailed_timer::DetailedInstant::now();
+            let stage_started = crate::detailed_timer::start_if_enabled(profile.is_some());
             let generation = builder.finish(&files)?;
             if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
                 profile.finalize_generation_ns += started.elapsed().as_nanos() as u64;
             }
-            let stage_started = profile.as_ref().map(|_| Instant::now());
+            let stage_started = crate::detailed_timer::start_if_enabled(profile.is_some());
             let raw = raw.into_index_in_pool(&build_pool)?;
             let fallback_text = fallback_text.into_index_in_pool(&build_pool)?;
             let custom_text = custom_text
@@ -1794,7 +1848,7 @@ impl Repository {
             if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
                 profile.finalize_bigrams_ns += started.elapsed().as_nanos() as u64;
             }
-            let stage_started = profile.as_ref().map(|_| Instant::now());
+            let stage_started = crate::detailed_timer::start_if_enabled(profile.is_some());
             let all_logical = logical_records.len() == generation.records.len() as u64;
             postings.finish_stats();
             postings.validate_eligible(generation.records.len(), logical_records.len() as usize)?;
@@ -1838,16 +1892,16 @@ impl Repository {
             if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
                 profile.finalize_validation_ns += started.elapsed().as_nanos() as u64;
             }
-            let stage_started = profile.as_ref().map(|_| Instant::now());
+            let stage_started = crate::detailed_timer::start_if_enabled(profile.is_some());
             let sorting = sort_builder.finish(&generation)?;
             if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
                 profile.finalize_sort_ns += started.elapsed().as_nanos() as u64;
             }
-            let stage_started = profile.as_ref().map(|_| Instant::now());
+            let stage_started = crate::detailed_timer::start_if_enabled(profile.is_some());
             let inference = inference
                 .map(|builder| {
                     let mut stats = builder.build_stats();
-                    let started = Instant::now();
+                    let started = crate::detailed_timer::DetailedInstant::now();
                     let result = builder.finish(
                         &logical_records,
                         generation.records.len(),
@@ -1861,7 +1915,7 @@ impl Repository {
             if let (Some(started), Some(profile)) = (stage_started, profile.as_mut()) {
                 profile.finalize_inference_ns += started.elapsed().as_nanos() as u64;
             }
-            let stage_started = profile.as_ref().map(|_| Instant::now());
+            let stage_started = crate::detailed_timer::start_if_enabled(profile.is_some());
             let id_lookup = generation
                 .records
                 .iter()
@@ -1916,7 +1970,7 @@ impl Repository {
         if let Some(profile) = profile.as_mut() {
             profile.finalization_rss_bytes = build_profile_rss_bytes();
         }
-        let relations_started = profile.as_ref().map(|_| Instant::now());
+        let relations_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut resolved_relations = Vec::with_capacity(collections.len());
         for (source_index, contributions) in pending_relations.into_iter().enumerate() {
             let source_id = collections[source_index].generation.collection;
@@ -1940,7 +1994,7 @@ impl Repository {
         if let (Some(started), Some(profile)) = (relations_started, profile.as_mut()) {
             profile.relations_ns = started.elapsed().as_nanos() as u64;
         }
-        let checks_started = profile.as_ref().map(|_| Instant::now());
+        let checks_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         for state in &mut collections {
             state.sorting.refresh_file_status(&state.generation, &files);
         }
@@ -1948,12 +2002,12 @@ impl Repository {
         if let (Some(started), Some(profile)) = (checks_started, profile.as_mut()) {
             profile.final_checks_ns = started.elapsed().as_nanos() as u64;
         }
-        let teardown_started = profile.as_ref().map(|_| Instant::now());
+        let teardown_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         drop(build_pool);
         if let (Some(started), Some(profile)) = (teardown_started, profile.as_mut()) {
             profile.pool_teardown_ns = started.elapsed().as_nanos() as u64;
         }
-        let query_pool_started = profile.as_ref().map(|_| Instant::now());
+        let query_pool_started = crate::detailed_timer::start_if_enabled(profile.is_some());
         let workers = Self::create_workers(options.query_workers)?;
         if let (Some(started), Some(profile)) = (query_pool_started, profile.as_mut()) {
             profile.query_pool_init_ns = started.elapsed().as_nanos() as u64;
@@ -2083,7 +2137,9 @@ impl Repository {
             relation_target_matches: 0,
             relation_reverse_postings_visited: 0,
             relation_verified_targets_reused: 0,
+            #[cfg(feature = "detailed-profiling")]
             preparation_ns: 0,
+            #[cfg(feature = "detailed-profiling")]
             planning_ns: 0,
             prepared_plan_hit: false,
             verified_result_hit: false,

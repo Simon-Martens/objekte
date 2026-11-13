@@ -7,20 +7,23 @@ use std::ops::Range;
 use std::path::Path;
 use std::path::PathBuf;
 use std::sync::Arc;
-use std::sync::atomic::{AtomicU64, AtomicUsize, Ordering};
+#[cfg(feature = "detailed-profiling")]
+use std::sync::atomic::AtomicU64;
+use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::mpsc;
-use std::time::Instant;
 
 use rayon::ThreadPool;
 use roaring::RoaringBitmap;
 use serde::Serialize;
 use sha2::{Digest, Sha256};
 
-use crate::bigram::{BigramBuilder, BigramConstructionStats, BigramContribution, storage_diagnostic_enabled};
+use crate::bigram::{
+    BigramBuilder, BigramConstructionStats, BigramContribution, storage_diagnostic_enabled,
+};
 use crate::inference::{InferenceBuilder, InferenceConfig};
 use crate::inventory::{
-    ByteRange, CollectionBuilder, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass, SharedPath,
-    RecordEntry, SourceDiagnostic, SourceRevision, append_shifted_bitmap,
+    ByteRange, CollectionBuilder, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass,
+    RecordEntry, SharedPath, SourceDiagnostic, SourceRevision, append_shifted_bitmap,
 };
 use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
@@ -287,7 +290,9 @@ struct BatchBuilder<'a> {
     empty_array_records: RoaringBitmap,
     sorting: SortBuilder,
     relations: Vec<RelationContribution>,
+    #[cfg(feature = "detailed-profiling")]
     profile_current_file: bool,
+    #[cfg(feature = "detailed-profiling")]
     profile_record_index: usize,
     profile: BuildWorkProfile,
 }
@@ -359,7 +364,9 @@ impl<'a> BatchBuilder<'a> {
                 &definition.sort_overrides,
             )?,
             relations: RelationContribution::for_schema(schema),
+            #[cfg(feature = "detailed-profiling")]
             profile_current_file: false,
+            #[cfg(feature = "detailed-profiling")]
             profile_record_index: 0,
             profile: BuildWorkProfile::default(),
         })
@@ -457,12 +464,19 @@ impl<'a> BatchBuilder<'a> {
         mut extracted: ExtractedRecord,
         source_bytes: Option<&[u8]>,
     ) -> Result<(), String> {
+        #[cfg(feature = "detailed-profiling")]
         let sample = self.profile_current_file && self.profile_record_index.is_multiple_of(64);
-        self.profile_record_index += 1;
+        #[cfg(feature = "detailed-profiling")]
+        {
+            self.profile_record_index += 1;
+        }
+
+        #[cfg(not(feature = "detailed-profiling"))]
+        let sample = false;
         if sample {
             self.profile.sampled_component_records += 1;
         }
-        let stage_started = sample.then(Instant::now);
+        let stage_started = crate::detailed_timer::start_if_enabled(sample);
         if let Err(error) = finish_build_record(&self.definition.schema, &mut extracted) {
             let issue = ReaderDiagnostic::new(
                 DiagnosticCategory::LogicalValidation,
@@ -532,12 +546,12 @@ impl<'a> BatchBuilder<'a> {
             class: RecordClass::Logical,
             diagnostic_ref: DiagnosticRef(0),
         });
-        let stage_started = sample.then(Instant::now);
+        let stage_started = crate::detailed_timer::start_if_enabled(sample);
         self.postings.add(slot, &extracted.value)?;
         if let Some(started) = stage_started {
             self.profile.postings_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = sample.then(Instant::now);
+        let stage_started = crate::detailed_timer::start_if_enabled(sample);
         if let Some(inference) = &mut self.inference {
             inference.observe_record_with_schema(
                 slot,
@@ -548,14 +562,14 @@ impl<'a> BatchBuilder<'a> {
         if let Some(started) = stage_started {
             self.profile.inference_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = sample.then(Instant::now);
+        let stage_started = crate::detailed_timer::start_if_enabled(sample);
         for relation in &mut self.relations {
             relation.add_logical(slot, &extracted.value)?;
         }
         if let Some(started) = stage_started {
             self.profile.relations_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = sample.then(Instant::now);
+        let stage_started = crate::detailed_timer::start_if_enabled(sample);
         for (key, custom) in &mut self.custom_postings {
             let binding = &self.definition.schema.operations[key];
             let selected = data_values(&extracted.value, &key.0);
@@ -581,7 +595,7 @@ impl<'a> BatchBuilder<'a> {
         if let Some(started) = stage_started {
             self.profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = sample.then(Instant::now);
+        let stage_started = crate::detailed_timer::start_if_enabled(sample);
         let has_empty_array;
         if self.source.reader().text_derivation() == TextDerivation::LogicalStringsAfterConversion {
             if let Some(binding) = &self.definition.schema.raw {
@@ -625,7 +639,7 @@ impl<'a> BatchBuilder<'a> {
         if let Some(started) = stage_started {
             self.profile.text_bigram_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = sample.then(Instant::now);
+        let stage_started = crate::detailed_timer::start_if_enabled(sample);
         self.sorting.add(
             slot,
             &extracted.value,
@@ -637,7 +651,7 @@ impl<'a> BatchBuilder<'a> {
         if let Some(started) = stage_started {
             self.profile.sorting_ns += started.elapsed().as_nanos() as u64;
         }
-        let stage_started = sample.then(Instant::now);
+        let stage_started = crate::detailed_timer::start_if_enabled(sample);
         for (key, index) in &mut self.custom_text {
             let values = data_values(&extracted.value, &key.0).unwrap_or_default();
             if let Some(binding) = self.definition.schema.operations.get(key) {
@@ -787,8 +801,11 @@ fn process_batch_profiled(
         let mut file = original.for_collection(collection);
         let start = builder.records.len();
         let sampled = profile_build && file_id.0.is_multiple_of(64);
-        builder.profile_current_file = sampled;
-        builder.profile_record_index = 0;
+        #[cfg(feature = "detailed-profiling")]
+        {
+            builder.profile_current_file = sampled;
+            builder.profile_record_index = 0;
+        }
         let mut source_sample = SourceBuildSample::default();
         let mut callback_ns = 0u64;
         let (stats, fingerprint) = extract_file_build_outcomes_hashed_with_buffer(
@@ -799,7 +816,7 @@ fn process_batch_profiled(
             sampled.then_some(&mut source_sample),
             Some(&mut input_buffer_profile),
             |outcome| {
-                let started = sampled.then(Instant::now);
+                let started = crate::detailed_timer::start_if_enabled(sampled);
                 let result = builder.outcome(&mut file, &path, outcome, None);
                 if let Some(started) = started {
                     callback_ns += started.elapsed().as_nanos() as u64;
@@ -841,7 +858,7 @@ fn process_batch_profiled(
         builder.profile.input_buffer_peak_capacity_bytes = input_buffer_profile.peak_capacity_bytes;
         builder.profile.input_buffer_batch_end_capacity_bytes += input_buffer.capacity() as u64;
     }
-    let finish_started = profile_build.then(Instant::now);
+    let finish_started = crate::detailed_timer::start_if_enabled(profile_build);
     let mut batch = builder.finish(files, record_parses, failed_parses)?;
     if let Some(started) = finish_started {
         batch.profile.batch_finish_ns += started.elapsed().as_nanos() as u64;
@@ -1487,7 +1504,7 @@ fn process_unframed_large_file(
         .file_fingerprints()
         .first()
         .map(|(_, digest)| (file_id, *digest));
-    let started = Instant::now();
+    let started = crate::detailed_timer::DetailedInstant::now();
     admit(batch)?;
     Ok(BuildScheduleStats {
         file_fingerprint,
@@ -1659,7 +1676,7 @@ pub(crate) fn process_framed_file_profiled(
             peak_bytes = peak_bytes.max(admitted_bytes);
             dispatched += 1;
         }
-        let wait_started = Instant::now();
+        let wait_started = crate::detailed_timer::DetailedInstant::now();
         let received = receiver.recv();
         stats.receive_wait_ns = stats
             .receive_wait_ns
@@ -1669,7 +1686,7 @@ pub(crate) fn process_framed_file_profiled(
         ready.insert(index, result);
         while let Some(result) = ready.remove(&next) {
             admitted_bytes -= chunks[next].1;
-            let admission_started = Instant::now();
+            let admission_started = crate::detailed_timer::DetailedInstant::now();
             let outcome = result.and_then(&mut admit);
             stats.admission_ns = stats
                 .admission_ns
@@ -1808,7 +1825,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
     // A failure before any contribution can still use the ordinary unreadable
     // outcome. Once a chunk is admitted, an I/O failure aborts this private
     // generation instead of publishing a partially indexed file.
-    let first_started = profile_build.then(Instant::now);
+    let first_started = crate::detailed_timer::start_if_enabled(profile_build);
     let first = match reader.next_chunk(limits.chunk_bytes, limits.ranges) {
         Ok(Some(chunk)) => chunk,
         Ok(None) => BoundedBuildChunk {
@@ -1854,7 +1871,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
     while failure.is_none() {
         while dispatched - next < max_jobs {
             if pending.is_none() && !eof {
-                let started = profile_build.then(Instant::now);
+                let started = crate::detailed_timer::start_if_enabled(profile_build);
                 match reader.next_chunk(limits.chunk_bytes, limits.ranges) {
                     Ok(Some(chunk)) => {
                         if let Some(started) = started {
@@ -1924,7 +1941,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
             }
             continue;
         }
-        let wait_started = Instant::now();
+        let wait_started = crate::detailed_timer::DetailedInstant::now();
         let (index, result) = receiver.recv().map_err(|error| error.to_string())?;
         stats.receive_wait_ns = stats
             .receive_wait_ns
@@ -1938,7 +1955,7 @@ fn process_bounded_json_lines_reader<R: BufRead + Send>(
             admitted_bytes = admitted_bytes
                 .checked_sub(weight)
                 .ok_or("chunk reservation underflow")?;
-            let started = Instant::now();
+            let started = crate::detailed_timer::DetailedInstant::now();
             let outcome = result.and_then(&mut admit);
             stats.admission_ns = stats
                 .admission_ns
@@ -2095,7 +2112,9 @@ impl BuildScheduleStats {
         self.framing_chunks += other.framing_chunks;
         self.framing_bytes += other.framing_bytes;
         self.source_reads = self.source_reads.saturating_add(other.source_reads);
-        self.source_bytes_read = self.source_bytes_read.saturating_add(other.source_bytes_read);
+        self.source_bytes_read = self
+            .source_bytes_read
+            .saturating_add(other.source_bytes_read);
         self.admission_schedule.absorb(other.admission_schedule);
     }
 }
@@ -2108,6 +2127,7 @@ struct JobCounters {
     completed: AtomicUsize,
     admitted: AtomicUsize,
     peak_ready: AtomicUsize,
+    #[cfg(feature = "detailed-profiling")]
     execution_ns: AtomicU64,
 }
 
@@ -2116,8 +2136,10 @@ impl JobCounters {
     fn run<T>(&self, job: impl FnOnce() -> T) -> T {
         let active = self.active.fetch_add(1, Ordering::Relaxed) + 1;
         self.peak_active.fetch_max(active, Ordering::Relaxed);
-        let started = Instant::now();
+        #[cfg(feature = "detailed-profiling")]
+        let started = crate::detailed_timer::DetailedInstant::now();
         let result = job();
+        #[cfg(feature = "detailed-profiling")]
         self.execution_ns
             .fetch_add(started.elapsed().as_nanos() as u64, Ordering::Relaxed);
         self.active.fetch_sub(1, Ordering::Relaxed);
@@ -2132,7 +2154,10 @@ impl JobCounters {
     fn add_to(&self, stats: &mut BuildScheduleStats) {
         stats.peak_active_jobs = self.peak_active.load(Ordering::Relaxed);
         stats.peak_ready_batches = self.peak_ready.load(Ordering::Relaxed);
-        stats.job_execution_ns = self.execution_ns.load(Ordering::Relaxed);
+        #[cfg(feature = "detailed-profiling")]
+        {
+            stats.job_execution_ns = self.execution_ns.load(Ordering::Relaxed);
+        }
     }
 }
 
@@ -2268,9 +2293,9 @@ pub(crate) fn process_repository_file_batches_profiled(
             let collection = jobs[index].collection;
             let source_files = Arc::clone(&source_files);
             let counters = Arc::clone(&counters);
-            let dispatched_at = profile_build.then(Instant::now);
+            let dispatched_at = crate::detailed_timer::start_if_enabled(profile_build);
             pool.spawn(move || {
-                let started_at = profile_build.then(Instant::now);
+                let started_at = crate::detailed_timer::start_if_enabled(profile_build);
                 let result = counters.run(|| {
                     process_batch_profiled(
                         &root,
@@ -2285,7 +2310,7 @@ pub(crate) fn process_repository_file_batches_profiled(
                         profile_build,
                     )
                 });
-                let completed_at = profile_build.then(Instant::now);
+                let completed_at = crate::detailed_timer::start_if_enabled(profile_build);
                 let _ = sender.send((index, result, dispatched_at, started_at, completed_at));
             });
             admitted_bytes = admitted_bytes.saturating_add(weight);
@@ -2295,9 +2320,9 @@ pub(crate) fn process_repository_file_batches_profiled(
         if profile_build && dispatched < jobs.len() && dispatched - next >= max_jobs {
             stats.admission_schedule.job_limit_blocks += 1;
         }
-        let wait_started = Instant::now();
+        let wait_started = crate::detailed_timer::DetailedInstant::now();
         let received = receiver.recv();
-        let received_at = Instant::now();
+        let received_at = crate::detailed_timer::DetailedInstant::now();
         let receive_ns = received_at.duration_since(wait_started).as_nanos() as u64;
         stats.receive_wait_ns = stats.receive_wait_ns.saturating_add(receive_ns);
         let (index, result, dispatched_at, started_at, completed_at) =
@@ -2313,7 +2338,7 @@ pub(crate) fn process_repository_file_batches_profiled(
                 stats.admission_schedule.worker_start_to_completion_ns +=
                     completed_at.duration_since(started_at).as_nanos() as u64;
                 stats.admission_schedule.completion_to_receipt_ns +=
-                    received_at.duration_since(completed_at).as_nanos() as u64;
+                    received_at.duration_since_instant(completed_at).as_nanos() as u64;
             }
             receipt_since.insert(index, received_at);
             if index != next {
@@ -2343,7 +2368,7 @@ pub(crate) fn process_repository_file_batches_profiled(
                 stats.ready_wait_max_ns = stats.ready_wait_max_ns.max(wait);
             }
             admitted_bytes -= weights[next];
-            let admission_started = Instant::now();
+            let admission_started = crate::detailed_timer::DetailedInstant::now();
             let possible_idle = profile_build
                 && dispatched < jobs.len()
                 && dispatched.saturating_sub(completed) < pool.current_num_threads();
@@ -2506,7 +2531,7 @@ impl CollectionAdmission<'_> {
             profile.files += batch.files.len() as u64;
             profile.records += batch.records.len() as u64;
         }
-        let started = profile.is_some().then(Instant::now);
+        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
         let base = self.builder.next_slot()?.0;
         let count = u32::try_from(batch.records.len()).map_err(|_| "too many batch records")?;
         base.checked_add(count).ok_or("record slot overflow")?;
@@ -2577,12 +2602,12 @@ impl CollectionAdmission<'_> {
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.record_inventory_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = profile.is_some().then(Instant::now);
+        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
         self.postings.merge_shifted(batch.postings, base)?;
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.postings_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = profile.is_some().then(Instant::now);
+        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
         match (self.inference.as_mut(), batch.inference) {
             (Some(global), Some(local)) => global.merge_shifted(local, base)?,
             (None, None) => {}
@@ -2591,7 +2616,7 @@ impl CollectionAdmission<'_> {
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.inference_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = profile.is_some().then(Instant::now);
+        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
         if self.relations.len() != batch.relations.len() {
             return Err("relation batch coverage mismatch".into());
         }
@@ -2601,7 +2626,7 @@ impl CollectionAdmission<'_> {
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.relations_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = profile.is_some().then(Instant::now);
+        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
         if self.custom_postings.len() != batch.custom_postings.len() {
             return Err("custom posting batch coverage mismatch".into());
         }
@@ -2616,7 +2641,7 @@ impl CollectionAdmission<'_> {
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = profile.is_some().then(Instant::now);
+        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
         self.raw.merge_shifted(batch.raw, base)?;
         self.fallback_text
             .merge_shifted(batch.fallback_text, base)?;
@@ -2632,13 +2657,13 @@ impl CollectionAdmission<'_> {
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.bigrams_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = profile.is_some().then(Instant::now);
+        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
         append_shifted_bitmap(self.logical_records, &batch.logical_records, base)?;
         append_shifted_bitmap(self.empty_array_records, &batch.empty_array_records, base)?;
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.structural_facts_ns += started.elapsed().as_nanos() as u64;
         }
-        let started = profile.is_some().then(Instant::now);
+        let started = crate::detailed_timer::start_if_enabled(profile.is_some());
         self.sorting.append_keys(batch.sort_keys, base, count)?;
         if let (Some(started), Some(profile)) = (started, profile.as_deref_mut()) {
             profile.sorting_ns += started.elapsed().as_nanos() as u64;

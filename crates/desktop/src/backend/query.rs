@@ -18,6 +18,7 @@ use super::{BackendError, BackendErrorKind, OpenedSession};
 
 pub const MAX_PAGE_ROWS: usize = 100;
 
+
 /// Search controls and the full requested range, independent of viewport pages.
 #[derive(Clone, Debug)]
 pub struct QuerySpec {
@@ -31,6 +32,7 @@ pub struct QuerySpec {
     pub limit: Option<usize>,
     pub count: bool,
 }
+
 
 impl Default for QuerySpec {
     fn default() -> Self {
@@ -48,6 +50,7 @@ impl Default for QuerySpec {
     }
 }
 
+
 /// One verified viewport page; `count` is exact or absent, never an estimate.
 #[derive(Clone, Debug)]
 pub struct QueryPage {
@@ -64,8 +67,11 @@ pub struct QueryPage {
     /// Validated results from an index that has more files to construct.
     pub provisional: bool,
     pub counters: WorkCounters,
+    /// First nonempty result page, if any, from the start of this query.
+    pub first_result_ns: Option<u128>,
     pub elapsed_ns: u128,
 }
+
 
 impl QueryPage {
     /// A source range could not be verified, so delivered rows and count may
@@ -74,6 +80,7 @@ impl QueryPage {
         self.provisional || self.counters.source_unavailable_events > 0
     }
 }
+
 
 /// Parse the full accepted structured syntax while keeping FTS independent.
 ///
@@ -198,6 +205,8 @@ pub fn query_page_on_view(
         if cancellation.is_cancelled() {
             return Err(BackendError::cancelled());
         }
+        let first_result_ns =
+            (!available.result.hits.is_empty()).then(|| started.elapsed().as_nanos());
         return Ok(QueryPage {
             repository_root: session.repository.files().root.clone(),
             instance_id: view.instance_id(),
@@ -209,10 +218,12 @@ pub fn query_page_on_view(
             count: None,
             provisional: !available.complete,
             counters: available.result.counters,
+            first_result_ns,
             elapsed_ns: started.elapsed().as_nanos(),
         });
     }
     let mut page = Vec::new();
+    let mut first_result_ns = None;
     let outcome = view.search_stream(
         &query,
         StreamOptions {
@@ -222,6 +233,9 @@ pub fn query_page_on_view(
         cancellation,
         &mut |event| {
             if let StreamEvent::PageReplacement { rows, .. } = event {
+                if first_result_ns.is_none() && !rows.is_empty() {
+                    first_result_ns = Some(started.elapsed().as_nanos());
+                }
                 page = rows.to_vec();
             }
             Ok(StreamControl::Continue)
@@ -259,6 +273,7 @@ pub fn query_page_on_view(
                 count,
                 provisional: false,
                 counters: summary.counters,
+                first_result_ns,
                 elapsed_ns: started.elapsed().as_nanos(),
             })
         }

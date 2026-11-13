@@ -12,11 +12,13 @@ use crate::inventory::append_shifted_bitmap;
 use crate::model::FileId;
 use crate::source::SourceFormat;
 
+
 pub(crate) struct DirectBuild {
     pub(crate) repository: Repository,
     pub(crate) catalog_slots: Vec<Option<(FileEntry, Option<[u8; 32]>, Option<[u8; 32]>)>>,
     pub(crate) segments: Vec<Vec<IndexedCollectionSegment>>,
 }
+
 
 struct DirectCollection {
     definition: Arc<CollectionDefinition>,
@@ -29,6 +31,7 @@ struct DirectCollection {
     admission: SegmentAdmission,
     sealed: Vec<crate::build::CollectionSegment>,
 }
+
 
 impl DirectCollection {
     fn new(
@@ -182,7 +185,7 @@ impl DirectCollection {
             .inference
             .map(|builder| {
                 inference_build = builder.build_stats();
-                let started = Instant::now();
+                let started = crate::detailed_timer::DetailedInstant::now();
                 let state =
                     builder.finish(&self.logical_records, count, &self.definition.schema)?;
                 inference_build.finish_ns = started.elapsed().as_nanos() as u64;
@@ -218,6 +221,7 @@ impl DirectCollection {
         Ok((summary, segments, inference_build))
     }
 }
+
 
 impl Repository {
     pub(crate) fn build_direct_json(
@@ -318,7 +322,7 @@ impl Repository {
         let mut digest_bindings = vec![Vec::new(); files.files.len()];
         let mut build_parses = 0u64;
         let mut build_failed_parses = 0u64;
-        let extraction_started = Instant::now();
+        let extraction_started = crate::detailed_timer::DetailedInstant::now();
         let schedule_stats = crate::build::process_repository_file_batches(
             &pool,
             Arc::new(root.clone()),
@@ -354,7 +358,7 @@ impl Repository {
                 ))
             })
             .collect();
-        let finalization_started = Instant::now();
+        let finalization_started = crate::detailed_timer::DetailedInstant::now();
         let mut summaries = Vec::with_capacity(collection_count);
         let mut segments = Vec::with_capacity(collection_count);
         let mut inference_build = InferenceBuildStats::default();

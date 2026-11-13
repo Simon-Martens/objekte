@@ -1,11 +1,11 @@
 //! Bounded result retention, grouped source access, and payload materialization.
 
+use crate::detailed_timer::DetailedInstant;
 use std::cmp::Ordering;
 use std::cmp::Reverse;
 use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering as AtomicOrdering};
 use std::sync::{Arc, Mutex};
-use std::time::Instant;
 
 use rayon::prelude::*;
 use roaring::RoaringBitmap;
@@ -553,6 +553,7 @@ fn segment_filter_source_fields(expr: &BoundExpr) -> Option<HashSet<String>> {
         }
         Some(())
     }
+
     fn collect(expr: &BoundExpr, fields: &mut HashSet<String>) -> Option<()> {
         match expr {
             BoundExpr::Term(term) => {
@@ -594,9 +595,11 @@ fn segment_filter_evidence_bytes(expr: &BoundExpr) -> Option<usize> {
             }
             Some(bytes)
         }
-        BoundExpr::And(parts) | BoundExpr::Or(parts) => parts.iter().try_fold(0usize, |sum, part| {
-            sum.checked_add(segment_filter_evidence_bytes(part)?)
-        }),
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+            parts.iter().try_fold(0usize, |sum, part| {
+                sum.checked_add(segment_filter_evidence_bytes(part)?)
+            })
+        }
         BoundExpr::Not(inner) => segment_filter_evidence_bytes(inner),
     }
 }
@@ -2205,6 +2208,7 @@ pub(crate) struct SegmentRecordRef<'a> {
     pub file: &'a FileEntry,
 }
 
+
 fn segment_active_file<'a>(
     segment: &IndexedCollectionSegment,
     active: &ActiveRecords,
@@ -2225,7 +2229,6 @@ fn segment_active_file<'a>(
     }
     Ok(file)
 }
-
 
 pub(crate) fn segment_record_ref<'a>(
     segment: &'a IndexedCollectionSegment,
@@ -3172,13 +3175,15 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
             if term.related.is_some() || term.rhs.is_some() {
                 return None;
             }
-            Some(if term.derived == Derived::None
-                && !matches!(term.operator, Operator::Ne | Operator::NotContains)
-            {
-                vec![term.query_path.display.clone()]
-            } else {
-                Vec::new()
-            })
+            Some(
+                if term.derived == Derived::None
+                    && !matches!(term.operator, Operator::Ne | Operator::NotContains)
+                {
+                    vec![term.query_path.display.clone()]
+                } else {
+                    Vec::new()
+                },
+            )
         }
         BoundExpr::And(parts) => {
             let mut fields = Vec::new();
@@ -3206,6 +3211,7 @@ fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
     }
 }
 
+
 /// A single file's local residual work can run independently of other files. Only its
 /// bounded local top page crosses back to the ordered merge thread.
 struct SegmentFileScan {
@@ -3218,6 +3224,7 @@ struct SegmentFileScan {
     winners: Vec<SegmentLocalWinner>,
 }
 
+
 /// A file worker retains only slots and rank keys. The merge thread builds
 /// full hits for entries that can still reach the requested page.
 struct SegmentLocalWinner {
@@ -3226,19 +3233,23 @@ struct SegmentLocalWinner {
     matched_fields: Vec<String>,
 }
 
+
 impl PartialEq for SegmentLocalWinner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
+
 impl Eq for SegmentLocalWinner {}
+
 
 impl PartialOrd for SegmentLocalWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
+
 
 impl Ord for SegmentLocalWinner {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -4209,8 +4220,8 @@ fn search_segmented_impl(
             // parallel route to small ordered pages and bounded source rows;
             // all other plans keep the existing serial, cache-aware path.
             let single_record_files = files.values().all(|ranges| ranges.len() == 1);
-            let small_single_record_files = single_record_files
-                && files.values().all(|ranges| ranges[0].1.len() <= 8 * 1024);
+            let small_single_record_files =
+                single_record_files && files.values().all(|ranges| ranges[0].1.len() <= 8 * 1024);
             let parallel_scan = context.is_none()
                 && retained_budget.is_none()
                 && cache_builder.is_none()
@@ -4292,9 +4303,7 @@ fn search_segmented_impl(
                         for winner in scan.winners {
                             if cap == 0
                                 || (winners.len() >= cap
-                                    && winners
-                                        .peek()
-                                        .is_some_and(|worst| winner.key >= worst.key))
+                                    && winners.peek().is_some_and(|worst| winner.key >= worst.key))
                             {
                                 continue;
                             }
@@ -4367,7 +4376,8 @@ fn search_segmented_impl(
                         if !published.active.contains(RecordSlot(slot)) {
                             return Err("inactive segment scan slot".into());
                         }
-                        let record = segment.record(RecordSlot(slot))
+                        let record = segment
+                            .record(RecordSlot(slot))
                             .ok_or("segment scan slot missing")?;
                         if record.file.0 != file_id {
                             return Err("segment scan file ownership mismatch".into());
@@ -6594,11 +6604,12 @@ fn search_segmented_relations(
                 }
             }
         }
-        let mut relation_prune: Option<Option<RelationTargetPrune>> = if let Some(plan) = exact_relation_plan.take() {
-            Some(Some(plan))
-        } else {
-            None
-        };
+        let mut relation_prune: Option<Option<RelationTargetPrune>> =
+            if let Some(plan) = exact_relation_plan.take() {
+                Some(Some(plan))
+            } else {
+                None
+            };
         for (segment_index, published) in segments[collection_index].iter().enumerate() {
             let mut candidates = if prune_segments {
                 let filter_may = filter
@@ -6646,10 +6657,13 @@ fn search_segmented_relations(
                         Some(candidates.map_or(relation_may.clone(), |may| may & relation_may));
                 }
             }
-            let exact_filter_fields = relation_prune.as_ref().and_then(Option::as_ref)
+            let exact_filter_fields = relation_prune
+                .as_ref()
+                .and_then(Option::as_ref)
                 .filter(|plan| plan.exact)
-                .and_then(|plan| relation_source_candidates(published, plan)
-                    .map(|_| plan.evidence.as_slice()));
+                .and_then(|plan| {
+                    relation_source_candidates(published, plan).map(|_| plan.evidence.as_slice())
+                });
             if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
                 continue;
             }
@@ -9155,7 +9169,7 @@ fn try_stored_order_page(
         .limit
         .checked_add(query.options.offset)
         .ok_or("page size overflow")?;
-    let planning_started = Instant::now();
+    let planning_started = DetailedInstant::now();
     let diagnostics = traces.is_some();
     let mut plans = Vec::new();
     let mut candidate_total = 0u64;
@@ -9306,11 +9320,15 @@ fn try_stored_order_page(
     }
     let mut counters = WorkCounters {
         candidates: candidate_total,
+        #[cfg(feature = "detailed-profiling")]
         preparation_ns,
+        #[cfg(feature = "detailed-profiling")]
         planning_ns: planning_started.elapsed().as_nanos() as u64,
         prepared_plan_hit,
         ..WorkCounters::default()
     };
+    #[cfg(not(feature = "detailed-profiling"))]
+    let _ = preparation_ns;
     let mut actuals = (0..plans.len())
         .map(|_| PlanActual::default())
         .collect::<Vec<_>>();
@@ -9668,7 +9686,8 @@ fn materialize_computed_cached<'a>(
     mut delivery: Option<&mut Delivery<'_>>,
     execution: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
-    let preparation_start = Instant::now();
+    #[cfg(feature = "detailed-profiling")]
+    let preparation_start = DetailedInstant::now();
     let sort = ResolvedSort::from_bound(repo, query, bound_sort);
     if let Some(execution) = execution {
         sort.target_cache
@@ -9701,7 +9720,10 @@ fn materialize_computed_cached<'a>(
         prepared_plan_hit: plan_hit,
         ..WorkCounters::default()
     };
-    counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
+    #[cfg(feature = "detailed-profiling")]
+    {
+        counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
+    }
     let mut winners = BinaryHeap::new();
     let mut retained_key_bytes = 0u64;
     let reads_needed = cached
@@ -9935,7 +9957,8 @@ fn materialize_cached_stream(
     execution: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
     delivery.check()?;
-    let started = Instant::now();
+    #[cfg(feature = "detailed-profiling")]
+    let started = DetailedInstant::now();
     let (_, plan_hit) = crate::prepared::prepare(repo, query)?;
     let mut counters = WorkCounters {
         total_matches: cached.members.len() as u64,
@@ -9944,7 +9967,10 @@ fn materialize_cached_stream(
         prepared_plan_hit: plan_hit,
         ..WorkCounters::default()
     };
-    counters.preparation_ns = started.elapsed().as_nanos() as u64;
+    #[cfg(feature = "detailed-profiling")]
+    {
+        counters.preparation_ns = started.elapsed().as_nanos() as u64;
+    }
     let mut page = Vec::new();
     let mut source_access = SourceAccessSession::new(&repo.files);
     if let Some(execution) = execution {
@@ -10004,7 +10030,8 @@ fn materialize_cached(
     query: &Query,
     cached: &CachedResult,
 ) -> Result<SearchResult, String> {
-    let preparation_start = Instant::now();
+    #[cfg(feature = "detailed-profiling")]
+    let preparation_start = DetailedInstant::now();
     let (_, plan_hit) = crate::prepared::prepare(repo, query)?;
     let cap = query
         .options
@@ -10018,7 +10045,10 @@ fn materialize_cached(
         prepared_plan_hit: plan_hit,
         ..WorkCounters::default()
     };
-    counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
+    #[cfg(feature = "detailed-profiling")]
+    {
+        counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
+    }
     let mut hits = Vec::new();
     let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
     for member in cached
@@ -10543,7 +10573,7 @@ fn search_impl_with_collector<'a>(
     if let Some(delivery) = delivery.as_deref_mut() {
         delivery.check()?;
     }
-    let preparation_start = Instant::now();
+    let preparation_start = DetailedInstant::now();
     let sort = match prebound_sort {
         Some(bound) => ResolvedSort::from_bound(repo, query, bound),
         None => ResolvedSort::new(repo, query).map_err(|message| {
@@ -10626,15 +10656,23 @@ fn search_impl_with_collector<'a>(
         || query.options.return_mode != ReturnMode::Locator)
         .then(RoaringBitmap::new);
     let mut distinct_files = 0u64;
-    counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
+    #[cfg(feature = "detailed-profiling")]
+    {
+        counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
+    }
     counters.prepared_plan_hit = plan_hit;
-    counters.planning_ns += rejected_order.planning_ns;
+    #[cfg(feature = "detailed-profiling")]
+    {
+        counters.planning_ns += rejected_order.planning_ns;
+    }
     let mut reused_order = rejected_order.entries.into_iter();
     for (collection_index, filter, fts) in prepared.collections {
         if let Some(delivery) = delivery.as_deref_mut() {
             delivery.check()?;
         }
-        let planning_start = Instant::now();
+
+        #[cfg(feature = "detailed-profiling")]
+        let planning_start = DetailedInstant::now();
         let diagnostics = traces.is_some();
         let before = traces.as_ref().map(|_| counters.clone());
         let collection = &repo.collections[collection_index];
@@ -10746,7 +10784,10 @@ fn search_impl_with_collector<'a>(
         } else {
             None
         };
-        counters.planning_ns += planning_start.elapsed().as_nanos() as u64;
+        #[cfg(feature = "detailed-profiling")]
+        {
+            counters.planning_ns += planning_start.elapsed().as_nanos() as u64;
+        }
         counters.candidates += candidates.len();
         let needs_scan = sort.bound.needs_source
             || !plan.exact

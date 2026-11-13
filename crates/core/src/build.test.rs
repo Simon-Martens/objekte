@@ -6,6 +6,7 @@ use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
 use crate::repository::{Repository, RepositoryOptions, SnapshotMode};
 use crate::source::{SourceFormat, TextSegment};
 use crate::workload::ReturnMode;
+use std::time::Instant;
 
 /// Diagnostic prototype for a direct batch-to-shard fresh build. This only
 /// measures the dominant `contents` collection and does not publish an index.
@@ -16,8 +17,8 @@ fn measure_direct_shard_build_from_real_worker_batches() {
         std::env::var_os("OBJEKTE_DIRECT_SHARD_FIXTURE")
             .expect("set OBJEKTE_DIRECT_SHARD_FIXTURE to a Musenalm root"),
     );
-    let configuration = crate::repository_configuration::load_repository_configuration(&root)
-        .unwrap();
+    let configuration =
+        crate::repository_configuration::load_repository_configuration(&root).unwrap();
     let definitions = configuration.definitions;
     let options = RepositoryOptions {
         snapshot_mode: SnapshotMode::Disabled,
@@ -25,7 +26,10 @@ fn measure_direct_shard_build_from_real_worker_batches() {
     };
     let baseline_started = std::time::Instant::now();
     let repository = Repository::open_with_options(&root, definitions, options).unwrap();
-    eprintln!("direct shard prototype static_build={:?}", baseline_started.elapsed());
+    eprintln!(
+        "direct shard prototype static_build={:?}",
+        baseline_started.elapsed()
+    );
     let collection = repository
         .collections()
         .iter()
@@ -107,12 +111,18 @@ fn measure_direct_shard_build_from_real_worker_batches() {
         .collect::<Result<Vec<_>, _>>()
         .unwrap();
     let finalized = started.elapsed();
-    let records = shards.iter().map(|shard| shard.records.len()).sum::<usize>();
+    let records = shards
+        .iter()
+        .map(|shard| shard.records.len())
+        .sum::<usize>();
     assert_eq!(records, collection.generation.records.len());
     assert!(shards.iter().all(|shard| shard.records.len() <= 2_048));
     eprintln!(
         "direct shard prototype files={} records={} shards={} extract_admit={extracted:?} finalize={finalized:?} jobs={} peak_active={}",
-        collection.generation.files.len(), records, shards.len(), jobs.len(),
+        collection.generation.files.len(),
+        records,
+        shards.len(),
+        jobs.len(),
         stats.peak_active_jobs,
     );
 }
@@ -156,6 +166,7 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
     .unwrap();
     assert_eq!(batch.records.len(), 3);
     assert_eq!(batch.file_fingerprints(), &[expected.unwrap()]);
+    #[cfg(feature = "detailed-profiling")]
     let profiled = process_batch_profiled(
         &root,
         &definition,
@@ -169,14 +180,17 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
         true,
     )
     .unwrap();
-    assert_eq!(profiled.records.len(), batch.records.len());
-    assert_eq!(profiled.file_fingerprints(), batch.file_fingerprints());
-    assert_eq!(profiled.record_parses, batch.record_parses);
-    assert_eq!(profiled.profile.sampled_files, 1);
-    assert_eq!(profiled.profile.sampled_file_bytes, bytes.len() as u64);
-    assert!(profiled.profile.sampled_read_calls > 0);
-    assert_eq!(profiled.profile.sampled_source_records, 3);
-    assert_eq!(profiled.profile.sampled_component_records, 1);
+    #[cfg(feature = "detailed-profiling")]
+    {
+        assert_eq!(profiled.records.len(), batch.records.len());
+        assert_eq!(profiled.file_fingerprints(), batch.file_fingerprints());
+        assert_eq!(profiled.record_parses, batch.record_parses);
+        assert_eq!(profiled.profile.sampled_files, 1);
+        assert_eq!(profiled.profile.sampled_file_bytes, bytes.len() as u64);
+        assert!(profiled.profile.sampled_read_calls > 0);
+        assert_eq!(profiled.profile.sampled_source_records, 3);
+        assert_eq!(profiled.profile.sampled_component_records, 1);
+    }
 
     std::fs::remove_file(&path).unwrap();
     let missing = process_batch(
@@ -235,7 +249,11 @@ fn fresh_build_reads_capture_whole_file_digest_without_another_read() {
     let generic = process_framed_file(
         &pool,
         Arc::new(root.clone()),
-        Arc::new(CollectionDefinition::folder("single", ".", SourceFormat::Json)),
+        Arc::new(CollectionDefinition::folder(
+            "single",
+            ".",
+            SourceFormat::Json,
+        )),
         CollectionId(0),
         json_source,
         json_input.id,
@@ -1068,7 +1086,10 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
     assert_eq!(stats.weight_limit_bytes, 52 * 1024 * 1024);
     assert_eq!(stats.peak_active_jobs, 2);
     assert!(stats.peak_ready_batches >= 1);
+    #[cfg(feature = "detailed-profiling")]
     assert!(stats.job_execution_ns > 0);
+    #[cfg(not(feature = "detailed-profiling"))]
+    assert_eq!(stats.job_execution_ns, 0);
     assert_eq!(reader.peak.load(Ordering::SeqCst), 2);
     assert_eq!(reader.active.load(Ordering::SeqCst), 0);
     let failing = std::sync::Arc::new(DelayedReader {

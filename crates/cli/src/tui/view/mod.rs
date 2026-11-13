@@ -172,7 +172,7 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                 let timing = app
                     .last_search_duration
                     .map_or_else(String::new, |elapsed| {
-                        format!("  ·  search {}", elapsed_label(elapsed))
+                        format!("  ·  all {}", elapsed_label(elapsed))
                     });
                 format!("Error: {error}{timing}")
             } else if app.provisional {
@@ -198,11 +198,17 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                         if sort.descending { "↓" } else { "↑" }
                     )
                 });
+                let first = app
+                    .last_first_result_duration
+                    .map_or_else(String::new, |elapsed| {
+                        format!("  ·  first {}", elapsed_label(elapsed))
+                    });
                 let timing = app
                     .last_search_duration
                     .map_or_else(String::new, |elapsed| {
-                        format!("  ·  search {}", elapsed_label(elapsed))
+                        format!("  ·  all {}", elapsed_label(elapsed))
                     });
+                #[cfg(feature = "detailed-profiling")]
                 let display = if app.single_collection {
                     app.last_projection_duration
                         .map_or_else(String::new, |elapsed| {
@@ -211,8 +217,10 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                 } else {
                     String::new()
                 };
+                #[cfg(not(feature = "detailed-profiling"))]
+                let display = String::new();
                 format!(
-                    "{} matches  ·  {} loaded{sort}{timing}{display}",
+                    "{} matches  ·  {} loaded{sort}{first}{timing}{display}",
                     app.total,
                     app.hits.len()
                 )

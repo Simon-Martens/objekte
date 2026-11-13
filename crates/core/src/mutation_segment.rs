@@ -93,17 +93,41 @@ impl SegmentAggregate {
         inference_config: InferenceConfig,
         collection_count: usize,
     ) -> Result<Self, String> {
-        let custom_postings = definition.schema.operations.iter()
+        let custom_postings = definition
+            .schema
+            .operations
+            .iter()
             .filter(|(_, binding)| binding.operation.posting())
-            .map(|(key, binding)| (key.clone(), CustomPostingIndex {
-                index: PostingIndex::new(&definition.schema.fields[&key.0]),
-                complete: binding.operation.complete_coverage(),
-            })).collect();
-        let custom_text = definition.schema.custom.keys()
-            .chain(definition.schema.operations.iter()
-                .filter(|(_, binding)| binding.operation.bigram() && binding.operation.complete_coverage())
-                .map(|(key, _)| key))
-            .map(|key| (canonical_custom_text_key(&definition.schema, &key.0, &key.1), BigramContribution::new(alphabet)))
+            .map(|(key, binding)| {
+                (
+                    key.clone(),
+                    CustomPostingIndex {
+                        index: PostingIndex::new(&definition.schema.fields[&key.0]),
+                        complete: binding.operation.complete_coverage(),
+                    },
+                )
+            })
+            .collect();
+        let custom_text = definition
+            .schema
+            .custom
+            .keys()
+            .chain(
+                definition
+                    .schema
+                    .operations
+                    .iter()
+                    .filter(|(_, binding)| {
+                        binding.operation.bigram() && binding.operation.complete_coverage()
+                    })
+                    .map(|(key, _)| key),
+            )
+            .map(|key| {
+                (
+                    canonical_custom_text_key(&definition.schema, &key.0, &key.1),
+                    BigramContribution::new(alphabet),
+                )
+            })
             .collect();
         Ok(Self {
             postings: PostingCollection::new(&definition.schema),
@@ -115,8 +139,11 @@ impl SegmentAggregate {
             logical_records: RoaringBitmap::new(),
             empty_array_records: RoaringBitmap::new(),
             sorting: SortBuilder::new(
-                &definition.sort_fields, &definition.schema, &definition.sort_locale,
-                definition.sort_options, &definition.sort_overrides,
+                &definition.sort_fields,
+                &definition.schema,
+                &definition.sort_locale,
+                definition.sort_options,
+                &definition.sort_overrides,
             )?,
             relations: RelationContribution::for_schema(&definition.schema),
         })
@@ -133,12 +160,12 @@ impl SegmentAggregate {
         count: u32,
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<(), String> {
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         self.postings.merge_shifted(batch.postings, base)?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.postings_ns += started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         match (self.inference.as_mut(), batch.inference) {
             (Some(global), Some(local)) => global.merge_shifted(local, base)?,
             (None, None) => {}
@@ -147,7 +174,7 @@ impl SegmentAggregate {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.inference_ns += started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         if self.relations.len() != batch.relations.len() {
             return Err("relation segment coverage mismatch".into());
         }
@@ -157,49 +184,58 @@ impl SegmentAggregate {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.relations_ns += started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         if self.custom_postings.len() != batch.custom_postings.len() {
             return Err("custom posting segment coverage mismatch".into());
         }
         for (key, local) in batch.custom_postings {
-            let global = self.custom_postings.get_mut(&key).ok_or("custom posting segment missing")?;
+            let global = self
+                .custom_postings
+                .get_mut(&key)
+                .ok_or("custom posting segment missing")?;
             global.index.merge_shifted(local.index, base)?;
             global.complete &= local.complete;
         }
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.custom_postings_ns += started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         self.raw.merge_shifted(batch.raw, base)?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.raw_bigrams_ns += started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
-        self.fallback_text.merge_shifted(batch.fallback_text, base)?;
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
+        self.fallback_text
+            .merge_shifted(batch.fallback_text, base)?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.fallback_bigrams_ns += started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         if self.custom_text.len() != batch.custom_text.len() {
             return Err("custom bigram segment coverage mismatch".into());
         }
         for (key, index) in batch.custom_text {
-            self.custom_text.get_mut(&key).ok_or("custom bigram segment missing")?
+            self.custom_text
+                .get_mut(&key)
+                .ok_or("custom bigram segment missing")?
                 .merge_shifted(index, base)?;
         }
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.custom_bigrams_ns += started.elapsed().as_nanos() as u64;
-            profile.bigrams_ns = profile.raw_bigrams_ns
-                + profile.fallback_bigrams_ns
-                + profile.custom_bigrams_ns;
+            profile.bigrams_ns =
+                profile.raw_bigrams_ns + profile.fallback_bigrams_ns + profile.custom_bigrams_ns;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         append_shifted_bitmap(&mut self.logical_records, &batch.logical_records, base)?;
-        append_shifted_bitmap(&mut self.empty_array_records, &batch.empty_array_records, base)?;
+        append_shifted_bitmap(
+            &mut self.empty_array_records,
+            &batch.empty_array_records,
+            base,
+        )?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.structural_facts_ns += started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         self.sorting.append_keys(batch.sort_keys, base, count)?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.sorting_ns += started.elapsed().as_nanos() as u64;
@@ -404,7 +440,7 @@ impl SegmentAdmission {
         mut batch: BatchContribution,
         mut profile: Option<&mut AdmissionBreakdown>,
     ) -> Result<(), String> {
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let base = u32::try_from(self.records.len()).map_err(|_| "too many segment records")?;
         let count = u32::try_from(batch.records.len()).map_err(|_| "too many batch records")?;
         base.checked_add(count)
@@ -541,7 +577,14 @@ impl CollectionSegment {
         collection_count: usize,
         pool: &ThreadPool,
     ) -> Result<IndexedCollectionSegment, String> {
-        self.into_indexed_profiled(definition, alphabet, inference_config, collection_count, pool, None)
+        self.into_indexed_profiled(
+            definition,
+            alphabet,
+            inference_config,
+            collection_count,
+            pool,
+            None,
+        )
     }
 
     pub fn into_indexed_profiled(
@@ -553,24 +596,39 @@ impl CollectionSegment {
         pool: &ThreadPool,
         mut profile: Option<&mut IncrementalSegmentProfile>,
     ) -> Result<IndexedCollectionSegment, String> {
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut aggregate = match self.aggregate {
             Some(aggregate) => aggregate,
-            None => SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?,
+            None => {
+                SegmentAggregate::new(definition, alphabet, inference_config, collection_count)?
+            }
         };
-        for SegmentBatch { base, count, contribution } in self.batches {
+        for SegmentBatch {
+            base,
+            count,
+            contribution,
+        } in self.batches
+        {
             aggregate.admit(contribution, base, count)?;
         }
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.aggregate_merge_ns = started.elapsed().as_nanos() as u64;
         }
         let SegmentAggregate {
-            mut postings, inference, mut custom_postings, raw, fallback_text,
-            custom_text, logical_records, empty_array_records, sorting, relations,
+            mut postings,
+            inference,
+            mut custom_postings,
+            raw,
+            fallback_text,
+            custom_text,
+            logical_records,
+            empty_array_records,
+            sorting,
+            relations,
         } = aggregate;
         let record_count = self.records.len();
         let logical_count = logical_records.len() as usize;
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         postings.finish_stats();
         postings.validate_eligible(record_count, logical_count)?;
         if logical_count != record_count {
@@ -591,7 +649,7 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.postings_finish_validation_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let raw = raw.into_index_in_pool(pool)?;
         let fallback_text = fallback_text.into_index_in_pool(pool)?;
         let custom_text = custom_text
@@ -601,7 +659,7 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.bigram_finish_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         raw.validate(record_count)?;
         fallback_text.validate(record_count)?;
         if logical_count != record_count {
@@ -623,19 +681,19 @@ impl CollectionSegment {
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.bigram_validation_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let sorting = sorting.finish_for_records(&self.records)?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.sorting_finish_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let inference = inference
             .map(|builder| builder.finish(&logical_records, record_count, &definition.schema))
             .transpose()?;
         if let (Some(started), Some(profile)) = (phase, profile.as_mut()) {
             profile.inference_finish_ns = started.elapsed().as_nanos() as u64;
         }
-        let phase = profile.as_ref().map(|_| Instant::now());
+        let phase = crate::detailed_timer::start_if_enabled(profile.is_some());
         let mut identity_order = self
             .records
             .iter()
@@ -1248,7 +1306,10 @@ fn empty_projected_posting(source: &PostingIndex, logical_count: u32) -> Posting
         presence: RoaringBitmap::new(),
         empty_selections: RoaringBitmap::new(),
         nulls: RoaringBitmap::new(),
-        structural: source.structural.as_ref().map(|_| StructuralFacts::default()),
+        structural: source
+            .structural
+            .as_ref()
+            .map(|_| StructuralFacts::default()),
         values: Default::default(),
         lengths: Default::default(),
         value_complete: source.value_complete,
@@ -1321,7 +1382,10 @@ fn project_posting(
         presence: project_bitmap_in_range(&index.presence, slots, bounds)?,
         empty_selections: project_bitmap_in_range(&index.empty_selections, slots, bounds)?,
         nulls: project_bitmap_in_range(&index.nulls, slots, bounds)?,
-        structural: index.structural.as_ref().map(|_| StructuralFacts::default()),
+        structural: index
+            .structural
+            .as_ref()
+            .map(|_| StructuralFacts::default()),
         values: Default::default(),
         lengths: Default::default(),
         value_complete: index.value_complete,
