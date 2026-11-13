@@ -3,6 +3,7 @@ use crate::backend::test_support::fixture;
 use crate::backend::{OpenSpec, open};
 use objekte_cli::arguments::Arguments;
 use objekte_search_core::inference::InferenceMode;
+use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
 use objekte_search_core::workload::BigramAlphabet;
 
 #[test]
@@ -23,6 +24,38 @@ fn manual_shutdown_does_not_write_an_index() {
     after.sort();
     assert_eq!(before, after);
     assert_eq!(status(&fixture.session).unwrap().saved_revision, None);
+}
+
+#[test]
+fn managed_close_flushes_latest_revision_and_cancel_resumes_sync() {
+    let root = tempfile::tempdir().unwrap();
+    crate::backend::test_support::write_records(root.path());
+    let session = open(
+        &OpenSpec {
+            storage_policy: Some(IndexStoragePolicy {
+                location: IndexStorageLocation::RepositoryDirectory,
+                residency: IndexResidency::OnDemand,
+            }),
+            args: Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let index = session.repository.index();
+    index.stop_sync_storage().unwrap();
+    std::fs::write(root.path().join("late.json"), r#"{"title":"Late"}"#).unwrap();
+    index.add_file(&root.path().join("late.json")).unwrap();
+    assert_ne!(index.storage_status().unwrap().durable_generation, Some(index.status().unwrap().revision.0));
+    shutdown_with_storage_flush(&session).unwrap();
+    assert_eq!(index.storage_status().unwrap().durable_generation, Some(index.status().unwrap().revision.0));
+    resume_after_cancelled_close(&session, None, false).unwrap();
+    std::fs::write(root.path().join("later.json"), r#"{"title":"Later"}"#).unwrap();
+    index.add_file(&root.path().join("later.json")).unwrap();
+    shutdown_with_storage_flush(&session).unwrap();
 }
 
 #[test]
@@ -152,90 +185,4 @@ fn save_as_copy_does_not_select_an_automatic_destination() {
     assert!(after.dirty());
     save_index(&fixture.session, &copy, true).unwrap();
     assert!(!status(&fixture.session).unwrap().dirty());
-}
-
-#[test]
-fn automatic_save_requires_configured_repository_and_selected_destination() {
-    let fixture = fixture();
-    assert_eq!(
-        set_automatic_save(&fixture.session, true).unwrap_err().kind,
-        BackendErrorKind::Options
-    );
-
-    let root = tempfile::tempdir().unwrap();
-    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
-    std::fs::create_dir_all(root.path().join("data")).unwrap();
-    std::fs::write(
-        root.path().join(".objekte/collections/data.schema.json"),
-        br#"{"type":"object","x-objekte":{"name":"data","path":"data","format":"json","id":"filename"}}"#,
-    )
-    .unwrap();
-    std::fs::write(root.path().join("data/a.json"), br#"{"name":"A"}"#).unwrap();
-    let session = open(
-        &OpenSpec {
-            args: Arguments {
-                repo: Some(root.path().to_path_buf()),
-                ..Default::default()
-            },
-            cwd: root.path().to_path_buf(),
-            configured_cache_policy: None,
-        },
-        &CancellationToken::new(),
-    )
-    .unwrap();
-    assert!(session.configuration.cache_save.is_some());
-    set_automatic_save(&session, true).unwrap();
-    set_automatic_save(&session, false).unwrap();
-    assert!(session.configuration.cache_save.as_ref().unwrap().exists());
-    assert!(!status(&session).unwrap().dirty());
-
-    std::fs::write(root.path().join("data/b.json"), br#"{"name":"B"}"#).unwrap();
-    check_for_changes(&session).unwrap().wait().unwrap();
-    assert!(status(&session).unwrap().dirty());
-    set_automatic_save(&session, true).unwrap();
-    shutdown_with_final_save(&session).unwrap();
-    assert!(!status(&session).unwrap().dirty());
-    let final_revision = status(&session).unwrap().revision;
-    let late_file = root.path().join("data/c.json");
-    std::fs::write(&late_file, br#"{"name":"C"}"#).unwrap();
-    assert!(matches!(
-        session.repository.index().add_file(&late_file),
-        Err(objekte_search_core::lifecycle::IndexError::Cancelled)
-    ));
-    assert_eq!(status(&session).unwrap().revision, final_revision);
-
-    // Cancel close restores a usable index and its explicit save policy.
-    resume_after_cancelled_close(&session, None, true).unwrap();
-    session.repository.index().add_file(&late_file).unwrap();
-    set_automatic_save(&session, false).unwrap();
-    let pending_file = root.path().join("data/d.json");
-    std::fs::write(&pending_file, br#"{"name":"D"}"#).unwrap();
-    session.repository.index().add_file(&pending_file).unwrap();
-    let destination = session.configuration.cache_save.as_ref().unwrap();
-    std::fs::remove_file(destination).unwrap();
-    std::fs::create_dir(destination).unwrap();
-    let final_status = status(&session).unwrap();
-    let final_revision = final_status.revision;
-    assert!(shutdown_with_final_save(&session).is_err());
-    assert_eq!(
-        session.repository.index().view().unwrap().revision(),
-        final_revision
-    );
-    assert!(matches!(
-        session.repository.index().start_reconcile(),
-        Err(objekte_search_core::lifecycle::IndexError::Cancelled)
-    ));
-    std::fs::remove_dir(destination).unwrap();
-    shutdown_with_final_save(&session).unwrap();
-    assert_eq!(
-        status(&session).unwrap().saved_revision,
-        Some(final_revision)
-    );
-    let restored = load_index(&session, destination, &CancellationToken::new()).unwrap();
-    assert_eq!(status(&restored).unwrap().revision, final_revision);
-    assert_eq!(
-        status(&restored).unwrap().live_records,
-        final_status.live_records
-    );
-    shutdown(&restored).unwrap();
 }

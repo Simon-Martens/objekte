@@ -1311,92 +1311,20 @@ impl DesktopView {
                         div().text_xs().text_color(rgb(colors.error))
                             .child(self.state.index_interval_error.clone().unwrap_or_default())
                     ))
-                    .child(div().text_xs().text_color(rgb(colors.secondary)).child(
-                        "The first check after loading a saved index runs even when periodic checking is off.",
-                    ))
                     .child(div().h(px(1.)).my_2().bg(rgb(colors.border)))
-                    .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Saved index"))
-                    .child(div().text_xs().child(format!("Loaded from: {}", index.loaded_from.as_deref().unwrap_or("None"))))
-                    .child(div().text_xs().child(format!("Save destination: {}", index.save_destination.as_deref().unwrap_or("None selected"))))
-                    .child(div().text_xs().child(if index.save_destination.is_none() {
-                        "No save destination selected"
-                    } else if index.dirty {
-                        "Index changes not saved"
-                    } else {
-                        "Index saved to selected destination"
-                    }))
-                    .child(div().flex().gap_2()
-                        .child(Button::new("index-save").label("Save index")
-                            .disabled(self.state.root.is_none())
-                            .on_click(cx.listener(|this, _, _, _| this.send(UiAction::SaveIndex))))
-                        .child(Button::new("index-save-as").label("Save index as…")
-                            .disabled(self.state.root.is_none())
-                            .on_click(cx.listener(|this, _, _, cx| {
-                                this.state.index_overwrite_pending = None;
-                                let path = this.inputs.index_save_path.read(cx).value().to_string();
-                                if path.trim().is_empty() {
-                                    this.state.index_picker_generation = this.state.index_picker_generation.wrapping_add(1);
-                                    this.send(UiAction::ChooseIndexSavePath { generation: this.state.index_picker_generation, save_after_selection: true });
-                                } else {
-                                    this.send(UiAction::SaveIndexAs(path));
-                                }
-                            }))))
-                    .when(self.state.index_overwrite_pending.is_some(), |this| {
-                        let path = self.state.index_overwrite_pending.clone().unwrap_or_default();
-                        this.child(div().flex().flex_col().gap_1().p_2().bg(rgb(colors.raised))
-                            .child(div().text_xs().text_color(rgb(colors.error))
-                                .child(format!("A different file already exists at {path}. Replace it with this index?")))
-                            .child(div().flex().gap_2()
-                                .child(Button::new("index-confirm-overwrite").label("Replace file")
-                                    .on_click(cx.listener(move |this, _, _, _| {
-                                        this.send(UiAction::ConfirmSaveIndexAs(path.clone()));
-                                    })))
-                                .child(Button::new("index-cancel-overwrite").ghost().label("Cancel")
-                                    .on_click(cx.listener(|this, _, _, cx| {
-                                        this.state.index_overwrite_pending = None;
-                                        cx.notify();
-                                    })))))
-                    })
-                    .child(div().flex().items_center().gap_2()
-                        .child(Input::new(&self.inputs.index_save_path).id("index-save-path").w_full())
-                        .child(Button::new("index-save-browse").label("Browse…")
-                            .on_click(cx.listener(|this, _, _, _| {
-                                this.state.index_picker_generation = this.state.index_picker_generation.wrapping_add(1);
-                                this.send(UiAction::ChooseIndexSavePath { generation: this.state.index_picker_generation, save_after_selection: false });
-                            }))))
-                    .child(div().text_xs().child("Save index as writes a separate snapshot. It does not change automatic saving."))
-                    .child(div().flex().items_center().gap_2()
-                        .child(Input::new(&self.inputs.index_load_path).id("index-load-path").w_full())
-                        .child(Button::new("index-load-browse").label("Browse…")
-                            .on_click(cx.listener(|this, _, _, _| {
-                                this.state.index_picker_generation = this.state.index_picker_generation.wrapping_add(1);
-                                this.send(UiAction::ChooseIndexLoadPath { generation: this.state.index_picker_generation, load_after_selection: false });
-                            }))))
-                    .child(Button::new("index-load").label("Load index…")
-                        .disabled(self.state.root.is_none())
-                        .on_click(cx.listener(|this, _, _, cx| {
-                            let path = this.inputs.index_load_path.read(cx).value().to_string();
-                            if path.trim().is_empty() {
-                                this.state.index_picker_generation = this.state.index_picker_generation.wrapping_add(1);
-                                this.send(UiAction::ChooseIndexLoadPath { generation: this.state.index_picker_generation, load_after_selection: true });
-                            } else {
-                                this.send(UiAction::LoadIndex(path));
-                            }
-                        })))
-                    .child(
-                        Checkbox::new("index-auto-save")
-                            .checked(index.automatic_save)
-                            .accessibility_label("Automatically save index")
-                            .child("Automatically save index")
-                            .disabled(!index.automatic_save_available)
-                            .on_change(cx.listener(|this, enabled: &bool, _, _| {
-                                this.send(UiAction::SetAutomaticSaving(*enabled));
-                            })),
-                    )
-                    .when(index.automatic_save_reason.is_some(), |this| this.child(
-                        div().text_xs().text_color(rgb(colors.secondary))
-                            .child(index.automatic_save_reason.clone().unwrap_or_default())
+                    .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Index storage"))
+                    .child(div().text_xs().child(format!("Location: {}", index.storage_location)))
+                    .child(div().text_xs().child(format!("Residency: {}", index.residency)))
+                    .child(div().text_xs().child(format!("Synchronization: {}", index.synchronization)))
+                    .when(index.managed_directory.is_some(), |this| this.child(
+                        div().text_xs().child(format!("Managed folder: {}",
+                            index.managed_directory.as_deref().unwrap_or_default()))
                     ))
+                    .child(Button::new("index-change-storage").label("Change storage…")
+                        .disabled(self.state.root.is_none())
+                        .on_click(cx.listener(|this, _, window, cx| {
+                            this.show_open_dialog(window, cx);
+                        })))
                     .child(div().h(px(1.)).my_2().bg(rgb(colors.border)))
                     .child(div().text_sm().font_weight(FontWeight::SEMIBOLD).child("Maintenance"))
                     .child(div().text_xs().child(format!("{} files · {} records",

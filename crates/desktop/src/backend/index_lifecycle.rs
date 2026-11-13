@@ -252,7 +252,8 @@ pub fn stop_automation(session: &OpenedSession) -> Result<(), BackendError> {
     index
         .stop_periodic_reconciliation()
         .map_err(lifecycle_error)?;
-    index.stop_sync_cache().map_err(lifecycle_error)
+    index.stop_sync_cache().map_err(lifecycle_error)?;
+    index.stop_sync_storage().map_err(lifecycle_error)
 }
 
 pub fn shutdown(session: &OpenedSession) -> Result<(), BackendError> {
@@ -283,6 +284,16 @@ pub fn shutdown_with_final_save(session: &OpenedSession) -> Result<(), BackendEr
     shutdown(session)
 }
 
+/// Finish every mutation and persist the accepted managed generation before
+/// the window closes. A failed flush remains quiesced so Retry can use the
+/// same publication; Cancel close resumes it below.
+pub fn shutdown_with_storage_flush(session: &OpenedSession) -> Result<(), BackendError> {
+    let index = session.repository.index();
+    index.quiesce().map_err(lifecycle_error)?;
+    index.flush_storage().map_err(lifecycle_error)?;
+    shutdown(session)
+}
+
 pub fn resume_after_cancelled_close(
     session: &OpenedSession,
     check_interval: Option<Duration>,
@@ -294,7 +305,22 @@ pub fn resume_after_cancelled_close(
         .resume_after_quiesce()
         .map_err(lifecycle_error)?;
     set_periodic_check(session, check_interval)?;
-    set_automatic_save(session, automatic_save)
+    if session
+        .repository
+        .index()
+        .storage_status()
+        .map_err(lifecycle_error)?
+        .managed_directory
+        .is_some()
+    {
+        session
+            .repository
+            .index()
+            .set_sync_storage(true)
+            .map_err(lifecycle_error)
+    } else {
+        set_automatic_save(session, automatic_save)
+    }
 }
 
 #[cfg(test)]

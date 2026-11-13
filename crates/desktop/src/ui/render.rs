@@ -1705,8 +1705,10 @@ impl DesktopView {
             "Some files could not be checked".to_owned()
         } else if matches!(index.save, IndexTaskState::Failed(_)) {
             "Index could not be saved".to_owned()
+        } else if index.storage_location == "Memory only" {
+            "Index in memory".to_owned()
         } else if index.dirty {
-            "Index changes not saved".to_owned()
+            "Index changes not synchronized".to_owned()
         } else if index.check_complete == Some(true) {
             "Files checked".to_owned()
         } else {
