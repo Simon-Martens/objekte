@@ -81,7 +81,7 @@ fn fixture() -> (
         &root,
         SourceFileInput {
             id: FileId(0),
-            relative_path: PathBuf::from("data/sample.jsonl"),
+            relative_path: PathBuf::from("data/sample.jsonl").into(),
             revision: SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
             created_ns: repository.files().files[0].created_ns,
         },
