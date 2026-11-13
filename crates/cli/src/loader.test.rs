@@ -1,4 +1,26 @@
 use super::*;
+use objekte_search_core::index_storage::IndexStorageLocation;
+use objekte_search_core::source::SourceRegistry;
+
+fn open_with_policy(
+    args: &Arguments,
+    paths: &ResolvedPaths,
+    configured: &ConfiguredDefinitions,
+) -> Result<IndexedRepository, String> {
+    let storage = args.resolved_index_storage_policy(paths)?;
+    let index = Index::open_with_storage(
+        &paths.root,
+        configured.definitions.clone(),
+        repository_options(args),
+        storage,
+        SourceRegistry::builtin(),
+    )
+    .map_err(|error| error.to_string())?;
+    index
+        .protect_configuration_files(&configured.protected_files)
+        .map_err(|error| error.to_string())?;
+    IndexedRepository::new(index).map_err(|error| error.to_string())
+}
 
 #[test]
 fn shared_cli_and_tui_loader_enables_bounded_verified_cache() {
@@ -9,7 +31,7 @@ fn shared_cli_and_tui_loader_enables_bounded_verified_cache() {
 }
 
 #[test]
-fn configured_repository_uses_lifecycle_cache_for_load_and_write_flags() {
+fn configured_repository_reopens_its_managed_generation() {
     let root = tempfile::tempdir().unwrap();
     let schemas = root.path().join(".objekte/collections");
     std::fs::create_dir_all(&schemas).unwrap();
@@ -26,65 +48,39 @@ fn configured_repository_uses_lifecycle_cache_for_load_and_write_flags() {
     .unwrap();
     let args = Arguments {
         repo: Some(root.path().to_owned()),
+        index_storage: IndexStorageChoice::Repository,
         ..Arguments::default()
     };
     let paths = args.resolve_paths(root.path()).unwrap();
     let configured = configure_definitions(&args, &paths).unwrap();
-    let options = RepositoryOptions::default();
-    let write = SnapshotOpenPolicy::new(SnapshotMode::Disabled, None);
-    let (built, _, save) =
-        open_repository(root.path(), &configured, options, write, true, true, false).unwrap();
-    assert!(!built.startup().restored);
-    assert!(save.is_some());
-    let cache = objekte_search_core::storage::snapshot_path(root.path(), options.bigram_alphabet);
-    assert!(cache.is_file());
-    let load = SnapshotOpenPolicy::new(SnapshotMode::Required, None);
-    let (restored, _, save) =
-        open_repository(root.path(), &configured, options, load, false, true, false).unwrap();
-    assert!(restored.startup().restored);
-    assert!(save.is_none());
+    let built = open_with_policy(&args, &paths, &configured).unwrap();
+    assert!(!built.index().restored_from_cache());
+    assert!(root.path().join(".objekte/indexes").is_dir());
+    let restored = open_with_policy(&args, &paths, &configured).unwrap();
+    assert!(restored.index().restored_from_cache());
     restored.index().wait_for_reconciliation().unwrap();
 }
 
 #[test]
-fn explicit_folder_load_replaces_invalid_cache_and_restores_next_time() {
+fn selected_storage_removes_recognized_old_snapshot_without_loading_it() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("a.json"), br#"{"title":"A"}"#).unwrap();
     std::fs::create_dir(root.path().join(".objekte")).unwrap();
     let args = Arguments {
         path: vec![root.path().to_owned()],
-        load_index: Some(root.path().join(".objekte").display().to_string()),
+        index_storage: IndexStorageChoice::Repository,
         ..Arguments::default()
     };
     let paths = args.resolve_paths(root.path()).unwrap();
     let configured = configure_definitions(&args, &paths).unwrap();
     let options = repository_options(&args);
     let cache = objekte_search_core::storage::snapshot_path(root.path(), options.bigram_alphabet);
-    std::fs::write(&cache, b"invalid cache").unwrap();
-    let policy = snapshot_policy(&args, &paths);
-    let (rebuilt, _, _) = open_repository(
-        &paths.root,
-        &configured,
-        options,
-        policy.clone(),
-        false,
-        false,
-        false,
-    )
-    .unwrap();
-    assert!(!rebuilt.startup().restored);
-    assert_ne!(std::fs::read(&cache).unwrap(), b"invalid cache");
-    let (restored, _, _) = open_repository(
-        &paths.root,
-        &configured,
-        options,
-        policy,
-        false,
-        false,
-        false,
-    )
-    .unwrap();
-    assert!(restored.startup().restored);
+    std::fs::write(&cache, b"OBJSNAP1\x1b\0\0\0").unwrap();
+    let rebuilt = open_with_policy(&args, &paths, &configured).unwrap();
+    assert!(!rebuilt.index().restored_from_cache());
+    assert!(!cache.exists());
+    let restored = open_with_policy(&args, &paths, &configured).unwrap();
+    assert!(restored.index().restored_from_cache());
     restored.index().wait_for_reconciliation().unwrap();
 }
 
@@ -112,21 +108,12 @@ fn configured_open_uses_the_already_loaded_schema() {
     let paths = args.resolve_paths(root.path()).unwrap();
     let configured = configure_definitions(&args, &paths).unwrap();
     std::fs::write(&schema, b"invalid JSON after configuration was captured").unwrap();
-    let (opened, _, _) = open_repository(
-        root.path(),
-        &configured,
-        RepositoryOptions::default(),
-        SnapshotOpenPolicy::new(SnapshotMode::Disabled, None),
-        false,
-        true,
-        false,
-    )
-    .unwrap();
+    let opened = open_with_policy(&args, &paths, &configured).unwrap();
     assert_eq!(opened.collections()[0].definition.name, "data");
 }
 
 #[test]
-fn explicit_path_cache_write_cannot_replace_a_schema_hardlink() {
+fn selected_custom_store_cannot_replace_a_schema_hardlink() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("a.json"), br#"{"title":"A"}"#).unwrap();
     let schema = root.path().join("schema.json");
@@ -142,23 +129,14 @@ fn explicit_path_cache_write_cannot_replace_a_schema_hardlink() {
     let args = Arguments {
         path: vec![root.path().to_owned()],
         schema: Some(schema.clone()),
-        write_index: Some(cache_dir.to_string_lossy().into_owned()),
+        index_storage: IndexStorageChoice::Custom,
+        index_directory: Some(cache_dir),
         ..Arguments::default()
     };
     let paths = args.resolve_paths(root.path()).unwrap();
     let configured = configure_definitions(&args, &paths).unwrap();
-    let error = open_repository(
-        &paths.root,
-        &configured,
-        repository_options(&args),
-        snapshot_policy(&args, &paths),
-        true,
-        false,
-        false,
-    )
-    .err()
-    .unwrap();
-    assert!(error.contains("aliases configuration file"), "{error}");
+    let error = open_with_policy(&args, &paths, &configured).err().unwrap();
+    assert!(error.contains("unknown index format"), "{error}");
     assert_eq!(std::fs::read(schema).unwrap(), bytes);
     assert_eq!(std::fs::read(cache).unwrap(), bytes);
 }
@@ -202,7 +180,7 @@ fn repository_loader_matches_core_definitions_and_protects_schema_paths() {
 }
 
 #[test]
-fn configured_cache_directory_keeps_unrelated_source_siblings() {
+fn configured_custom_base_keeps_unrelated_source_siblings() {
     let root = tempfile::tempdir().unwrap();
     let schemas = root.path().join(".objekte/collections");
     let data = root.path().join("data");
@@ -222,7 +200,8 @@ fn configured_cache_directory_keeps_unrelated_source_siblings() {
     .unwrap();
     let args = Arguments {
         repo: Some(root.path().to_owned()),
-        write_index: Some(cache.to_string_lossy().into_owned()),
+        index_storage: IndexStorageChoice::Custom,
+        index_directory: Some(cache.clone()),
         ..Arguments::default()
     };
     let paths = args.resolve_paths(root.path()).unwrap();
@@ -235,17 +214,8 @@ fn configured_cache_directory_keeps_unrelated_source_siblings() {
     );
 
     configured.definitions[0].discovery.recursive = true;
-    let (repo, _, saved) = open_repository(
-        root.path(),
-        &configured,
-        RepositoryOptions::default(),
-        SnapshotOpenPolicy::new(SnapshotMode::Disabled, Some(cache)),
-        true,
-        true,
-        false,
-    )
-    .unwrap();
-    assert!(saved.is_some());
+    let repo = open_with_policy(&args, &paths, &configured).unwrap();
+    assert!(cache.join("objekte-indexes").is_dir());
     let view = repo.index().view().unwrap();
     assert!(
         view.file_handle_for_path(std::path::Path::new("data/a.json"))
@@ -287,25 +257,19 @@ fn custom_index_base_inside_source_excludes_only_objekte_namespace() {
 }
 
 #[test]
-fn default_index_directory_retains_legacy_duplicate_exclusion() {
+fn default_memory_policy_excludes_configuration_directory_once() {
     let root = tempfile::tempdir().unwrap();
-    let args = Arguments {
-        write_index: Some(String::new()),
-        ..Arguments::default()
-    };
+    let args = Arguments::default();
     let paths = args.resolve_paths(root.path()).unwrap();
     let configured = configure_definitions(&args, &paths).unwrap();
     assert_eq!(
         configured.definitions[0].discovery.exclude_directories,
-        vec![PathBuf::from(".objekte"), PathBuf::from(".objekte")]
+        vec![PathBuf::from(".objekte")]
     );
     assert!(configured.definitions[0].discovery.exclude_files.is_empty());
-    assert!(
-        configured.definitions[0]
-            .discovery
-            .exclude
-            .iter()
-            .all(|pattern| !pattern.contains("objekte-snapshot"))
+    assert_eq!(
+        args.index_storage_policy().unwrap().location,
+        IndexStorageLocation::MemoryOnly
     );
 }
 
