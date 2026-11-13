@@ -40,6 +40,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     let configured = (|| {
         let cwd = std::env::current_dir().map_err(|error| error.to_string())?;
         let paths = args.resolve_paths(&cwd)?;
+        let storage_policy = args.resolved_index_storage_policy(&paths)?;
         let configured = configure_definitions(args, &paths)?;
         let options = repository_options(args);
         let mut source = QuerySource::open(args)?;
@@ -57,17 +58,19 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             paths.root,
             configured,
             options,
+            storage_policy,
             initial_search,
             initial_filter,
         ))
     })();
-    let (root, configured, options, initial_search, initial_filter) = match configured {
-        Ok(configured) => configured,
-        Err(error) => {
-            eprintln!("obj: {error}");
-            return Exit::Arguments;
-        }
-    };
+    let (root, configured, options, storage_policy, initial_search, initial_filter) =
+        match configured {
+            Ok(configured) => configured,
+            Err(error) => {
+                eprintln!("obj: {error}");
+                return Exit::Arguments;
+            }
+        };
     if args.index_storage != IndexStorageChoice::Memory {
         eprintln!(
             "obj: disk index storage is not available until the shared generation opener is connected"
@@ -81,8 +84,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         offset: args.offset,
         limit: args.limit,
         interruption: Some(token.clone()),
-        snapshot_requested: false,
-        snapshot_path: None,
+        storage_policy,
         loading_label: Some("Building search index".to_owned()),
     };
     let result =
@@ -541,10 +543,7 @@ fn run_queries<W: Write>(
     if token.is_cancelled() {
         return cancel_run(output, successes, failures, started);
     }
-    if source.is_file()
-        && source.yielded() == 0
-        && args.load_index.is_none()
-        && args.write_index.is_none()
+    if source.is_file() && source.yielded() == 0 && args.index_storage == IndexStorageChoice::Memory
     {
         let message = "query file contains no queries";
         eprintln!("obj: {message}");

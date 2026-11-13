@@ -97,7 +97,6 @@ fn field_label(path: &str, modifiers: &[Modifier]) -> String {
     label
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Focus {
     Search,
@@ -105,14 +104,12 @@ pub(super) enum Focus {
     Results,
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum View {
     Results,
     Files,
     Detail,
 }
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Overlay {
@@ -126,7 +123,6 @@ pub(super) enum Overlay {
     Export { all: bool },
     Help,
 }
-
 
 /// Commands exposed by the action picker and their keyboard shortcuts.
 #[derive(Clone, Copy, Debug)]
@@ -146,7 +142,6 @@ pub(super) enum Action {
     Theme,
     Help,
 }
-
 
 impl Action {
     pub(super) const ALL: [Self; 14] = [
@@ -186,7 +181,6 @@ impl Action {
     }
 }
 
-
 /// Search response tagged with the input generation and requested page.
 struct Update {
     generation: u64,
@@ -199,13 +193,11 @@ struct Update {
     view: Option<IndexView>,
 }
 
-
 struct FilterCompletion {
     context: CompletionContext,
     choices: Vec<String>,
     selected: usize,
 }
-
 
 /// Query inputs, page state, and terminal navigation for one repository.
 pub(super) struct App {
@@ -219,7 +211,6 @@ pub(super) struct App {
     last_search_view: Option<IndexView>,
     pub(super) provisional: bool,
     refresh_requested: bool,
-    snapshot_save_receiver: Option<mpsc::Receiver<Result<(), String>>>,
     pub(super) single_collection: bool,
     base_offset: usize,
     result_limit: Option<usize>,
@@ -284,7 +275,6 @@ pub(super) struct App {
     receiver: mpsc::Receiver<Update>,
 }
 
-
 impl App {
     #[cfg(test)]
     pub(super) fn new(repository: Repository) -> Self {
@@ -340,21 +330,6 @@ impl App {
         let building = build_status
             .as_ref()
             .is_some_and(|status| !status.construction_complete);
-        let snapshot_save_receiver =
-            if let (Some(task), Some(path)) = (&build_task, options.snapshot_path.clone()) {
-                let task = task.clone();
-                let (sender, receiver) = mpsc::channel();
-                std::thread::spawn(move || {
-                    let result = task
-                        .wait_complete()
-                        .and_then(|index| index.flush_cache_with_stats(&path).map(|_| ()))
-                        .map_err(|error| error.to_string());
-                    let _ = sender.send(result);
-                });
-                Some(receiver)
-            } else {
-                None
-            };
         let build_receiver = build_task.as_ref().map(|task| {
             let task = task.clone();
             let (sender, receiver) = mpsc::sync_channel(1);
@@ -404,7 +379,6 @@ impl App {
             last_search_view: None,
             provisional: building,
             refresh_requested: false,
-            snapshot_save_receiver,
             single_collection: options.single_collection,
             base_offset: options.offset,
             result_limit: options.limit,
@@ -1261,23 +1235,6 @@ impl App {
 
     pub(super) fn tick(&mut self, now: Instant) {
         self.poll_build();
-        if let Some(receiver) = &self.snapshot_save_receiver {
-            match receiver.try_recv() {
-                Ok(Ok(())) => {
-                    self.status = Some("Snapshot saved".into());
-                    self.snapshot_save_receiver = None;
-                }
-                Ok(Err(error)) => {
-                    self.status = Some(format!("Snapshot save failed: {error}"));
-                    self.snapshot_save_receiver = None;
-                }
-                Err(mpsc::TryRecvError::Disconnected) => {
-                    self.status = Some("Snapshot save worker stopped".into());
-                    self.snapshot_save_receiver = None;
-                }
-                Err(mpsc::TryRecvError::Empty) => {}
-            }
-        }
         while let Ok(update) = self.receiver.try_recv() {
             self.inflight = self.inflight.saturating_sub(1);
             if update.generation != self.generation {
@@ -1746,7 +1703,6 @@ impl App {
         }
     }
 }
-
 
 fn sort_label(sort: &SortField) -> String {
     let Some(expression) = &sort.expression else {

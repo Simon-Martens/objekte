@@ -18,9 +18,9 @@ use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
 use app::{Action, App, Focus, Overlay, View};
+use objekte_search_core::index_storage::{IndexStorageLocation, IndexStoragePolicy};
 use objekte_search_core::lifecycle::{InitialBuildPhase, InitialBuildSnapshot, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
-use objekte_search_core::repository::SnapshotAction;
 use objekte_search_core::streaming::CancellationToken;
 use ratatui::crossterm::{
     event::{
@@ -30,7 +30,6 @@ use ratatui::crossterm::{
     execute,
 };
 
-
 #[derive(Clone, Default)]
 pub struct TuiOptions {
     pub single_collection: bool,
@@ -39,13 +38,10 @@ pub struct TuiOptions {
     pub offset: usize,
     pub limit: Option<usize>,
     pub loading_label: Option<String>,
-    /// An explicit save was requested at startup.
-    pub snapshot_requested: bool,
-    /// Destination used only after an incremental build is complete.
-    pub snapshot_path: Option<std::path::PathBuf>,
+    /// Shared storage choice for the current opening.
+    pub storage_policy: IndexStoragePolicy,
     pub interruption: Option<CancellationToken>,
 }
-
 
 pub fn run_with_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
 where
@@ -54,13 +50,11 @@ where
     run_with_opening_loader(move || loader().map(TuiOpening::Ready), options)
 }
 
-
-/// A selected cache can load immediately or fall back to a fresh incremental build.
+/// A repository can be ready immediately or still building its initial catalogue.
 pub enum TuiOpening {
     Ready(IndexedRepository),
     Initial(InitialBuildTask, Vec<PathBuf>),
 }
-
 
 pub fn run_with_opening_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
 where
@@ -166,13 +160,11 @@ fn run_initial_active(
 ) -> Result<(), Box<dyn Error>> {
     struct CancelOnExit(InitialBuildTask);
 
-
     impl Drop for CancelOnExit {
         fn drop(&mut self) {
             self.0.cancel();
         }
     }
-
 
     let guard = CancelOnExit(task);
     (|| -> Result<(), Box<dyn Error>> {
@@ -253,24 +245,28 @@ fn run_active(
     options: TuiOptions,
     initial: Option<(InitialBuildTask, InitialBuildSnapshot)>,
 ) -> Result<(), Box<dyn Error>> {
-    let action = repository.startup().snapshot_action;
     let timings = repository.index().timings_ms()?;
-    let snapshot_requested = options.snapshot_requested;
+    let storage_label = match &options.storage_policy.location {
+        IndexStorageLocation::MemoryOnly => "Memory index",
+        IndexStorageLocation::SystemTemporary => "Temporary index",
+        IndexStorageLocation::RepositoryDirectory => "Repository index",
+        IndexStorageLocation::CustomDirectory(_) => "Custom index",
+    };
     let incremental = initial.is_some();
     let mut app = match initial {
         Some((task, snapshot)) => App::with_initial_build(repository, options, task, snapshot),
         None => App::with_options(repository, options),
     };
-    if !incremental {
-        let operation = if action == SnapshotAction::Restored {
-            "Index loaded"
-        } else {
-            "Index built"
-        };
+    if incremental {
+        app.status = Some(match app.status.take() {
+            Some(status) => format!("{status}  ·  {storage_label}"),
+            None => storage_label.to_owned(),
+        });
+    } else {
         let display =
             |value: Option<u64>| value.map_or_else(|| "—".to_owned(), |ms| format!("{ms} ms"));
         let ready = format!(
-            "{operation}: metadata {} · search {} · full {}{}",
+            "{storage_label}: metadata {} · search {} · full {}{}",
             display(timings.metadata),
             display(timings.search_available),
             display(timings.full_available),
@@ -278,11 +274,6 @@ fn run_active(
                 .inference_full_available
                 .map_or_else(String::new, |ms| format!(" · inference {ms} ms")),
         );
-        let ready = if snapshot_requested && action != SnapshotAction::Restored {
-            format!("{ready}  ·  Snapshot saved")
-        } else {
-            ready
-        };
         app.status = Some(match app.status.take() {
             Some(status) => format!("{status}  ·  {ready}"),
             None => ready,
