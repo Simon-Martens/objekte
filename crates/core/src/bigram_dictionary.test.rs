@@ -161,21 +161,41 @@ fn presence_filter_preserves_every_sealed_gram() {
             .unwrap();
     }
     let sealed = seal(&index);
-    for (dictionary, presence) in [
-        (&sealed.normal, &sealed.normal_presence),
-        (&sealed.skip, &sealed.skip_presence),
-    ] {
-        let presence = presence.as_ref().expect("enough grams to build a filter");
-        dictionary
-            .visit_entries(|key, _| {
-                assert!(presence.might_contain(*key));
-                Ok(true)
-            })
-            .unwrap();
+    let allowed = Arc::new(RoaringBitmap::from_iter(0..index.record_count));
+    let mut pack = PostingPack::new();
+    let mut dictionaries = Vec::new();
+    let constructed = append_bigram_index_constructed(
+        &mut dictionaries, &mut pack, &index, &allowed,
+    ).unwrap();
+    let sections = crate::segment_format::REQUIRED_SECTIONS.map(|kind| {
+        let bytes = match kind {
+            SectionKind::BigramDictionaries => std::mem::take(&mut dictionaries),
+            SectionKind::PostingPayloads => pack.bytes().to_vec(),
+            _ => Vec::new(),
+        };
+        (kind, bytes)
+    });
+    let reader = Arc::new(SegmentReader::from_constructed_sections(sections).unwrap());
+    let constructed = SealedBigramIndex::from_constructed(
+        reader, constructed.spans, index.alphabet, index.record_count,
+        allowed, constructed.normal_presence, constructed.skip_presence,
+    ).unwrap();
+    for reader in [&sealed, &constructed] {
+        for (dictionary, presence) in [
+            (&reader.normal, &reader.normal_presence),
+            (&reader.skip, &reader.skip_presence),
+        ] {
+            let presence = presence.as_ref().expect("enough grams to build a filter");
+            dictionary
+                .visit_entries(|key, _| {
+                    assert!(presence.might_contain(*key));
+                    Ok(true)
+                })
+                .unwrap();
+        }
+        assert_eq!(
+            reader.candidates_prepared(&BigramRequest::new("definitely missing")).unwrap(),
+            index.candidates_prepared(&BigramRequest::new("definitely missing"))
+        );
     }
-    assert_eq!(
-        sealed.candidates_prepared(&BigramRequest::new("definitely missing"))
-            .unwrap(),
-        index.candidates_prepared(&BigramRequest::new("definitely missing"))
-    );
 }

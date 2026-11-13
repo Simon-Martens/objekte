@@ -319,9 +319,12 @@ impl BigramIndex {
         reader: Arc<SegmentReader>,
         spans: BigramSpans,
         allowed: Arc<RoaringBitmap>,
+        normal_presence: Option<crate::bigram_dictionary::GramPresence>,
+        skip_presence: Option<crate::bigram_dictionary::GramPresence>,
     ) -> Result<(), String> {
         let sealed = SealedBigramIndex::from_constructed(
             reader, spans, self.alphabet, self.record_count, allowed,
+            normal_presence, skip_presence,
         )?;
         self.normal = HashMap::new();
         self.skip = HashMap::new();

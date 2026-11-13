@@ -19,6 +19,12 @@ pub(crate) struct BigramSpans {
     pub skip: DictionarySpan,
 }
 
+pub(crate) struct ConstructedBigramSpans {
+    pub spans: BigramSpans,
+    pub normal_presence: Option<GramPresence>,
+    pub skip_presence: Option<GramPresence>,
+}
+
 /// Encode one text binding's two gram families without cloning their bitmaps.
 pub(crate) fn append_bigram_index<P: PostingSink + ?Sized>(
     section: &mut Vec<u8>,
@@ -43,14 +49,42 @@ pub(crate) fn append_bigram_index_constructed<P: PostingSink + ?Sized>(
     pack: &mut P,
     index: &BigramIndex,
     allowed: &RoaringBitmap,
-) -> Result<BigramSpans, String> {
+) -> Result<ConstructedBigramSpans, String> {
+    // Fresh builders know the exact key count. Consolidated sealed inputs
+    // fall back to the checked dictionary traversal during reader setup.
+    let mut normal_presence = if index.is_sealed() {
+        None
+    } else {
+        GramPresence::new(index.normal.len())?
+    };
     let normal = append_visited_constructed(section, pack, allowed, |append| {
-        index.for_each_normal(|key, posting| append(key, posting))
+        index.for_each_normal(|key, posting| {
+            append(key, posting)?;
+            if let Some(presence) = &mut normal_presence {
+                presence.insert(*key);
+            }
+            Ok(())
+        })
     })?;
+    let mut skip_presence = if index.is_sealed() {
+        None
+    } else {
+        GramPresence::new(index.skip.len())?
+    };
     let skip = append_visited_constructed(section, pack, allowed, |append| {
-        index.for_each_skip(|key, posting| append(key, posting))
+        index.for_each_skip(|key, posting| {
+            append(key, posting)?;
+            if let Some(presence) = &mut skip_presence {
+                presence.insert(*key);
+            }
+            Ok(())
+        })
     })?;
-    Ok(BigramSpans { normal, skip })
+    Ok(ConstructedBigramSpans {
+        spans: BigramSpans { normal, skip },
+        normal_presence,
+        skip_presence,
+    })
 }
 
 pub(crate) struct SealedBigramIndex {
@@ -65,23 +99,29 @@ pub(crate) struct SealedBigramIndex {
 /// A compact absence proof for immutable gram keys. False positives still
 /// reach the checked dictionary; false negatives are impossible for inserted
 /// keys. Small dictionaries use the ordinary lookup directly.
-struct GramPresence {
+pub(crate) struct GramPresence {
     words: Vec<u64>,
     mask: u64,
 }
 
 impl GramPresence {
-    fn from_dictionary(dictionary: &SealedPostingDictionary<u64>) -> Result<Option<Self>, String> {
-        if dictionary.len() < 32 {
+    fn new(entries: usize) -> Result<Option<Self>, String> {
+        if entries < 32 {
             return Ok(None);
         }
-        let bits = dictionary.len().saturating_mul(12)
+        let bits = entries.saturating_mul(12)
             .max(64).min(1 << 26).next_power_of_two();
         let mut words = Vec::new();
         words.try_reserve_exact(bits / 64)
             .map_err(|error| format!("gram presence allocation: {error}"))?;
         words.resize(bits / 64, 0);
-        let mut presence = Self { words, mask: (bits - 1) as u64 };
+        Ok(Some(Self { words, mask: (bits - 1) as u64 }))
+    }
+
+    fn from_dictionary(dictionary: &SealedPostingDictionary<u64>) -> Result<Option<Self>, String> {
+        let Some(mut presence) = Self::new(dictionary.len())? else {
+            return Ok(None);
+        };
         dictionary.visit_encoded_entries(|encoded, _| {
             let key = u64::from_le_bytes(encoded.try_into()
                 .map_err(|_| "validated gram key length changed")?);
@@ -102,7 +142,7 @@ impl GramPresence {
         })
     }
 
-    fn insert(&mut self, key: u64) {
+    pub(crate) fn insert(&mut self, key: u64) {
         for bit in self.hashes(key) {
             self.words[bit / 64] |= 1u64 << (bit % 64);
         }
@@ -191,6 +231,8 @@ impl SealedBigramIndex {
         alphabet: BigramAlphabet,
         record_count: u32,
         allowed: Arc<RoaringBitmap>,
+        normal_presence: Option<GramPresence>,
+        skip_presence: Option<GramPresence>,
     ) -> Result<Self, String> {
         let normal = SealedPostingDictionary::from_constructed(
             Arc::clone(&reader),
@@ -204,8 +246,14 @@ impl SealedBigramIndex {
             spans.skip,
             allowed,
         )?;
-        let normal_presence = GramPresence::from_dictionary(&normal)?;
-        let skip_presence = GramPresence::from_dictionary(&skip)?;
+        let normal_presence = match normal_presence {
+            Some(presence) => Some(presence),
+            None => GramPresence::from_dictionary(&normal)?,
+        };
+        let skip_presence = match skip_presence {
+            Some(presence) => Some(presence),
+            None => GramPresence::from_dictionary(&skip)?,
+        };
         Ok(Self { alphabet, record_count, normal, skip, normal_presence, skip_presence })
     }
 

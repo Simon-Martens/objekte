@@ -14,7 +14,9 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize, de::DeserializeOwned};
 
 use crate::bigram::BigramIndex;
-use crate::bigram_dictionary::{BigramSpans, append_bigram_index, append_bigram_index_constructed};
+use crate::bigram_dictionary::{
+    BigramSpans, GramPresence, append_bigram_index, append_bigram_index_constructed,
+};
 use crate::build::IndexedCollectionSegment;
 use crate::inference::{InferenceMode, InferenceReport, InferenceState};
 use crate::inventory::FileEntry;
@@ -198,6 +200,10 @@ struct TextBinding {
     record_count: u32,
     normal: Span,
     skip: Span,
+    #[serde(skip)]
+    normal_presence: Option<GramPresence>,
+    #[serde(skip)]
+    skip_presence: Option<GramPresence>,
 }
 
 #[derive(Deserialize, Serialize)]
@@ -556,10 +562,11 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
         } else {
             &segment.logical_records
         };
-        let spans = if validate_before_write {
-            append_bigram_index(&mut bigrams, pack, index, allowed)?
+        let (spans, normal_presence, skip_presence) = if validate_before_write {
+            (append_bigram_index(&mut bigrams, pack, index, allowed)?, None, None)
         } else {
-            append_bigram_index_constructed(&mut bigrams, pack, index, allowed)?
+            let constructed = append_bigram_index_constructed(&mut bigrams, pack, index, allowed)?;
+            (constructed.spans, constructed.normal_presence, constructed.skip_presence)
         };
         texts.push(TextBinding {
             key,
@@ -567,6 +574,8 @@ fn encode_segment_sections<P: PostingSink + ?Sized>(
             record_count: index.record_count,
             normal: spans.normal.into(),
             skip: spans.skip.into(),
+            normal_presence,
+            skip_presence,
         });
     }
     let dictionary_ns = phase.map(|started| started.elapsed().as_nanos()).unwrap_or(0);
@@ -834,6 +843,8 @@ pub(crate) fn seal_segment_consuming(
             Arc::clone(&reader),
             BigramSpans { normal: binding.normal.checked()?, skip: binding.skip.checked()? },
             Arc::clone(if binding.key == TextKey::Fallback { &fallback } else { &logical }),
+            binding.normal_presence,
+            binding.skip_presence,
         )?;
     }
     Ok(segment)
