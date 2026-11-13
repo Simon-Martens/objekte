@@ -82,10 +82,16 @@ impl Index {
             .root
             .canonicalize()
             .map_err(|error| IndexError::Io(error.to_string()))?;
+        let mut protected = configuration.schema_files;
+        protected.extend(configuration.protected_files);
+        protected.sort();
+        protected.dedup();
         if options.cache_open == CacheOpenPolicy::Ignore && !options.sync_cache {
             // The default memory-only path reads repository configuration but
             // never probes, selects or cleans a legacy cache destination.
-            return Self::build(&root, configuration.definitions, options.index);
+            let index = Self::build(&root, configuration.definitions, options.index)?;
+            index.protect_configuration_files(&protected)?;
+            return Ok(index);
         }
         let cache_directory = match options.cache_directory {
             Some(directory) if directory.is_absolute() => directory,
@@ -96,11 +102,6 @@ impl Index {
         let mut definitions = configuration.definitions;
         crate::lifecycle_cache_guard::exclude_cache_artifacts(&root, &mut definitions, &cache)
             .map_err(IndexError::IncompatibleConfiguration)?;
-        let mut protected = configuration.schema_files;
-        protected.extend(configuration.protected_files);
-        protected.sort();
-        protected.dedup();
-
         // `symlink_metadata` keeps a broken cache symlink from being mistaken
         // for an absent cache. Access errors are never treated as a miss.
         let exists = match fs::symlink_metadata(&cache) {

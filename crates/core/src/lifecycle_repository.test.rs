@@ -54,6 +54,10 @@ fn default_configured_open_ignores_legacy_cache_without_touching_it() {
     assert!(!index.restored_from_cache());
     assert_eq!(fs::read(&cache).unwrap(), b"not an index");
     assert!(index.status().unwrap().dirty());
+    let schema = root.join(".objekte/collections/data.schema.json");
+    let original_schema = fs::read(&schema).unwrap();
+    assert!(index.flush_cache(&schema).is_err());
+    assert_eq!(fs::read(&schema).unwrap(), original_schema);
     fs::remove_dir_all(root).unwrap();
 }
 
