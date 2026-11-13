@@ -358,8 +358,14 @@ fn sealed_segment_reencodes_after_move_and_retirement_without_source() {
         &|id| moved_metadata.get(id as usize),
     )
     .unwrap();
-    assert_eq!(moved_current.relative_path, PathBuf::from("data/moved.jsonl"));
-    assert_eq!(restored.files[0].entry.relative_path, PathBuf::from("data/sample.jsonl"));
+    assert_eq!(
+        moved_current.relative_path,
+        PathBuf::from("data/moved.jsonl")
+    );
+    assert_eq!(
+        restored.files[0].entry.relative_path,
+        PathBuf::from("data/sample.jsonl")
+    );
     assert_eq!(
         restored.postings.fields[&path]
             .exact_set_checked(&term, &restored.logical_records)
@@ -374,6 +380,38 @@ fn sealed_segment_reencodes_after_move_and_retirement_without_source() {
     );
     assert!(restored.postings.fields[&path].values.is_empty());
     assert!(restored.raw.normal.is_empty());
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn owned_seal_releases_builder_maps_without_source_or_temp_file() {
+    let (root, definition, options, segment) = fixture();
+    std::fs::remove_file(root.join("data/sample.jsonl")).unwrap();
+    let started = std::time::Instant::now();
+    let sealed = seal_segment_owned(&segment, 1, &definition, options).unwrap();
+    eprintln!("owned hybrid segment seal: {:?}", started.elapsed());
+    assert!(!root.join("segment.idx").exists());
+    let path = vec!["n".to_owned()];
+    assert!(sealed.postings.fields[&path].values.is_empty());
+    assert!(sealed.postings.fields[&path].sealed_values().is_some());
+    assert!(sealed.raw.normal.is_empty());
+    assert!(sealed.raw.skip.is_empty());
+    let BoundExpr::Term(term) =
+        bind_filter(&parse_filter("n >= 2").unwrap(), &definition.schema).unwrap()
+    else {
+        panic!("expected term");
+    };
+    assert_eq!(
+        sealed.postings.fields[&path]
+            .exact_set_checked(&term, &sealed.logical_records)
+            .unwrap(),
+        segment.postings.fields[&path].exact_set(&term, &segment.logical_records),
+    );
+    let gram = BigramRequest::new("One");
+    assert_eq!(
+        sealed.raw.try_candidates_prepared(&gram).unwrap(),
+        segment.raw.candidates_prepared(&gram),
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 

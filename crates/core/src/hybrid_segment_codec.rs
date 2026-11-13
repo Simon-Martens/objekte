@@ -6,7 +6,7 @@
 //! readers and checks posting payloads only when queries access them.
 
 use std::collections::{BTreeMap, HashMap, HashSet};
-use std::io::{Seek, Write};
+use std::io::{Cursor, Seek, Write};
 use std::sync::Arc;
 
 use bincode::Options;
@@ -440,6 +440,56 @@ pub(crate) fn write_segment<W: Write + Seek>(
     )?;
     write_bytes(&mut writer, SectionKind::Integrity, &integrity_bytes)?;
     writer.finish()
+}
+
+/// Seal one completed in-memory segment without opening or creating any file.
+/// The returned readers own the encoded bytes; replacing the caller's mutable
+/// segment releases its builder posting and gram maps at a segment boundary.
+pub(crate) fn seal_segment_owned(
+    segment: &IndexedCollectionSegment,
+    ordinal: u64,
+    definition: &CollectionDefinition,
+    options: RepositoryOptions,
+) -> Result<IndexedCollectionSegment, String> {
+    let files = segment
+        .files
+        .iter()
+        .map(|file| &file.entry)
+        .collect::<Vec<_>>();
+    let mut position = 0usize;
+    let bytes = write_segment(
+        segment,
+        ordinal,
+        definition,
+        options,
+        Cursor::new(Vec::new()),
+        &mut |entry| {
+            let expected = files
+                .get(position)
+                .ok_or("owned segment metadata ref overflow")?;
+            if **expected != *entry {
+                return Err("owned segment metadata ref order changed".into());
+            }
+            let reference = u32::try_from(position).map_err(|_| "too many owned segment files")?;
+            position += 1;
+            Ok(reference)
+        },
+    )?
+    .into_inner();
+    if position != files.len() {
+        return Err("owned segment metadata ref count changed".into());
+    }
+    let reader = Arc::new(SegmentReader::from_owned(Arc::from(bytes))?);
+    decode_segment_sealed(
+        reader,
+        ordinal,
+        definition,
+        options,
+        segment.collection,
+        (&segment.source_id, segment.source_version),
+        u32::try_from(segment.records.len()).map_err(|_| "too many owned segment slots")?,
+        &|reference| files.get(reference as usize).copied(),
+    )
 }
 
 fn required<'a>(reader: &'a SegmentReader, kind: SectionKind) -> Result<&'a [u8], String> {
