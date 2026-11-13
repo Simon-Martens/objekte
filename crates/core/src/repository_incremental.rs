@@ -543,14 +543,14 @@ impl Repository {
             .map_err(IndexError::Build)?;
             let (summary, stats) = state.finish_summary().map_err(IndexError::Build)?;
             collection.global_inference = summary;
+            // These statistics describe the immutable base generation. The
+            // completed initial build lives in lifecycle segments, which are
+            // accounted for separately by the published view. Snapshot
+            // validation recomputes this base-only summary.
             collection.stats = CollectionStats {
-                file_count: state.member_files.len(),
-                record_count: state.records as usize,
-                total_file_bytes: state
-                    .member_files
-                    .iter()
-                    .map(|file| discovered.files[file.0 as usize].revision.size)
-                    .sum(),
+                file_count: 0,
+                record_count: 0,
+                total_file_bytes: 0,
             };
             inference_build.absorb(stats);
         }

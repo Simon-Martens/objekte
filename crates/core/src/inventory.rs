@@ -503,7 +503,6 @@ impl SharedPath {
     }
 }
 
-
 impl From<PathBuf> for SharedPath {
     fn from(path: PathBuf) -> Self {
         if let Some(text) = path.to_str()
@@ -518,6 +517,12 @@ impl From<PathBuf> for SharedPath {
 
 impl From<&str> for SharedPath {
     fn from(path: &str) -> Self {
+        PathBuf::from(path).into()
+    }
+}
+
+impl From<String> for SharedPath {
+    fn from(path: String) -> Self {
         PathBuf::from(path).into()
     }
 }

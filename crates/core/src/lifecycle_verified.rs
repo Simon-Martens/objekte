@@ -64,7 +64,7 @@ pub(crate) fn verify_old_content(
     }
     let input = SourceFileInput {
         id: handle.file_id,
-        relative_path: old.relative_path.to_path_buf(),
+        relative_path: old.relative_path.clone(),
         revision: old.revision,
         created_ns: old.created_ns,
     };
