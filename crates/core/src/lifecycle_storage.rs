@@ -43,7 +43,24 @@ pub(crate) struct ManagedPersistence {
     pub(crate) last_error: Option<String>,
 }
 
+#[derive(Clone)]
+pub(crate) struct StorageStatusSnapshot {
+    residency: IndexResidency,
+    durable_generation: Option<u64>,
+    last_error: Option<String>,
+    managed_directory: PathBuf,
+}
+
 impl ManagedPersistence {
+    pub(crate) fn status_snapshot(&self) -> StorageStatusSnapshot {
+        StorageStatusSnapshot {
+            residency: self.residency,
+            durable_generation: self.durable_generation,
+            last_error: self.last_error.clone(),
+            managed_directory: self.store.path().to_path_buf(),
+        }
+    }
+
     pub(crate) fn open(resolved: &ResolvedIndexStorage) -> Result<Self, String> {
         Ok(Self {
             store: ManagedStore::open(resolved)?,
@@ -238,7 +255,8 @@ impl ManagedPersistence {
 
 pub(crate) fn storage_status(
     status: &IndexStatus,
-    managed: Option<&ManagedPersistence>,
+    managed: Option<&StorageStatusSnapshot>,
+    synchronizing: bool,
 ) -> IndexStorageStatus {
     let source_reconciliation_complete = matches!(
         status.reconciliation,
@@ -270,7 +288,9 @@ pub(crate) fn storage_status(
         source_reconciliation_complete,
         current_generation: status.revision.0,
         durable_generation: managed.durable_generation,
-        synchronization: if managed.last_error.is_some() {
+        synchronization: if synchronizing {
+            IndexSynchronization::Synchronizing
+        } else if managed.last_error.is_some() {
             IndexSynchronization::Failed
         } else if managed.durable_generation == Some(status.revision.0) {
             IndexSynchronization::Synchronized
@@ -278,7 +298,7 @@ pub(crate) fn storage_status(
             IndexSynchronization::Pending
         },
         last_error: managed.last_error.clone(),
-        managed_directory: Some(PathBuf::from(managed.store.path())),
+        managed_directory: Some(managed.managed_directory.clone()),
     }
 }
 

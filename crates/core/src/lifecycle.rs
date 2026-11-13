@@ -8,7 +8,7 @@ use std::collections::HashMap;
 use std::fmt;
 use std::num::NonZeroUsize;
 use std::path::{Path, PathBuf};
-use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 use std::sync::mpsc::{self, RecvTimeoutError, Sender, SyncSender};
 use std::sync::{Arc, Condvar, Mutex, RwLock, Weak};
 use std::thread::JoinHandle;
@@ -908,9 +908,19 @@ struct IndexInner {
     periodic: Mutex<Option<PeriodicReconciliation>>,
     persistence: Mutex<PersistenceState>,
     managed: Mutex<Option<crate::lifecycle_storage::ManagedPersistence>>,
+    storage_status_snapshot: RwLock<Option<crate::lifecycle_storage::StorageStatusSnapshot>>,
+    storage_syncing: AtomicUsize,
     sync_storage: Mutex<Option<SyncCacheWorker>>,
     sync_cache: Mutex<Option<SyncCacheWorker>>,
     sync_cache_error: Mutex<Option<String>>,
+}
+
+struct StorageSyncActivity<'a>(&'a AtomicUsize);
+
+impl Drop for StorageSyncActivity<'_> {
+    fn drop(&mut self) {
+        self.0.fetch_sub(1, Ordering::Release);
+    }
 }
 
 
@@ -1249,6 +1259,8 @@ impl Index {
                 protected_files: Vec::new(),
             }),
             managed: Mutex::new(None),
+            storage_status_snapshot: RwLock::new(None),
+            storage_syncing: AtomicUsize::new(0),
             sync_storage: Mutex::new(None),
             sync_cache: Mutex::new(None),
             sync_cache_error: Mutex::new(None),
@@ -1408,10 +1420,14 @@ impl Index {
                 "managed storage is already attached".into(),
             ));
         }
-        *managed = Some(
-            crate::lifecycle_storage::ManagedPersistence::open(&resolved)
-                .map_err(IndexError::Io)?,
-        );
+        let state = crate::lifecycle_storage::ManagedPersistence::open(&resolved)
+            .map_err(IndexError::Io)?;
+        *self
+            .0
+            .storage_status_snapshot
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)? = Some(state.status_snapshot());
+        *managed = Some(state);
         Ok(())
     }
 
@@ -1424,14 +1440,22 @@ impl Index {
         historical: &[FileEntry],
     ) -> Result<(), IndexError> {
         let view = self.view()?;
-        self.0
+        let mut managed = self.0
             .managed
             .lock()
-            .map_err(|_| IndexError::LockPoisoned)?
+            .map_err(|_| IndexError::LockPoisoned)?;
+        let state = managed
             .as_mut()
-            .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?
+            .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?;
+        state
             .mark_opened(&view.0, generation, names, identities, indexes, historical)
-            .map_err(IndexError::InvalidCache)
+            .map_err(IndexError::InvalidCache)?;
+        *self
+            .0
+            .storage_status_snapshot
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)? = Some(state.status_snapshot());
+        Ok(())
     }
 
     /// Replace the mutable shards of a newly committed generation with the
@@ -1561,9 +1585,10 @@ impl Index {
                 actual: published.revision,
             });
         }
-        managed
+        let state = managed
             .as_mut()
-            .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?
+            .ok_or_else(|| IndexError::InvalidPublication("managed storage missing".into()))?;
+        state
             .mark_opened(
                 &next,
                 opened.generation,
@@ -1573,6 +1598,12 @@ impl Index {
                 restored.historical_entries(),
             )
             .map_err(IndexError::InvalidCache)?;
+        let snapshot = state.status_snapshot();
+        *self
+            .0
+            .storage_status_snapshot
+            .write()
+            .map_err(|_| IndexError::LockPoisoned)? = Some(snapshot);
         *published = Arc::new(next);
         self.enable_owned_memory_sealing();
         Ok(())
@@ -1586,6 +1617,8 @@ impl Index {
         if !view.initial_construction_complete() {
             return Err(IndexError::IncompleteBuild);
         }
+        self.0.storage_syncing.fetch_add(1, Ordering::AcqRel);
+        let _activity = StorageSyncActivity(&self.0.storage_syncing);
         let saved = {
             let mut managed = self
                 .0
@@ -1595,13 +1628,16 @@ impl Index {
             let state = managed.as_mut().ok_or_else(|| {
                 IndexError::InvalidPublication("no managed index storage attached".into())
             })?;
-            match state.flush(&view.0) {
-                Ok(revision) => revision,
-                Err(error) => {
-                    state.last_error = Some(error.clone());
-                    return Err(IndexError::Io(error));
-                }
+            let result = state.flush(&view.0);
+            if let Err(error) = &result {
+                state.last_error = Some(error.clone());
             }
+            *self
+                .0
+                .storage_status_snapshot
+                .write()
+                .map_err(|_| IndexError::LockPoisoned)? = Some(state.status_snapshot());
+            result.map_err(IndexError::Io)?
         };
         let mut published = self
             .0
@@ -1620,14 +1656,15 @@ impl Index {
     /// separately so an old valid generation is not mistaken for a fresh one.
     pub fn storage_status(&self) -> Result<crate::index_storage::IndexStorageStatus, IndexError> {
         let status = self.status()?;
-        let managed = self
+        let snapshot = self
             .0
-            .managed
-            .lock()
+            .storage_status_snapshot
+            .read()
             .map_err(|_| IndexError::LockPoisoned)?;
         Ok(crate::lifecycle_storage::storage_status(
             &status,
-            managed.as_ref(),
+            snapshot.as_ref(),
+            self.0.storage_syncing.load(Ordering::Acquire) > 0,
         ))
     }
 

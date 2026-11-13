@@ -62,6 +62,56 @@ fn all_records() -> Query {
 }
 
 #[test]
+fn storage_status_reports_active_sync_without_waiting_for_the_store_writer() {
+    use std::sync::atomic::Ordering;
+
+    use crate::index_storage::{
+        IndexResidency, IndexStorageLocation, IndexStoragePolicy, IndexSynchronization,
+    };
+    use crate::source::SourceRegistry;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-sync-status-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
+    let index = Index::open_with_storage(
+        &root,
+        vec![CollectionDefinition::folder("data", "data", SourceFormat::Json)],
+        RepositoryOptions::default(),
+        IndexStoragePolicy {
+            location: IndexStorageLocation::RepositoryDirectory,
+            residency: IndexResidency::OnDemand,
+        },
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    index.stop_sync_storage().unwrap();
+    let held_writer = index.0.managed.lock().unwrap();
+    index.0.storage_syncing.fetch_add(1, Ordering::AcqRel);
+    let probe = index.clone();
+    let (send, receive) = std::sync::mpsc::channel();
+    let worker = std::thread::spawn(move || {
+        send.send(probe.storage_status()).unwrap();
+    });
+    let observed = receive.recv_timeout(Duration::from_secs(2));
+    index.0.storage_syncing.fetch_sub(1, Ordering::Release);
+    drop(held_writer);
+    worker.join().unwrap();
+    assert_eq!(
+        observed.unwrap().unwrap().synchronization,
+        IndexSynchronization::Synchronizing
+    );
+    drop(index);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn stopping_periodic_schedule_does_not_cancel_current_reconciliation() {
     use super::{ReconciliationJob, ReconciliationProgress, ReconciliationState};
     use std::sync::atomic::{AtomicBool, Ordering};
