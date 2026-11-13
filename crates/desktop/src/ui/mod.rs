@@ -67,8 +67,6 @@ struct Inputs {
     open_extra_folders: Vec<Entity<InputState>>,
     schema: Entity<InputState>,
     index_directory: Entity<InputState>,
-    index_load_path: Entity<InputState>,
-    index_save_path: Entity<InputState>,
     index_interval: Entity<InputState>,
     full_text: Entity<InputState>,
     structured: Entity<InputState>,
@@ -139,10 +137,6 @@ impl DesktopView {
                 .new(|cx| InputState::new(window, cx).placeholder("Schema file (single folder)")),
             index_directory: cx
                 .new(|cx| InputState::new(window, cx).placeholder("Custom index base folder")),
-            index_load_path: cx
-                .new(|cx| InputState::new(window, cx).placeholder("Existing index file")),
-            index_save_path: cx
-                .new(|cx| InputState::new(window, cx).placeholder("Index save file")),
             index_interval: cx
                 .new(|cx| InputState::new(window, cx).placeholder("Seconds between checks")),
             full_text: cx.new(|cx| InputState::new(window, cx).placeholder("Search entries…")),
@@ -399,16 +393,6 @@ impl DesktopView {
                 .index_directory
                 .update(cx, |input, cx| input.set_value(path.clone(), window, cx));
         }
-        if let UiUpdate::ChosenIndexLoadPath { path, .. } = &update {
-            self.inputs
-                .index_load_path
-                .update(cx, |input, cx| input.set_value(path.clone(), window, cx));
-        }
-        if let UiUpdate::ChosenIndexSavePath { path, .. } = &update {
-            self.inputs
-                .index_save_path
-                .update(cx, |input, cx| input.set_value(path.clone(), window, cx));
-        }
         if let UiUpdate::RestoreQuery(draft) = &update {
             self.restoring_query = true;
             self.suspended_filter = None;
@@ -481,7 +465,6 @@ impl DesktopView {
         };
         let inspected_record = matches!(&update, UiUpdate::Detail(Some(_)));
         let prior_index_instance = self.state.index_status.index_instance;
-        let replaced_index = matches!(&update, UiUpdate::IndexReplaced(_));
         if retain_grid_view && self.grid_view_ready {
             self.pending_grid_restore = self.active_grid_tab.map(|id| {
                 (
@@ -533,18 +516,10 @@ impl DesktopView {
         if switching_tab && let Some(id) = self.state.active_tab {
             self.reveal_workspace_tab(TabId::Record(id));
         }
-        if replaced_index || self.state.index_status.index_instance != prior_index_instance {
+        if self.state.index_status.index_instance != prior_index_instance {
             self.grid_views.clear();
             self.pending_grid_restore = None;
-            let load = self.state.index_load_draft.clone();
-            let save = self.state.index_save_draft.clone();
             let interval = self.state.index_interval_draft.clone();
-            self.inputs
-                .index_load_path
-                .update(cx, |input, cx| input.set_value(load, window, cx));
-            self.inputs
-                .index_save_path
-                .update(cx, |input, cx| input.set_value(save, window, cx));
             self.inputs
                 .index_interval
                 .update(cx, |input, cx| input.set_value(interval, window, cx));

@@ -538,40 +538,6 @@ fn index_progress_does_not_erase_query_validation_or_displayed_page() {
 }
 
 #[test]
-fn same_repository_index_replacement_keeps_tabs_and_drafts() {
-    let mut state = UiState {
-        root: Some("repo".into()),
-        search: SearchDraft {
-            full_text: "retained".into(),
-            ..SearchDraft::default()
-        },
-        ..UiState::default()
-    };
-    state.tabs.push(RecordTabSummary {
-        id: 3,
-        pinned: true,
-        title: "record".into(),
-        identity: "docs:1".into(),
-        position: 0,
-        can_back: false,
-        can_previous: false,
-        can_next: false,
-        loading: false,
-        links_loading: false,
-        freshness: super::super::model::TabFreshness::Outdated,
-    });
-    let status = IndexUiStatus {
-        index_instance: 2,
-        source_location: "repo".into(),
-        ..IndexUiStatus::default()
-    };
-    state.apply(UiUpdate::IndexReplaced(status));
-    assert_eq!(state.tabs.len(), 1);
-    assert_eq!(state.search.full_text, "retained");
-    assert!(state.result_outdated);
-}
-
-#[test]
 fn exhausted_incomplete_page_never_infers_an_exact_total() {
     let mut state = UiState::default();
     state.apply(UiUpdate::Page(PageView {
@@ -677,21 +643,4 @@ fn provisional_delta_appends_without_inventing_a_final_total() {
     assert_eq!(state.page.selected, Some(0));
     assert_eq!(state.projected_rows[&0].key.record_id, "1");
     assert_eq!(state.projected_rows[&1].key.record_id, "2");
-}
-
-#[test]
-fn overwrite_prompt_names_exact_path_and_clears_after_success() {
-    let mut state = UiState::default();
-    state.apply(UiUpdate::SaveIndexOverwriteRequired(
-        "/tmp/other-index.bin".into(),
-    ));
-    assert_eq!(
-        state.index_overwrite_pending.as_deref(),
-        Some("/tmp/other-index.bin")
-    );
-    state.apply(UiUpdate::IndexStatus(IndexUiStatus {
-        save: super::super::model::IndexTaskState::Succeeded("Index saved".into()),
-        ..IndexUiStatus::default()
-    }));
-    assert!(state.index_overwrite_pending.is_none());
 }

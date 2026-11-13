@@ -18,7 +18,6 @@ pub enum BatchSource {
     DirectFullText(String),
     Text(String),
     File(PathBuf),
-    IndexOnly,
 }
 
 /// CLI page/count controls applied to every batch query.
@@ -98,15 +97,6 @@ pub fn run_batch_on_view(
             );
             QuerySource::open(&args)
         }
-        BatchSource::IndexOnly => {
-            if args.load_index.is_none() && args.write_index.is_none() {
-                return Err(BackendError::new(
-                    BackendErrorKind::Options,
-                    "index-only output requires an explicit load or write index operation",
-                ));
-            }
-            QuerySource::open(&args)
-        }
     };
     let file = create_output_file(session, output_path)?;
     let exit = run_on_repository(existing_run(session, &args), source, file, cancellation);
@@ -140,7 +130,7 @@ pub(super) fn existing_run<'a>(
         schema_files: &session.diagnostics.schema_files,
         ignored_repository_metadata: session.diagnostics.ignored_repository_metadata,
         startup_ns: session.diagnostics.open_ns,
-        snapshot_save: session.diagnostics.snapshot_save.clone(),
+        snapshot_save: None,
     }
 }
 

@@ -1699,12 +1699,8 @@ impl DesktopView {
             "Index construction failed".to_owned()
         } else if matches!(index.check, IndexTaskState::Running { .. }) {
             "Checking files…".to_owned()
-        } else if matches!(index.save, IndexTaskState::Running { .. }) {
-            "Saving index…".to_owned()
         } else if matches!(index.check, IndexTaskState::Failed(_)) {
             "Some files could not be checked".to_owned()
-        } else if matches!(index.save, IndexTaskState::Failed(_)) {
-            "Index could not be saved".to_owned()
         } else if index.storage_location == "Memory only" {
             "Index in memory".to_owned()
         } else if index.dirty {

@@ -38,16 +38,6 @@ pub enum OpenMode {
     ConfiguredRepository,
 }
 
-/// Snapshot operation chosen explicitly by the user.
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub enum SnapshotMode {
-    #[default]
-    None,
-    Write,
-    Load,
-    LoadAndWrite,
-}
-
 /// Presentation choice for the shared core index storage policy.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum StorageChoice {
@@ -403,7 +393,6 @@ pub enum TabFreshness {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IndexTaskKind {
     Check,
-    Save,
     Load,
     Rebuild,
     Compact,
@@ -433,8 +422,6 @@ pub struct IndexUiStatus {
     pub residency: String,
     pub synchronization: String,
     pub managed_directory: Option<String>,
-    pub loaded_from: Option<String>,
-    pub save_destination: Option<String>,
     pub schema_paths: Vec<String>,
     pub indexed_files: Option<usize>,
     pub live_records: Option<usize>,
@@ -446,17 +433,12 @@ pub struct IndexUiStatus {
     pub searchable_batches: usize,
     pub index_instance: u64,
     pub revision: u64,
-    pub saved_revision: Option<u64>,
     pub dirty: bool,
     pub last_check: Option<String>,
     pub check_complete: Option<bool>,
     pub automatic_check: bool,
     pub check_interval_seconds: u64,
-    pub automatic_save: bool,
-    pub automatic_save_available: bool,
-    pub automatic_save_reason: Option<String>,
     pub check: IndexTaskState,
-    pub save: IndexTaskState,
     pub load: IndexTaskState,
     pub maintenance: IndexTaskState,
     pub maintenance_kind: Option<IndexTaskKind>,
@@ -471,8 +453,6 @@ impl Default for IndexUiStatus {
             residency: String::new(),
             synchronization: String::new(),
             managed_directory: None,
-            loaded_from: None,
-            save_destination: None,
             schema_paths: Vec::new(),
             indexed_files: None,
             live_records: None,
@@ -484,17 +464,12 @@ impl Default for IndexUiStatus {
             searchable_batches: 0,
             index_instance: 0,
             revision: 0,
-            saved_revision: None,
             dirty: false,
             last_check: None,
             check_complete: None,
             automatic_check: false,
             check_interval_seconds: 30,
-            automatic_save: false,
-            automatic_save_available: false,
-            automatic_save_reason: None,
             check: IndexTaskState::Idle,
-            save: IndexTaskState::Idle,
             load: IndexTaskState::Idle,
             maintenance: IndexTaskState::Idle,
             maintenance_kind: None,
@@ -645,23 +620,13 @@ pub enum UiAction {
         path: String,
         output_path: String,
     },
-    WriteIndex,
-    Index {
-        mode: SnapshotMode,
-        directory: String,
-    },
     CheckForChanges,
-    SaveIndex,
-    SaveIndexAs(String),
-    ConfirmSaveIndexAs(String),
-    LoadIndex(String),
     RebuildIndex,
     CompactIndex,
     SetAutomaticChecking {
         enabled: bool,
         interval_seconds: u64,
     },
-    SetAutomaticSaving(bool),
     CancelIndexTask(IndexTaskKind),
     RequestClose,
     RetryClose,
@@ -669,14 +634,6 @@ pub enum UiAction {
     CancelClose,
     RefreshResults,
     RefreshRecord(u64),
-    ChooseIndexLoadPath {
-        generation: u64,
-        load_after_selection: bool,
-    },
-    ChooseIndexSavePath {
-        generation: u64,
-        save_after_selection: bool,
-    },
     SetTheme {
         dark: bool,
     },
@@ -781,24 +738,13 @@ pub enum UiUpdate {
     },
     Directories(DirectoryCatalog),
     FileCatalogue(FileCatalogue),
-    /// A validated replacement for the same source configuration preserves UI drafts/tabs.
-    IndexReplaced(IndexUiStatus),
     IndexStatus(IndexUiStatus),
     ClosingIndex {
         error: Option<String>,
     },
     CloseCancelled,
     CloseReady,
-    SaveIndexOverwriteRequired(String),
     ResultsOutdated(bool),
-    ChosenIndexLoadPath {
-        generation: u64,
-        path: String,
-    },
-    ChosenIndexSavePath {
-        generation: u64,
-        path: String,
-    },
     QueryStarted {
         status: String,
         retain_preview: bool,

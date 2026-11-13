@@ -1353,7 +1353,6 @@ impl DesktopView {
                         })));
                 for (label, kind, task) in [
                     ("File check", IndexTaskKind::Check, &index.check),
-                    ("Saving", IndexTaskKind::Save, &index.save),
                     ("Loading", IndexTaskKind::Load, &index.load),
                     (
                         "Maintenance",

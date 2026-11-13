@@ -173,12 +173,8 @@ pub struct UiState {
     pub action_panel: ActionPanel,
     pub export_format: ExportFormat,
     pub index_status: IndexUiStatus,
-    pub index_load_draft: String,
-    pub index_save_draft: String,
-    pub index_overwrite_pending: Option<String>,
     pub index_interval_draft: String,
     pub index_interval_error: Option<String>,
-    pub index_picker_generation: u64,
     pub result_outdated: bool,
     pub show_raw: bool,
     pub show_links: bool,
@@ -308,9 +304,6 @@ impl UiState {
                 self.inspector_visible = false;
                 self.diagnostics.clear();
                 self.index_status = IndexUiStatus::default();
-                self.index_load_draft.clear();
-                self.index_save_draft.clear();
-                self.index_overwrite_pending = None;
                 self.index_interval_draft.clear();
                 self.index_interval_error = None;
                 self.result_outdated = false;
@@ -346,29 +339,13 @@ impl UiState {
                 self.errors.remove(&ErrorField::Sort);
                 self.errors.remove(&ErrorField::Range);
             }
-            UiUpdate::IndexReplaced(status) => {
-                self.install_index_status(status, true);
-                self.result_outdated = true;
-                self.query_snapshots.clear();
-            }
-            UiUpdate::IndexStatus(status) => self.install_index_status(status, false),
+            UiUpdate::IndexStatus(status) => self.install_index_status(status),
             UiUpdate::ClosingIndex { error } => self.closing_index = Some(error),
             UiUpdate::CloseCancelled | UiUpdate::CloseReady => self.closing_index = None,
-            UiUpdate::SaveIndexOverwriteRequired(path) => self.index_overwrite_pending = Some(path),
             UiUpdate::ResultsOutdated(outdated) => {
                 self.result_outdated = outdated;
                 if outdated {
                     self.query_snapshots.clear();
-                }
-            }
-            UiUpdate::ChosenIndexLoadPath { generation, path } => {
-                if generation == self.index_picker_generation {
-                    self.index_load_draft = path;
-                }
-            }
-            UiUpdate::ChosenIndexSavePath { generation, path } => {
-                if generation == self.index_picker_generation {
-                    self.index_save_draft = path;
                 }
             }
             UiUpdate::Page(mut page) => {
@@ -759,15 +736,10 @@ impl UiState {
         }
     }
 
-    fn install_index_status(&mut self, status: IndexUiStatus, replacement: bool) {
-        if replacement || self.index_status.index_instance != status.index_instance {
-            self.index_load_draft = status.loaded_from.clone().unwrap_or_default();
-            self.index_save_draft = status.save_destination.clone().unwrap_or_default();
+    fn install_index_status(&mut self, status: IndexUiStatus) {
+        if self.index_status.index_instance != status.index_instance {
             self.index_interval_draft = status.check_interval_seconds.to_string();
             self.index_interval_error = None;
-        }
-        if matches!(status.save, super::model::IndexTaskState::Succeeded(_)) {
-            self.index_overwrite_pending = None;
         }
         self.index_status = status;
     }

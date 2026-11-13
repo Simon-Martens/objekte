@@ -562,161 +562,6 @@ fn presentation_refresh_keeps_selection_after_preview_is_closed() {
 }
 
 #[test]
-fn loaded_index_receives_check_policy_before_old_scheduler_retires() {
-    let fixture = crate::backend::test_support::fixture();
-    let original = fixture.session.clone();
-    let saved = tempfile::tempdir().unwrap();
-    let path = saved.path().join("index.snapshot");
-    backend::index_lifecycle::save_index(&original, &path, false).unwrap();
-    backend::index_lifecycle::set_periodic_check(&original, Some(Duration::from_secs(60))).unwrap();
-    let replacement =
-        backend::index_lifecycle::load_index(&original, &path, &CancellationToken::new()).unwrap();
-    let (mut controller, _) = DesktopController::new();
-    controller.open_generation = 4;
-    controller.session = Some(replacement.clone());
-    controller.requested_check = (true, 60);
-    controller.transfer_check_policy(replacement.clone(), Some(original.clone()));
-    let event = controller
-        .workers
-        .recv_timeout(Duration::from_secs(5))
-        .unwrap();
-    assert!(matches!(
-        event,
-        WorkerEvent::AutomaticCheckChanged {
-            open_generation: 4,
-            enabled: true,
-            result: Ok(()),
-            ..
-        }
-    ));
-    assert!(
-        replacement
-            .repository
-            .index()
-            .periodic_reconciliation_enabled()
-            .unwrap()
-    );
-    assert!(
-        !original
-            .repository
-            .index()
-            .periodic_reconciliation_enabled()
-            .unwrap()
-    );
-    backend::index_lifecycle::shutdown(&replacement).unwrap();
-    backend::index_lifecycle::shutdown(&original).unwrap();
-}
-
-#[test]
-fn disabled_check_policy_retires_old_scheduler_on_replacement() {
-    let fixture = crate::backend::test_support::fixture();
-    let original = fixture.session.clone();
-    let saved = tempfile::tempdir().unwrap();
-    let path = saved.path().join("index.snapshot");
-    backend::index_lifecycle::save_index(&original, &path, false).unwrap();
-    backend::index_lifecycle::set_periodic_check(&original, Some(Duration::from_secs(60))).unwrap();
-    let replacement =
-        backend::index_lifecycle::load_index(&original, &path, &CancellationToken::new()).unwrap();
-    let (mut controller, _) = DesktopController::new();
-    controller.open_generation = 9;
-    controller.session = Some(replacement.clone());
-    controller.requested_check = (false, 37);
-    controller.transfer_check_policy(replacement.clone(), Some(original.clone()));
-    assert!(matches!(
-        controller
-            .workers
-            .recv_timeout(Duration::from_secs(5))
-            .unwrap(),
-        WorkerEvent::AutomaticCheckChanged {
-            open_generation: 9,
-            enabled: false,
-            interval_seconds: 37,
-            result: Ok(()),
-            ..
-        }
-    ));
-    assert!(
-        !replacement
-            .repository
-            .index()
-            .periodic_reconciliation_enabled()
-            .unwrap()
-    );
-    assert!(
-        !original
-            .repository
-            .index()
-            .periodic_reconciliation_enabled()
-            .unwrap()
-    );
-    backend::index_lifecycle::shutdown(&replacement).unwrap();
-    backend::index_lifecycle::shutdown(&original).unwrap();
-}
-
-#[test]
-fn rapid_replacements_and_toggle_keep_only_latest_scheduler() {
-    let fixture = crate::backend::test_support::fixture();
-    let original = fixture.session.clone();
-    let saved = tempfile::tempdir().unwrap();
-    let path = saved.path().join("index.snapshot");
-    backend::index_lifecycle::save_index(&original, &path, false).unwrap();
-    backend::index_lifecycle::set_periodic_check(&original, Some(Duration::from_secs(60))).unwrap();
-    let first =
-        backend::index_lifecycle::load_index(&original, &path, &CancellationToken::new()).unwrap();
-    let second =
-        backend::index_lifecycle::load_index(&original, &path, &CancellationToken::new()).unwrap();
-    let (mut controller, _) = DesktopController::new();
-    controller.open_generation = 11;
-    let gate = Arc::clone(&controller.automatic_check_gate);
-    let held = gate.lock().unwrap();
-    controller.session = Some(first.clone());
-    controller.requested_check = (true, 60);
-    controller.transfer_check_policy(first.clone(), Some(original.clone()));
-    controller.set_automatic_check(true, 90, &mut Vec::new());
-    controller.session = Some(second.clone());
-    controller.open_generation += 1;
-    controller.transfer_check_policy(second.clone(), Some(first.clone()));
-    drop(held);
-    assert!(matches!(
-        controller
-            .workers
-            .recv_timeout(Duration::from_secs(5))
-            .unwrap(),
-        WorkerEvent::AutomaticCheckChanged {
-            open_generation: 12,
-            enabled: true,
-            interval_seconds: 90,
-            result: Ok(()),
-            ..
-        }
-    ));
-    assert!(
-        second
-            .repository
-            .index()
-            .periodic_reconciliation_enabled()
-            .unwrap()
-    );
-    assert!(
-        !first
-            .repository
-            .index()
-            .periodic_reconciliation_enabled()
-            .unwrap()
-    );
-    assert!(
-        !original
-            .repository
-            .index()
-            .periodic_reconciliation_enabled()
-            .unwrap()
-    );
-    backend::index_lifecycle::shutdown(&second).unwrap();
-    backend::index_lifecycle::shutdown(&first).unwrap();
-    backend::index_lifecycle::shutdown(&original).unwrap();
-}
-
-#[test]
 fn completion_uses_bounded_postings_and_keeps_typed_literals() {
     use objekte_search_core::model::LogicalType;
     use objekte_search_core::reference::FieldDefinition;
@@ -953,57 +798,99 @@ fn managed_index_panel_reports_storage_and_close_flushes() {
 }
 
 #[test]
-fn pending_automatic_save_enable_cannot_write_after_manual_close() {
-    let fixture = crate::backend::test_support::fixture();
+fn reopening_managed_index_flushes_pending_revision_before_restore() {
+    use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
+    let session = backend::open(
+        &OpenSpec {
+            storage_policy: Some(IndexStoragePolicy {
+                location: IndexStorageLocation::RepositoryDirectory,
+                residency: IndexResidency::OnDemand,
+            }),
+            args: objekte_cli::arguments::Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let original = session.repository.index().clone();
+    original.stop_sync_storage().unwrap();
+    std::fs::write(root.path().join("late.json"), r#"{"title":"Late"}"#).unwrap();
+    original.add_file(&root.path().join("late.json")).unwrap();
+    let pending = original.storage_status().unwrap();
+    assert_ne!(pending.durable_generation, Some(pending.current_generation));
     let (mut controller, _) = DesktopController::new();
-    controller.session = Some(fixture.session);
-    controller.index_ui.automatic_save_available = true;
-    let save_gate = Arc::clone(&controller.automatic_save_gate);
-    let held = save_gate.lock().unwrap();
-    let mut updates = Vec::new();
-    controller.set_automatic_save(true, &mut updates);
-    controller.request_close(&mut updates);
-    drop(held);
-    assert!(matches!(
-        controller
-            .workers
-            .recv_timeout(Duration::from_secs(5))
-            .unwrap(),
-        WorkerEvent::IndexShutdown { result: Ok(()), .. }
-    ));
-    assert!(!fixture._root.path().join(".objekte").exists());
-    assert_eq!(
-        backend::index_lifecycle::status(controller.session.as_ref().unwrap())
-            .unwrap()
-            .saved_revision,
-        None
-    );
+    controller.session = Some(session);
+    controller.start_open(OpenDraft {
+        paths: root.path().display().to_string(),
+        index_storage: StorageChoice::Repository,
+        ..OpenDraft::default()
+    }, &mut Vec::new());
+    let WorkerEvent::Opened { result, .. } = controller
+        .workers
+        .recv_timeout(Duration::from_secs(5))
+        .unwrap() else { panic!("expected opened repository") };
+    let (reopened, ..) = (*result).unwrap();
+    assert!(reopened.diagnostics.startup.restored);
+    assert_eq!(reopened.repository.index().status().unwrap().live_records, 2);
+    assert_eq!(original.storage_status().unwrap().durable_generation,
+        Some(original.storage_status().unwrap().current_generation));
+    original.shutdown().unwrap();
+    reopened.repository.index().shutdown().unwrap();
 }
 
 #[test]
-fn superseded_automatic_save_enable_cannot_run_after_disable() {
-    let fixture = crate::backend::test_support::fixture();
-    let (mut controller, _) = DesktopController::new();
-    controller.session = Some(fixture.session);
-    controller.index_ui.automatic_save_available = true;
-    let save_gate = Arc::clone(&controller.automatic_save_gate);
-    let held = save_gate.lock().unwrap();
-    controller.set_automatic_save(true, &mut Vec::new());
-    controller.set_automatic_save(false, &mut Vec::new());
-    drop(held);
-    assert!(matches!(
-        controller
-            .workers
-            .recv_timeout(Duration::from_secs(5))
-            .unwrap(),
-        WorkerEvent::AutomaticSaveChanged {
-            enabled: false,
-            result: Ok(()),
-            ..
+fn failed_managed_reopen_resumes_the_previous_storage_writer() {
+    use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
+    let session = backend::open(
+        &OpenSpec {
+            storage_policy: Some(IndexStoragePolicy {
+                location: IndexStorageLocation::RepositoryDirectory,
+                residency: IndexResidency::OnDemand,
+            }),
+            args: objekte_cli::arguments::Arguments {
+                path: vec![root.path().to_path_buf()],
+                ..Default::default()
+            },
+            cwd: root.path().to_path_buf(),
+        },
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let spec = OpenSpec {
+        storage_policy: Some(IndexStoragePolicy {
+            location: IndexStorageLocation::CustomDirectory(root.path().join("missing-base")),
+            residency: IndexResidency::OnDemand,
+        }),
+        args: session.args.clone(),
+        cwd: root.path().to_path_buf(),
+    };
+    assert!(open_after_flushing_previous(
+        &spec,
+        &CancellationToken::new(),
+        Some(&session),
+        (false, 30),
+    ).is_err());
+    let index = session.repository.index();
+    std::fs::write(root.path().join("late.json"), r#"{"title":"Late"}"#).unwrap();
+    index.add_file(&root.path().join("late.json")).unwrap();
+    let deadline = Instant::now() + Duration::from_secs(4);
+    while Instant::now() < deadline {
+        let status = index.storage_status().unwrap();
+        if status.durable_generation == Some(status.current_generation) {
+            break;
         }
-    ));
-    assert!(!fixture._root.path().join(".objekte").exists());
-    backend::index_lifecycle::shutdown(controller.session.as_ref().unwrap()).unwrap();
+        std::thread::sleep(Duration::from_millis(50));
+    }
+    let status = index.storage_status().unwrap();
+    assert_eq!(status.durable_generation, Some(status.current_generation));
+    index.shutdown().unwrap();
 }
 
 #[test]

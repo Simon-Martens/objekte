@@ -130,9 +130,6 @@ struct StoredLifecyclePreference {
     automatic_check: bool,
     #[serde(default = "default_check_interval")]
     check_interval_seconds: u64,
-    /// Automatic persistence is tied to a specific configured destination.
-    #[serde(default)]
-    automatic_save_destinations: BTreeMap<String, bool>,
 }
 
 fn default_check_interval() -> u64 { 30 }
@@ -142,7 +139,6 @@ impl Default for StoredLifecyclePreference {
         Self {
             automatic_check: false,
             check_interval_seconds: default_check_interval(),
-            automatic_save_destinations: BTreeMap::new(),
         }
     }
 }
@@ -151,7 +147,6 @@ impl Default for StoredLifecyclePreference {
 pub struct LifecyclePreference {
     pub automatic_check: bool,
     pub check_interval_seconds: u64,
-    pub automatic_save: bool,
 }
 
 impl Default for LifecyclePreference {
@@ -159,7 +154,6 @@ impl Default for LifecyclePreference {
         Self {
             automatic_check: false,
             check_interval_seconds: default_check_interval(),
-            automatic_save: false,
         }
     }
 }
@@ -212,18 +206,14 @@ pub struct DesktopPreferences {
 
 
 impl DesktopPreferences {
-    /// Keys are canonical source-configuration and destination identities
-    /// supplied by the controller; display labels are never used as keys.
-    pub fn lifecycle_policy(&self, source_key: &str, destination: Option<&str>) -> LifecyclePreference {
+    /// Keys are canonical source-configuration identities supplied by the controller.
+    pub fn lifecycle_policy(&self, source_key: &str) -> LifecyclePreference {
         let Some(stored) = self.settings.lifecycle.get(source_key) else {
             return LifecyclePreference::default();
         };
         LifecyclePreference {
             automatic_check: stored.automatic_check,
             check_interval_seconds: stored.check_interval_seconds,
-            automatic_save: destination.is_some_and(|path| {
-                stored.automatic_save_destinations.get(path).copied().unwrap_or(false)
-            }),
         }
     }
 
@@ -240,21 +230,6 @@ impl DesktopPreferences {
         let stored = self.settings.lifecycle.entry(source_key.to_owned()).or_default();
         stored.automatic_check = enabled;
         stored.check_interval_seconds = interval_seconds;
-        Ok(())
-    }
-
-    /// A copy saved elsewhere never changes the automatic-save preference.
-    pub fn set_automatic_save_local(
-        &mut self,
-        source_key: &str,
-        destination: &str,
-        enabled: bool,
-    ) -> Result<(), String> {
-        if source_key.is_empty() || destination.is_empty() {
-            return Err("Choose a configured repository and index destination".into());
-        }
-        let stored = self.settings.lifecycle.entry(source_key.to_owned()).or_default();
-        stored.automatic_save_destinations.insert(destination.to_owned(), enabled);
         Ok(())
     }
 
