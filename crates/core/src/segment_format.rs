@@ -82,6 +82,7 @@ struct SectionEntry {
 #[derive(Clone)]
 enum SegmentBytes {
     Owned(Arc<[u8]>),
+    OwnedVec(Arc<Vec<u8>>),
     Mapped(Arc<Mmap>),
 }
 
@@ -89,6 +90,7 @@ impl AsRef<[u8]> for SegmentBytes {
     fn as_ref(&self) -> &[u8] {
         match self {
             Self::Owned(bytes) => bytes,
+            Self::OwnedVec(bytes) => bytes,
             Self::Mapped(map) => map,
         }
     }
@@ -157,6 +159,12 @@ impl SegmentReader {
         Self::parse(SegmentBytes::Owned(bytes))
     }
 
+    /// Transfer a just-built segment buffer without copying its full payload
+    /// into an Arc slice while the mutable builders are still live.
+    pub(crate) fn from_owned_vec(bytes: Vec<u8>) -> Result<Self, String> {
+        Self::parse(SegmentBytes::OwnedVec(Arc::new(bytes)))
+    }
+
     /// `file` must be an opened immutable Objekte segment, protected against
     /// replacement by the store's reader/writer protocol. Editable source
     /// files must never be passed here.
@@ -194,12 +202,12 @@ impl SegmentReader {
             .map_err(|error| SegmentOpenError::Resource(format!("full index residency allocation: {error}")))?;
         bytes.resize(length, 0);
         file.read_exact(&mut bytes).map_err(SegmentOpenError::Io)?;
-        Self::from_owned(Arc::from(bytes)).map_err(SegmentOpenError::Invalid)
+        Self::from_owned_vec(bytes).map_err(SegmentOpenError::Invalid)
     }
 
     #[cfg(test)]
     pub(crate) fn is_owned(&self) -> bool {
-        matches!(self.bytes, SegmentBytes::Owned(_))
+        matches!(self.bytes, SegmentBytes::Owned(_) | SegmentBytes::OwnedVec(_))
     }
 
     fn parse(bytes: SegmentBytes) -> Result<Self, String> {

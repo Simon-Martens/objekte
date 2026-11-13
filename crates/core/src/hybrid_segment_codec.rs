@@ -383,15 +383,34 @@ fn write_segment_inner<W: Write + Seek>(
         })?;
         sections.ok_or("constructed section writer did not complete")?
     };
-    write_bytes(&mut writer, SectionKind::FieldMetadata, &sections.field_bytes)?;
-    write_bytes(&mut writer, SectionKind::TextBindings, &sections.text_bytes)?;
-    write_bytes(&mut writer, SectionKind::ScalarDictionaries, &sections.scalar)?;
-    write_bytes(&mut writer, SectionKind::StructuralReferences, &sections.structural_bytes)?;
-    write_bytes(&mut writer, SectionKind::BigramDictionaries, &sections.bigrams)?;
-    write_bytes(&mut writer, SectionKind::RecordSlots, &sections.record_bytes)?;
-    write_bytes(&mut writer, SectionKind::SortData, &sections.sort_bytes)?;
-    write_bytes(&mut writer, SectionKind::RelationAndIdentity, &sections.relation_bytes)?;
-    write_bytes(&mut writer, SectionKind::Integrity, &sections.integrity_bytes)?;
+    let EncodedSections {
+        field_bytes,
+        text_bytes,
+        scalar,
+        structural_bytes,
+        bigrams,
+        record_bytes,
+        sort_bytes,
+        relation_bytes,
+        integrity_bytes,
+    } = sections;
+    write_bytes(&mut writer, SectionKind::FieldMetadata, &field_bytes)?;
+    drop(field_bytes);
+    write_bytes(&mut writer, SectionKind::TextBindings, &text_bytes)?;
+    drop(text_bytes);
+    write_bytes(&mut writer, SectionKind::ScalarDictionaries, &scalar)?;
+    drop(scalar);
+    write_bytes(&mut writer, SectionKind::StructuralReferences, &structural_bytes)?;
+    drop(structural_bytes);
+    write_bytes(&mut writer, SectionKind::BigramDictionaries, &bigrams)?;
+    drop(bigrams);
+    write_bytes(&mut writer, SectionKind::RecordSlots, &record_bytes)?;
+    drop(record_bytes);
+    write_bytes(&mut writer, SectionKind::SortData, &sort_bytes)?;
+    drop(sort_bytes);
+    write_bytes(&mut writer, SectionKind::RelationAndIdentity, &relation_bytes)?;
+    drop(relation_bytes);
+    write_bytes(&mut writer, SectionKind::Integrity, &integrity_bytes)?;
     writer.finish()
 }
 
@@ -572,7 +591,7 @@ pub(crate) fn seal_segment_owned(
         .iter()
         .map(|file| &file.entry)
         .collect::<Vec<_>>();
-    let reader = Arc::new(SegmentReader::from_owned(Arc::from(bytes))?);
+    let reader = Arc::new(SegmentReader::from_owned_vec(bytes)?);
     decode_segment_sealed(
         reader,
         ordinal,
@@ -635,7 +654,7 @@ pub(crate) fn seal_segment_consuming(
     options: RepositoryOptions,
 ) -> Result<IndexedCollectionSegment, String> {
     let bytes = encode_owned_bytes(&segment, ordinal, definition, options)?;
-    let reader = Arc::new(SegmentReader::from_owned(Arc::from(bytes))?);
+    let reader = Arc::new(SegmentReader::from_owned_vec(bytes)?);
     let fields: FieldSection =
         decode_meta(FIELD_MAGIC, required(&reader, SectionKind::FieldMetadata)?)?;
     let texts: TextSection =

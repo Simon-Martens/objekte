@@ -76,6 +76,19 @@ fn owned_sections_and_postings_are_checked() {
 }
 
 #[test]
+fn owned_vec_reader_keeps_the_original_buffer() {
+    let (bytes, _, _) = sample_segment();
+    let buffer = bytes.to_vec();
+    let address = buffer.as_ptr();
+    let reader = SegmentReader::from_owned_vec(buffer).unwrap();
+    let SegmentBytes::OwnedVec(retained) = &reader.bytes else {
+        panic!("constructed reader did not retain its vector");
+    };
+    assert_eq!(retained.as_ptr(), address);
+    assert_eq!(reader.section(SectionKind::FieldMetadata).unwrap(), Some(b"fields".as_slice()));
+}
+
+#[test]
 fn decoded_posting_cache_evicts_oldest_without_scanning_entries() {
     let (bytes, _, descriptor) = sample_segment();
     let reader = SegmentReader::from_owned(bytes).unwrap();
