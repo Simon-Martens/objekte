@@ -12,10 +12,12 @@ mod test_support;
 mod view;
 
 use std::error::Error;
+use std::path::PathBuf;
 use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
 use app::{Action, App, Focus, Overlay, View};
+use objekte_search_core::lifecycle::{InitialBuildPhase, InitialBuildSnapshot, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::repository::SnapshotAction;
 use objekte_search_core::streaming::CancellationToken;
@@ -27,7 +29,6 @@ use ratatui::crossterm::{
     execute,
 };
 
-
 #[derive(Clone, Default)]
 pub struct TuiOptions {
     pub single_collection: bool,
@@ -38,13 +39,27 @@ pub struct TuiOptions {
     pub loading_label: Option<String>,
     /// An explicit save was requested at startup.
     pub snapshot_requested: bool,
+    /// Destination used only after an incremental build is complete.
+    pub snapshot_path: Option<std::path::PathBuf>,
     pub interruption: Option<CancellationToken>,
 }
-
 
 pub fn run_with_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
 where
     F: FnOnce() -> Result<IndexedRepository, String> + Send + 'static,
+{
+    run_with_opening_loader(move || loader().map(TuiOpening::Ready), options)
+}
+
+/// A selected cache can load immediately or fall back to a fresh incremental build.
+pub enum TuiOpening {
+    Ready(IndexedRepository),
+    Initial(InitialBuildTask, Vec<PathBuf>),
+}
+
+pub fn run_with_opening_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
+where
+    F: FnOnce() -> Result<TuiOpening, String> + Send + 'static,
 {
     let mut terminal = ratatui::try_init()?;
     let result = (|| -> Result<(), Box<dyn Error>> {
@@ -67,9 +82,11 @@ where
         })?;
         std::thread::spawn(move || {
             let result = loader();
-            let _ = sender.send(result);
+            if let Err(mpsc::SendError(Ok(TuiOpening::Initial(task, _)))) = sender.send(result) {
+                task.cancel();
+            }
         });
-        let repository = loop {
+        let opening = loop {
             if options
                 .interruption
                 .as_ref()
@@ -78,7 +95,7 @@ where
                 return Err(interrupted().into());
             }
             match receiver.try_recv() {
-                Ok(Ok(repository)) => break repository,
+                Ok(Ok(opening)) => break opening,
                 Ok(Err(error)) => return Err(std::io::Error::other(error).into()),
                 Err(mpsc::TryRecvError::Disconnected) => {
                     return Err(std::io::Error::other("repository loader stopped").into());
@@ -109,17 +126,141 @@ where
                 }
             }
         };
-        let action = repository.startup().snapshot_action;
-        let index_ns = if action == SnapshotAction::Restored {
-            repository
-                .startup()
-                .snapshot_decode_ns
-                .saturating_add(repository.startup().reconciliation_ns)
-        } else {
-            repository.startup().build_ns
+        match opening {
+            TuiOpening::Ready(repository) => run_active(&mut terminal, repository, options, None),
+            TuiOpening::Initial(task, protected_files) => {
+                run_initial_active(&mut terminal, task, options, protected_files)
+            }
+        }
+    })();
+    let mouse = execute!(std::io::stdout(), event::DisableMouseCapture);
+    let restore = ratatui::try_restore();
+    result?;
+    mouse?;
+    restore?;
+    Ok(())
+}
+
+/// Opens the screen as soon as discovery publishes the physical file catalogue.
+pub fn run_with_initial_build(
+    task: InitialBuildTask,
+    options: TuiOptions,
+    protected_files: Vec<PathBuf>,
+) -> Result<(), Box<dyn Error>> {
+    run_with_opening_loader(
+        move || Ok(TuiOpening::Initial(task, protected_files)),
+        options,
+    )
+}
+
+fn run_initial_active(
+    terminal: &mut ratatui::DefaultTerminal,
+    task: InitialBuildTask,
+    options: TuiOptions,
+    protected_files: Vec<PathBuf>,
+) -> Result<(), Box<dyn Error>> {
+    struct CancelOnExit(InitialBuildTask);
+    impl Drop for CancelOnExit {
+        fn drop(&mut self) {
+            self.0.cancel();
+        }
+    }
+
+    let guard = CancelOnExit(task);
+    (|| -> Result<(), Box<dyn Error>> {
+        let started = Instant::now();
+        let (repository, snapshot) = loop {
+            if options
+                .interruption
+                .as_ref()
+                .is_some_and(CancellationToken::is_cancelled)
+            {
+                return Err(interrupted().into());
+            }
+            let snapshot = guard.0.snapshot()?;
+            match snapshot.status.phase {
+                InitialBuildPhase::Failed | InitialBuildPhase::Cancelled => {
+                    return Err(std::io::Error::other(
+                        snapshot
+                            .status
+                            .error
+                            .unwrap_or_else(|| "index build stopped".into()),
+                    )
+                    .into());
+                }
+                _ => {}
+            }
+            if snapshot.view.is_some() {
+                if let Some(index) = guard.0.try_index()? {
+                    index.protect_configuration_files(&protected_files)?;
+                    break (IndexedRepository::new(index)?, snapshot);
+                }
+            }
+            let label = format!(
+                "Discovering files · {} found",
+                snapshot.status.discovered_files
+            );
+            terminal
+                .draw(|frame| view::draw_loading_with_label(frame, started.elapsed(), &label))?;
+            if event::poll(Duration::from_millis(100))? {
+                match event::read()? {
+                    Event::Key(pressed)
+                        if pressed.kind != KeyEventKind::Release
+                            && (pressed.code == KeyCode::Esc
+                                || (pressed.code == KeyCode::Char('q')
+                                    && pressed.modifiers.contains(KeyModifiers::CONTROL))) =>
+                    {
+                        return Ok(());
+                    }
+                    Event::Key(pressed)
+                        if pressed.kind != KeyEventKind::Release
+                            && pressed.code == KeyCode::Char('c')
+                            && pressed.modifiers.contains(KeyModifiers::CONTROL) =>
+                    {
+                        return Err(interrupted().into());
+                    }
+                    _ => {}
+                }
+            }
         };
-        let snapshot_requested = options.snapshot_requested;
-        let mut app = App::with_options(repository, options);
+        run_active(
+            terminal,
+            repository,
+            options,
+            Some((guard.0.clone(), snapshot)),
+        )
+    })()
+}
+
+fn interrupted() -> std::io::Error {
+    std::io::Error::new(
+        std::io::ErrorKind::Interrupted,
+        "interactive search interrupted",
+    )
+}
+
+fn run_active(
+    terminal: &mut ratatui::DefaultTerminal,
+    repository: IndexedRepository,
+    options: TuiOptions,
+    initial: Option<(InitialBuildTask, InitialBuildSnapshot)>,
+) -> Result<(), Box<dyn Error>> {
+    let action = repository.startup().snapshot_action;
+    let index_ns = if action == SnapshotAction::Restored {
+        repository
+            .startup()
+            .snapshot_decode_ns
+            .saturating_add(repository.startup().reconciliation_ns)
+    } else {
+        repository.startup().build_ns
+    };
+    let snapshot_requested = options.snapshot_requested;
+    let incremental = initial.is_some();
+    let mut app = match initial {
+        Some((task, snapshot)) => App::with_initial_build(repository, options, task, snapshot),
+        None => App::with_options(repository, options),
+    };
+    if !incremental {
         let operation = if action == SnapshotAction::Restored {
             "Index loaded"
         } else {
@@ -138,55 +279,49 @@ where
             Some(status) => format!("{status}  ·  {ready}"),
             None => ready,
         });
-        let light = match app.settings.theme.as_deref() {
-            Some("light") => Some(true),
-            Some("dark") => Some(false),
-            _ => view::theme::detect_light(),
-        };
-        if let Some(light) = light {
-            view::theme::set_light(light);
+    }
+    let light = match app.settings.theme.as_deref() {
+        Some("light") => Some(true),
+        Some("dark") => Some(false),
+        _ => view::theme::detect_light(),
+    };
+    if let Some(light) = light {
+        view::theme::set_light(light);
+    }
+    while !app.done {
+        if app.interrupted() {
+            return Err(interrupted().into());
         }
-        while !app.done {
-            if app.interrupted() {
-                return Err(interrupted().into());
-            }
-            app.tick(Instant::now());
-            terminal.draw(|frame| view::draw(frame, &mut app))?;
-            let poll_ms = if app.busy() { 30 } else { 250 };
-            if !event::poll(Duration::from_millis(poll_ms))? {
-                continue;
-            }
-            loop {
-                match event::read()? {
-                    Event::Key(pressed) if pressed.kind != KeyEventKind::Release => {
-                        if pressed.code == KeyCode::Char('c')
-                            && pressed.modifiers.contains(KeyModifiers::CONTROL)
-                        {
-                            return Err(interrupted().into());
-                        }
-                        key(&mut app, pressed)
+        app.tick(Instant::now());
+        terminal.draw(|frame| view::draw(frame, &mut app))?;
+        let poll_ms = if app.busy() { 30 } else { 250 };
+        if !event::poll(Duration::from_millis(poll_ms))? {
+            continue;
+        }
+        loop {
+            match event::read()? {
+                Event::Key(pressed) if pressed.kind != KeyEventKind::Release => {
+                    if pressed.code == KeyCode::Char('c')
+                        && pressed.modifiers.contains(KeyModifiers::CONTROL)
+                    {
+                        return Err(interrupted().into());
                     }
-                    Event::Mouse(mouse) => mouse_event(&mut app, mouse),
-                    _ => {}
+                    key(&mut app, pressed)
                 }
-                if app.done || !event::poll(Duration::ZERO)? {
-                    break;
-                }
+                Event::Mouse(mouse) => mouse_event(&mut app, mouse),
+                _ => {}
             }
-            if let Some(text) = app.clipboard.take() {
-                use std::io::Write;
-                let mut stdout = std::io::stdout();
-                stdout.write_all(clipboard::osc52(&text).as_bytes())?;
-                stdout.flush()?;
+            if app.done || !event::poll(Duration::ZERO)? {
+                break;
             }
         }
-        Ok(())
-    })();
-    let mouse = execute!(std::io::stdout(), event::DisableMouseCapture);
-    let restore = ratatui::try_restore();
-    result?;
-    mouse?;
-    restore?;
+        if let Some(text) = app.clipboard.take() {
+            use std::io::Write;
+            let mut stdout = std::io::stdout();
+            stdout.write_all(clipboard::osc52(&text).as_bytes())?;
+            stdout.flush()?;
+        }
+    }
     Ok(())
 }
 
@@ -201,6 +336,8 @@ fn mouse_event(app: &mut App, mouse: MouseEvent) {
         MouseEventKind::ScrollDown => {
             if app.view == View::Detail {
                 app.move_detail(3);
+            } else if app.view == View::Files {
+                app.move_file_selection(3);
             } else {
                 app.move_selection(3);
             }
@@ -208,6 +345,8 @@ fn mouse_event(app: &mut App, mouse: MouseEvent) {
         MouseEventKind::ScrollUp => {
             if app.view == View::Detail {
                 app.move_detail(-3);
+            } else if app.view == View::Files {
+                app.move_file_selection(-3);
             } else {
                 app.move_selection(-3);
             }
@@ -231,6 +370,12 @@ fn mouse_event(app: &mut App, mouse: MouseEvent) {
                 if index < app.hits.len() {
                     app.move_selection(index as isize - app.selected as isize);
                     app.open_detail();
+                }
+            } else if app.view == View::Files && inside(app.results_area) {
+                let visible = mouse.row.saturating_sub(app.results_area.y + 1) as usize;
+                let index = app.file_scroll.saturating_add(visible);
+                if index < app.file_count() {
+                    app.file_selected = index;
                 }
             } else if app.view == View::Results && inside(app.detail_area) {
                 app.open_detail();
@@ -388,6 +533,10 @@ fn key(app: &mut App, key: KeyEvent) {
         app.overlay = Some(Overlay::Help);
         return;
     }
+    if control && key.code == KeyCode::Char('i') {
+        app.toggle_files();
+        return;
+    }
     if control && key.code == KeyCode::Char('k') && app.view == View::Results {
         app.action_picker = 0;
         app.overlay = Some(Overlay::Actions);
@@ -494,6 +643,30 @@ fn key(app: &mut App, key: KeyEvent) {
         }
         return;
     }
+    if app.view == View::Files {
+        match key.code {
+            KeyCode::Esc | KeyCode::Enter => app.toggle_files(),
+            KeyCode::Tab => {
+                app.toggle_files();
+                app.focus = Focus::Search;
+            }
+            KeyCode::Char(_) if !control && !key.modifiers.contains(KeyModifiers::ALT) => {
+                app.toggle_files();
+                app.focus = Focus::Search;
+                if app.search.key(key) == Some(true) {
+                    app.changed(Instant::now());
+                }
+            }
+            KeyCode::Up => app.move_file_selection(-1),
+            KeyCode::Down => app.move_file_selection(1),
+            KeyCode::PageUp => app.move_file_selection(-(app.viewport_rows as isize)),
+            KeyCode::PageDown => app.move_file_selection(app.viewport_rows as isize),
+            KeyCode::Home => app.move_file_selection(-(app.file_selected as isize)),
+            KeyCode::End => app.move_file_selection(isize::MAX),
+            _ => {}
+        }
+        return;
+    }
     match key.code {
         KeyCode::Tab => {
             app.focus = match app.focus {
@@ -554,6 +727,7 @@ fn key(app: &mut App, key: KeyEvent) {
 
 fn run_action(app: &mut App, action: Action) {
     match action {
+        Action::Files => app.toggle_files(),
         Action::Collections => {
             if app.single_collection {
                 app.status = Some(format!("Collection: {}", app.scope_label()));

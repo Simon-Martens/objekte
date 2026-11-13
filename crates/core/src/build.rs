@@ -138,6 +138,8 @@ pub(crate) struct BatchContribution {
     relations: Vec<RelationContribution>,
     pub record_parses: u64,
     pub failed_parses: u64,
+    pub(crate) source_reads: u64,
+    pub(crate) source_bytes_read: u64,
     pub(crate) profile: BuildWorkProfile,
 }
 
@@ -720,6 +722,8 @@ impl<'a> BatchBuilder<'a> {
             relations: self.relations,
             record_parses,
             failed_parses,
+            source_reads: 0,
+            source_bytes_read: 0,
             profile: self.profile,
         })
     }
@@ -793,7 +797,7 @@ fn process_batch_profiled(
             file.revision,
             &mut input_buffer,
             sampled.then_some(&mut source_sample),
-            profile_build.then_some(&mut input_buffer_profile),
+            Some(&mut input_buffer_profile),
             |outcome| {
                 let started = sampled.then(Instant::now);
                 let result = builder.outcome(&mut file, &path, outcome, None);
@@ -844,6 +848,8 @@ fn process_batch_profiled(
         batch.profile.batches += 1;
     }
     batch.file_fingerprints = file_fingerprints;
+    batch.source_reads = input_buffer_profile.files_read;
+    batch.source_bytes_read = input_buffer_profile.bytes_read;
     Ok(batch)
 }
 
@@ -1475,6 +1481,8 @@ fn process_unframed_large_file(
         inference,
         inference_jobs,
     )?;
+    let source_reads = batch.source_reads;
+    let source_bytes_read = batch.source_bytes_read;
     let file_fingerprint = batch
         .file_fingerprints()
         .first()
@@ -1483,6 +1491,8 @@ fn process_unframed_large_file(
     admit(batch)?;
     Ok(BuildScheduleStats {
         file_fingerprint,
+        source_reads,
+        source_bytes_read,
         weight_limit_bytes: 64 * 1024 * 1024,
         peak_weight_bytes: source_files[file_id.0 as usize].revision.size,
         admission_ns: started.elapsed().as_nanos() as u64,
@@ -1576,6 +1586,8 @@ pub(crate) fn process_framed_file_profiled(
     let file_fingerprint = (bytes.len() as u64 == input.revision.size)
         .then(|| (file_id, Sha256::digest(&*bytes).into()));
     let source_bytes = bytes.len() as u64;
+    stats.source_reads = 1;
+    stats.source_bytes_read = source_bytes;
     let mut chunks = Vec::new();
     let mut start = 0;
     while start < ranges.len() {
@@ -1751,6 +1763,8 @@ fn process_bounded_json_lines_file(
     if stats.file_fingerprint.is_none() && bytes_read == expected_size {
         stats.file_fingerprint = Some((file_id, digest.finalize().into()));
     }
+    stats.source_reads = stats.source_reads.saturating_add(1);
+    stats.source_bytes_read = stats.source_bytes_read.saturating_add(bytes_read);
     Ok(stats)
 }
 
@@ -2004,6 +2018,8 @@ pub(crate) struct BuildScheduleStats {
     /// Digest of the one large file scheduled by this call, if readable.
     /// The repository coordinator must collect it before aggregate `absorb`.
     pub(crate) file_fingerprint: Option<(FileId, [u8; 32])>,
+    pub source_reads: u64,
+    pub source_bytes_read: u64,
     pub weight_limit_bytes: u64,
     pub peak_weight_bytes: u64,
     pub peak_active_jobs: usize,
@@ -2078,6 +2094,8 @@ impl BuildScheduleStats {
         self.framing_ns = self.framing_ns.saturating_add(other.framing_ns);
         self.framing_chunks += other.framing_chunks;
         self.framing_bytes += other.framing_bytes;
+        self.source_reads = self.source_reads.saturating_add(other.source_reads);
+        self.source_bytes_read = self.source_bytes_read.saturating_add(other.source_bytes_read);
         self.admission_schedule.absorb(other.admission_schedule);
     }
 }

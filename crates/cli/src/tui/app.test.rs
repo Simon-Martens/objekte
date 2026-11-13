@@ -13,6 +13,75 @@ fn settled(app: &mut App) {
 }
 
 #[test]
+fn provisional_delta_preserves_selection_and_waits_for_complete_export() {
+    let mut fixture = fixture(3);
+    let app = &mut fixture.app;
+    settled(app);
+    let full = app.repo.search(&app.query(0).unwrap()).unwrap();
+    let first = full.hits[0].clone();
+    let selected = full.hits[1].clone();
+    app.hits = vec![selected.clone()];
+    app.selected = 0;
+    app.total = 1;
+    app.provisional = true;
+    app.build_status = Some(InitialBuildStatus::default());
+    app.generation += 1;
+    app.inflight = 1;
+    app.searching = true;
+    app.requested_offset = Some(0);
+    app.sender
+        .send(Update {
+            generation: app.generation,
+            offset: 0,
+            elapsed: Duration::ZERO,
+            result: Ok(SearchResult {
+                count: None,
+                hits: vec![first.clone(), first],
+                counters: full.counters.clone(),
+            }),
+            complete: false,
+            delta: true,
+            view: None,
+        })
+        .unwrap();
+    app.tick(Instant::now());
+    assert!(app.provisional);
+    assert_eq!(app.hits.len(), 2);
+    assert_eq!(app.hits[app.selected].record_id, selected.record_id);
+    app.export_input = Input::with_text(fixture._temp.path().join("all.json").to_str().unwrap());
+    app.finish_export(true);
+    assert_eq!(
+        app.status.as_deref(),
+        Some("Export all waits for the complete index")
+    );
+    assert!(!fixture._temp.path().join("all.json").exists());
+
+    app.build_status = Some(InitialBuildStatus {
+        phase: InitialBuildPhase::Complete,
+        construction_complete: true,
+        ..InitialBuildStatus::default()
+    });
+    app.inflight = 1;
+    app.searching = true;
+    app.requested_offset = Some(0);
+    app.sender
+        .send(Update {
+            generation: app.generation,
+            offset: 0,
+            elapsed: Duration::ZERO,
+            result: Ok(full),
+            complete: true,
+            delta: false,
+            view: None,
+        })
+        .unwrap();
+    app.tick(Instant::now());
+    assert!(!app.provisional);
+    assert_eq!(app.total, 4);
+    assert_eq!(app.hits[app.selected].record_id, selected.record_id);
+}
+
+#[test]
 fn cli_columns_follow_filter_and_sort_without_schema_defaults() {
     let mut fixture = fixture(3);
     let app = &mut fixture.app;

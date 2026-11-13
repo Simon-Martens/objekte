@@ -4,6 +4,7 @@
 use std::path::PathBuf;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Condvar, Mutex};
+use std::time::Instant;
 
 use crate::lifecycle::{Index, IndexError, IndexView};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
@@ -28,6 +29,9 @@ pub struct InitialBuildStatus {
     pub searchable_batches: u64,
     pub construction_complete: bool,
     pub error: Option<String>,
+    pub catalogue_elapsed_ns: Option<u64>,
+    pub first_batch_elapsed_ns: Option<u64>,
+    pub completion_elapsed_ns: Option<u64>,
 }
 
 impl Default for InitialBuildStatus {
@@ -41,6 +45,9 @@ impl Default for InitialBuildStatus {
             searchable_batches: 0,
             construction_complete: false,
             error: None,
+            catalogue_elapsed_ns: None,
+            first_batch_elapsed_ns: None,
+            completion_elapsed_ns: None,
         }
     }
 }
@@ -63,6 +70,7 @@ struct InitialState {
 }
 
 struct InitialOpening {
+    started: Instant,
     cancelled: AtomicBool,
     state: Mutex<InitialState>,
     changed: Condvar,
@@ -74,6 +82,7 @@ pub struct InitialBuildTask(Arc<InitialOpening>);
 impl InitialBuildTask {
     fn new() -> Self {
         Self(Arc::new(InitialOpening {
+            started: Instant::now(),
             cancelled: AtomicBool::new(false),
             state: Mutex::new(InitialState {
                 cursor: 0,
@@ -98,6 +107,8 @@ impl InitialBuildTask {
         let status = index.status()?;
         let mut state = self.0.state.lock().map_err(|_| IndexError::LockPoisoned)?;
         state.status.catalogue_complete = true;
+        let elapsed_ns = self.0.started.elapsed().as_nanos() as u64;
+        state.status.catalogue_elapsed_ns.get_or_insert(elapsed_ns);
         state.status.discovered_files = status.indexed_files;
         state.status.processed_files = status.processed_files;
         state.status.processed_records = status.live_records;
@@ -105,8 +116,14 @@ impl InitialBuildTask {
             .0
             .segments
             .iter()
-            .map(|group| group.len() as u64)
+            .map(|group| group.iter().filter(|segment| segment.active.len() > 0).count() as u64)
             .sum();
+        if state.status.searchable_batches > 0 {
+            state.status.first_batch_elapsed_ns.get_or_insert(elapsed_ns);
+        }
+        if complete {
+            state.status.completion_elapsed_ns = Some(elapsed_ns);
+        }
         state.status.construction_complete = complete;
         state.status.phase = if complete {
             InitialBuildPhase::Complete

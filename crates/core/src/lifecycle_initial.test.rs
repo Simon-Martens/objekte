@@ -115,6 +115,8 @@ fn discovery_and_segments_publish_without_losing_records() {
     assert_eq!(final_results.count, Some(2_050));
     assert_eq!(final_results.hits.len(), 2_050);
     assert_eq!(finished.status().unwrap().processed_files, 2_050);
+    assert_eq!(finished.status().unwrap().build_source_reads, 2_050);
+    assert_eq!(finished.status().unwrap().build_parses, 2_050);
     assert_eq!(
         final_results
             .hits

@@ -71,3 +71,23 @@ fn invalid_utf8_in_query_file_is_fatal_input_error() {
     let mut source = QuerySource::open(&args).unwrap();
     assert!(source.next_input().unwrap_err().contains("line 1"));
 }
+
+#[test]
+fn opening_preview_replays_query_and_input_error_in_order() {
+    let mut source = QuerySource::from_text("\n\"first\"\nsecond = 2\n".into());
+    let preview = source.peek_first_input().unwrap().unwrap();
+    assert_eq!(preview.line, Some(2));
+    assert_eq!(source.yielded(), 0);
+    assert_eq!(source.peek_first_input().unwrap(), Some(preview.clone()));
+    assert_eq!(source.next_input().unwrap(), Some(preview));
+    assert_eq!(source.next_input().unwrap().unwrap().line, Some(3));
+    assert_eq!(source.yielded(), 2);
+
+    let folder = tempfile::tempdir().unwrap();
+    let path = folder.path().join("invalid.txt");
+    std::fs::write(&path, b"\xff\n").unwrap();
+    let args = Arguments::try_parse_from(["obj", "--query-file", path.to_str().unwrap()]).unwrap();
+    let mut source = QuerySource::open(&args).unwrap();
+    let error = source.peek_first_input().unwrap_err();
+    assert_eq!(source.next_input().unwrap_err(), error);
+}

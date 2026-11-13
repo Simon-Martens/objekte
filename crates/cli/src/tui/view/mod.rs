@@ -8,6 +8,8 @@ use super::input::Input;
 use super::record;
 use objekte_search_core::diagnostics::milliseconds_3;
 use objekte_search_core::inventory::FileStatus;
+use objekte_search_core::lifecycle::InitialBuildPhase;
+use objekte_search_core::path_repr;
 use objekte_search_core::repository::SearchHit;
 use ratatui::{
     Frame,
@@ -94,16 +96,53 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
         header,
     );
     if header.width >= 58 {
+        let (label, color) = match app.build_status.as_ref() {
+            Some(status) if status.phase == InitialBuildPhase::Failed => {
+                ("indexing failed".to_owned(), RED)
+            }
+            Some(status) if status.phase == InitialBuildPhase::Cancelled => {
+                ("indexing cancelled".to_owned(), RED)
+            }
+            Some(status) if !status.construction_complete => (
+                format!(
+                    "Indexing — {} of {} files",
+                    status.processed_files, status.discovered_files
+                ),
+                DIM,
+            ),
+            _ if app.view == View::Files => ("file catalogue".to_owned(), DIM),
+            _ => ("indexes ready".to_owned(), GREEN),
+        };
         frame.render_widget(
             Paragraph::new(Line::from(vec![
-                Span::styled("● ", Style::new().fg(GREEN)),
-                Span::styled("indexes ready ", Style::new().fg(DIM)),
+                Span::styled("● ", Style::new().fg(color)),
+                Span::styled(format!("{label} "), Style::new().fg(color)),
             ]))
             .right_aligned(),
             header,
         );
     }
     match app.view {
+        View::Files => {
+            frame.render_widget(
+                Paragraph::new(" Files discovered from the source tree · Ctrl+I returns to search")
+                    .style(Style::new().fg(DIM)),
+                search,
+            );
+            frame.render_widget(
+                Paragraph::new(
+                    " File metadata only; record IDs and validity are known after indexing",
+                )
+                .style(Style::new().fg(FAINT)),
+                filter,
+            );
+            frame.render_widget(
+                Paragraph::new(format!(" {} files in catalogue", app.file_count()))
+                    .style(Style::new().fg(DIM)),
+                summary,
+            );
+            files(frame, app, body);
+        }
         View::Results => {
             query_line(
                 frame,
@@ -124,7 +163,11 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                 None,
             );
             let status = if app.searching {
-                "Searching…".to_owned()
+                if app.provisional {
+                    "Searching available records…".to_owned()
+                } else {
+                    "Searching…".to_owned()
+                }
             } else if let Some(error) = &app.error {
                 let timing = app
                     .last_search_duration
@@ -132,6 +175,21 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                         format!("  ·  search {}", elapsed_label(elapsed))
                     });
                 format!("Error: {error}{timing}")
+            } else if app.provisional {
+                let progress = app
+                    .build_status
+                    .as_ref()
+                    .map_or_else(String::new, |status| {
+                        format!(
+                            "  ·  Indexing — {} of {} files",
+                            status.processed_files, status.discovered_files
+                        )
+                    });
+                format!(
+                    "≥{} provisional matches  ·  {} shown{progress}",
+                    app.total,
+                    app.hits.len()
+                )
             } else {
                 let sort = app.sort.as_ref().map_or_else(String::new, |sort| {
                     format!(
@@ -187,7 +245,9 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
             },
         ),
     }
-    let hint = if app.single_collection && app.view == View::Detail {
+    let hint = if app.view == View::Files {
+        " Ctrl+I or Esc search · ↑↓ files · PgUp/PgDn page · Ctrl+Q quit"
+    } else if app.single_collection && app.view == View::Detail {
         " Esc back · ↑↓ fields · Enter fold · Alt+←→ records · / find · y/Y copy · r raw"
     } else if app.view == View::Detail && footer.width >= 96 {
         " Esc back · Tab sections · ↑↓ fields · Enter open · Alt+←→ records · / find · y/Y copy · r raw"
@@ -209,8 +269,21 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
             footer.y,
         ));
     } else {
+        let build_issue = app.build_status.as_ref().and_then(|status| {
+            matches!(
+                status.phase,
+                InitialBuildPhase::Cancelled | InitialBuildPhase::Failed
+            )
+            .then(|| {
+                status
+                    .error
+                    .as_deref()
+                    .unwrap_or("Initial indexing stopped")
+            })
+        });
         frame.render_widget(
-            Paragraph::new(app.status.as_deref().unwrap_or(hint)).style(Style::new().fg(DIM)),
+            Paragraph::new(build_issue.or(app.status.as_deref()).unwrap_or(hint))
+                .style(Style::new().fg(if build_issue.is_some() { RED } else { DIM })),
             footer,
         );
     }
@@ -371,7 +444,9 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
         Rect { height: 1, ..area },
     );
     if app.hits.is_empty() {
-        let message = if app.searching {
+        let message = if app.provisional {
+            "No available matches yet; indexing continues."
+        } else if app.searching {
             "Searching…"
         } else if app.error.is_some() {
             "Correct the query and press Enter."
@@ -443,6 +518,69 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     }
 }
 
+fn files(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
+    app.results_area = area;
+    app.viewport_rows = area.height.saturating_sub(1).max(1) as usize;
+    if area.height == 0 {
+        return;
+    }
+    let id_width = 9;
+    let size_width = 12;
+    let time_width = 18;
+    let path_width = (area.width as usize).saturating_sub(id_width + size_width + time_width + 8);
+    frame.render_widget(
+        Paragraph::new(format!(
+            "  {}  {}  {}  {}",
+            pad_clip("FileId", id_width),
+            pad_clip("relative path", path_width),
+            pad_clip("bytes", size_width),
+            pad_clip("mtime (Unix s)", time_width),
+        ))
+        .style(Style::new().fg(DIM).add_modifier(Modifier::BOLD)),
+        Rect { height: 1, ..area },
+    );
+    for row in 0..app.viewport_rows {
+        let index = app.file_scroll + row;
+        let Some(file) = app.file_at(index) else {
+            continue;
+        };
+        let selected = index == app.file_selected;
+        let style = if selected {
+            Style::new().bg(SELECTED)
+        } else {
+            Style::new()
+        };
+        let path = path_repr::query_path(file.relative_path);
+        frame.render_widget(
+            Paragraph::new(Line::from(vec![
+                Span::styled(if selected { "▌ " } else { "  " }, Style::new().fg(ACCENT)),
+                Span::styled(
+                    pad_clip(&file.id.0.to_string(), id_width),
+                    Style::new().fg(DIM),
+                ),
+                Span::raw("  "),
+                Span::styled(pad_clip(&path, path_width), Style::new().fg(TEXT)),
+                Span::raw("  "),
+                Span::styled(
+                    pad_clip(&file.size.to_string(), size_width),
+                    Style::new().fg(DIM),
+                ),
+                Span::raw("  "),
+                Span::styled(
+                    pad_clip(&(file.modified_ns / 1_000_000_000).to_string(), time_width),
+                    Style::new().fg(DIM),
+                ),
+            ]))
+            .style(style),
+            Rect {
+                y: area.y + 1 + row as u16,
+                height: 1,
+                ..area
+            },
+        );
+    }
+}
+
 fn results_cli(frame: &mut Frame<'_>, app: &App, area: Rect) {
     let width = area.width as usize;
     let id_width = if width < 80 { 18 } else { 28 };
@@ -469,7 +607,9 @@ fn results_cli(frame: &mut Frame<'_>, app: &App, area: Rect) {
         Rect { height: 1, ..area },
     );
     if app.hits.is_empty() {
-        let message = if app.searching {
+        let message = if app.provisional {
+            "No available matches yet; indexing continues."
+        } else if app.searching {
             "Searching…"
         } else if app.error.is_some() {
             "Correct the query and press Enter."
@@ -1244,6 +1384,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 "Keyboard shortcuts",
                 "",
                 "Ctrl+K            All actions",
+                "Ctrl+I            File catalogue / results",
                 "Tab / Shift+Tab   Switch input and results",
                 "Enter / Esc       Search, open / return",
                 "↑↓ / PgUp PgDn   Move rows or a page",
@@ -1266,6 +1407,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 "Keyboard shortcuts",
                 "",
                 "Ctrl+K            All actions",
+                "Ctrl+I            File catalogue / results",
                 "Tab / Shift+Tab   Switch input and results",
                 "Enter / Esc       Search, open / return",
                 "↑↓ / PgUp PgDn   Move rows or a page",
