@@ -366,11 +366,18 @@ impl RelationContribution {
                 return Err("relation projection slot repeated".into());
             }
         }
+        self.project_slots_with(next_count, |old| old_to_new.get(old as usize).copied())
+    }
+
+    pub(crate) fn project_slots_with(
+        &self,
+        next_count: u32,
+        resolve: impl Fn(u32) -> Option<Option<RecordSlot>>,
+    ) -> Result<Self, String> {
         let project = |bitmap: &RoaringBitmap| -> Result<RoaringBitmap, String> {
             let mut projected = RoaringBitmap::new();
             for old in bitmap.iter() {
-                let mapped = old_to_new
-                    .get(old as usize)
+                let mapped = resolve(old)
                     .ok_or("relation projection bitmap out of bounds")?;
                 if let Some(slot) = mapped {
                     projected.insert(slot.0);
@@ -378,29 +385,19 @@ impl RelationContribution {
             }
             Ok(projected)
         };
-        let mut references = self
-            .references
-            .iter()
-            .filter_map(|reference| {
-                old_to_new
-                    .get(reference.source.0 as usize)
-                    .map(|mapped| mapped.map(|source| (reference, source)))
-            })
-            .flatten()
-            .map(|(reference, source)| PendingReference {
-                source,
-                target_id: reference.target_id.clone(),
-                positions: reference.positions.clone(),
-            })
-            .collect::<Vec<_>>();
-        references.sort_by_key(|reference| reference.source);
-        if self
-            .references
-            .iter()
-            .any(|reference| reference.source.0 >= self.record_count)
-        {
-            return Err("relation projection source out of bounds".into());
+        let mut references = Vec::new();
+        for reference in &self.references {
+            if let Some(source) = resolve(reference.source.0)
+                .ok_or("relation projection source out of bounds")?
+            {
+                references.push(PendingReference {
+                    source,
+                    target_id: reference.target_id.clone(),
+                    positions: reference.positions.clone(),
+                });
+            }
         }
+        references.sort_by_key(|reference| reference.source);
         Ok(Self {
             declaration: self.declaration.clone(),
             record_count: next_count,

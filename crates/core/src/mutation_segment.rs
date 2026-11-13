@@ -1,6 +1,6 @@
 //! Sparse, collection-local admission of prepared file contributions.
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 use super::*;
 use crate::bigram::BigramIndex;
@@ -1316,16 +1316,126 @@ fn scatter_posting_key<K: Ord + Clone>(
     }
 }
 
+/// A partition reads one shared source-to-part routing table. It never
+/// allocates or scans a source-sized slot table for each output shard.
+pub(crate) struct PartitionRouting {
+    locations: Vec<Option<(usize, RecordSlot)>>,
+    selected: Vec<Vec<u32>>,
+    logical_counts: Vec<u32>,
+}
+
+impl PartitionRouting {
+    pub(crate) fn new(
+        source: &IndexedCollectionSegment,
+        masks: &[ActiveRecords],
+    ) -> Result<Self, String> {
+        let mut locations = vec![None; source.records.len()];
+        let mut selected = Vec::with_capacity(masks.len());
+        let mut logical_counts = Vec::with_capacity(masks.len());
+        for (part, mask) in masks.iter().enumerate() {
+            if mask.slot_count() as usize != source.records.len() {
+                return Err("partition posting mask coverage mismatch".into());
+            }
+            let mut slots = Vec::with_capacity(mask.len() as usize);
+            let mut logical = 0u32;
+            for old in mask.bitmap().iter() {
+                let local = u32::try_from(slots.len()).map_err(|_| "partition slot overflow")?;
+                let location = locations
+                    .get_mut(old as usize)
+                    .ok_or("partition posting slot outside source")?;
+                if location.replace((part, RecordSlot(local))).is_some() {
+                    return Err("partition posting slot selected twice".into());
+                }
+                slots.push(old);
+                if source.logical_records.contains(old) {
+                    logical = logical
+                        .checked_add(1)
+                        .ok_or("partition logical count overflow")?;
+                }
+            }
+            selected.push(slots);
+            logical_counts.push(logical);
+        }
+        Ok(Self {
+            locations,
+            selected,
+            logical_counts,
+        })
+    }
+}
+
+enum SlotMap<'a> {
+    Dense(&'a [Option<RecordSlot>]),
+    Partition { routing: &'a PartitionRouting, part: usize },
+}
+
+impl SlotMap<'_> {
+    fn len(&self) -> usize {
+        match self {
+            Self::Dense(slots) => slots.len(),
+            Self::Partition { routing, .. } => routing.locations.len(),
+        }
+    }
+
+    fn get(&self, old: usize) -> Option<Option<RecordSlot>> {
+        match self {
+            Self::Dense(slots) => slots.get(old).copied(),
+            Self::Partition { routing, part } => routing
+                .locations
+                .get(old)
+                .map(|location| location.and_then(|(owner, slot)| (owner == *part).then_some(slot))),
+        }
+    }
+
+    fn for_each_selected(
+        &self,
+        mut visit: impl FnMut(usize, RecordSlot) -> Result<(), String>,
+    ) -> Result<(), String> {
+        match self {
+            Self::Dense(slots) => {
+                for (old, slot) in slots.iter().enumerate() {
+                    if let Some(slot) = slot {
+                        visit(old, *slot)?;
+                    }
+                }
+            }
+            Self::Partition { routing, part } => {
+                for &old in &routing.selected[*part] {
+                    let slot = self
+                        .get(old as usize)
+                        .flatten()
+                        .ok_or("partition routing missing")?;
+                    visit(old as usize, slot)?;
+                }
+            }
+        }
+        Ok(())
+    }
+
+    fn bounds(&self) -> Result<Option<(u32, u32)>, String> {
+        let mut bounds: Option<(u32, u32)> = None;
+        self.for_each_selected(|old, _| {
+            let old = u32::try_from(old).map_err(|_| "compaction slot overflow")?;
+            bounds = Some(match bounds {
+                Some((first, last)) => (first.min(old), last.max(old)),
+                None => (old, old),
+            });
+            Ok(())
+        })?;
+        Ok(bounds)
+    }
+}
+
 fn project_bitmap(
     source: &RoaringBitmap,
-    slots: &[Option<RecordSlot>],
+    slots: &SlotMap<'_>,
 ) -> Result<RoaringBitmap, String> {
     project_bitmap_in_range(source, slots, None)
 }
 
 fn project_bitmap_in_range(
     source: &RoaringBitmap,
-    slots: &[Option<RecordSlot>],
+    slots: &SlotMap<'_>,
     bounds: Option<(u32, u32)>,
 ) -> Result<RoaringBitmap, String> {
     let mut projected = RoaringBitmap::new();
@@ -1353,7 +1463,7 @@ fn project_bitmap_in_range(
 
 fn project_posting(
     index: &PostingIndex,
-    slots: &[Option<RecordSlot>],
+    slots: &SlotMap<'_>,
     logical_count: u32,
     bounds: Option<(u32, u32)>,
 ) -> Result<PostingIndex, String> {
@@ -1406,7 +1516,7 @@ fn project_posting(
 
 fn project_bigram(
     index: &BigramIndex,
-    slots: &[Option<RecordSlot>],
+    slots: &SlotMap<'_>,
     new_count: u32,
     bounds: Option<(u32, u32)>,
 ) -> Result<BigramIndex, String> {
@@ -1431,7 +1541,7 @@ fn project_bigram(
 
 fn project_sorting(
     source: &SortCollection,
-    slots: &[Option<RecordSlot>],
+    slots: &SlotMap<'_>,
     records: &[RecordEntry],
 ) -> Result<SortCollection, String> {
     let mut sorting = SortCollection {
@@ -1463,16 +1573,16 @@ fn project_sorting(
         let mut keys = std::iter::repeat_with(|| None)
             .take(records.len())
             .collect::<Vec<_>>();
-        for (old, key) in old_keys.iter().enumerate() {
-            if let Some(slot) = slots[old] {
-                let target = keys
-                    .get_mut(slot.0 as usize)
-                    .ok_or("sort projection slot out of bounds")?;
-                if target.replace(key.clone()).is_some() {
-                    return Err("duplicate sort projection slot".into());
-                }
+        slots.for_each_selected(|old, slot| {
+            let key = old_keys.get(old).ok_or("sort projection slot out of bounds")?;
+            let target = keys
+                .get_mut(slot.0 as usize)
+                .ok_or("sort projection slot out of bounds")?;
+            if target.replace(key.clone()).is_some() {
+                return Err("duplicate sort projection slot".into());
             }
-        }
+            Ok(())
+        })?;
         column.keys = keys
             .into_iter()
             .collect::<Option<Vec<_>>>()
@@ -1514,7 +1624,7 @@ fn project_sorting(
 
 fn project_inference(
     source: &Option<InferenceState>,
-    slots: &[Option<RecordSlot>],
+    slots: &SlotMap<'_>,
     logical: &RoaringBitmap,
     new_count: usize,
     bounds: Option<(u32, u32)>,
@@ -1643,28 +1753,11 @@ impl IndexedCollectionSegment {
     /// shard is quadratic in the number of partitions for unique IDs.
     pub(crate) fn project_postings_for_partitions(
         &self,
-        masks: &[ActiveRecords],
+        routing: &PartitionRouting,
     ) -> Result<Vec<PostingProjection>, String> {
-        let mut mapping = vec![None; self.records.len()];
-        let mut logical_counts = vec![0u32; masks.len()];
-        for (part, mask) in masks.iter().enumerate() {
-            if mask.slot_count() as usize != self.records.len() {
-                return Err("partition posting mask coverage mismatch".into());
-            }
-            for (local, old) in mask.bitmap().iter().enumerate() {
-                let location = mapping
-                    .get_mut(old as usize)
-                    .ok_or("partition posting slot outside source")?;
-                if location.replace((part, RecordSlot(local as u32))).is_some() {
-                    return Err("partition posting slot selected twice".into());
-                }
-                if self.logical_records.contains(old) {
-                    logical_counts[part] += 1;
-                }
-            }
-        }
-        let mut projected = logical_counts
-            .into_iter()
+        let mapping = &routing.locations;
+        let mut projected = routing.logical_counts
+            .iter().copied()
             .map(|logical_count| PostingProjection {
                 postings: PostingCollection {
                     fields: self
@@ -1850,22 +1943,6 @@ impl IndexedCollectionSegment {
         Ok(projected)
     }
 
-    pub(crate) fn compact_active_with_postings(
-        &self,
-        active: &ActiveRecords,
-        max_scanned_records: usize,
-        retain_file: impl Fn(&FileEntry) -> bool,
-        projection: PostingProjection,
-    ) -> Result<CompactedSegment, String> {
-        self.compact_active_mapped(
-            active,
-            max_scanned_records,
-            retain_file,
-            None,
-            Some(projection),
-        )
-    }
-
     /// Build a dense active-only shard without opening source data. The file
     /// predicate distinguishes a current zero-record file from an obsolete
     /// historical incarnation with no live records.
@@ -1933,20 +2010,81 @@ impl IndexedCollectionSegment {
                 return Err("duplicate slot remap target".into());
             }
         }
+        let index = self.compact_with_mapping(
+            &SlotMap::Dense(&old_to_new),
+            next,
+            retain_file,
+            posting_projection,
+            None,
+        )?;
+        Ok(CompactedSegment {
+            active: ActiveRecords::all(index.records.len())?,
+            index,
+            old_to_new,
+        })
+    }
+
+    pub(crate) fn compact_partition_with_postings(
+        &self,
+        routing: &PartitionRouting,
+        part: usize,
+        selected_files: &HashSet<FileId>,
+        projection: PostingProjection,
+    ) -> Result<IndexedCollectionSegment, String> {
+        let selected = routing
+            .selected
+            .get(part)
+            .ok_or("partition routing part missing")?;
+        let next = u32::try_from(selected.len()).map_err(|_| "partition slot overflow")?;
+        let mut file_indices = selected_files
+            .iter()
+            .map(|id| self.file_index.get(id).copied().ok_or("partition file missing"))
+            .collect::<Result<Vec<_>, _>>()?;
+        file_indices.sort_unstable();
+        self.compact_with_mapping(
+            &SlotMap::Partition { routing, part },
+            next,
+            |entry| selected_files.contains(&entry.id),
+            Some(projection),
+            Some(&file_indices),
+        )
+    }
+
+    fn compact_with_mapping(
+        &self,
+        slot_map: &SlotMap<'_>,
+        next: u32,
+        retain_file: impl Fn(&FileEntry) -> bool,
+        posting_projection: Option<PostingProjection>,
+        selected_files: Option<&[usize]>,
+    ) -> Result<IndexedCollectionSegment, String> {
         let mut files = Vec::new();
         let mut file_index = HashMap::new();
         let mut diagnostic_refs: HashMap<FileId, Vec<Option<DiagnosticRef>>> = HashMap::new();
-        for file in &self.files {
-            let retained = retain_file(&file.entry);
-            let mut owned = Vec::new();
-            for old in &file.records {
-                let mapped = old_to_new
-                    .get(old.0 as usize)
-                    .ok_or("file record slot out of bounds")?;
-                if let Some(slot) = mapped {
-                    owned.push(*slot);
-                }
+        let mut selected_by_file: HashMap<FileId, Vec<RecordSlot>> = HashMap::new();
+        slot_map.for_each_selected(|old, slot| {
+            let record = self
+                .records
+                .get(old)
+                .ok_or("compaction record slot out of bounds")?;
+            if record.slot.0 as usize != old {
+                return Err("compaction record slots out of order".into());
             }
+            selected_by_file.entry(record.file).or_default().push(slot);
+            Ok(())
+        })?;
+        let all_files = 0..self.files.len();
+        let file_indices: Box<dyn Iterator<Item = usize> + '_> = match selected_files {
+            Some(selected) => Box::new(selected.iter().copied()),
+            None => Box::new(all_files),
+        };
+        for index in file_indices {
+            let file = self
+                .files
+                .get(index)
+                .ok_or("compaction file index out of bounds")?;
+            let retained = retain_file(&file.entry);
+            let mut owned = selected_by_file.remove(&file.entry.id).unwrap_or_default();
             owned.sort_unstable();
             if !retained {
                 if !owned.is_empty() {
@@ -1962,10 +2100,10 @@ impl IndexedCollectionSegment {
             let mut refs = Vec::with_capacity(old_diagnostics.len());
             for mut diagnostic in old_diagnostics {
                 if let Some(old) = diagnostic.record {
-                    let new = old_to_new
+                    let new = slot_map
                         .get(old.0 as usize)
                         .ok_or("diagnostic slot out of bounds")?;
-                    diagnostic.record = *new;
+                    diagnostic.record = new;
                 }
                 refs.push(Some(entry.record_diagnostic(diagnostic)?));
             }
@@ -1980,12 +2118,19 @@ impl IndexedCollectionSegment {
                 records: owned,
             });
         }
+        if !selected_by_file.is_empty() {
+            return Err("active record file missing".into());
+        }
         let mut records = vec![None; next as usize];
         let mut id_lookup = HashMap::new();
-        for record in &self.records {
-            let Some(slot) = old_to_new[record.slot.0 as usize] else {
-                continue;
-            };
+        slot_map.for_each_selected(|old, slot| {
+            let record = self
+                .records
+                .get(old)
+                .ok_or("compaction record slot out of bounds")?;
+            if record.slot.0 as usize != old {
+                return Err("compaction record slots out of order".into());
+            }
             if !file_index.contains_key(&record.file) {
                 return Err("active record file missing".into());
             }
@@ -2010,18 +2155,15 @@ impl IndexedCollectionSegment {
             if target.replace(compacted).is_some() {
                 return Err("duplicate compacted record target".into());
             }
-        }
+            Ok(())
+        })?;
         let records = records
             .into_iter()
             .collect::<Option<Vec<_>>>()
             .ok_or("compacted record target missing")?;
-        let bounds = old_to_new
-            .iter()
-            .position(Option::is_some)
-            .zip(old_to_new.iter().rposition(Option::is_some))
-            .map(|(first, last)| (first as u32, last as u32));
-        let logical_records = project_bitmap(&self.logical_records, &old_to_new)?;
-        let empty_array_records = project_bitmap(&self.empty_array_records, &old_to_new)?;
+        let bounds = slot_map.bounds()?;
+        let logical_records = project_bitmap(&self.logical_records, &slot_map)?;
+        let empty_array_records = project_bitmap(&self.empty_array_records, &slot_map)?;
         let logical_count =
             u32::try_from(logical_records.len()).map_err(|_| "logical slot overflow")?;
         let (postings, custom_postings) = if let Some(projection) = posting_projection {
@@ -2033,7 +2175,7 @@ impl IndexedCollectionSegment {
                     .fields
                     .iter()
                     .map(|(path, index)| {
-                        project_posting(index, &old_to_new, logical_count, bounds)
+                        project_posting(index, &slot_map, logical_count, bounds)
                             .map(|projected| (path.clone(), projected))
                     })
                     .collect::<Result<HashMap<_, _>, _>>()?,
@@ -2042,7 +2184,7 @@ impl IndexedCollectionSegment {
                 .custom_postings
                 .iter()
                 .map(|(key, custom)| {
-                    project_posting(&custom.index, &old_to_new, logical_count, bounds).map(
+                    project_posting(&custom.index, &slot_map, logical_count, bounds).map(
                         |index| {
                             (
                                 key.clone(),
@@ -2057,19 +2199,19 @@ impl IndexedCollectionSegment {
                 .collect::<Result<HashMap<_, _>, _>>()?;
             (postings, custom_postings)
         };
-        let raw = project_bigram(&self.raw, &old_to_new, next, bounds)?;
-        let fallback_text = project_bigram(&self.fallback_text, &old_to_new, next, bounds)?;
+        let raw = project_bigram(&self.raw, &slot_map, next, bounds)?;
+        let fallback_text = project_bigram(&self.fallback_text, &slot_map, next, bounds)?;
         let custom_text = self
             .custom_text
             .iter()
             .map(|(key, index)| {
-                project_bigram(index, &old_to_new, next, bounds).map(|index| (key.clone(), index))
+                project_bigram(index, &slot_map, next, bounds).map(|index| (key.clone(), index))
             })
             .collect::<Result<HashMap<_, _>, _>>()?;
-        let sorting = project_sorting(&self.sorting, &old_to_new, &records)?;
+        let sorting = project_sorting(&self.sorting, &slot_map, &records)?;
         let inference = project_inference(
             &self.inference,
-            &old_to_new,
+            &slot_map,
             &logical_records,
             records.len(),
             bounds,
@@ -2077,7 +2219,7 @@ impl IndexedCollectionSegment {
         let relations = self
             .relations
             .iter()
-            .map(|relation| relation.project_slots(&old_to_new))
+            .map(|relation| relation.project_slots_with(next, |old| slot_map.get(old as usize)))
             .collect::<Result<Vec<_>, _>>()?;
         let mut identity_order = records.iter().map(|record| record.slot).collect::<Vec<_>>();
         identity_order.sort_by(|a, b| records[a.0 as usize].id.cmp(&records[b.0 as usize].id));
@@ -2112,11 +2254,7 @@ impl IndexedCollectionSegment {
             record_parses: self.record_parses,
             failed_parses: self.failed_parses,
         };
-        Ok(CompactedSegment {
-            active: ActiveRecords::all(index.records.len())?,
-            index,
-            old_to_new,
-        })
+        Ok(index)
     }
 }
 

@@ -7,7 +7,7 @@ use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
-use crate::build::IndexedCollectionSegment;
+use crate::build::{IndexedCollectionSegment, PartitionRouting};
 use crate::inventory::ActiveRecords;
 use crate::lifecycle::{IndexError, PublishedIndex, PublishedSegment};
 use crate::lifecycle_catalog::FileCatalog;
@@ -122,28 +122,24 @@ fn compact_source_parts_with_limits(
         .iter()
         .map(|(_, active)| active.clone())
         .collect::<Vec<_>>();
+    let routing = PartitionRouting::new(source, &masks).map_err(IndexError::Build)?;
     let projections = source
-        .project_postings_for_partitions(&masks)
+        .project_postings_for_partitions(&routing)
         .map_err(IndexError::Build)?;
     let mut parts = Vec::with_capacity(selections.len());
-    for ((files, selected), projection) in selections.into_iter().zip(projections) {
+    for ((files, _selected), projection) in selections.into_iter().zip(projections) {
         if cancelled() {
             return Err(IndexError::Cancelled);
         }
         let mut compacted = source
-            .compact_active_with_postings(
-                &selected,
-                source.records.len(),
-                |entry| files.contains(&entry.id),
-                projection,
-            )
+            .compact_partition_with_postings(&routing, parts.len(), &files, projection)
             .map_err(IndexError::Build)?;
-        for file in &mut compacted.index.files {
+        for file in &mut compacted.files {
             if let Some(current) = catalog.entry(file.entry.id) {
                 file.entry.relative_path = current.relative_path.clone();
             }
         }
-        parts.push(compacted.index);
+        parts.push(compacted);
     }
     Ok(parts)
 }
