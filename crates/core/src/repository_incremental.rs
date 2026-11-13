@@ -263,7 +263,20 @@ fn admit_normal(
             .or_default()
             .absorb(&batch.profile);
     }
+    let admission_started = profile.as_ref().map(|_| Instant::now());
+    let admitted_files = batch.new_file_count() as u64;
+    let admitted_records = batch.record_count() as u64;
     let sealed = pending[collection_index].admit(batch)?;
+    if let (Some(started), Some(profile)) = (admission_started, profile.as_mut()) {
+        let entry = profile
+            .admission_by_collection
+            .entry(pending[collection_index].definition.name.clone())
+            .or_default();
+        entry.batches += 1;
+        entry.files += admitted_files;
+        entry.records += admitted_records;
+        entry.total_ns += started.elapsed().as_nanos() as u64;
+    }
     if let Some(sealed) = sealed {
         publish_segment(
             index,
@@ -596,7 +609,23 @@ impl Repository {
                                     .or_default()
                                     .absorb(&batch.profile);
                             }
-                            pending[collection_index].admit_large_chunk(batch)
+                            let admission_started = profile.as_ref().map(|_| Instant::now());
+                            let admitted_files = batch.new_file_count() as u64;
+                            let admitted_records = batch.record_count() as u64;
+                            let result = pending[collection_index].admit_large_chunk(batch);
+                            if let (Some(started), Some(profile)) =
+                                (admission_started, profile.as_mut())
+                            {
+                                let entry = profile
+                                    .admission_by_collection
+                                    .entry(pending[collection_index].definition.name.clone())
+                                    .or_default();
+                                entry.batches += 1;
+                                entry.files += admitted_files;
+                                entry.records += admitted_records;
+                                entry.total_ns += started.elapsed().as_nanos() as u64;
+                            }
+                            result
                         },
                     )
                     .map_err(|error| {
