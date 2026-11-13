@@ -48,3 +48,19 @@ bitmap decode path that preserves validation and exact result ordering.
 Each change needs a fresh matched campaign. The integration branch remains
 unmerged and the task document remains in `tasks/` until the gates pass or
 the user explicitly changes the acceptance contract.
+
+## 13 November 2026 repair checkpoint
+
+The user subsequently directed that small timing differences be improved,
+documented against baseline, and not treated as absolute completion limits.
+The full [repair checkpoint](../../../../bench/results/hybrid-index-storage/repair-20261113/final-e15b/REPORT.md)
+uses seven paired build/open/flush trials and all 220 cases in ASCII and
+Unicode with 30 repetitions and a common raw-sample statistics definition.
+At `e15b3f5c4b`, construction fell from 1.707 to 1.130 times baseline;
+retained and peak build RSS were 1.056 and 1.071 times baseline. Fully
+resident and on-demand opening took 0.696 and 0.606 times baseline, while
+first flush took 0.673 times baseline. Query median geometric means were
+1.075 memory, 1.091 resident, and 1.092 on-demand; every result digest
+matched. Broad relation/sort and source-heavy queries still show measurable
+latency overhead. The older measurements above remain valid for their named
+revision and are not overwritten.

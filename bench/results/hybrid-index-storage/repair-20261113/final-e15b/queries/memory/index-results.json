@@ -1,0 +1,378 @@
+[
+  {
+    "alphabet": "ascii",
+    "build_mode": "hybrid",
+    "build_ns": 1238206019,
+    "build_parses": 148486,
+    "discovery_ns": 232328328,
+    "durable_generation": null,
+    "estimated_index_bytes": 11918518,
+    "first_batch_ns": 405448154,
+    "inventory_heap_bytes": 58460945,
+    "managed_bytes": null,
+    "managed_directory": null,
+    "open_ns": 1238206019,
+    "peak_resident_bytes": 609710080,
+    "resident_bytes": 589787136,
+    "restore_samples": [],
+    "restore_status": "not_measured",
+    "searchable_batches": 8,
+    "segment_families": {
+      "agents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          2,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 279610,
+            "raw_bytes": 0,
+            "sorting_bytes": 113856
+          }
+        ]
+      ],
+      "contents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          1,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 85714,
+            "raw_bytes": 0,
+            "sorting_bytes": 154087
+          }
+        ],
+        [
+          3,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 463072,
+            "raw_bytes": 0,
+            "sorting_bytes": 9944413
+          }
+        ]
+      ],
+      "entries": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          4,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 341330,
+            "raw_bytes": 0,
+            "sorting_bytes": 367785
+          }
+        ]
+      ],
+      "items": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          5,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 76766,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "pages": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          6,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "places": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          7,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 2180,
+            "raw_bytes": 0,
+            "sorting_bytes": 7820
+          }
+        ]
+      ],
+      "series": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          8,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 24376,
+            "raw_bytes": 0,
+            "sorting_bytes": 57509
+          }
+        ]
+      ]
+    },
+    "source_bytes_read": 193297230,
+    "source_reads": 148486,
+    "storage": "IndexStoragePolicy { location: MemoryOnly, residency: FullyResident }"
+  },
+  {
+    "alphabet": "unicode",
+    "build_mode": "hybrid",
+    "build_ns": 1202791204,
+    "build_parses": 148486,
+    "discovery_ns": 267866091,
+    "durable_generation": null,
+    "estimated_index_bytes": 11918518,
+    "first_batch_ns": 375439421,
+    "inventory_heap_bytes": 58460945,
+    "managed_bytes": null,
+    "managed_directory": null,
+    "open_ns": 1202791204,
+    "peak_resident_bytes": 1095610368,
+    "resident_bytes": 1095610368,
+    "restore_samples": [],
+    "restore_status": "not_measured",
+    "searchable_batches": 8,
+    "segment_families": {
+      "agents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          2,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 279610,
+            "raw_bytes": 0,
+            "sorting_bytes": 113856
+          }
+        ]
+      ],
+      "contents": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          1,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 85714,
+            "raw_bytes": 0,
+            "sorting_bytes": 154087
+          }
+        ],
+        [
+          3,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 463072,
+            "raw_bytes": 0,
+            "sorting_bytes": 9944413
+          }
+        ]
+      ],
+      "entries": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          4,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 341330,
+            "raw_bytes": 0,
+            "sorting_bytes": 367785
+          }
+        ]
+      ],
+      "items": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          5,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 76766,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "pages": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          6,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ]
+      ],
+      "places": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          7,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 2180,
+            "raw_bytes": 0,
+            "sorting_bytes": 7820
+          }
+        ]
+      ],
+      "series": [
+        [
+          0,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 0,
+            "raw_bytes": 0,
+            "sorting_bytes": 0
+          }
+        ],
+        [
+          8,
+          {
+            "custom_text_bytes": 0,
+            "fallback_bytes": 0,
+            "postings_bytes": 24376,
+            "raw_bytes": 0,
+            "sorting_bytes": 57509
+          }
+        ]
+      ]
+    },
+    "source_bytes_read": 193297230,
+    "source_reads": 148486,
+    "storage": "IndexStoragePolicy { location: MemoryOnly, residency: FullyResident }"
+  }
+]
