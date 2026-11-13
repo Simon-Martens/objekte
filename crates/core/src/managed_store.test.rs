@@ -218,6 +218,61 @@ fn publishes_new_and_reused_segments_without_rewriting_old_bytes() {
 }
 
 #[test]
+fn catalog_sidecar_is_atomically_replaced_checked_and_reclaimed() {
+    let fixture = TestStore::new();
+    let first: Arc<[u8]> = Arc::from(&b"OBJHCAT1-first"[..]);
+    let second: Arc<[u8]> = Arc::from(&b"OBJHCAT1-second"[..]);
+    fixture
+        .store
+        .commit_generation_with_catalog(
+            None,
+            1,
+            &[SegmentInput::New {
+                bytes: Arc::from(complete_segment(1)),
+                active: &fixture.active,
+            }],
+            Arc::clone(&first),
+        )
+        .unwrap();
+    let pinned = fixture.store.read_generation().unwrap().unwrap();
+    assert_eq!(pinned.catalog.as_deref(), Some(first.as_ref()));
+    let manifest = fixture.store.read_manifest().unwrap().unwrap();
+    let old_catalog = fixture.store.path().join(&manifest.catalog.unwrap().name);
+    let old_segment = pinned.segment_names[0].clone();
+    let mut corrupted = fs::read(&old_catalog).unwrap();
+    corrupted[8] ^= 1;
+    fs::write(&old_catalog, corrupted).unwrap();
+    assert!(
+        fixture
+            .store
+            .read_generation()
+            .err()
+            .unwrap()
+            .contains("catalog checksum mismatch")
+    );
+    fs::write(&old_catalog, first.as_ref()).unwrap();
+
+    let stats = fixture
+        .store
+        .commit_generation_with_catalog(
+            Some(1),
+            2,
+            &[SegmentInput::Existing {
+                name: &old_segment,
+                active: &fixture.active,
+            }],
+            Arc::clone(&second),
+        )
+        .unwrap();
+    assert_eq!(stats.segments_reused, 1);
+    assert_eq!(stats.obsolete_files_reclaimed, 1);
+    assert!(!old_catalog.exists());
+    assert_eq!(pinned.catalog.as_deref(), Some(first.as_ref()));
+    let current = fixture.store.read_generation().unwrap().unwrap();
+    assert_eq!(current.catalog.as_deref(), Some(second.as_ref()));
+}
+
+#[test]
 fn truncated_manifest_is_an_error_and_interrupted_temp_is_ignored() {
     let fixture = TestStore::new();
     let bytes: Arc<[u8]> = Arc::from(complete_segment(7));

@@ -18,6 +18,7 @@ const MANIFEST_MAGIC: &[u8; 8] = b"OBJHMAN1";
 const MANIFEST_NAME: &str = "manifest.bin";
 const LOCK_NAME: &str = "store.lock";
 const MAX_MANIFEST_BYTES: usize = 4 * 1024 * 1024;
+const MAX_CATALOG_BYTES: usize = 512 * 1024 * 1024;
 const MAX_SEGMENTS: usize = 16_384;
 const DEPRECATED_MAGIC: &[u8; 8] = b"OBJSNAP1";
 const DEPRECATED_VERSIONS: [u32; 2] = [27, 28];
@@ -31,8 +32,16 @@ struct SegmentRecord {
 }
 
 #[derive(Clone, Debug)]
+struct CatalogRecord {
+    name: String,
+    length: u64,
+    sha256: [u8; 32],
+}
+
+#[derive(Clone, Debug)]
 struct Manifest {
     generation: u64,
+    catalog: Option<CatalogRecord>,
     segments: Vec<SegmentRecord>,
 }
 
@@ -50,6 +59,7 @@ pub(crate) enum SegmentInput<'a> {
 
 pub(crate) struct OpenedGeneration {
     pub generation: u64,
+    pub catalog: Option<Arc<[u8]>>,
     pub segment_names: Vec<String>,
     pub segments: Vec<Arc<SegmentReader>>,
     pub active: Vec<ActiveRecords>,
@@ -186,6 +196,11 @@ impl ManagedStore {
         let Some(manifest) = self.read_manifest()? else {
             return Ok(None);
         };
+        let catalog = manifest
+            .catalog
+            .as_ref()
+            .map(|record| self.read_catalog(record))
+            .transpose()?;
         let mut segments = Vec::with_capacity(manifest.segments.len());
         let mut names = Vec::with_capacity(manifest.segments.len());
         let mut active = Vec::with_capacity(manifest.segments.len());
@@ -213,6 +228,7 @@ impl ManagedStore {
         }
         Ok(Some(OpenedGeneration {
             generation: manifest.generation,
+            catalog,
             segment_names: names,
             segments,
             active,
@@ -226,6 +242,31 @@ impl ManagedStore {
         expected_generation: Option<u64>,
         generation: u64,
         inputs: &[SegmentInput<'_>],
+    ) -> Result<CommitStats, String> {
+        self.commit_generation_inner(expected_generation, generation, inputs, None)
+    }
+
+    /// Publish an immutable catalog sidecar in the same atomic manifest step
+    /// as the segment list. Segment record slots reference its metadata table.
+    pub(crate) fn commit_generation_with_catalog(
+        &self,
+        expected_generation: Option<u64>,
+        generation: u64,
+        inputs: &[SegmentInput<'_>],
+        catalog: Arc<[u8]>,
+    ) -> Result<CommitStats, String> {
+        if !catalog.starts_with(b"OBJHCAT1") || catalog.len() > MAX_CATALOG_BYTES {
+            return Err("generation catalog byte length invalid".into());
+        }
+        self.commit_generation_inner(expected_generation, generation, inputs, Some(catalog))
+    }
+
+    fn commit_generation_inner(
+        &self,
+        expected_generation: Option<u64>,
+        generation: u64,
+        inputs: &[SegmentInput<'_>],
+        catalog: Option<Arc<[u8]>>,
     ) -> Result<CommitStats, String> {
         if generation == 0 || inputs.len() > MAX_SEGMENTS {
             return Err("invalid generation or segment count".into());
@@ -254,6 +295,7 @@ impl ManagedStore {
             .unwrap_or_default();
         let mut next = Manifest {
             generation,
+            catalog: None,
             segments: Vec::with_capacity(inputs.len()),
         };
         let mut stats = CommitStats {
@@ -262,6 +304,20 @@ impl ManagedStore {
         };
         self.reclaim_orphans(previous.as_ref(), &mut stats)?;
         let nonce = unique_nonce()?;
+        if let Some(catalog) = catalog {
+            let name = format!("catalog-{generation:016x}-{nonce:016x}.bin");
+            let path = self.directory.join(&name);
+            let mut file = create_private_new(&path)?;
+            file.write_all(&catalog)
+                .map_err(|error| format!("catalog write: {error}"))?;
+            file.sync_all()
+                .map_err(|error| format!("catalog sync: {error}"))?;
+            next.catalog = Some(CatalogRecord {
+                name,
+                length: catalog.len() as u64,
+                sha256: Sha256::digest(&catalog).into(),
+            });
+        }
         for (index, input) in inputs.iter().enumerate() {
             match input {
                 SegmentInput::Existing { name, active } => {
@@ -375,6 +431,32 @@ impl ManagedStore {
                         .push(format!("{}: {error}", record.name)),
                 }
             }
+            if let Some(catalog) = previous.catalog
+                && next.catalog.as_ref().map(|record| &record.name) != Some(&catalog.name)
+            {
+                let path = self.directory.join(&catalog.name);
+                match fs::symlink_metadata(&path) {
+                    Ok(metadata)
+                        if metadata.is_file()
+                            && !metadata.file_type().is_symlink()
+                            && owned_by_current_user(&metadata)
+                            && metadata.len() == catalog.length =>
+                    {
+                        match fs::remove_file(path) {
+                            Ok(()) => stats.obsolete_files_reclaimed += 1,
+                            Err(error) => stats
+                                .reclaim_errors
+                                .push(format!("{}: {error}", catalog.name)),
+                        }
+                    }
+                    Ok(_) => stats
+                        .reclaim_errors
+                        .push(format!("unsafe obsolete catalog: {}", catalog.name)),
+                    Err(error) => stats
+                        .reclaim_errors
+                        .push(format!("{}: {error}", catalog.name)),
+                }
+            }
         }
         Ok(stats)
     }
@@ -393,12 +475,17 @@ impl ManagedStore {
                     .collect::<HashSet<_>>()
             })
             .unwrap_or_default();
+        let referenced_catalog = current
+            .and_then(|manifest| manifest.catalog.as_ref())
+            .map(|record| record.name.as_str());
         for entry in fs::read_dir(&self.directory).map_err(|error| error.to_string())? {
             let entry = entry.map_err(|error| error.to_string())?;
             let name = entry.file_name();
             let Some(name) = name.to_str() else { continue };
             let expected_magic = if valid_segment_name(name) && !referenced.contains(name) {
                 b"OBJHSEG1".as_slice()
+            } else if valid_catalog_name(name) && Some(name) != referenced_catalog {
+                b"OBJHCAT1".as_slice()
             } else if valid_temporary_manifest_name(name) {
                 MANIFEST_MAGIC.as_slice()
             } else {
@@ -464,6 +551,28 @@ impl ManagedStore {
         self.decode_manifest(&bytes).map(Some)
     }
 
+    fn read_catalog(&self, record: &CatalogRecord) -> Result<Arc<[u8]>, String> {
+        let mut file = open_regular_nofollow(&self.directory.join(&record.name))?;
+        if file.metadata().map_err(|error| error.to_string())?.len() != record.length {
+            return Err("generation catalog length mismatch".into());
+        }
+        let length = usize::try_from(record.length).map_err(|_| "catalog too large")?;
+        if length == 0 || length > MAX_CATALOG_BYTES {
+            return Err("generation catalog byte length invalid".into());
+        }
+        let mut bytes = Vec::new();
+        bytes
+            .try_reserve_exact(length)
+            .map_err(|error| format!("catalog allocation: {error}"))?;
+        file.take((length + 1) as u64)
+            .read_to_end(&mut bytes)
+            .map_err(|error| format!("catalog read: {error}"))?;
+        if bytes.len() != length || Sha256::digest(&bytes).as_slice() != record.sha256 {
+            return Err("generation catalog checksum mismatch".into());
+        }
+        Ok(Arc::from(bytes))
+    }
+
     fn encode_manifest(&self, manifest: &Manifest) -> Result<Vec<u8>, String> {
         if self.root_bytes.len() > u32::MAX as usize {
             return Err("repository root path too long".into());
@@ -477,6 +586,21 @@ impl ManagedStore {
         bytes.extend_from_slice(&(self.root_bytes.len() as u32).to_le_bytes());
         bytes.extend_from_slice(&self.root_bytes);
         bytes.extend_from_slice(&manifest.generation.to_le_bytes());
+        if let Some(catalog) = &manifest.catalog {
+            if !valid_catalog_name(&catalog.name)
+                || catalog.length == 0
+                || catalog.length > MAX_CATALOG_BYTES as u64
+            {
+                return Err("manifest catalog record invalid".into());
+            }
+            bytes.push(1);
+            bytes.extend_from_slice(&(catalog.name.len() as u16).to_le_bytes());
+            bytes.extend_from_slice(catalog.name.as_bytes());
+            bytes.extend_from_slice(&catalog.length.to_le_bytes());
+            bytes.extend_from_slice(&catalog.sha256);
+        } else {
+            bytes.push(0);
+        }
         bytes.extend_from_slice(&(manifest.segments.len() as u32).to_le_bytes());
         for record in &manifest.segments {
             if !valid_segment_name(&record.name) {
@@ -536,6 +660,26 @@ impl ManagedStore {
             return Err("manifest repository root mismatch".into());
         }
         let generation = cursor.u64()?;
+        let catalog = match cursor.u8()? {
+            0 => None,
+            1 => {
+                let name_len = cursor.u16()? as usize;
+                let name = std::str::from_utf8(cursor.take(name_len)?)
+                    .map_err(|_| "catalog name is not UTF-8")?
+                    .to_owned();
+                let length = cursor.u64()?;
+                let sha256: [u8; 32] = cursor.take(32)?.try_into().unwrap();
+                if !valid_catalog_name(&name) || length == 0 || length > MAX_CATALOG_BYTES as u64 {
+                    return Err("manifest catalog record invalid".into());
+                }
+                Some(CatalogRecord {
+                    name,
+                    length,
+                    sha256,
+                })
+            }
+            _ => return Err("manifest catalog marker invalid".into()),
+        };
         let count = cursor.u32()? as usize;
         if generation == 0 || count > MAX_SEGMENTS || count > cursor.remaining() / 23 {
             return Err("manifest generation or segment count invalid".into());
@@ -585,6 +729,7 @@ impl ManagedStore {
         }
         Ok(Manifest {
             generation,
+            catalog,
             segments,
         })
     }
@@ -642,6 +787,19 @@ fn valid_segment_name(name: &str) -> bool {
     let mut parts = stem.split('-');
     matches!(parts.next(), Some(part) if part.len() == 16 && part.bytes().all(|byte| byte.is_ascii_hexdigit()))
         && matches!(parts.next(), Some(part) if part.len() == 8 && part.bytes().all(|byte| byte.is_ascii_hexdigit()))
+        && matches!(parts.next(), Some(part) if part.len() == 16 && part.bytes().all(|byte| byte.is_ascii_hexdigit()))
+        && parts.next().is_none()
+}
+
+fn valid_catalog_name(name: &str) -> bool {
+    let Some(stem) = name
+        .strip_prefix("catalog-")
+        .and_then(|value| value.strip_suffix(".bin"))
+    else {
+        return false;
+    };
+    let mut parts = stem.split('-');
+    matches!(parts.next(), Some(part) if part.len() == 16 && part.bytes().all(|byte| byte.is_ascii_hexdigit()))
         && matches!(parts.next(), Some(part) if part.len() == 16 && part.bytes().all(|byte| byte.is_ascii_hexdigit()))
         && parts.next().is_none()
 }
