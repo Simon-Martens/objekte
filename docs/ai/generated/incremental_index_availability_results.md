@@ -20,6 +20,26 @@ Command: `target/release/examples/bench_musenalm --root examples/musenalm --exte
 
 The extended runner builds ASCII and Unicode sequentially in one process; its Unicode high-water RSS includes memory retained from the earlier ASCII phase. Fresh-process construction measurements are required for the peak-RSS acceptance gate.
 
-## Implementation comparison
+## Incremental construction comparison
 
-Pending implementation and seven alternating paired warm trials against this fixed master revision. Do not infer a passing performance gate from the smoke run or the extended runner's sequential-process memory samples.
+The measured implementation binary was built from `bad06b4007476c7f861fe9f1090e9d7be744218e`. Seven paired warm trials alternated run order and used fresh processes, the same absolute Musenalm root, ASCII alphabet, 32 workers, configured schemas, inference disabled, profiling, snapshot writing and five query probes. All fourteen manifests have the same corpus and schema fingerprints, 148,486 files/records, and 193,297,230 source bytes. [Commands, samples, manifests, quartiles and the runner](../../../bench/results/incremental-index-availability/2026-11-13-paired-warm/README.md) are retained. The run used no foreground query workload; that experiment is separate.
+
+| Measure | Master median (IQR) | Incremental median (IQR) | Change |
+| --- | ---: | ---: | ---: |
+| Full build | 967.277 ms (38.717 ms) | 896.591 ms (46.393 ms) | 7.31% faster |
+| Fresh-process build high-water RSS | 535.683 MB (9.255 MB) | 573.788 MB (3.826 MB) | 7.11% higher |
+| RSS immediately after build | 519.188 MB (9.562 MB) | 564.118 MB (2.988 MB) | 8.65% higher |
+| Estimated live index families | 69.663 MB (0) | 69.966 MB (0) | 0.43% higher |
+| Construction parses | 148,486 (0) | 148,486 (0) | Equal |
+
+The candidate recorded exactly 148,486 construction source reads and 193,297,230 bytes read in every trial: one read and parse per file. It published eight completed segments, with median first searchable batch at 334.747 ms and first result at 334.904 ms. Its median observed catalogue time was 254.769 ms. The comparable master discovery median was 189.377 ms; master has no early publication. These data pass the stated no-query full-build, peak-RSS and live-index budgets. A snapshot was 178,287,528 bytes versus 129,139,458 bytes on master (38.1% larger), a material persistence cost even though no snapshot-size limit was specified.
+
+The first trial campaign used the original checkout as the process working directory for both binaries, causing the candidate manifest to report the master revision. Its measurements were discarded for the formal comparison. The retained campaign runs each binary from its own worktree and names the same absolute corpus root.
+
+## Interactive client checks
+
+The [desktop and TUI evidence](../../../bench/results/incremental-index-availability/2026-11-13-client-smoke/README.md) captures real interaction. The desktop showed the complete physical-file catalogue and provisional query results while indexing Musenalm, then an exact 275-match result with record preview. A 6,200-file PTY TUI check showed catalogue availability before the first batch, provisional results, query replacement during construction, final exact results, resize and cancellation. The one-CPU TUI fixture deliberately lengthened observable intermediate states; its timings are not performance claims.
+
+## Query comparison
+
+The full 194-case lifecycle query suite and matched latency/source-read analysis are in progress. Results must retain existing acceleration as well as result equality; preliminary matched counters found relation and metadata cases that require repair before Plan 1 completion.
