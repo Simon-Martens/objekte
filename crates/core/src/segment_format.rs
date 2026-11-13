@@ -282,11 +282,11 @@ impl SegmentReader {
         Some(bitmap)
     }
 
-    pub(crate) fn decoded_cache_usage(&self) -> (usize, usize) {
+    pub(crate) fn decoded_cache_usage(&self) -> (usize, usize, usize) {
         self.decoded
             .lock()
-            .map(|cache| (cache.entries.len(), cache.retained_bytes))
-            .unwrap_or((0, 0))
+            .map(|cache| (cache.entries.len(), cache.retained_bytes, cache.limit_bytes))
+            .unwrap_or((0, 0, 0))
     }
 
     pub(crate) fn retain_posting(&self, descriptor: PostingDescriptor, bitmap: &RoaringBitmap) {

@@ -3091,8 +3091,31 @@ impl Index {
 #[derive(Clone)]
 pub struct IndexView(pub(crate) Arc<PublishedIndex>, Weak<IndexInner>);
 
+/// Decoded posting cache occupancy for the sealed segments in one pinned view.
+#[derive(Clone, Copy, Debug, Default, Serialize)]
+pub struct DecodedPostingCacheUsage {
+    pub sealed_segments: usize,
+    pub entries: usize,
+    pub retained_bytes: usize,
+    pub limit_bytes: usize,
+}
+
 
 impl IndexView {
+    pub fn decoded_posting_cache_usage(&self) -> DecodedPostingCacheUsage {
+        let mut total = DecodedPostingCacheUsage::default();
+        for segment in self.0.segments.iter().flat_map(|group| group.iter()) {
+            if let Some(reader) = segment.index.raw.sealed_reader() {
+                let (entries, retained, limit) = reader.decoded_cache_usage();
+                total.sealed_segments += 1;
+                total.entries += entries;
+                total.retained_bytes += retained;
+                total.limit_bytes += limit;
+            }
+        }
+        total
+    }
+
     /// Startup observations belonging to this immutable publication.
     pub fn startup_stats(&self) -> &crate::repository::StartupStats {
         self.repository().startup()

@@ -27,6 +27,13 @@ enum SearchBackend {
 
 
 impl SearchBackend {
+    fn decoded_posting_cache_usage(&self) -> serde_json::Value {
+        match self {
+            Self::Direct(_) => serde_json::Value::Null,
+            Self::Incremental(_, view) => serde_json::json!(view.decoded_posting_cache_usage()),
+        }
+    }
+
     fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
         match self {
             Self::Direct(repo) => repo.configure_verified_cache(bytes),
@@ -271,6 +278,7 @@ fn run() -> Result<(), String> {
     );
     let mut rows = Vec::new();
     let mut build_results = Vec::new();
+    let mut decoded_cache_observations = Vec::new();
     let mut corpus_hash = String::new();
     let mut registrations = Vec::new();
     let mut expected: HashMap<String, (usize, Vec<SearchHit>)> = HashMap::new();
@@ -556,6 +564,10 @@ fn run() -> Result<(), String> {
                 plan_output.write_all(b"\n").map_err(|e| e.to_string())?;
             }
         }
+        decoded_cache_observations.push(serde_json::json!({
+            "alphabet":alphabet,
+            "after_queries":backend.decoded_posting_cache_usage(),
+        }));
     }
     samples.flush().map_err(|e| e.to_string())?;
     plan_output.flush().map_err(|e| e.to_string())?;
@@ -593,7 +605,7 @@ fn run() -> Result<(), String> {
         "source_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers,
         "internal_decoded_posting_cache":{
             "limit_formula":"min(segment_encoded_bytes / 20, 8388608) per segment",
-            "observed_retained_bytes":serde_json::Value::Null,
+            "observations":decoded_cache_observations,
         },
         "median_method":"middle pair arithmetic mean, rounded to nearest nanosecond with half up",
         "p95_method":"nearest rank: sorted[ceil(0.95 * n) - 1]",

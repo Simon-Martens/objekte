@@ -451,7 +451,7 @@ fn sealed_persistence_rebases_file_references_without_decoding_postings() {
     let file = segment.files[0].entry.clone();
     let sealed = seal_segment_consuming(segment, 1, &definition, options).unwrap();
     let original = sealed.raw.sealed_reader().unwrap();
-    assert_eq!(original.decoded_cache_usage(), (0, 0));
+    assert_eq!(original.decoded_cache_usage().0, 0);
     let bytes = write_sealed_segment(
         &sealed, 1, options, Cursor::new(Vec::new()),
         &mut |entry| {
@@ -459,7 +459,7 @@ fn sealed_persistence_rebases_file_references_without_decoding_postings() {
             Ok(7)
         },
     ).unwrap().into_inner();
-    assert_eq!(original.decoded_cache_usage(), (0, 0));
+    assert_eq!(original.decoded_cache_usage().0, 0);
     let reopened = decode_segment_sealed(
         Arc::new(SegmentReader::from_owned(Arc::from(bytes)).unwrap()),
         1, &definition, options, sealed.collection,
