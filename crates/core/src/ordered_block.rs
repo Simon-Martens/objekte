@@ -560,6 +560,53 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
     }
 }
 
+impl OrderedBlockDictionary<u64> {
+    /// Bincode fixint stores a u64 key as eight little-endian bytes. External
+    /// opening checked every typed leaf; constructed leaves came from the
+    /// writer, so comparisons can borrow that validated representation.
+    pub(crate) fn get_u64(&self, key: u64) -> Result<Option<PostingDescriptor>, String> {
+        let mut lo = 0usize;
+        let mut hi = self.blocks.len();
+        while lo < hi {
+            let mid = lo + (hi - lo) / 2;
+            if self.blocks[mid].last < key {
+                lo = mid + 1;
+            } else {
+                hi = mid;
+            }
+        }
+        let Some(block) = self.blocks.get(lo) else {
+            return Ok(None);
+        };
+        let leaf = self.leaf(block)?;
+        let mut left = 0usize;
+        let mut right = block.count as usize;
+        while left < right {
+            let mid = left + (right - left) / 2;
+            let offset = read_u32(leaf, 4 + mid * 4)? as usize;
+            let encoded = entry_key_bytes(leaf, offset)?;
+            let value = u64::from_le_bytes(
+                encoded.try_into()
+                    .map_err(|_| "validated u64 dictionary key length changed")?,
+            );
+            match value.cmp(&key) {
+                std::cmp::Ordering::Less => left = mid + 1,
+                std::cmp::Ordering::Greater => right = mid,
+                std::cmp::Ordering::Equal => {
+                    let end = offset.checked_add(4 + encoded.len() + 24)
+                        .ok_or("dictionary entry overflow")?;
+                    let descriptor = PostingDescriptor::decode(
+                        leaf.get(end - 24..end)
+                            .ok_or("dictionary posting descriptor truncated")?,
+                    )?;
+                    return Ok(Some(descriptor));
+                }
+            }
+        }
+        Ok(None)
+    }
+}
+
 fn read_u32(bytes: &[u8], position: usize) -> Result<u32, String> {
     let end = position
         .checked_add(4)

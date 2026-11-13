@@ -68,6 +68,16 @@ fn seeks_across_many_leaves_and_keeps_negative_results_exact() {
 }
 
 #[test]
+fn validated_u64_lookup_matches_typed_lookup_across_leaves() {
+    let dictionary = open_dictionary(
+        (0..4000u64).map(|number| (number * 3, PostingDescriptor::EMPTY)),
+    );
+    for key in [0, 1, 3, 1198, 5997, 11997, 11998] {
+        assert_eq!(dictionary.get_u64(key).unwrap(), dictionary.get(&key).unwrap());
+    }
+}
+
+#[test]
 fn exact_numbers_and_oversized_keys_keep_typed_order() {
     let numbers = [
         ScalarKey::Number(Number::Integer(-1)),

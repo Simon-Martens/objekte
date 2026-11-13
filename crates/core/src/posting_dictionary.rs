@@ -430,10 +430,6 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
             .map(|descriptor| descriptor.cardinality))
     }
 
-    pub(crate) fn descriptor(&self, key: &K) -> Result<Option<PostingDescriptor>, String> {
-        self.dictionary.get(key)
-    }
-
     pub(crate) fn materialize_descriptor(
         &self,
         descriptor: PostingDescriptor,
@@ -561,6 +557,12 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
             cursor = self.dictionary.next(position);
         }
         Ok(result)
+    }
+}
+
+impl SealedPostingDictionary<u64> {
+    pub(crate) fn descriptor_u64(&self, key: u64) -> Result<Option<PostingDescriptor>, String> {
+        self.dictionary.get_u64(key)
     }
 }
 

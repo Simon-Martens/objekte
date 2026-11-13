@@ -181,7 +181,7 @@ impl SealedBigramIndex {
         let mut columns = Vec::<(bool, PostingDescriptor)>::with_capacity(grams.len());
         for &(skip, key) in grams {
             let dictionary = if skip { &self.skip } else { &self.normal };
-            let Some(descriptor) = dictionary.descriptor(&key)? else {
+            let Some(descriptor) = dictionary.descriptor_u64(key)? else {
                 return Ok(Some(RoaringBitmap::new()));
             };
             columns.push((skip, descriptor));
