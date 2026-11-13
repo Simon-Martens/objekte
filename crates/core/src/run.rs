@@ -4031,7 +4031,9 @@ fn search_segmented_impl(
                 .map_or_else(|| published.active.bitmap(), |bounds| bounds.may.clone());
             if let Some(fts_may) = fts
                 .as_ref()
-                .and_then(|fts| segment_fts_candidates(segment, collection, fts))
+                .map(|fts| segment_fts_candidates(segment, collection, fts))
+                .transpose()?
+                .flatten()
             {
                 candidates &= fts_may;
             }
@@ -4921,7 +4923,7 @@ fn relation_target_prune(
             base_active,
             segments,
             hop,
-            |segment, _active, collection| Ok(segment_fts_candidates(segment, collection, &local)),
+            |segment, _active, collection| segment_fts_candidates(segment, collection, &local),
         );
     }
     Ok(None)
@@ -5247,7 +5249,7 @@ fn try_direct_relation_page(
                 (bounds.may, Some(bounds.must))
             }
             DirectRelationPredicate::Fts(local) => (
-                segment_fts_candidates(segment, target_collection, local)
+                segment_fts_candidates(segment, target_collection, local)?
                     .unwrap_or_else(|| published.active.bitmap()),
                 None,
             ),
@@ -5991,7 +5993,9 @@ fn try_parallel_relation_page(
                 .transpose()?;
             let fts_may = fts
                 .as_ref()
-                .and_then(|fts| segment_fts_candidates(&published.index, collection, fts));
+                .map(|fts| segment_fts_candidates(&published.index, collection, fts))
+                .transpose()?
+                .flatten();
             match (filter_may, fts_may) {
                 (Some(filter), Some(fts)) => Some(filter & fts),
                 (Some(filter), None) => Some(filter),
@@ -6627,7 +6631,9 @@ fn search_segmented_relations(
                     .transpose()?;
                 let fts_may = fts
                     .as_ref()
-                    .and_then(|fts| segment_fts_candidates(&published.index, collection, fts));
+                    .map(|fts| segment_fts_candidates(&published.index, collection, fts))
+                    .transpose()?
+                    .flatten();
                 match (filter_may, fts_may) {
                     (Some(filter), Some(fts)) => Some(filter & fts),
                     (Some(filter), None) => Some(filter),
@@ -7231,7 +7237,9 @@ fn try_lifecycle_ordered_stream(
                 .transpose()?;
             let fts_may = fts
                 .as_ref()
-                .and_then(|fts| segment_fts_candidates(&segment.index, collection, fts));
+                .map(|fts| segment_fts_candidates(&segment.index, collection, fts))
+                .transpose()?
+                .flatten();
             candidates[collection_index][segment_index] = match (filter_may, fts_may) {
                 (Some(filter), Some(fts)) => Some(filter & fts),
                 (Some(filter), None) => Some(filter),

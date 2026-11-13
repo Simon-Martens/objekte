@@ -42,10 +42,31 @@ fn count(index: &Index) -> usize {
 }
 
 #[test]
+fn default_configured_open_ignores_legacy_cache_without_touching_it() {
+    let root = fixture("memory-default");
+    let cache = snapshot_path_in(
+        &root.join(".objekte"),
+        RepositoryOptions::default().bigram_alphabet,
+    );
+    fs::write(&cache, b"not an index").unwrap();
+    let index = Index::open_repository(&root, RepositoryOpenOptions::default()).unwrap();
+    assert_eq!(count(&index), 1);
+    assert!(!index.restored_from_cache());
+    assert_eq!(fs::read(&cache).unwrap(), b"not an index");
+    assert!(index.status().unwrap().dirty());
+    let schema = root.join(".objekte/collections/data.schema.json");
+    let original_schema = fs::read(&schema).unwrap();
+    assert!(index.flush_cache(&schema).is_err());
+    assert_eq!(fs::read(&schema).unwrap(), original_schema);
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn convenience_build_and_restore_use_one_resolved_cache_without_automatic_writes() {
     let root = fixture("build-restore");
     let options = RepositoryOpenOptions {
         cache_directory: Some(PathBuf::from("data/cache")),
+        cache_open: CacheOpenPolicy::IfPresent,
         ..Default::default()
     };
     let cache = snapshot_path_in(&root.join("data/cache"), options.index.bigram_alphabet);
@@ -72,7 +93,14 @@ fn repository_cache_writer_can_be_enabled_after_opening() {
         &root.join(".objekte"),
         RepositoryOptions::default().bigram_alphabet,
     );
-    let index = Index::open_repository(&root, RepositoryOpenOptions::default()).unwrap();
+    let index = Index::open_repository(
+        &root,
+        RepositoryOpenOptions {
+            cache_open: CacheOpenPolicy::IfPresent,
+            ..Default::default()
+        },
+    )
+    .unwrap();
     assert!(!cache.exists());
     index.set_sync_cache(true).unwrap();
     index.set_sync_cache(false).unwrap();
@@ -82,19 +110,23 @@ fn repository_cache_writer_can_be_enabled_after_opening() {
 }
 
 #[test]
-fn corrupt_convenience_cache_is_replaced_by_default() {
+fn corrupt_convenience_cache_is_replaced_under_explicit_rebuild_policy() {
     let root = fixture("corrupt");
     let cache = snapshot_path_in(
         &root.join(".objekte"),
         RepositoryOptions::default().bigram_alphabet,
     );
     fs::write(&cache, b"corrupt cache").unwrap();
-    let rebuilt = Index::open_repository(&root, RepositoryOpenOptions::default()).unwrap();
+    let explicit = RepositoryOpenOptions {
+        cache_open: CacheOpenPolicy::IfPresent,
+        ..Default::default()
+    };
+    let rebuilt = Index::open_repository(&root, explicit.clone()).unwrap();
     assert_eq!(count(&rebuilt), 1);
     assert!(!rebuilt.status().unwrap().dirty());
     assert!(!rebuilt.restored_from_cache());
     assert_ne!(fs::read(&cache).unwrap(), b"corrupt cache");
-    let restored = Index::open_repository(&root, RepositoryOpenOptions::default()).unwrap();
+    let restored = Index::open_repository(&root, explicit).unwrap();
     assert!(restored.restored_from_cache());
     restored.wait_for_reconciliation().unwrap();
     fs::write(&cache, b"corrupt cache").unwrap();
@@ -103,6 +135,7 @@ fn corrupt_convenience_cache_is_replaced_by_default() {
             &root,
             RepositoryOpenOptions {
                 cache_failure: CacheFailurePolicy::Report,
+                cache_open: CacheOpenPolicy::IfPresent,
                 ..Default::default()
             }
         ),
@@ -122,7 +155,10 @@ fn invalid_cache_aliasing_a_schema_is_not_deleted() {
         RepositoryOptions::default().bigram_alphabet,
     );
     fs::hard_link(&schema, &cache).unwrap();
-    let error = Index::open_repository(&root, RepositoryOpenOptions::default())
+    let error = Index::open_repository(&root, RepositoryOpenOptions {
+        cache_open: CacheOpenPolicy::IfPresent,
+        ..Default::default()
+    })
         .err()
         .unwrap();
     assert!(matches!(error, IndexError::InvalidCache(_)), "{error}");
