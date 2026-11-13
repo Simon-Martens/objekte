@@ -139,6 +139,7 @@ pub(crate) struct SealedPostingDictionary<K> {
     reader: Arc<SegmentReader>,
     dictionary: OrderedBlockDictionary<K>,
     allowed: Arc<RoaringBitmap>,
+    constructed: bool,
     validated: Mutex<HashMap<PostingDescriptor, Arc<OnceLock<Result<(), String>>>>>,
 }
 
@@ -249,6 +250,7 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
             reader,
             dictionary,
             allowed,
+            constructed: false,
             validated: Mutex::new(HashMap::new()),
         })
     }
@@ -268,6 +270,7 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
             reader,
             dictionary,
             allowed,
+            constructed: true,
             validated: Mutex::new(HashMap::new()),
         })
     }
@@ -423,6 +426,11 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
         descriptor: PostingDescriptor,
         use_posting: impl FnOnce(Option<RoaringBitmap>) -> Result<T, String>,
     ) -> Result<T, String> {
+        if self.constructed {
+            // The in-process writer built these payloads from checked builder
+            // bitmaps. This proof is not carried across an external reopen.
+            return use_posting(None);
+        }
         let cell = self
             .validated
             .lock()
