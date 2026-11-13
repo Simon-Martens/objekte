@@ -38,6 +38,9 @@ struct ChangedFile {
 #[derive(Clone)]
 pub(crate) struct FileCatalog {
     base: Arc<Repository>,
+    /// A fresh build can expose its discovered paths before every member is
+    /// indexed. Pinned views retain this value across later publications.
+    construction_complete: bool,
     base_configuration: [u8; 32],
     changed: Arc<Vec<Arc<HashMap<FileId, ChangedFile>>>>,
     changed_paths: Arc<Vec<Arc<HashMap<SharedPath, FileId>>>>,
@@ -167,6 +170,7 @@ impl FileCatalog {
         }
         Ok(Self {
             base,
+            construction_complete: true,
             base_configuration,
             changed: Arc::new(changed.into_iter().map(Arc::new).collect()),
             changed_paths: Arc::new(changed_paths.into_iter().map(Arc::new).collect()),
@@ -183,6 +187,7 @@ impl FileCatalog {
         active.insert_range(0..len);
         Ok(Self {
             base,
+            construction_complete: true,
             base_configuration,
             changed: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
             changed_paths: Arc::new(vec![Arc::new(HashMap::new()); SHARDS]),
@@ -194,6 +199,41 @@ impl FileCatalog {
 
     pub(crate) fn allocated_files(&self) -> usize {
         self.len as usize
+    }
+
+    pub(crate) fn construction_complete(&self) -> bool {
+        self.construction_complete
+    }
+
+    pub(crate) fn set_construction_complete(&mut self, complete: bool) {
+        self.construction_complete = complete;
+    }
+
+    /// Rebind an otherwise unchanged discovered inventory to final metadata
+    /// (global inference and captured fingerprints) without copying paths.
+    pub(crate) fn rebase(&mut self, base: Arc<Repository>) -> Result<(), String> {
+        if !Arc::ptr_eq(&self.base.files, &base.files)
+            || Self::configuration_for(&base)? != self.base_configuration
+        {
+            return Err("catalog rebase changed discovered files or configuration".into());
+        }
+        if !self.construction_complete {
+            // Initial diagnostic overlays precede final digest assembly. Give
+            // them the same captured fingerprint as unchanged base entries.
+            let shards = Arc::make_mut(&mut self.changed);
+            for shard in shards.iter_mut().filter(|shard| !shard.is_empty()) {
+                for (id, changed) in Arc::make_mut(shard).iter_mut() {
+                    changed.fingerprint = base
+                        .base_fingerprints
+                        .get(id.0 as usize)
+                        .copied()
+                        .flatten();
+                    changed.configuration = changed.fingerprint.map(|_| self.base_configuration);
+                }
+            }
+        }
+        self.base = base;
+        Ok(())
     }
 
     pub(crate) fn active_files(&self) -> u64 {
