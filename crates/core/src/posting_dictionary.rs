@@ -183,6 +183,10 @@ impl<K: Ord + Clone + DeserializeOwned> SealedPostingCursor<'_, K> {
 }
 
 impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
+    pub(crate) fn segment_reader(&self) -> Arc<SegmentReader> {
+        Arc::clone(&self.reader)
+    }
+
     pub(crate) fn cursor_range(
         &self,
         lower: Bound<K>,

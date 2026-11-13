@@ -267,6 +267,10 @@ impl BigramIndex {
         self.sealed.is_some()
     }
 
+    pub(crate) fn sealed_reader(&self) -> Option<Arc<SegmentReader>> {
+        self.sealed.as_ref().map(|sealed| sealed.segment_reader())
+    }
+
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
         if self
             .normal

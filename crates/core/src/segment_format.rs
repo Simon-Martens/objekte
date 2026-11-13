@@ -258,6 +258,13 @@ impl SegmentReader {
         Some(Arc::clone(&entry.bitmap))
     }
 
+    pub(crate) fn decoded_cache_usage(&self) -> (usize, usize) {
+        self.decoded
+            .lock()
+            .map(|cache| (cache.entries.len(), cache.retained_bytes))
+            .unwrap_or((0, 0))
+    }
+
     pub(crate) fn retain_posting(&self, descriptor: PostingDescriptor, bitmap: &RoaringBitmap) {
         if descriptor.length < MIN_CACHED_POSTING_BYTES {
             return;

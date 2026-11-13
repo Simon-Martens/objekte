@@ -190,13 +190,7 @@ impl ManagedPersistence {
                         active: &segment.active,
                         write: Box::new(move |file| {
                             let mut position = 0usize;
-                            crate::hybrid_segment_codec::write_segment(
-                                &index,
-                                ordinal,
-                                definition,
-                                options,
-                                file,
-                                &mut |entry| {
+                            let mut intern = |entry: &crate::inventory::FileEntry| {
                                     let expected = index
                                         .files
                                         .get(position)
@@ -211,8 +205,16 @@ impl ManagedPersistence {
                                         .ok_or("segment metadata reference missing")?;
                                     position += 1;
                                     Ok(reference)
-                                },
-                            )?;
+                            };
+                            if index.raw.is_sealed() {
+                                crate::hybrid_segment_codec::write_sealed_segment(
+                                    &index, ordinal, options, file, &mut intern,
+                                )?;
+                            } else {
+                                crate::hybrid_segment_codec::write_segment(
+                                    &index, ordinal, definition, options, file, &mut intern,
+                                )?;
+                            }
                             if position != references.len() {
                                 return Err("segment metadata reference count changed".into());
                             }

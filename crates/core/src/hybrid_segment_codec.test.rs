@@ -446,6 +446,39 @@ fn consuming_seal_keeps_builder_metadata_and_queries_without_source() {
 }
 
 #[test]
+fn sealed_persistence_rebases_file_references_without_decoding_postings() {
+    let (root, definition, options, segment) = fixture();
+    let file = segment.files[0].entry.clone();
+    let sealed = seal_segment_consuming(segment, 1, &definition, options).unwrap();
+    let original = sealed.raw.sealed_reader().unwrap();
+    assert_eq!(original.decoded_cache_usage(), (0, 0));
+    let bytes = write_sealed_segment(
+        &sealed, 1, options, Cursor::new(Vec::new()),
+        &mut |entry| {
+            assert_eq!(entry, &file);
+            Ok(7)
+        },
+    ).unwrap().into_inner();
+    assert_eq!(original.decoded_cache_usage(), (0, 0));
+    let reopened = decode_segment_sealed(
+        Arc::new(SegmentReader::from_owned(Arc::from(bytes)).unwrap()),
+        1, &definition, options, sealed.collection,
+        (&sealed.source_id, sealed.source_version), sealed.records.len() as u32,
+        &|reference| (reference == 7).then_some(&file),
+    ).unwrap();
+    let path = vec!["n".to_owned()];
+    let BoundExpr::Term(term) =
+        bind_filter(&parse_filter("n >= 2").unwrap(), &definition.schema).unwrap()
+    else { panic!("expected term"); };
+    assert_eq!(
+        reopened.postings.fields[&path].exact_set_checked(&term, &reopened.logical_records).unwrap(),
+        sealed.postings.fields[&path].exact_set_checked(&term, &sealed.logical_records).unwrap(),
+    );
+    assert_eq!(reopened.files[0].entry, file);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn manifest_slot_count_and_source_binding_are_checked() {
     let (root, definition, options, segment) = fixture();
     let mut table = Vec::<FileEntry>::new();

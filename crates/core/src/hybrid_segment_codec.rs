@@ -303,6 +303,42 @@ pub(crate) fn write_segment<W: Write + Seek>(
     write_segment_inner(segment, ordinal, definition, options, output, intern, true)
 }
 
+/// Persist a previously sealed immutable segment. All dictionary, posting,
+/// structural, text, sort, relation and integrity bytes retain their existing
+/// section-relative offsets and checksums. Only RecordSlots contains file
+/// references whose numbering changes with the destination catalog.
+pub(crate) fn write_sealed_segment<W: Write + Seek>(
+    segment: &IndexedCollectionSegment,
+    ordinal: u64,
+    options: RepositoryOptions,
+    output: W,
+    intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
+) -> Result<W, String> {
+    let reader = segment.raw.sealed_reader().ok_or("segment has no sealed byte source")?;
+    reader.require_complete_sections()?;
+    let identity: IntegritySection =
+        decode_meta(INTEGRITY_MAGIC, required(&reader, SectionKind::Integrity)?)?;
+    if identity.collection != segment.collection
+        || identity.ordinal != ordinal
+        || identity.source_id != segment.source_id
+        || identity.source_version != segment.source_version
+        || identity.slot_count as usize != segment.records.len()
+        || identity.alphabet != options.bigram_alphabet
+    {
+        return Err("sealed segment identity changed before persistence".into());
+    }
+    let record_bytes = encode_record_slots_constructed(segment, intern)?;
+    let mut writer = SegmentWriter::new(output, REQUIRED_SECTIONS.len())?;
+    for &kind in &REQUIRED_SECTIONS {
+        if kind == SectionKind::RecordSlots {
+            write_bytes(&mut writer, kind, &record_bytes)?;
+        } else {
+            write_bytes(&mut writer, kind, required(&reader, kind)?)?;
+        }
+    }
+    writer.finish()
+}
+
 fn write_segment_inner<W: Write + Seek>(
     segment: &IndexedCollectionSegment,
     ordinal: u64,

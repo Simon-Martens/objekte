@@ -71,6 +71,10 @@ impl std::fmt::Debug for SealedBigramIndex {
 }
 
 impl SealedBigramIndex {
+    pub(crate) fn segment_reader(&self) -> Arc<SegmentReader> {
+        self.normal.segment_reader()
+    }
+
     pub(crate) fn for_each_normal(
         &self,
         mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
