@@ -253,15 +253,10 @@ impl SealedBigramIndex {
         let mut result: Option<RoaringBitmap> = None;
         for (skip, descriptor) in columns {
             let dictionary = if skip { &self.skip } else { &self.normal };
-            let posting = if let Some(candidates) = &result {
-                dictionary.intersect_descriptor(descriptor, candidates)?
-            } else {
-                dictionary.materialize_descriptor(descriptor)?
-            };
             if let Some(candidates) = &mut result {
-                *candidates = posting;
+                dictionary.intersect_descriptor_into(descriptor, candidates)?;
             } else {
-                result = Some(posting);
+                result = Some(dictionary.materialize_descriptor(descriptor)?);
             }
             if result.as_ref().is_some_and(RoaringBitmap::is_empty) {
                 break;

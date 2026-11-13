@@ -155,6 +155,73 @@ fn exact_numbers_empty_posting_and_negative_lookup_remain_distinct() {
 }
 
 #[test]
+fn cached_postings_intersect_and_union_into_existing_results() {
+    let mut map = BTreeMap::new();
+    map.insert(1u64, RoaringBitmap::from_iter((0..5000).step_by(3)));
+    map.insert(2u64, RoaringBitmap::from_iter((1000..6000).step_by(4)));
+    map.insert(3u64, RoaringBitmap::from_iter((0..6000).step_by(17)));
+    let sealed = seal(&map, RoaringBitmap::from_iter(0..6000));
+    sealed.reader.set_decoded_cache_limit_for_test(1024 * 1024);
+    let mut union = RoaringBitmap::new();
+    let mut expected_union = RoaringBitmap::new();
+    for (&key, posting) in &map {
+        let descriptor = sealed.dictionary.get(&key).unwrap().unwrap();
+        let initial = RoaringBitmap::from_iter((500..5500).step_by(5));
+        let mut first = initial.clone();
+        sealed.intersect_descriptor_into(descriptor, &mut first).unwrap();
+        assert_eq!(first, &initial & posting);
+        let cached = sealed.reader.cached_posting(descriptor).unwrap();
+        let mut warm = initial.clone();
+        sealed.intersect_descriptor_into(descriptor, &mut warm).unwrap();
+        assert_eq!(warm, first);
+        assert!(Arc::ptr_eq(&cached, &sealed.reader.cached_posting(descriptor).unwrap()));
+        sealed.union_descriptor_into(descriptor, &mut union).unwrap();
+        expected_union |= posting;
+        assert_eq!(union, expected_union);
+        let mut by_key = RoaringBitmap::new();
+        assert_eq!(sealed.union_key_into(&key, &mut by_key).unwrap(), Some(posting.len()));
+        assert_eq!(by_key, *posting);
+    }
+    assert_eq!(sealed.union_key_into(&999, &mut union).unwrap(), None);
+    assert_eq!(sealed.reader.decoded_cache_usage().0, map.len());
+}
+
+#[test]
+fn concurrent_first_and_warm_posting_access_preserves_results() {
+    let posting = RoaringBitmap::from_iter((0..20_000).step_by(2));
+    let sealed = Arc::new(seal(
+        &BTreeMap::from([(7u64, posting.clone())]),
+        RoaringBitmap::from_iter(0..20_000),
+    ));
+    sealed.reader.set_decoded_cache_limit_for_test(1024 * 1024);
+    let descriptor = sealed.dictionary.get(&7).unwrap().unwrap();
+    let barrier = Arc::new(std::sync::Barrier::new(8));
+    std::thread::scope(|scope| {
+        for _ in 0..8 {
+            let sealed = Arc::clone(&sealed);
+            let barrier = Arc::clone(&barrier);
+            let posting = posting.clone();
+            scope.spawn(move || {
+                barrier.wait();
+                for input in [
+                    RoaringBitmap::new(),
+                    RoaringBitmap::from_iter([1, 3, 5]),
+                    RoaringBitmap::from_iter(0..20_000),
+                ] {
+                    let mut intersection = input.clone();
+                    sealed.intersect_descriptor_into(descriptor, &mut intersection).unwrap();
+                    assert_eq!(intersection, &input & &posting);
+                    let mut union = input.clone();
+                    sealed.union_descriptor_into(descriptor, &mut union).unwrap();
+                    assert_eq!(union, &input | &posting);
+                }
+            });
+        }
+    });
+    assert_eq!(sealed.reader.decoded_cache_usage().0, 1);
+}
+
+#[test]
 fn malformed_posting_is_an_error_not_an_empty_result() {
     let mut map = BTreeMap::new();
     map.insert(
@@ -187,6 +254,13 @@ fn malformed_posting_is_an_error_not_an_empty_result() {
     .unwrap();
     assert!(sealed.get(&ScalarKey::String("exists".into())).is_err());
     assert!(sealed.get(&ScalarKey::String("exists".into())).is_err());
+    let descriptor = sealed.dictionary.get(&ScalarKey::String("exists".into())).unwrap().unwrap();
+    let mut destination = RoaringBitmap::from_iter([1, 4, 7]);
+    let unchanged = destination.clone();
+    assert!(sealed.intersect_descriptor_into(descriptor, &mut destination).is_err());
+    assert_eq!(destination, unchanged);
+    assert!(sealed.union_descriptor_into(descriptor, &mut destination).is_err());
+    assert_eq!(destination, unchanged);
     assert_eq!(
         sealed.get(&ScalarKey::String("absent".into())).unwrap(),
         None

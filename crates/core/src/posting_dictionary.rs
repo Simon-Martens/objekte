@@ -440,9 +440,9 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
         descriptor: PostingDescriptor,
     ) -> Result<RoaringBitmap, String> {
         self.with_validation(descriptor, |first| match first {
+            Some(bitmap) if descriptor.length < MIN_CACHED_POSTING_BYTES => Ok(bitmap),
             Some(bitmap) => {
-                self.reader.retain_posting(descriptor, &bitmap);
-                Ok(bitmap)
+                Ok(owned_bitmap(self.reader.retain_posting_owned(descriptor, bitmap)))
             }
             None if descriptor.length < MIN_CACHED_POSTING_BYTES => {
                 self.reader.materialize_validated_posting(descriptor)
@@ -451,8 +451,7 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
                 Some(bitmap) => Ok((*bitmap).clone()),
                 None => {
                     let bitmap = self.reader.materialize_validated_posting(descriptor)?;
-                    self.reader.retain_posting(descriptor, &bitmap);
-                    Ok(bitmap)
+                    Ok(owned_bitmap(self.reader.retain_posting_owned(descriptor, bitmap)))
                 }
             },
         })
@@ -464,9 +463,10 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
         input: &RoaringBitmap,
     ) -> Result<RoaringBitmap, String> {
         self.with_validation(descriptor, |first| match first {
+            Some(bitmap) if descriptor.length < MIN_CACHED_POSTING_BYTES => Ok(input & &bitmap),
             Some(bitmap) => {
-                self.reader.retain_posting(descriptor, &bitmap);
-                Ok(input & &bitmap)
+                let bitmap = self.reader.retain_posting_owned(descriptor, bitmap);
+                Ok(input & bitmap.as_ref())
             }
             None if descriptor.length < MIN_CACHED_POSTING_BYTES => {
                 self.reader.intersect_validated_posting(descriptor, input)
@@ -475,6 +475,68 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
                 Some(bitmap) => Ok(input & bitmap.as_ref()),
                 None => self.reader.intersect_validated_posting(descriptor, input),
             },
+        })
+    }
+
+    /// A cached operand is borrowed while the existing result is updated.
+    /// The serialized fallback returns a new bitmap; assign it only on
+    /// success so a malformed posting cannot partially change the result.
+    pub(crate) fn intersect_descriptor_into(
+        &self,
+        descriptor: PostingDescriptor,
+        input: &mut RoaringBitmap,
+    ) -> Result<(), String> {
+        self.with_validation(descriptor, |first| {
+            if let Some(bitmap) = first {
+                if descriptor.length < MIN_CACHED_POSTING_BYTES {
+                    *input &= &bitmap;
+                } else {
+                    let bitmap = self.reader.retain_posting_owned(descriptor, bitmap);
+                    *input &= bitmap.as_ref();
+                }
+            } else if descriptor.length < MIN_CACHED_POSTING_BYTES {
+                let next = self.reader.intersect_validated_posting(descriptor, input)?;
+                *input = next;
+            } else if let Some(bitmap) = self.reader.cached_posting(descriptor) {
+                *input &= bitmap.as_ref();
+            } else {
+                let next = self.reader.intersect_validated_posting(descriptor, input)?;
+                *input = next;
+            }
+            Ok(())
+        })
+    }
+
+    /// Union a checked posting into the destination without copying a hot
+    /// cache entry into a temporary owned bitmap.
+    pub(crate) fn union_descriptor_into(
+        &self,
+        descriptor: PostingDescriptor,
+        output: &mut RoaringBitmap,
+    ) -> Result<(), String> {
+        self.with_validation(descriptor, |first| {
+            if let Some(bitmap) = first {
+                if descriptor.length < MIN_CACHED_POSTING_BYTES {
+                    *output |= &bitmap;
+                } else {
+                    let cached = self.reader.retain_posting_owned(descriptor, bitmap);
+                    *output |= cached.as_ref();
+                }
+                return Ok(());
+            }
+            if descriptor.length < MIN_CACHED_POSTING_BYTES {
+                let bitmap = self.reader.materialize_validated_posting(descriptor)?;
+                *output |= &bitmap;
+                return Ok(());
+            }
+            let bitmap = if let Some(bitmap) = self.reader.cached_posting(descriptor) {
+                bitmap
+            } else {
+                let bitmap = self.reader.materialize_validated_posting(descriptor)?;
+                self.reader.retain_posting_owned(descriptor, bitmap)
+            };
+            *output |= bitmap.as_ref();
+            Ok(())
         })
     }
 
@@ -512,6 +574,18 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
             .get(key)?
             .map(|descriptor| self.materialize_descriptor(descriptor))
             .transpose()
+    }
+
+    pub(crate) fn union_key_into(
+        &self,
+        key: &K,
+        output: &mut RoaringBitmap,
+    ) -> Result<Option<u64>, String> {
+        let Some(descriptor) = self.dictionary.get(key)? else {
+            return Ok(None);
+        };
+        self.union_descriptor_into(descriptor, output)?;
+        Ok(Some(descriptor.cardinality as u64))
     }
 
     pub(crate) fn get_restricted(
@@ -553,16 +627,19 @@ impl<K: EncodedKey> SealedPostingDictionary<K> {
             if !inside {
                 break;
             }
-            let posting = if let Some(input) = input {
-                self.intersect_descriptor(descriptor, input)?
+            if let Some(input) = input {
+                result |= self.intersect_descriptor(descriptor, input)?;
             } else {
-                self.materialize_descriptor(descriptor)?
-            };
-            result |= posting;
+                self.union_descriptor_into(descriptor, &mut result)?;
+            }
             cursor = self.dictionary.next(position);
         }
         Ok(result)
     }
+}
+
+fn owned_bitmap(bitmap: Arc<RoaringBitmap>) -> RoaringBitmap {
+    Arc::try_unwrap(bitmap).unwrap_or_else(|shared| (*shared).clone())
 }
 
 impl SealedPostingDictionary<u64> {

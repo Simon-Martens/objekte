@@ -290,9 +290,8 @@ impl PostingIndex {
         if let Some(sealed) = self.sealed_values() {
             if ids.len().saturating_mul(8) < sealed.len() {
                 for id in ids {
-                    if let Some(slots) = sealed.get(&ScalarKey::Id(id.clone()))? {
-                        visited += slots.len();
-                        union |= slots;
+                    if let Some(count) = sealed.union_key_into(&ScalarKey::Id(id.clone()), &mut union)? {
+                        visited += count;
                     }
                 }
             } else {
@@ -319,9 +318,8 @@ impl PostingIndex {
                         if !ids.contains(id) {
                             return Ok(());
                         }
-                        let slots = sealed.materialize_descriptor(descriptor)?;
-                        visited += slots.len();
-                        union |= slots;
+                        sealed.union_descriptor_into(descriptor, &mut union)?;
+                        visited += descriptor.cardinality as u64;
                     }
                     Ok(())
                 })?;
@@ -421,11 +419,11 @@ impl PostingIndex {
             let mut result = RoaringBitmap::new();
             sealed.visit_bounds(lower, upper, |candidate, descriptor| {
                 if std::mem::discriminant(candidate) == std::mem::discriminant(key) {
-                    result |= if let Some(input) = input {
-                        sealed.intersect_descriptor(descriptor, input)?
+                    if let Some(input) = input {
+                        result |= sealed.intersect_descriptor(descriptor, input)?;
                     } else {
-                        sealed.materialize_descriptor(descriptor)?
-                    };
+                        sealed.union_descriptor_into(descriptor, &mut result)?;
+                    }
                     Ok(true)
                 } else {
                     Ok(candidate < key)
@@ -501,11 +499,11 @@ impl PostingIndex {
             .ok_or("temporal sealed dictionary missing")?;
         let mut result = RoaringBitmap::new();
         self.visit_temporal_descriptors(start, end, operator, |descriptor| {
-            result |= if let Some(input) = input {
-                sealed.intersect_descriptor(descriptor, input)?
+            if let Some(input) = input {
+                result |= sealed.intersect_descriptor(descriptor, input)?;
             } else {
-                sealed.materialize_descriptor(descriptor)?
-            };
+                sealed.union_descriptor_into(descriptor, &mut result)?;
+            }
             Ok(true)
         })?;
         Ok(result)
@@ -535,11 +533,11 @@ impl PostingIndex {
         if let Some(sealed) = self.sealed_lengths() {
             sealed.visit_entries(|key, descriptor| {
                 if matches(key) {
-                    result |= if let Some(input) = input {
-                        sealed.intersect_descriptor(descriptor, input)?
+                    if let Some(input) = input {
+                        result |= sealed.intersect_descriptor(descriptor, input)?;
                     } else {
-                        sealed.materialize_descriptor(descriptor)?
-                    };
+                        sealed.union_descriptor_into(descriptor, &mut result)?;
+                    }
                 }
                 Ok(true)
             })?;

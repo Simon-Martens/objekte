@@ -385,25 +385,38 @@ impl SegmentReader {
             .unwrap_or((0, 0, 0))
     }
 
-    pub(crate) fn retain_posting(&self, descriptor: PostingDescriptor, bitmap: &RoaringBitmap) {
-        if descriptor.length < MIN_CACHED_POSTING_BYTES {
-            return;
-        }
-        // Roaring's in-memory containers and map entry cost are larger than
-        // the portable payload, so charge a conservative weight to the cap.
+    #[cfg(test)]
+    pub(crate) fn set_decoded_cache_limit_for_test(&self, limit_bytes: usize) {
+        self.decoded.lock().unwrap().limit_bytes = limit_bytes;
+    }
+
+    pub(crate) fn retain_posting_owned(
+        &self,
+        descriptor: PostingDescriptor,
+        bitmap: RoaringBitmap,
+    ) -> Arc<RoaringBitmap> {
         let weight = (bitmap.serialized_size() as usize)
             .saturating_mul(2)
             .saturating_add(128);
+        let bitmap = Arc::new(bitmap);
+        if descriptor.length < MIN_CACHED_POSTING_BYTES {
+            return bitmap;
+        }
+        // Roaring's in-memory containers and map entry cost are larger than
+        // the portable payload, so charge a conservative weight to the cap.
         let Ok(mut cache) = self.decoded.lock() else {
-            return;
+            return bitmap;
         };
-        if weight > cache.limit_bytes || cache.entries.contains_key(&descriptor) {
-            return;
+        if weight > cache.limit_bytes {
+            return bitmap;
+        }
+        if let Some(existing) = cache.entries.get(&descriptor) {
+            return Arc::clone(&existing.bitmap);
         }
         while cache.retained_bytes.saturating_add(weight) > cache.limit_bytes {
             let Some((&oldest, &victim)) = cache.recency.first_key_value()
             else {
-                return;
+                return bitmap;
             };
             cache.recency.remove(&oldest);
             if let Some(removed) = cache.entries.remove(&victim) {
@@ -415,12 +428,13 @@ impl SegmentReader {
         cache.entries.insert(
             descriptor,
             CachedPosting {
-                bitmap: Arc::new(bitmap.clone()),
+                bitmap: Arc::clone(&bitmap),
                 weight,
                 last_used: tick,
             },
         );
         cache.retained_bytes += weight;
+        bitmap
     }
 
     pub(crate) fn require_complete_sections(&self) -> Result<(), String> {
