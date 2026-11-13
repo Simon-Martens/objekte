@@ -8,9 +8,11 @@ use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
 use objekte_search_core::lifecycle::{Index, IndexView};
+use objekte_search_core::index_storage::{IndexResidency, IndexStorageLocation, IndexStoragePolicy};
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::SearchResult;
 use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit, SnapshotMode};
+use objekte_search_core::source::SourceRegistry;
 use objekte_search_core::workload::{
     BenchmarkCase, BigramAlphabet, Profile, TimingSample, WorkCounters, load_extended_manifest,
     load_manifest,
@@ -81,10 +83,24 @@ fn run() -> Result<(), String> {
     let mut prepared_cache_bytes = RepositoryOptions::default().prepared_cache_bytes;
     let mut query_workers = RepositoryOptions::default().query_workers;
     let mut incremental = false;
+    let mut storage = IndexStorageLocation::MemoryOnly;
+    let mut fully_resident = false;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--extended" => extended = true,
             "--incremental" => incremental = true,
+            "--storage" => {
+                storage = match args.next().map(String::as_str) {
+                    Some("memory") => IndexStorageLocation::MemoryOnly,
+                    Some("temporary") => IndexStorageLocation::SystemTemporary,
+                    Some("repository") => IndexStorageLocation::RepositoryDirectory,
+                    Some("custom") => IndexStorageLocation::CustomDirectory(PathBuf::from(
+                        args.next().ok_or("--storage custom needs a base directory")?,
+                    )),
+                    _ => return Err("--storage needs memory, temporary, repository or custom".into()),
+                }
+            }
+            "--fully-resident" => fully_resident = true,
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--result-dir" => {
                 result_dir = Some(PathBuf::from(
@@ -142,6 +158,18 @@ fn run() -> Result<(), String> {
     if repetitions == 0 {
         return Err("repetitions must be positive".into());
     }
+    if !incremental && (storage != IndexStorageLocation::MemoryOnly || fully_resident) {
+        return Err("--storage and --fully-resident require --incremental".into());
+    }
+    let storage_policy = IndexStoragePolicy {
+        residency: if storage == IndexStorageLocation::MemoryOnly || fully_resident {
+            IndexResidency::FullyResident
+        } else {
+            IndexResidency::OnDemand
+        },
+        location: storage,
+    };
+    let storage_label = format!("{storage_policy:?}");
     let mut profiles = Vec::new();
     for name in &profile_names {
         let profile = match name.as_str() {
@@ -257,7 +285,7 @@ fn run() -> Result<(), String> {
         }
         let backend = if incremental {
             let build_start = Instant::now();
-            let task = Index::start_incremental_build(
+            let task = Index::start_incremental_build_with_storage(
                 &root,
                 definitions.clone(),
                 RepositoryOptions {
@@ -267,6 +295,8 @@ fn run() -> Result<(), String> {
                     prepared_cache_bytes,
                     ..RepositoryOptions::default()
                 },
+                storage_policy.clone(),
+                SourceRegistry::builtin(),
             )
             .map_err(|error| error.to_string())?;
             let index = task.wait_complete().map_err(|error| error.to_string())?;
@@ -274,13 +304,7 @@ fn run() -> Result<(), String> {
             let view = index.view().map_err(|error| error.to_string())?;
             let status = index.status().map_err(|error| error.to_string())?;
             let build_status = task.status().map_err(|error| error.to_string())?;
-            let save_started = Instant::now();
-            let snapshot_path = objekte_search_core::storage::snapshot_path(&root, alphabet);
-            index
-                .flush_cache(&snapshot_path)
-                .map_err(|error| error.to_string())?;
-            let snapshot_write_ns = save_started.elapsed().as_nanos() as u64;
-            let total_build_and_snapshot_ns = build_start.elapsed().as_nanos() as u64;
+            let storage_status = index.storage_status().map_err(|error| error.to_string())?;
             if corpus_hash.is_empty() {
                 let mut hash = Sha256::new();
                 for row in view.catalogue_rows() {
@@ -292,23 +316,29 @@ fn run() -> Result<(), String> {
             }
             let memory_bytes = resident_bytes();
             let peak_resident_bytes = peak_resident_bytes();
-            let snapshot_bytes = fs::metadata(&snapshot_path)
-                .map_err(|error| error.to_string())?
-                .len();
+            let managed_bytes = storage_status.managed_directory.as_ref().map(|path| {
+                fs::read_dir(path)
+                    .map_err(|error| error.to_string())?
+                    .try_fold(0u64, |total, entry| {
+                        let entry = entry.map_err(|error| error.to_string())?;
+                        let bytes = entry.metadata().map_err(|error| error.to_string())?.len();
+                        total.checked_add(bytes).ok_or_else(|| "managed byte count overflow".to_string())
+                    })
+            }).transpose()?;
             build_results.push(serde_json::json!({
-                "alphabet":alphabet,"build_mode":"incremental","build_ns":open_ns,"open_ns":open_ns,
+                "alphabet":alphabet,"build_mode":"hybrid","storage":storage_label,"build_ns":open_ns,"open_ns":open_ns,
                 "discovery_ns":build_status.catalogue_elapsed_ns,
                 "first_batch_ns":build_status.first_batch_elapsed_ns,
                 "searchable_batches":build_status.searchable_batches,
-                "snapshot_write_ns":snapshot_write_ns,
-                "total_build_and_snapshot_ns":total_build_and_snapshot_ns,
                 "build_parses":status.build_parses,"source_reads":status.build_source_reads,
                 "source_bytes_read":status.build_source_bytes_read,
                 "inventory_heap_bytes":view.estimated_inventory_bytes(),
                 "resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,
                 "estimated_index_bytes":view.estimated_index_bytes(),
                 "segment_families":view.index_family_breakdown(),
-                "snapshot_bytes":snapshot_bytes,"restore_samples":[],"restore_status":"not_measured",
+                "managed_bytes":managed_bytes,"managed_directory":storage_status.managed_directory,
+                "durable_generation":storage_status.durable_generation,
+                "restore_samples":[],"restore_status":"not_measured",
             }));
             if registrations.is_empty() {
                 registrations = definitions.iter().map(|definition| serde_json::json!({
@@ -541,7 +571,7 @@ fn run() -> Result<(), String> {
         serde_json::to_vec_pretty(&result_digests).map_err(|e| e.to_string())?,
     )
     .map_err(|e| e.to_string())?;
-    let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"extended":extended,"build_mode":if incremental {"incremental"} else {"repository"},"schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers});
+    let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"extended":extended,"build_mode":if incremental {"hybrid"} else {"repository"},"storage":storage_label,"schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers});
     fs::write(
         result_dir.join("run-manifest.json"),
         serde_json::to_vec_pretty(&run_manifest).map_err(|e| e.to_string())?,
@@ -647,6 +677,19 @@ fn run() -> Result<(), String> {
     csv.flush().map_err(|e| e.to_string())?;
     report.push_str("\n## Index construction\n\n");
     for result in &build_results {
+        if result["build_mode"] == "hybrid" {
+            report.push_str(&format!(
+                "- {}: {} open/build {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; managed files {} MiB.\n",
+                result["alphabet"],
+                storage_label,
+                result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
+                result["build_parses"],
+                result["resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+                result["peak_resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+                result["managed_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+            ));
+            continue;
+        }
         let restore: Vec<u64> = result["restore_samples"]
             .as_array()
             .into_iter()
@@ -693,6 +736,19 @@ fn run() -> Result<(), String> {
         );
     }
     for result in &build_results {
+        if result["build_mode"] == "hybrid" {
+            println!(
+                "build {}: {} open/build={:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; managed_bytes={}",
+                result["alphabet"],
+                storage_label,
+                result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
+                result["build_parses"],
+                result["resident_bytes"],
+                result["peak_resident_bytes"],
+                result["managed_bytes"],
+            );
+            continue;
+        }
         let mut restore: Vec<u64> = result["restore_samples"]
             .as_array()
             .into_iter()

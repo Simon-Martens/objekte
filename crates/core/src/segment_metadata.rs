@@ -50,9 +50,9 @@ const RELATION_MAGIC: &[u8; 8] = b"OBJHREL1";
 const VERSION: u32 = 1;
 const MAX_SECTION_BYTES: usize = 512 * 1024 * 1024;
 const MAX_LEAF_BYTES: usize = 64 * 1024 * 1024;
-const MAX_FILES: usize = 65_536;
-// Ordinary segment rollover targets 16,384 records. A singleton source may
-// exceed that target, but a corrupt count must not reserve unbounded memory.
+// An initial collection shard can include a large whole-source partition;
+// its metadata remains bounded independently of the repository-wide catalog.
+const MAX_FILES: usize = 1_048_576;
 const MAX_RECORDS: usize = 1_048_576;
 const MAX_COLUMNS: usize = 4_096;
 const MAX_RELATIONS: usize = 4_096;
@@ -284,7 +284,12 @@ fn validate_records(
         || files.len() > MAX_FILES
         || records.len() > MAX_RECORDS
     {
-        return Err("record metadata count or source identity invalid".into());
+        return Err(format!(
+            "record metadata count or source identity invalid: files={}, records={}, source_bytes={}",
+            files.len(),
+            records.len(),
+            source_id.len()
+        ));
     }
     let mut file_index = HashMap::with_capacity(files.len());
     let mut paths = HashSet::with_capacity(files.len());
