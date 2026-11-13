@@ -1,7 +1,7 @@
 //! Checked, source-I/O-free encoding of one indexed mutation segment.
 
 use std::collections::{BTreeMap, HashMap, HashSet};
-use std::path::{Component, Path, PathBuf};
+use std::path::{Component, Path};
 
 use bincode::Options;
 use roaring::RoaringBitmap;
@@ -13,7 +13,7 @@ use crate::inference::{InferenceMode, InferenceState};
 use crate::inventory::{
     FileEntry, FileStatus, MAX_DIAGNOSTIC_CODE_BYTES, MAX_DIAGNOSTIC_MESSAGE_BYTES,
     MAX_DIAGNOSTIC_PATH_SEGMENTS, MAX_DIAGNOSTIC_SEGMENT_BYTES, MAX_DIAGNOSTICS_PER_FILE,
-    RecordClass, RecordEntry, SourceDiagnostic, SourceRevision,
+    RecordClass, RecordEntry,
 };
 use crate::lifecycle_catalog::FileCatalog;
 use crate::model::{
@@ -37,93 +37,11 @@ fn codec() -> impl Options {
         .reject_trailing_bytes()
 }
 
-fn path_bytes(path: &Path) -> Vec<u8> {
-    #[cfg(unix)]
-    {
-        use std::os::unix::ffi::OsStrExt;
-        path.as_os_str().as_bytes().to_vec()
-    }
-
-    #[cfg(windows)]
-    {
-        use std::os::windows::ffi::OsStrExt;
-        path.as_os_str()
-            .encode_wide()
-            .flat_map(u16::to_le_bytes)
-            .collect()
-    }
-}
-
-fn path_from_bytes(bytes: Vec<u8>) -> Result<PathBuf, String> {
-    #[cfg(unix)]
-    {
-        use std::os::unix::ffi::OsStringExt;
-        Ok(std::ffi::OsString::from_vec(bytes).into())
-    }
-
-    #[cfg(windows)]
-    {
-        use std::os::windows::ffi::OsStringExt;
-        if !bytes.len().is_multiple_of(2) {
-            return Err("invalid segment path encoding".into());
-        }
-        let wide = bytes
-            .chunks_exact(2)
-            .map(|part| u16::from_le_bytes([part[0], part[1]]))
-            .collect::<Vec<_>>();
-        Ok(std::ffi::OsString::from_wide(&wide).into())
-    }
-}
-
-
-#[derive(Serialize, Deserialize)]
-struct EncodedFile {
-    id: FileId,
-    path: Vec<u8>,
-    revision: SourceRevision,
-    created_ns: Option<i128>,
-    collections: Vec<CollectionId>,
-    status: FileStatus,
-    diagnostics: Vec<SourceDiagnostic>,
-    omitted_diagnostics: u32,
-}
-
-
-impl EncodedFile {
-    fn from_entry(entry: &FileEntry) -> Self {
-        Self {
-            id: entry.id,
-            path: path_bytes(&entry.relative_path),
-            revision: entry.revision,
-            created_ns: entry.created_ns,
-            collections: entry.collections.clone(),
-            status: entry.status,
-            diagnostics: entry.diagnostics.clone(),
-            omitted_diagnostics: entry.omitted_diagnostics,
-        }
-    }
-
-    fn into_entry(self) -> Result<FileEntry, String> {
-        Ok(FileEntry {
-            id: self.id,
-            relative_path: path_from_bytes(self.path)?.into(),
-            revision: self.revision,
-            created_ns: self.created_ns,
-            collections: self.collections,
-            status: self.status,
-            diagnostics: self.diagnostics,
-            omitted_diagnostics: self.omitted_diagnostics,
-        })
-    }
-}
-
-
 #[derive(Serialize, Deserialize)]
 struct EncodedSegmentFile {
-    entry: EncodedFile,
+    metadata_ref: u32,
     records: Vec<RecordSlot>,
 }
-
 
 #[derive(Serialize)]
 struct SegmentRef<'a> {
@@ -131,9 +49,7 @@ struct SegmentRef<'a> {
     source_id: &'a String,
     source_version: u32,
     files: &'a Vec<EncodedSegmentFile>,
-    file_index: &'a HashMap<FileId, usize>,
     records: &'a Vec<RecordEntry>,
-    id_lookup: &'a HashMap<RecordId, RecordSlot>,
     identity_order: &'a Vec<RecordSlot>,
     postings: &'a PostingCollection,
     inference: &'a Option<InferenceState>,
@@ -149,16 +65,13 @@ struct SegmentRef<'a> {
     failed_parses: u64,
 }
 
-
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 struct OwnedSegment {
     collection: CollectionId,
     source_id: String,
     source_version: u32,
     files: Vec<EncodedSegmentFile>,
-    file_index: HashMap<FileId, usize>,
     records: Vec<RecordEntry>,
-    id_lookup: HashMap<RecordId, RecordSlot>,
     identity_order: Vec<RecordSlot>,
     postings: PostingCollection,
     inference: Option<InferenceState>,
@@ -174,26 +87,28 @@ struct OwnedSegment {
     failed_parses: u64,
 }
 
-
 /// Encode one completed segment. The outer snapshot section supplies the
 /// checksum; this codec preserves native non-UTF-8 source paths as bytes.
-pub(crate) fn encode_segment(segment: &IndexedCollectionSegment) -> Result<Vec<u8>, String> {
+pub(crate) fn encode_segment(
+    segment: &IndexedCollectionSegment,
+    intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
+) -> Result<Vec<u8>, String> {
     let files = segment
         .files
         .iter()
-        .map(|file| EncodedSegmentFile {
-            entry: EncodedFile::from_entry(&file.entry),
-            records: file.records.clone(),
+        .map(|file| {
+            Ok(EncodedSegmentFile {
+                metadata_ref: intern(&file.entry)?,
+                records: file.records.clone(),
+            })
         })
-        .collect::<Vec<_>>();
+        .collect::<Result<Vec<_>, String>>()?;
     let value = SegmentRef {
         collection: segment.collection,
         source_id: &segment.source_id,
         source_version: segment.source_version,
         files: &files,
-        file_index: &segment.file_index,
         records: &segment.records,
-        id_lookup: &segment.id_lookup,
         identity_order: &segment.identity_order,
         postings: &segment.postings,
         inference: &segment.inference,
@@ -222,28 +137,28 @@ pub(crate) fn encode_segment(segment: &IndexedCollectionSegment) -> Result<Vec<u
 /// callers decode one segment at a time; normal snapshot writes never do.
 pub(crate) fn segment_byte_diagnostic(bytes: &[u8]) -> Result<BTreeMap<String, u64>, String> {
     fn size(value: &impl Serialize) -> Result<u64, String> {
-        codec().serialized_size(value).map_err(|error| error.to_string())
+        codec()
+            .serialized_size(value)
+            .map_err(|error| error.to_string())
     }
     let encoded: OwnedSegment = codec()
         .with_limit(bytes.len() as u64)
         .deserialize(bytes)
         .map_err(|error| error.to_string())?;
     let mut fields = BTreeMap::new();
-    let file_metadata = encoded
-        .files
-        .iter()
-        .map(|file| size(&file.entry))
-        .sum::<Result<u64, _>>()?;
     let file_records = encoded
         .files
         .iter()
         .map(|file| size(&file.records))
         .sum::<Result<u64, _>>()?;
     let files_size = size(&encoded.files)?;
-    if files_size < file_metadata + file_records {
+    if files_size < file_records {
         return Err("segment diagnostic file sizes overlap".into());
     }
-    fields.insert("segment_file_metadata".into(), files_size - file_records);
+    fields.insert(
+        "segment_file_metadata_refs".into(),
+        files_size - file_records,
+    );
     fields.insert("segment_file_record_slots".into(), file_records);
     fields.insert(
         "segment_header".into(),
@@ -251,7 +166,7 @@ pub(crate) fn segment_byte_diagnostic(bytes: &[u8]) -> Result<BTreeMap<String, u
     );
     fields.insert(
         "segment_derived_lookups".into(),
-        size(&encoded.file_index)? + size(&encoded.id_lookup)? + size(&encoded.identity_order)?,
+        size(&encoded.identity_order)?,
     );
     fields.insert("segment_records".into(), size(&encoded.records)?);
     fields.insert(
@@ -285,6 +200,7 @@ pub(crate) fn decode_segment(
     collection_id: CollectionId,
     catalog: &FileCatalog,
     active: &RoaringBitmap,
+    extras: &[FileEntry],
 ) -> Result<IndexedCollectionSegment, String> {
     if bytes.is_empty() || bytes.len() > MAX_SEGMENT_BYTES {
         return Err("segment snapshot byte length invalid".into());
@@ -298,19 +214,32 @@ pub(crate) fn decode_segment(
         .into_iter()
         .map(|file| {
             Ok(SegmentFile {
-                entry: file.entry.into_entry()?,
+                entry: crate::storage::metadata_entry(file.metadata_ref, repository, extras)?
+                    .clone(),
                 records: file.records,
             })
         })
         .collect::<Result<Vec<_>, String>>()?;
-    let mut segment = IndexedCollectionSegment {
+    let mut file_index = HashMap::with_capacity(files.len());
+    for (number, file) in files.iter().enumerate() {
+        if file_index.insert(file.entry.id, number).is_some() {
+            return Err("duplicate segment file identity".into());
+        }
+    }
+    let mut id_lookup = HashMap::with_capacity(encoded.records.len());
+    for record in &encoded.records {
+        if id_lookup.insert(record.id.clone(), record.slot).is_some() {
+            return Err("duplicate segment record identity".into());
+        }
+    }
+    let segment = IndexedCollectionSegment {
         collection: encoded.collection,
         source_id: encoded.source_id,
         source_version: encoded.source_version,
         files,
-        file_index: encoded.file_index,
+        file_index,
         records: encoded.records,
-        id_lookup: encoded.id_lookup,
+        id_lookup,
         identity_order: encoded.identity_order,
         postings: encoded.postings,
         inference: encoded.inference,
@@ -337,13 +266,6 @@ pub(crate) fn decode_segment(
         active,
         repository.collections().len(),
     )?;
-    // Validation compares the decoded lookup with the records. Rebuild it so
-    // each lookup key shares its payload with the corresponding record.
-    segment.id_lookup = segment
-        .records
-        .iter()
-        .map(|record| (record.id.clone(), record.slot))
-        .collect();
     Ok(segment)
 }
 
@@ -353,6 +275,7 @@ pub(crate) fn decode_cache_segment(
     cache: &LifecycleSegmentCache,
     repository: &Repository,
     catalog: &FileCatalog,
+    extras: &[FileEntry],
 ) -> Result<IndexedCollectionSegment, String> {
     let index = decode_segment(
         &cache.index,
@@ -360,6 +283,7 @@ pub(crate) fn decode_cache_segment(
         cache.collection,
         catalog,
         &cache.active,
+        extras,
     )?;
     if index.records.len() != cache.record_count as usize {
         return Err("segment envelope record count mismatch".into());
@@ -510,7 +434,6 @@ fn validate_segment(
     if segment.file_index.len() != segment.files.len() {
         return Err("segment file lookup mismatch".into());
     }
-    let mut ids = HashMap::new();
     let mut logical = RoaringBitmap::new();
     let mut fallback = RoaringBitmap::new();
     for (number, record) in segment.records.iter().enumerate() {
@@ -521,7 +444,7 @@ fn validate_segment(
             || record.revision != file.entry.revision
             || record.range.start > record.range.end
             || record.range.end > file.entry.revision.size
-            || ids.insert(record.id.clone(), record.slot).is_some()
+            || segment.id_lookup.get(&record.id) != Some(&record.slot)
         {
             return Err("segment record identity or source span invalid".into());
         }
@@ -572,7 +495,7 @@ fn validate_segment(
             }
         }
     }
-    if segment.id_lookup != ids
+    if segment.id_lookup.len() != segment.records.len()
         || segment.logical_records != logical
         || !segment.empty_array_records.is_subset(&logical)
     {

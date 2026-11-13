@@ -44,6 +44,7 @@ fn run() -> Result<(), String> {
     let mut storage_diagnostic = false;
     let mut storage_operations = false;
     let mut incremental = false;
+    let mut restore_snapshot = None;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
@@ -79,6 +80,11 @@ fn run() -> Result<(), String> {
             "--storage-diagnostic" => storage_diagnostic = true,
             "--storage-operations" => storage_operations = true,
             "--incremental" => incremental = true,
+            "--restore-snapshot" => {
+                restore_snapshot = Some(PathBuf::from(
+                    args.next().ok_or("--restore-snapshot needs a path")?,
+                ))
+            }
             _ => return Err(format!("unknown argument {arg}")),
         }
     }
@@ -123,6 +129,17 @@ fn run() -> Result<(), String> {
     };
     if inference {
         options.inference.mode = InferenceMode::AutoIndex;
+    }
+    if let Some(path) = restore_snapshot {
+        return run_restore(
+            &root,
+            definitions,
+            options,
+            &path,
+            &result_dir,
+            alphabet,
+            workers,
+        );
     }
     if incremental {
         return run_incremental(
@@ -498,9 +515,11 @@ fn run_incremental(
     let corpus_fingerprint = format!("{:x}", hash.finalize());
     let snapshot_result = if snapshot {
         let path = result_dir.join("index.snapshot");
+        let save_started = Instant::now();
         let (_, stats) = index
             .flush_cache_with_stats(&path)
             .map_err(|e| e.to_string())?;
+        let save_call_ns = save_started.elapsed().as_nanos() as u64;
         let bytes = fs::metadata(&path).map_err(|e| e.to_string())?.len();
         let sections = stats.sections.iter().map(|section| serde_json::json!({
             "id":section.id,"serialize_ns":section.serialize_ns,"checksum_ns":section.checksum_ns,
@@ -511,6 +530,7 @@ fn run_incremental(
             "header_ns":stats.header_ns,"inventory_ns":stats.inventory_ns,"write_ns":stats.write_ns,
             "sync_ns":stats.sync_ns,"rename_ns":stats.rename_ns,"directory_sync_ns":stats.directory_sync_ns,
             "bytes":bytes,"sections":sections,"byte_breakdown":stats.byte_breakdown,
+            "save_call_ns":save_call_ns,
             "rss_after_write":resident_bytes(),
             "hwm_after_write":peak_resident_bytes()}),
         )
@@ -593,6 +613,86 @@ fn run_incremental(
     println!(
         "{}",
         serde_json::json!({"build_ns":build_ns,"result_dir":result_dir})
+    );
+    Ok(())
+}
+
+fn run_restore(
+    root: &Path,
+    definitions: Vec<CollectionDefinition>,
+    options: RepositoryOptions,
+    snapshot: &Path,
+    result_dir: &Path,
+    alphabet: BigramAlphabet,
+    workers: Option<NonZeroUsize>,
+) -> Result<(), String> {
+    let before_rss = resident_bytes();
+    let io_before = proc_io();
+    let started = Instant::now();
+    let index = Index::load_cache(root, definitions, options, snapshot)
+        .map_err(|error| error.to_string())?;
+    let load_ns = started.elapsed().as_nanos() as u64;
+    let after_load_rss = resident_bytes();
+    let after_load_hwm = peak_resident_bytes();
+    let io_after = proc_io();
+    let process_io_delta = io_before.zip(io_after).map(|(before, after)| {
+        after
+            .into_iter()
+            .filter_map(|(key, value)| {
+                before
+                    .get(&key)
+                    .and_then(|old| value.checked_sub(*old))
+                    .map(|delta| (key, delta))
+            })
+            .collect::<BTreeMap<_, _>>()
+    });
+    let status = index.status().map_err(|error| error.to_string())?;
+    let view = index.view().map_err(|error| error.to_string())?;
+    let files = view.catalogue_rows().count();
+    let cases = objekte_search_core::workload::load_extended_manifest(
+        &Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json"),
+        &Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json"),
+    )?;
+    let mut query_digests = BTreeMap::new();
+    for case in cases
+        .iter()
+        .filter(|case| ["Q001", "Q108", "Q116", "Q120", "Q194"].contains(&case.id.as_str()))
+    {
+        let mut result = view.search(&case.query()?)?;
+        for hit in &mut result.hits {
+            hit.generation = 0;
+        }
+        let digest = Sha256::digest(format!("{:?}", (result.count, result.hits)).as_bytes());
+        query_digests.insert(case.id.clone(), format!("{digest:x}"));
+    }
+    let after_queries_rss = resident_bytes();
+    drop(view);
+    drop(index);
+    let manifest = serde_json::json!({
+        "code_revision":command_output("git", &["rev-parse", "HEAD"])?,
+        "dirty_status":command_output("git", &["status", "--porcelain"])?,
+        "command":std::env::args().collect::<Vec<_>>(),"root":root,
+        "snapshot_path":snapshot,"compiler":command_output("rustc", &["--version"])?,
+        "kernel":command_output("uname", &["-r"])?,
+        "cpu_model":proc_field("/proc/cpuinfo", "model name"),
+        "cpu_governor":fs::read_to_string("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor").ok().map(|value| value.trim().to_string()),
+        "cpu_affinity":proc_field("/proc/self/status", "Cpus_allowed_list"),
+        "alphabet":alphabet,"requested_workers":workers.map(NonZeroUsize::get),
+        "configuration":"musenalm_extended","build_mode":"restore",
+    });
+    let sample = serde_json::json!({
+        "load_ns":load_ns,"before_rss":before_rss,
+        "after_load_rss":after_load_rss,"after_load_hwm":after_load_hwm,
+        "after_queries_rss":after_queries_rss,"after_release_rss":resident_bytes(),
+        "process_io_delta":process_io_delta,"source_reads":status.build_source_reads,
+        "build_parses":status.build_parses,"records":status.live_records,
+        "files":files,"query_digests":query_digests,
+    });
+    write_json(&result_dir.join("run-manifest.json"), &manifest)?;
+    write_json(&result_dir.join("sample.json"), &sample)?;
+    println!(
+        "{}",
+        serde_json::json!({"load_ns":load_ns,"result_dir":result_dir})
     );
     Ok(())
 }

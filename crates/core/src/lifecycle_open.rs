@@ -147,6 +147,9 @@ impl Index {
             }
         })?;
         let repository = Arc::new(repository);
+        let extra_files = state
+            .decoded_extra_files()
+            .map_err(IndexError::InvalidCache)?;
         let slots = state
             .catalog
             .iter()
@@ -155,9 +158,9 @@ impl Index {
                     .as_ref()
                     .map(|entry| {
                         Ok((
-                            entry.decode_entry()?,
+                            entry.decode_entry(&repository, &extra_files)?,
                             entry.fingerprint,
-                            entry.configuration,
+                            entry.configuration(state.configuration_identity),
                         ))
                     })
                     .transpose()
@@ -202,6 +205,7 @@ impl Index {
                     &segment,
                     &repository,
                     &catalog,
+                    &extra_files,
                 )
                 .map_err(IndexError::InvalidCache)?;
                 let active = ActiveRecords::from_bitmap(index.records.len(), segment.active)

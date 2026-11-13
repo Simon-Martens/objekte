@@ -307,8 +307,16 @@ fn flat_mapping_matches_grouped_reference_for_interleaved_files() {
     let empty = CollectionBuilder::new(CollectionId(0), "empty".into(), 1, files.len())
         .finish(&inventory)
         .unwrap();
-    assert_eq!(empty.file_records.offsets, [0, 0, 0, 0, 0]);
+    assert_eq!(empty.file_records.file_count, 4);
+    assert!(empty.file_records.offsets.is_empty());
     assert!(empty.file_records.slots.is_empty());
+    for file in 0..4 {
+        assert_eq!(
+            empty.file_records.records_for(FileId(file)),
+            Some([].as_slice())
+        );
+    }
+    assert_eq!(empty.file_records.records_for(FileId(4)), None);
 
     let mut builder = CollectionBuilder::new(CollectionId(0), "data".into(), 1, files.len());
     for &file in &files {
