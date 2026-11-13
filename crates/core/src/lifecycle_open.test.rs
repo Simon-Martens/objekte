@@ -381,6 +381,16 @@ fn explicit_build_ignores_implicit_cache_even_when_legacy_mode_requires_it() {
         },
     )
     .unwrap();
+    let view = index.view().unwrap();
+    let segments = view.0.segments.iter().flat_map(|group| group.iter()).collect::<Vec<_>>();
+    assert!(!segments.is_empty());
+    assert!(segments.iter().all(|segment| {
+        segment
+            .index
+            .raw
+            .sealed_reader()
+            .is_some_and(|reader| reader.is_constructed())
+    }));
     let query = Query {
         collections: vec!["data".into()],
         fts: None,

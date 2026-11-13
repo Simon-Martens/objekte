@@ -613,7 +613,7 @@ impl PublishedIndex {
             .map(|(next, _)| next)
     }
 
-    fn with_segment_sealing(
+    pub(crate) fn with_segment_sealing(
         mut self,
         mut index: IndexedCollectionSegment,
         seal_owned: bool,
@@ -625,7 +625,7 @@ impl PublishedIndex {
                 "segment collection missing".into(),
             ));
         }
-        self.make_room_for_segment(number)?;
+        self.make_room_for_segment_sealing(number, seal_owned)?;
         let collection =
             self.repository.collections().get(number).ok_or_else(|| {
                 IndexError::InvalidPublication("segment collection missing".into())
@@ -717,10 +717,19 @@ impl PublishedIndex {
     /// local verified-maintenance budget. Full base partitions do not consume
     /// the sparse-delta allowance, even when a collection has more than 64.
     pub(crate) fn make_room_for_segment(&mut self, number: usize) -> Result<(), IndexError> {
+        self.make_room_for_segment_sealing(number, false)
+    }
+
+    fn make_room_for_segment_sealing(
+        &mut self,
+        number: usize,
+        seal_owned: bool,
+    ) -> Result<(), IndexError> {
         self.make_room_for_segment_with_limits(
             number,
             MAX_SPARSE_SEGMENT_BYTES,
             SIZE_MAINTENANCE_REVISIONS,
+            seal_owned,
         )
     }
 
@@ -729,6 +738,7 @@ impl PublishedIndex {
         number: usize,
         sparse_byte_limit: usize,
         size_cooldown: u64,
+        seal_owned: bool,
     ) -> Result<(), IndexError> {
         let full_partitions = self.segments[number]
             .iter()
@@ -770,6 +780,17 @@ impl PublishedIndex {
                     self.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
                         IndexError::ResourceLimit("segment ordinal overflow".into())
                     })?;
+                    let part = if seal_owned {
+                        crate::hybrid_segment_codec::seal_segment_consuming(
+                            part,
+                            ordinal,
+                            &self.repository.collections()[number].definition,
+                            self.repository.options(),
+                        )
+                        .map_err(IndexError::Build)?
+                    } else {
+                        part
+                    };
                     let active = ActiveRecords::all(part.records.len())
                         .map_err(IndexError::ResourceLimit)?;
                     group.insert(index + offset, Arc::new(PublishedSegment {
@@ -809,11 +830,22 @@ impl PublishedIndex {
             .next_segment_ordinal
             .checked_add(1)
             .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+        let merged_index = if seal_owned {
+            crate::hybrid_segment_codec::seal_segment_consuming(
+                merged.index,
+                ordinal,
+                &self.repository.collections()[number].definition,
+                self.repository.options(),
+            )
+            .map_err(IndexError::Build)?
+        } else {
+            merged.index
+        };
         group.remove(right);
         group.remove(left);
         group.push(Arc::new(PublishedSegment {
             ordinal,
-            index: Arc::new(merged.index),
+            index: Arc::new(merged_index),
             active,
         }));
         if size_triggered {
@@ -1351,6 +1383,13 @@ impl Index {
     /// Adopt a completed static repository as the first published view.
     /// This does not trigger discovery, reconciliation or cache persistence.
     pub fn from_repository(repository: Repository) -> Result<Self, IndexError> {
+        Self::from_repository_with_sealing(repository, false)
+    }
+
+    pub(crate) fn from_repository_with_sealing(
+        repository: Repository,
+        seal_owned: bool,
+    ) -> Result<Self, IndexError> {
         let build_ns = repository.startup().build_ns;
         let metadata_ns = repository.startup().build_discovery_ns;
         let inference_enabled =
@@ -1361,7 +1400,11 @@ impl Index {
             IndexRevision::INITIAL,
             Arc::new(repository),
         )?;
-        let published = crate::lifecycle_partition::partition_base(published)?;
+        let published = if seal_owned {
+            crate::lifecycle_partition::partition_base_sealed(published)?
+        } else {
+            crate::lifecycle_partition::partition_base(published)?
+        };
         let index = Self::from_published(published);
         if build_ns > 0 {
             let full_ms = build_ns / 1_000_000;

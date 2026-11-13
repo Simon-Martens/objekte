@@ -37,10 +37,10 @@ fn sparse_byte_trigger_coalesces_with_revision_hysteresis() {
     }
     let mut staged = (*index.view().unwrap().0).clone();
     assert_eq!(staged.segments[0].len(), 3);
-    staged.make_room_for_segment_with_limits(0, 1, 16).unwrap();
+    staged.make_room_for_segment_with_limits(0, 1, 16, false).unwrap();
     assert_eq!(staged.segments[0].len(), 2);
     assert_eq!(staged.last_size_maintenance_revision, staged.revision.0);
-    staged.make_room_for_segment_with_limits(0, 1, 16).unwrap();
+    staged.make_room_for_segment_with_limits(0, 1, 16, false).unwrap();
     assert_eq!(staged.segments[0].len(), 2);
     index.shutdown().unwrap();
     std::fs::remove_dir_all(root).unwrap();

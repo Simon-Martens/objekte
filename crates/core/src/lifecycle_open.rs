@@ -65,9 +65,8 @@ impl Index {
         sources: SourceRegistry,
     ) -> Result<Self, IndexError> {
         let started = Instant::now();
-        let index = Self::build_with_sources_unsealed(root, definitions, options, sources)?;
+        let index = Self::build_with_sources_inner(root, definitions, options, sources, true)?;
         index.enable_owned_memory_sealing();
-        index.seal_current_segments_owned()?;
         let full_ms = started.elapsed().as_millis() as u64;
         index.update_timings_ms(|timings| {
             timings.search_available = Some(full_ms);
@@ -94,8 +93,18 @@ impl Index {
     pub(crate) fn build_with_sources_unsealed(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        sources: SourceRegistry,
+    ) -> Result<Self, IndexError> {
+        Self::build_with_sources_inner(root, definitions, options, sources, false)
+    }
+
+    fn build_with_sources_inner(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
         mut options: RepositoryOptions,
         sources: SourceRegistry,
+        seal_owned: bool,
     ) -> Result<Self, IndexError> {
         options.snapshot_mode = SnapshotMode::Disabled;
         let root = root.into();
@@ -107,7 +116,7 @@ impl Index {
         )
         .map_err(IndexError::Build)?
         {
-            return Self::from_direct_build(direct);
+            return Self::from_direct_build(direct, seal_owned);
         }
         let repository = Repository::open_with_sources_and_snapshot_policy(
             root,
@@ -117,10 +126,10 @@ impl Index {
             SnapshotOpenPolicy::new(SnapshotMode::Disabled, None),
         )
         .map_err(IndexError::Build)?;
-        Self::from_repository(repository)
+        Self::from_repository_with_sealing(repository, seal_owned)
     }
 
-    fn from_direct_build(direct: DirectBuild) -> Result<Self, IndexError> {
+    fn from_direct_build(direct: DirectBuild, seal_owned: bool) -> Result<Self, IndexError> {
         let DirectBuild {
             repository,
             catalog_slots,
@@ -142,7 +151,7 @@ impl Index {
         published.file_versions = FileVersions::initial(published.catalog.allocated_files());
         for group in segments {
             for segment in group {
-                published = published.with_segment(segment)?;
+                published = published.with_segment_sealing(segment, seal_owned, false)?.0;
             }
         }
         let index = Self::from_published(published);

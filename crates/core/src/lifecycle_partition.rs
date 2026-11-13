@@ -21,6 +21,10 @@ pub(crate) fn partition_base(root: PublishedIndex) -> Result<PublishedIndex, Ind
     partition_base_with_limits(root, BASE_PARTITION_RECORDS, BASE_PARTITION_FILES)
 }
 
+pub(crate) fn partition_base_sealed(root: PublishedIndex) -> Result<PublishedIndex, IndexError> {
+    partition_base_with_limits_inner(root, BASE_PARTITION_RECORDS, BASE_PARTITION_FILES, true)
+}
+
 /// Split one old shard into active-only parts without opening source files.
 /// A multi-record file may own slots in several parts; each part remains a
 /// complete, independently queryable contribution container.
@@ -178,9 +182,18 @@ fn compact_source_parts_with_limits(
 }
 
 pub(crate) fn partition_base_with_limits(
+    root: PublishedIndex,
+    max_records: usize,
+    max_files: usize,
+) -> Result<PublishedIndex, IndexError> {
+    partition_base_with_limits_inner(root, max_records, max_files, false)
+}
+
+fn partition_base_with_limits_inner(
     mut root: PublishedIndex,
     max_records: usize,
     max_files: usize,
+    seal_owned: bool,
 ) -> Result<PublishedIndex, IndexError> {
     if max_records == 0 || max_files == 0 {
         return Err(IndexError::ResourceLimit(
@@ -218,6 +231,13 @@ pub(crate) fn partition_base_with_limits(
             root.next_segment_ordinal = ordinal
                 .checked_add(1)
                 .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
+            let part = if seal_owned {
+                crate::hybrid_segment_codec::seal_segment_consuming(
+                    part, ordinal, &collection.definition, root.repository.options(),
+                ).map_err(IndexError::Build)?
+            } else {
+                part
+            };
             let active =
                 ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
             group.push(Arc::new(PublishedSegment {
