@@ -132,12 +132,20 @@ fn compact_source_parts_with_limits(
     let relation_projections = source
         .project_relations_for_partitions(&routing)
         .map_err(IndexError::Build)?;
+    let sorting_projections = source
+        .project_sorting_for_partitions(&routing)
+        .map_err(IndexError::Build)?;
+    let domain_projections = source
+        .project_domains_for_partitions(&routing)
+        .map_err(IndexError::Build)?;
     let mut parts = Vec::with_capacity(selections.len());
-    for ((((files, _selected), projection), bigrams), relations) in selections
+    for ((((((files, _selected), projection), bigrams), relations), sorting), domains) in selections
         .into_iter()
         .zip(projections)
         .zip(bigram_projections)
         .zip(relation_projections)
+        .zip(sorting_projections)
+        .zip(domain_projections)
     {
         if cancelled() {
             return Err(IndexError::Cancelled);
@@ -150,6 +158,8 @@ fn compact_source_parts_with_limits(
                 projection,
                 bigrams,
                 relations,
+                sorting,
+                domains,
             )
             .map_err(IndexError::Build)?;
         for file in &mut compacted.files {

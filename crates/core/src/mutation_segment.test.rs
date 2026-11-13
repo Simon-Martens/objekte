@@ -828,6 +828,36 @@ fn compaction_matches_active_file_oracle_across_indexes() {
         .seal()
         .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
         .unwrap();
+    let masks = [
+        crate::inventory::ActiveRecords::from_bitmap(3, RoaringBitmap::from_iter([0, 2])).unwrap(),
+        crate::inventory::ActiveRecords::from_bitmap(3, RoaringBitmap::from_iter([1])).unwrap(),
+    ];
+    let routing = PartitionRouting::new(&all, &masks).unwrap();
+    let scattered = all.project_sorting_for_partitions(&routing).unwrap();
+    let domains = all.project_domains_for_partitions(&routing).unwrap();
+    for (part, sorting) in scattered.iter().enumerate() {
+        let slot_map = SlotMap::Partition { routing: &routing, part };
+        assert_eq!(domains[part].logical, project_bitmap(&all.logical_records, &slot_map).unwrap());
+        assert_eq!(domains[part].empty_array, project_bitmap(&all.empty_array_records, &slot_map).unwrap());
+        let records = routing.selected[part].iter().enumerate().map(|(new, &old)| {
+            let mut record = all.records[old as usize].clone();
+            record.slot = RecordSlot(new as u32);
+            record
+        }).collect::<Vec<_>>();
+        let reference = project_sorting(
+            &all.sorting,
+            &slot_map,
+            &records,
+        ).unwrap();
+        for (path, column) in &sorting.columns {
+            let expected = &reference.columns[path];
+            assert_eq!(column.ascending, expected.ascending);
+            assert_eq!(column.descending, expected.descending);
+        }
+        for (actual, expected) in sorting.composites.iter().zip(&reference.composites) {
+            assert_eq!(actual.order, expected.order);
+        }
+    }
     std::fs::remove_dir_all(root).unwrap();
     let active = crate::inventory::ActiveRecords::all(3)
         .unwrap()

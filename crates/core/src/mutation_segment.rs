@@ -1358,6 +1358,26 @@ pub(crate) struct BigramProjection {
     custom: HashMap<(Vec<String>, String), BigramIndex>,
 }
 
+pub(crate) struct DomainProjection {
+    logical: RoaringBitmap,
+    empty_array: RoaringBitmap,
+}
+
+fn scatter_bitmap_partitions(
+    source: &RoaringBitmap,
+    routing: &PartitionRouting,
+) -> Result<Vec<RoaringBitmap>, String> {
+    let mut parts = (0..routing.selected.len())
+        .map(|_| RoaringBitmap::new()).collect::<Vec<_>>();
+    for old in source.iter() {
+        if let Some((part, slot)) = routing.locations
+            .get(old as usize).ok_or("domain slot outside source")? {
+            parts[*part].insert(slot.0);
+        }
+    }
+    Ok(parts)
+}
+
 impl PartitionRouting {
     pub(crate) fn new(
         source: &IndexedCollectionSegment,
@@ -1821,6 +1841,103 @@ fn project_inference(
 }
 
 impl IndexedCollectionSegment {
+    pub(crate) fn project_domains_for_partitions(
+        &self,
+        routing: &PartitionRouting,
+    ) -> Result<Vec<DomainProjection>, String> {
+        let logical = scatter_bitmap_partitions(&self.logical_records, routing)?;
+        let empty_array = scatter_bitmap_partitions(&self.empty_array_records, routing)?;
+        if logical.iter().zip(&routing.logical_counts)
+            .any(|(domain, &count)| domain.len() != count as u64) {
+            return Err("partition logical domain count mismatch".into());
+        }
+        Ok(logical.into_iter().zip(empty_array)
+            .map(|(logical, empty_array)| DomainProjection { logical, empty_array })
+            .collect())
+    }
+
+    /// Preserve the source's validated sort orders while routing each old
+    /// slot to one output partition. This visits every order once instead of
+    /// sorting each bounded output shard from scratch.
+    pub(crate) fn project_sorting_for_partitions(
+        &self,
+        routing: &PartitionRouting,
+    ) -> Result<Vec<SortCollection>, String> {
+        let source_len = self.records.len();
+        let mut parts = routing.selected.iter()
+            .map(|_| SortCollection {
+                columns: HashMap::with_capacity(self.sorting.columns.len()),
+                composites: self.sorting.composites.iter()
+                    .map(|order| CompositeSortOrder {
+                        fields: order.fields.clone(),
+                        order: Vec::new(),
+                    })
+                    .collect(),
+            })
+            .collect::<Vec<_>>();
+        for (path, original) in &self.sorting.columns {
+            if original.keys.len() != source_len
+                || original.ascending.len() != source_len
+                || original.descending.len() != source_len
+            {
+                return Err("sort projection coverage mismatch".into());
+            }
+            for (part, selected) in routing.selected.iter().enumerate() {
+                let keys = selected.iter()
+                    .map(|&old| original.keys.get(old as usize).cloned()
+                        .ok_or("sort projection slot out of bounds"))
+                    .collect::<Result<Vec<_>, _>>()?;
+                parts[part].columns.insert(path.clone(), SortColumn {
+                    path: original.path.clone(),
+                    kind: original.kind.clone(),
+                    keys,
+                    ascending: Vec::with_capacity(selected.len()),
+                    descending: Vec::with_capacity(selected.len()),
+                    locale: original.locale.clone(),
+                    options: original.options,
+                    collation_version: original.collation_version.clone(),
+                });
+            }
+            for (source_order, descending) in [(&original.ascending, false), (&original.descending, true)] {
+                for old in source_order {
+                    if let Some((part, slot)) = routing.locations
+                        .get(old.0 as usize).ok_or("sort order slot outside source")? {
+                        let column = parts[*part].columns.get_mut(path)
+                            .ok_or("partition sort column missing")?;
+                        if descending {
+                            column.descending.push(*slot);
+                        } else {
+                            column.ascending.push(*slot);
+                        }
+                    }
+                }
+            }
+        }
+        for (number, original) in self.sorting.composites.iter().enumerate() {
+            if original.order.len() != source_len
+                || original.fields.iter().any(|field| !self.sorting.columns.contains_key(&field.path))
+            {
+                return Err("composite sort projection coverage mismatch".into());
+            }
+            for old in &original.order {
+                if let Some((part, slot)) = routing.locations
+                    .get(old.0 as usize).ok_or("composite sort slot outside source")? {
+                    parts[*part].composites[number].order.push(*slot);
+                }
+            }
+        }
+        for (part, sorting) in parts.iter().enumerate() {
+            let expected = routing.selected[part].len();
+            if sorting.columns.values().any(|column| {
+                column.keys.len() != expected || column.ascending.len() != expected
+                    || column.descending.len() != expected
+            }) || sorting.composites.iter().any(|order| order.order.len() != expected) {
+                return Err("partition sort order coverage mismatch".into());
+            }
+        }
+        Ok(parts)
+    }
+
     /// Decode each gram dictionary once and scatter its posting members to
     /// bounded destinations. A sealed source may have no mutable gram maps.
     pub(crate) fn project_bigrams_for_partitions(
@@ -2114,6 +2231,8 @@ impl IndexedCollectionSegment {
             None,
             None,
             None,
+            None,
+            None,
         )?;
         Ok(CompactedSegment {
             active: ActiveRecords::all(index.records.len())?,
@@ -2130,6 +2249,8 @@ impl IndexedCollectionSegment {
         projection: PostingProjection,
         bigrams: BigramProjection,
         relations: Vec<RelationContribution>,
+        sorting: SortCollection,
+        domains: DomainProjection,
     ) -> Result<IndexedCollectionSegment, String> {
         let selected = routing
             .selected
@@ -2148,6 +2269,8 @@ impl IndexedCollectionSegment {
             Some(projection),
             Some(bigrams),
             Some(relations),
+            Some(sorting),
+            Some(domains),
             Some(&file_indices),
         )
     }
@@ -2160,6 +2283,8 @@ impl IndexedCollectionSegment {
         posting_projection: Option<PostingProjection>,
         bigram_projection: Option<BigramProjection>,
         relation_projection: Option<Vec<RelationContribution>>,
+        sorting_projection: Option<SortCollection>,
+        domain_projection: Option<DomainProjection>,
         selected_files: Option<&[usize]>,
     ) -> Result<IndexedCollectionSegment, String> {
         let mut files = Vec::new();
@@ -2266,8 +2391,14 @@ impl IndexedCollectionSegment {
             .collect::<Option<Vec<_>>>()
             .ok_or("compacted record target missing")?;
         let bounds = slot_map.bounds()?;
-        let logical_records = project_bitmap(&self.logical_records, &slot_map)?;
-        let empty_array_records = project_bitmap(&self.empty_array_records, &slot_map)?;
+        let (logical_records, empty_array_records) = if let Some(domains) = domain_projection {
+            (domains.logical, domains.empty_array)
+        } else {
+            (
+                project_bitmap(&self.logical_records, &slot_map)?,
+                project_bitmap(&self.empty_array_records, &slot_map)?,
+            )
+        };
         let logical_count =
             u32::try_from(logical_records.len()).map_err(|_| "logical slot overflow")?;
         let (postings, custom_postings) = if let Some(projection) = posting_projection {
@@ -2316,7 +2447,11 @@ impl IndexedCollectionSegment {
                 .collect::<Result<HashMap<_, _>, _>>()?;
             (raw, fallback, custom)
         };
-        let sorting = project_sorting(&self.sorting, &slot_map, &records)?;
+        let sorting = if let Some(sorting) = sorting_projection {
+            sorting
+        } else {
+            project_sorting(&self.sorting, &slot_map, &records)?
+        };
         let inference = project_inference(
             &self.inference,
             &slot_map,
