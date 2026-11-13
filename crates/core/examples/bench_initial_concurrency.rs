@@ -14,7 +14,7 @@ use objekte_search_core::lifecycle::{Index, IndexView, InitialBuildPhase, Initia
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::{RepositoryOptions, SnapshotMode};
-use objekte_search_core::workload::{load_extended_manifest, BigramAlphabet};
+use objekte_search_core::workload::{BigramAlphabet, load_extended_manifest};
 use serde_json::json;
 
 fn main() {
