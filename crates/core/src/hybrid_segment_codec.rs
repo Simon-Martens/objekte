@@ -733,19 +733,17 @@ fn encode_constructed_sections(
         return Err("hybrid segment ordinal must be nonzero".into());
     }
     check_deferred_metadata_limits(segment)?;
-    let mut payloads = Vec::new();
-    let sections = {
-        let mut pack = StreamingPostingPack::new(&mut payloads);
-        encode_segment_sections(
-            segment,
-            ordinal,
-            options,
-            &mut |_| Err("deferred constructed metadata requested a file reference".into()),
-            false,
-            true,
-            &mut pack,
-        )?
-    };
+    let mut pack = PostingPack::new();
+    let sections = encode_segment_sections(
+        segment,
+        ordinal,
+        options,
+        &mut |_| Err("deferred constructed metadata requested a file reference".into()),
+        false,
+        true,
+        &mut pack,
+    )?;
+    let payloads = pack.into_bytes();
     let EncodedSections {
         field_bytes, text_bytes, scalar, structural_bytes, bigrams,
         record_bytes, sort_bytes, relation_bytes, integrity_bytes,

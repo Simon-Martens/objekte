@@ -39,6 +39,10 @@ impl PostingPack {
         &self.payloads
     }
 
+    pub(crate) fn into_bytes(self) -> Vec<u8> {
+        self.payloads
+    }
+
     pub(crate) fn append(&mut self, bitmap: &RoaringBitmap) -> Result<PostingDescriptor, String> {
         if bitmap.is_empty() {
             return Ok(PostingDescriptor::EMPTY);
