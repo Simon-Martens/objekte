@@ -12,7 +12,7 @@ use time::{Date, OffsetDateTime};
 use crate::field_state::{StatePredicate, value_matches};
 use crate::inventory::append_shifted_bitmap;
 use crate::model::{LogicalType, Number, RecordSlot, Value};
-use crate::posting_dictionary::SealedPostingDictionary;
+use crate::posting_dictionary::{SealedPostingCursor, SealedPostingDictionary};
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
@@ -75,6 +75,30 @@ pub struct PostingIndex {
 pub(crate) struct SealedPostingPair {
     values: Arc<SealedPostingDictionary<ScalarKey>>,
     lengths: Arc<SealedPostingDictionary<Number>>,
+}
+
+pub(crate) enum PostingValueRange<'a> {
+    BuilderForward(std::collections::btree_map::Range<'a, ScalarKey, RoaringBitmap>),
+    BuilderReverse(
+        std::iter::Rev<std::collections::btree_map::Range<'a, ScalarKey, RoaringBitmap>>,
+    ),
+    Sealed(SealedPostingCursor<'a, ScalarKey>),
+}
+
+impl<'a> PostingValueRange<'a> {
+    pub(crate) fn next(&mut self) -> Result<Option<(ScalarKey, Cow<'a, RoaringBitmap>)>, String> {
+        Ok(match self {
+            Self::BuilderForward(range) => range
+                .next()
+                .map(|(key, posting)| (key.clone(), Cow::Borrowed(posting))),
+            Self::BuilderReverse(range) => range
+                .next()
+                .map(|(key, posting)| (key.clone(), Cow::Borrowed(posting))),
+            Self::Sealed(range) => range
+                .next()?
+                .map(|(key, posting)| (key, Cow::Owned(posting))),
+        })
+    }
 }
 
 impl std::fmt::Debug for SealedPostingPair {
@@ -214,6 +238,27 @@ impl PostingIndex {
         match self.sealed_values() {
             Some(sealed) => Ok(Cow::Owned(sealed.materialize_all()?)),
             None => Ok(Cow::Borrowed(&self.values)),
+        }
+    }
+
+    pub(crate) fn value_range(
+        &self,
+        lower: std::ops::Bound<ScalarKey>,
+        upper: std::ops::Bound<ScalarKey>,
+        descending: bool,
+    ) -> Result<PostingValueRange<'_>, String> {
+        if let Some(sealed) = self.sealed_values() {
+            Ok(PostingValueRange::Sealed(
+                sealed.cursor_range(lower, upper, descending)?,
+            ))
+        } else if descending {
+            Ok(PostingValueRange::BuilderReverse(
+                self.values.range((lower, upper)).rev(),
+            ))
+        } else {
+            Ok(PostingValueRange::BuilderForward(
+                self.values.range((lower, upper)),
+            ))
         }
     }
 

@@ -806,32 +806,25 @@ pub(crate) fn posting_values_segmented(
             visited_keys: 0,
         });
     }
-    let value_maps = resolved
+    let mut iterators = resolved
         .iter()
-        .map(|shard| shard.index.values_view())
-        .collect::<Result<Vec<_>, _>>()?;
-    let mut iterators = value_maps
-        .iter()
-        .map(|values| {
-            let range = values.range((lower.clone(), upper.clone()));
-            if request.descending {
-                Box::new(range.rev()) as Box<dyn Iterator<Item = (&ScalarKey, &RoaringBitmap)> + '_>
-            } else {
-                Box::new(range) as Box<dyn Iterator<Item = (&ScalarKey, &RoaringBitmap)> + '_>
-            }
+        .map(|shard| {
+            shard
+                .index
+                .value_range(lower.clone(), upper.clone(), request.descending)
         })
-        .collect::<Vec<_>>();
+        .collect::<Result<Vec<_>, _>>()?;
     let mut heads = iterators
         .iter_mut()
         .map(|iterator| iterator.next())
-        .collect::<Vec<_>>();
+        .collect::<Result<Vec<_>, _>>()?;
     let mut values = Vec::new();
     let mut visited_keys = 0;
     let mut has_more = false;
     loop {
         let key = heads
             .iter()
-            .filter_map(|head| head.as_ref().map(|(key, _)| *key))
+            .filter_map(|head| head.as_ref().map(|(key, _)| key))
             .reduce(|current, next| {
                 if (request.descending && next > current) || (!request.descending && next < current)
                 {
@@ -840,7 +833,7 @@ pub(crate) fn posting_values_segmented(
                     current
                 }
             });
-        let Some(key) = key else { break };
+        let Some(key) = key.cloned() else { break };
         visited_keys += 1;
         let mut count = 0u64;
         for (index, head) in heads.iter_mut().enumerate() {
@@ -849,7 +842,7 @@ pub(crate) fn posting_values_segmented(
                 .is_some_and(|(candidate, _)| *candidate == key)
             {
                 count += head.as_ref().unwrap().1.intersection_len(&domains[index]);
-                *head = iterators[index].next();
+                *head = iterators[index].next()?;
             }
         }
         if count == 0 {
@@ -859,10 +852,7 @@ pub(crate) fn posting_values_segmented(
             has_more = true;
             break;
         }
-        values.push(PostingValueCount {
-            value: key.clone(),
-            count,
-        });
+        values.push(PostingValueCount { value: key, count });
     }
     let continuation = if has_more {
         values.last().map(|entry| PostingValuesCursor {
@@ -1102,32 +1092,23 @@ impl Repository {
                 visited_keys: 0,
             });
         }
-        let value_map = index.values_view()?;
-        let mut iterator: Box<dyn Iterator<Item = (&ScalarKey, &RoaringBitmap)> + '_> =
-            if request.descending {
-                Box::new(value_map.range((lower, upper)).rev())
-            } else {
-                Box::new(value_map.range((lower, upper)))
-            };
+        let mut iterator = index.value_range(lower, upper, request.descending)?;
         let mut values = Vec::new();
         let mut visited_keys = 0;
         while values.len() < request.limit {
-            let Some((value, posting)) = iterator.next() else {
+            let Some((value, posting)) = iterator.next()? else {
                 break;
             };
             visited_keys += 1;
             let count = selected_domain
                 .map_or(posting.len(), |selected| posting.intersection_len(selected));
             if count > 0 {
-                values.push(PostingValueCount {
-                    value: value.clone(),
-                    count,
-                });
+                values.push(PostingValueCount { value, count });
             }
         }
         let mut has_more = false;
         if values.len() == request.limit {
-            for (_, posting) in iterator {
+            while let Some((_, posting)) = iterator.next()? {
                 visited_keys += 1;
                 if selected_domain
                     .map_or(posting.len(), |selected| posting.intersection_len(selected))

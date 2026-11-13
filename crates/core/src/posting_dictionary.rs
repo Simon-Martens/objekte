@@ -7,7 +7,7 @@ use std::sync::{Arc, Mutex, OnceLock};
 use roaring::RoaringBitmap;
 use serde::{Serialize, de::DeserializeOwned};
 
-use crate::ordered_block::{OrderedBlockDictionary, write_ordered_dictionary};
+use crate::ordered_block::{DictionaryCursor, OrderedBlockDictionary, write_ordered_dictionary};
 use crate::segment_format::{PostingDescriptor, SectionKind, SegmentReader};
 
 /// A span in one immutable segment's scalar or array-length section.
@@ -95,7 +95,97 @@ pub(crate) struct SealedPostingDictionary<K> {
     validated: Mutex<HashMap<PostingDescriptor, Arc<OnceLock<Result<(), String>>>>>,
 }
 
+pub(crate) struct SealedPostingCursor<'a, K> {
+    dictionary: &'a SealedPostingDictionary<K>,
+    cursor: Option<DictionaryCursor>,
+    lower: Bound<K>,
+    upper: Bound<K>,
+    descending: bool,
+}
+
+impl<K: Ord + Clone + DeserializeOwned> SealedPostingCursor<'_, K> {
+    pub(crate) fn next(&mut self) -> Result<Option<(K, RoaringBitmap)>, String> {
+        let Some(position) = self.cursor else {
+            return Ok(None);
+        };
+        let (key, descriptor) = self.dictionary.dictionary.entry(position)?;
+        let within_lower = match &self.lower {
+            Bound::Unbounded => true,
+            Bound::Included(lower) => &key >= lower,
+            Bound::Excluded(lower) => &key > lower,
+        };
+        let within_upper = match &self.upper {
+            Bound::Unbounded => true,
+            Bound::Included(upper) => &key <= upper,
+            Bound::Excluded(upper) => &key < upper,
+        };
+        if !within_lower || !within_upper {
+            self.cursor = None;
+            return Ok(None);
+        }
+        self.cursor = if self.descending {
+            self.dictionary.dictionary.previous(position)
+        } else {
+            self.dictionary.dictionary.next(position)
+        };
+        Ok(Some((
+            key,
+            self.dictionary.materialize_descriptor(descriptor)?,
+        )))
+    }
+}
+
 impl<K: Ord + Clone + DeserializeOwned> SealedPostingDictionary<K> {
+    pub(crate) fn cursor_range(
+        &self,
+        lower: Bound<K>,
+        upper: Bound<K>,
+        descending: bool,
+    ) -> Result<SealedPostingCursor<'_, K>, String> {
+        let cursor = if descending {
+            match &upper {
+                Bound::Unbounded => self.dictionary.last(),
+                Bound::Included(key) | Bound::Excluded(key) => {
+                    match self.dictionary.lower_bound(key)? {
+                        Some(found) => {
+                            if matches!(upper, Bound::Included(_))
+                                && self.dictionary.entry(found)?.0 == *key
+                            {
+                                Some(found)
+                            } else {
+                                self.dictionary.previous(found)
+                            }
+                        }
+                        None => self.dictionary.last(),
+                    }
+                }
+            }
+        } else {
+            match &lower {
+                Bound::Unbounded => self.dictionary.first(),
+                Bound::Included(key) | Bound::Excluded(key) => {
+                    let found = self.dictionary.lower_bound(key)?;
+                    if matches!(lower, Bound::Excluded(_)) {
+                        match found {
+                            Some(position) if self.dictionary.entry(position)?.0 == *key => {
+                                self.dictionary.next(position)
+                            }
+                            other => other,
+                        }
+                    } else {
+                        found
+                    }
+                }
+            }
+        };
+        Ok(SealedPostingCursor {
+            dictionary: self,
+            cursor,
+            lower,
+            upper,
+            descending,
+        })
+    }
     pub(crate) fn open(
         reader: Arc<SegmentReader>,
         section: SectionKind,
