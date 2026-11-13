@@ -23,6 +23,48 @@ fn all_records() -> Query {
 }
 
 #[test]
+fn failed_flush_keeps_old_durable_generation_and_reports_io() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-managed-failed-flush-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let storage = IndexStoragePolicy {
+        location: IndexStorageLocation::RepositoryDirectory,
+        residency: IndexResidency::OnDemand,
+    };
+    let index = Index::open_with_storage(
+        &root, vec![definition.clone()], RepositoryOptions::default(), storage.clone(),
+        SourceRegistry::builtin(),
+    ).unwrap();
+    index.stop_sync_storage().unwrap();
+    let initial = index.storage_status().unwrap().durable_generation;
+    let added = root.join("data/b.json");
+    std::fs::write(&added, br#"{"text":"beta"}"#).unwrap();
+    index.add_file(&added).unwrap();
+    let prepared = storage.prepare(
+        &root, &[definition], RepositoryOptions::default(), &SourceRegistry::builtin(),
+    ).unwrap();
+    let lock = prepared.resolved.managed_directory.unwrap().join("store.lock");
+    std::fs::remove_file(&lock).unwrap();
+    std::fs::create_dir(&lock).unwrap();
+    assert!(matches!(index.flush_storage(), Err(IndexError::Io(_))));
+    let failed = index.storage_status().unwrap();
+    assert_eq!(failed.durable_generation, initial);
+    assert_eq!(failed.synchronization, IndexSynchronization::Failed);
+    assert!(failed.last_error.is_some_and(|message| !message.is_empty()));
+    assert_eq!(index.view().unwrap().search(&all_records()).unwrap().count, Some(2));
+    std::fs::remove_dir(&lock).unwrap();
+    index.flush_storage().unwrap();
+    assert_eq!(index.storage_status().unwrap().synchronization, IndexSynchronization::Synchronized);
+    drop(index);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn memory_only_build_and_updates_publish_owned_sealed_segments() {
     let root = std::env::temp_dir().join(format!(
         "objekte-memory-sealed-{}-{}",

@@ -67,6 +67,38 @@ fn store_read_errors_keep_io_distinct_from_corruption() {
 }
 
 #[test]
+fn typed_commit_distinguishes_lock_io_and_generation_conflict() {
+    let fixture = TestStore::new();
+    let catalog: Arc<[u8]> = Arc::from(&b"OBJHCAT1-typed"[..]);
+    assert!(fixture.store.read_generation().unwrap().is_none());
+    let lock = fixture.store.path().join(LOCK_NAME);
+    fs::remove_file(&lock).unwrap();
+    fs::create_dir(&lock).unwrap();
+    assert!(matches!(
+        fixture.store.commit_generation_with_catalog_typed(None, 1, &[], Arc::clone(&catalog)),
+        Err(StoreReadError::Io { .. })
+    ));
+    fs::remove_dir(&lock).unwrap();
+    fixture.store.commit_generation_with_catalog_typed(None, 1, &[], Arc::clone(&catalog)).unwrap();
+    assert!(matches!(
+        fixture.store.commit_generation_with_catalog_typed(None, 2, &[], Arc::clone(&catalog)),
+        Err(StoreReadError::Conflict(_))
+    ));
+    assert!(matches!(
+        fixture.store.commit_generation_with_catalog_typed(
+            Some(1), 2,
+            &[SegmentInput::NewStream {
+                collection: CollectionId(0), ordinal: 1, active: &fixture.active,
+                write: Box::new(|_| Err("injected write failure".into())),
+            }],
+            catalog,
+        ),
+        Err(StoreReadError::Io { .. })
+    ));
+    assert_eq!(fixture.store.read_generation().unwrap().unwrap().generation, 1);
+}
+
+#[test]
 fn supported_corruption_and_unsupported_version_have_different_kinds() {
     let fixture = TestStore::new();
     fixture.store.commit_generation(

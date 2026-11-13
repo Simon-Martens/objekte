@@ -113,9 +113,9 @@ impl ManagedPersistence {
         Ok(())
     }
 
-    pub(crate) fn flush(&mut self, publication: &PublishedIndex) -> Result<IndexRevision, String> {
+    pub(crate) fn flush(&mut self, publication: &PublishedIndex) -> Result<IndexRevision, IndexError> {
         if !publication.catalog.construction_complete() {
-            return Err("cannot persist incomplete initial construction".into());
+            return Err(IndexError::IncompleteBuild);
         }
         let generation = publication.revision.0;
         if self.durable_generation == Some(generation) {
@@ -126,7 +126,7 @@ impl ManagedPersistence {
             .durable_generation
             .is_some_and(|previous| generation <= previous)
         {
-            return Err("published revision did not advance beyond durable generation".into());
+            return Err(IndexError::StoreConflict("published revision did not advance beyond durable generation".into()));
         }
         // Historical refs have stable offsets only while their segment files
         // are reused. Once the table greatly exceeds the metadata still
@@ -145,8 +145,8 @@ impl ManagedPersistence {
         } else {
             &self.historical
         };
-        let mut catalog =
-            GenerationCatalogBuilder::from_publication_with_history(publication, history)?;
+        let mut catalog = GenerationCatalogBuilder::from_publication_with_history(publication, history)
+            .map_err(IndexError::InvalidPublication)?;
         let mut inputs = Vec::new();
         let mut next_indexes = Vec::new();
         for (number, group) in publication.segments.iter().enumerate() {
@@ -154,7 +154,7 @@ impl ManagedPersistence {
             let definition = &publication.repository.collections()[number].definition;
             for segment in group.iter() {
                 if segment.index.collection != collection || segment.ordinal == 0 {
-                    return Err("published segment identity invalid".into());
+                    return Err(IndexError::InvalidPublication("published segment identity invalid".into()));
                 }
                 let identity = (collection, segment.ordinal);
                 let previous = self.durable_segments.get(&identity);
@@ -180,7 +180,8 @@ impl ManagedPersistence {
                         .files
                         .iter()
                         .map(|file| catalog.intern(&file.entry))
-                        .collect::<Result<Vec<_>, _>>()?;
+                        .collect::<Result<Vec<_>, _>>()
+                        .map_err(IndexError::InvalidPublication)?;
                     let index = Arc::clone(&segment.index);
                     let ordinal = segment.ordinal;
                     let options = publication.repository.options();
@@ -239,16 +240,16 @@ impl ManagedPersistence {
             }
         }
         let next_historical = catalog.historical_entries().to_vec();
-        let catalog_bytes: Arc<[u8]> = Arc::from(catalog.encode()?);
-        let committed = self.store.commit_generation_with_catalog(
+        let catalog_bytes: Arc<[u8]> = Arc::from(catalog.encode().map_err(IndexError::InvalidPublication)?);
+        let committed = self.store.commit_generation_with_catalog_typed(
             self.durable_generation,
             generation,
             &inputs,
             catalog_bytes,
-        )?;
+        ).map_err(IndexError::from)?;
         drop(inputs);
         if committed.segment_names.len() != next_indexes.len() {
-            return Err("committed segment name count mismatch".into());
+            return Err(IndexError::InvalidPublication("committed segment name count mismatch".into()));
         }
         self.durable_segments = committed
             .segment_names

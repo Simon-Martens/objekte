@@ -1773,14 +1773,14 @@ impl Index {
             })?;
             let result = state.flush(&view.0);
             if let Err(error) = &result {
-                state.last_error = Some(error.clone());
+                state.last_error = Some(error.to_string());
             }
             *self
                 .0
                 .storage_status_snapshot
                 .write()
                 .map_err(|_| IndexError::LockPoisoned)? = Some(state.status_snapshot());
-            result.map_err(IndexError::Io)?
+            result?
         };
         let mut published = self
             .0

@@ -113,6 +113,23 @@ impl fmt::Display for StoreReadError {
     }
 }
 
+fn store_write_io(path: &Path, error: impl fmt::Display) -> StoreReadError {
+    StoreReadError::Io {
+        path: path.to_path_buf(),
+        source: io::Error::other(error.to_string()),
+    }
+}
+
+fn segment_open_store_error(path: &Path, error: SegmentOpenError) -> StoreReadError {
+    match error {
+        SegmentOpenError::Io(source) => StoreReadError::Io { path: path.to_path_buf(), source },
+        SegmentOpenError::Invalid(message) => {
+            StoreReadError::Corrupt(format!("{}: {message}", path.display()))
+        }
+        SegmentOpenError::Resource(message) => StoreReadError::Resource(message),
+    }
+}
+
 /// All paths are beneath one application-owned directory. A store exists only
 /// after a disk policy explicitly opens it; memory-only never constructs one.
 pub(crate) struct ManagedStore {
@@ -294,6 +311,7 @@ impl ManagedStore {
         inputs: &[SegmentInput<'_>],
     ) -> Result<CommitStats, String> {
         self.commit_generation_inner(expected_generation, generation, inputs, None)
+            .map_err(|error| error.to_string())
     }
 
     /// Publish an immutable catalog sidecar in the same atomic manifest step
@@ -305,8 +323,19 @@ impl ManagedStore {
         inputs: &[SegmentInput<'_>],
         catalog: Arc<[u8]>,
     ) -> Result<CommitStats, String> {
+        self.commit_generation_with_catalog_typed(expected_generation, generation, inputs, catalog)
+            .map_err(|error| error.to_string())
+    }
+
+    pub(crate) fn commit_generation_with_catalog_typed(
+        &self,
+        expected_generation: Option<u64>,
+        generation: u64,
+        inputs: &[SegmentInput<'_>],
+        catalog: Arc<[u8]>,
+    ) -> Result<CommitStats, StoreReadError> {
         if !catalog.starts_with(b"OBJHCAT1") || catalog.len() > MAX_CATALOG_BYTES {
-            return Err("generation catalog byte length invalid".into());
+            return Err(StoreReadError::Corrupt("generation catalog byte length invalid".into()));
         }
         self.commit_generation_inner(expected_generation, generation, inputs, Some(catalog))
     }
@@ -317,22 +346,27 @@ impl ManagedStore {
         generation: u64,
         inputs: &[SegmentInput<'_>],
         catalog: Option<Arc<[u8]>>,
-    ) -> Result<CommitStats, String> {
+    ) -> Result<CommitStats, StoreReadError> {
         if generation == 0 || inputs.len() > MAX_SEGMENTS {
-            return Err("invalid generation or segment count".into());
+            return Err(StoreReadError::Resource("invalid generation or segment count".into()));
         }
-        let lock = self.open_lock()?;
-        lock.lock()
-            .map_err(|error| format!("store writer lock: {error}"))?;
-        let previous = self.read_manifest()?;
+        let lock = self.open_lock_read()?;
+        lock.lock().map_err(|source| {
+            if source.kind() == io::ErrorKind::WouldBlock {
+                StoreReadError::Conflict(format!("store writer lock: {source}"))
+            } else {
+                StoreReadError::Io { path: self.directory.join(LOCK_NAME), source }
+            }
+        })?;
+        let previous = self.read_manifest_typed()?;
         if previous.as_ref().map(|old| old.generation) != expected_generation {
-            return Err("durable generation changed during publication".into());
+            return Err(StoreReadError::Conflict("durable generation changed during publication".into()));
         }
         if previous
             .as_ref()
             .is_some_and(|old| generation <= old.generation)
         {
-            return Err("generation must advance monotonically".into());
+            return Err(StoreReadError::Conflict("generation must advance monotonically".into()));
         }
         let previous_names = previous
             .as_ref()
@@ -352,16 +386,17 @@ impl ManagedStore {
             generation,
             ..Default::default()
         };
-        self.reclaim_orphans(previous.as_ref(), &mut stats)?;
-        let nonce = unique_nonce()?;
+        self.reclaim_orphans(previous.as_ref(), &mut stats)
+            .map_err(|error| store_write_io(&self.directory, error))?;
+        let nonce = unique_nonce().map_err(StoreReadError::Resource)?;
         if let Some(catalog) = catalog {
             let name = format!("catalog-{generation:016x}-{nonce:016x}.bin");
             let path = self.directory.join(&name);
-            let mut file = create_private_new(&path)?;
+            let mut file = create_private_new(&path).map_err(|error| store_write_io(&path, error))?;
             file.write_all(&catalog)
-                .map_err(|error| format!("catalog write: {error}"))?;
+                .map_err(|source| StoreReadError::Io { path: path.clone(), source })?;
             file.sync_all()
-                .map_err(|error| format!("catalog sync: {error}"))?;
+                .map_err(|source| StoreReadError::Io { path: path.clone(), source })?;
             next.catalog = Some(CatalogRecord {
                 name,
                 length: catalog.len() as u64,
@@ -372,7 +407,7 @@ impl ManagedStore {
             match input {
                 SegmentInput::Existing { name, active } => {
                     if !previous_names.contains(name) {
-                        return Err(format!("segment is not in durable generation: {name}"));
+                        return Err(StoreReadError::Conflict(format!("segment is not in durable generation: {name}")));
                     }
                     let mut record = previous
                         .as_ref()
@@ -382,13 +417,16 @@ impl ManagedStore {
                         .find(|segment| segment.name == *name)
                         .unwrap()
                         .clone();
-                    let file = open_regular_nofollow(&self.directory.join(&record.name))?;
-                    if file.metadata().map_err(|error| error.to_string())?.len() != record.length {
-                        return Err("reused segment length changed".into());
+                    let path = self.directory.join(&record.name);
+                    let file = open_regular_nofollow_read(&path)?;
+                    if file.metadata().map_err(|source| StoreReadError::Io { path: path.clone(), source })?.len() != record.length {
+                        return Err(StoreReadError::Corrupt("reused segment length changed".into()));
                     }
-                    SegmentReader::from_index_file(&file)?.require_complete_sections()?;
+                    SegmentReader::from_index_file_typed(&file)
+                        .map_err(|error| segment_open_store_error(&path, error))?
+                        .require_complete_sections().map_err(StoreReadError::Corrupt)?;
                     if active.slot_count() != record.active.slot_count() {
-                        return Err("reused segment active slot count changed".into());
+                        return Err(StoreReadError::Corrupt("reused segment active slot count changed".into()));
                     }
                     record.active = (*active).clone();
                     next.segments.push(record);
@@ -400,8 +438,9 @@ impl ManagedStore {
                     ordinal,
                     active,
                 } => {
-                    let reader = SegmentReader::from_owned(Arc::clone(bytes))?;
-                    reader.require_complete_sections()?;
+                    let reader = SegmentReader::from_owned(Arc::clone(bytes))
+                        .map_err(StoreReadError::Corrupt)?;
+                    reader.require_complete_sections().map_err(StoreReadError::Corrupt)?;
                     let record = self.write_new_segment(
                         generation,
                         index,
@@ -442,7 +481,7 @@ impl ManagedStore {
             .len()
             != next.segments.len()
         {
-            return Err("duplicate segment in new generation".into());
+            return Err(StoreReadError::Corrupt("duplicate segment in new generation".into()));
         }
         if next
             .segments
@@ -452,19 +491,20 @@ impl ManagedStore {
             .len()
             != next.segments.len()
         {
-            return Err("duplicate segment identity in new generation".into());
+            return Err(StoreReadError::Corrupt("duplicate segment identity in new generation".into()));
         }
-        let bytes = self.encode_manifest(&next)?;
+        let bytes = self.encode_manifest(&next).map_err(StoreReadError::Corrupt)?;
         let temporary = self.directory.join(format!("manifest-{nonce:016x}.tmp"));
-        let mut file = create_private_new(&temporary)?;
+        let mut file = create_private_new(&temporary)
+            .map_err(|error| store_write_io(&temporary, error))?;
         file.write_all(&bytes)
-            .map_err(|error| format!("manifest write: {error}"))?;
+            .map_err(|source| StoreReadError::Io { path: temporary.clone(), source })?;
         file.sync_all()
-            .map_err(|error| format!("manifest sync: {error}"))?;
+            .map_err(|source| StoreReadError::Io { path: temporary.clone(), source })?;
         drop(file);
         fs::rename(&temporary, self.directory.join(MANIFEST_NAME))
-            .map_err(|error| format!("manifest publish: {error}"))?;
-        sync_directory(&self.directory)?;
+            .map_err(|source| StoreReadError::Io { path: temporary.clone(), source })?;
+        sync_directory(&self.directory).map_err(|error| store_write_io(&self.directory, error))?;
         if let Some(previous) = previous {
             let next_names = next
                 .segments
@@ -555,31 +595,31 @@ impl ManagedStore {
         active: &ActiveRecords,
         stats: &mut CommitStats,
         write: impl FnOnce(&mut File) -> Result<(), String>,
-    ) -> Result<SegmentRecord, String> {
+    ) -> Result<SegmentRecord, StoreReadError> {
         if ordinal == 0 {
-            return Err("segment ordinal must be nonzero".into());
+            return Err(StoreReadError::Corrupt("segment ordinal must be nonzero".into()));
         }
         let name = format!("segment-{generation:016x}-{index:08x}-{nonce:016x}.idx");
         let path = self.directory.join(&name);
-        let mut file = create_private_new(&path)?;
+        let mut file = create_private_new(&path).map_err(|error| store_write_io(&path, error))?;
         let result = (|| {
-            write(&mut file).map_err(|error| format!("segment write: {error}"))?;
+            write(&mut file).map_err(|error| store_write_io(&path, error))?;
             file.sync_all()
-                .map_err(|error| format!("segment sync: {error}"))?;
-            let length = file.metadata().map_err(|error| error.to_string())?.len();
-            let reader = SegmentReader::from_index_file(&open_regular_nofollow(&path)?)?;
-            reader.require_complete_sections()?;
-            Ok::<u64, String>(length)
+                .map_err(|source| StoreReadError::Io { path: path.clone(), source })?;
+            let length = file.metadata()
+                .map_err(|source| StoreReadError::Io { path: path.clone(), source })?.len();
+            let reader = SegmentReader::from_index_file_typed(&open_regular_nofollow_read(&path)?)
+                .map_err(|error| segment_open_store_error(&path, error))?;
+            reader.require_complete_sections().map_err(StoreReadError::Corrupt)?;
+            Ok::<u64, StoreReadError>(length)
         })();
         drop(file);
         let length = match result {
             Ok(length) => length,
             Err(error) => {
-                fs::remove_file(&path).map_err(|cleanup| {
-                    format!(
-                        "{error}; remove failed segment {}: {cleanup}",
-                        path.display()
-                    )
+                fs::remove_file(&path).map_err(|cleanup| StoreReadError::Io {
+                    path: path.clone(),
+                    source: io::Error::other(format!("{error}; remove failed segment: {cleanup}")),
                 })?;
                 return Err(error);
             }
