@@ -108,6 +108,7 @@ fn run() -> Result<(), String> {
         "receive_wait_ns": startup.build_receive_wait_ns,
         "admission_ns": startup.build_admission_ns,
         "extraction_index_ns": startup.build_extraction_index_ns,
+        "publication_ns": startup.build_publication_ns,
         "finalization_ns": startup.build_finalization_ns,
         "source_reads": status.build_source_reads,
         "source_bytes_read": status.build_source_bytes_read,

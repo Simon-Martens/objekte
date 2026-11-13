@@ -159,7 +159,9 @@ fn publish_segment(
     collection_count: usize,
     pool: &rayon::ThreadPool,
     on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
+    publication_ns: &mut u64,
 ) -> Result<(), IndexError> {
+    let started = Instant::now();
     let indexed: IndexedCollectionSegment = segment
         .into_indexed(
             &collection.definition,
@@ -170,7 +172,9 @@ fn publish_segment(
         )
         .map_err(IndexError::Build)?;
     *expected = index.publish_initial_segment(*expected, indexed)?;
-    on_publication(index)
+    on_publication(index)?;
+    *publication_ns = publication_ns.saturating_add(started.elapsed().as_nanos() as u64);
+    Ok(())
 }
 
 #[allow(clippy::too_many_arguments)]
@@ -188,6 +192,7 @@ fn admit_normal(
     options: RepositoryOptions,
     pool: &rayon::ThreadPool,
     on_publication: &mut impl FnMut(&Index) -> Result<(), IndexError>,
+    publication_ns: &mut u64,
     cancelled: &impl Fn() -> bool,
 ) -> Result<(), String> {
     if cancelled() {
@@ -215,6 +220,7 @@ fn admit_normal(
             pending.len(),
             pool,
             on_publication,
+            publication_ns,
         )
         .map_err(|error| error.to_string())?;
     }
@@ -391,6 +397,7 @@ impl Repository {
         let mut source_reads = 0u64;
         let mut source_bytes_read = 0u64;
         let mut schedule_stats = crate::build::BuildScheduleStats::default();
+        let mut publication_ns = 0u64;
         let mut normal = Vec::new();
         for job in jobs {
             if cancelled() {
@@ -429,6 +436,7 @@ impl Repository {
                                     options,
                                     &pool,
                                     &mut on_publication,
+                                    &mut publication_ns,
                                     &cancelled,
                                 )
                             },
@@ -448,6 +456,7 @@ impl Repository {
                             pending.len(),
                             &pool,
                             &mut on_publication,
+                            &mut publication_ns,
                         )?;
                     }
                     let result = crate::build::process_framed_file_profiled(
@@ -488,6 +497,7 @@ impl Repository {
                             pending.len(),
                             &pool,
                             &mut on_publication,
+                            &mut publication_ns,
                         )?;
                     }
                 }
@@ -517,6 +527,7 @@ impl Repository {
                         options,
                         &pool,
                         &mut on_publication,
+                        &mut publication_ns,
                         &cancelled,
                     )
                 },
@@ -540,6 +551,7 @@ impl Repository {
                     pending.len(),
                     &pool,
                     &mut on_publication,
+                    &mut publication_ns,
                 )?;
             }
         }
@@ -585,6 +597,7 @@ impl Repository {
             build_ns: started.elapsed().as_nanos() as u64,
             build_discovery_ns: discovery_ns,
             build_extraction_index_ns: extraction_index_ns,
+            build_publication_ns: publication_ns,
             build_finalization_ns: finalization_started.elapsed().as_nanos() as u64,
             build_workers,
             build_source_reads: source_reads.saturating_add(schedule_stats.source_reads),

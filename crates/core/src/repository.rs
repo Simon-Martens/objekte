@@ -386,6 +386,8 @@ pub struct StartupStats {
     pub build_ns: u64,
     pub build_discovery_ns: u64,
     pub build_extraction_index_ns: u64,
+    /// Time spent sealing, indexing, and publishing initial segments.
+    pub build_publication_ns: u64,
     pub build_finalization_ns: u64,
     pub snapshot_write_ns: u64,
     pub build_workers: usize,
