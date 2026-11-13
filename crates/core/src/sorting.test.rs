@@ -257,7 +257,10 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     let restored = Repository::open_with_options(
         &root,
         vec![definition.clone()],
-        RepositoryOptions::default(),
+        RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::IfValid,
+            ..Default::default()
+        },
     )
     .unwrap();
     assert!(restored.startup().restored);
@@ -335,8 +338,15 @@ fn configured_collation_changes_order_and_restore_compatibility() {
     assert_eq!(descending, ["f", "a", "b"]);
     rebuilt.save_default_snapshot_for_test();
     drop(rebuilt);
-    let reopened =
-        Repository::open_with_options(&root, vec![changed], RepositoryOptions::default()).unwrap();
+    let reopened = Repository::open_with_options(
+        &root,
+        vec![changed],
+        RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::IfValid,
+            ..Default::default()
+        },
+    )
+    .unwrap();
     assert!(reopened.startup().restored);
     assert_eq!(ids(&reopened, &query), descending);
     std::fs::remove_dir_all(root).unwrap();

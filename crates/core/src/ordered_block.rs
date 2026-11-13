@@ -318,6 +318,13 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
         (!self.blocks.is_empty()).then_some(DictionaryCursor { block: 0, entry: 0 })
     }
 
+    pub(crate) fn last(&self) -> Option<DictionaryCursor> {
+        self.blocks.last().map(|block| DictionaryCursor {
+            block: self.blocks.len() - 1,
+            entry: block.count as usize - 1,
+        })
+    }
+
     pub(crate) fn get(&self, key: &K) -> Result<Option<PostingDescriptor>, String> {
         let Some(cursor) = self.lower_bound(key)? else {
             return Ok(None);
@@ -391,6 +398,22 @@ impl<K: Ord + Clone + DeserializeOwned> OrderedBlockDictionary<K> {
                 block: cursor.block + 1,
                 entry: 0,
             })
+        }
+    }
+
+    pub(crate) fn previous(&self, cursor: DictionaryCursor) -> Option<DictionaryCursor> {
+        if cursor.entry > 0 {
+            Some(DictionaryCursor {
+                block: cursor.block,
+                entry: cursor.entry - 1,
+            })
+        } else if cursor.block > 0 {
+            Some(DictionaryCursor {
+                block: cursor.block - 1,
+                entry: self.blocks.get(cursor.block - 1)?.count as usize - 1,
+            })
+        } else {
+            None
         }
     }
 

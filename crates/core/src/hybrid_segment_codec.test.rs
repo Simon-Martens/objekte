@@ -2,10 +2,13 @@ use super::*;
 use std::io::Cursor;
 use std::path::PathBuf;
 
+use crate::bigram::BigramRequest;
 use crate::build::{FilePreparationBinding, SegmentAdmission, SourceFileInput, prepare_file_build};
 use crate::inference::InferenceConfig;
 use crate::inventory::SourceRevision;
 use crate::model::{FieldPath, FileId};
+use crate::query::parse_filter;
+use crate::reference::{BoundExpr, bind_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Transform};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::SnapshotMode;
@@ -219,6 +222,71 @@ fn complete_segment_roundtrips_without_source_io() {
 }
 
 #[test]
+fn sealed_reopen_from_mapped_and_owned_bytes_queries_without_source() {
+    let (root, definition, options, segment) = fixture();
+    let mut table = Vec::<FileEntry>::new();
+    let bytes = write_segment(
+        &segment,
+        1,
+        &definition,
+        options,
+        Cursor::new(Vec::new()),
+        &mut |entry| {
+            table.push(entry.clone());
+            Ok((table.len() - 1) as u32)
+        },
+    )
+    .unwrap()
+    .into_inner();
+    let cache = root.join("segment.idx");
+    std::fs::write(&cache, &bytes).unwrap();
+    std::fs::remove_file(root.join("data/sample.jsonl")).unwrap();
+    let readers = [
+        Arc::new(SegmentReader::from_owned(Arc::from(bytes)).unwrap()),
+        Arc::new(SegmentReader::from_index_file(&std::fs::File::open(&cache).unwrap()).unwrap()),
+    ];
+    let BoundExpr::Term(term) =
+        bind_filter(&parse_filter("n >= 2").unwrap(), &definition.schema).unwrap()
+    else {
+        panic!("expected term");
+    };
+    let raw_request = BigramRequest::new("One");
+    for reader in readers {
+        let decoded = decode_segment_sealed(
+            reader,
+            1,
+            &definition,
+            options,
+            segment.collection,
+            (segment.source_id.as_str(), segment.source_version),
+            segment.records.len() as u32,
+            &|id| table.get(id as usize),
+        )
+        .unwrap();
+        let path = vec!["n".to_owned()];
+        let posting = &decoded.postings.fields[&path];
+        assert!(posting.values.is_empty());
+        assert!(posting.lengths.is_empty());
+        assert!(posting.sealed_values().is_some());
+        assert_eq!(
+            posting
+                .exact_set_checked(&term, &decoded.logical_records)
+                .unwrap(),
+            segment.postings.fields[&path].exact_set(&term, &segment.logical_records),
+        );
+        assert!(decoded.raw.normal.is_empty());
+        assert!(decoded.raw.skip.is_empty());
+        assert_eq!(
+            decoded.raw.try_candidates_prepared(&raw_request).unwrap(),
+            segment.raw.candidates_prepared(&raw_request),
+        );
+        assert!(posting.values.is_empty());
+        assert!(decoded.raw.normal.is_empty());
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn manifest_slot_count_and_source_binding_are_checked() {
     let (root, definition, options, segment) = fixture();
     let mut table = Vec::<FileEntry>::new();
@@ -322,5 +390,147 @@ fn corrupted_posting_payload_fails_owned_decode() {
     .err()
     .unwrap();
     assert!(error.contains("posting checksum"), "{error}");
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn sealed_decode_defers_posting_payload_error_until_query() {
+    let (root, definition, options, segment) = fixture();
+    let mut table = Vec::<FileEntry>::new();
+    let mut bytes = write_segment(
+        &segment,
+        1,
+        &definition,
+        options,
+        Cursor::new(Vec::new()),
+        &mut |entry| {
+            table.push(entry.clone());
+            Ok((table.len() - 1) as u32)
+        },
+    )
+    .unwrap()
+    .into_inner();
+    let reader = Arc::new(SegmentReader::from_owned(Arc::from(bytes.clone())).unwrap());
+    let fields: FieldSection = decode_meta(
+        FIELD_MAGIC,
+        required(&reader, SectionKind::FieldMetadata).unwrap(),
+    )
+    .unwrap();
+    let field = fields
+        .bindings
+        .iter()
+        .find(|field| field.key == PostingKey::Declared(vec!["n".into()]))
+        .unwrap();
+    let span = field.values.checked().unwrap();
+    let dictionary = OrderedBlockDictionary::<ScalarKey>::open(
+        reader,
+        SectionKind::ScalarDictionaries,
+        span.start,
+        span.length,
+    )
+    .unwrap();
+    let descriptor = dictionary
+        .get(&ScalarKey::Number(Number::integer(1)))
+        .unwrap()
+        .unwrap();
+    let payload_entry = 24 + 5 * 56;
+    assert_eq!(
+        u32::from_le_bytes(bytes[payload_entry..payload_entry + 4].try_into().unwrap()),
+        SectionKind::PostingPayloads as u32
+    );
+    let payload_offset = u64::from_le_bytes(
+        bytes[payload_entry + 8..payload_entry + 16]
+            .try_into()
+            .unwrap(),
+    ) as usize;
+    bytes[payload_offset + descriptor.offset as usize] ^= 1;
+    let reader = Arc::new(SegmentReader::from_owned(Arc::from(bytes)).unwrap());
+    std::fs::remove_file(root.join("data/sample.jsonl")).unwrap();
+    let decoded = decode_segment_sealed(
+        reader,
+        1,
+        &definition,
+        options,
+        segment.collection,
+        (segment.source_id.as_str(), segment.source_version),
+        segment.records.len() as u32,
+        &|id| table.get(id as usize),
+    )
+    .unwrap();
+    let BoundExpr::Term(term) =
+        bind_filter(&parse_filter("n = 1").unwrap(), &definition.schema).unwrap()
+    else {
+        panic!("expected term");
+    };
+    assert!(
+        decoded.postings.fields[&vec!["n".into()]]
+            .exact_set_checked(&term, &decoded.logical_records)
+            .is_err()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn sealed_decode_defers_bigram_payload_error_until_query() {
+    let (root, definition, options, segment) = fixture();
+    let mut table = Vec::<FileEntry>::new();
+    let mut bytes = write_segment(
+        &segment,
+        1,
+        &definition,
+        options,
+        Cursor::new(Vec::new()),
+        &mut |entry| {
+            table.push(entry.clone());
+            Ok((table.len() - 1) as u32)
+        },
+    )
+    .unwrap()
+    .into_inner();
+    let reader = Arc::new(SegmentReader::from_owned(Arc::from(bytes.clone())).unwrap());
+    let texts: TextSection = decode_meta(
+        TEXT_MAGIC,
+        required(&reader, SectionKind::TextBindings).unwrap(),
+    )
+    .unwrap();
+    let binding = texts
+        .bindings
+        .iter()
+        .find(|binding| binding.key == TextKey::Raw)
+        .unwrap();
+    let request = BigramRequest::new("One");
+    let (skip, key) = request.grams(options.bigram_alphabet)[0];
+    let span = if skip { binding.skip } else { binding.normal }
+        .checked()
+        .unwrap();
+    let dictionary = OrderedBlockDictionary::<u64>::open(
+        reader,
+        SectionKind::BigramDictionaries,
+        span.start,
+        span.length,
+    )
+    .unwrap();
+    let descriptor = dictionary.get(&key).unwrap().unwrap();
+    let payload_entry = 24 + 5 * 56;
+    let payload_offset = u64::from_le_bytes(
+        bytes[payload_entry + 8..payload_entry + 16]
+            .try_into()
+            .unwrap(),
+    ) as usize;
+    bytes[payload_offset + descriptor.offset as usize] ^= 1;
+    let reader = Arc::new(SegmentReader::from_owned(Arc::from(bytes)).unwrap());
+    std::fs::remove_file(root.join("data/sample.jsonl")).unwrap();
+    let decoded = decode_segment_sealed(
+        reader,
+        1,
+        &definition,
+        options,
+        segment.collection,
+        (segment.source_id.as_str(), segment.source_version),
+        segment.records.len() as u32,
+        &|id| table.get(id as usize),
+    )
+    .unwrap();
+    assert!(decoded.raw.try_candidates_prepared(&request).is_err());
     std::fs::remove_dir_all(root).unwrap();
 }

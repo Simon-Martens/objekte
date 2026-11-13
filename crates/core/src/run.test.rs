@@ -4913,7 +4913,15 @@ fn typed_temporal_fields_survive_postings_payload_cache_and_restore() {
     assert!(cached.counters.verified_result_hit);
     assert_eq!(cached.hits[0].payload, optimized.hits[0].payload);
     repo.save_default_snapshot_for_test();
-    let restored = Repository::open(&root, definitions).unwrap();
+    let restored = Repository::open_with_options(
+        &root,
+        definitions,
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::IfValid,
+            ..Default::default()
+        },
+    )
+    .unwrap();
     assert!(restored.startup.restored);
     assert_eq!(
         restored.search(&query).unwrap().hits[0].payload,
