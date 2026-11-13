@@ -3104,72 +3104,47 @@ fn has_unavailable_active_source(
     false
 }
 
-/// Reconstruct the same positive-term evidence as an index proof for a
-/// conjunction. Every candidate must be proven by each term; other expression
-/// shapes retain source verification because they may expose different
-/// evidence per record even when their combined membership is exact.
-fn segment_exact_evidence_fields(
-    segment: &IndexedCollectionSegment,
-    active: &ActiveRecords,
-    collection: &CollectionState,
-    expr: &BoundExpr,
-    candidates: &RoaringBitmap,
-    catalog: &FileCatalog,
-) -> Result<Option<Vec<String>>, String> {
+/// Evidence shared by every possible true branch. Branches with different
+/// fields retain source verification even when index membership is exact.
+fn segment_static_evidence_fields(expr: &BoundExpr) -> Option<Vec<String>> {
     match expr {
         BoundExpr::Term(term) => {
             if term.related.is_some() || term.rhs.is_some() {
-                return Ok(None);
+                return None;
             }
-            let bounds = segment_filter_bounds_with_catalog(
-                segment,
-                active,
-                expr,
-                collection,
-                Some(catalog),
-            )?;
-            if !candidates.is_subset(&bounds.must) {
-                return Ok(None);
-            }
-            Ok(Some(
-                if term.derived == Derived::None
-                    && !matches!(term.operator, Operator::Ne | Operator::NotContains)
-                {
-                    vec![term.query_path.display.clone()]
-                } else {
-                    Vec::new()
-                },
-            ))
+            Some(if term.derived == Derived::None
+                && !matches!(term.operator, Operator::Ne | Operator::NotContains)
+            {
+                vec![term.query_path.display.clone()]
+            } else {
+                Vec::new()
+            })
         }
         BoundExpr::And(parts) => {
             let mut fields = Vec::new();
             for part in parts {
-                let Some(child) = segment_exact_evidence_fields(
-                    segment, active, collection, part, candidates, catalog,
-                )?
-                else {
-                    return Ok(None);
-                };
-                fields.extend(child);
+                fields.extend(segment_static_evidence_fields(part)?);
             }
             fields.sort();
             fields.dedup();
-            Ok(Some(fields))
+            Some(fields)
         }
-        BoundExpr::Not(_) => {
-            let bounds = segment_filter_bounds_with_catalog(
-                segment,
-                active,
-                expr,
-                collection,
-                Some(catalog),
-            )?;
-            Ok(candidates.is_subset(&bounds.must).then(Vec::new))
+        BoundExpr::Or(parts) => {
+            let mut shared: Option<Vec<String>> = None;
+            for part in parts {
+                let mut fields = segment_static_evidence_fields(part)?;
+                fields.sort();
+                fields.dedup();
+                if shared.as_ref().is_some_and(|shared| *shared != fields) {
+                    return None;
+                }
+                shared = Some(fields);
+            }
+            shared
         }
-        _ => Ok(None),
+        BoundExpr::Not(_) => Some(Vec::new()),
     }
 }
-
 
 /// A single file's local residual work can run independently of other files. Only its
 /// bounded local top page crosses back to the ordered merge thread.
@@ -3691,7 +3666,6 @@ fn try_exact_segment_ordered_page(
     counters: &WorkCounters,
 ) -> Result<Option<SearchResult>, String> {
     if query.options.return_mode != ReturnMode::Locator
-        || query.options.sort.is_empty()
         || sort.bound.has_computed
         || prepared.len() != 1
         || base_active.iter().any(|active| active.len() != 0)
@@ -3738,15 +3712,7 @@ fn try_exact_segment_ordered_page(
                 return Ok(None);
             }
             if let Some(filter) = filter {
-                let Some(fields) = segment_exact_evidence_fields(
-                    &published.index,
-                    &published.active,
-                    collection,
-                    filter,
-                    &candidates,
-                    catalog,
-                )?
-                else {
+                let Some(fields) = segment_static_evidence_fields(filter) else {
                     return Ok(None);
                 };
                 fields
@@ -3876,24 +3842,36 @@ fn search_segmented_impl(
         .offset
         .checked_add(query.options.limit)
         .ok_or("page size overflow")?;
-    let mut base_query = query.clone();
-    base_query.options.offset = 0;
-    base_query.options.limit = cap;
-    // A page request must not exhaust the base merely to calculate a total
-    // the caller did not request. The top `cap` base rows are sufficient for
-    // the top `cap` rows of the merged base-and-segment result.
-    base_query.options.count = query.options.count;
-    let base = if let Some(context) = context {
-        search_with_context_active(repo, &base_query, context, base_active)
-            .map_err(|error| error.message)?
+    let base_empty = base_active.iter().all(|active| active.len() == 0);
+    let base = if base_empty {
+        // The bound query and sort above already validate the request. An
+        // empty base domain contributes no rows, so avoid planning it again.
+        SearchResult {
+            count: query.options.count.then_some(0),
+            hits: Vec::new(),
+            counters: WorkCounters {
+                match_count_complete: true,
+                ..WorkCounters::default()
+            },
+        }
     } else {
-        search_active(repo, &base_query, base_active)?
+        let mut base_query = query.clone();
+        base_query.options.offset = 0;
+        base_query.options.limit = cap;
+        // A page request must not exhaust the base merely to calculate a
+        // total. Its top `cap` rows suffice for the merged page.
+        base_query.options.count = query.options.count;
+        if let Some(context) = context {
+            search_with_context_active(repo, &base_query, context, base_active)
+                .map_err(|error| error.message)?
+        } else {
+            search_active(repo, &base_query, base_active)?
+        }
     };
     let mut total = base
         .count
         .map_or(base.counters.total_matches, |count| count as u64);
-    let base_count_complete =
-        base_active.iter().all(|active| active.len() == 0) || base.counters.match_count_complete;
+    let base_count_complete = base_empty || base.counters.match_count_complete;
     let mut counters = base.counters;
     let mut winners = BinaryHeap::new();
     let mut winner_bytes = 0usize;
@@ -3995,14 +3973,14 @@ fn search_segmented_impl(
                 && !(matches!(filter, Some(BoundExpr::And(_))) && candidates.len() <= 4)
             {
                 if let Some(filter) = filter.as_ref() {
-                    segment_exact_evidence_fields(
-                        segment,
-                        &published.active,
-                        collection,
-                        filter,
-                        &candidates,
-                        catalog,
-                    )?
+                    if bounds
+                        .as_ref()
+                        .is_some_and(|bounds| candidates.is_subset(&bounds.must))
+                    {
+                        segment_static_evidence_fields(filter)
+                    } else {
+                        None
+                    }
                 } else {
                     Some(Vec::new())
                 }
@@ -4120,14 +4098,7 @@ fn search_segmented_impl(
                 && candidates.is_subset(&bounds.must)
             {
                 if query.options.evidence {
-                    segment_exact_evidence_fields(
-                        segment,
-                        &published.active,
-                        collection,
-                        filter,
-                        &candidates,
-                        catalog,
-                    )?
+                    segment_static_evidence_fields(filter)
                 } else {
                     Some(Vec::new())
                 }
