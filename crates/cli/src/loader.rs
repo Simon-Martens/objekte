@@ -22,7 +22,7 @@ use objekte_search_core::source::SourceFormat;
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::workload::BigramAlphabet;
 
-use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
+use crate::arguments::{Alphabet, Arguments, IndexStorageChoice, ResolvedPaths};
 
 fn load_schema_configuration(
     paths: &ResolvedPaths,
@@ -34,7 +34,6 @@ fn load_schema_configuration(
     Ok(Some((loaded.compiled, loaded.ignored_repository_metadata)))
 }
 
-
 /// Resolved collection definitions and schema metadata shared by CLI frontends.
 pub struct ConfiguredDefinitions {
     pub definitions: Vec<CollectionDefinition>,
@@ -44,7 +43,6 @@ pub struct ConfiguredDefinitions {
     pub schema_fields: usize,
     pub ignored_repository_metadata: bool,
 }
-
 
 /// Apply single-folder, repeated-path, or configured-repository rules.
 pub fn configure_definitions(
@@ -108,8 +106,8 @@ pub fn configure_definitions(
     })
 }
 
-/// Preserve the legacy CLI snapshot policy: a custom cache directory is not
-/// part of source discovery, including JSON files added after a cache write.
+/// Exclude an application-owned index directory from source discovery, even
+/// when a custom base is located inside a collection source folder.
 fn exclude_cache_directory(
     definition: &mut CollectionDefinition,
     source_root: &Path,
@@ -157,7 +155,12 @@ fn make_definition(
         definition.discovery.exclude_files.push(relative.to_owned());
     }
     if let Some(directory) = paths.index_directory.as_deref() {
-        exclude_cache_directory(&mut definition, source_root, directory);
+        let managed = if args.index_storage == IndexStorageChoice::Custom {
+            directory.join("objekte-indexes")
+        } else {
+            directory.to_owned()
+        };
+        exclude_cache_directory(&mut definition, source_root, &managed);
     }
     definition
 }
@@ -226,7 +229,7 @@ pub fn open_repository(
                     SnapshotMode::Required => CacheOpenPolicy::Required,
                     SnapshotMode::IfValid => CacheOpenPolicy::IfPresent,
                     SnapshotMode::Disabled if write_requested => CacheOpenPolicy::Ignore,
-                    SnapshotMode::Disabled => CacheOpenPolicy::IfPresent,
+                    SnapshotMode::Disabled => CacheOpenPolicy::Ignore,
                 },
                 cache_failure: CacheFailurePolicy::Rebuild,
                 sync_cache: false,

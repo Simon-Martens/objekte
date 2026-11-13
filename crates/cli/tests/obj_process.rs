@@ -837,6 +837,35 @@ fn search_without_index_flags_leaves_disk_cache_absent() {
 }
 
 #[test]
+fn removed_snapshot_flags_explain_the_storage_replacement() {
+    let root = tempfile::tempdir().unwrap();
+    for flag in ["--load-index=old-cache", "--write-index=old-cache"] {
+        let (result, events) = invoke(root.path(), &[flag, "--fts", "needle"]);
+        assert_eq!(result.status.code(), Some(2));
+        assert!(events.is_empty());
+        let error = String::from_utf8_lossy(&result.stderr);
+        assert!(error.contains("--index-storage"), "{error}");
+        assert!(error.contains("--index-directory"), "{error}");
+        assert!(!root.path().join("old-cache").exists());
+    }
+}
+
+#[test]
+fn disk_storage_cannot_succeed_without_the_shared_opener() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
+    for mode in ["temporary", "repository"] {
+        let (result, events) = invoke(root.path(), &["--index-storage", mode, "--fts", "needle"]);
+        assert_eq!(result.status.code(), Some(1));
+        assert!(events.is_empty());
+        assert!(
+            String::from_utf8_lossy(&result.stderr).contains("disk index storage is not available")
+        );
+    }
+    assert!(!root.path().join(".objekte").exists());
+}
+
+#[test]
 fn bare_obj_errors_before_build_but_index_only_writes() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();

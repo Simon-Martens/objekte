@@ -130,6 +130,13 @@ fn storage_flags_map_to_the_core_policy_and_reject_contradictions() {
         custom.index_storage_policy().unwrap().location,
         IndexStorageLocation::CustomDirectory(".".into())
     );
+    assert_eq!(
+        custom
+            .resolved_index_storage_policy(&custom.resolve_paths(cwd.path()).unwrap())
+            .unwrap()
+            .location,
+        IndexStorageLocation::CustomDirectory(cwd.path().to_owned())
+    );
     assert!(
         Arguments::try_parse_from(["obj", "--index-storage", "custom", "--fts", "A"])
             .unwrap()

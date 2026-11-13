@@ -211,6 +211,24 @@ impl Arguments {
         Ok(policy)
     }
 
+    /// Return the policy after resolving a custom base against the caller's
+    /// working directory, which may differ from the process working directory.
+    pub fn resolved_index_storage_policy(
+        &self,
+        paths: &ResolvedPaths,
+    ) -> Result<IndexStoragePolicy, String> {
+        let mut policy = self.index_storage_policy()?;
+        if self.index_storage == IndexStorageChoice::Custom {
+            policy.location = IndexStorageLocation::CustomDirectory(
+                paths
+                    .index_directory
+                    .clone()
+                    .ok_or("--index-storage custom requires a resolved --index-directory")?,
+            );
+        }
+        Ok(policy)
+    }
+
     pub fn resolve_paths(&self, cwd: &Path) -> Result<ResolvedPaths, String> {
         self.validate_open_options()?;
         let selected = if let Some(repo) = self.repo.as_deref() {

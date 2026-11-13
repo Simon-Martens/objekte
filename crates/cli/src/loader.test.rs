@@ -63,13 +63,27 @@ fn explicit_folder_load_replaces_invalid_cache_and_restores_next_time() {
     std::fs::write(&cache, b"invalid cache").unwrap();
     let policy = snapshot_policy(&args, &paths);
     let (rebuilt, _, _) = open_repository(
-        &paths.root, &configured, options, policy.clone(), false, false, false,
-    ).unwrap();
+        &paths.root,
+        &configured,
+        options,
+        policy.clone(),
+        false,
+        false,
+        false,
+    )
+    .unwrap();
     assert!(!rebuilt.startup().restored);
     assert_ne!(std::fs::read(&cache).unwrap(), b"invalid cache");
     let (restored, _, _) = open_repository(
-        &paths.root, &configured, options, policy, false, false, false,
-    ).unwrap();
+        &paths.root,
+        &configured,
+        options,
+        policy,
+        false,
+        false,
+        false,
+    )
+    .unwrap();
     assert!(restored.startup().restored);
     restored.index().wait_for_reconciliation().unwrap();
 }
@@ -242,6 +256,34 @@ fn configured_cache_directory_keeps_unrelated_source_siblings() {
             .is_some()
     );
     assert_eq!(repo.index().status().unwrap().indexed_files, 2);
+}
+
+#[test]
+fn custom_index_base_inside_source_excludes_only_objekte_namespace() {
+    let root = tempfile::tempdir().unwrap();
+    let custom = root.path().join("chosen-base");
+    std::fs::create_dir(&custom).unwrap();
+    let args = Arguments {
+        path: vec![root.path().to_owned()],
+        index_storage: IndexStorageChoice::Custom,
+        index_directory: Some(custom.clone()),
+        ..Arguments::default()
+    };
+    let paths = args.resolve_paths(root.path()).unwrap();
+    let configured = configure_definitions(&args, &paths).unwrap();
+    assert_eq!(
+        configured.definitions[0].discovery.exclude_directories,
+        vec![
+            PathBuf::from(".objekte"),
+            PathBuf::from("chosen-base/objekte-indexes")
+        ]
+    );
+    assert!(
+        !configured.definitions[0]
+            .discovery
+            .exclude_directories
+            .contains(&PathBuf::from("chosen-base"))
+    );
 }
 
 #[test]

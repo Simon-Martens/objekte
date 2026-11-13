@@ -8,13 +8,11 @@ use std::time::{Duration, Instant};
 
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
-#[cfg(feature = "tui")]
-use objekte_search_core::lifecycle::IndexError;
 use objekte_search_core::lifecycle::{Index, IndexRevision, IndexView};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::path_repr;
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::{SnapshotAction, SnapshotMode};
+use objekte_search_core::repository::SnapshotAction;
 use objekte_search_core::storage::SnapshotSaveStats;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
@@ -22,11 +20,8 @@ use objekte_search_core::streaming::{
 };
 use serde_json::{Value, json};
 
-use crate::arguments::{Alphabet, Arguments, ResolvedPaths};
-use crate::loader::{
-    ConfiguredDefinitions, configure_definitions, open_repository, repository_options,
-    snapshot_policy,
-};
+use crate::arguments::{Alphabet, Arguments, IndexStorageChoice, ResolvedPaths};
+use crate::loader::{ConfiguredDefinitions, configure_definitions, repository_options};
 use crate::output::{
     EventWriter, counters_with_ms, detailed_elapsed_ns, detailed_start, milliseconds_value as ms,
 };
@@ -47,7 +42,6 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         let paths = args.resolve_paths(&cwd)?;
         let configured = configure_definitions(args, &paths)?;
         let options = repository_options(args);
-        let policy = snapshot_policy(args, &paths);
         let mut source = QuerySource::open(args)?;
         let (initial_search, initial_filter) = match source.next_input()? {
             Some(input) => {
@@ -63,36 +57,23 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             paths.root,
             configured,
             options,
-            policy,
             initial_search,
             initial_filter,
         ))
     })();
-    let (root, configured, options, policy, initial_search, initial_filter) = match configured {
+    let (root, configured, options, initial_search, initial_filter) = match configured {
         Ok(configured) => configured,
         Err(error) => {
             eprintln!("obj: {error}");
             return Exit::Arguments;
         }
     };
-    let cache_directory = policy
-        .directory
-        .clone()
-        .unwrap_or_else(|| root.join(".objekte"));
-    let cache_path =
-        objekte_search_core::storage::snapshot_path_in(&cache_directory, options.bigram_alphabet);
-    let write = args.write_index.is_some();
-    let configured_repository = args.repo.is_some();
-    let cache_is_absent = std::fs::symlink_metadata(&cache_path)
-        .is_err_and(|error| error.kind() == io::ErrorKind::NotFound);
-    let incremental = match policy.mode {
-        SnapshotMode::Required => false,
-        SnapshotMode::IfValid => cache_is_absent,
-        SnapshotMode::Disabled => write || !configured_repository || cache_is_absent,
-    };
-    let probe_selected_cache = !incremental
-        && !cache_is_absent
-        && matches!(policy.mode, SnapshotMode::IfValid | SnapshotMode::Disabled);
+    if args.index_storage != IndexStorageChoice::Memory {
+        eprintln!(
+            "obj: disk index storage is not available until the shared generation opener is connected"
+        );
+        return Exit::Operation;
+    }
     let ui = crate::tui::TuiOptions {
         single_collection: !args.multiple_collections(),
         initial_search,
@@ -100,46 +81,17 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         offset: args.offset,
         limit: args.limit,
         interruption: Some(token.clone()),
-        snapshot_requested: write,
-        snapshot_path: write.then_some(cache_path.clone()),
-        loading_label: Some(
-            match (args.load_index.is_some(), args.write_index.is_some()) {
-                (true, false) => "Loading search index",
-                (true, true) => "Loading or building search index",
-                _ => "Building search index",
-            }
-            .to_owned(),
-        ),
+        snapshot_requested: false,
+        snapshot_path: None,
+        loading_label: Some("Building search index".to_owned()),
     };
-    let result = if incremental {
+    let result =
         match Index::start_incremental_build(&root, configured.definitions.clone(), options) {
             Ok(task) => crate::tui::run_with_initial_build(task, ui, configured.protected_files),
             Err(error) => {
                 Err(Box::new(io::Error::other(error.to_string())) as Box<dyn std::error::Error>)
             }
-        }
-    } else if probe_selected_cache {
-        crate::tui::run_with_opening_loader(
-            move || selected_cache_or_incremental(root, configured, options, cache_path),
-            ui,
-        )
-    } else {
-        crate::tui::run_with_loader(
-            move || {
-                open_repository(
-                    &root,
-                    &configured,
-                    options,
-                    policy,
-                    write,
-                    configured_repository,
-                    false,
-                )
-                .map(|(repo, _, _)| repo)
-            },
-            ui,
-        )
-    };
+        };
     match result {
         Ok(()) => Exit::Success,
         Err(error)
@@ -156,32 +108,6 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     }
 }
 
-#[cfg(feature = "tui")]
-fn selected_cache_or_incremental(
-    root: PathBuf,
-    configured: ConfiguredDefinitions,
-    options: objekte_search_core::repository::RepositoryOptions,
-    cache_path: PathBuf,
-) -> Result<crate::tui::TuiOpening, String> {
-    match Index::load_cache(&root, configured.definitions.clone(), options, &cache_path) {
-        Ok(index) => {
-            index
-                .protect_configuration_files(&configured.protected_files)
-                .map_err(|error| error.to_string())?;
-            IndexedRepository::new(index)
-                .map(crate::tui::TuiOpening::Ready)
-                .map_err(|error| error.to_string())
-        }
-        Err(IndexError::InvalidCache(_) | IndexError::IncompatibleConfiguration(_)) => {
-            Index::start_incremental_build(&root, configured.definitions, options)
-                .map(|task| crate::tui::TuiOpening::Initial(task, configured.protected_files))
-                .map_err(|error| error.to_string())
-        }
-        Err(error) => Err(error.to_string()),
-    }
-}
-
-
 /// Exit classifications specified by the `obj` command protocol.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Exit {
@@ -192,7 +118,6 @@ pub enum Exit {
     PipeClosed = 254,
     OutputError = 255,
 }
-
 
 /// Metadata from the opening operation, reused by the desktop batch runner.
 pub struct ExistingRun<'a> {
@@ -207,14 +132,12 @@ pub struct ExistingRun<'a> {
     pub snapshot_save: Option<SnapshotSaveStats>,
 }
 
-
 /// A desktop query already parsed through the shared core query builder.
 pub struct PreparedQuery {
     pub input: String,
     pub query: Result<Query, String>,
     pub decoded_fts: Option<String>,
 }
-
 
 /// Execute a CLI batch against a repository already opened by another frontend.
 pub fn run_on_repository<W: Write>(
@@ -341,6 +264,12 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             return Exit::Arguments;
         }
     };
+    if args.index_storage != IndexStorageChoice::Memory {
+        eprintln!(
+            "obj: disk index storage is not available until the shared generation opener is connected"
+        );
+        return Exit::Operation;
+    }
     let configured = match configure_definitions(args, &paths) {
         Ok(configuration) => configuration,
         Err(message) => {
@@ -364,44 +293,11 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         return output_failure(error);
     }
     let options = repository_options(args);
-    let policy = snapshot_policy(args, &paths);
     // A fresh construction starts before opening query input. The input is
     // replayed after completion to preserve the ordered machine protocol.
     let mut source = None;
-    let cache_directory = policy
-        .directory
-        .clone()
-        .unwrap_or_else(|| paths.root.join(".objekte"));
-    let cache_path =
-        objekte_search_core::storage::snapshot_path_in(&cache_directory, options.bigram_alphabet);
-    let cache_absent = std::fs::symlink_metadata(&cache_path)
-        .is_err_and(|error| error.kind() == io::ErrorKind::NotFound);
-    let incremental = match policy.mode {
-        SnapshotMode::Required => false,
-        SnapshotMode::IfValid => cache_absent,
-        SnapshotMode::Disabled => args.repo.is_none() || args.write_index.is_some() || cache_absent,
-    };
-    let opened = if incremental {
-        open_incremental_repository(
-            args,
-            &paths,
-            &configured,
-            options,
-            &cache_path,
-            &mut source,
-            token,
-        )
-    } else {
-        open_repository(
-            &paths.root,
-            &configured,
-            options,
-            policy,
-            args.write_index.is_some(),
-            args.repo.is_some(),
-            args.load_index.is_some(),
-        )
-    };
+    let opened =
+        open_incremental_repository(args, &paths, &configured, options, &mut source, token);
     if token.is_cancelled() {
         return cancel_run(&mut output, 0, 0, &started);
     }
@@ -444,7 +340,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             started: &started,
             startup_ns,
             snapshot_save: snapshot_save.as_ref(),
-            initial_incremental: incremental,
+            initial_incremental: true,
         },
         source,
         &mut output,
@@ -459,7 +355,6 @@ fn open_incremental_repository(
     paths: &ResolvedPaths,
     configured: &ConfiguredDefinitions,
     options: objekte_search_core::repository::RepositoryOptions,
-    cache_path: &std::path::Path,
     source: &mut Option<Result<QuerySource, String>>,
     token: &CancellationToken,
 ) -> Result<(IndexedRepository, u128, Option<SnapshotSaveStats>), String> {
@@ -542,17 +437,7 @@ fn open_incremental_repository(
         .map_err(|error| error.to_string())?;
     let repo = IndexedRepository::new(index).map_err(|error| error.to_string())?;
     let startup_ns = started.elapsed().as_nanos();
-    let snapshot_save = if args.write_index.is_some() {
-        Some(
-            repo.index()
-                .flush_cache_with_stats(cache_path)
-                .map_err(|error| error.to_string())?
-                .1,
-        )
-    } else {
-        None
-    };
-    Ok((repo, startup_ns, snapshot_save))
+    Ok((repo, startup_ns, None))
 }
 
 fn run_start_event(
@@ -596,7 +481,6 @@ fn run_start_event(
     })
 }
 
-
 #[derive(Clone, Copy)]
 struct RunTail<'a> {
     repo: &'a IndexedRepository,
@@ -606,7 +490,6 @@ struct RunTail<'a> {
     snapshot_save: Option<&'a SnapshotSaveStats>,
     initial_incremental: bool,
 }
-
 
 fn run_queries<W: Write>(
     run: RunTail<'_>,
