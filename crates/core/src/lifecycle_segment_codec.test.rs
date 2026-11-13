@@ -6,7 +6,7 @@ use crate::build::{FilePreparationBinding, SegmentAdmission, SourceFileInput, pr
 use crate::inference::{InferenceConfig, InferenceMode};
 use crate::inventory::SourceRevision;
 use crate::model::{FieldPath, LogicalType};
-use crate::reference::FieldDefinition;
+use crate::reference::{CustomBinding, FieldDefinition, Transform};
 use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{CollectionDefinition, Repository, SnapshotMode};
 use crate::source::{SourceFormat, SourceRegistry};
@@ -17,7 +17,7 @@ fn encode_base_metadata_segment(segment: &IndexedCollectionSegment) -> Vec<u8> {
     encode_segment(segment, &mut |entry| Ok(entry.id.0)).unwrap()
 }
 
-fn fixture() -> (
+fn fixture_with_content(content: &[u8]) -> (
     PathBuf,
     Arc<Repository>,
     FileCatalog,
@@ -33,13 +33,13 @@ fn fixture() -> (
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
     let path = root.join("data/sample.jsonl");
-    std::fs::write(
-        &path,
-        b"{\"n\":1,\"ref\":\"alpha\"}\n{\"n\":2,\"ref\":\"beta\"}\n{bad}\n",
-    )
-    .unwrap();
+    std::fs::write(&path, content).unwrap();
     let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::JsonLines);
-    for (name, kind) in [("n", LogicalType::Number), ("ref", LogicalType::Id)] {
+    for (name, kind) in [
+        ("n", LogicalType::Number),
+        ("ref", LogicalType::Id),
+        ("text", LogicalType::String),
+    ] {
         definition
             .schema
             .register_field(FieldDefinition {
@@ -53,6 +53,17 @@ fn fixture() -> (
             })
             .unwrap();
     }
+    definition
+        .schema
+        .register_custom(
+            vec!["text".into()],
+            CustomBinding {
+                name: "folded".into(),
+                version: 1,
+                transform: Transform::CaseFold,
+            },
+        )
+        .unwrap();
     definition
         .schema
         .register_relation(RelationDefinition {
@@ -113,6 +124,72 @@ fn fixture() -> (
         .into_indexed(&definition, BigramAlphabet::Ascii, inference, 1, &pool)
         .unwrap();
     (root, repository, catalog, indexed)
+}
+
+fn fixture() -> (
+    PathBuf,
+    Arc<Repository>,
+    FileCatalog,
+    IndexedCollectionSegment,
+) {
+    fixture_with_content(
+        b"{\"n\":1,\"ref\":\"alpha\",\"text\":\"One\"}\n{\"n\":2,\"ref\":\"beta\",\"text\":\"Two\"}\n{bad}\n",
+    )
+}
+
+#[test]
+fn full_logical_domain_skips_only_proven_redundant_bigram_scans() {
+    let (root, repository, catalog, mut indexed) = fixture_with_content(
+        b"{\"n\":1,\"ref\":\"alpha\",\"text\":\"One\"}\n{\"n\":2,\"ref\":\"beta\",\"text\":\"Two\"}\n",
+    );
+    assert_eq!(indexed.logical_records.len(), indexed.records.len() as u64);
+    assert!(!indexed.custom_text.is_empty());
+    let active = RoaringBitmap::from_iter([0, 1]);
+    let decode = |segment: &IndexedCollectionSegment| {
+        let bytes = encode_base_metadata_segment(segment);
+        let mut profile = SegmentDecodeProfile::default();
+        let result = decode_segment_profiled(
+            &bytes, &repository, CollectionId(0), &catalog, &active, &[], Some(&mut profile),
+        );
+        (result, profile)
+    };
+    let (result, profile) = decode(&indexed);
+    assert!(result.is_ok());
+    assert_eq!(profile.bigram_logical_domain_skips, 1 + indexed.custom_text.len() as u32);
+    assert_eq!(profile.bigram_logical_domain_scans, 0);
+    assert_eq!(profile.bigram_fallback_domain_scans, 1);
+
+    indexed.logical_records.remove(1);
+    assert!(decode(&indexed).0.err().unwrap().contains("logical domain"));
+    indexed.logical_records.insert(1);
+    indexed.raw.normal.entry(u64::MAX).or_default().insert(99);
+    assert!(decode(&indexed).0.err().unwrap().contains("bigram slot out of bounds"));
+    indexed.raw.normal.remove(&u64::MAX);
+    indexed.raw.record_count += 1;
+    assert!(decode(&indexed).0.err().unwrap().contains("bigram coverage mismatch"));
+    indexed.raw.record_count -= 1;
+    indexed.fallback_text.normal.entry(u64::MAX).or_default().insert(0);
+    assert!(decode(&indexed).0.err().unwrap().contains("eligible domain"));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn mixed_logical_domain_retains_raw_and_custom_subset_scans() {
+    let (root, repository, catalog, mut indexed) = fixture();
+    let active = RoaringBitmap::from_iter([0, 1, 2]);
+    let mut profile = SegmentDecodeProfile::default();
+    let bytes = encode_base_metadata_segment(&indexed);
+    decode_segment_profiled(
+        &bytes, &repository, CollectionId(0), &catalog, &active, &[], Some(&mut profile),
+    )
+    .unwrap();
+    assert_eq!(profile.bigram_logical_domain_scans, 1 + indexed.custom_text.len() as u32);
+    assert_eq!(profile.bigram_logical_domain_skips, 0);
+    assert_eq!(profile.bigram_fallback_domain_scans, 1);
+    indexed.raw.normal.entry(u64::MAX).or_default().insert(2);
+    let bytes = encode_base_metadata_segment(&indexed);
+    assert!(decode_segment(&bytes, &repository, CollectionId(0), &catalog, &active, &[]).is_err());
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]
