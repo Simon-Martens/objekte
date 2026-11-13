@@ -18,9 +18,11 @@ use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
 use app::{Action, App, Focus, Overlay, View};
+use objekte_search_core::index_storage::{
+    IndexReadiness, IndexStorageLocation, IndexStoragePolicy, IndexSynchronization,
+};
 use objekte_search_core::lifecycle::{InitialBuildPhase, InitialBuildSnapshot, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
-use objekte_search_core::repository::SnapshotAction;
 use objekte_search_core::streaming::CancellationToken;
 use ratatui::crossterm::{
     event::{
@@ -30,7 +32,6 @@ use ratatui::crossterm::{
     execute,
 };
 
-
 #[derive(Clone, Default)]
 pub struct TuiOptions {
     pub single_collection: bool,
@@ -39,35 +40,43 @@ pub struct TuiOptions {
     pub offset: usize,
     pub limit: Option<usize>,
     pub loading_label: Option<String>,
-    /// An explicit save was requested at startup.
-    pub snapshot_requested: bool,
-    /// Destination used only after an incremental build is complete.
-    pub snapshot_path: Option<std::path::PathBuf>,
+    /// Shared storage choice for the current opening.
+    pub storage_policy: IndexStoragePolicy,
     pub interruption: Option<CancellationToken>,
 }
 
+/// A validated storage choice and the current query to reopen in a new view.
+pub struct TuiReopenRequest {
+    pub storage_policy: IndexStoragePolicy,
+    pub search: String,
+    pub filter: String,
+}
 
-pub fn run_with_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
+pub fn run_with_loader<F>(
+    loader: F,
+    options: TuiOptions,
+) -> Result<Option<TuiReopenRequest>, Box<dyn Error>>
 where
     F: FnOnce() -> Result<IndexedRepository, String> + Send + 'static,
 {
     run_with_opening_loader(move || loader().map(TuiOpening::Ready), options)
 }
 
-
-/// A selected cache can load immediately or fall back to a fresh incremental build.
+/// A repository can be ready immediately or still building its initial catalogue.
 pub enum TuiOpening {
     Ready(IndexedRepository),
     Initial(InitialBuildTask, Vec<PathBuf>),
 }
 
-
-pub fn run_with_opening_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
+pub fn run_with_opening_loader<F>(
+    loader: F,
+    options: TuiOptions,
+) -> Result<Option<TuiReopenRequest>, Box<dyn Error>>
 where
     F: FnOnce() -> Result<TuiOpening, String> + Send + 'static,
 {
     let mut terminal = ratatui::try_init()?;
-    let result = (|| -> Result<(), Box<dyn Error>> {
+    let result = (|| -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
         execute!(std::io::stdout(), event::EnableMouseCapture)?;
         let interrupted = || {
             std::io::Error::new(
@@ -125,7 +134,7 @@ where
                         {
                             return Err(interrupted().into());
                         }
-                        return Ok(());
+                        return Ok(None);
                     }
                     _ => {}
                 }
@@ -140,10 +149,10 @@ where
     })();
     let mouse = execute!(std::io::stdout(), event::DisableMouseCapture);
     let restore = ratatui::try_restore();
-    result?;
+    let outcome = result?;
     mouse?;
     restore?;
-    Ok(())
+    Ok(outcome)
 }
 
 /// Opens the screen as soon as discovery publishes the physical file catalogue.
@@ -151,7 +160,7 @@ pub fn run_with_initial_build(
     task: InitialBuildTask,
     options: TuiOptions,
     protected_files: Vec<PathBuf>,
-) -> Result<(), Box<dyn Error>> {
+) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
     run_with_opening_loader(
         move || Ok(TuiOpening::Initial(task, protected_files)),
         options,
@@ -163,9 +172,8 @@ fn run_initial_active(
     task: InitialBuildTask,
     options: TuiOptions,
     protected_files: Vec<PathBuf>,
-) -> Result<(), Box<dyn Error>> {
+) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
     struct CancelOnExit(InitialBuildTask);
-
 
     impl Drop for CancelOnExit {
         fn drop(&mut self) {
@@ -173,9 +181,8 @@ fn run_initial_active(
         }
     }
 
-
     let guard = CancelOnExit(task);
-    (|| -> Result<(), Box<dyn Error>> {
+    (|| -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
         let started = Instant::now();
         let (repository, snapshot) = loop {
             if options
@@ -218,7 +225,7 @@ fn run_initial_active(
                                 || (pressed.code == KeyCode::Char('q')
                                     && pressed.modifiers.contains(KeyModifiers::CONTROL))) =>
                     {
-                        return Ok(());
+                        return Ok(None);
                     }
                     Event::Key(pressed)
                         if pressed.kind != KeyEventKind::Release
@@ -252,25 +259,31 @@ fn run_active(
     repository: IndexedRepository,
     options: TuiOptions,
     initial: Option<(InitialBuildTask, InitialBuildSnapshot)>,
-) -> Result<(), Box<dyn Error>> {
-    let action = repository.startup().snapshot_action;
+) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
+    let managed_index = (options.storage_policy.location != IndexStorageLocation::MemoryOnly)
+        .then(|| repository.index().clone());
     let timings = repository.index().timings_ms()?;
-    let snapshot_requested = options.snapshot_requested;
+    let storage_label = match &options.storage_policy.location {
+        IndexStorageLocation::MemoryOnly => "Memory index",
+        IndexStorageLocation::SystemTemporary => "Temporary index",
+        IndexStorageLocation::RepositoryDirectory => "Repository index",
+        IndexStorageLocation::CustomDirectory(_) => "Custom index",
+    };
     let incremental = initial.is_some();
     let mut app = match initial {
         Some((task, snapshot)) => App::with_initial_build(repository, options, task, snapshot),
         None => App::with_options(repository, options),
     };
-    if !incremental {
-        let operation = if action == SnapshotAction::Restored {
-            "Index loaded"
-        } else {
-            "Index built"
-        };
+    if incremental {
+        app.status = Some(match app.status.take() {
+            Some(status) => format!("{status}  ·  {storage_label}"),
+            None => storage_label.to_owned(),
+        });
+    } else {
         let display =
             |value: Option<u64>| value.map_or_else(|| "—".to_owned(), |ms| format!("{ms} ms"));
         let ready = format!(
-            "{operation}: metadata {} · search {} · full {}{}",
+            "{storage_label}: metadata {} · search {} · full {}{}",
             display(timings.metadata),
             display(timings.search_available),
             display(timings.full_available),
@@ -278,11 +291,6 @@ fn run_active(
                 .inference_full_available
                 .map_or_else(String::new, |ms| format!(" · inference {ms} ms")),
         );
-        let ready = if snapshot_requested && action != SnapshotAction::Restored {
-            format!("{ready}  ·  Snapshot saved")
-        } else {
-            ready
-        };
         app.status = Some(match app.status.take() {
             Some(status) => format!("{status}  ·  {ready}"),
             None => ready,
@@ -296,11 +304,53 @@ fn run_active(
     if let Some(light) = light {
         view::theme::set_light(light);
     }
+    let mut last_storage_state = None;
+    let mut last_storage_error = None;
     while !app.done {
         if app.interrupted() {
             return Err(interrupted().into());
         }
         app.tick(Instant::now());
+        if let Some(index) = managed_index.as_ref() {
+            let state = index.storage_status()?;
+            let summary = format!(
+                "{} · {} · generation {}{}",
+                match state.readiness {
+                    IndexReadiness::Building => "Building",
+                    IndexReadiness::Searchable => "Searchable",
+                    IndexReadiness::PreparingFullResidency => "Preparing full residency",
+                    IndexReadiness::FullyResidentReady => "Fully resident",
+                },
+                if !state.source_reconciliation_complete {
+                    "Reconciling changes"
+                } else {
+                    match state.synchronization {
+                        IndexSynchronization::MemoryOnly => "Preparing storage",
+                        IndexSynchronization::Pending => "Synchronizing",
+                        IndexSynchronization::Synchronizing => "Synchronizing",
+                        IndexSynchronization::Synchronized => "Synchronized",
+                        IndexSynchronization::Failed => "Synchronization failed",
+                    }
+                },
+                state.current_generation,
+                state
+                    .durable_generation
+                    .map_or_else(String::new, |number| format!(" · durable {number}")),
+            );
+            if last_storage_state.as_deref() != Some(summary.as_str()) {
+                app.status = Some(summary.clone());
+                let storage_error = state
+                    .last_error
+                    .map(|error| format!("Index synchronization: {error}"));
+                if let Some(error) = &storage_error {
+                    app.error = Some(error.clone());
+                } else if app.error == last_storage_error {
+                    app.error = None;
+                }
+                last_storage_error = storage_error;
+                last_storage_state = Some(summary);
+            }
+        }
         terminal.draw(|frame| view::draw(frame, &mut app))?;
         let poll_ms = if app.busy() { 30 } else { 250 };
         if !event::poll(Duration::from_millis(poll_ms))? {
@@ -330,7 +380,22 @@ fn run_active(
             stdout.flush()?;
         }
     }
-    Ok(())
+    if let Some(index) = managed_index
+        && app
+            .build_status
+            .as_ref()
+            .is_none_or(|status| status.construction_complete)
+    {
+        if index
+            .wait_for_reconciliation()?
+            .is_some_and(|report| report.cancelled)
+        {
+            return Err(std::io::Error::other("index reconciliation cancelled").into());
+        }
+        index.quiesce()?;
+        index.flush_storage()?;
+    }
+    Ok(app.reopen_request)
 }
 
 fn mouse_event(app: &mut App, mouse: MouseEvent) {
@@ -423,6 +488,31 @@ fn key(app: &mut App, key: KeyEvent) {
                     if let Some(action) = app.choose_action() {
                         run_action(app, action);
                     }
+                }
+                _ => {}
+            }
+            return;
+        }
+        Some(Overlay::Storage) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Up => app.storage_picker = app.storage_picker.saturating_sub(1),
+                KeyCode::Down | KeyCode::Tab => {
+                    app.storage_picker = (app.storage_picker + 1).min(6)
+                }
+                KeyCode::BackTab => app.storage_picker = app.storage_picker.saturating_sub(1),
+                KeyCode::Enter if app.storage_picker < 4 => {
+                    app.storage_choice = app.storage_picker;
+                }
+                KeyCode::Enter | KeyCode::Char(' ') if app.storage_picker == 4 => {
+                    if app.storage_choice != 0 {
+                        app.storage_full = !app.storage_full;
+                    }
+                }
+                KeyCode::Enter if app.storage_picker == 5 => app.storage_picker = 6,
+                KeyCode::Enter if app.storage_picker == 6 => app.apply_storage(),
+                _ if app.storage_picker == 5 => {
+                    app.storage_directory.key(key);
                 }
                 _ => {}
             }
@@ -758,6 +848,7 @@ fn key(app: &mut App, key: KeyEvent) {
 fn run_action(app: &mut App, action: Action) {
     match action {
         Action::Files => app.toggle_files(),
+        Action::Storage => app.open_storage(),
         Action::Collections => {
             if app.single_collection {
                 app.status = Some(format!("Collection: {}", app.scope_label()));

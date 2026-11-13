@@ -1,9 +1,11 @@
 //! Command arguments and their filesystem interpretation.
 
-use std::path::{Component, Path, PathBuf};
+use std::path::{Path, PathBuf};
 
 use clap::{ArgGroup, Parser, ValueEnum};
-
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+};
 
 /// The alphabet used by the shared bigram index.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
@@ -12,13 +14,28 @@ pub enum Alphabet {
     Unicode,
 }
 
-
 impl Default for Alphabet {
     fn default() -> Self {
         Self::Ascii
     }
 }
 
+/// Where a completed searchable index is stored.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, ValueEnum)]
+pub enum IndexStorageChoice {
+    #[default]
+    Memory,
+    Temporary,
+    Repository,
+    Custom,
+}
+
+/// Optional residency for a synchronized disk index.
+#[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
+pub enum IndexResidencyChoice {
+    OnDemand,
+    Full,
+}
 
 /// One invocation of the general JSON search command.
 #[derive(Clone, Debug, Default, Parser)]
@@ -66,13 +83,25 @@ pub struct Arguments {
     #[arg(long, group = "input", value_name = "FILE")]
     pub query_file: Option<String>,
 
-    /// Build and save an index; optional directory requires '='.
-    #[arg(long, num_args = 0..=1, require_equals = true, default_missing_value = "", value_name = "DIR")]
+    /// Deprecated. Use --index-storage and --index-directory.
+    #[arg(long, hide = true, num_args = 0..=1, require_equals = true, default_missing_value = "", value_name = "DIR")]
     pub write_index: Option<String>,
 
-    /// Load an index; optional directory requires '='.
-    #[arg(long, num_args = 0..=1, require_equals = true, default_missing_value = "", value_name = "DIR")]
+    /// Deprecated. Use --index-storage and --index-directory.
+    #[arg(long, hide = true, num_args = 0..=1, require_equals = true, default_missing_value = "", value_name = "DIR")]
     pub load_index: Option<String>,
+
+    /// Index storage: memory (default), temporary, repository, or custom.
+    #[arg(long, value_enum, default_value_t = IndexStorageChoice::Memory)]
+    pub index_storage: IndexStorageChoice,
+
+    /// Existing base folder for --index-storage custom.
+    #[arg(long, value_name = "PATH")]
+    pub index_directory: Option<PathBuf>,
+
+    /// On-demand file access or an owned full index copy for disk storage.
+    #[arg(long, value_enum, value_name = "MODE")]
+    pub index_residency: Option<IndexResidencyChoice>,
 
     /// Maximum returned matches. Omission returns all matches.
     #[arg(long, value_name = "N")]
@@ -95,7 +124,6 @@ pub struct Arguments {
     pub diagnostic: bool,
 }
 
-
 /// Canonical collection root and one resolved optional snapshot directory.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResolvedPaths {
@@ -104,7 +132,6 @@ pub struct ResolvedPaths {
     pub index_directory: Option<PathBuf>,
     pub schema_file: Option<PathBuf>,
 }
-
 
 impl Arguments {
     pub fn multiple_collections(&self) -> bool {
@@ -119,17 +146,22 @@ impl Arguments {
         if self.query.is_none()
             && self.fts.is_none()
             && self.query_file.is_none()
-            && self.write_index.is_none()
-            && self.load_index.is_none()
+            && self.index_storage == IndexStorageChoice::Memory
             && !self.tui
         {
-            return Err("missing query (or --write-index/--load-index for index-only use)".into());
+            return Err(
+                "missing query (or select a disk --index-storage mode for index-only use)".into(),
+            );
         }
         Ok(())
     }
 
     /// Validate opening choices when a graphical caller constructs arguments directly.
     pub fn validate_open_options(&self) -> Result<(), String> {
+        if self.load_index.is_some() || self.write_index.is_some() {
+            return Err("--load-index and --write-index were removed; use --index-storage memory|temporary|repository|custom, with --index-directory PATH for custom storage".into());
+        }
+        self.index_storage_policy()?;
         if self.repo.is_some() && !self.path.is_empty() {
             return Err("--repo cannot be combined with --path".into());
         }
@@ -145,6 +177,56 @@ impl Arguments {
             );
         }
         Ok(())
+    }
+
+    /// Translate user spelling to the single core policy model before any
+    /// cache probing, deletion or directory creation.
+    pub fn index_storage_policy(&self) -> Result<IndexStoragePolicy, String> {
+        let location = match self.index_storage {
+            IndexStorageChoice::Memory => IndexStorageLocation::MemoryOnly,
+            IndexStorageChoice::Temporary => IndexStorageLocation::SystemTemporary,
+            IndexStorageChoice::Repository => IndexStorageLocation::RepositoryDirectory,
+            IndexStorageChoice::Custom => IndexStorageLocation::CustomDirectory(
+                self.index_directory
+                    .clone()
+                    .ok_or("--index-storage custom requires --index-directory PATH")?,
+            ),
+        };
+        if self.index_storage != IndexStorageChoice::Custom && self.index_directory.is_some() {
+            return Err("--index-directory requires --index-storage custom".into());
+        }
+        let residency = match self.index_residency {
+            Some(IndexResidencyChoice::OnDemand) => IndexResidency::OnDemand,
+            Some(IndexResidencyChoice::Full) => IndexResidency::FullyResident,
+            None if self.index_storage == IndexStorageChoice::Memory => {
+                IndexResidency::FullyResident
+            }
+            None => IndexResidency::OnDemand,
+        };
+        let policy = IndexStoragePolicy {
+            location,
+            residency,
+        };
+        policy.validate()?;
+        Ok(policy)
+    }
+
+    /// Return the policy after resolving a custom base against the caller's
+    /// working directory, which may differ from the process working directory.
+    pub fn resolved_index_storage_policy(
+        &self,
+        paths: &ResolvedPaths,
+    ) -> Result<IndexStoragePolicy, String> {
+        let mut policy = self.index_storage_policy()?;
+        if self.index_storage == IndexStorageChoice::Custom {
+            policy.location = IndexStorageLocation::CustomDirectory(
+                paths
+                    .index_directory
+                    .clone()
+                    .ok_or("--index-storage custom requires a resolved --index-directory")?,
+            );
+        }
+        Ok(policy)
     }
 
     pub fn resolve_paths(&self, cwd: &Path) -> Result<ResolvedPaths, String> {
@@ -198,21 +280,6 @@ impl Arguments {
             }
             root.to_path_buf()
         };
-        let read = self
-            .load_index
-            .as_deref()
-            .map(|input| index_path(input, cwd, &root));
-        let write = self
-            .write_index
-            .as_deref()
-            .map(|input| index_path(input, cwd, &root));
-        let read = read.transpose()?;
-        let write = write.transpose()?;
-        if let (Some(read), Some(write)) = (&read, &write)
-            && read != write
-        {
-            return Err("--load-index and --write-index must name the same directory".into());
-        }
         let schema_file = self
             .schema
             .as_ref()
@@ -231,6 +298,25 @@ impl Arguments {
                 Ok(path)
             })
             .transpose()?;
+        let index_directory = if let Some(custom) = self.index_directory.as_deref() {
+            let base = if custom.is_absolute() {
+                custom.to_owned()
+            } else {
+                cwd.join(custom)
+            };
+            let base = base
+                .canonicalize()
+                .map_err(|error| format!("custom index base {}: {error}", base.display()))?;
+            if !base.is_dir() {
+                return Err(format!(
+                    "custom index base is not a directory: {}",
+                    base.display()
+                ));
+            }
+            Some(base)
+        } else {
+            None
+        };
         Ok(ResolvedPaths {
             root,
             collection_paths: if self.repo.is_some() {
@@ -238,52 +324,10 @@ impl Arguments {
             } else {
                 resolved
             },
-            index_directory: write.or(read),
+            index_directory,
             schema_file,
         })
     }
-}
-
-
-fn index_path(input: &str, cwd: &Path, root: &Path) -> Result<PathBuf, String> {
-    let path = if input.is_empty() {
-        root.join(".objekte")
-    } else if Path::new(input).is_absolute() {
-        PathBuf::from(input)
-    } else {
-        cwd.join(input)
-    };
-    let path = normalize(&path);
-    let mut ancestor = path.clone();
-    let mut suffix = Vec::new();
-    while !ancestor.exists() {
-        let name = ancestor
-            .file_name()
-            .ok_or_else(|| format!("{} has no existing ancestor", path.display()))?;
-        suffix.push(name.to_os_string());
-        ancestor.pop();
-    }
-    let mut resolved = ancestor
-        .canonicalize()
-        .map_err(|error| format!("{}: {error}", ancestor.display()))?;
-    for component in suffix.iter().rev() {
-        resolved.push(component);
-    }
-    Ok(resolved)
-}
-
-fn normalize(path: &Path) -> PathBuf {
-    let mut parts = PathBuf::new();
-    for part in path.components() {
-        match part {
-            Component::CurDir => {}
-            Component::ParentDir => {
-                parts.pop();
-            }
-            _ => parts.push(part.as_os_str()),
-        }
-    }
-    parts
 }
 
 #[cfg(test)]

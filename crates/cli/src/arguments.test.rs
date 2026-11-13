@@ -1,15 +1,23 @@
 use clap::Parser;
+use objekte_search_core::index_storage::{
+    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
+};
 
-use super::Arguments;
+use super::{Arguments, IndexStorageChoice};
 
 #[test]
-fn optional_index_paths_require_equals_and_do_not_eat_query() {
+fn removed_index_flags_are_recognized_without_consuming_query() {
     let args = Arguments::try_parse_from(["obj", "--write-index", "title = \"A\""]).unwrap();
     assert_eq!(args.write_index.as_deref(), Some(""));
     assert_eq!(args.query.as_deref(), Some("title = \"A\""));
     let args = Arguments::try_parse_from(["obj", "--write-index=cache", "--fts", "A"]).unwrap();
     assert_eq!(args.write_index.as_deref(), Some("cache"));
     assert_eq!(args.fts.as_deref(), Some("A"));
+    assert!(
+        args.validate_input()
+            .unwrap_err()
+            .contains("--index-storage")
+    );
 }
 
 #[test]
@@ -26,12 +34,16 @@ fn input_modes_and_repeated_positionals_are_rejected() {
 }
 
 #[test]
-fn index_directory_mismatch_is_an_argument_error() {
+fn removed_flags_are_rejected_before_path_resolution() {
     let cwd = tempfile::tempdir().unwrap();
     let args =
         Arguments::try_parse_from(["obj", "--load-index=one", "--write-index=two", "--fts", "A"])
             .unwrap();
-    assert!(args.resolve_paths(cwd.path()).is_err());
+    assert!(
+        args.resolve_paths(cwd.path())
+            .unwrap_err()
+            .contains("were removed")
+    );
     let args = Arguments::try_parse_from([
         "obj",
         "--load-index=one/../same",
@@ -40,9 +52,10 @@ fn index_directory_mismatch_is_an_argument_error() {
         "A",
     ])
     .unwrap();
-    assert_eq!(
-        args.resolve_paths(cwd.path()).unwrap().index_directory,
-        Some(cwd.path().join("same"))
+    assert!(
+        args.resolve_paths(cwd.path())
+            .unwrap_err()
+            .contains("were removed")
     );
 }
 
@@ -51,7 +64,140 @@ fn bare_command_does_not_open_repository() {
     let args = Arguments::try_parse_from(["obj"]).unwrap();
     assert!(args.validate_input().is_err());
     let args = Arguments::try_parse_from(["obj", "--write-index"]).unwrap();
-    assert!(args.validate_input().is_ok());
+    assert!(
+        args.validate_input()
+            .unwrap_err()
+            .contains("--index-storage")
+    );
+}
+
+#[test]
+fn memory_is_default_for_plain_and_configured_repositories() {
+    let default = Arguments::try_parse_from(["obj", "--fts", "A"]).unwrap();
+    assert_eq!(default.index_storage, IndexStorageChoice::Memory);
+    assert_eq!(
+        default.index_storage_policy().unwrap(),
+        IndexStoragePolicy::default()
+    );
+    let configured = Arguments::try_parse_from(["obj", "--repo", ".", "--fts", "A"]).unwrap();
+    assert_eq!(
+        configured.index_storage_policy().unwrap(),
+        IndexStoragePolicy::default()
+    );
+}
+
+#[test]
+fn storage_flags_map_to_the_core_policy_and_reject_contradictions() {
+    let cwd = tempfile::tempdir().unwrap();
+    let temporary =
+        Arguments::try_parse_from(["obj", "--index-storage", "temporary", "--fts", "A"]).unwrap();
+    assert_eq!(
+        temporary.index_storage_policy().unwrap().location,
+        IndexStorageLocation::SystemTemporary
+    );
+    assert_eq!(
+        temporary.index_storage_policy().unwrap().residency,
+        IndexResidency::OnDemand
+    );
+    let repository = Arguments::try_parse_from([
+        "obj",
+        "--index-storage",
+        "repository",
+        "--index-residency",
+        "full",
+        "--fts",
+        "A",
+    ])
+    .unwrap();
+    assert_eq!(
+        repository.index_storage_policy().unwrap().location,
+        IndexStorageLocation::RepositoryDirectory
+    );
+    assert_eq!(
+        repository.index_storage_policy().unwrap().residency,
+        IndexResidency::FullyResident
+    );
+    let custom = Arguments::try_parse_from([
+        "obj",
+        "--index-storage",
+        "custom",
+        "--index-directory",
+        ".",
+        "--fts",
+        "A",
+    ])
+    .unwrap();
+    assert_eq!(
+        custom.resolve_paths(cwd.path()).unwrap().index_directory,
+        Some(cwd.path().to_owned())
+    );
+    assert_eq!(
+        custom.index_storage_policy().unwrap().location,
+        IndexStorageLocation::CustomDirectory(".".into())
+    );
+    assert_eq!(
+        custom
+            .resolved_index_storage_policy(&custom.resolve_paths(cwd.path()).unwrap())
+            .unwrap()
+            .location,
+        IndexStorageLocation::CustomDirectory(cwd.path().to_owned())
+    );
+    assert!(
+        Arguments::try_parse_from(["obj", "--index-storage", "custom", "--fts", "A"])
+            .unwrap()
+            .validate_input()
+            .unwrap_err()
+            .contains("requires --index-directory")
+    );
+    assert!(
+        Arguments::try_parse_from([
+            "obj",
+            "--index-storage",
+            "memory",
+            "--index-directory",
+            ".",
+            "--fts",
+            "A"
+        ])
+        .unwrap()
+        .validate_input()
+        .unwrap_err()
+        .contains("requires --index-storage custom")
+    );
+    assert!(
+        Arguments::try_parse_from([
+            "obj",
+            "--index-storage",
+            "memory",
+            "--index-residency",
+            "on-demand",
+            "--fts",
+            "A"
+        ])
+        .unwrap()
+        .validate_input()
+        .is_err()
+    );
+    assert!(
+        Arguments::try_parse_from([
+            "obj",
+            "--index-storage",
+            "memory",
+            "--index-residency",
+            "full",
+            "--fts",
+            "A"
+        ])
+        .unwrap()
+        .validate_input()
+        .is_ok()
+    );
+    assert!(
+        Arguments::try_parse_from(["obj", "--index-storage", "temporary"])
+            .unwrap()
+            .validate_input()
+            .is_ok()
+    );
 }
 
 #[test]

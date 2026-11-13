@@ -3,8 +3,8 @@
 Run `cargo run --release -p objekte-cli --bin obj -- --repo examples/musenalm --tui` from the workspace
 root. The terminal window opens before repository startup and shows the elapsed
 index-building time. On a fresh build, the file catalogue opens after discovery
-and search can begin while records are still indexed. A selected cache that
-cannot be used also enters this fresh-build path. The first run may take
+and search can begin while records are still indexed. A valid stored generation
+opens without rebuilding. The first run may take
 longer while the index is built; the release build is recommended for the
 Musenalm corpus. After each search,
 the result status line shows its execution time.
@@ -12,7 +12,7 @@ The terminal UI is an optional feature of `crates/cli`, enabled by default for t
 `REPOSITORY/.objekte/collections/` to construct the core's in-memory
 `CollectionDefinition` values. Schema loading belongs to the CLI adapter;
 applications can also construct definitions directly and call
-`Repository::open`.
+`Index::open_with_storage`.
 
 Type literal text in **Search**, or press Tab for a structured **Filter**.
 The Filter offers fields from the current index publication, built-in metadata,
@@ -30,6 +30,13 @@ columns. Alt+E exports the selected record; Alt+A exports all matches to a
 new JSON file. The UI fetches result pages of 100 records as you approach
 the end. Settings live in `.objekte/.cache/tui.json`.
 
+Ctrl+K opens **Index storage**. Choose Memory, Temporary, Repository, or
+Custom; Custom also asks for an existing base directory. Disk choices offer
+**Keep entire index in memory**. Applying a changed setting reopens the
+repository and shows the opening state until the replacement is ready.
+Disk indexes synchronize
+changes during use and flush on orderly close.
+
 Ctrl+I switches between search results and the physical file catalogue. The
 catalogue shows repository-relative paths, sizes, and file timestamps; a
 listed file is not a claim that it contains a searchable record. During a
@@ -46,5 +53,5 @@ the root separately.
 The adapted TUI supports core search, filters, collection scope, paging,
 sorting, record inspection, saved queries, display settings, and export.
 The earlier TUI's inference, backlinks, editing, regex and case modes,
-text representation switch, and cache controls await corresponding core
+and text representation switch await corresponding core
 APIs.

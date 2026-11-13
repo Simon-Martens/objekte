@@ -3,62 +3,38 @@ use objekte_search_core::lifecycle::Index;
 use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::source::SourceFormat;
 
-#[cfg(feature = "tui")]
 #[test]
-fn tui_invalid_selected_cache_opens_incremental_catalogue() {
+fn configured_memory_open_ignores_existing_deprecated_snapshot() {
     let root = tempfile::tempdir().unwrap();
+    let schemas = root.path().join(".objekte/collections");
+    std::fs::create_dir_all(&schemas).unwrap();
     std::fs::create_dir(root.path().join("data")).unwrap();
     std::fs::write(root.path().join("data/a.json"), r#"{"title":"A"}"#).unwrap();
+    std::fs::write(
+        schemas.join("files.schema.json"),
+        br#"{"type":"object","properties":{"title":{"type":"string"}},"x-objekte":{"name":"files","path":"data","format":"json","id":"filename"}}"#,
+    )
+    .unwrap();
     let cache_path = root.path().join(".objekte/search-core-ascii.snapshot");
-    std::fs::create_dir(cache_path.parent().unwrap()).unwrap();
     std::fs::write(&cache_path, b"invalid snapshot").unwrap();
-    let configured = ConfiguredDefinitions {
-        definitions: vec![CollectionDefinition::folder(
-            "files",
-            "data",
-            SourceFormat::Json,
-        )],
-        schema_files: Vec::new(),
-        protected_files: Vec::new(),
-        schema_fields: 0,
-        ignored_repository_metadata: false,
+    let args = Arguments {
+        repo: Some(root.path().to_owned()),
+        fts: Some("A".into()),
+        ..Arguments::default()
     };
-    let opening = selected_cache_or_incremental(
-        root.path().to_owned(),
-        configured,
-        RepositoryOptions::default(),
-        cache_path.clone(),
-    )
-    .unwrap();
-    let crate::tui::TuiOpening::Initial(task, _) = opening else {
-        panic!("invalid selected cache did not start incremental construction");
-    };
-    let index = task.wait_catalogue().unwrap();
-    assert_eq!(index.view().unwrap().catalogue_rows().count(), 1);
-    let complete = task.wait_complete().unwrap();
-    complete.flush_cache(&cache_path).unwrap();
-    let configured = ConfiguredDefinitions {
-        definitions: vec![CollectionDefinition::folder(
-            "files",
-            "data",
-            SourceFormat::Json,
-        )],
-        schema_files: Vec::new(),
-        protected_files: Vec::new(),
-        schema_fields: 0,
-        ignored_repository_metadata: false,
-    };
-    let opening = selected_cache_or_incremental(
-        root.path().to_owned(),
-        configured,
-        RepositoryOptions::default(),
-        cache_path,
-    )
-    .unwrap();
-    let crate::tui::TuiOpening::Ready(repository) = opening else {
-        panic!("valid completed snapshot did not restore");
-    };
-    assert!(repository.startup().restored);
+    let mut output = Vec::new();
+    assert_eq!(
+        run(&args, &mut output, &CancellationToken::new()),
+        Exit::Success
+    );
+    assert_eq!(std::fs::read(cache_path).unwrap(), b"invalid snapshot");
+    let events: Vec<serde_json::Value> = output
+        .split(|byte| *byte == b'\n')
+        .filter(|line| !line.is_empty())
+        .map(|line| serde_json::from_slice(line).unwrap())
+        .collect();
+    assert!(events.iter().any(|event| event["type"] == "query_complete"));
+    assert_eq!(events.last().unwrap()["snapshot_action"], "built_in_memory");
 }
 
 #[test]
