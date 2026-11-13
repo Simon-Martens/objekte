@@ -39,13 +39,14 @@ fn memory_only_is_default_and_desktop_query_has_no_range() {
         ..OpenDraft::default()
     };
     opening.paths = "/tmp/data".into();
-    assert!(
+    assert!(matches!(
         open_spec(&opening, Path::new("/tmp"))
             .unwrap()
-            .args
-            .write_index
-            .is_none()
-    );
+            .storage_policy
+            .unwrap()
+            .location,
+        IndexStorageLocation::MemoryOnly
+    ));
     opening.index_storage = crate::ui::model::StorageChoice::Custom;
     let custom = open_spec(&opening, Path::new("/tmp")).unwrap();
     assert!(matches!(
@@ -69,15 +70,17 @@ fn memory_only_is_default_and_desktop_query_has_no_range() {
 }
 
 #[test]
-fn configured_repository_memory_open_ignores_legacy_cache() {
+fn configured_repository_defaults_to_memory_storage() {
     let opening = OpenDraft {
         mode: OpenMode::ConfiguredRepository,
         paths: "/tmp/repository".into(),
         ..OpenDraft::default()
     };
     let spec = open_spec(&opening, Path::new("/tmp")).unwrap();
-    assert!(spec.args.load_index.is_none());
-    assert!(spec.args.write_index.is_none());
+    assert!(matches!(
+        spec.storage_policy.unwrap().location,
+        IndexStorageLocation::MemoryOnly
+    ));
 }
 
 #[test]
