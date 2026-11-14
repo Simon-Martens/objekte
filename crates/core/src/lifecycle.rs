@@ -1642,7 +1642,7 @@ impl Index {
         self.update_storage_status(|status| {
             status.note_saved(report.publication_id, directory.to_owned());
             status.note_publication(current);
-            status.resident_packed_bytes = report.catalogue_bytes;
+            status.resident_packed_bytes = 0;
         })?;
         Ok(report)
     }
