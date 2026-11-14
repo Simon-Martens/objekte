@@ -2440,6 +2440,8 @@ source-check actions.
   resolution, optional explicit alphabet, and CLI/desktop recipe tests.
 - `92de4202` — typed postings and bigrams remain mapped during Load; packed
   posting-value/relation-probe access and loaded re-save object reuse.
+- `a5ddfc99` — packed-backed sort columns/orders and relation adjacency at
+  Load, plus the warm/cold mmap load benchmark.
 
 ### Packed access abstraction
 
