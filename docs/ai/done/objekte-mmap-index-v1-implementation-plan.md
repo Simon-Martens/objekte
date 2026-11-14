@@ -2541,8 +2541,8 @@ objekte-search-core --example bench_mmap_load --release` with `TMPDIR` on a
 disk-backed filesystem so `fadvise(DONTNEED)` can evict pages:
 
 ```text
-records=20000  warm mean=2.68 ms  cold mean=7.77 ms  cold/warm=2.90
-records=100000 warm mean=7.57 ms  cold mean=31.32 ms cold/warm=4.14
+records=20000  warm mean=1.79 ms  cold mean=4.59 ms  cold/warm=2.56
+records=100000 warm mean=9.13 ms  cold mean=19.89 ms cold/warm=2.18
 ```
 
 Each entry is the mean of three loads. Cold runs evict every store file before
