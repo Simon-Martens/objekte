@@ -757,6 +757,30 @@ impl IndexedCollectionSegment {
         }
     }
 
+    pub(crate) fn try_file_revision_at(&self, index: usize) -> Result<Option<SourceRevision>, String> {
+        if let Some(table) = &self.persisted {
+            table.file_revision_at(index)
+        } else {
+            Ok(self.files.get(index).map(|file| file.entry.revision))
+        }
+    }
+
+    pub(crate) fn try_file_record_count_at(&self, index: usize) -> Result<Option<usize>, String> {
+        if let Some(table) = &self.persisted {
+            table.file_record_count_at(index)
+        } else {
+            Ok(self.files.get(index).map(|file| file.records.len()))
+        }
+    }
+
+    pub(crate) fn try_file_record_at(&self, index: usize, position: usize) -> Result<Option<RecordSlot>, String> {
+        if let Some(table) = &self.persisted {
+            table.file_record_at(index, position)
+        } else {
+            Ok(self.files.get(index).and_then(|file| file.records.get(position).copied()))
+        }
+    }
+
     pub(crate) fn try_record(&self, slot: RecordSlot) -> Result<Option<std::borrow::Cow<'_, RecordEntry>>, String> {
         if let Some(table) = &self.persisted {
             Ok(table.record(slot)?.map(std::borrow::Cow::Owned))
@@ -770,6 +794,14 @@ impl IndexedCollectionSegment {
             table.record_id(slot)
         } else {
             Ok(self.records.get(slot.0 as usize).map(|record| record.id.0.as_ref()))
+        }
+    }
+
+    pub(crate) fn try_record_range(&self, slot: RecordSlot) -> Result<Option<ByteRange>, String> {
+        if let Some(table) = &self.persisted {
+            table.record_range(slot)
+        } else {
+            Ok(self.records.get(slot.0 as usize).map(|record| record.range))
         }
     }
 

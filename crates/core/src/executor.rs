@@ -9,9 +9,12 @@ use smallvec::SmallVec;
 
 use crate::build::IndexedCollectionSegment;
 use crate::index_catalog::{IndexCatalog, PostingId, PostingOperation, self_comparison_shape};
-use crate::inventory::{ActiveRecords, relative_path_bounds};
+use crate::inventory::{
+    ActiveRecords, ByteRange, DiagnosticRef, FileEntry, FileStatus, RecordClass, RecordEntry,
+    SharedPath, SourceRevision, relative_path_bounds,
+};
 use crate::lifecycle_catalog::FileCatalog;
-use crate::model::{LogicalType, MetadataField, Number, PathRoot, Value};
+use crate::model::{FileId, LogicalType, MetadataField, Number, PathRoot, RecordId, RecordSlot, Value};
 use crate::query::{FtsMode, Operator, Quantifier};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
@@ -231,6 +234,47 @@ fn segment_text_candidates(
     index.try_candidates_prepared(request)
 }
 
+fn extend_segment_file_slots(
+    segment: &IndexedCollectionSegment,
+    index: usize,
+    matches: &mut RoaringBitmap,
+) -> Result<(), String> {
+    let count = segment.try_file_record_count_at(index)?.ok_or("segment file row missing")?;
+    for position in 0..count {
+        let slot = segment.try_file_record_at(index, position)?
+            .ok_or("segment file membership missing")?;
+        matches.insert(slot.0);
+    }
+    Ok(())
+}
+
+/// Only the selected scalar metadata field is read by these two fast paths.
+/// Reuse one context object while direct table access supplies its value.
+fn metadata_probe_file() -> FileEntry {
+    FileEntry {
+        id: FileId(0),
+        relative_path: SharedPath::from(""),
+        revision: SourceRevision { modified_ns: 0, size: 0 },
+        created_ns: None,
+        collections: Vec::new(),
+        status: FileStatus::Valid,
+        diagnostics: Vec::new(),
+        omitted_diagnostics: 0,
+    }
+}
+
+fn metadata_probe_record() -> RecordEntry {
+    RecordEntry {
+        slot: RecordSlot(0),
+        id: RecordId(Arc::from("")),
+        file: FileId(0),
+        range: ByteRange { start: 0, end: 0 },
+        revision: SourceRevision { modified_ns: 0, size: 0 },
+        class: RecordClass::Logical,
+        diagnostic_ref: DiagnosticRef(0),
+    }
+}
+
 fn segment_file_size_matches(
     segment: &IndexedCollectionSegment,
     domain: &RoaringBitmap,
@@ -249,10 +293,10 @@ fn segment_file_size_matches(
     };
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        let file = segment.try_file_at(index)?.ok_or("segment file row missing")?;
-        let order = Number::integer(file.entry.revision.size as i128).cmp(literal);
+        let revision = segment.try_file_revision_at(index)?.ok_or("segment file row missing")?;
+        let order = Number::integer(revision.size as i128).cmp(literal);
         if order_matches(order, term.operator) {
-            matches.extend(file.records.iter().map(|slot| slot.0));
+            extend_segment_file_slots(segment, index, &mut matches)?;
         }
     }
     matches &= domain;
@@ -268,13 +312,13 @@ fn segment_file_path_matches(
 ) -> Result<RoaringBitmap, String> {
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        let file = segment.try_file_at(index)?.ok_or("segment file row missing")?;
-        let Some(entry) = catalog.entry(file.entry.id) else {
+        let id = segment.try_file_id_at(index)?.ok_or("segment file row missing")?;
+        let Some(entry) = catalog.entry(id) else {
             continue;
         };
         let path = crate::path_repr::query_path(&entry.relative_path);
         if file_path_matches(&path, operator, literal) {
-            matches.extend(file.records.iter().map(|slot| slot.0));
+            extend_segment_file_slots(segment, index, &mut matches)?;
         }
     }
     Ok(matches & domain)
@@ -286,29 +330,34 @@ fn segment_file_modified_matches(
     domain: &RoaringBitmap,
     term: &BoundTerm,
 ) -> Result<Option<RoaringBitmap>, String> {
-    if term.path.root != PathRoot::Metadata(MetadataField::FileModified) || term.rhs.is_some() {
+    if term.path.root != PathRoot::Metadata(MetadataField::FileModified)
+        || term.rhs.is_some()
+        || term.related.is_some()
+        || term.operation.is_some()
+    {
         return Ok(None);
     }
     // Compatible moves retain the indexed revision; changed metadata takes
     // the replacement route. The segment's immutable file revision is exact.
     let empty = Value::Object(BTreeMap::new());
+    let mut file = metadata_probe_file();
+    let record = metadata_probe_record();
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
-        let file = segment.try_file_at(index)?.ok_or("segment file row missing")?;
-        let Some(first) = file.records.first() else {
+        if segment.try_file_record_count_at(index)?.ok_or("segment file row missing")? == 0 {
             continue;
-        };
-        let record = segment.try_record(*first)?.ok_or("segment record row missing")?;
+        }
+        file.revision = segment.try_file_revision_at(index)?.ok_or("segment file row missing")?;
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
             record: &record,
-            file: &file.entry,
+            file: &file,
             collection_name: &collection.definition.name,
             repository_root: std::path::Path::new(""),
         };
         if eval_term(term, &ctx)? {
-            matches.extend(file.records.iter().map(|slot| slot.0));
+            extend_segment_file_slots(segment, index, &mut matches)?;
         }
     }
     matches &= domain;
@@ -329,20 +378,23 @@ fn segment_record_range_matches(
                 | MetadataField::RecordByteLength
         )
     ) || term.rhs.is_some()
+        || term.related.is_some()
+        || term.operation.is_some()
         || term.matcher.is_some()
     {
         return Ok(None);
     }
     let empty = Value::Object(BTreeMap::new());
+    let file = metadata_probe_file();
+    let mut record = metadata_probe_record();
     let mut matches = RoaringBitmap::new();
     for slot in domain.iter() {
-        let record = segment.try_record(crate::model::RecordSlot(slot))?.ok_or("segment record row missing")?;
-        let file = segment.try_file(record.file)?.ok_or("segment record file missing")?;
+        record.range = segment.try_record_range(RecordSlot(slot))?.ok_or("segment record row missing")?;
         let ctx = RecordContext {
             value: &empty,
             source_bytes: None,
             record: &record,
-            file: &file.entry,
+            file: &file,
             collection_name: &collection.definition.name,
             repository_root: std::path::Path::new(""),
         };

@@ -566,6 +566,25 @@ impl PersistedRecordSlots {
         Ok(self.layout.file_row(self.bytes()?, index).map(|row| row.id))
     }
 
+    pub(crate) fn file_revision_at(&self, index: usize) -> Result<Option<SourceRevision>, String> {
+        let Some(row) = self.layout.file_row(self.bytes()?, index) else { return Ok(None); };
+        self.metadata.revision_for_ref(row.metadata_ref)
+            .map(Some).ok_or("record catalog revision missing".into())
+    }
+
+    pub(crate) fn file_record_count_at(&self, index: usize) -> Result<Option<usize>, String> {
+        Ok(self.layout.file_row(self.bytes()?, index).map(|row| row.membership_count as usize))
+    }
+
+    pub(crate) fn file_record_at(&self, index: usize, position: usize) -> Result<Option<RecordSlot>, String> {
+        let bytes = self.bytes()?;
+        let Some(row) = self.layout.file_row(bytes, index) else { return Ok(None); };
+        if position >= row.membership_count as usize { return Ok(None); }
+        let member = row.membership_start as usize + position;
+        self.layout.membership(bytes, member).map(Some)
+            .ok_or("record membership slot missing".into())
+    }
+
     pub(crate) fn metadata_ref_at(&self, index: usize) -> Result<Option<u32>, String> {
         Ok(self.layout.file_row(self.bytes()?, index).map(|row| row.metadata_ref))
     }
@@ -580,6 +599,10 @@ impl PersistedRecordSlots {
 
     pub(crate) fn record_id(&self, slot: RecordSlot) -> Result<Option<&str>, String> {
         Ok(self.layout.record_row(self.bytes()?, slot.0 as usize)?.map(|row| row.id))
+    }
+
+    pub(crate) fn record_range(&self, slot: RecordSlot) -> Result<Option<ByteRange>, String> {
+        Ok(self.layout.record_row(self.bytes()?, slot.0 as usize)?.map(|row| row.range))
     }
 
     pub(crate) fn record(&self, slot: RecordSlot) -> Result<Option<RecordEntry>, String> {
