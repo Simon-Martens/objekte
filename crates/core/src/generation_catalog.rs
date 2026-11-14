@@ -13,7 +13,6 @@ use std::sync::Arc;
 
 use bincode::Options;
 use roaring::RoaringBitmap;
-use sha2::{Digest, Sha256};
 
 use crate::inventory::{
     ByteRange, FileEntry, FileStatus, FileVersion, MAX_DIAGNOSTIC_CODE_BYTES,
@@ -26,14 +25,14 @@ use crate::repository::GlobalInferenceSummary;
 use crate::source::DiagnosticCategory;
 
 const MAGIC: &[u8; 8] = b"OBJHCAT1";
-const VERSION: u32 = 4;
 const HISTORICAL_TAG: u32 = 1 << 31;
-const HEADER_BYTES: usize = 8 + 4 + 8 + 32;
+const HEADER_BYTES: usize = 28;
 const BODY_HEADER_BYTES: usize = 104;
 const RETIRED_OFFSET: u32 = u32::MAX;
 const QUERY_ARENA_TAG: u32 = 1 << 31;
 const MAX_BYTES: usize = 512 * 1024 * 1024;
 const MAX_FILES: usize = 16_000_000;
+const MAX_SEGMENTS: usize = 16_384;
 const MAX_PATH_BYTES: usize = 64 * 1024;
 const MAX_SOURCE_ID_BYTES: usize = 256;
 const MAX_DIAGNOSTIC_BYTES: usize = 16 * 1024;
@@ -56,6 +55,7 @@ pub(crate) struct GenerationCatalogBuilder<'a> {
     configuration_identity: [u8; 32],
     revision: u64,
     next_segment_ordinal: u64,
+    expected_segment_count: u32,
     collection_count: usize,
     historical_base: Option<Arc<RestoredGenerationCatalog>>,
     historical: Vec<FileEntry>,
@@ -108,6 +108,14 @@ impl<'a> GenerationCatalogBuilder<'a> {
             configuration_identity: publication.configuration_identity,
             revision: publication.revision.0,
             next_segment_ordinal: publication.next_segment_ordinal,
+            expected_segment_count: u32::try_from(
+                publication
+                    .segments
+                    .iter()
+                    .map(|group| group.len())
+                    .sum::<usize>(),
+            )
+            .map_err(|_| "too many managed segments")?,
             collection_count: publication.repository.collections().len(),
             historical_base: None,
             historical: prior.to_vec(),
@@ -378,17 +386,18 @@ impl<'a> GenerationCatalogBuilder<'a> {
         let mut bytes = vec![0; HEADER_BYTES];
         bytes.extend_from_slice(&body);
         let body_len = body.len() as u64;
-        let checksum = Sha256::digest(&body);
         bytes[..8].copy_from_slice(MAGIC);
-        bytes[8..12].copy_from_slice(&VERSION.to_le_bytes());
+        bytes[8..12].copy_from_slice(&crate::PROGRAM_VERSION.to_le_bytes());
         bytes[12..20].copy_from_slice(&body_len.to_le_bytes());
-        bytes[20..HEADER_BYTES].copy_from_slice(&checksum);
+        bytes[20..24].copy_from_slice(&self.expected_segment_count.to_le_bytes());
+        bytes[24..28].copy_from_slice(&0u32.to_le_bytes());
         Ok(bytes)
     }
 
     fn validate_header_state(&self) -> Result<(), String> {
         if self.revision == 0
             || self.next_segment_ordinal == 0
+            || self.expected_segment_count as usize > MAX_SEGMENTS
             || self.collection_count == 0
             || self.collection_count > u32::MAX as usize
             || self.publication.catalog.allocated_files() > MAX_FILES
@@ -438,6 +447,7 @@ pub(crate) struct RestoredGenerationCatalog {
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) revision: u64,
     pub(crate) next_segment_ordinal: u64,
+    pub(crate) expected_segment_count: u32,
     pub(crate) inference: Vec<Option<GlobalInferenceSummary>>,
     active: RoaringBitmap,
     // Temporary compatibility fields until all lifecycle callers use the
@@ -455,10 +465,11 @@ impl RestoredGenerationCatalog {
         expected_identity: [u8; 32],
         collection_count: usize,
     ) -> Result<Self, String> {
-        Self::decode_arc(Arc::from(bytes), expected_identity, collection_count)
+        Self::decode_owned(Arc::from(bytes), expected_identity, collection_count, true)
     }
 
-    #[cfg(test)]
+    /// Managed open validates the complete encoded directory and retains only
+    /// the indexed tables needed by segment readers.
     pub(crate) fn decode_arc(
         bytes: Arc<[u8]>,
         expected_identity: [u8; 32],
@@ -467,20 +478,11 @@ impl RestoredGenerationCatalog {
         Self::decode_owned(bytes, expected_identity, collection_count, false)
     }
 
-    /// ManagedStore has already matched these bytes to the manifest digest.
-    pub(crate) fn decode_verified_arc(
-        bytes: Arc<[u8]>,
-        expected_identity: [u8; 32],
-        collection_count: usize,
-    ) -> Result<Self, String> {
-        Self::decode_owned(bytes, expected_identity, collection_count, true)
-    }
-
     fn decode_owned(
         bytes: Arc<[u8]>,
         expected_identity: [u8; 32],
         collection_count: usize,
-        manifest_verified: bool,
+        eager_compatibility_tables: bool,
     ) -> Result<Self, String> {
         if bytes.len() < HEADER_BYTES + BODY_HEADER_BYTES
             || bytes.len() > MAX_BYTES
@@ -489,17 +491,18 @@ impl RestoredGenerationCatalog {
             return Err("invalid managed catalog envelope".into());
         }
         let mut header = Reader::new(&bytes[8..HEADER_BYTES]);
-        if header.u32()? != VERSION {
+        if header.u32()? != crate::PROGRAM_VERSION {
             return Err("unsupported managed catalog version".into());
         }
         let body_len =
             usize::try_from(header.u64()?).map_err(|_| "catalog body length overflow")?;
-        let digest = header.fixed::<32>()?;
+        let expected_segment_count = header.u32()?;
+        if header.u32()? != 0 {
+            return Err("managed catalog reserved header bytes are nonzero".into());
+        }
         let body = &bytes[HEADER_BYTES..];
-        if body_len != body.len()
-            || (!manifest_verified && digest != Sha256::digest(body).as_slice())
-        {
-            return Err("managed catalog length or checksum mismatch".into());
+        if body_len != body.len() || expected_segment_count as usize > MAX_SEGMENTS {
+            return Err("managed catalog length or segment count mismatch".into());
         }
         let mut input = Reader::new(&body[..BODY_HEADER_BYTES]);
         let configuration_identity = input.fixed::<32>()?;
@@ -610,6 +613,7 @@ impl RestoredGenerationCatalog {
             configuration_identity,
             revision,
             next_segment_ordinal,
+            expected_segment_count,
             inference,
             active,
             slots: Vec::new(),
@@ -617,7 +621,7 @@ impl RestoredGenerationCatalog {
             historical: Vec::new(),
         };
         catalog.validate_tables(collection_count)?;
-        if !manifest_verified {
+        if eager_compatibility_tables {
             // The borrowed compatibility API is retained for standalone tests.
             // Managed open uses encoded tables and decodes only requested rows.
             catalog.file_versions = (0..slot_count)

@@ -14,14 +14,18 @@ use memmap2::{Mmap, MmapOptions};
 use roaring::RoaringBitmap;
 use sha2::{Digest, Sha256};
 
+use crate::inventory::ActiveRecords;
+use crate::model::CollectionId;
+
 const MAGIC: &[u8; 8] = b"OBJHSEG1";
-pub(crate) const FORMAT_VERSION: u32 = 5;
-const HEADER_BYTES: usize = 24;
+pub(crate) const HEADER_BYTES: usize = 88;
 const DIRECTORY_ENTRY_BYTES: usize = 56;
 const MAX_SECTIONS: usize = 32;
 const MAX_SEGMENT_BYTES: u64 = 8 * 1024 * 1024 * 1024;
 const MAX_DECODED_POSTING_CACHE_BYTES: usize = 8 * 1024 * 1024;
 pub(crate) const MIN_CACHED_POSTING_BYTES: u32 = 64;
+const FLAG_WRITE_VALIDATED: u32 = 1;
+const FLAG_ALL_ACTIVE: u32 = 2;
 
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq)]
 #[repr(u32)]
@@ -110,12 +114,23 @@ impl SegmentBytes {
     }
 }
 
+#[derive(Clone, Debug)]
+pub(crate) struct SegmentDescriptor {
+    pub generation: u64,
+    pub collection: CollectionId,
+    pub ordinal: u64,
+    pub slot_count: u32,
+    pub active: ActiveRecords,
+    pub write_validated: bool,
+}
+
 /// A segment reader validates framing at construction and section checksums
 /// once per immutable byte span. Posting payloads have narrower checksums.
 #[derive(Clone)]
 pub(crate) struct SegmentReader {
     bytes: SegmentBytes,
     sections: HashMap<SectionKind, SectionEntry>,
+    descriptor: Option<SegmentDescriptor>,
     decoded: Arc<RwLock<DecodedPostingCache>>,
     #[cfg(test)]
     checked_postings: Arc<std::sync::atomic::AtomicU64>,
@@ -124,6 +139,7 @@ pub(crate) struct SegmentReader {
 #[derive(Debug)]
 pub(crate) enum SegmentOpenError {
     Io(io::Error),
+    Incompatible(String),
     Invalid(String),
 }
 
@@ -131,8 +147,14 @@ impl fmt::Display for SegmentOpenError {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             Self::Io(error) => write!(formatter, "{error}"),
-            Self::Invalid(message) => formatter.write_str(message),
+            Self::Incompatible(message) | Self::Invalid(message) => formatter.write_str(message),
         }
+    }
+}
+
+impl From<String> for SegmentOpenError {
+    fn from(message: String) -> Self {
+        Self::Invalid(message)
     }
 }
 
@@ -150,18 +172,26 @@ pub(crate) enum PostingProof {
     Checked,
 }
 
-/// The source of the proof for eager dictionary validation. A stamp never
-/// proves posting payloads; those still require checked access.
+/// The source of the proof for eager dictionary validation. A segment flag
+/// never proves posting payloads; those still require checked access.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum SegmentTrust {
     Constructed,
-    Stamped,
+    WriteValidated,
     Untrusted,
 }
 
-/// Bump when dictionary ordering, metadata semantics, collation or the
-/// validator's interpretation changes. Old stamps then require a full open.
-pub(crate) const VALIDATOR_VERSION: u32 = 4;
+/// Identity and liveness supplied when encoding a segment file. Memory-only
+/// constructed buffers pass `generation = 0` and no active domain; durable
+/// persistence supplies the pinned publication's generation and active mask.
+pub(crate) struct SegmentWriteMetadata<'a> {
+    pub generation: u64,
+    pub collection: CollectionId,
+    pub ordinal: u64,
+    pub slot_count: u32,
+    pub active: Option<&'a ActiveRecords>,
+    pub write_validated: bool,
+}
 
 /// The retained domain owner makes the pointer identity stable for the
 /// lifetime of a cache entry. A descriptor checked for one eligible domain
@@ -209,13 +239,13 @@ impl SegmentReader {
 
     #[cfg(test)]
     pub(crate) fn from_owned(bytes: Arc<[u8]>) -> Result<Self, String> {
-        Self::parse(SegmentBytes::Owned(bytes))
+        Self::parse(SegmentBytes::Owned(bytes)).map_err(|error| error.to_string())
     }
 
     /// Transfer a just-built segment buffer without copying its full payload
     /// into an Arc slice while the mutable builders are still live.
     pub(crate) fn from_owned_vec(bytes: Vec<u8>) -> Result<Self, String> {
-        Self::parse(SegmentBytes::OwnedVec(Arc::new(bytes)))
+        Self::parse(SegmentBytes::OwnedVec(Arc::new(bytes))).map_err(|error| error.to_string())
     }
 
     /// Only the completed in-process segment encoder may supply these owned
@@ -257,6 +287,7 @@ impl SegmentReader {
                 encoded_len,
             })),
             sections: entries,
+            descriptor: None,
             decoded: Arc::new(RwLock::new(DecodedPostingCache {
                 limit_bytes,
                 ..Default::default()
@@ -283,65 +314,148 @@ impl SegmentReader {
         // SAFETY: the store opens application-owned immutable segment files;
         // publication never truncates or modifies an opened generation.
         let map = unsafe { MmapOptions::new().map(file) }.map_err(SegmentOpenError::Io)?;
-        Self::parse(SegmentBytes::Mapped(Arc::new(map))).map_err(SegmentOpenError::Invalid)
+        Self::parse(SegmentBytes::Mapped(Arc::new(map)))
     }
 
-    #[cfg(test)]
-    pub(crate) fn is_owned(&self) -> bool {
-        matches!(
-            self.bytes,
-            SegmentBytes::Owned(_) | SegmentBytes::OwnedVec(_) | SegmentBytes::Constructed(_)
-        )
-    }
-
-    fn parse(bytes: SegmentBytes) -> Result<Self, String> {
-        let raw = bytes
-            .contiguous()
-            .ok_or("constructed bytes require internal opener")?;
+    fn parse(bytes: SegmentBytes) -> Result<Self, SegmentOpenError> {
+        let raw = bytes.contiguous().ok_or_else(|| {
+            SegmentOpenError::Invalid("constructed bytes require internal opener".into())
+        })?;
         if raw.len() < HEADER_BYTES || raw.len() as u64 > MAX_SEGMENT_BYTES {
-            return Err("immutable segment header is truncated or oversized".into());
+            return Err(SegmentOpenError::Invalid(
+                "immutable segment header is truncated or oversized".into(),
+            ));
         }
         if &raw[..8] != MAGIC {
-            return Err("immutable segment magic mismatch".into());
+            return Err(SegmentOpenError::Invalid(
+                "immutable segment file type marker mismatch".into(),
+            ));
         }
-        if u32_at(raw, 8)? != FORMAT_VERSION {
-            return Err("unsupported immutable segment format".into());
+        if u32_at(raw, 8)? != crate::PROGRAM_VERSION {
+            return Err(SegmentOpenError::Incompatible(
+                "unsupported program version in immutable segment".into(),
+            ));
         }
-        let count = u32_at(raw, 12)? as usize;
+        if u32_at(raw, 12)? as usize != HEADER_BYTES {
+            return Err(SegmentOpenError::Invalid(
+                "immutable segment header length mismatch".into(),
+            ));
+        }
+        let generation = u64_at(raw, 16)?;
+        let collection = CollectionId(u32_at(raw, 24)?);
+        let flags = u32_at(raw, 28)?;
+        if flags & !(FLAG_WRITE_VALIDATED | FLAG_ALL_ACTIVE) != 0 {
+            return Err(SegmentOpenError::Invalid(
+                "unsupported immutable segment flags".into(),
+            ));
+        }
+        let ordinal = u64_at(raw, 32)?;
+        let slot_count = u32_at(raw, 40)?;
+        let active_count = u32_at(raw, 44)?;
+        let active_offset = u64_at(raw, 48)?;
+        let active_length = u32_at(raw, 56)? as u64;
+        let count = u32_at(raw, 60)? as usize;
+        let directory_offset = u64_at(raw, 64)?;
+        let directory_length = u64_at(raw, 72)?;
+        if u64_at(raw, 80)? != 0 {
+            return Err(SegmentOpenError::Invalid(
+                "immutable segment reserved header bytes are nonzero".into(),
+            ));
+        }
         if count == 0 || count > MAX_SECTIONS {
-            return Err("invalid immutable segment section count".into());
+            return Err(SegmentOpenError::Invalid(
+                "invalid immutable segment section count".into(),
+            ));
         }
-        let directory_end = u64_at(raw, 16)?;
+        let directory_bytes = count
+            .checked_mul(DIRECTORY_ENTRY_BYTES)
+            .ok_or_else(|| SegmentOpenError::Invalid("segment directory overflow".into()))?;
         let expected_end = HEADER_BYTES
-            .checked_add(
-                count
-                    .checked_mul(DIRECTORY_ENTRY_BYTES)
-                    .ok_or("directory overflow")?,
-            )
-            .ok_or("directory overflow")?;
-        if directory_end != expected_end as u64 || expected_end > raw.len() {
-            return Err("immutable segment directory bounds mismatch".into());
+            .checked_add(directory_bytes)
+            .ok_or_else(|| SegmentOpenError::Invalid("segment directory overflow".into()))?;
+        if directory_offset != HEADER_BYTES as u64
+            || directory_length != directory_bytes as u64
+            || expected_end > raw.len()
+        {
+            return Err(SegmentOpenError::Invalid(
+                "immutable segment directory bounds mismatch".into(),
+            ));
         }
+        if ordinal == 0 || active_count > slot_count {
+            return Err(SegmentOpenError::Invalid(
+                "immutable segment identity or active count invalid".into(),
+            ));
+        }
+        let all_active = flags & FLAG_ALL_ACTIVE != 0;
+        let active_end = active_offset
+            .checked_add(active_length)
+            .ok_or_else(|| SegmentOpenError::Invalid("active domain offset overflow".into()))?;
+        if active_offset != expected_end as u64 || active_end > raw.len() as u64 {
+            return Err(SegmentOpenError::Invalid(
+                "immutable segment active domain out of bounds".into(),
+            ));
+        }
+        if all_active != (active_length == 0) {
+            return Err(SegmentOpenError::Invalid(
+                "immutable segment active domain marker mismatch".into(),
+            ));
+        }
+        let active = if all_active {
+            if active_count != slot_count {
+                return Err(SegmentOpenError::Invalid(
+                    "immutable segment all-active cardinality mismatch".into(),
+                ));
+            }
+            ActiveRecords::all(slot_count as usize).map_err(SegmentOpenError::Invalid)?
+        } else {
+            let bytes = raw
+                .get(active_offset as usize..active_end as usize)
+                .ok_or_else(|| SegmentOpenError::Invalid("active domain out of bounds".into()))?;
+            let mut cursor = Cursor::new(bytes);
+            let bitmap = RoaringBitmap::deserialize_from(&mut cursor).map_err(|error| {
+                SegmentOpenError::Invalid(format!("active domain invalid: {error}"))
+            })?;
+            if cursor.position() != active_length
+                || bitmap.len() != active_count as u64
+                || bitmap.max().is_some_and(|slot| slot >= slot_count)
+            {
+                return Err(SegmentOpenError::Invalid(
+                    "immutable segment active domain cardinality mismatch".into(),
+                ));
+            }
+            ActiveRecords::from_bitmap(slot_count as usize, bitmap)
+                .map_err(SegmentOpenError::Invalid)?
+        };
         let mut sections = HashMap::with_capacity(count);
-        let mut spans = Vec::with_capacity(count);
+        let mut spans = Vec::with_capacity(count + 1);
+        if active_length > 0 {
+            spans.push((active_offset, active_end));
+        }
         let mut previous_kind = 0u32;
         for index in 0..count {
             let position = HEADER_BYTES + index * DIRECTORY_ENTRY_BYTES;
-            let kind = SectionKind::try_from(u32_at(raw, position)?)?;
+            let kind =
+                SectionKind::try_from(u32_at(raw, position)?).map_err(SegmentOpenError::Invalid)?;
             if kind as u32 <= previous_kind {
-                return Err("immutable segment directory order mismatch".into());
+                return Err(SegmentOpenError::Invalid(
+                    "immutable segment directory order mismatch".into(),
+                ));
             }
             previous_kind = kind as u32;
             if u32_at(raw, position + 4)? != 0 {
-                return Err("unsupported immutable segment section flags".into());
+                return Err(SegmentOpenError::Invalid(
+                    "unsupported immutable segment section flags".into(),
+                ));
             }
             let offset = u64_at(raw, position + 8)?;
             let length = u64_at(raw, position + 16)?;
-            let end = offset
-                .checked_add(length)
-                .ok_or("immutable segment section offset overflow")?;
-            if offset < directory_end || end > raw.len() as u64 {
-                return Err("immutable segment section out of bounds".into());
+            let end = offset.checked_add(length).ok_or_else(|| {
+                SegmentOpenError::Invalid("immutable segment section offset overflow".into())
+            })?;
+            if offset < active_end || end > raw.len() as u64 {
+                return Err(SegmentOpenError::Invalid(
+                    "immutable segment section out of bounds".into(),
+                ));
             }
             let mut sha256 = [0u8; 32];
             sha256.copy_from_slice(&raw[position + 24..position + 56]);
@@ -358,7 +472,9 @@ impl SegmentReader {
                 )
                 .is_some()
             {
-                return Err("duplicate immutable segment section".into());
+                return Err(SegmentOpenError::Invalid(
+                    "duplicate immutable segment section".into(),
+                ));
             }
             if length > 0 {
                 spans.push((offset, end));
@@ -366,7 +482,9 @@ impl SegmentReader {
         }
         spans.sort_unstable();
         if spans.windows(2).any(|pair| pair[0].1 > pair[1].0) {
-            return Err("overlapping immutable segment sections".into());
+            return Err(SegmentOpenError::Invalid(
+                "overlapping immutable segment sections".into(),
+            ));
         }
         // Cap retained decoded postings relative to this segment's encoded
         // bytes so many small shards do not imply an unbounded global cache.
@@ -374,6 +492,14 @@ impl SegmentReader {
         Ok(Self {
             bytes,
             sections,
+            descriptor: Some(SegmentDescriptor {
+                generation,
+                collection,
+                ordinal,
+                slot_count,
+                active,
+                write_validated: flags & FLAG_WRITE_VALIDATED != 0,
+            }),
             decoded: Arc::new(RwLock::new(DecodedPostingCache {
                 limit_bytes,
                 ..Default::default()
@@ -381,6 +507,20 @@ impl SegmentReader {
             #[cfg(test)]
             checked_postings: Arc::new(std::sync::atomic::AtomicU64::new(0)),
         })
+    }
+
+    pub(crate) fn descriptor(&self) -> Option<&SegmentDescriptor> {
+        self.descriptor.as_ref()
+    }
+
+    /// Hash every byte of a persisted segment for the optional manifest
+    /// verification entry. This is opt-in and never part of default loading.
+    pub(crate) fn whole_file_digest(&self) -> Result<[u8; 32], String> {
+        let bytes = self
+            .bytes
+            .contiguous()
+            .ok_or("constructed segment has no whole-file bytes")?;
+        Ok(Sha256::digest(bytes).into())
     }
 
     #[cfg(test)]
@@ -716,12 +856,34 @@ pub(crate) struct SegmentWriter<W: Write + Seek> {
     writer: W,
     expected_sections: usize,
     sections: Vec<(SectionKind, u64, u64, [u8; 32])>,
+    generation: u64,
+    collection: CollectionId,
+    ordinal: u64,
+    slot_count: u32,
+    active_count: u32,
+    active_offset: u64,
+    active_length: u32,
+    write_validated: bool,
 }
 
 impl<W: Write + Seek> SegmentWriter<W> {
-    pub(crate) fn new(mut writer: W, expected_sections: usize) -> Result<Self, String> {
+    pub(crate) fn new_with_metadata(
+        mut writer: W,
+        expected_sections: usize,
+        metadata: &SegmentWriteMetadata<'_>,
+    ) -> Result<Self, String> {
         if expected_sections == 0 || expected_sections > MAX_SECTIONS {
             return Err("invalid segment section count".into());
+        }
+        if metadata.ordinal == 0 {
+            return Err("invalid segment identity".into());
+        }
+        let slot_count = metadata.slot_count;
+        if metadata
+            .active
+            .is_some_and(|active| active.slot_count() != slot_count)
+        {
+            return Err("segment active slot count mismatch".into());
         }
         let directory_bytes = HEADER_BYTES
             .checked_add(
@@ -730,14 +892,66 @@ impl<W: Write + Seek> SegmentWriter<W> {
                     .ok_or("segment directory overflow")?,
             )
             .ok_or("segment directory overflow")?;
+        let active_bytes = match metadata.active {
+            Some(active) if active.len() != slot_count as u64 => {
+                let mut bytes = Vec::with_capacity(active.bitmap().serialized_size());
+                active
+                    .bitmap()
+                    .serialize_into(&mut bytes)
+                    .map_err(|error| format!("segment active domain encode: {error}"))?;
+                bytes
+            }
+            _ => Vec::new(),
+        };
+        let all_active = active_bytes.is_empty();
+        let active_count = if all_active {
+            slot_count
+        } else {
+            u32::try_from(metadata.active.expect("sparse active domain").len())
+                .map_err(|_| "segment active cardinality overflow")?
+        };
+        let active_length =
+            u32::try_from(active_bytes.len()).map_err(|_| "segment active domain too large")?;
+        let active_offset = directory_bytes as u64;
+        let reserved = directory_bytes
+            .checked_add(active_bytes.len())
+            .ok_or("segment size overflow")?;
+        if reserved as u64 > MAX_SEGMENT_BYTES {
+            return Err("segment too large".into());
+        }
         writer
             .write_all(&vec![0; directory_bytes])
+            .map_err(|error| error.to_string())?;
+        writer
+            .write_all(&active_bytes)
             .map_err(|error| error.to_string())?;
         Ok(Self {
             writer,
             expected_sections,
             sections: Vec::with_capacity(expected_sections),
+            generation: metadata.generation,
+            collection: metadata.collection,
+            ordinal: metadata.ordinal,
+            slot_count,
+            active_count,
+            active_offset,
+            active_length,
+            write_validated: metadata.write_validated,
         })
+    }
+
+    /// Minimal section envelope for low-level section-reader tests.
+    #[cfg(test)]
+    pub(crate) fn new(writer: W, expected_sections: usize) -> Result<Self, String> {
+        let metadata = SegmentWriteMetadata {
+            generation: 0,
+            collection: CollectionId(0),
+            ordinal: 1,
+            slot_count: 0,
+            active: None,
+            write_validated: true,
+        };
+        Self::new_with_metadata(writer, expected_sections, &metadata)
     }
 
     pub(crate) fn write_section(
@@ -769,22 +983,40 @@ impl<W: Write + Seek> SegmentWriter<W> {
             return Err("segment section count mismatch".into());
         }
         self.sections.sort_unstable_by_key(|entry| entry.0 as u32);
-        let directory_end = HEADER_BYTES + self.expected_sections * DIRECTORY_ENTRY_BYTES;
+        let directory_length = self.expected_sections * DIRECTORY_ENTRY_BYTES;
+        let flags = (if self.write_validated {
+            FLAG_WRITE_VALIDATED
+        } else {
+            0
+        }) | (if self.active_length == 0 {
+            FLAG_ALL_ACTIVE
+        } else {
+            0
+        });
         self.writer
             .seek(SeekFrom::Start(0))
             .map_err(|error| error.to_string())?;
-        self.writer
-            .write_all(MAGIC)
-            .map_err(|error| error.to_string())?;
-        self.writer
-            .write_all(&FORMAT_VERSION.to_le_bytes())
-            .map_err(|error| error.to_string())?;
-        self.writer
-            .write_all(&(self.expected_sections as u32).to_le_bytes())
-            .map_err(|error| error.to_string())?;
-        self.writer
-            .write_all(&(directory_end as u64).to_le_bytes())
-            .map_err(|error| error.to_string())?;
+        for bytes in [
+            MAGIC.as_slice(),
+            &crate::PROGRAM_VERSION.to_le_bytes(),
+            &(HEADER_BYTES as u32).to_le_bytes(),
+            &self.generation.to_le_bytes(),
+            &self.collection.0.to_le_bytes(),
+            &flags.to_le_bytes(),
+            &self.ordinal.to_le_bytes(),
+            &self.slot_count.to_le_bytes(),
+            &self.active_count.to_le_bytes(),
+            &self.active_offset.to_le_bytes(),
+            &self.active_length.to_le_bytes(),
+            &(self.expected_sections as u32).to_le_bytes(),
+            &(HEADER_BYTES as u64).to_le_bytes(),
+            &(directory_length as u64).to_le_bytes(),
+            &0u64.to_le_bytes(),
+        ] {
+            self.writer
+                .write_all(bytes)
+                .map_err(|error| error.to_string())?;
+        }
         for (kind, offset, length, checksum) in self.sections {
             self.writer
                 .write_all(&(kind as u32).to_le_bytes())

@@ -5,7 +5,6 @@ use crate::inference::{InferenceConfig, InferenceMode};
 use crate::query::{Query, QueryOptions};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
-use sha2::{Digest, Sha256};
 
 fn all_records() -> Query {
     Query {
@@ -83,7 +82,7 @@ fn explicit_load_reuses_generation_without_writing_or_rebuilding() {
         .resolved
         .managed_directory
         .unwrap();
-    let manifest = directory.join("manifest.bin");
+    let manifest = directory.join("manifest.toml");
     let original = std::fs::read(&manifest).unwrap();
     #[cfg(unix)]
     fn make_read_only(path: &std::path::Path, readonly: bool) {
@@ -203,6 +202,42 @@ fn explicit_flush_replaces_existing_generation_with_fresh_equal_revision() {
         .map(|row| row.relative_path.to_path_buf())
         .collect::<Vec<_>>();
     assert_eq!(paths, vec![std::path::PathBuf::from("data/new.json")]);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn managed_load_without_catalog_reports_missing_catalog() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-managed-no-catalog-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"text":"alpha"}"#).unwrap();
+    let definition = CollectionDefinition::folder("items", "data", SourceFormat::Json);
+    let storage = IndexLocationResolver {
+        location: IndexStorageLocation::RepositoryDirectory,
+    };
+    let prepared = storage
+        .prepare(
+            &root,
+            std::slice::from_ref(&definition),
+            RepositoryOptions::default(),
+            &SourceRegistry::builtin(),
+        )
+        .unwrap();
+    let store = ManagedStore::open(&prepared.resolved).unwrap();
+    store.commit_generation(None, 1, &[]).unwrap();
+    let result = Index::try_load(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        &IndexStorageTarget::RepositoryDirectory,
+    );
+    assert!(matches!(result, Err(IndexError::InvalidCache(ref message)) if message.contains("catalog missing")));
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -389,9 +424,9 @@ fn stale_explicit_loaded_writer_cannot_replace_newer_generation() {
 }
 
 #[test]
-fn managed_open_rebuilds_only_identified_obsolete_format() {
+fn managed_open_rejects_obsolete_program_version_without_modifying_it() {
     let root = std::env::temp_dir().join(format!(
-        "objekte-managed-obsolete-rebuild-{}-{}",
+        "objekte-managed-obsolete-reject-{}-{}",
         std::process::id(),
         std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
@@ -426,66 +461,23 @@ fn managed_open_rebuilds_only_identified_obsolete_format() {
         .resolved
         .managed_directory
         .unwrap()
-        .join("manifest.bin");
-    let mut bytes = std::fs::read(&manifest).unwrap();
-    bytes[12..16].copy_from_slice(&(crate::segment_format::FORMAT_VERSION - 1).to_le_bytes());
-    let end = bytes.len();
-    let digest = Sha256::digest(&bytes[..end - 32]);
-    bytes[end - 32..].copy_from_slice(&digest);
-    std::fs::write(&manifest, bytes).unwrap();
-    let reopened = Index::open_with_storage(
+        .join("manifest.toml");
+    let original = std::fs::read_to_string(&manifest).unwrap();
+    let obsolete = original.replace(
+        &format!("version = {}", crate::PROGRAM_VERSION),
+        &format!("version = {}", crate::PROGRAM_VERSION + 1),
+    );
+    assert_ne!(obsolete, original);
+    std::fs::write(&manifest, &obsolete).unwrap();
+    let result = Index::open_with_storage(
         &root,
-        vec![definition.clone()],
-        RepositoryOptions::default(),
-        storage.clone(),
-        SourceRegistry::builtin(),
-    )
-    .unwrap();
-    assert_eq!(
-        reopened
-            .view()
-            .unwrap()
-            .search(&all_records())
-            .unwrap()
-            .count,
-        Some(1)
-    );
-    assert_eq!(
-        u32::from_le_bytes(
-            std::fs::read(&manifest).unwrap()[12..16]
-                .try_into()
-                .unwrap()
-        ),
-        crate::segment_format::FORMAT_VERSION
-    );
-    reopened.stop_sync_storage().unwrap();
-    drop(reopened);
-    let mut bytes = std::fs::read(&manifest).unwrap();
-    bytes[12..16].copy_from_slice(&(crate::segment_format::FORMAT_VERSION - 1).to_le_bytes());
-    let end = bytes.len();
-    let digest = Sha256::digest(&bytes[..end - 32]);
-    bytes[end - 32..].copy_from_slice(&digest);
-    std::fs::write(&manifest, bytes).unwrap();
-    let task = Index::start_incremental_build_with_storage(
-        root.clone(),
         vec![definition],
         RepositoryOptions::default(),
         storage,
         SourceRegistry::builtin(),
-    )
-    .unwrap();
-    let rebuilt = task.wait_complete().unwrap();
-    assert_eq!(
-        rebuilt
-            .view()
-            .unwrap()
-            .search(&all_records())
-            .unwrap()
-            .count,
-        Some(1)
     );
-    rebuilt.stop_sync_storage().unwrap();
-    drop(rebuilt);
+    assert!(result.is_err());
+    assert_eq!(std::fs::read_to_string(&manifest).unwrap(), obsolete);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -689,7 +681,7 @@ fn managed_open_reuses_complete_generation_without_source_build() {
         first_status
             .managed_directory
             .unwrap()
-            .join("manifest.bin")
+            .join("manifest.toml")
             .exists()
     );
     first.stop_sync_storage().unwrap();
@@ -737,7 +729,7 @@ fn managed_open_reuses_complete_generation_without_source_build() {
         reopened.storage_status().unwrap().durable_generation,
         Some(1)
     );
-    assert!(reopened.storage_status().unwrap().segments_stamp_trusted > 0);
+    assert!(reopened.storage_status().unwrap().segments_write_validated > 0);
     assert_eq!(
         reopened.storage_status().unwrap().segments_full_validated,
         0
@@ -954,7 +946,12 @@ fn managed_generation_reopens_add_move_and_retirement() {
         )
         .unwrap();
     let store = ManagedStore::open(&prepared.resolved).unwrap();
-    let initial_names = store.read_generation().unwrap().unwrap().segment_names;
+    let opened = store.read_generation().unwrap().unwrap();
+    let initial_names = opened
+        .segments
+        .iter()
+        .map(|segment| segment.name.clone())
+        .collect::<Vec<_>>();
     let added = root.join("data/b.json");
     std::fs::write(&added, br#"{"text":"beta"}"#).unwrap();
     index.add_file(&added).unwrap();
@@ -964,8 +961,21 @@ fn managed_generation_reopens_add_move_and_retirement() {
             .all(|segment| segment.index.raw.is_sealed())
     );
     index.flush_storage().unwrap();
-    let after_add = store.read_generation().unwrap().unwrap().segment_names;
-    assert!(initial_names.iter().all(|name| after_add.contains(name)));
+    let opened = store.read_generation().unwrap().unwrap();
+    let after_add = opened
+        .segments
+        .iter()
+        .map(|segment| segment.name.clone())
+        .collect::<Vec<_>>();
+    assert!(initial_names.iter().all(|name| !after_add.contains(name)));
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::MetadataExt;
+        for name in &after_add {
+            let path = opened.generation_directory.join("segments").join(name);
+            assert_eq!(std::fs::metadata(path).unwrap().nlink(), 1);
+        }
+    }
     assert_eq!(
         index.view().unwrap().search(&all_records()).unwrap().count,
         Some(2)
@@ -975,8 +985,15 @@ fn managed_generation_reopens_add_move_and_retirement() {
     std::fs::rename(&added, &moved).unwrap();
     index.move_file(handle, &moved).unwrap();
     index.flush_storage().unwrap();
-    let after_move = store.read_generation().unwrap().unwrap().segment_names;
-    assert!(initial_names.iter().all(|name| after_move.contains(name)));
+    let after_move = store
+        .read_generation()
+        .unwrap()
+        .unwrap()
+        .segments
+        .iter()
+        .map(|segment| segment.name.clone())
+        .collect::<Vec<_>>();
+    assert!(after_add.iter().all(|name| !after_move.contains(name)));
     assert!(index.view().unwrap().file_handle_for_path(&added).is_none());
     assert!(index.view().unwrap().file_handle_for_path(&moved).is_some());
     let initial_handle = index

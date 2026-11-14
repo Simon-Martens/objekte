@@ -1,6 +1,8 @@
-# Direct snapshot access format contract
+# Direct snapshot access format contract (historical)
 
-This contract records the wire layout before the corresponding decoders are changed. All integers are unsigned little-endian integers. Offsets are section relative unless explicitly described otherwise. Every length and multiplication is checked before slicing. No native pointers, `usize`, Rust collection headers, or randomized hash state are stored.
+This contract records the wire layout before the corresponding decoders were changed. All integers are unsigned little-endian integers. Offsets are section relative unless explicitly described otherwise. Every length and multiplication is checked before slicing. No native pointers, `usize`, Rust collection headers, or randomized hash state are stored.
+
+> Historical note: the 24-byte segment header and independent format/validator versions below were superseded by the 88-byte self-describing envelope and unified `PROGRAM_VERSION` in [the current storage contract](hybrid_index_storage.md). This document remains for the gram-filter section layout history only.
 
 ## Segment envelope revision 3: gram filters
 

@@ -1,10 +1,10 @@
 # RecordSlots direct-reader contract
 
-This document specifies `RecordSlots` revision 3. It extends [the segment format contract](direct_snapshot_access_format.md). The containing segment format version is 5 and the validator stamp version is 4. Revision 3 adds the source revision to each file row so file metadata predicates can read it without decoding a catalog entry on every query. All integers are little-endian scalars, with the signed modification time encoded as `i128`. The format has no alignment padding except the three fixed zero bytes in each record row. All offsets are section relative or relative to their named arena. No Rust `usize`, collection header, pointer, or randomized hash state is stored.
+This document specifies the `RecordSlots` section at `PROGRAM_VERSION = 1` (magic `OBJHREC3`). It extends [the segment format contract](direct_snapshot_access_format.md). The containing segment envelope and `PROGRAM_VERSION = 1` are described in the current saved-index contract in [the storage document](hybrid_index_storage.md); the envelope also carries collection, ordinal, slot count and active-domain metadata. Revision 1 adds the source revision to each file row so file metadata predicates can read it without decoding a catalog entry on every query. All integers are little-endian scalars, with the signed modification time encoded as `i128`. The format has no alignment padding except the three fixed zero bytes in each record row. All offsets are section relative or relative to their named arena. No Rust `usize`, collection header, pointer, or randomized hash state is stored.
 
 ## Section structure
 
-The section is at most 512 MiB. Its first 16 bytes are ASCII `OBJHREC3`, section version `u32 = 3`, and model version `u32`. The next fields are:
+The section is at most 512 MiB. Its first 16 bytes are ASCII `OBJHREC3`, section version `u32 = 1`, and `PROGRAM_VERSION` as a repeated compatibility value. The next fields are:
 
 | Order | Type | Meaning |
 | --- | --- | --- |

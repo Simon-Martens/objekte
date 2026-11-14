@@ -28,28 +28,16 @@ use crate::lifecycle::{
     ReconciliationState,
 };
 use crate::lifecycle_catalog::FileCatalog;
-#[cfg(test)]
-use crate::managed_store::StoreReadError;
-use crate::managed_store::{ManagedStore, OpenedGeneration, SegmentInput, SegmentOrigin};
+use crate::managed_store::{ManagedStore, OpenedGeneration, SegmentInput, SegmentOrigin, StoreReadError};
 use crate::model::{CollectionId, RecordId};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
-use crate::segment_format::{SegmentTrust, VALIDATOR_VERSION};
+use crate::segment_format::SegmentTrust;
 use crate::source::SourceRegistry;
-
-struct DurableSegment {
-    name: String,
-    index: Arc<IndexedCollectionSegment>,
-    catalog: Option<Arc<RestoredGenerationCatalog>>,
-    /// Whether each encoded file ref points at the mutable current-catalog
-    /// slot. Historical-tagged refs remain stable when the catalog changes.
-    current_refs: Vec<bool>,
-}
 
 pub(crate) struct ManagedPersistence {
     pub(crate) store: ManagedStore,
     durable_generation: Option<u64>,
     last_saved_publication: Option<(u64, IndexRevision)>,
-    durable_segments: HashMap<(CollectionId, u64), DurableSegment>,
     historical_base: Option<Arc<RestoredGenerationCatalog>>,
     pub(crate) last_error: Option<String>,
     pub(crate) last_error_kind: Option<IndexStorageFailureKind>,
@@ -60,9 +48,6 @@ pub(crate) struct ManagedPersistence {
 pub(crate) struct ValidationOpenStats {
     pub full: usize,
     pub trusted: usize,
-    pub written: usize,
-    pub error: Option<String>,
-    pub error_kind: Option<IndexStorageFailureKind>,
 }
 
 #[derive(Clone)]
@@ -102,7 +87,6 @@ impl ManagedPersistence {
             store,
             durable_generation: None,
             last_saved_publication: None,
-            durable_segments: HashMap::new(),
             historical_base: None,
             last_error: None,
             last_error_kind: None,
@@ -114,56 +98,11 @@ impl ManagedPersistence {
         &mut self,
         publication: &PublishedIndex,
         generation: u64,
-        names: &[String],
-        identities: &[(CollectionId, u64)],
-        indexes: &[Arc<IndexedCollectionSegment>],
         historical: Arc<RestoredGenerationCatalog>,
         validation: ValidationOpenStats,
     ) -> Result<(), String> {
-        if names.len() != identities.len() || names.len() != indexes.len() {
-            return Err("opened segment identity table length mismatch".into());
-        }
-        let mut durable_segments = HashMap::with_capacity(names.len());
-        for ((name, identity), index) in names.iter().zip(identities).zip(indexes) {
-            if index.collection != identity.0 {
-                return Err("opened segment identity mismatch".into());
-            }
-            let current_refs = if let Some(persisted) = &index.persisted {
-                (0..persisted.file_count())
-                    .map(|position| {
-                        persisted
-                            .metadata_ref_at(position)
-                            .and_then(|reference| {
-                                reference.ok_or("opened segment metadata reference missing".into())
-                            })
-                            .map(|reference| reference & 0x8000_0000 == 0)
-                    })
-                    .collect::<Result<Vec<_>, String>>()?
-            } else {
-                index
-                    .files
-                    .iter()
-                    .map(|file| publication.catalog.entry(file.entry.id) == Some(&file.entry))
-                    .collect()
-            };
-            if durable_segments
-                .insert(
-                    *identity,
-                    DurableSegment {
-                        name: name.clone(),
-                        index: Arc::clone(index),
-                        current_refs,
-                        catalog: index.persisted.as_ref().map(|_| Arc::clone(&historical)),
-                    },
-                )
-                .is_some()
-            {
-                return Err("opened segment identity mismatch".into());
-            }
-        }
         self.durable_generation = Some(generation);
         self.last_saved_publication = Some((publication.instance_id, publication.revision));
-        self.durable_segments = durable_segments;
         self.historical_base = Some(historical);
         self.validation = validation;
         Ok(())
@@ -198,7 +137,7 @@ impl ManagedPersistence {
     pub(crate) fn flush_explicit(
         &mut self,
         publication: &PublishedIndex,
-    ) -> Result<(u64, bool, u64, usize), IndexError> {
+    ) -> Result<(u64, bool, u64), IndexError> {
         if !publication.catalog.construction_complete() {
             return Err(IndexError::IncompleteBuild);
         }
@@ -213,13 +152,13 @@ impl ManagedPersistence {
             }
             self.last_error = None;
             self.last_error_kind = None;
-            return Ok((expected, true, 0, 0));
+            return Ok((expected, true, 0));
         }
-        let actual = self
-            .store
-            .read_generation_readonly()
-            .map_err(IndexError::from)?
-            .map(|opened| opened.generation);
+        let actual = match self.store.read_generation_readonly() {
+            Ok(opened) => opened.map(|opened| opened.generation),
+            Err(StoreReadError::Incompatible(_)) => None,
+            Err(error) => return Err(IndexError::from(error)),
+        };
         if self.durable_generation.is_some() && self.durable_generation != actual {
             return Err(IndexError::StoreConflict(
                 "destination generation changed since this index observed it".into(),
@@ -230,12 +169,7 @@ impl ManagedPersistence {
             IndexError::StoreConflict("destination generation counter overflow".into())
         })?;
         let stats = self.flush_generation(publication, generation)?;
-        Ok((
-            generation,
-            false,
-            stats.segment_bytes_written,
-            stats.segments_reused,
-        ))
+        Ok((generation, false, stats.segment_bytes_written))
     }
 
     fn flush_generation(
@@ -243,11 +177,8 @@ impl ManagedPersistence {
         publication: &PublishedIndex,
         generation: u64,
     ) -> Result<crate::managed_store::CommitStats, IndexError> {
-        // Historical refs have stable offsets only while their segment files
-        // are reused. Once the table greatly exceeds the metadata still
-        // referenced by this publication, rewrite those segments and rebuild
-        // the table from their actual file entries. Otherwise repeated
-        // replacements retain obsolete metadata after old shards are gone.
+        // Rebuild a compact historical table when it has grown far beyond the
+        // metadata this publication still references.
         let referenced_files = publication
             .segments
             .iter()
@@ -272,81 +203,99 @@ impl ManagedPersistence {
         let mut catalog = catalog.map_err(IndexError::InvalidPublication)?;
         catalog.set_store_generation(generation);
         let mut inputs = Vec::new();
-        let mut next_indexes = Vec::new();
         for (number, group) in publication.segments.iter().enumerate() {
             let collection = CollectionId(number as u32);
             let definition = &publication.repository.collections()[number].definition;
+            let options = publication.repository.options();
             for segment in group.iter() {
                 if segment.index.collection != collection || segment.ordinal == 0 {
                     return Err(IndexError::InvalidPublication(
                         "published segment identity invalid".into(),
                     ));
                 }
-                let identity = (collection, segment.ordinal);
-                let previous = self.durable_segments.get(&identity);
-                let mut reusable = !rebase_history
-                    && previous.is_some_and(|previous| {
-                        Arc::ptr_eq(&previous.index, &segment.index)
-                            && previous.current_refs.len() == segment.index.file_count()
-                    });
-                if reusable {
-                    let previous = previous.expect("reusable segment exists");
-                    for (position, &current_ref) in previous.current_refs.iter().enumerate() {
-                        if !current_ref {
-                            continue;
-                        }
-                        let unchanged = if let (Some(persisted), Some(base)) =
-                            (&segment.index.persisted, &previous.catalog)
-                        {
-                            let id = persisted
-                                .file_id_at(position)
+                let ordinal = segment.ordinal;
+                if let Some(persisted) = &segment.index.persisted {
+                    // Translate this segment's metadata references before the
+                    // catalog is committed. The segment itself is decoded only
+                    // when its file is written, so memory stays bounded to one
+                    // output segment at a time.
+                    let base = publication.catalog.persisted_base().ok_or_else(|| {
+                        IndexError::InvalidPublication("persisted segment catalog missing".into())
+                    })?;
+                    let references = (0..persisted.file_count())
+                        .map(|position| {
+                            let reference = persisted
+                                .metadata_ref_at(position)
                                 .map_err(IndexError::InvalidCache)?
                                 .ok_or_else(|| {
-                                    IndexError::InvalidCache("segment file row missing".into())
-                                })?;
-                            publication.catalog.unchanged_from_persisted(id, base)
-                        } else {
-                            let file = segment.index.files.get(position).ok_or_else(|| {
-                                IndexError::InvalidPublication("segment file row missing".into())
-                            })?;
-                            publication.catalog.entry(file.entry.id) == Some(&file.entry)
-                        };
-                        if !unchanged {
-                            reusable = false;
-                            break;
-                        }
-                    }
-                }
-                if reusable {
-                    let previous = previous.expect("reusable segment exists");
-                    inputs.push(SegmentInput::Existing {
-                        name: &previous.name,
-                        active: &segment.active,
-                    });
-                }
-                let index = if !reusable && segment.index.persisted.is_some() {
-                    Arc::new(
-                        materialize_for_rewrite(
-                            &segment.index,
-                            segment.ordinal,
-                            definition,
-                            publication.repository.options(),
-                            collection,
-                            previous
-                                .and_then(|segment| segment.catalog.as_ref())
-                                .or_else(|| publication.catalog.persisted_base())
-                                .ok_or_else(|| {
-                                    IndexError::InvalidPublication(
-                                        "persisted segment catalog missing".into(),
+                                    IndexError::InvalidCache(
+                                        "persisted segment file reference missing".into(),
                                     )
-                                })?,
-                        )
-                        .map_err(IndexError::InvalidCache)?,
-                    )
+                                })?;
+                            let entry = base
+                                .entry_for_ref(reference)
+                                .map_err(IndexError::InvalidCache)?
+                                .ok_or_else(|| {
+                                    IndexError::InvalidCache(
+                                        "persisted segment metadata missing".into(),
+                                    )
+                                })?;
+                            catalog
+                                .intern(&entry)
+                                .map_err(IndexError::InvalidPublication)
+                        })
+                        .collect::<Result<Vec<_>, IndexError>>()?;
+                    let source_index = Arc::clone(&segment.index);
+                    let base = Arc::clone(base);
+                    inputs.push(SegmentInput::NewStream {
+                        origin: SegmentOrigin::Validated,
+                        collection,
+                        ordinal,
+                        active: &segment.active,
+                        write: Box::new(move |file, metadata| {
+                            let index = materialize_for_rewrite(
+                                &source_index,
+                                ordinal,
+                                definition,
+                                options,
+                                collection,
+                                &base,
+                            )
+                            .map_err(|error| format!("{error}"))?;
+                            if index.file_count() != references.len() {
+                                return Err("segment metadata reference count changed".into());
+                            }
+                            let mut position = 0usize;
+                            let mut intern = |entry: &crate::inventory::FileEntry| {
+                                let expected = index
+                                    .files
+                                    .get(position)
+                                    .ok_or("segment metadata reference overflow")?;
+                                if entry != &expected.entry {
+                                    return Err("segment metadata reference order changed".into());
+                                }
+                                let reference = *references
+                                    .get(position)
+                                    .ok_or("segment metadata reference missing")?;
+                                position += 1;
+                                Ok(reference)
+                            };
+                            crate::hybrid_segment_codec::write_sealed_segment(
+                                &index,
+                                ordinal,
+                                options,
+                                file,
+                                &mut intern,
+                                metadata,
+                            )?;
+                            if position != references.len() {
+                                return Err("segment metadata reference count changed".into());
+                            }
+                            Ok(())
+                        }),
+                    });
                 } else {
-                    Arc::clone(&segment.index)
-                };
-                if !reusable {
+                    let index = Arc::clone(&segment.index);
                     let references = index
                         .files
                         .iter()
@@ -354,14 +303,12 @@ impl ManagedPersistence {
                         .collect::<Result<Vec<_>, _>>()
                         .map_err(IndexError::InvalidPublication)?;
                     let write_index = Arc::clone(&index);
-                    let ordinal = segment.ordinal;
-                    let options = publication.repository.options();
                     inputs.push(SegmentInput::NewStream {
                         origin: SegmentOrigin::Validated,
                         collection,
                         ordinal,
                         active: &segment.active,
-                        write: Box::new(move |file| {
+                        write: Box::new(move |file, metadata| {
                             let mut position = 0usize;
                             let mut intern = |entry: &crate::inventory::FileEntry| {
                                 let expected = write_index
@@ -384,6 +331,7 @@ impl ManagedPersistence {
                                     options,
                                     file,
                                     &mut intern,
+                                    metadata,
                                 )?;
                             } else {
                                 crate::hybrid_segment_codec::write_segment(
@@ -393,6 +341,7 @@ impl ManagedPersistence {
                                     options,
                                     file,
                                     &mut intern,
+                                    metadata,
                                 )?;
                             }
                             if position != references.len() {
@@ -402,31 +351,6 @@ impl ManagedPersistence {
                         }),
                     });
                 }
-                let current_refs = if reusable {
-                    previous
-                        .expect("reusable segment exists")
-                        .current_refs
-                        .clone()
-                } else {
-                    index
-                        .files
-                        .iter()
-                        .map(|file| publication.catalog.entry(file.entry.id) == Some(&file.entry))
-                        .collect()
-                };
-                let segment_catalog = if segment.index.persisted.is_some() {
-                    previous
-                        .and_then(|segment| segment.catalog.clone())
-                        .or_else(|| publication.catalog.persisted_base().cloned())
-                } else {
-                    None
-                };
-                next_indexes.push((
-                    identity,
-                    Arc::clone(&segment.index),
-                    current_refs,
-                    segment_catalog,
-                ));
             }
         }
         let catalog_bytes: Arc<[u8]> =
@@ -434,13 +358,24 @@ impl ManagedPersistence {
         // Validate before the manifest commit so no fallible catalog decode can
         // turn a committed save into a reported failure.
         let validated_history = Arc::new(
-            RestoredGenerationCatalog::decode_verified_arc(
+            RestoredGenerationCatalog::decode_arc(
                 Arc::clone(&catalog_bytes),
                 publication.configuration_identity,
                 publication.repository.collections().len(),
             )
             .map_err(IndexError::InvalidPublication)?,
         );
+        if validated_history.expected_segment_count as usize
+            != publication
+                .segments
+                .iter()
+                .map(|group| group.len())
+                .sum::<usize>()
+        {
+            return Err(IndexError::InvalidPublication(
+                "catalog expected segment count differs from publication".into(),
+            ));
+        }
         let committed = self
             .store
             .commit_generation_with_catalog_typed(
@@ -451,35 +386,12 @@ impl ManagedPersistence {
             )
             .map_err(IndexError::from)?;
         drop(inputs);
-        let report = committed.clone();
-        self.durable_segments = if committed.segment_names.len() == next_indexes.len() {
-            committed
-                .segment_names
-                .into_iter()
-                .zip(next_indexes)
-                .map(|(name, (identity, index, current_refs, catalog))| {
-                    (
-                        identity,
-                        DurableSegment {
-                            name,
-                            index,
-                            current_refs,
-                            catalog,
-                        },
-                    )
-                })
-                .collect()
-        } else {
-            // The committed generation remains valid; omit reuse hints if a
-            // future store implementation returns an unexpected name table.
-            HashMap::new()
-        };
         self.durable_generation = Some(generation);
         self.last_saved_publication = Some((publication.instance_id, publication.revision));
         self.historical_base = Some(validated_history);
         self.last_error = None;
         self.last_error_kind = None;
-        Ok(report)
+        Ok(committed)
     }
 }
 
@@ -543,10 +455,7 @@ pub(crate) fn storage_status(
             last_error_kind: None,
             managed_directory: None,
             segments_full_validated: 0,
-            segments_stamp_trusted: 0,
-            validation_stamps_written: 0,
-            validation_stamp_error: None,
-            validation_stamp_error_kind: None,
+            segments_write_validated: 0,
         };
     };
     IndexStorageStatus {
@@ -573,29 +482,13 @@ pub(crate) fn storage_status(
         last_error_kind: managed.last_error_kind,
         managed_directory: Some(managed.managed_directory.clone()),
         segments_full_validated: managed.validation.full,
-        segments_stamp_trusted: managed.validation.trusted,
-        validation_stamps_written: managed.validation.written,
-        validation_stamp_error: managed.validation.error.clone(),
-        validation_stamp_error_kind: managed.validation.error_kind,
+        segments_write_validated: managed.validation.trusted,
     }
 }
 
 #[cfg(test)]
-fn read_or_retire_obsolete(store: &ManagedStore) -> Result<Option<OpenedGeneration>, IndexError> {
-    match store.read_generation() {
-        Ok(opened) => Ok(opened),
-        Err(error @ StoreReadError::Incompatible(_)) => {
-            if store
-                .retire_obsolete_format_for_rebuild()
-                .map_err(IndexError::from)?
-            {
-                store.read_generation().map_err(IndexError::from)
-            } else {
-                Err(IndexError::from(error))
-            }
-        }
-        Err(error) => Err(IndexError::from(error)),
-    }
+fn read_existing_generation(store: &ManagedStore) -> Result<Option<OpenedGeneration>, IndexError> {
+    store.read_generation().map_err(IndexError::from)
 }
 
 impl Index {
@@ -676,7 +569,7 @@ impl Index {
             );
         }
         let store = ManagedStore::open(&prepared.resolved).map_err(IndexError::Io)?;
-        if let Some(opened) = read_or_retire_obsolete(&store)? {
+        if let Some(opened) = read_existing_generation(&store)? {
             let index = restore_generation(
                 &prepared.resolved,
                 prepared.definitions,
@@ -732,7 +625,7 @@ impl Index {
             return Self::build_with_sources(root, prepared.definitions, options, sources);
         }
         let store = ManagedStore::open(&prepared.resolved).map_err(IndexError::Io)?;
-        if let Some(opened) = read_or_retire_obsolete(&store)? {
+        if let Some(opened) = read_existing_generation(&store)? {
             let index = restore_generation(
                 &prepared.resolved,
                 prepared.definitions,
@@ -777,7 +670,7 @@ fn restore_generation(
         .as_ref()
         .ok_or_else(|| IndexError::InvalidCache("generation catalog missing".into()))?;
     let restored = Arc::new(
-        RestoredGenerationCatalog::decode_verified_arc(
+        RestoredGenerationCatalog::decode_arc(
             Arc::clone(bytes),
             resolved.configuration_identity,
             definitions.len(),
@@ -789,6 +682,11 @@ fn restore_generation(
     if restored.revision != opened.generation {
         return Err(IndexError::InvalidCache(
             "catalog and manifest revisions differ".into(),
+        ));
+    }
+    if restored.expected_segment_count as usize != opened.segments.len() {
+        return Err(IndexError::InvalidCache(
+            "catalog expected segment count differs from discovered segments".into(),
         ));
     }
     let mut owner = Repository::empty_for_managed_generation(
@@ -815,26 +713,12 @@ fn restore_generation(
     let owner_ns = phase_started.elapsed().as_nanos() - catalog_validation_ns;
     let metadata_ms = started.elapsed().as_millis() as u64;
     let count = owner.collections().len();
-    if opened.segments.len() != opened.identities.len()
-        || opened.segments.len() != opened.active.len()
-        || opened.segments.len() != opened.segment_names.len()
-        || opened.segments.len() != opened.segment_lengths.len()
-        || opened.segments.len() != opened.validation.len()
-    {
-        return Err(IndexError::InvalidCache(
-            "manifest segment tables differ in length".into(),
-        ));
-    }
     let mut groups = vec![Vec::new(); count];
-    let mut indexes = Vec::with_capacity(opened.segments.len());
     let mut ordinals = HashSet::with_capacity(opened.segments.len());
-    for (((reader, &(collection, ordinal)), active), &trust) in opened
-        .segments
-        .iter()
-        .zip(&opened.identities)
-        .zip(&opened.active)
-        .zip(&opened.validation)
-    {
+    for segment in &opened.segments {
+        let collection = segment.descriptor.collection;
+        let ordinal = segment.descriptor.ordinal;
+        let active = &segment.descriptor.active;
         let number = collection.0 as usize;
         if number >= count
             || ordinal == 0
@@ -847,8 +731,8 @@ fn restore_generation(
         }
         let configured = &owner.collections()[number];
         let metadata: Arc<dyn crate::segment_metadata::SegmentMetadataRefs> = restored.clone();
-        let segment = crate::hybrid_segment_codec::decode_segment_sealed_persisted_with_trust(
-            Arc::clone(reader),
+        let decoded = crate::hybrid_segment_codec::decode_segment_sealed_persisted_with_trust(
+            Arc::clone(&segment.reader),
             ordinal,
             &configured.definition,
             options,
@@ -856,21 +740,19 @@ fn restore_generation(
             (configured.source.id(), configured.source.version()),
             active.slot_count(),
             metadata,
-            trust,
+            segment.trust(),
         )
         .map_err(IndexError::InvalidCache)?;
-        if segment.record_count() != active.slot_count() as usize {
+        if decoded.record_count() != active.slot_count() as usize {
             return Err(IndexError::InvalidCache(
-                "manifest active mask slot count differs from records".into(),
+                "segment active mask slot count differs from records".into(),
             ));
         }
-        let index = Arc::new(segment);
         groups[number].push(Arc::new(PublishedSegment {
             ordinal,
-            index: Arc::clone(&index),
+            index: Arc::new(decoded),
             active: active.clone(),
         }));
-        indexes.push(index);
     }
     #[cfg(feature = "detailed-profiling")]
     let segment_install_ns = phase_started.elapsed().as_nanos() - catalog_validation_ns - owner_ns;
@@ -913,56 +795,19 @@ fn restore_generation(
     } else {
         index.attach_storage(resolved.clone())?;
     }
-    let mut validation = ValidationOpenStats {
+    let validation = ValidationOpenStats {
         full: opened
-            .validation
+            .segments
             .iter()
-            .filter(|&&trust| trust == SegmentTrust::Untrusted)
+            .filter(|segment| !segment.descriptor.write_validated)
             .count(),
         trusted: opened
-            .validation
+            .segments
             .iter()
-            .filter(|&&trust| trust == SegmentTrust::Stamped)
+            .filter(|segment| segment.descriptor.write_validated)
             .count(),
-        ..Default::default()
     };
-    if validation.full > 0 && !readonly {
-        let stamps = opened
-            .segment_names
-            .iter()
-            .zip(&opened.segment_lengths)
-            .zip(&opened.validation)
-            .filter_map(|((name, &length), &trust)| {
-                (trust == SegmentTrust::Untrusted).then_some((
-                    name.clone(),
-                    length,
-                    VALIDATOR_VERSION,
-                ))
-            })
-            .collect::<Vec<_>>();
-        let stamp_result = match ManagedStore::open(resolved) {
-            Ok(store) => store
-                .record_validation_stamps(opened.generation, &stamps)
-                .map_err(|error| (IndexStorageFailureKind::from(&error), error.to_string())),
-            Err(error) => Err((IndexStorageFailureKind::Access, error)),
-        };
-        match stamp_result {
-            Ok(true) => validation.written = stamps.len(),
-            Ok(false) => {}
-            Err((kind, error)) => {
-                validation.error = Some(error);
-                validation.error_kind = Some(kind);
-            }
-        }
-    }
-    index.mark_storage_opened(
-        opened.generation,
-        &opened.segment_names,
-        &opened.identities,
-        &indexes,
-        restored,
-        validation,
-    )?;
+    index.mark_storage_opened(opened.generation, restored, validation)?;
     let available_ms = started.elapsed().as_millis() as u64;
     index.update_timings_ms(|timings| {
         timings.metadata = Some(metadata_ms);

@@ -1,10 +1,10 @@
-# Direct generation catalog format, version 4
+# Direct generation catalog format, version 1
 
-This contract precedes the version 4 decoder. It extends the segment format contract in `direct_snapshot_access_format.md`. Integers are unsigned little endian except signed nanosecond fields, which are signed 128-bit little endian. Every offset is checked with `checked_add`/`checked_mul` and every slice is bounded before use. The maximum catalog file is 512 MiB, so the 31-bit arena offsets below suffice. There is no native Rust layout, pointer, `usize`, or hash state on disk.
+This contract describes the current generation catalog saved by `PROGRAM_VERSION = 1`. It extends the segment format contract in `direct_snapshot_access_format.md`. Integers are unsigned little endian except signed nanosecond fields, which are signed 128-bit little endian. Every offset is checked with `checked_add`/`checked_mul` and every slice is bounded before use. The maximum catalog file is 512 MiB, so the 31-bit arena offsets below suffice. There is no native Rust layout, pointer, `usize`, or hash state on disk.
 
 ## Envelope and body header
 
-The 52-byte envelope remains: `OBJHCAT1` (8 bytes), version `u32 = 4`, body length `u64`, SHA-256 of the entire body (32 bytes). The checksum is verified before any body table may be used; this currently touches the entire catalog even when later lookups borrow only a slice.
+The 28-byte envelope is `OBJHCAT1` (8 bytes), `PROGRAM_VERSION` (`u32 = 1`), body length (`u64`), expected segment count (`u32`), and reserved zero (`u32`). There is no mandatory body or whole-file SHA-256; the catalog is checked by a positive ownership check, envelope lengths and complete internal directory validation. Whole-file verification is available only through an explicit manifest `[verify]` entry.
 
 The body starts with a 104-byte header:
 
@@ -52,4 +52,4 @@ The key arena contains only separate escaped query keys, concatenated in query-t
 
 The active region is a portable Roaring bitmap of current live file IDs, serialized by the existing Roaring writer. Its cardinality equals `active_count`, all members are below `slot_count`, and membership agrees exactly with non-retired slot rows and both path tables. It is decoded once into the existing bounded runtime bitmap; no bitmap is rebuilt by scanning slots. This immutable domain is distinct from each segment's mutable active-record mask.
 
-The inference region keeps one existing length-framed fixed-int bincode summary per configured collection in collection order. Those small configuration summaries may be eagerly decoded and validated. The body checksum and these structural checks run before publication; later file/path lookups use the immutable owner plus small mutation overlays. A checksum alone is not a proof of path order, membership, or metadata-reference consistency.
+The inference region keeps one existing length-framed fixed-int bincode summary per configured collection in collection order. Those small configuration summaries may be eagerly decoded and validated. Structural checks run before publication; later file/path lookups use the immutable owner plus small mutation overlays. A checksum alone would not be a proof of path order, membership, or metadata-reference consistency.

@@ -869,10 +869,6 @@ impl DesktopController {
                 self.index_ui.validation_summary.clear();
                 self.index_ui.storage_issue = None;
                 self.index_ui.validation_warning = None;
-                self.index_ui.segments_full_validated = 0;
-                self.index_ui.segments_stamp_trusted = 0;
-                self.index_ui.validation_stamps_written = 0;
-                self.index_ui.validation_stamp_error = None;
             }
             Err(error) => {
                 self.index_ui.readiness = "Status unavailable".into();

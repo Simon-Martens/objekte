@@ -336,19 +336,6 @@ impl FileCatalog {
 
     /// A stable current metadata ref remains valid when this publication
     /// still points at the same immutable catalog row, without decoding it.
-    pub(crate) fn unchanged_from_persisted(
-        &self,
-        file: FileId,
-        catalog: &Arc<RestoredGenerationCatalog>,
-    ) -> bool {
-        self.is_active(file)
-            && self.changed[shard(&file)].get(&file).is_none()
-            && self
-                .persisted
-                .as_ref()
-                .is_some_and(|base| Arc::ptr_eq(&base.catalog, catalog))
-    }
-
     pub(crate) fn unchanged_encoded_record(&self, file: FileId) -> Option<(&[u8], SharedPath)> {
         if !self.is_active(file) || self.changed[shard(&file)].contains_key(&file) {
             return None;

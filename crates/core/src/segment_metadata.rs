@@ -46,11 +46,9 @@ use crate::sorting::{
 use crate::segment_format::SegmentReader;
 
 const RECORD_MAGIC: &[u8; 8] = b"OBJHREC3";
-const RECORD_VERSION: u32 = 3;
 const FILE_ROW_BYTES: usize = 40;
 const SORT_MAGIC: &[u8; 8] = b"OBJHSRT1";
 const RELATION_MAGIC: &[u8; 8] = b"OBJHREL1";
-const VERSION: u32 = 1;
 const MAX_SECTION_BYTES: usize = 512 * 1024 * 1024;
 const MAX_LEAF_BYTES: usize = 64 * 1024 * 1024;
 // An initial collection shard can include a large whole-source partition;
@@ -136,12 +134,12 @@ fn read_leaf<T: DeserializeOwned>(cursor: &mut Cursor<'_>) -> Result<T, String> 
 
 fn start(out: &mut Vec<u8>, magic: &[u8; 8]) {
     out.extend_from_slice(magic);
-    put_u32(out, VERSION);
-    put_u32(out, crate::MODEL_VERSION);
+    put_u32(out, crate::PROGRAM_VERSION);
+    put_u32(out, crate::PROGRAM_VERSION);
 }
 
 fn check_header(cursor: &mut Cursor<'_>, magic: &[u8; 8]) -> Result<(), String> {
-    if cursor.take(8)? != magic || cursor.u32()? != VERSION || cursor.u32()? != crate::MODEL_VERSION
+    if cursor.take(8)? != magic || cursor.u32()? != crate::PROGRAM_VERSION || cursor.u32()? != crate::PROGRAM_VERSION
     {
         return Err("unsupported metadata section magic or version".into());
     }
@@ -289,8 +287,8 @@ fn encode_records_inner(
     }
     let mut out = Vec::new();
     out.extend_from_slice(RECORD_MAGIC);
-    put_u32(&mut out, RECORD_VERSION);
-    put_u32(&mut out, crate::MODEL_VERSION);
+    put_u32(&mut out, crate::PROGRAM_VERSION);
+    put_u32(&mut out, crate::PROGRAM_VERSION);
     put_u32(&mut out, collection.0);
     put_bytes(&mut out, source_id.as_bytes(), MAX_SOURCE_BYTES)?;
     put_u32(&mut out, source_version);
@@ -394,8 +392,8 @@ impl RecordSlotsLayout {
     ) -> Result<Self, String> {
         let mut cursor = Cursor::new(bytes)?;
         if cursor.take(8)? != RECORD_MAGIC
-            || cursor.u32()? != RECORD_VERSION
-            || cursor.u32()? != crate::MODEL_VERSION
+            || cursor.u32()? != crate::PROGRAM_VERSION
+            || cursor.u32()? != crate::PROGRAM_VERSION
         {
             return Err("unsupported record section magic or version".into());
         }

@@ -41,7 +41,7 @@ fn shutdown_preserves_only_the_explicitly_saved_generation() {
     )
     .unwrap();
     let index = session.repository.index();
-    assert!(!root.path().join(".objekte/indexes").exists());
+    assert!(!root.path().join(".objekte/.indexes").exists());
     let before = index.status().unwrap().live_records;
     index
         .flush_to(&IndexStorageTarget::RepositoryDirectory)

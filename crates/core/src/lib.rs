@@ -3,8 +3,9 @@
 //! The generic core is developed here. Fixture-specific schema registration and
 //! workload execution live in the CLI integration layer.
 
-/// Version of the in-memory search model and managed generation identity.
-pub const MODEL_VERSION: u32 = 12;
+/// Single saved-index compatibility version for the manifest, segment and
+/// catalog envelopes, persisted subformats and writer-validation rules.
+pub const PROGRAM_VERSION: u32 = 1;
 
 pub mod bigram;
 mod bigram_dictionary;
@@ -74,9 +75,9 @@ mod source_access;
 pub mod source_scan;
 pub mod streaming;
 mod structural;
+pub mod temporal_query;
 #[cfg(test)]
 mod test_support;
-pub mod temporal_query;
 mod verified;
 pub mod workload;
 

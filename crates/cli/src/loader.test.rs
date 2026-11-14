@@ -68,7 +68,7 @@ fn configured_repository_reopens_its_managed_generation() {
     let configured = configure_definitions(&args, &paths).unwrap();
     let built = open_with_target(&args, &paths, &configured).unwrap();
     assert!(!built.index().restored_from_storage());
-    assert!(!root.path().join(".objekte/indexes").is_dir());
+    assert!(!root.path().join(".objekte/.indexes").is_dir());
     built
         .index()
         .flush_to(&IndexStorageTarget::RepositoryDirectory)

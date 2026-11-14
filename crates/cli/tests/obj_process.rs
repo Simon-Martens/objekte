@@ -26,7 +26,7 @@ fn hits(events: &[Value]) -> Vec<&Value> {
 }
 
 fn managed_configuration_count(root: &Path) -> usize {
-    std::fs::read_dir(root.join(".objekte/indexes"))
+    std::fs::read_dir(root.join(".objekte/.indexes"))
         .unwrap()
         .filter_map(Result::ok)
         .filter(|entry| entry.file_type().is_ok_and(|kind| kind.is_dir()))
@@ -245,7 +245,7 @@ fn repository_mode_loads_collections_and_keeps_available_relations() {
         String::from_utf8_lossy(&status.stderr)
     );
     assert_eq!(events.last().unwrap()["type"], "run_complete");
-    assert!(root.path().join(".objekte/indexes").is_dir());
+    assert!(root.path().join(".objekte/.indexes").is_dir());
     let (status, events) = invoke(
         root.path(),
         &["--repo", ".", "--load-index", "repository", "--fts", "Ada"],
@@ -339,7 +339,7 @@ fn repeated_paths_open_only_selected_collections_without_repository_configuratio
         "{}",
         String::from_utf8_lossy(&result.stderr)
     );
-    assert!(root.path().join(".objekte/indexes").is_dir());
+    assert!(root.path().join(".objekte/.indexes").is_dir());
     let (result, events) = invoke(
         root.path(),
         &[
@@ -533,7 +533,7 @@ fn schema_bytes_and_inference_mode_select_distinct_managed_indexes() {
         String::from_utf8_lossy(&written.stderr)
     );
     assert_eq!(events.last().unwrap()["type"], "run_complete");
-    assert!(root.path().join(".objekte/indexes").is_dir());
+    assert!(root.path().join(".objekte/.indexes").is_dir());
     let (loaded, events) = invoke(
         root.path(),
         &[
@@ -894,7 +894,7 @@ fn temporary_and_repository_explicit_flush_then_load() {
         assert_eq!(events.last().unwrap()["build_parses"], 0);
         assert_eq!(events.last().unwrap()["index_flush_report"], Value::Null);
     }
-    assert!(root.path().join(".objekte/indexes").is_dir());
+    assert!(root.path().join(".objekte/.indexes").is_dir());
 }
 
 #[test]
@@ -926,7 +926,7 @@ fn bare_obj_errors_but_explicit_flush_allows_index_only() {
     assert_eq!(events.len(), 2);
     assert_eq!(events[0]["type"], "run_start");
     assert_eq!(events[1]["type"], "run_complete");
-    assert!(root.path().join(".objekte/indexes").is_dir());
+    assert!(root.path().join(".objekte/.indexes").is_dir());
 }
 
 #[cfg(feature = "detailed-profiling")]
@@ -941,7 +941,7 @@ fn diagnostic_disk_runs_report_timing_across_a_reopen() {
     assert!(written.status.success());
     assert!(events.last().unwrap()["startup_ms"].is_number());
     assert!(events.last().unwrap()["run_elapsed_ms"].is_number());
-    assert!(root.path().join(".objekte/indexes").is_dir());
+    assert!(root.path().join(".objekte/.indexes").is_dir());
     let (restored, events) = invoke(root.path(), &["--load-index", "repository", "--diagnostic"]);
     assert!(restored.status.success());
     assert_eq!(events.last().unwrap()["build_parses"], 0);
@@ -1353,14 +1353,14 @@ fn explicit_load_reconciles_sources_without_automatic_save() {
         String::from_utf8_lossy(&saved.stderr)
     );
     assert_eq!(hits(&events).len(), 1);
-    let namespace = root.path().join(".objekte/indexes");
+    let namespace = root.path().join(".objekte/.indexes");
     let directory = std::fs::read_dir(&namespace)
         .unwrap()
         .next()
         .unwrap()
         .unwrap()
         .path();
-    let manifest = directory.join("manifest.bin");
+    let manifest = directory.join("manifest.toml");
     let before = std::fs::read(&manifest).unwrap();
     let (loaded, events) = invoke(
         root.path(),

@@ -61,10 +61,12 @@ fn run() -> Result<(), String> {
     let mut root = None;
     let mut store = None;
     let mut alphabet = BigramAlphabet::Ascii;
+    let mut count_allocations = true;
     while let Some(argument) = args.next() {
         match argument.as_str() {
             "--root" => root = Some(PathBuf::from(args.next().ok_or("--root needs a path")?)),
             "--store" => store = Some(PathBuf::from(args.next().ok_or("--store needs a path")?)),
+            "--no-count" => count_allocations = false,
             "--alphabet" => {
                 alphabet = match args.next().ok_or("--alphabet needs a value")?.as_str() {
                     "ascii" => BigramAlphabet::Ascii,
@@ -86,7 +88,9 @@ fn run() -> Result<(), String> {
     let target = IndexStorageTarget::CustomDirectory(store);
     ALLOCATIONS.store(0, Ordering::Relaxed);
     ALLOCATED_BYTES.store(0, Ordering::Relaxed);
-    COUNTING.store(true, Ordering::SeqCst);
+    if count_allocations {
+        COUNTING.store(true, Ordering::SeqCst);
+    }
     let started = Instant::now();
     let index = Index::try_load(root, definitions, options, &target)
         .map_err(|error| error.to_string())?

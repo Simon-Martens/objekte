@@ -131,6 +131,17 @@ fn fixture() -> (
     (root, definition, options, indexed)
 }
 
+fn test_metadata(segment: &IndexedCollectionSegment, ordinal: u64) -> SegmentWriteMetadata<'_> {
+    SegmentWriteMetadata {
+        generation: 1,
+        collection: segment.collection,
+        ordinal,
+        slot_count: segment.records.len() as u32,
+        active: None,
+        write_validated: true,
+    }
+}
+
 #[test]
 fn complete_segment_roundtrips_without_source_io() {
     let (root, definition, options, segment) = fixture();
@@ -145,6 +156,7 @@ fn complete_segment_roundtrips_without_source_io() {
             table.push(entry.clone());
             Ok((table.len() - 1) as u32)
         },
+        &test_metadata(&segment, 1),
     )
     .unwrap();
     let reader = Arc::new(SegmentReader::from_owned(Arc::from(output.into_inner())).unwrap());
@@ -251,6 +263,7 @@ fn sealed_reopen_from_mapped_and_owned_bytes_queries_without_source() {
             table.push(entry.clone());
             Ok((table.len() - 1) as u32)
         },
+        &test_metadata(&segment, 1),
     )
     .unwrap()
     .into_inner();
@@ -316,6 +329,7 @@ fn sealed_segment_reencodes_after_move_and_retirement_without_source() {
             metadata.push(entry.clone());
             Ok((metadata.len() - 1) as u32)
         },
+        &test_metadata(&segment, 1),
     )
     .unwrap()
     .into_inner();
@@ -360,6 +374,7 @@ fn sealed_segment_reencodes_after_move_and_retirement_without_source() {
             moved_metadata.push(entry.clone());
             Ok((moved_metadata.len() - 1) as u32)
         },
+        &test_metadata(&reopened, 2),
     )
     .unwrap()
     .into_inner();
@@ -474,10 +489,17 @@ fn sealed_persistence_rebases_file_references_without_decoding_postings() {
     let sealed = seal_segment_consuming(segment, 1, &definition, options).unwrap();
     let original = sealed.raw.sealed_reader().unwrap();
     assert_eq!(original.decoded_cache_usage().0, 0);
-    let bytes = write_sealed_segment(&sealed, 1, options, Cursor::new(Vec::new()), &mut |entry| {
-        assert_eq!(entry, &file);
-        Ok(7)
-    })
+    let bytes = write_sealed_segment(
+        &sealed,
+        1,
+        options,
+        Cursor::new(Vec::new()),
+        &mut |entry| {
+            assert_eq!(entry, &file);
+            Ok(7)
+        },
+        &test_metadata(&sealed, 1),
+    )
     .unwrap()
     .into_inner();
     assert_eq!(original.decoded_cache_usage().0, 0);
@@ -513,11 +535,23 @@ fn sealed_persistence_rebases_file_references_without_decoding_postings() {
 #[test]
 fn persisted_segment_reads_and_compacts_without_native_record_tables() {
     let (root, definition, options, segment) = fixture();
-    let expected_ids = segment.records.iter().map(|record| record.id.clone()).collect::<Vec<_>>();
+    let expected_ids = segment
+        .records
+        .iter()
+        .map(|record| record.id.clone())
+        .collect::<Vec<_>>();
     let file = segment.files[0].entry.clone();
     let sealed = seal_segment_consuming(segment, 1, &definition, options).unwrap();
-    let bytes = write_sealed_segment(&sealed, 1, options, Cursor::new(Vec::new()), &mut |_| Ok(0))
-        .unwrap().into_inner();
+    let bytes = write_sealed_segment(
+        &sealed,
+        1,
+        options,
+        Cursor::new(Vec::new()),
+        &mut |_| Ok(0),
+        &test_metadata(&sealed, 1),
+    )
+    .unwrap()
+    .into_inner();
     let reopened = decode_segment_sealed_persisted_with_trust(
         Arc::new(SegmentReader::from_owned(Arc::from(bytes)).unwrap()),
         1,
@@ -528,7 +562,8 @@ fn persisted_segment_reads_and_compacts_without_native_record_tables() {
         sealed.record_count() as u32,
         Arc::new(vec![file.clone()]),
         crate::segment_format::SegmentTrust::Untrusted,
-    ).unwrap();
+    )
+    .unwrap();
     assert!(reopened.records.is_empty());
     assert!(reopened.files.is_empty());
     assert!(reopened.id_lookup.is_empty());
@@ -540,9 +575,14 @@ fn persisted_segment_reads_and_compacts_without_native_record_tables() {
         assert_eq!(reopened.try_record(slot).unwrap().unwrap().id, *id);
         assert_eq!(reopened.try_id_lookup(id.0.as_ref()).unwrap(), Some(slot));
     }
-    assert_eq!(reopened.try_file(file.id).unwrap().unwrap().records.len(), expected_ids.len());
+    assert_eq!(
+        reopened.try_file(file.id).unwrap().unwrap().records.len(),
+        expected_ids.len()
+    );
     let active = crate::inventory::ActiveRecords::all(reopened.record_count()).unwrap();
-    let compacted = reopened.compact_active(&active, reopened.record_count(), |_| true).unwrap();
+    let compacted = reopened
+        .compact_active(&active, reopened.record_count(), |_| true)
+        .unwrap();
     assert_eq!(compacted.index.record_count(), reopened.record_count());
     assert_eq!(compacted.index.file_count(), reopened.file_count());
     std::fs::remove_dir_all(root).unwrap();
@@ -558,6 +598,7 @@ fn streamed_owned_pack_matches_checked_buffered_pack() {
         options,
         Cursor::new(Vec::new()),
         &mut |_| Ok(0),
+        &test_metadata(&segment, 1),
     )
     .unwrap()
     .into_inner();
@@ -577,10 +618,16 @@ fn streamed_owned_pack_matches_checked_buffered_pack() {
             );
         }
     }
-    let persisted =
-        write_sealed_segment(&sealed, 1, options, Cursor::new(Vec::new()), &mut |_| Ok(0))
-            .unwrap()
-            .into_inner();
+    let persisted = write_sealed_segment(
+        &sealed,
+        1,
+        options,
+        Cursor::new(Vec::new()),
+        &mut |_| Ok(0),
+        &test_metadata(&sealed, 1),
+    )
+    .unwrap()
+    .into_inner();
     let persisted = SegmentReader::from_owned(Arc::from(persisted)).unwrap();
     for kind in REQUIRED_SECTIONS {
         assert_eq!(
@@ -613,6 +660,7 @@ fn manifest_slot_count_and_source_binding_are_checked() {
             table.push(entry.clone());
             Ok((table.len() - 1) as u32)
         },
+        &test_metadata(&segment, 1),
     )
     .unwrap()
     .into_inner();
@@ -675,10 +723,11 @@ fn corrupted_posting_payload_fails_owned_decode() {
             table.push(entry.clone());
             Ok((table.len() - 1) as u32)
         },
+        &test_metadata(&segment, 1),
     )
     .unwrap()
     .into_inner();
-    let payload_entry = 24 + 5 * 56;
+    let payload_entry = crate::segment_format::HEADER_BYTES + 5 * 56;
     assert_eq!(
         u32::from_le_bytes(bytes[payload_entry..payload_entry + 4].try_into().unwrap()),
         SectionKind::PostingPayloads as u32
@@ -720,6 +769,7 @@ fn sealed_decode_defers_posting_payload_error_until_query() {
             table.push(entry.clone());
             Ok((table.len() - 1) as u32)
         },
+        &test_metadata(&segment, 1),
     )
     .unwrap()
     .into_inner();
@@ -746,7 +796,7 @@ fn sealed_decode_defers_posting_payload_error_until_query() {
         .get(&ScalarKey::Number(Number::integer(1)))
         .unwrap()
         .unwrap();
-    let payload_entry = 24 + 5 * 56;
+    let payload_entry = crate::segment_format::HEADER_BYTES + 5 * 56;
     assert_eq!(
         u32::from_le_bytes(bytes[payload_entry..payload_entry + 4].try_into().unwrap()),
         SectionKind::PostingPayloads as u32
@@ -797,6 +847,7 @@ fn sealed_decode_defers_bigram_payload_error_until_query() {
             table.push(entry.clone());
             Ok((table.len() - 1) as u32)
         },
+        &test_metadata(&segment, 1),
     )
     .unwrap()
     .into_inner();
@@ -824,7 +875,7 @@ fn sealed_decode_defers_bigram_payload_error_until_query() {
     )
     .unwrap();
     let descriptor = dictionary.get(&key).unwrap().unwrap();
-    let payload_entry = 24 + 5 * 56;
+    let payload_entry = crate::segment_format::HEADER_BYTES + 5 * 56;
     let payload_offset = u64::from_le_bytes(
         bytes[payload_entry + 8..payload_entry + 16]
             .try_into()

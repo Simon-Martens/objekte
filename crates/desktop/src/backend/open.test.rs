@@ -84,7 +84,7 @@ fn managed_incremental_open_exposes_catalogue_before_durable_completion() {
             .durable_generation
             .is_none()
     );
-    assert!(!root.path().join(".objekte/indexes").exists());
+    assert!(!root.path().join(".objekte/.indexes").exists());
     session.repository.index().shutdown().unwrap();
 }
 
@@ -214,7 +214,7 @@ fn corrupt_managed_open_reports_classified_recovery_guidance() {
         .unwrap()
         .managed_directory;
     first.repository.index().shutdown().unwrap();
-    std::fs::write(directory.join("manifest.bin"), b"invalid manifest").unwrap();
+    std::fs::write(directory.join("manifest.toml"), b"not valid toml = [").unwrap();
     let error = match open(&spec, &CancellationToken::new()) {
         Ok(_) => panic!("corrupt store unexpectedly opened"),
         Err(error) => error,
