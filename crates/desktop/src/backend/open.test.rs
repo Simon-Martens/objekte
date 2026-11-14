@@ -1,35 +1,28 @@
 use super::*;
 use crate::backend::test_support::write_records;
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStorageTarget,
-};
+use objekte_search_core::index_storage::IndexStorageTarget;
 
 #[test]
 fn explicit_desktop_loads_all_locations_after_explicit_save() {
     let root = tempfile::tempdir().unwrap();
     let custom = tempfile::tempdir().unwrap();
     write_records(root.path());
-    for location in [
-        IndexStorageLocation::MemoryOnly,
-        IndexStorageLocation::SystemTemporary,
-        IndexStorageLocation::RepositoryDirectory,
-        IndexStorageLocation::CustomDirectory(custom.path().to_path_buf()),
+    for target in [
+        None,
+        Some(IndexStorageTarget::SystemTemporary),
+        Some(IndexStorageTarget::RepositoryDirectory),
+        Some(IndexStorageTarget::CustomDirectory(
+            custom.path().to_path_buf(),
+        )),
     ] {
-        let disk = location != IndexStorageLocation::MemoryOnly;
+        let disk = target.is_some();
         let spec = OpenSpec {
             args: Arguments {
                 path: vec![root.path().to_path_buf()],
                 ..Default::default()
             },
             cwd: root.path().to_path_buf(),
-            storage_policy: Some(IndexStoragePolicy {
-                location,
-                residency: if disk {
-                    IndexResidency::OnDemand
-                } else {
-                    IndexResidency::FullyResident
-                },
-            }),
+            load_target: target.clone(),
         };
         let first = open(&spec, &CancellationToken::new()).unwrap();
         let status = first.repository.index().storage_status().unwrap();
@@ -42,18 +35,8 @@ fn explicit_desktop_loads_all_locations_after_explicit_save() {
                 .join("search-index.json")
                 .exists()
         );
-        if disk {
-            let target = match &spec.storage_policy.as_ref().unwrap().location {
-                IndexStorageLocation::SystemTemporary => IndexStorageTarget::SystemTemporary,
-                IndexStorageLocation::RepositoryDirectory => {
-                    IndexStorageTarget::RepositoryDirectory
-                }
-                IndexStorageLocation::CustomDirectory(path) => {
-                    IndexStorageTarget::CustomDirectory(path.clone())
-                }
-                IndexStorageLocation::MemoryOnly => unreachable!(),
-            };
-            first.repository.index().flush_to(&target).unwrap();
+        if let Some(target) = &target {
+            first.repository.index().flush_to(target).unwrap();
         }
         first.repository.index().shutdown().unwrap();
         if disk {
@@ -83,10 +66,7 @@ fn managed_incremental_open_exposes_catalogue_before_durable_completion() {
             ..Default::default()
         },
         cwd: root.path().to_path_buf(),
-        storage_policy: Some(IndexStoragePolicy {
-            location: IndexStorageLocation::RepositoryDirectory,
-            residency: IndexResidency::OnDemand,
-        }),
+        load_target: Some(IndexStorageTarget::RepositoryDirectory),
     };
     let (session, task) = open_incremental(&spec, &CancellationToken::new()).unwrap();
     if let Some(task) = &task {
@@ -118,7 +98,7 @@ fn opens_folder_without_implicit_snapshot_write() {
     };
     let session = open(
         &OpenSpec {
-            storage_policy: None,
+            load_target: None,
             args,
             cwd: root.path().to_path_buf(),
         },
@@ -146,7 +126,7 @@ fn repeated_paths_keep_cli_collection_names() {
     };
     let session = open(
         &OpenSpec {
-            storage_policy: None,
+            load_target: None,
             args,
             cwd: root.path().to_path_buf(),
         },
@@ -168,7 +148,7 @@ fn incremental_desktop_open_exposes_catalogue_and_finishes_without_implicit_cach
         .unwrap();
     }
     let spec = OpenSpec {
-        storage_policy: None,
+        load_target: None,
         args: Arguments {
             path: vec![root.path().to_owned()],
             ..Default::default()
@@ -200,7 +180,7 @@ fn incremental_catalogue_preserves_non_utf8_file_paths() {
     let filename = std::ffi::OsString::from_vec(b"raw-\xff.json".to_vec());
     std::fs::write(root.path().join(filename), br#"{"title":"A"}"#).unwrap();
     let spec = OpenSpec {
-        storage_policy: None,
+        load_target: None,
         args: Arguments {
             path: vec![root.path().to_owned()],
             ..Default::default()
@@ -219,10 +199,7 @@ fn corrupt_managed_open_reports_classified_recovery_guidance() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
     let spec = OpenSpec {
-        storage_policy: Some(IndexStoragePolicy {
-            location: IndexStorageLocation::RepositoryDirectory,
-            residency: IndexResidency::OnDemand,
-        }),
+        load_target: Some(IndexStorageTarget::RepositoryDirectory),
         args: Arguments {
             path: vec![root.path().to_path_buf()],
             ..Default::default()

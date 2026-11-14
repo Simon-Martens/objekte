@@ -2,9 +2,7 @@ use super::*;
 use crate::backend::test_support::fixture;
 use crate::backend::{OpenSpec, open};
 use objekte_cli::arguments::Arguments;
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy, IndexStorageTarget,
-};
+use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::streaming::CancellationToken;
 
 #[test]
@@ -32,10 +30,7 @@ fn shutdown_preserves_only_the_explicitly_saved_generation() {
     crate::backend::test_support::write_records(root.path());
     let session = open(
         &OpenSpec {
-            storage_policy: Some(IndexStoragePolicy {
-                location: IndexStorageLocation::RepositoryDirectory,
-                residency: IndexResidency::OnDemand,
-            }),
+            load_target: Some(IndexStorageTarget::RepositoryDirectory),
             args: Arguments {
                 path: vec![root.path().to_path_buf()],
                 ..Default::default()

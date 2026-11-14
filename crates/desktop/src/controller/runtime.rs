@@ -14,7 +14,7 @@ use gpui_kit::{App, PathPromptOptions};
 use objekte_cli::execution::Exit;
 use objekte_cli::storage_view::StorageIssueView;
 use objekte_search_core::index_storage::{
-    IndexFlushReport, IndexStorageFailureKind, IndexStorageLocation, IndexStorageTarget,
+    IndexFlushReport, IndexStorageFailureKind, IndexStorageTarget,
 };
 use objekte_search_core::lifecycle::{
     IndexRevision, IndexStatus, IndexView, InitialBuildPhase, InitialBuildTask,
@@ -2747,8 +2747,8 @@ impl DesktopController {
                         self.active_tab = None;
                         self.emit_tabs(updates);
                         self.open_draft = self.opening_draft.take();
-                        if let (Some(draft), IndexStorageLocation::CustomDirectory(base)) =
-                            (self.open_draft.as_mut(), &session.storage_policy.location)
+                        if let (Some(draft), Some(IndexStorageTarget::CustomDirectory(base))) =
+                            (self.open_draft.as_mut(), &session.load_target)
                         {
                             draft.index_directory = base.display().to_string();
                         }

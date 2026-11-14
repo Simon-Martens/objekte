@@ -624,7 +624,7 @@ fn declared_enum_completes_without_a_posting_dictionary() {
     .unwrap();
     let session = backend::open(
         &OpenSpec {
-            storage_policy: None,
+            load_target: None,
             args: Arguments {
                 path: vec![root.path().to_path_buf()],
                 schema: Some(schema),
@@ -759,9 +759,7 @@ fn manual_close_has_no_implicit_index_save() {
 
 #[test]
 fn saved_index_open_and_close_leave_previous_generation_unchanged() {
-    use objekte_search_core::index_storage::{
-        IndexResidency, IndexStorageLocation, IndexStoragePolicy, IndexStorageTarget,
-    };
+    use objekte_search_core::index_storage::IndexStorageTarget;
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
     let args = objekte_cli::arguments::Arguments {
@@ -770,7 +768,7 @@ fn saved_index_open_and_close_leave_previous_generation_unchanged() {
     };
     let memory = backend::open(
         &OpenSpec {
-            storage_policy: None,
+            load_target: None,
             args: args.clone(),
             cwd: root.path().to_path_buf(),
         },
@@ -785,10 +783,7 @@ fn saved_index_open_and_close_leave_previous_generation_unchanged() {
     assert_eq!(saved.store_generation, 1);
     let session = backend::open(
         &OpenSpec {
-            storage_policy: Some(IndexStoragePolicy {
-                location: IndexStorageLocation::RepositoryDirectory,
-                residency: IndexResidency::OnDemand,
-            }),
+            load_target: Some(IndexStorageTarget::RepositoryDirectory),
             args,
             cwd: root.path().to_path_buf(),
         },
@@ -819,10 +814,7 @@ fn saved_index_open_and_close_leave_previous_generation_unchanged() {
     ));
     let reopened = backend::open(
         &OpenSpec {
-            storage_policy: Some(IndexStoragePolicy {
-                location: IndexStorageLocation::RepositoryDirectory,
-                residency: IndexResidency::OnDemand,
-            }),
+            load_target: Some(IndexStorageTarget::RepositoryDirectory),
             args: objekte_cli::arguments::Arguments {
                 path: vec![root.path().to_path_buf()],
                 ..Default::default()
@@ -929,14 +921,14 @@ fn failed_saved_index_open_keeps_previous_memory_session() {
 
 #[test]
 fn focused_storage_change_opens_temporary_repository_and_custom_without_changing_source() {
-    use objekte_search_core::index_storage::IndexStorageLocation;
+    use objekte_search_core::index_storage::IndexStorageTarget;
     let root = tempfile::tempdir().unwrap();
     let custom = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
     let path = root.path().display().to_string();
     let session = backend::open(
         &OpenSpec {
-            storage_policy: None,
+            load_target: None,
             args: objekte_cli::arguments::Arguments {
                 path: vec![root.path().to_path_buf()],
                 ..Default::default()
@@ -985,10 +977,8 @@ fn focused_storage_change_opens_temporary_repository_and_custom_without_changing
             choice
         );
     }
-    assert!(
-        matches!(controller.session.as_ref().unwrap().storage_policy.location,
-        IndexStorageLocation::CustomDirectory(ref base) if base == &custom.path().canonicalize().unwrap())
-    );
+    assert!(matches!(controller.session.as_ref().unwrap().load_target,
+        Some(IndexStorageTarget::CustomDirectory(ref base)) if base == &custom.path().canonicalize().unwrap()));
     controller
         .session
         .as_ref()

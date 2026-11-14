@@ -40,25 +40,21 @@ fn memory_only_is_default_and_desktop_query_has_no_range() {
     };
     opening.paths = "/tmp/data".into();
     assert!(matches!(
-        open_spec(&opening, Path::new("/tmp"))
-            .unwrap()
-            .storage_policy
-            .unwrap()
-            .location,
-        IndexStorageLocation::MemoryOnly
+        open_spec(&opening, Path::new("/tmp")).unwrap().load_target,
+        None
     ));
     opening.index_storage = crate::ui::model::StorageChoice::Custom;
     let custom = open_spec(&opening, Path::new("/tmp")).unwrap();
     assert!(matches!(
-        custom.storage_policy.unwrap().location,
-        IndexStorageLocation::CustomDirectory(path) if path == Path::new("/tmp/indexes")
+        custom.load_target.unwrap(),
+        IndexStorageTarget::CustomDirectory(path) if path == Path::new("/tmp/indexes")
     ));
 
     opening.index_directory = "indexes".into();
     let relative = open_spec(&opening, Path::new("/tmp")).unwrap();
     assert!(matches!(
-        relative.storage_policy.unwrap().location,
-        IndexStorageLocation::CustomDirectory(path) if path == Path::new("/tmp/indexes")
+        relative.load_target.unwrap(),
+        IndexStorageTarget::CustomDirectory(path) if path == Path::new("/tmp/indexes")
     ));
 
     let spec = query_spec(&SearchDraft::default()).unwrap();
@@ -77,10 +73,7 @@ fn configured_repository_defaults_to_memory_storage() {
         ..OpenDraft::default()
     };
     let spec = open_spec(&opening, Path::new("/tmp")).unwrap();
-    assert!(matches!(
-        spec.storage_policy.unwrap().location,
-        IndexStorageLocation::MemoryOnly
-    ));
+    assert!(matches!(spec.load_target, None));
 }
 
 #[test]

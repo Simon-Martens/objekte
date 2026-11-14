@@ -10,9 +10,7 @@ use std::path::PathBuf;
 use std::sync::Arc;
 
 use objekte_cli::storage_view::StorageIssueView;
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
-};
+use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::IndexView;
 use objekte_search_core::model::FileId;
 
@@ -85,30 +83,21 @@ impl Default for OpenDraft {
 }
 
 impl OpenDraft {
-    pub fn storage_policy(&self) -> Result<IndexStoragePolicy, String> {
-        let location = match self.index_storage {
-            StorageChoice::Memory => IndexStorageLocation::MemoryOnly,
-            StorageChoice::Temporary => IndexStorageLocation::SystemTemporary,
-            StorageChoice::Repository => IndexStorageLocation::RepositoryDirectory,
+    pub fn load_target(&self) -> Result<Option<IndexStorageTarget>, String> {
+        let target = match self.index_storage {
+            StorageChoice::Memory => return Ok(None),
+            StorageChoice::Temporary => IndexStorageTarget::SystemTemporary,
+            StorageChoice::Repository => IndexStorageTarget::RepositoryDirectory,
             StorageChoice::Custom => {
                 let directory = self.index_directory.trim();
                 if directory.is_empty() {
-                    return Err("Choose a base folder for custom index storage".into());
+                    return Err("Choose a base folder for the custom saved index".into());
                 }
-                IndexStorageLocation::CustomDirectory(directory.into())
+                IndexStorageTarget::CustomDirectory(directory.into())
             }
         };
-        let residency = if self.index_storage == StorageChoice::Memory {
-            IndexResidency::FullyResident
-        } else {
-            IndexResidency::OnDemand
-        };
-        let policy = IndexStoragePolicy {
-            location,
-            residency,
-        };
-        policy.validate()?;
-        Ok(policy)
+        target.validate()?;
+        Ok(Some(target))
     }
 }
 
@@ -129,23 +118,6 @@ pub fn canonical_storage_base(input: &str) -> Result<PathBuf, String> {
         return Err("Custom index base is not a directory".into());
     }
     Ok(canonical)
-}
-
-pub fn same_storage_setting(current: &OpenDraft, selected: &OpenDraft) -> bool {
-    let (Ok(current), Ok(selected)) = (current.storage_policy(), selected.storage_policy()) else {
-        return false;
-    };
-    if current.residency != selected.residency {
-        return false;
-    }
-    match (&current.location, &selected.location) {
-        (IndexStorageLocation::CustomDirectory(a), IndexStorageLocation::CustomDirectory(b)) => a
-            .canonicalize()
-            .ok()
-            .zip(b.canonicalize().ok())
-            .is_some_and(|(a, b)| a == b),
-        _ => current.location == selected.location,
-    }
 }
 
 /// The two independently editable query inputs and execution options.

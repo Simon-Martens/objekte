@@ -83,7 +83,7 @@ fn malformed_source_keeps_raw_fallback_payload_in_export() {
     fs::write(source.path().join("null.json"), b"null").unwrap();
     let session = open(
         &OpenSpec {
-            storage_policy: None,
+            load_target: None,
             args: Arguments {
                 path: vec![source.path().to_path_buf()],
                 ..Default::default()

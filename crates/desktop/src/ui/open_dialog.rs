@@ -288,7 +288,7 @@ impl OpenDialogState {
         };
         let mut draft = template.clone();
         draft.mode = mode;
-        draft.storage_policy()?;
+        draft.load_target()?;
         draft.paths = self
             .folders
             .iter()

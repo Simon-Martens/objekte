@@ -29,7 +29,7 @@ pub(crate) fn fixture() -> Fixture {
     };
     let session = open(
         &OpenSpec {
-            storage_policy: None,
+            load_target: None,
             args,
             cwd: root.path().to_path_buf(),
         },

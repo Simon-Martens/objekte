@@ -8,9 +8,7 @@ use std::time::Instant;
 use objekte_cli::arguments::{Arguments, ResolvedPaths};
 use objekte_cli::loader::{configure_definitions, repository_options};
 use objekte_cli::storage_view::format_index_error;
-use objekte_search_core::index_storage::{
-    IndexStorageLocation, IndexStoragePolicy, IndexStorageTarget,
-};
+use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::{Index, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::model::{FieldPath, PathRoot};
@@ -24,8 +22,8 @@ use super::{BackendError, BackendErrorKind};
 pub struct OpenSpec {
     pub args: Arguments,
     pub cwd: PathBuf,
-    /// Shared core policy for desktop opening; `None` is memory only.
-    pub storage_policy: Option<IndexStoragePolicy>,
+    /// Only this selected saved-index target is probed; `None` builds in memory.
+    pub load_target: Option<IndexStorageTarget>,
 }
 
 /// Observed opening work and configuration.
@@ -50,7 +48,7 @@ pub struct SessionConfiguration {
 #[derive(Clone)]
 pub struct OpenedSession {
     pub repository: Arc<IndexedRepository>,
-    pub storage_policy: IndexStoragePolicy,
+    pub load_target: Option<IndexStorageTarget>,
     pub configuration: Arc<SessionConfiguration>,
     pub args: Arguments,
     pub paths: ResolvedPaths,
@@ -78,13 +76,8 @@ pub fn open(
     spec: &OpenSpec,
     cancellation: &CancellationToken,
 ) -> Result<OpenedSession, BackendError> {
-    open_shared_storage(
-        spec,
-        cancellation,
-        spec.storage_policy.clone().unwrap_or_default(),
-        false,
-    )
-    .map(|(session, _)| session)
+    open_shared_storage(spec, cancellation, spec.load_target.clone(), false)
+        .map(|(session, _)| session)
 }
 
 /// Return a searchable catalogue while a fresh index continues building.
@@ -93,18 +86,13 @@ pub fn open_incremental(
     spec: &OpenSpec,
     cancellation: &CancellationToken,
 ) -> Result<(OpenedSession, Option<InitialBuildTask>), BackendError> {
-    open_shared_storage(
-        spec,
-        cancellation,
-        spec.storage_policy.clone().unwrap_or_default(),
-        true,
-    )
+    open_shared_storage(spec, cancellation, spec.load_target.clone(), true)
 }
 
 fn open_shared_storage(
     spec: &OpenSpec,
     cancellation: &CancellationToken,
-    storage: IndexStoragePolicy,
+    target: Option<IndexStorageTarget>,
     incremental: bool,
 ) -> Result<(OpenedSession, Option<InitialBuildTask>), BackendError> {
     spec.args
@@ -121,24 +109,25 @@ fn open_shared_storage(
     }
     let mut options = repository_options(&spec.args);
     options.verified_cache_bytes = 64 * 1024 * 1024;
-    let mut presented_storage = storage.clone();
-    if let IndexStorageLocation::CustomDirectory(path) = &mut presented_storage.location {
-        *path = path.canonicalize().map_err(|error| {
-            BackendError::new(
-                BackendErrorKind::Options,
-                format!("custom index base {}: {error}", path.display()),
-            )
-        })?;
-    }
-    let started = Instant::now();
-    let target = match &presented_storage.location {
-        IndexStorageLocation::MemoryOnly => None,
-        IndexStorageLocation::SystemTemporary => Some(IndexStorageTarget::SystemTemporary),
-        IndexStorageLocation::RepositoryDirectory => Some(IndexStorageTarget::RepositoryDirectory),
-        IndexStorageLocation::CustomDirectory(path) => {
-            Some(IndexStorageTarget::CustomDirectory(path.clone()))
+    let target = match target {
+        Some(IndexStorageTarget::CustomDirectory(path)) => {
+            let base = path.canonicalize().map_err(|error| {
+                BackendError::new(
+                    BackendErrorKind::Options,
+                    format!("custom index base {}: {error}", path.display()),
+                )
+            })?;
+            if !base.is_dir() {
+                return Err(BackendError::new(
+                    BackendErrorKind::Options,
+                    format!("custom index base is not a directory: {}", base.display()),
+                ));
+            }
+            Some(IndexStorageTarget::CustomDirectory(base))
         }
+        other => other,
     };
+    let started = Instant::now();
     let loaded = target
         .as_ref()
         .map(|target| Index::try_load(&paths.root, configured.definitions.clone(), options, target))
@@ -213,7 +202,7 @@ fn open_shared_storage(
     Ok((
         OpenedSession {
             repository: Arc::new(repository),
-            storage_policy: presented_storage,
+            load_target: target,
             configuration: Arc::new(SessionConfiguration {
                 configured_repository: spec.args.repo.is_some(),
                 configuration_identity,

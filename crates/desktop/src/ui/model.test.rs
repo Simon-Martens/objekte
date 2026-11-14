@@ -1,32 +1,28 @@
 use super::*;
 
 #[test]
-fn open_draft_maps_storage_and_residency_to_core_policy() {
+fn open_draft_maps_explicit_saved_index_target() {
     let mut draft = OpenDraft::default();
-    let memory = draft.storage_policy().unwrap();
-    assert_eq!(memory.location, IndexStorageLocation::MemoryOnly);
-    assert_eq!(memory.residency, IndexResidency::FullyResident);
-
+    assert_eq!(draft.load_target().unwrap(), None);
     draft.index_storage = StorageChoice::Temporary;
     assert_eq!(
-        draft.storage_policy().unwrap().residency,
-        IndexResidency::OnDemand
+        draft.load_target().unwrap(),
+        Some(IndexStorageTarget::SystemTemporary)
     );
     draft.index_storage = StorageChoice::Repository;
     assert_eq!(
-        draft.storage_policy().unwrap().location,
-        IndexStorageLocation::RepositoryDirectory
+        draft.load_target().unwrap(),
+        Some(IndexStorageTarget::RepositoryDirectory)
     );
-
     draft.index_storage = StorageChoice::Custom;
-    assert!(draft.storage_policy().unwrap_err().contains("base folder"));
+    assert!(draft.load_target().unwrap_err().contains("base folder"));
     draft.index_directory = "/tmp/index base".into();
-    let custom = draft.storage_policy().unwrap();
     assert_eq!(
-        custom.location,
-        IndexStorageLocation::CustomDirectory("/tmp/index base".into())
+        draft.load_target().unwrap(),
+        Some(IndexStorageTarget::CustomDirectory(
+            "/tmp/index base".into()
+        ))
     );
-    assert_eq!(custom.residency, IndexResidency::OnDemand);
 }
 
 #[test]
@@ -50,12 +46,6 @@ fn focused_storage_base_requires_existing_absolute_directory() {
             .unwrap_err()
             .contains("not a directory")
     );
-    let mut current = OpenDraft::default();
-    current.index_storage = StorageChoice::Custom;
-    current.index_directory = base.path().join(".").display().to_string();
-    let mut selected = current.clone();
-    selected.index_directory = base.path().canonicalize().unwrap().display().to_string();
-    assert!(same_storage_setting(&current, &selected));
 }
 
 #[test]
