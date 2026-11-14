@@ -2451,6 +2451,8 @@ source-check actions.
   and base sort descriptors across reload.
 - `9aba430a` — compaction test asserts postings, bigrams, sort, and relation
   owners remain mapped with empty native storage.
+- `16bf0269` — auto-index inference coverage survives packed compaction,
+  source removal, and reload.
 
 ### Packed access abstraction
 
@@ -2514,18 +2516,18 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures (925 passed). The core library suite
-  reports 596 passed, 15 ignored; the CLI library reports 94 passed; the desktop
+- Workspace tests pass with no failures (926 passed). The core library suite
+  reports 597 passed, 15 ignored; the CLI library reports 94 passed; the desktop
   library reports 166 passed, 1 ignored. The all-targets run compiles and tests
   examples and integration targets as well.
-- The storage subsystem suite reports 80 passed, including dictionary,
+- The storage subsystem suite reports 81 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, posting-value enumeration over packed dictionaries, loaded
   re-save object reuse, direct packed-to-packed compaction after
   add/replace/move/delete, source removal before compaction, typed/FTS/sort/
-  relation differential results, pinned prior views, tombstone catalogue
-  preservation, compaction/save, concurrent-publication, and background-task
-  tests.
+  relation and auto-index inference differential results, pinned prior views,
+  tombstone catalogue preservation, compaction/save, concurrent-publication, and
+  background-task tests.
 - CLI tests include the end-to-end storage protocol, TUI storage overlay/Load,
   and six custom-index recipe tests: custom-only query and storage-only opening,
   schema/inference/alphabet restoration, conflicting interpretation, explicit
