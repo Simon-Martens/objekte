@@ -265,3 +265,76 @@ fn followed_aliases_into_generated_namespaces_are_not_sources() {
         .unwrap()
     );
 }
+
+#[cfg(unix)]
+#[test]
+fn followed_discovery_ignores_reserved_dangling_and_looping_links() {
+    let fixture = Fixture::new();
+    fixture.file("data/a.json");
+    std::fs::create_dir_all(fixture.0.join("data/nested")).unwrap();
+    std::os::unix::fs::symlink(
+        fixture.0.join("missing-target"),
+        fixture.0.join("data/objekte-indexes"),
+    )
+    .unwrap();
+    std::os::unix::fs::symlink(
+        "objekte-indexes",
+        fixture.0.join("data/nested/objekte-indexes"),
+    )
+    .unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    let rules = Discovery {
+        recursive: true,
+        hidden: true,
+        symlinks: SymlinkPolicy::FollowWithinRoot,
+        ..Discovery::default()
+    };
+    let selected = discover(&fixture.0, Path::new("data"), &rules, &source).unwrap();
+    assert_eq!(
+        selected
+            .iter()
+            .map(|path| path.strip_prefix(&fixture.0).unwrap().to_owned())
+            .collect::<Vec<_>>(),
+        vec![PathBuf::from("data/a.json")]
+    );
+}
+
+#[cfg(unix)]
+#[test]
+fn canonical_alias_source_roots_are_rejected_for_direct_selection() {
+    let fixture = Fixture::new();
+    fixture.file("data/a.json");
+    fixture.file(".objekte/indexes/poison.json");
+    std::os::unix::fs::symlink(
+        fixture.0.join(".objekte/indexes"),
+        fixture.0.join("alias"),
+    )
+    .unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    for symlinks in [SymlinkPolicy::Skip, SymlinkPolicy::FollowWithinRoot] {
+        let rules = Discovery {
+            recursive: true,
+            hidden: true,
+            symlinks,
+            ..Discovery::default()
+        };
+        for relative in ["alias/poison.json", "alias/missing.json"] {
+            let error = selects_file(
+                &fixture.0,
+                Path::new("alias"),
+                &rules,
+                &source,
+                Path::new(relative),
+            )
+            .unwrap_err();
+            assert!(
+                error.contains("resolves inside a generated index namespace"),
+                "{symlinks:?} {relative}: {error}"
+            );
+        }
+    }
+}

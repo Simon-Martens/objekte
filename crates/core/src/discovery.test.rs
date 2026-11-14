@@ -169,3 +169,41 @@ fn prepared_scan_selection_matches_generated_namespace_eligibility() {
     .is_err());
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[cfg(unix)]
+#[test]
+fn stream_discovery_ignores_reserved_dangling_and_looping_links() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-stream-reserved-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data/nested")).unwrap();
+    std::fs::write(root.join("data/a.json"), b"{}").unwrap();
+    std::os::unix::fs::symlink(root.join("missing"), root.join("data/objekte-indexes")).unwrap();
+    std::os::unix::fs::symlink(
+        "objekte-indexes",
+        root.join("data/nested/objekte-indexes"),
+    )
+    .unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    let rules = Discovery {
+        recursive: true,
+        hidden: true,
+        symlinks: SymlinkPolicy::FollowWithinRoot,
+        ..Discovery::default()
+    };
+    let mut observed = Vec::new();
+    discover_stream(&root, Path::new("data"), &rules, &source, || false, |path| {
+        observed.push(path);
+        Ok(())
+    })
+    .unwrap();
+    assert_eq!(observed, vec![root.join("data/a.json")]);
+    std::fs::remove_dir_all(root).unwrap();
+}

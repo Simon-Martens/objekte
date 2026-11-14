@@ -698,6 +698,20 @@ process fixture. The mutation test covers explicit add, move, update and
 reconciliation; the discovery tests cover recursive/nonrecursive, hidden and
 alias cases.
 
+### Correction after external review
+
+`selects_file` now rejects a canonical source root that resolves into a
+generated namespace, so an alias source root cannot expose
+`alias/poison.json` under either symlink policy, including when an already-open
+source root is retargeted. `canonical_alias_source_roots_are_rejected_for_direct_selection`
+covers `SymlinkPolicy::Skip` and `FollowWithinRoot`.
+
+Both followed walkers now test the reserved directory name before calling
+`canonicalize`, so a dangling or looping `objekte-indexes` link is pruned
+instead of aborting discovery. `followed_discovery_ignores_reserved_dangling_and_looping_links`
+and `stream_discovery_ignores_reserved_dangling_and_looping_links` cover the
+bounded and streaming paths.
+
 ### Finding 3: focused regression gaps
 
 - **Metadata parity:** `metadata_fast_paths_and_fallbacks_match_the_reference_evaluator`

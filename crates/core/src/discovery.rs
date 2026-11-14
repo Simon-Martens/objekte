@@ -206,6 +206,9 @@ pub(crate) fn discover_stream(
                     }
                     continue;
                 }
+                if generated_directory(selected) {
+                    continue;
+                }
                 let physical = path
                     .canonicalize()
                     .map_err(|error| format!("{}: {error}", path.display()))?;
@@ -360,6 +363,9 @@ pub(crate) fn discover_bounded(
                 }
                 continue;
             }
+            if generated_directory(selected_path) {
+                continue;
+            }
             let physical = path
                 .canonicalize()
                 .map_err(|e| format!("{}: {e}", path.display()))?;
@@ -453,6 +459,12 @@ pub fn selects_file(
         return Err(
             "collection source directory escapes repository root or is not a directory".into(),
         );
+    }
+    if physical_path_is_generated(root, &physical_root) {
+        return Err(format!(
+            "collection source selection {} resolves inside a generated index namespace",
+            source_path.display()
+        ));
     }
     let path = root.join(relative_path);
     if rules.symlinks == SymlinkPolicy::Skip {
