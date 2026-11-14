@@ -543,6 +543,25 @@ impl SegmentReader {
         Ok(Some(self.section_bytes(entry)))
     }
 
+    /// Resolve the RecordSlots span after its SHA and framing checks. A
+    /// direct reader retains this offset so scalar lookups need no section
+    /// directory hash lookup or OnceLock probe per record.
+    pub(crate) fn checked_record_span(&self) -> Result<(usize, usize), String> {
+        self.section(SectionKind::RecordSlots)?.ok_or("record section missing")?;
+        let entry = self.sections.get(&SectionKind::RecordSlots).ok_or("record section missing")?;
+        Ok((entry.offset as usize, entry.length as usize))
+    }
+
+    pub(crate) fn checked_record_bytes(&self, span: (usize, usize)) -> &[u8] {
+        match &self.bytes {
+            SegmentBytes::Constructed(sections) => &sections.buffers[SectionKind::RecordSlots as usize - 1],
+            other => {
+                let (start, length) = span;
+                &other.contiguous().expect("persisted segment bytes")[start..start + length]
+            }
+        }
+    }
+
     fn section_bytes(&self, entry: &SectionEntry) -> &[u8] {
         match &self.bytes {
             SegmentBytes::Constructed(sections) => &sections.buffers[entry.kind as usize - 1],

@@ -539,6 +539,7 @@ impl SegmentMetadataRefs for RestoredGenerationCatalog {
 /// is reconstructed on opening.
 pub(crate) struct PersistedRecordSlots {
     reader: Arc<SegmentReader>,
+    section_span: (usize, usize),
     metadata: Arc<dyn SegmentMetadataRefs>,
     layout: RecordSlotsLayout,
     max_record_range_len: u64,
@@ -551,15 +552,16 @@ impl PersistedRecordSlots {
         source: (&str, u32),
         metadata: Arc<dyn SegmentMetadataRefs>,
     ) -> Result<Self, String> {
-        let bytes = reader.section(SectionKind::RecordSlots)?.ok_or("record section missing")?;
+        let section_span = reader.checked_record_span()?;
+        let bytes = reader.checked_record_bytes(section_span);
         let layout = RecordSlotsLayout::parse(bytes, collection, source)?;
-        let mut result = Self { reader, metadata, layout, max_record_range_len: 0 };
+        let mut result = Self { reader, section_span, metadata, layout, max_record_range_len: 0 };
         result.max_record_range_len = result.validate(collection)?;
         Ok(result)
     }
 
     fn bytes(&self) -> Result<&[u8], String> {
-        self.reader.section(SectionKind::RecordSlots)?.ok_or("record section missing".into())
+        Ok(self.reader.checked_record_bytes(self.section_span))
     }
 
     pub(crate) fn record_count(&self) -> usize { self.layout.record_count }
