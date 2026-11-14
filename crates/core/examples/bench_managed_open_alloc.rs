@@ -86,7 +86,6 @@ fn run() -> Result<(), String> {
         bigram_alphabet: alphabet,
         snapshot_mode: SnapshotMode::Disabled,
         query_workers: 32,
-        prepared_cache_bytes: 16 * 1024 * 1024,
         ..RepositoryOptions::default()
     };
     let policy = IndexStoragePolicy {

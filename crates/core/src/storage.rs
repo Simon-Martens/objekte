@@ -2216,9 +2216,6 @@ fn load_snapshot_parts(
             options,
             startup: StartupStats::default(),
             workers: Repository::create_workers(options.query_workers)?,
-            prepared: Mutex::new(crate::prepared::PreparedCache::new(
-                options.prepared_cache_bytes,
-            )),
             verified: Mutex::new(crate::verified::VerifiedCache::new(
                 options.verified_cache_bytes,
             )),

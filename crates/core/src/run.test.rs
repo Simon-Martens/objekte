@@ -5005,10 +5005,6 @@ fn exact_membership_materializes_only_page_payload() {
             },
         };
         let result = repo.search(&query).unwrap();
-        assert_eq!(
-            result.counters.prepared_plan_hit,
-            mode != ReturnMode::Locator
-        );
         assert!(!result.counters.verified_result_hit);
         if mode == ReturnMode::Locator {
             let plan = repo.explain(&query).unwrap();
@@ -6238,7 +6234,7 @@ fn posting_order_with_residual_filter_preserves_verified_membership_cache() {
         },
     };
     assert!(inferred_order_index(&repo, &request).is_some());
-    assert!(!posting_order_eligible(&repo, &request));
+    assert!(!posting_order_eligible(&repo, &request, None));
     let cold = repo.search(&request).unwrap();
     assert_eq!(cold.hits, repo.search_reference(&request).unwrap().hits);
     assert!(!cold.counters.verified_result_hit);

@@ -109,7 +109,6 @@ fn run() -> Result<(), String> {
     ];
     let mut repetitions = 5usize;
     let mut warm_cache_bytes = 64 * 1024 * 1024usize;
-    let mut prepared_cache_bytes = RepositoryOptions::default().prepared_cache_bytes;
     let mut query_workers = RepositoryOptions::default().query_workers;
     let mut incremental = false;
     let mut storage = IndexStorageLocation::MemoryOnly;
@@ -171,13 +170,6 @@ fn run() -> Result<(), String> {
                     .ok_or("--verified-cache-bytes needs a number")?
                     .parse()
                     .map_err(|e| format!("invalid verified cache size: {e}"))?
-            }
-            "--prepared-cache-bytes" => {
-                prepared_cache_bytes = args
-                    .next()
-                    .ok_or("--prepared-cache-bytes needs a number")?
-                    .parse()
-                    .map_err(|e| format!("invalid prepared cache size: {e}"))?
             }
             "--query-workers" => {
                 query_workers = args
@@ -327,7 +319,6 @@ fn run() -> Result<(), String> {
                     bigram_alphabet: alphabet,
                     snapshot_mode: SnapshotMode::Disabled,
                     query_workers,
-                    prepared_cache_bytes,
                     ..RepositoryOptions::default()
                 },
                 storage_policy.clone(),
@@ -393,7 +384,6 @@ fn run() -> Result<(), String> {
                     bigram_alphabet: alphabet,
                     snapshot_mode: SnapshotMode::Disabled,
                     query_workers,
-                    prepared_cache_bytes,
                     ..RepositoryOptions::default()
                 },
             )?;
@@ -629,7 +619,7 @@ fn run() -> Result<(), String> {
         "schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],
         "workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,
         "repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,
-        "source_cache_bytes":0,"prepared_cache_bytes":prepared_cache_bytes,"query_workers":query_workers,
+        "source_cache_bytes":0,"query_workers":query_workers,
         "validator_version":objekte_search_core::index_storage::HYBRID_VALIDATOR_VERSION,
         "internal_decoded_posting_cache":{
             "limit_formula":"min(segment_encoded_bytes / 20, 8388608) per segment",
@@ -651,12 +641,12 @@ fn run() -> Result<(), String> {
     let mut csv = BufWriter::new(
         File::create(result_dir.join("query-results.csv")).map_err(|e| e.to_string())?,
     );
-    writeln!(csv,"case_id,profile,status,min_ns,median_ns,p95_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses,exact_posting_matches,scanned_records,residual_evaluations,prepared_plan_hits,verified_result_hits,preparation_median_ns,planning_median_ns").map_err(|e|e.to_string())?;
+    writeln!(csv,"case_id,profile,status,min_ns,median_ns,p95_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses,exact_posting_matches,scanned_records,residual_evaluations,verified_result_hits,preparation_median_ns,planning_median_ns").map_err(|e|e.to_string())?;
     let mut report = String::from("# Musenalm query checkpoint\n\n");
     report.push_str(&format!(
         "Code revision: `{rev}`. Repetitions: {repetitions}. Failures: {failures}.\n\n"
     ));
-    report.push_str("| Case | Profile | Min µs | Median µs | p95 µs | Max µs | Matches | Candidates | Parses | Prepared hits | Verified hits | Status |\n|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|\n");
+    report.push_str("| Case | Profile | Min µs | Median µs | p95 µs | Max µs | Matches | Candidates | Parses | Verified hits | Status |\n|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|\n");
     let mut by_case: BTreeMap<String, Vec<String>> = BTreeMap::new();
     for (id, profile, times, counters, error) in &rows {
         let mut sorted = times.clone();
@@ -676,10 +666,9 @@ fn run() -> Result<(), String> {
                 .unwrap_or_else(|| "failed".into())
         };
         let status = error.as_deref().unwrap_or("ok");
-        let prepared_hits = counters.iter().filter(|c| c.prepared_plan_hit).count();
         let verified_hits = counters.iter().filter(|c| c.verified_result_hit).count();
         report.push_str(&format!(
-            "| {id} | {profile} | {} | {} | {} | {} | {} | {} | {} | {prepared_hits}/{} | {verified_hits}/{} | {status} |\n",
+            "| {id} | {profile} | {} | {} | {} | {} | {} | {} | {} | {verified_hits}/{} | {status} |\n",
             value(min),
             value(med),
             value(p95),
@@ -688,11 +677,10 @@ fn run() -> Result<(), String> {
             median_counter(counters, |c| c.candidates),
             median_counter(counters, |c| c.record_parses),
             counters.len(),
-            counters.len(),
         ));
         writeln!(
             csv,
-            "{id},{profile},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}",
+            "{id},{profile},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}",
             if error.is_some() { "failed" } else { "ok" },
             min.map(|v| v.to_string()).unwrap_or_default(),
             med.map(|v| v.to_string()).unwrap_or_default(),
@@ -708,7 +696,6 @@ fn run() -> Result<(), String> {
             median_counter(counters, |c| c.exact_posting_matches),
             median_counter(counters, |c| c.scanned_records),
             median_counter(counters, |c| c.residual_evaluations),
-            prepared_hits,
             verified_hits,
             median_counter(counters, |c| {
                 #[cfg(feature = "detailed-profiling")]

@@ -86,9 +86,8 @@ identity and version, so a changed registration rebuilds its state.
 
 `Repository` publishes its inventory, collection generations, definitions, and
 indexes through shared-reference inspection methods. Callers cannot replace or
-mutate those structures after opening. The repository owns prepared and
-verified caches for that immutable set of generations. The verified cache
-budget is the only runtime cache control; `verified_cache_budget()` reports
+mutate those structures after opening. The repository owns a verified-result cache for that immutable set of generations.
+The verified cache budget is the only runtime cache control; `verified_cache_budget()` reports
 its effective value, while `options()` reports the opening configuration.
 Future complete-file replacement must construct a new generation with both
 file-to-record and record-to-file mappings before publishing it.
@@ -335,16 +334,14 @@ reverse mapping, while `relation_reverse_members_visited` sums the source-slot
 members examined in those lists. Both direct and segmented relation routes
 use these units.
 
-Prepared typed bindings have a repository-local 16 MiB default estimated
-retention budget. The compiled-regex charge uses conservative configured
-ceilings; this budget does not reserve memory up front or cap process RSS.
+Typed query binding runs fresh for each request. The repository does not cache bound queries.
 Verified result reuse is disabled by default, or configurable through
 `RepositoryOptions.verified_cache_bytes` and
 `Repository::configure_verified_cache`. It stores complete ordered membership
 and evidence under its byte budget, including empty results, but no record
 bodies. Requested page bytes/logical values still pass through revision-checked
 reads. The standard benchmark disables source-byte and decoded-record caches;
-its raw samples report prepared-plan and verified-result hits independently.
+its raw samples report verified-result hits.
 
 ## Posting values
 

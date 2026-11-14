@@ -3448,7 +3448,7 @@ impl IndexView {
         if query.options.offset != 0 {
             return Err("pagination waits for initial index construction".into());
         }
-        let (prepared, _) = crate::prepared::prepare(self.repository(), query)?;
+        let prepared = crate::prepared::prepare(self.repository(), query)?;
         if prepared.collections.iter().any(|(_, filter, fts)| {
             filter
                 .as_ref()

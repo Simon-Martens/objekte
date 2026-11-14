@@ -3056,7 +3056,7 @@ fn search_segmented_with_context_lifecycle_budget(
                 context.clear_recovered_source_changed();
                 let sort = ResolvedSort::new(repo, query)
                     .map_err(|message| context.recorded_error(message))?;
-                let (prepared, _) = crate::prepared::prepare(repo, query)
+                let prepared = crate::prepared::prepare(repo, query)
                     .map_err(|message| context.recorded_error(message))?;
                 search_segmented_relations(
                     repo,
@@ -3131,7 +3131,7 @@ pub(crate) fn search_active_available_with_context_lifecycle(
             context.clear_recovered_source_changed();
             let sort = ResolvedSort::new(repo, query)
                 .map_err(|message| context.recorded_error(message))?;
-            let (prepared, _) = crate::prepared::prepare(repo, query)
+            let prepared = crate::prepared::prepare(repo, query)
                 .map_err(|message| context.recorded_error(message))?;
             search_segmented_relations(
                 repo,
@@ -3936,7 +3936,7 @@ fn search_segmented_impl(
     let related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
         matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
     });
-    let (prepared, _) = crate::prepared::prepare(repo, query)?;
+    let prepared = crate::prepared::prepare(repo, query)?;
     let has_relations = prepared.collections.iter().any(|(_, filter, fts)| {
         filter.as_ref().is_some_and(bound_expr_has_relations)
             || fts
@@ -7059,7 +7059,7 @@ pub(crate) fn search_segmented_reference(
         return Err("segment query collection count mismatch".into());
     }
     let sort = ResolvedSort::new(repo, query)?;
-    let (prepared, _) = crate::prepared::prepare(repo, query)?;
+    let prepared = crate::prepared::prepare(repo, query)?;
     search_segmented_relations(
         repo,
         query,
@@ -7087,7 +7087,7 @@ pub(crate) fn explain_segmented(
         return Err("segment explanation collection count mismatch".into());
     }
     let mut traces = explain_with_active(repo, query, Some(base_active))?;
-    let (prepared, _) = crate::prepared::prepare(repo, query)?;
+    let prepared = crate::prepared::prepare(repo, query)?;
     for trace in &mut traces {
         let collection_index = repo
             .collections
@@ -7491,7 +7491,7 @@ fn try_lifecycle_ordered_stream(
     if sort.bound.has_computed {
         return Ok(None);
     }
-    let (prepared, _) = crate::prepared::prepare(repo, request)?;
+    let prepared = crate::prepared::prepare(repo, request)?;
     if prepared.collections.iter().any(|(_, filter, fts)| {
         filter.as_ref().is_some_and(bound_expr_has_relations)
             || fts
@@ -8453,7 +8453,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             None,
         );
     }
-    if posting_order_eligible(repo, query) {
+    if posting_order_eligible(repo, query, None) {
         return search_impl(repo, query, None, None, None, None, None, None);
     }
     let budget = {
@@ -8658,7 +8658,7 @@ pub(crate) fn search_stream_scoped_with_context_active(
         execution_query.options.count = true;
     }
     let execution_query = &execution_query;
-    let inferred_order = posting_order_eligible(repo, execution_query);
+    let inferred_order = posting_order_eligible(repo, execution_query, None);
     let bound_sort =
         BoundSort::bind(repo, execution_query).map_err(|message| StreamError::Execution {
             kind: crate::streaming::ExecutionErrorKind::InvalidQuery,
@@ -9259,7 +9259,11 @@ fn inferred_order_index<'a>(
 /// selected access already proves membership. With a residual FILTER/FTS,
 /// filtering first preserves the verified membership cache and avoids an
 /// ordered source scan across candidates that will later be rejected.
-fn posting_order_eligible(repo: &Repository, query: &Query) -> bool {
+fn posting_order_eligible(
+    repo: &Repository,
+    query: &Query,
+    bound: Option<&crate::prepared::PreparedQuery>,
+) -> bool {
     let Some((collection_index, _, _)) = inferred_order_index(repo, query) else {
         return false;
     };
@@ -9269,7 +9273,12 @@ fn posting_order_eligible(repo: &Repository, query: &Query) -> bool {
     if query.filter.is_none() {
         return true;
     }
-    let Ok((prepared, _)) = crate::prepared::prepare(repo, query) else {
+    let owned = if bound.is_none() {
+        crate::prepared::prepare(repo, query).ok()
+    } else {
+        None
+    };
+    let Some(prepared) = bound.or(owned.as_ref()) else {
         return false;
     };
     let Some((_, Some(filter), _)) = prepared
@@ -9363,7 +9372,6 @@ fn try_inferred_order_page(
     repo: &Repository,
     query: &Query,
     prepared: &crate::prepared::PreparedQuery,
-    prepared_plan_hit: bool,
     preparation_ns: u64,
     traces: Option<&mut Vec<QueryPlanTrace>>,
     mut delivery: Option<&mut Delivery<'_>>,
@@ -9371,7 +9379,7 @@ fn try_inferred_order_page(
     execution: Option<&ExecutionContext>,
     active: Option<&[ActiveRecords]>,
 ) -> Result<Option<SearchResult>, String> {
-    if !posting_order_eligible(repo, query) {
+    if !posting_order_eligible(repo, query, Some(prepared)) {
         return Ok(None);
     }
     if active.is_some() {
@@ -9408,7 +9416,6 @@ fn try_inferred_order_page(
         query,
         prepared,
         &sort,
-        prepared_plan_hit,
         preparation_ns,
         traces.as_ref().map(|_| &mut local_traces),
         delivery.as_deref_mut(),
@@ -9434,7 +9441,6 @@ fn try_stored_order_page(
     query: &Query,
     prepared: &crate::prepared::PreparedQuery,
     sort: &ResolvedSort<'_>,
-    prepared_plan_hit: bool,
     preparation_ns: u64,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
     mut delivery: Option<&mut Delivery<'_>>,
@@ -9632,7 +9638,6 @@ fn try_stored_order_page(
         preparation_ns,
         #[cfg(feature = "detailed-profiling")]
         planning_ns: planning_started.elapsed().as_nanos() as u64,
-        prepared_plan_hit,
         ..WorkCounters::default()
     };
     #[cfg(not(feature = "detailed-profiling"))]
@@ -10016,7 +10021,6 @@ fn materialize_computed_cached<'a>(
             BoundSortSource::Computed(computed) if computed.related.is_some())
         })
     });
-    let (_, plan_hit) = crate::prepared::prepare(repo, query)?;
     let cap = query
         .options
         .limit
@@ -10026,7 +10030,6 @@ fn materialize_computed_cached<'a>(
         total_matches: cached.members.len() as u64,
         match_count_complete: true,
         verified_result_hit: true,
-        prepared_plan_hit: plan_hit,
         ..WorkCounters::default()
     };
     #[cfg(feature = "detailed-profiling")]
@@ -10268,12 +10271,10 @@ fn materialize_cached_stream(
     delivery.check()?;
     #[cfg(feature = "detailed-profiling")]
     let started = DetailedInstant::now();
-    let (_, plan_hit) = crate::prepared::prepare(repo, query)?;
     let mut counters = WorkCounters {
         total_matches: cached.members.len() as u64,
         match_count_complete: true,
         verified_result_hit: true,
-        prepared_plan_hit: plan_hit,
         ..WorkCounters::default()
     };
     #[cfg(feature = "detailed-profiling")]
@@ -10341,7 +10342,6 @@ fn materialize_cached(
 ) -> Result<SearchResult, String> {
     #[cfg(feature = "detailed-profiling")]
     let preparation_start = DetailedInstant::now();
-    let (_, plan_hit) = crate::prepared::prepare(repo, query)?;
     let cap = query
         .options
         .limit
@@ -10351,7 +10351,6 @@ fn materialize_cached(
         total_matches: cached.members.len() as u64,
         match_count_complete: true,
         verified_result_hit: true,
-        prepared_plan_hit: plan_hit,
         ..WorkCounters::default()
     };
     #[cfg(feature = "detailed-profiling")]
@@ -10483,7 +10482,7 @@ pub(crate) fn explain_with_active(
     active: Option<&[ActiveRecords]>,
 ) -> Result<Vec<QueryPlanTrace>, String> {
     let bound_sort = BoundSort::bind(repo, query)?;
-    let (prepared, _) = crate::prepared::prepare(repo, query)?;
+    let prepared = crate::prepared::prepare(repo, query)?;
     let has_source_dependent = prepared.collections.iter().any(|(_, filter, _)| {
         filter
             .as_ref()
@@ -10497,7 +10496,7 @@ pub(crate) fn explain_with_active(
         && !has_source_dependent
         && !has_related_fts
         && prepared.collections.len() == 1
-        && posting_order_eligible(repo, query)
+        && posting_order_eligible(repo, query, Some(&prepared))
         && inferred_order_index(repo, query)
             .is_some_and(|(index, _, _)| prepared.collections[0].0 == index);
     let mut traces = Vec::new();
@@ -10906,7 +10905,7 @@ fn search_impl_with_collector<'a>(
             .map_err(|error| error.to_string())?
             .configure_stream(delivery.max_buffered_bytes(), delivery.token());
     }
-    let (prepared, plan_hit) = crate::prepared::prepare(repo, query)?;
+    let prepared = crate::prepared::prepare(repo, query)?;
     let mut rejected_order = RejectedOrderPlans {
         entries: Vec::new(),
         planning_ns: 0,
@@ -10916,7 +10915,6 @@ fn search_impl_with_collector<'a>(
             repo,
             query,
             &prepared,
-            plan_hit,
             preparation_start.elapsed().as_nanos() as u64,
             traces.as_deref_mut(),
             delivery.as_deref_mut(),
@@ -10931,7 +10929,6 @@ fn search_impl_with_collector<'a>(
             query,
             &prepared,
             &sort,
-            plan_hit,
             preparation_start.elapsed().as_nanos() as u64,
             traces.as_deref_mut(),
             delivery.as_deref_mut(),
@@ -10970,7 +10967,6 @@ fn search_impl_with_collector<'a>(
     {
         counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
     }
-    counters.prepared_plan_hit = plan_hit;
     #[cfg(feature = "detailed-profiling")]
     {
         counters.planning_ns += rejected_order.planning_ns;

@@ -167,12 +167,6 @@ fn fresh_fingerprints_require_every_shared_binding_to_agree() {
 }
 
 #[test]
-fn exported_default_prepared_cache_budget_is_sixteen_mib() {
-    let options = RepositoryOptions::default();
-    assert_eq!(options.prepared_cache_bytes, 16 * 1024 * 1024);
-}
-
-#[test]
 fn direct_id_lookup_matches_search_metadata_payload_and_stale_semantics() {
     let root = std::env::temp_dir().join(format!("objekte-id-lookup-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);

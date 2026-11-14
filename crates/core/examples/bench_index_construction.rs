@@ -396,7 +396,7 @@ fn run() -> Result<(), String> {
         "snapshot":snapshot,"corpus_fingerprint":corpus_fingerprint,"schema_fingerprint":schema_fingerprint,
         "profile":profile,
         "check_queries":check_queries,
-        "query_workers":options.query_workers,"prepared_cache_bytes":options.prepared_cache_bytes,
+        "query_workers":options.query_workers,
         "verified_cache_bytes":options.verified_cache_bytes,
         "source_bytes":source_bytes,"records":records,"files":files,
     });
@@ -607,7 +607,7 @@ fn run_incremental(
         "build_mode":"incremental","snapshot":snapshot,
         "corpus_fingerprint":corpus_fingerprint,"schema_fingerprint":schema_fingerprint,
         "profile":profile,"check_queries":check_queries,
-        "query_workers":options.query_workers,"prepared_cache_bytes":options.prepared_cache_bytes,
+        "query_workers":options.query_workers,
         "verified_cache_bytes":options.verified_cache_bytes,
         "source_bytes":source_bytes,"records":status.live_records,"files":files,
     });

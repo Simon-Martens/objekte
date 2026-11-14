@@ -2,7 +2,7 @@
 
 Run these commands from the repository root. Each command writes a separate result directory under `bench/results/musenalm/`; pass `--result-dir` to choose another directory.
 
-For focused planning comparisons, `bench_musenalm` accepts `--cases Q035,Q141`, `--repetitions 7`, and `--prepared-cache-bytes 0` (default: 16 MiB). The prepared-cache setting is recorded in `run-manifest.json`; keep it identical across compared binaries. `--verified-cache-bytes 0` disables verified-result reuse independently.
+For focused planning comparisons, `bench_musenalm` accepts `--cases Q035,Q141` and `--repetitions 7`. `--verified-cache-bytes 0` disables verified-result reuse.
 
 | Check | Command | What it verifies |
 |---|---|---|

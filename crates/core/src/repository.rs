@@ -330,7 +330,6 @@ pub struct Repository {
     pub(crate) options: RepositoryOptions,
     pub(crate) startup: StartupStats,
     pub(crate) workers: rayon::ThreadPool,
-    pub(crate) prepared: Mutex<crate::prepared::PreparedCache>,
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
     pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
 }
@@ -705,9 +704,6 @@ impl SnapshotOpenPolicy {
 #[derive(Clone, Copy, Debug)]
 pub struct RepositoryOptions {
     pub bigram_alphabet: BigramAlphabet,
-    /// Estimated retained prepared-plan state; no memory is allocated up front.
-    /// This is not a process RSS limit.
-    pub prepared_cache_bytes: usize,
     pub verified_cache_bytes: usize,
     pub snapshot_mode: SnapshotMode,
     pub query_workers: usize,
@@ -724,7 +720,6 @@ impl Default for RepositoryOptions {
     fn default() -> Self {
         Self {
             bigram_alphabet: BigramAlphabet::Ascii,
-            prepared_cache_bytes: 16 * 1024 * 1024,
             verified_cache_bytes: 0,
             snapshot_mode: SnapshotMode::Disabled,
             query_workers: std::thread::available_parallelism()
@@ -2070,9 +2065,6 @@ impl Repository {
                 ..StartupStats::default()
             },
             workers,
-            prepared: Mutex::new(crate::prepared::PreparedCache::new(
-                options.prepared_cache_bytes,
-            )),
             verified: Mutex::new(crate::verified::VerifiedCache::new(
                 options.verified_cache_bytes,
             )),
@@ -2168,7 +2160,6 @@ impl Repository {
             preparation_ns: 0,
             #[cfg(feature = "detailed-profiling")]
             planning_ns: 0,
-            prepared_plan_hit: false,
             verified_result_hit: false,
         };
         let mut files_read = HashSet::new();

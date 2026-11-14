@@ -1033,9 +1033,9 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
                 }
                 assert_eq!(
                     preparations.load(AtomicOrdering::Relaxed) - before_preparations,
-                    2
+                    4
                 );
-                assert_eq!(mappings.load(AtomicOrdering::Relaxed) - before_mappings, 1);
+                assert_eq!(mappings.load(AtomicOrdering::Relaxed) - before_mappings, 2);
                 if result.counters.record_parses == 0 {
                     assert_eq!(parses.load(AtomicOrdering::Relaxed), before_parses);
                 }
@@ -1054,7 +1054,7 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
                 assert_eq!(second.hits, result.hits);
                 assert_eq!(
                     preparations.load(AtomicOrdering::Relaxed) - before_preparations,
-                    2
+                    6
                 );
             }
             for named in [false, true] {
