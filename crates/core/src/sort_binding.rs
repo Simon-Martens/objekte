@@ -534,7 +534,7 @@ impl ComputedSort {
                 let ctx = RecordContext {
                     value: source_value.unwrap_or(&empty),
                     source_bytes: None,
-                    record: current.record,
+                    record: &current.record,
                     file: current.file,
                     collection_name: &current.collection.definition.name,
                     repository_root: view.repository_root(),
