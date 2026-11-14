@@ -2449,6 +2449,8 @@ source-check actions.
 - `968e37d4` — direct packed-to-packed remap in `stream_compact.rs`, removing
   the temporary native materializer and preserving tombstone catalogue slots
   and base sort descriptors across reload.
+- `9aba430a` — compaction test asserts postings, bigrams, sort, and relation
+  owners remain mapped with empty native storage.
 
 ### Packed access abstraction
 
