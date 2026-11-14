@@ -2723,7 +2723,7 @@ fn segment_compare_to_rank(
     sort: &ResolvedSort<'_>,
     collection_index: usize,
     segment: &IndexedCollectionSegment,
-    record: &RecordEntry,
+    slot: RecordSlot,
     worst: &RankKey,
 ) -> Result<Ordering, String> {
     let terms = sort.bound.terms[collection_index]
@@ -2743,7 +2743,7 @@ fn segment_compare_to_rank(
             .ok_or("segment sort column missing")?;
         let key = column
             .keys
-            .get(record.slot.0 as usize)
+            .get(slot.0 as usize)
             .ok_or("segment sort slot missing")?;
         let order = key.compare_with(other, term.descending, term.options);
         if !order.is_eq() {
@@ -2752,7 +2752,7 @@ fn segment_compare_to_rank(
     }
     Ok((
         repo.collections[collection_index].definition.name.as_str(),
-        record.id.0.as_ref(),
+        segment.try_record_id(slot)?.ok_or("segment sort slot missing")?,
     )
         .cmp(&(worst.collection.as_str(), worst.id.as_str())))
 }
@@ -4238,9 +4238,6 @@ fn search_segmented_impl(
                     if let Some(context) = context {
                         context.check_string()?;
                     }
-                    let resolved =
-                        segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
-                            .ok_or("active segment candidate missing")?;
                     total += 1;
                     counters.exact_posting_matches += 1;
                     let enters_page = if cap == 0 {
@@ -4253,7 +4250,7 @@ fn search_segmented_impl(
                             &sort,
                             collection_index,
                             segment,
-                            &resolved.record,
+                            RecordSlot(slot),
                             &worst.key,
                         )?
                         .is_lt()
@@ -4263,6 +4260,9 @@ fn search_segmented_impl(
                     if !enters_page && cache_builder.is_none() {
                         continue;
                     }
+                    let resolved =
+                        segment_record_ref(segment, &published.active, catalog, RecordSlot(slot))?
+                            .ok_or("active segment candidate missing")?;
                     let key = segment_rank_key(
                         repo,
                         &sort,
