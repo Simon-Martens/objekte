@@ -631,6 +631,19 @@ impl<K: Ord + Clone> PostingMap<K> {
         }
     }
 
+    /// Number of stored bitmaps: one per key while building, one per chunk
+    /// once shared. Used only by byte estimates and manual measurements.
+    #[cfg(test)]
+    pub fn stored_chunk_count(&self) -> usize {
+        match &self.backing {
+            Backing::Building(entries) => entries
+                .values()
+                .map(|posting| split_chunks(posting.clone()).len().max(1))
+                .sum(),
+            Backing::Shared(shared) => shared.chunk_count(),
+        }
+    }
+
     /// True when `valid` holds for every stored bitmap (whole or chunk).
     pub fn all_bitmaps(&self, mut valid: impl FnMut(&RoaringBitmap) -> bool) -> bool {
         match &self.backing {

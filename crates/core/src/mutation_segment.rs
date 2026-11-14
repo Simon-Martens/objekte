@@ -851,6 +851,11 @@ impl IndexedCollectionSegment {
         if !crate::posting_map::shared_backing_wanted(self.records.len()) {
             return;
         }
+        self.freeze_all();
+    }
+
+    /// Move every family of this shard to the persistent backing.
+    pub(crate) fn freeze_all(&mut self) {
         for index in self.postings.fields.values_mut() {
             index.freeze_shared();
         }

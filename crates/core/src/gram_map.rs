@@ -141,6 +141,17 @@ impl GramMap {
         }
     }
 
+    #[cfg(test)]
+    pub fn stored_chunk_count(&self) -> usize {
+        match self {
+            Self::Building(entries) => entries
+                .values()
+                .map(|posting| crate::posting_map::split_chunks(posting.clone()).len().max(1))
+                .sum(),
+            Self::Shared(shared) => shared.stored_chunk_count(),
+        }
+    }
+
     pub fn to_btree_map(&self) -> BTreeMap<u64, RoaringBitmap> {
         match self {
             Self::Building(entries) => entries

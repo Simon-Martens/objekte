@@ -1245,3 +1245,213 @@ fn consolidation_of_frozen_and_native_shards_matches_native() {
         );
     }
 }
+
+#[test]
+#[ignore = "manual real-fixture shared-backing measurement; run in release with --nocapture"]
+fn measure_shared_backing_on_real_fixture() {
+    let root = std::path::PathBuf::from(
+        std::env::var_os("OBJEKTE_SHARED_BACKING_FIXTURE")
+            .expect("set OBJEKTE_SHARED_BACKING_FIXTURE to a Musenalm root"),
+    );
+    let configuration =
+        crate::repository_configuration::load_repository_configuration(&root).unwrap();
+    let repository = crate::repository::Repository::open_with_options(
+        &root,
+        configuration.definitions,
+        crate::repository::RepositoryOptions::default(),
+    )
+    .unwrap();
+    let collection = repository
+        .collections()
+        .iter()
+        .find(|collection| collection.definition.name == "contents")
+        .unwrap();
+    let record_count = collection.generation.records.len();
+    eprintln!("records={record_count}");
+
+    let median = |mut samples: Vec<f64>| {
+        samples.sort_by(|a, b| a.partial_cmp(b).unwrap());
+        samples[samples.len() / 2]
+    };
+
+    let native = crate::lifecycle_compaction::base_as_segment(collection, repository.files())
+        .unwrap();
+
+    let mut freeze_samples = Vec::new();
+    for _ in 0..5 {
+        let mut shard =
+            crate::lifecycle_compaction::base_as_segment(collection, repository.files()).unwrap();
+        let started = Instant::now();
+        shard.freeze_all();
+        freeze_samples.push(started.elapsed().as_secs_f64() * 1_000.0);
+    }
+    let freeze_ms = median(freeze_samples);
+
+    let mut shared =
+        crate::lifecycle_compaction::base_as_segment(collection, repository.files()).unwrap();
+    shared.freeze_all();
+    shared.recompute_accounting();
+
+    let posting_keys = shared
+        .postings
+        .fields
+        .values()
+        .map(|index| index.distinct_values() + index.distinct_lengths())
+        .sum::<usize>();
+    let posting_chunks = shared
+        .postings
+        .fields
+        .values()
+        .map(crate::posting::PostingIndex::stored_chunk_count)
+        .sum::<usize>();
+    let gram_keys = shared.raw.gram_key_count()
+        + shared.fallback_text.gram_key_count()
+        + shared
+            .custom_text
+            .values()
+            .map(crate::bigram::BigramIndex::gram_key_count)
+            .sum::<usize>();
+    let gram_chunks = shared.raw.stored_chunk_count()
+        + shared.fallback_text.stored_chunk_count()
+        + shared
+            .custom_text
+            .values()
+            .map(crate::bigram::BigramIndex::stored_chunk_count)
+            .sum::<usize>();
+
+    let (field_path, shared_field) = shared
+        .postings
+        .fields
+        .iter()
+        .max_by_key(|(_, index)| index.distinct_values())
+        .unwrap();
+    let native_field = &native.postings.fields[field_path];
+
+    let keys = shared_field.value_entries().into_keys().collect::<Vec<_>>();
+    let lookup = |field: &crate::posting::PostingIndex| {
+        let mut samples = Vec::new();
+        for _ in 0..5 {
+            let started = Instant::now();
+            for i in 0..10_000usize {
+                let _ = field.value_posting(&keys[i % keys.len()]);
+            }
+            samples.push(started.elapsed().as_secs_f64() * 1e9 / 10_000.0);
+        }
+        median(samples)
+    };
+    let lookup_native_ns = lookup(native_field);
+    let lookup_shared_ns = lookup(shared_field);
+
+    let scan = |field: &crate::posting::PostingIndex| {
+        let mut samples = Vec::new();
+        for _ in 0..5 {
+            let started = Instant::now();
+            let mut memberships = 0u64;
+            field
+                .for_each_value(|_, slots| {
+                    memberships += slots.len();
+                    Ok(())
+                })
+                .unwrap();
+            std::hint::black_box(memberships);
+            samples.push(started.elapsed().as_secs_f64() * 1_000.0);
+        }
+        median(samples)
+    };
+    let scan_native_ms = scan(native_field);
+    let scan_shared_ms = scan(shared_field);
+
+    let literals = shared
+        .records
+        .iter()
+        .take(100)
+        .map(|record| {
+            let id = &record.id.0;
+            let start = id.len().saturating_sub(8);
+            id[start..].to_string()
+        })
+        .collect::<Vec<_>>();
+    let fts = |index: &crate::bigram::BigramIndex| {
+        let mut samples = Vec::new();
+        for _ in 0..5 {
+            let started = Instant::now();
+            for literal in &literals {
+                let _ = index.candidates(literal);
+            }
+            samples.push(started.elapsed().as_secs_f64() * 1e6);
+        }
+        median(samples)
+    };
+    let fts_native_us = fts(&native.raw);
+    let fts_shared_us = fts(&shared.raw);
+
+    let mut clone_samples = Vec::new();
+    for _ in 0..5 {
+        let started = Instant::now();
+        let cloned = (
+            shared.postings.clone(),
+            shared.custom_postings.clone(),
+            shared.raw.clone(),
+            shared.fallback_text.clone(),
+            shared.custom_text.clone(),
+            shared.inference.clone(),
+        );
+        std::hint::black_box(cloned);
+        clone_samples.push(started.elapsed().as_secs_f64() * 1e9);
+    }
+    let clone_shared_ns = median(clone_samples);
+
+    let mut cow_value_samples = Vec::new();
+    for _ in 0..5 {
+        let mut working = shared_field.clone();
+        let started = Instant::now();
+        for i in 0..1_000u32 {
+            working.insert_value_slot(
+                keys[i as usize % keys.len()].clone(),
+                shared.record_count() as u32 + i,
+            );
+        }
+        std::hint::black_box(&working);
+        cow_value_samples.push(started.elapsed().as_secs_f64() * 1e6 / 1_000.0);
+    }
+    let cow_value_us = median(cow_value_samples);
+
+    let gram_keys_for_reuse = shared
+        .raw
+        .normal_entries()
+        .into_keys()
+        .collect::<Vec<_>>();
+    let mut cow_gram_samples = Vec::new();
+    for _ in 0..5 {
+        let mut working = shared.raw.clone();
+        let started = Instant::now();
+        for i in 0..1_000u32 {
+            working.insert_gram_slot(
+                false,
+                gram_keys_for_reuse[i as usize % gram_keys_for_reuse.len()],
+                shared.record_count() as u32 + i,
+            );
+        }
+        std::hint::black_box(&working);
+        cow_gram_samples.push(started.elapsed().as_secs_f64() * 1e6 / 1_000.0);
+    }
+    let cow_gram_us = median(cow_gram_samples);
+
+    eprintln!("freeze_ms={freeze_ms:.3}");
+    eprintln!("keys={posting_keys} chunks={posting_chunks} gram_keys={gram_keys} gram_chunks={gram_chunks}");
+    eprintln!(
+        "estimate_native_bytes={} estimate_shared_bytes={}",
+        native.accounting.index_family_bytes, shared.accounting.index_family_bytes
+    );
+    eprintln!("lookup_native_ns={lookup_native_ns:.1} lookup_shared_ns={lookup_shared_ns:.1}");
+    eprintln!("scan_native_ms={scan_native_ms:.3} scan_shared_ms={scan_shared_ms:.3}");
+    eprintln!("fts_native_us={fts_native_us:.1} fts_shared_us={fts_shared_us:.1}");
+    eprintln!("clone_shared_ns={clone_shared_ns:.1}");
+    eprintln!("cow_value_us={cow_value_us:.3} cow_gram_us={cow_gram_us:.3}");
+    eprintln!(
+        "field={:?} keys_in_field={} field_records={}",
+        field_path,
+        keys.len(),
+        shared_field.distinct_values()
+    );
+}

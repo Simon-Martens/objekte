@@ -138,6 +138,11 @@ impl StructuralFacts {
         self.postings.is_shared()
     }
 
+    #[cfg(test)]
+    pub(crate) fn stored_chunk_count(&self) -> usize {
+        self.postings.stored_chunk_count()
+    }
+
     fn all_bitmaps(&self, valid: impl FnMut(&RoaringBitmap) -> bool) -> bool {
         self.postings.all_bitmaps(valid)
     }
@@ -356,6 +361,16 @@ impl PostingIndex {
     #[cfg(test)]
     pub(crate) fn postings_are_shared(&self) -> bool {
         self.values.is_shared() && self.lengths.is_shared()
+    }
+
+    #[cfg(test)]
+    pub(crate) fn stored_chunk_count(&self) -> usize {
+        self.values.stored_chunk_count()
+            + self.lengths.stored_chunk_count()
+            + self
+                .structural
+                .as_ref()
+                .map_or(0, StructuralFacts::stored_chunk_count)
     }
 
     /// Borrow the ordered value keys of this posting index. The native

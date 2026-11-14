@@ -362,6 +362,11 @@ impl BigramIndex {
         self.normal.is_shared() && self.skip.is_shared()
     }
 
+    #[cfg(test)]
+    pub(crate) fn stored_chunk_count(&self) -> usize {
+        self.normal.stored_chunk_count() + self.skip.stored_chunk_count()
+    }
+
     pub fn add_record(&mut self, slot: RecordSlot, segments: &[TextSegment]) -> Result<(), String> {
         if segments.is_empty() {
             return self.add_empty(slot);
