@@ -419,7 +419,7 @@ cargo check --workspace --all-targets --locked
 cargo check -p objekte-search-core --all-targets --features detailed-profiling
 ```
 
-All tests and checks passed. The workspace suite includes 620 core library tests, 171 desktop tests, 90 CLI library tests, CLI integration tests and doc tests. One desktop export test raced between file creation and writing during an intermediate run; it failed once, then passed alone and in the complete desktop suite on rerun. It does not involve persistence code.
+All tests and checks passed. The workspace suite includes 623 core library tests, 171 desktop tests, 90 CLI library tests, CLI integration tests and doc tests. One desktop export test raced between file creation and writing during an intermediate run; it failed once, then passed alone and in the complete desktop suite on rerun. It does not involve persistence code.
 
 Functional coverage includes: human-edited TOML comments/reordering and unknown-field rejection; readable round-trip output; absent/present catalog and verification; relative paths; missing/mismatched versions; obsolete binary manifest incompatibility; explicit replacement of incompatible stores; empty/multi-collection generations; directory order independence; duplicate identities; copied/mixed-generation segments; sparse and all-active domains; segment length/header/section corruption; two independent generations; pinned readers; interrupted publication; read-only loads; load A/save B/remove A/load B; and repository `.objekte/.indexes` save/load with no fallback to `.objekte/indexes`.
 
