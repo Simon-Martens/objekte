@@ -2408,6 +2408,15 @@ source-check actions.
 - `447b659e` — repository formatting.
 - `6b86aa67` — TUI storage overlay and scope issues.
 - `5fb81e64` — catalogue high-water preservation and desktop storage opening.
+- `b9cebca6`/`065106fc` — borrowed native/packed posting and bigram access plus
+  the packed catalogue bridge and differential tests.
+- `9da6ce78`/`6e2230c0` — `IndexCatalog`/executor routing through packed access,
+  with loaded-index execution proven after native postings and sources are
+  removed.
+- `0df7f5bf` — packed-only repository reconstruction from catalogue and runs;
+  deletion of the native snapshot object.
+- `17f5ace9` — independent content generations across replace, move, delete,
+  and reload.
 
 ### Packed access abstraction
 
