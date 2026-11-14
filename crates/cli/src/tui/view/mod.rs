@@ -1172,83 +1172,112 @@ fn preview(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
 
 fn storage_current_lines(app: &App) -> Vec<Line<'static>> {
     let mut lines = vec![
-        Line::from("Current index storage"),
-        Line::from("Memory: no index files are read or written."),
-        Line::from("On-demand: reads index bytes from disk when needed."),
-        Line::from("Full residency: copies index bytes before readiness."),
-        Line::from("Changed settings reopen this view; unsaved disk changes flush first."),
+        Line::from("Index persistence is explicit. Building and closing do not save."),
+        Line::from(
+            if app.repo.index().loaded_origin().ok().flatten().is_some() {
+                "Current index: loaded saved index"
+            } else {
+                "Current index: built in memory"
+            },
+        ),
     ];
-    let Some(view) = app.storage_view.as_ref() else {
-        lines.push(Line::from("  Memory only · No index files are read or written"));
-        return lines;
-    };
-    lines.extend([
-        Line::from(format!("  Location: {}", view.location)),
-        Line::from(format!("  Residency: {}", view.residency)),
-        Line::from(format!("  Readiness: {}", view.readiness)),
-        Line::from(format!("  Sources: {}", view.reconciliation)),
-        Line::from(format!("  Synchronization: {}", view.synchronization)),
-    ]);
-    if !view.generations.is_empty() {
-        lines.push(Line::from(format!("  {}", view.generations)));
-        lines.push(Line::from(format!("  Validation: {}", view.validation)));
-    }
-    if let Some(path) = &view.managed_directory {
-        lines.push(Line::from(format!("  Managed folder: {path}")));
-    }
-    if let Some(issue) = &view.issue {
-        lines.push(Line::from(format!("  {}: {}", issue.summary, issue.guidance)));
-        lines.push(Line::from(format!("  Details: {}", issue.detail)));
-    }
-    if let Some(warning) = &view.validation_warning {
-        lines.push(Line::from(format!("  Warning: {}", warning.summary)));
-        lines.push(Line::from(format!("  {} ({})", warning.guidance, warning.detail)));
+    if let Some(saved) = &app.storage_last_saved {
+        lines.push(Line::from(saved.clone()));
+    } else {
+        lines.push(Line::from("No save requested in this view"));
     }
     lines
 }
 
 fn storage_lines(app: &App) -> Vec<Line<'static>> {
     let mut lines = storage_current_lines(app);
-    for (index, label) in ["Memory", "System temporary folder", "Repository folder", "Custom folder"]
-        .into_iter().enumerate() {
+    for (index, label) in ["Open saved index…", "Save index…"].into_iter().enumerate() {
         lines.push(Line::from(Span::styled(
-            format!("{} [{}] {label}", if app.storage_picker == index { "❯" } else { " " },
-                if app.storage_choice == index { "x" } else { " " }),
-            Style::new().fg(if app.storage_picker == index { ACCENT } else { TEXT }),
+            format!(
+                "{} [{}] {label}",
+                if app.storage_picker == index {
+                    "❯"
+                } else {
+                    " "
+                },
+                if app.storage_operation == index {
+                    "x"
+                } else {
+                    " "
+                }
+            ),
+            Style::new().fg(if app.storage_picker == index {
+                ACCENT
+            } else {
+                TEXT
+            }),
         )));
     }
-    let options = [
-        format!("{} [{}] Keep entire index in memory{}",
-            if app.storage_picker == 4 { "❯" } else { " " },
-            if app.storage_choice == 0 || app.storage_full { "x" } else { " " },
-            if app.storage_choice == 0 { " (required)" } else { "" }),
-        format!("{} Custom base: {}{}",
-            if app.storage_picker == 5 { "❯" } else { " " }, app.storage_directory.text,
-            if app.storage_editing { " ▏ editing" } else { "" }),
-        format!("{} Apply and reopen", if app.storage_picker == 6 { "❯" } else { " " }),
-        format!("{} {}", if app.storage_picker == 7 { "❯" } else { " " },
-            if app.storage_syncing { "Synchronizing…" } else if app.storage_policy.location
-                == objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly {
-                "No index files to synchronize (disabled)"
-            } else if app.storage_sync_available { "Synchronize now / Retry synchronization" }
-            else { "Storage is current (synchronize unavailable)" }),
-    ];
-    for (offset, label) in options.into_iter().enumerate() {
-        lines.push(Line::from(Span::styled(label,
-            Style::new().fg(if app.storage_picker == offset + 4 { ACCENT } else { TEXT }))));
+    for (index, label) in [
+        "System temporary folder",
+        "Repository folder",
+        "Custom folder",
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        lines.push(Line::from(Span::styled(
+            format!(
+                "{} [{}] {label}",
+                if app.storage_picker == index + 2 {
+                    "❯"
+                } else {
+                    " "
+                },
+                if app.storage_choice == index {
+                    "x"
+                } else {
+                    " "
+                }
+            ),
+            Style::new().fg(if app.storage_picker == index + 2 {
+                ACCENT
+            } else {
+                TEXT
+            }),
+        )));
     }
+    lines.push(Line::from(format!(
+        "{} Custom base: {}{}",
+        if app.storage_picker == 5 { "❯" } else { " " },
+        app.storage_directory.text,
+        if app.storage_editing {
+            " ▏ editing"
+        } else {
+            ""
+        }
+    )));
+    lines.push(Line::from(format!(
+        "{} {}",
+        if app.storage_picker == 6 { "❯" } else { " " },
+        if app.storage_busy {
+            "Working…"
+        } else if app.storage_operation == 0 {
+            "Open selected saved index"
+        } else {
+            "Save index to selected location"
+        }
+    )));
     lines
 }
 
 fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
     let area = frame.area();
-    let width = area.width.min(if overlay == Overlay::Storage { 100 } else { 70 })
-        .saturating_sub(4).max(20);
+    let width = area
+        .width
+        .min(if overlay == Overlay::Storage { 100 } else { 70 })
+        .saturating_sub(4)
+        .max(20);
     let height = match overlay {
         Overlay::Actions => {
             (super::app::Action::ALL.len() as u16 + 3).min(area.height.saturating_sub(2))
         }
-        Overlay::Storage => 27.min(area.height.saturating_sub(2)),
+        Overlay::Storage => 18.min(area.height.saturating_sub(2)),
         Overlay::Collections => {
             (app.collection_names().count() as u16 + 3).min(area.height.saturating_sub(2))
         }
@@ -1277,7 +1306,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
     frame.render_widget(Clear, panel);
     let title = match overlay {
         Overlay::Actions => " Actions · Ctrl+K ",
-        Overlay::Storage => " Index storage ",
+        Overlay::Storage => " Index operations ",
         Overlay::Collections => " Collections ",
         Overlay::Sort => " Sort by ",
         Overlay::History => " Recent queries ",
@@ -1476,8 +1505,8 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 "Keyboard shortcuts",
                 "",
                 "Ctrl+K            All actions",
-                "  Index storage: Memory / Temp / Repository / Custom",
-                "  Residency, sync/retry; quit flushes disk changes",
+                "  Open saved index or save index to Temp / Repository / Custom",
+                "  Closing does not save the index",
                 "Ctrl+I            File catalogue / results",
                 "Tab / Shift+Tab   Switch input and results",
                 "Filter: Alt+↑↓  Choose suggestion; Enter insert",
@@ -1502,8 +1531,8 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 "Keyboard shortcuts",
                 "",
                 "Ctrl+K            All actions",
-                "  Index storage: Memory / Temp / Repository / Custom",
-                "  Residency, sync/retry; quit flushes disk changes",
+                "  Open saved index or save index to Temp / Repository / Custom",
+                "  Closing does not save the index",
                 "Ctrl+I            File catalogue / results",
                 "Tab / Shift+Tab   Switch input and results",
                 "Filter: Alt+↑↓  Choose suggestion; Enter insert",
@@ -1533,8 +1562,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
     };
     let selected = match overlay {
         Overlay::Actions => app.action_picker,
-        Overlay::Storage => storage_current_lines(app).len() + app.storage_picker
-            + if app.storage_picker >= 5 { 6 } else { 0 },
+        Overlay::Storage => storage_current_lines(app).len() + app.storage_picker,
         Overlay::Collections => app.picker,
         Overlay::Sort => app.sort_picker,
         Overlay::History | Overlay::Saved => app.list_picker,
@@ -1557,7 +1585,8 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 .skip(start)
                 .take(list_area.height as usize)
                 .collect::<Vec<_>>(),
-        ).wrap(Wrap { trim: false })
+        )
+        .wrap(Wrap { trim: false })
         .style(Style::new().bg(PANEL)),
         list_area,
     );

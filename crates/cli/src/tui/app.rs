@@ -6,9 +6,7 @@ use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
 use objekte_search_core::completion::{self as completion_context, CompletionContext};
-use objekte_search_core::index_storage::{
-    IndexResidency, IndexStorageLocation, IndexStoragePolicy,
-};
+use objekte_search_core::index_storage::IndexStorageTarget;
 use objekte_search_core::lifecycle::{
     FileCatalogueRow, IndexView, InitialBuildPhase, InitialBuildSnapshot, InitialBuildStatus,
     InitialBuildTask,
@@ -170,7 +168,7 @@ impl Action {
     pub(super) fn label(self) -> &'static str {
         match self {
             Self::Files => "Toggle file catalogue             Ctrl+I",
-            Self::Storage => "Index storage                      ",
+            Self::Storage => "Open or save index               Ctrl+K",
             Self::Collections => "Choose collection                Ctrl+O",
             Self::Sort => "Sort results                     Alt+S",
             Self::Columns => "Show or hide columns             Alt+L",
@@ -237,16 +235,12 @@ pub(super) struct App {
     pub(super) action_picker: usize,
     pub(super) storage_picker: usize,
     pub(super) storage_choice: usize,
-    pub(super) storage_full: bool,
+    pub(super) storage_operation: usize,
     pub(super) storage_directory: Input,
     pub(super) storage_editing: bool,
-    pub(super) storage_policy: IndexStoragePolicy,
-    pub(super) storage_view: Option<crate::storage_view::StorageStatusView>,
-    pub(super) storage_sync_available: bool,
-    pub(super) storage_sync_requested: bool,
-    pub(super) storage_syncing: bool,
-    pub(super) storage_quit_after_sync: bool,
-    pub(super) storage_exit_flushed: bool,
+    pub(super) storage_request: Option<(bool, IndexStorageTarget)>,
+    pub(super) storage_busy: bool,
+    pub(super) storage_last_saved: Option<String>,
     pub(super) reopen_request: Option<TuiReopenRequest>,
     pub(super) list_picker: usize,
     pub(super) column_picker: usize,
@@ -417,26 +411,13 @@ impl App {
             sort_input: Input::default(),
             action_picker: 0,
             storage_picker: 0,
-            storage_choice: match &options.storage_policy.location {
-                IndexStorageLocation::MemoryOnly => 0,
-                IndexStorageLocation::SystemTemporary => 1,
-                IndexStorageLocation::RepositoryDirectory => 2,
-                IndexStorageLocation::CustomDirectory(_) => 3,
-            },
-            storage_full: options.storage_policy.location != IndexStorageLocation::MemoryOnly
-                && options.storage_policy.residency == IndexResidency::FullyResident,
-            storage_directory: Input::with_text(match &options.storage_policy.location {
-                IndexStorageLocation::CustomDirectory(path) => path.to_str().unwrap_or_default(),
-                _ => "",
-            }),
+            storage_choice: 0,
+            storage_operation: 0,
+            storage_directory: Input::default(),
             storage_editing: false,
-            storage_policy: options.storage_policy,
-            storage_view: None,
-            storage_sync_available: false,
-            storage_sync_requested: false,
-            storage_syncing: false,
-            storage_quit_after_sync: false,
-            storage_exit_flushed: false,
+            storage_request: None,
+            storage_busy: false,
+            storage_last_saved: None,
             reopen_request: None,
             list_picker: 0,
             column_picker: 0,
@@ -994,72 +975,42 @@ impl App {
     }
 
     pub(super) fn open_storage(&mut self) {
-        self.storage_choice = match &self.storage_policy.location {
-            IndexStorageLocation::MemoryOnly => 0,
-            IndexStorageLocation::SystemTemporary => 1,
-            IndexStorageLocation::RepositoryDirectory => 2,
-            IndexStorageLocation::CustomDirectory(_) => 3,
-        };
-        self.storage_full = self.storage_policy.location != IndexStorageLocation::MemoryOnly
-            && self.storage_policy.residency == IndexResidency::FullyResident;
-        self.storage_directory = Input::with_text(match &self.storage_policy.location {
-            IndexStorageLocation::CustomDirectory(path) => path.to_str().unwrap_or_default(),
-            _ => "",
-        });
-        self.storage_picker = self.storage_choice;
+        self.storage_picker = self.storage_operation;
         self.storage_editing = false;
         self.overlay = Some(Overlay::Storage);
     }
 
     pub(super) fn apply_storage(&mut self) {
-        if self.storage_syncing {
-            self.status = Some("Wait for synchronization to finish before reopening".into());
+        if self.storage_busy {
+            self.status = Some("Wait for the current index operation to finish".into());
             return;
         }
-        let location = match self.storage_choice {
-            0 => IndexStorageLocation::MemoryOnly,
-            1 => IndexStorageLocation::SystemTemporary,
-            2 => IndexStorageLocation::RepositoryDirectory,
+        let target = match self.storage_choice {
+            0 => IndexStorageTarget::SystemTemporary,
+            1 => IndexStorageTarget::RepositoryDirectory,
             _ => match self.canonical_custom_base() {
-                Ok(path) => IndexStorageLocation::CustomDirectory(path),
-                Err(error) => { self.status = Some(error); return; }
+                Ok(path) => IndexStorageTarget::CustomDirectory(path),
+                Err(error) => {
+                    self.status = Some(error);
+                    return;
+                }
             },
         };
-        let policy = IndexStoragePolicy {
-            residency: if self.storage_choice == 0 || self.storage_full {
-                IndexResidency::FullyResident
-            } else {
-                IndexResidency::OnDemand
-            },
-            location,
-        };
-        if let Err(error) = policy.validate() {
+        if let Err(error) = target.validate() {
             self.status = Some(error);
             return;
         }
-        let same_storage = policy == self.storage_policy || match (&policy.location, &self.storage_policy.location) {
-            (IndexStorageLocation::CustomDirectory(selected), IndexStorageLocation::CustomDirectory(current)) =>
-                policy.residency == self.storage_policy.residency
-                    && current.canonicalize().ok().as_deref() == Some(selected.as_path()),
-            _ => false,
-        };
-        if same_storage {
-            self.overlay = None;
-            self.status = Some("Index storage setting is unchanged".into());
+        if self.storage_operation == 1
+            && self
+                .build_status
+                .as_ref()
+                .is_some_and(|status| !status.construction_complete)
+        {
+            self.status = Some("Wait for initial index construction before saving".into());
             return;
         }
         self.overlay = None;
-        self.reopen_request = Some(TuiReopenRequest {
-            storage_policy: policy,
-            search: self.search.text.clone(),
-            filter: self.filter.text.clone(),
-        });
-        if self.storage_policy.location == IndexStorageLocation::MemoryOnly {
-            self.done = true;
-        } else {
-            self.storage_sync_requested = true;
-            self.status = Some("Flushing current index before reopening…".into());
-        }
+        self.storage_request = Some((self.storage_operation == 0, target));
     }
 
     fn canonical_custom_base(&self) -> Result<PathBuf, String> {
@@ -1067,7 +1018,8 @@ impl App {
         if input.is_empty() {
             return Err("Choose an existing custom index base directory".into());
         }
-        let path = PathBuf::from(input).canonicalize()
+        let path = PathBuf::from(input)
+            .canonicalize()
             .map_err(|error| format!("Custom index base: {error}"))?;
         if !path.is_dir() {
             return Err("Custom index base is not a directory".into());

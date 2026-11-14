@@ -6,16 +6,13 @@ use std::io::{self, BufWriter, Write};
 use std::path::PathBuf;
 use std::time::{Duration, Instant};
 
-use objekte_search_core::index_storage::{
-    IndexFlushReport, IndexReadiness, IndexStorageTarget,
-};
+use objekte_search_core::index_storage::{IndexFlushReport, IndexReadiness, IndexStorageTarget};
 use objekte_search_core::inference::InferenceIndexStatus;
 use objekte_search_core::inventory::RecordClass;
 use objekte_search_core::lifecycle::{Index, IndexRevision, IndexView};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
 use objekte_search_core::path_repr;
 use objekte_search_core::query::Query;
-use objekte_search_core::source::SourceRegistry;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
     StreamOutcome,
@@ -42,7 +39,8 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     let configured = (|| {
         let cwd = std::env::current_dir().map_err(|error| error.to_string())?;
         let paths = args.resolve_paths(&cwd)?;
-        let storage_policy = args.resolved_index_storage_policy(&paths)?;
+        let load_target = args.resolved_load_target(&paths)?;
+        let flush_target = args.resolved_flush_target(&paths)?;
         let configured = configure_definitions(args, &paths)?;
         let options = repository_options(args);
         let mut source = QuerySource::open(args)?;
@@ -60,12 +58,13 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             paths.root,
             configured,
             options,
-            storage_policy,
+            load_target,
+            flush_target,
             initial_search,
             initial_filter,
         ))
     })();
-    let (root, configured, options, storage_policy, initial_search, initial_filter) =
+    let (root, configured, options, load_target, mut startup_flush, mut search, mut filter) =
         match configured {
             Ok(configured) => configured,
             Err(error) => {
@@ -73,7 +72,8 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
                 return Exit::Arguments;
             }
         };
-    let (mut policy, mut search, mut filter) = (storage_policy, initial_search, initial_filter);
+    let mut pending_repository = None;
+    let mut first_open = true;
     loop {
         let ui = crate::tui::TuiOptions {
             single_collection: !args.multiple_collections(),
@@ -82,48 +82,56 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             offset: args.offset,
             limit: args.limit,
             interruption: Some(token.clone()),
-            storage_policy: policy.clone(),
+            load_context: Some(crate::tui::TuiLoadContext {
+                root: root.clone(),
+                definitions: configured.definitions.clone(),
+                options,
+            }),
+            startup_flush: startup_flush.take(),
             loading_label: Some(
-                if policy.location
-                    == objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly
-                {
-                    "Building search index"
+                if first_open && load_target.is_some() {
+                    "Opening saved index"
                 } else {
-                    "Opening or building index"
+                    "Building search index"
                 }
                 .to_owned(),
             ),
         };
         let opening_root = root.clone();
         let definitions = configured.definitions.clone();
-        let opening_policy = policy.clone();
+        let opening_target = if first_open {
+            load_target.clone()
+        } else {
+            None
+        };
+        let ready = pending_repository.take();
+        first_open = false;
         let result = crate::tui::run_with_opening_loader(
             move || {
-                let managed = opening_policy.location
-                    != objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly;
-                let task = if opening_policy.location
-                    == objekte_search_core::index_storage::IndexStorageLocation::MemoryOnly
-                {
-                    Index::start_incremental_build(&opening_root, definitions, options)
-                } else {
-                    Index::start_incremental_build_with_storage(
-                        opening_root,
-                        definitions,
-                        options,
-                        opening_policy,
-                        SourceRegistry::builtin(),
-                    )
+                if let Some(repository) = ready {
+                    return Ok(crate::tui::TuiOpening::Ready(repository));
                 }
-                .map_err(|error| if managed {
-                    crate::storage_view::format_index_error(&error)
-                } else { error.to_string() })?;
-                Ok(crate::tui::TuiOpening::Initial(task))
+                if let Some(target) = opening_target {
+                    match Index::try_load(&opening_root, definitions.clone(), options, &target)
+                        .map_err(|error| crate::storage_view::format_index_error(&error))?
+                    {
+                        Some(index) => {
+                            return IndexedRepository::new(index)
+                                .map(crate::tui::TuiOpening::Ready)
+                                .map_err(|error| error.to_string());
+                        }
+                        None => {}
+                    }
+                }
+                Index::start_incremental_build(&opening_root, definitions, options)
+                    .map(crate::tui::TuiOpening::Initial)
+                    .map_err(|error| error.to_string())
             },
             ui,
         );
         match result {
             Ok(Some(request)) => {
-                policy = request.storage_policy;
+                pending_repository = Some(request.repository);
                 search = request.search;
                 filter = request.filter;
             }
@@ -143,7 +151,6 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     }
 }
 
-
 /// Exit classifications specified by the `obj` command protocol.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Exit {
@@ -154,7 +161,6 @@ pub enum Exit {
     PipeClosed = 254,
     OutputError = 255,
 }
-
 
 /// Metadata from the opening operation, reused by the desktop batch runner.
 pub struct ExistingRun<'a> {
@@ -168,14 +174,12 @@ pub struct ExistingRun<'a> {
     pub startup_ns: u128,
 }
 
-
 /// A desktop query already parsed through the shared core query builder.
 pub struct PreparedQuery {
     pub input: String,
     pub query: Result<Query, String>,
     pub decoded_fts: Option<String>,
 }
-
 
 /// Execute a CLI batch against a repository already opened by another frontend.
 pub fn run_on_repository<W: Write>(
@@ -367,18 +371,23 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         match repo.index().flush_to(target) {
             Ok(report) => Some(report),
             Err(error) => {
-            let message = crate::storage_view::format_index_error(&error);
-            eprintln!("obj: save index: {message}");
-            if let Err(output_error) = output.emit(detailed_run_event(
-                json!({"type":"run_error", "stage":"index_flush", "error":message}),
-                &started,
-            )).and_then(|_| output.flush()) {
-                return output_failure(output_error);
-            }
-            return Exit::Operation;
+                let message = crate::storage_view::format_index_error(&error);
+                eprintln!("obj: save index: {message}");
+                if let Err(output_error) = output
+                    .emit(detailed_run_event(
+                        json!({"type":"run_error", "stage":"index_flush", "error":message}),
+                        &started,
+                    ))
+                    .and_then(|_| output.flush())
+                {
+                    return output_failure(output_error);
+                }
+                return Exit::Operation;
             }
         }
-    } else { None };
+    } else {
+        None
+    };
     if let Err(error) = output.emit(run_start_event(
         args,
         &paths,
@@ -434,7 +443,8 @@ fn open_saved_repository(
         options,
         target,
     )
-    .map_err(|error| crate::storage_view::format_index_error(&error))? else {
+    .map_err(|error| crate::storage_view::format_index_error(&error))?
+    else {
         return Ok(None);
     };
     if token.is_cancelled() {
@@ -587,7 +597,6 @@ fn run_start_event(
     })
 }
 
-
 #[derive(Clone, Copy)]
 struct RunTail<'a> {
     repo: &'a IndexedRepository,
@@ -597,7 +606,6 @@ struct RunTail<'a> {
     initial_incremental: bool,
     flush_report: Option<&'a IndexFlushReport>,
 }
-
 
 fn run_queries<W: Write>(
     run: RunTail<'_>,
@@ -649,8 +657,10 @@ fn run_queries<W: Write>(
     if token.is_cancelled() {
         return cancel_run(output, successes, failures, started);
     }
-    if source.is_file() && source.yielded() == 0
-        && args.load_index.is_none() && args.flush_index.is_none()
+    if source.is_file()
+        && source.yielded() == 0
+        && args.load_index.is_none()
+        && args.flush_index.is_none()
     {
         let message = "query file contains no queries";
         eprintln!("obj: {message}");

@@ -17,12 +17,11 @@ use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
 use app::{Action, App, Focus, Overlay, View};
-use objekte_search_core::index_storage::{
-    IndexReadiness, IndexStorageLocation, IndexStoragePolicy, IndexSynchronization,
-};
-use crate::storage_view::describe;
+use objekte_search_core::index_storage::{IndexFlushReport, IndexStorageTarget};
+use objekte_search_core::lifecycle::Index;
 use objekte_search_core::lifecycle::{InitialBuildPhase, InitialBuildSnapshot, InitialBuildTask};
 use objekte_search_core::lifecycle_caller::IndexedRepository;
+use objekte_search_core::repository::{CollectionDefinition, RepositoryOptions};
 use objekte_search_core::streaming::CancellationToken;
 use ratatui::crossterm::{
     event::{
@@ -40,16 +39,24 @@ pub struct TuiOptions {
     pub offset: usize,
     pub limit: Option<usize>,
     pub loading_label: Option<String>,
-    /// Shared storage choice for the current opening.
-    pub storage_policy: IndexStoragePolicy,
+    pub load_context: Option<TuiLoadContext>,
+    pub startup_flush: Option<IndexStorageTarget>,
     pub interruption: Option<CancellationToken>,
 }
 
-/// A validated storage choice and the current query to reopen in a new view.
+#[derive(Clone)]
+pub struct TuiLoadContext {
+    pub root: std::path::PathBuf,
+    pub definitions: Vec<CollectionDefinition>,
+    pub options: RepositoryOptions,
+}
+
+/// A replacement that has finished opening while the old view remained active.
 pub struct TuiReopenRequest {
-    pub storage_policy: IndexStoragePolicy,
+    pub repository: IndexedRepository,
     pub search: String,
     pub filter: String,
+    pub status: String,
 }
 
 pub fn run_with_loader<F>(
@@ -142,9 +149,7 @@ where
         };
         match opening {
             TuiOpening::Ready(repository) => run_active(&mut terminal, repository, options, None),
-            TuiOpening::Initial(task) => {
-                run_initial_active(&mut terminal, task, options)
-            }
+            TuiOpening::Initial(task) => run_initial_active(&mut terminal, task, options),
         }
     })();
     let mouse = execute!(std::io::stdout(), event::DisableMouseCapture);
@@ -160,10 +165,7 @@ pub fn run_with_initial_build(
     task: InitialBuildTask,
     options: TuiOptions,
 ) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
-    run_with_opening_loader(
-        move || Ok(TuiOpening::Initial(task)),
-        options,
-    )
+    run_with_opening_loader(move || Ok(TuiOpening::Initial(task)), options)
 }
 
 fn run_initial_active(
@@ -257,19 +259,18 @@ fn run_active(
     options: TuiOptions,
     initial: Option<(InitialBuildTask, InitialBuildSnapshot)>,
 ) -> Result<Option<TuiReopenRequest>, Box<dyn Error>> {
-    let managed_index = (options.storage_policy.location != IndexStorageLocation::MemoryOnly)
-        .then(|| repository.index().clone());
     let timings = repository.index().timings_ms()?;
-    let storage_label = match &options.storage_policy.location {
-        IndexStorageLocation::MemoryOnly => "Memory index",
-        IndexStorageLocation::SystemTemporary => "Temporary index",
-        IndexStorageLocation::RepositoryDirectory => "Repository index",
-        IndexStorageLocation::CustomDirectory(_) => "Custom index",
+    let storage_label = if repository.index().loaded_origin()?.is_some() {
+        "Loaded saved index"
+    } else {
+        "Built in memory"
     };
     let incremental = initial.is_some();
     let mut app = match initial {
-        Some((task, snapshot)) => App::with_initial_build(repository, options, task, snapshot),
-        None => App::with_options(repository, options),
+        Some((task, snapshot)) => {
+            App::with_initial_build(repository, options.clone(), task, snapshot)
+        }
+        None => App::with_options(repository, options.clone()),
     };
     if incremental {
         app.status = Some(match app.status.take() {
@@ -301,93 +302,136 @@ fn run_active(
     if let Some(light) = light {
         view::theme::set_light(light);
     }
-    if managed_index.is_none() {
-        let state = app.repo.index().storage_status()?;
-        app.storage_view = Some(describe(&app.storage_policy, &state));
+    enum StorageOutcome {
+        Saved(IndexFlushReport),
+        Loaded(IndexedRepository, String),
     }
-    let mut sync_receiver: Option<mpsc::Receiver<Result<(), String>>> = None;
-    let mut sync_exit_flush = false;
-    let mut last_storage_error: Option<String> = None;
-    let mut last_storage_snapshot = None;
+    let mut operation_receiver: Option<mpsc::Receiver<Result<StorageOutcome, String>>> = None;
+    let mut startup_flush = options.startup_flush.clone();
     while !app.done {
         if app.interrupted() {
             return Err(interrupted().into());
         }
         app.tick(Instant::now());
-        if app.storage_sync_requested && sync_receiver.is_none() {
-            app.storage_sync_requested = false;
-            if let Some(index) = managed_index.as_ref() {
-                let index = index.clone();
-                let exit_flush = app.storage_quit_after_sync || app.reopen_request.is_some();
-                sync_exit_flush = exit_flush;
+        if startup_flush.is_some()
+            && app
+                .build_status
+                .as_ref()
+                .is_none_or(|status| status.construction_complete)
+            && operation_receiver.is_none()
+        {
+            app.storage_request = Some((false, startup_flush.take().expect("queued startup save")));
+        }
+        if let Some((load, target)) = app.storage_request.take() {
+            if operation_receiver.is_some() {
+                app.error = Some("An index operation is already running".into());
+            } else {
                 let (sender, receiver) = mpsc::channel();
-                app.storage_syncing = true;
-                app.status = Some("Synchronizing index storage…".into());
-                std::thread::spawn(move || {
-                    let result = (|| {
-                        if exit_flush && index.wait_for_reconciliation()
-                            .map_err(|error| error.to_string())?
-                            .is_some_and(|report| report.cancelled) {
-                            return Err("index reconciliation cancelled".to_owned());
-                        }
-                        index.flush_storage().map(|_| ()).map_err(|error| error.to_string())
-                    })();
-                    let _ = sender.send(result);
-                });
-                sync_receiver = Some(receiver);
+                app.storage_busy = true;
+                if load {
+                    if let Some(context) = options.load_context.clone() {
+                        app.status = Some(format!("Opening saved index from {target:?}…"));
+                        std::thread::spawn(move || {
+                            let result = (|| -> Result<StorageOutcome, String> {
+                                let loaded = Index::try_load(
+                                    &context.root,
+                                    context.definitions.clone(),
+                                    context.options,
+                                    &target,
+                                )
+                                .map_err(|error| error.to_string())?;
+                                let (index, label) = match loaded {
+                                    Some(index) => {
+                                        (index, format!("Loaded saved index from {target:?}"))
+                                    }
+                                    None => (
+                                        Index::build(
+                                            &context.root,
+                                            context.definitions,
+                                            context.options,
+                                        )
+                                        .map_err(|error| error.to_string())?,
+                                        format!("No saved index at {target:?}; built in memory"),
+                                    ),
+                                };
+                                Ok(StorageOutcome::Loaded(
+                                    IndexedRepository::new(index)
+                                        .map_err(|error| error.to_string())?,
+                                    label,
+                                ))
+                            })();
+                            let _ = sender.send(result);
+                        });
+                        operation_receiver = Some(receiver);
+                    } else {
+                        app.storage_busy = false;
+                        app.error = Some("Index opening is unavailable for this view".into());
+                    }
+                } else {
+                    let index = app.repo.index().clone();
+                    app.status = Some(format!("Saving index to {target:?}…"));
+                    std::thread::spawn(move || {
+                        let result = (|| {
+                            if index
+                                .wait_for_reconciliation()
+                                .map_err(|error| error.to_string())?
+                                .is_some_and(|report| report.cancelled)
+                            {
+                                return Err("index reconciliation cancelled".to_owned());
+                            }
+                            index
+                                .flush_to(&target)
+                                .map(StorageOutcome::Saved)
+                                .map_err(|error| error.to_string())
+                        })();
+                        let _ = sender.send(result);
+                    });
+                    operation_receiver = Some(receiver);
+                }
             }
         }
-        if let Some(receiver) = sync_receiver.as_ref() {
+        if let Some(receiver) = operation_receiver.as_ref() {
             match receiver.try_recv() {
-                Ok(Ok(())) => {
-                    app.storage_syncing = false;
-                    sync_receiver = None;
-                    if app.storage_quit_after_sync && !sync_exit_flush {
-                        app.storage_sync_requested = true;
-                        app.status = Some("Finishing index storage before closing…".into());
-                    } else if app.reopen_request.is_some() || app.storage_quit_after_sync {
-                        app.storage_exit_flushed = true;
-                        app.done = true;
-                    } else {
-                        app.status = Some("Index storage synchronized".into());
-                    }
+                Ok(Ok(StorageOutcome::Saved(report))) => {
+                    app.storage_busy = false;
+                    operation_receiver = None;
+                    let message = format!(
+                        "Saved revision {} to {:?}, generation {}{}",
+                        report.saved_revision.0,
+                        report.target,
+                        report.store_generation,
+                        if report.newer_changes_unsaved {
+                            " · newer changes remain"
+                        } else {
+                            ""
+                        }
+                    );
+                    app.storage_last_saved = Some(message.clone());
+                    app.status = Some(message);
+                }
+                Ok(Ok(StorageOutcome::Loaded(repository, status))) => {
+                    app.storage_busy = false;
+                    operation_receiver = None;
+                    app.reopen_request = Some(TuiReopenRequest {
+                        repository,
+                        search: app.search.text.clone(),
+                        filter: app.filter.text.clone(),
+                        status,
+                    });
+                    app.done = true;
                 }
                 Ok(Err(error)) => {
-                    app.storage_syncing = false;
-                    sync_receiver = None;
-                    app.reopen_request = None;
-                    app.storage_quit_after_sync = false;
-                    app.error = Some(format!("Index synchronization: {error}"));
-                    app.status = Some("Synchronization failed; current view remains open".into());
+                    app.storage_busy = false;
+                    operation_receiver = None;
+                    app.error = Some(format!("Index operation: {error}"));
+                    app.status = Some("Index operation failed; current view remains open".into());
                 }
                 Err(mpsc::TryRecvError::Disconnected) => {
-                    app.storage_syncing = false;
-                    sync_receiver = None;
-                    app.reopen_request = None;
-                    app.storage_quit_after_sync = false;
-                    app.error = Some("Index synchronization worker stopped".into());
+                    app.storage_busy = false;
+                    operation_receiver = None;
+                    app.error = Some("Index operation worker stopped".into());
                 }
                 Err(mpsc::TryRecvError::Empty) => {}
-            }
-        }
-        if let Some(index) = managed_index.as_ref() {
-            let state = index.storage_status()?;
-            app.storage_sync_available = state.readiness != IndexReadiness::Building
-                && (matches!(state.synchronization,
-                IndexSynchronization::Pending | IndexSynchronization::Failed)
-                || state.durable_generation != Some(state.current_generation));
-            if last_storage_snapshot.as_ref() != Some(&state) {
-                last_storage_snapshot = Some(state.clone());
-                let rendered = describe(&app.storage_policy, &state);
-                if app.error == last_storage_error {
-                    app.error = None;
-                }
-                last_storage_error = rendered.issue.as_ref()
-                    .map(|issue| format!("{}: {}", issue.summary, issue.guidance));
-                if let Some(error) = &last_storage_error { app.error = Some(error.clone()); }
-                app.status = Some(format!("{} · {} · {}", rendered.readiness,
-                    rendered.reconciliation, rendered.synchronization));
-                app.storage_view = Some(rendered);
             }
         }
         terminal.draw(|frame| view::draw(frame, &mut app))?;
@@ -418,22 +462,6 @@ fn run_active(
             stdout.write_all(clipboard::osc52(&text).as_bytes())?;
             stdout.flush()?;
         }
-    }
-    if let Some(index) = managed_index
-        && !app.storage_exit_flushed
-        && app
-            .build_status
-            .as_ref()
-            .is_none_or(|status| status.construction_complete)
-    {
-        if index
-            .wait_for_reconciliation()?
-            .is_some_and(|report| report.cancelled)
-        {
-            return Err(std::io::Error::other("index reconciliation cancelled").into());
-        }
-        index.quiesce()?;
-        index.flush_storage()?;
     }
     Ok(app.reopen_request)
 }
@@ -501,15 +529,10 @@ fn mouse_event(app: &mut App, mouse: MouseEvent) {
 fn key(app: &mut App, key: KeyEvent) {
     let control = key.modifiers.contains(KeyModifiers::CONTROL);
     if control && key.code == KeyCode::Char('q') {
-        if app.storage_policy.location == IndexStorageLocation::MemoryOnly
-            || app.build_status.as_ref().is_some_and(|status| !status.construction_complete) {
-            app.done = true;
+        if app.storage_busy {
+            app.status = Some("Waiting for the explicit index operation to finish…".into());
         } else {
-            app.storage_quit_after_sync = true;
-            if !app.storage_syncing {
-                app.storage_sync_requested = true;
-            }
-            app.status = Some("Flushing index storage before closing…".into());
+            app.done = true;
         }
         return;
     }
@@ -547,7 +570,9 @@ fn key(app: &mut App, key: KeyEvent) {
                 match key.code {
                     KeyCode::Esc => app.storage_editing = false,
                     KeyCode::Enter => app.finish_storage_directory(),
-                    _ => { app.storage_directory.key(key); }
+                    _ => {
+                        app.storage_directory.key(key);
+                    }
                 }
                 return;
             }
@@ -555,28 +580,21 @@ fn key(app: &mut App, key: KeyEvent) {
                 KeyCode::Esc => app.overlay = None,
                 KeyCode::Up => app.storage_picker = app.storage_picker.saturating_sub(1),
                 KeyCode::Down | KeyCode::Tab => {
-                    app.storage_picker = (app.storage_picker + 1).min(7)
+                    app.storage_picker = (app.storage_picker + 1).min(6)
                 }
                 KeyCode::BackTab => app.storage_picker = app.storage_picker.saturating_sub(1),
-                KeyCode::Enter if app.storage_picker < 4 => {
-                    app.storage_choice = app.storage_picker;
-                    if app.storage_picker == 3 {
+                KeyCode::Enter if app.storage_picker < 2 => {
+                    app.storage_operation = app.storage_picker;
+                }
+                KeyCode::Enter if (2..5).contains(&app.storage_picker) => {
+                    app.storage_choice = app.storage_picker - 2;
+                    if app.storage_picker == 4 {
                         app.storage_picker = 5;
                         app.storage_editing = true;
                     }
                 }
-                KeyCode::Enter | KeyCode::Char(' ') if app.storage_picker == 4 => {
-                    if app.storage_choice != 0 {
-                        app.storage_full = !app.storage_full;
-                    }
-                }
                 KeyCode::Enter if app.storage_picker == 5 => app.storage_editing = true,
                 KeyCode::Enter if app.storage_picker == 6 => app.apply_storage(),
-                KeyCode::Enter if app.storage_picker == 7 => {
-                    if app.storage_sync_available && !app.storage_syncing {
-                        app.storage_sync_requested = true;
-                    }
-                }
                 _ => {}
             }
             return;
