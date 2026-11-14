@@ -168,6 +168,20 @@ pub fn pack_runs(view: &IndexView) -> StorageResult<Vec<RunInput>> {
             });
         }
         for segment in published.segments[number].iter() {
+            if let Some(packed) = &segment.packed {
+                runs.push(RunInput {
+                    collection: number as u32,
+                    ordinal: segment.ordinal,
+                    level: 0,
+                    slot_count: packed.stats().record_count,
+                    active_count: segment.active.len(),
+                    object: ObjectInput {
+                        kind: ObjectKind::Segment,
+                        bytes: packed.object_bytes()?,
+                    },
+                });
+                continue;
+            }
             let input = pack_segment(
                 &segment.index,
                 &segment.active.bitmap(),

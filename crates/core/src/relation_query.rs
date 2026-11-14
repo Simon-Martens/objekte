@@ -357,14 +357,12 @@ impl<'a> MergedRelationView<'a> {
                 .relations
                 .get(relation.ordinal as usize)
                 .ok_or("backlink segment relation missing")?;
-            if let Some(field) = published
-                .index
-                .postings
-                .fields
-                .get(&relation_contribution.declaration().path)
-            {
-                let Some(posting) = field.value_posting(&ScalarKey::Id(target_id.to_owned()))
-                else {
+            if let Some(field) = published.index.posting_access(
+                &relation_contribution.declaration().path,
+                "default",
+                false,
+            ) {
+                let Ok(posting) = field.exact(&ScalarKey::Id(target_id.to_owned())) else {
                     continue;
                 };
                 for slot in posting.iter() {

@@ -261,6 +261,17 @@ impl PostingSectionView {
         self.by_path.get(path).map(|index| &self.fields[*index])
     }
 
+    /// Find one path representation with an exact stored source family.
+    pub fn field_with_source(
+        &self,
+        path: &[String],
+        source: &FieldSource,
+    ) -> Option<&FieldPostingsView> {
+        self.fields
+            .iter()
+            .find(|field| field.path.as_slice() == path && field.source() == source)
+    }
+
     pub fn field_by_ordinal(&self, ordinal: u32) -> Option<&FieldPostingsView> {
         self.by_ordinal
             .get(&ordinal)

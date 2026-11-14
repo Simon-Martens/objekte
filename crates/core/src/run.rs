@@ -5129,7 +5129,10 @@ fn relation_source_candidates(
     published: &PublishedSegment,
     plan: &RelationTargetPrune,
 ) -> Result<Option<RoaringBitmap>, String> {
-    let Some(posting) = published.index.postings.fields.get(&plan.source_path) else {
+    let Some(posting) = published
+        .index
+        .posting_access(&plan.source_path, "default", false)
+    else {
         return Ok(None);
     };
     let mut may = if plan.exact {
@@ -5138,9 +5141,9 @@ fn relation_source_candidates(
         &published.active.bitmap() - &published.index.logical_records
     };
     for id in &plan.target_ids {
-        if let Some(slots) = posting.value_posting(&crate::posting::ScalarKey::Id(id.clone())) {
-            may |= slots;
-        }
+        may |= posting
+            .exact(&crate::posting::ScalarKey::Id(id.clone()))
+            .map_err(|error| error.to_string())?;
     }
     may &= published.active.bitmap();
     Ok(Some(may))
@@ -5615,10 +5618,15 @@ fn try_direct_relation_page(
     }
     let mut source_candidates = Vec::new();
     for (segment_index, published) in segments[*source_index].iter().enumerate() {
-        let Some(posting) = published.index.postings.fields.get(source_path) else {
+        let Some(posting) = published
+            .index
+            .posting_access(source_path, "default", false)
+        else {
             return Ok(None);
         };
-        let (mut may, lists, members) = posting.union_id_postings(&target_ids);
+        let (mut may, lists, members) = posting
+            .union_id_postings(&target_ids)
+            .map_err(|error| error.to_string())?;
         counters.relation_reverse_postings_visited += lists;
         counters.relation_reverse_members_visited += members;
         may &= published.active.bitmap();

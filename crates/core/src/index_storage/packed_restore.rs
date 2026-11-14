@@ -1,6 +1,6 @@
 //! Source-free reconstruction of the native query owners from packed objects.
 
-use std::collections::{BTreeMap, HashMap};
+use std::collections::HashMap;
 use std::path::PathBuf;
 use std::sync::Arc;
 
@@ -9,7 +9,6 @@ use roaring::RoaringBitmap;
 
 use crate::bigram::BigramIndex;
 use crate::build::IndexedCollectionSegment;
-use crate::execution_options::BigramAlphabet;
 use crate::inference::InferenceState;
 use crate::inventory::SourceDiagnostic;
 use crate::inventory::{
@@ -20,10 +19,7 @@ use crate::lifecycle::{
     Index, IndexError, IndexRevision, PublishedIndex, PublishedSegment, ReconciliationState,
 };
 use crate::model::{CollectionId, FieldPath, FileId, PathRoot, RecordId, RecordSlot};
-use crate::posting::{
-    CustomPostingIndex, PostingCollection, PostingIndex, PostingStats, StructuralFacts,
-    StructuralKey,
-};
+use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::relation::{RelationCardinality, RelationContribution, RelationDefinition};
 use crate::repository::{CollectionState, Repository};
 use crate::sorting::{SortCollection, SortColumn};
@@ -32,8 +28,6 @@ use crate::source::{DiagnosticCategory, SourceRegistry};
 use super::catalogue::{CatalogueView, DiagnosticView, FileRowView};
 use super::error::{StorageError, StorageResult};
 use super::native_pack::InferenceMetadata;
-use super::posting::FieldPostingsView;
-use super::posting_builder::FieldSource;
 use super::segment::FrozenSegment;
 use super::store::OpenedStore;
 
@@ -128,6 +122,19 @@ pub fn restore_from_store(
             .collect::<Result<Vec<_>, _>>()?;
         base[number].relations = resolved;
     }
+    let mut frozen_runs = HashMap::new();
+    for run in &opened.runs {
+        let frozen = Arc::new(FrozenSegment::open(opened.run_backing(run)).map_err(storage_error)?);
+        frozen_runs.insert((run.reference.collection, run.reference.ordinal), frozen);
+    }
+    for (number, collection) in base.iter_mut().enumerate() {
+        let Some(frozen) = frozen_runs.get(&(number as u32, 0)) else {
+            continue;
+        };
+        collection.packed = Some(Arc::clone(frozen));
+        collection.stats.file_count = frozen.stats().file_part_count as usize;
+        collection.stats.record_count = frozen.stats().record_count as usize;
+    }
     let base_fingerprints = (0..files.files.len())
         .map(|id| rows.get(&(id as u32)).and_then(|row| row.fingerprint))
         .collect::<Vec<_>>();
@@ -154,7 +161,10 @@ pub fn restore_from_store(
     let mut next_segment_ordinal = 1u64;
     for run in &opened.runs {
         let collection = run.reference.collection as usize;
-        let frozen = Arc::new(FrozenSegment::open(opened.run_backing(run)).map_err(storage_error)?);
+        let frozen = frozen_runs
+            .get(&(run.reference.collection, run.reference.ordinal))
+            .cloned()
+            .ok_or_else(|| IndexError::InvalidPublication("opened run is missing".into()))?;
         let segment = segment_from_packed(&frozen, collection, &file_entries, &definitions)?;
         let active_slots = segment_active(&frozen)?;
         next_segment_ordinal = next_segment_ordinal.max(run.reference.ordinal + 1);
@@ -463,21 +473,12 @@ fn segment_from_packed(
             records.push(record);
         }
     }
-    let postings = frozen.postings();
-    let (posting_collection, inference, custom_postings) = posting_families(&postings, frozen)?;
-    let mut raw = BigramIndex::new(BigramAlphabet::Ascii);
-    let mut fallback_text = BigramIndex::new(BigramAlphabet::Ascii);
-    let mut custom_text = HashMap::new();
-    for binding in frozen.bigrams().bindings() {
-        let index = bigram_from_packed(frozen, binding)?;
-        match binding {
-            crate::index_storage::bigram_builder::BigramBinding::Raw => raw = index,
-            crate::index_storage::bigram_builder::BigramBinding::Fallback => fallback_text = index,
-            crate::index_storage::bigram_builder::BigramBinding::Custom { path, name } => {
-                custom_text.insert((path.clone(), name.clone()), index);
-            }
-        }
-    }
+    let (posting_collection, inference, custom_postings) = posting_families(frozen)?;
+    // Bigram postings stay in the mapped packed section. Only small binding
+    // descriptors are retained so status checks and packed `BigramAccess` can
+    // work without rebuilding native gram dictionaries at Load.
+    let (raw, fallback_text) = bigram_placeholders(frozen);
+    let custom_text = HashMap::new();
     let mut sorting = SortCollection {
         columns: HashMap::new(),
         composites: Vec::new(),
@@ -627,7 +628,6 @@ fn relation_cardinality(relation: &crate::index_storage::relations::RelationView
 }
 
 fn posting_families(
-    postings: &crate::index_storage::posting::PostingSectionView,
     frozen: &FrozenSegment,
 ) -> Result<
     (
@@ -637,11 +637,6 @@ fn posting_families(
     ),
     IndexError,
 > {
-    let mut fields = HashMap::new();
-    let mut observed = HashMap::new();
-    let mut custom = HashMap::new();
-    let mut observed_empty = HashMap::new();
-    let mut observed_coverage = HashMap::new();
     let metadata = frozen
         .metadata()
         .map_err(storage_error)?
@@ -653,157 +648,49 @@ fn posting_families(
                 .map_err(|error| IndexError::InvalidPublication(error.to_string()))
         })
         .transpose()?;
-    for field in postings.fields() {
-        let index = posting_index(field)?;
-        match field.source() {
-            FieldSource::Declared => {
-                fields.insert(field.path().to_vec(), index);
-            }
-            FieldSource::Observed => {
-                observed.insert(field.path().to_vec(), index);
-            }
-            FieldSource::Named(binding) => {
-                custom.insert(
-                    (field.path().to_vec(), binding.clone()),
-                    CustomPostingIndex {
-                        index,
-                        complete: field.complete(),
-                    },
-                );
-            }
-        }
-    }
-    if let Some(metadata) = &metadata {
-        observed_empty = metadata.empty_selections.clone();
-        observed_coverage = metadata.short_string_coverage.clone();
-    }
+    // Field dictionaries and custom postings stay in the mapped packed
+    // sections. `IndexCatalog` resolves declared/observed/named access through
+    // `PostingAccess::Packed`; no native value dictionary is rebuilt at Load.
+    let fields = HashMap::new();
     let inference = metadata.map(|metadata| InferenceState {
         report: metadata.report,
-        indexes: observed,
-        empty_selections: observed_empty,
-        short_string_coverage: observed_coverage,
+        indexes: HashMap::new(),
+        empty_selections: metadata.empty_selections,
+        short_string_coverage: metadata.short_string_coverage,
     });
-    Ok((PostingCollection { fields }, inference, custom))
+    Ok((PostingCollection { fields }, inference, HashMap::new()))
 }
 
-fn posting_index(field: &FieldPostingsView) -> Result<PostingIndex, IndexError> {
-    let presence = collect(field.presence().map_err(storage_error)?)?;
-    let nulls = collect(field.nulls().map_err(storage_error)?)?;
-    let empty_selections = collect(field.empty_selections().map_err(storage_error)?)?;
-    let mut structural = BTreeMap::new();
-    for key in field.structural_keys() {
-        if let Some(view) = field.structural(key).map_err(storage_error)? {
-            if let Some(key) = structural_key(key) {
-                structural.insert(key, collect(view)?);
-            }
-        }
-    }
-    let mut values = BTreeMap::new();
-    for entry in field
-        .values()
-        .range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded)
-    {
-        let (key, _) = entry.map_err(storage_error)?;
-        let key = super::scalar::decode_scalar_key(&key).map_err(storage_error)?;
-        if let Some(view) = field
-            .value_encoded(&super::scalar::encode_scalar_key(&key).map_err(storage_error)?)
-            .map_err(storage_error)?
-        {
-            values.insert(key, collect(view)?);
-        }
-    }
-    let mut lengths = BTreeMap::new();
-    if let Some(dictionary) = field.lengths() {
-        for entry in dictionary.range(std::ops::Bound::Unbounded, std::ops::Bound::Unbounded) {
-            let (key, _) = entry.map_err(storage_error)?;
-            let crate::posting::ScalarKey::Number(length) =
-                super::scalar::decode_scalar_key(&key).map_err(storage_error)?
-            else {
-                continue;
-            };
-            if let Some(view) = field.length(&length).map_err(storage_error)? {
-                lengths.insert(length, collect(view)?);
-            }
-        }
-    }
-    let mut index = PostingIndex {
-        path: field.path().to_vec(),
-        kind: field.kind().clone(),
-        multi: field.multi(),
-        presence,
-        empty_selections,
-        nulls,
-        structural: (!structural.is_empty()).then_some(StructuralFacts {
-            postings: structural,
-        }),
-        values,
-        lengths,
-        values_indexed: field.values_indexed(),
-        value_complete: field.value_complete(),
-        length_complete: field.length_complete(),
-        empty_string_complete: field.empty_string_complete(),
-        covered_records: field.covered_records(),
-        stats: PostingStats::default(),
-    };
-    index.finish_stats();
-    Ok(index)
-}
-
-fn structural_key(code: u8) -> Option<StructuralKey> {
-    Some(match code {
-        0 => StructuralKey::AnyNull,
-        1 => StructuralKey::NonEmpty,
-        2 => StructuralKey::String,
-        3 => StructuralKey::Number,
-        4 => StructuralKey::Array,
-        5 => StructuralKey::Object,
-        6 => StructuralKey::EmptyObject,
-        _ => return None,
-    })
-}
-
-fn collect(view: super::record_set::RecordSetView<'_>) -> Result<RoaringBitmap, IndexError> {
-    let mut bitmap = RoaringBitmap::new();
-    view.union_into(&mut bitmap).map_err(storage_error)?;
-    Ok(bitmap)
-}
-
-fn bigram_from_packed(
+fn bigram_placeholders(
     frozen: &FrozenSegment,
-    binding: &crate::index_storage::bigram_builder::BigramBinding,
-) -> Result<BigramIndex, IndexError> {
-    let view = match binding {
-        crate::index_storage::bigram_builder::BigramBinding::Raw => frozen
-            .bigrams()
-            .binding(crate::index_storage::bigram_builder::BigramBindingKind::Raw),
-        crate::index_storage::bigram_builder::BigramBinding::Fallback => frozen
-            .bigrams()
-            .binding(crate::index_storage::bigram_builder::BigramBindingKind::Fallback),
-        crate::index_storage::bigram_builder::BigramBinding::Custom { path, name } => {
-            frozen.bigrams().custom(path, name)
+) -> (crate::bigram::BigramIndex, crate::bigram::BigramIndex) {
+    use crate::index_storage::bigram_builder::{BigramBinding, BigramBindingKind};
+    let mut raw = crate::bigram::BigramIndex::new(crate::execution_options::BigramAlphabet::Ascii);
+    let mut fallback =
+        crate::bigram::BigramIndex::new(crate::execution_options::BigramAlphabet::Ascii);
+    for binding in frozen.bigrams().bindings() {
+        let Some(view) = (match binding {
+            BigramBinding::Raw => frozen.bigrams().binding(BigramBindingKind::Raw),
+            BigramBinding::Fallback => frozen.bigrams().binding(BigramBindingKind::Fallback),
+            BigramBinding::Custom { .. } => None,
+        }) else {
+            continue;
+        };
+        let alphabet = match view.alphabet() {
+            0 => crate::execution_options::BigramAlphabet::Ascii,
+            _ => crate::execution_options::BigramAlphabet::Unicode,
+        };
+        match binding {
+            BigramBinding::Raw => {
+                raw = crate::bigram::BigramIndex::new(alphabet);
+                raw.record_count = view.record_count();
+            }
+            BigramBinding::Fallback => {
+                fallback = crate::bigram::BigramIndex::new(alphabet);
+                fallback.record_count = view.record_count();
+            }
+            BigramBinding::Custom { .. } => {}
         }
     }
-    .ok_or_else(|| IndexError::InvalidPublication("packed bigram binding missing".into()))?;
-    let alphabet = match view.alphabet() {
-        0 => BigramAlphabet::Ascii,
-        _ => BigramAlphabet::Unicode,
-    };
-    let mut normal = HashMap::new();
-    for gram in view.normal_grams().map_err(storage_error)? {
-        if let Some(view) = view.normal(gram).map_err(storage_error)? {
-            normal.insert(gram, collect(view)?);
-        }
-    }
-    let mut skip = HashMap::new();
-    for gram in view.skip_grams().map_err(storage_error)? {
-        if let Some(view) = view.skip(gram).map_err(storage_error)? {
-            skip.insert(gram, collect(view)?);
-        }
-    }
-    Ok(BigramIndex {
-        alphabet,
-        record_count: view.record_count(),
-        normal,
-        skip,
-    })
+    (raw, fallback)
 }

@@ -27,10 +27,18 @@ typed and bigram candidate access uses the packed `PostingAccess`/`BigramAccess`
 views. A test removes the loaded native postings and source files and confirms
 the packed typed query still answers.
 
-Load now reconstructs the queryable repository from packed catalogue/run objects
-without a native snapshot. Native posting/bigram/sort/relation owners are still
-built from the packed objects because fallbacks, exact source verification,
-custom operations, and several query paths remain native.
+Load now reconstructs the queryable repository from packed catalogue/run
+objects without a native snapshot. Typed postings and raw/fallback/custom
+bigrams stay packed: no native value or gram dictionaries are rebuilt.
+`IndexCatalog`, posting-value enumeration, relation reverse probes, and bigram
+candidates read mapped packed sections, and loaded re-saves reuse the original
+packed run object bytes.
+
+Still native after Load: record rows and the logical-ID lookup, sort
+columns/orders, relation adjacency, and source-verification fallbacks. These
+types' existing APIs return borrowed slices or owned vectors, so migrating them
+requires an access-type migration across `run.rs`, `executor.rs`,
+`relation_query.rs`, and `sorting.rs`.
 
 ## Why not resolved here
 

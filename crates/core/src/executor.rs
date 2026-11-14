@@ -557,10 +557,10 @@ fn segment_positional_eq_candidates(
     }
     // A match at a particular array position must also occur in the
     // unpositioned value posting. Position still requires source verification.
-    let Some(index) = segment.postings.fields.get(&term.path.segments) else {
+    let Some(access) = segment.posting_access(&term.path.segments, "default", false) else {
         return Ok(None);
     };
-    Ok(index.exact_set_restricted(term, &segment.logical_records, logical_active))
+    Ok(access.exact_set_restricted(term, &segment.logical_records, logical_active))
 }
 
 fn segment_raw_covers_identity_field(
@@ -1278,7 +1278,9 @@ fn empty_selection_preservation(term: &BoundTerm) -> bool {
 
 fn raw_bigram_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<RoaringBitmap> {
     let request = term.gram_request.as_ref()?;
-    let mut grams = collection.raw.candidates_prepared(request)?;
+    let mut grams = IndexCatalog::collection(collection)
+        .raw_text_access()
+        .candidates_prepared(request)?;
     if empty_selection_preservation(term) {
         // The universal comparison may be true on a present empty array with
         // no string witness. This bitmap is deliberately collection-wide.
@@ -1629,11 +1631,11 @@ fn enumerate_paths(
                         && term.matcher.is_none()
                         && raw_covers_identity_field(collection).is_ok()
                     {
-                        if let Some(gram_count) = term
-                            .gram_request
-                            .as_ref()
-                            .and_then(|request| collection.raw.estimate_prepared(request))
-                        {
+                        if let Some(gram_count) = term.gram_request.as_ref().and_then(|request| {
+                            IndexCatalog::collection(collection)
+                                .raw_text_access()
+                                .estimate_prepared(request)
+                        }) {
                             let structural_count = empty_selection_preservation(term)
                                 .then_some(collection.empty_array_records.len());
                             let output = gram_count
@@ -1814,9 +1816,11 @@ fn estimate_plan_node(
             let selected = paths.remove(0);
             let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
                 .then(|| {
-                    term.gram_request
-                        .as_ref()
-                        .and_then(|request| collection.raw.estimate_prepared(request))
+                    term.gram_request.as_ref().and_then(|request| {
+                        IndexCatalog::collection(collection)
+                            .raw_text_access()
+                            .estimate_prepared(request)
+                    })
                 })
                 .flatten();
             let structural_candidates = (selected.kind == AccessPathKind::RawBigram
@@ -2245,9 +2249,11 @@ fn plan_logical_expr(
             let choices = if context.diagnostics {
                 let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
                     .then(|| {
-                        term.gram_request
-                            .as_ref()
-                            .and_then(|request| collection.raw.estimate_prepared(request))
+                        term.gram_request.as_ref().and_then(|request| {
+                            IndexCatalog::collection(collection)
+                                .raw_text_access()
+                                .estimate_prepared(request)
+                        })
                     })
                     .flatten();
                 let structural_candidates = (selected.kind == AccessPathKind::RawBigram
@@ -2306,7 +2312,10 @@ fn plan_logical_expr(
                     .unwrap_or_else(|| {
                         if term.gram_request.is_none()
                             || term.gram_request.as_ref().is_some_and(|request| {
-                                collection.raw.estimate_prepared(request).is_none()
+                                IndexCatalog::collection(collection)
+                                    .raw_text_access()
+                                    .estimate_prepared(request)
+                                    .is_none()
                             })
                         {
                             "raw bigram has no usable necessary grams; scanner selected".into()

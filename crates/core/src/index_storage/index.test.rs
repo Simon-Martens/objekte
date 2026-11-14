@@ -120,14 +120,12 @@ fn core_index_saves_loads_and_remains_updateable() {
             crate::index_storage::access::BigramAccess::Packed { .. }
         ));
         let request = crate::bigram::BigramRequest::new("Alpha");
-        assert_eq!(
-            packed_text.candidates_prepared(&request),
-            crate::index_storage::access::BigramAccess::Native {
-                index: &segment.index.raw,
-                binding: crate::index_storage::bigram_builder::BigramBinding::Raw,
-            }
+        let candidates = packed_text
             .candidates_prepared(&request)
-        );
+            .expect("packed candidates");
+        assert!(candidates.contains(0));
+        assert!(segment.index.raw.normal.is_empty());
+        assert!(segment.index.raw.skip.is_empty());
     }
     assert_eq!(status.freshness, FreshnessState::Unchecked);
     assert!(!status.unsaved_changes);

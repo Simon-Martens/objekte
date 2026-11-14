@@ -500,21 +500,49 @@ impl<'a> IndexCatalog<'a> {
         binding: &str,
         named_operation: bool,
     ) -> [Option<PostingAccess<'a>>; 2] {
-        if let Some(packed) = self.packed
-            && !named_operation
-            && let Some(field) = packed.postings().field(path)
-        {
-            return [
-                Some(PostingAccess {
+        if let Some(packed) = self.packed {
+            use crate::index_storage::posting_builder::FieldSource;
+            if named_operation {
+                let named = packed
+                    .postings()
+                    .field_with_source(path, &FieldSource::Named(binding.to_owned()))
+                    .map(|field| PostingAccess {
+                        id: PostingId::Named,
+                        access: crate::index_storage::access::PostingAccess::Packed(field),
+                        schema: self.schema,
+                        admitted: field.complete(),
+                        empty_selections: None,
+                        short_string_coverage: None,
+                    });
+                return [named, None];
+            }
+            let declared = packed
+                .postings()
+                .field_with_source(path, &FieldSource::Declared)
+                .map(|field| PostingAccess {
                     id: PostingId::Declared,
                     access: crate::index_storage::access::PostingAccess::Packed(field),
                     schema: self.schema,
                     admitted: true,
                     empty_selections: None,
                     short_string_coverage: None,
-                }),
-                None,
-            ];
+                });
+            let observed = packed
+                .postings()
+                .field_with_source(path, &FieldSource::Observed)
+                .map(|field| PostingAccess {
+                    id: PostingId::Observed,
+                    access: crate::index_storage::access::PostingAccess::Packed(field),
+                    schema: self.schema,
+                    admitted: true,
+                    empty_selections: self
+                        .observed
+                        .and_then(|state| state.empty_selections.get(path)),
+                    short_string_coverage: self
+                        .observed
+                        .and_then(|state| state.short_string_coverage.get(path)),
+                });
+            return [declared, observed];
         }
         if named_operation {
             let named = self.named.get(&(path.to_vec(), binding.to_owned()));

@@ -508,13 +508,14 @@ source root is rejected. Repeated saves of the same publication and target are
 no-ops and write zero object bytes.
 
 Loading reconstructs the queryable repository directly from the packed
-catalogue and run objects: file metadata, records and file parts, declared and
-observed postings, inference metadata, custom bindings, ASCII/Unicode bigrams,
-sort keys/orders, relations, coverage, diagnostics, and statistics. No
-source-free native snapshot object is written or read. Loaded typed and bigram
-candidate access uses the mapped packed readers through
-`IndexCatalog`/`BigramAccess`, while source-verification fallbacks retain the
-reconstructed native owners.
+catalogue and run objects. No source-free native snapshot object is written or
+read. Packed typed postings and ASCII/Unicode/custom bigrams stay in their
+mapped sections; Load retains only small binding descriptors and inference
+coverage metadata, not native value or gram dictionaries. `IndexCatalog`,
+posting-value enumeration, relation candidate probes, and bigram candidate
+access read those mapped sections through `PostingAccess`/`BigramAccess`.
+Record metadata, sort columns, and relation adjacency are still materialized as
+native query owners for fallbacks and existing execution interfaces.
 
 The CLI exposes:
 

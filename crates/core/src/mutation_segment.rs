@@ -886,6 +886,45 @@ fn inference_bytes(state: &crate::inference::InferenceState) -> usize {
 
 
 impl IndexedCollectionSegment {
+    /// Resolve one typed posting representation without assuming a native map
+    /// exists. Loaded packed segments keep every posting in mapped objects.
+    pub(crate) fn posting_access(
+        &self,
+        path: &[String],
+        binding: &str,
+        named: bool,
+    ) -> Option<crate::index_storage::access::PostingAccess<'_>> {
+        use crate::index_storage::access::PostingAccess;
+        use crate::index_storage::posting_builder::FieldSource;
+        if let Some(packed) = &self.packed {
+            let source = if named {
+                FieldSource::Named(binding.to_owned())
+            } else {
+                FieldSource::Declared
+            };
+            let field = packed
+                .postings()
+                .field_with_source(path, &source)
+                .or_else(|| {
+                    (!named)
+                        .then(|| {
+                            packed
+                                .postings()
+                                .field_with_source(path, &FieldSource::Observed)
+                        })
+                        .flatten()
+                })?;
+            return Some(PostingAccess::Packed(field));
+        }
+        if named {
+            self.custom_postings
+                .get(&(path.to_vec(), binding.to_owned()))
+                .map(|posting| PostingAccess::Native(&posting.index))
+        } else {
+            self.postings.fields.get(path).map(PostingAccess::Native)
+        }
+    }
+
     /// Recompute the cached planning estimate after native finalization or a
     /// metadata rewrite. Callers never need this for Arc-reused segments.
     pub(crate) fn recompute_accounting(&mut self) {

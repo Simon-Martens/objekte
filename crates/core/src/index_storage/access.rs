@@ -16,6 +16,7 @@ use super::bigram::BigramSectionView;
 use super::bigram_builder::{BigramBinding, BigramBindingKind};
 use super::error::StorageResult;
 use super::posting::FieldPostingsView;
+use super::scalar::encode_scalar_key;
 use super::segment::FrozenSegment;
 
 
@@ -148,6 +149,60 @@ impl<'a> PostingAccess<'a> {
         match self {
             Self::Native(index) => index.distinct_values(),
             Self::Packed(index) => index.values().entry_count() as usize,
+        }
+    }
+
+    /// Owned value page for posting-value enumeration. Native bitmaps are
+    /// cloned; packed postings are decoded only for returned keys.
+    pub(crate) fn value_range_owned(
+        &self,
+        lower: std::ops::Bound<ScalarKey>,
+        upper: std::ops::Bound<ScalarKey>,
+        descending: bool,
+    ) -> StorageResult<Vec<(ScalarKey, RoaringBitmap)>> {
+        let encode =
+            |bound: std::ops::Bound<ScalarKey>| -> StorageResult<std::ops::Bound<Vec<u8>>> {
+                Ok(match bound {
+                    std::ops::Bound::Included(key) => {
+                        std::ops::Bound::Included(encode_scalar_key(&key)?)
+                    }
+                    std::ops::Bound::Excluded(key) => {
+                        std::ops::Bound::Excluded(encode_scalar_key(&key)?)
+                    }
+                    std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
+                })
+            };
+        match self {
+            Self::Native(index) => {
+                let mut cursor = index.value_range(lower, upper, descending);
+                let mut result = Vec::new();
+                while let Some((key, bitmap)) = cursor.next() {
+                    result.push((key, bitmap.clone()));
+                }
+                Ok(result)
+            }
+            Self::Packed(index) => {
+                let lower = encode(lower)?;
+                let upper = encode(upper)?;
+                let entries = if descending {
+                    index
+                        .values()
+                        .range_reverse(owned_bound_ref(&lower), owned_bound_ref(&upper))
+                        .collect::<StorageResult<Vec<_>>>()?
+                } else {
+                    index
+                        .values()
+                        .range(owned_bound_ref(&lower), owned_bound_ref(&upper))
+                        .collect::<StorageResult<Vec<_>>>()?
+                };
+                let mut result = Vec::with_capacity(entries.len());
+                for (key, ref_bytes) in entries {
+                    let key = super::scalar::decode_scalar_key(&key)?;
+                    let reference = super::record_set::RecordSetRef::decode(&ref_bytes)?;
+                    result.push((key, collect(index.view(reference)?)?));
+                }
+                Ok(result)
+            }
         }
     }
 
@@ -342,6 +397,32 @@ impl<'a> PostingAccess<'a> {
         Ok(input.map_or(result.clone(), |input| &result & input))
     }
 
+    /// Union the ID postings for a relation reverse probe.
+    pub(crate) fn union_id_postings(
+        &self,
+        ids: &std::collections::HashSet<String>,
+    ) -> StorageResult<(RoaringBitmap, u64, u64)> {
+        match self {
+            Self::Native(index) => Ok(index.union_id_postings(ids)),
+            Self::Packed(_) => {
+                let mut union = RoaringBitmap::new();
+                let mut lists = 0u64;
+                let mut members = 0u64;
+                for id in ids {
+                    let posting = self.exact(&crate::posting::ScalarKey::Id(id.clone()))?;
+                    if !posting.is_empty() {
+                        lists += 1;
+                        members += posting.len();
+
+
+                        union |= posting;
+                    }
+                }
+                Ok((union, lists, members))
+            }
+        }
+    }
+
     pub(crate) fn for_each_value(
         &self,
         mut visit: impl FnMut(&ScalarKey, &RoaringBitmap) -> Result<(), String>,
@@ -397,13 +478,20 @@ impl<'a> PostingAccess<'a> {
     }
 }
 
-
 fn index_domain(index: &FieldPostingsView) -> StorageResult<u32> {
     Ok(index.presence()?.domain_len())
 }
 
-fn index_arena<'a>(index: &'a FieldPostingsView) -> StorageResult<&'a [u8]> {
+fn index_arena(index: &FieldPostingsView) -> StorageResult<&[u8]> {
     index.arena()
+}
+
+fn owned_bound_ref(bound: &std::ops::Bound<Vec<u8>>) -> std::ops::Bound<&[u8]> {
+    match bound {
+        std::ops::Bound::Included(value) => std::ops::Bound::Included(value.as_slice()),
+        std::ops::Bound::Excluded(value) => std::ops::Bound::Excluded(value.as_slice()),
+        std::ops::Bound::Unbounded => std::ops::Bound::Unbounded,
+    }
 }
 
 fn collect(view: super::record_set::RecordSetView<'_>) -> StorageResult<RoaringBitmap> {

@@ -252,3 +252,46 @@ fn packed_restore_matches_typed_fts_sort_and_relation_queries() {
     let mentions = &relation_catalog.repository().collections()[1];
     assert_eq!(mentions.definition.name, "mentions");
 }
+
+#[test]
+fn packed_restore_serves_posting_values_without_native_dictionaries() {
+    let (root, definitions) = fixture();
+    let index = Index::build(
+        root.path(),
+        definitions.clone(),
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let store = tempfile::tempdir().unwrap();
+    index.save_to(store.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        store.path(),
+        definitions,
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let view = loaded.view().unwrap();
+    let collection = &view.repository().collections()[0];
+    assert!(
+        collection
+            .postings
+            .fields
+            .values()
+            .all(|field| field.values.is_empty())
+    );
+    assert!(collection.raw.normal.is_empty());
+    let segment = view.0.segments[0].first().expect("segment");
+    assert!(segment.index.postings.fields.is_empty());
+    assert!(segment.index.raw.normal.is_empty());
+
+    let request = crate::posting_values::PostingValuesRequest::new("entries", "title", 100);
+    let built = index.view().unwrap().posting_values(&request).unwrap();
+    let packed = view.posting_values(&request).unwrap();
+    assert_eq!(built, packed);
+    assert_eq!(packed.coverage.present_records, 2);
+    assert_eq!(packed.coverage.explicit_null_records, 0);
+    assert!(packed.values.iter().any(|entry| {
+        entry.value == crate::posting::ScalarKey::String("Alpha".into()) && entry.count == 1
+    }));
+}

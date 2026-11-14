@@ -170,6 +170,12 @@ impl FrozenSegment {
         &self.coverage
     }
 
+    /// Copy the complete immutable object bytes for content-addressed re-save.
+    pub fn object_bytes(&self) -> StorageResult<std::sync::Arc<[u8]>> {
+        let bytes = self.backing.read(0, self.backing.len())?;
+        Ok(std::sync::Arc::from(bytes))
+    }
+
     pub fn metadata(&self) -> StorageResult<Option<&[u8]>> {
         self.metadata
             .map(|descriptor| self.backing.read(descriptor.offset, descriptor.length))

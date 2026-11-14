@@ -2466,12 +2466,17 @@ candidates.
 
 `Index::load_from` now reconstructs the queryable repository directly from the
 packed catalogue and run objects. It rebuilds file inventory/catalogue slots,
-records and file parts, declared and observed postings, inference metadata,
-named custom postings, raw/fallback/custom bigrams, sort columns/orders,
-relation contributions, coverage, diagnostics, and statistics. The native
-snapshot object is no longer written or read; a test asserts that the store has
-no state object. Native owners are still materialised from the packed objects
-for source-verification fallbacks and compatibility paths.
+record rows, sort columns/orders, relation contributions, coverage,
+diagnostics, and statistics. The native snapshot object is no longer written
+or read; a test asserts that the store has no state object.
+
+Packed typed postings and raw/fallback/custom bigrams are no longer decoded
+into native dictionaries during Load. Only small field/bigram descriptors and
+inference coverage metadata are retained. Declared, observed, and named field
+access resolves through `PostingAccess::Packed`; posting-value enumeration and
+relation reverse probes use the same mapped reads; bigram candidates and
+estimates use `BigramAccess::Packed`. Re-saving a loaded index reuses the
+original packed run object bytes instead of re-packing from native state.
 
 ### Validation
 
@@ -2487,14 +2492,15 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures (922 passed). The core library suite
-  reports 593 passed, 15 ignored; the CLI library reports 94 passed; the desktop
+- Workspace tests pass with no failures (923 passed). The core library suite
+  reports 594 passed, 15 ignored; the CLI library reports 94 passed; the desktop
   library reports 166 passed, 1 ignored. The all-targets run compiles and tests
   examples and integration targets as well.
-- The storage subsystem suite reports 77 passed, including dictionary,
+- The storage subsystem suite reports 78 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
-  index save/load, compaction/save, concurrent-publication, and background-task
-  tests.
+  index save/load, posting-value enumeration over packed dictionaries, loaded
+  re-save object reuse, compaction/save, concurrent-publication, and
+  background-task tests.
 - CLI tests include the end-to-end storage protocol, TUI storage overlay/Load,
   and six custom-index recipe tests: custom-only query and storage-only opening,
   schema/inference/alphabet restoration, conflicting interpretation, explicit
@@ -2505,10 +2511,10 @@ Storage benchmark, `cargo run -p objekte-search-core --example
 bench_index_storage --release`:
 
 ```text
-records=20000  build=40.36 ms  save=12.08 ms  load=11.00 ms  first_query=0.542 ms  noop_save=0.024 ms
-objects_written=11  noop_bytes_written=0  load_speedup_over_build=3.67
-records=100000 build=179.73 ms save=57.83 ms load=52.83 ms first_query=0.879 ms noop_save=0.056 ms
-objects_written=50  noop_bytes_written=0  load_speedup_over_build=3.40
+records=20000  build=38.00 ms  save=12.65 ms  load=4.02 ms  first_query=0.657 ms  noop_save=0.029 ms
+objects_written=11  noop_bytes_written=0  load_speedup_over_build=9.45
+records=100000 build=174.68 ms save=61.75 ms load=17.43 ms first_query=0.861 ms noop_save=0.060 ms
+objects_written=50  noop_bytes_written=0  load_speedup_over_build=10.02
 ```
 
 The first measurement is a 20,000-record JSONL corpus; the second uses
@@ -2517,10 +2523,12 @@ the native query state. Unchanged saves write zero bytes.
 
 ### Deviations and remaining limitations
 
-1. **Loaded typed/bigram candidate execution uses packed readers, but native
-   owners are reconstructed from the packed objects for fallbacks.** Remaining
-   native work includes exact source verification, some custom/inference
-   operations, and sort/relation views. This is recorded in
+1. **Typed postings and bigrams are packed-only after Load.** Their native
+   dictionaries are no longer rebuilt; query, posting-value, and relation
+   candidate paths read mapped packed sections. Remaining native
+   reconstruction at Load is limited to record metadata, sort columns/orders,
+   and relation adjacency, which still serve existing execution interfaces and
+   exact-source fallbacks. This is recorded in
    `docs/ai/issues/feat/mmap-index-packed-execution-migration.md`.
 2. **Desktop/TUI storage controls and custom-only opening are implemented.**
    The desktop Open dialog exposes Build/Load, three locations, custom path, and

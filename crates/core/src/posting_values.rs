@@ -7,6 +7,8 @@ use std::sync::atomic::{AtomicU64, Ordering};
 use roaring::RoaringBitmap;
 
 use crate::build::IndexedCollectionSegment;
+use crate::index_catalog::{IndexCatalog, PostingId};
+use crate::index_storage::access::PostingAccess;
 use crate::inference::InferenceMode;
 use crate::inventory::{ActiveRecords, RecordClass};
 use crate::lifecycle::IndexRevision;
@@ -158,7 +160,7 @@ pub struct PostingValuesPage {
 
 
 struct ResolvedPosting<'a> {
-    index: &'a PostingIndex,
+    access: PostingAccess<'a>,
     binding: String,
     binding_version: u32,
     indexed_records: Option<&'a RoaringBitmap>,
@@ -193,18 +195,19 @@ fn resolve<'a>(
             .as_ref()
             .filter(|state| state.report.mode == InferenceMode::AutoIndex && state.report.complete)
             .ok_or("field has no admitted inferred posting index")?;
-        let index = inference
-            .indexes
-            .get(&path.segments)
+        let access = IndexCatalog::collection(collection)
+            .posting(&path.segments, "default", false, PostingId::Observed)
+            .map(|posting| posting.access)
             .ok_or("field has no admitted inferred posting index")?;
-        if index.covered_records as u64 != collection.logical_records.len() {
+        if access.covered_records() as u64 != collection.logical_records.len() {
             return Err("incomplete inferred posting logical coverage".into());
         }
-        if !index.value_complete && !inference.short_string_coverage.contains_key(&path.segments) {
+        if !access.value_complete() && !inference.short_string_coverage.contains_key(&path.segments)
+        {
             return Err("inferred field has no general value posting coverage".into());
         }
         return Ok(ResolvedPosting {
-            index,
+            access,
             binding: "inferred".into(),
             binding_version: inference.report.policy.version,
             indexed_records: inference.short_string_coverage.get(&path.segments),
@@ -214,13 +217,12 @@ fn resolve<'a>(
     let field = field.ok_or("posting values require a registered field")?;
     if binding == "default" {
         debug_assert!(field.indexed);
-        let index = collection
-            .postings
-            .fields
-            .get(&path.segments)
+        let access = IndexCatalog::collection(collection)
+            .posting(&path.segments, &binding, false, PostingId::Declared)
+            .map(|posting| posting.access)
             .ok_or("posting index missing")?;
         return Ok(ResolvedPosting {
-            index,
+            access,
             binding,
             binding_version: 0,
             indexed_records: None,
@@ -234,15 +236,15 @@ fn resolve<'a>(
         .operations
         .get(&key)
         .ok_or("binding has no registered posting operation")?;
-    let custom = collection
-        .custom_postings
-        .get(&key)
+    let posting = IndexCatalog::collection(collection)
+        .posting(&path.segments, &binding, true, PostingId::Named)
         .ok_or("binding has no posting index")?;
-    if !custom.complete {
+    if !posting.admitted {
         return Err("incomplete custom posting coverage".into());
     }
+    let access = posting.access;
     Ok(ResolvedPosting {
-        index: &custom.index,
+        access,
         binding,
         binding_version: registration.version,
         indexed_records: None,
@@ -251,13 +253,14 @@ fn resolve<'a>(
 }
 
 fn resolve_segment<'a>(
-    collection: &CollectionState,
+    collection: &'a CollectionState,
     segment: &'a IndexedCollectionSegment,
     path: &FieldPath,
     binding: &str,
     binding_version: u32,
 ) -> Result<ResolvedPosting<'a>, String> {
-    let (index, indexed_records) = if binding == "inferred" {
+    let catalog = IndexCatalog::segment(segment, collection);
+    let (access, indexed_records) = if binding == "inferred" {
         let inference = segment
             .inference
             .as_ref()
@@ -266,20 +269,20 @@ fn resolve_segment<'a>(
         if inference.report.policy.version != binding_version {
             return Err("segment inferred posting policy changed".into());
         }
-        let index = inference
-            .indexes
-            .get(&path.segments)
+        let access = catalog
+            .posting(&path.segments, "default", false, PostingId::Observed)
+            .map(|posting| posting.access)
             .ok_or("segment inferred posting field missing")?;
-        if !index.value_complete && !inference.short_string_coverage.contains_key(&path.segments) {
+        if !access.value_complete() && !inference.short_string_coverage.contains_key(&path.segments)
+        {
             return Err("segment inferred field has no general value posting coverage".into());
         }
-        (index, inference.short_string_coverage.get(&path.segments))
+        (access, inference.short_string_coverage.get(&path.segments))
     } else if binding == "default" {
         (
-            segment
-                .postings
-                .fields
-                .get(&path.segments)
+            catalog
+                .posting(&path.segments, "default", false, PostingId::Declared)
+                .map(|posting| posting.access)
                 .ok_or("segment posting field missing")?,
             None,
         )
@@ -294,20 +297,19 @@ fn resolve_segment<'a>(
         if registration.version != binding_version {
             return Err("segment posting binding version changed".into());
         }
-        let custom = segment
-            .custom_postings
-            .get(&key)
+        let posting = catalog
+            .posting(&path.segments, binding, true, PostingId::Named)
             .ok_or("segment custom posting missing")?;
-        if !custom.complete {
+        if !posting.admitted {
             return Err("incomplete segment custom posting coverage".into());
         }
-        (&custom.index, None)
+        (posting.access, None)
     };
-    if index.covered_records as u64 != segment.logical_records.len() {
+    if access.covered_records() as u64 != segment.logical_records.len() {
         return Err("incomplete segment posting logical coverage".into());
     }
     Ok(ResolvedPosting {
-        index,
+        access,
         binding: binding.to_owned(),
         binding_version,
         indexed_records,
@@ -620,21 +622,21 @@ pub(crate) fn posting_values_segmented(
     }
     let path = FieldPath::parse(&request.field)?;
     let base = resolve(collection, request, &path)?;
-    if base.index.covered_records as u64 != collection.logical_records.len() {
+    if base.access.covered_records() as u64 != collection.logical_records.len() {
         return Err("incomplete posting logical coverage".into());
     }
     let binding = base.binding.clone();
     let binding_version = base.binding_version;
     let short_limit = (binding == "inferred"
         && base.indexed_records.is_some()
-        && key_kind(&base.index.kind) == &LogicalType::String)
+        && key_kind(base.access.kind()) == &LogicalType::String)
         .then_some(repo.options.inference.policy.short_string_max_utf8_bytes);
     let mut fallbacks = Vec::with_capacity(segments[collection_index].len());
     for segment in segments[collection_index].iter() {
         let missing = binding == "inferred"
             && segment.active.len() > 0
             && resolve_segment(collection, &segment.index, &path, &binding, binding_version)
-                .map_or(true, |posting| posting.index.kind != base.index.kind);
+                .map_or(true, |posting| posting.access.kind() != base.access.kind());
         fallbacks.push(if missing {
             Some(scan_inferred_segment(
                 repo,
@@ -642,8 +644,8 @@ pub(crate) fn posting_values_segmented(
                 segment,
                 catalog,
                 &path,
-                &base.index.kind,
-                base.index.multi,
+                base.access.kind(),
+                base.access.multi(),
                 short_limit,
             )?)
         } else {
@@ -654,7 +656,7 @@ pub(crate) fn posting_values_segmented(
     for (segment_index, segment) in segments[collection_index].iter().enumerate() {
         if segment.active.len() == 0 {
             resolved.push(ResolvedPosting {
-                index: resolved[0].index,
+                access: resolved[0].access,
                 binding: binding.clone(),
                 binding_version,
                 indexed_records: None,
@@ -664,7 +666,7 @@ pub(crate) fn posting_values_segmented(
         }
         if let Some(fallback) = &fallbacks[segment_index] {
             resolved.push(ResolvedPosting {
-                index: &fallback.index,
+                access: PostingAccess::Native(&fallback.index),
                 binding: binding.clone(),
                 binding_version,
                 indexed_records: Some(&fallback.complete_values),
@@ -703,7 +705,7 @@ pub(crate) fn posting_values_segmented(
     }
     if resolved
         .iter()
-        .any(|shard| shard.index.kind != resolved[0].index.kind)
+        .any(|shard| shard.access.kind() != resolved[0].access.kind())
     {
         return Err("segment posting key type changed".into());
     }
@@ -718,12 +720,12 @@ pub(crate) fn posting_values_segmented(
         return Err("exact selection scope mismatch".into());
     }
     for bound in [&request.lower, &request.upper].into_iter().flatten() {
-        if !compatible(&resolved[0].index.kind, &bound.value) {
+        if !compatible(&resolved[0].access.kind(), &bound.value) {
             return Err("posting value bound has incompatible type".into());
         }
     }
     let prepared_prefix = if let Some(prefix) = &request.prefix {
-        if key_kind(&resolved[0].index.kind) != &LogicalType::String {
+        if key_kind(&resolved[0].access.kind()) != &LogicalType::String {
             return Err("posting prefix requires a string field".into());
         }
         if resolved[0].native_prefix {
@@ -765,8 +767,9 @@ pub(crate) fn posting_values_segmented(
         let domain = &domains[index];
         selected_total += domain.len();
         eligible += domain.intersection_len(logical);
-        present += domain.intersection_len(&shard.index.presence);
-        nulls += domain.intersection_len(&shard.index.nulls);
+        present +=
+            domain.intersection_len(&shard.access.presence().map_err(|error| error.to_string())?);
+        nulls += domain.intersection_len(&shard.access.nulls().map_err(|error| error.to_string())?);
         indexed += shard.indexed_records.map_or_else(
             || domain.intersection_len(logical),
             |covered| domain.intersection_len(covered),
@@ -840,10 +843,12 @@ pub(crate) fn posting_values_segmented(
         .iter()
         .map(|shard| {
             shard
-                .index
-                .value_range(lower.clone(), upper.clone(), request.descending)
+                .access
+                .value_range_owned(lower.clone(), upper.clone(), request.descending)
+                .map(Vec::into_iter)
+                .map_err(|error| error.to_string())
         })
-        .collect::<Vec<_>>();
+        .collect::<Result<Vec<_>, _>>()?;
     let mut heads = iterators
         .iter_mut()
         .map(|iterator| iterator.next())
@@ -996,13 +1001,13 @@ impl Repository {
         }
         let resolved = resolve(collection, request, &path)?;
         let ResolvedPosting {
-            index,
+            access,
             binding,
             binding_version,
             indexed_records,
             native_prefix,
         } = resolved;
-        if index.covered_records as u64 != collection.logical_records.len() {
+        if access.covered_records() as u64 != collection.logical_records.len() {
             return Err("incomplete posting logical coverage".into());
         }
         let selection = request.selection.as_ref().map(|handle| &handle.0);
@@ -1015,12 +1020,12 @@ impl Repository {
             return Err("exact selection scope mismatch".into());
         }
         for bound in [&request.lower, &request.upper].into_iter().flatten() {
-            if !compatible(&index.kind, &bound.value) {
+            if !compatible(access.kind(), &bound.value) {
                 return Err("posting value bound has incompatible type".into());
             }
         }
         let prepared_prefix = if let Some(prefix) = &request.prefix {
-            if key_kind(&index.kind) != &LogicalType::String {
+            if key_kind(access.kind()) != &LogicalType::String {
                 return Err("posting prefix requires a string field".into());
             }
             if native_prefix {
@@ -1056,16 +1061,17 @@ impl Repository {
             selected_domain.map_or(covered.len(), |selected| selected.intersection_len(covered))
         });
         let unresolved = eligible.saturating_sub(indexed);
+        let presence = access.presence().map_err(|error| error.to_string())?;
+        let nulls = access.nulls().map_err(|error| error.to_string())?;
         let coverage = PostingValuesCoverage {
             eligible_records: eligible,
             unavailable_records: unavailable,
             selected_records: selected_total,
-            present_records: selected_domain.map_or(index.presence.len(), |selected| {
-                selected.intersection_len(&index.presence)
+            present_records: selected_domain.map_or(presence.len(), |selected| {
+                selected.intersection_len(&presence)
             }),
-            explicit_null_records: selected_domain.map_or(index.nulls.len(), |selected| {
-                selected.intersection_len(&index.nulls)
-            }),
+            explicit_null_records: selected_domain
+                .map_or(nulls.len(), |selected| selected.intersection_len(&nulls)),
             indexed_records: indexed,
             unresolved_records: unresolved,
             value_counts_complete: unresolved == 0,
@@ -1123,7 +1129,10 @@ impl Repository {
                 visited_keys: 0,
             });
         }
-        let mut iterator = index.value_range(lower, upper, request.descending);
+        let mut iterator = access
+            .value_range_owned(lower, upper, request.descending)
+            .map_err(|error| error.to_string())?
+            .into_iter();
         let mut values = Vec::new();
         let mut visited_keys = 0;
         while values.len() < request.limit {
