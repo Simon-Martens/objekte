@@ -345,7 +345,7 @@ impl Repository {
         let extraction_index_ns = extraction_started.elapsed().as_nanos() as u64;
         let base_fingerprints = finish_fresh_fingerprints(&files, digest_bindings)?;
         files.validate_diagnostics()?;
-        let configuration = crate::storage::configuration_hash(&definitions, options, &sources)?;
+        let configuration = crate::configuration::configuration_hash(&definitions, options, &sources)?;
         let catalog_slots = files
             .files
             .iter()

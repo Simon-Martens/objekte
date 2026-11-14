@@ -12,6 +12,7 @@ mod build;
 mod byte_size_literal;
 pub mod clock_context;
 pub mod completion;
+pub mod configuration;
 mod decimal;
 mod detailed_timer;
 pub mod diagnostics;

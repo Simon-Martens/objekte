@@ -485,7 +485,7 @@ impl PublishedIndex {
             .iter()
             .map(|collection| collection.definition.clone())
             .collect::<Vec<_>>();
-        let configuration_identity = crate::storage::configuration_hash(
+        let configuration_identity = crate::configuration::configuration_hash(
             &definitions,
             repository.options(),
             &repository.sources,

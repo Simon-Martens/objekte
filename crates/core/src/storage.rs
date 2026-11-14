@@ -11,7 +11,8 @@ use bincode::Options;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
-use crate::bigram::{BIGRAM_VERSION, BigramIndex, FOLDED_REPRESENTATION};
+use crate::bigram::BigramIndex;
+use crate::configuration::configuration_hash;
 use crate::discovery::SymlinkPolicy;
 use crate::inference::{InferenceConfig, InferenceMode, InferenceState};
 use crate::inventory::{
@@ -35,7 +36,6 @@ const MAGIC: &[u8; 8] = b"OBJSNAP1";
 // Older snapshots can carry absolute derived values and must be rebuilt.
 pub const SNAPSHOT_VERSION: u32 = 27;
 pub(crate) const LIFECYCLE_SNAPSHOT_VERSION: u32 = 28;
-const CONFIGURATION_HASH_VERSION: u32 = 17;
 const CONFIGURATION_SECTION_ID: u32 = u32::MAX;
 const MAX_SECTION_BYTES: u64 = 8 * 1024 * 1024 * 1024;
 const SECTION_HEADER_BYTES: usize = 44;
@@ -866,141 +866,6 @@ pub fn sources_match(repo: &Repository) -> Result<bool, String> {
         }
     }
     Ok(true)
-}
-
-fn feed(hash: &mut Sha256, bytes: &[u8]) {
-    hash.update((bytes.len() as u64).to_le_bytes());
-    hash.update(bytes);
-}
-
-pub fn configuration_hash(
-    definitions: &[CollectionDefinition],
-    options: RepositoryOptions,
-    sources: &SourceRegistry,
-) -> Result<[u8; 32], String> {
-    let mut hash = Sha256::new();
-    hash.update(crate::MODEL_VERSION.to_le_bytes());
-    // Keep the identity stable for snapshots written before the build-settings
-    // section was introduced. Their compatibility hash covers the same inputs.
-    hash.update(CONFIGURATION_HASH_VERSION.to_le_bytes());
-    hash.update(BIGRAM_VERSION.to_le_bytes());
-    feed(&mut hash, FOLDED_REPRESENTATION.as_bytes());
-    feed(&mut hash, std::env::consts::OS.as_bytes());
-    feed(&mut hash, COLLATION_VERSION.as_bytes());
-    hash.update([match options.bigram_alphabet {
-        BigramAlphabet::Ascii => 0,
-        BigramAlphabet::Unicode => 1,
-    }]);
-    feed(&mut hash, format!("{:?}", options.inference).as_bytes());
-    for definition in definitions {
-        let source = sources.resolve(&definition.format)?;
-        feed(&mut hash, definition.name.as_bytes());
-        feed(&mut hash, &path_bytes(&definition.source_path));
-        feed(&mut hash, format!("{:?}", definition.discovery).as_bytes());
-        feed(&mut hash, source.id().as_bytes());
-        hash.update(source.version().to_le_bytes());
-        feed(&mut hash, source.extension().as_bytes());
-        feed(
-            &mut hash,
-            format!("{:?}/{:?}", definition.format, definition.identity).as_bytes(),
-        );
-        feed(&mut hash, definition.sort_locale.as_bytes());
-        feed(
-            &mut hash,
-            format!("{:?}", definition.sort_options).as_bytes(),
-        );
-        let mut overrides: Vec<_> = definition.sort_overrides.iter().collect();
-        overrides.sort_by(|a, b| a.0.display().cmp(&b.0.display()));
-        for (path, config) in overrides {
-            feed(&mut hash, path.display().as_bytes());
-            feed(&mut hash, config.locale.as_bytes());
-            feed(&mut hash, format!("{:?}", config.options).as_bytes());
-        }
-        for field in &definition.sort_fields {
-            feed(&mut hash, field.display().as_bytes());
-        }
-        for composite in &definition.schema.composite_sorts {
-            feed(&mut hash, format!("{composite:?}").as_bytes());
-        }
-        let mut fields: Vec<_> = definition.schema.fields.values().collect();
-        fields.sort_by(|a, b| a.path.cmp(&b.path));
-        for field in fields {
-            feed(
-                &mut hash,
-                format!(
-                    "{:?}|{:?}|{}|{}|{}|{}|{:?}",
-                    field.path,
-                    field.kind,
-                    field.required,
-                    field.nullable,
-                    field.indexed,
-                    field.multi,
-                    field.element_nullable
-                )
-                .as_bytes(),
-            );
-        }
-        if let Some(fingerprint) = definition.schema.source_fingerprint {
-            hash.update(fingerprint);
-        }
-        let mut excluded: Vec<_> = definition.schema.auto_index_excluded.iter().collect();
-        excluded.sort();
-        for path in excluded {
-            feed(
-                &mut hash,
-                format!("auto-index-excluded:{path:?}").as_bytes(),
-            );
-        }
-        for relation in definition.schema.relations().values() {
-            feed(&mut hash, format!("{:?}", relation).as_bytes());
-        }
-        let mut custom: Vec<_> = definition.schema.custom.iter().collect();
-        custom.sort_by(|a, b| a.0.cmp(b.0));
-        for ((path, name), binding) in custom {
-            feed(
-                &mut hash,
-                format!(
-                    "{:?}|{name}|{}|{:?}",
-                    path, binding.version, binding.transform
-                )
-                .as_bytes(),
-            );
-        }
-        let mut operations: Vec<_> = definition.schema.operations.iter().collect();
-        operations.sort_by(|a, b| a.0.cmp(b.0));
-        for ((path, name), binding) in operations {
-            feed(
-                &mut hash,
-                format!(
-                    "{:?}|{name}|{}|{}|{}|{}",
-                    path,
-                    binding.version,
-                    binding.operation.posting(),
-                    binding.operation.bigram(),
-                    binding.operation.complete_coverage()
-                )
-                .as_bytes(),
-            );
-        }
-        let mut defaults: Vec<_> = definition.schema.defaults.iter().collect();
-        defaults.sort_by(|a, b| a.0.cmp(b.0));
-        for (path, name) in defaults {
-            feed(&mut hash, format!("{:?}|{name}", path).as_bytes());
-        }
-        if let Some(raw) = &definition.schema.raw {
-            feed(
-                &mut hash,
-                format!(
-                    "raw|{}|{}|{}",
-                    raw.name,
-                    raw.version,
-                    raw.operation.bigram()
-                )
-                .as_bytes(),
-            );
-        }
-    }
-    Ok(hash.finalize().into())
 }
 
 /// Read the build settings of a selected snapshot before restoring it. Older

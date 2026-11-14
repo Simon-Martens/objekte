@@ -10,7 +10,7 @@ use crate::lifecycle::IndexError;
 use crate::managed_store::StoreReadError;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
 use crate::source::SourceRegistry;
-use crate::storage::configuration_hash;
+use crate::configuration::configuration_hash;
 
 /// Version of the eager semantic checks used for managed segment stamps.
 pub const HYBRID_VALIDATOR_VERSION: u32 = crate::segment_format::VALIDATOR_VERSION;
