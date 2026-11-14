@@ -370,6 +370,61 @@ impl ManagedStore {
         ))
     }
 
+    /// Retire only a checksum-valid manifest for this exact repository and
+    /// configuration whose segment format predates the direct-access tables.
+    /// This is called after a normal open rejects that format. The old
+    /// immutable files remain available to already pinned readers and are
+    /// reclaimed by the ordinary generation retirement path after rebuilding.
+    pub(crate) fn retire_obsolete_format_for_rebuild(&self) -> Result<bool, StoreReadError> {
+        let lock = self.open_lock_read()?;
+        lock.try_lock().map_err(|error| match error {
+            fs::TryLockError::WouldBlock => {
+                StoreReadError::Conflict("store writer lock is held".into())
+            }
+            fs::TryLockError::Error(source) => StoreReadError::Io {
+                path: self.directory.join(LOCK_NAME),
+                source,
+            },
+        })?;
+        let path = self.directory.join(MANIFEST_NAME);
+        match fs::symlink_metadata(&path) {
+            Err(error) if error.kind() == io::ErrorKind::NotFound => return Ok(false),
+            Err(source) => return Err(StoreReadError::Io { path, source }),
+            Ok(_) => {}
+        }
+        let file = open_regular_nofollow_read(&path)?;
+        let mut bytes = Vec::new();
+        file.take((MAX_MANIFEST_BYTES + 1) as u64)
+            .read_to_end(&mut bytes)
+            .map_err(|source| StoreReadError::Io { path: path.clone(), source })?;
+        if bytes.len() > MAX_MANIFEST_BYTES || bytes.len() < 16 {
+            return Err(StoreReadError::Corrupt("obsolete manifest size invalid".into()));
+        }
+        let version = u32::from_le_bytes(bytes[8..12].try_into().unwrap());
+        let format = if version == 1 {
+            0
+        } else if version == MANIFEST_VERSION {
+            u32::from_le_bytes(bytes[12..16].try_into().unwrap())
+        } else {
+            return Ok(false);
+        };
+        if version == MANIFEST_VERSION && !(2..FORMAT_VERSION).contains(&format) {
+            return Ok(false);
+        }
+        let manifest = self.decode_manifest_with_format(&bytes, format)
+            .map_err(StoreReadError::Corrupt)?;
+        let generation = self.generation_directory(manifest.generation);
+        match fs::symlink_metadata(&generation) {
+            Ok(_) => { checked_generation_contents(&generation).map_err(StoreReadError::Corrupt)?; }
+            Err(error) if error.kind() == io::ErrorKind::NotFound => {}
+            Err(source) => return Err(StoreReadError::Io { path: generation, source }),
+        }
+        fs::remove_file(&path).map_err(|source| StoreReadError::Io { path, source })?;
+        sync_directory(&self.directory)
+            .map_err(|error| store_write_io(&self.directory, error))?;
+        Ok(true)
+    }
+
     fn open_generation(
         &self,
         manifest: &Manifest,
@@ -803,13 +858,11 @@ impl ManagedStore {
             }
         };
         if target_present {
-            // This number is newer than the locked manifest, so no reader
-            // could have resolved it. Recover an interrupted pre-publication
-            // rename before retrying the same revision.
-            let bytes = remove_generation_checked(&target).map_err(StoreReadError::Corrupt)?;
+            // A format rebuild may reuse a revision number that belonged to
+            // an older pinned reader. Retire the prior directory through the
+            // ordinary aged-orphan path instead of unlinking its files here.
+            retire_generation_checked(&target).map_err(StoreReadError::Corrupt)?;
             stats.orphan_generations_removed += 1;
-            stats.generations_removed += 1;
-            stats.generation_bytes_reclaimed = bytes;
             sync_directory(&generations).map_err(|error| store_write_io(&generations, error))?;
         }
         let nonce = unique_nonce().map_err(StoreReadError::Resource)?;
@@ -1433,6 +1486,10 @@ impl ManagedStore {
     }
 
     fn decode_manifest(&self, bytes: &[u8]) -> Result<Manifest, String> {
+        self.decode_manifest_with_format(bytes, FORMAT_VERSION)
+    }
+
+    fn decode_manifest_with_format(&self, bytes: &[u8], format: u32) -> Result<Manifest, String> {
         if bytes.len() < 8 + 4 + 4 + 32 + 32 + 4 + 8 + 4 + 32 {
             return Err("manifest truncated".into());
         }
@@ -1448,7 +1505,7 @@ impl ManagedStore {
         if version != 1 && version != MANIFEST_VERSION {
             return Err("unsupported manifest version".into());
         }
-        if version == MANIFEST_VERSION && cursor.u32()? != FORMAT_VERSION {
+        if version == MANIFEST_VERSION && cursor.u32()? != format {
             return Err("unsupported manifest segment format version".into());
         }
         if cursor.u32()? != crate::MODEL_VERSION {
@@ -1661,7 +1718,7 @@ fn valid_temporary_generation_name(name: &str) -> bool {
 /// Only known owned files under one owned generation may be removed. Listing
 /// before mutation means an unknown or symlinked entry preserves the whole
 /// directory for inspection rather than being swallowed by remove_dir_all.
-fn remove_generation_checked(directory: &Path) -> Result<u64, String> {
+fn checked_generation_contents(directory: &Path) -> Result<(Vec<(PathBuf, u64)>, Option<PathBuf>), String> {
     let metadata = fs::symlink_metadata(directory).map_err(|error| error.to_string())?;
     check_owned_directory(directory, &metadata)?;
     let mut files = Vec::new();
@@ -1700,6 +1757,27 @@ fn remove_generation_checked(directory: &Path) -> Result<u64, String> {
             files.push((path, physical_reclaimed_bytes(&metadata)));
         }
     }
+    Ok((files, segments))
+}
+
+fn retire_generation_checked(directory: &Path) -> Result<(), String> {
+    checked_generation_contents(directory)?;
+    let parent = directory.parent().ok_or("generation directory has no parent")?;
+    let number = directory.file_name().and_then(|name| name.to_str())
+        .and_then(parse_generation_name)
+        .ok_or("retired generation name invalid")?;
+    let nonce = unique_nonce()?;
+    let retired = parent.join(format!(".tmp-{number:016x}-{nonce:016x}"));
+    if fs::symlink_metadata(&retired).is_ok() {
+        return Err(format!("retired generation target already exists: {}", retired.display()));
+    }
+    fs::rename(directory, &retired)
+        .map_err(|error| format!("retire generation {}: {error}", directory.display()))?;
+    Ok(())
+}
+
+fn remove_generation_checked(directory: &Path) -> Result<u64, String> {
+    let (files, segments) = checked_generation_contents(directory)?;
     let mut bytes = 0u64;
     for (path, size) in files {
         fs::remove_file(&path).map_err(|error| format!("remove {}: {error}", path.display()))?;

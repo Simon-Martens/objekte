@@ -1510,3 +1510,44 @@ fn retry_replaces_only_a_safe_unpublished_directory_with_same_number() {
         2
     );
 }
+
+#[test]
+fn obsolete_format_manifest_rebuild_retires_pinned_generation() {
+    let fixture = TestStore::new();
+    fixture.store.commit_generation(None, 1, &[]).unwrap();
+    let path = fixture.store.path().join(MANIFEST_NAME);
+    let mut bytes = fs::read(&path).unwrap();
+    bytes[12..16].copy_from_slice(&(FORMAT_VERSION - 1).to_le_bytes());
+    let end = bytes.len();
+    let digest = Sha256::digest(&bytes[..end - 32]);
+    bytes[end - 32..].copy_from_slice(&digest);
+    fs::write(&path, &bytes).unwrap();
+    assert!(matches!(fixture.store.read_generation(), Err(StoreReadError::Incompatible(_))));
+    assert!(fixture.store.retire_obsolete_format_for_rebuild().unwrap());
+    assert!(!path.exists());
+    let stats = fixture.store.commit_generation(None, 1, &[]).unwrap();
+    assert_eq!(stats.orphan_generations_removed, 1);
+    assert_eq!(fixture.store.read_generation().unwrap().unwrap().generation, 1);
+    let generations = fixture.store.path().join(GENERATIONS_DIR);
+    assert!(fs::read_dir(generations).unwrap().any(|entry| {
+        entry.unwrap().file_name().to_string_lossy().starts_with(".tmp-0000000000000001-")
+    }));
+}
+
+#[test]
+fn obsolete_format_retirement_preserves_unknown_generation_entries() {
+    let fixture = TestStore::new();
+    fixture.store.commit_generation(None, 1, &[]).unwrap();
+    let path = fixture.store.path().join(MANIFEST_NAME);
+    let mut bytes = fs::read(&path).unwrap();
+    bytes[12..16].copy_from_slice(&(FORMAT_VERSION - 1).to_le_bytes());
+    let end = bytes.len();
+    let digest = Sha256::digest(&bytes[..end - 32]);
+    bytes[end - 32..].copy_from_slice(&digest);
+    fs::write(&path, bytes).unwrap();
+    let unknown = fixture.store.generation_directory(1).join("user-note.txt");
+    fs::write(&unknown, b"keep").unwrap();
+    assert!(matches!(fixture.store.retire_obsolete_format_for_rebuild(), Err(StoreReadError::Corrupt(_))));
+    assert!(path.exists());
+    assert_eq!(fs::read(unknown).unwrap(), b"keep");
+}
