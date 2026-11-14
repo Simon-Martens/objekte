@@ -22,7 +22,9 @@ use crate::lifecycle::{
     PublishedSegment, ReconciliationState,
 };
 use crate::lifecycle_catalog::FileCatalog;
-use crate::managed_store::{ManagedStore, OpenedGeneration, SegmentInput, SegmentOrigin};
+use crate::managed_store::{
+    ManagedStore, OpenedGeneration, SegmentInput, SegmentOrigin, StoreReadError,
+};
 use crate::model::{CollectionId, RecordId};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions};
 use crate::segment_format::{SegmentTrust, VALIDATOR_VERSION};
@@ -499,6 +501,23 @@ pub(crate) fn storage_status(
     }
 }
 
+fn read_or_retire_obsolete(store: &ManagedStore) -> Result<Option<OpenedGeneration>, IndexError> {
+    match store.read_generation() {
+        Ok(opened) => Ok(opened),
+        Err(error @ StoreReadError::Incompatible(_)) => {
+            if store
+                .retire_obsolete_format_for_rebuild()
+                .map_err(IndexError::from)?
+            {
+                store.read_generation().map_err(IndexError::from)
+            } else {
+                Err(IndexError::from(error))
+            }
+        }
+        Err(error) => Err(IndexError::from(error)),
+    }
+}
+
 impl Index {
     /// Start a managed initial build with catalogue and batch publications.
     /// A complete stored generation is returned as an already-ready task;
@@ -524,7 +543,7 @@ impl Index {
             );
         }
         let store = ManagedStore::open(&prepared.resolved).map_err(IndexError::Io)?;
-        if let Some(opened) = store.read_generation().map_err(IndexError::from)? {
+        if let Some(opened) = read_or_retire_obsolete(&store)? {
             let index = restore_generation(
                 &prepared.resolved,
                 prepared.definitions,
@@ -578,7 +597,7 @@ impl Index {
             return Self::build_with_sources(root, prepared.definitions, options, sources);
         }
         let store = ManagedStore::open(&prepared.resolved).map_err(IndexError::Io)?;
-        if let Some(opened) = store.read_generation().map_err(IndexError::from)? {
+        if let Some(opened) = read_or_retire_obsolete(&store)? {
             let index = restore_generation(
                 &prepared.resolved,
                 prepared.definitions,

@@ -140,11 +140,6 @@ impl<'a> GenerationCatalogBuilder<'a> {
         Ok(builder)
     }
 
-    #[cfg(test)]
-    pub(crate) fn historical_entries(&self) -> &[FileEntry] {
-        &self.historical
-    }
-
     /// Return a stable ref accepted by `segment_metadata::encode_record_slots`.
     /// A current ref is used only for full metadata equality, including path,
     /// diagnostics and revision. Retired holes never resolve as current refs.
