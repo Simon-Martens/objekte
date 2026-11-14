@@ -457,6 +457,28 @@ fn loaded_packed_compaction_preserves_typed_fts_sort_and_relations() {
             .iter()
             .all(|segment| segment.index.records.materialized_rows() == 0)
     );
+    for segment in &packed_parts {
+        assert!(
+            segment
+                .index
+                .postings
+                .fields
+                .values()
+                .all(|field| field.values.is_empty())
+        );
+        assert!(segment.index.raw.normal.is_empty());
+        for column in segment.index.sorting.columns.values() {
+            assert!(column.packed.is_some());
+            assert!(column.keys.is_empty());
+            assert!(column.ascending.is_empty());
+            assert!(column.descending.is_empty());
+        }
+        for relation in &segment.index.relations {
+            assert!(relation.packed.is_some());
+            assert!(relation.references.is_empty());
+            assert!(relation.present.is_empty());
+        }
+    }
     assert!(
         compacted_view
             .0
