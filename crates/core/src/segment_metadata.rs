@@ -665,10 +665,11 @@ impl PersistedRecordSlots {
 
     fn validate(&self, collection: CollectionId) -> Result<u64, String> {
         let bytes = self.bytes()?;
-        let mut files = Vec::with_capacity(self.layout.file_count);
         let mut paths = HashSet::with_capacity(self.layout.file_count);
+        let mut seen = vec![false; self.layout.record_count];
         let mut previous_file = None;
         let mut next_member = 0usize;
+        let mut max_record_range_len = 0u64;
         for number in 0..self.layout.file_count {
             let row = self.layout.file_row(bytes, number).ok_or("record file row missing")?;
             if previous_file.is_some_and(|id| id >= row.id)
@@ -692,57 +693,52 @@ impl PersistedRecordSlots {
             {
                 return Err("record file path or identity invalid".into());
             }
-            files.push(entry);
+            let mut previous_slot = None;
+            for member in row.membership_start as usize..next_member {
+                let slot = self.layout.membership(bytes, member).ok_or("record membership missing")?;
+                let index = slot.0 as usize;
+                if index >= self.layout.record_count || seen[index]
+                    || previous_slot.is_some_and(|prior| prior >= slot)
+                {
+                    return Err("record file membership invalid".into());
+                }
+                let record = self.layout.record_row(bytes, index)?.ok_or("record row missing")?;
+                if record.file_row != number
+                    || record.range.start > record.range.end
+                    || record.range.end > entry.revision.size
+                    || self.layout.logical_records.contains(slot.0) != (record.class == RecordClass::Logical)
+                    || self.layout.fallback_records.contains(slot.0) != (record.class == RecordClass::RawFallback)
+                {
+                    return Err("record source span or domain invalid".into());
+                }
+                max_record_range_len = max_record_range_len.max(record.range.end - record.range.start);
+                if let Some(diagnostic) = record.diagnostic_ref.stored_index()
+                    && entry.diagnostics.get(diagnostic).is_none_or(|value| value.record != Some(slot))
+                {
+                    return Err("record diagnostic reference invalid".into());
+                }
+                if record.class == RecordClass::RawFallback
+                    && record.id != RecordId::fallback(collection, &self.layout.source_id, self.layout.source_version,
+                        &entry.relative_path, entry.id, entry.revision.modified_ns, record.range.start, record.range.end).0.as_ref()
+                {
+                    return Err("fallback record identity mismatch".into());
+                }
+                seen[index] = true;
+                previous_slot = Some(slot);
+            }
             previous_file = Some(row.id);
         }
         if next_member != self.layout.record_count {
             return Err("record membership incomplete".into());
         }
         let mut next_id = 0usize;
-        let mut max_record_range_len = 0u64;
         for slot in 0..self.layout.record_count {
             let row = self.layout.record_row(bytes, slot)?.ok_or("record row missing")?;
             let id_offset = u32_slice(bytes, self.layout.record_start + slot * 36 + 28) as usize;
             if id_offset != next_id { return Err("record ID arena gap or overlap".into()); }
             next_id += row.id.len();
-            let entry = &files[row.file_row];
-            if row.range.start > row.range.end || row.range.end > entry.revision.size
-                || self.layout.logical_records.contains(slot as u32) != (row.class == RecordClass::Logical)
-                || self.layout.fallback_records.contains(slot as u32) != (row.class == RecordClass::RawFallback)
-            {
-                return Err("record source span or domain invalid".into());
-            }
-            max_record_range_len = max_record_range_len.max(row.range.end - row.range.start);
-            if let Some(index) = row.diagnostic_ref.stored_index() {
-                if entry.diagnostics.get(index).is_none_or(|diagnostic| diagnostic.record != Some(RecordSlot(slot as u32))) {
-                    return Err("record diagnostic reference invalid".into());
-                }
-            }
-            if row.class == RecordClass::RawFallback
-                && row.id != RecordId::fallback(collection, &self.layout.source_id, self.layout.source_version,
-                    &entry.relative_path, entry.id, entry.revision.modified_ns, row.range.start, row.range.end).0.as_ref()
-            {
-                return Err("fallback record identity mismatch".into());
-            }
         }
         if next_id != self.layout.id_bytes { return Err("record ID arena has trailing bytes".into()); }
-        let mut seen = vec![false; self.layout.record_count];
-        for file_number in 0..self.layout.file_count {
-            let row = self.layout.file_row(bytes, file_number).ok_or("record file row missing")?;
-            let mut previous_slot = None;
-            for number in row.membership_start as usize..row.membership_start as usize + row.membership_count as usize {
-                let slot = self.layout.membership(bytes, number).ok_or("record membership missing")?;
-                let index = slot.0 as usize;
-                if index >= self.layout.record_count || seen[index]
-                    || previous_slot.is_some_and(|prior| prior >= slot)
-                    || self.layout.record_row(bytes, index)?.is_none_or(|record| record.file_row != file_number)
-                {
-                    return Err("record file membership invalid".into());
-                }
-                seen[index] = true;
-                previous_slot = Some(slot);
-            }
-        }
         if seen.iter().any(|seen| !seen) { return Err("record file membership incomplete".into()); }
         Ok(max_record_range_len)
     }
