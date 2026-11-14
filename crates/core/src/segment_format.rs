@@ -88,6 +88,7 @@ struct SectionEntry {
 /// Exactly one owner for the bytes used by all section and posting readers.
 #[derive(Clone)]
 enum SegmentBytes {
+    #[cfg(test)]
     Owned(Arc<[u8]>),
     OwnedVec(Arc<Vec<u8>>),
     Mapped(Arc<Mmap>),
@@ -104,6 +105,7 @@ struct ConstructedSections {
 impl SegmentBytes {
     fn contiguous(&self) -> Option<&[u8]> {
         match self {
+            #[cfg(test)]
             Self::Owned(bytes) => Some(bytes),
             Self::OwnedVec(bytes) => Some(bytes),
             Self::Mapped(map) => Some(map),
@@ -222,6 +224,7 @@ impl SegmentReader {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn from_owned(bytes: Arc<[u8]>) -> Result<Self, String> {
         Self::parse(SegmentBytes::Owned(bytes))
     }
@@ -280,13 +283,13 @@ impl SegmentReader {
         })
     }
 
-    /// `file` must be an opened immutable Objekte segment, protected against
-    /// replacement by the store's reader/writer protocol. Editable source
-    /// files must never be passed here.
+    #[cfg(test)]
     pub(crate) fn from_index_file(file: &File) -> Result<Self, String> {
         Self::from_index_file_typed(file).map_err(|error| error.to_string())
     }
 
+    /// Open an immutable Objekte segment protected against replacement by the
+    /// store's reader/writer protocol. Source files must never use this path.
     pub(crate) fn from_index_file_typed(file: &File) -> Result<Self, SegmentOpenError> {
         let metadata = file.metadata().map_err(SegmentOpenError::Io)?;
         if !metadata.is_file() || metadata.len() == 0 || metadata.len() > MAX_SEGMENT_BYTES {
@@ -302,10 +305,6 @@ impl SegmentReader {
 
     /// Fully resident storage owns all file bytes. A short read or allocation
     /// failure is an explicit error; no mapping remains in the returned reader.
-    pub(crate) fn from_index_file_owned(file: &File) -> Result<Self, String> {
-        Self::from_index_file_owned_typed(file).map_err(|error| error.to_string())
-    }
-
     pub(crate) fn from_index_file_owned_typed(mut file: &File) -> Result<Self, SegmentOpenError> {
         let metadata = file.metadata().map_err(SegmentOpenError::Io)?;
         if !metadata.is_file() || metadata.len() == 0 || metadata.len() > MAX_SEGMENT_BYTES {

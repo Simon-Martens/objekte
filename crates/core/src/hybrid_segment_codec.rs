@@ -1035,6 +1035,7 @@ fn check_spans(spans: impl IntoIterator<Item = Span>, section_len: usize) -> Res
 
 /// Decode into mutable owned maps for compatibility and inspection tests.
 /// Every posting payload is validated and materialized before returning.
+#[cfg(test)]
 pub(crate) fn decode_segment_owned<'a>(
     reader: Arc<SegmentReader>,
     expected_ordinal: u64,

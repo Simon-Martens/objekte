@@ -70,7 +70,6 @@ struct Manifest {
 /// A previous immutable segment may be referenced without rewriting it.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum SegmentOrigin {
-    Constructed,
     Validated,
     Unvalidated,
 }
@@ -81,6 +80,7 @@ pub(crate) enum SegmentInput<'a> {
         name: &'a str,
         active: &'a ActiveRecords,
     },
+    #[cfg(test)]
     New {
         bytes: Arc<[u8]>,
         collection: CollectionId,
@@ -110,17 +110,16 @@ pub(crate) struct OpenedGeneration {
     pub identities: Vec<(CollectionId, u64)>,
     pub active: Vec<ActiveRecords>,
     pub validation: Vec<crate::segment_format::SegmentTrust>,
+    #[cfg(test)]
     pub generation_directory: PathBuf,
 }
 
 
 #[derive(Clone, Debug, Default)]
 pub(crate) struct CommitStats {
-    pub generation: u64,
     pub segment_names: Vec<String>,
     pub segment_bytes_written: u64,
     pub segments_reused: usize,
-    pub obsolete_files_reclaimed: usize,
     pub orphan_files_reclaimed: usize,
     pub reclaim_errors: Vec<String>,
     pub generations_removed: usize,
@@ -453,6 +452,7 @@ impl ManagedStore {
             identities,
             active,
             validation,
+            #[cfg(test)]
             generation_directory: directory,
         })
     }
@@ -684,6 +684,7 @@ impl ManagedStore {
 
     /// Write only new immutable segments, then atomically replace the small
     /// manifest. Existing entries must belong to the current generation.
+    #[cfg(test)]
     pub(crate) fn commit_generation(
         &self,
         expected_generation: Option<u64>,
@@ -696,6 +697,7 @@ impl ManagedStore {
 
     /// Publish an immutable catalog sidecar in the same atomic manifest step
     /// as the segment list. Segment record slots reference its metadata table.
+    #[cfg(test)]
     pub(crate) fn commit_generation_with_catalog(
         &self,
         expected_generation: Option<u64>,
@@ -777,10 +779,7 @@ impl ManagedStore {
             catalog: None,
             segments: Vec::with_capacity(inputs.len()),
         };
-        let mut stats = CommitStats {
-            generation,
-            ..Default::default()
-        };
+        let mut stats = CommitStats::default();
         let generations = self.directory.join(GENERATIONS_DIR);
         create_private_directory(&generations)
             .map_err(|error| store_write_io(&generations, error))?;
@@ -908,6 +907,7 @@ impl ManagedStore {
                         stats.segments_reused += 1;
                         stats.segment_links_created += 1;
                     }
+                    #[cfg(test)]
                     SegmentInput::New {
                         bytes,
                         collection,
@@ -1283,6 +1283,7 @@ impl ManagedStore {
         Ok(file)
     }
 
+    #[cfg(test)]
     fn read_manifest(&self) -> Result<Option<Manifest>, String> {
         self.read_manifest_typed()
             .map_err(|error| error.to_string())

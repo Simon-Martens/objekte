@@ -47,6 +47,7 @@ pub(crate) struct GenerationCatalogBuilder<'a> {
 }
 
 impl<'a> GenerationCatalogBuilder<'a> {
+    #[cfg(test)]
     pub(crate) fn from_publication(publication: &'a PublishedIndex) -> Result<Self, String> {
         Self::from_publication_with_history(publication, &[])
     }
@@ -240,6 +241,7 @@ impl<'a> GenerationCatalogBuilder<'a> {
 /// resolution without inspecting source files.
 #[derive(Debug)]
 pub(crate) struct RestoredGenerationCatalog {
+    #[cfg(test)]
     pub(crate) configuration_identity: [u8; 32],
     pub(crate) revision: u64,
     pub(crate) next_segment_ordinal: u64,
@@ -369,6 +371,7 @@ impl RestoredGenerationCatalog {
             return Err("trailing managed catalog bytes".into());
         }
         Ok(Self {
+            #[cfg(test)]
             configuration_identity,
             revision,
             next_segment_ordinal,

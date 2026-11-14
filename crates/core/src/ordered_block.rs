@@ -363,6 +363,7 @@ impl<K: Ord + Clone + Serialize, W: Write> OrderedBlockWriter<K, W> {
 
 
 /// Bulk-load sorted keys while retaining at most one leaf and its directory.
+#[cfg(test)]
 pub(crate) fn write_ordered_dictionary<K: Ord + Clone + Serialize>(
     writer: &mut dyn Write,
     entries: impl IntoIterator<Item = (K, PostingDescriptor)>,

@@ -11,8 +11,9 @@ use serde::Serialize;
 
 use crate::ordered_block::{
     DictionaryCursor, EncodedKey, OrderedBlockDictionary, OrderedBlockWriter,
-    write_ordered_dictionary,
 };
+#[cfg(test)]
+use crate::ordered_block::write_ordered_dictionary;
 use crate::segment_format::{
     MIN_CACHED_POSTING_BYTES, PostingDescriptor, PostingProof, SectionKind, SegmentReader,
 };
@@ -137,6 +138,7 @@ impl PostingSink for StreamingPostingPack<'_> {
 /// Append one sorted typed dictionary to a shared section. The map is a
 /// mutable-builder input only; immutable query execution uses the returned
 /// span and the segment's owned or mapped bytes.
+#[cfg(test)]
 pub(crate) fn append_dictionary<K: Ord + Clone + Serialize, P: PostingSink + ?Sized>(
     section: &mut Vec<u8>,
     pack: &mut P,
@@ -145,6 +147,7 @@ pub(crate) fn append_dictionary<K: Ord + Clone + Serialize, P: PostingSink + ?Si
     append_entries(section, pack, map.iter())
 }
 
+#[cfg(test)]
 pub(crate) fn append_entries<'a, K: 'a + Ord + Clone + Serialize, P: PostingSink + ?Sized>(
     section: &mut Vec<u8>,
     pack: &mut P,

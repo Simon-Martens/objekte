@@ -382,7 +382,6 @@ fn publishes_new_and_reused_segments_without_rewriting_old_bytes() {
             }],
         )
         .unwrap();
-    assert_eq!(committed.obsolete_files_reclaimed, 0);
     assert_eq!(committed.orphan_files_reclaimed, 0);
     assert!(committed.reclaim_errors.is_empty());
     assert!(unknown.is_file());
@@ -461,7 +460,6 @@ fn catalog_sidecar_is_atomically_replaced_checked_and_reclaimed() {
         )
         .unwrap();
     assert_eq!(stats.segments_reused, 1);
-    assert_eq!(stats.obsolete_files_reclaimed, 0);
     assert!(old_catalog.exists());
     assert_eq!(pinned.catalog.as_deref(), Some(first.as_ref()));
     let current = fixture.store.read_generation().unwrap().unwrap();
@@ -870,7 +868,6 @@ fn obsolete_symlink_is_not_followed_or_removed() {
             }],
         )
         .unwrap();
-    assert_eq!(stats.obsolete_files_reclaimed, 0);
     assert!(stats.reclaim_errors.is_empty());
     assert!(
         fs::symlink_metadata(&path)

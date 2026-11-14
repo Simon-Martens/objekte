@@ -376,12 +376,14 @@ impl SealedBigramIndex {
         })
     }
 
+    #[cfg(test)]
     pub(crate) fn record_count(&self) -> u32 {
         self.record_count
     }
 
     /// Descriptor cardinalities are planner estimates until a posting is
     /// checked; a missing gram is a checked zero under complete coverage.
+    #[cfg(test)]
     pub(crate) fn estimate_prepared(&self, request: &BigramRequest) -> Result<Option<u64>, String> {
         request
             .grams(self.alphabet)

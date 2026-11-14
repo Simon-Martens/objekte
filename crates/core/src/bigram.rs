@@ -410,6 +410,7 @@ impl BigramIndex {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn try_estimate_prepared(
         &self,
         request: &BigramRequest,

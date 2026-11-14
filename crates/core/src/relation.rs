@@ -351,6 +351,7 @@ impl RelationContribution {
     /// Project a shard to retained local slots while preserving unresolved
     /// target identities. The map must assign every slot in the dense new
     /// domain exactly once; old pinned contributions remain untouched.
+    #[cfg(test)]
     pub(crate) fn project_slots(&self, old_to_new: &[Option<RecordSlot>]) -> Result<Self, String> {
         if old_to_new.len() != self.record_count as usize {
             return Err("relation projection coverage mismatch".into());

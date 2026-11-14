@@ -63,7 +63,6 @@ const MAX_SOURCE_BYTES: usize = 64 * 1024;
 /// Validated values needed to reconstruct a searchable segment without
 /// opening source files or rebuilding an unbounded repository-wide table.
 pub(crate) struct CheckedRecordSlots {
-    pub collection: CollectionId,
     pub source_id: String,
     pub source_version: u32,
     pub files: Vec<SegmentFile>,
@@ -320,7 +319,6 @@ pub(crate) fn decode_record_slots<'a>(
         &records,
     )?;
     Ok(CheckedRecordSlots {
-        collection,
         source_id,
         source_version,
         files,
