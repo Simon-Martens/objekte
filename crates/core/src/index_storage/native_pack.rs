@@ -291,7 +291,7 @@ fn pack_collection(
     })
 }
 
-fn pack_segment(
+pub(crate) fn pack_segment(
     segment: &crate::build::IndexedCollectionSegment,
     active: &RoaringBitmap,
     versions: &FileVersions,

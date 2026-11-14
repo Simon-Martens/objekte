@@ -2507,14 +2507,15 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures (923 passed). The core library suite
-  reports 594 passed, 15 ignored; the CLI library reports 94 passed; the desktop
+- Workspace tests pass with no failures (924 passed). The core library suite
+  reports 595 passed, 15 ignored; the CLI library reports 94 passed; the desktop
   library reports 166 passed, 1 ignored. The all-targets run compiles and tests
   examples and integration targets as well.
-- The storage subsystem suite reports 78 passed, including dictionary,
+- The storage subsystem suite reports 79 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, posting-value enumeration over packed dictionaries, loaded
-  re-save object reuse, compaction/save, concurrent-publication, and
+  re-save object reuse, loaded packed compaction after add/replace/move/delete,
+  pinned prior views, compaction/save, concurrent-publication, and
   background-task tests.
 - CLI tests include the end-to-end storage protocol, TUI storage overlay/Load,
   and six custom-index recipe tests: custom-only query and storage-only opening,
@@ -2574,10 +2575,15 @@ headlessly.
    latter, content-preserving moves preserve it, and delete tombstones retain
    it. The resolved report is in
    `docs/ai/done/resolved-issues/mmap-index-content-generations.md`.
-4. **Compaction is not a source-free packed streaming merge.** Existing
-   compaction runs before save; saved output is re-packed from the published
-   view. Atomic publication, cancellation, pinned readers, and save-after-
-   compaction are exercised.
+4. **Compaction has a source-free packed path.** Loaded packed runs are
+   materialized into bounded projection state, compacted without opening source
+   files, then sealed back into packed runs (records, postings, bigrams, sort,
+   relations, coverage, inference metadata). The temporary projection state is
+   dropped after sealing, and subsequent Save reuses the packed output. A
+   differential test covers loaded add/replace/move/delete plus pinned prior
+   views and save/reload. The projection is currently materialized rather than
+   consumed as a fully streaming cursor, so peak temporary memory during
+   compaction still scales with the bounded batch.
 5. **Formatting check caveat.** `cargo fmt --all` and
    `python3 scripts/format-rust-spacing.py` were applied. The repository's
    `format-rust-spacing.py --check` first runs `cargo fmt --check`, which

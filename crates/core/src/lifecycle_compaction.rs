@@ -5,7 +5,7 @@ use std::sync::Arc;
 use std::time::{Duration, Instant};
 
 use crate::build::{IndexedCollectionSegment, SegmentFile};
-use crate::inventory::ActiveRecords;
+use crate::inventory::{ActiveRecords, FileEntry};
 use crate::lifecycle::{
     Index, IndexError, IndexRevision, MaintenancePhase, PublishedIndex, PublishedSegment,
 };
@@ -64,6 +64,53 @@ struct CompactionWork {
     temporary_bytes: u64,
 }
 
+
+fn current_file_entries(root: &PublishedIndex) -> Vec<FileEntry> {
+    let mut files = root.repository.files().files.clone();
+    for file in &mut files {
+        let id = crate::model::FileId(file.id.0);
+        if let Some(current) = root.catalog.entry(id) {
+            file.relative_path = current.relative_path.clone();
+            file.revision = current.revision;
+            file.created_ns = current.created_ns;
+            file.collections = current.collections.clone();
+        }
+    }
+    files
+}
+
+fn seal_packed_part(
+    part: IndexedCollectionSegment,
+    collection: usize,
+    definitions: &[crate::repository::CollectionDefinition],
+    files: &Arc<Vec<FileEntry>>,
+    versions: &crate::inventory::FileVersions,
+    collections: &[CollectionState],
+) -> Result<(IndexedCollectionSegment, Arc<crate::index_storage::segment::FrozenSegment>), IndexError> {
+    let active = (0..part.record_count())
+        .map(|slot| u32::try_from(slot).unwrap_or(u32::MAX))
+        .collect::<roaring::RoaringBitmap>();
+    let input = crate::index_storage::native_pack::pack_segment(
+        &part,
+        &active,
+        versions,
+        collections,
+    )
+    .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+    let built = crate::index_storage::segment_builder::build_segment(input)
+        .map_err(|error| IndexError::InvalidPublication(error.to_string()))?;
+    let frozen = Arc::new(
+        crate::index_storage::segment::FrozenSegment::from_bytes(built.object.into_bytes())
+            .map_err(|error| IndexError::InvalidPublication(error.to_string()))?,
+    );
+    let index = crate::index_storage::packed_restore::segment_from_packed(
+        &frozen,
+        collection,
+        files,
+        definitions,
+    )?;
+    Ok((index, frozen))
+}
 
 fn source_budget_bytes(source: &IndexedCollectionSegment) -> u64 {
     u64::try_from(source.accounting.retained_bytes_estimated)
@@ -191,6 +238,13 @@ fn compact_published_with_budget(
         let mut work = CompactionWork::default();
         let mut next = old.clone();
         next.revision = next_revision;
+        let current_files = Arc::new(current_file_entries(old));
+        let definitions = old
+            .repository
+            .collections()
+            .iter()
+            .map(|collection| collection.definition.clone())
+            .collect::<Vec<_>>();
         'collections: for (number, group) in old.segments.iter().enumerate() {
             if cancelled() {
                 return Err(IndexError::Cancelled);
@@ -229,8 +283,20 @@ fn compact_published_with_budget(
                 work.records = work.records.saturating_add(records);
                 work.input_bytes = work.input_bytes.saturating_add(input_bytes);
                 work.temporary_bytes = work.temporary_bytes.saturating_add(temporary_bytes);
+                let packed_source = segment.index.packed.is_some();
+                let materialized = packed_source
+                    .then(|| {
+                        crate::index_storage::packed_materialize::materialize_native_segment(
+                            segment.index.packed.as_ref().expect("packed segment"),
+                            number,
+                            current_files.as_slice(),
+                            &definitions,
+                        )
+                    })
+                    .transpose()?;
+                let source = materialized.as_ref().unwrap_or(&segment.index);
                 for part in compact_source_parts(
-                    &segment.index,
+                    source,
                     &segment.active,
                     &next.catalog,
                     &cancelled,
@@ -242,14 +308,31 @@ fn compact_published_with_budget(
                     next.next_segment_ordinal = ordinal.checked_add(1).ok_or_else(|| {
                         IndexError::ResourceLimit("segment ordinal overflow".into())
                     })?;
-                    let active = ActiveRecords::all(part.records.len())
+                    let active = ActiveRecords::all(part.record_count())
                         .map_err(IndexError::ResourceLimit)?;
-                    compacted.push(Arc::new(PublishedSegment {
-                        ordinal,
-                        index: Arc::new(part),
-                        active,
-                        packed: None,
-                    }));
+                    if packed_source {
+                        let (index, frozen) = seal_packed_part(
+                            part,
+                            number,
+                            &definitions,
+                            &current_files,
+                            &old.file_versions,
+                            old.repository.collections(),
+                        )?;
+                        compacted.push(Arc::new(PublishedSegment {
+                            ordinal,
+                            index: Arc::new(index),
+                            active,
+                            packed: Some(frozen),
+                        }));
+                    } else {
+                        compacted.push(Arc::new(PublishedSegment {
+                            ordinal,
+                            index: Arc::new(part),
+                            active,
+                            packed: None,
+                        }));
+                    }
                 }
             }
             next.segments[number] = Arc::new(compacted);
@@ -270,6 +353,13 @@ fn compact_published_with_budget(
     next.next_segment_ordinal = old.next_segment_ordinal;
     next.last_size_maintenance_revision = old.last_size_maintenance_revision;
     next.reconciliation = old.reconciliation;
+    let current_files = Arc::new(current_file_entries(old));
+    let definitions = old
+        .repository
+        .collections()
+        .iter()
+        .map(|collection| collection.definition.clone())
+        .collect::<Vec<_>>();
     for (number, collection) in old.repository.collections().iter().enumerate() {
         if cancelled() {
             return Err(IndexError::Cancelled);
@@ -281,6 +371,18 @@ fn compact_published_with_budget(
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
+            let packed_source = source.packed.is_some();
+            let materialized = packed_source
+                .then(|| {
+                    crate::index_storage::packed_materialize::materialize_native_segment(
+                        source.packed.as_ref().expect("packed segment"),
+                        number,
+                        current_files.as_slice(),
+                        &definitions,
+                    )
+                })
+                .transpose()?;
+            let source = materialized.as_ref().unwrap_or(source);
             let mut replacements = Vec::new();
             for part in compact_source_parts(source, active, &next.catalog, &cancelled)? {
                 if cancelled() {
@@ -291,13 +393,30 @@ fn compact_published_with_budget(
                     .checked_add(1)
                     .ok_or_else(|| IndexError::ResourceLimit("segment ordinal overflow".into()))?;
                 let active =
-                    ActiveRecords::all(part.records.len()).map_err(IndexError::ResourceLimit)?;
-                replacements.push(Arc::new(PublishedSegment {
-                    ordinal,
-                    index: Arc::new(part),
-                    active,
-                    packed: None,
-                }));
+                    ActiveRecords::all(part.record_count()).map_err(IndexError::ResourceLimit)?;
+                if packed_source {
+                    let (index, frozen) = seal_packed_part(
+                        part,
+                        number,
+                        &definitions,
+                        &current_files,
+                        &old.file_versions,
+                        old.repository.collections(),
+                    )?;
+                    replacements.push(Arc::new(PublishedSegment {
+                        ordinal,
+                        index: Arc::new(index),
+                        active,
+                        packed: Some(frozen),
+                    }));
+                } else {
+                    replacements.push(Arc::new(PublishedSegment {
+                        ordinal,
+                        index: Arc::new(part),
+                        active,
+                        packed: None,
+                    }));
+                }
             }
             Ok(replacements)
         };

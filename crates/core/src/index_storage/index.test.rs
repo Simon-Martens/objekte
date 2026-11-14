@@ -1,5 +1,5 @@
 use crate::lifecycle::Index;
-use crate::model::LogicalType;
+use crate::model::{FileId, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::FieldDefinition;
 use crate::repository::{CollectionDefinition, RepositoryOptions};
@@ -437,6 +437,79 @@ fn a_compacted_index_can_be_saved_and_reopened() {
         access.access,
         crate::index_storage::access::PostingAccess::Packed(_)
     ));
+}
+
+#[test]
+fn loaded_packed_index_compacts_after_add_replace_move_and_delete() {
+    let (root, definition) = fixture();
+    let index = Index::build(
+        root.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let store = tempfile::tempdir().unwrap();
+    index.save_to(store.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        store.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let pinned = loaded.view().unwrap();
+    assert_eq!(pinned.search(&query("Alpha")).unwrap().count, Some(1));
+    assert_eq!(pinned.search(&query("Beta")).unwrap().count, Some(1));
+
+    let a = root.path().join("data/a.json");
+    std::fs::write(&a, br#"{"text":"Alpha replaced"}"#).unwrap();
+    let handle = loaded.view().unwrap().file_handle(FileId(0)).unwrap();
+    loaded.update_file(handle, &a).unwrap();
+
+    let b = root.path().join("data/b.json");
+    let c = root.path().join("data/c.json");
+    std::fs::rename(&b, &c).unwrap();
+    let handle = loaded.view().unwrap().file_handle(FileId(1)).unwrap();
+    loaded.move_file(handle, &c).unwrap();
+
+    let d = root.path().join("data/d.json");
+    std::fs::write(&d, br#"{"text":"Gamma"}"#).unwrap();
+    loaded.add_file(&d).unwrap();
+    let e = root.path().join("data/e.json");
+    std::fs::write(&e, br#"{"text":"Delta"}"#).unwrap();
+    let added = loaded.add_file(&e).unwrap();
+    loaded.delete_file(added.file).unwrap();
+
+    let report = loaded.compact().unwrap();
+    assert!(report.slots_before >= report.slots_after);
+    assert_eq!(count(&loaded, "Alpha replaced"), 1);
+    assert_eq!(count(&loaded, "Beta"), 1);
+    assert_eq!(count(&loaded, "Gamma"), 1);
+    assert_eq!(count(&loaded, "Delta"), 0);
+    // A pinned pre-mutation view remains valid and unchanged.
+    assert_eq!(pinned.search(&query("Alpha")).unwrap().count, Some(1));
+    assert_eq!(pinned.search(&query("Beta")).unwrap().count, Some(1));
+    assert_eq!(pinned.search(&query("Gamma")).unwrap().count, Some(0));
+
+    let compacted_store = tempfile::tempdir().unwrap();
+    loaded
+        .save_to(compacted_store.path(), SaveOptions::default())
+        .unwrap();
+    let reloaded = Index::load_from(
+        compacted_store.path(),
+        vec![definition],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    assert_eq!(count(&reloaded, "Alpha replaced"), 1);
+    assert_eq!(count(&reloaded, "Beta"), 1);
+    assert_eq!(count(&reloaded, "Gamma"), 1);
+    assert_eq!(count(&reloaded, "Delta"), 0);
+    let view = reloaded.view().unwrap();
+    let segment = view.0.segments[0].first().expect("compacted packed segment");
+    assert!(segment.packed.is_some());
+    assert!(segment.index.records.as_slice().is_none());
 }
 
 #[test]

@@ -266,7 +266,7 @@ pub fn restore_from_store(
     Ok(Index::from_published(published))
 }
 
-fn storage_error(error: StorageError) -> IndexError {
+pub(crate) fn storage_error(error: StorageError) -> IndexError {
     match error {
         StorageError::Cancelled => IndexError::Cancelled,
         StorageError::Incompatible(message) | StorageError::UnsupportedFormat(message) => {
@@ -464,7 +464,7 @@ fn segment_active(frozen: &FrozenSegment) -> Result<RoaringBitmap, IndexError> {
     Ok(bitmap)
 }
 
-fn segment_from_packed(
+pub(crate) fn segment_from_packed(
     frozen: &Arc<FrozenSegment>,
     collection: usize,
     file_entries: &Arc<Vec<FileEntry>>,
