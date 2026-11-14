@@ -336,21 +336,42 @@ fn segment_file_modified_matches(
     let empty = Value::Object(BTreeMap::new());
     let mut file = metadata_probe_file();
     let record = metadata_probe_record();
+    let direct_literal = if term.transform == Transform::Identity
+        && term.derived == Derived::None
+        && term.period.is_none()
+        && term.matcher.is_none()
+        && matches!(term.operator, Operator::Eq | Operator::Ne | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le)
+    {
+        match &term.literal {
+            Value::Datetime(value) => Some(value.unix_timestamp_nanos()),
+            _ => None,
+        }
+    } else {
+        None
+    };
     let mut matches = RoaringBitmap::new();
     for index in 0..segment.file_count() {
         if segment.try_file_record_count_at(index)?.ok_or("segment file row missing")? == 0 {
             continue;
         }
         file.revision = segment.try_file_revision_at(index)?.ok_or("segment file row missing")?;
-        let ctx = RecordContext {
-            value: &empty,
-            source_bytes: None,
-            record: &record,
-            file: &file,
-            collection_name: &collection.definition.name,
-            repository_root: std::path::Path::new(""),
+        let selected = if let Some(literal) = direct_literal {
+            let modified = file.revision.modified_ns;
+            time::OffsetDateTime::from_unix_timestamp_nanos(modified)
+                .map_err(|error| error.to_string())?;
+            order_matches(modified.cmp(&literal), term.operator)
+        } else {
+            let ctx = RecordContext {
+                value: &empty,
+                source_bytes: None,
+                record: &record,
+                file: &file,
+                collection_name: &collection.definition.name,
+                repository_root: std::path::Path::new(""),
+            };
+            eval_term(term, &ctx)?
         };
-        if eval_term(term, &ctx)? {
+        if selected {
             extend_segment_file_slots(segment, index, &mut matches)?;
         }
     }
