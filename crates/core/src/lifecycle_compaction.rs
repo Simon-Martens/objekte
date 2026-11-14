@@ -135,7 +135,7 @@ fn slot_count(root: &PublishedIndex) -> u64 {
             collection.generation.records.len() as u64
                 + root.segments[number]
                     .iter()
-                    .map(|segment| segment.index.records.len() as u64)
+                    .map(|segment| segment.index.record_count() as u64)
                     .sum::<u64>()
         })
         .sum()
@@ -187,7 +187,7 @@ fn compact_published_with_budget(
             if cancelled() {
                 return Err(IndexError::Cancelled);
             }
-            if group.iter().all(|segment| segment.active.len() == segment.index.records.len() as u64)
+            if group.iter().all(|segment| segment.active.len() == segment.index.record_count() as u64)
             {
                 continue;
             }
@@ -196,11 +196,11 @@ fn compact_published_with_budget(
                 if cancelled() {
                     return Err(IndexError::Cancelled);
                 }
-                if segment.active.len() == segment.index.records.len() as u64 {
+                if segment.active.len() == segment.index.record_count() as u64 {
                     compacted.push(Arc::clone(segment));
                     continue;
                 }
-                let records = segment.index.records.len() as u64;
+                let records = segment.index.record_count() as u64;
                 let input_bytes = source_budget_bytes(&segment.index);
                 let temporary_bytes = input_bytes.saturating_mul(3)
                     .saturating_add(records.saturating_mul(512));
@@ -286,7 +286,7 @@ fn compact_published_with_budget(
             compacted.extend(compact_source(&base, &old.active[number])?);
         }
         for segment in old.segments[number].iter() {
-            if segment.active.len() == segment.index.records.len() as u64 {
+            if segment.active.len() == segment.index.record_count() as u64 {
                 compacted.push(Arc::clone(segment));
             } else {
                 compacted.extend(compact_source(&segment.index, &segment.active)?);
