@@ -8,6 +8,16 @@ Environment: Linux 7.2.15-200.fc44.x86_64, Intel Core i9-13900K, 32 logical CPUs
 
 All stores were built from the 148,486-record Musenalm fixture. Baseline and candidate stores have identical logical contents. Stores and raw samples are under the candidate worktree's ignored `target/toml-index-manifest/bench/` directory. Load timing is an uninstrumented `Index::try_load` measured by `bench_managed_open_alloc --no-count`; it includes TOML parsing, directory enumeration, mapping, descriptor restoration, catalog validation and install, and excludes optional whole-file verification.
 
+Each warm sample is one fresh process:
+
+```sh
+target/release/examples/bench_managed_open_alloc \
+  --root <musenalm-root> --store <revision-store> \
+  --alphabet ascii --no-count
+```
+
+The harness alternated baseline/candidate order and parsed `open_ns`, `first_query_ns`, `source_reads` and `build_parses` from each JSON line. Cold samples additionally ran `os.posix_fadvise(fd, 0, 0, POSIX_FADV_DONTNEED)` on every `.idx` and catalog `.bin` file and confirmed zero resident bytes with `fincore -J -b` before starting the process.
+
 ## Warm-cache explicit load
 
 Thirty alternating fresh-process pairs per scenario after one warm-up per revision. Ratios are per-pair candidate/baseline medians.
