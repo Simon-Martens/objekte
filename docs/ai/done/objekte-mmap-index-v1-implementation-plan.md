@@ -2422,10 +2422,10 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures. The core library suite reports 584
+- Workspace tests pass with no failures. The core library suite reports 585
   passed, 15 ignored; all CLI and desktop suites pass. The all-targets run
   compiles and tests examples and integration targets as well.
-- The storage subsystem suite reports 68 passed, including dictionary,
+- The storage subsystem suite reports 69 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, compaction/save, concurrent-publication, and background-task
   tests.
@@ -2436,8 +2436,8 @@ Storage benchmark, `cargo run -p objekte-search-core --example
 bench_index_storage --release`:
 
 ```text
-records=20000  build=43.03 ms  save=22.51 ms  load=3.50 ms  first_query=0.107 ms  noop_save=0.023 ms
-objects_written=12  noop_bytes_written=0  load_speedup_over_build=12.29
+records=20000  build=39.75 ms  save=22.21 ms  load=3.76 ms  first_query=0.108 ms  noop_save=0.026 ms
+objects_written=12  noop_bytes_written=0  load_speedup_over_build=10.58
 records=100000 build=173.74 ms save=110.33 ms load=15.16 ms first_query=0.344 ms noop_save=0.050 ms
 objects_written=51  noop_bytes_written=0  load_speedup_over_build=11.46
 ```
