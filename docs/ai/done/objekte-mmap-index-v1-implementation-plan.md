@@ -2467,10 +2467,10 @@ Storage benchmark, `cargo run -p objekte-search-core --example
 bench_index_storage --release`:
 
 ```text
-records=20000  build=39.75 ms  save=22.21 ms  load=3.76 ms  first_query=0.108 ms  noop_save=0.026 ms
-objects_written=12  noop_bytes_written=0  load_speedup_over_build=10.58
-records=100000 build=173.74 ms save=110.33 ms load=15.16 ms first_query=0.344 ms noop_save=0.050 ms
-objects_written=51  noop_bytes_written=0  load_speedup_over_build=11.46
+records=20000  build=40.36 ms  save=12.08 ms  load=11.00 ms  first_query=0.542 ms  noop_save=0.024 ms
+objects_written=11  noop_bytes_written=0  load_speedup_over_build=3.67
+records=100000 build=179.73 ms save=57.83 ms load=52.83 ms first_query=0.879 ms noop_save=0.056 ms
+objects_written=50  noop_bytes_written=0  load_speedup_over_build=3.40
 ```
 
 The first measurement is a 20,000-record JSONL corpus; the second uses
