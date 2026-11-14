@@ -238,6 +238,45 @@ fn built_and_loaded_packed_queries_return_identical_results() {
 }
 
 #[test]
+fn loaded_packed_readers_answer_after_native_postings_are_removed() {
+    let (root, definition) = fixture();
+    let index = Index::build(
+        root.path(),
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+    )
+    .unwrap();
+    let store = tempfile::tempdir().unwrap();
+    index.save_to(store.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        store.path(),
+        vec![definition],
+        RepositoryOptions::default(),
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let view = loaded.view().unwrap();
+    let mut published = (*view.0).clone();
+    let mut segments = Vec::new();
+    for segment in published.segments[0].iter() {
+        let mut native = (*segment.index).clone();
+        native.postings.fields.clear();
+        native.raw.normal.clear();
+        native.raw.skip.clear();
+        native.fallback_text.normal.clear();
+        native.fallback_text.skip.clear();
+        native.custom_text.clear();
+        let mut replacement = (**segment).clone();
+        replacement.index = std::sync::Arc::new(native);
+        segments.push(std::sync::Arc::new(replacement));
+    }
+    published.segments[0] = std::sync::Arc::new(segments);
+    let packed_only = Index::from_published(published);
+    std::fs::remove_dir_all(root.path().join("data")).unwrap();
+    assert_eq!(count(&packed_only, "Alpha"), 1);
+}
+
+#[test]
 fn a_loaded_index_accepts_new_files_and_saves_them() {
     let (root, definition) = fixture();
     let index = Index::build(
