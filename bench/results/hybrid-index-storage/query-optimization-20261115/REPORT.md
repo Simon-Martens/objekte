@@ -108,7 +108,7 @@ This 4–6% reopen cost is a real penalty in these paired runs. The expanded str
 
 ## Validation and disposition
 
-`cargo fmt --all`, `cargo test --workspace --locked --quiet`, and `cargo clippy --workspace --all-targets --locked --quiet` passed on the candidate after the final code edits. The repository-wide `scripts/format-rust-spacing.py --check` still reports inherited formatting drift outside this subtask; unrelated formatter edits were restored. Structural segment/snapshot round trips, mutations, differential evaluator checks, corruption handling, and cache concurrency tests are included in the passing suite. The combined integration worktree is tested again after merge.
+`cargo test --workspace --locked --quiet` and `cargo clippy --workspace --all-targets --locked --quiet` passed on the candidate and again on the combined integration branch after its fast-forward merge; Clippy emitted warnings. `cargo fmt --all -- --check` and `python3 scripts/format-rust-spacing.py --check` report broad existing, mutually different formatting drift across the repository, including files outside this subtask. No repository-wide reformat was committed. Structural segment/snapshot round trips, mutations, differential evaluator checks, corruption handling, and cache concurrency tests are included in the passing suite.
 
 1. Structural postings and exact state routing: **implemented and verified** for declared fields, including non-value-indexed fields and proven occurrence-existential explicit-array steps.
 2. Identical-field equality: **implemented and verified** as exact raw path presence; inequality and other unproven cases stay on the evaluator.
