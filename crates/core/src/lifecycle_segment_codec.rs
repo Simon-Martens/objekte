@@ -1,5 +1,6 @@
 //! Checked, source-I/O-free encoding of one indexed mutation segment.
 
+use std::borrow::Cow;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::{Component, Path};
 
@@ -71,7 +72,7 @@ struct SegmentRef<'a> {
     source_id: &'a String,
     source_version: u32,
     files: &'a Vec<EncodedSegmentFile>,
-    records: &'a Vec<RecordEntry>,
+    records: &'a [RecordEntry],
     identity_order: &'a Vec<RecordSlot>,
     postings: &'a PostingCollection,
     inference: &'a Option<InferenceState>,
@@ -117,22 +118,29 @@ pub(crate) fn encode_segment(
     segment: &IndexedCollectionSegment,
     intern: &mut dyn FnMut(&FileEntry) -> Result<u32, String>,
 ) -> Result<Vec<u8>, String> {
-    let files = segment
-        .files
-        .iter()
+    let files = (0..segment.file_count())
         .map(|file| {
+            let file = segment.try_file_at(file)?.ok_or("segment file row missing")?;
             Ok(EncodedSegmentFile {
                 metadata_ref: intern(&file.entry)?,
                 records: file.records.clone(),
             })
         })
         .collect::<Result<Vec<_>, String>>()?;
+    let records: Cow<'_, [RecordEntry]> = if segment.persisted.is_some() {
+        Cow::Owned((0..segment.record_count())
+            .map(|slot| segment.try_record(RecordSlot(slot as u32))?
+                .map(Cow::into_owned).ok_or("segment record row missing".into()))
+            .collect::<Result<Vec<_>, String>>()?)
+    } else {
+        Cow::Borrowed(&segment.records)
+    };
     let value = SegmentRef {
         collection: segment.collection,
         source_id: &segment.source_id,
         source_version: segment.source_version,
         files: &files,
-        records: &segment.records,
+        records: &records,
         identity_order: &segment.identity_order,
         postings: &segment.postings,
         inference: &segment.inference,

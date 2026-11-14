@@ -404,7 +404,7 @@ impl LifecycleCacheState {
                         Ok(LifecycleSegmentCache {
                             ordinal: segment.ordinal,
                             collection: CollectionId(number as u32),
-                            record_count: u32::try_from(segment.index.records.len())
+                            record_count: u32::try_from(segment.index.record_count())
                                 .map_err(|_| "too many segment records")?,
                             active: segment.active.bitmap(),
                             index: encode_segment(&segment.index, &mut |entry| {

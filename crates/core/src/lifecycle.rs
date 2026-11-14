@@ -434,11 +434,11 @@ pub(crate) struct PublishedIndex {
     pub(crate) processed_memberships: Vec<Arc<RoaringBitmap>>,
 }
 
-fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize, usize)> {
+fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Result<Option<(usize, usize)>, String> {
     let mut sized = group
         .iter()
         .enumerate()
-        .map(|(index, segment)| (segment.index.records.len(), index))
+        .map(|(index, segment)| (segment.index.record_count(), index))
         .collect::<Vec<_>>();
     sized.sort_unstable();
     for (position, &(left_size, left)) in sized.iter().enumerate() {
@@ -448,21 +448,30 @@ fn cheapest_consolidation_pair(group: &[Arc<PublishedSegment>]) -> Option<(usize
             }
             let left_index = &group[left].index;
             let right_index = &group[right].index;
-            if left_index
-                .files
-                .iter()
-                .any(|file| right_index.file(file.entry.id).is_some())
-                || left_index
-                    .id_lookup
-                    .keys()
-                    .any(|id| right_index.id_lookup.contains_key(id))
-            {
+            let mut overlaps = false;
+            for file_number in 0..left_index.file_count() {
+                let file_id = left_index.try_file_id_at(file_number)?.ok_or("segment file row missing")?;
+                if right_index.try_file_index(file_id)?.is_some() {
+                    overlaps = true;
+                    break;
+                }
+            }
+            if !overlaps {
+                for &slot in &left_index.identity_order {
+                    let id = left_index.try_record_id(slot)?.ok_or("segment identity slot missing")?;
+                    if right_index.try_id_lookup(id)?.is_some() {
+                        overlaps = true;
+                        break;
+                    }
+                }
+            }
+            if overlaps {
                 continue;
             }
-            return Some((left.min(right), left.max(right)));
+            return Ok(Some((left.min(right), left.max(right))));
         }
     }
-    None
+    Ok(None)
 }
 
 impl PublishedIndex {
@@ -550,17 +559,7 @@ impl PublishedIndex {
                         .count() as u64;
                     let segments = self.segments[number]
                         .iter()
-                        .map(|segment| {
-                            segment
-                                .index
-                                .records
-                                .iter()
-                                .filter(|record| {
-                                    record.class == crate::inventory::RecordClass::RawFallback
-                                        && segment.active.contains(record.slot)
-                                })
-                                .count() as u64
-                        })
+                        .map(|segment| (&segment.active.bitmap() - &segment.index.logical_records).len())
                         .sum::<u64>();
                     base + segments
                 })
@@ -619,17 +618,16 @@ impl PublishedIndex {
             }
         }
         for (id, _) in &index.id_lookup {
+            let existing_duplicate = self.segments[number].iter().try_fold(false, |found, segment| {
+                let slot = segment.index.try_id_lookup(id.0.as_ref())
+                    .map_err(IndexError::InvalidPublication)?;
+                Ok::<_, IndexError>(found || slot.is_some_and(|slot| segment.active.contains(slot)))
+            })?;
             if collection
                 .id_lookup
                 .get(id)
                 .is_some_and(|slot| self.active[number].contains(*slot))
-                || self.segments[number].iter().any(|segment| {
-                    segment
-                        .index
-                        .id_lookup
-                        .get(id)
-                        .is_some_and(|slot| segment.active.contains(*slot))
-                })
+                || existing_duplicate
             {
                 return Err(IndexError::DuplicateRecordId {
                     collection: collection.definition.name.clone(),
@@ -713,7 +711,7 @@ impl PublishedIndex {
         let full_partitions = self.segments[number]
             .iter()
             .filter(|segment| {
-                segment.index.records.len() >= crate::lifecycle_partition::BASE_PARTITION_RECORDS
+                segment.index.record_count() >= crate::lifecycle_partition::BASE_PARTITION_RECORDS
             })
             .count();
         let admission_limit = MAX_SEGMENTS_PER_COLLECTION.saturating_add(full_partitions);
@@ -721,16 +719,27 @@ impl PublishedIndex {
         let group = Arc::make_mut(&mut self.segments[number]);
         if count_triggered {
             // A current zero-record file still owns its catalogue contribution.
-            group.retain(|segment| {
-                segment.active.len() > 0
-                    || segment.index.files.iter().any(|file| {
-                        self.catalog.entry(file.entry.id).is_some_and(|current| {
-                            current.revision == file.entry.revision
-                                && current.created_ns == file.entry.created_ns
-                                && current.collections.contains(&segment.index.collection)
-                        })
-                    })
-            });
+            let mut kept = Vec::with_capacity(group.len());
+            for segment in group.drain(..) {
+                let mut current_file = false;
+                for file_number in 0..segment.index.file_count() {
+                    let file = segment.index.try_file_entry_at(file_number)
+                        .map_err(IndexError::InvalidPublication)?
+                        .ok_or_else(|| IndexError::InvalidPublication("segment file row missing".into()))?;
+                    if self.catalog.entry(file.id).is_some_and(|current| {
+                        current.revision == file.revision
+                            && current.created_ns == file.created_ns
+                            && current.collections.contains(&segment.index.collection)
+                    }) {
+                        current_file = true;
+                        break;
+                    }
+                }
+                if segment.active.len() > 0 || current_file {
+                    kept.push(segment);
+                }
+            }
+            *group = kept;
         }
         let count_triggered = group.len() >= admission_limit;
         if !count_triggered {
@@ -738,7 +747,7 @@ impl PublishedIndex {
                 .iter()
                 .enumerate()
                 .filter_map(|(index, segment)| {
-                    let total = segment.index.records.len();
+                    let total = segment.index.record_count();
                     let removed = total.saturating_sub(segment.active.len() as usize);
                     (total >= MIN_RETIREMENT_SLOTS
                         && total <= crate::lifecycle_partition::BASE_PARTITION_RECORDS
@@ -788,7 +797,7 @@ impl PublishedIndex {
         let sparse_bytes = group
             .iter()
             .filter(|segment| {
-                segment.index.records.len() < crate::lifecycle_partition::BASE_PARTITION_RECORDS
+                segment.index.record_count() < crate::lifecycle_partition::BASE_PARTITION_RECORDS
             })
             .filter_map(|segment| segment.index.raw.sealed_reader())
             .map(|reader| reader.encoded_len())
@@ -803,7 +812,7 @@ impl PublishedIndex {
         if !count_triggered && !size_triggered {
             return Ok(());
         }
-        let Some((left, right)) = cheapest_consolidation_pair(group) else {
+        let Some((left, right)) = cheapest_consolidation_pair(group).map_err(IndexError::InvalidPublication)? else {
             return Ok(());
         };
         let merged = IndexedCollectionSegment::consolidate(
@@ -871,7 +880,9 @@ impl PublishedIndex {
                     IndexError::InvalidPublication("segment collection missing".into())
                 })?;
             for segment in Arc::make_mut(segments).iter_mut() {
-                if let Some(slots) = segment.index.file_records(file.id).map(<[_]>::to_vec) {
+                if let Some(slots) = segment.index.try_file_records(file.id)
+                    .map_err(IndexError::InvalidPublication)? {
+                    let slots = slots.into_owned();
                     let segment = Arc::make_mut(segment);
                     retired_records += slots
                         .iter()
@@ -3471,25 +3482,25 @@ impl IndexView {
         else {
             return;
         };
-        let id = crate::model::RecordId(std::sync::Arc::from(hit.record_id.as_str()));
         let file = FileId(hit.file_id);
         for segment in self.0.segments[collection].iter() {
-            let Some(slot) = segment.index.id_lookup.get(&id) else {
+            let Some(slot) = segment.index.try_id_lookup(&hit.record_id).ok().flatten() else {
                 continue;
             };
-            if !segment.active.contains(*slot)
+            if !segment.active.contains(slot)
                 || segment
                     .index
-                    .record(*slot)
+                    .try_record(slot)
+                    .ok()
+                    .flatten()
                     .is_none_or(|record| record.file != file)
             {
                 continue;
             }
-            let Some(diagnostic) = segment
-                .index
-                .file(file)
-                .and_then(|source| source.entry.diagnostics.get(local))
-            else {
+            let Some(source) = segment.index.try_file(file).ok().flatten() else {
+                return;
+            };
+            let Some(diagnostic) = source.entry.diagnostics.get(local) else {
                 return;
             };
             let Some(position) = self.0.catalog.entry(file).and_then(|entry| {
@@ -3634,7 +3645,7 @@ impl IndexView {
                     .count() as u64;
             }
             for segment in self.0.segments.get(number)?.iter() {
-                if let Some(slots) = segment.index.file_records(file) {
+                if let Some(slots) = segment.index.try_file_records(file).ok().flatten() {
                     count += slots
                         .iter()
                         .filter(|slot| segment.active.contains(**slot))
