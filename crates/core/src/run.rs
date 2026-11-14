@@ -6134,13 +6134,7 @@ fn try_parallel_relation_page(
     if segments
         .iter()
         .flat_map(|group| group.iter())
-        .any(|published| {
-            published
-                .index
-                .records
-                .iter()
-                .any(|record| record.range.len() > 64 * 1024)
-        })
+        .any(|published| published.index.max_record_range_len() > 64 * 1024)
     {
         return Ok(None);
     }
