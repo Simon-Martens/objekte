@@ -2438,7 +2438,7 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures. The core library suite reports 587
+- Workspace tests pass with no failures. The core library suite reports 588
   passed, 15 ignored; all CLI and desktop suites pass. The all-targets run
   compiles and tests examples and integration targets as well.
 - The storage subsystem suite reports 72 passed, including dictionary,
