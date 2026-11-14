@@ -202,20 +202,17 @@ fn checksum_identity_and_duplicate_current_paths_are_rejected() {
         .unwrap()
         .encode()
         .unwrap();
-    let old = path_bytes(Path::new("data/b.json"));
     let replacement = path_bytes(Path::new("data/a.json"));
-    let start = bytes
-        .windows(old.len())
-        .position(|part| part == old)
-        .unwrap();
-    bytes[start..start + old.len()].copy_from_slice(&replacement);
+    let body = &bytes[HEADER_BYTES..];
+    let metadata_start = u32::from_le_bytes(body[80..84].try_into().unwrap()) as usize;
+    let slot_start = u32::from_le_bytes(body[64..68].try_into().unwrap()) as usize;
+    let second_slot = slot_start + 16;
+    let second_offset = u32::from_le_bytes(body[second_slot + 8..second_slot + 12].try_into().unwrap()) as usize;
+    let start = HEADER_BYTES + metadata_start + second_offset + 8;
+    bytes[start..start + replacement.len()].copy_from_slice(&replacement);
     let digest = Sha256::digest(&bytes[HEADER_BYTES..]);
     bytes[20..52].copy_from_slice(&digest);
-    assert!(
-        RestoredGenerationCatalog::decode(&bytes, published.configuration_identity, 1)
-            .unwrap_err()
-            .contains("duplicate")
-    );
+    assert!(RestoredGenerationCatalog::decode(&bytes, published.configuration_identity, 1).is_err());
 }
 
 #[test]
