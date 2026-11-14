@@ -784,18 +784,9 @@ fn posting_bytes(index: &PostingIndex) -> usize {
 
 fn gram_bytes(index: &crate::bigram::BigramIndex) -> usize {
     index
-        .normal
-        .len()
-        .saturating_add(index.skip.len())
+        .gram_key_count()
         .saturating_mul(ACCOUNTING_OVERHEAD + std::mem::size_of::<u64>())
-        .saturating_add(
-            index
-                .normal
-                .values()
-                .chain(index.skip.values())
-                .map(bitmap_bytes)
-                .sum::<usize>(),
-        )
+        .saturating_add(index.gram_posting_bytes())
 }
 
 fn sort_bytes(sorting: &crate::sorting::SortCollection) -> usize {
@@ -1112,10 +1103,10 @@ fn merge_bigram_index(
         .checked_add(source.record_count)
         .ok_or("bigram slot overflow")?;
     source.for_each_normal(|key, posting| {
-        append_shifted_bitmap(target.normal.entry(*key).or_default(), posting, base)
+        target.append_shifted_gram(false, *key, posting, base)
     })?;
     source.for_each_skip(|key, posting| {
-        append_shifted_bitmap(target.skip.entry(*key).or_default(), posting, base)
+        target.append_shifted_gram(true, *key, posting, base)
     })?;
     Ok(())
 }
@@ -1892,14 +1883,14 @@ fn project_bigram(
     index.for_each_normal(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
-            projected.normal.insert(*key, kept);
+            projected.set_gram(false, *key, kept);
         }
         Ok(())
     })?;
     index.for_each_skip(|key, bitmap| {
         let kept = project_bitmap_in_range(bitmap, slots, bounds)?;
         if !kept.is_empty() {
-            projected.skip.insert(*key, kept);
+            projected.set_gram(true, *key, kept);
         }
         Ok(())
     })?;
@@ -1925,7 +1916,7 @@ fn scatter_bigram_partitions(
                 .get(old as usize)
                 .ok_or("bigram posting outside source")?
             {
-                parts[*part].normal.entry(*key).or_default().insert(slot.0);
+                parts[*part].insert_gram_slot(false, *key, slot.0);
             }
         }
         Ok(())
@@ -1937,7 +1928,7 @@ fn scatter_bigram_partitions(
                 .get(old as usize)
                 .ok_or("bigram posting outside source")?
             {
-                parts[*part].skip.entry(*key).or_default().insert(slot.0);
+                parts[*part].insert_gram_slot(true, *key, slot.0);
             }
         }
         Ok(())

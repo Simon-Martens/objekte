@@ -1,6 +1,7 @@
 //! Conservative record-level bigram candidates over separate text segments.
 
-use std::collections::{HashMap, HashSet};
+use std::borrow::Cow;
+use std::collections::{BTreeMap, HashMap, HashSet};
 #[cfg(feature = "detailed-profiling")]
 use std::sync::OnceLock;
 use std::time::Instant;
@@ -264,8 +265,8 @@ impl BigramRequest {
 pub struct BigramIndex {
     pub alphabet: BigramAlphabet,
     pub record_count: u32,
-    pub normal: HashMap<u64, RoaringBitmap>,
-    pub skip: HashMap<u64, RoaringBitmap>,
+    normal: HashMap<u64, RoaringBitmap>,
+    skip: HashMap<u64, RoaringBitmap>,
 }
 
 impl BigramIndex {
@@ -294,7 +295,63 @@ impl BigramIndex {
         }
     }
 
-    pub(crate) fn for_each_normal(
+    pub fn gram_posting(&self, skip: bool, key: u64) -> Option<Cow<'_, RoaringBitmap>> {
+        if skip {
+            self.skip.get(&key)
+        } else {
+            self.normal.get(&key)
+        }
+        .map(Cow::Borrowed)
+    }
+
+    pub fn gram_key_count(&self) -> usize {
+        self.normal.len() + self.skip.len()
+    }
+
+    pub(crate) fn gram_posting_bytes(&self) -> usize {
+        self.normal
+            .values()
+            .chain(self.skip.values())
+            .map(RoaringBitmap::serialized_size)
+            .sum()
+    }
+
+    pub fn normal_entries(&self) -> BTreeMap<u64, RoaringBitmap> {
+        self.normal
+            .iter()
+            .map(|(key, posting)| (*key, posting.clone()))
+            .collect()
+    }
+
+    pub fn skip_entries(&self) -> BTreeMap<u64, RoaringBitmap> {
+        self.skip
+            .iter()
+            .map(|(key, posting)| (*key, posting.clone()))
+            .collect()
+    }
+
+    pub(crate) fn insert_gram_slot(&mut self, skip: bool, key: u64, slot: u32) {
+        let map = if skip { &mut self.skip } else { &mut self.normal };
+        map.entry(key).or_default().insert(slot);
+    }
+
+    pub(crate) fn set_gram(&mut self, skip: bool, key: u64, posting: RoaringBitmap) {
+        let map = if skip { &mut self.skip } else { &mut self.normal };
+        map.insert(key, posting);
+    }
+
+    pub(crate) fn append_shifted_gram(
+        &mut self,
+        skip: bool,
+        key: u64,
+        source: &RoaringBitmap,
+        base: u32,
+    ) -> Result<(), String> {
+        let map = if skip { &mut self.skip } else { &mut self.normal };
+        crate::inventory::append_shifted_bitmap(map.entry(key).or_default(), source, base)
+    }
+
+    pub fn for_each_normal(
         &self,
         mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {
@@ -306,7 +363,7 @@ impl BigramIndex {
         Ok(())
     }
 
-    pub(crate) fn for_each_skip(
+    pub fn for_each_skip(
         &self,
         mut visit: impl FnMut(&u64, &RoaringBitmap) -> Result<(), String>,
     ) -> Result<(), String> {

@@ -1397,12 +1397,12 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
         serde_json::to_value(&parallel.collections()[0].generation).unwrap()
     );
     assert_eq!(
-        one.collections()[0].raw.normal,
-        parallel.collections()[0].raw.normal
+        one.collections()[0].raw.normal_entries(),
+        parallel.collections()[0].raw.normal_entries()
     );
     assert_eq!(
-        one.collections()[0].raw.skip,
-        parallel.collections()[0].raw.skip
+        one.collections()[0].raw.skip_entries(),
+        parallel.collections()[0].raw.skip_entries()
     );
     let path = &vec!["title".to_owned()];
     let one_posting = &one.collections()[0].postings.fields[path];
@@ -1594,36 +1594,36 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         serde_json::to_value(&whole.files().files[0].diagnostics).unwrap()
     );
     assert_eq!(
-        one.collections()[0].raw.normal,
-        parallel.collections()[0].raw.normal
+        one.collections()[0].raw.normal_entries(),
+        parallel.collections()[0].raw.normal_entries()
     );
     assert_eq!(
-        one.collections()[0].raw.skip,
-        parallel.collections()[0].raw.skip
+        one.collections()[0].raw.skip_entries(),
+        parallel.collections()[0].raw.skip_entries()
     );
     assert_eq!(
-        one.collections()[0].fallback_text.normal,
-        parallel.collections()[0].fallback_text.normal
+        one.collections()[0].fallback_text.normal_entries(),
+        parallel.collections()[0].fallback_text.normal_entries()
     );
     assert_eq!(
-        one.collections()[0].fallback_text.skip,
-        parallel.collections()[0].fallback_text.skip
+        one.collections()[0].fallback_text.skip_entries(),
+        parallel.collections()[0].fallback_text.skip_entries()
     );
     assert_eq!(
-        one.collections()[0].raw.normal,
-        whole.collections()[0].raw.normal
+        one.collections()[0].raw.normal_entries(),
+        whole.collections()[0].raw.normal_entries()
     );
     assert_eq!(
-        one.collections()[0].raw.skip,
-        whole.collections()[0].raw.skip
+        one.collections()[0].raw.skip_entries(),
+        whole.collections()[0].raw.skip_entries()
     );
     assert_eq!(
-        one.collections()[0].fallback_text.normal,
-        whole.collections()[0].fallback_text.normal
+        one.collections()[0].fallback_text.normal_entries(),
+        whole.collections()[0].fallback_text.normal_entries()
     );
     assert_eq!(
-        one.collections()[0].fallback_text.skip,
-        whole.collections()[0].fallback_text.skip
+        one.collections()[0].fallback_text.skip_entries(),
+        whole.collections()[0].fallback_text.skip_entries()
     );
     assert_eq!(
         one.collections()[0].postings.fields[&vec!["title".into()]].value_entries(),
@@ -1661,12 +1661,12 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         serde_json::to_value(&restored.collections()[0].generation).unwrap()
     );
     assert_eq!(
-        one.collections()[0].raw.normal,
-        restored.collections()[0].raw.normal
+        one.collections()[0].raw.normal_entries(),
+        restored.collections()[0].raw.normal_entries()
     );
     assert_eq!(
-        one.collections()[0].fallback_text.normal,
-        restored.collections()[0].fallback_text.normal
+        one.collections()[0].fallback_text.normal_entries(),
+        restored.collections()[0].fallback_text.normal_entries()
     );
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -2093,12 +2093,12 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
                     direct.add_empty(RecordSlot(slot)).unwrap();
                 }
             }
-            assert_eq!(collection.raw.normal, direct.normal);
-            assert_eq!(collection.raw.skip, direct.skip);
+            assert_eq!(collection.raw.normal_entries(), direct.normal_entries());
+            assert_eq!(collection.raw.skip_entries(), direct.skip_entries());
             assert_eq!(collection.custom_text.len(), 1);
             let custom = collection.custom_text.values().next().unwrap();
-            assert_eq!(custom.normal, direct.normal);
-            assert_eq!(custom.skip, direct.skip);
+            assert_eq!(custom.normal_entries(), direct.normal_entries());
+            assert_eq!(custom.skip_entries(), direct.skip_entries());
         }
         let a = &built.collections()[0];
         let b = &parallel.collections()[0];
@@ -2112,10 +2112,10 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
         );
         assert_eq!(a.logical_records, b.logical_records);
         assert_eq!(a.empty_array_records, b.empty_array_records);
-        assert_eq!(a.raw.normal, b.raw.normal);
-        assert_eq!(a.raw.skip, b.raw.skip);
-        assert_eq!(a.fallback_text.normal, b.fallback_text.normal);
-        assert_eq!(a.fallback_text.skip, b.fallback_text.skip);
+        assert_eq!(a.raw.normal_entries(), b.raw.normal_entries());
+        assert_eq!(a.raw.skip_entries(), b.raw.skip_entries());
+        assert_eq!(a.fallback_text.normal_entries(), b.fallback_text.normal_entries());
+        assert_eq!(a.fallback_text.skip_entries(), b.fallback_text.skip_entries());
         for (path, posting) in &a.postings.fields {
             let other = &b.postings.fields[path];
             assert_eq!(posting.covered_records, other.covered_records);

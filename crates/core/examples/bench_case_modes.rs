@@ -161,7 +161,7 @@ fn store_counts(repo: &Repository) -> (usize, usize) {
                 .chain(std::iter::once(&collection.fallback_text))
                 .chain(collection.custom_text.values());
             indexes.fold((stores, grams), |(stores, grams), index| {
-                (stores + 1, grams + index.normal.len() + index.skip.len())
+                (stores + 1, grams + index.gram_key_count())
             })
         })
 }

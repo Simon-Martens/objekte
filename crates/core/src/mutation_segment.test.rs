@@ -578,8 +578,8 @@ fn consolidation_matches_direct_admission_without_source_files() {
         merged.postings.fields[&vec!["n".to_owned()]].value_entries(),
         direct.postings.fields[&vec!["n".to_owned()]].value_entries()
     );
-    assert_eq!(merged.raw.normal, direct.raw.normal);
-    assert_eq!(merged.fallback_text.normal, direct.fallback_text.normal);
+    assert_eq!(merged.raw.normal_entries(), direct.raw.normal_entries());
+    assert_eq!(merged.fallback_text.normal_entries(), direct.fallback_text.normal_entries());
     assert_eq!(
         merged.sorting.columns[&FieldPath::parse("n").unwrap()].ascending,
         direct.sorting.columns[&FieldPath::parse("n").unwrap()].ascending
@@ -914,8 +914,8 @@ fn compaction_matches_active_file_oracle_across_indexes() {
             .unwrap()
             .entries(),
     );
-    assert_eq!(compacted.raw.normal, oracle.raw.normal);
-    assert_eq!(compacted.fallback_text.normal, oracle.fallback_text.normal);
+    assert_eq!(compacted.raw.normal_entries(), oracle.raw.normal_entries());
+    assert_eq!(compacted.fallback_text.normal_entries(), oracle.fallback_text.normal_entries());
     assert_eq!(
         compacted.sorting.columns[&FieldPath::parse("n").unwrap()].ascending,
         oracle.sorting.columns[&FieldPath::parse("n").unwrap()].ascending

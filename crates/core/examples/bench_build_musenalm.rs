@@ -61,15 +61,16 @@ fn hash_bigram(
     hash_value(hash, &label)?;
     hash_value(hash, &index.alphabet)?;
     hash_value(hash, &index.record_count)?;
-    for (kind, column) in [("normal", &index.normal), ("skip", &index.skip)] {
-        hash_value(hash, &kind)?;
-        let mut keys = column.keys().collect::<Vec<_>>();
-        keys.sort();
-        for key in keys {
-            hash_value(hash, key)?;
-            hash_value(hash, &column[key])?;
-        }
-    }
+    hash_value(hash, &"normal")?;
+    index.for_each_normal(|key, slots| {
+        hash_value(hash, key)?;
+        hash_value(hash, slots)
+    })?;
+    hash_value(hash, &"skip")?;
+    index.for_each_skip(|key, slots| {
+        hash_value(hash, key)?;
+        hash_value(hash, slots)
+    })?;
     Ok(())
 }
 
@@ -218,7 +219,7 @@ fn run() -> Result<(), String> {
                     .fold(total, |(stores, keys, bytes), index| {
                         (
                             stores + 1,
-                            keys + index.normal.len() + index.skip.len(),
+                            keys + index.gram_key_count(),
                             bytes + index.estimated_heap_bytes(),
                         )
                     })

@@ -343,7 +343,7 @@ fn run() -> Result<(), String> {
                             .chain(std::iter::once(&collection.fallback_text))
                             .chain(collection.custom_text.values())
                             .fold(total, |(stores, keys), index| {
-                                (stores + 1, keys + index.normal.len() + index.skip.len())
+                                (stores + 1, keys + index.gram_key_count())
                             })
                     });
             let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();

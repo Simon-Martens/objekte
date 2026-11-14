@@ -822,8 +822,8 @@ fn build_json_borrows_logical_strings_after_temporal_conversion() {
             .add_record(crate::model::RecordSlot(0), strings.iter())
             .unwrap();
         let owned = owned.finish().unwrap();
-        assert_eq!(borrowed.normal, owned.normal);
-        assert_eq!(borrowed.skip, owned.skip);
+        assert_eq!(borrowed.normal_entries(), owned.normal_entries());
+        assert_eq!(borrowed.skip_entries(), owned.skip_entries());
     }
 }
 
