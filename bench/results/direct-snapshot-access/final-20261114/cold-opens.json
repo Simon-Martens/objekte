@@ -1,0 +1,291 @@
+{
+  "trials": 3,
+  "medians": {
+    "baseline-ascii": {
+      "open_ns": 423316534,
+      "first_query_ns": 9626430,
+      "cached_after_fadvise": 0
+    },
+    "baseline-unicode": {
+      "open_ns": 442453520,
+      "first_query_ns": 7812022,
+      "cached_after_fadvise": 0
+    },
+    "candidate-ascii": {
+      "open_ns": 272008936,
+      "first_query_ns": 7951752,
+      "cached_after_fadvise": 0
+    },
+    "candidate-unicode": {
+      "open_ns": 259239988,
+      "first_query_ns": 9616120,
+      "cached_after_fadvise": 0
+    }
+  },
+  "records": [
+    {
+      "label": "baseline",
+      "trial": 1,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/baseline/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/cold-pairs-8747/1/baseline",
+        "--extended",
+        "--incremental",
+        "--profiles",
+        "ascii-off,unicode-off",
+        "--repetitions",
+        "1",
+        "--cases",
+        "Q167",
+        "--verified-cache-bytes",
+        "0",
+        "--prepared-cache-bytes",
+        "16777216",
+        "--query-workers",
+        "32",
+        "--storage",
+        "custom",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/baseline-store"
+      ],
+      "index_file_bytes": 265013070,
+      "cached_before": 265064448,
+      "cached_after_fadvise": 0,
+      "cached_after_query": 194461696,
+      "time": "major_faults=26 minor_faults=146245 filesystem_inputs=170136 filesystem_outputs=424",
+      "open_ns": {
+        "ascii": 423316534,
+        "unicode": 442453520
+      },
+      "first_query_ns": {
+        "ascii": 8943551,
+        "unicode": 9794952
+      },
+      "digests": {
+        "Q167": "5c16c54e3501ab7824730ef3a43fc909ffc31569acec84542cf153587ec32b3d"
+      }
+    },
+    {
+      "label": "candidate",
+      "trial": 1,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/cold-pairs-8747/1/candidate",
+        "--extended",
+        "--incremental",
+        "--profiles",
+        "ascii-off,unicode-off",
+        "--repetitions",
+        "1",
+        "--cases",
+        "Q167",
+        "--verified-cache-bytes",
+        "0",
+        "--prepared-cache-bytes",
+        "16777216",
+        "--query-workers",
+        "32",
+        "--storage",
+        "custom",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store"
+      ],
+      "index_file_bytes": 286110742,
+      "cached_before": 286146560,
+      "cached_after_fadvise": 0,
+      "cached_after_query": 215543808,
+      "time": "major_faults=26 minor_faults=70530 filesystem_inputs=180624 filesystem_outputs=392",
+      "open_ns": {
+        "ascii": 272008936,
+        "unicode": 265950080
+      },
+      "first_query_ns": {
+        "ascii": 9676662,
+        "unicode": 8469107
+      },
+      "digests": {
+        "Q167": "5c16c54e3501ab7824730ef3a43fc909ffc31569acec84542cf153587ec32b3d"
+      }
+    },
+    {
+      "label": "candidate",
+      "trial": 2,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/cold-pairs-8747/2/candidate",
+        "--extended",
+        "--incremental",
+        "--profiles",
+        "ascii-off,unicode-off",
+        "--repetitions",
+        "1",
+        "--cases",
+        "Q167",
+        "--verified-cache-bytes",
+        "0",
+        "--prepared-cache-bytes",
+        "16777216",
+        "--query-workers",
+        "32",
+        "--storage",
+        "custom",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store"
+      ],
+      "index_file_bytes": 286110742,
+      "cached_before": 215543808,
+      "cached_after_fadvise": 0,
+      "cached_after_query": 215543808,
+      "time": "major_faults=26 minor_faults=70629 filesystem_inputs=180624 filesystem_outputs=392",
+      "open_ns": {
+        "ascii": 275287703,
+        "unicode": 259239988
+      },
+      "first_query_ns": {
+        "ascii": 7951752,
+        "unicode": 9616120
+      },
+      "digests": {
+        "Q167": "5c16c54e3501ab7824730ef3a43fc909ffc31569acec84542cf153587ec32b3d"
+      }
+    },
+    {
+      "label": "baseline",
+      "trial": 2,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/baseline/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/cold-pairs-8747/2/baseline",
+        "--extended",
+        "--incremental",
+        "--profiles",
+        "ascii-off,unicode-off",
+        "--repetitions",
+        "1",
+        "--cases",
+        "Q167",
+        "--verified-cache-bytes",
+        "0",
+        "--prepared-cache-bytes",
+        "16777216",
+        "--query-workers",
+        "32",
+        "--storage",
+        "custom",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/baseline-store"
+      ],
+      "index_file_bytes": 265013070,
+      "cached_before": 194461696,
+      "cached_after_fadvise": 0,
+      "cached_after_query": 194461696,
+      "time": "major_faults=26 minor_faults=143842 filesystem_inputs=170136 filesystem_outputs=424",
+      "open_ns": {
+        "ascii": 454284488,
+        "unicode": 449883803
+      },
+      "first_query_ns": {
+        "ascii": 10487314,
+        "unicode": 7760849
+      },
+      "digests": {
+        "Q167": "5c16c54e3501ab7824730ef3a43fc909ffc31569acec84542cf153587ec32b3d"
+      }
+    },
+    {
+      "label": "baseline",
+      "trial": 3,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/baseline/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/cold-pairs-8747/3/baseline",
+        "--extended",
+        "--incremental",
+        "--profiles",
+        "ascii-off,unicode-off",
+        "--repetitions",
+        "1",
+        "--cases",
+        "Q167",
+        "--verified-cache-bytes",
+        "0",
+        "--prepared-cache-bytes",
+        "16777216",
+        "--query-workers",
+        "32",
+        "--storage",
+        "custom",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/baseline-store"
+      ],
+      "index_file_bytes": 265013070,
+      "cached_before": 194461696,
+      "cached_after_fadvise": 0,
+      "cached_after_query": 194461696,
+      "time": "major_faults=26 minor_faults=144494 filesystem_inputs=170136 filesystem_outputs=392",
+      "open_ns": {
+        "ascii": 418714869,
+        "unicode": 441772527
+      },
+      "first_query_ns": {
+        "ascii": 9626430,
+        "unicode": 7812022
+      },
+      "digests": {
+        "Q167": "5c16c54e3501ab7824730ef3a43fc909ffc31569acec84542cf153587ec32b3d"
+      }
+    },
+    {
+      "label": "candidate",
+      "trial": 3,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_musenalm",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--result-dir",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/cold-pairs-8747/3/candidate",
+        "--extended",
+        "--incremental",
+        "--profiles",
+        "ascii-off,unicode-off",
+        "--repetitions",
+        "1",
+        "--cases",
+        "Q167",
+        "--verified-cache-bytes",
+        "0",
+        "--prepared-cache-bytes",
+        "16777216",
+        "--query-workers",
+        "32",
+        "--storage",
+        "custom",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store"
+      ],
+      "index_file_bytes": 286110742,
+      "cached_before": 215543808,
+      "cached_after_fadvise": 0,
+      "cached_after_query": 215543808,
+      "time": "major_faults=26 minor_faults=70598 filesystem_inputs=180624 filesystem_outputs=424",
+      "open_ns": {
+        "ascii": 262180197,
+        "unicode": 254384134
+      },
+      "first_query_ns": {
+        "ascii": 7187131,
+        "unicode": 9642114
+      },
+      "digests": {
+        "Q167": "5c16c54e3501ab7824730ef3a43fc909ffc31569acec84542cf153587ec32b3d"
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+direct-open manifest_ns=20802
+direct-open generation=10 catalog_read_ns=29671664 segment_map_parse_ns=44345922 section_check_ns=43578140 other_ns=15950 total_ns=117611694
+direct-segment ordinal=2 slots=4010 pre_record_ns=104619 record_validation_ns=1582922 dictionary_install_ns=6511840 sort_relation_ns=330402 final_checks_ns=5881053 total_ns=14410865
+direct-segment ordinal=1 slots=2048 pre_record_ns=14566 record_validation_ns=893066 dictionary_install_ns=850341 sort_relation_ns=469063 final_checks_ns=934185 total_ns=3161245
+direct-segment ordinal=3 slots=131900 pre_record_ns=13445 record_validation_ns=54619696 dictionary_install_ns=4145147 sort_relation_ns=42810185 final_checks_ns=19438521 total_ns=121027016
+direct-segment ordinal=4 slots=4928 pre_record_ns=34843 record_validation_ns=1975550 dictionary_install_ns=1450722 sort_relation_ns=1058433 final_checks_ns=1517711 total_ns=6037284
+direct-segment ordinal=5 slots=4180 pre_record_ns=7572 record_validation_ns=1659945 dictionary_install_ns=259133 sort_relation_ns=335 final_checks_ns=200785 total_ns=2127784
+direct-segment ordinal=6 slots=8 pre_record_ns=3869 record_validation_ns=4489 dictionary_install_ns=22163 sort_relation_ns=283 final_checks_ns=6513 total_ns=37331
+direct-segment ordinal=7 slots=210 pre_record_ns=3634 record_validation_ns=83386 dictionary_install_ns=52990 sort_relation_ns=34590 final_checks_ns=25534 total_ns=200149
+direct-segment ordinal=8 slots=1202 pre_record_ns=5899 record_validation_ns=457610 dictionary_install_ns=406325 sort_relation_ns=115977 final_checks_ns=653883 total_ns=1639709
+direct-restore catalog_validation_ns=19557022 owner_ns=3482093 segment_install_ns=148685211 catalog_install_ns=556210 live_validation_ns=18678453 publication_ns=2637450 total_ns=193596471

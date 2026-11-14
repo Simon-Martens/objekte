@@ -1,0 +1,1752 @@
+{
+  "program_sha256": "c469fafe3d6ef7d261cb5f6e0ff90dcf436fd32bbda7835b232ac16c010f17ad",
+  "root": "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+  "store": "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+  "trials": 3,
+  "medians": {
+    "ascii-ondemand": {
+      "open_open_ns": 247961240,
+      "open_allocation_calls": 3356093,
+      "open_gross_allocated_bytes": 243776079,
+      "open_metadata_ms": 72,
+      "open_full_available_ms": 247,
+      "manifest_manifest_ns": 18002,
+      "generation_catalog_read_ns": 28581884,
+      "generation_segment_map_parse_ns": 125480,
+      "generation_section_check_ns": 19196747,
+      "generation_other_ns": 8029,
+      "generation_total_ns": 47912163,
+      "restore_catalog_validation_ns": 19360291,
+      "restore_owner_ns": 4727200,
+      "restore_segment_install_ns": 152870899,
+      "restore_catalog_install_ns": 562448,
+      "restore_live_validation_ns": 19240160,
+      "restore_publication_ns": 2768534,
+      "restore_total_ns": 199485099,
+      "segment_totals_slots": 148486,
+      "segment_totals_record_validation_ns": 62291844,
+      "segment_totals_dictionary_install_ns": 13859275,
+      "segment_totals_sort_relation_ns": 47565535,
+      "segment_totals_final_checks_ns": 29250746,
+      "segment_totals_total_ns": 152827536
+    },
+    "unicode-ondemand": {
+      "open_open_ns": 249508914,
+      "open_allocation_calls": 3369416,
+      "open_gross_allocated_bytes": 244162330,
+      "open_metadata_ms": 72,
+      "open_full_available_ms": 249,
+      "manifest_manifest_ns": 17422,
+      "generation_catalog_read_ns": 28776637,
+      "generation_segment_map_parse_ns": 121722,
+      "generation_section_check_ns": 19231988,
+      "generation_other_ns": 8283,
+      "generation_total_ns": 48559418,
+      "restore_catalog_validation_ns": 19363441,
+      "restore_owner_ns": 3985516,
+      "restore_segment_install_ns": 154616451,
+      "restore_catalog_install_ns": 563937,
+      "restore_live_validation_ns": 19203015,
+      "restore_publication_ns": 2836901,
+      "restore_total_ns": 200915091,
+      "segment_totals_slots": 148486,
+      "segment_totals_record_validation_ns": 63001349,
+      "segment_totals_dictionary_install_ns": 13699396,
+      "segment_totals_sort_relation_ns": 46543698,
+      "segment_totals_final_checks_ns": 28943493,
+      "segment_totals_total_ns": 154571525
+    },
+    "ascii-resident": {
+      "open_open_ns": 309736586,
+      "open_allocation_calls": 3355820,
+      "open_gross_allocated_bytes": 355981248,
+      "open_metadata_ms": 141,
+      "open_full_available_ms": 309,
+      "manifest_manifest_ns": 14483,
+      "generation_catalog_read_ns": 28660508,
+      "generation_segment_map_parse_ns": 43447311,
+      "generation_section_check_ns": 42622521,
+      "generation_other_ns": 18860,
+      "generation_total_ns": 115656195,
+      "restore_catalog_validation_ns": 19728796,
+      "restore_owner_ns": 4015722,
+      "restore_segment_install_ns": 146903552,
+      "restore_catalog_install_ns": 540440,
+      "restore_live_validation_ns": 19311532,
+      "restore_publication_ns": 2695637,
+      "restore_total_ns": 193227034,
+      "segment_totals_slots": 148486,
+      "segment_totals_record_validation_ns": 61289055,
+      "segment_totals_dictionary_install_ns": 13125970,
+      "segment_totals_sort_relation_ns": 44693034,
+      "segment_totals_final_checks_ns": 28088293,
+      "segment_totals_total_ns": 146862485
+    },
+    "unicode-resident": {
+      "open_open_ns": 312418340,
+      "open_allocation_calls": 3369201,
+      "open_gross_allocated_bytes": 359254069,
+      "open_metadata_ms": 141,
+      "open_full_available_ms": 312,
+      "manifest_manifest_ns": 14771,
+      "generation_catalog_read_ns": 29671664,
+      "generation_segment_map_parse_ns": 44345922,
+      "generation_section_check_ns": 43616269,
+      "generation_other_ns": 17559,
+      "generation_total_ns": 117611694,
+      "restore_catalog_validation_ns": 19375280,
+      "restore_owner_ns": 4346253,
+      "restore_segment_install_ns": 149478811,
+      "restore_catalog_install_ns": 556210,
+      "restore_live_validation_ns": 19022207,
+      "restore_publication_ns": 2836448,
+      "restore_total_ns": 195604464,
+      "segment_totals_slots": 148486,
+      "segment_totals_record_validation_ns": 62491227,
+      "segment_totals_dictionary_install_ns": 13698661,
+      "segment_totals_sort_relation_ns": 44819268,
+      "segment_totals_final_checks_ns": 28658185,
+      "segment_totals_total_ns": 149430539
+    }
+  },
+  "samples": [
+    {
+      "trial": 1,
+      "alphabet": "ascii",
+      "resident": false,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "ascii"
+      ],
+      "open": {
+        "allocation_calls": 3356706,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "full_available_ms": 254,
+        "gross_allocated_bytes": 243791258,
+        "metadata_ms": 73,
+        "open_ns": 254341037,
+        "resident": false,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 22679
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 30572082,
+        "segment_map_parse_ns": 136782,
+        "section_check_ns": 19470996,
+        "other_ns": 9848,
+        "total_ns": 50189727
+      },
+      "restore": {
+        "catalog_validation_ns": 19360291,
+        "owner_ns": 3045909,
+        "segment_install_ns": 156983449,
+        "catalog_install_ns": 599282,
+        "live_validation_ns": 19949000,
+        "publication_ns": 2958322,
+        "total_ns": 202896349
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 118537,
+          "record_validation_ns": 1994843,
+          "dictionary_install_ns": 6282754,
+          "sort_relation_ns": 346143,
+          "final_checks_ns": 5841529,
+          "total_ns": 14583832
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 13981,
+          "record_validation_ns": 876743,
+          "dictionary_install_ns": 837108,
+          "sort_relation_ns": 480538,
+          "final_checks_ns": 908078,
+          "total_ns": 3116463
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 11815,
+          "record_validation_ns": 55133508,
+          "dictionary_install_ns": 4385765,
+          "sort_relation_ns": 48112267,
+          "final_checks_ns": 20947840,
+          "total_ns": 128591218
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 23801,
+          "record_validation_ns": 1943348,
+          "dictionary_install_ns": 1575067,
+          "sort_relation_ns": 1199741,
+          "final_checks_ns": 1676584,
+          "total_ns": 6418558
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 7067,
+          "record_validation_ns": 1763490,
+          "dictionary_install_ns": 268372,
+          "sort_relation_ns": 398,
+          "final_checks_ns": 205156,
+          "total_ns": 2244499
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 4113,
+          "record_validation_ns": 4683,
+          "dictionary_install_ns": 22341,
+          "sort_relation_ns": 241,
+          "final_checks_ns": 6872,
+          "total_ns": 38265
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 3910,
+          "record_validation_ns": 108847,
+          "dictionary_install_ns": 46926,
+          "sort_relation_ns": 36883,
+          "final_checks_ns": 26902,
+          "total_ns": 223483
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5807,
+          "record_validation_ns": 466382,
+          "dictionary_install_ns": 440942,
+          "sort_relation_ns": 133238,
+          "final_checks_ns": 667189,
+          "total_ns": 1713573
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 189031,
+        "record_validation_ns": 62291844,
+        "dictionary_install_ns": 13859275,
+        "sort_relation_ns": 50309449,
+        "final_checks_ns": 30280150,
+        "total_ns": 156929891
+      }
+    },
+    {
+      "trial": 1,
+      "alphabet": "unicode",
+      "resident": false,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "unicode"
+      ],
+      "open": {
+        "allocation_calls": 3369894,
+        "alphabet": "unicode",
+        "build_parses": 0,
+        "full_available_ms": 250,
+        "gross_allocated_bytes": 244173928,
+        "metadata_ms": 72,
+        "open_ns": 250807594,
+        "resident": false,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 18179
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 29286293,
+        "segment_map_parse_ns": 115549,
+        "section_check_ns": 19220625,
+        "other_ns": 8068,
+        "total_ns": 48630557
+      },
+      "restore": {
+        "catalog_validation_ns": 19363441,
+        "owner_ns": 3985516,
+        "segment_install_ns": 154616451,
+        "catalog_install_ns": 563937,
+        "live_validation_ns": 19351999,
+        "publication_ns": 3053738,
+        "total_ns": 200935105
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 112116,
+          "record_validation_ns": 2297638,
+          "dictionary_install_ns": 6564263,
+          "sort_relation_ns": 354552,
+          "final_checks_ns": 5962492,
+          "total_ns": 15291115
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 13339,
+          "record_validation_ns": 931714,
+          "dictionary_install_ns": 869118,
+          "sort_relation_ns": 452952,
+          "final_checks_ns": 946304,
+          "total_ns": 3213447
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 12923,
+          "record_validation_ns": 57286503,
+          "dictionary_install_ns": 4114976,
+          "sort_relation_ns": 44490788,
+          "final_checks_ns": 20034849,
+          "total_ns": 125940072
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 23114,
+          "record_validation_ns": 1951064,
+          "dictionary_install_ns": 1521721,
+          "sort_relation_ns": 1091977,
+          "final_checks_ns": 1451837,
+          "total_ns": 6039734
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 7122,
+          "record_validation_ns": 1696047,
+          "dictionary_install_ns": 270827,
+          "sort_relation_ns": 487,
+          "final_checks_ns": 203386,
+          "total_ns": 2177885
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 4104,
+          "record_validation_ns": 4653,
+          "dictionary_install_ns": 32201,
+          "sort_relation_ns": 331,
+          "final_checks_ns": 6979,
+          "total_ns": 48283
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 3454,
+          "record_validation_ns": 84091,
+          "dictionary_install_ns": 46098,
+          "sort_relation_ns": 34662,
+          "final_checks_ns": 25144,
+          "total_ns": 193464
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5751,
+          "record_validation_ns": 461463,
+          "dictionary_install_ns": 414223,
+          "sort_relation_ns": 117949,
+          "final_checks_ns": 668125,
+          "total_ns": 1667525
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 181923,
+        "record_validation_ns": 64713173,
+        "dictionary_install_ns": 13833427,
+        "sort_relation_ns": 46543698,
+        "final_checks_ns": 29299116,
+        "total_ns": 154571525
+      }
+    },
+    {
+      "trial": 1,
+      "alphabet": "ascii",
+      "resident": true,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "ascii",
+        "--resident"
+      ],
+      "open": {
+        "allocation_calls": 3355820,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "full_available_ms": 324,
+        "gross_allocated_bytes": 355988729,
+        "metadata_ms": 151,
+        "open_ns": 324957988,
+        "resident": true,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 13350
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 28660508,
+        "segment_map_parse_ns": 56446856,
+        "section_check_ns": 42202460,
+        "other_ns": 20095,
+        "total_ns": 127329943
+      },
+      "restore": {
+        "catalog_validation_ns": 19529978,
+        "owner_ns": 4023725,
+        "segment_install_ns": 150492065,
+        "catalog_install_ns": 570268,
+        "live_validation_ns": 19311532,
+        "publication_ns": 2839004,
+        "total_ns": 196766605
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 165645,
+          "record_validation_ns": 2382359,
+          "dictionary_install_ns": 6152530,
+          "sort_relation_ns": 343236,
+          "final_checks_ns": 5889913,
+          "total_ns": 14933714
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 17582,
+          "record_validation_ns": 898169,
+          "dictionary_install_ns": 810650,
+          "sort_relation_ns": 488894,
+          "final_checks_ns": 915844,
+          "total_ns": 3131161
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 16145,
+          "record_validation_ns": 53861316,
+          "dictionary_install_ns": 4014106,
+          "sort_relation_ns": 44707683,
+          "final_checks_ns": 19739763,
+          "total_ns": 122339035
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 35217,
+          "record_validation_ns": 1921261,
+          "dictionary_install_ns": 1430157,
+          "sort_relation_ns": 1126610,
+          "final_checks_ns": 1502944,
+          "total_ns": 6016211
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 7383,
+          "record_validation_ns": 1665235,
+          "dictionary_install_ns": 246043,
+          "sort_relation_ns": 449,
+          "final_checks_ns": 202719,
+          "total_ns": 2121843
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 3920,
+          "record_validation_ns": 4634,
+          "dictionary_install_ns": 31696,
+          "sort_relation_ns": 234,
+          "final_checks_ns": 6796,
+          "total_ns": 47296
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 3764,
+          "record_validation_ns": 82377,
+          "dictionary_install_ns": 52272,
+          "sort_relation_ns": 35972,
+          "final_checks_ns": 24637,
+          "total_ns": 199037
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5716,
+          "record_validation_ns": 473704,
+          "dictionary_install_ns": 388516,
+          "sort_relation_ns": 127647,
+          "final_checks_ns": 661590,
+          "total_ns": 1657188
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 255372,
+        "record_validation_ns": 61289055,
+        "dictionary_install_ns": 13125970,
+        "sort_relation_ns": 46830725,
+        "final_checks_ns": 28944206,
+        "total_ns": 150445485
+      }
+    },
+    {
+      "trial": 1,
+      "alphabet": "unicode",
+      "resident": true,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "unicode",
+        "--resident"
+      ],
+      "open": {
+        "allocation_calls": 3368657,
+        "alphabet": "unicode",
+        "build_parses": 0,
+        "full_available_ms": 337,
+        "gross_allocated_bytes": 359186167,
+        "metadata_ms": 153,
+        "open_ns": 337388332,
+        "resident": true,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 14771
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 29692445,
+        "segment_map_parse_ns": 54468728,
+        "section_check_ns": 43708065,
+        "other_ns": 20813,
+        "total_ns": 127890075
+      },
+      "restore": {
+        "catalog_validation_ns": 19130521,
+        "owner_ns": 5379592,
+        "segment_install_ns": 161482365,
+        "catalog_install_ns": 571042,
+        "live_validation_ns": 19128233,
+        "publication_ns": 2856538,
+        "total_ns": 208548312
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 161139,
+          "record_validation_ns": 2312925,
+          "dictionary_install_ns": 8910024,
+          "sort_relation_ns": 520952,
+          "final_checks_ns": 7503299,
+          "total_ns": 19408370
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 21099,
+          "record_validation_ns": 1255836,
+          "dictionary_install_ns": 1146052,
+          "sort_relation_ns": 700219,
+          "final_checks_ns": 1333456,
+          "total_ns": 4456699
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 21438,
+          "record_validation_ns": 58909774,
+          "dictionary_install_ns": 4067522,
+          "sort_relation_ns": 44510252,
+          "final_checks_ns": 19978276,
+          "total_ns": 127487284
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 23507,
+          "record_validation_ns": 1920957,
+          "dictionary_install_ns": 1492189,
+          "sort_relation_ns": 1160383,
+          "final_checks_ns": 1476660,
+          "total_ns": 6073719
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 6786,
+          "record_validation_ns": 1609623,
+          "dictionary_install_ns": 258826,
+          "sort_relation_ns": 484,
+          "final_checks_ns": 203317,
+          "total_ns": 2079050
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 4294,
+          "record_validation_ns": 4832,
+          "dictionary_install_ns": 22213,
+          "sort_relation_ns": 278,
+          "final_checks_ns": 6547,
+          "total_ns": 38179
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 3327,
+          "record_validation_ns": 85178,
+          "dictionary_install_ns": 60050,
+          "sort_relation_ns": 35208,
+          "final_checks_ns": 25005,
+          "total_ns": 208782
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5869,
+          "record_validation_ns": 474777,
+          "dictionary_install_ns": 405247,
+          "sort_relation_ns": 118052,
+          "final_checks_ns": 670372,
+          "total_ns": 1674330
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 247459,
+        "record_validation_ns": 66573902,
+        "dictionary_install_ns": 16362123,
+        "sort_relation_ns": 47045828,
+        "final_checks_ns": 31196932,
+        "total_ns": 161426413
+      }
+    },
+    {
+      "trial": 2,
+      "alphabet": "ascii",
+      "resident": false,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "ascii"
+      ],
+      "open": {
+        "allocation_calls": 3355599,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "full_available_ms": 246,
+        "gross_allocated_bytes": 243766184,
+        "metadata_ms": 71,
+        "open_ns": 247023110,
+        "resident": false,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 14904
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 27369288,
+        "segment_map_parse_ns": 104155,
+        "section_check_ns": 19180139,
+        "other_ns": 7004,
+        "total_ns": 46660605
+      },
+      "restore": {
+        "catalog_validation_ns": 19589452,
+        "owner_ns": 4727200,
+        "segment_install_ns": 152597283,
+        "catalog_install_ns": 562448,
+        "live_validation_ns": 19240160,
+        "publication_ns": 2768534,
+        "total_ns": 199485099
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 167096,
+          "record_validation_ns": 2353829,
+          "dictionary_install_ns": 7112412,
+          "sort_relation_ns": 340531,
+          "final_checks_ns": 5943461,
+          "total_ns": 15917351
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 15293,
+          "record_validation_ns": 888410,
+          "dictionary_install_ns": 830259,
+          "sort_relation_ns": 457974,
+          "final_checks_ns": 885729,
+          "total_ns": 3077688
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 13375,
+          "record_validation_ns": 54487374,
+          "dictionary_install_ns": 4113335,
+          "sort_relation_ns": 44622567,
+          "final_checks_ns": 20113458,
+          "total_ns": 123350127
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 22630,
+          "record_validation_ns": 1942166,
+          "dictionary_install_ns": 1690232,
+          "sort_relation_ns": 1141020,
+          "final_checks_ns": 1408435,
+          "total_ns": 6204504
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 6527,
+          "record_validation_ns": 1610808,
+          "dictionary_install_ns": 260458,
+          "sort_relation_ns": 327,
+          "final_checks_ns": 201822,
+          "total_ns": 2079959
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 3722,
+          "record_validation_ns": 4592,
+          "dictionary_install_ns": 21882,
+          "sort_relation_ns": 244,
+          "final_checks_ns": 6658,
+          "total_ns": 37112
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 3663,
+          "record_validation_ns": 81788,
+          "dictionary_install_ns": 51570,
+          "sort_relation_ns": 35336,
+          "final_checks_ns": 24690,
+          "total_ns": 197061
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5905,
+          "record_validation_ns": 470129,
+          "dictionary_install_ns": 430701,
+          "sort_relation_ns": 116873,
+          "final_checks_ns": 666493,
+          "total_ns": 1690116
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 238211,
+        "record_validation_ns": 61839096,
+        "dictionary_install_ns": 14510849,
+        "sort_relation_ns": 46714872,
+        "final_checks_ns": 29250746,
+        "total_ns": 152553918
+      }
+    },
+    {
+      "trial": 2,
+      "alphabet": "unicode",
+      "resident": false,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "unicode"
+      ],
+      "open": {
+        "allocation_calls": 3369416,
+        "alphabet": "unicode",
+        "build_parses": 0,
+        "full_available_ms": 249,
+        "gross_allocated_bytes": 244162330,
+        "metadata_ms": 71,
+        "open_ns": 249508914,
+        "resident": false,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 16456
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 28047031,
+        "segment_map_parse_ns": 121722,
+        "section_check_ns": 19231988,
+        "other_ns": 8283,
+        "total_ns": 47409042
+      },
+      "restore": {
+        "catalog_validation_ns": 19350236,
+        "owner_ns": 3907032,
+        "segment_install_ns": 155045525,
+        "catalog_install_ns": 572360,
+        "live_validation_ns": 19203015,
+        "publication_ns": 2836901,
+        "total_ns": 200915091
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 105484,
+          "record_validation_ns": 1598377,
+          "dictionary_install_ns": 6363093,
+          "sort_relation_ns": 350545,
+          "final_checks_ns": 5855520,
+          "total_ns": 14273042
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 13441,
+          "record_validation_ns": 868552,
+          "dictionary_install_ns": 823246,
+          "sort_relation_ns": 459564,
+          "final_checks_ns": 906531,
+          "total_ns": 3071350
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 12875,
+          "record_validation_ns": 56362528,
+          "dictionary_install_ns": 4106912,
+          "sort_relation_ns": 47176399,
+          "final_checks_ns": 19800001,
+          "total_ns": 127458736
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 34079,
+          "record_validation_ns": 1924329,
+          "dictionary_install_ns": 1521805,
+          "sort_relation_ns": 1099656,
+          "final_checks_ns": 1519410,
+          "total_ns": 6099293
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 8141,
+          "record_validation_ns": 1700723,
+          "dictionary_install_ns": 263957,
+          "sort_relation_ns": 326,
+          "final_checks_ns": 193474,
+          "total_ns": 2166635
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 3686,
+          "record_validation_ns": 4604,
+          "dictionary_install_ns": 32560,
+          "sort_relation_ns": 346,
+          "final_checks_ns": 6858,
+          "total_ns": 48070
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 3682,
+          "record_validation_ns": 82502,
+          "dictionary_install_ns": 55912,
+          "sort_relation_ns": 58217,
+          "final_checks_ns": 23572,
+          "total_ns": 223900
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5882,
+          "record_validation_ns": 459734,
+          "dictionary_install_ns": 437715,
+          "sort_relation_ns": 116116,
+          "final_checks_ns": 638127,
+          "total_ns": 1657588
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 187270,
+        "record_validation_ns": 63001349,
+        "dictionary_install_ns": 13605200,
+        "sort_relation_ns": 49261169,
+        "final_checks_ns": 28943493,
+        "total_ns": 154998614
+      }
+    },
+    {
+      "trial": 2,
+      "alphabet": "ascii",
+      "resident": true,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "ascii",
+        "--resident"
+      ],
+      "open": {
+        "allocation_calls": 3356091,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "full_available_ms": 309,
+        "gross_allocated_bytes": 355981248,
+        "metadata_ms": 141,
+        "open_ns": 309736586,
+        "resident": true,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 14483
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 28263856,
+        "segment_map_parse_ns": 43447311,
+        "section_check_ns": 43926149,
+        "other_ns": 18860,
+        "total_ns": 115656195
+      },
+      "restore": {
+        "catalog_validation_ns": 21323988,
+        "owner_ns": 3701758,
+        "segment_install_ns": 146903552,
+        "catalog_install_ns": 540440,
+        "live_validation_ns": 18081613,
+        "publication_ns": 2675661,
+        "total_ns": 193227034
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 153275,
+          "record_validation_ns": 1962115,
+          "dictionary_install_ns": 6238148,
+          "sort_relation_ns": 337608,
+          "final_checks_ns": 5783115,
+          "total_ns": 14474290
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 14980,
+          "record_validation_ns": 897576,
+          "dictionary_install_ns": 815794,
+          "sort_relation_ns": 496685,
+          "final_checks_ns": 908585,
+          "total_ns": 3133636
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 15935,
+          "record_validation_ns": 53791367,
+          "dictionary_install_ns": 4033335,
+          "sort_relation_ns": 42690513,
+          "final_checks_ns": 19237466,
+          "total_ns": 119768638
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 23197,
+          "record_validation_ns": 1858207,
+          "dictionary_install_ns": 1469605,
+          "sort_relation_ns": 1018912,
+          "final_checks_ns": 1310993,
+          "total_ns": 5680934
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 6220,
+          "record_validation_ns": 1558632,
+          "dictionary_install_ns": 228924,
+          "sort_relation_ns": 434,
+          "final_checks_ns": 190391,
+          "total_ns": 1984615
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 3632,
+          "record_validation_ns": 4549,
+          "dictionary_install_ns": 32242,
+          "sort_relation_ns": 198,
+          "final_checks_ns": 6561,
+          "total_ns": 47196
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 3841,
+          "record_validation_ns": 79420,
+          "dictionary_install_ns": 61304,
+          "sort_relation_ns": 38715,
+          "final_checks_ns": 23825,
+          "total_ns": 207119
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5487,
+          "record_validation_ns": 449734,
+          "dictionary_install_ns": 373496,
+          "sort_relation_ns": 109969,
+          "final_checks_ns": 627357,
+          "total_ns": 1566057
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 226567,
+        "record_validation_ns": 60601600,
+        "dictionary_install_ns": 13252848,
+        "sort_relation_ns": 44693034,
+        "final_checks_ns": 28088293,
+        "total_ns": 146862485
+      }
+    },
+    {
+      "trial": 2,
+      "alphabet": "unicode",
+      "resident": true,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "unicode",
+        "--resident"
+      ],
+      "open": {
+        "allocation_calls": 3369201,
+        "alphabet": "unicode",
+        "build_parses": 0,
+        "full_available_ms": 312,
+        "gross_allocated_bytes": 359254069,
+        "metadata_ms": 141,
+        "open_ns": 312418340,
+        "resident": true,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 20802
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 29671664,
+        "segment_map_parse_ns": 44345922,
+        "section_check_ns": 43578140,
+        "other_ns": 15950,
+        "total_ns": 117611694
+      },
+      "restore": {
+        "catalog_validation_ns": 19557022,
+        "owner_ns": 3482093,
+        "segment_install_ns": 148685211,
+        "catalog_install_ns": 556210,
+        "live_validation_ns": 18678453,
+        "publication_ns": 2637450,
+        "total_ns": 193596471
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 104619,
+          "record_validation_ns": 1582922,
+          "dictionary_install_ns": 6511840,
+          "sort_relation_ns": 330402,
+          "final_checks_ns": 5881053,
+          "total_ns": 14410865
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 14566,
+          "record_validation_ns": 893066,
+          "dictionary_install_ns": 850341,
+          "sort_relation_ns": 469063,
+          "final_checks_ns": 934185,
+          "total_ns": 3161245
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 13445,
+          "record_validation_ns": 54619696,
+          "dictionary_install_ns": 4145147,
+          "sort_relation_ns": 42810185,
+          "final_checks_ns": 19438521,
+          "total_ns": 121027016
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 34843,
+          "record_validation_ns": 1975550,
+          "dictionary_install_ns": 1450722,
+          "sort_relation_ns": 1058433,
+          "final_checks_ns": 1517711,
+          "total_ns": 6037284
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 7572,
+          "record_validation_ns": 1659945,
+          "dictionary_install_ns": 259133,
+          "sort_relation_ns": 335,
+          "final_checks_ns": 200785,
+          "total_ns": 2127784
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 3869,
+          "record_validation_ns": 4489,
+          "dictionary_install_ns": 22163,
+          "sort_relation_ns": 283,
+          "final_checks_ns": 6513,
+          "total_ns": 37331
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 3634,
+          "record_validation_ns": 83386,
+          "dictionary_install_ns": 52990,
+          "sort_relation_ns": 34590,
+          "final_checks_ns": 25534,
+          "total_ns": 200149
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5899,
+          "record_validation_ns": 457610,
+          "dictionary_install_ns": 406325,
+          "sort_relation_ns": 115977,
+          "final_checks_ns": 653883,
+          "total_ns": 1639709
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 188447,
+        "record_validation_ns": 61276664,
+        "dictionary_install_ns": 13698661,
+        "sort_relation_ns": 44819268,
+        "final_checks_ns": 28658185,
+        "total_ns": 148641383
+      }
+    },
+    {
+      "trial": 3,
+      "alphabet": "ascii",
+      "resident": false,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "ascii"
+      ],
+      "open": {
+        "allocation_calls": 3356093,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "full_available_ms": 247,
+        "gross_allocated_bytes": 243776079,
+        "metadata_ms": 72,
+        "open_ns": 247961240,
+        "resident": false,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 18002
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 28581884,
+        "segment_map_parse_ns": 125480,
+        "section_check_ns": 19196747,
+        "other_ns": 8029,
+        "total_ns": 47912163
+      },
+      "restore": {
+        "catalog_validation_ns": 19195750,
+        "owner_ns": 4796007,
+        "segment_install_ns": 152870899,
+        "catalog_install_ns": 525691,
+        "live_validation_ns": 18927843,
+        "publication_ns": 2682163,
+        "total_ns": 198998375
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 104868,
+          "record_validation_ns": 1578706,
+          "dictionary_install_ns": 6292120,
+          "sort_relation_ns": 351288,
+          "final_checks_ns": 5891239,
+          "total_ns": 14218247
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 14145,
+          "record_validation_ns": 902681,
+          "dictionary_install_ns": 854045,
+          "sort_relation_ns": 503145,
+          "final_checks_ns": 928203,
+          "total_ns": 3202235
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 13763,
+          "record_validation_ns": 56686975,
+          "dictionary_install_ns": 4106337,
+          "sort_relation_ns": 45484292,
+          "final_checks_ns": 19149496,
+          "total_ns": 125440885
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 22538,
+          "record_validation_ns": 1972192,
+          "dictionary_install_ns": 1426772,
+          "sort_relation_ns": 1063793,
+          "final_checks_ns": 1328523,
+          "total_ns": 5813837
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 7447,
+          "record_validation_ns": 1595348,
+          "dictionary_install_ns": 249331,
+          "sort_relation_ns": 417,
+          "final_checks_ns": 195681,
+          "total_ns": 2048240
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 3871,
+          "record_validation_ns": 4545,
+          "dictionary_install_ns": 22185,
+          "sort_relation_ns": 192,
+          "final_checks_ns": 6625,
+          "total_ns": 37434
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 4103,
+          "record_validation_ns": 80312,
+          "dictionary_install_ns": 54941,
+          "sort_relation_ns": 33895,
+          "final_checks_ns": 24349,
+          "total_ns": 197614
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5522,
+          "record_validation_ns": 655127,
+          "dictionary_install_ns": 410203,
+          "sort_relation_ns": 128513,
+          "final_checks_ns": 669666,
+          "total_ns": 1869044
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 176257,
+        "record_validation_ns": 63475886,
+        "dictionary_install_ns": 13415934,
+        "sort_relation_ns": 47565535,
+        "final_checks_ns": 28193782,
+        "total_ns": 152827536
+      }
+    },
+    {
+      "trial": 3,
+      "alphabet": "unicode",
+      "resident": false,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "unicode"
+      ],
+      "open": {
+        "allocation_calls": 3369312,
+        "alphabet": "unicode",
+        "build_parses": 0,
+        "full_available_ms": 244,
+        "gross_allocated_bytes": 244160723,
+        "metadata_ms": 74,
+        "open_ns": 244729219,
+        "resident": false,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 17422
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 28776637,
+        "segment_map_parse_ns": 122325,
+        "section_check_ns": 19651681,
+        "other_ns": 8753,
+        "total_ns": 48559418
+      },
+      "restore": {
+        "catalog_validation_ns": 19466184,
+        "owner_ns": 5656001,
+        "segment_install_ns": 148259136,
+        "catalog_install_ns": 562246,
+        "live_validation_ns": 18455990,
+        "publication_ns": 2645024,
+        "total_ns": 195044606
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 111733,
+          "record_validation_ns": 1568183,
+          "dictionary_install_ns": 6469314,
+          "sort_relation_ns": 351900,
+          "final_checks_ns": 5920787,
+          "total_ns": 14421946
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 14181,
+          "record_validation_ns": 911921,
+          "dictionary_install_ns": 994257,
+          "sort_relation_ns": 462829,
+          "final_checks_ns": 941525,
+          "total_ns": 3324746
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 14470,
+          "record_validation_ns": 54331190,
+          "dictionary_install_ns": 4066277,
+          "sort_relation_ns": 43342393,
+          "final_checks_ns": 19125885,
+          "total_ns": 120880232
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 34583,
+          "record_validation_ns": 1831514,
+          "dictionary_install_ns": 1431490,
+          "sort_relation_ns": 1012532,
+          "final_checks_ns": 1339574,
+          "total_ns": 5649716
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 6537,
+          "record_validation_ns": 1616769,
+          "dictionary_install_ns": 253260,
+          "sort_relation_ns": 385,
+          "final_checks_ns": 191203,
+          "total_ns": 2068168
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 3744,
+          "record_validation_ns": 4269,
+          "dictionary_install_ns": 21433,
+          "sort_relation_ns": 239,
+          "final_checks_ns": 7008,
+          "total_ns": 36709
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 3772,
+          "record_validation_ns": 81864,
+          "dictionary_install_ns": 72327,
+          "sort_relation_ns": 35462,
+          "final_checks_ns": 24522,
+          "total_ns": 217962
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5759,
+          "record_validation_ns": 454094,
+          "dictionary_install_ns": 391038,
+          "sort_relation_ns": 114124,
+          "final_checks_ns": 653364,
+          "total_ns": 1618401
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 194779,
+        "record_validation_ns": 60799804,
+        "dictionary_install_ns": 13699396,
+        "sort_relation_ns": 45319864,
+        "final_checks_ns": 28203868,
+        "total_ns": 148217880
+      }
+    },
+    {
+      "trial": 3,
+      "alphabet": "ascii",
+      "resident": true,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "ascii",
+        "--resident"
+      ],
+      "open": {
+        "allocation_calls": 3355539,
+        "alphabet": "ascii",
+        "build_parses": 0,
+        "full_available_ms": 307,
+        "gross_allocated_bytes": 355934936,
+        "metadata_ms": 138,
+        "open_ns": 307764205,
+        "resident": true,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 22301
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 28906117,
+        "segment_map_parse_ns": 42112575,
+        "section_check_ns": 42622521,
+        "other_ns": 16679,
+        "total_ns": 113657913
+      },
+      "restore": {
+        "catalog_validation_ns": 19728796,
+        "owner_ns": 4015722,
+        "segment_install_ns": 146224340,
+        "catalog_install_ns": 539157,
+        "live_validation_ns": 19737292,
+        "publication_ns": 2695637,
+        "total_ns": 192940964
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 110612,
+          "record_validation_ns": 1624505,
+          "dictionary_install_ns": 6160852,
+          "sort_relation_ns": 340427,
+          "final_checks_ns": 5787129,
+          "total_ns": 14023547
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 14082,
+          "record_validation_ns": 886456,
+          "dictionary_install_ns": 804454,
+          "sort_relation_ns": 457534,
+          "final_checks_ns": 902576,
+          "total_ns": 3065118
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 12377,
+          "record_validation_ns": 55597229,
+          "dictionary_install_ns": 4053442,
+          "sort_relation_ns": 41563177,
+          "final_checks_ns": 18460224,
+          "total_ns": 119686464
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 21770,
+          "record_validation_ns": 1832649,
+          "dictionary_install_ns": 1380609,
+          "sort_relation_ns": 1003140,
+          "final_checks_ns": 1365762,
+          "total_ns": 5603951
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 5869,
+          "record_validation_ns": 1581627,
+          "dictionary_install_ns": 230717,
+          "sort_relation_ns": 522,
+          "final_checks_ns": 191833,
+          "total_ns": 2010582
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 3574,
+          "record_validation_ns": 3972,
+          "dictionary_install_ns": 24980,
+          "sort_relation_ns": 206,
+          "final_checks_ns": 6761,
+          "total_ns": 39507
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 3601,
+          "record_validation_ns": 91884,
+          "dictionary_install_ns": 59323,
+          "sort_relation_ns": 32315,
+          "final_checks_ns": 24530,
+          "total_ns": 211667
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5299,
+          "record_validation_ns": 431035,
+          "dictionary_install_ns": 371408,
+          "sort_relation_ns": 112002,
+          "final_checks_ns": 624603,
+          "total_ns": 1544362
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 177184,
+        "record_validation_ns": 62049357,
+        "dictionary_install_ns": 13085785,
+        "sort_relation_ns": 43509323,
+        "final_checks_ns": 27363418,
+        "total_ns": 146185198
+      }
+    },
+    {
+      "trial": 3,
+      "alphabet": "unicode",
+      "resident": true,
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_managed_open_alloc_profile",
+        "--root",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/examples/musenalm",
+        "--store",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/full-queries-8747/candidate-store",
+        "--alphabet",
+        "unicode",
+        "--resident"
+      ],
+      "open": {
+        "allocation_calls": 3369377,
+        "alphabet": "unicode",
+        "build_parses": 0,
+        "full_available_ms": 310,
+        "gross_allocated_bytes": 359257587,
+        "metadata_ms": 138,
+        "open_ns": 310246432,
+        "resident": true,
+        "source_reads": 0
+      },
+      "manifest": {
+        "manifest_ns": 12698
+      },
+      "generation": {
+        "generation": 10,
+        "catalog_read_ns": 27889045,
+        "segment_map_parse_ns": 42188056,
+        "section_check_ns": 43616269,
+        "other_ns": 17559,
+        "total_ns": 113710950
+      },
+      "restore": {
+        "catalog_validation_ns": 19375280,
+        "owner_ns": 4346253,
+        "segment_install_ns": 149478811,
+        "catalog_install_ns": 545442,
+        "live_validation_ns": 19022207,
+        "publication_ns": 2836448,
+        "total_ns": 195604464
+      },
+      "segments": [
+        {
+          "ordinal": 2,
+          "slots": 4010,
+          "pre_record_ns": 112396,
+          "record_validation_ns": 1767497,
+          "dictionary_install_ns": 6368687,
+          "sort_relation_ns": 357978,
+          "final_checks_ns": 5821359,
+          "total_ns": 14427940
+        },
+        {
+          "ordinal": 1,
+          "slots": 2048,
+          "pre_record_ns": 15384,
+          "record_validation_ns": 895702,
+          "dictionary_install_ns": 840987,
+          "sort_relation_ns": 455754,
+          "final_checks_ns": 904731,
+          "total_ns": 3112576
+        },
+        {
+          "ordinal": 3,
+          "slots": 131900,
+          "pre_record_ns": 12606,
+          "record_validation_ns": 55644727,
+          "dictionary_install_ns": 4071875,
+          "sort_relation_ns": 42644739,
+          "final_checks_ns": 19536300,
+          "total_ns": 121910269
+        },
+        {
+          "ordinal": 4,
+          "slots": 4928,
+          "pre_record_ns": 23191,
+          "record_validation_ns": 1909787,
+          "dictionary_install_ns": 1452996,
+          "sort_relation_ns": 1058672,
+          "final_checks_ns": 1422523,
+          "total_ns": 5867192
+        },
+        {
+          "ordinal": 5,
+          "slots": 4180,
+          "pre_record_ns": 7079,
+          "record_validation_ns": 1729424,
+          "dictionary_install_ns": 260632,
+          "sort_relation_ns": 368,
+          "final_checks_ns": 204178,
+          "total_ns": 2201695
+        },
+        {
+          "ordinal": 6,
+          "slots": 8,
+          "pre_record_ns": 3777,
+          "record_validation_ns": 4624,
+          "dictionary_install_ns": 22836,
+          "sort_relation_ns": 257,
+          "final_checks_ns": 6865,
+          "total_ns": 38373
+        },
+        {
+          "ordinal": 7,
+          "slots": 210,
+          "pre_record_ns": 3692,
+          "record_validation_ns": 81344,
+          "dictionary_install_ns": 46443,
+          "sort_relation_ns": 34478,
+          "final_checks_ns": 25745,
+          "total_ns": 191717
+        },
+        {
+          "ordinal": 8,
+          "slots": 1202,
+          "pre_record_ns": 5603,
+          "record_validation_ns": 458122,
+          "dictionary_install_ns": 410215,
+          "sort_relation_ns": 141780,
+          "final_checks_ns": 665041,
+          "total_ns": 1680777
+        }
+      ],
+      "segment_totals": {
+        "slots": 148486,
+        "pre_record_ns": 183728,
+        "record_validation_ns": 62491227,
+        "dictionary_install_ns": 13474671,
+        "sort_relation_ns": 44694026,
+        "final_checks_ns": 28586742,
+        "total_ns": 149430539
+      }
+    }
+  ]
+}

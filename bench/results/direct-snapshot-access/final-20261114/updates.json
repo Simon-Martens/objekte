@@ -1,0 +1,1088 @@
+{
+  "files": 16384,
+  "trials": 3,
+  "program_sha256": {
+    "baseline": "b0e23052e27a9ddb0f882989faf2330c9a15378aab5f20cfe1cfe1279c42eab6",
+    "candidate": "30ec41c877f8224a6d65f6c307b181abfebe8071c5b20d6b593a4e19cd932bf1"
+  },
+  "medians": {
+    "baseline": {
+      "build_ms": 120.268,
+      "initial_flush_ms": 35.432,
+      "restore_ms": 24.786,
+      "first_update_and_flush_ms": 12.422,
+      "reopened_rss_kb": 86664
+    },
+    "candidate": {
+      "build_ms": 122.507,
+      "initial_flush_ms": 40.784,
+      "restore_ms": 17.072,
+      "first_update_and_flush_ms": 13.279,
+      "reopened_rss_kb": 88196
+    }
+  },
+  "records": [
+    {
+      "trial": 1,
+      "label": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/baseline/bench_lifecycle_mutations",
+        "locality",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/update-pairs-8747/fixtures/1/baseline"
+      ],
+      "rows": [
+        {
+          "phase": "build",
+          "ms": 120.268,
+          "rss_kb": 82276,
+          "hwm_kb": 84384,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "flush",
+          "ms": 35.432,
+          "rss_kb": 82268,
+          "hwm_kb": 84384,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "restore",
+          "ms": 24.631,
+          "rss_kb": 86652,
+          "hwm_kb": 86652,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 12.422,
+          "rss_kb": 86844,
+          "hwm_kb": 86844,
+          "revision": 2,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.443,
+          "rss_kb": 87812,
+          "hwm_kb": 87812,
+          "revision": 3,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=1;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.544,
+          "rss_kb": 87820,
+          "hwm_kb": 87820,
+          "revision": 4,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=2;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.539,
+          "rss_kb": 87828,
+          "hwm_kb": 87828,
+          "revision": 5,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=3;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.368,
+          "rss_kb": 87828,
+          "hwm_kb": 87828,
+          "revision": 6,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=4;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.361,
+          "rss_kb": 87828,
+          "hwm_kb": 87828,
+          "revision": 7,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=5;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.492,
+          "rss_kb": 87836,
+          "hwm_kb": 87836,
+          "revision": 8,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=6;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.259,
+          "rss_kb": 87836,
+          "hwm_kb": 87836,
+          "revision": 9,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=7;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.186,
+          "rss_kb": 87836,
+          "hwm_kb": 87836,
+          "revision": 10,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=8;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.958,
+          "rss_kb": 87844,
+          "hwm_kb": 87844,
+          "revision": 11,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=9;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.078,
+          "rss_kb": 87844,
+          "hwm_kb": 87844,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=10;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "count",
+          "ms": 0.026,
+          "rss_kb": 88100,
+          "hwm_kb": 88100,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "count=16384"
+        },
+        {
+          "phase": "compact",
+          "ms": 0.0,
+          "rss_kb": 88100,
+          "hwm_kb": 88100,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "removed=0"
+        }
+      ],
+      "build_ms": 120.268,
+      "initial_flush_ms": 35.432,
+      "restore_ms": 24.631,
+      "first_update_and_flush_ms": 12.422,
+      "first_update_detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1",
+      "reopened_rss_kb": 86652
+    },
+    {
+      "trial": 1,
+      "label": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_lifecycle_mutations",
+        "locality",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/update-pairs-8747/fixtures/1/candidate"
+      ],
+      "rows": [
+        {
+          "phase": "build",
+          "ms": 124.627,
+          "rss_kb": 83160,
+          "hwm_kb": 84124,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "flush",
+          "ms": 33.52,
+          "rss_kb": 82924,
+          "hwm_kb": 84124,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "restore",
+          "ms": 17.046,
+          "rss_kb": 88196,
+          "hwm_kb": 88196,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 13.279,
+          "rss_kb": 92412,
+          "hwm_kb": 92412,
+          "revision": 2,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.134,
+          "rss_kb": 92412,
+          "hwm_kb": 92412,
+          "revision": 3,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=1;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.018,
+          "rss_kb": 92412,
+          "hwm_kb": 92412,
+          "revision": 4,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=2;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.36,
+          "rss_kb": 92412,
+          "hwm_kb": 92412,
+          "revision": 5,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=3;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.638,
+          "rss_kb": 92412,
+          "hwm_kb": 92412,
+          "revision": 6,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=4;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.921,
+          "rss_kb": 92412,
+          "hwm_kb": 92412,
+          "revision": 7,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=5;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.83,
+          "rss_kb": 92412,
+          "hwm_kb": 92412,
+          "revision": 8,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=6;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.754,
+          "rss_kb": 92412,
+          "hwm_kb": 92412,
+          "revision": 9,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=7;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.775,
+          "rss_kb": 92412,
+          "hwm_kb": 92412,
+          "revision": 10,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=8;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 7.279,
+          "rss_kb": 92412,
+          "hwm_kb": 92412,
+          "revision": 11,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=9;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.913,
+          "rss_kb": 92412,
+          "hwm_kb": 92412,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=10;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "count",
+          "ms": 0.025,
+          "rss_kb": 92652,
+          "hwm_kb": 92652,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "count=16384"
+        },
+        {
+          "phase": "compact",
+          "ms": 0.0,
+          "rss_kb": 92652,
+          "hwm_kb": 92652,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "removed=0"
+        }
+      ],
+      "build_ms": 124.627,
+      "initial_flush_ms": 33.52,
+      "restore_ms": 17.046,
+      "first_update_and_flush_ms": 13.279,
+      "first_update_detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1",
+      "reopened_rss_kb": 88196
+    },
+    {
+      "trial": 2,
+      "label": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_lifecycle_mutations",
+        "locality",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/update-pairs-8747/fixtures/2/candidate"
+      ],
+      "rows": [
+        {
+          "phase": "build",
+          "ms": 122.507,
+          "rss_kb": 82920,
+          "hwm_kb": 83876,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "flush",
+          "ms": 40.784,
+          "rss_kb": 82856,
+          "hwm_kb": 83876,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "restore",
+          "ms": 18.016,
+          "rss_kb": 88016,
+          "hwm_kb": 88016,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 13.044,
+          "rss_kb": 92252,
+          "hwm_kb": 92252,
+          "revision": 2,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.035,
+          "rss_kb": 92252,
+          "hwm_kb": 92252,
+          "revision": 3,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=1;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.599,
+          "rss_kb": 92252,
+          "hwm_kb": 92252,
+          "revision": 4,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=2;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.062,
+          "rss_kb": 92252,
+          "hwm_kb": 92252,
+          "revision": 5,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=3;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.805,
+          "rss_kb": 92252,
+          "hwm_kb": 92252,
+          "revision": 6,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=4;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.075,
+          "rss_kb": 92252,
+          "hwm_kb": 92252,
+          "revision": 7,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=5;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.724,
+          "rss_kb": 92252,
+          "hwm_kb": 92252,
+          "revision": 8,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=6;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.84,
+          "rss_kb": 92252,
+          "hwm_kb": 92252,
+          "revision": 9,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=7;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.871,
+          "rss_kb": 92252,
+          "hwm_kb": 92252,
+          "revision": 10,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=8;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.88,
+          "rss_kb": 92252,
+          "hwm_kb": 92252,
+          "revision": 11,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=9;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.933,
+          "rss_kb": 92252,
+          "hwm_kb": 92252,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=10;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "count",
+          "ms": 0.02,
+          "rss_kb": 92444,
+          "hwm_kb": 92444,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "count=16384"
+        },
+        {
+          "phase": "compact",
+          "ms": 0.0,
+          "rss_kb": 92444,
+          "hwm_kb": 92444,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "removed=0"
+        }
+      ],
+      "build_ms": 122.507,
+      "initial_flush_ms": 40.784,
+      "restore_ms": 18.016,
+      "first_update_and_flush_ms": 13.044,
+      "first_update_detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1",
+      "reopened_rss_kb": 88016
+    },
+    {
+      "trial": 2,
+      "label": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/baseline/bench_lifecycle_mutations",
+        "locality",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/update-pairs-8747/fixtures/2/baseline"
+      ],
+      "rows": [
+        {
+          "phase": "build",
+          "ms": 124.184,
+          "rss_kb": 82484,
+          "hwm_kb": 83600,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "flush",
+          "ms": 36.168,
+          "rss_kb": 82244,
+          "hwm_kb": 83600,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "restore",
+          "ms": 24.786,
+          "rss_kb": 86692,
+          "hwm_kb": 86692,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 12.056,
+          "rss_kb": 86888,
+          "hwm_kb": 86888,
+          "revision": 2,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.282,
+          "rss_kb": 87848,
+          "hwm_kb": 87848,
+          "revision": 3,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=1;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.682,
+          "rss_kb": 87856,
+          "hwm_kb": 87856,
+          "revision": 4,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=2;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.507,
+          "rss_kb": 87864,
+          "hwm_kb": 87864,
+          "revision": 5,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=3;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.668,
+          "rss_kb": 87864,
+          "hwm_kb": 87864,
+          "revision": 6,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=4;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.402,
+          "rss_kb": 87868,
+          "hwm_kb": 87868,
+          "revision": 7,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=5;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.355,
+          "rss_kb": 87872,
+          "hwm_kb": 87872,
+          "revision": 8,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=6;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.434,
+          "rss_kb": 87872,
+          "hwm_kb": 87872,
+          "revision": 9,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=7;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.348,
+          "rss_kb": 87876,
+          "hwm_kb": 87876,
+          "revision": 10,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=8;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.409,
+          "rss_kb": 87876,
+          "hwm_kb": 87876,
+          "revision": 11,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=9;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.434,
+          "rss_kb": 87876,
+          "hwm_kb": 87876,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=10;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "count",
+          "ms": 0.024,
+          "rss_kb": 88068,
+          "hwm_kb": 88068,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "count=16384"
+        },
+        {
+          "phase": "compact",
+          "ms": 0.0,
+          "rss_kb": 88068,
+          "hwm_kb": 88068,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "removed=0"
+        }
+      ],
+      "build_ms": 124.184,
+      "initial_flush_ms": 36.168,
+      "restore_ms": 24.786,
+      "first_update_and_flush_ms": 12.056,
+      "first_update_detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1",
+      "reopened_rss_kb": 86692
+    },
+    {
+      "trial": 3,
+      "label": "baseline",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/baseline/bench_lifecycle_mutations",
+        "locality",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/update-pairs-8747/fixtures/3/baseline"
+      ],
+      "rows": [
+        {
+          "phase": "build",
+          "ms": 115.883,
+          "rss_kb": 82272,
+          "hwm_kb": 84092,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "flush",
+          "ms": 34.197,
+          "rss_kb": 82164,
+          "hwm_kb": 84092,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "restore",
+          "ms": 25.39,
+          "rss_kb": 86664,
+          "hwm_kb": 86664,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 12.513,
+          "rss_kb": 86796,
+          "hwm_kb": 86796,
+          "revision": 2,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.492,
+          "rss_kb": 87764,
+          "hwm_kb": 87764,
+          "revision": 3,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=1;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.853,
+          "rss_kb": 87772,
+          "hwm_kb": 87772,
+          "revision": 4,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=2;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.291,
+          "rss_kb": 87780,
+          "hwm_kb": 87780,
+          "revision": 5,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=3;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.272,
+          "rss_kb": 87780,
+          "hwm_kb": 87780,
+          "revision": 6,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=4;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.191,
+          "rss_kb": 87780,
+          "hwm_kb": 87780,
+          "revision": 7,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=5;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.894,
+          "rss_kb": 87788,
+          "hwm_kb": 87788,
+          "revision": 8,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=6;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.155,
+          "rss_kb": 87788,
+          "hwm_kb": 87788,
+          "revision": 9,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=7;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.948,
+          "rss_kb": 87788,
+          "hwm_kb": 87788,
+          "revision": 10,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=8;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.961,
+          "rss_kb": 87796,
+          "hwm_kb": 87796,
+          "revision": 11,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=9;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.996,
+          "rss_kb": 87796,
+          "hwm_kb": 87796,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=10;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "count",
+          "ms": 0.026,
+          "rss_kb": 87988,
+          "hwm_kb": 87988,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "count=16384"
+        },
+        {
+          "phase": "compact",
+          "ms": 0.0,
+          "rss_kb": 87988,
+          "hwm_kb": 87988,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "removed=0"
+        }
+      ],
+      "build_ms": 115.883,
+      "initial_flush_ms": 34.197,
+      "restore_ms": 25.39,
+      "first_update_and_flush_ms": 12.513,
+      "first_update_detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1",
+      "reopened_rss_kb": 86664
+    },
+    {
+      "trial": 3,
+      "label": "candidate",
+      "command": [
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/candidate/bench_lifecycle_mutations",
+        "locality",
+        "/home/simon/source/objekte-integration-hybrid-index-storage/target/direct-snapshot-access/update-pairs-8747/fixtures/3/candidate"
+      ],
+      "rows": [
+        {
+          "phase": "build",
+          "ms": 112.434,
+          "rss_kb": 83052,
+          "hwm_kb": 85556,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "flush",
+          "ms": 41.683,
+          "rss_kb": 82852,
+          "hwm_kb": 85556,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "restore",
+          "ms": 17.072,
+          "rss_kb": 88264,
+          "hwm_kb": 88264,
+          "revision": 1,
+          "files": 16384,
+          "records": 16384,
+          "detail": "synthetic=true"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 14.849,
+          "rss_kb": 91780,
+          "hwm_kb": 91780,
+          "revision": 2,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.94,
+          "rss_kb": 91780,
+          "hwm_kb": 91780,
+          "revision": 3,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=1;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.08,
+          "rss_kb": 91780,
+          "hwm_kb": 91780,
+          "revision": 4,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=2;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.042,
+          "rss_kb": 91780,
+          "hwm_kb": 91780,
+          "revision": 5,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=3;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.766,
+          "rss_kb": 91780,
+          "hwm_kb": 91780,
+          "revision": 6,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=4;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.281,
+          "rss_kb": 91780,
+          "hwm_kb": 91780,
+          "revision": 7,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=5;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.187,
+          "rss_kb": 91780,
+          "hwm_kb": 91780,
+          "revision": 8,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=6;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.063,
+          "rss_kb": 91780,
+          "hwm_kb": 91780,
+          "revision": 9,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=7;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.148,
+          "rss_kb": 91780,
+          "hwm_kb": 91780,
+          "revision": 10,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=8;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 5.735,
+          "rss_kb": 91780,
+          "hwm_kb": 91780,
+          "revision": 11,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=9;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "verified_original_update",
+          "ms": 6.076,
+          "rss_kb": 91780,
+          "hwm_kb": 91780,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "sample=10;strategy=VerifiedSlotPreserving;fallback=None;retired=1"
+        },
+        {
+          "phase": "count",
+          "ms": 0.022,
+          "rss_kb": 91956,
+          "hwm_kb": 91956,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "count=16384"
+        },
+        {
+          "phase": "compact",
+          "ms": 0.0,
+          "rss_kb": 91956,
+          "hwm_kb": 91956,
+          "revision": 12,
+          "files": 16384,
+          "records": 16384,
+          "detail": "removed=0"
+        }
+      ],
+      "build_ms": 112.434,
+      "initial_flush_ms": 41.683,
+      "restore_ms": 17.072,
+      "first_update_and_flush_ms": 14.849,
+      "first_update_detail": "sample=0;strategy=VerifiedSlotPreserving;fallback=None;retired=1",
+      "reopened_rss_kb": 88264
+    }
+  ]
+}
