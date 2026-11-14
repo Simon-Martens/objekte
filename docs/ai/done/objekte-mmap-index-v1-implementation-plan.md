@@ -2446,9 +2446,9 @@ source-check actions.
   reconstruction at Load.
 - `eb3ebff0`/`d9ea138d` — source-free compaction of loaded packed runs,
   sealing packed output and covering add/replace/move/delete plus pinned views.
-- Direct packed-to-packed remap in `stream_compact.rs`, removing the temporary
-  native materializer and preserving tombstone catalogue slots and base sort
-  descriptors across reload.
+- `968e37d4` — direct packed-to-packed remap in `stream_compact.rs`, removing
+  the temporary native materializer and preserving tombstone catalogue slots
+  and base sort descriptors across reload.
 
 ### Packed access abstraction
 
