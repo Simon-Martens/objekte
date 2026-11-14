@@ -1,9 +1,7 @@
 use super::*;
 
-
 /// Small deterministic generator; the crate has no test dependencies.
 struct Lcg(u64);
-
 
 impl Lcg {
     fn next(&mut self, bound: u32) -> u32 {
@@ -14,7 +12,6 @@ impl Lcg {
         ((self.0 >> 33) as u32) % bound
     }
 }
-
 
 /// Slots cover three 65,536-slot ranges so both chunk sizes cross boundaries.
 const SPAN: u32 = 3 << 16;
@@ -214,4 +211,79 @@ fn shared_backing_policy_follows_size_and_feature() {
         shared_backing_wanted(SHARED_BACKING_MIN_RECORDS - 1),
         cfg!(feature = "force-shared-backing")
     );
+}
+/// A key whose slots span several chunks is assembled on read; a key inside
+/// one chunk is borrowed. Both must equal the native posting.
+#[test]
+fn shared_reads_assemble_multi_chunk_postings() {
+    let chunk = 1u32 << POSTING_CHUNK_BITS;
+    let mut map: PostingMap<u16> = PostingMap::new();
+    map.freeze();
+    for slot in [1, chunk - 1, chunk, 3 * chunk + 7] {
+        map.insert_slot(1, slot);
+    }
+    map.insert_slot(2, 5);
+    assert!(matches!(map.get(&1), Some(Cow::Owned(_))));
+    assert!(matches!(map.get(&2), Some(Cow::Borrowed(_))));
+    assert_eq!(
+        map.get(&1).unwrap().iter().collect::<Vec<_>>(),
+        vec![1, chunk - 1, chunk, 3 * chunk + 7]
+    );
+    assert_eq!(map.cardinality(&1), 4);
+    assert_eq!(map.len(), 2);
+}
+
+/// A write to a clone copies one chunk; every other chunk stays shared.
+#[test]
+fn shared_clone_writes_copy_one_chunk() {
+    let chunk = 1u32 << POSTING_CHUNK_BITS;
+    let mut entries = BTreeMap::new();
+    for key in 0..50u16 {
+        let posting: RoaringBitmap = [u32::from(key), chunk + 1, 2 * chunk + 2]
+            .into_iter()
+            .collect();
+        entries.insert(key, posting);
+    }
+    let mut original = PostingMap::from_btree_map(entries);
+    original.freeze();
+    let mut changed = original.clone();
+    changed.insert_slot(7, chunk + 9);
+    let (Backing::Shared(before), Backing::Shared(after)) = (&original.backing, &changed.backing)
+    else {
+        panic!("both maps must use the shared backing");
+    };
+    assert_eq!(before.chunk_count(), 150);
+    assert_eq!(after.chunk_count(), 150);
+    let copied = before
+        .chunks
+        .iter()
+        .zip(after.chunks.iter())
+        .filter(|((_, left), (_, right))| !Arc::ptr_eq(left, right))
+        .count();
+    assert_eq!(copied, 1);
+    assert_eq!(original.cardinality(&7), 3);
+    assert_eq!(changed.cardinality(&7), 4);
+}
+
+/// The empty-posting placeholder keeps a key alive and disappears once the
+/// key gains a member in another chunk.
+#[test]
+fn shared_empty_posting_keeps_its_key() {
+    let chunk = 1u32 << POSTING_CHUNK_BITS;
+    let mut map: PostingMap<u16> = PostingMap::new();
+    map.freeze();
+    map.replace(4, RoaringBitmap::new());
+    assert!(map.contains_key(&4));
+    assert_eq!(map.len(), 1);
+    assert_eq!(map.get(&4).unwrap().len(), 0);
+    map.insert_slot(4, 2 * chunk);
+    assert_eq!(map.len(), 1);
+    assert_eq!(
+        map.get(&4).unwrap().iter().collect::<Vec<_>>(),
+        vec![2 * chunk]
+    );
+    let Backing::Shared(shared) = &map.backing else {
+        panic!("map must use the shared backing");
+    };
+    assert_eq!(shared.chunk_count(), 1);
 }
