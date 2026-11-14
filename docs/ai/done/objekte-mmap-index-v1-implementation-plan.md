@@ -2436,6 +2436,8 @@ source-check actions.
   and reload.
 - `a1f6ddad` — desktop Open/Save storage controls and TUI Load with session
   replacement and operation-generation checks.
+- `d06af8d2` — versioned saved opening recipe, custom-only `--load-index`
+  resolution, optional explicit alphabet, and CLI/desktop recipe tests.
 
 ### Packed access abstraction
 
@@ -2485,15 +2487,19 @@ cargo clippy --workspace --all-targets --locked --offline
 
 Outcomes:
 
-- Workspace tests pass with no failures. The core library suite reports 593
-  passed, 15 ignored; all CLI and desktop suites pass. The all-targets run
-  compiles and tests examples and integration targets as well.
+- Workspace tests pass with no failures (922 passed). The core library suite
+  reports 593 passed, 15 ignored; the CLI library reports 94 passed; the desktop
+  library reports 166 passed, 1 ignored. The all-targets run compiles and tests
+  examples and integration targets as well.
 - The storage subsystem suite reports 77 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, compaction/save, concurrent-publication, and background-task
   tests.
-- CLI tests include the new end-to-end storage protocol test and the TUI
-  storage-overlay test. The desktop backend has a save-then-reopen storage test.
+- CLI tests include the end-to-end storage protocol, TUI storage overlay/Load,
+  and six custom-index recipe tests: custom-only query and storage-only opening,
+  schema/inference/alphabet restoration, conflicting interpretation, explicit
+  source confirmation, and no-op re-save. The desktop backend and Open spec have
+  recipe-only load tests.
 
 Storage benchmark, `cargo run -p objekte-search-core --example
 bench_index_storage --release`:
