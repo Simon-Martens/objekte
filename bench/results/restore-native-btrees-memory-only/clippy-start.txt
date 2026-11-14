@@ -1,0 +1,320 @@
+crates/core/src/bigram.rs:566:24: warning: casting to the same type is unnecessary (`usize` -> `usize`): help: try: `set.serialized_size()`
+crates/core/src/bigram.rs:625:9: warning: unneeded `return` statement
+crates/core/src/bigram_dictionary.rs:123:20: warning: clamp-like pattern without using clamp function: help: replace with clamp: `entries.saturating_mul(12).clamp(64, 1 << 26)`
+crates/core/src/bigram_dictionary.rs:298:17: warning: this `if` statement can be collapsed
+crates/core/src/bigram_dictionary.rs:314:17: warning: this `if` statement can be collapsed
+crates/core/src/bigram_dictionary.rs:453:13: warning: this `if` statement can be collapsed
+crates/core/src/build.rs:80:28: warning: useless conversion to the same type: `inventory::SharedPath`: help: consider removing `.into()`: `self.relative_path.clone()`
+crates/core/src/build.rs:750:1: warning: this function has too many arguments (9/7)
+crates/core/src/build.rs:775:1: warning: this function has too many arguments (10/7)
+crates/core/src/build.rs:830:9: warning: this `if` statement can be collapsed
+crates/core/src/build.rs:1106:9: warning: this `if` statement can be collapsed
+crates/core/src/build.rs:1351:1: warning: this function has too many arguments (8/7)
+crates/core/src/build.rs:1394:1: warning: this function has too many arguments (11/7)
+crates/core/src/build.rs:1481:1: warning: this function has too many arguments (10/7)
+crates/core/src/build.rs:1554:1: warning: this function has too many arguments (11/7)
+crates/core/src/build.rs:1726:1: warning: this function has too many arguments (11/7)
+crates/core/src/build.rs:1811:1: warning: this function has too many arguments (13/7)
+crates/core/src/build.rs:2201:1: warning: this function has too many arguments (8/7)
+crates/core/src/build.rs:2675:59: warning: derefed type is same as origin: help: try: `profile`
+crates/core/src/mutation_segment.rs:2334:5: warning: this function has too many arguments (10/7)
+crates/core/src/mutation_segment.rs:2370:5: warning: this function has too many arguments (11/7)
+crates/core/src/mutation_segment.rs:2485:55: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `slot_map`
+crates/core/src/mutation_segment.rs:2486:59: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `slot_map`
+crates/core/src/mutation_segment.rs:2500:48: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `slot_map`
+crates/core/src/mutation_segment.rs:2509:52: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `slot_map`
+crates/core/src/mutation_segment.rs:2527:49: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `slot_map`
+crates/core/src/mutation_segment.rs:2528:64: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `slot_map`
+crates/core/src/mutation_segment.rs:2531:43: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `slot_map`
+crates/core/src/mutation_segment.rs:2540:44: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `slot_map`
+crates/core/src/mutation_segment.rs:2547:17: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `slot_map`
+crates/core/src/discovery.rs:451:12: warning: using `contains()` instead of `iter().any()` is more efficient
+crates/core/src/discovery.rs:536:16: warning: using `contains()` instead of `iter().any()` is more efficient
+crates/core/src/executor.rs:154:6: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/executor.rs:1278:9: warning: this `if` statement can be collapsed
+crates/core/src/executor.rs:1596:9: warning: this `if` statement can be collapsed
+crates/core/src/executor.rs:1600:13: warning: this `if` statement can be collapsed
+crates/core/src/executor.rs:1602:21: warning: this `if` statement can be collapsed
+crates/core/src/executor.rs:1627:21: warning: this `if` statement can be collapsed
+crates/core/src/executor.rs:1631:25: warning: this `if` statement can be collapsed
+crates/core/src/executor.rs:2069:1: warning: this function has too many arguments (8/7)
+crates/core/src/executor.rs:2100:1: warning: this function has too many arguments (8/7)
+crates/core/src/generation_catalog.rs:836:18: warning: using `chunks_exact` with a constant chunk size: help: consider using `as_chunks` instead: `as_chunks::<4>().0.iter()`
+crates/core/src/generation_catalog.rs:844:10: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/generation_catalog.rs:1052:13: warning: this `if` statement can be collapsed
+crates/core/src/generation_catalog.rs:1119:40: warning: using `chunks_exact` with a constant chunk size: help: consider using `as_chunks` instead: `as_chunks::<4>().0.iter()`
+crates/core/src/generation_catalog.rs:1123:18: warning: using `chunks_exact` with a constant chunk size: help: consider using `as_chunks` instead: `as_chunks::<4>().0.iter()`
+crates/core/src/generation_catalog.rs:1153:14: warning: using `chunks_exact` with a constant chunk size: help: consider using `as_chunks` instead: `as_chunks::<4>().0.iter()`
+crates/core/src/hybrid_segment_codec.rs:422:1: warning: this function has too many arguments (9/7)
+crates/core/src/hybrid_segment_codec.rs:544:1: warning: this function has too many arguments (8/7)
+crates/core/src/hybrid_segment_codec.rs:982:13: warning: the following explicit lifetimes could be elided: 'a
+crates/core/src/hybrid_segment_codec.rs:1122:1: warning: this function has too many arguments (9/7)
+crates/core/src/hybrid_segment_codec.rs:1150:1: warning: this function has too many arguments (9/7)
+crates/core/src/hybrid_segment_codec.rs:1176:1: warning: large size difference between variants: the entire enum is at least 224 bytes
+crates/core/src/hybrid_segment_codec.rs:1199:1: warning: this function has too many arguments (11/7)
+crates/core/src/index_storage.rs:120:9: warning: this `if` statement can be collapsed
+crates/core/src/inference_build.rs:992:46: warning: length comparison to zero: help: using `!is_empty` is clearer and more explicit: `!field.short_seen.is_empty()`
+crates/core/src/inference_build.rs:1083:17: warning: this `if` statement can be collapsed
+crates/core/src/inventory.rs:263:33: warning: initializing a reference-counted pointer in `vec![elem; len]`
+crates/core/src/inventory.rs:347:12: warning: manual implementation of `.is_multiple_of()`: help: replace with: `self.len.is_multiple_of(FILE_VERSION_CHUNK)`
+crates/core/src/inventory.rs:695:6: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/inventory.rs:1037:5: warning: struct `ByteRange` has a public `len` method, but no `is_empty` method
+crates/core/src/json_scalar_text.rs:413:41: warning: derefed type is same as origin: help: try: `combined`
+crates/core/src/json_scalar_text.rs:620:26: warning: the loop variable `index` is used to index `bytes`
+crates/core/src/lifecycle.rs:513:24: warning: initializing a reference-counted pointer in `vec![elem; len]`
+crates/core/src/lifecycle.rs:630:24: warning: you seem to want to iterate on a map's keys
+crates/core/src/lifecycle.rs:773:22: warning: manual `RangeInclusive::contains` implementation: help: use: `(MIN_RETIREMENT_SLOTS..=crate::lifecycle_partition::BASE_PARTITION_RECORDS).contains(&total)`
+crates/core/src/lifecycle.rs:960:24: warning: useless conversion to the same type: `inventory::SharedPath`: help: consider removing `.into()`: `source.relative_path.clone()`
+crates/core/src/lifecycle.rs:2116:9: warning: this `if` statement can be collapsed
+crates/core/src/lifecycle.rs:2223:56: warning: redundant closure: help: replace the closure with the function itself: `before_publish`
+crates/core/src/lifecycle.rs:2297:9: warning: this `if` statement can be collapsed
+crates/core/src/lifecycle.rs:3158:43: warning: casting to the same type is unnecessary (`usize` -> `usize`): help: try: `bitmap.serialized_size()`
+crates/core/src/lifecycle.rs:3163:47: warning: casting to the same type is unnecessary (`usize` -> `usize`): help: try: `bitmap.serialized_size()`
+crates/core/src/lifecycle.rs:4228:9: warning: returning the result of a `let` binding from a block
+crates/core/src/lifecycle_catalog.rs:39:14: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/lifecycle_catalog.rs:110:6: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/lifecycle_catalog.rs:138:10: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/lifecycle_catalog.rs:153:16: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/lifecycle_catalog.rs:248:31: warning: initializing a reference-counted pointer in `vec![elem; len]`
+crates/core/src/lifecycle_catalog.rs:249:37: warning: initializing a reference-counted pointer in `vec![elem; len]`
+crates/core/src/lifecycle_catalog.rs:270:31: warning: initializing a reference-counted pointer in `vec![elem; len]`
+crates/core/src/lifecycle_catalog.rs:271:37: warning: initializing a reference-counted pointer in `vec![elem; len]`
+crates/core/src/lifecycle_scan.rs:90:1: warning: this function has too many arguments (8/7)
+crates/core/src/lifecycle_storage.rs:264:46: warning: useless use of `format!`: help: consider using `.to_string()`: `error.to_string()`
+crates/core/src/managed_store.rs:87:16: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/managed_store.rs:456:22: warning: redundant closure: help: replace the closure with the tuple variant itself: `StoreReadError::Corrupt`
+crates/core/src/managed_store.rs:471:22: warning: redundant closure: help: replace the closure with the tuple variant itself: `StoreReadError::Corrupt`
+crates/core/src/managed_store.rs:899:5: warning: this function has too many arguments (8/7)
+crates/core/src/managed_store.rs:1077:13: warning: this `if` statement can be collapsed
+crates/core/src/managed_store.rs:1097:9: warning: this `if` statement can be collapsed
+crates/core/src/managed_store.rs:1290:12: warning: manual `!RangeInclusive::contains` implementation: help: use: `!(8..=MAX_CATALOG_BYTES).contains(&length)`
+crates/core/src/managed_store.rs:1469:6: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/model.rs:451:5: warning: this function has too many arguments (8/7)
+crates/core/src/ordered_block.rs:482:20: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/ordered_block.rs:483:28: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/posting.rs:978:9: warning: this `if` statement can be collapsed
+crates/core/src/posting.rs:1082:9: warning: this `if` statement can be collapsed
+crates/core/src/posting.rs:1571:78: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `number`
+crates/core/src/posting_dictionary.rs:505:9: warning: this `if` statement can be collapsed
+crates/core/src/posting_dictionary.rs:561:29: warning: this `if` has identical blocks
+crates/core/src/posting_dictionary.rs:578:9: warning: this `if` statement can be collapsed
+crates/core/src/posting_dictionary.rs:627:9: warning: this `if` statement can be collapsed
+crates/core/src/posting_dictionary.rs:659:9: warning: this `if` statement can be collapsed
+crates/core/src/posting_dictionary.rs:729:9: warning: this `if` statement can be collapsed
+crates/core/src/posting_values.rs:326:1: warning: this function has too many arguments (8/7)
+crates/core/src/posting_values.rs:1077:9: warning: this `if` statement can be collapsed
+crates/core/src/query.rs:153:1: warning: large size difference between variants: the entire enum is at least 272 bytes
+crates/core/src/query.rs:873:37: warning: called `unwrap` on `expression.reducer` after checking its variant with `is_some`
+crates/core/src/reference.rs:657:12: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:1216:1: warning: large size difference between variants: the entire enum is at least 832 bytes
+crates/core/src/reference.rs:1522:5: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:1593:9: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:1612:5: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:2439:5: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:2444:5: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:2500:40: warning: redundant closure: help: replace the closure with the function itself: `compare_length`
+crates/core/src/reference.rs:2724:9: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:2834:25: warning: unnecessary closure used with `bool::then`
+crates/core/src/reference.rs:2840:5: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:3002:25: warning: unnecessary closure used with `bool::then`
+crates/core/src/reference.rs:3112:1: warning: this function has too many arguments (8/7)
+crates/core/src/relation_inspection.rs:494:1: warning: this function has too many arguments (10/7)
+crates/core/src/relation_inspection.rs:549:1: warning: this function has too many arguments (10/7)
+crates/core/src/relation_query.rs:81:20: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/relation_query.rs:284:10: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/relation_query.rs:1429:1: warning: this function has too many arguments (11/7)
+crates/core/src/relation_query.rs:1840:1: warning: this function has too many arguments (8/7)
+crates/core/src/relation_semijoin.rs:340:1: warning: this function has too many arguments (8/7)
+crates/core/src/repository_direct.rs:18:31: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/repository_incremental.rs:201:1: warning: this function has too many arguments (10/7)
+crates/core/src/repository.rs:1518:13: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:489:17: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:531:13: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:755:9: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:1053:5: warning: this function has too many arguments (8/7)
+crates/core/src/run.rs:1159:1: warning: this function has too many arguments (20/7)
+crates/core/src/run.rs:1922:1: warning: this `impl` can be derived
+crates/core/src/run.rs:2079:1: warning: this function has too many arguments (8/7)
+crates/core/src/run.rs:2307:1: warning: this function has too many arguments (8/7)
+crates/core/src/run.rs:2375:1: warning: this function has too many arguments (8/7)
+crates/core/src/run.rs:3001:1: warning: this function has too many arguments (8/7)
+crates/core/src/run.rs:3105:17: warning: initializing a reference-counted pointer in `vec![elem; len]`
+crates/core/src/run.rs:3123:17: warning: initializing a reference-counted pointer in `vec![elem; len]`
+crates/core/src/run.rs:3170:13: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:3193:17: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:3317:16: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/run.rs:3319:6: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/run.rs:3324:22: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/run.rs:3507:1: warning: this function has too many arguments (14/7)
+crates/core/src/run.rs:3575:17: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:3594:25: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:3600:79: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:3890:1: warning: this function has too many arguments (9/7)
+crates/core/src/run.rs:4320:28: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/run.rs:4545:33: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:4565:37: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:4576:29: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:4593:37: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:4733:1: warning: this function has too many arguments (8/7)
+crates/core/src/run.rs:5131:1: warning: large size difference between variants: the entire enum is at least 896 bytes
+crates/core/src/run.rs:5942:17: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:6029:13: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:6342:1: warning: this function has too many arguments (12/7)
+crates/core/src/run.rs:6518:25: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:6779:13: warning: manual implementation of `Option::map`: help: try: `exact_relation_plan.take().map(Some)`
+crates/core/src/run.rs:7292:1: warning: this function has too many arguments (8/7)
+crates/core/src/run.rs:7378:1: warning: this function has too many arguments (12/7)
+crates/core/src/run.rs:7444:1: warning: this function has too many arguments (8/7)
+crates/core/src/run.rs:7709:17: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:7743:17: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:7821:25: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `record`
+crates/core/src/run.rs:7972:1: warning: this function has too many arguments (11/7)
+crates/core/src/run.rs:8251:1: warning: this function has too many arguments (14/7)
+crates/core/src/run.rs:8274:5: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:8274:45: warning: derefed type is same as origin: help: try: `cache_members`
+crates/core/src/run.rs:8613:1: warning: this function has too many arguments (8/7)
+crates/core/src/run.rs:8832:5: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:8988:67: warning: writing `&mut Vec` instead of `&mut [_]` involves a new object where a slice will do
+crates/core/src/run.rs:9118:1: warning: this function has too many arguments (9/7)
+crates/core/src/run.rs:9421:9: warning: derefed type is same as origin: help: try: `delivery`
+crates/core/src/run.rs:9428:5: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:9439:1: warning: this function has too many arguments (12/7)
+crates/core/src/run.rs:9539:33: warning: derefed type is same as origin: help: try: `rejected`
+crates/core/src/run.rs:9781:21: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:9915:5: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:9915:29: warning: derefed type is same as origin: help: try: `delivery`
+crates/core/src/run.rs:9920:27: warning: derefed type is same as origin: help: try: `traces`
+crates/core/src/run.rs:10239:46: warning: derefed type is same as origin: help: try: `delivery`
+crates/core/src/run.rs:10626:1: warning: this function has too many arguments (9/7)
+crates/core/src/run.rs:10678:17: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:10754:1: warning: this function has too many arguments (8/7)
+crates/core/src/run.rs:10841:1: warning: this function has too many arguments (8/7)
+crates/core/src/run.rs:10866:1: warning: this function has too many arguments (11/7)
+crates/core/src/run.rs:11009:13: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:11010:17: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:11041:13: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:11042:17: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:11043:21: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:11178:17: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:11399:13: warning: clamp-like pattern without using clamp function: help: replace with clamp: `repo.options.query_workers.clamp(1, 64)`
+crates/core/src/run.rs:11812:13: warning: derefed type is same as origin: help: try: `traces`
+crates/core/src/schema_adapter.rs:267:1: warning: this function has too many arguments (9/7)
+crates/core/src/schema_adapter.rs:393:1: warning: this function has too many arguments (9/7)
+crates/core/src/segment_format.rs:568:22: warning: casting to the same type is unnecessary (`usize` -> `usize`): help: try: `bitmap.serialized_size()`
+crates/core/src/segment_metadata.rs:235:1: warning: this function has too many arguments (8/7)
+crates/core/src/segment_metadata.rs:278:24: warning: useless conversion to the same type: `&str`: help: consider removing `.into()`: `"record ID length invalid"`
+crates/core/src/segment_metadata.rs:913:6: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/segment_metadata.rs:989:9: warning: this `if` statement can be collapsed
+crates/core/src/source.rs:315:45: warning: the `Err`-variant returned from this function is very large
+crates/core/src/source.rs:319:46: warning: the `Err`-variant returned from this function is very large
+crates/core/src/source.rs:325:56: warning: the `Err`-variant returned from this function is very large
+crates/core/src/source.rs:683:52: warning: the `Err`-variant returned from this function is very large: the `Err`-variant is at least 128 bytes
+crates/core/src/source.rs:696:6: warning: the `Err`-variant returned from this function is very large: the `Err`-variant is at least 128 bytes
+crates/core/src/source.rs:749:6: warning: the `Err`-variant returned from this function is very large: the `Err`-variant is at least 128 bytes
+crates/core/src/source.rs:784:6: warning: the `Err`-variant returned from this function is very large: the `Err`-variant is at least 128 bytes
+crates/core/src/source.rs:1190:6: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/source.rs:1526:1: warning: this function has too many arguments (10/7)
+crates/core/src/source.rs:1584:26: warning: derefed type is same as origin: help: try: `buffer_profile`
+crates/core/src/source.rs:1604:5: warning: this `if` statement can be collapsed
+crates/core/src/source.rs:1619:45: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `bytes`
+crates/core/src/source.rs:1625:17: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `bytes`
+crates/core/src/source.rs:1654:52: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `bytes`
+crates/core/src/source.rs:1655:65: warning: derefed type is same as origin: help: try: `profile`
+crates/core/src/source.rs:1863:6: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/source.rs:2024:10: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/source.rs:2093:10: warning: very complex type used. Consider factoring parts into `type` definitions
+warning: `objekte-search-core` (lib) generated 225 warnings (run `cargo clippy --fix --lib -p objekte-search-core -- ` to apply 121 suggestions)
+crates/core/examples/support/musenalm.rs:198:17: warning: consider using `sort_unstable_by_key`
+crates/core/tests/relation_oracle.rs:165:9: warning: this `let...else` may be rewritten with the `?` operator: help: replace it with: `let id = id.as_str()?;`
+warning: `objekte-search-core` (example "bench_managed_open_alloc") generated 1 warning (run `cargo clippy --fix --example "bench_managed_open_alloc" -p objekte-search-core -- ` to apply 1 suggestion)
+warning: `objekte-search-core` (test "relation_oracle") generated 1 warning
+warning: `objekte-search-core` (example "bench_managed_flush") generated 1 warning (1 duplicate)
+warning: `objekte-search-core` (example "dump_musenalm_ids") generated 1 warning (1 duplicate)
+warning: `objekte-search-core` (example "bench_source_scan") generated 1 warning (1 duplicate)
+warning: `objekte-search-core` (example "bench_lifecycle_musenalm") generated 1 warning (1 duplicate)
+warning: `objekte-search-core` (example "verify_structural_reference") generated 1 warning (1 duplicate)
+warning: `objekte-search-core` (example "bench_case_modes") generated 1 warning (1 duplicate)
+warning: `objekte-search-core` (example "bench_initial_concurrency") generated 1 warning (1 duplicate)
+warning: `objekte-search-core` (example "bench_build_musenalm") generated 1 warning (1 duplicate)
+crates/core/examples/bench_musenalm.rs:21:1: warning: large size difference between variants: the entire enum is at least 1824 bytes
+crates/core/examples/bench_musenalm.rs:403:46: warning: casting to the same type is unnecessary (`usize` -> `usize`): help: try: `s.serialized_size()`
+crates/core/examples/bench_musenalm.rs:407:50: warning: casting to the same type is unnecessary (`usize` -> `usize`): help: try: `s.serialized_size()`
+warning: `objekte-search-core` (example "musenalm_cli") generated 1 warning (1 duplicate)
+warning: `objekte-search-core` (example "bench_musenalm") generated 4 warnings (1 duplicate) (run `cargo clippy --fix --example "bench_musenalm" -p objekte-search-core -- ` to apply 2 suggestions)
+warning: `objekte-search-core` (example "accept_musenalm") generated 1 warning (1 duplicate)
+crates/core/examples/bench_index_construction.rs:233:43: warning: casting to the same type is unnecessary (`usize` -> `usize`): help: try: `bitmap.serialized_size()`
+crates/core/examples/bench_index_construction.rs:237:47: warning: casting to the same type is unnecessary (`usize` -> `usize`): help: try: `bitmap.serialized_size()`
+warning: `objekte-search-core` (example "bench_index_construction") generated 3 warnings (1 duplicate) (run `cargo clippy --fix --example "bench_index_construction" -p objekte-search-core -- ` to apply 2 suggestions)
+crates/cli/src/arguments.rs:15:1: warning: this `impl` can be derived
+crates/cli/src/execution.rs:117:21: warning: you seem to be trying to use `match` for destructuring a single pattern. Consider using `if let`
+crates/cli/src/execution.rs:516:13: warning: this `if` statement can be collapsed
+crates/cli/src/execution.rs:709:21: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `started`
+crates/cli/src/execution.rs:725:21: warning: this expression creates a reference which is immediately dereferenced by the compiler: help: change this to: `started`
+crates/cli/src/tui/app.rs:76:37: warning: this `if` has identical blocks
+crates/cli/src/tui/app.rs:1397:21: warning: this `if` statement can be collapsed
+crates/cli/src/tui/app.rs:1449:9: warning: this `if` statement can be collapsed
+crates/cli/src/tui/app.rs:1573:17: warning: field assignment outside of initializer for an instance created with Default::default()
+crates/cli/src/tui/app.rs:1707:13: warning: this `if` statement can be collapsed
+crates/cli/src/tui/view/mod.rs:925:19: warning: called `Iterator::last` on a `DoubleEndedIterator`; this will needlessly iterate the entire iterator
+crates/cli/src/tui/mod.rs:74:1: warning: large size difference between variants: the entire enum is at least 1288 bytes
+crates/cli/src/tui/mod.rs:209:13: warning: this `if` statement can be collapsed
+crates/cli/src/tui/mod.rs:309:5: warning: large size difference between variants: the entire enum is at least 1312 bytes
+warning: `objekte-cli` (lib) generated 14 warnings (run `cargo clippy --fix --lib -p objekte-cli -- ` to apply 10 suggestions)
+crates/cli/tests/obj_process.rs:1038:5: warning: for loop over a single element
+crates/cli/tests/obj_process.rs:1312:5: warning: for loop over a single element
+warning: `objekte-cli` (test "obj_process") generated 2 warnings (run `cargo clippy --fix --test "obj_process" -p objekte-cli -- ` to apply 2 suggestions)
+warning: `objekte-cli` (lib test) generated 14 warnings (14 duplicates)
+crates/desktop/src/backend/open.rs:238:9: warning: this `if` statement can be collapsed
+crates/desktop/src/controller/projection.rs:34:5: warning: this `if` statement can be collapsed
+crates/desktop/src/controller/projection.rs:35:9: warning: this `if` statement can be collapsed
+crates/desktop/src/controller/projection.rs:557:1: warning: this function has too many arguments (8/7)
+crates/desktop/src/controller/runtime.rs:176:1: warning: this function has too many arguments (12/7)
+crates/desktop/src/controller/runtime.rs:214:6: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/desktop/src/controller/runtime.rs:318:1: warning: this function has too many arguments (12/7)
+crates/desktop/src/controller/runtime.rs:543:24: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/desktop/src/controller/runtime.rs:727:21: warning: this `if` statement can be collapsed
+crates/desktop/src/controller/runtime.rs:1333:17: warning: this `if` statement can be collapsed
+crates/desktop/src/controller/runtime.rs:2232:9: warning: this `if` statement can be collapsed
+crates/desktop/src/controller/runtime.rs:4337:13: warning: this `if` statement can be collapsed
+crates/desktop/src/ui/model.rs:741:1: warning: large size difference between variants: the entire enum is at least 704 bytes
+crates/desktop/src/ui/render.rs:2808:21: warning: this `if` statement can be collapsed
+crates/desktop/src/ui/workspace.rs:11:1: warning: this `impl` can be derived
+crates/desktop/src/ui/workspace.rs:345:9: warning: this `if` statement can be collapsed
+crates/desktop/src/ui/mod.rs:904:9: warning: this `if` statement can be collapsed
+warning: `objekte-desktop` (lib) generated 17 warnings (run `cargo clippy --fix --lib -p objekte-desktop -- ` to apply 11 suggestions)
+crates/desktop/src/controller/adapt.test.rs:42:13: warning: redundant pattern matching
+crates/desktop/src/controller/adapt.test.rs:76:13: warning: redundant pattern matching
+crates/desktop/src/ui/sort.rs:37:1: warning: items after a test module
+crates/core/src/build.rs:1527:1: warning: this function has too many arguments (10/7)
+crates/core/src/build.rs:2411:1: warning: this function has too many arguments (9/7)
+crates/core/src/build.test.rs:160:9: warning: unnecessary use of `clone` to create a slice from a reference: help: try: `std::slice::from_ref(&input)`
+crates/core/src/build.test.rs:167:45: warning: used `unwrap()` on `Some` value
+crates/core/src/build.test.rs:201:9: warning: unnecessary use of `clone` to create a slice from a reference: help: try: `std::slice::from_ref(&input)`
+crates/desktop/src/ui/state.test.rs:514:5: warning: field assignment outside of initializer for an instance created with Default::default()
+crates/desktop/src/ui/workspace.rs:579:32: warning: unnecessary use of `clone` to create a slice from a reference: help: try: `std::slice::from_ref(&preview)`
+crates/desktop/src/ui/workspace.rs:609:32: warning: unnecessary use of `clone` to create a slice from a reference: help: try: `std::slice::from_ref(&record)`
+crates/desktop/src/ui/workspace.rs:634:32: warning: unnecessary use of `clone` to create a slice from a reference: help: try: `std::slice::from_ref(&record)`
+crates/core/src/decimal.test.rs:66:5: warning: used `assert_eq!` with a literal bool
+crates/core/src/executor.test.rs:493:13: warning: this `if` branch is empty: help: you can remove it
+crates/core/src/executor.test.rs:1203:13: warning: this `if` branch is empty: help: you can remove it
+warning: `objekte-desktop` (lib test) generated 24 warnings (17 duplicates) (run `cargo clippy --fix --lib -p objekte-desktop --tests -- ` to apply 6 suggestions)
+crates/core/src/hybrid_segment_codec.rs:1071:1: warning: this function has too many arguments (8/7)
+crates/core/src/hybrid_segment_codec.rs:1099:1: warning: this function has too many arguments (8/7)
+crates/core/src/inference.test.rs:167:73: warning: using `clone` on type `RepositoryOptions` which implements the `Copy` trait: help: try removing the `clone` call: `options`
+crates/core/src/inventory.test.rs:382:37: warning: the borrowed expression implements the required traits: help: change this to: `format!("r{n}")`
+crates/core/src/lifecycle_initial.test.rs:114:5: warning: used `assert_eq!` with a literal bool
+crates/core/src/lifecycle_mutation.test.rs:803:21: warning: length comparison to zero: help: using `!is_empty` is clearer and more explicit: `!new_shards.is_empty()`
+crates/core/src/lifecycle_storage.test.rs:77:13: warning: unnecessary use of `clone` to create a slice from a reference: help: try: `std::slice::from_ref(&definition)`
+crates/core/src/lifecycle_storage.test.rs:455:13: warning: unnecessary use of `clone` to create a slice from a reference: help: try: `std::slice::from_ref(&definition)`
+crates/core/src/lifecycle_storage.test.rs:772:13: warning: unnecessary use of `clone` to create a slice from a reference: help: try: `std::slice::from_ref(&definition)`
+crates/core/src/lifecycle_storage.test.rs:943:13: warning: unnecessary use of `clone` to create a slice from a reference: help: try: `std::slice::from_ref(&definition)`
+crates/core/src/relation.test.rs:909:9: warning: this `if` branch is empty: help: you can remove it
+crates/core/src/relation_query.test.rs:99:26: warning: initializing a reference-counted pointer in `vec![elem; len]`
+crates/core/src/relation_query.test.rs:590:20: warning: initializing a reference-counted pointer in `vec![elem; len]`
+crates/core/src/run.rs:7945:1: warning: this function has too many arguments (10/7)
+crates/core/src/run.test.rs:5339:13: warning: this `if` branch is empty: help: you can remove it
+crates/core/src/sorting.test.rs:543:27: warning: the loop variable `offset` is used to index `expected`
+crates/core/src/source.test.rs:972:17: warning: this `if` branch is empty: help: you can remove it
+crates/core/src/foundation_invariants.test.rs:125:13: warning: this `if` branch is empty: help: you can remove it
+crates/core/src/build.test.rs:1407:16: warning: useless use of `vec!`: help: you can use a slice directly: `&["title".to_owned()]`
+warning: `objekte-search-core` (lib test) generated 252 warnings (225 duplicates) (run `cargo clippy --fix --lib -p objekte-search-core --tests -- ` to apply 18 suggestions)

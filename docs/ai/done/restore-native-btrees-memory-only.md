@@ -623,3 +623,137 @@ Results: workspace tests pass — core 508 passed/15 ignored; CLI 81 passed, pro
 ### Cleanup
 
 The integration worktree and branch are retained for the user's merge. No subordinate worktrees were created. Temporary task memory under `docs/ai/memory/restore-native-btrees-memory-only/` is deleted after this report is committed and pushed.
+
+## Review-completion addendum — 2026-11-14
+
+Reviewed head: `6184a89e1954f80bd7a489288a9b9bb6bd08e241`.
+Completion implementation commits: `2a2c12189d5a4a48ff644d6cf744c6a837b7d3d5`
+(review fixes), `4078a3c5d65446b413ac343a2701316e3c66097a` (H..START ledger
+appendix), followed by the acceptance-evidence and report commits on the same
+integration branch. The branch remains unmerged.
+
+This addendum supersedes earlier completion claims where they were broader than
+the evidence supported:
+
+- The earlier “no new warning” statement rested on the lower total count. The
+  correct comparison is by diagnostic/file/message, accounting for deleted
+  code: START had 299 actual Clippy diagnostics, final code has 221, and after
+  normalizing the three variant-size messages there are **zero new diagnostic
+  categories**. The follow-up also removed needless-borrow and unnecessary-cast
+  warnings introduced by the native accessor conversion.
+- The earlier GUI matrix did not exercise a nontrivial corpus with idle polling,
+  check, compaction and cancellation. Those scenarios are now recorded in the
+  durable evidence package.
+- The earlier no-index-I/O evidence covered open and query. It now also covers
+  mutation, compaction, rebuild, reconciliation, shutdown and symlink aliases.
+- Query/build numbers were rerun on the final code: 440/440 results and 220/220
+  digests still match START; final median ratio 0.922 and geometric mean 0.857.
+
+### Finding 1: GUI status polling traversed the index
+
+`update_index_ui` evaluated `IndexView::estimated_index_bytes()` before its
+unchanged-status guard, and that estimate traversed gram/posting dictionaries
+and sort keys every ~100 ms.
+
+Fix: `CollectionState` now caches its narrow index-family bytes at build
+finalization, and `SegmentAccounting` carries `index_family_bytes` recomputed
+whenever a segment is finalized, consolidated, compacted or remapped. `Arc`
+reuse retains the cached value. `IndexView::estimated_index_bytes()` is now an
+O(collections + segments) sum of those cached values, and the GUI estimate
+remains explicitly a planning estimate, not RSS.
+
+Verification: `status_estimate_reuses_cached_native_accounting` resets a
+thread-local estimator counter after build, calls the estimate twice and
+asserts zero estimator calls; it then adds a file, proves the estimate grows and
+asserts polling over the new publication again performs zero dictionary
+traversal. The production GUI was exercised in headless Sway with a configured
+200,000-record / 100-file JSONL repository. The Index panel showed
+`Estimated index memory: 5.5 MiB`, Searchable readiness, revision 4 and
+100 files/200,000 records. Idle CPU with the panel closed/open was 1.4%/1.4%
+for the reviewed binary and 1.6%/1.6% for the candidate debug binary; GUI
+repaint dominates that idle measurement, so the no-traversal claim rests on the
+instrumented regression test, not a CPU delta.
+
+### Finding 2: generated namespaces were inconsistent
+
+The walkers pruned `.objekte` and `objekte-indexes`, but direct selection,
+prepared scan selection, mutation preparation, source-root validation and
+followed aliases could still admit generated content.
+
+Fix: one generated-directory rule now applies to `selects_file_lexical`,
+`selects_file`, `PreparedScanSelection`, both discovery walkers,
+`discover_stream`, `discover_bounded`, `prepare_source_definitions` and
+`FollowWithinRoot` physical aliases. Reserved source roots and descendants fail
+with a contextual source-selection error; aliases into a generated namespace are
+skipped or rejected. Legitimate siblings, `.objekte/collections` schema loading,
+recursion/hidden/glob/symlink semantics and live configuration hashes are
+unchanged.
+
+Verification: `generated_namespaces_are_rejected_by_direct_selection_and_aliases`,
+`followed_aliases_into_generated_namespaces_are_not_sources`,
+`prepared_scan_selection_matches_generated_namespace_eligibility`,
+`source_selection_rejects_generated_namespaces_and_aliases`,
+`generated_namespaces_are_rejected_by_mutation_and_reconciliation` and the CLI
+process fixture. The mutation test covers explicit add, move, update and
+reconciliation; the discovery tests cover recursive/nonrecursive, hidden and
+alias cases.
+
+### Finding 3: focused regression gaps
+
+- **Metadata parity:** `metadata_fast_paths_and_fallbacks_match_the_reference_evaluator`
+  compares supported timestamp/size comparisons and unsupported state,
+  `:lower` transform and regex matcher cases against `search_reference`;
+  supported metadata-only queries retain zero source file opens and record
+  parses.
+- **Scheduling boundary:** `record_range_scheduling_boundary_preserves_results_and_cancellation`
+  builds exact 65,536- and 65,537-byte records, asserts the cached maximum, runs
+  one- and four-worker queries with equal results, and verifies a pre-cancelled
+  stream reports `StreamOutcome::Cancelled`. The scheduler helper
+  `record_ranges_allow_parallel_scan` uses an inclusive 64-KiB boundary.
+- **Native accounting:** `native_accounting_grows_with_postings_and_survives_retirement`
+  asserts nonzero retained/source/family estimates, growth after additional
+  postings, unchanged accounting after active-mask retirement, and non-zero
+  refreshed accounting after compaction. The sparse-trigger hysteresis test
+  operates on a staged root without source reads.
+- **Frontend compatibility:** removed flags, protocol 4 and storage-action
+  absence remain covered; `legacy_storage_fields_do_not_discard_ordinary_settings`
+  proves old storage/autosave fields do not discard ordinary desktop settings.
+
+### Verification and evidence
+
+Final checks on the review code: workspace tests passed (core 515/15 ignored,
+CLI 81 + 33 process/1 ignored + 1 removed-flags, desktop 160/1 ignored, all
+integration and doc tests); workspace all-targets check, detailed-profiling
+check and `git diff --check` passed. The repository's pre-existing global
+formatter drift was recorded rather than reformatted.
+
+Final matched query/build results:
+
+- 440/440 status/count/page rows and 220/220 result digests equal to START.
+- Candidate/START median query timing 0.922; geometric mean 0.857; 256 cases
+  >5% faster, 138 within ±5%, 46 >5% slower (the prior Q172 outlier re-ran at
+  0.72× ASCII / 1.01× Unicode).
+- Incremental open 1.401/1.593 s → 1.094/1.034 s; process RSS
+  568.3/1049.4 MiB → 541.7/1033.2 MiB.
+- Fresh-build gate: ASCII 0.962→0.919 s, Unicode 0.985→0.969 s; peak RSS
+  460.7→465.7 and 484.1→480.1 MiB.
+- jq oracle: 150 predicates × two alphabets, zero mismatches.
+- Initial-concurrency build: 1.199→0.969 s idle, 1.143→0.980 s foreground,
+  1.118→1.025 s held view.
+
+The durable evidence package is
+`bench/results/restore-native-btrees-memory-only/`: exact commands and working
+directories, benchmark binary hashes, corpus identity, result tables, digests,
+run manifests, raw repetition samples, lifecycle/concurrency outputs, GUI
+screenshots, TUI captures and no-index-I/O traces. Large binaries and the source
+corpus are not committed. `query-plans.jsonl` is omitted; the remaining outputs
+are retained.
+
+The H..START disposition is appended to the commit ledger in
+`docs/ai/done/restore-native-btrees-commit-ledger.md`; the merge was clean and
+the TOML persistence work is removed while its reports, measurements and source
+exclusion ordering remain accounted for. The native GUI debug build for the
+148k corpus did not complete within the practical acceptance window, so the
+polling/frontend matrix used a 200k-record configured fixture; this is recorded
+as an evidence limitation, not a passing claim. The compacted-base and
+verified-update bounded-path limitations remain open.
