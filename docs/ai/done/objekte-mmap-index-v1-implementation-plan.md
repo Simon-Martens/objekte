@@ -2426,7 +2426,7 @@ Outcomes:
 - Workspace tests pass with no failures. The core library suite reports 586
   passed, 15 ignored; all CLI and desktop suites pass. The all-targets run
   compiles and tests examples and integration targets as well.
-- The storage subsystem suite reports 70 passed, including dictionary,
+- The storage subsystem suite reports 71 passed, including dictionary,
   record-set, scalar, catalogue, store, fault-injection, mapped-parity, real
   index save/load, compaction/save, concurrent-publication, and background-task
   tests.
