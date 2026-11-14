@@ -526,3 +526,119 @@ fn loaded_packed_compaction_preserves_typed_fts_sort_and_relations() {
         );
     }
 }
+
+#[test]
+fn loaded_packed_compaction_preserves_auto_index_inference_coverage() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::create_dir(root.path().join("data")).unwrap();
+    std::fs::write(
+        root.path().join("data/a.json"),
+        br#"{"title":"Alpha","year":2024}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.path().join("data/b.json"),
+        br#"{"title":"Beta","year":2023}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.path().join("data/c.json"),
+        br#"{"title":"Gamma","year":2025}"#,
+    )
+    .unwrap();
+    let definitions = vec![CollectionDefinition::folder(
+        "files",
+        "data",
+        SourceFormat::Json,
+    )];
+    let options = RepositoryOptions {
+        inference: InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            ..Default::default()
+        },
+        ..Default::default()
+    };
+    let index = Index::build(root.path(), definitions.clone(), options).unwrap();
+    let store = tempfile::tempdir().unwrap();
+    index.save_to(store.path(), SaveOptions::default()).unwrap();
+    let loaded = Index::load_from(
+        store.path(),
+        definitions.clone(),
+        options,
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    let pinned = loaded.view().unwrap();
+
+    std::fs::write(
+        root.path().join("data/a.json"),
+        br#"{"title":"Alpha revised","year":2025}"#,
+    )
+    .unwrap();
+    let handle = pinned
+        .file_handle_for_path(&root.path().join("data/a.json"))
+        .expect("entry file handle");
+    loaded
+        .update_file(handle, &root.path().join("data/a.json"))
+        .unwrap();
+    let handle = pinned
+        .file_handle_for_path(&root.path().join("data/b.json"))
+        .expect("entry file handle");
+    loaded.delete_file(handle).unwrap();
+    std::fs::remove_file(root.path().join("data/b.json")).unwrap();
+
+    let oracle = Index::build(root.path(), definitions.clone(), options).unwrap();
+    let requests = [
+        query("files", Some("title = \"Alpha revised\""), None, Vec::new()),
+        query("files", Some("year = 2025"), None, Vec::new()),
+        query("files", Some("year >= 2024"), None, Vec::new()),
+        query("files", Some("title = \"Beta\""), None, Vec::new()),
+        query(
+            "files",
+            None,
+            None,
+            vec![SortField {
+                field: "title".into(),
+                descending: false,
+                expression: None,
+            }],
+        ),
+    ];
+    std::fs::remove_dir_all(root.path().join("data")).unwrap();
+    let report = loaded.compact().unwrap();
+    assert!(report.retired_slots_removed > 0);
+    for request in &requests {
+        assert_eq!(
+            hits(&oracle, request),
+            hits(&loaded, request),
+            "{request:?}"
+        );
+    }
+    assert_eq!(hits(&oracle, &requests[2]).len(), 2);
+    assert_eq!(hits(&oracle, &requests[3]).len(), 0);
+
+    let compacted = tempfile::tempdir().unwrap();
+    loaded
+        .save_to(compacted.path(), SaveOptions::default())
+        .unwrap();
+    let reloaded = Index::load_from(
+        compacted.path(),
+        definitions,
+        options,
+        SourceRegistry::builtin(),
+    )
+    .unwrap();
+    for request in &requests {
+        assert_eq!(
+            hits(&oracle, request),
+            hits(&reloaded, request),
+            "reloaded {request:?}"
+        );
+    }
+    let view = reloaded.view().unwrap();
+    assert!(
+        view.0.segments[0]
+            .iter()
+            .any(|segment| segment.index.inference.is_some())
+    );
+}
